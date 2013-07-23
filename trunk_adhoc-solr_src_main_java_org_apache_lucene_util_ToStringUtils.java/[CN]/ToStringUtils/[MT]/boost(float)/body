@@ -1,0 +1,6 @@
+{
+  if (boost != 1.0f) {
+    return "^" + Float.toString(boost);
+  }
+ else   return "";
+}

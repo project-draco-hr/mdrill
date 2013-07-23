@@ -1,0 +1,4 @@
+AttributeFactory factory
+Reader input
+int tokenOutput
+Set<String> untokenizedTypes

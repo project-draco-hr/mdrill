@@ -1,0 +1,11 @@
+{
+  if (toRead <= 0) {
+    return;
+  }
+  if (format >= FieldsWriter.FORMAT_VERSION_UTF8_LENGTH_IN_BYTES || binary || compressed) {
+    fieldsStream.seek(fieldsStream.getFilePointer() + toRead);
+  }
+ else {
+    fieldsStream.skipChars(toRead);
+  }
+}

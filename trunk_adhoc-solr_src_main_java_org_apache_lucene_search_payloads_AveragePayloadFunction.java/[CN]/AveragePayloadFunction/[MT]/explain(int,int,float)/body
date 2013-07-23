@@ -1,0 +1,7 @@
+{
+  Explanation payloadBoost=new Explanation();
+  float avgPayloadScore=(numPayloadsSeen > 0 ? (payloadScore / numPayloadsSeen) : 1);
+  payloadBoost.setValue(avgPayloadScore);
+  payloadBoost.setDescription("AveragePayloadFunction(...)");
+  return payloadBoost;
+}

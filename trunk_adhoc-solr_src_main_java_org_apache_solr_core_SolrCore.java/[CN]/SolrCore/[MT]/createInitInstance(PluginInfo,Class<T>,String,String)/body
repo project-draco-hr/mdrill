@@ -1,0 +1,11 @@
+{
+  if (info == null)   return null;
+  T o=createInstance(info.className == null ? defClassName : info.className,cast,msg);
+  if (o instanceof PluginInfoInitialized) {
+    ((PluginInfoInitialized)o).init(info);
+  }
+ else   if (o instanceof NamedListInitializedPlugin) {
+    ((NamedListInitializedPlugin)o).init(info.initArgs);
+  }
+  return o;
+}

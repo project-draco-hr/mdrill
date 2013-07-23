@@ -1,0 +1,4 @@
+{
+  Map<String,Object> rtnmap=new HashMap<String,Object>();
+  return rtnmap;
+}

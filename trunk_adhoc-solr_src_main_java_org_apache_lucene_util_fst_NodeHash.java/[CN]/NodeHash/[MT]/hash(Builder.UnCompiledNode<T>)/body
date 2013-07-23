@@ -1,0 +1,15 @@
+{
+  final int PRIME=31;
+  int h=0;
+  for (int arcIdx=0; arcIdx < node.numArcs; arcIdx++) {
+    final Builder.Arc<T> arc=node.arcs[arcIdx];
+    h=PRIME * h + arc.label;
+    h=PRIME * h + ((Builder.CompiledNode)arc.target).address;
+    h=PRIME * h + arc.output.hashCode();
+    h=PRIME * h + arc.nextFinalOutput.hashCode();
+    if (arc.isFinal) {
+      h+=17;
+    }
+  }
+  return h & Integer.MAX_VALUE;
+}

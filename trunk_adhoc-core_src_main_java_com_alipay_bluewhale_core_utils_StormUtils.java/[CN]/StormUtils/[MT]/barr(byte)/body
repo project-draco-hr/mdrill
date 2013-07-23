@@ -1,0 +1,5 @@
+{
+  byte[] byteArray=new byte[1];
+  byteArray[0]=v;
+  return byteArray;
+}

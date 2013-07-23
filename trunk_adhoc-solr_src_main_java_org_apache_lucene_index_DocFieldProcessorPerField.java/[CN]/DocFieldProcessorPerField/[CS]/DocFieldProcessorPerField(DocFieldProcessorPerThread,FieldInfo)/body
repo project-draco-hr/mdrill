@@ -1,0 +1,4 @@
+{
+  this.consumer=perThread.consumer.addField(fieldInfo);
+  this.fieldInfo=fieldInfo;
+}

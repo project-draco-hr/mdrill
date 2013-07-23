@@ -1,0 +1,34 @@
+{
+  RE r=new RE();
+  try {
+    r.setProgram(compiler.compile(expr));
+    say("" + NEW_LINE + ""+ expr+ ""+ NEW_LINE+ "");
+    PrintWriter writer=new PrintWriter(System.out);
+    compiler.dumpProgram(writer);
+    writer.flush();
+    boolean running=true;
+    while (running) {
+      BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+      System.out.print("> ");
+      System.out.flush();
+      String match=br.readLine();
+      if (match != null) {
+        if (r.match(match)) {
+          say("Match successful.");
+        }
+ else {
+          say("Match failed.");
+        }
+        showParens(r);
+      }
+ else {
+        running=false;
+        System.out.println();
+      }
+    }
+  }
+ catch (  Exception e) {
+    say("Error: " + e.toString());
+    e.printStackTrace();
+  }
+}

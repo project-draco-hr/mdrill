@@ -1,0 +1,7 @@
+{
+  super(input);
+  this.termAtt=addAttribute(CharTermAttribute.class);
+  this.posAtt=addAttribute(PositionIncrementAttribute.class);
+  this.withOriginal=withOriginal;
+  this.markerChar=markerChar;
+}

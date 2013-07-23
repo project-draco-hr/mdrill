@@ -1,0 +1,4 @@
+{
+  super(weight,term);
+  this.positionSpans=new ArrayList<PositionSpan>();
+}

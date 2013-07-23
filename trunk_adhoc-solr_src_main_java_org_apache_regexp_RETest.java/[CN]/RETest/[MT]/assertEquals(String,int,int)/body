@@ -1,0 +1,5 @@
+{
+  if (expected != actual) {
+    fail(message + " (expected \"" + expected+ "\", actual \""+ actual+ "\")");
+  }
+}

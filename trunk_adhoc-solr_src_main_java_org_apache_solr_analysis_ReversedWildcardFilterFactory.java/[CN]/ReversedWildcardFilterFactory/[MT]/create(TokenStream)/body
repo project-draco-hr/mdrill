@@ -1,0 +1,3 @@
+{
+  return new ReversedWildcardFilter(input,withOriginal,markerChar);
+}

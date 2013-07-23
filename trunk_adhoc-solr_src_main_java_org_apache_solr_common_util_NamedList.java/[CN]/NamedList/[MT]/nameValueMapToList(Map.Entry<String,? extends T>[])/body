@@ -1,0 +1,8 @@
+{
+  List result=new ArrayList();
+  for (  Map.Entry<String,?> ent : nameValuePairs) {
+    result.add(ent.getKey());
+    result.add(ent.getValue());
+  }
+  return result;
+}

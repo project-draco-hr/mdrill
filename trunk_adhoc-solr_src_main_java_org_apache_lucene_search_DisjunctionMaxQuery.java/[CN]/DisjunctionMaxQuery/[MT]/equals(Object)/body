@@ -1,0 +1,5 @@
+{
+  if (!(o instanceof DisjunctionMaxQuery))   return false;
+  DisjunctionMaxQuery other=(DisjunctionMaxQuery)o;
+  return this.getBoost() == other.getBoost() && this.tieBreakerMultiplier == other.tieBreakerMultiplier && this.disjuncts.equals(other.disjuncts);
+}

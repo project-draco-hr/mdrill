@@ -1,0 +1,9 @@
+{
+  if (VERBOSE) {
+    System.out.println("nrtdir.sync files=" + fileNames);
+  }
+  for (  String fileName : fileNames) {
+    unCache(fileName);
+  }
+  delegate.sync(fileNames);
+}

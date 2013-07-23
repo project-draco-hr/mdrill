@@ -1,0 +1,9 @@
+{
+  if (_other instanceof TwoLongs) {
+    final TwoLongs other=(TwoLongs)_other;
+    return first == other.first && second == other.second;
+  }
+ else {
+    return false;
+  }
+}

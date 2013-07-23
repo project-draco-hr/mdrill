@@ -1,0 +1,3 @@
+{
+  return encodeInt(Float.floatToIntBits(payload),data,offset);
+}

@@ -1,0 +1,6 @@
+{
+  this.clauses=new ArrayList<SpanQuery>(clauses.length);
+  for (int i=0; i < clauses.length; i++) {
+    addClause(clauses[i]);
+  }
+}

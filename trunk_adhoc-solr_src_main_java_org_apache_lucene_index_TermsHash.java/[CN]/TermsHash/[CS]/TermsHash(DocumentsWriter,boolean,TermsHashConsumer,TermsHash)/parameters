@@ -1,0 +1,4 @@
+DocumentsWriter docWriter
+boolean trackAllocations
+TermsHashConsumer consumer
+TermsHash nextTermsHash

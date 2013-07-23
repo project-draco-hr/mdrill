@@ -1,0 +1,9 @@
+{
+  checkNullField(field);
+  if (getLowercaseExpandedTerms()) {
+    termStr=termStr.toLowerCase();
+  }
+  Term t=new Term(field,termStr);
+  PrefixQuery prefixQuery=new PrefixQuery(t);
+  return prefixQuery;
+}

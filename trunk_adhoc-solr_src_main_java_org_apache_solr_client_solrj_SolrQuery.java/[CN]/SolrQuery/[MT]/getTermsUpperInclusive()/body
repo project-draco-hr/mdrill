@@ -1,0 +1,3 @@
+{
+  return this.getBool(TermsParams.TERMS_UPPER_INCLUSIVE,false);
+}

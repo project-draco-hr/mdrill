@@ -1,0 +1,3 @@
+{
+  return this.taskIds.hashCode() + this.topologyId.hashCode();
+}

@@ -1,0 +1,4 @@
+{
+  int ch=sp.peek();
+  return (!(ch == 0 || ch == ')'));
+}

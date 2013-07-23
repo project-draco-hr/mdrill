@@ -1,0 +1,11 @@
+{
+  try {
+    if (!condition) {
+      throw new RuntimeException("test requestHandler: assertion failed!");
+    }
+  }
+ catch (  RuntimeException e) {
+    SolrException.log(log,e);
+    throw (e);
+  }
+}

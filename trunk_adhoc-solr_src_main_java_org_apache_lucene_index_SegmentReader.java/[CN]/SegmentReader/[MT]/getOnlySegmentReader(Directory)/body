@@ -1,0 +1,3 @@
+{
+  return getOnlySegmentReader(IndexReader.open(dir,false));
+}

@@ -1,0 +1,10 @@
+{
+  this.fcsi=fcsi;
+  bits=new FixedBitSet(this.fcsi.lookup.length);
+  for (int i=0; i < terms.length; i++) {
+    int termNumber=this.fcsi.binarySearchLookup(terms[i]);
+    if (termNumber > 0) {
+      bits.set(termNumber);
+    }
+  }
+}

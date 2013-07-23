@@ -1,0 +1,25 @@
+{
+  SolrInfoList infolist=getSolrInfoList(tableName);
+  List<String> solrlist=new ArrayList<String>();
+  for (  SolrInfo info : infolist.getlist()) {
+    if (info != null && info.isMergeServer == isMs) {
+      if (isMs && !info.stat.equals(ShardsState.SERVICE)) {
+        continue;
+      }
+      solrlist.add(new String(info.localip + ":" + info.port));
+    }
+  }
+  int alllen=solrlist.size();
+  if (maxlen >= alllen) {
+    String[] rtn=new String[alllen];
+    return solrlist.toArray(rtn);
+  }
+  List<String> rtn2=new ArrayList<String>();
+  for (int i=0; i < maxlen; i++) {
+    String s=solrlist.remove((int)(Math.random() * (alllen - 1)));
+    rtn2.add(s);
+    alllen--;
+  }
+  String[] rtnarr=new String[rtn2.size()];
+  return rtn2.toArray(rtnarr);
+}

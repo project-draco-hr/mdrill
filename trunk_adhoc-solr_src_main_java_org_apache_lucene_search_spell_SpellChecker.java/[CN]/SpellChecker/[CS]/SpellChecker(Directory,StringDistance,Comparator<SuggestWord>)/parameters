@@ -1,0 +1,3 @@
+Directory spellIndex
+StringDistance sd
+Comparator<SuggestWord> comparator

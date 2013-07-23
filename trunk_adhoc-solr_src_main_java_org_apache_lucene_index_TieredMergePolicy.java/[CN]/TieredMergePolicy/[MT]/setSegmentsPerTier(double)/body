@@ -1,0 +1,7 @@
+{
+  if (v < 2.0) {
+    throw new IllegalArgumentException("segmentsPerTier must be >= 2.0 (got " + v + ")");
+  }
+  segsPerTier=v;
+  return this;
+}

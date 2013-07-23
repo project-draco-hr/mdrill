@@ -1,0 +1,18 @@
+{
+  if (name.indexOf("=") >= 0) {
+    name=name.replaceAll(".*=","");
+  }
+  if (name.length() > 8) {
+    name=name.substring(0,8);
+  }
+  if (name.length() == 8 && name.matches("\\d{8}")) {
+    SimpleDateFormat fmt=new SimpleDateFormat("yyyyMMdd");
+    try {
+      fmt.parse(name);
+      return name;
+    }
+ catch (    ParseException e) {
+    }
+  }
+  return null;
+}

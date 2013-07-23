@@ -1,0 +1,3 @@
+{
+  getLogMergePolicy().setMaxMergeDocs(maxMergeDocs);
+}

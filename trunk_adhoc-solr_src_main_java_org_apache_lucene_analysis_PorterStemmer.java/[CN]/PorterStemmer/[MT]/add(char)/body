@@ -1,0 +1,6 @@
+{
+  if (b.length <= i) {
+    b=ArrayUtil.grow(b,i + 1);
+  }
+  b[i++]=ch;
+}

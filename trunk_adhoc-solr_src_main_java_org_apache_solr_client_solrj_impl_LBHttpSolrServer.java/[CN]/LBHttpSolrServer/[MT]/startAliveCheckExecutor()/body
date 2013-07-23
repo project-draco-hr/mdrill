@@ -1,0 +1,10 @@
+{
+  if (aliveCheckExecutor == null) {
+synchronized (this) {
+      if (aliveCheckExecutor == null) {
+        aliveCheckExecutor=Executors.newSingleThreadScheduledExecutor();
+        aliveCheckExecutor.scheduleAtFixedRate(getAliveCheckRunner(new WeakReference<LBHttpSolrServer>(this)),this.interval,this.interval,TimeUnit.MILLISECONDS);
+      }
+    }
+  }
+}

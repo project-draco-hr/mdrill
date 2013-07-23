@@ -1,0 +1,4 @@
+TermPositions postings
+int docFreq
+int position
+Term term

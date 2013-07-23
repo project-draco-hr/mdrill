@@ -1,0 +1,5 @@
+{
+  long f=Double.doubleToRawLongBits(val);
+  if (f < 0)   f^=0x7fffffffffffffffL;
+  return long2sortableStr(f);
+}

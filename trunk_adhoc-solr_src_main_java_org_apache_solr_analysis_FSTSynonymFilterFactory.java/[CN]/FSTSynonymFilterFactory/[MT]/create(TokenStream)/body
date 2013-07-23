@@ -1,0 +1,3 @@
+{
+  return map.fst == null ? input : new SynonymFilter(input,map,ignoreCase);
+}

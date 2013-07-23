@@ -1,0 +1,11 @@
+{
+  if (cw.size() > 0) {
+    flush();
+    result=cw.getInternalBuf();
+    resultLen=cw.size();
+  }
+ else {
+    result=buf;
+    resultLen=pos;
+  }
+}

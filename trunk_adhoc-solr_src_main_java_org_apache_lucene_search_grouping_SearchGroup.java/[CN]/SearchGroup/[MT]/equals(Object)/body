@@ -1,0 +1,14 @@
+{
+  if (this == o)   return true;
+  if (o == null || getClass() != o.getClass())   return false;
+  SearchGroup that=(SearchGroup)o;
+  if (groupValue == null) {
+    if (that.groupValue != null) {
+      return false;
+    }
+  }
+ else   if (!groupValue.equals(that.groupValue)) {
+    return false;
+  }
+  return true;
+}

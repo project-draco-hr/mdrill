@@ -1,0 +1,13 @@
+{
+  if (emptyOutput != null) {
+    arc.flags=BIT_FINAL_ARC | BIT_LAST_ARC;
+    arc.nextFinalOutput=emptyOutput;
+  }
+ else {
+    arc.flags=BIT_LAST_ARC;
+    arc.nextFinalOutput=NO_OUTPUT;
+  }
+  arc.output=NO_OUTPUT;
+  arc.target=startNode;
+  return arc;
+}

@@ -1,0 +1,30 @@
+{
+  if (GrouperType.global.equals(gettype())) {
+    return StormUtils.mk_list(new Integer(0));
+  }
+  if (GrouperType.fields.equals(gettype())) {
+    return fields_grouper.grouper(values);
+  }
+  if (GrouperType.all.equals(gettype())) {
+    List<Integer> rtn=new ArrayList<Integer>();
+    for (int i=0; i < num_tasks; i++) {
+      rtn.add(i);
+    }
+    return rtn;
+  }
+  if (GrouperType.shuffle.equals(gettype())) {
+    int rnd=randomrange.nextInt();
+    return StormUtils.mk_list(new Integer(rnd));
+  }
+  if (GrouperType.none.equals(gettype())) {
+    int rnd=random.nextInt() % num_tasks;
+    return StormUtils.mk_list(new Integer(rnd));
+  }
+  if (GrouperType.custom_obj.equals(gettype())) {
+    return custom_grouper.grouper(values);
+  }
+  if (GrouperType.custom_serialized.equals(gettype())) {
+    return custom_grouper.grouper(values);
+  }
+  return new ArrayList<Integer>();
+}

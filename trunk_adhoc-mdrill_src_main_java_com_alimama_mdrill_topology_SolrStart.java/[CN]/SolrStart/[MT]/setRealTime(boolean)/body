@@ -1,0 +1,6 @@
+{
+  jetty.setRealTime(isRealTime);
+  for (  SolrStartTable table : tables) {
+    table.setRealTime(isRealTime);
+  }
+}

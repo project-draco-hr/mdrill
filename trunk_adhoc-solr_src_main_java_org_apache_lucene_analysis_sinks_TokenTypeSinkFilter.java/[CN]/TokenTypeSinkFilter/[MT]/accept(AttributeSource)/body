@@ -1,0 +1,6 @@
+{
+  if (typeAtt == null) {
+    typeAtt=source.addAttribute(TypeAttribute.class);
+  }
+  return (typeToMatch.equals(typeAtt.type()));
+}

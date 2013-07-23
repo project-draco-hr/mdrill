@@ -1,0 +1,5 @@
+Object builder
+int valSize
+int precisionStep
+long minBound
+long maxBound

@@ -1,0 +1,36 @@
+{
+  if (lena == 0)   return 0;
+  if (lenb == 0) {
+    System.arraycopy(a,0,target,0,lena);
+    return lena;
+  }
+  if ((lenb >> 3) >= lena) {
+    return andNotBinarySearch(a,lena,b,lenb,target);
+  }
+  int count=0;
+  int i=0, j=0;
+  int doca=a[i], docb=b[j];
+  for (; ; ) {
+    if (doca > docb) {
+      if (++j >= lenb)       break;
+      docb=b[j];
+    }
+ else     if (doca < docb) {
+      target[count++]=doca;
+      if (++i >= lena)       break;
+      doca=a[i];
+    }
+ else {
+      if (++i >= lena)       break;
+      doca=a[i];
+      if (++j >= lenb)       break;
+      docb=b[j];
+    }
+  }
+  int leftover=lena - i;
+  if (leftover > 0) {
+    System.arraycopy(a,i,target,count,leftover);
+    count+=leftover;
+  }
+  return count;
+}

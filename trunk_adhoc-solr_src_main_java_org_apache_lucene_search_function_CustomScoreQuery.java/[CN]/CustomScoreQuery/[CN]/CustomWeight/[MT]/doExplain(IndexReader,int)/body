@@ -1,0 +1,16 @@
+{
+  Explanation subQueryExpl=subQueryWeight.explain(reader,doc);
+  if (!subQueryExpl.isMatch()) {
+    return subQueryExpl;
+  }
+  Explanation[] valSrcExpls=new Explanation[valSrcWeights.length];
+  for (int i=0; i < valSrcWeights.length; i++) {
+    valSrcExpls[i]=valSrcWeights[i].explain(reader,doc);
+  }
+  Explanation customExp=CustomScoreQuery.this.getCustomScoreProvider(reader).customExplain(doc,subQueryExpl,valSrcExpls);
+  float sc=getValue() * customExp.getValue();
+  Explanation res=new ComplexExplanation(true,sc,CustomScoreQuery.this.toString() + ", product of:");
+  res.addDetail(customExp);
+  res.addDetail(new Explanation(getValue(),"queryBoost"));
+  return res;
+}

@@ -1,0 +1,9 @@
+{
+  if (this.offset == offset && this.len == len)   return this;
+  int requestedEnd=offset + len;
+  if (requestedEnd > docs.length && this.matches > docs.length)   return null;
+  int realEndDoc=Math.min(requestedEnd,docs.length);
+  int realLen=Math.max(realEndDoc - offset,0);
+  if (this.offset == offset && this.len == realLen)   return this;
+  return new DocSlice(offset,realLen,docs,scores,matches,maxScore,sum,max,min);
+}

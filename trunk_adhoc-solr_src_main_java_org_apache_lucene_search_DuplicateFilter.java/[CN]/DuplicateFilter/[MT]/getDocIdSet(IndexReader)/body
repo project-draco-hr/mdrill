@@ -1,0 +1,8 @@
+{
+  if (processingMode == PM_FAST_INVALIDATION) {
+    return fastBits(reader);
+  }
+ else {
+    return correctBits(reader);
+  }
+}

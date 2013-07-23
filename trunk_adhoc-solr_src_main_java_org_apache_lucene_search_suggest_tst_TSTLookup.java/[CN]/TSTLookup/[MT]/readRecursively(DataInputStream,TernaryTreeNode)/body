@@ -1,0 +1,22 @@
+{
+  node.splitchar=in.readChar();
+  byte mask=in.readByte();
+  if ((mask & HAS_TOKEN) != 0) {
+    node.token=in.readUTF();
+  }
+  if ((mask & HAS_VALUE) != 0) {
+    node.val=new Float(in.readFloat());
+  }
+  if ((mask & LO_KID) != 0) {
+    node.loKid=new TernaryTreeNode();
+    readRecursively(in,node.loKid);
+  }
+  if ((mask & EQ_KID) != 0) {
+    node.eqKid=new TernaryTreeNode();
+    readRecursively(in,node.eqKid);
+  }
+  if ((mask & HI_KID) != 0) {
+    node.hiKid=new TernaryTreeNode();
+    readRecursively(in,node.hiKid);
+  }
+}

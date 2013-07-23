@@ -1,0 +1,6 @@
+{
+  setResults(result.getDocListAndSet());
+  if (result.isPartialResults()) {
+    rsp.getResponseHeader().add("partialResults",Boolean.TRUE);
+  }
+}

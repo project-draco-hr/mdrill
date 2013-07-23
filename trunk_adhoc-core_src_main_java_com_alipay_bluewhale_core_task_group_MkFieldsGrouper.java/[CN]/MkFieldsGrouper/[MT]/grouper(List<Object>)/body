@@ -1,0 +1,8 @@
+{
+  int hashcode=this.out_fields.select(this.group_fields,values).hashCode();
+  if (hashcode < 0) {
+    hashcode*=-1;
+  }
+  int group=hashcode % this.num_tasks;
+  return StormUtils.mk_list(group);
+}

@@ -1,0 +1,9 @@
+{
+  long val=(long)(sval.charAt(offset++)) << 60;
+  val|=((long)sval.charAt(offset++)) << 45;
+  val|=((long)sval.charAt(offset++)) << 30;
+  val|=sval.charAt(offset++) << 15;
+  val|=sval.charAt(offset);
+  val-=Long.MIN_VALUE;
+  return val;
+}

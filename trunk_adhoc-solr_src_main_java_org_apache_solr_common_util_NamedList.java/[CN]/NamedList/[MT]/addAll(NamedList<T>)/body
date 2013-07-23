@@ -1,0 +1,4 @@
+{
+  nvPairs.addAll(nl.nvPairs);
+  return nl.size() > 0;
+}

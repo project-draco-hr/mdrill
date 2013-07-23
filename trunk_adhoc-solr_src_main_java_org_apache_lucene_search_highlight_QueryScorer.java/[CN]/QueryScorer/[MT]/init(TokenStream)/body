@@ -1,0 +1,12 @@
+{
+  position=-1;
+  termAtt=tokenStream.addAttribute(CharTermAttribute.class);
+  posIncAtt=tokenStream.addAttribute(PositionIncrementAttribute.class);
+  if (!skipInitExtractor) {
+    if (fieldWeightedSpanTerms != null) {
+      fieldWeightedSpanTerms.clear();
+    }
+    return initExtractor(tokenStream);
+  }
+  return null;
+}

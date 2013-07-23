@@ -1,0 +1,49 @@
+{
+  FieldType ft=searcher.getSchema().getFieldType(fieldName);
+  FieldCache.StringIndex si;
+  try {
+    si=FieldCache.DEFAULT.getStringIndex(searcher.getReader(),fieldName);
+  }
+ catch (  IOException e) {
+    throw new RuntimeException("failed to open field cache for: " + fieldName,e);
+  }
+  StatsValues allstats=StatsValuesFactory.createStatsValues(ft);
+  final int nTerms=si.lookup.length - 1;
+  if (nTerms <= 0 || docs.size() <= 0)   return allstats.getStatsValues();
+  List<FieldFacetStats> facetStats=new ArrayList<FieldFacetStats>();
+  FieldCache.StringIndex facetTermsIndex;
+  for (  String facetField : facet) {
+    FieldType facetFieldType=searcher.getSchema().getFieldType(facetField);
+    if (facetFieldType.isTokenized() || facetFieldType.isMultiValued()) {
+      throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,"Stats can only facet on single-valued fields, not: " + facetField + "["+ facetFieldType+ "]");
+    }
+    try {
+      facetTermsIndex=FieldCache.DEFAULT.getStringIndex(searcher.getReader(),facetField);
+    }
+ catch (    IOException e) {
+      throw new RuntimeException("failed to open field cache for: " + facetField,e);
+    }
+    facetStats.add(new FieldFacetStats(facetField,facetTermsIndex,facetFieldType,nTerms,ft));
+  }
+  DocIterator iter=docs.iterator();
+  while (iter.hasNext()) {
+    int docID=iter.nextDoc();
+    String raw=si.lookup[si.order[docID]];
+    String v;
+    if (raw != null) {
+      v=ft.indexedToReadable(raw);
+      allstats.accumulate(v);
+    }
+ else {
+      v=null;
+      allstats.missing();
+    }
+    for (    FieldFacetStats f : facetStats) {
+      f.facet(docID,v);
+    }
+  }
+  for (  FieldFacetStats f : facetStats) {
+    allstats.addFacet(f.name,f.facetStatsValues);
+  }
+  return allstats.getStatsValues();
+}

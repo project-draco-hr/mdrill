@@ -1,0 +1,3 @@
+{
+  waiting=new DocWriter[10];
+}

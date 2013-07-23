@@ -1,0 +1,4 @@
+{
+  this.collationQueryString=collationQueryString;
+  return this;
+}

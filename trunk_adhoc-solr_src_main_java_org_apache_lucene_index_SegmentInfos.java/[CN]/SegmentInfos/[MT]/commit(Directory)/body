@@ -1,0 +1,4 @@
+{
+  prepareCommit(dir);
+  finishCommit(dir);
+}

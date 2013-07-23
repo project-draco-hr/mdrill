@@ -1,0 +1,3 @@
+BaseTaskStatsRolling stats
+String stream
+Integer amt

@@ -1,0 +1,6 @@
+{
+  for (  WeightedPhraseInfo existWpi : phraseList) {
+    if (existWpi.isOffsetOverlap(wpi))     return;
+  }
+  phraseList.add(wpi);
+}

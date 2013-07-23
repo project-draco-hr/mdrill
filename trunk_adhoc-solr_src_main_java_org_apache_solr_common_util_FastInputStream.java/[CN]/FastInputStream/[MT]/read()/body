@@ -1,0 +1,7 @@
+{
+  if (pos >= end) {
+    refill();
+    if (pos >= end)     return -1;
+  }
+  return buf[pos++] & 0xff;
+}

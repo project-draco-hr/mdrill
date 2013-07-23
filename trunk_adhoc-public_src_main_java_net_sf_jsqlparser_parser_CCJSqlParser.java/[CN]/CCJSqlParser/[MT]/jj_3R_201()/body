@@ -1,0 +1,7 @@
+{
+  if (jj_scan_token(K_DISTINCT))   return true;
+  Token xsp;
+  xsp=jj_scanpos;
+  if (jj_3R_222())   jj_scanpos=xsp;
+  return false;
+}

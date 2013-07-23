@@ -1,0 +1,3 @@
+{
+  this.init(afn,daemon,priority,start);
+}

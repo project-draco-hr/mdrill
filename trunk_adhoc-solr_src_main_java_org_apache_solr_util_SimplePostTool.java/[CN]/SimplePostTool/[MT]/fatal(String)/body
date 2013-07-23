@@ -1,0 +1,4 @@
+{
+  System.err.println("SimplePostTool: FATAL: " + msg);
+  System.exit(1);
+}

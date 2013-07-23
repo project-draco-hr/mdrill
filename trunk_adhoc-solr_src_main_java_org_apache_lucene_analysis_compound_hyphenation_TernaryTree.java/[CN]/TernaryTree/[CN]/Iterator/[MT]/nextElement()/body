@@ -1,0 +1,6 @@
+{
+  String res=new String(curkey);
+  cur=up();
+  run();
+  return res;
+}

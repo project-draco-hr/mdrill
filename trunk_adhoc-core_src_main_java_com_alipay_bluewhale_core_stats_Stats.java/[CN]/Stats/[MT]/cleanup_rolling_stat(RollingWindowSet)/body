@@ -1,0 +1,3 @@
+{
+  RollingWindowSetStat.cleanup_rolling_window_set(rws);
+}

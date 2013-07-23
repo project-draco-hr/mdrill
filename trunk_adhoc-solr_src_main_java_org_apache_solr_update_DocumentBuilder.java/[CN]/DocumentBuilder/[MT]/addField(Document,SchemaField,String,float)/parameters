@@ -1,0 +1,4 @@
+Document doc
+SchemaField field
+String val
+float boost

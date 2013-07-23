@@ -1,0 +1,6 @@
+{
+  if ((value == null) || (toRemove == null) || !suffix(value,toRemove)) {
+    return value;
+  }
+  return value.substring(0,value.length() - toRemove.length());
+}

@@ -1,0 +1,4 @@
+{
+  String val=get(param);
+  return val == null ? def : StrUtils.parseBool(val);
+}

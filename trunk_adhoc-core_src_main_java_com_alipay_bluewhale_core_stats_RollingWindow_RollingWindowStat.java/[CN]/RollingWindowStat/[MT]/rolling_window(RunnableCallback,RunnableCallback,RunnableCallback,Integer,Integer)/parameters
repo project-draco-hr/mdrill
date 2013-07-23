@@ -1,0 +1,5 @@
+RunnableCallback updater
+RunnableCallback merger
+RunnableCallback extractor
+Integer bucket_size_secs
+Integer num_buckets

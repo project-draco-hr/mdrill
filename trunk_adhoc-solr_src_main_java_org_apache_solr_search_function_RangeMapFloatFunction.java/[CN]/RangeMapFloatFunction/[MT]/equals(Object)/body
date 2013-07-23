@@ -1,0 +1,5 @@
+{
+  if (RangeMapFloatFunction.class != o.getClass())   return false;
+  RangeMapFloatFunction other=(RangeMapFloatFunction)o;
+  return this.min == other.min && this.max == other.max && this.target == other.target && this.source.equals(other.source) && (this.defaultVal == other.defaultVal || (this.defaultVal != null && this.defaultVal.equals(other.defaultVal)));
+}

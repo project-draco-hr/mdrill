@@ -1,0 +1,7 @@
+{
+  if (documents == null) {
+    documents=new ArrayList<SolrInputDocument>(docs.size() + 1);
+  }
+  documents.addAll(docs);
+  return this;
+}

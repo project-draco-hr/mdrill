@@ -1,0 +1,4 @@
+{
+  DocumentAnalysisRequest analysisRequest=resolveAnalysisRequest(req);
+  return handleAnalysisRequest(analysisRequest,req.getSchema());
+}

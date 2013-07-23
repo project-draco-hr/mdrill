@@ -1,0 +1,11 @@
+{
+  if (diff < 0) {
+    matchAlmostDiff=0;
+  }
+ else   if (diff > 3) {
+    matchAlmostDiff=3;
+  }
+ else {
+    matchAlmostDiff=diff;
+  }
+}

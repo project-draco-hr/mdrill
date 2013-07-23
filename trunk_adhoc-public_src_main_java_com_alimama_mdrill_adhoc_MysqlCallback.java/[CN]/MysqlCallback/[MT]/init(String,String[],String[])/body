@@ -1,0 +1,9 @@
+{
+synchronized (lock) {
+    this.hql=hql;
+    this.cmd=cmd;
+    this.env=env;
+    this.starttime=new java.util.Date();
+    this.sync();
+  }
+}

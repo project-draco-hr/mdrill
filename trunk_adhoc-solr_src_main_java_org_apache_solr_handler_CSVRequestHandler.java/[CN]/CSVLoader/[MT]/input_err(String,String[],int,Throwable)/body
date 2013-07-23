@@ -1,0 +1,14 @@
+{
+  StringBuilder sb=new StringBuilder();
+  sb.append(errHeader).append(", line=").append(lineNo).append(",").append(msg).append("\n\tvalues={");
+  if (lines != null) {
+    for (    String val : lines) {
+      sb.append("'").append(val).append("',");
+    }
+  }
+ else {
+    sb.append("NO LINES AVAILABLE");
+  }
+  sb.append('}');
+  throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,sb.toString(),e);
+}

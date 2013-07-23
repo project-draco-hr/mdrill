@@ -1,0 +1,7 @@
+{
+  final boolean doFlush=flushControl.waitUpdate(0,1,skipWait);
+synchronized (this) {
+    pendingDeletes.addTerm(term,numDocs);
+  }
+  return doFlush;
+}

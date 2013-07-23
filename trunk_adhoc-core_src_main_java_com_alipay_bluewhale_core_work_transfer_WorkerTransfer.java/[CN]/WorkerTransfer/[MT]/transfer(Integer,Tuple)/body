@@ -1,0 +1,4 @@
+{
+  TransferData tData=new TransferData(taskid,serializer.serialize(tuple));
+  transferQueue.add(tData);
+}

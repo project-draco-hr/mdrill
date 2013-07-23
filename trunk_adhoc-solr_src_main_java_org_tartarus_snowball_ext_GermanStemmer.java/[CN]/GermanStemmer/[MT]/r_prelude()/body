@@ -1,0 +1,90 @@
+{
+  int v_1;
+  int v_2;
+  int v_3;
+  int v_4;
+  int v_5;
+  int v_6;
+  v_1=cursor;
+  replab0:   while (true) {
+    v_2=cursor;
+    lab1:     do {
+      lab2:       do {
+        v_3=cursor;
+        lab3:         do {
+          bra=cursor;
+          if (!(eq_s(1,"\u00DF"))) {
+            break lab3;
+          }
+          ket=cursor;
+          slice_from("ss");
+          break lab2;
+        }
+ while (false);
+        cursor=v_3;
+        if (cursor >= limit) {
+          break lab1;
+        }
+        cursor++;
+      }
+ while (false);
+      continue replab0;
+    }
+ while (false);
+    cursor=v_2;
+    break replab0;
+  }
+  cursor=v_1;
+  replab4:   while (true) {
+    v_4=cursor;
+    lab5:     do {
+      golab6:       while (true) {
+        v_5=cursor;
+        lab7:         do {
+          if (!(in_grouping(g_v,97,252))) {
+            break lab7;
+          }
+          bra=cursor;
+          lab8:           do {
+            v_6=cursor;
+            lab9:             do {
+              if (!(eq_s(1,"u"))) {
+                break lab9;
+              }
+              ket=cursor;
+              if (!(in_grouping(g_v,97,252))) {
+                break lab9;
+              }
+              slice_from("U");
+              break lab8;
+            }
+ while (false);
+            cursor=v_6;
+            if (!(eq_s(1,"y"))) {
+              break lab7;
+            }
+            ket=cursor;
+            if (!(in_grouping(g_v,97,252))) {
+              break lab7;
+            }
+            slice_from("Y");
+          }
+ while (false);
+          cursor=v_5;
+          break golab6;
+        }
+ while (false);
+        cursor=v_5;
+        if (cursor >= limit) {
+          break lab5;
+        }
+        cursor++;
+      }
+      continue replab4;
+    }
+ while (false);
+    cursor=v_4;
+    break replab4;
+  }
+  return true;
+}

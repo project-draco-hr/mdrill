@@ -1,0 +1,2 @@
+TermsHashPerThread termsHashPerThread
+TermVectorsTermsWriter termsWriter

@@ -1,0 +1,4 @@
+{
+  Context context=ZeroMq.context(num_threads);
+  return new ZMQContext(context,linger,local);
+}

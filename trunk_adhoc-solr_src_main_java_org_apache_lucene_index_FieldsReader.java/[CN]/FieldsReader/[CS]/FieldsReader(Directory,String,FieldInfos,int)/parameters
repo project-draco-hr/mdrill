@@ -1,0 +1,4 @@
+Directory d
+String segment
+FieldInfos fn
+int readBufferSize

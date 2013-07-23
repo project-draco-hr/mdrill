@@ -1,0 +1,12 @@
+{
+  if (!more) {
+    return doc=NO_MORE_DOCS;
+  }
+  if (spans.doc() < target) {
+    more=spans.skipTo(target);
+  }
+  if (!setFreqCurrentDoc()) {
+    doc=NO_MORE_DOCS;
+  }
+  return doc;
+}

@@ -1,0 +1,38 @@
+{
+  if (key == null) {
+    throw new NullPointerException("attempt to get or create node with null key");
+  }
+  if (key.length() == 0) {
+    throw new IllegalArgumentException("attempt to get or create node with key of zero length");
+  }
+  if (rootNode == null) {
+    rootNode=new TSTNode(key.charAt(0),null);
+  }
+  TSTNode currentNode=rootNode;
+  int charIndex=0;
+  while (true) {
+    int charComp=compareCharsAlphabetically(key.charAt(charIndex),currentNode.splitchar);
+    if (charComp == 0) {
+      charIndex++;
+      if (charIndex == key.length()) {
+        return currentNode;
+      }
+      if (currentNode.relatives[TSTNode.EQKID] == null) {
+        currentNode.relatives[TSTNode.EQKID]=new TSTNode(key.charAt(charIndex),currentNode);
+      }
+      currentNode=currentNode.relatives[TSTNode.EQKID];
+    }
+ else     if (charComp < 0) {
+      if (currentNode.relatives[TSTNode.LOKID] == null) {
+        currentNode.relatives[TSTNode.LOKID]=new TSTNode(key.charAt(charIndex),currentNode);
+      }
+      currentNode=currentNode.relatives[TSTNode.LOKID];
+    }
+ else {
+      if (currentNode.relatives[TSTNode.HIKID] == null) {
+        currentNode.relatives[TSTNode.HIKID]=new TSTNode(key.charAt(charIndex),currentNode);
+      }
+      currentNode=currentNode.relatives[TSTNode.HIKID];
+    }
+  }
+}

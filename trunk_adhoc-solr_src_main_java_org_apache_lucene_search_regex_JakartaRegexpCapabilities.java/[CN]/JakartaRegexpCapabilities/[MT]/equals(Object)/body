@@ -1,0 +1,7 @@
+{
+  if (this == o)   return true;
+  if (o == null || getClass() != o.getClass())   return false;
+  final JakartaRegexpCapabilities that=(JakartaRegexpCapabilities)o;
+  if (regexp != null ? !regexp.equals(that.regexp) : that.regexp != null)   return false;
+  return true;
+}

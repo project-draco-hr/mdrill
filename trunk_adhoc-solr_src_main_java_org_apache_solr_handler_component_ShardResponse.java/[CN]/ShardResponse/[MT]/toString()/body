@@ -1,0 +1,3 @@
+{
+  return "ShardResponse:{shard=" + shard + ",shardAddress="+ shardAddress+ "\n\trequest="+ req+ "\n\tresponse="+ rsp+ (exception == null ? "" : "\n\texception=" + SolrException.toStr(exception))+ "\n}";
+}

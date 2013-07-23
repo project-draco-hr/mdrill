@@ -1,0 +1,12 @@
+{
+  writeTag(SOLRDOCLST);
+  List l=new ArrayList(6);
+  l.add(docs.getNumFound());
+  l.add(docs.getStart());
+  l.add(docs.getMaxScore());
+  l.add(docs.getSum());
+  l.add(docs.getMax());
+  l.add(docs.getMin());
+  writeArray(l);
+  writeArray(docs);
+}

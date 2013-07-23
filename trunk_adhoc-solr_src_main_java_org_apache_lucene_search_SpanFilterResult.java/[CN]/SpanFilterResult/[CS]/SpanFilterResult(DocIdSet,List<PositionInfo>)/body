@@ -1,0 +1,4 @@
+{
+  this.docIdSet=docIdSet;
+  this.positions=positions;
+}

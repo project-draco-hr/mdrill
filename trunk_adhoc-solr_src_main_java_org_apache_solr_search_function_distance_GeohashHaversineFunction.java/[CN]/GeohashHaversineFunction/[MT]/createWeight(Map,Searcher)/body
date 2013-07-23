@@ -1,0 +1,4 @@
+{
+  geoHash1.createWeight(context,searcher);
+  geoHash2.createWeight(context,searcher);
+}

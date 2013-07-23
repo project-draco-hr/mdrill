@@ -1,0 +1,3 @@
+int docID
+int termDocFreq
+IndexOutput buffer

@@ -1,0 +1,5 @@
+char[] chars
+int offset
+int length
+Writer out
+String[] escapes

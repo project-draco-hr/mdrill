@@ -1,0 +1,20 @@
+{
+  int start=groupby.length;
+  for (  HigoJoinSort s : joinSort) {
+    if (s.getIndex() >= 0) {
+      start+=s.getIndex();
+      SortType rtn=typeMap.get("joincolumn");
+      rtn.sortFieldNum=start;
+      return rtn;
+    }
+    start+=s.getoffset();
+  }
+  SortType rtn=typeMap.get(type);
+  if (rtn == null) {
+    return typeMap.get("index");
+  }
+  if (rtn.typeEnum.equals(SortTypeEnum.count) && fl.indexOf("higoempty_") >= 0) {
+    return typeMap.get("countall");
+  }
+  return rtn;
+}

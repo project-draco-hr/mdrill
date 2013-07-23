@@ -1,0 +1,17 @@
+{
+  if (a == null)   return null;
+  if (a.fields.size() == 0)   return null;
+  List<Query> lst=new ArrayList<Query>(4);
+  for (  String f : a.fields.keySet()) {
+    this.field=f;
+    Query sub=getQuery();
+    if (sub != null) {
+      Float boost=a.fields.get(f);
+      if (boost != null) {
+        sub.setBoost(boost);
+      }
+      lst.add(sub);
+    }
+  }
+  return lst;
+}

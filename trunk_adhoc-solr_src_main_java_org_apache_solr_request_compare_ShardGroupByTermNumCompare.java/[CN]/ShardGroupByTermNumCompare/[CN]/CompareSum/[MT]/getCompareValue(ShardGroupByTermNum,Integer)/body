@@ -1,0 +1,7 @@
+{
+  RefRowStat s=g.gerRowStat(field);
+  if (s != null) {
+    return s.sum;
+  }
+  return 0;
+}

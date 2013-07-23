@@ -1,0 +1,8 @@
+{
+  super(similarity,w);
+  this.qWeight=w.getValue();
+  this.subQueryScorer=subQueryScorer;
+  this.valSrcScorers=valSrcScorers;
+  this.vScores=new float[valSrcScorers.length];
+  this.provider=CustomScoreQuery.this.getCustomScoreProvider(reader);
+}

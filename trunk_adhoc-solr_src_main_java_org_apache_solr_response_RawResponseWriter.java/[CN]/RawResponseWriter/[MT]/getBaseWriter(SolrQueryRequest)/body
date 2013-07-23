@@ -1,0 +1,3 @@
+{
+  return request.getCore().getQueryResponseWriter(_baseWriter);
+}

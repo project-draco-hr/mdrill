@@ -1,0 +1,18 @@
+{
+  buffer.append(" LIMIT ");
+  if (limit.isRowCountJdbcParameter()) {
+    buffer.append("?");
+  }
+ else   if (limit.getRowCount() != 0) {
+    buffer.append(limit.getRowCount());
+  }
+ else {
+    buffer.append("18446744073709551615");
+  }
+  if (limit.isOffsetJdbcParameter()) {
+    buffer.append(" OFFSET ?");
+  }
+ else   if (limit.getOffset() != 0) {
+    buffer.append(" OFFSET " + limit.getOffset());
+  }
+}

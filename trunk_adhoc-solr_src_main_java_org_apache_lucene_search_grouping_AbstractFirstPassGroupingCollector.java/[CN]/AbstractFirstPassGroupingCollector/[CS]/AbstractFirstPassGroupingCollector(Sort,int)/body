@@ -1,0 +1,18 @@
+{
+  if (topNGroups < 1) {
+    throw new IllegalArgumentException("topNGroups must be >= 1 (got " + topNGroups + ")");
+  }
+  this.groupSort=groupSort;
+  this.topNGroups=topNGroups;
+  final SortField[] sortFields=groupSort.getSort();
+  comparators=new FieldComparator[sortFields.length];
+  compIDXEnd=comparators.length - 1;
+  reversed=new int[sortFields.length];
+  for (int i=0; i < sortFields.length; i++) {
+    final SortField sortField=sortFields[i];
+    comparators[i]=sortField.getComparator(topNGroups + 1,i);
+    reversed[i]=sortField.getReverse() ? -1 : 1;
+  }
+  spareSlot=topNGroups;
+  groupMap=new HashMap<GROUP_VALUE_TYPE,CollectedSearchGroup<GROUP_VALUE_TYPE>>(topNGroups);
+}

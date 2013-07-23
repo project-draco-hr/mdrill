@@ -1,0 +1,6 @@
+{
+  jetty.run();
+  for (  SolrStartTable table : tables) {
+    table.run();
+  }
+}

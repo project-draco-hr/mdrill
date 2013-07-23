@@ -1,0 +1,24 @@
+{
+  final Status.FieldNormStatus status=new Status.FieldNormStatus();
+  try {
+    if (infoStream != null) {
+      infoStream.print("    test: field norms.........");
+    }
+    final byte[] b=new byte[reader.maxDoc()];
+    for (    final String fieldName : fieldNames) {
+      if (reader.hasNorms(fieldName)) {
+        reader.norms(fieldName,b,0);
+        ++status.totFields;
+      }
+    }
+    msg("OK [" + status.totFields + " fields]");
+  }
+ catch (  Throwable e) {
+    msg("ERROR [" + String.valueOf(e.getMessage()) + "]");
+    status.error=e;
+    if (infoStream != null) {
+      e.printStackTrace(infoStream);
+    }
+  }
+  return status;
+}

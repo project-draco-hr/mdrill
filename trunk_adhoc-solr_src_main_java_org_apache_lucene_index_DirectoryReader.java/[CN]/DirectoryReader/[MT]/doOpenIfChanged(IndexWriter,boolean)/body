@@ -1,0 +1,8 @@
+{
+  if (writer == this.writer && applyAllDeletes == this.applyAllDeletes) {
+    return doOpenIfChanged();
+  }
+ else {
+    return super.doOpenIfChanged(writer,applyAllDeletes);
+  }
+}

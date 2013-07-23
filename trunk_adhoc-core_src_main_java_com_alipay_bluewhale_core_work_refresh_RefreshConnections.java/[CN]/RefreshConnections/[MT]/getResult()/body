@@ -1,0 +1,6 @@
+{
+  if (active.get()) {
+    return conf.get(Config.TASK_REFRESH_POLL_SECS);
+  }
+  return -1;
+}

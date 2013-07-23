@@ -1,0 +1,5 @@
+{
+  for (  Object obj : all_components(topology)) {
+    add_component_system_streams(obj);
+  }
+}

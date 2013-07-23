@@ -1,0 +1,10 @@
+{
+  this.field=field;
+  this.groupSort=groupSort;
+  this.sortWithinGroup=sortWithinGroup;
+  this.firstPhaseGroups=firstPhaseGroups;
+  this.maxDocPerGroup=maxDocPerGroup;
+  this.needScores=needScores;
+  this.needMaxScore=needMaxScore;
+  this.needGroupCount=needGroupCount;
+}

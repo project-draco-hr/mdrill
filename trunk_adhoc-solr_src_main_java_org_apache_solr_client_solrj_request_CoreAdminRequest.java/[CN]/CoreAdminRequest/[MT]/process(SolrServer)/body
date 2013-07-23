@@ -1,0 +1,7 @@
+{
+  long startTime=System.currentTimeMillis();
+  CoreAdminResponse res=new CoreAdminResponse();
+  res.setResponse(server.request(this));
+  res.setElapsedTime(System.currentTimeMillis() - startTime);
+  return res;
+}

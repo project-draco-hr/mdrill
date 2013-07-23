@@ -1,0 +1,5 @@
+CharsRef input
+int numInputWords
+CharsRef output
+int numOutputWords
+boolean includeOrig

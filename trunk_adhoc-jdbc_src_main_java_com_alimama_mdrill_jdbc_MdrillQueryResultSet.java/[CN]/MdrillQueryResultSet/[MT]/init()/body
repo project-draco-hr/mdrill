@@ -1,0 +1,16 @@
+{
+  try {
+    columnNames=new ArrayList<String>();
+    columnTypes=new ArrayList<String>();
+    for (int i=0; i < parser.colsAliasNames.length; i++) {
+      String aliasName=parser.colsAliasNames[i];
+      String type="STRING";
+      columnNames.add(aliasName);
+      columnTypes.add(type);
+    }
+  }
+ catch (  Exception ex) {
+    ex.printStackTrace();
+    throw new SQLException("Could not create ResultSet: " + ex.getMessage(),ex);
+  }
+}

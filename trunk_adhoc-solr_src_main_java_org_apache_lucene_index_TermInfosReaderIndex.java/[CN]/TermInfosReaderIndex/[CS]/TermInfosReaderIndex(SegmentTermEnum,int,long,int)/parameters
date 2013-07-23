@@ -1,0 +1,4 @@
+SegmentTermEnum indexEnum
+int indexDivisor
+long tiiFileLength
+int totalIndexInterval

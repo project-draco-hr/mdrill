@@ -1,0 +1,4 @@
+{
+  this.set(StatsParams.STATS,true);
+  this.add(StatsParams.STATS_FIELD,field);
+}

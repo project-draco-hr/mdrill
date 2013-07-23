@@ -1,0 +1,68 @@
+{
+  if (!getClass().equals(other.getClass())) {
+    return getClass().getName().compareTo(other.getClass().getName());
+  }
+  int lastComparison=0;
+  TopologySummary typedOther=(TopologySummary)other;
+  lastComparison=Boolean.valueOf(is_set_id()).compareTo(typedOther.is_set_id());
+  if (lastComparison != 0) {
+    return lastComparison;
+  }
+  if (is_set_id()) {
+    lastComparison=org.apache.thrift7.TBaseHelper.compareTo(this.id,typedOther.id);
+    if (lastComparison != 0) {
+      return lastComparison;
+    }
+  }
+  lastComparison=Boolean.valueOf(is_set_name()).compareTo(typedOther.is_set_name());
+  if (lastComparison != 0) {
+    return lastComparison;
+  }
+  if (is_set_name()) {
+    lastComparison=org.apache.thrift7.TBaseHelper.compareTo(this.name,typedOther.name);
+    if (lastComparison != 0) {
+      return lastComparison;
+    }
+  }
+  lastComparison=Boolean.valueOf(is_set_num_tasks()).compareTo(typedOther.is_set_num_tasks());
+  if (lastComparison != 0) {
+    return lastComparison;
+  }
+  if (is_set_num_tasks()) {
+    lastComparison=org.apache.thrift7.TBaseHelper.compareTo(this.num_tasks,typedOther.num_tasks);
+    if (lastComparison != 0) {
+      return lastComparison;
+    }
+  }
+  lastComparison=Boolean.valueOf(is_set_num_workers()).compareTo(typedOther.is_set_num_workers());
+  if (lastComparison != 0) {
+    return lastComparison;
+  }
+  if (is_set_num_workers()) {
+    lastComparison=org.apache.thrift7.TBaseHelper.compareTo(this.num_workers,typedOther.num_workers);
+    if (lastComparison != 0) {
+      return lastComparison;
+    }
+  }
+  lastComparison=Boolean.valueOf(is_set_uptime_secs()).compareTo(typedOther.is_set_uptime_secs());
+  if (lastComparison != 0) {
+    return lastComparison;
+  }
+  if (is_set_uptime_secs()) {
+    lastComparison=org.apache.thrift7.TBaseHelper.compareTo(this.uptime_secs,typedOther.uptime_secs);
+    if (lastComparison != 0) {
+      return lastComparison;
+    }
+  }
+  lastComparison=Boolean.valueOf(is_set_status()).compareTo(typedOther.is_set_status());
+  if (lastComparison != 0) {
+    return lastComparison;
+  }
+  if (is_set_status()) {
+    lastComparison=org.apache.thrift7.TBaseHelper.compareTo(this.status,typedOther.status);
+    if (lastComparison != 0) {
+      return lastComparison;
+    }
+  }
+  return 0;
+}

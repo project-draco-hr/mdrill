@@ -1,0 +1,35 @@
+{
+  Object id=input.getValue(0);
+  AckObject curr=(AckObject)pending.get(id);
+  if (curr == null) {
+    curr=new AckObject();
+  }
+  String stream_id=input.getSourceStreamId();
+  if (stream_id.equals(Acker.ACKER_INIT_STREAM_ID)) {
+    Acker.update_ack(curr,input.getValue(1));
+    curr.spout_task=input.getValue(2);
+  }
+  if (stream_id.equals(Acker.ACKER_ACK_STREAM_ID)) {
+    Acker.update_ack(curr,input.getValue(1));
+  }
+  if (stream_id.equals(Acker.ACKER_FAIL_STREAM_ID)) {
+    curr.failed=true;
+  }
+  pending.put(id,curr);
+  Integer task=(Integer)curr.spout_task;
+  if (task != null) {
+    Long val=(Long)curr.val;
+    if (new Long(0).equals(val)) {
+      pending.remove(id);
+      List values=StormUtils.mk_list(id);
+      collector.emitDirect(task,Acker.ACKER_ACK_STREAM_ID,values);
+    }
+    boolean isFail=(Boolean)curr.failed;
+    if (isFail) {
+      pending.remove(id);
+      List values=StormUtils.mk_list(id);
+      collector.emitDirect(task,Acker.ACKER_FAIL_STREAM_ID,values);
+    }
+  }
+  collector.ack(input);
+}

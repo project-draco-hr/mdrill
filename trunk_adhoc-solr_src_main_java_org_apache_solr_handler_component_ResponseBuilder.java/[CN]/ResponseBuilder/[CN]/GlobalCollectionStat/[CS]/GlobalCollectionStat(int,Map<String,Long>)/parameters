@@ -1,0 +1,2 @@
+int numDocs
+Map<String,Long> dfMap

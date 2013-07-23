@@ -1,0 +1,15 @@
+{
+  if (tis == null) {
+    Directory dir0;
+    if (si.getUseCompoundFile()) {
+      if (cfsReader == null) {
+        cfsReader=new CompoundFileReader(dir,IndexFileNames.segmentFileName(segment,IndexFileNames.COMPOUND_FILE_EXTENSION),IndexFileNames.segmentFileName(segment,IndexFileNames.COMPOUND_FILE_EXTENSION_POS),readBufferSize);
+      }
+      dir0=cfsReader;
+    }
+ else {
+      dir0=dir;
+    }
+    tis=new TermInfosReader(dir0,segment,fieldInfos,readBufferSize,termsIndexDivisor);
+  }
+}

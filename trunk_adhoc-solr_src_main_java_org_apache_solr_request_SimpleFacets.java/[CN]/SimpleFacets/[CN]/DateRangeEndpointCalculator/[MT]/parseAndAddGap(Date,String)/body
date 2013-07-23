@@ -1,0 +1,5 @@
+{
+  final DateMathParser dmp=new DateMathParser(DateField.UTC,Locale.US);
+  dmp.setNow(value);
+  return dmp.parseMath(gap);
+}

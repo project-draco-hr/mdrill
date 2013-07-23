@@ -1,0 +1,16 @@
+{
+synchronized (this.getThrLockObj()) {
+    try {
+      this.sync(true);
+      this.startService();
+      isInit.set(true);
+      LOG.info("higolog table end:" + this.tablename);
+    }
+ catch (    RuntimeException er) {
+      this.runException(er);
+    }
+catch (    Exception e) {
+      this.runException(e);
+    }
+  }
+}

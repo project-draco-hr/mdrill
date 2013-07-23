@@ -1,0 +1,4 @@
+{
+  this.searchable=searchable;
+  this.terms=terms;
+}

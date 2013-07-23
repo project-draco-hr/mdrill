@@ -1,0 +1,4 @@
+{
+  Fieldable f=doc.getFieldable(uniqueKeyFieldName);
+  return f == null ? null : uniqueKeyFieldType.toExternal(f);
+}

@@ -1,0 +1,3 @@
+{
+  return addBeans(beanIterator,-1);
+}

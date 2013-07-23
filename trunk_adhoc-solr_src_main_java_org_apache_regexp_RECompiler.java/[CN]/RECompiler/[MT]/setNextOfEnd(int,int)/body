@@ -1,0 +1,13 @@
+{
+  int next=instruction[node + RE.offsetNext];
+  while (next != 0 && node < lenInstruction) {
+    if (node == pointTo) {
+      pointTo=lenInstruction;
+    }
+    node+=next;
+    next=instruction[node + RE.offsetNext];
+  }
+  if (node < lenInstruction) {
+    instruction[node + RE.offsetNext]=(char)(short)(pointTo - node);
+  }
+}

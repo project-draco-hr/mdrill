@@ -1,0 +1,6 @@
+{
+  if (infoStream != null) {
+    message("setRAMBufferSizeMB " + mb);
+  }
+  config.setRAMBufferSizeMB(mb);
+}

@@ -1,0 +1,35 @@
+{
+  MergePolicy.OneMerge merge=this.startMerge;
+  try {
+    if (verbose())     message("  merge thread: start");
+    while (true) {
+      setRunningMerge(merge);
+      doMerge(merge);
+      merge=tWriter.getNextMerge();
+      if (merge != null) {
+        tWriter.mergeInit(merge);
+        updateMergeThreads();
+        if (verbose())         message("  merge thread: do another merge " + merge.segString(dir));
+      }
+ else {
+        break;
+      }
+    }
+    if (verbose())     message("  merge thread: done");
+  }
+ catch (  Throwable exc) {
+    if (!(exc instanceof MergePolicy.MergeAbortedException)) {
+      if (!suppressExceptions) {
+        anyExceptions=true;
+        handleMergeException(exc);
+      }
+    }
+  }
+ finally {
+    done=true;
+synchronized (ConcurrentMergeScheduler.this) {
+      updateMergeThreads();
+      ConcurrentMergeScheduler.this.notifyAll();
+    }
+  }
+}

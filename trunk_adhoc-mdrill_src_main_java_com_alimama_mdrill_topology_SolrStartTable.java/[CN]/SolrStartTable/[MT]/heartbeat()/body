@@ -1,0 +1,23 @@
+{
+  errorCollect.checkException();
+  if (!hbInterval.heartBeatInterval()) {
+    return;
+  }
+  if (!this.checkInitFinish()) {
+    return;
+  }
+  if (copy2indexFailTimes.get() > 10) {
+    errorCollect.setException(new Exception("copy2indexFailTimes>10"));
+    return;
+  }
+synchronized (this.getThrLockObj()) {
+    LOG.info("higolog heartbeat:" + this.tablename + ",copy2indexFailTimes="+ copy2indexFailTimes.get());
+    try {
+      this.heartbeatExecute();
+    }
+ catch (    IOException e) {
+      LOG.error(StormUtils.stringify_error(e));
+      errorCollect.setException(e);
+    }
+  }
+}

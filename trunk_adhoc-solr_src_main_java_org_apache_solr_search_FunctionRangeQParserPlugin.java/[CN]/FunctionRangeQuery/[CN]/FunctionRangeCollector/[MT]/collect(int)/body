@@ -1,0 +1,5 @@
+{
+  if (doc < maxdoc && scorer.matches(doc)) {
+    delegate.collect(doc);
+  }
+}

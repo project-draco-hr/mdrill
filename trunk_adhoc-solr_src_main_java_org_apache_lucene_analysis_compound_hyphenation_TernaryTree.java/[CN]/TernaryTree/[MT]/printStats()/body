@@ -1,0 +1,5 @@
+{
+  System.out.println("Number of keys = " + Integer.toString(length));
+  System.out.println("Node count = " + Integer.toString(freenode));
+  System.out.println("Key Array length = " + Integer.toString(kv.length()));
+}

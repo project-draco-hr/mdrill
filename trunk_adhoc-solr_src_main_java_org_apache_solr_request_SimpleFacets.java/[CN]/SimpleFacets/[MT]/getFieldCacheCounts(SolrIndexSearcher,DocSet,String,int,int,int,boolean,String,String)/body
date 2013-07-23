@@ -1,0 +1,66 @@
+{
+  FieldType ft=searcher.getSchema().getFieldType(fieldName);
+  NamedList res=new NamedList();
+  FieldCache.StringIndex si=FieldCache.DEFAULT.getStringIndex(searcher.getReader(),fieldName);
+  final String[] terms=si.lookup;
+  final int[] termNum=si.order;
+  if (prefix != null && prefix.length() == 0)   prefix=null;
+  int startTermIndex, endTermIndex;
+  if (prefix != null) {
+    startTermIndex=Arrays.binarySearch(terms,prefix,nullStrComparator);
+    if (startTermIndex < 0)     startTermIndex=-startTermIndex - 1;
+    endTermIndex=Arrays.binarySearch(terms,prefix + "\uffff\uffff\uffff\uffff",nullStrComparator);
+    endTermIndex=-endTermIndex - 1;
+  }
+ else {
+    startTermIndex=1;
+    endTermIndex=terms.length;
+  }
+  final int nTerms=endTermIndex - startTermIndex;
+  if (nTerms > 0 && docs.size() >= mincount) {
+    final int[] counts=new int[nTerms];
+    DocIterator iter=docs.iterator();
+    while (iter.hasNext()) {
+      int term=termNum[iter.nextDoc()];
+      int arrIdx=term - startTermIndex;
+      if (arrIdx >= 0 && arrIdx < nTerms)       counts[arrIdx]++;
+    }
+    int off=offset;
+    int lim=limit >= 0 ? limit : Integer.MAX_VALUE;
+    if (sort.equals(FacetParams.FACET_SORT_COUNT) || sort.equals(FacetParams.FACET_SORT_COUNT_LEGACY)) {
+      int maxsize=limit > 0 ? offset + limit : Integer.MAX_VALUE - 1;
+      maxsize=Math.min(maxsize,nTerms);
+      final BoundedTreeSet<CountPair<String,Integer>> queue=new BoundedTreeSet<CountPair<String,Integer>>(maxsize);
+      int min=mincount - 1;
+      for (int i=0; i < nTerms; i++) {
+        int c=counts[i];
+        if (c > min) {
+          queue.add(new CountPair<String,Integer>(terms[startTermIndex + i],c));
+          if (queue.size() >= maxsize)           min=queue.last().val;
+        }
+      }
+      for (      CountPair<String,Integer> p : queue) {
+        if (--off >= 0)         continue;
+        if (--lim < 0)         break;
+        res.add(ft.indexedToReadable(p.key),p.val);
+      }
+    }
+ else {
+      int i=0;
+      if (mincount <= 0) {
+        i=off;
+        off=0;
+      }
+      for (; i < nTerms; i++) {
+        int c=counts[i];
+        if (c < mincount || --off >= 0)         continue;
+        if (--lim < 0)         break;
+        res.add(ft.indexedToReadable(terms[startTermIndex + i]),c);
+      }
+    }
+  }
+  if (missing) {
+    res.add(null,getFieldMissingCount(searcher,docs,fieldName));
+  }
+  return res;
+}

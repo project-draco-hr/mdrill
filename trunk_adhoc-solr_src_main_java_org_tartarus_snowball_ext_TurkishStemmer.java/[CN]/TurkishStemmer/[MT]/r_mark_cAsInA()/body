@@ -1,0 +1,6 @@
+{
+  if (find_among_b(a_19,2) == 0) {
+    return false;
+  }
+  return true;
+}

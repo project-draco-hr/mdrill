@@ -1,0 +1,3 @@
+String fields[]
+long tvfPointers[]
+TermVectorMapper mapper

@@ -1,0 +1,12 @@
+{
+  if (prefix.length == 1 && len < 4) {
+    return false;
+  }
+ else   if (len < prefix.length + 2) {
+    return false;
+  }
+ else {
+    for (int i=0; i < prefix.length; i++)     if (s[i] != prefix[i])     return false;
+    return true;
+  }
+}

@@ -1,0 +1,3 @@
+{
+  return this.fieldNum(doc,0,base,this.groupListCache);
+}

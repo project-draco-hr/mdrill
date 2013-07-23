@@ -1,0 +1,4 @@
+char word[]
+int length
+char[] flags
+int recursionDepth

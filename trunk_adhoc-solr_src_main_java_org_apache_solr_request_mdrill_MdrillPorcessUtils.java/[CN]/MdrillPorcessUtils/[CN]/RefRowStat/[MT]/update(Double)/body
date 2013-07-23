@@ -1,0 +1,17 @@
+{
+  if (key <= UnInvertedField.MINVALUE) {
+    return;
+  }
+  this.cnt++;
+  if (this.issetup) {
+    this.sum+=key;
+    this.max=Math.max(this.max,key);
+    this.min=Math.min(this.min,key);
+  }
+ else {
+    this.sum=key;
+    this.max=key;
+    this.min=key;
+    this.issetup=true;
+  }
+}

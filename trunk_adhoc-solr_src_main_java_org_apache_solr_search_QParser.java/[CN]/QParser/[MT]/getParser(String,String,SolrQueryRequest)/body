@@ -1,0 +1,36 @@
+{
+  String stringIncludingLocalParams=qstr;
+  SolrParams localParams=null;
+  SolrParams globalParams=req.getParams();
+  boolean valFollowedParams=true;
+  int localParamsEnd=-1;
+  if (qstr != null && qstr.startsWith(QueryParsing.LOCALPARAM_START)) {
+    Map<String,String> localMap=new HashMap<String,String>();
+    localParamsEnd=QueryParsing.parseLocalParams(qstr,0,localMap,globalParams);
+    String val=localMap.get(QueryParsing.V);
+    if (val != null) {
+      valFollowedParams=false;
+    }
+ else {
+      valFollowedParams=true;
+      val=qstr.substring(localParamsEnd);
+      localMap.put(QueryParsing.V,val);
+    }
+    localParams=new MapSolrParams(localMap);
+  }
+  String type;
+  if (localParams == null) {
+    type=defaultType;
+  }
+ else {
+    type=localParams.get(QueryParsing.TYPE,defaultType);
+    qstr=localParams.get("v");
+  }
+  type=type == null ? QParserPlugin.DEFAULT_QTYPE : type;
+  QParserPlugin qplug=req.getCore().getQueryPlugin(type);
+  QParser parser=qplug.createParser(qstr,localParams,req.getParams(),req);
+  parser.stringIncludingLocalParams=stringIncludingLocalParams;
+  parser.valFollowedParams=valFollowedParams;
+  parser.localParamsEnd=localParamsEnd;
+  return parser;
+}

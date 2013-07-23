@@ -1,0 +1,4 @@
+{
+  goTo(STRING);
+  return readStringChars();
+}

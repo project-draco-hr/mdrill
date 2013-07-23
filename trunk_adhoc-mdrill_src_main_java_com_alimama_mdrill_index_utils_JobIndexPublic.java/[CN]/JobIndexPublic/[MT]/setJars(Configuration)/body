@@ -1,0 +1,24 @@
+{
+  HashSet<String> jars=new HashSet<String>();
+  addpath(jars,UniqConfig.class);
+  addpath(jars,HadoopBaseUtils.class);
+  addpath(jars,EncodeUtils.class);
+  addpath(jars,HadoopUtil.class);
+  addpath(jars,TopologyBuilder.class);
+  addpath(jars,org.slf4j.Logger.class);
+  addpath(jars,org.slf4j.LoggerFactory.class);
+  addpath(jars,org.apache.commons.httpclient.HttpClient.class);
+  addpath(jars,org.apache.commons.io.IOUtils.class);
+  addpath(jars,org.apache.solr.request.mdrill.MdrillDetail.class);
+  addpath(jars,org.xml.sax.SAXException.class);
+  jars.remove(findContainingJar(JobIndexPublic.class));
+  StringBuilder b=new StringBuilder();
+  String join="";
+  for (  String s : jars) {
+    b.append(join);
+    b.append(s);
+    join=",";
+  }
+  new GenericOptionsParser(conf,new String[]{"-libjars",b.toString()});
+  System.out.println("tmpjars:" + b.toString() + "@@@@@"+ conf.get("tmpjars"));
+}

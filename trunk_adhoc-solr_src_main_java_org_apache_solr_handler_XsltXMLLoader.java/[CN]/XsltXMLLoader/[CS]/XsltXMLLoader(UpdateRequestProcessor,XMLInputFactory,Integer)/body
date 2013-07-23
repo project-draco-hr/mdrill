@@ -1,0 +1,4 @@
+{
+  super(processor,inputFactory);
+  this.xsltCacheLifetimeSeconds=xsltCacheLifetimeSeconds;
+}

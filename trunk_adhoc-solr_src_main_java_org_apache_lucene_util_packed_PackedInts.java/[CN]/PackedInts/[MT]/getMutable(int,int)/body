@@ -1,0 +1,19 @@
+{
+switch (bitsPerValue) {
+case 8:
+    return new Direct8(valueCount);
+case 16:
+  return new Direct16(valueCount);
+case 32:
+return new Direct32(valueCount);
+case 64:
+return new Direct64(valueCount);
+default :
+if (Constants.JRE_IS_64BIT || bitsPerValue >= 32) {
+return new Packed64(valueCount,bitsPerValue);
+}
+ else {
+return new Packed32(valueCount,bitsPerValue);
+}
+}
+}

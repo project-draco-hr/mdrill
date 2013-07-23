@@ -1,0 +1,5 @@
+char[] chars
+int offset
+int len
+int radix
+boolean negative

@@ -1,0 +1,5 @@
+{
+  int h=parser == null ? Integer.class.hashCode() : parser.getClass().hashCode();
+  h+=super.hashCode();
+  return h;
+}

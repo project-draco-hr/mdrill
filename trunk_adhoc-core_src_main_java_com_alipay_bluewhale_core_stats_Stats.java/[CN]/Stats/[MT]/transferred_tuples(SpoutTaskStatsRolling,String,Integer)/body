@@ -1,0 +1,3 @@
+{
+  update_task_stat(stats,StormUtils.mk_arr("common","transferred"),stream,stats_rate(stats) * amt);
+}

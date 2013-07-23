@@ -1,0 +1,12 @@
+{
+  blockData rtn=free.poll();
+  if (rtn == null) {
+    rtn=new blockData(new byte[BlockBufferInput.BLOCK_SIZE],asize);
+    mallocTimes.incrementAndGet();
+  }
+ else {
+    reusedTimes.incrementAndGet();
+  }
+  rtn.setSize(asize);
+  return rtn;
+}

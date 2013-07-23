@@ -1,0 +1,3 @@
+{
+  return ClientUtils.TEXT_XML;
+}

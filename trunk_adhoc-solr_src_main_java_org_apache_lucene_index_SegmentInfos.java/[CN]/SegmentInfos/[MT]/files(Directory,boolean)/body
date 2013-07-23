@@ -1,0 +1,15 @@
+{
+  HashSet<String> files=new HashSet<String>();
+  if (includeSegmentsFile) {
+    files.add(getCurrentSegmentFileName());
+    files.add(getCurrentSegmentFileNameCRC());
+  }
+  final int size=size();
+  for (int i=0; i < size; i++) {
+    final SegmentInfo info=info(i);
+    if (info.dir == dir) {
+      files.addAll(info(i).files());
+    }
+  }
+  return files;
+}

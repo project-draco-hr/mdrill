@@ -1,0 +1,12 @@
+{
+  ArrayList<String> distFields=new ArrayList<String>();
+  if (dist != null) {
+    String[] values=dist.split(",");
+    for (    String s : values) {
+      if (s != null && s.length() > 0) {
+        distFields.add(s);
+      }
+    }
+  }
+  return distFields;
+}

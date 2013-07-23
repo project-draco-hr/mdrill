@@ -1,0 +1,10 @@
+{
+  SpansCell pointer=min();
+  while (pointer != null) {
+    if (pointer.isPayloadAvailable()) {
+      return true;
+    }
+    pointer=pointer.next;
+  }
+  return false;
+}

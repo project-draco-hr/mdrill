@@ -1,0 +1,13 @@
+{
+  if (reqScorer == null) {
+    return doc=NO_MORE_DOCS;
+  }
+  if (exclDisi == null) {
+    return doc=reqScorer.advance(target);
+  }
+  if (reqScorer.advance(target) == NO_MORE_DOCS) {
+    reqScorer=null;
+    return doc=NO_MORE_DOCS;
+  }
+  return doc=toNonExcluded();
+}

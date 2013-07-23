@@ -1,0 +1,4 @@
+{
+  this.supersetMaxDoc=supersetMaxDoc;
+  return this;
+}

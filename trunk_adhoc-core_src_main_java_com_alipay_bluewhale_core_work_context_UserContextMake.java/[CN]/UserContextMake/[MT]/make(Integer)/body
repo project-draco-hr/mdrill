@@ -1,0 +1,13 @@
+{
+  TopologyContext rtn=null;
+  try {
+    String distroot=StormConfig.supervisor_stormdist_root(storm_conf,topologyId);
+    String resourcePath=StormConfig.supervisor_storm_resources_path(distroot);
+    String workpid=StormConfig.worker_pids_root(storm_conf,worker_id);
+    rtn=new TopologyContext(topology,tasksToComponent,topologyId,resourcePath,workpid,task_id);
+  }
+ catch (  IOException e) {
+    LOG.error("UserContextMake make",e);
+  }
+  return rtn;
+}

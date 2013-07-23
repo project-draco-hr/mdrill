@@ -1,0 +1,8 @@
+{
+  super.seek(ti,term);
+  if (ti != null)   lazySkipPointer=ti.proxPointer;
+  lazySkipProxCount=0;
+  proxCount=0;
+  payloadLength=0;
+  needToLoadPayload=false;
+}

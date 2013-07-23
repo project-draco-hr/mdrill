@@ -1,0 +1,4 @@
+SolrResourceLoader loader
+String name
+InputSource is
+String prefix

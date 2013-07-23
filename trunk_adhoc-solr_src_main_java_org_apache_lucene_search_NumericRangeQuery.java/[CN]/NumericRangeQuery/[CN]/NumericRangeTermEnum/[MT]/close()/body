@@ -1,0 +1,5 @@
+{
+  rangeBounds.clear();
+  currentUpperBound=null;
+  super.close();
+}

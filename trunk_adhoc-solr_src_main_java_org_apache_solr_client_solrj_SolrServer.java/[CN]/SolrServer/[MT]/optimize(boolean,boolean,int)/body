@@ -1,0 +1,3 @@
+{
+  return new UpdateRequest().setAction(UpdateRequest.ACTION.OPTIMIZE,waitFlush,waitSearcher,maxSegments).process(this);
+}

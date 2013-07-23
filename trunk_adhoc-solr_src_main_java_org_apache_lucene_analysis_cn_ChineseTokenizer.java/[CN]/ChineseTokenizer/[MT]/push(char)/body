@@ -1,0 +1,4 @@
+{
+  if (length == 0)   start=offset - 1;
+  buffer[length++]=Character.toLowerCase(c);
+}

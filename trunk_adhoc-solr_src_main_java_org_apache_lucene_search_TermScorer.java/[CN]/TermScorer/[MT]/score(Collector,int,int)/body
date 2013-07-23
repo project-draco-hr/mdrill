@@ -1,0 +1,20 @@
+{
+  c.setScorer(this);
+  while (doc < end) {
+    c.collect(doc);
+    if (++pointer >= pointerMax) {
+      pointerMax=termDocs.read(docs,freqs);
+      if (pointerMax != 0) {
+        pointer=0;
+      }
+ else {
+        termDocs.close();
+        doc=Integer.MAX_VALUE;
+        return false;
+      }
+    }
+    doc=docs[pointer];
+    freq=freqs[pointer];
+  }
+  return true;
+}

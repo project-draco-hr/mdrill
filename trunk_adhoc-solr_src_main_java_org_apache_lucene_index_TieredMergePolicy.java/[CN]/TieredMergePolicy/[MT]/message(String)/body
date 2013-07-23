@@ -1,0 +1,5 @@
+{
+  if (verbose()) {
+    writer.get().message("TMP: " + message);
+  }
+}

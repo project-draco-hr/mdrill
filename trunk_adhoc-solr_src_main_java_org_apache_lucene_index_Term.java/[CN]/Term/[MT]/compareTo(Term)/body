@@ -1,0 +1,4 @@
+{
+  if (field == other.field)   return text.compareTo(other.text);
+ else   return field.compareTo(other.field);
+}

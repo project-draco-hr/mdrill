@@ -1,0 +1,8 @@
+{
+  return new DocIdSet(){
+    @Override public DocIdSetIterator iterator() throws IOException {
+      return valueSource.getValues(context,reader).getRangeScorer(reader,lowerVal,upperVal,includeLower,includeUpper);
+    }
+  }
+;
+}

@@ -1,0 +1,10 @@
+{
+  if (field == term.field()) {
+    String searchText=term.text();
+    if (searchText.startsWith(pre)) {
+      return wildcardEquals(text,0,searchText,preLen);
+    }
+  }
+  endEnum=true;
+  return false;
+}

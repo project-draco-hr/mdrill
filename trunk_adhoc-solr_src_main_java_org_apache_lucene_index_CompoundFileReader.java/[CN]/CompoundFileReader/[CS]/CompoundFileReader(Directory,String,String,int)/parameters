@@ -1,0 +1,4 @@
+Directory dir
+String name
+String posname
+int readBufferSize

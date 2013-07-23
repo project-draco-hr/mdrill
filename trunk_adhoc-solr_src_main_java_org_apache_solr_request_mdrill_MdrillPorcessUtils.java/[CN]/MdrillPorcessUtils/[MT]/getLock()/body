@@ -1,0 +1,8 @@
+{
+  int index=lockIndex.incrementAndGet();
+  if (index >= LOCK.length) {
+    index=0;
+    lockIndex.set(index);
+  }
+  return LOCK[index];
+}

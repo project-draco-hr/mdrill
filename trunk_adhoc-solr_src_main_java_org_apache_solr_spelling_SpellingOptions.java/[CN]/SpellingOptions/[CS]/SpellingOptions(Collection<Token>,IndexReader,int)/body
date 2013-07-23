@@ -1,0 +1,5 @@
+{
+  this.tokens=tokens;
+  this.reader=reader;
+  this.count=count;
+}

@@ -1,0 +1,3 @@
+int offset
+String segment
+boolean isCompoundFile

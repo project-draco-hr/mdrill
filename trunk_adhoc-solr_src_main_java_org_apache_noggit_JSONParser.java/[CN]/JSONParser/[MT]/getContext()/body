@@ -1,0 +1,10 @@
+{
+  String context="";
+  if (start >= 0) {
+    context+=" BEFORE='" + errEscape(Math.max(start - 60,0),start + 1) + "'";
+  }
+  if (start < end) {
+    context+=" AFTER='" + errEscape(start + 1,start + 40) + "'";
+  }
+  return context;
+}

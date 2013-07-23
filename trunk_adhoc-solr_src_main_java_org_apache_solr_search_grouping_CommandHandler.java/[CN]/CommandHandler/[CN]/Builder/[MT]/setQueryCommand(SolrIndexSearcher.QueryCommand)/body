@@ -1,0 +1,5 @@
+{
+  this.queryCommand=queryCommand;
+  this.needDocSet=(queryCommand.getFlags() & SolrIndexSearcher.GET_DOCSET) != 0;
+  return this;
+}

@@ -1,0 +1,6 @@
+{
+  if (parenthesis.isNot())   buffer.append(" NOT ");
+  buffer.append("(");
+  parenthesis.getExpression().accept(this);
+  buffer.append(")");
+}

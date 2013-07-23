@@ -1,0 +1,3 @@
+{
+  return norms == null ? score : score * getSimilarity().decodeNormValue(norms[docID()]);
+}

@@ -1,0 +1,8 @@
+{
+  if (weight == 1f) {
+    token.setPayload(null);
+  }
+ else {
+    token.setPayload(new Payload(PayloadHelper.encodeFloat(weight)));
+  }
+}

@@ -1,0 +1,3 @@
+{
+  return (((long)readUnsignedByte()) << 56) | (((long)readUnsignedByte()) << 48) | (((long)readUnsignedByte()) << 40)| (((long)readUnsignedByte()) << 32)| (((long)readUnsignedByte()) << 24)| (readUnsignedByte() << 16)| (readUnsignedByte() << 8)| (readUnsignedByte());
+}

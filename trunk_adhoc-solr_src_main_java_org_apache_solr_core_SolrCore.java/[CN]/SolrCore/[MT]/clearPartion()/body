@@ -1,0 +1,18 @@
+{
+  long maxwaittime=1000l * 60 * 30;
+synchronized (listlock) {
+    long nowtime=System.currentTimeMillis();
+    ArrayList<RefCounted<SolrIndexSearcher>> refull=new ArrayList<RefCounted<SolrIndexSearcher>>();
+    RefCounted<SolrIndexSearcher> refCount;
+    while ((refCount=clearlist.poll()) != null) {
+      if (refCount.getRefcount() <= 0 || nowtime - refCount.reftime > maxwaittime) {
+        refCount.get().close();
+      }
+ else {
+        refull.add(refCount);
+        log.info("ref clearpartion " + refCount.toDebugMsg());
+      }
+    }
+    clearlist.addAll(refull);
+  }
+}

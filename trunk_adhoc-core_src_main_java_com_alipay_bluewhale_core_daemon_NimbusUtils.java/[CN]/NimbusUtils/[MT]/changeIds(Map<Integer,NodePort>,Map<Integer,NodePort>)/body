@@ -1,0 +1,14 @@
+{
+  Map<NodePort,List<Integer>> slotAssigned=StormUtils.reverse_map(taskToNodePort);
+  Map<NodePort,List<Integer>> newSlotAssigned=StormUtils.reverse_map(newtaskToNodePort);
+  Set<Integer> brandNewSlots=new HashSet<Integer>();
+  Set<Entry<NodePort,List<Integer>>> entrySet=newSlotAssigned.entrySet();
+  for (Iterator<Entry<NodePort,List<Integer>>> it=entrySet.iterator(); it.hasNext(); ) {
+    Entry<NodePort,List<Integer>> entry=it.next();
+    if (!slotAssigned.containsKey(entry.getKey()) || !slotAssigned.get(entry.getKey()).equals(entry.getValue())) {
+      List<Integer> lst=entry.getValue();
+      brandNewSlots.addAll(lst);
+    }
+  }
+  return brandNewSlots;
+}

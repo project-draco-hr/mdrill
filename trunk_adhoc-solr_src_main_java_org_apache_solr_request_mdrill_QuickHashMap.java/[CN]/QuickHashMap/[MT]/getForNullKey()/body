@@ -1,0 +1,6 @@
+{
+  for (Entry<K,V> e=table[0]; e != null; e=e.next) {
+    if (e.key == null)     return e.value;
+  }
+  return null;
+}

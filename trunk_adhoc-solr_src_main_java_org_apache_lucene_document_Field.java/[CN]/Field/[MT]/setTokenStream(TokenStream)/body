@@ -1,0 +1,5 @@
+{
+  this.isIndexed=true;
+  this.isTokenized=true;
+  this.tokenStream=tokenStream;
+}

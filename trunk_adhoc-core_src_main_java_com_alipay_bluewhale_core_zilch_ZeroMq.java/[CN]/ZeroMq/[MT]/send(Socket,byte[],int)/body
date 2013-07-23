@@ -1,0 +1,4 @@
+{
+  socket.send(message,flags);
+  return socket;
+}

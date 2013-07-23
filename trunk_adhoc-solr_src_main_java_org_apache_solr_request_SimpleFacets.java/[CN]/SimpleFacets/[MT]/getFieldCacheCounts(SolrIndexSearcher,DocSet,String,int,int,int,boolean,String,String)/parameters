@@ -1,0 +1,9 @@
+SolrIndexSearcher searcher
+DocSet docs
+String fieldName
+int offset
+int limit
+int mincount
+boolean missing
+String sort
+String prefix

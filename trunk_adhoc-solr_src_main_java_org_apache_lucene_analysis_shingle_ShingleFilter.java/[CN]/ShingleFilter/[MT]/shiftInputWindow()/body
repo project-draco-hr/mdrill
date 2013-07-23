@@ -1,0 +1,31 @@
+{
+  InputWindowToken firstToken=null;
+  if (inputWindow.size() > 0) {
+    firstToken=inputWindow.removeFirst();
+  }
+  while (inputWindow.size() < maxShingleSize) {
+    if (null != firstToken) {
+      if (null != getNextToken(firstToken)) {
+        inputWindow.add(firstToken);
+        firstToken=null;
+      }
+ else {
+        break;
+      }
+    }
+ else {
+      InputWindowToken nextToken=getNextToken(null);
+      if (null != nextToken) {
+        inputWindow.add(nextToken);
+      }
+ else {
+        break;
+      }
+    }
+  }
+  if (outputUnigramsIfNoShingles && noShingleOutput && gramSize.minValue > 1 && inputWindow.size() < minShingleSize) {
+    gramSize.minValue=1;
+  }
+  gramSize.reset();
+  isOutputHere=false;
+}

@@ -1,0 +1,4 @@
+{
+  this(Version.LUCENE_30,c.size(),ignoreCase);
+  addAll(c);
+}

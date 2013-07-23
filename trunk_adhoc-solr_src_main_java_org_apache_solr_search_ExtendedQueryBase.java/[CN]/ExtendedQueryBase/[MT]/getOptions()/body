@@ -1,0 +1,14 @@
+{
+  StringBuilder sb=new StringBuilder();
+  if (!cache) {
+    sb.append("{!cache=false");
+    sb.append(" cost=");
+    sb.append(cost);
+    sb.append("}");
+  }
+ else   if (cacheSep) {
+    sb.append("{!cache=sep");
+    sb.append("}");
+  }
+  return sb.toString();
+}

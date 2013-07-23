@@ -1,0 +1,23 @@
+{
+  active.set(false);
+  for (  ShutdownableDameon task : shutdowntasks) {
+    task.shutdown();
+  }
+  for (  NodePort k : nodeportSocket.keySet()) {
+    IConnection value=nodeportSocket.get(k);
+    value.close();
+  }
+  virtualPortShutdown.shutdown();
+  mq_context.term();
+  for (  AsyncLoopThread t : threads) {
+    t.interrupt();
+    try {
+      t.join();
+    }
+ catch (    InterruptedException e) {
+      LOG.error("join thread",e);
+    }
+  }
+  zkCluster.disconnect();
+  cluster_state.close();
+}

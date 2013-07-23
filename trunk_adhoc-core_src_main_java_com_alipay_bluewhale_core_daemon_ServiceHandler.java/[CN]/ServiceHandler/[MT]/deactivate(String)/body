@@ -1,0 +1,3 @@
+{
+  StatusTransition.transitionName(data,topologyName,true,StatusType.inactivate);
+}

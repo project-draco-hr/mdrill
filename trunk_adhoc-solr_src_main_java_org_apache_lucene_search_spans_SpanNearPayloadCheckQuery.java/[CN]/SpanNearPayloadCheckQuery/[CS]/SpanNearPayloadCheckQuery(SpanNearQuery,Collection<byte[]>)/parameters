@@ -1,0 +1,2 @@
+SpanNearQuery match
+Collection<byte[]> payloadToMatch

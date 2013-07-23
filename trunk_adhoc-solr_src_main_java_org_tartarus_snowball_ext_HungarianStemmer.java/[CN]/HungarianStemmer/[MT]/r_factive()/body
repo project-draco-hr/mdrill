@@ -1,0 +1,31 @@
+{
+  int among_var;
+  ket=cursor;
+  among_var=find_among_b(a_7,2);
+  if (among_var == 0) {
+    return false;
+  }
+  bra=cursor;
+  if (!r_R1()) {
+    return false;
+  }
+switch (among_var) {
+case 0:
+    return false;
+case 1:
+  if (!r_double()) {
+    return false;
+  }
+break;
+case 2:
+if (!r_double()) {
+return false;
+}
+break;
+}
+slice_del();
+if (!r_undouble()) {
+return false;
+}
+return true;
+}

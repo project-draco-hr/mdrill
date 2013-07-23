@@ -1,0 +1,3 @@
+{
+  return createQuery(retrieveTerms(r,fieldNames[0]));
+}

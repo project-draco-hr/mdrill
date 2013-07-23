@@ -1,0 +1,18 @@
+{
+  Map<Object,Long> result=null;
+  if (args != null && args.length > 0) {
+    List<Map<Object,Long>> list=(List<Map<Object,Long>>)args[0];
+    result=new HashMap<Object,Long>();
+    for (    Map<Object,Long> each : list) {
+      for (      Entry<Object,Long> e : each.entrySet()) {
+        Object key=e.getKey();
+        Long val=e.getValue();
+        if (result.containsKey(key)) {
+          val+=result.get(key);
+        }
+        result.put(key,val);
+      }
+    }
+  }
+  return result;
+}

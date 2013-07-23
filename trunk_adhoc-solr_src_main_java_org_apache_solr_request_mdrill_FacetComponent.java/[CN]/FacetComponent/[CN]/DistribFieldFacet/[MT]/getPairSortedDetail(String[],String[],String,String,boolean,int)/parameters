@@ -1,0 +1,6 @@
+String[] crossFs
+String[] distFS
+String fl
+String type
+boolean isdesc
+int saverecords

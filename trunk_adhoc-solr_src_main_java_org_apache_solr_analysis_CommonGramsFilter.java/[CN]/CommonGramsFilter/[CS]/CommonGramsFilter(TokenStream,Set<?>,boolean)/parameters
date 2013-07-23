@@ -1,0 +1,3 @@
+TokenStream input
+Set<?> commonWords
+boolean ignoreCase

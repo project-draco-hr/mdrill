@@ -1,0 +1,53 @@
+{
+  IndexSchema schema=req.getSchema();
+  SolrIndexSearcher searcher=req.getSearcher();
+  IndexReader reader=searcher.getReader();
+  SolrParams params=req.getParams();
+  int numTerms=params.getInt(NUMTERMS,DEFAULT_COUNT);
+  rsp.add("index",getIndexInfo(reader,numTerms > 0));
+  Integer docId=params.getInt(DOC_ID);
+  if (docId == null && params.get(ID) != null) {
+    SchemaField uniqueKey=schema.getUniqueKeyField();
+    String v=uniqueKey.getType().toInternal(params.get(ID));
+    Term t=new Term(uniqueKey.getName(),v);
+    docId=searcher.getFirstMatch(t);
+    if (docId < 0) {
+      throw new SolrException(SolrException.ErrorCode.NOT_FOUND,"Can't find document: " + params.get(ID));
+    }
+  }
+  if (docId != null) {
+    Document doc=null;
+    try {
+      doc=reader.document(docId);
+    }
+ catch (    Exception ex) {
+    }
+    if (doc == null) {
+      throw new SolrException(SolrException.ErrorCode.NOT_FOUND,"Can't find document: " + docId);
+    }
+    SimpleOrderedMap<Object> info=getDocumentFieldsInfo(doc,docId,reader,schema);
+    SimpleOrderedMap<Object> docinfo=new SimpleOrderedMap<Object>();
+    docinfo.add("docId",docId);
+    docinfo.add("lucene",info);
+    docinfo.add("solr",doc);
+    rsp.add("doc",docinfo);
+  }
+ else   if ("schema".equals(params.get("show"))) {
+    rsp.add("schema",getSchemaInfo(req.getSchema()));
+  }
+ else {
+    Set<String> fields=null;
+    if (params.get(CommonParams.FL) != null) {
+      fields=new HashSet<String>();
+      for (      String f : params.getParams(CommonParams.FL)) {
+        fields.add(f);
+      }
+    }
+    rsp.add("fields",getIndexedFieldsInfo(searcher,fields,numTerms));
+  }
+  NamedList<Object> info=new SimpleOrderedMap<Object>();
+  info.add("key",getFieldFlagsKey());
+  info.add("NOTE","Document Frequency (df) is not updated when a document is marked for deletion.  df values include deleted documents.");
+  rsp.add("info",info);
+  rsp.setHttpCaching(false);
+}

@@ -1,0 +1,4 @@
+boolean phraseHighlight
+boolean fieldMatch
+FragListBuilder fragListBuilder
+FragmentsBuilder fragmentsBuilder

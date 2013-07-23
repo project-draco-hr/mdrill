@@ -1,0 +1,5 @@
+SolrCore core
+IndexSchema schema
+String name
+Directory directory
+boolean readOnly

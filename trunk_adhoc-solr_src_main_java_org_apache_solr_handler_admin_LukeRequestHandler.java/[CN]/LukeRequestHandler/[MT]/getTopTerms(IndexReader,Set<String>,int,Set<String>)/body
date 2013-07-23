@@ -1,0 +1,37 @@
+{
+  Map<String,TopTermQueue> info=new HashMap<String,TopTermQueue>();
+  TermEnum terms=null;
+  try {
+    terms=reader.terms();
+    while (terms.next()) {
+      String field=terms.term().field();
+      String t=terms.term().text();
+      TopTermQueue tiq=info.get(field);
+      if (tiq == null) {
+        tiq=new TopTermQueue(numTerms + 1);
+        info.put(field,tiq);
+      }
+      tiq.distinctTerms++;
+      tiq.histogram.add(terms.docFreq());
+      if (fields != null && fields.size() > 0) {
+        if (!fields.contains(field)) {
+          continue;
+        }
+      }
+      if (junkWords != null && junkWords.contains(t)) {
+        continue;
+      }
+      if (terms.docFreq() > tiq.minFreq) {
+        tiq.add(new TopTermQueue.TermInfo(terms.term(),terms.docFreq()));
+        if (tiq.size() > numTerms) {
+          tiq.pop();
+          tiq.minFreq=((TopTermQueue.TermInfo)tiq.top()).docFreq;
+        }
+      }
+    }
+  }
+  finally {
+    if (terms != null)     terms.close();
+  }
+  return info;
+}

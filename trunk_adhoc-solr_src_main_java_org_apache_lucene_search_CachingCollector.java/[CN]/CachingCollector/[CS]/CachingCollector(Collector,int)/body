@@ -1,0 +1,7 @@
+{
+  this.other=other;
+  cachedDocs=new ArrayList<int[]>();
+  curDocs=new int[INITIAL_ARRAY_SIZE];
+  cachedDocs.add(curDocs);
+  this.maxDocsToCache=maxDocsToCache;
+}

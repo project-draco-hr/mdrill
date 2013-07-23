@@ -1,0 +1,3 @@
+{
+  return eq_s(s_size,(CharSequence)s);
+}

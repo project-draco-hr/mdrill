@@ -1,0 +1,3 @@
+{
+  for (  ValueSource source : sources)   source.createWeight(context,searcher);
+}

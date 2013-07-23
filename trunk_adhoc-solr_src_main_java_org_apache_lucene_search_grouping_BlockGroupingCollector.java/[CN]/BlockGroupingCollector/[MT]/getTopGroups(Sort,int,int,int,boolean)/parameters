@@ -1,0 +1,5 @@
+Sort withinGroupSort
+int groupOffset
+int withinGroupOffset
+int maxDocsPerGroup
+boolean fillSortFields

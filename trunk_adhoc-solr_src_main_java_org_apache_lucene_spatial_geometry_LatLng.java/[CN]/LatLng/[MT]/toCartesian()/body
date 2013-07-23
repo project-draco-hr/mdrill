@@ -1,0 +1,6 @@
+{
+  LatLng ll=normalize();
+  int lat=ll.getFixedLat();
+  int lng=ll.getFixedLng();
+  return new CartesianPoint(lng + 180 * FixedLatLng.SCALE_FACTOR_INT,lat + 90 * FixedLatLng.SCALE_FACTOR_INT);
+}

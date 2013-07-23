@@ -1,0 +1,14 @@
+{
+  if (reqScorer == null) {
+    return doc;
+  }
+  doc=reqScorer.nextDoc();
+  if (doc == NO_MORE_DOCS) {
+    reqScorer=null;
+    return doc;
+  }
+  if (exclDisi == null) {
+    return doc;
+  }
+  return doc=toNonExcluded();
+}

@@ -1,0 +1,52 @@
+{
+  StringBuffer retval=new StringBuffer("(");
+  Token tk=null;
+  jj_consume_token(79);
+  label_33:   while (true) {
+switch ((jj_ntk == -1) ? jj_ntk() : jj_ntk) {
+case S_DOUBLE:
+case S_INTEGER:
+case S_IDENTIFIER:
+case S_CHAR_LITERAL:
+      ;
+    break;
+default :
+  jj_la1[147]=jj_gen;
+break label_33;
+}
+switch ((jj_ntk == -1) ? jj_ntk() : jj_ntk) {
+case S_INTEGER:
+tk=jj_consume_token(S_INTEGER);
+break;
+case S_DOUBLE:
+tk=jj_consume_token(S_DOUBLE);
+break;
+case S_CHAR_LITERAL:
+tk=jj_consume_token(S_CHAR_LITERAL);
+break;
+case S_IDENTIFIER:
+tk=jj_consume_token(S_IDENTIFIER);
+break;
+default :
+jj_la1[148]=jj_gen;
+jj_consume_token(-1);
+throw new ParseException();
+}
+retval.append(tk.image);
+switch ((jj_ntk == -1) ? jj_ntk() : jj_ntk) {
+case 78:
+jj_consume_token(78);
+retval.append(",");
+break;
+default :
+jj_la1[149]=jj_gen;
+;
+}
+}
+jj_consume_token(80);
+retval.append(")");
+{
+if (true) return retval.toString();
+}
+throw new Error("Missing return statement in function");
+}

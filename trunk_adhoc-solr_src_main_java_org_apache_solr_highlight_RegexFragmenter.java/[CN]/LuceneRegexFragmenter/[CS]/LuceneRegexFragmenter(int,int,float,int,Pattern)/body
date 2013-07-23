@@ -1,0 +1,7 @@
+{
+  this.targetFragChars=targetFragChars;
+  this.incrementGapThreshold=incrementGapThreshold;
+  this.slop=slop;
+  this.maxAnalyzedChars=maxAnalyzedChars;
+  this.textRE=targetPattern;
+}

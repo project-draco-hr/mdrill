@@ -1,0 +1,15 @@
+{
+  log.info("Deletes jar files in dir older than seconds.");
+  File inboxdir=new File(dir_location);
+  OlderFileFilter filter=new OlderFileFilter(seconds);
+  File[] files=inboxdir.listFiles(filter);
+  for (  File f : files) {
+    log.info("Cleaning inbox ... deleted: " + f.getName());
+    try {
+      f.delete();
+    }
+ catch (    Exception e) {
+      log.error("Cleaning inbox ... error deleting:" + f.getName() + ","+ e);
+    }
+  }
+}

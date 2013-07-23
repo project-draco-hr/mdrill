@@ -1,0 +1,35 @@
+{
+  int among_var;
+  ket=cursor;
+  among_var=find_among_b(a_0,109);
+  if (among_var == 0) {
+    return false;
+  }
+  bra=cursor;
+switch (among_var) {
+case 0:
+    return false;
+case 1:
+  if (!r_RV()) {
+    return false;
+  }
+slice_del();
+break;
+case 2:
+if (!r_R2()) {
+return false;
+}
+slice_del();
+break;
+case 3:
+slice_from("atseden");
+break;
+case 4:
+slice_from("arabera");
+break;
+case 5:
+slice_from("baditu");
+break;
+}
+return true;
+}

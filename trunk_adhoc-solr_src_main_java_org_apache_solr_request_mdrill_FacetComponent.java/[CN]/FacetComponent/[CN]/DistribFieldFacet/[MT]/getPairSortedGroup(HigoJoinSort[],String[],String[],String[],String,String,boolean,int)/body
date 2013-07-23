@@ -1,0 +1,35 @@
+{
+  long t1=System.currentTimeMillis();
+  Collection<GroupbyRow> collections=counts.values();
+  int sz=counts.size();
+  final MergerGroupByGroupbyRowCompare cmp=new MergerGroupByGroupbyRowCompare(facetFs,crossFs,distFS,joinSort,fl,type,isdesc);
+  if (sz <= (saverecords * 2)) {
+    GroupbyRow[] arr=new GroupbyRow[sz];
+    int index=0;
+    for (    GroupbyRow f : collections) {
+      arr[index]=f;
+      index++;
+    }
+    Arrays.sort(arr,cmp);
+    long t2=System.currentTimeMillis();
+    LOG.info("####merger sort#### by array sort size=" + sz + ",timetaken="+ (t2 - t1));
+    return arr;
+  }
+  PriorityQueue<GroupbyRow> res=new PriorityQueue<GroupbyRow>(saverecords,Collections.reverseOrder(cmp));
+  for (  GroupbyRow f : collections) {
+    GroupbyRow mrow=f;
+    if (res.size() < saverecords) {
+      res.add(mrow);
+    }
+ else     if (cmp.compare(res.peek(),mrow) > 0) {
+      res.add(mrow);
+      res.poll();
+    }
+  }
+  GroupbyRow[] rtn=new GroupbyRow[res.size()];
+  res.toArray(rtn);
+  Arrays.sort(rtn,cmp);
+  long t2=System.currentTimeMillis();
+  LOG.info("####merger sort#### by PriorityQueue size=" + rtn.length + "@"+ sz+ ",timetaken="+ (t2 - t1));
+  return rtn;
+}

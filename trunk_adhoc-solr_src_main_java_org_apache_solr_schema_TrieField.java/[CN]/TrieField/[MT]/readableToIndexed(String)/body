@@ -1,0 +1,16 @@
+{
+switch (type) {
+case INTEGER:
+    return NumericUtils.intToPrefixCoded(Integer.parseInt(val));
+case FLOAT:
+  return NumericUtils.intToPrefixCoded(NumericUtils.floatToSortableInt(Float.parseFloat(val)));
+case LONG:
+return NumericUtils.longToPrefixCoded(Long.parseLong(val));
+case DOUBLE:
+return NumericUtils.longToPrefixCoded(NumericUtils.doubleToSortableLong(Double.parseDouble(val)));
+case DATE:
+return NumericUtils.longToPrefixCoded(dateField.parseMath(null,val).getTime());
+default :
+throw new SolrException(SolrException.ErrorCode.SERVER_ERROR,"Unknown type for trie field: " + type);
+}
+}

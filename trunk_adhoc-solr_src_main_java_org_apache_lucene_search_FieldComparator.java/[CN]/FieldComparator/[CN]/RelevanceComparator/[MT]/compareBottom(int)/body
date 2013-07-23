@@ -1,0 +1,4 @@
+{
+  float score=scorer.score();
+  return bottom > score ? -1 : (bottom < score ? 1 : 0);
+}

@@ -1,0 +1,7 @@
+{
+synchronized (locks) {
+    if (locks.contains(lockName)) {
+      locks.remove(lockName);
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  this.zkCluster=zkCluster;
+  this.storm_id=_storm_id;
+  this.task_id=_task_id;
+  this.uptime=_uptime;
+  this.task_stats=_task_stats;
+  this.active=_active;
+  this.storm_conf=_storm_conf;
+}

@@ -1,0 +1,10 @@
+{
+synchronized (searcherLock) {
+    ensureOpen();
+    closed=true;
+    if (searcher != null) {
+      searcher.close();
+    }
+    searcher=null;
+  }
+}

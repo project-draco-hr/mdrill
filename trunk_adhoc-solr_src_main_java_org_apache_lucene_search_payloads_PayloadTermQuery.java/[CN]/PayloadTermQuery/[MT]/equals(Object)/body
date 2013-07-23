@@ -1,0 +1,12 @@
+{
+  if (this == obj)   return true;
+  if (!super.equals(obj))   return false;
+  if (getClass() != obj.getClass())   return false;
+  PayloadTermQuery other=(PayloadTermQuery)obj;
+  if (function == null) {
+    if (other.function != null)     return false;
+  }
+ else   if (!function.equals(other.function))   return false;
+  if (includeSpanScore != other.includeSpanScore)   return false;
+  return true;
+}

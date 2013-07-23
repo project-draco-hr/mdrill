@@ -1,0 +1,9 @@
+{
+  if (len <= 1)   return;
+  int num=len >> 1;
+  for (int i=start; i < (start + num); i++) {
+    char c=buffer[i];
+    buffer[i]=buffer[start * 2 + len - i - 1];
+    buffer[start * 2 + len - i - 1]=c;
+  }
+}

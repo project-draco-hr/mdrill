@@ -1,0 +1,11 @@
+{
+  Object m=newObject();
+  for (; ; ) {
+    int ev=parser.nextEvent();
+    if (ev == JSONParser.OBJECT_END)     return objectEnd(m);
+    Object key=getKey();
+    ev=parser.nextEvent();
+    Object val=getVal();
+    addKeyVal(m,key,val);
+  }
+}

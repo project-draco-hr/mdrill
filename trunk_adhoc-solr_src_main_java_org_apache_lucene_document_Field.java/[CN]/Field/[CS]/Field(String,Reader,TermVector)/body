@@ -1,0 +1,11 @@
+{
+  if (name == null)   throw new NullPointerException("name cannot be null");
+  if (reader == null)   throw new NullPointerException("reader cannot be null");
+  this.name=StringHelper.intern(name);
+  this.fieldsData=reader;
+  this.isStored=false;
+  this.isIndexed=true;
+  this.isTokenized=true;
+  this.isBinary=false;
+  setStoreTermVector(termVector);
+}

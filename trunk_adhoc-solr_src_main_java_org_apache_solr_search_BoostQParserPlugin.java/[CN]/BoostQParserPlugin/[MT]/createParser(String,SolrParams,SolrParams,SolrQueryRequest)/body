@@ -1,0 +1,33 @@
+{
+  return new QParser(qstr,localParams,params,req){
+    QParser baseParser;
+    ValueSource vs;
+    String b;
+    @Override public Query parse() throws ParseException {
+      b=localParams.get(BOOSTFUNC);
+      baseParser=subQuery(localParams.get(QueryParsing.V),null);
+      Query q=baseParser.getQuery();
+      if (b == null)       return q;
+      Query bq=subQuery(b,FunctionQParserPlugin.NAME).getQuery();
+      if (bq instanceof FunctionQuery) {
+        vs=((FunctionQuery)bq).getValueSource();
+      }
+ else {
+        vs=new QueryValueSource(bq,0.0f);
+      }
+      return new BoostedQuery(q,vs);
+    }
+    @Override public String[] getDefaultHighlightFields(){
+      return baseParser.getDefaultHighlightFields();
+    }
+    @Override public Query getHighlightQuery() throws ParseException {
+      return baseParser.getHighlightQuery();
+    }
+    @Override public void addDebugInfo(    NamedList<Object> debugInfo){
+      baseParser.addDebugInfo(debugInfo);
+      debugInfo.add("boost_str",b);
+      debugInfo.add("boost_parsed",vs);
+    }
+  }
+;
+}

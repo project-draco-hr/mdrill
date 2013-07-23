@@ -1,0 +1,6 @@
+{
+  double d=widthMi;
+  LatLng ur=boxCorners(center,d,45.0);
+  LatLng ll=boxCorners(center,d,225.0);
+  return new LLRect(ll,ur);
+}

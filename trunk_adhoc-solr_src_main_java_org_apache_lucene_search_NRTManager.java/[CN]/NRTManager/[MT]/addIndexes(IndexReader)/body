@@ -1,0 +1,4 @@
+{
+  writer.addIndexes(readers);
+  return indexingGen.get();
+}

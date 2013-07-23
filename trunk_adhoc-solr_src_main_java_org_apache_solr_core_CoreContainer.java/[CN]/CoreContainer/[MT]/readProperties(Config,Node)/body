@@ -1,0 +1,10 @@
+{
+  XPath xpath=cfg.getXPath();
+  NodeList props=(NodeList)xpath.evaluate("property",node,XPathConstants.NODESET);
+  Properties properties=new Properties();
+  for (int i=0; i < props.getLength(); i++) {
+    Node prop=props.item(i);
+    properties.setProperty(DOMUtil.getAttr(prop,"name"),DOMUtil.getAttr(prop,"value"));
+  }
+  return properties;
+}

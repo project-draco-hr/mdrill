@@ -1,0 +1,4 @@
+HttpServletRequest req
+SolrRequestHandler handler
+SolrQueryRequest sreq
+SolrQueryResponse rsp

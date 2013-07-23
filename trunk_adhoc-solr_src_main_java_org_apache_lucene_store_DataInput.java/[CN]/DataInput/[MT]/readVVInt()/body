@@ -1,0 +1,4 @@
+{
+  int rtn=this.readVInt();
+  return VNumberic.unVInt(rtn);
+}

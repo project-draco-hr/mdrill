@@ -1,0 +1,5 @@
+{
+  ordSet=new SentinelIntSet(initialSize,-1);
+  groups=new ArrayList<String>(initialSize);
+  this.groupField=groupField;
+}

@@ -1,0 +1,10 @@
+{
+  float valSrcScore=1;
+  if (valSrcExpl != null) {
+    valSrcScore*=valSrcExpl.getValue();
+  }
+  Explanation exp=new Explanation(valSrcScore * subQueryExpl.getValue(),"custom score: product of:");
+  exp.addDetail(subQueryExpl);
+  exp.addDetail(valSrcExpl);
+  return exp;
+}

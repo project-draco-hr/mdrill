@@ -1,0 +1,10 @@
+{
+  if (params == null)   return new NamedList();
+  Iterator<String> it=params.getParameterNamesIterator();
+  NamedList nl=new NamedList();
+  while (it.hasNext()) {
+    String s=it.next();
+    nl.add(s,params.getParams(s));
+  }
+  return nl;
+}

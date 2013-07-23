@@ -1,0 +1,16 @@
+{
+  super.init(args);
+  NamedList def=null;
+  Object o=args.get("defaults");
+  if (o != null && o instanceof NamedList) {
+    def=(NamedList)o;
+  }
+ else {
+    def=args;
+  }
+  if (def.get(QueryParsing.DEFTYPE) == null) {
+    def=def.clone();
+    def.add(QueryParsing.DEFTYPE,DisMaxQParserPlugin.NAME);
+    defaults=SolrParams.toSolrParams(def);
+  }
+}

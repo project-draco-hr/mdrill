@@ -1,0 +1,4 @@
+HashSet<String> inputs
+String output
+String split
+String submatch

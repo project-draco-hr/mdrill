@@ -1,0 +1,40 @@
+{
+  if (nd.getNodeType() != Node.ELEMENT_NODE)   return;
+  final String type=nd.getNodeName();
+  final String name=getAttr(nd,"name");
+  Object val=null;
+  if ("lst".equals(type)) {
+    val=childNodesToNamedList(nd);
+  }
+ else   if ("arr".equals(type)) {
+    val=childNodesToList(nd);
+  }
+ else {
+    final String textValue=getText(nd);
+    try {
+      if ("str".equals(type)) {
+        val=textValue;
+      }
+ else       if ("int".equals(type)) {
+        val=Integer.valueOf(textValue);
+      }
+ else       if ("long".equals(type)) {
+        val=Long.valueOf(textValue);
+      }
+ else       if ("float".equals(type)) {
+        val=Float.valueOf(textValue);
+      }
+ else       if ("double".equals(type)) {
+        val=Double.valueOf(textValue);
+      }
+ else       if ("bool".equals(type)) {
+        val=StrUtils.parseBool(textValue);
+      }
+    }
+ catch (    NumberFormatException nfe) {
+      throw new SolrException(SolrException.ErrorCode.SERVER_ERROR,"Value " + (null != name ? ("of '" + name + "' ") : "") + "can not be parsed as '"+ type+ "': \""+ textValue+ "\"",nfe);
+    }
+  }
+  if (nlst != null)   nlst.add(name,val);
+  if (arr != null)   arr.add(val);
+}

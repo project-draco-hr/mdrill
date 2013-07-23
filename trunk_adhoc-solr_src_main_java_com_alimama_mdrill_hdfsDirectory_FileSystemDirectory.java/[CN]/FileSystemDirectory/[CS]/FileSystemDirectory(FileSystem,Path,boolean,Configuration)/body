@@ -1,0 +1,20 @@
+{
+  this.fs=fs;
+  this.directory=directory;
+  this.ioFileBufferSize=conf.getInt("io.file.buffer.size",4096);
+  if (create) {
+    create();
+  }
+  boolean isDir=false;
+  try {
+    FileStatus status=fs.getFileStatus(directory);
+    if (status != null) {
+      isDir=status.isDir();
+    }
+  }
+ catch (  IOException e) {
+  }
+  if (!isDir) {
+    throw new IOException(directory + " is not a directory");
+  }
+}

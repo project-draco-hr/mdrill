@@ -1,0 +1,20 @@
+{
+  boolean found=false;
+  if (source != null && from != null) {
+    for (int i=0; i < search.length; i++) {
+      if (source.endsWith(search[i])) {
+        if ((search[i].length() + 1) <= from.length()) {
+          boolean test=isVowel(sb.charAt(sb.length() - (search[i].length() + 1)));
+          if (test == vowel) {
+            sb.delete(sb.length() - search[i].length(),sb.length());
+            modified=true;
+            found=true;
+            setStrings();
+            break;
+          }
+        }
+      }
+    }
+  }
+  return found;
+}

@@ -1,0 +1,4 @@
+ShardRequest sreq
+String shard
+ModifiableSolrParams params
+int depth

@@ -1,0 +1,3 @@
+IndexReader reader
+Directory dir
+String key

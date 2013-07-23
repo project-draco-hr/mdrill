@@ -1,0 +1,7 @@
+{
+  item=f;
+  contentType=item.getContentType();
+  name=item.getName();
+  sourceInfo=item.getFieldName();
+  size=item.getSize();
+}

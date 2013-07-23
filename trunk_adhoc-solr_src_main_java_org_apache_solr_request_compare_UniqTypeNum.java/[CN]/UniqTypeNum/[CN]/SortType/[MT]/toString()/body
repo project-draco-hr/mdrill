@@ -1,0 +1,3 @@
+{
+  return "SortType [sortFieldNum=" + sortFieldNum + ", typeNum="+ typeNum+ ", typeEnum="+ typeEnum+ "]";
+}

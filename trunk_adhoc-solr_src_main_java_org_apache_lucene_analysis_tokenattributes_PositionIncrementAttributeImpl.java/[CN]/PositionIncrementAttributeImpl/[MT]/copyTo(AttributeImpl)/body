@@ -1,0 +1,4 @@
+{
+  PositionIncrementAttribute t=(PositionIncrementAttribute)target;
+  t.setPositionIncrement(positionIncrement);
+}

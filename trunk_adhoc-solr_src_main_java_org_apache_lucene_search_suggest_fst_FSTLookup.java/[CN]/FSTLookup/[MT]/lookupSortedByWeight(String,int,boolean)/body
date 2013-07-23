@@ -1,0 +1,28 @@
+{
+  final ArrayList<LookupResult> res=new ArrayList<LookupResult>(Math.min(10,num));
+  final StringBuilder output=new StringBuilder(key);
+  final int matchLength=key.length() - 1;
+  for (int i=0; i < rootArcs.length; i++) {
+    final FST.Arc<Object> rootArc=rootArcs[i];
+    final FST.Arc<Object> arc=new FST.Arc<Object>().copyFrom(rootArc);
+    if (descendWithPrefix(arc,key)) {
+      final float weight=rootArc.label / (float)buckets;
+      output.setLength(matchLength);
+      if (collect(res,num,weight,output,arc) && !collectAll) {
+        if (exactMatchFirst) {
+          if (!checkExistingAndReorder(res,key)) {
+            Float exactMatchWeight=getExactMatchStartingFromRootArc(i,key);
+            if (exactMatchWeight != null) {
+              while (res.size() >= num) {
+                res.remove(res.size() - 1);
+              }
+              res.add(0,new LookupResult(key,exactMatchWeight));
+            }
+          }
+        }
+        break;
+      }
+    }
+  }
+  return res;
+}

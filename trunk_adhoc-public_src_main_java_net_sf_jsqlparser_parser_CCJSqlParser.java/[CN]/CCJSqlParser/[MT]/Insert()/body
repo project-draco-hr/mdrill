@@ -1,0 +1,94 @@
+{
+  Insert insert=new Insert();
+  Table table=null;
+  Column tableColumn=null;
+  List columns=new ArrayList();
+  List primaryExpList=new ArrayList();
+  ItemsList itemsList=null;
+  Expression exp=null;
+  jj_consume_token(K_INSERT);
+switch ((jj_ntk == -1) ? jj_ntk() : jj_ntk) {
+case K_INTO:
+    jj_consume_token(K_INTO);
+  break;
+default :
+jj_la1[10]=jj_gen;
+;
+}
+table=Table();
+if (jj_2_2(2)) {
+jj_consume_token(79);
+tableColumn=Column();
+columns.add(tableColumn);
+label_5: while (true) {
+switch ((jj_ntk == -1) ? jj_ntk() : jj_ntk) {
+case 78:
+;
+break;
+default :
+jj_la1[11]=jj_gen;
+break label_5;
+}
+jj_consume_token(78);
+tableColumn=Column();
+columns.add(tableColumn);
+}
+jj_consume_token(80);
+}
+ else {
+;
+}
+switch ((jj_ntk == -1) ? jj_ntk() : jj_ntk) {
+case K_VALUES:
+jj_consume_token(K_VALUES);
+jj_consume_token(79);
+exp=SimpleExpression();
+primaryExpList.add(exp);
+label_6: while (true) {
+switch ((jj_ntk == -1) ? jj_ntk() : jj_ntk) {
+case 78:
+;
+break;
+default :
+jj_la1[12]=jj_gen;
+break label_6;
+}
+jj_consume_token(78);
+exp=SimpleExpression();
+primaryExpList.add(exp);
+}
+jj_consume_token(80);
+itemsList=new ExpressionList(primaryExpList);
+break;
+case K_SELECT:
+case 79:
+if (jj_2_3(2)) {
+jj_consume_token(79);
+}
+ else {
+;
+}
+insert.setUseValues(false);
+itemsList=SubSelect();
+switch ((jj_ntk == -1) ? jj_ntk() : jj_ntk) {
+case 80:
+jj_consume_token(80);
+break;
+default :
+jj_la1[13]=jj_gen;
+;
+}
+break;
+default :
+jj_la1[14]=jj_gen;
+jj_consume_token(-1);
+throw new ParseException();
+}
+insert.setItemsList(itemsList);
+insert.setTable(table);
+if (columns.size() > 0) insert.setColumns(columns);
+{
+if (true) return insert;
+}
+throw new Error("Missing return statement in function");
+}

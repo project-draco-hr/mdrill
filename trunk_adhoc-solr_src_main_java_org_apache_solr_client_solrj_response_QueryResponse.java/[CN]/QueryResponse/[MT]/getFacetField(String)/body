@@ -1,0 +1,7 @@
+{
+  if (_facetFields == null)   return null;
+  for (  FacetField f : _facetFields) {
+    if (f.getName().equals(name))     return f;
+  }
+  return null;
+}

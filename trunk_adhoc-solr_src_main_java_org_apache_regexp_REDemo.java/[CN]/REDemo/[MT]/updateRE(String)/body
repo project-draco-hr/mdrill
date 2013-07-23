@@ -1,0 +1,17 @@
+{
+  try {
+    r.setProgram(compiler.compile(expr));
+    CharArrayWriter w=new CharArrayWriter();
+    compiler.dumpProgram(new PrintWriter(w));
+    sayRE(w.toString());
+    System.out.println(w);
+  }
+ catch (  Exception e) {
+    r.setProgram(null);
+    sayRE(throwableToString(e));
+  }
+catch (  Throwable t) {
+    r.setProgram(null);
+    sayRE(throwableToString(t));
+  }
+}

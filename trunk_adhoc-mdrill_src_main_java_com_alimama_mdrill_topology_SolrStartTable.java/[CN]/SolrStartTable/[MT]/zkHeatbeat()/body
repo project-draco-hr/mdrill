@@ -1,0 +1,17 @@
+{
+  try {
+    String hdfsforder=(this.isMergeServer) ? "mergerServer" : IndexUtils.getHdfsForder(taskIndex);
+    Integer bindport=this.getBindPort();
+    Long hbtime=statcollect.getLastTime();
+    HashMap<String,ShardCount> daystat=new HashMap<String,SolrInfo.ShardCount>();
+    daystat.putAll(this.partstat.getSmallestDaycount());
+    daystat.putAll(this.partstat.getBiggestDaycount());
+    SolrInfo info=new SolrInfo(this.isRealTime,localSolrPath.toString(),hdfsIndexpath.toString(),hdfsforder,bindport,statcollect.getStat(),this.partstat.getPartioncount(),daystat,statcollect.getSetupTime(),hbtime,this.isMergeServer);
+    LOG.info("higolog zkHeatbeat " + this.tablename + ",info:"+ info.toString());
+    Worker.getCluster().higo_heartbeat(this.tablename,this.taskid,info);
+  }
+ catch (  Exception e) {
+    LOG.error(StormUtils.stringify_error(e));
+    errorCollect.setException(e);
+  }
+}

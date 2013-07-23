@@ -1,0 +1,13 @@
+{
+  StringBuffer newSql=new StringBuffer(sql);
+  int paramLoc=1;
+  while (getCharIndexFromSqlByParamLocation(sql,'?',paramLoc) > 0) {
+    if (parameters.containsKey(paramLoc)) {
+      int tt=getCharIndexFromSqlByParamLocation(newSql.toString(),'?',1);
+      newSql.deleteCharAt(tt);
+      newSql.insert(tt,parameters.get(paramLoc));
+    }
+    paramLoc++;
+  }
+  return newSql.toString();
+}

@@ -1,0 +1,10 @@
+{
+  IndexReader result=null;
+  if (sourceLocation != null) {
+    result=this.reader;
+  }
+ else {
+    result=reader;
+  }
+  return result;
+}

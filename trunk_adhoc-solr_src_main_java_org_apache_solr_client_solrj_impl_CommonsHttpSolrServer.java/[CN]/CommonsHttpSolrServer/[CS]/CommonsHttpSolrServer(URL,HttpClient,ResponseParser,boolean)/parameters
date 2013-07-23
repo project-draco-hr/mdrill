@@ -1,0 +1,4 @@
+URL baseURL
+HttpClient client
+ResponseParser parser
+boolean useMultiPartPost

@@ -1,0 +1,10 @@
+{
+  if (isTopologyActive(nimbus.getStormClusterState(),topologyName) == !bActive) {
+    if (bActive) {
+      throw new NotAliveException(topologyName + " is not alive");
+    }
+ else {
+      throw new AlreadyAliveException(topologyName + " is already active");
+    }
+  }
+}

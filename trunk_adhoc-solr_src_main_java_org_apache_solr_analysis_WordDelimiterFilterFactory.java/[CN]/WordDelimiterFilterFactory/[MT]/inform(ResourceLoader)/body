@@ -1,0 +1,26 @@
+{
+  String wordFiles=args.get(PROTECTED_TOKENS);
+  if (wordFiles != null) {
+    try {
+      protectedWords=getWordSet(loader,wordFiles,false);
+    }
+ catch (    IOException e) {
+      throw new RuntimeException(e);
+    }
+  }
+  String types=args.get(TYPES);
+  if (types != null) {
+    try {
+      List<String> files=StrUtils.splitFileNames(types);
+      List<String> wlist=new ArrayList<String>();
+      for (      String file : files) {
+        List<String> lines=loader.getLines(file.trim());
+        wlist.addAll(lines);
+      }
+      typeTable=parseTypes(wlist);
+    }
+ catch (    IOException e) {
+      throw new RuntimeException(e);
+    }
+  }
+}

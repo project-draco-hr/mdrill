@@ -1,0 +1,5 @@
+{
+  this.attSource=attSource;
+  this.termAtt=attSource.getAttribute(CharTermAttribute.class);
+  this.offsetAtt=attSource.getAttribute(OffsetAttribute.class);
+}

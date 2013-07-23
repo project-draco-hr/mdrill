@@ -1,0 +1,7 @@
+{
+  Path l=this.links.remove(from);
+  if (l != null) {
+    this.links.put(to,l);
+  }
+  fs.rename(new Path(directory,from),new Path(directory,to));
+}

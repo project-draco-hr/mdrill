@@ -1,0 +1,17 @@
+{
+  super.format(d,toAppendTo,pos);
+  long millis=d.getTime() % 1000l;
+  if (0L == millis) {
+    return toAppendTo;
+  }
+  if (millis < 0L) {
+    millis+=1000L;
+  }
+  int posBegin=toAppendTo.length();
+  toAppendTo.append(millisFormat.format(millis / 1000d));
+  if (DateFormat.MILLISECOND_FIELD == pos.getField()) {
+    pos.setBeginIndex(posBegin);
+    pos.setEndIndex(toAppendTo.length());
+  }
+  return toAppendTo;
+}

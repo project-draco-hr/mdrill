@@ -1,0 +1,117 @@
+{
+  _facetQuery=new LinkedHashMap<String,Integer>();
+  NamedList<Integer> fq=(NamedList<Integer>)info.get("facet_queries");
+  if (fq != null) {
+    for (    Map.Entry<String,Integer> entry : fq) {
+      _facetQuery.put(entry.getKey(),entry.getValue());
+    }
+  }
+  NamedList<NamedList<Object>> ff=(NamedList<NamedList<Object>>)info.get("facet_fields");
+  if (ff != null) {
+    _facetFields=new ArrayList<FacetField>(ff.size());
+    _limitingFacets=new ArrayList<FacetField>(ff.size());
+    long minsize=_results == null ? Long.MAX_VALUE : _results.getNumFound();
+    for (    Map.Entry<String,NamedList<Object>> facet : ff) {
+      FacetField f=new FacetField(facet.getKey());
+      if (facet.getKey().equals("solrCorssFields_s")) {
+        int count1=0;
+        for (        Map.Entry<String,Object> entry : facet.getValue()) {
+          NamedList<Object> nl=(NamedList<Object>)entry.getValue();
+          if (count1 == 0) {
+            if (nl.get("recordcount") != null) {
+              long c=((Number)nl.get("recordcount")).longValue();
+              f.setTotal(c);
+            }
+          }
+ else {
+            int count2=0;
+            long count=0;
+            ArrayList<String> ext=new ArrayList<String>();
+            for (            Map.Entry<String,Object> entry2 : nl) {
+              if (count2 == 0) {
+                count=((Number)(nl.get("count"))).longValue();
+              }
+ else {
+                if (entry2.getValue() instanceof Number) {
+                  ext.add(entry2.getKey() + "," + ((Number)(entry2.getValue())).intValue());
+                }
+ else                 if (entry2.getValue() instanceof NamedList) {
+                  String name=entry2.getKey();
+                  NamedList<Number> nl3=(NamedList<Number>)entry2.getValue();
+                  double sum=((Number)(nl3.get("sum",0d))).doubleValue();
+                  double max=((Number)(nl3.get("max",0d))).doubleValue();
+                  double min=((Number)(nl3.get("min",0d))).doubleValue();
+                  double dist=((Number)(nl3.get("dist",0d))).doubleValue();
+                  double cnt=((Number)(nl3.get("cnt",0d))).doubleValue();
+                  ext.add(name + "," + sum+ ","+ max+ ","+ min+ ","+ dist+ ","+ cnt);
+                }
+              }
+              count2++;
+            }
+            f.add(entry.getKey(),count,ext);
+          }
+          count1++;
+        }
+      }
+ else {
+        for (        Map.Entry<String,Object> entry : facet.getValue()) {
+          Number value2=(Number)entry.getValue();
+          f.add(entry.getKey(),value2.longValue(),null);
+        }
+      }
+      _facetFields.add(f);
+      FacetField nl=f.getLimitingFields(minsize);
+      if (nl.getValueCount() > 0) {
+        _limitingFacets.add(nl);
+      }
+    }
+  }
+  NamedList<NamedList<Object>> df=(NamedList<NamedList<Object>>)info.get("facet_dates");
+  if (df != null) {
+    _facetDates=new ArrayList<FacetField>(df.size());
+    for (    Map.Entry<String,NamedList<Object>> facet : df) {
+      NamedList<Object> values=facet.getValue();
+      String gap=(String)values.get("gap");
+      Date end=(Date)values.get("end");
+      FacetField f=new FacetField(facet.getKey(),gap,end);
+      for (      Map.Entry<String,Object> entry : values) {
+        try {
+          f.add(entry.getKey(),Long.parseLong(entry.getValue().toString()),null);
+        }
+ catch (        NumberFormatException e) {
+        }
+      }
+      _facetDates.add(f);
+    }
+  }
+  NamedList<NamedList<Object>> rf=(NamedList<NamedList<Object>>)info.get("facet_ranges");
+  if (rf != null) {
+    _facetRanges=new ArrayList<RangeFacet>(rf.size());
+    for (    Map.Entry<String,NamedList<Object>> facet : rf) {
+      NamedList<Object> values=facet.getValue();
+      Object rawGap=values.get("gap");
+      RangeFacet rangeFacet;
+      if (rawGap instanceof Number) {
+        Number gap=(Number)rawGap;
+        Number start=(Number)values.get("start");
+        Number end=(Number)values.get("end");
+        Number before=(Number)values.get("before");
+        Number after=(Number)values.get("after");
+        rangeFacet=new RangeFacet.Numeric(facet.getKey(),start,end,gap,before,after);
+      }
+ else {
+        String gap=(String)rawGap;
+        Date start=(Date)values.get("start");
+        Date end=(Date)values.get("end");
+        Number before=(Number)values.get("before");
+        Number after=(Number)values.get("after");
+        rangeFacet=new RangeFacet.Date(facet.getKey(),start,end,gap,before,after);
+      }
+      NamedList<Integer> counts=(NamedList<Integer>)values.get("counts");
+      for (      Map.Entry<String,Integer> entry : counts) {
+        rangeFacet.addCount(entry.getKey(),entry.getValue());
+      }
+      _facetRanges.add(rangeFacet);
+    }
+  }
+}

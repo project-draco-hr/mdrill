@@ -1,0 +1,4 @@
+{
+  DocSet hasVal=searcher.getDocSet(new TermRangeQuery(fieldName,null,null,false,false));
+  return docs.andNotSize(hasVal);
+}

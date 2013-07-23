@@ -1,0 +1,4 @@
+UnvertFields ufs
+PriorityQueue<SelectDetailRow> res
+UnvertFields sortufs
+boolean isNumberVal

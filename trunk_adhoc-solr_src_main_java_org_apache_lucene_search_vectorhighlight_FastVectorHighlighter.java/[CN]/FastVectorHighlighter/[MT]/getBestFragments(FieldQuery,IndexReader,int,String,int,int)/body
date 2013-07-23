@@ -1,0 +1,4 @@
+{
+  FieldFragList fieldFragList=getFieldFragList(fragListBuilder,fieldQuery,reader,docId,fieldName,fragCharSize);
+  return fragmentsBuilder.createFragments(reader,docId,fieldName,fieldFragList,maxNumFragments);
+}

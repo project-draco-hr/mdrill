@@ -1,0 +1,4 @@
+{
+  if (!spans.next())   return false;
+  return doNext();
+}

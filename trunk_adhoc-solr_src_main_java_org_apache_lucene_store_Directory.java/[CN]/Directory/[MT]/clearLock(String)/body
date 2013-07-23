@@ -1,0 +1,5 @@
+{
+  if (lockFactory != null) {
+    lockFactory.clearLock(name);
+  }
+}

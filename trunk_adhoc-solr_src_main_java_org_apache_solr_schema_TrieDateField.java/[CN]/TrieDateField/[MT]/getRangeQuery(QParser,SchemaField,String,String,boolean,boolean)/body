@@ -1,0 +1,3 @@
+{
+  return wrappedField.getRangeQuery(parser,field,min,max,minInclusive,maxInclusive);
+}

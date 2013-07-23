@@ -1,0 +1,8 @@
+{
+  if (cache.fileExists(name)) {
+    return cache.fileModified(name);
+  }
+ else {
+    return delegate.fileModified(name);
+  }
+}

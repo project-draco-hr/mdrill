@@ -1,0 +1,3 @@
+{
+  return getLines(resource,Charset.forName(encoding));
+}

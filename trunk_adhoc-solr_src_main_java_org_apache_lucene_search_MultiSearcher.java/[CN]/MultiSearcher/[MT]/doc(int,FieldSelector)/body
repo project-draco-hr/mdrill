@@ -1,0 +1,4 @@
+{
+  int i=subSearcher(n);
+  return searchables[i].doc(n - starts[i],fieldSelector);
+}

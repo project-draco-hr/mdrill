@@ -1,0 +1,21 @@
+{
+  if (VERBOSE_DELETES) {
+    return "gen=" + gen + " numTerms="+ numTermDeletes+ ", terms="+ terms+ ", queries="+ queries+ ", docIDs="+ docIDs+ ", bytesUsed="+ bytesUsed;
+  }
+ else {
+    String s="gen=" + gen;
+    if (numTermDeletes.get() != 0) {
+      s+=" " + numTermDeletes.get() + " deleted terms (unique count="+ terms.size()+ ")";
+    }
+    if (queries.size() != 0) {
+      s+=" " + queries.size() + " deleted queries";
+    }
+    if (docIDs.size() != 0) {
+      s+=" " + docIDs.size() + " deleted docIDs";
+    }
+    if (bytesUsed.get() != 0) {
+      s+=" bytesUsed=" + bytesUsed.get();
+    }
+    return s;
+  }
+}

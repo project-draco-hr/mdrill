@@ -1,0 +1,23 @@
+{
+  parent.onIndexOutputClosed(this);
+  if (isOpen) {
+    boolean success=false;
+    try {
+      super.close();
+      success=true;
+    }
+  finally {
+      isOpen=false;
+      if (!success) {
+        try {
+          file.close();
+        }
+ catch (        Throwable t) {
+        }
+      }
+ else {
+        file.close();
+      }
+    }
+  }
+}

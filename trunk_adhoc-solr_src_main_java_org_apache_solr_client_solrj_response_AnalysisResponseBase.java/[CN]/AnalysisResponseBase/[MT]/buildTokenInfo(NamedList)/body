@@ -1,0 +1,10 @@
+{
+  String text=(String)tokenNL.get("text");
+  String rawText=(String)tokenNL.get("rawText");
+  String type=(String)tokenNL.get("type");
+  int start=(Integer)tokenNL.get("start");
+  int end=(Integer)tokenNL.get("end");
+  int position=(Integer)tokenNL.get("position");
+  Boolean match=(Boolean)tokenNL.get("match");
+  return new TokenInfo(text,rawText,type,start,end,position,(match == null ? false : match));
+}

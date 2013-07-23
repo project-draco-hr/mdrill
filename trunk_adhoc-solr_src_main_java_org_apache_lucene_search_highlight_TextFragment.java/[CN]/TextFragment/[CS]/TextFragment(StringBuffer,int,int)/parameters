@@ -1,0 +1,3 @@
+StringBuffer markedUpText
+int textStartPos
+int fragNum

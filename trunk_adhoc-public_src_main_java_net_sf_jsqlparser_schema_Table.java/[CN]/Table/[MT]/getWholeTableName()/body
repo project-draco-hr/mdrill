@@ -1,0 +1,13 @@
+{
+  String tableWholeName=null;
+  if (name == null) {
+    return null;
+  }
+  if (schemaName != null) {
+    tableWholeName=schemaName + "." + name;
+  }
+ else {
+    tableWholeName=name;
+  }
+  return tableWholeName;
+}

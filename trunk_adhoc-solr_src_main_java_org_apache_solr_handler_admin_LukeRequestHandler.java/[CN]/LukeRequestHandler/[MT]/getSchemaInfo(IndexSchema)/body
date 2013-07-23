@@ -1,0 +1,29 @@
+{
+  Map<String,List<String>> typeusemap=new HashMap<String,List<String>>();
+  SimpleOrderedMap<Object> fields=new SimpleOrderedMap<Object>();
+  SchemaField uniqueField=schema.getUniqueKeyField();
+  for (  SchemaField f : schema.getFields().values()) {
+    populateFieldInfo(schema,typeusemap,fields,uniqueField,f);
+  }
+  SimpleOrderedMap<Object> dynamicFields=new SimpleOrderedMap<Object>();
+  for (  SchemaField f : schema.getDynamicFieldPrototypes()) {
+    populateFieldInfo(schema,typeusemap,dynamicFields,uniqueField,f);
+  }
+  SimpleOrderedMap<Object> types=new SimpleOrderedMap<Object>();
+  for (  FieldType ft : schema.getFieldTypes().values()) {
+    SimpleOrderedMap<Object> field=new SimpleOrderedMap<Object>();
+    field.add("fields",typeusemap.get(ft.getTypeName()));
+    field.add("tokenized",ft.isTokenized());
+    field.add("className",ft.getClass().getName());
+    field.add("indexAnalyzer",getAnalyzerInfo(ft.getAnalyzer()));
+    field.add("queryAnalyzer",getAnalyzerInfo(ft.getQueryAnalyzer()));
+    types.add(ft.getTypeName(),field);
+  }
+  SimpleOrderedMap<Object> finfo=new SimpleOrderedMap<Object>();
+  finfo.add("fields",fields);
+  finfo.add("dynamicFields",dynamicFields);
+  finfo.add("uniqueKeyField",null == uniqueField ? null : uniqueField.getName());
+  finfo.add("defaultSearchField",schema.getDefaultSearchFieldName());
+  finfo.add("types",types);
+  return finfo;
+}

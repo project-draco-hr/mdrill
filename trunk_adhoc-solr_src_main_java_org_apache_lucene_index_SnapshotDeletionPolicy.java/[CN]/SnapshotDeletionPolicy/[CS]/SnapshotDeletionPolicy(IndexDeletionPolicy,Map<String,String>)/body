@@ -1,0 +1,8 @@
+{
+  this(primary);
+  if (snapshotsInfo != null) {
+    for (    Entry<String,String> e : snapshotsInfo.entrySet()) {
+      registerSnapshotInfo(e.getKey(),e.getValue(),null);
+    }
+  }
+}

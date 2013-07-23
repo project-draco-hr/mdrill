@@ -1,0 +1,10 @@
+{
+  LOG.info("Halting process: " + msg);
+  try {
+    Thread.sleep(1000);
+  }
+ catch (  InterruptedException e) {
+    LOG.error("halt_process",e);
+  }
+  Runtime.getRuntime().halt(val);
+}

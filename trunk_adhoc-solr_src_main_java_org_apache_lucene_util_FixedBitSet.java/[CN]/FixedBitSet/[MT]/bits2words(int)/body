@@ -1,0 +1,7 @@
+{
+  int numLong=numBits >>> 6;
+  if ((numBits & 63) != 0) {
+    numLong++;
+  }
+  return numLong;
+}

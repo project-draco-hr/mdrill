@@ -1,0 +1,13 @@
+{
+  Iterator<Map.Entry<K,V>> i=(size > 0) ? entrySet0().iterator() : null;
+  s.defaultWriteObject();
+  s.writeInt(table.length);
+  s.writeInt(size);
+  if (i != null) {
+    while (i.hasNext()) {
+      Map.Entry<K,V> e=i.next();
+      s.writeObject(e.getKey());
+      s.writeObject(e.getValue());
+    }
+  }
+}

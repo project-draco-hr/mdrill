@@ -1,0 +1,3 @@
+{
+  return this.preSet.contains(g);
+}

@@ -1,0 +1,8 @@
+{
+  other.setNextReader(reader,docBase);
+  if (lastReader != null) {
+    cachedSegs.add(new SegStart(lastReader,lastDocBase,base + upto));
+  }
+  lastDocBase=docBase;
+  lastReader=reader;
+}

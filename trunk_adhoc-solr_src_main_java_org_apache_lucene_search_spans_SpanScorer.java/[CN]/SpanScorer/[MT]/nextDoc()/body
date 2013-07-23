@@ -1,0 +1,6 @@
+{
+  if (!setFreqCurrentDoc()) {
+    doc=NO_MORE_DOCS;
+  }
+  return doc;
+}

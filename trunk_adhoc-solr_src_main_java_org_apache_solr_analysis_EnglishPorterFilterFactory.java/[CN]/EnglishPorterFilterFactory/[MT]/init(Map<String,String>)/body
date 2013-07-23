@@ -1,0 +1,4 @@
+{
+  super.init(args);
+  warnDeprecated("use PorterStemFilterFactory (Porter1) or SnowballPorterFilterFactory with 'English' (Porter2) instead");
+}

@@ -1,0 +1,3 @@
+{
+  return LinkFSDirectory.readOnlyOpen(new File(path));
+}

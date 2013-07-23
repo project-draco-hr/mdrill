@@ -1,0 +1,10 @@
+{
+  try {
+    JettySolrRunner jetty=new JettySolrRunner("/solr",3456);
+    jetty.start();
+    Thread.sleep(5000);
+  }
+ catch (  Exception ex) {
+    ex.printStackTrace();
+  }
+}

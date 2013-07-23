@@ -1,0 +1,41 @@
+{
+  ensureOpen();
+  try {
+    if (infoStream != null)     message("flush at addIndexes(IndexReader...)");
+    flush(false,true);
+    String mergedName=newSegmentName();
+    SegmentMerger merger=new SegmentMerger(directory,config.getTermIndexInterval(),mergedName,null,payloadProcessorProvider,((FieldInfos)docWriter.getFieldInfos().clone()));
+    for (    IndexReader reader : readers)     merger.add(reader);
+    int docCount=merger.merge();
+    SegmentInfo info=new SegmentInfo(mergedName,docCount,directory,false,true,merger.fieldInfos().hasProx(),merger.fieldInfos().hasVectors());
+    setDiagnostics(info,"addIndexes(IndexReader...)");
+    boolean useCompoundFile;
+synchronized (this) {
+      if (stopMerges) {
+        deleter.deleteNewFiles(info.files());
+        return;
+      }
+      ensureOpen();
+      useCompoundFile=mergePolicy.useCompoundFile(segmentInfos,info);
+    }
+    if (useCompoundFile) {
+      merger.createCompoundFile(mergedName + ".cfs",mergedName + "." + IndexFileNames.COMPOUND_FILE_EXTENSION_POS,info);
+synchronized (this) {
+        deleter.deleteNewFiles(info.files());
+      }
+      info.setUseCompoundFile(true);
+    }
+synchronized (this) {
+      if (stopMerges) {
+        deleter.deleteNewFiles(info.files());
+        return;
+      }
+      ensureOpen();
+      segmentInfos.add(info);
+      checkpoint();
+    }
+  }
+ catch (  OutOfMemoryError oom) {
+    handleOOM(oom,"addIndexes(IndexReader...)");
+  }
+}

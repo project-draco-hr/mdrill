@@ -1,0 +1,5 @@
+Version matchVersion
+String query
+String[] fields
+BooleanClause.Occur[] flags
+Analyzer analyzer

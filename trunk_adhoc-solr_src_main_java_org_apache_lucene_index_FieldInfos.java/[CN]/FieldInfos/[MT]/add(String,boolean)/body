@@ -1,0 +1,3 @@
+{
+  add(name,isIndexed,false,false,false,false);
+}

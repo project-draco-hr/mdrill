@@ -1,0 +1,7 @@
+{
+  if (type != BYTE && type != SHORT && type != INT && type != FLOAT && type != LONG && type != DOUBLE) {
+    throw new IllegalArgumentException("Missing value only works for numeric types");
+  }
+  this.missingValue=missingValue;
+  return this;
+}

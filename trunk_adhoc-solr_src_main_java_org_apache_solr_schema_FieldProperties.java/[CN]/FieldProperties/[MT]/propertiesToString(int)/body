@@ -1,0 +1,12 @@
+{
+  StringBuilder sb=new StringBuilder();
+  boolean first=true;
+  while (properties != 0) {
+    if (!first)     sb.append(',');
+    first=false;
+    int bitpos=Integer.numberOfTrailingZeros(properties);
+    sb.append(getPropertyName(1 << bitpos));
+    properties&=~(1 << bitpos);
+  }
+  return sb.toString();
+}

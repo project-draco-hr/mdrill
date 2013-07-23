@@ -1,0 +1,3 @@
+{
+  return getTags(params,HighlightParams.TAG_PRE,fieldName,DEFAULT_PRE_TAGS);
+}

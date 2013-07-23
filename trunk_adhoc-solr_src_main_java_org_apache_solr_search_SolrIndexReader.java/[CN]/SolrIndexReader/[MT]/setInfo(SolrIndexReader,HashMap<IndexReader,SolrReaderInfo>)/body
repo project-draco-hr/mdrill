@@ -1,0 +1,10 @@
+{
+  SolrReaderInfo info=map.get(target.getWrappedReader());
+  if (info == null)   info=new SolrReaderInfo(target.getWrappedReader());
+  target.info=info;
+  SolrIndexReader[] readers=target.getSequentialSubReaders();
+  if (readers == null)   return;
+  for (  SolrIndexReader r : readers) {
+    setInfo(r,map);
+  }
+}

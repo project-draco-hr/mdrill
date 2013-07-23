@@ -1,0 +1,3 @@
+{
+  return BYTES_PER_POSTING;
+}

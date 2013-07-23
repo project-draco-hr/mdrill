@@ -1,0 +1,13 @@
+{
+  int newSize=keys.length << 1;
+  int[] oldKeys=keys;
+  keys=new int[newSize];
+  if (emptyVal != 0)   Arrays.fill(keys,emptyVal);
+  for (int i=0; i < oldKeys.length; i++) {
+    int key=oldKeys[i];
+    if (key == emptyVal)     continue;
+    int newSlot=getSlot(key);
+    keys[newSlot]=key;
+  }
+  rehashCount=newSize - (newSize >> 2);
+}

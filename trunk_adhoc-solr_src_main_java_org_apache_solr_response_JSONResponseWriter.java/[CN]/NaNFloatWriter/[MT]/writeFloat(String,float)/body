@@ -1,0 +1,12 @@
+{
+  if (Float.isNaN(val)) {
+    writer.write(getNaN());
+  }
+ else   if (Float.isInfinite(val)) {
+    if (val < 0.0f)     writer.write('-');
+    writer.write(getInf());
+  }
+ else {
+    writeFloat(name,Float.toString(val));
+  }
+}

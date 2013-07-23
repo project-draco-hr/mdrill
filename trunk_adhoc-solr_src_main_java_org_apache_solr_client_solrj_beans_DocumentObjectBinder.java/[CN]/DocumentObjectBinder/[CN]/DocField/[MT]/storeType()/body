@@ -1,0 +1,55 @@
+{
+  if (field != null) {
+    type=field.getType();
+  }
+ else {
+    Class[] params=setter.getParameterTypes();
+    if (params.length != 1)     throw new RuntimeException("Invalid setter method. Must have one and only one parameter");
+    type=params[0];
+  }
+  if (type == Collection.class || type == List.class || type == ArrayList.class) {
+    type=Object.class;
+    isList=true;
+  }
+ else   if (type == byte[].class) {
+  }
+ else   if (type.isArray()) {
+    isArray=true;
+    type=type.getComponentType();
+  }
+ else   if (type == Map.class || type == HashMap.class) {
+    isContainedInMap=true;
+    type=Object.class;
+    if (field != null) {
+      if (field.getGenericType() instanceof ParameterizedType) {
+        ParameterizedType parameterizedType=(ParameterizedType)field.getGenericType();
+        Type[] types=parameterizedType.getActualTypeArguments();
+        if (types != null && types.length == 2 && types[0] == String.class) {
+          if (types[1] instanceof Class) {
+            if (types[1] == Collection.class || types[1] == List.class || types[1] == ArrayList.class) {
+              type=Object.class;
+              isList=true;
+            }
+ else {
+              type=(Class)types[1];
+            }
+          }
+ else           if (types[1] instanceof ParameterizedType) {
+            Type rawType=((ParameterizedType)types[1]).getRawType();
+            if (rawType == Collection.class || rawType == List.class || rawType == ArrayList.class) {
+              type=Object.class;
+              isList=true;
+            }
+          }
+ else           if (types[1] instanceof GenericArrayType) {
+            type=(Class)((GenericArrayType)types[1]).getGenericComponentType();
+            isArray=true;
+          }
+ else {
+            throw new RuntimeException("Allowed type for values of mapping a dynamicField are : " + "Object, Object[] and List");
+          }
+        }
+      }
+    }
+  }
+}

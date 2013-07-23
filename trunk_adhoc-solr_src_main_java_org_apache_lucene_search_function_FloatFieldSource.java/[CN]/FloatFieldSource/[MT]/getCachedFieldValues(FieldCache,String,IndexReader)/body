@@ -1,0 +1,15 @@
+{
+  final float[] arr=cache.getFloats(reader,field,parser);
+  return new DocValues(){
+    @Override public float floatVal(    int doc){
+      return arr[doc];
+    }
+    @Override public String toString(    int doc){
+      return description() + '=' + arr[doc];
+    }
+    @Override Object getInnerArray(){
+      return arr;
+    }
+  }
+;
+}

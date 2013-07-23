@@ -1,0 +1,3 @@
+{
+  writeArray(name,Arrays.asList(val).iterator());
+}

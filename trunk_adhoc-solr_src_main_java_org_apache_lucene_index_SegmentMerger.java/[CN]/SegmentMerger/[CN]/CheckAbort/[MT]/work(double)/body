@@ -1,0 +1,7 @@
+{
+  workCount+=units;
+  if (workCount >= 10000.0) {
+    merge.checkAborted(dir);
+    workCount=0;
+  }
+}

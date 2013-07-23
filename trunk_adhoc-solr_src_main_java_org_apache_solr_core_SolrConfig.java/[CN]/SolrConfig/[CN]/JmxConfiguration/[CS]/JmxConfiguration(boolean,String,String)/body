@@ -1,0 +1,5 @@
+{
+  this.enabled=enabled;
+  this.agentId=agentId;
+  this.serviceUrl=serviceUrl;
+}

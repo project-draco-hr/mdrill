@@ -1,0 +1,20 @@
+{
+  this.spout=_spout;
+  this.storm_conf=_storm_conf;
+  this.puller=_puller;
+  this.zkActive=_storm_active_atom;
+  this.user_context=_user_context;
+  this.task_stats=_task_stats;
+  Integer task_id=topology_context.getThisTaskId();
+  this.component_id=topology_context.getThisComponentId();
+  this.max_spout_pending=StormUtils.parseInt(storm_conf.get(Config.TOPOLOGY_MAX_SPOUT_PENDING));
+  this.deserializer=new KryoTupleDeserializer(storm_conf,topology_context);
+  this.event_queue=new ConcurrentLinkedQueue<Runnable>();
+  int message_timeout_secs=StormUtils.parseInt(storm_conf.get(Config.TOPOLOGY_MESSAGE_TIMEOUT_SECS));
+  this.pending=new TimeCacheMap(message_timeout_secs,new SpoutTimeCallBack<Object,Object>(event_queue,spout,storm_conf,task_stats));
+  this.output_collector=new SpoutCollector(task_id,spout,task_stats,sendTargets,storm_conf,_transfer_fn,pending,topology_context,event_queue);
+  LOG.info("Opening spout " + component_id + ":"+ task_id);
+  this.spout.open(storm_conf,user_context,new SpoutOutputCollector(output_collector));
+  LOG.info("Opend spout " + component_id + ":"+ task_id);
+  this.isRecvRun=new AtomicBoolean();
+}

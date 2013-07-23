@@ -1,0 +1,3 @@
+String name
+TokenStream tokenStream
+TermVector termVector

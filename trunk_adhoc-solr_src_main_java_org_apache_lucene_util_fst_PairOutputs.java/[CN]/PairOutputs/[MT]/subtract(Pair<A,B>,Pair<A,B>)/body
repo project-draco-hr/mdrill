@@ -1,0 +1,3 @@
+{
+  return get(outputs1.subtract(output.output1,inc.output1),outputs2.subtract(output.output2,inc.output2));
+}

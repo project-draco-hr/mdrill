@@ -1,0 +1,8 @@
+{
+  String taskName=TasksCommon.get_readable_name(topologyContext);
+  EvenSampler statSample=StormConfig.mk_stats_sampler(stormConf);
+  Map<String,Map<String,MkGrouper>> streamComponentGrouper=TasksCommon.outbound_components(topologyContext);
+  Map<Integer,String> task2Component=topologyContext.getTaskToComponent();
+  Map<String,List<Integer>> component2Tasks=StormUtils.reverse_map(task2Component);
+  return new TaskSendTargets(stormConf,taskName,streamComponentGrouper,topologyContext,statSample,component2Tasks,taskStats);
+}

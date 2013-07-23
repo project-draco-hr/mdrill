@@ -1,0 +1,9 @@
+Configuration conf
+int _shards
+String _solrHome
+String _inputBase
+int _dayplus
+int _maxRunDays
+String _startday
+String _filetype
+String type

@@ -1,0 +1,20 @@
+{
+  Map<String,Int> termFreqMap=new HashMap<String,Int>();
+  for (int i=0; i < fieldNames.length; i++) {
+    String fieldName=fieldNames[i];
+    TermFreqVector vector=ir.getTermFreqVector(docNum,fieldName);
+    if (vector == null) {
+      Document d=ir.document(docNum);
+      String text[]=d.getValues(fieldName);
+      if (text != null) {
+        for (int j=0; j < text.length; j++) {
+          addTermFrequencies(new StringReader(text[j]),termFreqMap,fieldName);
+        }
+      }
+    }
+ else {
+      addTermFrequencies(termFreqMap,vector);
+    }
+  }
+  return createQueue(termFreqMap);
+}

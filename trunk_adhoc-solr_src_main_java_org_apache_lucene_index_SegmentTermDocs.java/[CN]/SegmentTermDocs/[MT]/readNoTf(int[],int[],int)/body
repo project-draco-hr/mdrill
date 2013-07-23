@@ -1,0 +1,13 @@
+{
+  int i=0;
+  while (i < length && count < df) {
+    doc+=this.readdoccode();
+    count++;
+    if (deletedDocs == null || !deletedDocs.get(doc)) {
+      docs[i]=doc;
+      freqs[i]=1;
+      ++i;
+    }
+  }
+  return i;
+}

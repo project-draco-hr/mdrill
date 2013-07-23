@@ -1,0 +1,4 @@
+String fieldName
+boolean reverse
+boolean nullLast
+boolean nullFirst

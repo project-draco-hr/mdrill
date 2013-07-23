@@ -1,0 +1,5 @@
+Directory directory
+IndexDeletionPolicy policy
+SegmentInfos segmentInfos
+PrintStream infoStream
+IndexWriter writer

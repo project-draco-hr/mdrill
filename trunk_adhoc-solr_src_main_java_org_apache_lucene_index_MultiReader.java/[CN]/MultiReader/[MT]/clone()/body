@@ -1,0 +1,8 @@
+{
+  try {
+    return doOpenIfChanged(true);
+  }
+ catch (  Exception ex) {
+    throw new RuntimeException(ex);
+  }
+}

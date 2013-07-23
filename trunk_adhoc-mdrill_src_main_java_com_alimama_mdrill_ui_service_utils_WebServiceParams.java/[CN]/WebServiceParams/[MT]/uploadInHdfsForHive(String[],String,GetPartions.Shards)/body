@@ -1,0 +1,23 @@
+{
+  Date now=new Date();
+  String upFile="grep_" + now.getTime();
+  String upFolder="/group/taobao/external/p4p/p4padhoc/tmp/selectin/safedir/" + upFile;
+  String fqStr="inhdfs_udf(" + key + ",'"+ upFolder+ "')<>'-'";
+  try {
+    Map stormconf=Utils.readStormConfig();
+    String hdpConf=(String)stormconf.get("hadoop.conf.dir");
+    Configuration conf=new Configuration();
+    HadoopBaseUtils.grabConfiguration(hdpConf,conf);
+    FileSystem fs=FileSystem.get(conf);
+    IndexUtils.truncate(fs,new Path(upFolder));
+    FSDataOutputStream output=fs.create(new Path(upFolder),true);
+    for (    String s : listStrs) {
+      if (s != null && !s.equals(""))       output.write(new String(s + "\n").getBytes());
+    }
+    output.close();
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
+  return fqStr;
+}

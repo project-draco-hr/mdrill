@@ -1,0 +1,9 @@
+{
+  Map<Object,Double> rtn=new HashMap<Object,Double>();
+  if (map != null) {
+    for (    Entry<Object,Pair> e : map.entrySet()) {
+      rtn.put(e.getKey(),extract_avg(e.getValue()));
+    }
+  }
+  return rtn;
+}

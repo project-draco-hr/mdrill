@@ -1,0 +1,5 @@
+{
+  Class<? extends Encoder> clazz=Class.forName(name).asSubclass(Encoder.class);
+  registry.put(name.toUpperCase(Locale.ENGLISH),clazz);
+  return clazz;
+}

@@ -1,0 +1,4 @@
+{
+  this.tokens=tokens;
+  tokenIterator=tokens.iterator();
+}

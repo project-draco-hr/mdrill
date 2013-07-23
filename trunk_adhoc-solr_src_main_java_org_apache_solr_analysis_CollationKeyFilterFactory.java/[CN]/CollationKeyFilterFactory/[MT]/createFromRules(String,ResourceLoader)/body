@@ -1,0 +1,17 @@
+{
+  InputStream input=null;
+  try {
+    input=loader.openResource(fileName);
+    String rules=IOUtils.toString(input,"UTF-8");
+    return new RuleBasedCollator(rules);
+  }
+ catch (  IOException e) {
+    throw new RuntimeException(e);
+  }
+catch (  ParseException e) {
+    throw new RuntimeException(e);
+  }
+ finally {
+    IOUtils.closeQuietly(input);
+  }
+}

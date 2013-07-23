@@ -1,0 +1,6 @@
+{
+  grow(otherLength);
+  System.arraycopy(otherChars,otherOffset,this.chars,0,otherLength);
+  this.offset=0;
+  this.length=otherLength;
+}

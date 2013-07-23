@@ -1,0 +1,5 @@
+AtomicBoolean active
+Map conf
+StormClusterState zkCluster
+String topologyId
+AtomicBoolean zkActive

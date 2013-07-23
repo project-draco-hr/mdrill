@@ -1,0 +1,33 @@
+{
+  formatters.clear();
+  encoders.clear();
+  fragmenters.clear();
+  fragListBuilders.clear();
+  fragmentsBuilders.clear();
+  boundaryScanners.clear();
+  SolrFragmenter frag=solrCore.initPlugins(info.getChildren("fragmenter"),fragmenters,SolrFragmenter.class,null);
+  if (frag == null)   frag=new GapFragmenter();
+  fragmenters.put("",frag);
+  fragmenters.put(null,frag);
+  SolrFormatter fmt=solrCore.initPlugins(info.getChildren("formatter"),formatters,SolrFormatter.class,null);
+  if (fmt == null)   fmt=new HtmlFormatter();
+  formatters.put("",fmt);
+  formatters.put(null,fmt);
+  SolrEncoder enc=solrCore.initPlugins(info.getChildren("encoder"),encoders,SolrEncoder.class,null);
+  if (enc == null)   enc=new DefaultEncoder();
+  encoders.put("",enc);
+  encoders.put(null,enc);
+  SolrFragListBuilder fragListBuilder=solrCore.initPlugins(info.getChildren("fragListBuilder"),fragListBuilders,SolrFragListBuilder.class,null);
+  if (fragListBuilder == null)   fragListBuilder=new SimpleFragListBuilder();
+  fragListBuilders.put("",fragListBuilder);
+  fragListBuilders.put(null,fragListBuilder);
+  SolrFragmentsBuilder fragsBuilder=solrCore.initPlugins(info.getChildren("fragmentsBuilder"),fragmentsBuilders,SolrFragmentsBuilder.class,null);
+  if (fragsBuilder == null)   fragsBuilder=new ScoreOrderFragmentsBuilder();
+  fragmentsBuilders.put("",fragsBuilder);
+  fragmentsBuilders.put(null,fragsBuilder);
+  SolrBoundaryScanner boundaryScanner=solrCore.initPlugins(info.getChildren("boundaryScanner"),boundaryScanners,SolrBoundaryScanner.class,null);
+  if (boundaryScanner == null)   boundaryScanner=new SimpleBoundaryScanner();
+  boundaryScanners.put("",boundaryScanner);
+  boundaryScanners.put(null,boundaryScanner);
+  initialized=true;
+}

@@ -1,0 +1,6 @@
+String source
+String[] search
+String prefix
+boolean without
+String from
+String replace

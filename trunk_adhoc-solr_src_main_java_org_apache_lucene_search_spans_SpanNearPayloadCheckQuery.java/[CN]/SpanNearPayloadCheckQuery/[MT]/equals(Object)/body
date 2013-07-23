@@ -1,0 +1,6 @@
+{
+  if (this == o)   return true;
+  if (!(o instanceof SpanNearPayloadCheckQuery))   return false;
+  SpanNearPayloadCheckQuery other=(SpanNearPayloadCheckQuery)o;
+  return this.payloadToMatch.equals(other.payloadToMatch) && this.match.equals(other.match) && this.getBoost() == other.getBoost();
+}

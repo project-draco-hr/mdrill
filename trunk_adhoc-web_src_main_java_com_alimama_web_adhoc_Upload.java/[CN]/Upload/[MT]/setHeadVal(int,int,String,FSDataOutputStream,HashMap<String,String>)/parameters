@@ -1,0 +1,5 @@
+int readBytes
+int i
+String charset
+FSDataOutputStream out
+HashMap<String,String> params

@@ -1,0 +1,3 @@
+{
+  return "HostSlots [host=" + host + ", ports="+ ports+ "]";
+}

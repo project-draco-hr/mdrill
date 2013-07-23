@@ -1,0 +1,9 @@
+{
+  if (merged)   throw new IllegalStateException("Can't add extensions after merge has been called");
+  if (file == null)   throw new NullPointerException("file cannot be null");
+  if (!ids.add(file))   throw new IllegalArgumentException("File " + file + " already added");
+  FileEntry entry=new FileEntry();
+  entry.file=file;
+  entry.dir=dir;
+  entries.add(entry);
+}

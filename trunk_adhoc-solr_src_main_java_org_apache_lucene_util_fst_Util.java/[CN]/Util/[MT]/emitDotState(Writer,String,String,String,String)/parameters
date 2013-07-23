@@ -1,0 +1,5 @@
+Writer out
+String name
+String shape
+String color
+String label

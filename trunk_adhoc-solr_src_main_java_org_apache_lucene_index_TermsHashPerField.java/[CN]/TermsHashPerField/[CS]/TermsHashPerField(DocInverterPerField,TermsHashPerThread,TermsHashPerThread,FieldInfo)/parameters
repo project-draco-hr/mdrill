@@ -1,0 +1,4 @@
+DocInverterPerField docInverterPerField
+TermsHashPerThread perThread
+TermsHashPerThread nextPerThread
+FieldInfo fieldInfo

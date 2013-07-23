@@ -1,0 +1,7 @@
+{
+  int res[]=new int[len];
+  for (int i=0; i < len; i++) {
+    res[i]=indexOf(terms[i]);
+  }
+  return res;
+}

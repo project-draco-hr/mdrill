@@ -1,0 +1,4 @@
+SolrQueryRequest req
+SolrQueryResponse rsp
+SignatureUpdateProcessorFactory factory
+UpdateRequestProcessor next

@@ -1,0 +1,6 @@
+{
+  while (lastDocID < docID) {
+    fieldsWriter.skipDocument();
+    lastDocID++;
+  }
+}

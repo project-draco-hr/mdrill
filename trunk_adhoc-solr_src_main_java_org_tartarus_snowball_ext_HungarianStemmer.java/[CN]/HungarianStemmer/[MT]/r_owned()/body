@@ -1,0 +1,44 @@
+{
+  int among_var;
+  ket=cursor;
+  among_var=find_among_b(a_9,12);
+  if (among_var == 0) {
+    return false;
+  }
+  bra=cursor;
+  if (!r_R1()) {
+    return false;
+  }
+switch (among_var) {
+case 0:
+    return false;
+case 1:
+  slice_del();
+break;
+case 2:
+slice_from("e");
+break;
+case 3:
+slice_from("a");
+break;
+case 4:
+slice_del();
+break;
+case 5:
+slice_from("e");
+break;
+case 6:
+slice_from("a");
+break;
+case 7:
+slice_del();
+break;
+case 8:
+slice_from("e");
+break;
+case 9:
+slice_del();
+break;
+}
+return true;
+}

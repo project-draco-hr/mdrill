@@ -1,0 +1,10 @@
+{
+  final Tokenizer source=new IndicTokenizer(matchVersion,reader);
+  TokenStream result=new LowerCaseFilter(matchVersion,source);
+  if (!stemExclusionSet.isEmpty())   result=new KeywordMarkerFilter(result,stemExclusionSet);
+  result=new IndicNormalizationFilter(result);
+  result=new HindiNormalizationFilter(result);
+  result=new StopFilter(matchVersion,result,stopwords);
+  result=new HindiStemFilter(result);
+  return new TokenStreamComponents(source,result);
+}

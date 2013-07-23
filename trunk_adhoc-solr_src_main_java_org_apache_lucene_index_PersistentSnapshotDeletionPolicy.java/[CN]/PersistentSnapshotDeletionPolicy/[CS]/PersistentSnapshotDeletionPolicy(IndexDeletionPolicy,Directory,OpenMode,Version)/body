@@ -1,0 +1,20 @@
+{
+  super(primary,null);
+  writer=new IndexWriter(dir,new IndexWriterConfig(matchVersion,null).setOpenMode(mode));
+  if (mode != OpenMode.APPEND) {
+    writer.commit();
+  }
+  try {
+    for (    Entry<String,String> e : readSnapshotsInfo(dir).entrySet()) {
+      registerSnapshotInfo(e.getKey(),e.getValue(),null);
+    }
+  }
+ catch (  RuntimeException e) {
+    writer.close();
+    throw e;
+  }
+catch (  IOException e) {
+    writer.close();
+    throw e;
+  }
+}

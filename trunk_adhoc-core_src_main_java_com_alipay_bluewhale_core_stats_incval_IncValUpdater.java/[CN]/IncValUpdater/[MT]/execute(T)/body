@@ -1,0 +1,19 @@
+{
+  Map<Object,Long> curr=null;
+  if (args != null && args.length > 0) {
+    UpdateParams p=(UpdateParams)args[0];
+    if (p.curr != null) {
+      curr=(Map<Object,Long>)p.curr;
+    }
+ else {
+      curr=new HashMap<Object,Long>();
+    }
+    Object[] incArgs=p.args;
+    Long amt=1l;
+    if (incArgs.length > 1) {
+      amt=Long.parseLong(String.valueOf(incArgs[1]));
+    }
+    StatFunction.incr_val(curr,incArgs[0],amt);
+  }
+  return curr;
+}

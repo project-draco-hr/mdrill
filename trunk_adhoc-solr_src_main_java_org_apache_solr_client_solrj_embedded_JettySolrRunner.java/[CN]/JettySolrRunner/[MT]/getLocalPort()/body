@@ -1,0 +1,7 @@
+{
+  Connector[] conns=server.getConnectors();
+  if (0 == conns.length) {
+    throw new RuntimeException("Jetty Server has no Connectors");
+  }
+  return conns[0].getLocalPort();
+}

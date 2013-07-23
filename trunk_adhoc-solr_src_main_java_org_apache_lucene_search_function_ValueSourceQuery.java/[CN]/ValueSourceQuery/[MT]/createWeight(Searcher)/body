@@ -1,0 +1,3 @@
+{
+  return new ValueSourceQuery.ValueSourceWeight(searcher);
+}

@@ -1,0 +1,3 @@
+{
+  return "A test handler that runs some sanity checks on results";
+}

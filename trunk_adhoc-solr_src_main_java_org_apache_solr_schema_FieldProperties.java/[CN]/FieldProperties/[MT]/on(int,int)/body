@@ -1,0 +1,3 @@
+{
+  return (bitfield & props) != 0;
+}

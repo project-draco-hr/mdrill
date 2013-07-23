@@ -1,0 +1,4 @@
+Reader input
+char delimiter
+char replacement
+int skip

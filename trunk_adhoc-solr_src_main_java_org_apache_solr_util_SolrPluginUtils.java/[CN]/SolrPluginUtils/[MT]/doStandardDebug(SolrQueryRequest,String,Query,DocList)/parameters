@@ -1,0 +1,4 @@
+SolrQueryRequest req
+String userQuery
+Query query
+DocList results

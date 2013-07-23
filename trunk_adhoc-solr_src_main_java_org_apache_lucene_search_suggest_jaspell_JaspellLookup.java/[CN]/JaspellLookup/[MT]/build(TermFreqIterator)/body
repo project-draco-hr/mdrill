@@ -1,0 +1,15 @@
+{
+  if (tfit instanceof SortedIterator) {
+    tfit=new UnsortedTermFreqIteratorWrapper(tfit);
+  }
+  trie=new JaspellTernarySearchTrie();
+  trie.setMatchAlmostDiff(editDistance);
+  while (tfit.hasNext()) {
+    String key=tfit.next();
+    float freq=tfit.freq();
+    if (key.length() == 0) {
+      continue;
+    }
+    trie.put(key,new Float(freq));
+  }
+}

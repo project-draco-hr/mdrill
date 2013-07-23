@@ -1,0 +1,29 @@
+{
+  if (q instanceof WrappedQuery) {
+    Query subQ=((WrappedQuery)q).getWrappedQuery();
+    Query absSubQ=getAbs(subQ);
+    if (absSubQ == subQ)     return q;
+    WrappedQuery newQ=(WrappedQuery)q.clone();
+    newQ.setWrappedQuery(absSubQ);
+    return newQ;
+  }
+  if (!(q instanceof BooleanQuery))   return q;
+  BooleanQuery bq=(BooleanQuery)q;
+  List<BooleanClause> clauses=bq.clauses();
+  if (clauses.size() == 0)   return q;
+  for (  BooleanClause clause : clauses) {
+    if (!clause.isProhibited())     return q;
+  }
+  if (clauses.size() == 1) {
+    Query negClause=clauses.get(0).getQuery();
+    return negClause;
+  }
+ else {
+    BooleanQuery newBq=new BooleanQuery(bq.isCoordDisabled());
+    newBq.setBoost(bq.getBoost());
+    for (    BooleanClause clause : clauses) {
+      newBq.add(clause.getQuery(),BooleanClause.Occur.SHOULD);
+    }
+    return newBq;
+  }
+}

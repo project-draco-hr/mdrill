@@ -1,0 +1,3 @@
+SpoutTaskStatsRolling spec
+String[] path
+Object args

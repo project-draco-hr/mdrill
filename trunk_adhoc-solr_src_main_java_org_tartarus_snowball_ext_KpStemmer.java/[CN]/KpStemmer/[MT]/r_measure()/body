@@ -1,0 +1,112 @@
+{
+  int v_1;
+  int v_2;
+  int v_5;
+  int v_6;
+  int v_9;
+  int v_10;
+  v_1=cursor;
+  lab0:   do {
+    cursor=limit;
+    I_p1=cursor;
+    I_p2=cursor;
+  }
+ while (false);
+  cursor=v_1;
+  v_2=cursor;
+  lab1:   do {
+    replab2:     while (true) {
+      lab3:       do {
+        if (!(out_grouping(g_v,97,121))) {
+          break lab3;
+        }
+        continue replab2;
+      }
+ while (false);
+      break replab2;
+    }
+{
+      int v_4=1;
+      replab4:       while (true) {
+        v_5=cursor;
+        lab5:         do {
+          lab6:           do {
+            v_6=cursor;
+            lab7:             do {
+              if (!(eq_s(2,"ij"))) {
+                break lab7;
+              }
+              break lab6;
+            }
+ while (false);
+            cursor=v_6;
+            if (!(in_grouping(g_v,97,121))) {
+              break lab5;
+            }
+          }
+ while (false);
+          v_4--;
+          continue replab4;
+        }
+ while (false);
+        cursor=v_5;
+        break replab4;
+      }
+      if (v_4 > 0) {
+        break lab1;
+      }
+    }
+    if (!(out_grouping(g_v,97,121))) {
+      break lab1;
+    }
+    I_p1=cursor;
+    replab8:     while (true) {
+      lab9:       do {
+        if (!(out_grouping(g_v,97,121))) {
+          break lab9;
+        }
+        continue replab8;
+      }
+ while (false);
+      break replab8;
+    }
+{
+      int v_8=1;
+      replab10:       while (true) {
+        v_9=cursor;
+        lab11:         do {
+          lab12:           do {
+            v_10=cursor;
+            lab13:             do {
+              if (!(eq_s(2,"ij"))) {
+                break lab13;
+              }
+              break lab12;
+            }
+ while (false);
+            cursor=v_10;
+            if (!(in_grouping(g_v,97,121))) {
+              break lab11;
+            }
+          }
+ while (false);
+          v_8--;
+          continue replab10;
+        }
+ while (false);
+        cursor=v_9;
+        break replab10;
+      }
+      if (v_8 > 0) {
+        break lab1;
+      }
+    }
+    if (!(out_grouping(g_v,97,121))) {
+      break lab1;
+    }
+    I_p2=cursor;
+  }
+ while (false);
+  cursor=v_2;
+  return true;
+}

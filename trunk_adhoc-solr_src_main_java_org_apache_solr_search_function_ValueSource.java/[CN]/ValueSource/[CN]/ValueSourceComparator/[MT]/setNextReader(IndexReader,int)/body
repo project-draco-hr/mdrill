@@ -1,0 +1,3 @@
+{
+  docVals=getValues(fcontext,reader);
+}

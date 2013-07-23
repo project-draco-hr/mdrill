@@ -1,0 +1,19 @@
+{
+  if (sortOrds[compIDX] < 0) {
+    final String val1=sortValues[compIDX];
+    final String val2=sortsIndex[compIDX].lookup[sortsIndex[compIDX].order[doc]];
+    if (val1 == null) {
+      if (val2 == null) {
+        return 0;
+      }
+      return -1;
+    }
+ else     if (val2 == null) {
+      return 1;
+    }
+    return val1.compareTo(val2);
+  }
+ else {
+    return sortOrds[compIDX] - sortsIndex[compIDX].order[doc];
+  }
+}

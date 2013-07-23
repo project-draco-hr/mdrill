@@ -1,0 +1,9 @@
+{
+  if (this == o)   return true;
+  if (!(o instanceof SpanNearQuery))   return false;
+  final SpanNearQuery spanNearQuery=(SpanNearQuery)o;
+  if (inOrder != spanNearQuery.inOrder)   return false;
+  if (slop != spanNearQuery.slop)   return false;
+  if (!clauses.equals(spanNearQuery.clauses))   return false;
+  return getBoost() == spanNearQuery.getBoost();
+}

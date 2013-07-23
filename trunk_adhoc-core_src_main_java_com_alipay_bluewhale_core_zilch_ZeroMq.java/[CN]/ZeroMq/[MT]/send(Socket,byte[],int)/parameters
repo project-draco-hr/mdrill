@@ -1,0 +1,3 @@
+Socket socket
+byte[] message
+int flags

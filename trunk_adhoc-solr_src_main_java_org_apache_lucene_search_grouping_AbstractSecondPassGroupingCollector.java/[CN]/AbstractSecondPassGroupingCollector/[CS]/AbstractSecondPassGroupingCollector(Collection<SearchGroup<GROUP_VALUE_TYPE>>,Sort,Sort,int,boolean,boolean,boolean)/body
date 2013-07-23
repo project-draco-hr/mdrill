@@ -1,0 +1,20 @@
+{
+  if (groups.size() == 0) {
+    throw new IllegalArgumentException("no groups to collect (groups.size() is 0)");
+  }
+  this.groupSort=groupSort;
+  this.withinGroupSort=withinGroupSort;
+  this.groups=groups;
+  this.maxDocsPerGroup=maxDocsPerGroup;
+  groupMap=new HashMap<GROUP_VALUE_TYPE,SearchGroupDocs<GROUP_VALUE_TYPE>>(groups.size());
+  for (  SearchGroup<GROUP_VALUE_TYPE> group : groups) {
+    final TopDocsCollector collector;
+    if (withinGroupSort == null) {
+      collector=TopScoreDocCollector.create(maxDocsPerGroup,true);
+    }
+ else {
+      collector=StatisticFieldCollector.create(withinGroupSort,maxDocsPerGroup,fillSortFields,getScores,getMaxScores,true);
+    }
+    groupMap.put(group.groupValue,new SearchGroupDocs<GROUP_VALUE_TYPE>(group.groupValue,collector));
+  }
+}

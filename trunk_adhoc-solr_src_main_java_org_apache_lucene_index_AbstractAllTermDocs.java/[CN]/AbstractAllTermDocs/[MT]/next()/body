@@ -1,0 +1,3 @@
+{
+  return skipTo(doc + 1);
+}

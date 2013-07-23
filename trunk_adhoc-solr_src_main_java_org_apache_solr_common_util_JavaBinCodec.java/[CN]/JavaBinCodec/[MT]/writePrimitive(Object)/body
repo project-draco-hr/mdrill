@@ -1,0 +1,62 @@
+{
+  if (val == null) {
+    daos.writeByte(NULL);
+    return true;
+  }
+ else   if (val instanceof String) {
+    writeStr((String)val);
+    return true;
+  }
+ else   if (val instanceof Integer) {
+    writeInt(((Integer)val).intValue());
+    return true;
+  }
+ else   if (val instanceof Long) {
+    writeLong(((Long)val).longValue());
+    return true;
+  }
+ else   if (val instanceof Float) {
+    daos.writeByte(FLOAT);
+    daos.writeFloat(((Float)val).floatValue());
+    return true;
+  }
+ else   if (val instanceof Date) {
+    daos.writeByte(DATE);
+    daos.writeLong(((Date)val).getTime());
+    return true;
+  }
+ else   if (val instanceof Boolean) {
+    if ((Boolean)val)     daos.writeByte(BOOL_TRUE);
+ else     daos.writeByte(BOOL_FALSE);
+    return true;
+  }
+ else   if (val instanceof Double) {
+    daos.writeByte(DOUBLE);
+    daos.writeDouble(((Double)val).doubleValue());
+    return true;
+  }
+ else   if (val instanceof Byte) {
+    daos.writeByte(BYTE);
+    daos.writeByte(((Byte)val).intValue());
+    return true;
+  }
+ else   if (val instanceof Short) {
+    daos.writeByte(SHORT);
+    daos.writeShort(((Short)val).intValue());
+    return true;
+  }
+ else   if (val instanceof byte[]) {
+    writeByteArray((byte[])val,0,((byte[])val).length);
+    return true;
+  }
+ else   if (val instanceof ByteBuffer) {
+    ByteBuffer buf=(ByteBuffer)val;
+    writeByteArray(buf.array(),buf.position(),buf.limit() - buf.position());
+    return true;
+  }
+ else   if (val == END_OBJ) {
+    writeTag(END);
+    return true;
+  }
+  return false;
+}

@@ -1,0 +1,6 @@
+Sort sort
+Query query
+int docsToCollect
+boolean needScores
+DocSet docSet
+String queryString

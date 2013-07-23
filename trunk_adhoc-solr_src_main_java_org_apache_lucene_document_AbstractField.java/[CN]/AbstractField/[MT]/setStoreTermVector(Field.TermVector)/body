@@ -1,0 +1,5 @@
+{
+  this.storeTermVector=termVector.isStored();
+  this.storePositionWithTermVector=termVector.withPositions();
+  this.storeOffsetWithTermVector=termVector.withOffsets();
+}

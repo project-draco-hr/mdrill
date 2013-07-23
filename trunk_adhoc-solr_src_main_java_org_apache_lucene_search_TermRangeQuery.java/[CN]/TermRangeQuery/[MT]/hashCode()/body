@@ -1,0 +1,11 @@
+{
+  final int prime=31;
+  int result=super.hashCode();
+  result=prime * result + ((collator == null) ? 0 : collator.hashCode());
+  result=prime * result + ((field == null) ? 0 : field.hashCode());
+  result=prime * result + (includeLower ? 1231 : 1237);
+  result=prime * result + (includeUpper ? 1231 : 1237);
+  result=prime * result + ((lowerTerm == null) ? 0 : lowerTerm.hashCode());
+  result=prime * result + ((upperTerm == null) ? 0 : upperTerm.hashCode());
+  return result;
+}

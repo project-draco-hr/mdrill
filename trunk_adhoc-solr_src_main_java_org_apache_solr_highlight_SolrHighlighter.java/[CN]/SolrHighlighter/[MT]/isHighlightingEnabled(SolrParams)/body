@@ -1,0 +1,3 @@
+{
+  return params.getBool(HighlightParams.HIGHLIGHT,false);
+}

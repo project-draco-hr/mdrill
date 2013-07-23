@@ -1,0 +1,17 @@
+{
+  if (!hasIDFExplainWithDocFreqAPI) {
+    return idfExplain(term,searcher);
+  }
+  final int df=docFreq;
+  final int max=searcher.maxDoc();
+  final float idf=idf(df,max);
+  return new IDFExplanation(){
+    @Override public String explain(){
+      return "idf(docFreq=" + df + ", maxDocs="+ max+ ")";
+    }
+    @Override public float getIdf(){
+      return idf;
+    }
+  }
+;
+}

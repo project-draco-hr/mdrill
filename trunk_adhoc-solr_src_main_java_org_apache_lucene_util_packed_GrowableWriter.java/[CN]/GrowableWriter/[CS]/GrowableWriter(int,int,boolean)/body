@@ -1,0 +1,5 @@
+{
+  this.roundFixedSize=roundFixedSize;
+  current=PackedInts.getMutable(valueCount,getSize(startBitsPerValue));
+  currentMaxValue=PackedInts.maxValue(current.getBitsPerValue());
+}

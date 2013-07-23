@@ -1,0 +1,9 @@
+{
+  int pos=Math.min(this.wlen,other.wlen);
+  long[] thisArr=this.bits;
+  long[] otherArr=other.bits;
+  while (--pos >= 0) {
+    if ((thisArr[pos] & otherArr[pos]) != 0)     return true;
+  }
+  return false;
+}

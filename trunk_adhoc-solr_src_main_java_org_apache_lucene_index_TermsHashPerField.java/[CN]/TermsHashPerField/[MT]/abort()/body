@@ -1,0 +1,4 @@
+{
+  reset();
+  if (nextPerField != null)   nextPerField.abort();
+}

@@ -1,0 +1,14 @@
+{
+  this.endtime=new java.util.Date();
+  try {
+    if (this.uuid.isEmpty()) {
+      this.insert();
+    }
+ else {
+      this.update();
+    }
+  }
+ catch (  SQLException e) {
+    e.printStackTrace();
+  }
+}

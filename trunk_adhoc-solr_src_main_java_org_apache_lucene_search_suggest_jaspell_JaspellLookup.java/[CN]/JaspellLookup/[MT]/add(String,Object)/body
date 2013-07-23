@@ -1,0 +1,4 @@
+{
+  trie.put(key,value);
+  return false;
+}

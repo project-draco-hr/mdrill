@@ -1,0 +1,24 @@
+{
+  Path vertify=new Path(file,"vertify");
+  StringBuffer rtn=new StringBuffer();
+  if (fs.exists(vertify)) {
+    Integer bytesRead=0;
+    int size=10240;
+    int maxsize=1024 * 1024;
+    byte[] buff=new byte[size];
+    FSDataInputStream in=fs.open(vertify);
+    while (true) {
+      int num=in.read(buff,0,size);
+      if (num < 0) {
+        break;
+      }
+      bytesRead+=num;
+      rtn.append(new String(buff,0,num,ENCODE_NAME));
+      if (bytesRead >= maxsize) {
+        break;
+      }
+    }
+    in.close();
+  }
+  return rtn.toString().trim();
+}

@@ -1,0 +1,4 @@
+{
+  this.set(FacetParams.FACET_LIMIT,lim);
+  return this;
+}

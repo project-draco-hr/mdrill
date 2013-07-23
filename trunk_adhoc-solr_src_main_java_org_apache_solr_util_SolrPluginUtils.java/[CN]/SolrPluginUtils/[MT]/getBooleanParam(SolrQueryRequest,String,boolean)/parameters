@@ -1,0 +1,3 @@
+SolrQueryRequest req
+String param
+boolean def

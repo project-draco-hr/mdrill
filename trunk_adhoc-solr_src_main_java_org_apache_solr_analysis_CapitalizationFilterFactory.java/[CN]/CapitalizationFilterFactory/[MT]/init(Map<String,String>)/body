@@ -1,0 +1,46 @@
+{
+  super.init(args);
+  assureMatchVersion();
+  String k=args.get(KEEP);
+  if (k != null) {
+    StringTokenizer st=new StringTokenizer(k);
+    boolean ignoreCase=false;
+    String ignoreStr=args.get(KEEP_IGNORE_CASE);
+    if ("true".equalsIgnoreCase(ignoreStr)) {
+      ignoreCase=true;
+    }
+    keep=new CharArraySet(luceneMatchVersion,10,ignoreCase);
+    while (st.hasMoreTokens()) {
+      k=st.nextToken().trim();
+      keep.add(k.toCharArray());
+    }
+  }
+  k=args.get(OK_PREFIX);
+  if (k != null) {
+    okPrefix=new ArrayList<char[]>();
+    StringTokenizer st=new StringTokenizer(k);
+    while (st.hasMoreTokens()) {
+      okPrefix.add(st.nextToken().trim().toCharArray());
+    }
+  }
+  k=args.get(MIN_WORD_LENGTH);
+  if (k != null) {
+    minWordLength=Integer.valueOf(k);
+  }
+  k=args.get(MAX_WORD_COUNT);
+  if (k != null) {
+    maxWordCount=Integer.valueOf(k);
+  }
+  k=args.get(MAX_TOKEN_LENGTH);
+  if (k != null) {
+    maxTokenLength=Integer.valueOf(k);
+  }
+  k=args.get(ONLY_FIRST_WORD);
+  if (k != null) {
+    onlyFirstWord=Boolean.valueOf(k);
+  }
+  k=args.get(FORCE_FIRST_LETTER);
+  if (k != null) {
+    forceFirstLetter=Boolean.valueOf(k);
+  }
+}

@@ -1,0 +1,4 @@
+{
+  if (isBinary || fieldsData instanceof byte[])   return (byte[])fieldsData;
+ else   return null;
+}

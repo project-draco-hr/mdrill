@@ -1,0 +1,3 @@
+FieldCache cache
+String field
+IndexReader reader

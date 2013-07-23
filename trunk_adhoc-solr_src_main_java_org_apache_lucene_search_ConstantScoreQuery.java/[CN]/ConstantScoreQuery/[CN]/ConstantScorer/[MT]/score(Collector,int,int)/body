@@ -1,0 +1,8 @@
+{
+  if (docIdSetIterator instanceof Scorer) {
+    return ((Scorer)docIdSetIterator).score(wrapCollector(collector),max,firstDocID);
+  }
+ else {
+    return super.score(collector,max,firstDocID);
+  }
+}

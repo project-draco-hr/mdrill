@@ -1,0 +1,3 @@
+{
+  return docIDs[slot1] - docIDs[slot2];
+}

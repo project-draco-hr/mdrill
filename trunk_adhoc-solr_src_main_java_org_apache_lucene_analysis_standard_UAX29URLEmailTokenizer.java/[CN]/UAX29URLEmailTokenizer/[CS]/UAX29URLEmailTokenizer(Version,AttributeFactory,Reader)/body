@@ -1,0 +1,4 @@
+{
+  super(factory,input);
+  this.scanner=getScannerFor(matchVersion,input);
+}

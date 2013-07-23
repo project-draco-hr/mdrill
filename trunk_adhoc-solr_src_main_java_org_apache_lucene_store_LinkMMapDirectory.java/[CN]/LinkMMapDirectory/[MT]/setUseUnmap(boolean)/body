@@ -1,0 +1,4 @@
+{
+  if (useUnmapHack && !MMapDirectory.UNMAP_SUPPORTED)   throw new IllegalArgumentException("Unmap hack not supported on this platform!");
+  this.useUnmapHack=useUnmapHack;
+}

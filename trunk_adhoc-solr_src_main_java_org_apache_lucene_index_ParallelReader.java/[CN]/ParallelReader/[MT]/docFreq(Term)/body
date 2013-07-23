@@ -1,0 +1,5 @@
+{
+  ensureOpen();
+  IndexReader reader=fieldToReader.get(term.field());
+  return reader == null ? 0 : reader.docFreq(term);
+}

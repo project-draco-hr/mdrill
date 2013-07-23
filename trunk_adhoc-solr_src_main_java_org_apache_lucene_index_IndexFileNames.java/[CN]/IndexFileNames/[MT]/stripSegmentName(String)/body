@@ -1,0 +1,10 @@
+{
+  int idx=filename.indexOf('_',1);
+  if (idx == -1) {
+    idx=filename.indexOf('.');
+  }
+  if (idx != -1) {
+    filename=filename.substring(idx);
+  }
+  return filename;
+}

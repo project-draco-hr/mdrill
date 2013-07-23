@@ -1,0 +1,16 @@
+{
+  try {
+    Payload clone=(Payload)super.clone();
+    if (offset == 0 && length == data.length) {
+      clone.data=data.clone();
+    }
+ else {
+      clone.data=this.toByteArray();
+      clone.offset=0;
+    }
+    return clone;
+  }
+ catch (  CloneNotSupportedException e) {
+    throw new RuntimeException(e);
+  }
+}

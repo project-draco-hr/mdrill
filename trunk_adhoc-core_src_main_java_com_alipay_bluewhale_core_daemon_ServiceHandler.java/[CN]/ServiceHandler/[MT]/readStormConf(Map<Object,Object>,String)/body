@@ -1,0 +1,17 @@
+{
+  String stormroot=StormConfig.masterStormdistRoot(conf,stormId);
+  Map<Object,Object> stormconf=new HashMap<Object,Object>();
+  try {
+    byte[] bconf=FileUtils.readFileToByteArray(new File(StormConfig.masterStormconfPath(stormroot)));
+    if (bconf != null) {
+      stormconf=(Map<Object,Object>)Utils.deserialize(bconf);
+    }
+  }
+ catch (  IOException e) {
+    LOG.error(e + "readStormConf exception");
+  }
+  Map<Object,Object> rtn=new HashMap<Object,Object>();
+  rtn.putAll(conf);
+  rtn.putAll(stormconf);
+  return rtn;
+}

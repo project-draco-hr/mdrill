@@ -1,0 +1,3 @@
+{
+  return (accessCounter.get() - putCounter.get() - nonLivePutCounter.get()) + missCounter.get();
+}

@@ -1,0 +1,36 @@
+{
+  Scorer scorer=subScorers[root];
+  int doc=scorer.docID();
+  int i=root;
+  while (i <= (numScorers >> 1) - 1) {
+    int lchild=(i << 1) + 1;
+    Scorer lscorer=subScorers[lchild];
+    int ldoc=lscorer.docID();
+    int rdoc=Integer.MAX_VALUE, rchild=(i << 1) + 2;
+    Scorer rscorer=null;
+    if (rchild < numScorers) {
+      rscorer=subScorers[rchild];
+      rdoc=rscorer.docID();
+    }
+    if (ldoc < doc) {
+      if (rdoc < ldoc) {
+        subScorers[i]=rscorer;
+        subScorers[rchild]=scorer;
+        i=rchild;
+      }
+ else {
+        subScorers[i]=lscorer;
+        subScorers[lchild]=scorer;
+        i=lchild;
+      }
+    }
+ else     if (rdoc < doc) {
+      subScorers[i]=rscorer;
+      subScorers[rchild]=scorer;
+      i=rchild;
+    }
+ else {
+      return;
+    }
+  }
+}

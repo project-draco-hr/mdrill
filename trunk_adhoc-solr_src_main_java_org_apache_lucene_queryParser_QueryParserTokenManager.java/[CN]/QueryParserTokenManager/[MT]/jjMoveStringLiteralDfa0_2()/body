@@ -1,0 +1,10 @@
+{
+switch (curChar) {
+case 84:
+    return jjMoveStringLiteralDfa1_2(0x4000000L);
+case 93:
+  return jjStopAtPos(0,27);
+default :
+return jjMoveNfa_2(0,0);
+}
+}

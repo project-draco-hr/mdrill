@@ -1,0 +1,8 @@
+{
+  super.reset(input);
+  bufferIndex=0;
+  offset=0;
+  dataLen=0;
+  finalOffset=0;
+  ioBuffer.reset();
+}

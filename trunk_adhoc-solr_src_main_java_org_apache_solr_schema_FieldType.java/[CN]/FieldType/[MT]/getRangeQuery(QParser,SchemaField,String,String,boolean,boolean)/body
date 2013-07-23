@@ -1,0 +1,3 @@
+{
+  return new TermRangeQuery(field.getName(),part1 == null ? null : toInternal(part1),part2 == null ? null : toInternal(part2),minInclusive,maxInclusive);
+}

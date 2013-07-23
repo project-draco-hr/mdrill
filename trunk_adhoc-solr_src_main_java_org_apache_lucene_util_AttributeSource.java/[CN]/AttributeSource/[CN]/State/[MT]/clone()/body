@@ -1,0 +1,8 @@
+{
+  State clone=new State();
+  clone.attribute=(AttributeImpl)attribute.clone();
+  if (next != null) {
+    clone.next=(State)next.clone();
+  }
+  return clone;
+}

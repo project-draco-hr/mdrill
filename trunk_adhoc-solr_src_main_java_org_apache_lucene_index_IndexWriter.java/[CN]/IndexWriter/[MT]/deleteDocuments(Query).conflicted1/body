@@ -1,0 +1,11 @@
+{
+  ensureOpen();
+  try {
+    if (docWriter.deleteQueries(queries)) {
+      flush(true,false);
+    }
+  }
+ catch (  OutOfMemoryError oom) {
+    handleOOM(oom,"deleteDocuments(Query..)");
+  }
+}

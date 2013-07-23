@@ -1,0 +1,4 @@
+FST<T> fst
+Writer out
+boolean sameRank
+boolean labelStates

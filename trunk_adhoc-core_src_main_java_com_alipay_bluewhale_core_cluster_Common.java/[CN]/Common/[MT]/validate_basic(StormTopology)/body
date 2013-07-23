@@ -1,0 +1,12 @@
+{
+  validate_ids(topology);
+  for (  StormTopology._Fields field : Thrift.SPOUT_FIELDS) {
+    Object value=topology.getFieldValue(field);
+    if (value != null) {
+      Map<String,Object> obj_map=(Map<String,Object>)value;
+      for (      Object obj : obj_map.values()) {
+        validate_component_inputs(obj);
+      }
+    }
+  }
+}

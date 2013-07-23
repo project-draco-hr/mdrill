@@ -1,0 +1,5 @@
+{
+  if (innerWeight != null)   innerWeight.sumOfSquaredWeights();
+  queryWeight=getBoost();
+  return queryWeight * queryWeight;
+}

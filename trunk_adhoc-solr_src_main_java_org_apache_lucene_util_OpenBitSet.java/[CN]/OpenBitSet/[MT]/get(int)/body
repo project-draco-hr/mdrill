@@ -1,0 +1,7 @@
+{
+  int i=index >> 6;
+  if (i >= bits.length)   return false;
+  int bit=index & 0x3f;
+  long bitmask=1L << bit;
+  return (bits[i] & bitmask) != 0;
+}

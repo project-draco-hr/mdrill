@@ -1,0 +1,3 @@
+{
+  IndexWriterConfig.setDefaultWriteLockTimeout(writeLockTimeout);
+}

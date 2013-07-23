@@ -1,0 +1,6 @@
+{
+  if (this == obj)   return true;
+  if ((obj == null) || (obj.getClass() != this.getClass()))   return false;
+  DuplicateFilter other=(DuplicateFilter)obj;
+  return keepMode == other.keepMode && processingMode == other.processingMode && (fieldName == other.fieldName || (fieldName != null && fieldName.equals(other.fieldName)));
+}

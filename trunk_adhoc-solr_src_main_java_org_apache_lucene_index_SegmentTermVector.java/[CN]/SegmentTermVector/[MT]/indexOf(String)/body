@@ -1,0 +1,5 @@
+{
+  if (terms == null)   return -1;
+  int res=Arrays.binarySearch(terms,termText);
+  return res >= 0 ? res : -1;
+}

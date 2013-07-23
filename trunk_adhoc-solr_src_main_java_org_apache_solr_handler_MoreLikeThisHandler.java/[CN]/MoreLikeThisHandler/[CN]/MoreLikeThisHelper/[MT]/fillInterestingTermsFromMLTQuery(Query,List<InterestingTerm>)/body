@@ -1,0 +1,10 @@
+{
+  List clauses=((BooleanQuery)query).clauses();
+  for (  Object o : clauses) {
+    TermQuery q=(TermQuery)((BooleanClause)o).getQuery();
+    InterestingTerm it=new InterestingTerm();
+    it.boost=q.getBoost();
+    it.term=q.getTerm();
+    terms.add(it);
+  }
+}

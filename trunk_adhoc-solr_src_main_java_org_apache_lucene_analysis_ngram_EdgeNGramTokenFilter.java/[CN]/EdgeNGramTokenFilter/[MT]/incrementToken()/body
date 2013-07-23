@@ -1,0 +1,27 @@
+{
+  while (true) {
+    if (curTermBuffer == null) {
+      if (!input.incrementToken()) {
+        return false;
+      }
+ else {
+        curTermBuffer=termAtt.buffer().clone();
+        curTermLength=termAtt.length();
+        curGramSize=minGram;
+        tokStart=offsetAtt.startOffset();
+      }
+    }
+    if (curGramSize <= maxGram) {
+      if (!(curGramSize > curTermLength || curGramSize > maxGram)) {
+        int start=side == Side.FRONT ? 0 : curTermLength - curGramSize;
+        int end=start + curGramSize;
+        clearAttributes();
+        offsetAtt.setOffset(tokStart + start,tokStart + end);
+        termAtt.copyBuffer(curTermBuffer,start,curGramSize);
+        curGramSize++;
+        return true;
+      }
+    }
+    curTermBuffer=null;
+  }
+}

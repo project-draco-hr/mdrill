@@ -1,0 +1,7 @@
+{
+  int tnum=this.tm.get(doc);
+  if (tnum == this.uni.nullTermNum) {
+    return def;
+  }
+  return tnum;
+}

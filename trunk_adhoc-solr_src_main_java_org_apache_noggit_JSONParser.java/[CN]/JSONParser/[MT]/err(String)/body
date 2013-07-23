@@ -1,0 +1,11 @@
+{
+  if (!eof && start > 0)   start--;
+  String chs="char=" + ((start >= end) ? "(EOF)" : "" + (char)buf[start]);
+  String pos="position=" + (gpos + start);
+  String tot=chs + ',' + pos+ getContext();
+  if (msg == null) {
+    if (start >= end)     msg="Unexpected EOF";
+ else     msg="JSON Parse Error";
+  }
+  return new ParseException(msg + ": " + tot);
+}

@@ -1,0 +1,5 @@
+{
+  int got=parser.nextEvent();
+  assertEvent(got,expected);
+  return got;
+}

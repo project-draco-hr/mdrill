@@ -1,0 +1,19 @@
+{
+  final int requiredNrMatchers=requiredScorers.size();
+  return new ConjunctionScorer(weight,disableCoord ? 1.0f : similarity.coord(requiredScorers.size(),requiredScorers.size()),requiredScorers){
+    private int lastScoredDoc=-1;
+    private float lastDocScore=Float.NaN;
+    @Override public float score() throws IOException {
+      int doc=docID();
+      if (doc >= lastScoredDoc) {
+        if (doc > lastScoredDoc) {
+          lastDocScore=super.score();
+          lastScoredDoc=doc;
+        }
+        coordinator.nrMatchers+=requiredNrMatchers;
+      }
+      return lastDocScore;
+    }
+  }
+;
+}

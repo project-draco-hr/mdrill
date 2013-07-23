@@ -1,0 +1,17 @@
+{
+  if (target instanceof Token) {
+    final Token to=(Token)target;
+    to.reinit(this);
+    if (payload != null) {
+      to.payload=(Payload)payload.clone();
+    }
+  }
+ else {
+    super.copyTo(target);
+    ((OffsetAttribute)target).setOffset(startOffset,endOffset);
+    ((PositionIncrementAttribute)target).setPositionIncrement(positionIncrement);
+    ((PayloadAttribute)target).setPayload((payload == null) ? null : (Payload)payload.clone());
+    ((FlagsAttribute)target).setFlags(flags);
+    ((TypeAttribute)target).setType(type);
+  }
+}

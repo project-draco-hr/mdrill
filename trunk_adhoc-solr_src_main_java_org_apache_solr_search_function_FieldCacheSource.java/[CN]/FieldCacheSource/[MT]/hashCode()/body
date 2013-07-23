@@ -1,0 +1,3 @@
+{
+  return cache.hashCode() + field.hashCode();
+}

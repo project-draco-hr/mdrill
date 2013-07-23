@@ -1,0 +1,4 @@
+HttpServletRequest req
+HttpServletResponse resp
+Method reqMethod
+String etag

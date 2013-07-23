@@ -1,0 +1,4 @@
+{
+  HighlightComponent hl=(HighlightComponent)searchComponents.get(HighlightComponent.COMPONENT_NAME);
+  return hl == null ? null : hl.getHighlighter();
+}

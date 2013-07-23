@@ -1,0 +1,4 @@
+{
+  end=in.read(buf,0,buf.length);
+  pos=0;
+}

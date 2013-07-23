@@ -1,0 +1,6 @@
+Map conf
+ZMQContext sharedcontext
+String topologyId
+String supervisorId
+Integer port
+String workerId

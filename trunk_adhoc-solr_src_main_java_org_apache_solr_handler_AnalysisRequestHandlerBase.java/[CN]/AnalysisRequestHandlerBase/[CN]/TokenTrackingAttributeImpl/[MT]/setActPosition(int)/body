@@ -1,0 +1,4 @@
+{
+  this.position=pos;
+  this.cachedPositions=null;
+}

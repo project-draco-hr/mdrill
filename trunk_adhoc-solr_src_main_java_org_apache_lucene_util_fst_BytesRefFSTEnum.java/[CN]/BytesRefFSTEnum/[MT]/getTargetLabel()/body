@@ -1,0 +1,8 @@
+{
+  if (upto - 1 == target.length) {
+    return FST.END_LABEL;
+  }
+ else {
+    return target.bytes[target.offset + upto - 1] & 0xFF;
+  }
+}

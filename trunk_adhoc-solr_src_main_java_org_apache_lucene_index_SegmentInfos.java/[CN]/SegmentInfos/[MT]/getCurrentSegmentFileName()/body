@@ -1,0 +1,3 @@
+{
+  return IndexFileNames.fileNameFromGeneration(IndexFileNames.SEGMENTS,"",lastGeneration);
+}

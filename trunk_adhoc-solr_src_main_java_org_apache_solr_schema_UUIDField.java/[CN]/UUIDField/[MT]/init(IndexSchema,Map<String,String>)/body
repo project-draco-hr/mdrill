@@ -1,0 +1,4 @@
+{
+  super.init(schema,args);
+  restrictProps(TOKENIZED);
+}

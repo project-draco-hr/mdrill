@@ -1,0 +1,34 @@
+{
+  super(in);
+  int flags=0;
+  if (generateWordParts != 0) {
+    flags|=GENERATE_WORD_PARTS;
+  }
+  if (generateNumberParts != 0) {
+    flags|=GENERATE_NUMBER_PARTS;
+  }
+  if (catenateWords != 0) {
+    flags|=CATENATE_WORDS;
+  }
+  if (catenateNumbers != 0) {
+    flags|=CATENATE_NUMBERS;
+  }
+  if (catenateAll != 0) {
+    flags|=CATENATE_ALL;
+  }
+  if (preserveOriginal != 0) {
+    flags|=PRESERVE_ORIGINAL;
+  }
+  if (splitOnCaseChange != 0) {
+    flags|=SPLIT_ON_CASE_CHANGE;
+  }
+  if (splitOnNumerics != 0) {
+    flags|=SPLIT_ON_NUMERICS;
+  }
+  if (stemEnglishPossessive != 0) {
+    flags|=STEM_ENGLISH_POSSESSIVE;
+  }
+  this.protWords=protWords;
+  this.iterator=new WordDelimiterIterator(charTypeTable,splitOnCaseChange != 0,splitOnNumerics != 0,stemEnglishPossessive != 0);
+  this.flags=flags;
+}

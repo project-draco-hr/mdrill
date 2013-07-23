@@ -1,0 +1,12 @@
+{
+  for (  String header : headerList) {
+    final String[] headerEtags=header.split(",");
+    for (    String s : headerEtags) {
+      s=s.trim();
+      if (s.equals(etag) || "*".equals(s)) {
+        return true;
+      }
+    }
+  }
+  return false;
+}

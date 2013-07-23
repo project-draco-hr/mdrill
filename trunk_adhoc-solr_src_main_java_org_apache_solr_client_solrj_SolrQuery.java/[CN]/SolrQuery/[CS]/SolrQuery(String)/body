@@ -1,0 +1,4 @@
+{
+  this();
+  this.set(CommonParams.Q,q);
+}

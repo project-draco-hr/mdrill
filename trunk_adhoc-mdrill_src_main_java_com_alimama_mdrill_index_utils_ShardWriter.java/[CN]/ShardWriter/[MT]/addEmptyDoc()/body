@@ -1,0 +1,5 @@
+{
+  Document empty=new Document();
+  empty.add(new Field("higoempty_emptydoc_s","",Field.Store.YES,Field.Index.NO));
+  writer.addDocument(empty);
+}

@@ -1,0 +1,7 @@
+{
+  if (isBinary) {
+    return binaryLength;
+  }
+ else   if (fieldsData instanceof byte[])   return ((byte[])fieldsData).length;
+ else   return 0;
+}

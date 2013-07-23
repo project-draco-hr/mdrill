@@ -1,0 +1,3 @@
+{
+  standardValueSourceParsers.put(dest,standardValueSourceParsers.get(source));
+}

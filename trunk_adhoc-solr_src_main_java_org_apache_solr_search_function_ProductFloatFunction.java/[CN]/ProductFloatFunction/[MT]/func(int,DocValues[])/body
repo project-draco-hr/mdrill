@@ -1,0 +1,7 @@
+{
+  float val=1.0f;
+  for (  DocValues vals : valsArr) {
+    val*=vals.floatVal(doc);
+  }
+  return val;
+}

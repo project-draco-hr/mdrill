@@ -1,0 +1,12 @@
+{
+  this.filter=filter;
+  if (deletesMode == CachingWrapperFilter.DeletesMode.DYNAMIC) {
+    throw new IllegalArgumentException("DeletesMode.DYNAMIC is not supported");
+  }
+  this.cache=new CachingWrapperFilter.FilterCache<SpanFilterResult>(deletesMode){
+    @Override protected SpanFilterResult mergeDeletes(    final IndexReader reader,    final SpanFilterResult value){
+      throw new IllegalStateException("DeletesMode.DYNAMIC is not supported");
+    }
+  }
+;
+}

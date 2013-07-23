@@ -1,0 +1,6 @@
+{
+  if (INSTANCE == null) {
+    return new LinuxOsInfo();
+  }
+  return INSTANCE;
+}

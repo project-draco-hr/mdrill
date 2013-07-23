@@ -1,0 +1,7 @@
+{
+  if (lookups == 0)   return "0.00";
+  if (lookups == hits)   return "1.00";
+  int hundredths=(int)(hits * 100 / lookups);
+  if (hundredths < 10)   return "0.0" + hundredths;
+  return "0." + hundredths;
+}

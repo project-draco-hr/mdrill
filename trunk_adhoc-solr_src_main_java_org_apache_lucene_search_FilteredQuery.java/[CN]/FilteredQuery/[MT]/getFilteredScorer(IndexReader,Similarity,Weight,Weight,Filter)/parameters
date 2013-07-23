@@ -1,0 +1,5 @@
+IndexReader indexReader
+Similarity similarity
+Weight weight
+Weight wrapperWeight
+Filter filter

@@ -1,0 +1,42 @@
+{
+  ProcessedFilter pf=getProcessedFilter(null,queries);
+  if (pf.answer != null)   return pf.answer;
+  DocSetCollector setCollector=new DocSetCollector(maxDoc() >> 6,maxDoc());
+  Collector collector=setCollector;
+  if (pf.postFilter != null) {
+    pf.postFilter.setLastDelegate(collector);
+    collector=pf.postFilter;
+  }
+  final SolrIndexReader[] leaves=reader.getLeafReaders();
+  final int offsets[]=reader.getLeafOffsets();
+  for (int i=0; i < leaves.length; i++) {
+    SolrIndexReader subReader=leaves[i];
+    int baseDoc=offsets[i];
+    DocIdSet idSet=null;
+    if (pf.filter != null) {
+      idSet=pf.filter.getDocIdSet(subReader);
+      if (idSet == null)       continue;
+    }
+    DocIdSetIterator idIter=null;
+    if (idSet != null) {
+      idIter=idSet.iterator();
+      if (idIter == null)       continue;
+    }
+    collector.setNextReader(subReader,baseDoc);
+    int max=subReader.maxDoc();
+    if (idIter == null) {
+      TermDocs tdocs=subReader.termDocs(null);
+      while (tdocs.next()) {
+        int docid=tdocs.doc();
+        collector.collect(docid);
+      }
+    }
+ else {
+      for (int docid=-1; (docid=idIter.advance(docid + 1)) < max; ) {
+        if (subReader.isDeleted(docid))         continue;
+        collector.collect(docid);
+      }
+    }
+  }
+  return setCollector.getDocSet();
+}

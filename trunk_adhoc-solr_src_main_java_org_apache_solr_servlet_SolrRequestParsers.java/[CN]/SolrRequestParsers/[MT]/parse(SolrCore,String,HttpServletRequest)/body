@@ -1,0 +1,8 @@
+{
+  SolrRequestParser parser=standard;
+  ArrayList<ContentStream> streams=new ArrayList<ContentStream>(1);
+  SolrParams params=parser.parseParamsAndFillStreams(req,streams);
+  SolrQueryRequest sreq=buildRequestFrom(core,params,streams);
+  sreq.getContext().put("path",path);
+  return sreq;
+}

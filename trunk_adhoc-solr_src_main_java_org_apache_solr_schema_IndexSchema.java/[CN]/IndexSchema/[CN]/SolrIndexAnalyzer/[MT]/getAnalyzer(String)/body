@@ -1,0 +1,4 @@
+{
+  Analyzer analyzer=analyzers.get(fieldName);
+  return analyzer != null ? analyzer : getDynamicFieldType(fieldName).getAnalyzer();
+}

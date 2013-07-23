@@ -1,0 +1,12 @@
+{
+  if (to instanceof LinkFSDirectory) {
+    LinkFSDirectory fsto=(LinkFSDirectory)to;
+    if (fsto.isAllowMove()) {
+      File discfile=new File(fsto.directory,dest);
+      File srcfile=new File(this.directory,src);
+      fsto.addLinks(discfile.getName(),srcfile);
+      return;
+    }
+  }
+  super.copy(to,src,dest);
+}

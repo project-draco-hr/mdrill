@@ -1,0 +1,7 @@
+{
+  rtn.add("isoversize",this.isoversize ? "yes" : "no");
+  rtn.add("maxUniqSize",maxUniqSize);
+  rtn.add("dist",this.uniq);
+  rtn.add("rc",0);
+  return rtn;
+}

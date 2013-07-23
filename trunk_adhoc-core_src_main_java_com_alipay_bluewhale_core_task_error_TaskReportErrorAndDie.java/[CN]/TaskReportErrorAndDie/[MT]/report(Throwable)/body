@@ -1,0 +1,4 @@
+{
+  this.reporterror.report(error);
+  this.haltfn.run();
+}

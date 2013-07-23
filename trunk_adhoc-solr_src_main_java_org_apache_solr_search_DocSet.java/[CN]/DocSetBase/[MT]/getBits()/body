@@ -1,0 +1,7 @@
+{
+  OpenBitSet bits=new OpenBitSet();
+  for (DocIterator iter=iterator(); iter.hasNext(); ) {
+    bits.set(iter.nextDoc());
+  }
+  return bits;
+}

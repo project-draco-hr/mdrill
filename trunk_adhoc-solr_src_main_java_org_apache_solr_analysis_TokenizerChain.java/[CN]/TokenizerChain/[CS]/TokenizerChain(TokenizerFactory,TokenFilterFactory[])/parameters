@@ -1,0 +1,2 @@
+TokenizerFactory tokenizer
+TokenFilterFactory[] filters

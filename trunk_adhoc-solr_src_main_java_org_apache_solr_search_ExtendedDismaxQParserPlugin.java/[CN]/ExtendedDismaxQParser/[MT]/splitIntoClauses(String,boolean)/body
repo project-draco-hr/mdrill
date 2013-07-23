@@ -1,0 +1,109 @@
+{
+  ArrayList<Clause> lst=new ArrayList<Clause>(4);
+  Clause clause=new Clause();
+  int pos=0;
+  int end=s.length();
+  char ch=0;
+  int start;
+  outer:   while (pos < end) {
+    ch=s.charAt(pos);
+    while (Character.isWhitespace(ch)) {
+      if (++pos >= end)       break;
+      ch=s.charAt(pos);
+    }
+    start=pos;
+    if (ch == '+' || ch == '-') {
+      clause.must=ch;
+      pos++;
+    }
+    clause.field=getFieldName(s,pos,end);
+    if (clause.field != null) {
+      pos+=clause.field.length();
+      pos++;
+    }
+    if (pos >= end)     break;
+    char inString=0;
+    ch=s.charAt(pos);
+    if (!ignoreQuote && ch == '"') {
+      clause.isPhrase=true;
+      inString='"';
+      pos++;
+    }
+    StringBuilder sb=new StringBuilder();
+    while (pos < end) {
+      ch=s.charAt(pos++);
+      if (ch == '\\') {
+        sb.append(ch);
+        if (pos >= end) {
+          sb.append(ch);
+          break;
+        }
+        ch=s.charAt(pos++);
+        sb.append(ch);
+        continue;
+      }
+ else       if (inString != 0 && ch == inString) {
+        inString=0;
+        break;
+      }
+ else       if (Character.isWhitespace(ch)) {
+        clause.hasWhitespace=true;
+        if (inString == 0) {
+          pos--;
+          break;
+        }
+      }
+      if (inString == 0) {
+switch (ch) {
+case '!':
+case '(':
+case ')':
+case ':':
+case '^':
+case '[':
+case ']':
+case '{':
+case '}':
+case '~':
+case '*':
+case '?':
+case '"':
+case '+':
+case '-':
+          clause.hasSpecialSyntax=true;
+        sb.append('\\');
+    }
+  }
+ else   if (ch == '"') {
+    sb.append('\\');
+  }
+  sb.append(ch);
+}
+clause.val=sb.toString();
+if (clause.isPhrase) {
+  if (inString != 0) {
+    return splitIntoClauses(s,true);
+  }
+  clause.hasSpecialSyntax=false;
+}
+ else {
+  if (clause.val.length() == 0) {
+    clause.syntaxError=true;
+    if (clause.must != 0) {
+      clause.val="\\" + clause.must;
+      clause.must=0;
+      clause.hasSpecialSyntax=true;
+    }
+ else {
+      clause=null;
+    }
+  }
+}
+if (clause != null) {
+  clause.raw=s.substring(start,pos);
+  lst.add(clause);
+}
+clause=new Clause();
+}
+return lst;
+}

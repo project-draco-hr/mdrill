@@ -1,0 +1,4 @@
+{
+  this.mergePolicy=mergePolicy == null ? new LogByteSizeMergePolicy() : mergePolicy;
+  return this;
+}

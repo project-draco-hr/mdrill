@@ -1,0 +1,11 @@
+String field
+DocSet dc
+int offset
+int limit
+Integer mincount
+boolean missing
+String sort
+String prefix
+boolean enumMethod
+boolean iscross
+boolean isRow

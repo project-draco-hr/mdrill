@@ -1,0 +1,5 @@
+{
+  char[] value=new char[len];
+  System.arraycopy(buffer,bufferPosition - len,value,0,len);
+  return value;
+}

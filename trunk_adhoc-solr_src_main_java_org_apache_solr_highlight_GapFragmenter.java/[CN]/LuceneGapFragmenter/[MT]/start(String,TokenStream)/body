@@ -1,0 +1,5 @@
+{
+  offsetAtt=tokenStream.getAttribute(OffsetAttribute.class);
+  posIncAtt=tokenStream.getAttribute(PositionIncrementAttribute.class);
+  fragOffset=0;
+}

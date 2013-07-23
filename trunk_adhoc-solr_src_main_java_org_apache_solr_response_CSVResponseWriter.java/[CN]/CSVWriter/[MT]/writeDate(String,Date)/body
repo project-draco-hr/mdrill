@@ -1,0 +1,5 @@
+{
+  StringBuilder sb=new StringBuilder(25);
+  cal=DateUtil.formatDate(val,cal,sb);
+  writeDate(name,sb.toString());
+}

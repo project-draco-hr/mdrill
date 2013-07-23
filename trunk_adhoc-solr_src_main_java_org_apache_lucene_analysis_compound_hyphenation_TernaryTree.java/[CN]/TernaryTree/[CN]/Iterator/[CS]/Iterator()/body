@@ -1,0 +1,6 @@
+{
+  cur=-1;
+  ns=new Stack<Item>();
+  ks=new StringBuilder();
+  rewind();
+}

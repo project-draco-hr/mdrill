@@ -1,0 +1,4 @@
+PluginInfo info
+Class<T> cast
+String msg
+String defClassName

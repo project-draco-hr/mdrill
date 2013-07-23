@@ -1,0 +1,9 @@
+{
+  Object v=_fields.get(name);
+  if (v == null || !(v instanceof Collection))   return v;
+  Collection c=(Collection)v;
+  if (c.size() > 0) {
+    return c.iterator().next();
+  }
+  return null;
+}

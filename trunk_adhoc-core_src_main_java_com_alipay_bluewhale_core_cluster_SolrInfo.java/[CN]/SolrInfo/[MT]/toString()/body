@@ -1,0 +1,18 @@
+{
+  SimpleDateFormat fmt=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+  String yyyymmmddd=fmt.format(new Date(times));
+  String yyyymmmdddstart=fmt.format(new Date(startTimes));
+  String yyyymmmdddhb=fmt.format(new Date(solrhbTimes));
+  if (this.isMergeServer || this.isRealTime) {
+    return this.isMergeServer + " " + this.isRealTime+ " ["+ this.hostname+ "]["+ localip+ ":"+ port+ "]["+ this.stat+ "] "+ " ["+ memInfo+ "] "+ " ["+ yyyymmmdddhb+ "]["+ yyyymmmddd+ "]["+ yyyymmmdddstart+ "]  "+ this.workport+ "<hr>";
+  }
+  String recorecountStr="";
+  if (this.recorecount.size() > 0) {
+    recorecountStr=" <br> " + this.recorecount.toString();
+  }
+  String daycountStr="";
+  if (this.daycount.size() > 0) {
+    daycountStr=" <br> " + this.daycount.toString();
+  }
+  return this.isMergeServer + " " + this.isRealTime+ " ["+ this.hostname+ "]["+ localip+ ":"+ port+ "]["+ this.stat+ "] "+ hdfsfolder+ " ["+ memInfo+ "] "+ " ["+ yyyymmmdddhb+ "]["+ yyyymmmddd+ "]["+ yyyymmmdddstart+ "]  "+ this.workport+ recorecountStr+ daycountStr+ "<br> ["+ localpath+ "]<br>["+ this.hdfsPath+ "]<hr>";
+}

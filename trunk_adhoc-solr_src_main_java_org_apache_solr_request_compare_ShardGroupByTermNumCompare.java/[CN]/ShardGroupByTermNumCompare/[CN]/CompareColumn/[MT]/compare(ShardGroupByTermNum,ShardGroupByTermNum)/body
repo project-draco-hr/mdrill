@@ -1,0 +1,7 @@
+{
+  int cmp=UniqTypeNum.compare(o1.key.list[fl_num],o2.key.list[fl_num]);
+  if (cmp == 0) {
+    cmp=index.compare(o1,o2);
+  }
+  return cmp;
+}

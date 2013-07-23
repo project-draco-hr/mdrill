@@ -1,0 +1,16 @@
+{
+  this.writeLock.lock();
+  try {
+    final Segment cur=this.segments.last();
+    long offset=cur.start + cur.fileMessageSet.append(buffer);
+    this.mayBeRoll();
+    return offset;
+  }
+ catch (  final IOException e) {
+    log.error("Append file failed",e);
+    throw e;
+  }
+ finally {
+    this.writeLock.unlock();
+  }
+}

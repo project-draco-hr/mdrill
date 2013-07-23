@@ -1,0 +1,5 @@
+{
+  super(similarity,w);
+  theScore=w.getValue();
+  this.docIdSetIterator=docIdSetIterator;
+}

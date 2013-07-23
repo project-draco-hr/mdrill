@@ -1,0 +1,11 @@
+{
+  ensureOpen();
+  try {
+    if (docWriter.deleteTerm(term,false)) {
+      flush(true,false);
+    }
+  }
+ catch (  OutOfMemoryError oom) {
+    handleOOM(oom,"deleteDocuments(Term)");
+  }
+}

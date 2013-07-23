@@ -1,0 +1,4 @@
+{
+  IndexWriter w=writer.get();
+  return w != null && w.verbose();
+}

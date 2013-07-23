@@ -1,0 +1,4 @@
+{
+  super.newLine=true;
+  sharedCSVBuf=super.buf;
+}

@@ -1,0 +1,6 @@
+{
+  ensureOpen();
+  acquireWriteLock();
+  hasChanges=true;
+  doSetNorm(doc,field,value);
+}

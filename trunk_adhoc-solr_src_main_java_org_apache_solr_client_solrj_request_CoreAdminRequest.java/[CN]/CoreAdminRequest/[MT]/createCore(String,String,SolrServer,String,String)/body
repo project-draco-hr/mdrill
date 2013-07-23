@@ -1,0 +1,12 @@
+{
+  CoreAdminRequest.Create req=new CoreAdminRequest.Create();
+  req.setCoreName(name);
+  req.setInstanceDir(instanceDir);
+  if (configFile != null) {
+    req.setConfigName(configFile);
+  }
+  if (schemaFile != null) {
+    req.setSchemaName(schemaFile);
+  }
+  return req.process(server);
+}

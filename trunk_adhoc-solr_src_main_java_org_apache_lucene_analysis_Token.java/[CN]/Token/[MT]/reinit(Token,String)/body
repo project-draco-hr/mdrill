@@ -1,0 +1,9 @@
+{
+  setEmpty().append(newTerm);
+  positionIncrement=prototype.positionIncrement;
+  flags=prototype.flags;
+  startOffset=prototype.startOffset;
+  endOffset=prototype.endOffset;
+  type=prototype.type;
+  payload=prototype.payload;
+}

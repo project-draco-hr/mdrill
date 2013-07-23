@@ -1,0 +1,3 @@
+SolrConfig solrConfig
+String name
+InputSource is

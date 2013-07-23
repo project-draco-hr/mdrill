@@ -1,0 +1,3 @@
+String groupField
+Sort sortWithinGroup
+int initialSize

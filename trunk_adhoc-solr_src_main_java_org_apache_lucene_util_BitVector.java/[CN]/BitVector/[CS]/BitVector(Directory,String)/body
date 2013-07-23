@@ -1,0 +1,24 @@
+{
+  IndexInput input=d.openInput(name);
+  try {
+    final int firstInt=input.readInt();
+    final int version;
+    if (firstInt == -2) {
+      version=CodecUtil.checkHeader(input,CODEC,VERSION_START,VERSION_START);
+      size=input.readInt();
+    }
+ else {
+      version=VERSION_PRE;
+      size=firstInt;
+    }
+    if (size == -1) {
+      readDgaps(input);
+    }
+ else {
+      readBits(input);
+    }
+  }
+  finally {
+    input.close();
+  }
+}

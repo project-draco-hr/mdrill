@@ -1,0 +1,10 @@
+{
+  FieldInfos fis=new FieldInfos();
+  final int numField=byNumber.size();
+  for (int i=0; i < numField; i++) {
+    FieldInfo fi=(FieldInfo)(byNumber.get(i)).clone();
+    fis.byNumber.add(fi);
+    fis.byName.put(fi.name,fi);
+  }
+  return fis;
+}

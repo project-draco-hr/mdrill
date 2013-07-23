@@ -1,0 +1,6 @@
+{
+  for (  DynamicField df : dFields) {
+    if (df.regex.equals(f.name))     return true;
+  }
+  return false;
+}

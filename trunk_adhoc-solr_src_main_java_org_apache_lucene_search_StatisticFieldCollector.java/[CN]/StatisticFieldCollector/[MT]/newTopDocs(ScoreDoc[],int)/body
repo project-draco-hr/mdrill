@@ -1,0 +1,7 @@
+{
+  if (results == null) {
+    results=EMPTY_SCOREDOCS;
+    maxScore=Float.NaN;
+  }
+  return new TopFieldDocs(totalHits,results,((FieldValueHitQueue<Entry>)pq).getFields(),maxScore,sum,max,min);
+}

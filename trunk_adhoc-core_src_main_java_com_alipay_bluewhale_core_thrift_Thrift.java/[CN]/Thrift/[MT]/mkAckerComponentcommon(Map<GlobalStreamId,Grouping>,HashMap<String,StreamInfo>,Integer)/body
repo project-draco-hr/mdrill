@@ -1,0 +1,7 @@
+{
+  ComponentCommon ret=new ComponentCommon(inputs,output_spec);
+  if (parallelism_hint != null) {
+    ret.set_parallelism_hint(parallelism_hint);
+  }
+  return ret;
+}

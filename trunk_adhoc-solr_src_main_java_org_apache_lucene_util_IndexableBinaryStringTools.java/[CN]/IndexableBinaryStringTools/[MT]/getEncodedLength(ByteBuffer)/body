@@ -1,0 +1,8 @@
+{
+  if (original.hasArray()) {
+    return getEncodedLength(original.array(),original.arrayOffset(),original.limit() - original.arrayOffset());
+  }
+ else {
+    throw new IllegalArgumentException("original argument must have a backing array");
+  }
+}

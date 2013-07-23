@@ -1,0 +1,4 @@
+{
+  log.info("SolrDeletionPolicy.onCommit: commits:" + str(commits));
+  updateCommits((List<IndexCommit>)commits);
+}

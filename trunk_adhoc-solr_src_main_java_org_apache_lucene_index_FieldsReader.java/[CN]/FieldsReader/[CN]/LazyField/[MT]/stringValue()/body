@@ -1,0 +1,40 @@
+{
+  ensureOpen();
+  if (isBinary)   return null;
+ else {
+    if (fieldsData == null) {
+      IndexInput localFieldsStream=getFieldStream();
+      String value;
+      try {
+        localFieldsStream.seek(pointer);
+        if (isCompressed) {
+          final byte[] b=new byte[toRead];
+          localFieldsStream.readBytes(b,0,b.length);
+          value=new String(uncompress(b),"UTF-8");
+        }
+ else {
+          if (format >= FieldsWriter.FORMAT_VERSION_UTF8_LENGTH_IN_BYTES) {
+            byte[] bytes=new byte[toRead];
+            localFieldsStream.readBytes(bytes,0,toRead);
+            value=new String(bytes,"UTF-8");
+          }
+ else {
+            char[] chars=new char[toRead];
+            localFieldsStream.readChars(chars,0,toRead);
+            value=new String(chars);
+          }
+        }
+      }
+ catch (      IOException e) {
+        throw new FieldReaderException(e);
+      }
+      if (cacheResult) {
+        fieldsData=value;
+      }
+      return value;
+    }
+ else {
+      return (String)fieldsData;
+    }
+  }
+}

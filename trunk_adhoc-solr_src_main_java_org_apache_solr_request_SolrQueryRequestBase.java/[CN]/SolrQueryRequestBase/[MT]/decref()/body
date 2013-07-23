@@ -1,0 +1,6 @@
+{
+  if (searcherHolder != null) {
+    searcherHolder.decref();
+    searcherHolder=null;
+  }
+}

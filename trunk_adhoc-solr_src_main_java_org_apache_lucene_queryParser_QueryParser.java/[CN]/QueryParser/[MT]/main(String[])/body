@@ -1,0 +1,9 @@
+{
+  if (args.length == 0) {
+    System.out.println("Usage: java org.apache.lucene.queryParser.QueryParser <input>");
+    System.exit(0);
+  }
+  QueryParser qp=new QueryParser(Version.LUCENE_CURRENT,"field",new org.apache.lucene.analysis.SimpleAnalyzer());
+  Query q=qp.parse(args[0]);
+  System.out.println(q.toString("field"));
+}

@@ -1,0 +1,3 @@
+{
+  return bytesUsed.get() + pendingDeletes.bytesUsed.get();
+}

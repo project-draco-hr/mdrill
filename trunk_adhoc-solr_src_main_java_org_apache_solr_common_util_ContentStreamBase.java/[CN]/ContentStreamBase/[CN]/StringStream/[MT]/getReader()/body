@@ -1,0 +1,4 @@
+{
+  String charset=getCharsetFromContentType(contentType);
+  return charset == null ? new StringReader(str) : new InputStreamReader(getStream(),charset);
+}

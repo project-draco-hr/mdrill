@@ -1,0 +1,4 @@
+{
+  IndexReader reader=fieldToReader.get(term.field());
+  termDocs=reader != null ? reader.termDocs(term,this.buffer) : null;
+}

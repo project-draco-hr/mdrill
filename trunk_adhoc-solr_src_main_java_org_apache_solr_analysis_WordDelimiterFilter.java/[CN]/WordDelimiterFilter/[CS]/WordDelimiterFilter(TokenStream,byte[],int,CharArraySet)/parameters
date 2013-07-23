@@ -1,0 +1,4 @@
+TokenStream in
+byte[] charTypeTable
+int configurationFlags
+CharArraySet protWords

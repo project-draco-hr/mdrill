@@ -1,0 +1,21 @@
+{
+  if (curStorePayloads) {
+    int delta=curDoc - lastSkipDoc[level];
+    if (curPayloadLength == lastSkipPayloadLength[level]) {
+      skipBuffer.writeVInt(delta * 2);
+    }
+ else {
+      skipBuffer.writeVInt(delta * 2 + 1);
+      skipBuffer.writeVInt(curPayloadLength);
+      lastSkipPayloadLength[level]=curPayloadLength;
+    }
+  }
+ else {
+    skipBuffer.writeVInt(curDoc - lastSkipDoc[level]);
+  }
+  skipBuffer.writeVInt((int)(curFreqPointer - lastSkipFreqPointer[level]));
+  skipBuffer.writeVInt((int)(curProxPointer - lastSkipProxPointer[level]));
+  lastSkipDoc[level]=curDoc;
+  lastSkipFreqPointer[level]=curFreqPointer;
+  lastSkipProxPointer[level]=curProxPointer;
+}

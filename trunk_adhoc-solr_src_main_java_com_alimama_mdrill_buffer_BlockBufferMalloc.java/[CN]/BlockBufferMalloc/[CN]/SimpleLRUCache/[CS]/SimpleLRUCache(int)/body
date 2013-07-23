@@ -1,0 +1,13 @@
+{
+  super(new LinkedHashMap<block,blockData>((int)Math.ceil(cacheSize / LOADFACTOR) + 1,LOADFACTOR,true){
+    @Override protected boolean removeEldestEntry(    Map.Entry<block,blockData> eldest){
+      boolean isrtn=size() > cacheSize;
+      if (isrtn) {
+        blockData freed=eldest.getValue();
+        BlockBufferMalloc.freeData(freed);
+      }
+      return isrtn;
+    }
+  }
+);
+}

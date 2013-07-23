@@ -1,0 +1,4 @@
+FileChannel channel
+long offset
+long limit
+boolean mutable

@@ -1,0 +1,3 @@
+{
+  return wrappedField.getSortField(field,top);
+}

@@ -1,0 +1,29 @@
+{
+  final int len=buffer.length;
+  int matpos=len;
+  boolean isfound=false;
+  for (int i=0; i < len; ++i) {
+    int leftlen=len - i;
+    if (this.ismatch(buffer,search,i,0,Math.min(search.length,leftlen),fuzzle)) {
+      isfound=true;
+      matpos=i;
+      break;
+    }
+  }
+  boolean isfullcut=isfound && (len - matpos >= search.length);
+  byte[] read=new byte[matpos];
+  for (int i=0; i < matpos; i++) {
+    read[i]=buffer[i];
+  }
+  int offset=matpos;
+  if (isfullcut) {
+    offset+=search.length;
+  }
+  int leftlen=len - offset;
+  leftlen=leftlen > 0 ? leftlen : 0;
+  byte[] left=new byte[leftlen];
+  for (int i=0; i < leftlen; i++) {
+    left[i]=buffer[i + offset];
+  }
+  return new ByteSplit(isfullcut,read,left);
+}

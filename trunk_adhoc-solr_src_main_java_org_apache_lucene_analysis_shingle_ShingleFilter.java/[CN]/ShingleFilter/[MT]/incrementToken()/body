@@ -1,0 +1,48 @@
+{
+  boolean tokenAvailable=false;
+  int builtGramSize=0;
+  if (gramSize.atMinValue() || inputWindow.size() < gramSize.getValue()) {
+    shiftInputWindow();
+    gramBuilder.setLength(0);
+  }
+ else {
+    builtGramSize=gramSize.getPreviousValue();
+  }
+  if (inputWindow.size() >= gramSize.getValue()) {
+    boolean isAllFiller=true;
+    InputWindowToken nextToken=null;
+    Iterator<InputWindowToken> iter=inputWindow.iterator();
+    for (int gramNum=1; iter.hasNext() && builtGramSize < gramSize.getValue(); ++gramNum) {
+      nextToken=iter.next();
+      if (builtGramSize < gramNum) {
+        if (builtGramSize > 0) {
+          gramBuilder.append(tokenSeparator);
+        }
+        gramBuilder.append(nextToken.termAtt.buffer(),0,nextToken.termAtt.length());
+        ++builtGramSize;
+      }
+      if (isAllFiller && nextToken.isFiller) {
+        if (gramNum == gramSize.getValue()) {
+          gramSize.advance();
+        }
+      }
+ else {
+        isAllFiller=false;
+      }
+    }
+    if (!isAllFiller && builtGramSize == gramSize.getValue()) {
+      inputWindow.getFirst().attSource.copyTo(this);
+      posIncrAtt.setPositionIncrement(isOutputHere ? 0 : 1);
+      termAtt.setEmpty().append(gramBuilder);
+      if (gramSize.getValue() > 1) {
+        typeAtt.setType(tokenType);
+        noShingleOutput=false;
+      }
+      offsetAtt.setOffset(offsetAtt.startOffset(),nextToken.offsetAtt.endOffset());
+      isOutputHere=true;
+      gramSize.advance();
+      tokenAvailable=true;
+    }
+  }
+  return tokenAvailable;
+}

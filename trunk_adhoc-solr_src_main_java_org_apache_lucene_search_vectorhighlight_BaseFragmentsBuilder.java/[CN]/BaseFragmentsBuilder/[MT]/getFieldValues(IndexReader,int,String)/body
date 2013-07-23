@@ -1,0 +1,4 @@
+{
+  Document doc=reader.document(docId,new MapFieldSelector(new String[]{fieldName}));
+  return doc.getValues(fieldName);
+}

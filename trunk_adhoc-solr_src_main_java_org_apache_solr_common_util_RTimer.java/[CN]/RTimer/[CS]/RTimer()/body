@@ -1,0 +1,7 @@
+{
+  time=0;
+  culmTime=0;
+  children=new SimpleOrderedMap<RTimer>();
+  startTime=now();
+  state=STARTED;
+}

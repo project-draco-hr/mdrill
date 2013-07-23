@@ -1,0 +1,48 @@
+{
+  ensureOpen(false);
+  if (hitOOM) {
+    throw new IllegalStateException("this writer hit an OutOfMemoryError; cannot commit");
+  }
+  if (pendingCommit != null)   throw new IllegalStateException("prepareCommit was already called with no corresponding call to commit");
+  if (infoStream != null)   message("prepareCommit: flush");
+  ensureOpen(false);
+  boolean anySegmentsFlushed=false;
+  SegmentInfos toCommit=null;
+  boolean success=false;
+  try {
+    try {
+synchronized (this) {
+        anySegmentsFlushed=doFlush(true);
+        readerPool.commit(segmentInfos);
+        toCommit=(SegmentInfos)segmentInfos.clone();
+        pendingCommitChangeCount=changeCount;
+        deleter.incRef(toCommit,false);
+      }
+      success=true;
+    }
+  finally {
+      if (!success && infoStream != null) {
+        message("hit exception during prepareCommit");
+      }
+      doAfterFlush();
+    }
+  }
+ catch (  OutOfMemoryError oom) {
+    handleOOM(oom,"prepareCommit");
+  }
+  success=false;
+  try {
+    if (anySegmentsFlushed) {
+      maybeMerge();
+    }
+    success=true;
+  }
+  finally {
+    if (!success) {
+synchronized (this) {
+        deleter.decRef(toCommit);
+      }
+    }
+  }
+  startCommit(toCommit,commitUserData);
+}

@@ -1,0 +1,29 @@
+{
+  if (join.isSimple())   buffer.append(", ");
+ else {
+    if (join.isRight())     buffer.append("RIGHT ");
+ else     if (join.isNatural())     buffer.append("NATURAL ");
+ else     if (join.isFull())     buffer.append("FULL ");
+ else     if (join.isLeft())     buffer.append("LEFT ");
+    if (join.isOuter())     buffer.append("OUTER ");
+ else     if (join.isInner())     buffer.append("INNER ");
+    buffer.append("JOIN ");
+  }
+  FromItem fromItem=join.getRightItem();
+  fromItem.accept(this);
+  if (join.getOnExpression() != null) {
+    buffer.append(" ON ");
+    join.getOnExpression().accept(expressionVisitor);
+  }
+  if (join.getUsingColumns() != null) {
+    buffer.append(" USING ( ");
+    for (Iterator iterator=join.getUsingColumns().iterator(); iterator.hasNext(); ) {
+      Column column=(Column)iterator.next();
+      buffer.append(column.getWholeColumnName());
+      if (iterator.hasNext()) {
+        buffer.append(" ,");
+      }
+    }
+    buffer.append(")");
+  }
+}

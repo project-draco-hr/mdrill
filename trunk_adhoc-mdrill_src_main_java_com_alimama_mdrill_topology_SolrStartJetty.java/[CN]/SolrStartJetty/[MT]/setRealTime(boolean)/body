@@ -1,0 +1,4 @@
+{
+  this.isRealTime=isRealTime;
+  LinkFSDirectory.setRealTime(isRealTime);
+}

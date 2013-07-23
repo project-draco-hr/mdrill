@@ -1,0 +1,12 @@
+{
+  if (dynamicCopyFields == null) {
+    dynamicCopyFields=new DynamicCopy[]{dcopy};
+  }
+ else {
+    DynamicCopy[] temp=new DynamicCopy[dynamicCopyFields.length + 1];
+    System.arraycopy(dynamicCopyFields,0,temp,0,dynamicCopyFields.length);
+    temp[temp.length - 1]=dcopy;
+    dynamicCopyFields=temp;
+  }
+  log.trace("Dynamic Copy Field:" + dcopy);
+}

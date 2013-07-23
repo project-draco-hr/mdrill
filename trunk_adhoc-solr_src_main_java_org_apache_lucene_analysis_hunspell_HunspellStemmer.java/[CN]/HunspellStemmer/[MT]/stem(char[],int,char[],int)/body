@@ -1,0 +1,39 @@
+{
+  List<Stem> stems=new ArrayList<Stem>();
+  for (int i=0; i < length; i++) {
+    List<HunspellAffix> suffixes=dictionary.lookupSuffix(word,i,length - i);
+    if (suffixes == null) {
+      continue;
+    }
+    for (    HunspellAffix suffix : suffixes) {
+      if (hasCrossCheckedFlag(suffix.getFlag(),flags)) {
+        int deAffixedLength=length - suffix.getAppend().length();
+        String strippedWord=new StringBuilder().append(word,0,deAffixedLength).append(suffix.getStrip()).toString();
+        List<Stem> stemList=applyAffix(strippedWord.toCharArray(),strippedWord.length(),suffix,recursionDepth);
+        for (        Stem stem : stemList) {
+          stem.addSuffix(suffix);
+        }
+        stems.addAll(stemList);
+      }
+    }
+  }
+  for (int i=length - 1; i >= 0; i--) {
+    List<HunspellAffix> prefixes=dictionary.lookupPrefix(word,0,i);
+    if (prefixes == null) {
+      continue;
+    }
+    for (    HunspellAffix prefix : prefixes) {
+      if (hasCrossCheckedFlag(prefix.getFlag(),flags)) {
+        int deAffixedStart=prefix.getAppend().length();
+        int deAffixedLength=length - deAffixedStart;
+        String strippedWord=new StringBuilder().append(prefix.getStrip()).append(word,deAffixedStart,deAffixedLength).toString();
+        List<Stem> stemList=applyAffix(strippedWord.toCharArray(),strippedWord.length(),prefix,recursionDepth);
+        for (        Stem stem : stemList) {
+          stem.addPrefix(prefix);
+        }
+        stems.addAll(stemList);
+      }
+    }
+  }
+  return stems;
+}

@@ -1,0 +1,36 @@
+{
+  int among_var;
+  int v_1;
+  replab0:   while (true) {
+    v_1=cursor;
+    lab1:     do {
+      bra=cursor;
+      among_var=find_among(a_1,3);
+      if (among_var == 0) {
+        break lab1;
+      }
+      ket=cursor;
+switch (among_var) {
+case 0:
+        break lab1;
+case 1:
+      slice_from("\u00E3");
+    break;
+case 2:
+  slice_from("\u00F5");
+break;
+case 3:
+if (cursor >= limit) {
+break lab1;
+}
+cursor++;
+break;
+}
+continue replab0;
+}
+ while (false);
+cursor=v_1;
+break replab0;
+}
+return true;
+}

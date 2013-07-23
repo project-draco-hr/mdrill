@@ -1,0 +1,3 @@
+{
+  return newIntRange(field,null,lowerVal,upperVal,includeLower,includeUpper);
+}

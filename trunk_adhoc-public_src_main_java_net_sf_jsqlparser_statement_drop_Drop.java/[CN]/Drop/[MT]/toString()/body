@@ -1,0 +1,7 @@
+{
+  String sql="DROP " + type + " "+ name;
+  if (parameters != null && parameters.size() > 0) {
+    sql+=" " + PlainSelect.getStringList(parameters);
+  }
+  return sql;
+}

@@ -1,0 +1,10 @@
+{
+  if (!node.hasChildNodes())   return null;
+  NodeList lst=node.getChildNodes();
+  if (lst == null)   return null;
+  for (int i=0; i < lst.getLength(); i++) {
+    Node child=lst.item(i);
+    if (name.equals(child.getNodeName()))     return child;
+  }
+  return null;
+}

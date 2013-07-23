@@ -1,0 +1,4 @@
+{
+  dataDir=s;
+  if (dataDir != null && dataDir.length() == 0)   dataDir=null;
+}

@@ -1,0 +1,15 @@
+{
+  boolean removed=false;
+  if (len > 3 && (endsWith(s,len,"??????") || endsWith(s,len,"??????"))) {
+    len-=3;
+    removed=true;
+  }
+ else   if (len > 4 && (endsWith(s,len,"????????") || endsWith(s,len,"????????"))) {
+    len-=4;
+    removed=true;
+  }
+  if (removed) {
+    if (endsWithVowel(s,len) || exc6.contains(s,0,len))     len+=2;
+  }
+  return len;
+}

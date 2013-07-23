@@ -1,0 +1,19 @@
+{
+  ComponentCommon common=null;
+  if (obj instanceof StateSpoutSpec) {
+    StateSpoutSpec spec=(StateSpoutSpec)obj;
+    common=spec.get_common();
+  }
+  if (obj instanceof SpoutSpec) {
+    SpoutSpec spec=(SpoutSpec)obj;
+    common=spec.get_common();
+  }
+  if (obj instanceof Bolt) {
+    Bolt spec=(Bolt)obj;
+    common=spec.get_common();
+  }
+  if (common != null) {
+    StreamInfo sinfo=Thrift.outputFields(sysEventFields);
+    common.put_to_streams(SYSTEM_STREAM_ID,sinfo);
+  }
+}

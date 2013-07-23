@@ -1,0 +1,12 @@
+{
+  int sz=size();
+  if (sz > 0)   cb.put(buf,start,sz);
+  start=end;
+  while (true) {
+    fill();
+    int s=size();
+    if (s == 0)     return sz == 0 ? -1 : sz;
+    sz+=s;
+    cb.put(buf,start,s);
+  }
+}

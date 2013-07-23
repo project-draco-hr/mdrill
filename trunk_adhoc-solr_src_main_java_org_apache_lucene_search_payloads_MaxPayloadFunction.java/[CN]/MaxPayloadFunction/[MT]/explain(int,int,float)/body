@@ -1,0 +1,7 @@
+{
+  Explanation expl=new Explanation();
+  float maxPayloadScore=(numPayloadsSeen > 0 ? payloadScore : 1);
+  expl.setValue(maxPayloadScore);
+  expl.setDescription("MaxPayloadFunction(...)");
+  return expl;
+}

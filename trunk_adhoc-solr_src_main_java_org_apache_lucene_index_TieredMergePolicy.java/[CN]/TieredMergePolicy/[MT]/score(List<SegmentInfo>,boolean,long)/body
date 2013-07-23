@@ -1,0 +1,32 @@
+{
+  long totBeforeMergeBytes=0;
+  long totAfterMergeBytes=0;
+  long totAfterMergeBytesFloored=0;
+  for (  SegmentInfo info : candidate) {
+    final long segBytes=size(info);
+    totAfterMergeBytes+=segBytes;
+    totAfterMergeBytesFloored+=floorSize(segBytes);
+    totBeforeMergeBytes+=info.sizeInBytes(true);
+  }
+  final double skew;
+  if (hitTooLarge) {
+    skew=1.0 / maxMergeAtOnce;
+  }
+ else {
+    skew=((double)floorSize(size(candidate.get(0)))) / totAfterMergeBytesFloored;
+  }
+  double mergeScore=skew;
+  mergeScore*=Math.pow(totAfterMergeBytes,0.05);
+  final double nonDelRatio=((double)totAfterMergeBytes) / totBeforeMergeBytes;
+  mergeScore*=Math.pow(nonDelRatio,reclaimDeletesWeight);
+  final double finalMergeScore=mergeScore;
+  return new MergeScore(){
+    @Override public double getScore(){
+      return finalMergeScore;
+    }
+    @Override public String getExplanation(){
+      return "skew=" + String.format("%.3f",skew) + " nonDelRatio="+ String.format("%.3f",nonDelRatio);
+    }
+  }
+;
+}

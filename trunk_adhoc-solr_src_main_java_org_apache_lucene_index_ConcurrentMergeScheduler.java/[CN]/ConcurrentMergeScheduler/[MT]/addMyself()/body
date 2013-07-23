@@ -1,0 +1,12 @@
+{
+synchronized (allInstances) {
+    final int size=allInstances.size();
+    int upto=0;
+    for (int i=0; i < size; i++) {
+      final ConcurrentMergeScheduler other=allInstances.get(i);
+      if (!(other.closed && 0 == other.mergeThreadCount()))       allInstances.set(upto++,other);
+    }
+    allInstances.subList(upto,allInstances.size()).clear();
+    allInstances.add(this);
+  }
+}

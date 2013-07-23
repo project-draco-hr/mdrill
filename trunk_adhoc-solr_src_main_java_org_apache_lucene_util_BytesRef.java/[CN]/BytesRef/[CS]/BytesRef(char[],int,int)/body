@@ -1,0 +1,4 @@
+{
+  this(length * 4);
+  copy(text,offset,length);
+}

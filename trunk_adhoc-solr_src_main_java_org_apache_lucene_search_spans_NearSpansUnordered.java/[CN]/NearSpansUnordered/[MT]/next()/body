@@ -1,0 +1,40 @@
+{
+  if (firstTime) {
+    initList(true);
+    listToQueue();
+    firstTime=false;
+  }
+ else   if (more) {
+    if (min().next()) {
+      queue.updateTop();
+    }
+ else {
+      more=false;
+    }
+  }
+  while (more) {
+    boolean queueStale=false;
+    if (min().doc() != max.doc()) {
+      queueToList();
+      queueStale=true;
+    }
+    while (more && first.doc() < last.doc()) {
+      more=first.skipTo(last.doc());
+      firstToLast();
+      queueStale=true;
+    }
+    if (!more)     return false;
+    if (queueStale) {
+      listToQueue();
+      queueStale=false;
+    }
+    if (atMatch()) {
+      return true;
+    }
+    more=min().next();
+    if (more) {
+      queue.updateTop();
+    }
+  }
+  return false;
+}

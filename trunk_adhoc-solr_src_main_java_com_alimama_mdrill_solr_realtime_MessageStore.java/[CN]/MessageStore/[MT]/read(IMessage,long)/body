@@ -1,0 +1,7 @@
+{
+  Segment seg=this.findSegment(this.segments.view(),offset);
+  if (seg == null) {
+    return -1;
+  }
+  return seg.fileMessageSet.read(bf,offset - seg.start);
+}

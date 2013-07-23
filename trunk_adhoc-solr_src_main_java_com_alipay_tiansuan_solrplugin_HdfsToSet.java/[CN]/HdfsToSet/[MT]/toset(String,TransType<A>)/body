@@ -1,0 +1,18 @@
+{
+  Set<A> inlist=new HashSet<A>();
+  Configuration conf=this.getConf();
+  Path p=new Path(file);
+  FileSystem fs=p.getFileSystem(conf);
+  FSDataInputStream in=fs.open(p);
+  BufferedReader br=new BufferedReader(new InputStreamReader(in));
+  String s1=null;
+  while ((s1=br.readLine()) != null) {
+    String line=s1.trim();
+    if (!line.isEmpty()) {
+      inlist.add(trans.trans(line));
+    }
+  }
+  br.close();
+  in.close();
+  return inlist;
+}

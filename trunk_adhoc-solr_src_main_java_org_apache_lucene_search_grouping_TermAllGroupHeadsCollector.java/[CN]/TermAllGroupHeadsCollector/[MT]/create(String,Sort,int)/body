@@ -1,0 +1,24 @@
+{
+  boolean sortAllScore=true;
+  boolean sortAllFieldValue=true;
+  for (  SortField sortField : sortWithinGroup.getSort()) {
+    if (sortField.getType() == SortField.SCORE) {
+      sortAllFieldValue=false;
+    }
+ else     if (needGeneralImpl(sortField)) {
+      return new GeneralAllGroupHeadsCollector(groupField,sortWithinGroup);
+    }
+ else {
+      sortAllScore=false;
+    }
+  }
+  if (sortAllScore) {
+    return new ScoreAllGroupHeadsCollector(groupField,sortWithinGroup,initialSize);
+  }
+ else   if (sortAllFieldValue) {
+    return new OrdAllGroupHeadsCollector(groupField,sortWithinGroup,initialSize);
+  }
+ else {
+    return new OrdScoreAllGroupHeadsCollector(groupField,sortWithinGroup,initialSize);
+  }
+}

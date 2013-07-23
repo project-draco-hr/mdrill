@@ -1,0 +1,5 @@
+{
+  int code=startOffset;
+  code=code * 31 + endOffset;
+  return code;
+}

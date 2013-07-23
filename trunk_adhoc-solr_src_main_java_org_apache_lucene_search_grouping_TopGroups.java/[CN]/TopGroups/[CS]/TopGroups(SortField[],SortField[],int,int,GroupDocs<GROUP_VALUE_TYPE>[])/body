@@ -1,0 +1,8 @@
+{
+  this.groupSort=groupSort;
+  this.withinGroupSort=withinGroupSort;
+  this.totalHitCount=totalHitCount;
+  this.totalGroupedHitCount=totalGroupedHitCount;
+  this.groups=groups;
+  this.totalGroupCount=null;
+}

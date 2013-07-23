@@ -1,0 +1,15 @@
+{
+  if (iter.hasNext()) {
+    startTag("arr",name,false);
+    incLevel();
+    while (iter.hasNext()) {
+      writeVal(null,iter.next());
+    }
+    decLevel();
+    if (doIndent)     indent();
+    writer.write("</arr>");
+  }
+ else {
+    startTag("arr",name,true);
+  }
+}

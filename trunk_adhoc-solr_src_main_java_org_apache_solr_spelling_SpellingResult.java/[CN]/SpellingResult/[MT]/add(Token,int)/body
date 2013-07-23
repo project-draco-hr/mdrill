@@ -1,0 +1,3 @@
+{
+  addFrequency(token,docFreq);
+}

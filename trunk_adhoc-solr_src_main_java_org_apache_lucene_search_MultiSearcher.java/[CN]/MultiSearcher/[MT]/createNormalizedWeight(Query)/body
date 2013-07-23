@@ -1,0 +1,9 @@
+{
+  final Query rewrittenQuery=rewrite(original);
+  final Set<Term> terms=new HashSet<Term>();
+  rewrittenQuery.extractTerms(terms);
+  final Map<Term,Integer> dfMap=createDocFrequencyMap(terms);
+  final int numDocs=maxDoc();
+  final CachedDfSource cacheSim=new CachedDfSource(dfMap,numDocs,getSimilarity());
+  return cacheSim.createNormalizedWeight(rewrittenQuery);
+}

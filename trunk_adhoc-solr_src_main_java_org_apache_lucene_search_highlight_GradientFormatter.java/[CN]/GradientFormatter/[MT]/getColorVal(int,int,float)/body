@@ -1,0 +1,9 @@
+{
+  if (colorMin == colorMax) {
+    return colorMin;
+  }
+  float scale=Math.abs(colorMin - colorMax);
+  float relScorePercent=Math.min(maxScore,score) / maxScore;
+  float colScore=scale * relScorePercent;
+  return Math.min(colorMin,colorMax) + (int)colScore;
+}

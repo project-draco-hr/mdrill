@@ -1,0 +1,3 @@
+{
+  base.add(doc,line,column,val.trim());
+}

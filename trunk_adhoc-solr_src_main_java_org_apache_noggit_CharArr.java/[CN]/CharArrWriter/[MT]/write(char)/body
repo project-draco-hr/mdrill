@@ -1,0 +1,6 @@
+{
+  if (end >= buf.length) {
+    flush();
+  }
+  unsafeWrite(b);
+}

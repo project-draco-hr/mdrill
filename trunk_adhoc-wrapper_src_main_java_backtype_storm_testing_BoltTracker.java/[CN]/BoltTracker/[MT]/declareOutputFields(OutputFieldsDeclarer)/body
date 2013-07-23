@@ -1,0 +1,3 @@
+{
+  _richDelegate.declareOutputFields(declarer);
+}

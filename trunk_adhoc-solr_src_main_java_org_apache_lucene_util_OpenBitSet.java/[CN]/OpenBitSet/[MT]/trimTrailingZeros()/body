@@ -1,0 +1,5 @@
+{
+  int idx=wlen - 1;
+  while (idx >= 0 && bits[idx] == 0)   idx--;
+  wlen=idx + 1;
+}

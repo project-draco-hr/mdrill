@@ -1,0 +1,6 @@
+{
+  if (resourceDescription == null) {
+    throw new IllegalArgumentException("resourceDescription must not be null");
+  }
+  this.resourceDescription=resourceDescription;
+}

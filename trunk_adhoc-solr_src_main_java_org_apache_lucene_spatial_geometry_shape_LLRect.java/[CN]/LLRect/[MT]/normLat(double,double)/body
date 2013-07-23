@@ -1,0 +1,22 @@
+{
+  if (lat > 90.0) {
+    lat=90.0 - (lat - 90.0);
+    if (lng < 0) {
+      lng=lng + 180;
+    }
+ else {
+      lng=lng - 180;
+    }
+  }
+ else   if (lat < -90.0) {
+    lat=-90.0 - (lat + 90.0);
+    if (lng < 0) {
+      lng=lng + 180;
+    }
+ else {
+      lng=lng - 180;
+    }
+  }
+  LatLng ll=new FloatLatLng(lat,lng);
+  return ll;
+}

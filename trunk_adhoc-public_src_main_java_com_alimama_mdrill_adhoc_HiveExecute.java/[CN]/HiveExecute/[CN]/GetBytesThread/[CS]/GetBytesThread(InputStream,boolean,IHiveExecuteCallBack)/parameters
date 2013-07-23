@@ -1,0 +1,3 @@
+InputStream input
+boolean isERR
+IHiveExecuteCallBack callback

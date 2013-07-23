@@ -1,0 +1,10 @@
+{
+  t.set(new WeakReference<T>(object));
+synchronized (hardRefs) {
+    hardRefs.put(Thread.currentThread(),object);
+    for (Iterator<Thread> it=hardRefs.keySet().iterator(); it.hasNext(); ) {
+      final Thread t=it.next();
+      if (!t.isAlive())       it.remove();
+    }
+  }
+}

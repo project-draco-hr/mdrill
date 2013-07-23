@@ -1,0 +1,3 @@
+{
+  xmlWriter.writeFloat(name,f.stringValue());
+}

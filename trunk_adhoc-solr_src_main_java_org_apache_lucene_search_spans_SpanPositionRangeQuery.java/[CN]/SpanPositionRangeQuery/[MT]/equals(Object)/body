@@ -1,0 +1,6 @@
+{
+  if (this == o)   return true;
+  if (!(o instanceof SpanPositionRangeQuery))   return false;
+  SpanPositionRangeQuery other=(SpanPositionRangeQuery)o;
+  return this.end == other.end && this.start == other.start && this.match.equals(other.match) && this.getBoost() == other.getBoost();
+}

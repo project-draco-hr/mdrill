@@ -1,0 +1,5 @@
+{
+  HyphenationTree tree=new HyphenationTree();
+  tree.loadPatterns(hyphenationSource);
+  return tree;
+}

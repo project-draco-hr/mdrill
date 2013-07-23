@@ -1,0 +1,14 @@
+{
+  PluginInfo info=solrConfig.getPluginInfo(IndexDeletionPolicy.class.getName());
+  IndexDeletionPolicy delPolicy=null;
+  if (info != null) {
+    delPolicy=createInstance(info.className,IndexDeletionPolicy.class,"Deletion Policy for SOLR");
+    if (delPolicy instanceof NamedListInitializedPlugin) {
+      ((NamedListInitializedPlugin)delPolicy).init(info.initArgs);
+    }
+  }
+ else {
+    delPolicy=new SolrDeletionPolicy();
+  }
+  solrDelPolicy=new IndexDeletionPolicyWrapper(delPolicy);
+}

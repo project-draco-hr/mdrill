@@ -1,0 +1,6 @@
+{
+  super.removeReaderFinishedListener(listener);
+  for (  IndexReader sub : subReaders) {
+    sub.removeReaderFinishedListener(listener);
+  }
+}

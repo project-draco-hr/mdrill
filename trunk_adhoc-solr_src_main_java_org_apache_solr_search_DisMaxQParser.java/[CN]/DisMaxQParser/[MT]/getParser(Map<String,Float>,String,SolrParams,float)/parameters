@@ -1,0 +1,4 @@
+Map<String,Float> fields
+String paramName
+SolrParams solrParams
+float tiebreaker

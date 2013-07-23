@@ -1,0 +1,8 @@
+{
+  this.termsHashPerField=termsHashPerField;
+  this.perThread=perThread;
+  this.fieldInfo=fieldInfo;
+  docState=termsHashPerField.docState;
+  fieldState=termsHashPerField.fieldState;
+  indexOptions=fieldInfo.indexOptions;
+}

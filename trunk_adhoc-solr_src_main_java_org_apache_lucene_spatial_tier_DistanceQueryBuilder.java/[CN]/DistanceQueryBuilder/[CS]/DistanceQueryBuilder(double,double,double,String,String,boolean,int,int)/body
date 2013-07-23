@@ -1,0 +1,14 @@
+{
+  this.lat=lat;
+  this.lng=lng;
+  this.miles=miles;
+  CartesianPolyFilterBuilder cpf=new CartesianPolyFilterBuilder(tierFieldPrefix,minTierIndexed,maxTierIndexed);
+  Filter cartesianFilter=cpf.getBoundingArea(lat,lng,miles);
+  if (needPrecise) {
+    filter=distanceFilter=new GeoHashDistanceFilter(cartesianFilter,lat,lng,miles,geoHashFieldPrefix);
+  }
+ else {
+    filter=cartesianFilter;
+    distanceFilter=null;
+  }
+}

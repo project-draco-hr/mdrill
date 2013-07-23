@@ -1,0 +1,3 @@
+String qstr
+String defaultType
+SolrQueryRequest req

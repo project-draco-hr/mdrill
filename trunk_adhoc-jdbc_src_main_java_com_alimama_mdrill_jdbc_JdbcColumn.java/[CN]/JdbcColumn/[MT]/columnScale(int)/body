@@ -1,0 +1,17 @@
+{
+switch (columnType) {
+case Types.BOOLEAN:
+case Types.VARCHAR:
+case Types.TINYINT:
+case Types.SMALLINT:
+case Types.INTEGER:
+case Types.BIGINT:
+    return 0;
+case Types.FLOAT:
+  return 7;
+case Types.DOUBLE:
+return 15;
+default :
+throw new SQLException("Invalid column type: " + columnType);
+}
+}

@@ -1,0 +1,52 @@
+{
+  String field=entry.field;
+  FieldCache.LongParser parser=(FieldCache.LongParser)entry.custom;
+  if (parser == null) {
+    try {
+      return wrapper.getLongs(reader,field,DEFAULT_LONG_PARSER,setDocsWithField);
+    }
+ catch (    NumberFormatException ne) {
+      return wrapper.getLongs(reader,field,NUMERIC_UTILS_LONG_PARSER,setDocsWithField);
+    }
+  }
+  final int maxDoc=reader.maxDoc();
+  long[] retArray=null;
+  TermDocs termDocs=reader.termDocs();
+  TermEnum termEnum=reader.terms(new Term(field));
+  FixedBitSet docsWithField=null;
+  try {
+    do {
+      Term term=termEnum.term();
+      if (term == null || term.field() != field)       break;
+      long termval=parser.parseLong(term.text());
+      if (retArray == null) {
+        retArray=new long[maxDoc];
+      }
+      termDocs.seek(termEnum);
+      while (termDocs.next()) {
+        final int docID=termDocs.doc();
+        retArray[docID]=termval;
+        if (setDocsWithField) {
+          if (docsWithField == null) {
+            docsWithField=new FixedBitSet(maxDoc);
+          }
+          docsWithField.set(docID);
+        }
+      }
+    }
+ while (termEnum.next());
+  }
+ catch (  StopFillCacheException stop) {
+  }
+ finally {
+    termDocs.close();
+    termEnum.close();
+  }
+  if (setDocsWithField) {
+    wrapper.setDocsWithField(reader,field,docsWithField);
+  }
+  if (retArray == null) {
+    retArray=new long[maxDoc];
+  }
+  return retArray;
+}

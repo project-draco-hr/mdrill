@@ -1,0 +1,20 @@
+{
+  String tableName=args[1];
+  String topologyName="adhoc";
+  String[] killargs={topologyName};
+  try {
+    KillTopology.main(killargs);
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
+  Map stormconf=Utils.readStormConfig();
+  ClusterState zkClusterstate=Cluster.mk_distributed_cluster_state(stormconf);
+  StormClusterState zkCluster=Cluster.mk_storm_cluster_state(zkClusterstate);
+  zkCluster.higo_remove(topologyName);
+  for (  String s : tableName.split(",")) {
+    zkCluster.higo_remove(s);
+  }
+  zkCluster.disconnect();
+  System.exit(0);
+}

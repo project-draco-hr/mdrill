@@ -1,0 +1,4 @@
+{
+  Map<String,String> params=DOMUtil.toMapExcept(node.getAttributes(),"name","class");
+  plugin.init(params);
+}

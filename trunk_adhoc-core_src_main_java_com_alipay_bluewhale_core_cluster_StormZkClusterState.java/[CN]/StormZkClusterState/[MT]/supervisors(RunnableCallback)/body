@@ -1,0 +1,6 @@
+{
+  if (callback != null) {
+    supervisors_callback.set(callback);
+  }
+  return cluster_state.get_children(Cluster.SUPERVISORS_SUBTREE,callback != null);
+}

@@ -1,0 +1,35 @@
+{
+  if (_R2 >= sb.length())   return;
+  String s=sb.toString();
+  int index=0;
+  if ((s.endsWith("end") || s.endsWith("ing")) && (index=s.length() - 3) >= _R2) {
+    sb.delete(index,index + 3);
+    if (sb.charAt(index - 2) == 'i' && sb.charAt(index - 1) == 'g') {
+      if (sb.charAt(index - 3) != 'e' & index - 2 >= _R2) {
+        index-=2;
+        sb.delete(index,index + 2);
+      }
+    }
+ else {
+      unDouble(sb,index);
+    }
+    return;
+  }
+  if (s.endsWith("ig") && (index=s.length() - 2) >= _R2) {
+    if (sb.charAt(index - 1) != 'e')     sb.delete(index,index + 2);
+    return;
+  }
+  if (s.endsWith("lijk") && (index=s.length() - 4) >= _R2) {
+    sb.delete(index,index + 4);
+    step2(sb);
+    return;
+  }
+  if (s.endsWith("baar") && (index=s.length() - 4) >= _R2) {
+    sb.delete(index,index + 4);
+    return;
+  }
+  if (s.endsWith("bar") && (index=s.length() - 3) >= _R2) {
+    if (_removedE)     sb.delete(index,index + 3);
+    return;
+  }
+}

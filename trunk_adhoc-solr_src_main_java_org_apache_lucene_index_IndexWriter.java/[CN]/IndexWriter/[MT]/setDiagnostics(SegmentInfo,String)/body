@@ -1,0 +1,3 @@
+{
+  setDiagnostics(info,source,null);
+}

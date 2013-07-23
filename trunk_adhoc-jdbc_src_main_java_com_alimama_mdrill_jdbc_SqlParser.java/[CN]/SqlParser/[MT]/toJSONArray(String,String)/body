@@ -1,0 +1,8 @@
+{
+  String[] list=str.split(split);
+  JSONArray rtn=new JSONArray();
+  for (  String s : list) {
+    rtn.put(s);
+  }
+  return rtn;
+}

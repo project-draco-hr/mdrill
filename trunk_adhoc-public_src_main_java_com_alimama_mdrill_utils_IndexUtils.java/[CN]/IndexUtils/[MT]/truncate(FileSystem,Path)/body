@@ -1,0 +1,7 @@
+{
+  LOG.info("truncate " + target.toString());
+  if (lfs.exists(target)) {
+    lfs.delete(target,true);
+  }
+  lfs.mkdirs(target.getParent());
+}

@@ -1,0 +1,10 @@
+{
+  List<Term> allStopWords=new ArrayList<Term>();
+  for (  String fieldName : stopWordsPerField.keySet()) {
+    Set<String> stopWords=stopWordsPerField.get(fieldName);
+    for (    String text : stopWords) {
+      allStopWords.add(new Term(fieldName,text));
+    }
+  }
+  return allStopWords.toArray(new Term[allStopWords.size()]);
+}

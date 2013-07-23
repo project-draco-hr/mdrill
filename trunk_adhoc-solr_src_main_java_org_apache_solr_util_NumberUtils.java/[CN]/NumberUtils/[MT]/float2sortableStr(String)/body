@@ -1,0 +1,3 @@
+{
+  return float2sortableStr(Float.parseFloat(val));
+}

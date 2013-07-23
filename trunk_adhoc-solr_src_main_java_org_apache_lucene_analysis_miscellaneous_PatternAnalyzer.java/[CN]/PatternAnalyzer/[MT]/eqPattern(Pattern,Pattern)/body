@@ -1,0 +1,3 @@
+{
+  return p1 == p2 || (p1.flags() == p2.flags() && p1.pattern().equals(p2.pattern()));
+}

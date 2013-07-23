@@ -1,0 +1,9 @@
+{
+  ensureOpen();
+  if (writer == null || writer.isClosed()) {
+    return SegmentInfos.readCurrentVersion(directory) == segmentInfos.getVersion();
+  }
+ else {
+    return writer.nrtIsCurrent(segmentInfos);
+  }
+}

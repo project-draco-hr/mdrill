@@ -1,0 +1,5 @@
+{
+  super(valueCount,bitsPerValue);
+  this.blocks=blocks;
+  updateCached();
+}

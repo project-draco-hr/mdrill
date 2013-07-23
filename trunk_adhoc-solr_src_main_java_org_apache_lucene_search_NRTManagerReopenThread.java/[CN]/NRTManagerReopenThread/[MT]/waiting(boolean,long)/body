@@ -1,0 +1,5 @@
+{
+  waitingNeedsDeletes|=needsDeletes;
+  waitingGen=Math.max(waitingGen,targetGen);
+  notify();
+}

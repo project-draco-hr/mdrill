@@ -1,0 +1,25 @@
+{
+  try {
+    final List<String> catalogs=new ArrayList<String>();
+    catalogs.add("default");
+    return new MdrillMetaDataResultSet<String>(Arrays.asList("TABLE_CAT"),Arrays.asList("STRING"),catalogs){
+      private int cnt=0;
+      public boolean next() throws SQLException {
+        if (cnt < data.size()) {
+          List<Object> a=new ArrayList<Object>(1);
+          a.add(data.get(cnt));
+          row=a;
+          cnt++;
+          return true;
+        }
+ else {
+          return false;
+        }
+      }
+    }
+;
+  }
+ catch (  Exception e) {
+    throw new SQLException(e);
+  }
+}

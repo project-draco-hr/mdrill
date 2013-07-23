@@ -1,0 +1,9 @@
+{
+  int v_1;
+  v_1=limit - cursor;
+  if (find_among_b(a_2,23) == 0) {
+    return false;
+  }
+  cursor=limit - v_1;
+  return true;
+}

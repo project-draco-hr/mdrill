@@ -1,0 +1,32 @@
+{
+  boolean iOrAfter=false;
+  if (input.incrementToken()) {
+    final char[] buffer=termAtt.buffer();
+    int length=termAtt.length();
+    for (int i=0; i < length; ) {
+      final int ch=Character.codePointAt(buffer,i);
+      iOrAfter=(ch == LATIN_CAPITAL_LETTER_I || (iOrAfter && Character.getType(ch) == Character.NON_SPACING_MARK));
+      if (iOrAfter) {
+switch (ch) {
+case COMBINING_DOT_ABOVE:
+          length=delete(buffer,i,length);
+        continue;
+case LATIN_CAPITAL_LETTER_I:
+      if (isBeforeDot(buffer,i + 1,length)) {
+        buffer[i]=LATIN_SMALL_LETTER_I;
+      }
+ else {
+        buffer[i]=LATIN_SMALL_LETTER_DOTLESS_I;
+        iOrAfter=false;
+      }
+    i++;
+  continue;
+}
+}
+i+=Character.toChars(Character.toLowerCase(ch),buffer,i);
+}
+termAtt.setLength(length);
+return true;
+}
+ else return false;
+}

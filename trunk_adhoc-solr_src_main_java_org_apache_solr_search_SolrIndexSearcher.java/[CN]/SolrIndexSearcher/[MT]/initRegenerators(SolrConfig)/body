@@ -1,0 +1,18 @@
+{
+  if (solrConfig.fieldValueCacheConfig != null && solrConfig.fieldValueCacheConfig.getRegenerator() == null) {
+    solrConfig.fieldValueCacheConfig.setRegenerator(null);
+  }
+  if (solrConfig.filterCacheConfig != null && solrConfig.filterCacheConfig.getRegenerator() == null) {
+    solrConfig.filterCacheConfig.setRegenerator(null);
+  }
+  if (solrConfig.userCacheConfigs != null) {
+    for (    CacheConfig conf : solrConfig.userCacheConfigs) {
+      if (conf != null && conf.getRegenerator() == null) {
+        conf.setRegenerator(null);
+      }
+    }
+  }
+  if (solrConfig.queryResultCacheConfig != null && solrConfig.queryResultCacheConfig.getRegenerator() == null) {
+    solrConfig.queryResultCacheConfig.setRegenerator(null);
+  }
+}

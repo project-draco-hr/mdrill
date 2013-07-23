@@ -1,0 +1,11 @@
+{
+  IndexReader[] subReaders=reader.getSequentialSubReaders();
+  if (subReaders == null) {
+    allSubReaders.add(reader);
+  }
+ else {
+    for (int i=0; i < subReaders.length; i++) {
+      gatherSubReaders(allSubReaders,subReaders[i]);
+    }
+  }
+}

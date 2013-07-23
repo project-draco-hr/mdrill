@@ -1,0 +1,6 @@
+{
+  numArcs=0;
+  isFinal=false;
+  output=owner.NO_OUTPUT;
+  inputCount=0;
+}

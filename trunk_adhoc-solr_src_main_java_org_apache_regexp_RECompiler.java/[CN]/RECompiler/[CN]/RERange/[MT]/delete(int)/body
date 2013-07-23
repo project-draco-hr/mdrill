@@ -1,0 +1,12 @@
+{
+  if (num == 0 || index >= num) {
+    return;
+  }
+  while (++index < num) {
+    if (index - 1 >= 0) {
+      minRange[index - 1]=minRange[index];
+      maxRange[index - 1]=maxRange[index];
+    }
+  }
+  num--;
+}

@@ -1,0 +1,7 @@
+{
+  expectedModCount=modCount;
+  if (size > 0) {
+    Entry[] t=table;
+    while (index < t.length && (next=t[index++]) == null)     ;
+  }
+}

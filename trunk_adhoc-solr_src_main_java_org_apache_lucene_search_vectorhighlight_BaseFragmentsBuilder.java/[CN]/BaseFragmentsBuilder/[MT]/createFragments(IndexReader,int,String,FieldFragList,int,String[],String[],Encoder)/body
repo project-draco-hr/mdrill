@@ -1,0 +1,14 @@
+{
+  if (maxNumFragments < 0)   throw new IllegalArgumentException("maxNumFragments(" + maxNumFragments + ") must be positive number.");
+  List<WeightedFragInfo> fragInfos=getWeightedFragInfoList(fieldFragList.getFragInfos());
+  List<String> fragments=new ArrayList<String>(maxNumFragments);
+  Field[] values=getFields(reader,docId,fieldName);
+  if (values.length == 0)   return null;
+  StringBuilder buffer=new StringBuilder();
+  int[] nextValueIndex={0};
+  for (int n=0; n < maxNumFragments && n < fragInfos.size(); n++) {
+    WeightedFragInfo fragInfo=fragInfos.get(n);
+    fragments.add(makeFragment(buffer,nextValueIndex,values,fragInfo,preTags,postTags,encoder));
+  }
+  return fragments.toArray(new String[fragments.size()]);
+}

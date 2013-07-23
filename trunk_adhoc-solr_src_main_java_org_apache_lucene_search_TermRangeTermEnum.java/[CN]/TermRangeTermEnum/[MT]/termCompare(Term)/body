@@ -1,0 +1,34 @@
+{
+  if (collator == null) {
+    boolean checkLower=false;
+    if (!includeLower)     checkLower=true;
+    if (term != null && term.field() == field) {
+      if (!checkLower || null == lowerTermText || term.text().compareTo(lowerTermText) > 0) {
+        checkLower=false;
+        if (upperTermText != null) {
+          int compare=upperTermText.compareTo(term.text());
+          if ((compare < 0) || (!includeUpper && compare == 0)) {
+            endEnum=true;
+            return false;
+          }
+        }
+        return true;
+      }
+    }
+ else {
+      endEnum=true;
+      return false;
+    }
+    return false;
+  }
+ else {
+    if (term != null && term.field() == field) {
+      if ((lowerTermText == null || (includeLower ? collator.compare(term.text(),lowerTermText) >= 0 : collator.compare(term.text(),lowerTermText) > 0)) && (upperTermText == null || (includeUpper ? collator.compare(term.text(),upperTermText) <= 0 : collator.compare(term.text(),upperTermText) < 0))) {
+        return true;
+      }
+      return false;
+    }
+    endEnum=true;
+    return false;
+  }
+}

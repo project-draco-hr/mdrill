@@ -1,0 +1,3 @@
+OutputStream sink
+byte[] tempBuffer
+int start

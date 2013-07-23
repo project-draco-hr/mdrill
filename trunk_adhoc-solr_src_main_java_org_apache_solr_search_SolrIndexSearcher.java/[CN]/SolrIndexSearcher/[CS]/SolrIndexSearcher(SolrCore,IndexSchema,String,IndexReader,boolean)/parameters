@@ -1,0 +1,5 @@
+SolrCore core
+IndexSchema schema
+String name
+IndexReader r
+boolean closeReader

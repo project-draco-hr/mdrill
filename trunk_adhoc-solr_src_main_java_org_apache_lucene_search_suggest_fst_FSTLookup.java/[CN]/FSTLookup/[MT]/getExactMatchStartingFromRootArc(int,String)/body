@@ -1,0 +1,19 @@
+{
+  try {
+    final FST.Arc<Object> scratch=new FST.Arc<Object>();
+    for (; i < rootArcs.length; i++) {
+      final FST.Arc<Object> rootArc=rootArcs[i];
+      final FST.Arc<Object> arc=scratch.copyFrom(rootArc);
+      if (descendWithPrefix(arc,key)) {
+        automaton.readFirstTargetArc(arc,arc);
+        if (arc.label == FST.END_LABEL) {
+          return rootArc.label / (float)buckets;
+        }
+      }
+    }
+  }
+ catch (  IOException e) {
+    throw new RuntimeException(e);
+  }
+  return null;
+}

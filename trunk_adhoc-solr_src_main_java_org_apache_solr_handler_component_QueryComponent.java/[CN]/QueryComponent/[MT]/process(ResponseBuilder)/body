@@ -1,0 +1,126 @@
+{
+  SolrQueryRequest req=rb.req;
+  SolrQueryResponse rsp=rb.rsp;
+  SolrParams params=req.getParams();
+  if (!params.getBool(COMPONENT_NAME,true)) {
+    return;
+  }
+  SolrIndexSearcher searcher=req.getSearcher();
+  if (rb.getQueryCommand().getOffset() < 0) {
+    throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,"'start' parameter cannot be negative");
+  }
+  long timeAllowed=(long)params.getInt(CommonParams.TIME_ALLOWED,-1);
+  String ids=params.get(ShardParams.IDS);
+  if (ids != null) {
+    SchemaField idField=req.getSchema().getUniqueKeyField();
+    List<String> idArr=StrUtils.splitSmart(ids,",",true);
+    int[] luceneIds=new int[idArr.size()];
+    int docs=0;
+    for (int i=0; i < idArr.size(); i++) {
+      int id=req.getSearcher().getFirstMatch(new Term(idField.getName(),idField.getType().toInternal(idArr.get(i))));
+      if (id >= 0)       luceneIds[docs++]=id;
+    }
+    DocListAndSet res=new DocListAndSet();
+    res.docList=new DocSlice(0,docs,luceneIds,null,docs,0,0.0f,Double.NEGATIVE_INFINITY,Double.POSITIVE_INFINITY);
+    if (rb.isNeedDocSet()) {
+      List<Query> queries=new ArrayList<Query>();
+      queries.add(rb.getQuery());
+      List<Query> filters=rb.getFilters();
+      if (filters != null)       queries.addAll(filters);
+      res.docSet=searcher.getDocSet(queries);
+    }
+    rb.setResults(res);
+    rsp.add("response",rb.getResults().docList);
+    return;
+  }
+  SolrIndexSearcher.QueryCommand cmd=rb.getQueryCommand();
+  cmd.setTimeAllowed(timeAllowed);
+  SolrIndexSearcher.QueryResult result=new SolrIndexSearcher.QueryResult();
+  GroupingSpecification groupingSpec=rb.getGroupingSpec();
+  if (groupingSpec != null) {
+    try {
+      boolean needScores=(cmd.getFlags() & SolrIndexSearcher.GET_SCORES) != 0;
+      if (params.getBool("group.distibuted.first",false)) {
+        CommandHandler.Builder topsGroupsActionBuilder=new CommandHandler.Builder().setQueryCommand(cmd).setNeedDocSet(false).setSearcher(searcher);
+        for (        String field : groupingSpec.getFields()) {
+          topsGroupsActionBuilder.addCommandField(new SearchGroupsFieldCommand.Builder().setField(searcher.getSchema().getField(field)).setGroupSort(groupingSpec.getGroupSort()).setTopNGroups(cmd.getOffset() + cmd.getLen()).build());
+        }
+        CommandHandler commandHandler=topsGroupsActionBuilder.build();
+        commandHandler.execute();
+        SearchGroupsResultTransformer serializer=new SearchGroupsResultTransformer(searcher);
+        rsp.add("firstPhase",commandHandler.processResult(result,serializer));
+        rb.setResult(result);
+        return;
+      }
+ else       if (params.getBool("group.distibuted.second",false)) {
+        CommandHandler.Builder secondPhaseBuilder=new CommandHandler.Builder().setQueryCommand(cmd).setTruncateGroups(groupingSpec.isTruncateGroups() && groupingSpec.getFields().length > 0).setSearcher(searcher);
+        for (        String field : groupingSpec.getFields()) {
+          String[] topGroupsParam=params.getParams("group.topgroups." + field);
+          if (topGroupsParam == null) {
+            continue;
+          }
+          List<SearchGroup<String>> topGroups=new ArrayList<SearchGroup<String>>(topGroupsParam.length);
+          for (          String topGroup : topGroupsParam) {
+            SearchGroup<String> searchGroup=new SearchGroup<String>();
+            if (!topGroup.equals(TopGroupsShardRequestFactory.GROUP_NULL_VALUE)) {
+              searchGroup.groupValue=searcher.getSchema().getField(field).getType().readableToIndexed(topGroup);
+            }
+            topGroups.add(searchGroup);
+          }
+          secondPhaseBuilder.addCommandField(new TopGroupsFieldCommand.Builder().setField(searcher.getSchema().getField(field)).setGroupSort(groupingSpec.getGroupSort()).setSortWithinGroup(groupingSpec.getSortWithinGroup()).setFirstPhaseGroups(topGroups).setMaxDocPerGroup(groupingSpec.getGroupOffset() + groupingSpec.getGroupLimit()).setNeedScores(needScores).setNeedMaxScore(needScores).setNeedGroupCount(groupingSpec.isIncludeGroupCount()).build());
+        }
+        for (        String query : groupingSpec.getQueries()) {
+          secondPhaseBuilder.addCommandField(new QueryCommand.Builder().setDocsToCollect(groupingSpec.getOffset() + groupingSpec.getLimit()).setSort(groupingSpec.getGroupSort()).setQuery(query,rb.req).setDocSet(searcher).build());
+        }
+        CommandHandler commandHandler=secondPhaseBuilder.build();
+        commandHandler.execute();
+        TopGroupsResultTransformer serializer=new TopGroupsResultTransformer(rb);
+        rsp.add("secondPhase",commandHandler.processResult(result,serializer));
+        rb.setResult(result);
+        return;
+      }
+      int maxDocsPercentageToCache=params.getInt(GroupParams.GROUP_CACHE_PERCENTAGE,0);
+      boolean cacheSecondPassSearch=maxDocsPercentageToCache >= 1 && maxDocsPercentageToCache <= 100;
+      Grouping.TotalCount defaultTotalCount=groupingSpec.isIncludeGroupCount() ? Grouping.TotalCount.grouped : Grouping.TotalCount.ungrouped;
+      int limitDefault=cmd.getLen();
+      Grouping grouping=new Grouping(searcher,result,cmd,cacheSecondPassSearch,maxDocsPercentageToCache,groupingSpec.isMain());
+      grouping.setSort(groupingSpec.getGroupSort()).setGroupSort(groupingSpec.getSortWithinGroup()).setDefaultFormat(groupingSpec.getResponseFormat()).setLimitDefault(limitDefault).setDefaultTotalCount(defaultTotalCount).setDocsPerGroupDefault(groupingSpec.getGroupLimit()).setGroupOffsetDefault(groupingSpec.getGroupOffset()).setGetGroupedDocSet(groupingSpec.isTruncateGroups());
+      if (groupingSpec.getFields() != null) {
+        for (        String field : groupingSpec.getFields()) {
+          grouping.addFieldCommand(field,rb.req);
+        }
+      }
+      if (groupingSpec.getQueries() != null) {
+        for (        String groupByStr : groupingSpec.getQueries()) {
+          grouping.addQueryCommand(groupByStr,rb.req);
+        }
+      }
+      if (rb.doHighlights || rb.isDebug() || params.getBool(MoreLikeThisParams.MLT,false)) {
+        cmd.setFlags(SolrIndexSearcher.GET_DOCLIST);
+      }
+      grouping.execute();
+      if (grouping.isSignalCacheWarning()) {
+        rsp.add("cacheWarning",String.format("Cache limit of %d percent relative to maxdoc has exceeded. Please increase cache size or disable caching.",maxDocsPercentageToCache));
+      }
+      rb.setResult(result);
+      if (grouping.mainResult != null) {
+        rsp.add("response",grouping.mainResult);
+        rsp.getToLog().add("hits",grouping.mainResult.matches());
+      }
+ else       if (!grouping.getCommands().isEmpty()) {
+        rsp.add("grouped",result.groupedResults);
+        rsp.getToLog().add("hits",grouping.getCommands().get(0).getMatches());
+      }
+      return;
+    }
+ catch (    ParseException e) {
+      throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,e);
+    }
+  }
+  searcher.search(result,cmd);
+  rb.setResult(result);
+  rsp.add("response",rb.getResults().docList);
+  rsp.getToLog().add("hits",rb.getResults().docList.matches());
+  doFieldSortValues(rb,searcher);
+  doPrefetch(rb);
+}

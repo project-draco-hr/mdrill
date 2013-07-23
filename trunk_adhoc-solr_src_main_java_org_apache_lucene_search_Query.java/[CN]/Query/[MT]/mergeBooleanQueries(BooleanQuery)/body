@@ -1,0 +1,14 @@
+{
+  HashSet<BooleanClause> allClauses=new HashSet<BooleanClause>();
+  for (  BooleanQuery booleanQuery : queries) {
+    for (    BooleanClause clause : booleanQuery) {
+      allClauses.add(clause);
+    }
+  }
+  boolean coordDisabled=queries.length == 0 ? false : queries[0].isCoordDisabled();
+  BooleanQuery result=new BooleanQuery(coordDisabled);
+  for (  BooleanClause clause2 : allClauses) {
+    result.add(clause2);
+  }
+  return result;
+}

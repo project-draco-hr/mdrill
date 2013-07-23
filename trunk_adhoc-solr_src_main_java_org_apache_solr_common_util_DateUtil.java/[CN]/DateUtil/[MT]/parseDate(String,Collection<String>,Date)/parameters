@@ -1,0 +1,3 @@
+String dateValue
+Collection<String> dateFormats
+Date startDate

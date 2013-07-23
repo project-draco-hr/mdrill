@@ -1,0 +1,6 @@
+{
+  if (isOpen) {
+    isOpen=false;
+    super.close();
+  }
+}

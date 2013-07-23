@@ -1,0 +1,16 @@
+{
+  List<SchemaField> matchCopyFields=new ArrayList<SchemaField>();
+  for (  DynamicCopy dynamicCopy : dynamicCopyFields) {
+    if (dynamicCopy.matches(sourceField)) {
+      matchCopyFields.add(dynamicCopy.getTargetField(sourceField));
+    }
+  }
+  final List<CopyField> copyFields=copyFieldsMap.get(sourceField);
+  if (copyFields != null) {
+    final Iterator<CopyField> it=copyFields.iterator();
+    while (it.hasNext()) {
+      matchCopyFields.add(it.next().getDestination());
+    }
+  }
+  return matchCopyFields.toArray(new SchemaField[matchCopyFields.size()]);
+}

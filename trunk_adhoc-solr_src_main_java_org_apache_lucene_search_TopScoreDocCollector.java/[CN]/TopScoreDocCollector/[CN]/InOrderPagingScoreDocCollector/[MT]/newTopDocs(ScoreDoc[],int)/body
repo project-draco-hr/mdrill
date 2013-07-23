@@ -1,0 +1,3 @@
+{
+  return results == null ? new TopDocs(totalHits,new ScoreDoc[0],Float.NaN,0.0f,Double.NEGATIVE_INFINITY,Double.POSITIVE_INFINITY) : new TopDocs(totalHits,results);
+}

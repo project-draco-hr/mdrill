@@ -1,0 +1,9 @@
+{
+  if (bytesStart == null) {
+    bytesStart=bytesStartArray.init();
+  }
+  if (ords == null) {
+    ords=new int[hashSize];
+    bytesUsed.addAndGet(RamUsageEstimator.NUM_BYTES_INT * hashSize);
+  }
+}

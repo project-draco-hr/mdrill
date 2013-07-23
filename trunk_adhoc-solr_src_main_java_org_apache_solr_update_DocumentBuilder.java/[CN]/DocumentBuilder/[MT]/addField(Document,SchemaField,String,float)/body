@@ -1,0 +1,12 @@
+{
+  if (field.isPolyField()) {
+    Fieldable[] farr=field.getType().createFields(field,val,boost);
+    for (    Fieldable f : farr) {
+      if (f != null)       doc.add(f);
+    }
+  }
+ else {
+    Fieldable f=field.createField(val,boost);
+    if (f != null)     doc.add(f);
+  }
+}

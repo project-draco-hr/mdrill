@@ -1,0 +1,24 @@
+{
+  if (val == null) {
+    return;
+  }
+  try {
+    List list=(List)val;
+    Object msgId=list.get(0);
+    Object tuple=list.get(1);
+    Long time_delta=0l;
+    if (list.get(2) != null) {
+      Object start_time_ms=list.get(2);
+      if (start_time_ms != null) {
+        time_delta=TimeUtils.time_delta_ms((Long)start_time_ms);
+      }
+    }
+    if (tuple == null || msgId == null) {
+      return;
+    }
+    event_queue.add(new FailSpoutMsg(spout,storm_conf,msgId,(TupleInfo)tuple,time_delta,task_stats));
+  }
+ catch (  Exception e) {
+    LOG.error("expire error",e);
+  }
+}

@@ -1,0 +1,4 @@
+Map<String,?> result
+SolrQueryResponse response
+GroupingSpecification groupingSpecification
+SolrDocumentSource solrDocumentSource

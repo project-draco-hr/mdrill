@@ -1,0 +1,18 @@
+{
+  if (node == null) {
+    return;
+  }
+  out.writeChar(node.splitchar);
+  byte mask=0;
+  if (node.relatives[TSTNode.LOKID] != null)   mask|=LO_KID;
+  if (node.relatives[TSTNode.EQKID] != null)   mask|=EQ_KID;
+  if (node.relatives[TSTNode.HIKID] != null)   mask|=HI_KID;
+  if (node.data != null)   mask|=HAS_VALUE;
+  out.writeByte(mask);
+  if (node.data != null) {
+    out.writeFloat((Float)node.data);
+  }
+  writeRecursively(out,node.relatives[TSTNode.LOKID]);
+  writeRecursively(out,node.relatives[TSTNode.EQKID]);
+  writeRecursively(out,node.relatives[TSTNode.HIKID]);
+}

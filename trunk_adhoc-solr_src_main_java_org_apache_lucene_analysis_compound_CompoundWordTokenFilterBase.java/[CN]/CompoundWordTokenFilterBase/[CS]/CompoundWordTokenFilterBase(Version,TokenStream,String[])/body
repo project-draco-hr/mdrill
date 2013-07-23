@@ -1,0 +1,3 @@
+{
+  this(matchVersion,input,makeDictionary(matchVersion,dictionary),DEFAULT_MIN_WORD_SIZE,DEFAULT_MIN_SUBWORD_SIZE,DEFAULT_MAX_SUBWORD_SIZE,false);
+}

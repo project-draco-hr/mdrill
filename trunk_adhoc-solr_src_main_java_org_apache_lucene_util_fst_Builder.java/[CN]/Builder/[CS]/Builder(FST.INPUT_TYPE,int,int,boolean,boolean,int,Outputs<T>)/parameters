@@ -1,0 +1,7 @@
+FST.INPUT_TYPE inputType
+int minSuffixCount1
+int minSuffixCount2
+boolean doShareSuffix
+boolean doShareNonSingletonNodes
+int shareMaxTailLength
+Outputs<T> outputs

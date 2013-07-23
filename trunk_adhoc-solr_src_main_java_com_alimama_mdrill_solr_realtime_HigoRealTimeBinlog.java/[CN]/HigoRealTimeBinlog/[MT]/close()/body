@@ -1,0 +1,10 @@
+{
+  this.setIsstop(true);
+  try {
+    if (binlog != null) {
+      binlog.close();
+    }
+  }
+ catch (  IOException e) {
+  }
+}

@@ -1,0 +1,7 @@
+{
+  super.finalize();
+  if (!isClone && isOpen) {
+    close();
+  }
+  this.freeBlock();
+}

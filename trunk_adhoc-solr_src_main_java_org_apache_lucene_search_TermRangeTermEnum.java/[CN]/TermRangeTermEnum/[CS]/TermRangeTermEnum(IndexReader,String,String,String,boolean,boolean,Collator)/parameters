@@ -1,0 +1,7 @@
+IndexReader reader
+String field
+String lowerTermText
+String upperTermText
+boolean includeLower
+boolean includeUpper
+Collator collator

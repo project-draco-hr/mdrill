@@ -1,0 +1,15 @@
+{
+  String tmproot=StormConfig.supervisorTmpDir(conf) + "/" + UUID.randomUUID().toString();
+  FileUtils.forceMkdir(new File(tmproot));
+  String stormroot=StormConfig.supervisor_stormdist_root(conf,stormId);
+  String masterStormjarPath=StormConfig.masterStormjarPath(masterCodeDir);
+  String localFileJarTmp=StormConfig.supervisor_stormjar_path(tmproot);
+  Utils.downloadFromMaster(conf,masterStormjarPath,localFileJarTmp);
+  String masterStormcodePath=StormConfig.masterStormcodePath(masterCodeDir);
+  String localFileCodeTmp=StormConfig.supervisor_stormcode_path(tmproot);
+  Utils.downloadFromMaster(conf,masterStormcodePath,localFileCodeTmp);
+  String masterStormConfPath=StormConfig.masterStormconfPath(masterCodeDir);
+  String localFileConfTmp=StormConfig.supervisor_sotrmconf_path(tmproot);
+  Utils.downloadFromMaster(conf,masterStormConfPath,localFileConfTmp);
+  FileUtils.moveDirectory(new File(tmproot),new File(stormroot));
+}

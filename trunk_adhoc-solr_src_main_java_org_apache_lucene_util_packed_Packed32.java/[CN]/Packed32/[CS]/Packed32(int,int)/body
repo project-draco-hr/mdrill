@@ -1,0 +1,3 @@
+{
+  this(new int[(int)(((long)valueCount) * bitsPerValue / BLOCK_SIZE + 2)],valueCount,bitsPerValue);
+}

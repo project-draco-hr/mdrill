@@ -1,0 +1,3 @@
+{
+  return "Reports application health to a load-balancer";
+}

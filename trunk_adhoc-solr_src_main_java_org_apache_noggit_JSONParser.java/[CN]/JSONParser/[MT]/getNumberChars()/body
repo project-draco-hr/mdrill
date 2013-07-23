@@ -1,0 +1,16 @@
+{
+  int ev=0;
+  if (valstate == 0)   ev=nextEvent();
+  if (valstate == LONG || valstate == NUMBER) {
+    valstate=0;
+    return out;
+  }
+ else   if (valstate == BIGNUMBER) {
+    continueNumber(out);
+    valstate=0;
+    return out;
+  }
+ else {
+    throw err("Unexpected " + ev);
+  }
+}

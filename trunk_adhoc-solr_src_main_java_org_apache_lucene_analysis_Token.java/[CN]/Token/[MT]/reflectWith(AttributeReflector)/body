@@ -1,0 +1,9 @@
+{
+  super.reflectWith(reflector);
+  reflector.reflect(OffsetAttribute.class,"startOffset",startOffset);
+  reflector.reflect(OffsetAttribute.class,"endOffset",endOffset);
+  reflector.reflect(PositionIncrementAttribute.class,"positionIncrement",positionIncrement);
+  reflector.reflect(PayloadAttribute.class,"payload",payload);
+  reflector.reflect(FlagsAttribute.class,"flags",flags);
+  reflector.reflect(TypeAttribute.class,"type",type);
+}

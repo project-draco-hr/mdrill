@@ -1,0 +1,5 @@
+{
+  this();
+  Row row=new Row();
+  row.getTokens().add(token);
+}

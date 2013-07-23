@@ -1,0 +1,3 @@
+ByteBlockPool pool
+int capacity
+BytesStartArray bytesStartArray

@@ -1,0 +1,9 @@
+{
+  fieldSortDoTrackScores=doTrackScores;
+  fieldSortDoMaxScore=doMaxScore;
+  if (subSearchers != null) {
+    for (    IndexSearcher sub : subSearchers) {
+      sub.setDefaultFieldSortScoring(doTrackScores,doMaxScore);
+    }
+  }
+}

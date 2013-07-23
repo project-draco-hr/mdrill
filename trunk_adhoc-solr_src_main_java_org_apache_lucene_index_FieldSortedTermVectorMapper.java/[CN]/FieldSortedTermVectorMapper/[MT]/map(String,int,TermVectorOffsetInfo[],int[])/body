@@ -1,0 +1,4 @@
+{
+  TermVectorEntry entry=new TermVectorEntry(currentField,term,frequency,offsets,positions);
+  currentSet.add(entry);
+}

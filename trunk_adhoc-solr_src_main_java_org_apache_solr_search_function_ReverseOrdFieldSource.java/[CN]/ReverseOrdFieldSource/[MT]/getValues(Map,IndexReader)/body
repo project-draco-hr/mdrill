@@ -1,0 +1,26 @@
+{
+  final FieldCache.StringIndex sindex=FieldCache.DEFAULT.getStringIndex(reader,field);
+  final int arr[]=sindex.order;
+  final int end=sindex.lookup.length;
+  return new DocValues(){
+    @Override public float floatVal(    int doc){
+      return (float)(end - arr[doc]);
+    }
+    @Override public int intVal(    int doc){
+      return (end - arr[doc]);
+    }
+    @Override public long longVal(    int doc){
+      return (long)(end - arr[doc]);
+    }
+    @Override public double doubleVal(    int doc){
+      return (double)(end - arr[doc]);
+    }
+    @Override public String strVal(    int doc){
+      return Integer.toString((end - arr[doc]));
+    }
+    @Override public String toString(    int doc){
+      return description() + '=' + strVal(doc);
+    }
+  }
+;
+}

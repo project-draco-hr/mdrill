@@ -1,0 +1,3 @@
+{
+  this(false,in,new CharArraySet(words,ignoreCase));
+}

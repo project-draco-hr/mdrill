@@ -1,0 +1,9 @@
+{
+  DistinctCount dst=g.statVal.dist[field];
+  if (dst != null) {
+    return dst.getValue();
+  }
+ else {
+    return 0l;
+  }
+}

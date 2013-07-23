@@ -1,0 +1,32 @@
+{
+  NamedList<Object> commands=new SimpleOrderedMap<Object>();
+  for (  Map.Entry<String,?> entry : result.entrySet()) {
+    Object value=entry.getValue();
+    if (TopGroups.class.isInstance(value)) {
+      @SuppressWarnings("unchecked") TopGroups<BytesRef> topGroups=(TopGroups<BytesRef>)value;
+      NamedList<Object> command=new SimpleOrderedMap<Object>();
+      command.add("matches",topGroups.totalHitCount);
+      if (topGroups.totalGroupCount != null) {
+        command.add("ngroups",topGroups.totalGroupCount);
+      }
+      SolrDocumentList docList=new SolrDocumentList();
+      docList.setStart(groupingSpecification.getOffset());
+      docList.setNumFound(topGroups.totalHitCount);
+      Float maxScore=Float.NEGATIVE_INFINITY;
+      for (      GroupDocs<BytesRef> group : topGroups.groups) {
+        for (        ScoreDoc scoreDoc : group.scoreDocs) {
+          if (maxScore < scoreDoc.score) {
+            maxScore=scoreDoc.score;
+          }
+          docList.add(solrDocumentSource.retrieve(scoreDoc));
+        }
+      }
+      if (maxScore != Float.NEGATIVE_INFINITY) {
+        docList.setMaxScore(maxScore);
+      }
+      command.add("doclist",docList);
+      commands.add(entry.getKey(),command);
+    }
+  }
+  response.add("grouped",commands);
+}

@@ -1,0 +1,5 @@
+{
+  super(-1,score,fields);
+  this.id=uniqueId;
+  this.shard=shard;
+}

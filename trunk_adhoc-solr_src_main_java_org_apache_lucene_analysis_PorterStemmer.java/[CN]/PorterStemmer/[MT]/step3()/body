@@ -1,0 +1,104 @@
+{
+  if (k == k0)   return;
+switch (b[k - 1]) {
+case 'a':
+    if (ends("ational")) {
+      r("ate");
+      break;
+    }
+  if (ends("tional")) {
+    r("tion");
+    break;
+  }
+break;
+case 'c':
+if (ends("enci")) {
+r("ence");
+break;
+}
+if (ends("anci")) {
+r("ance");
+break;
+}
+break;
+case 'e':
+if (ends("izer")) {
+r("ize");
+break;
+}
+break;
+case 'l':
+if (ends("bli")) {
+r("ble");
+break;
+}
+if (ends("alli")) {
+r("al");
+break;
+}
+if (ends("entli")) {
+r("ent");
+break;
+}
+if (ends("eli")) {
+r("e");
+break;
+}
+if (ends("ousli")) {
+r("ous");
+break;
+}
+break;
+case 'o':
+if (ends("ization")) {
+r("ize");
+break;
+}
+if (ends("ation")) {
+r("ate");
+break;
+}
+if (ends("ator")) {
+r("ate");
+break;
+}
+break;
+case 's':
+if (ends("alism")) {
+r("al");
+break;
+}
+if (ends("iveness")) {
+r("ive");
+break;
+}
+if (ends("fulness")) {
+r("ful");
+break;
+}
+if (ends("ousness")) {
+r("ous");
+break;
+}
+break;
+case 't':
+if (ends("aliti")) {
+r("al");
+break;
+}
+if (ends("iviti")) {
+r("ive");
+break;
+}
+if (ends("biliti")) {
+r("ble");
+break;
+}
+break;
+case 'g':
+if (ends("logi")) {
+r("log");
+break;
+}
+}
+}

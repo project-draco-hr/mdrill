@@ -1,0 +1,3 @@
+{
+  if (next != null)   next.processCommit(cmd);
+}

@@ -1,0 +1,3 @@
+{
+  setMaxMergeMBForForcedMerge(mb);
+}

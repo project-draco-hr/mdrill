@@ -1,0 +1,14 @@
+{
+  try {
+    ByteArrayOutputStream bos=new ByteArrayOutputStream();
+    DataOutputStream dout=new DataOutputStream(bos);
+    this.write(dout);
+    byte[] data=bos.toByteArray();
+    bos.close();
+    return data;
+  }
+ catch (  IOException e) {
+    e.printStackTrace();
+  }
+  return new byte[0];
+}

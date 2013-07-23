@@ -1,0 +1,5 @@
+{
+  if (!(o instanceof BooleanQuery))   return false;
+  BooleanQuery other=(BooleanQuery)o;
+  return (this.getBoost() == other.getBoost()) && this.clauses.equals(other.clauses) && this.getMinimumNumberShouldMatch() == other.getMinimumNumberShouldMatch() && this.disableCoord == other.disableCoord;
+}

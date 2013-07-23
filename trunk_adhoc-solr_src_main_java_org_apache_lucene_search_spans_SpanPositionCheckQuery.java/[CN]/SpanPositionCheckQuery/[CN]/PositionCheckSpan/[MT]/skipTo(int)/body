@@ -1,0 +1,4 @@
+{
+  if (!spans.skipTo(target))   return false;
+  return doNext();
+}

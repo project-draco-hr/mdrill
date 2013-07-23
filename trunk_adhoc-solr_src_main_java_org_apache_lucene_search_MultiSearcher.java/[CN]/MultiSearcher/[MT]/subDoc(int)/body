@@ -1,0 +1,3 @@
+{
+  return n - starts[subSearcher(n)];
+}

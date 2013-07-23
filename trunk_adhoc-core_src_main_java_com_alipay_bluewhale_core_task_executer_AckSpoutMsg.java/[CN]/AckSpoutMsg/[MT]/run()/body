@@ -1,0 +1,9 @@
+{
+  if (storm_conf.get(Config.TOPOLOGY_DEBUG).equals(Boolean.TRUE)) {
+    LOG.info("Acking message " + msg_id);
+  }
+  spout.ack(msg_id);
+  if (time_delta != null) {
+    Stats.spout_acked_tuple((SpoutTaskStatsRolling)task_stats,tuple.getStream(),time_delta);
+  }
+}

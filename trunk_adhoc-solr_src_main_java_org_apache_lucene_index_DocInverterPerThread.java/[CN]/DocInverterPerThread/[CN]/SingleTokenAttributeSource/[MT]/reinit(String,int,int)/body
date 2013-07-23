@@ -1,0 +1,4 @@
+{
+  termAttribute.setEmpty().append(stringValue);
+  offsetAttribute.setOffset(startOffset,endOffset);
+}

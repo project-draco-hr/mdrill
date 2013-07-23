@@ -1,0 +1,3 @@
+{
+  return supervisor_local_dir(conf) + "/stormdist";
+}

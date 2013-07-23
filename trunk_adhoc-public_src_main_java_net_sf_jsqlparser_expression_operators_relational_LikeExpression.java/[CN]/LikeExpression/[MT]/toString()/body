@@ -1,0 +1,7 @@
+{
+  String retval=super.toString();
+  if (escape != null) {
+    retval+=" ESCAPE " + "'" + escape + "'";
+  }
+  return retval;
+}

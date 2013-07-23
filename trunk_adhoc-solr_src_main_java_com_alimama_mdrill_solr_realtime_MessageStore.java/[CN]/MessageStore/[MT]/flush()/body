@@ -1,0 +1,9 @@
+{
+  this.writeLock.lock();
+  try {
+    this.flush0();
+  }
+  finally {
+    this.writeLock.unlock();
+  }
+}

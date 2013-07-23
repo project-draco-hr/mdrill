@@ -1,0 +1,4 @@
+{
+  this.docBase=docBase;
+  comparator.setNextReader(reader,docBase);
+}

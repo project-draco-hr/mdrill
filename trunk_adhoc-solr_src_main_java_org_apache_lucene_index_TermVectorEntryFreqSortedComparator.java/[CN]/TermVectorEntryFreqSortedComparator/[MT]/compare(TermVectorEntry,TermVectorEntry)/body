@@ -1,0 +1,11 @@
+{
+  int result=0;
+  result=entry1.getFrequency() - entry.getFrequency();
+  if (result == 0) {
+    result=entry.getTerm().compareTo(entry1.getTerm());
+    if (result == 0) {
+      result=entry.getField().compareTo(entry1.getField());
+    }
+  }
+  return result;
+}

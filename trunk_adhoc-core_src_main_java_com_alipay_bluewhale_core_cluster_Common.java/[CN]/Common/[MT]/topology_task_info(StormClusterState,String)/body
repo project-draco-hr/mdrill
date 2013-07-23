@@ -1,0 +1,13 @@
+{
+  List<Integer> taks_ids=zkCluster.task_ids(topologyid);
+  HashMap<Integer,String> rtn=null;
+  if (taks_ids != null) {
+    rtn=new HashMap<Integer,String>();
+    for (    Integer task : taks_ids) {
+      TaskInfo info=zkCluster.task_info(topologyid,task);
+      String componment_id=info.getComponentId();
+      rtn.put(task,componment_id);
+    }
+  }
+  return rtn;
+}

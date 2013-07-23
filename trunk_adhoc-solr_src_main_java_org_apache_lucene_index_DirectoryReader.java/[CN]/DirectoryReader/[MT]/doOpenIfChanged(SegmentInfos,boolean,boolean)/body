@@ -1,0 +1,10 @@
+{
+  DirectoryReader reader;
+  if (openReadOnly) {
+    reader=new ReadOnlyDirectoryReader(directory,infos,subReaders,starts,normsCache,doClone,termInfosIndexDivisor,readerFinishedListeners);
+  }
+ else {
+    reader=new DirectoryReader(directory,infos,subReaders,starts,normsCache,false,doClone,termInfosIndexDivisor,readerFinishedListeners);
+  }
+  return reader;
+}

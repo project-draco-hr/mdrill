@@ -1,0 +1,13 @@
+{
+  if (other == this) {
+    return true;
+  }
+  if (other instanceof PayloadAttribute) {
+    PayloadAttributeImpl o=(PayloadAttributeImpl)other;
+    if (o.payload == null || payload == null) {
+      return o.payload == null && payload == null;
+    }
+    return o.payload.equals(payload);
+  }
+  return false;
+}

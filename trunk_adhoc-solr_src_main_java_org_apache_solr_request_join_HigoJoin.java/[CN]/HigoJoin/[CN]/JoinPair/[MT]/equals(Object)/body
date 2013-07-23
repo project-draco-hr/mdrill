@@ -1,0 +1,15 @@
+{
+  if (this == obj)   return true;
+  if (obj == null)   return false;
+  if (getClass() != obj.getClass())   return false;
+  JoinPair other=(JoinPair)obj;
+  if (left == null) {
+    if (other.left != null)     return false;
+  }
+ else   if (!left.equals(other.left))   return false;
+  if (termNum == null) {
+    if (other.termNum != null)     return false;
+  }
+ else   if (!termNum.equals(other.termNum))   return false;
+  return true;
+}

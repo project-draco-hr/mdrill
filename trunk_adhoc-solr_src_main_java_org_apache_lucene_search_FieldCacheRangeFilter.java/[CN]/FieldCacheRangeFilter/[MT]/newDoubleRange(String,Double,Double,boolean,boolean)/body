@@ -1,0 +1,3 @@
+{
+  return newDoubleRange(field,null,lowerVal,upperVal,includeLower,includeUpper);
+}

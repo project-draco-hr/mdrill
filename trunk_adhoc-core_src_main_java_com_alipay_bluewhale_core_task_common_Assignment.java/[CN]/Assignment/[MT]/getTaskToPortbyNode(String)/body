@@ -1,0 +1,13 @@
+{
+  Map<Integer,NodePort> taskToPortbyNode=new HashMap<Integer,NodePort>();
+  if (taskToNodeport == null) {
+    return null;
+  }
+  for (  Entry<Integer,NodePort> entry : taskToNodeport.entrySet()) {
+    String node=entry.getValue().getNode();
+    if (node.equals(supervisorId)) {
+      taskToPortbyNode.put(entry.getKey(),entry.getValue());
+    }
+  }
+  return taskToPortbyNode;
+}

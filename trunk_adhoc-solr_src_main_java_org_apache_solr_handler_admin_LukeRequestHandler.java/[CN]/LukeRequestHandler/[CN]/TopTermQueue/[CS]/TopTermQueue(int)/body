@@ -1,0 +1,4 @@
+{
+  initialize(size);
+  histogram=new TermHistogram();
+}

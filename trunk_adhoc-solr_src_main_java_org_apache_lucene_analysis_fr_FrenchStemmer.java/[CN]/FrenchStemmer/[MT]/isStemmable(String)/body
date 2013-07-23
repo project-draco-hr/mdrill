@@ -1,0 +1,22 @@
+{
+  boolean upper=false;
+  int first=-1;
+  for (int c=0; c < term.length(); c++) {
+    if (!Character.isLetter(term.charAt(c))) {
+      return false;
+    }
+    if (Character.isUpperCase(term.charAt(c))) {
+      if (upper) {
+        return false;
+      }
+ else {
+        first=c;
+        upper=true;
+      }
+    }
+  }
+  if (first > 0) {
+    return false;
+  }
+  return true;
+}

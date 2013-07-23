@@ -1,0 +1,33 @@
+{
+  LineNumberReader br=new LineNumberReader(in);
+  try {
+    String line=null;
+    String lastSynSetID="";
+    CharsRef synset[]=new CharsRef[8];
+    int synsetSize=0;
+    while ((line=br.readLine()) != null) {
+      String synSetID=line.substring(2,11);
+      if (!synSetID.equals(lastSynSetID)) {
+        addInternal(synset,synsetSize);
+        synsetSize=0;
+      }
+      if (synset.length <= synsetSize + 1) {
+        CharsRef larger[]=new CharsRef[synset.length * 2];
+        System.arraycopy(synset,0,larger,0,synsetSize);
+        synset=larger;
+      }
+      synset[synsetSize]=parseSynonym(line,synset[synsetSize]);
+      synsetSize++;
+      lastSynSetID=synSetID;
+    }
+    addInternal(synset,synsetSize);
+  }
+ catch (  IllegalArgumentException e) {
+    ParseException ex=new ParseException("Invalid synonym rule at line " + br.getLineNumber(),0);
+    ex.initCause(e);
+    throw ex;
+  }
+ finally {
+    br.close();
+  }
+}

@@ -1,0 +1,10 @@
+{
+  Map<Object,Long> v=null;
+  if (args != null && args.length > 0) {
+    v=(Map<Object,Long>)args[0];
+  }
+  if (v == null) {
+    v=new HashMap<Object,Long>();
+  }
+  return v;
+}

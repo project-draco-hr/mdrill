@@ -1,0 +1,13 @@
+{
+  try {
+    Class[] paraTypes=new Class[0];
+    Object[] paraValues=new Object[0];
+    Class clas=Class.forName(clsName);
+    Constructor cons=clas.getConstructor(paraTypes);
+    return (IAssignment)cons.newInstance(paraValues);
+  }
+ catch (  Exception e) {
+    LOG.error("instance fail",e);
+  }
+  return null;
+}

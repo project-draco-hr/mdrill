@@ -1,0 +1,4 @@
+{
+  outputs1.write(output.output1,writer);
+  outputs2.write(output.output2,writer);
+}

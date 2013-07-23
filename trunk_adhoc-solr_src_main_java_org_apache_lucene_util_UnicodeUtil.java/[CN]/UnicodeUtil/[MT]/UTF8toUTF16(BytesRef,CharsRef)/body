@@ -1,0 +1,3 @@
+{
+  UTF8toUTF16(bytesRef.bytes,bytesRef.offset,bytesRef.length,chars);
+}

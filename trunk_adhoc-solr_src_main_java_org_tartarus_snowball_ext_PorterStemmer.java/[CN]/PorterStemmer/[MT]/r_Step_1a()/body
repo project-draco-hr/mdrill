@@ -1,0 +1,23 @@
+{
+  int among_var;
+  ket=cursor;
+  among_var=find_among_b(a_0,4);
+  if (among_var == 0) {
+    return false;
+  }
+  bra=cursor;
+switch (among_var) {
+case 0:
+    return false;
+case 1:
+  slice_from("ss");
+break;
+case 2:
+slice_from("i");
+break;
+case 3:
+slice_del();
+break;
+}
+return true;
+}

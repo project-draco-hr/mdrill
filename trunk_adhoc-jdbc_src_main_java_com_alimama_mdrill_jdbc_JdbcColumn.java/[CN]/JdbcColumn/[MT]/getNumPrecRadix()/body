@@ -1,0 +1,23 @@
+{
+  if (type.equalsIgnoreCase("tinyint")) {
+    return 10;
+  }
+ else   if (type.equalsIgnoreCase("smallint")) {
+    return 10;
+  }
+ else   if (type.equalsIgnoreCase("int")) {
+    return 10;
+  }
+ else   if (type.equalsIgnoreCase("bigint")) {
+    return 10;
+  }
+ else   if (type.equalsIgnoreCase("float")) {
+    return 2;
+  }
+ else   if (type.equalsIgnoreCase("double")) {
+    return 2;
+  }
+ else {
+    return null;
+  }
+}

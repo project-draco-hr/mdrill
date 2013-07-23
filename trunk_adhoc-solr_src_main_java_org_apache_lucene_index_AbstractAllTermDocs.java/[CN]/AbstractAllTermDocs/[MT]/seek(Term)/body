@@ -1,0 +1,8 @@
+{
+  if (term == null) {
+    doc=-1;
+  }
+ else {
+    throw new UnsupportedOperationException();
+  }
+}

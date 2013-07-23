@@ -1,0 +1,4 @@
+{
+  if (itit != null)   throw new RuntimeException("all Iterators must be added before calling hasNext()");
+  iterators.add(it);
+}

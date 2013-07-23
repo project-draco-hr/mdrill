@@ -1,0 +1,6 @@
+{
+  if (words != null && this.ignoreCase != ignoreCase) {
+    words=new CharArraySet(luceneMatchVersion,words,ignoreCase);
+  }
+  this.ignoreCase=ignoreCase;
+}

@@ -1,0 +1,6 @@
+{
+  this.docWriter=docWriter;
+  this.consumer=consumer;
+  this.nextTermsHash=nextTermsHash;
+  this.trackAllocations=trackAllocations;
+}

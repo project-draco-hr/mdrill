@@ -1,0 +1,9 @@
+backtype.storm.spout.ISpout _spout
+WorkerTransfer _transfer_fn
+Map _storm_conf
+IConnection _puller
+TaskSendTargets sendTargets
+AtomicBoolean _storm_active_atom
+TopologyContext topology_context
+TopologyContext _user_context
+BaseTaskStatsRolling _task_stats

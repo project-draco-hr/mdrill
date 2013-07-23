@@ -1,0 +1,6 @@
+{
+  jetty.setMergeServer(isMergeServer);
+  for (  SolrStartTable table : tables) {
+    table.setMergeServer(isMergeServer);
+  }
+}

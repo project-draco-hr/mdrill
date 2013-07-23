@@ -1,0 +1,10 @@
+{
+  if (field == null) {
+    List<BooleanClause> clauses=new ArrayList<BooleanClause>();
+    for (int i=0; i < fields.length; i++) {
+      clauses.add(new BooleanClause(getFuzzyQuery(fields[i],termStr,minSimilarity),BooleanClause.Occur.SHOULD));
+    }
+    return getBooleanQuery(clauses,true);
+  }
+  return super.getFuzzyQuery(field,termStr,minSimilarity);
+}

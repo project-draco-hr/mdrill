@@ -1,0 +1,14 @@
+{
+  boost=b;
+  if (v instanceof Object[]) {
+    Object[] arr=(Object[])v;
+    Collection<Object> c=new ArrayList<Object>(arr.length);
+    for (    Object o : arr) {
+      c.add(o);
+    }
+    value=c;
+  }
+ else {
+    value=v;
+  }
+}

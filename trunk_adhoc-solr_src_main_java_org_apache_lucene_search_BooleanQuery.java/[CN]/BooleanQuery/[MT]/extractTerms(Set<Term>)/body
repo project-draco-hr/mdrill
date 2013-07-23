@@ -1,0 +1,5 @@
+{
+  for (  BooleanClause clause : clauses) {
+    clause.getQuery().extractTerms(terms);
+  }
+}

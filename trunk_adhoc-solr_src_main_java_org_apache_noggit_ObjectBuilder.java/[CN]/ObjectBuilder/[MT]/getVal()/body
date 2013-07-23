@@ -1,0 +1,29 @@
+{
+  int ev=parser.lastEvent();
+switch (ev) {
+case JSONParser.STRING:
+    return getString();
+case JSONParser.LONG:
+  return getLong();
+case JSONParser.NUMBER:
+return getNumber();
+case JSONParser.BIGNUMBER:
+return getBigNumber();
+case JSONParser.BOOLEAN:
+return getBoolean();
+case JSONParser.NULL:
+return getNull();
+case JSONParser.OBJECT_START:
+return getObject();
+case JSONParser.OBJECT_END:
+return null;
+case JSONParser.ARRAY_START:
+return getArray();
+case JSONParser.ARRAY_END:
+return null;
+case JSONParser.EOF:
+return null;
+default :
+return null;
+}
+}

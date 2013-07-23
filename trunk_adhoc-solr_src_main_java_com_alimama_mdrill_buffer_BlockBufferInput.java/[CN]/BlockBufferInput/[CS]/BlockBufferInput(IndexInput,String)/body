@@ -1,0 +1,11 @@
+{
+  super("BlockBufferInput",1024);
+  this.descriptor=new Descriptor(input);
+  this.isOpen=true;
+  this.key=key;
+  this.keyCut=new String(this.key);
+  int cutoutlen=50;
+  if (this.keyCut.length() > cutoutlen) {
+    this.keyCut=keyCut.substring(this.keyCut.length() - cutoutlen,this.keyCut.length());
+  }
+}

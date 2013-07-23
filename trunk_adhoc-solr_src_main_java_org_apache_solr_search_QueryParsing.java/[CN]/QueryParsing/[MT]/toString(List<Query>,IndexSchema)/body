@@ -1,0 +1,7 @@
+{
+  List<String> out=new ArrayList<String>(queries.size());
+  for (  Query q : queries) {
+    out.add(QueryParsing.toString(q,schema));
+  }
+  return out;
+}

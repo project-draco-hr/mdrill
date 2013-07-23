@@ -1,0 +1,3 @@
+{
+  return (value == 'a') || (value == 'e') || (value == 'i')|| (value == 'o')|| (value == 'u');
+}

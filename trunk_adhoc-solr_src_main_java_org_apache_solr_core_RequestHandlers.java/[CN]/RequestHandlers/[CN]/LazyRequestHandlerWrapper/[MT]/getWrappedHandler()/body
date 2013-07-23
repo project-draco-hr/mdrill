@@ -1,0 +1,16 @@
+{
+  if (_handler == null) {
+    try {
+      SolrRequestHandler handler=core.createRequestHandler(_className);
+      handler.init(_args);
+      if (handler instanceof SolrCoreAware) {
+        ((SolrCoreAware)handler).inform(core);
+      }
+      _handler=handler;
+    }
+ catch (    Exception ex) {
+      throw new SolrException(SolrException.ErrorCode.SERVER_ERROR,"lazy loading error",ex);
+    }
+  }
+  return _handler;
+}

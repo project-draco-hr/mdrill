@@ -1,0 +1,16 @@
+{
+  List<NamedList> l=new ArrayList<NamedList>();
+  NamedList nl=new NamedList();
+  nl.add("boost",doc.getDocumentBoost() == 1.0f ? null : doc.getDocumentBoost());
+  l.add(nl);
+  Iterator<SolrInputField> it=doc.iterator();
+  while (it.hasNext()) {
+    nl=new NamedList();
+    SolrInputField field=it.next();
+    nl.add("name",field.getName());
+    nl.add("val",field.getValue());
+    nl.add("boost",field.getBoost() == 1.0f ? null : field.getBoost());
+    l.add(nl);
+  }
+  return l;
+}

@@ -1,0 +1,8 @@
+{
+  List<String> result=new ArrayList<String>();
+  for (  Fieldable field : fields) {
+    if (field.name().equals(name) && (!field.isBinary()))     result.add(field.stringValue());
+  }
+  if (result.size() == 0)   return NO_STRINGS;
+  return result.toArray(new String[result.size()]);
+}

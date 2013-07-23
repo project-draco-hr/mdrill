@@ -1,0 +1,17 @@
+{
+  this.collector=collector;
+  this.conf=conf;
+  this.fs=FileSystem.get(this.conf);
+  this.lfs=FileSystem.getLocal(this.conf);
+  this.hdfsSolrhome=solrhome;
+  this.portbase=portbase;
+  this.taskIndex=taskIndex;
+  this.tablename=tblName;
+  this.taskid=taskid;
+  this.singleStorePath=IndexUtils.getPath(diskList,taskIndex,0,this.lfs);
+  HigoJoinUtils.setLocalStorePath(diskList.split(","));
+  SolrCore.setSearchCacheSize(partions);
+  LOG.info("higolog init table:" + this.tablename + ",port:"+ this.portbase+ ",taskIndex:"+ this.taskIndex+ ",taskId:"+ this.taskid+ ",storepath:"+ this.singleStorePath);
+  this.init();
+  this.validate();
+}

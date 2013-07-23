@@ -1,0 +1,10 @@
+{
+  si.reset(rollbackSegmentInfo);
+  hasChanges=rollbackHasChanges;
+  deletedDocsDirty=rollbackDeletedDocsDirty;
+  normsDirty=rollbackNormsDirty;
+  pendingDeleteCount=rollbackPendingDeleteCount;
+  for (  SegmentNorms norm : norms.values()) {
+    norm.dirty=norm.rollbackDirty;
+  }
+}

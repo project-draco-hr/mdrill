@@ -1,0 +1,17 @@
+{
+  int among_var;
+  ket=cursor;
+  among_var=find_among_b(a_1,71);
+  if (among_var == 0) {
+    return false;
+  }
+  bra=cursor;
+switch (among_var) {
+case 0:
+    return false;
+case 1:
+  slice_del();
+break;
+}
+return true;
+}

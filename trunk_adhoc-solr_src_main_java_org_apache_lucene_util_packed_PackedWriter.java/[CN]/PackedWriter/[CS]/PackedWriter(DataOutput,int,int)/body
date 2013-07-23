@@ -1,0 +1,10 @@
+{
+  super(out,valueCount,bitsPerValue);
+  pendingBitPos=64;
+  masks=new long[bitsPerValue - 1];
+  long v=1;
+  for (int i=0; i < bitsPerValue - 1; i++) {
+    v*=2;
+    masks[i]=v - 1;
+  }
+}

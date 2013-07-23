@@ -1,0 +1,9 @@
+{
+  try {
+    stoptable=WordlistLoader.getWordSet(IOUtils.getDecodingReader(stopwords,IOUtils.CHARSET_UTF_8),matchVersion);
+  }
+ catch (  IOException e) {
+    throw new RuntimeException(e);
+  }
+  this.matchVersion=matchVersion;
+}

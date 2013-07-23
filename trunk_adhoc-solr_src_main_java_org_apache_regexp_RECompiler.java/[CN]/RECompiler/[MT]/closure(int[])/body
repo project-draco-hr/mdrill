@@ -1,0 +1,141 @@
+{
+  int idxBeforeTerminal=idx;
+  int[] terminalFlags={NODE_NORMAL};
+  int ret=terminal(terminalFlags);
+  flags[0]|=terminalFlags[0];
+  if (idx >= len) {
+    return ret;
+  }
+  boolean greedy=true;
+  char closureType=pattern.charAt(idx);
+switch (closureType) {
+case '?':
+case '*':
+    flags[0]|=NODE_NULLABLE;
+case '+':
+  idx++;
+case '{':
+int opcode=instruction[ret + RE.offsetOpcode];
+if (opcode == RE.OP_BOL || opcode == RE.OP_EOL) {
+syntaxError("Bad closure operand");
+}
+if ((terminalFlags[0] & NODE_NULLABLE) != 0) {
+syntaxError("Closure operand can't be nullable");
+}
+break;
+}
+if (idx < len && pattern.charAt(idx) == '?') {
+idx++;
+greedy=false;
+}
+if (greedy) {
+switch (closureType) {
+case '{':
+{
+boolean found=false;
+int i;
+allocBrackets();
+for (i=0; i < brackets; i++) {
+if (bracketStart[i] == idx) {
+found=true;
+break;
+}
+}
+if (!found) {
+if (brackets >= maxBrackets) {
+reallocBrackets();
+}
+bracketStart[brackets]=idx;
+bracket();
+bracketEnd[brackets]=idx;
+i=brackets++;
+}
+if (bracketMin[i]-- > 0) {
+if (bracketMin[i] > 0 || bracketOpt[i] != 0) {
+for (int j=0; j < brackets; j++) {
+  if (j != i && bracketStart[j] < idx && bracketStart[j] >= idxBeforeTerminal) {
+    brackets--;
+    bracketStart[j]=bracketStart[brackets];
+    bracketEnd[j]=bracketEnd[brackets];
+    bracketMin[j]=bracketMin[brackets];
+    bracketOpt[j]=bracketOpt[brackets];
+  }
+}
+idx=idxBeforeTerminal;
+}
+ else {
+idx=bracketEnd[i];
+}
+break;
+}
+if (bracketOpt[i] == bracketUnbounded) {
+closureType='*';
+bracketOpt[i]=0;
+idx=bracketEnd[i];
+}
+ else if (bracketOpt[i]-- > 0) {
+if (bracketOpt[i] > 0) {
+idx=idxBeforeTerminal;
+}
+ else {
+idx=bracketEnd[i];
+}
+closureType='?';
+}
+ else {
+lenInstruction=ret;
+node(RE.OP_NOTHING,0);
+idx=bracketEnd[i];
+break;
+}
+}
+case '?':
+case '*':
+if (!greedy) {
+break;
+}
+if (closureType == '?') {
+nodeInsert(RE.OP_BRANCH,0,ret);
+setNextOfEnd(ret,node(RE.OP_BRANCH,0));
+int nothing=node(RE.OP_NOTHING,0);
+setNextOfEnd(ret,nothing);
+setNextOfEnd(ret + RE.nodeSize,nothing);
+}
+if (closureType == '*') {
+nodeInsert(RE.OP_BRANCH,0,ret);
+setNextOfEnd(ret + RE.nodeSize,node(RE.OP_BRANCH,0));
+setNextOfEnd(ret + RE.nodeSize,node(RE.OP_GOTO,0));
+setNextOfEnd(ret + RE.nodeSize,ret);
+setNextOfEnd(ret,node(RE.OP_BRANCH,0));
+setNextOfEnd(ret,node(RE.OP_NOTHING,0));
+}
+break;
+case '+':
+{
+int branch;
+branch=node(RE.OP_BRANCH,0);
+setNextOfEnd(ret,branch);
+setNextOfEnd(node(RE.OP_GOTO,0),ret);
+setNextOfEnd(branch,node(RE.OP_BRANCH,0));
+setNextOfEnd(ret,node(RE.OP_NOTHING,0));
+}
+break;
+}
+}
+ else {
+setNextOfEnd(ret,node(RE.OP_END,0));
+switch (closureType) {
+case '?':
+nodeInsert(RE.OP_RELUCTANTMAYBE,0,ret);
+break;
+case '*':
+nodeInsert(RE.OP_RELUCTANTSTAR,0,ret);
+break;
+case '+':
+nodeInsert(RE.OP_RELUCTANTPLUS,0,ret);
+break;
+}
+setNextOfEnd(ret,lenInstruction);
+}
+return ret;
+}

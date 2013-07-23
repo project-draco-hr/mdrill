@@ -1,0 +1,7 @@
+{
+  if (lowercaseExpandedTerms) {
+    termStr=termStr.toLowerCase();
+  }
+  Term t=new Term(field,termStr);
+  return newFuzzyQuery(t,minSimilarity,fuzzyPrefixLength);
+}

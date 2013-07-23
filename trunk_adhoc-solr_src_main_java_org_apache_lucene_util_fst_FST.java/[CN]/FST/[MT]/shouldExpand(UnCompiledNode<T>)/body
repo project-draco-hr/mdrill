@@ -1,0 +1,3 @@
+{
+  return (node.depth <= FIXED_ARRAY_SHALLOW_DISTANCE && node.numArcs >= FIXED_ARRAY_NUM_ARCS_SHALLOW) || node.numArcs >= FIXED_ARRAY_NUM_ARCS_DEEP;
+}

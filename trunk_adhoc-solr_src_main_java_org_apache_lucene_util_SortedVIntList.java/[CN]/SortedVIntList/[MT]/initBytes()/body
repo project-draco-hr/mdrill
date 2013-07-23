@@ -1,0 +1,5 @@
+{
+  size=0;
+  bytes=new byte[128];
+  lastBytePos=0;
+}

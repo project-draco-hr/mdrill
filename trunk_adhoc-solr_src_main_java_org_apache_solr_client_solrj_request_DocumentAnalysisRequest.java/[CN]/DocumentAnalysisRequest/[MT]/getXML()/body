@@ -1,0 +1,11 @@
+{
+  StringWriter writer=new StringWriter();
+  writer.write("<docs>");
+  for (  SolrInputDocument document : documents) {
+    ClientUtils.writeXML(document,writer);
+  }
+  writer.write("</docs>");
+  writer.flush();
+  String xml=writer.toString();
+  return (xml.length() > 0) ? xml : null;
+}

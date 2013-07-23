@@ -1,0 +1,9 @@
+{
+  PHPWriter w=new PHPWriter(writer,req,rsp);
+  try {
+    w.writeResponse();
+  }
+  finally {
+    w.close();
+  }
+}

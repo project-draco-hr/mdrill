@@ -1,0 +1,4 @@
+{
+  if (bufferPosition >= bufferLength)   refill();
+  return buffer[bufferPosition++];
+}

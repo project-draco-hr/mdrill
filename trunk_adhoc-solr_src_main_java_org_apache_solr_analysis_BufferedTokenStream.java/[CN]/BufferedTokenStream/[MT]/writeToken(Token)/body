@@ -1,0 +1,10 @@
+{
+  clearAttributes();
+  termAtt.copyBuffer(token.buffer(),0,token.length());
+  offsetAtt.setOffset(token.startOffset(),token.endOffset());
+  typeAtt.setType(token.type());
+  flagsAtt.setFlags(token.getFlags());
+  posIncAtt.setPositionIncrement(token.getPositionIncrement());
+  payloadAtt.setPayload(token.getPayload());
+  return true;
+}

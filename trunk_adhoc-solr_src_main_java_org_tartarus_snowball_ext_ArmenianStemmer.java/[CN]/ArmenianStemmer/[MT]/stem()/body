@@ -1,0 +1,62 @@
+{
+  int v_1;
+  int v_2;
+  int v_3;
+  int v_4;
+  int v_5;
+  int v_6;
+  int v_7;
+  v_1=cursor;
+  lab0:   do {
+    if (!r_mark_regions()) {
+      break lab0;
+    }
+  }
+ while (false);
+  cursor=v_1;
+  limit_backward=cursor;
+  cursor=limit;
+  v_2=limit - cursor;
+  if (cursor < I_pV) {
+    return false;
+  }
+  cursor=I_pV;
+  v_3=limit_backward;
+  limit_backward=cursor;
+  cursor=limit - v_2;
+  v_4=limit - cursor;
+  lab1:   do {
+    if (!r_ending()) {
+      break lab1;
+    }
+  }
+ while (false);
+  cursor=limit - v_4;
+  v_5=limit - cursor;
+  lab2:   do {
+    if (!r_verb()) {
+      break lab2;
+    }
+  }
+ while (false);
+  cursor=limit - v_5;
+  v_6=limit - cursor;
+  lab3:   do {
+    if (!r_adjective()) {
+      break lab3;
+    }
+  }
+ while (false);
+  cursor=limit - v_6;
+  v_7=limit - cursor;
+  lab4:   do {
+    if (!r_noun()) {
+      break lab4;
+    }
+  }
+ while (false);
+  cursor=limit - v_7;
+  limit_backward=v_3;
+  cursor=limit_backward;
+  return true;
+}

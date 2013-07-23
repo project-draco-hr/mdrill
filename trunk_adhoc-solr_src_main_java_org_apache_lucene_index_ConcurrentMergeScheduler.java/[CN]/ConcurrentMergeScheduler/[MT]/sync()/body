@@ -1,0 +1,24 @@
+{
+  while (true) {
+    MergeThread toSync=null;
+synchronized (this) {
+      for (      MergeThread t : mergeThreads) {
+        if (t.isAlive()) {
+          toSync=t;
+          break;
+        }
+      }
+    }
+    if (toSync != null) {
+      try {
+        toSync.join();
+      }
+ catch (      InterruptedException ie) {
+        throw new ThreadInterruptedException(ie);
+      }
+    }
+ else {
+      break;
+    }
+  }
+}

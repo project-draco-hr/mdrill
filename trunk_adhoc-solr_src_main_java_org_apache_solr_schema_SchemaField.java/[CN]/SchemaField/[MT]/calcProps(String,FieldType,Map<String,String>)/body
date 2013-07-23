@@ -1,0 +1,49 @@
+{
+  int trueProps=parseProperties(props,true);
+  int falseProps=parseProperties(props,false);
+  int p=ft.properties;
+  if (on(falseProps,STORED)) {
+    int pp=STORED | BINARY;
+    if (on(pp,trueProps)) {
+      throw new RuntimeException("SchemaField: " + name + " conflicting stored field options:"+ props);
+    }
+    p&=~pp;
+  }
+  if (on(falseProps,INDEXED)) {
+    int pp=(INDEXED | STORE_TERMVECTORS | STORE_TERMPOSITIONS| STORE_TERMOFFSETS| SORT_MISSING_FIRST| SORT_MISSING_LAST);
+    if (on(pp,trueProps)) {
+      throw new RuntimeException("SchemaField: " + name + " conflicting 'true' field options for non-indexed field:"+ props);
+    }
+    p&=~pp;
+  }
+  if (on(falseProps,INDEXED)) {
+    int pp=(OMIT_NORMS | OMIT_TF_POSITIONS | OMIT_POSITIONS);
+    if (on(pp,falseProps)) {
+      throw new RuntimeException("SchemaField: " + name + " conflicting 'false' field options for non-indexed field:"+ props);
+    }
+    p&=~pp;
+  }
+  if (on(trueProps,OMIT_TF_POSITIONS)) {
+    int pp=(OMIT_POSITIONS | OMIT_TF_POSITIONS);
+    if (on(pp,falseProps)) {
+      throw new RuntimeException("SchemaField: " + name + " conflicting tf and position field options:"+ props);
+    }
+    p&=~pp;
+  }
+  if (on(falseProps,STORE_TERMVECTORS)) {
+    int pp=(STORE_TERMVECTORS | STORE_TERMPOSITIONS | STORE_TERMOFFSETS);
+    if (on(pp,trueProps)) {
+      throw new RuntimeException("SchemaField: " + name + " conflicting termvector field options:"+ props);
+    }
+    p&=~pp;
+  }
+  if (on(trueProps,SORT_MISSING_FIRST)) {
+    p&=~SORT_MISSING_LAST;
+  }
+  if (on(trueProps,SORT_MISSING_LAST)) {
+    p&=~SORT_MISSING_FIRST;
+  }
+  p&=~falseProps;
+  p|=trueProps;
+  return p;
+}

@@ -1,0 +1,3 @@
+int num_threads
+int linger
+boolean local

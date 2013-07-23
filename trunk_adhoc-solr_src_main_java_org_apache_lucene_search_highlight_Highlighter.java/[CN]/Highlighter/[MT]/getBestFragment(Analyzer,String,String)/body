@@ -1,0 +1,4 @@
+{
+  TokenStream tokenStream=analyzer.reusableTokenStream(fieldName,new StringReader(text));
+  return getBestFragment(tokenStream,text);
+}

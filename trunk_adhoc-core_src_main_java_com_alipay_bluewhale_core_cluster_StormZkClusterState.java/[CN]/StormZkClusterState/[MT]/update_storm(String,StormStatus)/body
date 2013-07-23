@@ -1,0 +1,7 @@
+{
+  StormBase base=this.storm_base(stormId,null);
+  if (base != null) {
+    base.setStatus(newElems);
+    cluster_state.set_data(Cluster.storm_path(stormId),Utils.serialize(base));
+  }
+}

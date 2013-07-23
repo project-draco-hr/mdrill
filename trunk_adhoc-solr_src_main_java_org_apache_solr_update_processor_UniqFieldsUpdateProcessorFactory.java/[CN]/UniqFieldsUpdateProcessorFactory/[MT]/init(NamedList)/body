@@ -1,0 +1,9 @@
+{
+  NamedList<String> flst=(NamedList<String>)args.get("fields");
+  if (flst != null) {
+    fields=new HashSet<String>();
+    for (int i=0; i < flst.size(); i++) {
+      fields.add(flst.getVal(i));
+    }
+  }
+}

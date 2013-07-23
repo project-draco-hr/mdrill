@@ -1,0 +1,7 @@
+{
+  termAtt=fieldState.attributeSource.addAttribute(CharTermAttribute.class);
+  consumer.start(f);
+  if (nextPerField != null) {
+    nextPerField.start(f);
+  }
+}

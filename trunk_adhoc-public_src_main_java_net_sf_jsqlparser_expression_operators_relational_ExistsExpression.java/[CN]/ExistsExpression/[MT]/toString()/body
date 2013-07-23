@@ -1,0 +1,3 @@
+{
+  return getStringExpression() + " " + rightExpression.toString();
+}

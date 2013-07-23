@@ -1,0 +1,9 @@
+{
+  try {
+    Method method=obj.getClass().getMethod(methodFunc,null);
+    return method.invoke(obj,null);
+  }
+ catch (  Exception e) {
+    return null;
+  }
+}

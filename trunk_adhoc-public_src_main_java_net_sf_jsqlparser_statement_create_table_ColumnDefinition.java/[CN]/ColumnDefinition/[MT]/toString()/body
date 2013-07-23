@@ -1,0 +1,3 @@
+{
+  return columnName + " " + colDataType+ " "+ PlainSelect.getStringList(columnSpecStrings,false,false);
+}

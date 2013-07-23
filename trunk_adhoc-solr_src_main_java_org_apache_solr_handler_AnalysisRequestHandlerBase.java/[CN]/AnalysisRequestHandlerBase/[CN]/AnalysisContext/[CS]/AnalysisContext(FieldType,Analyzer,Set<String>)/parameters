@@ -1,0 +1,3 @@
+FieldType fieldType
+Analyzer analyzer
+Set<String> termsToMatch

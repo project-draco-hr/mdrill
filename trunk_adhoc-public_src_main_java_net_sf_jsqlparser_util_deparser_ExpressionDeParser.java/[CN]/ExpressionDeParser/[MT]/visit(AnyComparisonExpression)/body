@@ -1,0 +1,4 @@
+{
+  buffer.append(" ANY ");
+  anyComparisonExpression.GetSubSelect().accept((ExpressionVisitor)this);
+}

@@ -1,0 +1,11 @@
+{
+  Integer current=terms.get(term);
+  if (current != null && docIDUpto < current) {
+    return;
+  }
+  terms.put(term,Integer.valueOf(docIDUpto));
+  numTermDeletes.incrementAndGet();
+  if (current == null) {
+    bytesUsed.addAndGet(BYTES_PER_DEL_TERM + term.text.length() * RamUsageEstimator.NUM_BYTES_CHAR);
+  }
+}

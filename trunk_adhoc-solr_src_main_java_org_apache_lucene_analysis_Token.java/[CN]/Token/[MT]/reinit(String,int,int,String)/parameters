@@ -1,0 +1,4 @@
+String newTerm
+int newStartOffset
+int newEndOffset
+String newType

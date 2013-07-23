@@ -1,0 +1,4 @@
+{
+  values=new String[numHits];
+  this.field=field;
+}

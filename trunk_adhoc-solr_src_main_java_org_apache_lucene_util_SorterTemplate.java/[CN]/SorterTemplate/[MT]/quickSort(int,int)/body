@@ -1,0 +1,4 @@
+{
+  if (hi <= lo)   return;
+  quickSort(lo,hi,(Integer.SIZE - Integer.numberOfLeadingZeros(hi - lo)) << 1);
+}

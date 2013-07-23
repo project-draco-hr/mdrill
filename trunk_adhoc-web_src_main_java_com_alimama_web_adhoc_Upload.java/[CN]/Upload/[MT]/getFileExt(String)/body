@@ -1,0 +1,11 @@
+{
+  String value=new String();
+  int start=0;
+  int end=0;
+  if (fileName == null)   return null;
+  start=fileName.lastIndexOf(46) + 1;
+  end=fileName.length();
+  value=fileName.substring(start,end);
+  if (fileName.lastIndexOf(46) > 0)   return value;
+ else   return "";
+}

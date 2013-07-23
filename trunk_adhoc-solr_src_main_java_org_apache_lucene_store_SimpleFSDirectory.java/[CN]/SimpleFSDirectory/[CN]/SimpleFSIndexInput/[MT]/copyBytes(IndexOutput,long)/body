@@ -1,0 +1,4 @@
+{
+  numBytes-=flushBuffer(out,numBytes);
+  out.copyBytes(this,numBytes);
+}

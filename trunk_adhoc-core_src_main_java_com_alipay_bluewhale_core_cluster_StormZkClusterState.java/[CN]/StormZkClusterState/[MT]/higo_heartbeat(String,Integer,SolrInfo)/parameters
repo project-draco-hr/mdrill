@@ -1,0 +1,3 @@
+String tablename
+Integer task
+SolrInfo info

@@ -1,0 +1,84 @@
+{
+  CaseExpression caseExp=new CaseExpression();
+  Expression switchExp=null;
+  WhenClause clause;
+  List whenClauses=new ArrayList();
+  Expression elseExp=null;
+  jj_consume_token(K_CASE);
+switch ((jj_ntk == -1) ? jj_ntk() : jj_ntk) {
+case K_WHEN:
+    label_25:     while (true) {
+      clause=WhenThenSearchCondition();
+      whenClauses.add(clause);
+switch ((jj_ntk == -1) ? jj_ntk() : jj_ntk) {
+case K_WHEN:
+        ;
+      break;
+default :
+    jj_la1[122]=jj_gen;
+  break label_25;
+}
+}
+switch ((jj_ntk == -1) ? jj_ntk() : jj_ntk) {
+case K_ELSE:
+jj_consume_token(K_ELSE);
+elseExp=PrimaryExpression();
+break;
+default :
+jj_la1[123]=jj_gen;
+;
+}
+break;
+case K_NULL:
+case K_CASE:
+case K_REPLACE:
+case S_DOUBLE:
+case S_INTEGER:
+case S_IDENTIFIER:
+case S_CHAR_LITERAL:
+case S_QUOTED_IDENTIFIER:
+case 79:
+case 83:
+case 94:
+case 95:
+case 98:
+case 100:
+case 101:
+case 102:
+switchExp=PrimaryExpression();
+label_26: while (true) {
+switch ((jj_ntk == -1) ? jj_ntk() : jj_ntk) {
+case K_WHEN:
+;
+break;
+default :
+jj_la1[124]=jj_gen;
+break label_26;
+}
+clause=WhenThenValue();
+whenClauses.add(clause);
+}
+switch ((jj_ntk == -1) ? jj_ntk() : jj_ntk) {
+case K_ELSE:
+jj_consume_token(K_ELSE);
+elseExp=PrimaryExpression();
+break;
+default :
+jj_la1[125]=jj_gen;
+;
+}
+break;
+default :
+jj_la1[126]=jj_gen;
+jj_consume_token(-1);
+throw new ParseException();
+}
+jj_consume_token(K_END);
+caseExp.setSwitchExpression(switchExp);
+caseExp.setWhenClauses(whenClauses);
+caseExp.setElseExpression(elseExp);
+{
+if (true) return caseExp;
+}
+throw new Error("Missing return statement in function");
+}

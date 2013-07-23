@@ -1,0 +1,3 @@
+{
+  return wrappedField.createField(field,externalVal,boost);
+}

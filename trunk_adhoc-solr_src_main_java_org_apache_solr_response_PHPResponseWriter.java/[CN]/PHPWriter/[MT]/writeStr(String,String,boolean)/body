@@ -1,0 +1,23 @@
+{
+  if (needsEscaping) {
+    writer.write('\'');
+    for (int i=0; i < val.length(); i++) {
+      char ch=val.charAt(i);
+switch (ch) {
+case '\'':
+case '\\':
+        writer.write('\\');
+      writer.write(ch);
+    break;
+default :
+  writer.write(ch);
+}
+}
+writer.write('\'');
+}
+ else {
+writer.write('\'');
+writer.write(val);
+writer.write('\'');
+}
+}

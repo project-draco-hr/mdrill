@@ -1,0 +1,3 @@
+{
+  super("The object cannot be set twice!");
+}

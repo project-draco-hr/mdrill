@@ -1,0 +1,3 @@
+{
+  return "SelectInListQuery [term=" + field + ", file="+ file+ ", hashcode="+ file.hashCode()+ "]";
+}

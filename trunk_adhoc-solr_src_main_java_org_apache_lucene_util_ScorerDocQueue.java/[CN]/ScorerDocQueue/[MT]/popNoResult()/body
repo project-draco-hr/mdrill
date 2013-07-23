@@ -1,0 +1,6 @@
+{
+  heap[1]=heap[size];
+  heap[size]=null;
+  size--;
+  downHeap();
+}

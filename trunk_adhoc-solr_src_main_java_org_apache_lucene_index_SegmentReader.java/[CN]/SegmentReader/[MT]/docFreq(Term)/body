@@ -1,0 +1,6 @@
+{
+  ensureOpen();
+  TermInfo ti=core.getTermsReader().get(t);
+  if (ti != null)   return ti.docFreq;
+ else   return 0;
+}

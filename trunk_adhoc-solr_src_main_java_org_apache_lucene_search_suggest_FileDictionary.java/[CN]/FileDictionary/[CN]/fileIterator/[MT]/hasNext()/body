@@ -1,0 +1,20 @@
+{
+  hasNextCalled=true;
+  try {
+    line=in.readLine();
+    if (line != null) {
+      String[] fields=line.split("\t");
+      if (fields.length > 1) {
+        curFreq=Float.parseFloat(fields[1]);
+        line=fields[0];
+      }
+ else {
+        curFreq=1;
+      }
+    }
+  }
+ catch (  IOException ex) {
+    throw new RuntimeException(ex);
+  }
+  return (line != null) ? true : false;
+}

@@ -1,0 +1,7 @@
+{
+  this.supervisorId=supervisorId;
+  this.conf=conf;
+  this.localState=localState;
+  this.workerThreadPids=workerThreadPids;
+  this.sharedContext=sharedContext;
+}

@@ -1,0 +1,14 @@
+{
+  while (true) {
+    if (!closed) {
+      if (!closing) {
+        closing=true;
+        return true;
+      }
+ else {
+        doWait();
+      }
+    }
+ else     return false;
+  }
+}

@@ -1,0 +1,7 @@
+{
+  for (  SegmentReader reader : readerMap.values()) {
+    reader.hasChanges=false;
+    reader.decRef();
+  }
+  readerMap.clear();
+}

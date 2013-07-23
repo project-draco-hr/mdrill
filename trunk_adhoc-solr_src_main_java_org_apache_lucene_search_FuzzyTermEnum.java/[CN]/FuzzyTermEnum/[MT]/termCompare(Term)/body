@@ -1,0 +1,9 @@
+{
+  if (field == term.field() && term.text().startsWith(prefix)) {
+    final String target=term.text().substring(prefix.length());
+    this.similarity=similarity(target);
+    return (similarity > minimumSimilarity);
+  }
+  endEnum=true;
+  return false;
+}

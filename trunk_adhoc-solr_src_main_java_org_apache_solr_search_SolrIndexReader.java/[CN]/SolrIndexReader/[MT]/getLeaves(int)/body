@@ -1,0 +1,24 @@
+{
+  if (subReaders == null || numLeaves == subReaders.length)   return subReaders;
+  SolrIndexReader[] leaves=new SolrIndexReader[numLeaves];
+  leafOffsets=new int[numLeaves];
+  int i=0;
+  int b=0;
+  for (  SolrIndexReader sir : subReaders) {
+    SolrIndexReader subLeaves[]=sir.leafReaders;
+    if (subLeaves == null) {
+      leafOffsets[i]=b;
+      b+=sir.maxDoc();
+      leaves[i++]=sir;
+    }
+ else {
+      for (      SolrIndexReader subLeaf : subLeaves) {
+        leafOffsets[i]=b;
+        b+=subLeaf.maxDoc();
+        leaves[i++]=subLeaf;
+      }
+    }
+  }
+  assert(i == numLeaves && b == maxDoc());
+  return leaves;
+}

@@ -1,0 +1,3 @@
+{
+  return parseQuery(qs,null,schema);
+}

@@ -1,0 +1,11 @@
+{
+  checkBounds();
+  byte b=bytes[pos++];
+  int i=b & 0x7F;
+  for (int shift=7; (b & 0x80) != 0; shift+=7) {
+    checkBounds();
+    b=bytes[pos++];
+    i|=(b & 0x7F) << shift;
+  }
+  return i;
+}

@@ -1,0 +1,5 @@
+{
+  this.reader=reader;
+  this.buff=new StringBuffer(512);
+  this.closed=false;
+}

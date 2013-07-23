@@ -1,0 +1,3 @@
+String stringValue
+int startOffset
+int endOffset

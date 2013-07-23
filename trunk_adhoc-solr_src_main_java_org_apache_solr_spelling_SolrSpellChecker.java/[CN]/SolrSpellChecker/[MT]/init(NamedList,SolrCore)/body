@@ -1,0 +1,19 @@
+{
+  name=(String)config.get(DICTIONARY_NAME);
+  if (name == null) {
+    name=DEFAULT_DICTIONARY_NAME;
+  }
+  field=(String)config.get(FIELD);
+  if (field != null && core.getSchema().getFieldTypeNoEx(field) != null) {
+    analyzer=core.getSchema().getFieldType(field).getQueryAnalyzer();
+  }
+  fieldTypeName=(String)config.get(FIELD_TYPE);
+  if (core.getSchema().getFieldTypes().containsKey(fieldTypeName)) {
+    FieldType fieldType=core.getSchema().getFieldTypes().get(fieldTypeName);
+    analyzer=fieldType.getQueryAnalyzer();
+  }
+  if (analyzer == null) {
+    analyzer=new WhitespaceAnalyzer(core.getSolrConfig().luceneMatchVersion);
+  }
+  return name;
+}

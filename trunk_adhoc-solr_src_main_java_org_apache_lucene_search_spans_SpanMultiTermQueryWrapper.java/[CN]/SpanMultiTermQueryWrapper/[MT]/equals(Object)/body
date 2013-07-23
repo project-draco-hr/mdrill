@@ -1,0 +1,7 @@
+{
+  if (this == obj)   return true;
+  if (obj == null)   return false;
+  if (getClass() != obj.getClass())   return false;
+  final SpanMultiTermQueryWrapper other=(SpanMultiTermQueryWrapper)obj;
+  return query.equals(other.query);
+}

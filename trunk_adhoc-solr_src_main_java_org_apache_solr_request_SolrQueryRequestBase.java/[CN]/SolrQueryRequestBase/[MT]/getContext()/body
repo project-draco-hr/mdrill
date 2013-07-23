@@ -1,0 +1,4 @@
+{
+  if (context == null)   context=new HashMap<Object,Object>();
+  return context;
+}

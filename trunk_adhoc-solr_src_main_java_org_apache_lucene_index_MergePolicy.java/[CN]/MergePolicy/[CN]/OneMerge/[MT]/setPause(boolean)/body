@@ -1,0 +1,6 @@
+{
+  this.paused=paused;
+  if (!paused) {
+    notifyAll();
+  }
+}

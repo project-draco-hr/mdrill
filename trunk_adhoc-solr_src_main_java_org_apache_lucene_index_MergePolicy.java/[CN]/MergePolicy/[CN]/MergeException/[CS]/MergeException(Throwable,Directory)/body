@@ -1,0 +1,4 @@
+{
+  super(exc);
+  this.dir=dir;
+}

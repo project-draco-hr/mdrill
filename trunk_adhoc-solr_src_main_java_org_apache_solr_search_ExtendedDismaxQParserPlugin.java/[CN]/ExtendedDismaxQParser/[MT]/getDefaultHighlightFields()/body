@@ -1,0 +1,4 @@
+{
+  String[] highFields=queryFields.keySet().toArray(new String[0]);
+  return highFields;
+}

@@ -1,0 +1,3 @@
+{
+  this(pointStr,dist,sf,measStr,radius,DistanceUnits.MILES);
+}

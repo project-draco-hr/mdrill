@@ -1,0 +1,8 @@
+{
+  Path file=new Path(directory,name);
+  this.links.remove(name);
+  if (fs.exists(file) && !fs.delete(file,true)) {
+    throw new IOException("Cannot overwrite index file " + file);
+  }
+  return new FileSystemIndexOutput(file,ioFileBufferSize);
+}

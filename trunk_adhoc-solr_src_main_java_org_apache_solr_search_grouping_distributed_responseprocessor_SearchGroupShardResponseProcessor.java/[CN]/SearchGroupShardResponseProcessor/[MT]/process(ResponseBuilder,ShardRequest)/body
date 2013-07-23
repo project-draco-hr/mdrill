@@ -1,0 +1,45 @@
+{
+  SortSpec ss=rb.getSortSpec();
+  Sort groupSort=rb.getGroupingSpec().getGroupSort();
+  String[] fields=rb.getGroupingSpec().getFields();
+  Map<String,List<Collection<SearchGroup<String>>>> commandSearchGroups=new HashMap<String,List<Collection<SearchGroup<String>>>>();
+  Map<String,Map<SearchGroup<String>,String>> tempSearchGroupToShard=new HashMap<String,Map<SearchGroup<String>,String>>();
+  for (  String field : fields) {
+    commandSearchGroups.put(field,new ArrayList<Collection<SearchGroup<String>>>(shardRequest.responses.size()));
+    tempSearchGroupToShard.put(field,new HashMap<SearchGroup<String>,String>());
+    if (!rb.searchGroupToShard.containsKey(field)) {
+      rb.searchGroupToShard.put(field,new HashMap<SearchGroup<String>,String>());
+    }
+  }
+  SearchGroupsResultTransformer serializer=new SearchGroupsResultTransformer(rb.req.getSearcher());
+  try {
+    for (    ShardResponse srsp : shardRequest.responses) {
+      @SuppressWarnings("unchecked") NamedList<NamedList> firstPhaseResult=(NamedList<NamedList>)srsp.getSolrResponse().getResponse().get("firstPhase");
+      Map<String,Collection<SearchGroup<String>>> result=serializer.transformToNative(firstPhaseResult,groupSort,null,srsp.getShard());
+      for (      String field : commandSearchGroups.keySet()) {
+        Collection<SearchGroup<String>> searchGroups=result.get(field);
+        if (searchGroups == null) {
+          continue;
+        }
+        commandSearchGroups.get(field).add(searchGroups);
+        for (        SearchGroup<String> searchGroup : searchGroups) {
+          tempSearchGroupToShard.get(field).put(searchGroup,srsp.getShard());
+        }
+      }
+    }
+    for (    String groupField : commandSearchGroups.keySet()) {
+      List<Collection<SearchGroup<String>>> topGroups=commandSearchGroups.get(groupField);
+      Collection<SearchGroup<String>> mergedTopGroups=SearchGroup.merge(topGroups,ss.getOffset(),ss.getCount(),groupSort);
+      if (mergedTopGroups == null) {
+        continue;
+      }
+      rb.mergedSearchGroups.put(groupField,mergedTopGroups);
+      for (      SearchGroup<String> mergedTopGroup : mergedTopGroups) {
+        rb.searchGroupToShard.get(groupField).put(mergedTopGroup,tempSearchGroupToShard.get(groupField).get(mergedTopGroup));
+      }
+    }
+  }
+ catch (  IOException e) {
+    throw new SolrException(SolrException.ErrorCode.SERVER_ERROR,e);
+  }
+}

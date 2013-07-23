@@ -1,0 +1,3 @@
+{
+  this.p=(HashMap<String,String>)Utils.deserialize(data);
+}

@@ -1,0 +1,8 @@
+{
+  Map other=null;
+  if (includeScore) {
+    other=scoreMap;
+    scoreMap.put("score",score);
+  }
+  writeDoc(name,doc.getFields(),returnFields,other);
+}

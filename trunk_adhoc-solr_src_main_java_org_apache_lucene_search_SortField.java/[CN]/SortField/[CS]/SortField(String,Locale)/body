@@ -1,0 +1,4 @@
+{
+  initFieldType(field,STRING);
+  this.locale=locale;
+}

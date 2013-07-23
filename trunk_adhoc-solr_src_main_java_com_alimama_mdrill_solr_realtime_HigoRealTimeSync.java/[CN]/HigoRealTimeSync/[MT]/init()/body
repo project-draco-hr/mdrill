@@ -1,0 +1,13 @@
+{
+  this.basePath=core.getRealTimeDir(this.day) + "/realtime";
+  checkpointposwrite=new BinLog(basePath + "/checkpointpos",0);
+  checkpointposwrite.getStore().setMaxSegmentsCount(3);
+  checkpointposwrite.getStore().setMaxSegmentSize(1024);
+  checkpointpos=new BinLog(basePath + "/checkpointpos",0);
+  HashMap<String,String> params=this.readPos(checkpointpos);
+  this.checkpointindex=Integer.parseInt(params.get("index"));
+  this.loadCheckpoint(this.checkpointindex);
+  binlog=new BinLog(this.writelog,Long.parseLong(params.get("pos")));
+  checkpointpos.close();
+  checkpointpos=null;
+}

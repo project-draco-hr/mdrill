@@ -1,0 +1,3 @@
+{
+  maskedQuery.extractTerms(terms);
+}

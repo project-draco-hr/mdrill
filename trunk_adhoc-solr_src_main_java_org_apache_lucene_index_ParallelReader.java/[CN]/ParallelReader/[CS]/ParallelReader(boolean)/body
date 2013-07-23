@@ -1,0 +1,5 @@
+{
+  super();
+  this.incRefReaders=!closeSubReaders;
+  readerFinishedListeners=new MapBackedSet<ReaderFinishedListener>(new ConcurrentHashMap<ReaderFinishedListener,Boolean>());
+}

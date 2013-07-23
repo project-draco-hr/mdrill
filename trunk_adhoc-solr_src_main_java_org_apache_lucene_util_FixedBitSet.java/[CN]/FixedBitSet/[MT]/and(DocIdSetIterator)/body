@@ -1,0 +1,19 @@
+{
+  if (iter instanceof OpenBitSetIterator && iter.docID() == -1) {
+    final OpenBitSetIterator obs=(OpenBitSetIterator)iter;
+    and(obs.arr,obs.words);
+    obs.advance(numBits);
+  }
+ else {
+    if (numBits == 0)     return;
+    int disiDoc, bitSetDoc=nextSetBit(0);
+    while (bitSetDoc != -1 && (disiDoc=iter.advance(bitSetDoc)) < numBits) {
+      clear(bitSetDoc,disiDoc);
+      disiDoc++;
+      bitSetDoc=(disiDoc < numBits) ? nextSetBit(disiDoc) : -1;
+    }
+    if (bitSetDoc != -1) {
+      clear(bitSetDoc,numBits);
+    }
+  }
+}

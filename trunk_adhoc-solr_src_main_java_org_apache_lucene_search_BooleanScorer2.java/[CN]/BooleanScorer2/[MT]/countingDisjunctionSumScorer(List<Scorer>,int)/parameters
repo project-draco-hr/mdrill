@@ -1,0 +1,2 @@
+List<Scorer> scorers
+int minNrShouldMatch

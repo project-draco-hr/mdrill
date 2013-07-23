@@ -1,0 +1,9 @@
+{
+  this.similarity=getSimilarity(searcher);
+  this.subQueryWeight=subQuery.createWeight(searcher);
+  this.valSrcWeights=new Weight[valSrcQueries.length];
+  for (int i=0; i < valSrcQueries.length; i++) {
+    this.valSrcWeights[i]=valSrcQueries[i].createWeight(searcher);
+  }
+  this.qStrict=strict;
+}

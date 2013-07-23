@@ -1,0 +1,30 @@
+{
+  XPath xpath=xpathFactory.newXPath();
+  Node nd=null;
+  String xstr=normalize(path);
+  try {
+    nd=(Node)xpath.evaluate(xstr,doc,XPathConstants.NODE);
+    if (nd == null) {
+      if (errIfMissing) {
+        throw new RuntimeException(name + " missing " + path);
+      }
+ else {
+        log.debug(name + " missing optional " + path);
+        return null;
+      }
+    }
+    log.trace(name + ":" + path+ "="+ nd);
+    return nd;
+  }
+ catch (  XPathExpressionException e) {
+    SolrException.log(log,"Error in xpath",e);
+    throw new SolrException(SolrException.ErrorCode.SERVER_ERROR,"Error in xpath:" + xstr + " for "+ name,e,false);
+  }
+catch (  SolrException e) {
+    throw (e);
+  }
+catch (  Throwable e) {
+    SolrException.log(log,"Error in xpath",e);
+    throw new SolrException(SolrException.ErrorCode.SERVER_ERROR,"Error in xpath:" + xstr + " for "+ name,e,false);
+  }
+}

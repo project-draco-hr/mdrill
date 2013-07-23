@@ -1,0 +1,6 @@
+{
+  if (assignment instanceof SpoutTaskStatsData && ((SpoutTaskStatsData)assignment).getCommon().equals(common) && ((SpoutTaskStatsData)assignment).get_acked().equals(acked)&& ((SpoutTaskStatsData)assignment).get_fail().equals(failed)&& ((SpoutTaskStatsData)assignment).getComplete_latencies().equals(complete_latencies)) {
+    return true;
+  }
+  return false;
+}

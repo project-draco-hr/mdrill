@@ -1,0 +1,3 @@
+{
+  return ((double)maxMergeSize) / 1024 / 1024;
+}

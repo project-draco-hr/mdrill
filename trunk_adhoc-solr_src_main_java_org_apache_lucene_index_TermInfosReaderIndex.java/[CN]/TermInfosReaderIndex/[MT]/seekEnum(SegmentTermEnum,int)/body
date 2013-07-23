@@ -1,0 +1,19 @@
+{
+  PagedBytesDataInput input=(PagedBytesDataInput)dataInput.clone();
+  input.setPosition(indexToDataOffset.get(indexOffset));
+  int fieldId=input.readVInt();
+  Term field=fields[fieldId];
+  Term term=field.createTerm(input.readString());
+  TermInfo termInfo=new TermInfo();
+  termInfo.docFreq=input.readVInt();
+  if (termInfo.docFreq >= skipInterval) {
+    termInfo.skipOffset=input.readVInt();
+  }
+ else {
+    termInfo.skipOffset=0;
+  }
+  termInfo.freqPointer=input.readVLong();
+  termInfo.proxPointer=input.readVLong();
+  long pointer=input.readVLong();
+  enumerator.seek(pointer,((long)indexOffset * totalIndexInterval) - 1,term,termInfo);
+}

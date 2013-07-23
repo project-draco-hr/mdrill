@@ -1,0 +1,4 @@
+{
+  if (val < Integer.MAX_VALUE)   return (int)val;
+ else   return val;
+}

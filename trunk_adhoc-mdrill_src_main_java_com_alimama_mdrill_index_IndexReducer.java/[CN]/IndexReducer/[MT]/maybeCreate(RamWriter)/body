@@ -1,0 +1,6 @@
+{
+  if (form != null) {
+    return form;
+  }
+  return new RamWriter();
+}

@@ -1,0 +1,40 @@
+{
+  LinkedHashMap<String,Object> single=new LinkedHashMap<String,Object>();
+  LinkedHashMap<String,Object> multi=new LinkedHashMap<String,Object>();
+  int pseudoSize=pseudoFields != null ? pseudoFields.size() : 0;
+  for (  String fname : doc.getFieldNames()) {
+    if (returnFields != null && !returnFields.contains(fname)) {
+      continue;
+    }
+    Object val=doc.getFieldValue(fname);
+    SchemaField sf=schema.getFieldOrNull(fname);
+    if (sf != null && sf.multiValued()) {
+      multi.put(fname,val);
+    }
+ else {
+      single.put(fname,val);
+    }
+  }
+  writeMapOpener(single.size() + multi.size() + pseudoSize);
+  for (  String fname : single.keySet()) {
+    Object val=single.get(fname);
+    writeKey(fname,true);
+    writeVal(fname,val);
+  }
+  for (  String fname : multi.keySet()) {
+    writeKey(fname,true);
+    Object val=multi.get(fname);
+    if (!(val instanceof Collection)) {
+      writeArrayOpener(1);
+      writeVal(fname,val);
+      writeArrayCloser();
+    }
+ else {
+      writeVal(fname,val);
+    }
+  }
+  if (pseudoSize > 0) {
+    writeMap(null,pseudoFields,true,false);
+  }
+  writeMapCloser();
+}

@@ -1,0 +1,11 @@
+{
+  Map stormconf=Utils.readStormConfig();
+  String partiontype=(String)stormconf.get("higo.partion.type");
+  String tabletype=(String)stormconf.get("higo.partion.type." + pname);
+  if (tabletype != null && !tabletype.isEmpty()) {
+    partiontype=tabletype;
+  }
+  String parttype=partiontype;
+  String projectName=pname;
+  return new TablePartion(projectName,parttype);
+}

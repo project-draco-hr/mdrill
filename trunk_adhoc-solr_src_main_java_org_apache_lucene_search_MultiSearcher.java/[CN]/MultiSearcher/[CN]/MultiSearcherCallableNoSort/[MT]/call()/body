@@ -1,0 +1,16 @@
+{
+  final TopDocs docs=searchable.search(weight,filter,nDocs);
+  final ScoreDoc[] scoreDocs=docs.scoreDocs;
+  for (int j=0; j < scoreDocs.length; j++) {
+    final ScoreDoc scoreDoc=scoreDocs[j];
+    scoreDoc.doc+=starts[i];
+    lock.lock();
+    try {
+      if (scoreDoc == hq.insertWithOverflow(scoreDoc))       break;
+    }
+  finally {
+      lock.unlock();
+    }
+  }
+  return docs;
+}

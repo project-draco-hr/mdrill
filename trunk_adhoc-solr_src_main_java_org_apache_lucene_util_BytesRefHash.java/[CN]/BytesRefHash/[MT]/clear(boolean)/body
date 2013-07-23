@@ -1,0 +1,12 @@
+{
+  lastCount=count;
+  count=0;
+  if (resetPool) {
+    pool.dropBuffersAndReset();
+  }
+  bytesStart=bytesStartArray.clear();
+  if (lastCount != -1 && shrink(lastCount)) {
+    return;
+  }
+  Arrays.fill(ords,-1);
+}

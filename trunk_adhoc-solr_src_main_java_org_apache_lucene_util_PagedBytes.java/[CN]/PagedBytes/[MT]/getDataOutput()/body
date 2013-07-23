@@ -1,0 +1,6 @@
+{
+  if (frozen) {
+    throw new IllegalStateException("cannot get DataOutput after freeze()");
+  }
+  return new PagedBytesDataOutput();
+}

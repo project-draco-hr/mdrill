@@ -1,0 +1,24 @@
+{
+  final float[] arr=(parser == null) ? cache.getFloats(reader,field) : cache.getFloats(reader,field,parser);
+  return new DocValues(){
+    @Override public float floatVal(    int doc){
+      return arr[doc];
+    }
+    @Override public int intVal(    int doc){
+      return (int)arr[doc];
+    }
+    @Override public long longVal(    int doc){
+      return (long)arr[doc];
+    }
+    @Override public double doubleVal(    int doc){
+      return (double)arr[doc];
+    }
+    @Override public String strVal(    int doc){
+      return Float.toString(arr[doc]);
+    }
+    @Override public String toString(    int doc){
+      return description() + '=' + floatVal(doc);
+    }
+  }
+;
+}

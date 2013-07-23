@@ -1,0 +1,13 @@
+{
+  if (input.incrementToken()) {
+    if (!keywordAttr.isKeyword()) {
+      final int len=termAtt.length();
+      final int newlen=stemmer.stem(termAtt.resizeBuffer(len + 1),len);
+      termAtt.setLength(newlen);
+    }
+    return true;
+  }
+ else {
+    return false;
+  }
+}

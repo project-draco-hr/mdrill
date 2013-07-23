@@ -1,0 +1,3 @@
+{
+  return "TaskInfoContainer <br> " + "hostname:" + hostname + "<br>"+ "NodePort:"+ np.toString()+ "<br>"+ "taskId:"+ this.taskId+ "<br>"+ "starttime:"+ this.starttime+ "<br>"+ "taskInfo:"+ taskInfo+ "<br>"+ "hb:"+ hb+ "<br>"+ "taskerrors:"+ taskerrors+ "<br>";
+}

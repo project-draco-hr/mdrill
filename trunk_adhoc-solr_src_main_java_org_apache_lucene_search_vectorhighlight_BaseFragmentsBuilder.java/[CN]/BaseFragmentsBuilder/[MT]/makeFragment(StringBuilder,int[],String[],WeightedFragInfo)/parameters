@@ -1,0 +1,4 @@
+StringBuilder buffer
+int[] index
+String[] values
+WeightedFragInfo fragInfo

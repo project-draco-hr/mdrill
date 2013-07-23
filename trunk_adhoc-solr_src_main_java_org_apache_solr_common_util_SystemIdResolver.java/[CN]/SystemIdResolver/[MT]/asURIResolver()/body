@@ -1,0 +1,14 @@
+{
+  return new URIResolver(){
+    public Source resolve(    String href,    String base) throws TransformerException {
+      try {
+        final InputSource src=SystemIdResolver.this.resolveEntity(null,null,base,href);
+        return (src == null) ? null : new SAXSource(src);
+      }
+ catch (      IOException ioe) {
+        throw new TransformerException("Cannot resolve entity",ioe);
+      }
+    }
+  }
+;
+}

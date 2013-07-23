@@ -1,0 +1,8 @@
+{
+  if (input.incrementToken()) {
+    int newlen=normalizer.normalize(termAtt.buffer(),termAtt.length());
+    termAtt.setLength(newlen);
+    return true;
+  }
+  return false;
+}

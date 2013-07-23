@@ -1,0 +1,3 @@
+NumberedTermEnum te
+IndexReader reader
+String key

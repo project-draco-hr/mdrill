@@ -1,0 +1,3 @@
+{
+  return Time.isThreadWaiting(runningThread) || (processed.get() == added.get());
+}

@@ -1,0 +1,9 @@
+{
+  try {
+    ensure(endIndex);
+    return buff.toString().substring(beginIndex,endIndex);
+  }
+ catch (  IOException e) {
+    throw new StringIndexOutOfBoundsException(e.getMessage());
+  }
+}

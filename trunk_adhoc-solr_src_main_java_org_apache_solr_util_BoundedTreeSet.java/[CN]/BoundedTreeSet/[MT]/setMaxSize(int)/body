@@ -1,0 +1,4 @@
+{
+  maxSize=max;
+  adjust();
+}

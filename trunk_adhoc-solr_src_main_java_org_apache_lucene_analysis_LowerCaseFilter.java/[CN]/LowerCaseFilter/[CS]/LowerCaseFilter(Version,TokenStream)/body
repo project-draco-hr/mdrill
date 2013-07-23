@@ -1,0 +1,4 @@
+{
+  super(in);
+  charUtils=CharacterUtils.getInstance(matchVersion);
+}

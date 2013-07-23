@@ -1,0 +1,15 @@
+{
+  if (ti1.docFreq != ti2.docFreq) {
+    return false;
+  }
+  if (ti1.freqPointer != ti2.freqPointer) {
+    return false;
+  }
+  if (ti1.proxPointer != ti2.proxPointer) {
+    return false;
+  }
+  if (ti1.docFreq >= enumerator.skipInterval && ti1.skipOffset != ti2.skipOffset) {
+    return false;
+  }
+  return true;
+}

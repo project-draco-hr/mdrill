@@ -1,0 +1,3 @@
+DocInverterPerField docInverterPerField
+NormsWriterPerThread perThread
+FieldInfo fieldInfo

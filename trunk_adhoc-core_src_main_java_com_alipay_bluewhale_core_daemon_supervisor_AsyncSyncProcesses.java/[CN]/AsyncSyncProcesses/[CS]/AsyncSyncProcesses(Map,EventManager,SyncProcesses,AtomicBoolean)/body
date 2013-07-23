@@ -1,0 +1,7 @@
+{
+  this.processesEventManager=processesEventManager;
+  this.syncProcesses=syncProcesses;
+  this.active=active;
+  this.conf=conf;
+  this.result=null;
+}

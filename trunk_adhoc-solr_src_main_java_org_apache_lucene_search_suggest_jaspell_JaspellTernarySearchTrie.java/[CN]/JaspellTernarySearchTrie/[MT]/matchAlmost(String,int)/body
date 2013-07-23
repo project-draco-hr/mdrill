@@ -1,0 +1,3 @@
+{
+  return matchAlmostRecursion(rootNode,0,matchAlmostDiff,key,((numReturnValues < 0) ? -1 : numReturnValues),new Vector<String>(),false);
+}

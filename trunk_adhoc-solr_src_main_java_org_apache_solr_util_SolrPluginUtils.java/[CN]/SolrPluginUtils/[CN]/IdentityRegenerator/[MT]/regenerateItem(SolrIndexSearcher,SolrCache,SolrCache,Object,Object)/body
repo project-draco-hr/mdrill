@@ -1,0 +1,4 @@
+{
+  newCache.put(oldKey,oldVal);
+  return true;
+}

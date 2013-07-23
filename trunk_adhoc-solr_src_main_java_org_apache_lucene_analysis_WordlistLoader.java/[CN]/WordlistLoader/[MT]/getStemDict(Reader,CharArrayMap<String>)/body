@@ -1,0 +1,15 @@
+{
+  BufferedReader br=null;
+  try {
+    br=getBufferedReader(reader);
+    String line;
+    while ((line=br.readLine()) != null) {
+      String[] wordstem=line.split("\t",2);
+      result.put(wordstem[0],wordstem[1]);
+    }
+  }
+  finally {
+    IOUtils.close(br);
+  }
+  return result;
+}

@@ -1,0 +1,6 @@
+{
+  if (hashcode < 0) {
+    hashcode*=-1;
+  }
+  return hashcode;
+}

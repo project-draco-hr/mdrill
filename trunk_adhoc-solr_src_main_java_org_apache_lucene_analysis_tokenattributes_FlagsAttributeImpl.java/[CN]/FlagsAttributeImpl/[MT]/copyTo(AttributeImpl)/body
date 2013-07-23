@@ -1,0 +1,4 @@
+{
+  FlagsAttribute t=(FlagsAttribute)target;
+  t.setFlags(flags);
+}

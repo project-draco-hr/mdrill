@@ -1,0 +1,17 @@
+{
+  if (cursor <= limit_backward) {
+    return false;
+  }
+  cursor--;
+  ket=cursor;
+{
+    int c=cursor - 1;
+    if (limit_backward > c || c > limit) {
+      return false;
+    }
+    cursor=c;
+  }
+  bra=cursor;
+  slice_del();
+  return true;
+}

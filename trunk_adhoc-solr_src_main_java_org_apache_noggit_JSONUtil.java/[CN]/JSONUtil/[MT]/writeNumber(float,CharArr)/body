@@ -1,0 +1,3 @@
+{
+  out.write(Float.toString(number));
+}

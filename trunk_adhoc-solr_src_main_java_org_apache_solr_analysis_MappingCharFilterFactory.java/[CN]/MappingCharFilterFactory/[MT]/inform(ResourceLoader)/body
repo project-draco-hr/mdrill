@@ -1,0 +1,25 @@
+{
+  mapping=args.get("mapping");
+  if (mapping != null) {
+    List<String> wlist=null;
+    try {
+      File mappingFile=new File(mapping);
+      if (mappingFile.exists()) {
+        wlist=loader.getLines(mapping);
+      }
+ else {
+        List<String> files=StrUtils.splitFileNames(mapping);
+        wlist=new ArrayList<String>();
+        for (        String file : files) {
+          List<String> lines=loader.getLines(file.trim());
+          wlist.addAll(lines);
+        }
+      }
+    }
+ catch (    IOException e) {
+      throw new RuntimeException(e);
+    }
+    normMap=new NormalizeCharMap();
+    parseRules(wlist,normMap);
+  }
+}

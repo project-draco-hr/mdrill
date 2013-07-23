@@ -1,0 +1,8 @@
+{
+  if (len > 5) {
+    if (endsWith(s,len,"lla") || endsWith(s,len,"tse") || endsWith(s,len,"sti"))     return len - 3;
+    if (endsWith(s,len,"ni"))     return len - 2;
+    if (endsWith(s,len,"aa"))     return len - 1;
+  }
+  return len;
+}

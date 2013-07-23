@@ -1,0 +1,3 @@
+{
+  writer.message("CMS: " + message);
+}

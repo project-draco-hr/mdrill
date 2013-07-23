@@ -1,0 +1,15 @@
+{
+  StringBuffer buff=new StringBuffer();
+  try {
+    if (fs.exists(file)) {
+      FSDataInputStream r=fs.open(file);
+      BufferedReader in=new BufferedReader(new InputStreamReader(r,"UTF-8"));
+      buff.append(in.readLine());
+      in.close();
+      r.close();
+    }
+  }
+ catch (  IOException e) {
+  }
+  return buff.toString();
+}

@@ -1,0 +1,13 @@
+{
+  final StringBuilder sb=new StringBuilder("[");
+  for (  Object item : this) {
+    if (sb.length() > 1)     sb.append(", ");
+    if (item instanceof char[]) {
+      sb.append((char[])item);
+    }
+ else {
+      sb.append(item);
+    }
+  }
+  return sb.append(']').toString();
+}

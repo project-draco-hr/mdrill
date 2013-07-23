@@ -1,0 +1,15 @@
+{
+  luceneVersion=Version.LUCENE_31;
+  useCompoundFile=true;
+  maxBufferedDocs=-1;
+  maxMergeDocs=-1;
+  mergeFactor=-1;
+  ramBufferSizeMB=16;
+  maxFieldLength=-1;
+  writeLockTimeout=-1;
+  lockType=null;
+  termIndexInterval=IndexWriterConfig.DEFAULT_TERM_INDEX_INTERVAL;
+  mergePolicyInfo=null;
+  mergeSchedulerInfo=null;
+  defaultMergePolicyClassName=TieredMergePolicy.class.getName();
+}

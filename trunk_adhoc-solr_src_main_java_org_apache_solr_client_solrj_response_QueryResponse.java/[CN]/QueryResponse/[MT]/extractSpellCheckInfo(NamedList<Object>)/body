@@ -1,0 +1,3 @@
+{
+  _spellResponse=new SpellCheckResponse(spellInfo);
+}

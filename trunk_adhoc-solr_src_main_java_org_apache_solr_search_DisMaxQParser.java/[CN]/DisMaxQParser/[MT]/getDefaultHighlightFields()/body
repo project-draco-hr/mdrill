@@ -1,0 +1,3 @@
+{
+  return queryFields.keySet().toArray(new String[queryFields.keySet().size()]);
+}

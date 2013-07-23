@@ -1,0 +1,7 @@
+{
+  if (fieldNames == null) {
+    fieldNames=new LinkedList<String>();
+  }
+  fieldNames.add(fieldName);
+  return this;
+}

@@ -1,0 +1,6 @@
+{
+  this.common=common;
+  this.acked=acked;
+  this.failed=failed;
+  this.complete_latencies=complete_latencies;
+}

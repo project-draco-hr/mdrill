@@ -1,0 +1,7 @@
+{
+  if (rb.doFacets) {
+    SolrParams params=rb.req.getParams();
+    SimpleFacets f=new SimpleFacets(rb.req,rb.getResults().docSet,params,rb);
+    rb.rsp.add("facet_counts",f.getFacetCounts());
+  }
+}

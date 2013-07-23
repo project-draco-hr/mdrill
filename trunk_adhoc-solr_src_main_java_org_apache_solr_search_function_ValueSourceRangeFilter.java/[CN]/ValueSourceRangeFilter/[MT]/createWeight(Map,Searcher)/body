@@ -1,0 +1,3 @@
+{
+  valueSource.createWeight(context,searcher);
+}

@@ -1,0 +1,10 @@
+{
+  if (8 <= (bufferLength - bufferPosition)) {
+    final int i1=((buffer[bufferPosition++] & 0xff) << 24) | ((buffer[bufferPosition++] & 0xff) << 16) | ((buffer[bufferPosition++] & 0xff) << 8)| (buffer[bufferPosition++] & 0xff);
+    final int i2=((buffer[bufferPosition++] & 0xff) << 24) | ((buffer[bufferPosition++] & 0xff) << 16) | ((buffer[bufferPosition++] & 0xff) << 8)| (buffer[bufferPosition++] & 0xff);
+    return (((long)i1) << 32) | (i2 & 0xFFFFFFFFL);
+  }
+ else {
+    return super.readLong();
+  }
+}

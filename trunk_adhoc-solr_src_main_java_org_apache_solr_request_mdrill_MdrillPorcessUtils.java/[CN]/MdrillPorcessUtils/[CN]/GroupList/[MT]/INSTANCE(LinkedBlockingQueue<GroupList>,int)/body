@@ -1,0 +1,12 @@
+{
+  GroupList rtn=free.poll();
+  if (rtn == null) {
+    rtn=new GroupList(size);
+  }
+ else {
+    if (rtn.list.length != size) {
+      rtn=new GroupList(size);
+    }
+  }
+  return rtn;
+}

@@ -1,0 +1,59 @@
+{
+  int among_var;
+  ket=cursor;
+  among_var=find_among_b(a_3,20);
+  if (among_var == 0) {
+    return false;
+  }
+  bra=cursor;
+  if (!r_R1()) {
+    return false;
+  }
+switch (among_var) {
+case 0:
+    return false;
+case 1:
+  slice_from("tion");
+break;
+case 2:
+slice_from("ence");
+break;
+case 3:
+slice_from("ance");
+break;
+case 4:
+slice_from("able");
+break;
+case 5:
+slice_from("ent");
+break;
+case 6:
+slice_from("e");
+break;
+case 7:
+slice_from("ize");
+break;
+case 8:
+slice_from("ate");
+break;
+case 9:
+slice_from("al");
+break;
+case 10:
+slice_from("al");
+break;
+case 11:
+slice_from("ful");
+break;
+case 12:
+slice_from("ous");
+break;
+case 13:
+slice_from("ive");
+break;
+case 14:
+slice_from("ble");
+break;
+}
+return true;
+}

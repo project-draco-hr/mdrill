@@ -1,0 +1,9 @@
+{
+  Expression retval=null;
+  jj_consume_token(K_WHERE);
+  retval=Expression();
+{
+    if (true)     return retval;
+  }
+  throw new Error("Missing return statement in function");
+}

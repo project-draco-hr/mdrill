@@ -1,0 +1,4 @@
+{
+  if (positionIncrement < 0)   throw new IllegalArgumentException("Increment must be zero or greater: " + positionIncrement);
+  this.positionIncrement=positionIncrement;
+}

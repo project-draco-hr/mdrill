@@ -1,0 +1,3 @@
+{
+  return directory.makeLock(WRITE_LOCK_NAME).isLocked();
+}

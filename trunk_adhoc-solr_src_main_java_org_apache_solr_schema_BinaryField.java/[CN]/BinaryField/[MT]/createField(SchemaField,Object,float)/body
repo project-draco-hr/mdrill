@@ -1,0 +1,28 @@
+{
+  if (val == null)   return null;
+  if (!field.stored()) {
+    log.trace("Ignoring unstored binary field: " + field);
+    return null;
+  }
+  byte[] buf=null;
+  int offset=0, len=0;
+  if (val instanceof byte[]) {
+    buf=(byte[])val;
+    len=buf.length;
+  }
+ else   if (val instanceof ByteBuffer && ((ByteBuffer)val).hasArray()) {
+    ByteBuffer byteBuf=(ByteBuffer)val;
+    buf=byteBuf.array();
+    offset=byteBuf.position();
+    len=byteBuf.limit() - byteBuf.position();
+  }
+ else {
+    String strVal=val.toString();
+    buf=Base64.base64ToByteArray(strVal);
+    offset=0;
+    len=buf.length;
+  }
+  Field f=new Field(field.getName(),buf,offset,len);
+  f.setBoost(boost);
+  return f;
+}

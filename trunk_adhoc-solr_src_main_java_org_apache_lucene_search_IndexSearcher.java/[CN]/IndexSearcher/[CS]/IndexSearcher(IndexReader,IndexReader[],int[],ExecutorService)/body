@@ -1,0 +1,17 @@
+{
+  this.reader=reader;
+  this.subReaders=subReaders;
+  this.docStarts=docStarts;
+  if (executor == null) {
+    subSearchers=null;
+  }
+ else {
+    subSearchers=new IndexSearcher[subReaders.length];
+    for (int i=0; i < subReaders.length; i++) {
+      subSearchers[i]=new IndexSearcher(subReaders[i],docStarts[i]);
+    }
+  }
+  closeReader=false;
+  this.executor=executor;
+  docBase=0;
+}

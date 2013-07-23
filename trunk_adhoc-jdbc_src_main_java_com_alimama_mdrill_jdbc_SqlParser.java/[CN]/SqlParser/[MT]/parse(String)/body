@@ -1,0 +1,20 @@
+{
+  try {
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
+  this.sql=sql;
+  String otherSql=sql;
+  otherSql=this.parseColumns(otherSql);
+  otherSql=this.parseTableName(otherSql);
+  otherSql=this.parselimit(otherSql);
+  otherSql=this.parseOrderBy(otherSql);
+  otherSql=this.parseGroupBy(otherSql);
+  try {
+    this.parseFq(otherSql);
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
+}

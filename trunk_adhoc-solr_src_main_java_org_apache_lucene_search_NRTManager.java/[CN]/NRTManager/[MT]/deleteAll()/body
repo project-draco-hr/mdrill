@@ -1,0 +1,4 @@
+{
+  writer.deleteAll();
+  return indexingGen.get();
+}

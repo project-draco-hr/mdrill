@@ -1,0 +1,3 @@
+{
+  return add(fi.name,fi.isIndexed,fi.storeTermVector,fi.storePositionWithTermVector,fi.storeOffsetWithTermVector,fi.omitNorms,fi.storePayloads,fi.indexOptions);
+}

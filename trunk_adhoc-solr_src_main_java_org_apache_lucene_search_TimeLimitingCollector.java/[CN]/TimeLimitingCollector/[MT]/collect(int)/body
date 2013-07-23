@@ -1,0 +1,10 @@
+{
+  final long time=clock.get();
+  if (timeout < time) {
+    if (greedy) {
+      collector.collect(doc);
+    }
+    throw new TimeExceededException(timeout - t0,time - t0,docBase + doc);
+  }
+  collector.collect(doc);
+}

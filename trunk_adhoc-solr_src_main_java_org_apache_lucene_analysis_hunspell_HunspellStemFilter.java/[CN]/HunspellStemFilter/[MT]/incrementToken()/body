@@ -1,0 +1,24 @@
+{
+  if (buffer != null && !buffer.isEmpty()) {
+    Stem nextStem=buffer.remove(0);
+    restoreState(savedState);
+    posIncAtt.setPositionIncrement(0);
+    termAtt.copyBuffer(nextStem.getStem(),0,nextStem.getStemLength());
+    termAtt.setLength(nextStem.getStemLength());
+    return true;
+  }
+  if (!input.incrementToken()) {
+    return false;
+  }
+  buffer=dedup ? stemmer.uniqueStems(termAtt.buffer(),termAtt.length()) : stemmer.stem(termAtt.buffer(),termAtt.length());
+  if (buffer.isEmpty()) {
+    return true;
+  }
+  Stem stem=buffer.remove(0);
+  termAtt.copyBuffer(stem.getStem(),0,stem.getStemLength());
+  termAtt.setLength(stem.getStemLength());
+  if (!buffer.isEmpty()) {
+    savedState=captureState();
+  }
+  return true;
+}

@@ -1,0 +1,4 @@
+{
+  len=removeCase(s,len);
+  return normalize(s,len);
+}

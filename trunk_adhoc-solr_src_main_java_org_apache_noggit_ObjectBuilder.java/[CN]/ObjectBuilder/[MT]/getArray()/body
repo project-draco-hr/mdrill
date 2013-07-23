@@ -1,0 +1,9 @@
+{
+  Object arr=newArray();
+  for (; ; ) {
+    int ev=parser.nextEvent();
+    if (ev == JSONParser.ARRAY_END)     return endArray(arr);
+    Object val=getVal();
+    addArrayVal(arr,val);
+  }
+}

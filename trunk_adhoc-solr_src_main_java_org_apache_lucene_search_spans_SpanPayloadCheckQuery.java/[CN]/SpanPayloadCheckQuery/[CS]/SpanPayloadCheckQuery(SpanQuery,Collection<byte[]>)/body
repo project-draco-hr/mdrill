@@ -1,0 +1,7 @@
+{
+  super(match);
+  if (match instanceof SpanNearQuery) {
+    throw new IllegalArgumentException("SpanNearQuery not allowed");
+  }
+  this.payloadToMatch=payloadToMatch;
+}

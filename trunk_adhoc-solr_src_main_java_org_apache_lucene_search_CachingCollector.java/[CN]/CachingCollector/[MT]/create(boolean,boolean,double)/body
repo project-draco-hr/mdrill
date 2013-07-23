@@ -1,0 +1,15 @@
+{
+  Collector other=new Collector(){
+    @Override public boolean acceptsDocsOutOfOrder(){
+      return acceptDocsOutOfOrder;
+    }
+    @Override public void setScorer(    Scorer scorer) throws IOException {
+    }
+    @Override public void collect(    int doc) throws IOException {
+    }
+    @Override public void setNextReader(    IndexReader reader,    int docBase) throws IOException {
+    }
+  }
+;
+  return create(other,cacheScores,maxRAMMB);
+}

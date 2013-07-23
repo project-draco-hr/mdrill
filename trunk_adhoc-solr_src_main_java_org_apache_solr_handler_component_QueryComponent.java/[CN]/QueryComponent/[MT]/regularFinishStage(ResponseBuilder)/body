@@ -1,0 +1,9 @@
+{
+  for (Iterator<SolrDocument> iter=rb._responseDocs.iterator(); iter.hasNext(); ) {
+    if (iter.next() == null) {
+      iter.remove();
+      rb._responseDocs.setNumFound(rb._responseDocs.getNumFound() - 1);
+    }
+  }
+  rb.rsp.add("response",rb._responseDocs);
+}

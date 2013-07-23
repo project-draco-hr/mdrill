@@ -1,0 +1,3 @@
+{
+  this.hdfsLinks.put(name,p);
+}

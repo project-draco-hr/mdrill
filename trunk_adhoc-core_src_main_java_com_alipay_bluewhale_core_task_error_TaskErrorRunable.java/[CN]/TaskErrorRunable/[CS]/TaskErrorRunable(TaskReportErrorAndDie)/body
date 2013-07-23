@@ -1,0 +1,3 @@
+{
+  this.report_error_and_die=_report_error_and_die;
+}

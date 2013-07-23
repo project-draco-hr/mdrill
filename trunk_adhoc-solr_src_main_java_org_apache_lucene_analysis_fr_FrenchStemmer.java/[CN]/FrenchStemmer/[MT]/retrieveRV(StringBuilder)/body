@@ -1,0 +1,20 @@
+{
+  int len=buffer.length();
+  if (buffer.length() > 3) {
+    if (isVowel(buffer.charAt(0)) && isVowel(buffer.charAt(1))) {
+      return buffer.substring(3,len);
+    }
+ else {
+      int pos=0;
+      for (int c=1; c < len; c++) {
+        if (isVowel(buffer.charAt(c))) {
+          pos=c;
+          break;
+        }
+      }
+      if (pos + 1 < len)       return buffer.substring(pos + 1,len);
+ else       return null;
+    }
+  }
+ else   return null;
+}

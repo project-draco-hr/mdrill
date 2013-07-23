@@ -1,0 +1,4 @@
+{
+  this.fn=fn;
+  this.killfn=killfn;
+}

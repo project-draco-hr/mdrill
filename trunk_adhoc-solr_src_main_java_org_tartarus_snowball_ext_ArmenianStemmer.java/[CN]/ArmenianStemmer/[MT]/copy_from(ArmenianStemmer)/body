@@ -1,0 +1,5 @@
+{
+  I_p2=other.I_p2;
+  I_pV=other.I_pV;
+  super.copy_from(other);
+}

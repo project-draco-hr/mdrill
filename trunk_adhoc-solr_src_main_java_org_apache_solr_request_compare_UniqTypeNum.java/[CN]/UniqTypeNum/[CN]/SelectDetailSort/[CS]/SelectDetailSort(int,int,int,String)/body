@@ -1,0 +1,6 @@
+{
+  this.sortIndex=sortIndex;
+  this.offset=offset;
+  this.selfOffset=selfOffset;
+  this.field=field;
+}

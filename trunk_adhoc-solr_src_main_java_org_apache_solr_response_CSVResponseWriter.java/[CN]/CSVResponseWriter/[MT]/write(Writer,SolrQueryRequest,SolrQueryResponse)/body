@@ -1,0 +1,9 @@
+{
+  CSVWriter w=new CSVWriter(writer,req,rsp);
+  try {
+    w.writeResponse();
+  }
+  finally {
+    w.close();
+  }
+}

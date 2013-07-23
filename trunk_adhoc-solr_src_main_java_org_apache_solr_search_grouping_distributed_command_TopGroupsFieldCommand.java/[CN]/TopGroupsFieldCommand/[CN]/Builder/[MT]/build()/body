@@ -1,0 +1,6 @@
+{
+  if (field == null || groupSort == null || sortWithinGroup == null || firstPhaseGroups == null || maxDocPerGroup == null) {
+    throw new IllegalStateException("All required fields must be set");
+  }
+  return new TopGroupsFieldCommand(field,groupSort,sortWithinGroup,firstPhaseGroups,maxDocPerGroup,needScores,needMaxScore,needGroupCount);
+}

@@ -1,0 +1,16 @@
+{
+  if (!this.solrservice.isService()) {
+    return;
+  }
+  try {
+    this.partstat.setupRecordCount(this.solrservice,this.tablename,this.part);
+    statcollect.setLastTime(System.currentTimeMillis());
+    this.zkHeatbeat();
+  }
+ catch (  Exception e) {
+    LOG.error(StormUtils.stringify_error(e));
+    statcollect.setStat(ShardsState.SOLRDIE);
+    this.zkHeatbeat();
+    errorCollect.setException(e);
+  }
+}

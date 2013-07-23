@@ -1,0 +1,7 @@
+{
+  int slop=solrParams.getInt(paramName,0);
+  SolrPluginUtils.DisjunctionMaxQueryParser parser=new SolrPluginUtils.DisjunctionMaxQueryParser(this,IMPOSSIBLE_FIELD_NAME);
+  parser.addAlias(IMPOSSIBLE_FIELD_NAME,tiebreaker,fields);
+  parser.setPhraseSlop(slop);
+  return parser;
+}

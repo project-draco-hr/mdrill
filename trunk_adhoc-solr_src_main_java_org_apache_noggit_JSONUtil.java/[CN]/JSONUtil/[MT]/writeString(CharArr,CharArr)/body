@@ -1,0 +1,3 @@
+{
+  writeString(val.getArray(),val.getStart(),val.getEnd(),out);
+}

@@ -1,0 +1,3 @@
+long val
+int shift
+char[] buffer

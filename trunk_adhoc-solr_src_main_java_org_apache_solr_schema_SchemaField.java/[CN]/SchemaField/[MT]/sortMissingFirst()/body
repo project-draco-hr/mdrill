@@ -1,0 +1,3 @@
+{
+  return (properties & SORT_MISSING_FIRST) != 0;
+}

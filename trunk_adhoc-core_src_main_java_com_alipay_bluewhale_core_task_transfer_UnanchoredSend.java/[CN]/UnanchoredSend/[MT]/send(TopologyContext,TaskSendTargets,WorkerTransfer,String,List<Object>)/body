@@ -1,0 +1,8 @@
+{
+  java.util.Set<Integer> tasks=taskTargets.get(stream,values);
+  Integer taskId=topologyContext.getThisTaskId();
+  Tuple tup=new Tuple(topologyContext,values,taskId,stream);
+  for (  Integer task : tasks) {
+    transfer_fn.transfer(task,tup);
+  }
+}

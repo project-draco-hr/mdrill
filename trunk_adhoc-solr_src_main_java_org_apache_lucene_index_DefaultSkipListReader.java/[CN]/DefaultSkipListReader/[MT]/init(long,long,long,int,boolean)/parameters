@@ -1,0 +1,5 @@
+long skipPointer
+long freqBasePointer
+long proxBasePointer
+int df
+boolean storesPayloads

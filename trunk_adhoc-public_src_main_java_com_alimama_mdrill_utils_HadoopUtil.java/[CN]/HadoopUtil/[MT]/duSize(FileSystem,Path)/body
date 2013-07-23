@@ -1,0 +1,26 @@
+{
+  long size=0L;
+  org.apache.hadoop.fs.FileStatus[] fileStatus=new FileStatus[0];
+  try {
+    if (fs.exists(dataPath)) {
+      fileStatus=fs.listStatus(dataPath);
+    }
+  }
+ catch (  IOException e) {
+  }
+  if (fileStatus != null) {
+    for (    FileStatus file : fileStatus) {
+      String pathname=file.getPath().getName();
+      if (pathname.startsWith(".") || pathname.startsWith("_")) {
+        continue;
+      }
+      if (file.isDir()) {
+        size+=duSize(fs,file.getPath());
+      }
+ else {
+        size+=file.getLen();
+      }
+    }
+  }
+  return size;
+}

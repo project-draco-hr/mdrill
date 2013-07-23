@@ -1,0 +1,4 @@
+{
+  Map fcontext=ValueSource.newContext();
+  return new FunctionRangeCollector(fcontext);
+}

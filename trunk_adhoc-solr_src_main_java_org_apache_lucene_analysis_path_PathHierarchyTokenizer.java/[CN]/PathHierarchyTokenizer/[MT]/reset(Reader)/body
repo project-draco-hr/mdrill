@@ -1,0 +1,7 @@
+{
+  super.reset(input);
+  resultToken.setLength(0);
+  finalOffset=0;
+  endDelimiter=false;
+  skipped=0;
+}

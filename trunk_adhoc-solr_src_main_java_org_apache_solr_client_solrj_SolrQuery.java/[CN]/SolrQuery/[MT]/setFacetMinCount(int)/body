@@ -1,0 +1,4 @@
+{
+  this.set(FacetParams.FACET_MINCOUNT,cnt);
+  return this;
+}

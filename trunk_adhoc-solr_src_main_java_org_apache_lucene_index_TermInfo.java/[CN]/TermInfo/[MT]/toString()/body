@@ -1,0 +1,3 @@
+{
+  return "TermInfo [docFreq=" + docFreq + ", freqPointer="+ freqPointer+ ", proxPointer="+ proxPointer+ ", skipOffset="+ skipOffset+ "]";
+}

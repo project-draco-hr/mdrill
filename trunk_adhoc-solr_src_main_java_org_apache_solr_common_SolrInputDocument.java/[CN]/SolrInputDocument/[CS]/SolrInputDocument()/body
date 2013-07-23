@@ -1,0 +1,3 @@
+{
+  _fields=new LinkedHashMap<String,SolrInputField>();
+}

@@ -1,0 +1,4 @@
+{
+  writer.addIndexes(dirs);
+  return indexingGen.get();
+}

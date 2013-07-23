@@ -1,0 +1,50 @@
+{
+  int v_1;
+  int v_2;
+  int v_3;
+  int v_4;
+  v_1=cursor;
+  lab0:   do {
+    if (!r_mark_regions()) {
+      break lab0;
+    }
+  }
+ while (false);
+  cursor=v_1;
+  limit_backward=cursor;
+  cursor=limit;
+  replab1:   while (true) {
+    v_2=limit - cursor;
+    lab2:     do {
+      if (!r_aditzak()) {
+        break lab2;
+      }
+      continue replab1;
+    }
+ while (false);
+    cursor=limit - v_2;
+    break replab1;
+  }
+  replab3:   while (true) {
+    v_3=limit - cursor;
+    lab4:     do {
+      if (!r_izenak()) {
+        break lab4;
+      }
+      continue replab3;
+    }
+ while (false);
+    cursor=limit - v_3;
+    break replab3;
+  }
+  v_4=limit - cursor;
+  lab5:   do {
+    if (!r_adjetiboak()) {
+      break lab5;
+    }
+  }
+ while (false);
+  cursor=limit - v_4;
+  cursor=limit_backward;
+  return true;
+}

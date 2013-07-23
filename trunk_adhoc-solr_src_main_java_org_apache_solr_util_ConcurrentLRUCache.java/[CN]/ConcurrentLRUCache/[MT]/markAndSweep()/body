@@ -1,0 +1,112 @@
+{
+  if (!markAndSweepLock.tryLock())   return;
+  try {
+    long oldestEntry=this.oldestEntry;
+    isCleaning=true;
+    this.oldestEntry=oldestEntry;
+    long timeCurrent=stats.accessCounter.get();
+    int sz=stats.size.get();
+    int numRemoved=0;
+    int numKept=0;
+    long newestEntry=timeCurrent;
+    long newNewestEntry=-1;
+    long newOldestEntry=Long.MAX_VALUE;
+    int wantToKeep=lowerWaterMark;
+    int wantToRemove=sz - lowerWaterMark;
+    CacheEntry<K,V>[] eset=new CacheEntry[sz];
+    int eSize=0;
+    for (    CacheEntry<K,V> ce : map.values()) {
+      ce.lastAccessedCopy=ce.lastAccessed;
+      long thisEntry=ce.lastAccessedCopy;
+      if (thisEntry > newestEntry - wantToKeep) {
+        numKept++;
+        newOldestEntry=Math.min(thisEntry,newOldestEntry);
+      }
+ else       if (thisEntry < oldestEntry + wantToRemove) {
+        evictEntry(ce.key);
+        numRemoved++;
+      }
+ else {
+        if (eSize < eset.length - 1) {
+          eset[eSize++]=ce;
+          newNewestEntry=Math.max(thisEntry,newNewestEntry);
+          newOldestEntry=Math.min(thisEntry,newOldestEntry);
+        }
+      }
+    }
+    int numPasses=1;
+    while (sz - numRemoved > acceptableWaterMark && --numPasses >= 0) {
+      oldestEntry=newOldestEntry == Long.MAX_VALUE ? oldestEntry : newOldestEntry;
+      newOldestEntry=Long.MAX_VALUE;
+      newestEntry=newNewestEntry;
+      newNewestEntry=-1;
+      wantToKeep=lowerWaterMark - numKept;
+      wantToRemove=sz - lowerWaterMark - numRemoved;
+      for (int i=eSize - 1; i >= 0; i--) {
+        CacheEntry<K,V> ce=eset[i];
+        long thisEntry=ce.lastAccessedCopy;
+        if (thisEntry > newestEntry - wantToKeep) {
+          numKept++;
+          eset[i]=eset[eSize - 1];
+          eSize--;
+          newOldestEntry=Math.min(thisEntry,newOldestEntry);
+        }
+ else         if (thisEntry < oldestEntry + wantToRemove) {
+          evictEntry(ce.key);
+          numRemoved++;
+          eset[i]=eset[eSize - 1];
+          eSize--;
+        }
+ else {
+          newNewestEntry=Math.max(thisEntry,newNewestEntry);
+          newOldestEntry=Math.min(thisEntry,newOldestEntry);
+        }
+      }
+    }
+    if (sz - numRemoved > acceptableWaterMark) {
+      oldestEntry=newOldestEntry == Long.MAX_VALUE ? oldestEntry : newOldestEntry;
+      newOldestEntry=Long.MAX_VALUE;
+      newestEntry=newNewestEntry;
+      newNewestEntry=-1;
+      wantToKeep=lowerWaterMark - numKept;
+      wantToRemove=sz - lowerWaterMark - numRemoved;
+      PQueue queue=new PQueue(wantToRemove);
+      for (int i=eSize - 1; i >= 0; i--) {
+        CacheEntry<K,V> ce=eset[i];
+        long thisEntry=ce.lastAccessedCopy;
+        if (thisEntry > newestEntry - wantToKeep) {
+          numKept++;
+          newOldestEntry=Math.min(thisEntry,newOldestEntry);
+        }
+ else         if (thisEntry < oldestEntry + wantToRemove) {
+          evictEntry(ce.key);
+          numRemoved++;
+        }
+ else {
+          queue.myMaxSize=sz - lowerWaterMark - numRemoved;
+          while (queue.size() > queue.myMaxSize && queue.size() > 0) {
+            CacheEntry otherEntry=(CacheEntry)queue.pop();
+            newOldestEntry=Math.min(otherEntry.lastAccessedCopy,newOldestEntry);
+          }
+          if (queue.myMaxSize <= 0)           break;
+          Object o=queue.myInsertWithOverflow(ce);
+          if (o != null) {
+            newOldestEntry=Math.min(((CacheEntry)o).lastAccessedCopy,newOldestEntry);
+          }
+        }
+      }
+      for (      Object o : queue.getValues()) {
+        if (o == null)         continue;
+        CacheEntry<K,V> ce=(CacheEntry)o;
+        evictEntry(ce.key);
+        numRemoved++;
+      }
+    }
+    oldestEntry=newOldestEntry == Long.MAX_VALUE ? oldestEntry : newOldestEntry;
+    this.oldestEntry=oldestEntry;
+  }
+  finally {
+    isCleaning=false;
+    markAndSweepLock.unlock();
+  }
+}

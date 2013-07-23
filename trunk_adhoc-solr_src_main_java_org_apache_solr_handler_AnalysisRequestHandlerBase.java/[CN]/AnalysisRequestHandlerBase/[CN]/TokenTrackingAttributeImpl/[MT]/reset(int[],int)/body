@@ -1,0 +1,5 @@
+{
+  this.basePositions=basePositions;
+  this.position=position;
+  this.cachedPositions=null;
+}

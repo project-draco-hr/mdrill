@@ -1,0 +1,8 @@
+{
+  Integer mincount=params.getFieldInt(field,FacetParams.FACET_MINCOUNT);
+  if (mincount == null) {
+    Boolean zeros=params.getFieldBool(field,FacetParams.FACET_ZEROS);
+    mincount=(zeros != null && !zeros) ? 1 : 0;
+  }
+  return this.getTermCounts(field,mincount,dc,iscross,isrow);
+}

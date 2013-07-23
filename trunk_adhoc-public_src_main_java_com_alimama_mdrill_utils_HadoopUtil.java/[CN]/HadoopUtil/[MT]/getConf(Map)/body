@@ -1,0 +1,8 @@
+{
+  Configuration conf=new Configuration();
+  String hadoopConfDir=(String)stormconf.get("hadoop.conf.dir");
+  if (HadoopUtil.hadoopConfDir != null && HadoopUtil.hadoopConfDir.length() > 0) {
+    hadoopConfDir=HadoopUtil.hadoopConfDir;
+  }
+  return grabConfiguration(hadoopConfDir,conf);
+}

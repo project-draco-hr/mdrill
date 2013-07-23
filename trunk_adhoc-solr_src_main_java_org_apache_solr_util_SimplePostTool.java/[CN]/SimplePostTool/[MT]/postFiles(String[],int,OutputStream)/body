@@ -1,0 +1,15 @@
+{
+  int filesPosted=0;
+  for (int j=startIndexInArgs; j < args.length; j++) {
+    File srcFile=new File(args[j]);
+    if (srcFile.canRead()) {
+      info("POSTing file " + srcFile.getName());
+      postFile(srcFile,out);
+      filesPosted++;
+    }
+ else {
+      warn("Cannot read input file: " + srcFile);
+    }
+  }
+  return filesPosted;
+}

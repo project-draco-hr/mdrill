@@ -1,0 +1,96 @@
+{
+  int v_1;
+  int v_2;
+  int v_3;
+  int v_4;
+  int v_5;
+  int v_6;
+  int v_7;
+  int v_8;
+  int v_9;
+  int v_10;
+  v_1=cursor;
+  lab0:   do {
+    if (!r_mark_regions()) {
+      break lab0;
+    }
+  }
+ while (false);
+  cursor=v_1;
+  limit_backward=cursor;
+  cursor=limit;
+  v_2=limit - cursor;
+  lab1:   do {
+    if (!r_instrum()) {
+      break lab1;
+    }
+  }
+ while (false);
+  cursor=limit - v_2;
+  v_3=limit - cursor;
+  lab2:   do {
+    if (!r_case()) {
+      break lab2;
+    }
+  }
+ while (false);
+  cursor=limit - v_3;
+  v_4=limit - cursor;
+  lab3:   do {
+    if (!r_case_special()) {
+      break lab3;
+    }
+  }
+ while (false);
+  cursor=limit - v_4;
+  v_5=limit - cursor;
+  lab4:   do {
+    if (!r_case_other()) {
+      break lab4;
+    }
+  }
+ while (false);
+  cursor=limit - v_5;
+  v_6=limit - cursor;
+  lab5:   do {
+    if (!r_factive()) {
+      break lab5;
+    }
+  }
+ while (false);
+  cursor=limit - v_6;
+  v_7=limit - cursor;
+  lab6:   do {
+    if (!r_owned()) {
+      break lab6;
+    }
+  }
+ while (false);
+  cursor=limit - v_7;
+  v_8=limit - cursor;
+  lab7:   do {
+    if (!r_sing_owner()) {
+      break lab7;
+    }
+  }
+ while (false);
+  cursor=limit - v_8;
+  v_9=limit - cursor;
+  lab8:   do {
+    if (!r_plur_owner()) {
+      break lab8;
+    }
+  }
+ while (false);
+  cursor=limit - v_9;
+  v_10=limit - cursor;
+  lab9:   do {
+    if (!r_plural()) {
+      break lab9;
+    }
+  }
+ while (false);
+  cursor=limit - v_10;
+  cursor=limit_backward;
+  return true;
+}

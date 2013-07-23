@@ -1,0 +1,64 @@
+{
+  if (XMLStreamConstants.START_ELEMENT != parser.getEventType()) {
+    throw new RuntimeException("must be start element, not: " + parser.getEventType());
+  }
+  if (!"arr".equals(parser.getLocalName().toLowerCase(Locale.ENGLISH))) {
+    throw new RuntimeException("must be 'arr', not: " + parser.getLocalName());
+  }
+  StringBuilder builder=new StringBuilder();
+  KnownType type=null;
+  List<Object> vals=new ArrayList<Object>();
+  int depth=0;
+  while (true) {
+switch (parser.next()) {
+case XMLStreamConstants.START_ELEMENT:
+      depth++;
+    KnownType t=KnownType.get(parser.getLocalName());
+  if (t == null) {
+    throw new RuntimeException("this must be known type! not: " + parser.getLocalName());
+  }
+if (type == null) {
+  type=t;
+}
+type=t;
+builder.setLength(0);
+if (!type.isLeaf) {
+switch (type) {
+case LST:
+vals.add(readNamedList(parser));
+depth--;
+continue;
+case ARR:
+vals.add(readArray(parser));
+depth--;
+continue;
+case RESULT:
+vals.add(readDocuments(parser));
+depth--;
+continue;
+case DOC:
+vals.add(readDocument(parser));
+depth--;
+continue;
+}
+throw new XMLStreamException("branch element not handled!",parser.getLocation());
+}
+break;
+case XMLStreamConstants.END_ELEMENT:
+if (--depth < 0) {
+return vals;
+}
+Object val=type.read(builder.toString().trim());
+if (val == null && type != KnownType.NULL) {
+throw new XMLStreamException("error reading value:" + type,parser.getLocation());
+}
+vals.add(val);
+break;
+case XMLStreamConstants.SPACE:
+case XMLStreamConstants.CDATA:
+case XMLStreamConstants.CHARACTERS:
+builder.append(parser.getText());
+break;
+}
+}
+}

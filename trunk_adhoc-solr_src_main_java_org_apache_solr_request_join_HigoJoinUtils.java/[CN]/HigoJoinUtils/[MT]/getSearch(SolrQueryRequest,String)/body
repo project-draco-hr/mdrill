@@ -1,0 +1,5 @@
+{
+  String path=pathToLocal(req,tablename);
+  LOG.info("###joinpath###" + path);
+  return req.getCore().getSearcherByPath(String.valueOf(path),path,false,false,false);
+}

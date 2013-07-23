@@ -1,0 +1,4 @@
+int labelToMatch
+Node target
+T nextFinalOutput
+boolean isFinal

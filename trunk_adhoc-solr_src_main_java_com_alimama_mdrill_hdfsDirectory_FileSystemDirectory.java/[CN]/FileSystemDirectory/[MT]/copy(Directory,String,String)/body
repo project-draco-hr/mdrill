@@ -1,0 +1,22 @@
+{
+  if (to instanceof FileSystemDirectory) {
+    FileSystemDirectory fsto=(FileSystemDirectory)to;
+    if (fsto.isAllowMove()) {
+      Path discfile=new Path(fsto.directory,dest);
+      Path srcfile=new Path(directory,src);
+      logger.info("used links dest:" + getShortPath(discfile) + ",src:"+ getShortPath(srcfile));
+      fsto.addLinks(discfile.getName(),srcfile);
+      return;
+    }
+  }
+  if (to instanceof LinkFSDirectory) {
+    LinkFSDirectory fsto=(LinkFSDirectory)to;
+    if (fsto.isAllowMove()) {
+      File discfile=new File(fsto.directory,dest);
+      Path srcfile=new Path(directory,src);
+      fsto.addhdfsLinks(discfile.getName(),srcfile);
+      return;
+    }
+  }
+  super.copy(to,src,dest);
+}

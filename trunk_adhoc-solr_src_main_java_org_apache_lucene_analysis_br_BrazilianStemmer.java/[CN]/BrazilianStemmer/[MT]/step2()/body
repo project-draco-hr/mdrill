@@ -1,0 +1,472 @@
+{
+  if (RV == null)   return false;
+  if (RV.length() >= 7) {
+    if (suffix(RV,"issemos")) {
+      CT=removeSuffix(CT,"issemos");
+      return true;
+    }
+    if (suffix(RV,"essemos")) {
+      CT=removeSuffix(CT,"essemos");
+      return true;
+    }
+    if (suffix(RV,"assemos")) {
+      CT=removeSuffix(CT,"assemos");
+      return true;
+    }
+    if (suffix(RV,"ariamos")) {
+      CT=removeSuffix(CT,"ariamos");
+      return true;
+    }
+    if (suffix(RV,"eriamos")) {
+      CT=removeSuffix(CT,"eriamos");
+      return true;
+    }
+    if (suffix(RV,"iriamos")) {
+      CT=removeSuffix(CT,"iriamos");
+      return true;
+    }
+  }
+  if (RV.length() >= 6) {
+    if (suffix(RV,"iremos")) {
+      CT=removeSuffix(CT,"iremos");
+      return true;
+    }
+    if (suffix(RV,"eremos")) {
+      CT=removeSuffix(CT,"eremos");
+      return true;
+    }
+    if (suffix(RV,"aremos")) {
+      CT=removeSuffix(CT,"aremos");
+      return true;
+    }
+    if (suffix(RV,"avamos")) {
+      CT=removeSuffix(CT,"avamos");
+      return true;
+    }
+    if (suffix(RV,"iramos")) {
+      CT=removeSuffix(CT,"iramos");
+      return true;
+    }
+    if (suffix(RV,"eramos")) {
+      CT=removeSuffix(CT,"eramos");
+      return true;
+    }
+    if (suffix(RV,"aramos")) {
+      CT=removeSuffix(CT,"aramos");
+      return true;
+    }
+    if (suffix(RV,"asseis")) {
+      CT=removeSuffix(CT,"asseis");
+      return true;
+    }
+    if (suffix(RV,"esseis")) {
+      CT=removeSuffix(CT,"esseis");
+      return true;
+    }
+    if (suffix(RV,"isseis")) {
+      CT=removeSuffix(CT,"isseis");
+      return true;
+    }
+    if (suffix(RV,"arieis")) {
+      CT=removeSuffix(CT,"arieis");
+      return true;
+    }
+    if (suffix(RV,"erieis")) {
+      CT=removeSuffix(CT,"erieis");
+      return true;
+    }
+    if (suffix(RV,"irieis")) {
+      CT=removeSuffix(CT,"irieis");
+      return true;
+    }
+  }
+  if (RV.length() >= 5) {
+    if (suffix(RV,"irmos")) {
+      CT=removeSuffix(CT,"irmos");
+      return true;
+    }
+    if (suffix(RV,"iamos")) {
+      CT=removeSuffix(CT,"iamos");
+      return true;
+    }
+    if (suffix(RV,"armos")) {
+      CT=removeSuffix(CT,"armos");
+      return true;
+    }
+    if (suffix(RV,"ermos")) {
+      CT=removeSuffix(CT,"ermos");
+      return true;
+    }
+    if (suffix(RV,"areis")) {
+      CT=removeSuffix(CT,"areis");
+      return true;
+    }
+    if (suffix(RV,"ereis")) {
+      CT=removeSuffix(CT,"ereis");
+      return true;
+    }
+    if (suffix(RV,"ireis")) {
+      CT=removeSuffix(CT,"ireis");
+      return true;
+    }
+    if (suffix(RV,"asses")) {
+      CT=removeSuffix(CT,"asses");
+      return true;
+    }
+    if (suffix(RV,"esses")) {
+      CT=removeSuffix(CT,"esses");
+      return true;
+    }
+    if (suffix(RV,"isses")) {
+      CT=removeSuffix(CT,"isses");
+      return true;
+    }
+    if (suffix(RV,"astes")) {
+      CT=removeSuffix(CT,"astes");
+      return true;
+    }
+    if (suffix(RV,"assem")) {
+      CT=removeSuffix(CT,"assem");
+      return true;
+    }
+    if (suffix(RV,"essem")) {
+      CT=removeSuffix(CT,"essem");
+      return true;
+    }
+    if (suffix(RV,"issem")) {
+      CT=removeSuffix(CT,"issem");
+      return true;
+    }
+    if (suffix(RV,"ardes")) {
+      CT=removeSuffix(CT,"ardes");
+      return true;
+    }
+    if (suffix(RV,"erdes")) {
+      CT=removeSuffix(CT,"erdes");
+      return true;
+    }
+    if (suffix(RV,"irdes")) {
+      CT=removeSuffix(CT,"irdes");
+      return true;
+    }
+    if (suffix(RV,"ariam")) {
+      CT=removeSuffix(CT,"ariam");
+      return true;
+    }
+    if (suffix(RV,"eriam")) {
+      CT=removeSuffix(CT,"eriam");
+      return true;
+    }
+    if (suffix(RV,"iriam")) {
+      CT=removeSuffix(CT,"iriam");
+      return true;
+    }
+    if (suffix(RV,"arias")) {
+      CT=removeSuffix(CT,"arias");
+      return true;
+    }
+    if (suffix(RV,"erias")) {
+      CT=removeSuffix(CT,"erias");
+      return true;
+    }
+    if (suffix(RV,"irias")) {
+      CT=removeSuffix(CT,"irias");
+      return true;
+    }
+    if (suffix(RV,"estes")) {
+      CT=removeSuffix(CT,"estes");
+      return true;
+    }
+    if (suffix(RV,"istes")) {
+      CT=removeSuffix(CT,"istes");
+      return true;
+    }
+    if (suffix(RV,"areis")) {
+      CT=removeSuffix(CT,"areis");
+      return true;
+    }
+    if (suffix(RV,"aveis")) {
+      CT=removeSuffix(CT,"aveis");
+      return true;
+    }
+  }
+  if (RV.length() >= 4) {
+    if (suffix(RV,"aria")) {
+      CT=removeSuffix(CT,"aria");
+      return true;
+    }
+    if (suffix(RV,"eria")) {
+      CT=removeSuffix(CT,"eria");
+      return true;
+    }
+    if (suffix(RV,"iria")) {
+      CT=removeSuffix(CT,"iria");
+      return true;
+    }
+    if (suffix(RV,"asse")) {
+      CT=removeSuffix(CT,"asse");
+      return true;
+    }
+    if (suffix(RV,"esse")) {
+      CT=removeSuffix(CT,"esse");
+      return true;
+    }
+    if (suffix(RV,"isse")) {
+      CT=removeSuffix(CT,"isse");
+      return true;
+    }
+    if (suffix(RV,"aste")) {
+      CT=removeSuffix(CT,"aste");
+      return true;
+    }
+    if (suffix(RV,"este")) {
+      CT=removeSuffix(CT,"este");
+      return true;
+    }
+    if (suffix(RV,"iste")) {
+      CT=removeSuffix(CT,"iste");
+      return true;
+    }
+    if (suffix(RV,"arei")) {
+      CT=removeSuffix(CT,"arei");
+      return true;
+    }
+    if (suffix(RV,"erei")) {
+      CT=removeSuffix(CT,"erei");
+      return true;
+    }
+    if (suffix(RV,"irei")) {
+      CT=removeSuffix(CT,"irei");
+      return true;
+    }
+    if (suffix(RV,"aram")) {
+      CT=removeSuffix(CT,"aram");
+      return true;
+    }
+    if (suffix(RV,"eram")) {
+      CT=removeSuffix(CT,"eram");
+      return true;
+    }
+    if (suffix(RV,"iram")) {
+      CT=removeSuffix(CT,"iram");
+      return true;
+    }
+    if (suffix(RV,"avam")) {
+      CT=removeSuffix(CT,"avam");
+      return true;
+    }
+    if (suffix(RV,"arem")) {
+      CT=removeSuffix(CT,"arem");
+      return true;
+    }
+    if (suffix(RV,"erem")) {
+      CT=removeSuffix(CT,"erem");
+      return true;
+    }
+    if (suffix(RV,"irem")) {
+      CT=removeSuffix(CT,"irem");
+      return true;
+    }
+    if (suffix(RV,"ando")) {
+      CT=removeSuffix(CT,"ando");
+      return true;
+    }
+    if (suffix(RV,"endo")) {
+      CT=removeSuffix(CT,"endo");
+      return true;
+    }
+    if (suffix(RV,"indo")) {
+      CT=removeSuffix(CT,"indo");
+      return true;
+    }
+    if (suffix(RV,"arao")) {
+      CT=removeSuffix(CT,"arao");
+      return true;
+    }
+    if (suffix(RV,"erao")) {
+      CT=removeSuffix(CT,"erao");
+      return true;
+    }
+    if (suffix(RV,"irao")) {
+      CT=removeSuffix(CT,"irao");
+      return true;
+    }
+    if (suffix(RV,"adas")) {
+      CT=removeSuffix(CT,"adas");
+      return true;
+    }
+    if (suffix(RV,"idas")) {
+      CT=removeSuffix(CT,"idas");
+      return true;
+    }
+    if (suffix(RV,"aras")) {
+      CT=removeSuffix(CT,"aras");
+      return true;
+    }
+    if (suffix(RV,"eras")) {
+      CT=removeSuffix(CT,"eras");
+      return true;
+    }
+    if (suffix(RV,"iras")) {
+      CT=removeSuffix(CT,"iras");
+      return true;
+    }
+    if (suffix(RV,"avas")) {
+      CT=removeSuffix(CT,"avas");
+      return true;
+    }
+    if (suffix(RV,"ares")) {
+      CT=removeSuffix(CT,"ares");
+      return true;
+    }
+    if (suffix(RV,"eres")) {
+      CT=removeSuffix(CT,"eres");
+      return true;
+    }
+    if (suffix(RV,"ires")) {
+      CT=removeSuffix(CT,"ires");
+      return true;
+    }
+    if (suffix(RV,"ados")) {
+      CT=removeSuffix(CT,"ados");
+      return true;
+    }
+    if (suffix(RV,"idos")) {
+      CT=removeSuffix(CT,"idos");
+      return true;
+    }
+    if (suffix(RV,"amos")) {
+      CT=removeSuffix(CT,"amos");
+      return true;
+    }
+    if (suffix(RV,"emos")) {
+      CT=removeSuffix(CT,"emos");
+      return true;
+    }
+    if (suffix(RV,"imos")) {
+      CT=removeSuffix(CT,"imos");
+      return true;
+    }
+    if (suffix(RV,"iras")) {
+      CT=removeSuffix(CT,"iras");
+      return true;
+    }
+    if (suffix(RV,"ieis")) {
+      CT=removeSuffix(CT,"ieis");
+      return true;
+    }
+  }
+  if (RV.length() >= 3) {
+    if (suffix(RV,"ada")) {
+      CT=removeSuffix(CT,"ada");
+      return true;
+    }
+    if (suffix(RV,"ida")) {
+      CT=removeSuffix(CT,"ida");
+      return true;
+    }
+    if (suffix(RV,"ara")) {
+      CT=removeSuffix(CT,"ara");
+      return true;
+    }
+    if (suffix(RV,"era")) {
+      CT=removeSuffix(CT,"era");
+      return true;
+    }
+    if (suffix(RV,"ira")) {
+      CT=removeSuffix(CT,"ava");
+      return true;
+    }
+    if (suffix(RV,"iam")) {
+      CT=removeSuffix(CT,"iam");
+      return true;
+    }
+    if (suffix(RV,"ado")) {
+      CT=removeSuffix(CT,"ado");
+      return true;
+    }
+    if (suffix(RV,"ido")) {
+      CT=removeSuffix(CT,"ido");
+      return true;
+    }
+    if (suffix(RV,"ias")) {
+      CT=removeSuffix(CT,"ias");
+      return true;
+    }
+    if (suffix(RV,"ais")) {
+      CT=removeSuffix(CT,"ais");
+      return true;
+    }
+    if (suffix(RV,"eis")) {
+      CT=removeSuffix(CT,"eis");
+      return true;
+    }
+    if (suffix(RV,"ira")) {
+      CT=removeSuffix(CT,"ira");
+      return true;
+    }
+    if (suffix(RV,"ear")) {
+      CT=removeSuffix(CT,"ear");
+      return true;
+    }
+  }
+  if (RV.length() >= 2) {
+    if (suffix(RV,"ia")) {
+      CT=removeSuffix(CT,"ia");
+      return true;
+    }
+    if (suffix(RV,"ei")) {
+      CT=removeSuffix(CT,"ei");
+      return true;
+    }
+    if (suffix(RV,"am")) {
+      CT=removeSuffix(CT,"am");
+      return true;
+    }
+    if (suffix(RV,"em")) {
+      CT=removeSuffix(CT,"em");
+      return true;
+    }
+    if (suffix(RV,"ar")) {
+      CT=removeSuffix(CT,"ar");
+      return true;
+    }
+    if (suffix(RV,"er")) {
+      CT=removeSuffix(CT,"er");
+      return true;
+    }
+    if (suffix(RV,"ir")) {
+      CT=removeSuffix(CT,"ir");
+      return true;
+    }
+    if (suffix(RV,"as")) {
+      CT=removeSuffix(CT,"as");
+      return true;
+    }
+    if (suffix(RV,"es")) {
+      CT=removeSuffix(CT,"es");
+      return true;
+    }
+    if (suffix(RV,"is")) {
+      CT=removeSuffix(CT,"is");
+      return true;
+    }
+    if (suffix(RV,"eu")) {
+      CT=removeSuffix(CT,"eu");
+      return true;
+    }
+    if (suffix(RV,"iu")) {
+      CT=removeSuffix(CT,"iu");
+      return true;
+    }
+    if (suffix(RV,"iu")) {
+      CT=removeSuffix(CT,"iu");
+      return true;
+    }
+    if (suffix(RV,"ou")) {
+      CT=removeSuffix(CT,"ou");
+      return true;
+    }
+  }
+  return false;
+}

@@ -1,0 +1,22 @@
+{
+  StringBuffer chars=new StringBuffer(length);
+  chars.append(ch,start,length);
+  String word=readToken(chars);
+  while (word != null) {
+switch (currElement) {
+case ELEM_CLASSES:
+      consumer.addClass(word);
+    break;
+case ELEM_EXCEPTIONS:
+  exception.add(word);
+exception=normalizeException(exception);
+consumer.addException(getExceptionWord(exception),(ArrayList)exception.clone());
+exception.clear();
+break;
+case ELEM_PATTERNS:
+consumer.addPattern(getPattern(word),getInterletterValues(word));
+break;
+}
+word=readToken(chars);
+}
+}

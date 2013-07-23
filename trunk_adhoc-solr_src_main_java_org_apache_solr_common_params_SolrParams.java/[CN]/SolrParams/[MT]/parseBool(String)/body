@@ -1,0 +1,3 @@
+{
+  return StrUtils.parseBool(s);
+}

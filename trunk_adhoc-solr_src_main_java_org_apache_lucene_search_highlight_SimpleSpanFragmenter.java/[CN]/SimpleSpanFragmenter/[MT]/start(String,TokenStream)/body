@@ -1,0 +1,8 @@
+{
+  position=-1;
+  currentNumFrags=1;
+  textSize=originalText.length();
+  termAtt=tokenStream.addAttribute(CharTermAttribute.class);
+  posIncAtt=tokenStream.addAttribute(PositionIncrementAttribute.class);
+  offsetAtt=tokenStream.addAttribute(OffsetAttribute.class);
+}

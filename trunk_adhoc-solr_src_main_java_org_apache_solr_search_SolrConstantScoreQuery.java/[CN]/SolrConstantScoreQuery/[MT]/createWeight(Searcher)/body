@@ -1,0 +1,8 @@
+{
+  try {
+    return new SolrConstantScoreQuery.ConstantWeight(searcher);
+  }
+ catch (  IOException e) {
+    throw new SolrException(SolrException.ErrorCode.SERVER_ERROR,e);
+  }
+}

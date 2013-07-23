@@ -1,0 +1,4 @@
+{
+  this.groupValue=groupValue;
+  this.doc=doc;
+}

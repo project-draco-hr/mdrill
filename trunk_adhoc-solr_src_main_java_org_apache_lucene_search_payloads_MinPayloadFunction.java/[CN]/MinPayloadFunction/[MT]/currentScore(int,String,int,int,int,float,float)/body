@@ -1,0 +1,8 @@
+{
+  if (numPayloadsSeen == 0) {
+    return currentPayloadScore;
+  }
+ else {
+    return Math.min(currentPayloadScore,currentScore);
+  }
+}

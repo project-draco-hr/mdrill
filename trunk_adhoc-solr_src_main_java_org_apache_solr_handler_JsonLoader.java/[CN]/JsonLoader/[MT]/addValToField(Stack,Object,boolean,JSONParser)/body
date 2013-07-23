@@ -1,0 +1,10 @@
+{
+  Object obj=stack.peek();
+  if (!(obj instanceof SolrInputField)) {
+    throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,"hymmm [" + parser.getPosition() + "]");
+  }
+  SolrInputField f=inArray ? (SolrInputField)obj : (SolrInputField)stack.pop();
+  if (val == null)   return;
+  float boost=(f.getValue() == null) ? f.getBoost() : 1.0f;
+  f.addValue(val,boost);
+}

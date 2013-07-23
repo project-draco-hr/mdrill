@@ -1,0 +1,3 @@
+BinLog writelog
+SolrCore core
+String day

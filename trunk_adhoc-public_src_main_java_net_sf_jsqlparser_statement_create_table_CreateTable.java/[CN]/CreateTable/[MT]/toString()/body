@@ -1,0 +1,12 @@
+{
+  String sql="";
+  sql="CREATE TABLE " + table + " (";
+  sql+=PlainSelect.getStringList(columnDefinitions,true,false);
+  if (indexes != null && indexes.size() != 0) {
+    sql+=", ";
+    sql+=PlainSelect.getStringList(indexes);
+  }
+  sql+=") ";
+  sql+=PlainSelect.getStringList(tableOptionsStrings,false,false);
+  return sql;
+}

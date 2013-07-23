@@ -1,0 +1,6 @@
+{
+  if (!queues.containsKey(function)) {
+    queues.putIfAbsent(function,new ConcurrentLinkedQueue<DRPCRequest>());
+  }
+  return queues.get(function);
+}

@@ -1,0 +1,3 @@
+char[] otherChars
+int otherOffset
+int otherLength

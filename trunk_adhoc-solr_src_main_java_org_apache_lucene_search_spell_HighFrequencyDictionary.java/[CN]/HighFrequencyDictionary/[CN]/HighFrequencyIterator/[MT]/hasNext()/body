@@ -1,0 +1,28 @@
+{
+  if (hasNextCalled) {
+    return actualTerm != null;
+  }
+  hasNextCalled=true;
+  do {
+    actualTerm=termEnum.term();
+    actualFreq=termEnum.docFreq();
+    if (actualTerm == null) {
+      return false;
+    }
+    String currentField=actualTerm.field();
+    if (currentField != field) {
+      actualTerm=null;
+      return false;
+    }
+    if (isFrequent(actualTerm)) {
+      return true;
+    }
+    try {
+      termEnum.next();
+    }
+ catch (    IOException e) {
+      throw new RuntimeException(e);
+    }
+  }
+ while (true);
+}

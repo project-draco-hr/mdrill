@@ -1,0 +1,3 @@
+{
+  return Base64.byteArrayToBase64(buf.array(),buf.position(),buf.limit() - buf.position());
+}

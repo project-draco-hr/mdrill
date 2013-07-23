@@ -1,0 +1,9 @@
+{
+  ensureOpen();
+  if (subReaders.length == 1) {
+    return subReaders[0].termDocs(term,buffer);
+  }
+ else {
+    return super.termDocs(term,buffer);
+  }
+}

@@ -1,0 +1,3 @@
+{
+  return findAndRemoveEnding(stemmingZone,perfectiveGerundEndings1,perfectiveGerund1Predessors) || findAndRemoveEnding(stemmingZone,perfectiveGerundEndings2);
+}

@@ -1,0 +1,13 @@
+{
+  for (int i=0; i < str.length(); i++) {
+    char ch=str.charAt(i);
+    if (ch < escapes.length) {
+      String replacement=escapes[ch];
+      if (replacement != null) {
+        out.write(replacement);
+        continue;
+      }
+    }
+    out.write(ch);
+  }
+}

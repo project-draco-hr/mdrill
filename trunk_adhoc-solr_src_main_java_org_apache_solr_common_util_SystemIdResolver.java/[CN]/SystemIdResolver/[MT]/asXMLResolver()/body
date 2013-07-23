@@ -1,0 +1,14 @@
+{
+  return new XMLResolver(){
+    public Object resolveEntity(    String publicId,    String systemId,    String baseURI,    String namespace) throws XMLStreamException {
+      try {
+        final InputSource src=SystemIdResolver.this.resolveEntity(null,publicId,baseURI,systemId);
+        return (src == null) ? null : src.getByteStream();
+      }
+ catch (      IOException ioe) {
+        throw new XMLStreamException("Cannot resolve entity",ioe);
+      }
+    }
+  }
+;
+}

@@ -1,0 +1,4 @@
+{
+  this.core=core;
+  this.day=day;
+}

@@ -1,0 +1,55 @@
+{
+  boolean includeScore=false;
+  if (fields != null) {
+    includeScore=fields.contains("score");
+    if (fields.size() == 0 || (fields.size() == 1 && includeScore) || fields.contains("*")) {
+      fields=null;
+    }
+  }
+  int sz=docs.size();
+  writeMapOpener(includeScore ? 4 : 3);
+  incLevel();
+  writeKey("numFound",false);
+  writeLong(null,docs.getNumFound());
+  writeMapSeparator();
+  writeKey("start",false);
+  writeLong(null,docs.getStart());
+  if (includeScore && docs.getMaxScore() != null) {
+    writeMapSeparator();
+    writeKey("maxScore",false);
+    writeFloat(null,docs.getMaxScore());
+  }
+  writeMapSeparator();
+  writeKey("sum",false);
+  writeDouble(null,docs.getSum());
+  writeMapSeparator();
+  writeKey("max",false);
+  writeDouble(null,docs.getMax());
+  writeMapSeparator();
+  writeKey("min",false);
+  writeDouble(null,docs.getMin());
+  writeMapSeparator();
+  writeKey("docs",false);
+  writeArrayOpener(sz);
+  incLevel();
+  boolean first=true;
+  SolrIndexSearcher searcher=req.getSearcher();
+  for (  SolrDocument doc : docs) {
+    if (first) {
+      first=false;
+    }
+ else {
+      writeArraySeparator();
+    }
+    indent();
+    writeSolrDocument(null,doc,fields,otherFields);
+  }
+  decLevel();
+  writeArrayCloser();
+  if (otherFields != null) {
+    writeMap(null,otherFields,true,false);
+  }
+  decLevel();
+  indent();
+  writeMapCloser();
+}

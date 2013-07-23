@@ -1,0 +1,5 @@
+{
+  if (o.getClass() != ByteFieldSource.class)   return false;
+  ByteFieldSource other=(ByteFieldSource)o;
+  return super.equals(other) && (this.parser == null ? other.parser == null : this.parser.getClass() == other.parser.getClass());
+}

@@ -1,0 +1,22 @@
+{
+  int upto=0;
+  char[] buffer=reuse.chars;
+  for (  String word : words) {
+    if (upto > 0) {
+      if (upto >= buffer.length) {
+        reuse.grow(upto);
+        buffer=reuse.chars;
+      }
+      buffer[upto++]=SynonymMap.WORD_SEPARATOR;
+    }
+    final int wordLen=word.length();
+    final int needed=upto + wordLen;
+    if (needed > buffer.length) {
+      reuse.grow(needed);
+      buffer=reuse.chars;
+    }
+    word.getChars(0,wordLen,buffer,upto);
+    upto+=wordLen;
+  }
+  return reuse;
+}

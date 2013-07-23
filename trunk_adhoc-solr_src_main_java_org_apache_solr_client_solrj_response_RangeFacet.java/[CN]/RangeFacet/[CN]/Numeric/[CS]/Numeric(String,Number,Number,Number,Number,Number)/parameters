@@ -1,0 +1,6 @@
+String name
+Number start
+Number end
+Number gap
+Number before
+Number after

@@ -1,0 +1,68 @@
+{
+  if (valstate == STRING) {
+    readStringChars2(devNull,start);
+  }
+ else   if (valstate == BIGNUMBER) {
+    continueNumber(devNull);
+  }
+  valstate=0;
+  int ch;
+switch (state) {
+case 0:
+    return event=next(getCharNWS());
+case DID_OBJSTART:
+  ch=getCharNWS();
+if (ch == '}') {
+  pop();
+  return event=OBJECT_END;
+}
+if (ch != '"') {
+throw err("Expected string");
+}
+state=DID_MEMNAME;
+valstate=STRING;
+return event=STRING;
+case DID_MEMNAME:
+ch=getCharNWS();
+if (ch != ':') {
+throw err("Expected key,value separator ':'");
+}
+state=DID_MEMVAL;
+return event=next(getChar());
+case DID_MEMVAL:
+ch=getCharNWS();
+if (ch == '}') {
+pop();
+return event=OBJECT_END;
+}
+ else if (ch != ',') {
+throw err("Expected ',' or '}'");
+}
+ch=getCharNWS();
+if (ch != '"') {
+throw err("Expected string");
+}
+state=DID_MEMNAME;
+valstate=STRING;
+return event=STRING;
+case DID_ARRSTART:
+ch=getCharNWS();
+if (ch == ']') {
+pop();
+return event=ARRAY_END;
+}
+state=DID_ARRELEM;
+return event=next(ch);
+case DID_ARRELEM:
+ch=getCharNWS();
+if (ch == ']') {
+pop();
+return event=ARRAY_END;
+}
+ else if (ch != ',') {
+throw err("Expected ',' or ']'");
+}
+return event=next(getChar());
+}
+return 0;
+}

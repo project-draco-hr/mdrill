@@ -1,0 +1,5 @@
+UnvertFields sortufs
+UnvertFields ufs
+PriorityQueue<SelectDetailRow> res
+String[] fields
+DocSet baseDocs

@@ -1,0 +1,14 @@
+{
+  startArray();
+  boolean first=true;
+  for (  long v : val) {
+    if (first) {
+      first=false;
+    }
+ else {
+      writeValueSeparator();
+    }
+    write(v);
+  }
+  endArray();
+}

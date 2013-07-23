@@ -1,0 +1,5 @@
+{
+  growTermBuffer(length);
+  System.arraycopy(buffer,offset,termBuffer,0,length);
+  termLength=length;
+}

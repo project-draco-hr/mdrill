@@ -1,0 +1,8 @@
+{
+  between.getLeftExpression().accept(this);
+  if (between.isNot())   buffer.append(" NOT");
+  buffer.append(" BETWEEN ");
+  between.getBetweenExpressionStart().accept(this);
+  buffer.append(" AND ");
+  between.getBetweenExpressionEnd().accept(this);
+}

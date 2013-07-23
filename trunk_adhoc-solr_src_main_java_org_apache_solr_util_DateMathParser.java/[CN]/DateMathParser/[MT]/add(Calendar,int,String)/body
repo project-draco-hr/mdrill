@@ -1,0 +1,7 @@
+{
+  Integer uu=CALENDAR_UNITS.get(unit);
+  if (null == uu) {
+    throw new IllegalArgumentException("Adding Unit not recognized: " + unit);
+  }
+  c.add(uu.intValue(),val);
+}

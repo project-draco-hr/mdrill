@@ -1,0 +1,5 @@
+{
+  if (termBuffer.length < newSize) {
+    termBuffer=new char[ArrayUtil.oversize(newSize,RamUsageEstimator.NUM_BYTES_CHAR)];
+  }
+}

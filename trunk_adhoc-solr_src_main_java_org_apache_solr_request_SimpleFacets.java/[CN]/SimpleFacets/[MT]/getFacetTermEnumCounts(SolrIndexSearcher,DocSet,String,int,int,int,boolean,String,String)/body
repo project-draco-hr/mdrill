@@ -1,0 +1,65 @@
+{
+  int minDfFilterCache=params.getFieldInt(field,FacetParams.FACET_ENUM_CACHE_MINDF,0);
+  IndexSchema schema=searcher.getSchema();
+  IndexReader r=searcher.getReader();
+  FieldType ft=schema.getFieldType(field);
+  final int maxsize=limit >= 0 ? offset + limit : Integer.MAX_VALUE - 1;
+  final BoundedTreeSet<CountPair<String,Integer>> queue=(sort.equals("count") || sort.equals("true")) ? new BoundedTreeSet<CountPair<String,Integer>>(maxsize) : null;
+  final NamedList res=new NamedList();
+  int min=mincount - 1;
+  int off=offset;
+  int lim=limit >= 0 ? limit : Integer.MAX_VALUE;
+  String startTerm=prefix == null ? "" : ft.toInternal(prefix);
+  TermEnum te=r.terms(new Term(field,startTerm));
+  TermDocs td=r.termDocs();
+  SolrIndexSearcher.TermDocsState tdState=new SolrIndexSearcher.TermDocsState();
+  tdState.tenum=te;
+  tdState.tdocs=td;
+  if (docs.size() >= mincount) {
+    do {
+      Term t=te.term();
+      if (null == t || !t.field().equals(field))       break;
+      if (prefix != null && !t.text().startsWith(prefix))       break;
+      int df=te.docFreq();
+      if (df > 0 && df > min) {
+        int c;
+        if (df >= minDfFilterCache) {
+          c=docs.intersectionSize(searcher.getPositiveDocSet(new TermQuery(t),tdState));
+        }
+ else {
+          td.seek(te);
+          c=0;
+          while (td.next()) {
+            if (docs.exists(td.doc()))             c++;
+          }
+        }
+        if (sort.equals("count") || sort.equals("true")) {
+          if (c > min) {
+            queue.add(new CountPair<String,Integer>(t.text(),c));
+            if (queue.size() >= maxsize)             min=queue.last().val;
+          }
+        }
+ else {
+          if (c >= mincount && --off < 0) {
+            if (--lim < 0)             break;
+            res.add(ft.indexedToReadable(t.text()),c);
+          }
+        }
+      }
+    }
+ while (te.next());
+  }
+  if (sort.equals("count") || sort.equals("true")) {
+    for (    CountPair<String,Integer> p : queue) {
+      if (--off >= 0)       continue;
+      if (--lim < 0)       break;
+      res.add(ft.indexedToReadable(p.key),p.val);
+    }
+  }
+  if (missing) {
+    res.add(null,getFieldMissingCount(searcher,docs,field));
+  }
+  te.close();
+  td.close();
+  return res;
+}

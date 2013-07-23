@@ -1,0 +1,10 @@
+{
+  currentDouble=v;
+  sumDouble+=currentDouble;
+  if (currentDouble > maxDouble) {
+    maxDouble=currentDouble;
+  }
+ else   if (currentDouble < minDouble) {
+    minDouble=currentDouble;
+  }
+}

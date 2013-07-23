@@ -1,0 +1,8 @@
+{
+  String s=t.getClass().getName();
+  String m;
+  if ((m=t.getMessage()) != null) {
+    s+="\n" + m;
+  }
+  return s;
+}

@@ -1,0 +1,10 @@
+{
+  SolrInfoList infolist=infolistmap.get(tableName);
+  if (infolist == null) {
+    infolist=new SolrInfoList(tableName);
+    infolist.run();
+    infolistmap.putIfAbsent(tableName,infolist);
+  }
+  infolist.maybeRefresh();
+  return infolist;
+}

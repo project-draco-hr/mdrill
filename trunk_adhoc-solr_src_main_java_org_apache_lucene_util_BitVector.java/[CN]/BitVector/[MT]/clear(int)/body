@@ -1,0 +1,7 @@
+{
+  if (bit >= size) {
+    throw new ArrayIndexOutOfBoundsException(bit);
+  }
+  bits[bit >> 3]&=~(1 << (bit & 7));
+  count=-1;
+}

@@ -1,0 +1,4 @@
+String str
+boolean isLetter
+boolean toLowerCase
+Set<?> stopWords

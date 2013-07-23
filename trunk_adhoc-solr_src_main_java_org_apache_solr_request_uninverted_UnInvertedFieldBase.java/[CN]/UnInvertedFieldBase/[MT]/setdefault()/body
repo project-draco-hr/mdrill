@@ -1,0 +1,8 @@
+{
+  this.index=null;
+  this.indexshort=null;
+  this.indexbyte=null;
+  this.termValueLong=null;
+  this.termValueDouble=null;
+  this.tnums=null;
+}

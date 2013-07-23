@@ -1,0 +1,8 @@
+{
+  int h=include.hashCode();
+  h=(h << 1) | (h >>> 31);
+  h^=exclude.hashCode();
+  h=(h << 1) | (h >>> 31);
+  h^=Float.floatToRawIntBits(getBoost());
+  return h;
+}

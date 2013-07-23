@@ -1,0 +1,6 @@
+{
+synchronized (lock) {
+    this.appendCut(this.failedMsg,failmsg,10000,2);
+    this.isfail=true;
+  }
+}

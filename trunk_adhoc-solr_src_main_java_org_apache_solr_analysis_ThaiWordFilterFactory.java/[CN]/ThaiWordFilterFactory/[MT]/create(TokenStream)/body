@@ -1,0 +1,4 @@
+{
+  assureMatchVersion();
+  return new ThaiWordFilter(luceneMatchVersion,input);
+}

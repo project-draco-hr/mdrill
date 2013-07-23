@@ -1,0 +1,62 @@
+{
+  final TermDocs termDocs;
+synchronized (reader) {
+    termDocs=isCacheable() ? null : reader.termDocs(null);
+  }
+  if (termDocs != null) {
+    return new DocIdSetIterator(){
+      private int doc=-1;
+      @Override public int docID(){
+        return doc;
+      }
+      @Override public int nextDoc() throws IOException {
+        do {
+          if (!termDocs.next())           return doc=NO_MORE_DOCS;
+        }
+ while (!matchDoc(doc=termDocs.doc()));
+        return doc;
+      }
+      @Override public int advance(      int target) throws IOException {
+        if (!termDocs.skipTo(target))         return doc=NO_MORE_DOCS;
+        while (!matchDoc(doc=termDocs.doc())) {
+          if (!termDocs.next())           return doc=NO_MORE_DOCS;
+        }
+        return doc;
+      }
+    }
+;
+  }
+ else {
+    return new DocIdSetIterator(){
+      private int doc=-1;
+      @Override public int docID(){
+        return doc;
+      }
+      @Override public int nextDoc(){
+        try {
+          do {
+            doc++;
+          }
+ while (!matchDoc(doc));
+          return doc;
+        }
+ catch (        ArrayIndexOutOfBoundsException e) {
+          return doc=NO_MORE_DOCS;
+        }
+      }
+      @Override public int advance(      int target){
+        try {
+          doc=target;
+          while (!matchDoc(doc)) {
+            doc++;
+          }
+          return doc;
+        }
+ catch (        ArrayIndexOutOfBoundsException e) {
+          return doc=NO_MORE_DOCS;
+        }
+      }
+    }
+;
+  }
+}

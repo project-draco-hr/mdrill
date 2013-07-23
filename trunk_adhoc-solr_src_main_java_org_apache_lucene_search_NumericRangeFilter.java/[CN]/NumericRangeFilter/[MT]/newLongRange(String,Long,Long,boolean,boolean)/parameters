@@ -1,0 +1,5 @@
+String field
+Long min
+Long max
+boolean minInclusive
+boolean maxInclusive

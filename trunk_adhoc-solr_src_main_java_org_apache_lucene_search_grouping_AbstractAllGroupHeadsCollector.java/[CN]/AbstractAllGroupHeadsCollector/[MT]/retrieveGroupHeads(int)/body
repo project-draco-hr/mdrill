@@ -1,0 +1,8 @@
+{
+  FixedBitSet bitSet=new FixedBitSet(maxDoc);
+  Collection<GH> groupHeads=getCollectedGroupHeads();
+  for (  GroupHead groupHead : groupHeads) {
+    bitSet.set(groupHead.doc);
+  }
+  return bitSet;
+}

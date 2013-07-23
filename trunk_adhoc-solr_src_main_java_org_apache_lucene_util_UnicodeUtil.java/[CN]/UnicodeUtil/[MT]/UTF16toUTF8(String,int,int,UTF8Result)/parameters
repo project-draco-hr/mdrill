@@ -1,0 +1,4 @@
+String s
+int offset
+int length
+UTF8Result result

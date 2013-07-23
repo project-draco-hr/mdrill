@@ -1,0 +1,68 @@
+{
+  if (end - start == 1) {
+    out[offset]='0';
+    return 1;
+  }
+  int wpos=offset;
+  boolean neg;
+  int exp=arr[start++];
+  if (exp < ZERO_EXPONENT) {
+    neg=true;
+    out[wpos++]='-';
+  }
+ else {
+    neg=false;
+  }
+  int val=arr[start++];
+  if (neg)   val=9999 - val;
+  if (val < 10) {
+    out[wpos++]=(char)(val + '0');
+  }
+ else   if (val < 100) {
+    int div=div10(val);
+    int ones=val - mul10(div);
+    out[wpos++]=(char)(div + '0');
+    out[wpos++]=(char)(ones + '0');
+  }
+ else   if (val < 1000) {
+    int div=div10(val);
+    int ones=val - mul10(div);
+    val=div;
+    div=div10(val);
+    int tens=val - mul10(div);
+    out[wpos++]=(char)(div + '0');
+    out[wpos++]=(char)(tens + '0');
+    out[wpos++]=(char)(ones + '0');
+  }
+ else {
+    int div=div10(val);
+    int ones=val - mul10(div);
+    val=div;
+    div=div10(val);
+    int tens=val - mul10(div);
+    val=div;
+    div=div10(val);
+    int hundreds=val - mul10(div);
+    out[wpos++]=(char)(div + '0');
+    out[wpos++]=(char)(hundreds + '0');
+    out[wpos++]=(char)(tens + '0');
+    out[wpos++]=(char)(ones + '0');
+  }
+  while (start < end) {
+    val=arr[start++];
+    if (neg)     val=9999 - val;
+    int div=div10(val);
+    int ones=val - mul10(div);
+    val=div;
+    div=div10(val);
+    int tens=val - mul10(div);
+    val=div;
+    div=div10(val);
+    int hundreds=val - mul10(div);
+    out[wpos++]=(char)(div + '0');
+    out[wpos++]=(char)(hundreds + '0');
+    out[wpos++]=(char)(tens + '0');
+    out[wpos++]=(char)(ones + '0');
+  }
+  return wpos - offset;
+}

@@ -1,0 +1,18 @@
+{
+  never304=conf.getBool(CACHE_PRE + "@never304",false);
+  etagSeed=conf.get(CACHE_PRE + "@etagSeed","Solr");
+  lastModFrom=LastModFrom.parse(conf.get(CACHE_PRE + "@lastModFrom","openTime"));
+  cacheControlHeader=conf.get(CACHE_PRE + "cacheControl",null);
+  Long tmp=null;
+  if (null != cacheControlHeader) {
+    try {
+      final Matcher ttlMatcher=MAX_AGE.matcher(cacheControlHeader);
+      final String ttlStr=ttlMatcher.find() ? ttlMatcher.group(1) : null;
+      tmp=(null != ttlStr && !"".equals(ttlStr)) ? Long.valueOf(ttlStr) : null;
+    }
+ catch (    Exception e) {
+      log.warn("Ignoring exception while attempting to " + "extract max-age from cacheControl config: " + cacheControlHeader,e);
+    }
+  }
+  maxAge=tmp;
+}

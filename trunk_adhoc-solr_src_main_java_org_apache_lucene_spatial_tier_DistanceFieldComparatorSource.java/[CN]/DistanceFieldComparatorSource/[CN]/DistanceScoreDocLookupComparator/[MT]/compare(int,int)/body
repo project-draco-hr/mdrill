@@ -1,0 +1,7 @@
+{
+  double a=values[slot1];
+  double b=values[slot2];
+  if (a > b)   return 1;
+  if (a < b)   return -1;
+  return 0;
+}
