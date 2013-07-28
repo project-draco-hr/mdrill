@@ -1,0 +1,6 @@
+{
+synchronized (this) {
+    this.write.flush();
+    this.write.sync();
+  }
+}
