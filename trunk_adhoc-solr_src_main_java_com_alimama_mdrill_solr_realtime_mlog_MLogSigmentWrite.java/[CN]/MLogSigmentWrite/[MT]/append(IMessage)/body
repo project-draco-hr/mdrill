@@ -1,5 +1,7 @@
 {
 synchronized (this) {
-    this.write.write(msg.getData());
+    byte[] d=msg.getData();
+    this.write.writeInt(d.length);
+    this.write.write(d);
   }
 }
