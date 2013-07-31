@@ -34,7 +34,7 @@
     }
     m_fps.setString(index++,colsName.toString());
     m_fps.setString(index++,colsType.toString());
-    m_fps.setString(index++,splitString);
+    m_fps.setString(index++,MakeIndex.parseSplit(splitString));
     m_fps.setString(index++,store + "/txt");
     m_fps.setString(index++,store + "/index");
     m_fps.setString(index++,"init");

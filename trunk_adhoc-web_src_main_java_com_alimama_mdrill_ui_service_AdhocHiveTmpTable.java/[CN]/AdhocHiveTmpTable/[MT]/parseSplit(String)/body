@@ -1,0 +1,6 @@
+{
+  if (split.equals("\001")) {
+    return "\\001";
+  }
+  return split;
+}

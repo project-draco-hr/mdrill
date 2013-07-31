@@ -14,6 +14,7 @@
   ResultSet res=stmt.executeQuery(sql);
   HashMap<String,String> rtn=new HashMap<String,String>();
   rtn.put("_exehql",sql);
+  boolean issetup=false;
   while (res.next()) {
     rtn.put("tableShowName",res.getString("tableShowName"));
     rtn.put("txtStorePath",res.getString("txtStorePath"));
@@ -21,7 +22,12 @@
     rtn.put("splitString",res.getString("splitString"));
     rtn.put("colsName",res.getString("colsName"));
     rtn.put("status",res.getString("status"));
+    rtn.put("splitString",res.getString("splitString"));
+    issetup=true;
   }
   m_fpsql.close();
+  if (!issetup) {
+    return null;
+  }
   return rtn;
 }

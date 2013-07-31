@@ -2,6 +2,9 @@
   if (this.isRealTime) {
     return false;
   }
+  if (this.isMergeServer) {
+    return false;
+  }
   boolean ischange=false;
   HashMap<String,Vertify> hdfsVertify=IndexUtils.readVertifyList(fs,hdfsIndexpath);
   HashMap<String,Vertify> localVertify=IndexUtils.readVertifyList(lfs,localIndexPath);

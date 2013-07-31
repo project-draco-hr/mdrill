@@ -15,5 +15,21 @@
     }
     queryStr=arr.toString();
   }
-  return queryStr.trim();
+  JSONArray jsonStr=new JSONArray(queryStr.trim());
+  JSONArray rtn=new JSONArray();
+  for (int i=0; i < jsonStr.length(); i++) {
+    JSONObject obj=jsonStr.getJSONObject(i);
+    if (obj.has("key")) {
+      JSONObject objnew=new JSONObject();
+      JSONObject objself=new JSONObject();
+      objself.put("operate",obj.get("operate"));
+      objself.put("value",obj.get("value"));
+      objnew.put(obj.getString("key"),objself);
+      rtn.put(objnew);
+    }
+ else {
+      rtn.put(obj);
+    }
+  }
+  return rtn.toString();
 }

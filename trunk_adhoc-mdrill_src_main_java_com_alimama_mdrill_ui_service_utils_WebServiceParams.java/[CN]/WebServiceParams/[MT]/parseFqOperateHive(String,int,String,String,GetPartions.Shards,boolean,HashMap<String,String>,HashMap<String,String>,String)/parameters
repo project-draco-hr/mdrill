@@ -1,0 +1,9 @@
+String part
+int operate
+String key
+String value2
+GetPartions.Shards shard
+boolean isPartionByPt
+HashMap<String,String> filetypeMap
+HashMap<String,String> colMap
+String tblname

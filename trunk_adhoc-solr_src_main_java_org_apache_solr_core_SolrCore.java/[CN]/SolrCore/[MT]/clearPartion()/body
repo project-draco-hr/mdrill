@@ -6,7 +6,11 @@ synchronized (listlock) {
     RefCounted<SolrIndexSearcher> refCount;
     while ((refCount=clearlist.poll()) != null) {
       if (refCount.getRefcount() <= 0 || nowtime - refCount.reftime > maxwaittime) {
-        refCount.get().close();
+        try {
+          refCount.get().close();
+        }
+ catch (        Throwable e) {
+        }
       }
  else {
         refull.add(refCount);

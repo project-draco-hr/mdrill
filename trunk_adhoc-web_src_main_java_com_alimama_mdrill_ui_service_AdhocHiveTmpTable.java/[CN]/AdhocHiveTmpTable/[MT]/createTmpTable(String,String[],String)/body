@@ -1,0 +1,18 @@
+{
+  StringBuffer buffer=new StringBuffer();
+  buffer.append("CREATE EXTERNAL TABLE IF NOT EXISTS " + tablename);
+  buffer.append(" (");
+  String joinchar="";
+  for (  String s : cols) {
+    buffer.append(joinchar);
+    buffer.append(s + " String ");
+    joinchar=",";
+  }
+  buffer.append(")");
+  buffer.append(" PARTITIONED BY (ppp string) ");
+  buffer.append(" ROW FORMAT DELIMITED ");
+  buffer.append(" FIELDS TERMINATED BY '" + parseSplit(split) + "' ");
+  buffer.append(" LINES TERMINATED BY '\\n' ");
+  buffer.append(" STORED AS TextFile ");
+  return buffer.toString();
+}
