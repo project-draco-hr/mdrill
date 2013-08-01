@@ -1,0 +1,18 @@
+{
+  if (memsize >= 0) {
+    return memsize;
+  }
+  memsize=0;
+  for (  Entry<Integer,ArrayList<JoinPair>> e : join.entrySet()) {
+    memsize+=INT_SIZE;
+    for (    JoinPair p : e.getValue()) {
+      memsize+=p.memsize();
+    }
+  }
+  for (  Entry<JoinTermNum,ArrayList<Integer>> e : joinRevert.entrySet()) {
+    memsize+=e.getKey().memsize();
+    memsize+=e.getValue().size() * INT_SIZE;
+  }
+  memsize+=(join.size() + joinRevert.size()) * INT_SIZE;
+  return memsize;
+}

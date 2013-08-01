@@ -7,7 +7,7 @@
   }
   if (blockdata == null) {
     block blk=new block(this.key,blockIndex);
-    blockdata=fieldValueCache.get(blk);
+    blockdata=(blockData)GrobalCache.fieldValueCache.get(blk);
     if (blockdata == null) {
       long end=this.length();
       int size=BLOCK_SIZE;
@@ -20,7 +20,7 @@ synchronized (this.descriptor.in) {
         this.descriptor.in.readBytes(blockdata.buff,0,size);
       }
       blockdata.allowFree.incrementAndGet();
-      fieldValueCache.put(blk,blockdata);
+      GrobalCache.fieldValueCache.put(blk,blockdata);
       createcount++;
     }
  else {

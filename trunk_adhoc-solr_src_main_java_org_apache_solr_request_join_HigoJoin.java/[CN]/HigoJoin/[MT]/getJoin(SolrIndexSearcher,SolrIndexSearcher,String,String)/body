@@ -1,5 +1,5 @@
 {
-  Cache<String,HigoJoin> cache=HigoJoin.fieldValueCache;
+  Cache<ILruMemSizeKey,ILruMemSizeCache> cache=GrobalCache.fieldValueCache;
   StringBuffer key=new StringBuffer();
   key.append(readerleft.getPartionKey());
   key.append("@");
@@ -13,13 +13,13 @@
   key.append("@");
   key.append(LuceneUtils.crcKey(readerright.getReader()));
   String cachekey=key.toString();
-  HigoJoin uif=cache.get(cachekey);
+  HigoJoin uif=(HigoJoin)cache.get(cachekey);
   if (uif == null) {
 synchronized (cache) {
-      uif=cache.get(cachekey);
+      uif=(HigoJoin)cache.get(cachekey);
       if (uif == null) {
         uif=new HigoJoin(readerleft,readerright,fieldLeft,fieldRigth);
-        cache.put(cachekey,uif);
+        cache.put(new GrobalCache.StringKey(cachekey),uif);
       }
     }
   }
