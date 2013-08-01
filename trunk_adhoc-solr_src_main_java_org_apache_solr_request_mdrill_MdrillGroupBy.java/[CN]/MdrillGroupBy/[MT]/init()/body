@@ -9,6 +9,7 @@
   this.crossFs=params.getParams(FacetParams.FACET_CROSS_FL);
   this.distFS=params.getParams(FacetParams.FACET_CROSSDIST_FL);
   this.joinList=params.getParams(HigoJoinUtils.getTables());
+  this.sort_column_type=params.get("facet.cross.sort.cp");
   if (this.joinList == null) {
     this.joinList=new String[0];
   }

@@ -1,0 +1,34 @@
+{
+  long t1=System.currentTimeMillis();
+  int sz=countsDetail.size();
+  final MergerDetailSelectDetailRowCompare cmp=new MergerDetailSelectDetailRowCompare(sort_column_type,isdesc);
+  if (sz <= (saverecords * 2)) {
+    SelectDetailRow[] arr=new SelectDetailRow[sz];
+    int index=0;
+    for (    SelectDetailRow f : countsDetail) {
+      arr[index]=f;
+      index++;
+    }
+    Arrays.sort(arr,cmp);
+    long t2=System.currentTimeMillis();
+    LOG.info("####merger sort#### by array sort size=" + sz + ",timetaken="+ (t2 - t1));
+    return arr;
+  }
+  PriorityQueue<SelectDetailRow> res=new PriorityQueue<SelectDetailRow>(saverecords,Collections.reverseOrder(cmp));
+  for (  SelectDetailRow f : countsDetail) {
+    SelectDetailRow mrow=f;
+    if (res.size() < saverecords) {
+      res.add(mrow);
+    }
+ else     if (cmp.compare(res.peek(),mrow) > 0) {
+      res.add(mrow);
+      res.poll();
+    }
+  }
+  SelectDetailRow[] rtn=new SelectDetailRow[res.size()];
+  res.toArray(rtn);
+  Arrays.sort(rtn,cmp);
+  long t2=System.currentTimeMillis();
+  LOG.info("####merger sort#### by PriorityQueue size=" + rtn.length + "@"+ sz+ ",timetaken="+ (t2 - t1));
+  return rtn;
+}

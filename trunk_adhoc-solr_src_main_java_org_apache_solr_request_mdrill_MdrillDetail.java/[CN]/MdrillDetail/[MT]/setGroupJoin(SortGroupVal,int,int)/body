@@ -18,7 +18,7 @@
           tmpb.groupbuff.append(UniqConfig.GroupJoinString());
           tmpb.groupbuff.append(EncodeUtils.encode(inv.getTermNumValue(group.list[i],i)));
           if (this.SelectDetailSort != null && (offset + i) == this.SelectDetailSort.offset) {
-            tmpb.sortString=inv.getTermNumValue(group.list[i],i);
+            tmpb.sortString=inv.getTermNumValue(group.list[this.SelectDetailSort.offset],i);
           }
         }
         tmp.add(tmpb);

@@ -1,4 +1,7 @@
 {
+  if (fl == null) {
+    return def;
+  }
   if (list != null) {
     for (int i=0; i < list.length; i++) {
       if (fl.equals(list[i])) {

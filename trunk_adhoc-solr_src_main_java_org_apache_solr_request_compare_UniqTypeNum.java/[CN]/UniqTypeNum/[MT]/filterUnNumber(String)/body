@@ -1,0 +1,10 @@
+{
+  String regEx="[^0-9]";
+  Pattern p=Pattern.compile(regEx);
+  Matcher m=p.matcher(str);
+  String rtn=m.replaceAll("").trim();
+  if (rtn.isEmpty()) {
+    return "0";
+  }
+  return rtn;
+}

@@ -1,0 +1,3 @@
+{
+  return compare(Double.parseDouble(filterUnNumber(value1)),Double.parseDouble(filterUnNumber(value2)));
+}

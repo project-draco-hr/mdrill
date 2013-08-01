@@ -42,10 +42,12 @@
     query.setParam("facet.cross.sort.desc",sortType.order);
     query.setParam("facet.cross.sort.fl",sortType.sortField);
     query.setParam("facet.cross.sort.tp",sortType.sortType);
+    query.setParam("facet.cross.sort.cp",sortType.cmptype);
   }
  else {
     query.setParam("facet.cross.sort.desc","true");
     query.setParam("facet.cross.sort.fl","higoempty_count_l");
     query.setParam("facet.cross.sort.tp","index");
+    query.setParam("facet.cross.sort.cp","tdouble");
   }
 }

@@ -1,0 +1,9 @@
+{
+  this.isdesc=_isdesc;
+  if (columntype.equals("string")) {
+    this.cmpobj=new CompareColumn();
+  }
+ else {
+    this.cmpobj=new CompareColumnNum();
+  }
+}

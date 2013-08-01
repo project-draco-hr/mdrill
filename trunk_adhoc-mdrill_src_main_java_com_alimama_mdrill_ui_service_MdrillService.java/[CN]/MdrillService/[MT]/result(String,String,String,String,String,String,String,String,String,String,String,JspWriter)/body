@@ -12,13 +12,13 @@
     LOG.info("query:" + logParams2);
     int start=WebServiceParams.parseStart(startStr);
     int rows=WebServiceParams.parseRows(rowsStr);
-    SortParam sortType=WebServiceParams.sort(sort,order);
     ArrayList<String> groupbyFields=WebServiceParams.groupFields(groupby);
     ArrayList<String> showFields=WebServiceParams.showFields(fl);
     HashSet<String> commonStatMap=new HashSet<String>();
     HashSet<String> distStatFieldMap=new HashSet<String>();
     WebServiceParams.setCrossStatMap(showFields,commonStatMap,distStatFieldMap);
     HashMap<String,String> fieldColumntypeMap=readFieldsFromSchemaXml(part.name);
+    SortParam sortType=WebServiceParams.sort(sort,order,fieldColumntypeMap);
     String[] cores=GetShards.get(part.name,false,10000);
     String[] ms=GetShards.get(part.name,true,10000);
     String[] partionsAll=GetPartions.get(queryStr,part.parttype);

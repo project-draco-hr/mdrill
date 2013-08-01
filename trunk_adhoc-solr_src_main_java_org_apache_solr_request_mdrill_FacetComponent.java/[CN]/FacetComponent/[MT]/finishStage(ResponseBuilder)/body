@@ -14,7 +14,7 @@
     NamedList fieldCounts=new NamedList();
     facet_fields.add(dff.getKey(),fieldCounts);
     int saverecords=dff.offset + dff.limit;
-    GroupbyItem[] counts=dff.getPairSorted(dff.joinSort,dff.facetFs,dff.crossFs,dff.distFS,dff.sort_fl,dff.sort_type,dff.isdesc,saverecords);
+    GroupbyItem[] counts=dff.getPairSorted(dff.sort_column_type,dff.joinSort,dff.facetFs,dff.crossFs,dff.distFS,dff.sort_fl,dff.sort_type,dff.isdesc,saverecords);
     if (dff.recordcount != null) {
       GroupbyItem recordcount=dff.recordcount;
       fieldCounts.add(recordcount.getKey(),recordcount.toNamedList());

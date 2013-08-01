@@ -1,7 +1,0 @@
-String part
-String queryStr
-GetPartions.Shards shard
-boolean isPartionByPt
-HashMap<String,String> filetypeMap
-HashMap<String,String> colMap
-String tblname

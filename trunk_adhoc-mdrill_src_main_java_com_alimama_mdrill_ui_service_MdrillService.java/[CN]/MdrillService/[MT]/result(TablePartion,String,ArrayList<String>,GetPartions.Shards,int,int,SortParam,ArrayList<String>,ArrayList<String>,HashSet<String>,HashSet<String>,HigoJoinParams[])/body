@@ -6,7 +6,7 @@
     if (groupbyFields.size() > 0) {
       int minstart=start;
       int maxEend=rows;
-      if (sortType.isnum) {
+      if (sortType.isStatNum) {
         minstart=start - 100;
         if (minstart < 0) {
           minstart=0;
@@ -29,7 +29,7 @@
           LOG.error("queryinfo_pre_exception",e2);
         }
       }
-      if (jsonObj.getString("code").equals("1") && sortType.isnum) {
+      if (jsonObj.getString("code").equals("1") && sortType.isStatNum) {
         JSONArray jsonArray=jsonObj.getJSONObject("data").getJSONArray("docs");
         ArrayList<JSONObject> results=new ArrayList<JSONObject>();
         boolean iscontains=true;
@@ -41,7 +41,7 @@
           results.add(obj);
         }
         final boolean isdesc=sortType.order.toLowerCase().equals("true");
-        if (sortType.isnum && iscontains && jsonObj.getLong("total") > (UniqConfig.defaultCrossMaxLimit() - 10)) {
+        if (sortType.isStatNum && iscontains && jsonObj.getLong("total") > (UniqConfig.defaultCrossMaxLimit() - 10)) {
           Collections.sort(results,new Comparator<JSONObject>(){
             @Override public int compare(            JSONObject o1,            JSONObject o2){
               int rtn=0;
