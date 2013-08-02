@@ -2,7 +2,7 @@
   String[] list=str.split(split);
   JSONArray rtn=new JSONArray();
   for (  String s : list) {
-    rtn.put(s);
+    rtn.put(s.trim().replaceAll("^'","").replaceAll("'$",""));
   }
   return rtn;
 }
