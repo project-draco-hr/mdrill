@@ -2,7 +2,7 @@
   IndexInput tii=(IndexInput)this.tiiInput.clone();
   IndexInput qtii=(IndexInput)this.quickTii.clone();
   int lo=0;
-  int hi=termInfoArr.length;
+  int hi=termInfoArr.length - 1;
   while (hi >= lo) {
     int mid=(lo + hi) >>> 1;
     int delta=compareTo(term,termBytesRef,mid,tii,qtii,new BytesRef());
