@@ -1,11 +1,11 @@
 {
   int termNum=this.uifleft.termNum(doc);
-  ArrayList<Integer> doclist=this.join.getRight(doc,termNum);
+  IntArr doclist=this.join.getRight(doc,termNum);
   if (doclist == null) {
     return null;
   }
-  ArrayList<Integer> filter=new ArrayList<Integer>(doclist.size());
-  for (  Integer docr : doclist) {
+  ArrayList<Integer> filter=new ArrayList<Integer>(doclist.list.length);
+  for (  Integer docr : doclist.list) {
     if (this.docset.exists(docr)) {
       filter.add(docr);
     }

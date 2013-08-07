@@ -19,7 +19,7 @@
     }
     return needRestart;
   }
- catch (  Exception e) {
+ catch (  Throwable e) {
     LOG.error(StormUtils.stringify_error(e));
     return false;
   }

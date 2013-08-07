@@ -1,23 +1,25 @@
 {
   Integer rtn=isdesc ? Integer.MIN_VALUE : Integer.MAX_VALUE;
   int termNum=this.uifleft.termNum(doc);
-  ArrayList<Integer> doclist=this.join.getRight(doc,termNum);
+  IntArr doclist=this.join.getRight(doc,termNum);
   if (doclist == null) {
-    return rtn;
+    return ufsRight.cols[offset].uif.getNullTm();
   }
-  ArrayList<Integer> filter=new ArrayList<Integer>(doclist.size());
-  for (  Integer docr : doclist) {
+  ArrayList<Integer> filter=new ArrayList<Integer>(doclist.list.length);
+  for (  Integer docr : doclist.list) {
     if (this.docset.exists(docr)) {
       filter.add(docr);
     }
   }
   int size=filter.size();
   if (size == 0) {
-    return rtn;
+    return ufsRight.cols[offset].uif.getNullTm();
   }
+  boolean isset=false;
   if (isdesc) {
     for (int i=0; i < size; i++) {
       UnvertFile uf=ufsRight.cols[offset];
+      isset=true;
       int rightdocid=filter.get(i);
       rtn=Math.max(uf.uif.termNum(rightdocid),rtn);
     }
@@ -25,9 +27,10 @@
  else {
     for (int i=0; i < size; i++) {
       UnvertFile uf=ufsRight.cols[offset];
+      isset=true;
       int rightdocid=filter.get(i);
       rtn=Math.min(uf.uif.termNum(rightdocid),rtn);
     }
   }
-  return rtn;
+  return isset ? rtn : ufsRight.cols[offset].uif.getNullTm();
 }

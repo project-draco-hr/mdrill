@@ -1,4 +1,5 @@
 {
+  queryStr=query(queryStr);
   ArrayList<String> fqList=new ArrayList<String>();
   JSONArray jsonStr=new JSONArray(queryStr.trim());
   for (int j=0; j < jsonStr.length(); j++) {

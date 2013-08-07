@@ -1,0 +1,3 @@
+{
+  return "JoinPair [termNum=" + termNum + ", left="+ Arrays.toString(left)+ "]";
+}

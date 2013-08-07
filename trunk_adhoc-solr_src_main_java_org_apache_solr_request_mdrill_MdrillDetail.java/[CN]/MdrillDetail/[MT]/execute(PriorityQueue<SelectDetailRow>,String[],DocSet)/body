@@ -2,21 +2,27 @@
   UnvertFields ufs=new UnvertFields(fields,searcher);
   UnvertFields sortufs=new UnvertFields(new String[]{this.sort_fl},searcher);
   this.joinInvert=new HigoJoinInvert[this.joinList.length];
-  this.joinSort=new HigoJoinSort[this.joinList.length];
+  HigoJoinSort[] joinSort=new HigoJoinSort[this.joinList.length];
   for (int i=0; i < this.joinList.length; i++) {
-    this.joinSort[i]=new HigoJoinSort(this.joinList[i],this.req);
+    joinSort[i]=new HigoJoinSort(this.joinList[i],this.req);
     this.joinInvert[i]=new HigoJoinInvert(this.joinList[i],this.searcher);
     this.joinInvert[i].open(this.req);
-    baseDocs=this.joinInvert[i].filterRight(baseDocs);
+    baseDocs=this.joinInvert[i].filterByRight(baseDocs);
   }
   this.SelectDetailSort=UniqTypeNum.parseSelectDetailType(fields,joinSort);
+  this.cmpTermNum=new ShardDetailSelectDetailRowCompare(isdesc);
   if (this.SelectDetailSort != null) {
     this.isNeedSort=true;
+    this.cmpresult=new ShardDetailSelectDetailRowStringCompare("string",isdesc);
+  }
+ else {
+    this.cmpresult=new ShardDetailSelectDetailRowStringCompare(this.sort_column_type,isdesc);
   }
   int groupbySize=ufs.length;
   for (  HigoJoinInvert inv : joinInvert) {
     groupbySize+=inv.fieldCount();
   }
+  this.nonJoins=this.joinInvert.length <= 0;
   PriorityQueue<SelectDetailRow> rtn=this.topRows(sortufs,ufs,res,fields,baseDocs);
   for (int i=0; i < this.joinList.length; i++) {
     this.joinInvert[i].close();

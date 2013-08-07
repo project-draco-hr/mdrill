@@ -3,13 +3,7 @@
   if (obj == null)   return false;
   if (getClass() != obj.getClass())   return false;
   JoinTermNum other=(JoinTermNum)obj;
-  if (leftId == null) {
-    if (other.leftId != null)     return false;
-  }
- else   if (!leftId.equals(other.leftId))   return false;
-  if (termNum == null) {
-    if (other.termNum != null)     return false;
-  }
- else   if (!termNum.equals(other.termNum))   return false;
+  if (leftId != other.leftId)   return false;
+  if (termNum != other.termNum)   return false;
   return true;
 }

@@ -1,0 +1,7 @@
+{
+  long memsize=8 + 8;
+  for (  JoinPair p : this.list) {
+    memsize+=p.memsize();
+  }
+  return memsize;
+}

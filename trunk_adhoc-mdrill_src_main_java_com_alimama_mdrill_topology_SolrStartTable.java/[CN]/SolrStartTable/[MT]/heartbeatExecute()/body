@@ -1,5 +1,10 @@
 {
-  boolean needRestart=this.sync(false);
+  rsyncExecute exe=new rsyncExecute(this,false);
+  EXECUTE.submit(exe);
+  while (!exe.isfinish() && !statcollect.isTimeout(900l * 1000)) {
+    Thread.sleep(1000l);
+  }
+  boolean needRestart=exe.isfinish() ? exe.result() : false;
   if (!needRestart) {
     this.checkSolr();
     if (!statcollect.getStat().equals(ShardsState.SERVICE)) {
@@ -8,7 +13,11 @@
   }
  else {
     this.stopService();
-    this.sync(false);
+    exe=new rsyncExecute(this,false);
+    EXECUTE.submit(exe);
+    while (!statcollect.isTimeout(900l * 1000)) {
+      Thread.sleep(1000l);
+    }
     this.startService();
   }
 }

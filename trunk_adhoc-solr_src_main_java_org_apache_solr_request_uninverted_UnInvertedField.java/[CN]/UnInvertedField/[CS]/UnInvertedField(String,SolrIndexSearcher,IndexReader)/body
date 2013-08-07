@@ -1,3 +1,36 @@
 {
-  uninvert(field,searcher,reader);
+  Directory cacheDir=searcher.getFieldcacheDir();
+  File file=null;
+  FileLock flout=null;
+  RandomAccessFile out=null;
+  FileChannel fcout=null;
+  try {
+    if (cacheDir != null && cacheDir instanceof FSDirectory) {
+      FSDirectory localdir=(FSDirectory)cacheDir;
+      file=new File(localdir.getDirectory(),"mdrill_uni_lock");
+      if (!file.exists()) {
+        file.createNewFile();
+      }
+      out=new RandomAccessFile(file,"rw");
+      fcout=out.getChannel();
+      flout=fcout.lock();
+    }
+    uninvert(field,searcher,reader);
+  }
+  finally {
+    try {
+      if (flout != null) {
+        flout.release();
+      }
+      if (fcout != null) {
+        fcout.close();
+      }
+      if (out != null) {
+        out.close();
+      }
+      out=null;
+    }
+ catch (    Exception e) {
+    }
+  }
 }

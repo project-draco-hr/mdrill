@@ -1,0 +1,15 @@
+{
+  if (memsize >= 0) {
+    return memsize;
+  }
+  memsize=64;
+  for (  Entry<Integer,JoinPariArr> e : join.entrySet()) {
+    memsize+=16;
+    memsize+=e.getValue().memsize();
+  }
+  for (  Entry<JoinTermNum,IntArr> e : joinRevert.entrySet()) {
+    memsize+=e.getKey().memsize();
+    memsize+=e.getValue().memsize();
+  }
+  return memsize;
+}

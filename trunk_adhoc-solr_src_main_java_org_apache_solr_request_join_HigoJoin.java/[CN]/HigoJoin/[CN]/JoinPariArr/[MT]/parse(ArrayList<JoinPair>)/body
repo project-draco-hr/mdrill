@@ -1,0 +1,10 @@
+{
+  JoinPariArr rtn=new JoinPariArr();
+  rtn.list=new JoinPair[d.size()];
+  int index=0;
+  for (  JoinPair v : d) {
+    rtn.list[index]=v;
+    index++;
+  }
+  return rtn;
+}

@@ -10,7 +10,7 @@
     boolean ischange=ischangeIndex || ischangeSolr;
     return ischange;
   }
- catch (  Exception e) {
+ catch (  Throwable e) {
     LOG.error(StormUtils.stringify_error(e));
     return false;
   }

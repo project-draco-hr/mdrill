@@ -1,7 +1,11 @@
 {
 synchronized (this.getThrLockObj()) {
     try {
-      this.sync(true);
+      rsyncExecute exe=new rsyncExecute(this,true);
+      EXECUTE.submit(exe);
+      while (!exe.isfinish() && !statcollect.isTimeout(600l * 1000)) {
+        Thread.sleep(1000l);
+      }
       this.startJetty();
       isInit.set(true);
       LOG.info("higolog table end:" + this.tablename);

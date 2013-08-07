@@ -1,50 +1,55 @@
 {
   DocIterator iter=baseDocs.iterator();
-  this.recordCount.inc(baseDocs.size());
   int doc=-1;
-  boolean isNumberVal=false;
   if (this.SelectDetailSort != null) {
-    double cmpValue=0;
+    int cmpValue=0;
     HigoJoinInvert inv=this.joinInvert[this.SelectDetailSort.sortIndex];
     while (iter.hasNext()) {
       doc=iter.nextDoc();
+      if (!this.joincontains(doc)) {
+        continue;
+      }
       cmpValue=inv.fieldNumTop(doc,this.SelectDetailSort.selfOffset,this.isdesc);
       SelectDetailRow row=SelectDetailRow.INSTANCE(doc,cmpValue);
       MdrillPorcessUtils.put2QueueDetail(row,res,this.limit_offset,this.cmpTermNum);
+      this.recordCount.inc(1);
     }
   }
  else   if (this.isNeedSort && sortufs.listIndex.length > 0) {
-    double cmpValue=0;
+    int cmpValue=0;
     UnvertFile uf=sortufs.cols[0];
     UnInvertedField cif=uf.uif;
-    boolean isnum=cif.dataType.equals(UnInvertedFieldUtils.Datatype.d_double) || cif.dataType.equals(UnInvertedFieldUtils.Datatype.d_long);
-    isNumberVal=!cif.isMultiValued && isnum;
-    if (isNumberVal) {
-      while (iter.hasNext()) {
-        doc=iter.nextDoc();
-        cmpValue=cif.quickToDouble(doc,uf.filetype,uf.ti);
-        SelectDetailRow row=SelectDetailRow.INSTANCE(doc,cmpValue);
-        MdrillPorcessUtils.put2QueueDetail(row,res,this.limit_offset,this.cmpTermNum);
+    while (iter.hasNext()) {
+      doc=iter.nextDoc();
+      if (!this.joincontains(doc)) {
+        continue;
       }
-    }
- else {
-      while (iter.hasNext()) {
-        doc=iter.nextDoc();
-        cmpValue=cif.termNum(doc);
-        SelectDetailRow row=SelectDetailRow.INSTANCE(doc,cmpValue);
-        MdrillPorcessUtils.put2QueueDetail(row,res,this.limit_offset,this.cmpTermNum);
-      }
+      cmpValue=cif.termNum(doc);
+      SelectDetailRow row=SelectDetailRow.INSTANCE(doc,cmpValue);
+      MdrillPorcessUtils.put2QueueDetail(row,res,this.limit_offset,this.cmpTermNum);
+      this.recordCount.inc(1);
     }
   }
  else {
     while (iter.hasNext()) {
       doc=iter.nextDoc();
+      if (!this.joincontains(doc)) {
+        continue;
+      }
       SelectDetailRow row=SelectDetailRow.INSTANCE(doc,doc);
       MdrillPorcessUtils.put2QueueDetail(row,res,this.limit_offset,this.cmpTermNum);
+      this.recordCount.inc(1);
       if (res.size() >= this.limit_offset) {
         break;
       }
     }
+    while (iter.hasNext()) {
+      doc=iter.nextDoc();
+      if (!this.joincontains(doc)) {
+        continue;
+      }
+      this.recordCount.inc(1);
+    }
   }
-  return this.transGroupValue(ufs,res,sortufs,isNumberVal);
+  return this.transGroupValue(ufs,res,sortufs);
 }

@@ -11,7 +11,11 @@
  else {
     neetRestart.set(false);
     this.stopJetty();
-    this.sync(false);
+    rsyncExecute exe=new rsyncExecute(this,false);
+    EXECUTE.submit(exe);
+    while (!exe.isfinish() && !statcollect.isTimeout(600l * 1000)) {
+      Thread.sleep(1000l);
+    }
     this.startJetty();
   }
   this.statcollect.setLastTime(System.currentTimeMillis());

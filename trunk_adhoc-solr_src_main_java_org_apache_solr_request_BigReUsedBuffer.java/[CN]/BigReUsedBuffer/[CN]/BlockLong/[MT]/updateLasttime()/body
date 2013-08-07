@@ -1,3 +1,0 @@
-{
-  this.lasttime=System.currentTimeMillis();
-}

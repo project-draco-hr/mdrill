@@ -56,20 +56,18 @@
       isStat=false;
     }
   }
-  if (sort != null && !sort.equals("")) {
-    if (order == null || order.equals("")) {
+  if (order == null || order.equals("")) {
+    order="true";
+  }
+ else {
+    if (order.equals("desc")) {
       order="true";
     }
+ else     if (order.equals("asc")) {
+      order="false";
+    }
  else {
-      if (order.equals("desc")) {
-        order="true";
-      }
- else       if (order.equals("asc")) {
-        order="false";
-      }
- else {
-        order="true";
-      }
+      order="true";
     }
   }
   if (sortField == null) {
