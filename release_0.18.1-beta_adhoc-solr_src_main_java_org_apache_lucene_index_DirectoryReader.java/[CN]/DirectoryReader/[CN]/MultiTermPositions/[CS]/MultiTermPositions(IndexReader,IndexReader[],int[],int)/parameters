@@ -1,0 +1,4 @@
+IndexReader topReader
+IndexReader[] r
+int[] s
+int buffer

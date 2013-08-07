@@ -1,0 +1,6 @@
+{
+  if (this.currReader != null) {
+    return this.currReader.getPos();
+  }
+  return this.minStart;
+}

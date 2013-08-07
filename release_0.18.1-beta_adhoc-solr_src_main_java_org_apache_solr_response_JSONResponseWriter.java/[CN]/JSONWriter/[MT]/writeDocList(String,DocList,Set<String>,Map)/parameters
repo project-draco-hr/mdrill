@@ -1,0 +1,4 @@
+String name
+DocList ids
+Set<String> fields
+Map otherFields

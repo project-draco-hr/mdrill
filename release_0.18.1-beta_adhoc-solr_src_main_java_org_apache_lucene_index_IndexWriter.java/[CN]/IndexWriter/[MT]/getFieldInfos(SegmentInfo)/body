@@ -1,0 +1,17 @@
+{
+  Directory cfsDir=null;
+  try {
+    if (info.getUseCompoundFile()) {
+      cfsDir=new CompoundFileReader(directory,IndexFileNames.segmentFileName(info.name,IndexFileNames.COMPOUND_FILE_EXTENSION),IndexFileNames.segmentFileName(info.name,IndexFileNames.COMPOUND_FILE_EXTENSION_POS));
+    }
+ else {
+      cfsDir=directory;
+    }
+    return new FieldInfos(cfsDir,IndexFileNames.segmentFileName(info.name,IndexFileNames.FIELD_INFOS_EXTENSION));
+  }
+  finally {
+    if (info.getUseCompoundFile() && cfsDir != null) {
+      cfsDir.close();
+    }
+  }
+}

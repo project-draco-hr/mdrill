@@ -1,0 +1,4 @@
+{
+  this.len=len;
+  return this;
+}

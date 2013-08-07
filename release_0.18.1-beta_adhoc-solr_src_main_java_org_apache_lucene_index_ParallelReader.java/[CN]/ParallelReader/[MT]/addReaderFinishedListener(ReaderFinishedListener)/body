@@ -1,0 +1,6 @@
+{
+  super.addReaderFinishedListener(listener);
+  for (  IndexReader reader : readers) {
+    reader.addReaderFinishedListener(listener);
+  }
+}

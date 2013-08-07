@@ -1,0 +1,4 @@
+{
+  this.docsPerGroupDefault=docsPerGroupDefault;
+  return this;
+}

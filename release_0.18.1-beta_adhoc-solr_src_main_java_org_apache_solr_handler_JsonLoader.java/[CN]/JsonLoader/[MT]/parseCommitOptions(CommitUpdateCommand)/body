@@ -1,0 +1,29 @@
+{
+  assertNextEvent(JSONParser.OBJECT_START);
+  while (true) {
+    int ev=parser.nextEvent();
+    if (ev == JSONParser.STRING) {
+      String key=parser.getString();
+      if (parser.wasKey()) {
+        if (XmlUpdateRequestHandler.WAIT_SEARCHER.equals(key)) {
+          cmd.waitSearcher=parser.getBoolean();
+        }
+ else         if (XmlUpdateRequestHandler.WAIT_FLUSH.equals(key)) {
+          cmd.waitFlush=parser.getBoolean();
+        }
+ else {
+          throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,"Unknown key: " + key + " ["+ parser.getPosition()+ "]");
+        }
+      }
+ else {
+        throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,"invalid string: " + key + " at ["+ parser.getPosition()+ "]");
+      }
+    }
+ else     if (ev == JSONParser.OBJECT_END) {
+      return;
+    }
+ else {
+      throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,"Got: " + JSONParser.getEventString(ev) + " at ["+ parser.getPosition()+ "]");
+    }
+  }
+}

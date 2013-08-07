@@ -1,0 +1,3 @@
+{
+  return getBean(clazz,null,solrDoc);
+}

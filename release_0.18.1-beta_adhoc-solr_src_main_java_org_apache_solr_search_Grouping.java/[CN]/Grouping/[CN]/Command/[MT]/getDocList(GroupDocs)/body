@@ -1,0 +1,28 @@
+{
+  int max=groups.totalHits;
+  int off=groupOffset;
+  int len=docsPerGroup;
+  if (format == Format.simple) {
+    off=offset;
+    len=numGroups;
+  }
+  int docsToCollect=getMax(off,len,max);
+  int docsCollected=Math.min(docsToCollect,groups.scoreDocs.length);
+  int ids[]=new int[docsCollected];
+  float[] scores=needScores ? new float[docsCollected] : null;
+  for (int i=0; i < ids.length; i++) {
+    ids[i]=groups.scoreDocs[i].doc;
+    if (scores != null)     scores[i]=groups.scoreDocs[i].score;
+  }
+  float score=groups.maxScore;
+  maxScore=Math.max(maxScore,score);
+  double sum2=groups.sum;
+  double max2=groups.max;
+  double min2=groups.min;
+  DocSlice docs=new DocSlice(off,Math.max(0,ids.length - off),ids,scores,groups.totalHits,score,sum2,max2,min2);
+  if (getDocList) {
+    DocIterator iter=docs.iterator();
+    while (iter.hasNext())     idSet.add(iter.nextDoc());
+  }
+  return docs;
+}

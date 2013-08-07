@@ -1,0 +1,16 @@
+{
+  ensureOpen();
+  TermDocs docs=termDocs(term,-1);
+  if (docs == null)   return 0;
+  int n=0;
+  try {
+    while (docs.next()) {
+      deleteDocument(docs.doc());
+      n++;
+    }
+  }
+  finally {
+    docs.close();
+  }
+  return n;
+}

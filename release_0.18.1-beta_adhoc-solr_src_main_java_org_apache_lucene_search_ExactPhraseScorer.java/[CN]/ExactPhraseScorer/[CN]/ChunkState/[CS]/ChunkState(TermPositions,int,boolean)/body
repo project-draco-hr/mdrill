@@ -1,0 +1,5 @@
+{
+  this.posEnum=posEnum;
+  this.offset=offset;
+  this.useAdvance=useAdvance;
+}

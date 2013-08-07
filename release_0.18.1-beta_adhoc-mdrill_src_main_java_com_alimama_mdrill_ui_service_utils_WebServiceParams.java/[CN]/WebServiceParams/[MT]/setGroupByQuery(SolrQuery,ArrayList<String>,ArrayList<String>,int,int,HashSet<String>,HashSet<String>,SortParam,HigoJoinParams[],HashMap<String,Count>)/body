@@ -1,0 +1,53 @@
+{
+  query.setParam("start","0");
+  query.setParam("rows","0");
+  for (  String s : fqList) {
+    query.addFilterQuery(s);
+  }
+  query.setQuery("*:*");
+  query.setFacet(true);
+  query.setFacetSort("index");
+  query.setParam("facet.cross","true");
+  query.setParam("facet.cross.join",UniqConfig.GroupJoinString());
+  query.setParam("facet.cross.offset","" + start);
+  query.setParam("facet.cross.limit","" + rows);
+  if (realFieldMap.size() > 0) {
+    query.setParam(FacetParams.FACET_CROSS_FL,realFieldMap.toArray(new String[realFieldMap.size()]));
+  }
+  if (realDistFieldMap.size() > 0) {
+    query.setParam(FacetParams.FACET_CROSSDIST_FL,realDistFieldMap.toArray(new String[realDistFieldMap.size()]));
+  }
+  for (  String gf : groupFields) {
+    query.addFacetField(gf);
+  }
+  if (groupValueCache != null) {
+    for (    String g : groupValueCache.keySet()) {
+      query.add(FacetParams.FACET_CROSS_FL_PRE_GROUPS,g);
+    }
+  }
+  for (  HigoJoinParams p : joins) {
+    query.add(HigoJoinUtils.getTables(),p.tablename);
+    query.add(HigoJoinUtils.getPath(p.tablename),p.hdfsPath);
+    query.add(HigoJoinUtils.getLeftField(p.tablename),p.leftkey);
+    query.add(HigoJoinUtils.getRightField(p.tablename),p.rightkey);
+    for (    String fl : p.fl) {
+      query.add(HigoJoinUtils.getFields(p.tablename),fl);
+    }
+    for (    String fq : p.fq) {
+      query.add(HigoJoinUtils.getFq(p.tablename),fq);
+    }
+    query.add(HigoJoinUtils.getsortField(p.tablename),p.sort);
+  }
+  if (sortType.sortField != null && !sortType.sortField.equals("")) {
+    query.setParam("facet.cross.sort.desc",sortType.order);
+    query.setParam("facet.cross.sort.fl",sortType.sortField);
+    query.setParam("facet.cross.sort.tp",sortType.sortType);
+    query.setParam("facet.cross.sort.cp",sortType.cmptype);
+  }
+ else {
+    query.setParam("facet.cross.sort.desc",sortType.order);
+    query.setParam("facet.cross.sort.fl","higoempty_sort_s");
+    query.setParam("facet.cross.sort.tp","index");
+    query.setParam("facet.cross.sort.cp","string");
+  }
+}

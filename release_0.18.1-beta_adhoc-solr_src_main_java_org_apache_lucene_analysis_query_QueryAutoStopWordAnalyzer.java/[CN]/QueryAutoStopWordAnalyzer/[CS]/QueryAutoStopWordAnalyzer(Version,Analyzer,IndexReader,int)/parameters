@@ -1,0 +1,4 @@
+Version matchVersion
+Analyzer delegate
+IndexReader indexReader
+int maxDocFreq

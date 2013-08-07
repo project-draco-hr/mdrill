@@ -1,0 +1,18 @@
+{
+  label=other.label;
+  target=other.target;
+  flags=other.flags;
+  output=other.output;
+  nextFinalOutput=other.nextFinalOutput;
+  nextArc=other.nextArc;
+  if (other.bytesPerArc != 0) {
+    bytesPerArc=other.bytesPerArc;
+    posArcsStart=other.posArcsStart;
+    arcIdx=other.arcIdx;
+    numArcs=other.numArcs;
+  }
+ else {
+    bytesPerArc=0;
+  }
+  return this;
+}

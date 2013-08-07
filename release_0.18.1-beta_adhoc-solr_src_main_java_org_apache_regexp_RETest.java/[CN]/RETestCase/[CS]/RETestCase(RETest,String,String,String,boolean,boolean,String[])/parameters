@@ -1,0 +1,7 @@
+RETest test
+String tag
+String pattern
+String toMatch
+boolean badPattern
+boolean shouldMatch
+String[] parens

@@ -1,0 +1,3 @@
+{
+  this(new SolrResourceLoader(instanceDir),name,is);
+}

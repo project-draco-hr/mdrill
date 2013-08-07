@@ -1,0 +1,9 @@
+{
+  IndexReader r=in.reopen(openReadOnly);
+  if (r == in) {
+    return this;
+  }
+  SolrIndexReader sr=new SolrIndexReader(r,null,0);
+  sr.associateInfo(this);
+  return sr;
+}

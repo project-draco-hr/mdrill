@@ -1,0 +1,22 @@
+{
+  int k;
+  if (p == 0) {
+    return;
+  }
+  if (sc[p] == 0xFFFF) {
+    k=map.find(kv.getArray(),lo[p]);
+    if (k < 0) {
+      k=kx.alloc(strlen(kv.getArray(),lo[p]) + 1);
+      strcpy(kx.getArray(),k,kv.getArray(),lo[p]);
+      map.insert(kx.getArray(),k,(char)k);
+    }
+    lo[p]=(char)k;
+  }
+ else {
+    compact(kx,map,lo[p]);
+    if (sc[p] != 0) {
+      compact(kx,map,eq[p]);
+    }
+    compact(kx,map,hi[p]);
+  }
+}

@@ -1,0 +1,6 @@
+{
+  if (needToLoadPayload && payloadLength > 0) {
+    proxStream.seek(proxStream.getFilePointer() + payloadLength);
+  }
+  needToLoadPayload=false;
+}

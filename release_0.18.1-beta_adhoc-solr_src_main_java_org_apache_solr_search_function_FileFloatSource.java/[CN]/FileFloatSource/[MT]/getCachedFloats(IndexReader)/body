@@ -1,0 +1,3 @@
+{
+  return (float[])floatCache.get(reader,new Entry(this));
+}

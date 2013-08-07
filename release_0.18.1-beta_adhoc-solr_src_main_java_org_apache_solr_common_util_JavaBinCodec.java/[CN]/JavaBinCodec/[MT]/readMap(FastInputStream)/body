@@ -1,0 +1,10 @@
+{
+  int sz=readVInt(dis);
+  Map m=new LinkedHashMap();
+  for (int i=0; i < sz; i++) {
+    Object key=readVal(dis);
+    Object val=readVal(dis);
+    m.put(key,val);
+  }
+  return m;
+}

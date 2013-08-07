@@ -1,0 +1,3 @@
+{
+  return compareStrNum(EncodeUtils.decode(value1),EncodeUtils.decode(value2));
+}

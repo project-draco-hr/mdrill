@@ -1,0 +1,5 @@
+{
+  ensureOpen();
+  if (infoStream != null)   message("setMaxBufferedDeleteTerms " + maxBufferedDeleteTerms);
+  config.setMaxBufferedDeleteTerms(maxBufferedDeleteTerms);
+}

@@ -1,0 +1,6 @@
+{
+  this.terms=terms;
+  this.numTokens=numTokens;
+  this.numOverlapTokens=numOverlapTokens;
+  this.boost=boost;
+}

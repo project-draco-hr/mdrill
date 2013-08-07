@@ -1,0 +1,14 @@
+{
+  String stormroot=StormConfig.masterStormdistRoot(conf,stormId);
+  Map stormconf=null;
+  try {
+    stormconf=(Map)Utils.deserialize(FileUtils.readFileToByteArray(new File(StormConfig.masterStormconfPath(stormroot))));
+  }
+ catch (  IOException e) {
+    LOG.error(e + "readStormConf exception");
+  }
+  Map rtn=new HashMap();
+  rtn.putAll(conf);
+  rtn.putAll(stormconf);
+  return rtn;
+}

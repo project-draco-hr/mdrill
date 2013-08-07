@@ -1,0 +1,4 @@
+{
+  termLength=0;
+  return this;
+}

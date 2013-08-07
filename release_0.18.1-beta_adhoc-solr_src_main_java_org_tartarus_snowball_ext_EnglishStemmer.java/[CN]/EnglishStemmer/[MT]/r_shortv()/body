@@ -1,0 +1,31 @@
+{
+  int v_1;
+  lab0:   do {
+    v_1=limit - cursor;
+    lab1:     do {
+      if (!(out_grouping_b(g_v_WXY,89,121))) {
+        break lab1;
+      }
+      if (!(in_grouping_b(g_v,97,121))) {
+        break lab1;
+      }
+      if (!(out_grouping_b(g_v,97,121))) {
+        break lab1;
+      }
+      break lab0;
+    }
+ while (false);
+    cursor=limit - v_1;
+    if (!(out_grouping_b(g_v,97,121))) {
+      return false;
+    }
+    if (!(in_grouping_b(g_v,97,121))) {
+      return false;
+    }
+    if (cursor > limit_backward) {
+      return false;
+    }
+  }
+ while (false);
+  return true;
+}

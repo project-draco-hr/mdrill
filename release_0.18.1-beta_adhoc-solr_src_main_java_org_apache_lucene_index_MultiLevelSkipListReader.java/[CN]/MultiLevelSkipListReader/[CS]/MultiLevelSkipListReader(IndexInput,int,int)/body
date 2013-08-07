@@ -1,0 +1,15 @@
+{
+  this.skipStream=new IndexInput[maxSkipLevels];
+  this.skipPointer=new long[maxSkipLevels];
+  this.childPointer=new long[maxSkipLevels];
+  this.numSkipped=new int[maxSkipLevels];
+  this.maxNumberOfSkipLevels=maxSkipLevels;
+  this.skipInterval=new int[maxSkipLevels];
+  this.skipStream[0]=skipStream;
+  this.inputIsBuffered=(skipStream instanceof BufferedIndexInput);
+  this.skipInterval[0]=skipInterval;
+  for (int i=1; i < maxSkipLevels; i++) {
+    this.skipInterval[i]=this.skipInterval[i - 1] * skipInterval;
+  }
+  skipDoc=new int[maxSkipLevels];
+}

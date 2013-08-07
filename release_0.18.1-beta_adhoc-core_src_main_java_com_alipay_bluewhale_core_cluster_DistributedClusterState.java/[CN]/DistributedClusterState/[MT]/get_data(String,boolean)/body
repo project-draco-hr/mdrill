@@ -1,0 +1,10 @@
+{
+  byte[] bytes=null;
+  try {
+    bytes=zkobj.getData(zk,path,watch);
+  }
+ catch (  Exception e) {
+    LOG.error("get_data",e);
+  }
+  return bytes;
+}

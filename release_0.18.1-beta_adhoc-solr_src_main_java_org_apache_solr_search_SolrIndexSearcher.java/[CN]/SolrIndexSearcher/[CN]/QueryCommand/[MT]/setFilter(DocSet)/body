@@ -1,0 +1,7 @@
+{
+  if (filterList != null) {
+    throw new IllegalArgumentException("Either filter or filterList may be set in the QueryCommand, but not both.");
+  }
+  this.filter=filter;
+  return this;
+}

@@ -1,0 +1,5 @@
+{
+  setSpellIndex(spellIndex);
+  setStringDistance(sd);
+  this.comparator=comparator;
+}

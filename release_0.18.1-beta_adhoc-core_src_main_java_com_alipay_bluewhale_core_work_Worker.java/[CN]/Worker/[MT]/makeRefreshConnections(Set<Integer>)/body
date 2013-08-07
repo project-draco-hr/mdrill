@@ -1,0 +1,5 @@
+{
+  Set<Integer> outboundTasks=WorkCommon.worker_outbound_tasks(tasksToComponent,systemContext,task_ids);
+  RefreshConnections refresh_connections=new RefreshConnections(active,conf,zkCluster,topologyId,outboundTasks,nodeportSocket,mqContext,taskNodeport);
+  return refresh_connections;
+}

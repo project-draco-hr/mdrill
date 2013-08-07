@@ -1,0 +1,5 @@
+{
+  if (length > termBuffer.length)   throw new IllegalArgumentException("length " + length + " exceeds the size of the termBuffer ("+ termBuffer.length+ ")");
+  termLength=length;
+  return this;
+}

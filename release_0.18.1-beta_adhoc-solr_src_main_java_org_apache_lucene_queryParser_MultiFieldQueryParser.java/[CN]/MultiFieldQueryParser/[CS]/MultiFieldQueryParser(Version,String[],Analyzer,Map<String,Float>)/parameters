@@ -1,0 +1,4 @@
+Version matchVersion
+String[] fields
+Analyzer analyzer
+Map<String,Float> boosts

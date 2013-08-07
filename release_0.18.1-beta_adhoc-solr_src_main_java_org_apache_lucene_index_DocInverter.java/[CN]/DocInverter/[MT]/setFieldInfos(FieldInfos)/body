@@ -1,0 +1,5 @@
+{
+  super.setFieldInfos(fieldInfos);
+  consumer.setFieldInfos(fieldInfos);
+  endConsumer.setFieldInfos(fieldInfos);
+}

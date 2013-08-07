@@ -1,0 +1,27 @@
+{
+  Throwable error=null;
+  for (int i=0; i < 10; i++) {
+    error=null;
+    try {
+      writer.optimize();
+      return;
+    }
+ catch (    CorruptIndexException e) {
+      logger.error("optimize Corrupt Index error. ",e);
+      error=e;
+    }
+catch (    IOException e) {
+      logger.error("optimize IOException . ",e);
+      error=e;
+    }
+    try {
+      Thread.sleep(5000);
+    }
+ catch (    InterruptedException e) {
+      logger.error(e);
+    }
+  }
+  if (error != null) {
+    throw new IOException(error);
+  }
+}

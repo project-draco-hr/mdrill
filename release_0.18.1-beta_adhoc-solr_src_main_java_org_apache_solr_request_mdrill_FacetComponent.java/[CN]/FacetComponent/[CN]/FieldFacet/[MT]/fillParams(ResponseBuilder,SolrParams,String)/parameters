@@ -1,0 +1,3 @@
+ResponseBuilder rb
+SolrParams params
+String field

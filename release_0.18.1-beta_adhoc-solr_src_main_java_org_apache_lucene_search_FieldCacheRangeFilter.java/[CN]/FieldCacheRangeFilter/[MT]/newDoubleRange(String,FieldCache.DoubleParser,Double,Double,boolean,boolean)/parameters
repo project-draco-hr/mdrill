@@ -1,0 +1,6 @@
+String field
+FieldCache.DoubleParser parser
+Double lowerVal
+Double upperVal
+boolean includeLower
+boolean includeUpper

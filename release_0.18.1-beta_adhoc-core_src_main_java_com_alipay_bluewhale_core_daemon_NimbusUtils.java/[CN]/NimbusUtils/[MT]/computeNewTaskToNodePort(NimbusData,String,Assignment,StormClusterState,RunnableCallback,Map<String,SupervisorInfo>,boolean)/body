@@ -1,0 +1,123 @@
+{
+  ConcurrentHashMap<String,Map<Integer,Map<TkHbCacheTime,Integer>>> taskHeartbeatsCache=data.getTaskHeartbeatsCache();
+  Map<?,?> topology_conf=readStormConf(data.getConf(),topologyid);
+  Set<NodePort> availableSlots=availableSlots(supInfos,stormClusterState,callback);
+  Set<Integer> allTaskIds=StormUtils.listToSet(stormClusterState.task_ids(topologyid));
+  Map<NodePort,List<Integer>> existingAssigned=new HashMap<NodePort,List<Integer>>();
+  if (existingAssignment != null) {
+    existingAssigned=StormUtils.reverse_map(existingAssignment.getTaskToNodeport());
+  }
+  Set<Integer> aliveIds=null;
+  if (isScratch) {
+    aliveIds=allTaskIds;
+  }
+ else   if (existingAssignment != null) {
+    aliveIds=aliveTasks(data.getConf(),topologyid,stormClusterState,allTaskIds,existingAssignment.getTaskStartTimeSecs(),taskHeartbeatsCache);
+  }
+  Map<NodePort,List<Integer>> aliveAssigned=new HashMap<NodePort,List<Integer>>();
+  if (existingAssignment != null) {
+    Set<Entry<NodePort,List<Integer>>> existingAssignedEntrySet=existingAssigned.entrySet();
+    for (Iterator<Entry<NodePort,List<Integer>>> it=existingAssignedEntrySet.iterator(); it.hasNext(); ) {
+      Entry<NodePort,List<Integer>> entry=it.next();
+      Set<Integer> taskids=StormUtils.listToSet(entry.getValue());
+      if (aliveIds != null && aliveIds.containsAll(taskids)) {
+        aliveAssigned.put(entry.getKey(),entry.getValue());
+      }
+    }
+  }
+  Integer workers=0;
+  if (topology_conf.get(Config.TOPOLOGY_WORKERS) instanceof Long) {
+    Long tmp=(Long)topology_conf.get(Config.TOPOLOGY_WORKERS);
+    workers=Integer.parseInt(tmp.toString());
+  }
+ else {
+    workers=(Integer)topology_conf.get(Config.TOPOLOGY_WORKERS);
+  }
+  int totalSlotsToUse=Math.min(workers,availableSlots.size() + aliveAssigned.size());
+  Map<NodePort,List<Integer>> keepAssigned=null;
+  if (!isScratch && allTaskIds != null) {
+    keepAssigned=keeperSlots(aliveAssigned,allTaskIds.size(),totalSlotsToUse);
+  }
+  int reassign_num=totalSlotsToUse;
+  if (keepAssigned != null) {
+    Set<Entry<NodePort,List<Integer>>> entrySet=keepAssigned.entrySet();
+    for (Iterator<Entry<NodePort,List<Integer>>> it=entrySet.iterator(); it.hasNext(); ) {
+      Entry<NodePort,List<Integer>> entry=it.next();
+      aliveAssigned.remove(entry.getKey());
+    }
+    reassign_num=totalSlotsToUse - keepAssigned.size();
+  }
+  Set<NodePort> freedSlots=new HashSet<NodePort>();
+  Set<NodePort> freedSlotstmp=aliveAssigned.keySet();
+  if (freedSlotstmp.size() == 0) {
+    freedSlotstmp=new HashSet<NodePort>();
+  }
+  freedSlots.addAll(freedSlotstmp);
+  freedSlots.addAll(availableSlots);
+  List<NodePort> reassignSlots=null;
+  IAssignment customAssignment=CustomAssignment.getAssignmentInstance(topology_conf);
+  if (customAssignment != null) {
+    customAssignment.setup(topology_conf,topologyid,stormClusterState,keepAssigned,supInfos);
+  }
+  Collection<List<Integer>> keepAssignedTaskSet=null;
+  if (keepAssigned != null) {
+    keepAssignedTaskSet=keepAssigned.values();
+  }
+  Set<Integer> reassignIds=null;
+  if (allTaskIds != null) {
+    reassignIds=new HashSet<Integer>(allTaskIds);
+  }
+  if (keepAssignedTaskSet != null && reassignIds != null) {
+    for (    List<Integer> rm : keepAssignedTaskSet) {
+      reassignIds.removeAll(rm);
+    }
+  }
+  Map<Integer,NodePort> reassignment=new HashMap<Integer,NodePort>();
+  List<NodePort> sortedFreeSlots=sortSlots(freedSlots);
+  if (customAssignment != null) {
+    reassignSlots=customAssignment.slotsAssignment(sortedFreeSlots,reassign_num,reassignIds);
+  }
+ else {
+    if (sortedFreeSlots != null) {
+      reassignSlots=sortedFreeSlots.subList(0,reassign_num);
+    }
+  }
+  if (customAssignment != null) {
+    reassignment=customAssignment.tasksAssignment(reassignSlots,reassignIds);
+  }
+ else {
+    int index=0;
+    if (reassignIds != null && reassignSlots != null && reassignSlots.size() != 0) {
+      for (Iterator<Integer> it=reassignIds.iterator(); it.hasNext(); ) {
+        Integer entry=it.next();
+        if (index >= reassignSlots.size()) {
+          index=0;
+        }
+        reassignment.put(entry,reassignSlots.get(index));
+        index++;
+      }
+    }
+  }
+  Map<Integer,NodePort> stayAssignment=new HashMap<Integer,NodePort>();
+  if (keepAssigned != null) {
+    Set<Entry<NodePort,List<Integer>>> keepAssignedEntrySet=keepAssigned.entrySet();
+    for (Iterator<Entry<NodePort,List<Integer>>> it=keepAssignedEntrySet.iterator(); it.hasNext(); ) {
+      Entry<NodePort,List<Integer>> entry=it.next();
+      List<Integer> tasks=entry.getValue();
+      NodePort np=entry.getKey();
+      for (      Integer taskid : tasks) {
+        stayAssignment.put(taskid,np);
+      }
+    }
+  }
+  if (reassignment.size() > 0) {
+    LOG.info("Reassigning " + topologyid + " to "+ totalSlotsToUse+ " slots isScratch="+ isScratch+ ",totalSlotsToUse="+ totalSlotsToUse);
+    LOG.info("Reassign ids: " + reassignIds + ",keepAssigned="+ keepAssigned+ ",existingAssigned="+ existingAssigned+ ",keepAssigned="+ keepAssigned);
+    LOG.info("Available slots: " + availableSlots);
+  }
+  reassignment.putAll(stayAssignment);
+  if (customAssignment != null) {
+    customAssignment.cleanup();
+  }
+  return reassignment;
+}

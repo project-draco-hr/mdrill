@@ -1,0 +1,4 @@
+{
+  super.init(args);
+  maxTokenCount=Integer.parseInt(args.get("maxTokenCount"));
+}

@@ -1,0 +1,6 @@
+{
+  if (subType != null) {
+    SchemaField proto=registerPolyFieldDynamicPrototype(schema,subType);
+    dynFieldProps=proto.getProperties();
+  }
+}

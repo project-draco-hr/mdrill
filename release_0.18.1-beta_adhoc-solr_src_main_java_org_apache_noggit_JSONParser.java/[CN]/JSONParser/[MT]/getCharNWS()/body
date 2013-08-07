@@ -1,0 +1,6 @@
+{
+  for (; ; ) {
+    int ch=getChar();
+    if (!(ch == ' ' || ch == '\t' || ch == '\n' || ch == '\r'))     return ch;
+  }
+}

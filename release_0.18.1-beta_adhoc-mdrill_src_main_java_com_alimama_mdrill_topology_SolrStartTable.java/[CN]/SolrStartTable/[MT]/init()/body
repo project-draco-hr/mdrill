@@ -1,0 +1,8 @@
+{
+  this.hdfsSolrpath=new Path(solrhome,"solr");
+  this.hdfsIndexpath=new Path(solrhome,"index");
+  Path tablepath=this.solrservice.getLocalTablePath(this.tablename);
+  this.localSolrPath=new Path(tablepath,"solr");
+  this.localIndexPath=new Path(localSolrPath,"./data");
+  this.localTmpPath=new Path(this.solrservice.getLocalTmpPath(this.tablename),"./higotmp");
+}

@@ -1,0 +1,3 @@
+{
+  fieldAnalysisByFieldName.put(fieldAnalysis.getFieldName(),fieldAnalysis);
+}

@@ -1,0 +1,3 @@
+{
+  return higo_table(tablename) + "/" + id;
+}

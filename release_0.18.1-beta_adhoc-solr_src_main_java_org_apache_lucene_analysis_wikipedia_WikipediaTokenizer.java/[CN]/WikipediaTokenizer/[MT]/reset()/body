@@ -1,0 +1,4 @@
+{
+  super.reset();
+  scanner.yyreset(input);
+}

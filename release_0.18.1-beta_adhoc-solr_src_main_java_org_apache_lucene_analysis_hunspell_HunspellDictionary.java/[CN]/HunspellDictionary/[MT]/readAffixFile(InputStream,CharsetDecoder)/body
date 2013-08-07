@@ -1,0 +1,18 @@
+{
+  prefixes=new CharArrayMap<List<HunspellAffix>>(version,8,ignoreCase);
+  suffixes=new CharArrayMap<List<HunspellAffix>>(version,8,ignoreCase);
+  BufferedReader reader=new BufferedReader(new InputStreamReader(affixStream,decoder));
+  String line=null;
+  while ((line=reader.readLine()) != null) {
+    if (line.startsWith(PREFIX_KEY)) {
+      parseAffix(prefixes,line,reader,PREFIX_CONDITION_REGEX_PATTERN);
+    }
+ else     if (line.startsWith(SUFFIX_KEY)) {
+      parseAffix(suffixes,line,reader,SUFFIX_CONDITION_REGEX_PATTERN);
+    }
+ else     if (line.startsWith(FLAG_KEY)) {
+      flagParsingStrategy=getFlagParsingStrategy(line);
+    }
+  }
+  reader.close();
+}

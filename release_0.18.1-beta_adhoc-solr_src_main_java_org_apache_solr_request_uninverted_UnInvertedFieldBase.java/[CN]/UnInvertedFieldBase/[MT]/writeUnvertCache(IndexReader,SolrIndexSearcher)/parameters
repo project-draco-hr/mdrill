@@ -1,0 +1,2 @@
+IndexReader reader
+SolrIndexSearcher searcher

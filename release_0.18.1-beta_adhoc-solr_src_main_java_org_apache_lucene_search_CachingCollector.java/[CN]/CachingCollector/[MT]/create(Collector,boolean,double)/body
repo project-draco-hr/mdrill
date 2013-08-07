@@ -1,0 +1,3 @@
+{
+  return cacheScores ? new ScoreCachingCollector(other,maxRAMMB) : new NoScoreCachingCollector(other,maxRAMMB);
+}

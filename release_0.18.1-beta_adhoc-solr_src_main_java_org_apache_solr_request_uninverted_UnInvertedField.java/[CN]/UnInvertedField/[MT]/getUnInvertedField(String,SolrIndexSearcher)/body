@@ -1,0 +1,3 @@
+{
+  return getUnInvertedField(field,searcher.getReader());
+}

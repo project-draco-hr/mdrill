@@ -1,0 +1,7 @@
+int limit
+UnvertFields crossufs
+UnvertFields distufs
+UnvertFields ufs
+String[] fields
+DocSet baseDocs
+Iprecontains pre

@@ -1,0 +1,8 @@
+{
+  if (stats.getType().equals("bolt")) {
+    transferred_tuples((BoltTaskStatsRolling)stats,stream,amt);
+  }
+  if (stats.getType().equals("spout")) {
+    transferred_tuples((SpoutTaskStatsRolling)stats,stream,amt);
+  }
+}

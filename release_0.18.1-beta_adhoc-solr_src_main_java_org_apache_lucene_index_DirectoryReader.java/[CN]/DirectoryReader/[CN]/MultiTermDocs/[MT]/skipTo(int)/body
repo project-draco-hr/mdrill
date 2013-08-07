@@ -1,0 +1,20 @@
+{
+  for (; ; ) {
+    if (current != null && current.skipTo(target - base)) {
+      return true;
+    }
+ else     if (pointer < readers.length) {
+      if (tenum != null) {
+        SegmentMergeInfo smi=tenum.matchingSegments[matchingSegmentPos++];
+        if (smi == null) {
+          pointer=readers.length;
+          return false;
+        }
+        pointer=smi.ord;
+      }
+      base=starts[pointer];
+      current=termDocs(pointer++);
+    }
+ else     return false;
+  }
+}

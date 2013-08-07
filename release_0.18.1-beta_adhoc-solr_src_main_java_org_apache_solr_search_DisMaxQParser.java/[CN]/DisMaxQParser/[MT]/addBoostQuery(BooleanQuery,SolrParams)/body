@@ -1,0 +1,30 @@
+{
+  boostParams=solrParams.getParams(DisMaxParams.BQ);
+  boostQueries=null;
+  if (boostParams != null && boostParams.length > 0) {
+    boostQueries=new ArrayList<Query>();
+    for (    String qs : boostParams) {
+      if (qs.trim().length() == 0)       continue;
+      Query q=subQuery(qs,null).getQuery();
+      boostQueries.add(q);
+    }
+  }
+  if (null != boostQueries) {
+    if (1 == boostQueries.size() && 1 == boostParams.length) {
+      Query f=boostQueries.get(0);
+      if (1.0f == f.getBoost() && f instanceof BooleanQuery) {
+        for (        Object c : ((BooleanQuery)f).clauses()) {
+          query.add((BooleanClause)c);
+        }
+      }
+ else {
+        query.add(f,BooleanClause.Occur.SHOULD);
+      }
+    }
+ else {
+      for (      Query f : boostQueries) {
+        query.add(f,BooleanClause.Occur.SHOULD);
+      }
+    }
+  }
+}

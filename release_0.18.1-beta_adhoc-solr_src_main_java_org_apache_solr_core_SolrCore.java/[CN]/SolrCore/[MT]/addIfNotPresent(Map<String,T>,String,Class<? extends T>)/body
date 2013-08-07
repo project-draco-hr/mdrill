@@ -1,0 +1,9 @@
+{
+  if (!registry.containsKey(name)) {
+    T searchComp=(T)resourceLoader.newInstance(c.getName());
+    registry.put(name,searchComp);
+    if (searchComp instanceof SolrInfoMBean) {
+      infoRegistry.put(((SolrInfoMBean)searchComp).getName(),(SolrInfoMBean)searchComp);
+    }
+  }
+}

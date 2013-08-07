@@ -1,0 +1,6 @@
+{
+  if (it != null) {
+    throw new IllegalStateException("The tee must be consumed before sinks are consumed.");
+  }
+  cachedStates.add(state);
+}

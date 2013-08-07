@@ -1,0 +1,14 @@
+{
+  final int shift=prefixCoded.charAt(0) - SHIFT_START_LONG;
+  if (shift > 63 || shift < 0)   throw new NumberFormatException("Invalid shift value in prefixCoded string (is encoded value really a LONG?)");
+  long sortableBits=0L;
+  for (int i=1, len=prefixCoded.length(); i < len; i++) {
+    sortableBits<<=7;
+    final char ch=prefixCoded.charAt(i);
+    if (ch > 0x7f) {
+      throw new NumberFormatException("Invalid prefixCoded numerical value representation (char " + Integer.toHexString(ch) + " at position "+ i+ " is invalid)");
+    }
+    sortableBits|=ch;
+  }
+  return (sortableBits << shift) ^ 0x8000000000000000L;
+}

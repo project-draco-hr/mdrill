@@ -1,0 +1,16 @@
+{
+  buffer.append(termAttribute.buffer(),0,termAttribute.length());
+  int endOffset=offsetAttribute.endOffset();
+  clearAttributes();
+  int length=buffer.length();
+  char termText[]=termAttribute.buffer();
+  if (length > termText.length) {
+    termText=termAttribute.resizeBuffer(length);
+  }
+  buffer.getChars(0,length,termText,0);
+  termAttribute.setLength(length);
+  posIncAttribute.setPositionIncrement(0);
+  offsetAttribute.setOffset(lastStartOffset,endOffset);
+  typeAttribute.setType(GRAM_TYPE);
+  buffer.setLength(0);
+}

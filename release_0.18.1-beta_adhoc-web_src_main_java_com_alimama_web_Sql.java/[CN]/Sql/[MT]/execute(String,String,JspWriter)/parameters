@@ -1,0 +1,3 @@
+String sql
+String connstr
+JspWriter out

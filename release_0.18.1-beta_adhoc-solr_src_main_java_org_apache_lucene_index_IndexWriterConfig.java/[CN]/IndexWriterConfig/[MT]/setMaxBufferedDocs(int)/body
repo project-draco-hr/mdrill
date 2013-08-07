@@ -1,0 +1,6 @@
+{
+  if (maxBufferedDocs != DISABLE_AUTO_FLUSH && maxBufferedDocs < 2)   throw new IllegalArgumentException("maxBufferedDocs must at least be 2 when enabled");
+  if (maxBufferedDocs == DISABLE_AUTO_FLUSH && ramBufferSizeMB == DISABLE_AUTO_FLUSH)   throw new IllegalArgumentException("at least one of ramBufferSize and maxBufferedDocs must be enabled");
+  this.maxBufferedDocs=maxBufferedDocs;
+  return this;
+}

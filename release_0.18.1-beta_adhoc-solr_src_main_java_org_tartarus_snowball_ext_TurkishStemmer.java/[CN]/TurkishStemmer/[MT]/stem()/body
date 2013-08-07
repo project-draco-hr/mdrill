@@ -1,0 +1,33 @@
+{
+  int v_1;
+  int v_2;
+  if (!r_more_than_one_syllable_word()) {
+    return false;
+  }
+  limit_backward=cursor;
+  cursor=limit;
+  v_1=limit - cursor;
+  lab0:   do {
+    if (!r_stem_nominal_verb_suffixes()) {
+      break lab0;
+    }
+  }
+ while (false);
+  cursor=limit - v_1;
+  if (!(B_continue_stemming_noun_suffixes)) {
+    return false;
+  }
+  v_2=limit - cursor;
+  lab1:   do {
+    if (!r_stem_noun_suffixes()) {
+      break lab1;
+    }
+  }
+ while (false);
+  cursor=limit - v_2;
+  cursor=limit_backward;
+  if (!r_postlude()) {
+    return false;
+  }
+  return true;
+}

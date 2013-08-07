@@ -1,0 +1,7 @@
+{
+  this.field=field;
+  this.term=term;
+  this.frequency=frequency;
+  this.offsets=offsets;
+  this.positions=positions;
+}

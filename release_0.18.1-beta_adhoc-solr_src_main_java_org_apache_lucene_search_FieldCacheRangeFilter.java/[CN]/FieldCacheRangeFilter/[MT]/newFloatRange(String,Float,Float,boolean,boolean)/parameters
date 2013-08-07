@@ -1,0 +1,5 @@
+String field
+Float lowerVal
+Float upperVal
+boolean includeLower
+boolean includeUpper

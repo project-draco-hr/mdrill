@@ -1,0 +1,8 @@
+{
+  if (path[0].equals("emitted")) {
+    RollingWindowSetStat.update_rolling_window_set(common.emitted,args);
+  }
+  if (path[0].equals("transferred")) {
+    RollingWindowSetStat.update_rolling_window_set(common.transferred,args);
+  }
+}

@@ -1,0 +1,21 @@
+{
+  final StringBuilder buffer=new StringBuilder();
+  if (hasChanges) {
+    buffer.append("*");
+  }
+  buffer.append(getClass().getSimpleName());
+  buffer.append('(');
+  final String segmentsFile=segmentInfos.getCurrentSegmentFileName();
+  if (segmentsFile != null) {
+    buffer.append(segmentsFile);
+  }
+  if (writer != null) {
+    buffer.append(":nrt");
+  }
+  for (int i=0; i < subReaders.length; i++) {
+    buffer.append(' ');
+    buffer.append(subReaders[i]);
+  }
+  buffer.append(')');
+  return buffer.toString();
+}

@@ -1,0 +1,13 @@
+{
+  CommonsHttpSolrServer server=new CommonsHttpSolrServer(shard.urlMain);
+  server.setConnectionManagerTimeout(60000000l);
+  server.setSoTimeout(60000000);
+  server.setConnectionTimeout(100000);
+  server.setDefaultMaxConnectionsPerHost(100);
+  server.setMaxTotalConnections(100);
+  server.setFollowRedirects(false);
+  server.setAllowCompression(true);
+  server.setMaxRetries(1);
+  server.setRequestWriter(new BinaryRequestWriter());
+  return server;
+}

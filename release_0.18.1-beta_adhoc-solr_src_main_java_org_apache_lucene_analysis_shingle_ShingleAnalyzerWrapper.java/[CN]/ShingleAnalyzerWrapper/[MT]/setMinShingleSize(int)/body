@@ -1,0 +1,9 @@
+{
+  if (minShingleSize < 2) {
+    throw new IllegalArgumentException("Min shingle size must be >= 2");
+  }
+  if (minShingleSize > maxShingleSize) {
+    throw new IllegalArgumentException("Min shingle size must be <= max shingle size");
+  }
+  this.minShingleSize=minShingleSize;
+}

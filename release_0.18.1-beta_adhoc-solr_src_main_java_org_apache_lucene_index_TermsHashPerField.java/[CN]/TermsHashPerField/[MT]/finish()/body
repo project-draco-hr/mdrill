@@ -1,0 +1,10 @@
+{
+  try {
+    consumer.finish();
+  }
+  finally {
+    if (nextPerField != null) {
+      nextPerField.finish();
+    }
+  }
+}

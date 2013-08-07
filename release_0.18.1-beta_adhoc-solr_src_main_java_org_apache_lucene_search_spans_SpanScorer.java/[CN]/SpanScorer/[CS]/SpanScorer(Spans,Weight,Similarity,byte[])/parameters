@@ -1,0 +1,4 @@
+Spans spans
+Weight weight
+Similarity similarity
+byte[] norms

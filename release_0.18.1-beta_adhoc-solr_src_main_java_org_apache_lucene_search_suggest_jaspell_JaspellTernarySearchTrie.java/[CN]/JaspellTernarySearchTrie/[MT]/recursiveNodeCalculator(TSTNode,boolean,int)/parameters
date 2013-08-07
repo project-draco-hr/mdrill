@@ -1,0 +1,3 @@
+TSTNode currentNode
+boolean checkData
+int numNodes2

@@ -1,0 +1,5 @@
+{
+  SimpleDateFormat fmt=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+  String yyyymmmddd=fmt.format(new Date(1000l * timeSecs));
+  return "timeSecs:" + yyyymmmddd + ", "+ "hostName:"+ hostName+ ", "+ "workPorts:"+ workPorts+ ", "+ "uptimeSecs:"+ uptimeSecs;
+}

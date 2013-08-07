@@ -1,0 +1,7 @@
+{
+  terms.clear();
+  queries.clear();
+  docIDs.clear();
+  numTermDeletes.set(0);
+  bytesUsed.set(0);
+}

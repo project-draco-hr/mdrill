@@ -1,0 +1,8 @@
+{
+  int endingLength=findEnding(stemmingZone,theEndingClass);
+  if (endingLength == 0)   return false;
+ else {
+    stemmingZone.setLength(stemmingZone.length() - endingLength);
+    return true;
+  }
+}

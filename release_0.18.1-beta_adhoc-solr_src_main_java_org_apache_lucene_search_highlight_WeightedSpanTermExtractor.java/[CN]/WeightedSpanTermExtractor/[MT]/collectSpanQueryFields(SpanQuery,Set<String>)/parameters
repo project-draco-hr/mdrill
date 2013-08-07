@@ -1,0 +1,2 @@
+SpanQuery spanQuery
+Set<String> fieldNames

@@ -1,0 +1,6 @@
+{
+  int index=(idx << 1) + 1;
+  T old=(T)nvPairs.get(index);
+  nvPairs.set(index,val);
+  return old;
+}

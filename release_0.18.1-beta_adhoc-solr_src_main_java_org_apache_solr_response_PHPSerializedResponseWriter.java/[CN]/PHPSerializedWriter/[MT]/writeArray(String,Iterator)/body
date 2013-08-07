@@ -1,0 +1,7 @@
+{
+  ArrayList vals=new ArrayList();
+  while (val.hasNext()) {
+    vals.add(val.next());
+  }
+  writeArray(name,vals.toArray());
+}

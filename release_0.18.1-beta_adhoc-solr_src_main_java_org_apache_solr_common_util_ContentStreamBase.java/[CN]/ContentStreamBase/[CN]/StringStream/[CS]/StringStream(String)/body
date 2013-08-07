@@ -1,0 +1,7 @@
+{
+  this.str=str;
+  contentType=null;
+  name=null;
+  size=new Long(str.length());
+  sourceInfo="string";
+}

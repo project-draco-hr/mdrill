@@ -1,0 +1,6 @@
+{
+  CoreAdminRequest req=new CoreAdminRequest();
+  req.setCoreName(name);
+  req.setAction(CoreAdminAction.RELOAD);
+  return req.process(server);
+}

@@ -1,0 +1,6 @@
+{
+  if (bytesStart != null) {
+    bytesUsed.addAndGet(-bytesStart.length * RamUsageEstimator.NUM_BYTES_INT);
+  }
+  return bytesStart=null;
+}

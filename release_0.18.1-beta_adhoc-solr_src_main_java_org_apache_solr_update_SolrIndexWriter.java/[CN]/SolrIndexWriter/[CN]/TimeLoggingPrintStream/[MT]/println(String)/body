@@ -1,0 +1,4 @@
+{
+  print(dateFormat.format(new Date()) + " ");
+  super.println(x);
+}

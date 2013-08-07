@@ -1,0 +1,14 @@
+{
+  if (bitsPerValue <= 8) {
+    return 8;
+  }
+ else   if (bitsPerValue <= 16) {
+    return 16;
+  }
+ else   if (bitsPerValue <= 32) {
+    return 32;
+  }
+ else {
+    return 64;
+  }
+}

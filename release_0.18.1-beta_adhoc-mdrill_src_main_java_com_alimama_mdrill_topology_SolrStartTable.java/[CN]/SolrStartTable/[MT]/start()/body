@@ -1,0 +1,7 @@
+{
+  statcollect.setLastTime(System.currentTimeMillis());
+  statcollect.setStat(ShardsState.INIT);
+  this.zkHeatbeat();
+  LOG.info("higolog table begin:" + this.tablename);
+  new Thread(this).start();
+}

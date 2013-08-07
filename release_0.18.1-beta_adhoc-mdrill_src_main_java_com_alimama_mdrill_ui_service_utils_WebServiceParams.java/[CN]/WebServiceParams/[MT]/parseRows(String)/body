@@ -1,0 +1,7 @@
+{
+  int rows=20;
+  if (rowsStr != null && !rowsStr.equals("")) {
+    rows=Integer.parseInt(rowsStr);
+  }
+  return rows;
+}

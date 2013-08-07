@@ -1,0 +1,4 @@
+{
+  int i=readerIndex(n);
+  return subReaders[i].isDeleted(n - starts[i]);
+}

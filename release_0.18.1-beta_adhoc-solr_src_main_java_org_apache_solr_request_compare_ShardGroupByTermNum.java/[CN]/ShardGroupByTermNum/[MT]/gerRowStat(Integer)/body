@@ -1,0 +1,10 @@
+{
+  RefRowStat stat=statVal.stat[fieldIndex];
+  if (stat == null) {
+    return null;
+  }
+  if (stat.issetup) {
+    return stat;
+  }
+  return null;
+}

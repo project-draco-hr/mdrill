@@ -1,0 +1,3 @@
+{
+  reverse(buffer,0,len);
+}

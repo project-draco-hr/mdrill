@@ -1,0 +1,12 @@
+{
+  try {
+    Resolver resolver=new Resolver(req,rsp.getReturnFields());
+    ByteArrayOutputStream out=new ByteArrayOutputStream();
+    new JavaBinCodec(resolver).marshal(rsp.getValues(),out);
+    InputStream in=new ByteArrayInputStream(out.toByteArray());
+    return (NamedList<Object>)new JavaBinCodec(resolver).unmarshal(in);
+  }
+ catch (  Exception ex) {
+    throw new RuntimeException(ex);
+  }
+}

@@ -1,0 +1,5 @@
+{
+  this.smallSetSize=smallSetSize;
+  this.maxDoc=maxDoc;
+  this.scratch=new int[smallSetSize];
+}

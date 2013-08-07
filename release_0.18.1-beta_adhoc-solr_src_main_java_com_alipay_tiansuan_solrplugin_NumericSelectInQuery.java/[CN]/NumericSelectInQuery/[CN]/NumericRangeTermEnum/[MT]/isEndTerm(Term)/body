@@ -1,0 +1,9 @@
+{
+  if (!term.field().equals(field)) {
+    return true;
+  }
+  if (maxset != null && term.compareTo(maxset.max) > 0) {
+    return true;
+  }
+  return false;
+}

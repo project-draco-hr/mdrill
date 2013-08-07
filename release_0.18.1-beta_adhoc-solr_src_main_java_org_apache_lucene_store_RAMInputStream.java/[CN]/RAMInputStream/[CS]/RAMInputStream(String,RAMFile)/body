@@ -1,0 +1,10 @@
+{
+  super("RAMInputStream(name=" + name + ")");
+  file=f;
+  length=file.length;
+  if (length / BUFFER_SIZE >= Integer.MAX_VALUE) {
+    throw new IOException("RAMInputStream too large length=" + length + ": "+ name);
+  }
+  currentBufferIndex=-1;
+  currentBuffer=null;
+}

@@ -1,0 +1,4 @@
+{
+  int ival=SortableStr2int(val,0,3);
+  return Integer.toString(ival);
+}

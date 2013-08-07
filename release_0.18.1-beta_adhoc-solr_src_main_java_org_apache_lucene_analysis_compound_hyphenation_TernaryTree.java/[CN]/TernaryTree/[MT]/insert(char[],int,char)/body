@@ -1,0 +1,7 @@
+{
+  int len=strlen(key) + 1;
+  if (freenode + len > eq.length) {
+    redimNodeArrays(eq.length + BLOCK_SIZE);
+  }
+  root=insert(root,key,start,val);
+}

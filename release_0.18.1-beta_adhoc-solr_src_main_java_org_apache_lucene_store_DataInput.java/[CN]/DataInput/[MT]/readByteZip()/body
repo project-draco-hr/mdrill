@@ -1,0 +1,16 @@
+{
+  int type=this.readVInt();
+  int size=type;
+  if (type < 0) {
+    size=this.readVInt();
+  }
+  byte[] data=new byte[size];
+  this.readBytes(data,0,data.length);
+  if (type >= 0) {
+    ByteArrayInputStream bis=new ByteArrayInputStream(data);
+    return new ByteArrayInput(bis);
+  }
+  ByteArrayInputStream bis=new ByteArrayInputStream(data);
+  GZIPInputStream gzip=new GZIPInputStream(bis);
+  return new GZIPInputStreamInput(gzip,bis);
+}

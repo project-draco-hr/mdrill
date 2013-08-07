@@ -1,0 +1,26 @@
+{
+  String sql="";
+  sql="SELECT ";
+  sql+=((distinct != null) ? "" + distinct + " " : "");
+  sql+=((top != null) ? "" + top + " " : "");
+  sql+=getStringList(selectItems);
+  sql+=" FROM " + fromItem;
+  if (joins != null) {
+    Iterator it=joins.iterator();
+    while (it.hasNext()) {
+      Join join=(Join)it.next();
+      if (join.isSimple()) {
+        sql+=", " + join;
+      }
+ else {
+        sql+=" " + join;
+      }
+    }
+  }
+  sql+=((where != null) ? " WHERE " + where : "");
+  sql+=getFormatedList(groupByColumnReferences,"GROUP BY");
+  sql+=((having != null) ? " HAVING " + having : "");
+  sql+=orderByToString(orderByElements);
+  sql+=((limit != null) ? limit + "" : "");
+  return sql;
+}

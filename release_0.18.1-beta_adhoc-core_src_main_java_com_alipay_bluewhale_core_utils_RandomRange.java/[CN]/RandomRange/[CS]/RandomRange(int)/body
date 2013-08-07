@@ -1,0 +1,4 @@
+{
+  this.amt=amt;
+  this.rr=rotating_random_range(amt);
+}

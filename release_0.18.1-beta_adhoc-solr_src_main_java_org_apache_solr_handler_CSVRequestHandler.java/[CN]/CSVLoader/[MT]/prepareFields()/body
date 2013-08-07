@@ -1,0 +1,36 @@
+{
+  fields=new SchemaField[fieldnames.length];
+  adders=new CSVLoader.FieldAdder[fieldnames.length];
+  String skipStr=params.get(SKIP);
+  List<String> skipFields=skipStr == null ? null : StrUtils.splitSmart(skipStr,',');
+  CSVLoader.FieldAdder adder=new CSVLoader.FieldAdder();
+  CSVLoader.FieldAdder adderKeepEmpty=new CSVLoader.FieldAdderEmpty();
+  for (int i=0; i < fields.length; i++) {
+    String fname=fieldnames[i];
+    if (fname.length() == 0 || (skipFields != null && skipFields.contains(fname)))     continue;
+    fields[i]=schema.getField(fname);
+    boolean keepEmpty=params.getFieldBool(fname,EMPTY,false);
+    adders[i]=keepEmpty ? adderKeepEmpty : adder;
+    String[] fmap=params.getFieldParams(fname,MAP);
+    if (fmap != null) {
+      for (      String mapRule : fmap) {
+        String[] mapArgs=colonSplit.split(mapRule,-1);
+        if (mapArgs.length != 2)         throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,"Map rules must be of the form 'from:to' ,got '" + mapRule + "'");
+        adders[i]=new CSVLoader.FieldMapperSingle(mapArgs[0],mapArgs[1],adders[i]);
+      }
+    }
+    if (params.getFieldBool(fname,TRIM,false)) {
+      adders[i]=new CSVLoader.FieldTrimmer(adders[i]);
+    }
+    if (params.getFieldBool(fname,SPLIT,false)) {
+      String sepStr=params.getFieldParam(fname,SEPARATOR);
+      char fsep=sepStr == null || sepStr.length() == 0 ? ',' : sepStr.charAt(0);
+      String encStr=params.getFieldParam(fname,ENCAPSULATOR);
+      char fenc=encStr == null || encStr.length() == 0 ? (char)-2 : encStr.charAt(0);
+      String escStr=params.getFieldParam(fname,ESCAPE);
+      char fesc=escStr == null || escStr.length() == 0 ? CSVStrategy.ESCAPE_DISABLED : escStr.charAt(0);
+      CSVStrategy fstrat=new CSVStrategy(fsep,fenc,CSVStrategy.COMMENTS_DISABLED,fesc,false,false,false,false);
+      adders[i]=new CSVLoader.FieldSplitter(fstrat,adders[i]);
+    }
+  }
+}

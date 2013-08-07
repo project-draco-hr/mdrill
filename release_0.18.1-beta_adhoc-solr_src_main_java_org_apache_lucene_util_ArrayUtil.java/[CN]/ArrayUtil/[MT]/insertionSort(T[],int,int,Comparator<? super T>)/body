@@ -1,0 +1,4 @@
+{
+  if (toIndex - fromIndex <= 1)   return;
+  getSorter(a,comp).insertionSort(fromIndex,toIndex - 1);
+}

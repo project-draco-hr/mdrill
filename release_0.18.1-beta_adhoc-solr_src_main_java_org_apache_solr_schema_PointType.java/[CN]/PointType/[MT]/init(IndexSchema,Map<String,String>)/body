@@ -1,0 +1,11 @@
+{
+  SolrParams p=new MapSolrParams(args);
+  dimension=p.getInt(DIMENSION,DEFAULT_DIMENSION);
+  if (dimension < 1) {
+    throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,"The dimension must be > 0: " + dimension);
+  }
+  args.remove(DIMENSION);
+  this.schema=schema;
+  super.init(schema,args);
+  createSuffixCache(dimension);
+}

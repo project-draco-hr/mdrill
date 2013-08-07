@@ -1,0 +1,21 @@
+{
+  StringBuilder sb=new StringBuilder(128);
+  try {
+    boolean first=true;
+    for (    Map.Entry<String,String[]> entry : map.entrySet()) {
+      String key=entry.getKey();
+      String[] valarr=entry.getValue();
+      for (      String val : valarr) {
+        if (!first)         sb.append('&');
+        first=false;
+        sb.append(key);
+        sb.append('=');
+        StrUtils.partialURLEncodeVal(sb,val == null ? "" : val);
+      }
+    }
+  }
+ catch (  IOException e) {
+    throw new RuntimeException(e);
+  }
+  return sb.toString();
+}

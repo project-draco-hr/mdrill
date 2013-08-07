@@ -1,0 +1,4 @@
+{
+  assureMatchVersion();
+  return new ReverseStringFilter(luceneMatchVersion,in);
+}

@@ -1,0 +1,4 @@
+{
+  DistinctCount w=dist.get(field);
+  w.merge(value);
+}

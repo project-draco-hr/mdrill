@@ -1,0 +1,10 @@
+{
+  final Tokenizer source=matchVersion.onOrAfter(Version.LUCENE_31) ? new StandardTokenizer(matchVersion,reader) : new ArabicLetterTokenizer(matchVersion,reader);
+  TokenStream result=new LowerCaseFilter(matchVersion,source);
+  result=new StopFilter(matchVersion,result,stopwords);
+  result=new ArabicNormalizationFilter(result);
+  if (!stemExclusionSet.isEmpty()) {
+    result=new KeywordMarkerFilter(result,stemExclusionSet);
+  }
+  return new TokenStreamComponents(source,new ArabicStemFilter(result));
+}

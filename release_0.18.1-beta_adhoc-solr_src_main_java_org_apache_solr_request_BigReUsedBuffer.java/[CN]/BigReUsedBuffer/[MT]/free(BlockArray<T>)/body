@@ -1,0 +1,10 @@
+{
+  boolean allowadd=this.free.size() < 100;
+  for (  BlockInterface<T> d : data.data) {
+    if (d != null) {
+      if (allowadd) {
+        this.free.add(d);
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  dir=state.directory;
+  segment=state.segmentName;
+  totalNumDocs=state.numDocs;
+  this.fieldInfos=fieldInfos;
+  boolean success=false;
+  try {
+    termsOut=new TermInfosWriter(dir,segment,fieldInfos,state.termIndexInterval);
+    skipListWriter=new DefaultSkipListWriter(termsOut.skipInterval,termsOut.maxSkipLevels,totalNumDocs,null,null);
+    termsWriter=new FormatPostingsTermsWriter(state,this);
+    success=true;
+  }
+  finally {
+    if (!success) {
+      IOUtils.closeWhileHandlingException(termsOut,termsWriter);
+    }
+  }
+}

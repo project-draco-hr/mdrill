@@ -1,0 +1,3 @@
+SpoutTaskStatsRolling stats
+String stream
+Integer amt

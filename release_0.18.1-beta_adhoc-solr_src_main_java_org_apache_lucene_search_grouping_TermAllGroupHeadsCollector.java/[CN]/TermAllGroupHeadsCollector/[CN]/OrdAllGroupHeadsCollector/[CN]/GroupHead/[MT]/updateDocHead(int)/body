@@ -1,0 +1,7 @@
+{
+  for (int i=0; i < sortsIndex.length; i++) {
+    sortValues[i]=sortsIndex[i].lookup[sortsIndex[i].order[doc]];
+    sortOrds[i]=sortsIndex[i].order[doc];
+  }
+  this.doc=doc + docBase;
+}

@@ -1,0 +1,3 @@
+{
+  return new LimitTokenCountFilter(delegate.reusableTokenStream(fieldName,reader),maxTokenCount);
+}

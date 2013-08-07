@@ -1,0 +1,3 @@
+{
+  daos.writeByte(tag);
+}

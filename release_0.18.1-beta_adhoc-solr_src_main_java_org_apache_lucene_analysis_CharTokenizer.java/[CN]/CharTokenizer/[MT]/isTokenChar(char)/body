@@ -1,0 +1,3 @@
+{
+  return isTokenChar((int)c);
+}

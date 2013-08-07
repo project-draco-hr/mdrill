@@ -1,0 +1,3 @@
+SchemaField field
+String externalVal
+float boost

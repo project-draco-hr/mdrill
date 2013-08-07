@@ -1,0 +1,5 @@
+{
+  byte[] rtn=new byte[1];
+  this.readBytes(rtn,0,rtn.length);
+  return rtn[0];
+}

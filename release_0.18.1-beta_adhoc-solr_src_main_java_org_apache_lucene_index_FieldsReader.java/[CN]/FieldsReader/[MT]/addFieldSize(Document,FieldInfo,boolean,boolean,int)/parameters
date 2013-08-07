@@ -1,0 +1,5 @@
+Document doc
+FieldInfo fi
+boolean binary
+boolean compressed
+int numeric

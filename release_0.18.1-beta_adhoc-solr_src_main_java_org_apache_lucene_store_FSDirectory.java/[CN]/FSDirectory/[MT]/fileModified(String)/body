@@ -1,0 +1,5 @@
+{
+  ensureOpen();
+  File file=new File(directory,name);
+  return file.lastModified();
+}

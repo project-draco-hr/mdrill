@@ -1,0 +1,3 @@
+{
+  return fieldsData instanceof String ? (String)fieldsData : null;
+}

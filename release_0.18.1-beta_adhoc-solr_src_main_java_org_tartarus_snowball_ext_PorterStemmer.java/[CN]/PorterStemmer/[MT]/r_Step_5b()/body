@@ -1,0 +1,15 @@
+{
+  ket=cursor;
+  if (!(eq_s_b(1,"l"))) {
+    return false;
+  }
+  bra=cursor;
+  if (!r_R2()) {
+    return false;
+  }
+  if (!(eq_s_b(1,"l"))) {
+    return false;
+  }
+  slice_del();
+  return true;
+}

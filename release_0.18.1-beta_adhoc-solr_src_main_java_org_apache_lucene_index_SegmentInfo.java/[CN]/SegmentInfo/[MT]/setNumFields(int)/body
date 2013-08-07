@@ -1,0 +1,12 @@
+{
+  if (normGen == null) {
+    normGen=new long[numFields];
+    if (preLockless) {
+    }
+ else {
+      for (int i=0; i < numFields; i++) {
+        normGen[i]=NO;
+      }
+    }
+  }
+}

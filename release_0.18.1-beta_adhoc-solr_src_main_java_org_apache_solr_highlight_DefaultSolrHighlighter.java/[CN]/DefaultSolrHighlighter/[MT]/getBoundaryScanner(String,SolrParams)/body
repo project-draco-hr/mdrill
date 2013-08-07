@@ -1,0 +1,8 @@
+{
+  String bs=params.getFieldParam(fieldName,HighlightParams.BOUNDARY_SCANNER);
+  SolrBoundaryScanner solrBs=boundaryScanners.get(bs);
+  if (solrBs == null) {
+    throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,"Unknown boundaryScanner: " + bs);
+  }
+  return solrBs.getBoundaryScanner(fieldName,params);
+}

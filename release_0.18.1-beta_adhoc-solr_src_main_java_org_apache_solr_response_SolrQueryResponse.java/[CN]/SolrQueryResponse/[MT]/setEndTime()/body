@@ -1,0 +1,3 @@
+{
+  return setEndTime(System.currentTimeMillis());
+}

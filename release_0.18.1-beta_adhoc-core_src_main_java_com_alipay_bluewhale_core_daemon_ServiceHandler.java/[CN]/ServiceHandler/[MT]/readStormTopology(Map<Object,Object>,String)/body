@@ -1,0 +1,9 @@
+{
+  String stormroot=StormConfig.masterStormdistRoot(conf,topologyId);
+  StormTopology topology=null;
+  byte[] bTopo=FileUtils.readFileToByteArray(new File(StormConfig.masterStormcodePath(stormroot)));
+  if (bTopo != null) {
+    topology=(StormTopology)Utils.deserialize(bTopo);
+  }
+  return topology;
+}

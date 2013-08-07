@@ -1,0 +1,7 @@
+{
+  GroupbyItem mg=o;
+  if (o instanceof GroupbyAgent) {
+    mg=((GroupbyAgent)o).groupby;
+  }
+  groupby.shardsMerge(mg);
+}

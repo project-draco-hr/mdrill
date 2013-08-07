@@ -1,0 +1,8 @@
+{
+  int lastbit=i & 1;
+  int rtn=i >>> 1;
+  if (lastbit > 0) {
+    rtn*=-1;
+  }
+  return rtn;
+}

@@ -1,0 +1,13 @@
+{
+  if (iter instanceof OpenBitSetIterator && iter.docID() == -1) {
+    final OpenBitSetIterator obs=(OpenBitSetIterator)iter;
+    or(obs.arr,obs.words);
+    obs.advance(numBits);
+  }
+ else {
+    int doc;
+    while ((doc=iter.nextDoc()) < numBits) {
+      set(doc);
+    }
+  }
+}

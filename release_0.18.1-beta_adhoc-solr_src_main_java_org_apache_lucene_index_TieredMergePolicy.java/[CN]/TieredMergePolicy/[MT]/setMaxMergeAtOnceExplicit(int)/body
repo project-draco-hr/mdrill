@@ -1,0 +1,7 @@
+{
+  if (v < 2) {
+    throw new IllegalArgumentException("maxMergeAtOnceExplicit must be > 1 (got " + v + ")");
+  }
+  maxMergeAtOnceExplicit=v;
+  return this;
+}

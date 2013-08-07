@@ -1,0 +1,10 @@
+{
+  this.map=new LinkedHashMap();
+  if (map != null) {
+    Iterator i=map.entrySet().iterator();
+    while (i.hasNext()) {
+      Map.Entry e=(Map.Entry)i.next();
+      this.map.put(e.getKey(),wrap(e.getValue()));
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  URI uri;
+  if (systemId.startsWith("/")) {
+    uri=new URI(RESOURCE_LOADER_URI_SCHEME,RESOURCE_LOADER_AUTHORITY_ABSOLUTE,"/",null,null).resolve(systemId);
+  }
+ else {
+    uri=new URI(systemId);
+  }
+  if (baseURI != null) {
+    uri=new URI(baseURI).resolve(uri);
+  }
+  return uri;
+}

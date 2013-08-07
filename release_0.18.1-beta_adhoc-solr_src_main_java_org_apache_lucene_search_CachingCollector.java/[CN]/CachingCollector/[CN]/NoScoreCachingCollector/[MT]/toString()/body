@@ -1,0 +1,8 @@
+{
+  if (isCached()) {
+    return "CachingCollector (" + (base + upto) + " docs cached)";
+  }
+ else {
+    return "CachingCollector (cache was cleared)";
+  }
+}

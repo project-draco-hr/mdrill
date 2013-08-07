@@ -1,0 +1,9 @@
+{
+  if (d != null) {
+    boolean allowadd=d.allowFree.get() == 0 && free.size() < 100;
+    if (allowadd) {
+      d.updateLasttime();
+      free.add(d);
+    }
+  }
+}

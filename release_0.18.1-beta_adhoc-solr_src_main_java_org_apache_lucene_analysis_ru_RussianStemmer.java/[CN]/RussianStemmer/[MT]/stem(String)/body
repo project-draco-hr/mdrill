@@ -1,0 +1,15 @@
+{
+  markPositions(input);
+  if (RV == 0)   return input;
+  StringBuilder stemmingZone=new StringBuilder(input.substring(RV));
+  if (!perfectiveGerund(stemmingZone)) {
+    reflexive(stemmingZone);
+    if (!adjectival(stemmingZone))     if (!verb(stemmingZone))     noun(stemmingZone);
+  }
+  removeI(stemmingZone);
+  derivational(stemmingZone);
+  superlative(stemmingZone);
+  undoubleN(stemmingZone);
+  removeSoft(stemmingZone);
+  return input.substring(0,RV) + stemmingZone.toString();
+}

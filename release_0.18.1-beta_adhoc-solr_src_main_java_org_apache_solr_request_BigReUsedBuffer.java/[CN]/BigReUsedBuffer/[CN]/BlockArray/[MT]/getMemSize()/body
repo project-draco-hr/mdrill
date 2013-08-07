@@ -1,0 +1,3 @@
+{
+  return Math.max(data.length * interval,size);
+}

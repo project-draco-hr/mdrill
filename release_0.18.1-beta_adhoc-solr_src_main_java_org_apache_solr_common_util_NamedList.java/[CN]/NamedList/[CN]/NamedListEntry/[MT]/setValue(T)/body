@@ -1,0 +1,5 @@
+{
+  T oldValue=value;
+  value=_value;
+  return oldValue;
+}

@@ -1,0 +1,25 @@
+{
+  if (matcher == null)   return false;
+  clearAttributes();
+  while (true) {
+    int start=pos;
+    int end;
+    boolean isMatch=matcher.find();
+    if (isMatch) {
+      end=matcher.start();
+      pos=matcher.end();
+    }
+ else {
+      end=str.length();
+      matcher=null;
+    }
+    if (start != end) {
+      String text=str.substring(start,end);
+      if (toLowerCase)       text=text.toLowerCase(locale);
+      termAtt.setEmpty().append(text);
+      offsetAtt.setOffset(start,end);
+      return true;
+    }
+    if (!isMatch)     return false;
+  }
+}

@@ -1,0 +1,13 @@
+{
+  if (this == obj)   return true;
+  if (obj == null)   return false;
+  if (getClass() != obj.getClass())   return false;
+  block other=(block)obj;
+  if (flushkey != other.flushkey)   return false;
+  if (index != other.index)   return false;
+  if (key == null) {
+    if (other.key != null)     return false;
+  }
+ else   if (!key.equals(other.key))   return false;
+  return true;
+}

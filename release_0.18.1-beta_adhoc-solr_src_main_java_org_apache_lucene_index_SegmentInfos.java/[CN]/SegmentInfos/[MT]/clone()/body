@@ -1,0 +1,17 @@
+{
+  try {
+    final SegmentInfos sis=(SegmentInfos)super.clone();
+    sis.segments=new ArrayList<SegmentInfo>(size());
+    sis.segmentSet=new HashSet<SegmentInfo>(size());
+    sis.cachedUnmodifiableList=null;
+    sis.cachedUnmodifiableSet=null;
+    for (    final SegmentInfo info : this) {
+      sis.add((SegmentInfo)info.clone());
+    }
+    sis.userData=new HashMap<String,String>(userData);
+    return sis;
+  }
+ catch (  CloneNotSupportedException e) {
+    throw new RuntimeException("should not happen",e);
+  }
+}

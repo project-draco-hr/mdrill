@@ -1,0 +1,4 @@
+{
+  this.mask=mask;
+  this.bucketTable=bucketTable;
+}

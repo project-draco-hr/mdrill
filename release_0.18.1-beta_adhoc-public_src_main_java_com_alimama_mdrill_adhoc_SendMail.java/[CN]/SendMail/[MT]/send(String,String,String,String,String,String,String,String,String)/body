@@ -1,0 +1,16 @@
+{
+  String[] toList=to.split("[,|;]+");
+  for (  String tostr : toList) {
+    try {
+      String[] addressList=getSMTPServerByJNDI(tostr);
+      for (int i=0; i < addressList.length; i++) {
+        Boolean result=send(from,formName,tostr,to,subject,content,attachment,charset,addressList[i],addressList[i],user,pass,25);
+        if (result) {
+          break;
+        }
+      }
+    }
+ catch (    Exception e) {
+    }
+  }
+}

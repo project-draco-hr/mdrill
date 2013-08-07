@@ -1,0 +1,9 @@
+{
+  ords=new int[numHits];
+  values=new String[numHits];
+  readerGen=new int[numHits];
+  this.sortPos=sortPos;
+  this.reversed=reversed;
+  this.field=field;
+  this.nullVal=nullVal;
+}

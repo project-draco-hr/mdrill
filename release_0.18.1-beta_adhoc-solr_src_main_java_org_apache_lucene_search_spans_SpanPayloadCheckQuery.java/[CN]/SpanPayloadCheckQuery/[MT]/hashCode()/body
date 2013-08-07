@@ -1,0 +1,7 @@
+{
+  int h=match.hashCode();
+  h^=(h << 8) | (h >>> 25);
+  h^=payloadToMatch.hashCode();
+  h^=Float.floatToRawIntBits(getBoost());
+  return h;
+}

@@ -1,0 +1,6 @@
+{
+  super();
+  this.isfullcut=isfullcut;
+  this.read=read;
+  this.left=left;
+}

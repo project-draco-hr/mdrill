@@ -1,0 +1,6 @@
+{
+  Term t=termTemplate.createTerm(s);
+  if (max == null || max.compareTo(t) <= 0) {
+    this.max=t;
+  }
+}

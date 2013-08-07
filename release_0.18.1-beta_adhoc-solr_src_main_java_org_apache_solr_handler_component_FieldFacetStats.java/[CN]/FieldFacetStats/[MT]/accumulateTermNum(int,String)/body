@@ -1,0 +1,17 @@
+{
+  if (value == null)   return false;
+  for (  Map.Entry<String,Integer> stringIntegerEntry : facetStatsTerms.get(statsTermNum).entrySet()) {
+    Map.Entry pairs=(Map.Entry)stringIntegerEntry;
+    String key=(String)pairs.getKey();
+    StatsValues facetStats=facetStatsValues.get(key);
+    if (facetStats == null) {
+      facetStats=StatsValuesFactory.createStatsValues(statFieldType);
+      facetStatsValues.put(key,facetStats);
+    }
+    Integer count=(Integer)pairs.getValue();
+    if (count != null) {
+      facetStats.accumulate(value,count);
+    }
+  }
+  return true;
+}

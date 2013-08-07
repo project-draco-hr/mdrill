@@ -1,0 +1,10 @@
+{
+  RecordCount o=(RecordCount)g;
+  if (o.isoversize) {
+    this.isoversize=true;
+  }
+  if (this.maxUniqSize > o.maxUniqSize) {
+    this.maxUniqSize=o.maxUniqSize;
+  }
+  this.mergeUniq(o);
+}

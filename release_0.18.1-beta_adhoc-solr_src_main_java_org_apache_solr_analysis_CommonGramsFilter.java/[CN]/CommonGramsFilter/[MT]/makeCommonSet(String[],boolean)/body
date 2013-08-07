@@ -1,0 +1,5 @@
+{
+  CharArraySet commonSet=new CharArraySet(commonWords.length,ignoreCase);
+  commonSet.addAll(Arrays.asList(commonWords));
+  return commonSet;
+}

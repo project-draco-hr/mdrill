@@ -1,0 +1,16 @@
+{
+  File file=null;
+  if (!this.links.containsKey(name)) {
+    file=new File(directory,name);
+  }
+ else {
+    file=this.links.get(name);
+  }
+  RandomAccessFile raf=new RandomAccessFile(file,"r");
+  try {
+    return new LinkMMapIndexInput("MMapIndexInput(path=\"" + file + "\")",raf,chunkSizePower);
+  }
+  finally {
+    raf.close();
+  }
+}

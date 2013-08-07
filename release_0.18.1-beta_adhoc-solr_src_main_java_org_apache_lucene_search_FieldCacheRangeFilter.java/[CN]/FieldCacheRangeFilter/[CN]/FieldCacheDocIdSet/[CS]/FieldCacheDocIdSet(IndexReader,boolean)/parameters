@@ -1,0 +1,2 @@
+IndexReader reader
+boolean mayUseTermDocs

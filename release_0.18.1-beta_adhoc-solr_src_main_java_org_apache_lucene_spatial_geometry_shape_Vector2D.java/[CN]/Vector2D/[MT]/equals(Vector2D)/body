@@ -1,0 +1,3 @@
+{
+  return other != null && x == other.x && y == other.y;
+}

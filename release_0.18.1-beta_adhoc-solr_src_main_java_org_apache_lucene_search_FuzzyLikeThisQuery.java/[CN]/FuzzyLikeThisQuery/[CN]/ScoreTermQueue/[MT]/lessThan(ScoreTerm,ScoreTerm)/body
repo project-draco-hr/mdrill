@@ -1,0 +1,4 @@
+{
+  if (termA.score == termB.score)   return termA.term.compareTo(termB.term) > 0;
+ else   return termA.score < termB.score;
+}

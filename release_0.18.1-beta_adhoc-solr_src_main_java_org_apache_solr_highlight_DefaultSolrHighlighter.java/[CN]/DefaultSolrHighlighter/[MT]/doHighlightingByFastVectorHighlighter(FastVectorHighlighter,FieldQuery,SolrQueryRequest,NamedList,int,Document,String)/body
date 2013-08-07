@@ -1,0 +1,7 @@
+{
+  SolrParams params=req.getParams();
+  SolrFragmentsBuilder solrFb=getSolrFragmentsBuilder(fieldName,params);
+  String[] snippets=highlighter.getBestFragments(fieldQuery,req.getSearcher().getReader(),docId,fieldName,params.getFieldInt(fieldName,HighlightParams.FRAGSIZE,100),params.getFieldInt(fieldName,HighlightParams.SNIPPETS,1),getFragListBuilder(fieldName,params),getFragmentsBuilder(fieldName,params),solrFb.getPreTags(params,fieldName),solrFb.getPostTags(params,fieldName),getEncoder(fieldName,params));
+  if (snippets != null && snippets.length > 0)   docSummaries.add(fieldName,snippets);
+ else   alternateField(docSummaries,params,doc,fieldName);
+}

@@ -1,0 +1,23 @@
+{
+  QParser parser=QParser.getParser(groupByStr,null,request);
+  Query gq=parser.getQuery();
+  Grouping.CommandQuery gc=new CommandQuery();
+  gc.query=gq;
+  gc.groupSort=groupSort;
+  gc.key=groupByStr;
+  gc.numGroups=limitDefault;
+  gc.docsPerGroup=docsPerGroupDefault;
+  gc.groupOffset=groupOffsetDefault;
+  gc.offset=cmd.getOffset();
+  gc.numGroups=limitDefault;
+  gc.format=defaultFormat;
+  if (main) {
+    gc.main=true;
+    gc.format=Grouping.Format.simple;
+  }
+  if (gc.format == Grouping.Format.simple) {
+    gc.docsPerGroup=gc.numGroups;
+    gc.groupOffset=gc.offset;
+  }
+  commands.add(gc);
+}

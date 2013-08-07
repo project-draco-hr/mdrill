@@ -1,0 +1,25 @@
+{
+  if (poolReaders) {
+    readBufferSize=BufferedIndexInput.BUFFER_SIZE;
+  }
+  SegmentReader sr=readerMap.get(info);
+  if (sr == null) {
+    sr=SegmentReader.get(false,info.dir,info,readBufferSize,doOpenStores,termsIndexDivisor);
+    sr.readerFinishedListeners=readerFinishedListeners;
+    if (info.dir == directory) {
+      readerMap.put(info,sr);
+    }
+  }
+ else {
+    if (doOpenStores) {
+      sr.openDocStores();
+    }
+    if (termsIndexDivisor != -1 && !sr.termsIndexLoaded()) {
+      sr.loadTermsIndex(termsIndexDivisor);
+    }
+  }
+  if (info.dir == directory) {
+    sr.incRef();
+  }
+  return sr;
+}

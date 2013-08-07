@@ -1,0 +1,4 @@
+Map conf
+String supervisorId
+String workerId
+ConcurrentHashMap<String,String> workerThreadPids

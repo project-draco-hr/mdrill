@@ -1,0 +1,4 @@
+{
+  digester=DIGESTER_FACTORY.get();
+  digester.reset();
+}

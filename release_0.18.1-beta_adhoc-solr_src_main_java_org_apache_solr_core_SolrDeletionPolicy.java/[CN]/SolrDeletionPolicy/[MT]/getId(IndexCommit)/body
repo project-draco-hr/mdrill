@@ -1,0 +1,17 @@
+{
+  StringBuilder sb=new StringBuilder();
+  Directory dir=commit.getDirectory();
+  if (dir instanceof FSDirectory) {
+    FSDirectory fsd=(FSDirectory)dir;
+    File fdir=fsd.getDirectory();
+    sb.append(fdir.getPath());
+  }
+ else {
+    sb.append(dir);
+  }
+  sb.append('/');
+  sb.append(commit.getGeneration());
+  sb.append('_');
+  sb.append(commit.getVersion());
+  return sb.toString();
+}

@@ -1,0 +1,8 @@
+{
+  currentBuffer=null;
+  currentBufferIndex=-1;
+  bufferPosition=0;
+  bufferStart=0;
+  bufferLength=0;
+  file.setLength(0);
+}

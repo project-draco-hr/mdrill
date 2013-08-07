@@ -1,0 +1,56 @@
+{
+  if (idx >= len || pattern.charAt(idx++) != '{') {
+    internalError();
+  }
+  if (idx >= len || !Character.isDigit(pattern.charAt(idx))) {
+    syntaxError("Expected digit");
+  }
+  StringBuffer number=new StringBuffer();
+  while (idx < len && Character.isDigit(pattern.charAt(idx))) {
+    number.append(pattern.charAt(idx++));
+  }
+  try {
+    bracketMin[brackets]=Integer.parseInt(number.toString());
+  }
+ catch (  NumberFormatException e) {
+    syntaxError("Expected valid number");
+  }
+  if (idx >= len) {
+    syntaxError("Expected comma or right bracket");
+  }
+  if (pattern.charAt(idx) == '}') {
+    idx++;
+    bracketOpt[brackets]=0;
+    return;
+  }
+  if (idx >= len || pattern.charAt(idx++) != ',') {
+    syntaxError("Expected comma");
+  }
+  if (idx >= len) {
+    syntaxError("Expected comma or right bracket");
+  }
+  if (pattern.charAt(idx) == '}') {
+    idx++;
+    bracketOpt[brackets]=bracketUnbounded;
+    return;
+  }
+  if (idx >= len || !Character.isDigit(pattern.charAt(idx))) {
+    syntaxError("Expected digit");
+  }
+  number.setLength(0);
+  while (idx < len && Character.isDigit(pattern.charAt(idx))) {
+    number.append(pattern.charAt(idx++));
+  }
+  try {
+    bracketOpt[brackets]=Integer.parseInt(number.toString()) - bracketMin[brackets];
+  }
+ catch (  NumberFormatException e) {
+    syntaxError("Expected valid number");
+  }
+  if (bracketOpt[brackets] < 0) {
+    syntaxError("Bad range");
+  }
+  if (idx >= len || pattern.charAt(idx++) != '}') {
+    syntaxError("Missing close brace");
+  }
+}

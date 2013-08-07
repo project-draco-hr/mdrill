@@ -1,0 +1,4 @@
+IndexReader reader
+String field
+FieldCache.DoubleParser parser
+boolean setDocsWithField

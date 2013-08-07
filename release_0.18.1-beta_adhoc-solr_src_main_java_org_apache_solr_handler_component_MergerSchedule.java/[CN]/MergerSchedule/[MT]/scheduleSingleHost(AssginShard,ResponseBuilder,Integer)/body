@@ -1,0 +1,30 @@
+{
+  int numshards=(assign0.shards.size() / maxshards) + 1;
+  if (numshards > maxshards) {
+    numshards=maxshards;
+  }
+  HashMap<String,ArrayList<String>> listByShard=MergeShards.getByHostport(assign0.shards);
+  HashMap<String,ArrayList<String>> mslistByShard=MergeShards.getByHostport(assign0.ms);
+  String[] ssubshards=MergeShards.get(listByShard,numshards);
+  String[] msShards=MergeShards.get(mslistByShard,numshards);
+  rb.shards=new String[ssubshards.length];
+  rb.subShards=new String[ssubshards.length];
+  rb.issubshard=true;
+  for (int i=0; i < ssubshards.length; i++) {
+    StringBuffer subShards=new StringBuffer();
+    String[] cols=ssubshards[i].split(",");
+    Integer index=(((int)(Math.random() * 100000)) % msShards.length);
+    String[] msServer=msShards[index].split(",");
+    int rindex=(int)(Math.random() * (msServer.length - 1)) + 1;
+    rb.shards[i]=msServer[rindex];
+    String joinchar="";
+    for (int j=1; j < cols.length; j++) {
+      subShards.append(joinchar);
+      subShards.append(cols[j]);
+      joinchar=",";
+    }
+    rb.subShards[i]=subShards.toString();
+    log.info("shedule by single:" + rb.shards[i] + "=>>"+ rb.subShards[i]);
+  }
+  log.info("MergerSchedule scheduleSingleHost:" + rb.shards.length + ">>"+ numshards);
+}

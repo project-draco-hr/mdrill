@@ -1,0 +1,11 @@
+{
+  HashSet<Integer> rtn=new HashSet<Integer>();
+  Assignment ass=stat.assignment_info(storm_id,null);
+  if (ass != null) {
+    for (    Integer task : ass.getTaskToNodeport().keySet()) {
+      rtn.add(task);
+    }
+  }
+  Integer[] rtnarr=new Integer[rtn.size()];
+  return rtn.toArray(rtnarr);
+}

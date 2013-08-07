@@ -1,0 +1,3 @@
+IndexWriter writer
+ExecutorService es
+SearcherWarmer warmer

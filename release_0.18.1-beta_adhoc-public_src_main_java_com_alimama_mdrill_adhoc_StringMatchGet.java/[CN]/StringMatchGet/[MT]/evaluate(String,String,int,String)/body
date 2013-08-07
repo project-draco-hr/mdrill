@@ -1,0 +1,45 @@
+{
+  if (d == null) {
+    return new String("-");
+  }
+  Pattern pat=match.get(regEx);
+  if (pat == null) {
+    pat=Pattern.compile(regEx);
+    match.put(regEx,pat);
+  }
+  Matcher mat=pat.matcher(d);
+  while (mat.find()) {
+    String rtn=mat.group(index);
+    if (rtn == null) {
+      return new String("-");
+    }
+    if (parseType.equals("String")) {
+      return new String(rtn);
+    }
+    if (parseType.equals("Integer")) {
+      try {
+        Integer parse=Integer.parseInt(rtn);
+        return new String(String.valueOf(parse));
+      }
+ catch (      NumberFormatException e) {
+      }
+    }
+    if (parseType.equals("Double")) {
+      try {
+        Double parse=Double.parseDouble(rtn);
+        return new String(String.valueOf(parse));
+      }
+ catch (      NumberFormatException e) {
+      }
+    }
+    if (parseType.equals("Long")) {
+      try {
+        Long parse=Long.parseLong(rtn);
+        return new String(String.valueOf(parse));
+      }
+ catch (      NumberFormatException e) {
+      }
+    }
+  }
+  return new String("-");
+}

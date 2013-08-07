@@ -1,0 +1,9 @@
+{
+  if (includeSpanScore) {
+    return super.explain(reader,doc);
+  }
+ else {
+    PayloadTermSpanScorer scorer=(PayloadTermSpanScorer)scorer(reader,true,false);
+    return scorer.explain(doc);
+  }
+}

@@ -1,0 +1,5 @@
+{
+  super(input);
+  this.scanner=new WikipediaTokenizerImpl(input);
+  init(tokenOutput,untokenizedTypes);
+}

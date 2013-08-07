@@ -1,0 +1,3 @@
+{
+  indexStream.seek(formatSize + (docID + docStoreOffset) * 8L);
+}

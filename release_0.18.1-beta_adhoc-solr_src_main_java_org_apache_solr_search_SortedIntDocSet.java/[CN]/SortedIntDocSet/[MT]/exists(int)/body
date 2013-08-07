@@ -1,0 +1,18 @@
+{
+  int low=0;
+  int high=docs.length - 1;
+  while (low <= high) {
+    int mid=(low + high) >>> 1;
+    int docb=docs[mid];
+    if (docb < doc) {
+      low=mid + 1;
+    }
+ else     if (docb > doc) {
+      high=mid - 1;
+    }
+ else {
+      return true;
+    }
+  }
+  return false;
+}

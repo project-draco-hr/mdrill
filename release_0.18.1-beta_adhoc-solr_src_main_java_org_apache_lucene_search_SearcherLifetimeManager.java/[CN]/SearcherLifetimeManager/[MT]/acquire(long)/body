@@ -1,0 +1,8 @@
+{
+  ensureOpen();
+  final SearcherTracker tracker=searchers.get(version);
+  if (tracker != null && tracker.searcher.getIndexReader().tryIncRef()) {
+    return tracker.searcher;
+  }
+  return null;
+}

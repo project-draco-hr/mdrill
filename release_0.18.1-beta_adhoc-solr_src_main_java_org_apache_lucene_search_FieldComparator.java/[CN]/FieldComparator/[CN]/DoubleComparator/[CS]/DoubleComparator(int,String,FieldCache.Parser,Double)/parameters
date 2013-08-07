@@ -1,0 +1,4 @@
+int numHits
+String field
+FieldCache.Parser parser
+Double missingValue

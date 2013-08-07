@@ -1,0 +1,11 @@
+{
+  if (ints == null) {
+    ints=new int[other.length];
+  }
+ else {
+    ints=ArrayUtil.grow(ints,other.length);
+  }
+  System.arraycopy(other.ints,other.offset,ints,0,other.length);
+  length=other.length;
+  offset=0;
+}

@@ -1,0 +1,5 @@
+{
+  byte[] retArray=new byte[this.length];
+  System.arraycopy(this.data,this.offset,retArray,0,this.length);
+  return retArray;
+}

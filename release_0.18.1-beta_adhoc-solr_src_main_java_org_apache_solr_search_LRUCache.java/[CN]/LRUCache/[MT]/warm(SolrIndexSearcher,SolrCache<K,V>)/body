@@ -1,0 +1,32 @@
+{
+  if (regenerator == null)   return;
+  long warmingStartTime=System.currentTimeMillis();
+  LRUCache<K,V> other=(LRUCache<K,V>)old;
+  if (autowarmCount != 0) {
+    Object[] keys, vals=null;
+synchronized (other.map) {
+      int sz=other.map.size();
+      if (autowarmCount != -1)       sz=Math.min(sz,autowarmCount);
+      keys=new Object[sz];
+      vals=new Object[sz];
+      Iterator<Map.Entry<K,V>> iter=other.map.entrySet().iterator();
+      int skip=other.map.size() - sz;
+      for (int i=0; i < skip; i++)       iter.next();
+      for (int i=0; i < sz; i++) {
+        Map.Entry<K,V> entry=iter.next();
+        keys[i]=entry.getKey();
+        vals[i]=entry.getValue();
+      }
+    }
+    for (int i=0; i < keys.length; i++) {
+      try {
+        boolean continueRegen=regenerator.regenerateItem(searcher,this,old,keys[i],vals[i]);
+        if (!continueRegen)         break;
+      }
+ catch (      Throwable e) {
+        SolrException.log(log,"Error during auto-warming of key:" + keys[i],e);
+      }
+    }
+  }
+  warmupTime=System.currentTimeMillis() - warmingStartTime;
+}

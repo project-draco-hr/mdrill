@@ -1,0 +1,9 @@
+OutputCollector collector
+Configuration conf
+String solrhome
+String diskList
+Integer portbase
+int taskIndex
+String tblName
+Integer taskid
+Integer partions

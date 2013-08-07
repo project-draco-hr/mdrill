@@ -1,0 +1,19 @@
+{
+  if (sb.charAt(0) == 'y')   sb.setCharAt(0,'Y');
+  int last=sb.length() - 1;
+  for (int i=1; i < last; i++) {
+switch (sb.charAt(i)) {
+case 'i':
+{
+        if (isVowel(sb.charAt(i - 1)) && isVowel(sb.charAt(i + 1)))         sb.setCharAt(i,'I');
+        break;
+      }
+case 'y':
+{
+      if (isVowel(sb.charAt(i - 1)))       sb.setCharAt(i,'Y');
+      break;
+    }
+}
+}
+if (last > 0 && sb.charAt(last) == 'y' && isVowel(sb.charAt(last - 1))) sb.setCharAt(last,'Y');
+}

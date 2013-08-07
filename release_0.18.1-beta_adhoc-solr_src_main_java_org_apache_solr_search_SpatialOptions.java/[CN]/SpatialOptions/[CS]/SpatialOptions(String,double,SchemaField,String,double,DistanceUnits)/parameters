@@ -1,0 +1,6 @@
+String pointStr
+double dist
+SchemaField sf
+String measStr
+double radius
+DistanceUnits units

@@ -1,0 +1,4 @@
+{
+  final Segment last=this.segments.last();
+  return last.start + last.size();
+}

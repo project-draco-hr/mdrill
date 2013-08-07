@@ -1,0 +1,3 @@
+{
+  return attClass.isAssignableFrom(Token.class) ? new Token() : delegate.createAttributeInstance(attClass);
+}

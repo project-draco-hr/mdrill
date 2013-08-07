@@ -1,0 +1,25 @@
+{
+  if (terms.size() == 0)   return null;
+  PostingsAndFreq[] postingsFreqs=new PostingsAndFreq[terms.size()];
+  for (int i=0; i < terms.size(); i++) {
+    final Term t=terms.get(i);
+    TermPositions p=reader.termPositions(t);
+    if (p == null)     return null;
+    postingsFreqs[i]=new PostingsAndFreq(p,reader.docFreq(t),positions.get(i).intValue(),t);
+  }
+  if (slop == 0) {
+    ArrayUtil.mergeSort(postingsFreqs);
+  }
+  if (slop == 0) {
+    ExactPhraseScorer s=new ExactPhraseScorer(this,postingsFreqs,similarity,reader.norms(field));
+    if (s.noDocs) {
+      return null;
+    }
+ else {
+      return s;
+    }
+  }
+ else {
+    return new SloppyPhraseScorer(this,postingsFreqs,similarity,slop,reader.norms(field));
+  }
+}

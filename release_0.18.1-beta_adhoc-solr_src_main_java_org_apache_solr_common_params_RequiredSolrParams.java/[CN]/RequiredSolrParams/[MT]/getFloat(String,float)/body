@@ -1,0 +1,3 @@
+{
+  return params.getFloat(param,def);
+}

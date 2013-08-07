@@ -1,0 +1,16 @@
+{
+  if (closed) {
+    return 0;
+  }
+  int c;
+  int i=n;
+  while (--i >= 0) {
+    c=is.read();
+    if (c < 0) {
+      closed=true;
+      break;
+    }
+    buff.append((char)c);
+  }
+  return n - i;
+}

@@ -1,0 +1,85 @@
+{
+  boolean success=false;
+  this.clear();
+  String checksumfile=segmentFileName.replaceFirst(IndexFileNames.SEGMENTS,IndexFileNames.SEGMENTS_CHECKSUM);
+  boolean isusechecksumfile=false;
+  long checksum=-1;
+  if (directory.fileExists(checksumfile)) {
+    IndexInput chkinput=directory.openInput(checksumfile);
+    checksum=chkinput.readLong();
+    chkinput.close();
+    isusechecksumfile=true;
+  }
+ else {
+    System.out.println("can`t found checksum file " + checksumfile);
+  }
+  ChecksumIndexInput input=new ChecksumIndexInput(directory.openInput(segmentFileName));
+  generation=generationFromSegmentsFileName(segmentFileName);
+  lastGeneration=generation;
+  try {
+    int format=input.readInt();
+    if (format > FORMAT_MINIMUM) {
+      throw new IndexFormatTooOldException(input,format,FORMAT_MINIMUM,FORMAT_MAXIMUM);
+    }
+    if (format < FORMAT_MAXIMUM) {
+      throw new IndexFormatTooNewException(input,format,FORMAT_MINIMUM,FORMAT_MAXIMUM);
+    }
+    version=input.readLong();
+    counter=input.readInt();
+    for (int i=input.readInt(); i > 0; i--) {
+      SegmentInfo si=new SegmentInfo(directory,format,input);
+      if (si.getVersion() == null) {
+        Directory dir=directory;
+        if (si.getDocStoreOffset() != -1) {
+          if (si.getDocStoreIsCompoundFile()) {
+            dir=new CompoundFileReader(dir,IndexFileNames.segmentFileName(si.getDocStoreSegment(),IndexFileNames.COMPOUND_FILE_STORE_EXTENSION),IndexFileNames.segmentFileName(si.getDocStoreSegment(),IndexFileNames.COMPOUND_FILE_STORE_EXTENSION_POS),1024);
+          }
+        }
+ else         if (si.getUseCompoundFile()) {
+          dir=new CompoundFileReader(dir,IndexFileNames.segmentFileName(si.name,IndexFileNames.COMPOUND_FILE_EXTENSION),IndexFileNames.segmentFileName(si.name,IndexFileNames.COMPOUND_FILE_EXTENSION_POS),1024);
+        }
+        try {
+          String store=si.getDocStoreOffset() != -1 ? si.getDocStoreSegment() : si.name;
+          si.setVersion(FieldsReader.detectCodeVersion(dir,store));
+        }
+  finally {
+          if (dir != directory)           dir.close();
+        }
+      }
+      add(si);
+    }
+    if (format >= 0) {
+      if (input.getFilePointer() >= input.length())       version=System.currentTimeMillis();
+ else       version=input.readLong();
+    }
+    if (format <= FORMAT_USER_DATA) {
+      if (format <= FORMAT_DIAGNOSTICS) {
+        userData=input.readStringStringMap();
+      }
+ else       if (0 != input.readByte()) {
+        userData=Collections.singletonMap("userData",input.readString());
+      }
+ else {
+        userData=Collections.<String,String>emptyMap();
+      }
+    }
+ else {
+      userData=Collections.<String,String>emptyMap();
+    }
+    if (format <= FORMAT_CHECKSUM) {
+      final long checksumNow=input.getChecksum();
+      long checksumThen=checksum;
+      if (!isusechecksumfile) {
+        checksumThen=input.readLong();
+      }
+      if (checksumNow != checksumThen)       throw new CorruptIndexException("checksum mismatch in segments file (resource: " + input + ")");
+    }
+    success=true;
+  }
+  finally {
+    input.close();
+    if (!success) {
+      this.clear();
+    }
+  }
+}

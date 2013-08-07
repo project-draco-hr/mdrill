@@ -1,0 +1,25 @@
+{
+  int node;
+  int ret=node(RE.OP_BRANCH,0);
+  int chain=-1;
+  int[] closureFlags=new int[1];
+  boolean nullable=true;
+  while (idx < len && pattern.charAt(idx) != '|' && pattern.charAt(idx) != ')') {
+    closureFlags[0]=NODE_NORMAL;
+    node=closure(closureFlags);
+    if (closureFlags[0] == NODE_NORMAL) {
+      nullable=false;
+    }
+    if (chain != -1) {
+      setNextOfEnd(chain,node);
+    }
+    chain=node;
+  }
+  if (chain == -1) {
+    node(RE.OP_NOTHING,0);
+  }
+  if (nullable) {
+    flags[0]|=NODE_NULLABLE;
+  }
+  return ret;
+}

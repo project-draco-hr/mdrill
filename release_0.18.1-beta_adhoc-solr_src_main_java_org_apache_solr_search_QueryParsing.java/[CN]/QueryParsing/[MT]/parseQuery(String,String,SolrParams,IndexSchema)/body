@@ -1,0 +1,18 @@
+{
+  try {
+    SolrQueryParser parser=schema.getSolrQueryParser(defaultField);
+    String opParam=params.get(OP);
+    if (opParam != null) {
+      parser.setDefaultOperator("AND".equals(opParam) ? QueryParser.Operator.AND : QueryParser.Operator.OR);
+    }
+    Query query=parser.parse(qs);
+    if (SolrCore.log.isTraceEnabled()) {
+      SolrCore.log.trace("After QueryParser:" + query);
+    }
+    return query;
+  }
+ catch (  ParseException e) {
+    SolrCore.log(e);
+    throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,"Query parsing error: " + e.getMessage(),e);
+  }
+}

@@ -1,0 +1,10 @@
+SolrQuery query
+ArrayList<String> fqList
+ArrayList<String> groupFields
+int start
+int rows
+HashSet<String> realDistFieldMap
+HashSet<String> realFieldMap
+SortParam sortType
+HigoJoinParams[] joins
+HashMap<String,Count> groupValueCache

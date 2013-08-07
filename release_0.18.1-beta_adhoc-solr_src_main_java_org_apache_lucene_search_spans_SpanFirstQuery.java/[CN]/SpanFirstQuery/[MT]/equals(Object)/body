@@ -1,0 +1,6 @@
+{
+  if (this == o)   return true;
+  if (!(o instanceof SpanFirstQuery))   return false;
+  SpanFirstQuery other=(SpanFirstQuery)o;
+  return this.end == other.end && this.match.equals(other.match) && this.getBoost() == other.getBoost();
+}

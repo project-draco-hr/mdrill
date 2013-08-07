@@ -1,0 +1,16 @@
+{
+  Set<Integer> tasks=null;
+  Assignment assignmentInfo=zkCluster.assignment_info(topologyid,null);
+  if (assignmentInfo != null) {
+    tasks=new HashSet<Integer>();
+    Map<Integer,NodePort> taskToNodeport=assignmentInfo.getTaskToNodeport();
+    for (    Entry<Integer,NodePort> taskNode : taskToNodeport.entrySet()) {
+      NodePort loc=taskNode.getValue();
+      if (loc != null && loc.getNode().equals(supervisorId) && loc.getPort() == port) {
+        tasks.add(taskNode.getKey());
+      }
+    }
+    LOG.info("readWorkerTaskids topologyid=" + topologyid + ",port="+ port+ ",supervisorId="+ supervisorId+ ",tasks.size="+ tasks.size()+ ","+ assignmentInfo.toString());
+  }
+  return tasks;
+}

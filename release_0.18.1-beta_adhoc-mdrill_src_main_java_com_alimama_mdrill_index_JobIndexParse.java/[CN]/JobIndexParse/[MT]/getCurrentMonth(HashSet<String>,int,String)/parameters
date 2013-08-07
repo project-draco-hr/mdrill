@@ -1,0 +1,3 @@
+HashSet<String> all
+int delay
+String starday

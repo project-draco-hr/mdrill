@@ -1,0 +1,5 @@
+{
+  for (  Query query : disjuncts) {
+    query.extractTerms(terms);
+  }
+}

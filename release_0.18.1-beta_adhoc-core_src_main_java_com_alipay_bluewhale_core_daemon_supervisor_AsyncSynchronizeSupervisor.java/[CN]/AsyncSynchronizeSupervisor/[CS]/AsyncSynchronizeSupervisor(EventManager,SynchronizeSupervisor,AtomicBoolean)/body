@@ -1,0 +1,6 @@
+{
+  this.eventManager=eventManager;
+  this.synchronizeSupervisor=synchronizeSupervisor;
+  this.active=active;
+  this.result=null;
+}

@@ -1,0 +1,6 @@
+int ch0
+Character.UnicodeBlock block0
+ScriptData sd
+char text[]
+int pos
+int len

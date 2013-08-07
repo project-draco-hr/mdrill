@@ -1,0 +1,8 @@
+{
+  CacheEntry<K,V> cacheEntry=map.remove(key);
+  if (cacheEntry != null) {
+    stats.size.decrementAndGet();
+    return cacheEntry.value;
+  }
+  return null;
+}

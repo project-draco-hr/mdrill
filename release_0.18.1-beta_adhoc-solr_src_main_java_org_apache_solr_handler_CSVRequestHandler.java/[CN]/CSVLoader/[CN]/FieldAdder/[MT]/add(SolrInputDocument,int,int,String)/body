@@ -1,0 +1,5 @@
+{
+  if (val.length() > 0) {
+    doc.addField(fields[column].getName(),val,1.0f);
+  }
+}

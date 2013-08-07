@@ -1,0 +1,4 @@
+{
+  if (jj_scan_token(S_INTEGER))   return true;
+  return false;
+}

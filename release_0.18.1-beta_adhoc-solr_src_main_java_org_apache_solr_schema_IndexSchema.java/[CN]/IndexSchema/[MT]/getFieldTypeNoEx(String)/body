@@ -1,0 +1,5 @@
+{
+  SchemaField f=fields.get(fieldName);
+  if (f != null)   return f.getType();
+  return dynFieldType(fieldName);
+}

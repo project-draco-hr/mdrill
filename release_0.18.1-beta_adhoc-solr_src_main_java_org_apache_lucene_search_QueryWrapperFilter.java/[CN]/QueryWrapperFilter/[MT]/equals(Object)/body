@@ -1,0 +1,4 @@
+{
+  if (!(o instanceof QueryWrapperFilter))   return false;
+  return this.query.equals(((QueryWrapperFilter)o).query);
+}

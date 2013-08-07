@@ -1,0 +1,4 @@
+{
+  matchVersion=version;
+  this.stopwords=stopwords == null ? CharArraySet.EMPTY_SET : CharArraySet.unmodifiableSet(CharArraySet.copy(version,stopwords));
+}

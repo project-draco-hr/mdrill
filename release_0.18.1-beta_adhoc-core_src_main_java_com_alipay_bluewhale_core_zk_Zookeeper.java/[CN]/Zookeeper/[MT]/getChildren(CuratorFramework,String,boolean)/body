@@ -1,0 +1,9 @@
+{
+  String npath=PathUtils.normalize_path(path);
+  if (watch) {
+    return zk.getChildren().watched().forPath(npath);
+  }
+ else {
+    return zk.getChildren().forPath(npath);
+  }
+}

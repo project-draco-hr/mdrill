@@ -1,0 +1,3 @@
+{
+  return qWeight * vals.floatVal(termDocs.doc());
+}

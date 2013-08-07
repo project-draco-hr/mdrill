@@ -1,0 +1,4 @@
+{
+  final State state=this.getCurrentState();
+  return (state == null) ? null : (State)state.clone();
+}

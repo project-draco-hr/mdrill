@@ -1,0 +1,30 @@
+{
+  HashSet<Query> uniques=new HashSet<Query>();
+  for (int i=0; i < queries.length; i++) {
+    Query query=queries[i];
+    BooleanClause[] clauses=null;
+    boolean splittable=(query instanceof BooleanQuery);
+    if (splittable) {
+      BooleanQuery bq=(BooleanQuery)query;
+      splittable=bq.isCoordDisabled();
+      clauses=bq.getClauses();
+      for (int j=0; splittable && j < clauses.length; j++) {
+        splittable=(clauses[j].getOccur() == BooleanClause.Occur.SHOULD);
+      }
+    }
+    if (splittable) {
+      for (int j=0; j < clauses.length; j++) {
+        uniques.add(clauses[j].getQuery());
+      }
+    }
+ else {
+      uniques.add(query);
+    }
+  }
+  if (uniques.size() == 1) {
+    return uniques.iterator().next();
+  }
+  BooleanQuery result=new BooleanQuery(true);
+  for (  final Query query : uniques)   result.add(query,BooleanClause.Occur.SHOULD);
+  return result;
+}

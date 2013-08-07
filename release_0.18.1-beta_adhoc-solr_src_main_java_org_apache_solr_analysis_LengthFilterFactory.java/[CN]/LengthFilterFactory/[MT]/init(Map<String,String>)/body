@@ -1,0 +1,6 @@
+{
+  super.init(args);
+  min=Integer.parseInt(args.get(MIN_KEY));
+  max=Integer.parseInt(args.get(MAX_KEY));
+  enablePositionIncrements=getBoolean("enablePositionIncrements",false);
+}

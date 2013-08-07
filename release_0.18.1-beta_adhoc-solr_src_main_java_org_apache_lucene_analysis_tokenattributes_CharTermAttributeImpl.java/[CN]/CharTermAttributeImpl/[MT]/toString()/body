@@ -1,0 +1,3 @@
+{
+  return new String(termBuffer,0,termLength);
+}

@@ -1,0 +1,6 @@
+{
+  System.out.println("###");
+  SqlParser p=new SqlParser();
+  p.parse("select count(pv) as pv,sum(pv) as sumpv from test where  thedate >=20130101 and thedate <=20120303 and userid not    in (abc,dec,a,e,f,'13','45') ");
+  System.out.println(p.toString());
+}

@@ -1,0 +1,6 @@
+{
+  Runnable runner=new EventManagerImpExecute(this);
+  runningThread=new Thread(runner);
+  runningThread.setDaemon(_daemon);
+  runningThread.start();
+}

@@ -1,0 +1,6 @@
+{
+  last.next=first;
+  last=first;
+  first=first.next;
+  last.next=null;
+}

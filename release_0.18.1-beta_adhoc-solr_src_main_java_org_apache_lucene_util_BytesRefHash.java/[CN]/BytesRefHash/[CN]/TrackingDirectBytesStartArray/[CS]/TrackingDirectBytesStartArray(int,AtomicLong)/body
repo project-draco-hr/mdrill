@@ -1,0 +1,4 @@
+{
+  this.initSize=initSize;
+  this.bytesUsed=bytesUsed;
+}

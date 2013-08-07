@@ -1,0 +1,13 @@
+{
+  int delaySecs;
+  if (args == null || args.length == 0) {
+    Map<?,?> map=NimbusUtils.readStormConf(data.getConf(),topologyid);
+    delaySecs=(Integer)map.get(Config.TOPOLOGY_MESSAGE_TIMEOUT_SECS);
+  }
+ else {
+    delaySecs=(Integer)args[0];
+  }
+  LOG.info("Delaying event " + StatusType.remove.getStatus() + " for "+ delaySecs+ " secs for "+ topologyid);
+  data.getScheduExec().schedule(new DelayEventRunnable(data,topologyid,StatusType.remove),delaySecs,TimeUnit.SECONDS);
+  return new StormStatus(delaySecs,StatusType.killed,oldStatus);
+}

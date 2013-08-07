@@ -1,0 +1,5 @@
+{
+  this.charFilters=charFilters;
+  this.tokenizer=tokenizer;
+  this.filters=filters;
+}

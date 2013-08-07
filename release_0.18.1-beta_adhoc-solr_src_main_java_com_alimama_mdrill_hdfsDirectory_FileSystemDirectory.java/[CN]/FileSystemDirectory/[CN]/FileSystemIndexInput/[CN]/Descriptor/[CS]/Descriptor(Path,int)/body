@@ -1,0 +1,3 @@
+{
+  this.in=fs.open(file,ioFileBufferSize);
+}

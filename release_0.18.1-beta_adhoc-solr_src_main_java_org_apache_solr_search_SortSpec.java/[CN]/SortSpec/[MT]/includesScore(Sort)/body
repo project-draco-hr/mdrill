@@ -1,0 +1,7 @@
+{
+  if (sort == null)   return true;
+  for (  SortField sf : sort.getSort()) {
+    if (sf.getType() == SortField.SCORE)     return true;
+  }
+  return false;
+}

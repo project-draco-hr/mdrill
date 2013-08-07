@@ -1,0 +1,21 @@
+{
+  Transformer t=null;
+  try {
+    t=getTransformer(request);
+  }
+ catch (  Exception e) {
+    throw new RuntimeException("getTransformer fails in getContentType",e);
+  }
+  String mediaType=t.getOutputProperty("media-type");
+  if (mediaType == null || mediaType.length() == 0) {
+    mediaType=DEFAULT_CONTENT_TYPE;
+  }
+  if (!mediaType.contains("charset")) {
+    String encoding=t.getOutputProperty("encoding");
+    if (encoding == null || encoding.length() == 0) {
+      encoding="UTF-8";
+    }
+    mediaType=mediaType + "; charset=" + encoding;
+  }
+  return mediaType;
+}

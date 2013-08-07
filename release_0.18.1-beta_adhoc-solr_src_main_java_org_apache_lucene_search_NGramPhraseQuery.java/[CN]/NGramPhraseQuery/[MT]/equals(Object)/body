@@ -1,0 +1,6 @@
+{
+  if (!(o instanceof NGramPhraseQuery))   return false;
+  NGramPhraseQuery other=(NGramPhraseQuery)o;
+  if (this.n != other.n)   return false;
+  return super.equals(other);
+}

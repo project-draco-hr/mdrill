@@ -1,0 +1,5 @@
+{
+  if (this.getClass() != o.getClass())   return false;
+  GeohashHaversineFunction other=(GeohashHaversineFunction)o;
+  return this.name().equals(other.name()) && geoHash1.equals(other.geoHash1) && geoHash2.equals(other.geoHash2)&& radius == other.radius;
+}

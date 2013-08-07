@@ -1,0 +1,5 @@
+{
+  int index=(idx << 1);
+  nvPairs.remove(index);
+  return (T)nvPairs.remove(index);
+}

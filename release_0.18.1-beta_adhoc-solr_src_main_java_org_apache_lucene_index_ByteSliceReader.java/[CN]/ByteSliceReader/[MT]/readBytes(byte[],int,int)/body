@@ -1,0 +1,16 @@
+{
+  while (len > 0) {
+    final int numLeft=limit - upto;
+    if (numLeft < len) {
+      System.arraycopy(buffer,upto,b,offset,numLeft);
+      offset+=numLeft;
+      len-=numLeft;
+      nextSlice();
+    }
+ else {
+      System.arraycopy(buffer,upto,b,offset,len);
+      upto+=len;
+      break;
+    }
+  }
+}

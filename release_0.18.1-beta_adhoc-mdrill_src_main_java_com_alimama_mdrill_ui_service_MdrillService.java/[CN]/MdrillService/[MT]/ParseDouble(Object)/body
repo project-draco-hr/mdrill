@@ -1,0 +1,8 @@
+{
+  try {
+    return Double.parseDouble(String.valueOf(s));
+  }
+ catch (  Throwable e) {
+    return (double)s.hashCode();
+  }
+}

@@ -1,0 +1,14 @@
+{
+  if (val.equals("*")) {
+    if (field.equals("*")) {
+      return new MatchAllDocsQuery();
+    }
+ else {
+      return getPrefixQuery(field,"");
+    }
+  }
+  this.type=QType.WILDCARD;
+  this.field=field;
+  this.val=val;
+  return getAliasedQuery();
+}

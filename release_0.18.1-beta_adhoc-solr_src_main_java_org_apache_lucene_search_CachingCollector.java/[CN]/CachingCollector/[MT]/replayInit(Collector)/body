@@ -1,0 +1,12 @@
+{
+  if (!isCached()) {
+    throw new IllegalStateException("cannot replay: cache was cleared because too much RAM was required");
+  }
+  if (!other.acceptsDocsOutOfOrder() && this.other.acceptsDocsOutOfOrder()) {
+    throw new IllegalArgumentException("cannot replay: given collector does not support " + "out-of-order collection, while the wrapped collector does. " + "Therefore cached documents may be out-of-order.");
+  }
+  if (lastReader != null) {
+    cachedSegs.add(new SegStart(lastReader,lastDocBase,base + upto));
+    lastReader=null;
+  }
+}

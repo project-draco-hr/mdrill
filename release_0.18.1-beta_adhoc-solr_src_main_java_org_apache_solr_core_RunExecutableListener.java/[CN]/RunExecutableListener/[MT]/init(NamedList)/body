@@ -1,0 +1,20 @@
+{
+  super.init(args);
+  List cmdlist=new ArrayList();
+  cmdlist.add(args.get("exe"));
+  List lst=(List)args.get("args");
+  if (lst != null)   cmdlist.addAll(lst);
+  cmd=(String[])cmdlist.toArray(new String[cmdlist.size()]);
+  lst=(List)args.get("env");
+  if (lst != null) {
+    envp=(String[])lst.toArray(new String[lst.size()]);
+  }
+  String str=(String)args.get("dir");
+  if (str == null || str.equals("") || str.equals(".") || str.equals("./")) {
+    dir=null;
+  }
+ else {
+    dir=new File(str);
+  }
+  if ("false".equals(args.get("wait")) || Boolean.FALSE.equals(args.get("wait")))   wait=false;
+}

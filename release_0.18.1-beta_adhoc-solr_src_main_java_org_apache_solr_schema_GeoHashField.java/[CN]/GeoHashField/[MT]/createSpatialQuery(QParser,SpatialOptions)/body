@@ -1,0 +1,11 @@
+{
+  double[] point=new double[0];
+  try {
+    point=DistanceUtils.parsePointDouble(null,options.pointStr,2);
+  }
+ catch (  InvalidGeoException e) {
+    throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,e);
+  }
+  String geohash=GeoHashUtils.encode(point[0],point[1]);
+  return new SolrConstantScoreQuery(new ValueSourceRangeFilter(new GeohashHaversineFunction(getValueSource(options.field,parser),new LiteralValueSource(geohash),options.radius),"0",String.valueOf(options.distance),true,true));
+}

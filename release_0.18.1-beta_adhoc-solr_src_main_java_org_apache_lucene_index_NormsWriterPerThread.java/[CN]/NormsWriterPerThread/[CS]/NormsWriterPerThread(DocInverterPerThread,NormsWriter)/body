@@ -1,0 +1,4 @@
+{
+  this.normsWriter=normsWriter;
+  docState=docInverterPerThread.docState;
+}

@@ -1,0 +1,4 @@
+{
+  BoundaryScanner bs=getBoundaryScanner(fieldName,params);
+  return getSolrFragmentsBuilder(fieldName,params).getFragmentsBuilder(params,bs);
+}

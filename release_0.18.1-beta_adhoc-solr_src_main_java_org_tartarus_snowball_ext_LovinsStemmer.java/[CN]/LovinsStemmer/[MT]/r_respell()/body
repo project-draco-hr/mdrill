@@ -1,0 +1,212 @@
+{
+  int among_var;
+  int v_1;
+  int v_2;
+  int v_3;
+  int v_4;
+  int v_5;
+  int v_6;
+  int v_7;
+  int v_8;
+  ket=cursor;
+  among_var=find_among_b(a_3,34);
+  if (among_var == 0) {
+    return false;
+  }
+  bra=cursor;
+switch (among_var) {
+case 0:
+    return false;
+case 1:
+  slice_from("ief");
+break;
+case 2:
+slice_from("uc");
+break;
+case 3:
+slice_from("um");
+break;
+case 4:
+slice_from("rb");
+break;
+case 5:
+slice_from("ur");
+break;
+case 6:
+slice_from("ister");
+break;
+case 7:
+slice_from("meter");
+break;
+case 8:
+slice_from("olut");
+break;
+case 9:
+{
+v_1=limit - cursor;
+lab0: do {
+if (!(eq_s_b(1,"a"))) {
+break lab0;
+}
+return false;
+}
+ while (false);
+cursor=limit - v_1;
+}
+{
+v_2=limit - cursor;
+lab1: do {
+if (!(eq_s_b(1,"i"))) {
+break lab1;
+}
+return false;
+}
+ while (false);
+cursor=limit - v_2;
+}
+{
+v_3=limit - cursor;
+lab2: do {
+if (!(eq_s_b(1,"o"))) {
+break lab2;
+}
+return false;
+}
+ while (false);
+cursor=limit - v_3;
+}
+slice_from("l");
+break;
+case 10:
+slice_from("bic");
+break;
+case 11:
+slice_from("dic");
+break;
+case 12:
+slice_from("pic");
+break;
+case 13:
+slice_from("tic");
+break;
+case 14:
+slice_from("ac");
+break;
+case 15:
+slice_from("ec");
+break;
+case 16:
+slice_from("ic");
+break;
+case 17:
+slice_from("luc");
+break;
+case 18:
+slice_from("uas");
+break;
+case 19:
+slice_from("vas");
+break;
+case 20:
+slice_from("cis");
+break;
+case 21:
+slice_from("lis");
+break;
+case 22:
+slice_from("eris");
+break;
+case 23:
+slice_from("pans");
+break;
+case 24:
+{
+v_4=limit - cursor;
+lab3: do {
+if (!(eq_s_b(1,"s"))) {
+break lab3;
+}
+return false;
+}
+ while (false);
+cursor=limit - v_4;
+}
+slice_from("ens");
+break;
+case 25:
+slice_from("ons");
+break;
+case 26:
+slice_from("lus");
+break;
+case 27:
+slice_from("rus");
+break;
+case 28:
+{
+v_5=limit - cursor;
+lab4: do {
+if (!(eq_s_b(1,"p"))) {
+break lab4;
+}
+return false;
+}
+ while (false);
+cursor=limit - v_5;
+}
+{
+v_6=limit - cursor;
+lab5: do {
+if (!(eq_s_b(1,"t"))) {
+break lab5;
+}
+return false;
+}
+ while (false);
+cursor=limit - v_6;
+}
+slice_from("hes");
+break;
+case 29:
+slice_from("mis");
+break;
+case 30:
+{
+v_7=limit - cursor;
+lab6: do {
+if (!(eq_s_b(1,"m"))) {
+break lab6;
+}
+return false;
+}
+ while (false);
+cursor=limit - v_7;
+}
+slice_from("ens");
+break;
+case 31:
+slice_from("ers");
+break;
+case 32:
+{
+v_8=limit - cursor;
+lab7: do {
+if (!(eq_s_b(1,"n"))) {
+break lab7;
+}
+return false;
+}
+ while (false);
+cursor=limit - v_8;
+}
+slice_from("es");
+break;
+case 33:
+slice_from("ys");
+break;
+case 34:
+slice_from("ys");
+break;
+}
+return true;
+}

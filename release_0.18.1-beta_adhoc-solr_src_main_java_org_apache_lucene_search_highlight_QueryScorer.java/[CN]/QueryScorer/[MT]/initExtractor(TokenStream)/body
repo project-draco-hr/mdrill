@@ -1,0 +1,16 @@
+{
+  WeightedSpanTermExtractor qse=defaultField == null ? new WeightedSpanTermExtractor() : new WeightedSpanTermExtractor(defaultField);
+  qse.setMaxDocCharsToAnalyze(maxCharsToAnalyze);
+  qse.setExpandMultiTermQuery(expandMultiTermQuery);
+  qse.setWrapIfNotCachingTokenFilter(wrapToCaching);
+  if (reader == null) {
+    this.fieldWeightedSpanTerms=qse.getWeightedSpanTerms(query,tokenStream,field);
+  }
+ else {
+    this.fieldWeightedSpanTerms=qse.getWeightedSpanTermsWithScores(query,tokenStream,field,reader);
+  }
+  if (qse.isCachedTokenStream()) {
+    return qse.getTokenStream();
+  }
+  return null;
+}

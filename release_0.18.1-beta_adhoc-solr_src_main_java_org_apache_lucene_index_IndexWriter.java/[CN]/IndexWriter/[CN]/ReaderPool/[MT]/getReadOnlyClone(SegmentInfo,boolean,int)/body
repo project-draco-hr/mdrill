@@ -1,0 +1,9 @@
+{
+  SegmentReader sr=get(info,doOpenStores,BufferedIndexInput.BUFFER_SIZE,termInfosIndexDivisor);
+  try {
+    return (SegmentReader)sr.clone(true);
+  }
+  finally {
+    sr.decRef();
+  }
+}

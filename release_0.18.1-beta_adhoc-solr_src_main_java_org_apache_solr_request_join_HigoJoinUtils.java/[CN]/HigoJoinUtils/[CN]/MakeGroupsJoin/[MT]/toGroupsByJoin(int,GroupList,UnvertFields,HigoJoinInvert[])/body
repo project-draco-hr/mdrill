@@ -1,0 +1,24 @@
+{
+  group.reset();
+  for (  int i : ufs.listIndex) {
+    group.list[i]=ufs.cols[i].uif.termNum(doc);
+  }
+  ArrayList<GroupList> tmp=new ArrayList<MdrillPorcessUtils.GroupList>(1);
+  ArrayList<GroupList> newgroup=new ArrayList<MdrillPorcessUtils.GroupList>(1);
+  newgroup.add(group.copy(this.groupListCache));
+  int joinoffset=ufs.length;
+  for (  HigoJoinInvert inv : joinInvert) {
+    for (    GroupList base : newgroup) {
+      GroupList[] list=inv.fieldNum(doc,joinoffset,base,groupListCache);
+      if (list != null) {
+        for (        GroupList g : list) {
+          tmp.add(g);
+        }
+      }
+    }
+    newgroup=tmp;
+    tmp=new ArrayList<MdrillPorcessUtils.GroupList>();
+    joinoffset+=inv.fieldCount();
+  }
+  return newgroup;
+}

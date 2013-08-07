@@ -1,0 +1,4 @@
+{
+  ensureOpen();
+  return new NIOFSIndexInput(new File(getDirectory(),name),bufferSize,getReadChunkSize());
+}

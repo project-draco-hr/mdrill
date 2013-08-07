@@ -1,0 +1,7 @@
+{
+  if (writer == null) {
+    writer=createWriter();
+  }
+  writer.addIndexesNoOptimize(new Directory[]{form.dir});
+  numDocs+=form.getNumDocs();
+}

@@ -1,0 +1,3 @@
+char block[]
+int offset
+int length

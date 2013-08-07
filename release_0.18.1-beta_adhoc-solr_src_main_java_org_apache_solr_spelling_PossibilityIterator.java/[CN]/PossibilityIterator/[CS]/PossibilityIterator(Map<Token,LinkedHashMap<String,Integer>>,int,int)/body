@@ -1,0 +1,47 @@
+{
+  for (  Map.Entry<Token,LinkedHashMap<String,Integer>> entry : suggestions.entrySet()) {
+    Token token=entry.getKey();
+    List<SpellCheckCorrection> possibleCorrections=new ArrayList<SpellCheckCorrection>();
+    for (    Map.Entry<String,Integer> entry1 : entry.getValue().entrySet()) {
+      SpellCheckCorrection correction=new SpellCheckCorrection();
+      correction.setOriginal(token);
+      correction.setCorrection(entry1.getKey());
+      correction.setNumberOfOccurences(entry1.getValue());
+      possibleCorrections.add(correction);
+    }
+    possibilityList.add(possibleCorrections);
+  }
+  int wrapSize=possibilityList.size();
+  if (wrapSize == 0) {
+    done=true;
+  }
+ else {
+    correctionIndex=new int[wrapSize];
+    for (int i=0; i < wrapSize; i++) {
+      int suggestSize=possibilityList.get(i).size();
+      if (suggestSize == 0) {
+        done=true;
+        break;
+      }
+      correctionIndex[i]=0;
+    }
+  }
+  long count=0;
+  PriorityQueue<RankedSpellPossibility> rankedPossibilities=new PriorityQueue<RankedSpellPossibility>();
+  while (count < maxEvaluations && internalHasNext()) {
+    RankedSpellPossibility rsp=internalNext();
+    count++;
+    if (rankedPossibilities.size() >= maximumRequiredSuggestions && rsp.getRank() >= rankedPossibilities.peek().getRank()) {
+      continue;
+    }
+    rankedPossibilities.offer(rsp);
+    if (rankedPossibilities.size() > maximumRequiredSuggestions) {
+      rankedPossibilities.poll();
+    }
+  }
+  RankedSpellPossibility[] rpArr=new RankedSpellPossibility[rankedPossibilities.size()];
+  for (int i=rankedPossibilities.size() - 1; i >= 0; i--) {
+    rpArr[i]=rankedPossibilities.remove();
+  }
+  rankedPossibilityIterator=Arrays.asList(rpArr).iterator();
+}

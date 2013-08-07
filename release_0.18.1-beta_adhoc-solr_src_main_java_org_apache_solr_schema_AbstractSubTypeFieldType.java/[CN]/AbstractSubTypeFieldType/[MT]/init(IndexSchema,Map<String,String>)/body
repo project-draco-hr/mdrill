@@ -1,0 +1,18 @@
+{
+  this.schema=schema;
+  SolrParams p=new MapSolrParams(args);
+  String subFT=p.get(SUB_FIELD_TYPE);
+  String subSuffix=p.get(SUB_FIELD_SUFFIX);
+  if (subFT != null) {
+    args.remove(SUB_FIELD_TYPE);
+    subType=schema.getFieldTypeByName(subFT.trim());
+    suffix=POLY_FIELD_SEPARATOR + subType.typeName;
+  }
+ else   if (subSuffix != null) {
+    args.remove(SUB_FIELD_SUFFIX);
+    suffix=subSuffix;
+  }
+ else {
+    throw new SolrException(SolrException.ErrorCode.SERVER_ERROR,"The field type: " + typeName + " must specify the "+ SUB_FIELD_TYPE+ " attribute or the "+ SUB_FIELD_SUFFIX+ " attribute.");
+  }
+}

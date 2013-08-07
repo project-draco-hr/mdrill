@@ -1,0 +1,14 @@
+{
+  final IndexSearcher indexSearcher=createSearcher(dir);
+synchronized (searcherLock) {
+    if (closed) {
+      indexSearcher.close();
+      throw new AlreadyClosedException("Spellchecker has been closed");
+    }
+    if (searcher != null) {
+      searcher.close();
+    }
+    searcher=indexSearcher;
+    this.spellIndex=dir;
+  }
+}

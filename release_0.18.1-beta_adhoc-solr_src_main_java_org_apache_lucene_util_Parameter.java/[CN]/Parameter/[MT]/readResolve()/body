@@ -1,0 +1,5 @@
+{
+  Object par=allParameters.get(makeKey(name));
+  if (par == null)   throw new StreamCorruptedException("Unknown parameter value: " + name);
+  return par;
+}

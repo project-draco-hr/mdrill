@@ -1,0 +1,12 @@
+{
+  SegmentTermVector tv=null;
+  if (field != null && terms != null) {
+    if (storingPositions || storingOffsets) {
+      tv=new SegmentTermPositionVector(field,terms,termFreqs,positions,offsets);
+    }
+ else {
+      tv=new SegmentTermVector(field,terms,termFreqs);
+    }
+  }
+  return tv;
+}

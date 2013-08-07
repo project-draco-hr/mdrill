@@ -1,0 +1,4 @@
+{
+  autocomplete.insert(root,key,value,0);
+  return true;
+}

@@ -1,0 +1,31 @@
+{
+  clearAttributes();
+  String s=str;
+  int len=s.length();
+  int i=pos;
+  boolean letter=isLetter;
+  int start=0;
+  String text;
+  do {
+    text=null;
+    while (i < len && !isTokenChar(s.charAt(i),letter)) {
+      i++;
+    }
+    if (i < len) {
+      start=i;
+      while (i < len && isTokenChar(s.charAt(i),letter)) {
+        i++;
+      }
+      text=s.substring(start,i);
+      if (toLowerCase)       text=text.toLowerCase(locale);
+    }
+  }
+ while (text != null && isStopWord(text));
+  pos=i;
+  if (text == null) {
+    return false;
+  }
+  termAtt.setEmpty().append(text);
+  offsetAtt.setOffset(start,i);
+  return true;
+}

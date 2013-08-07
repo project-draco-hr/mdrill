@@ -1,0 +1,8 @@
+{
+  ensure(RE.nodeSize);
+  instruction[lenInstruction + RE.offsetOpcode]=opcode;
+  instruction[lenInstruction + RE.offsetOpdata]=(char)opdata;
+  instruction[lenInstruction + RE.offsetNext]=0;
+  lenInstruction+=RE.nodeSize;
+  return lenInstruction - RE.nodeSize;
+}

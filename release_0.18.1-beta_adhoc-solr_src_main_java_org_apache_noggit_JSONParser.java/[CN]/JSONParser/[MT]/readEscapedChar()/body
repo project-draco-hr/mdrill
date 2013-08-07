@@ -1,0 +1,23 @@
+{
+switch (getChar()) {
+case '"':
+    return '"';
+case '\\':
+  return '\\';
+case '/':
+return '/';
+case 'n':
+return '\n';
+case 'r':
+return '\r';
+case 't':
+return '\t';
+case 'f':
+return '\f';
+case 'b':
+return '\b';
+case 'u':
+return (char)((hexval(getChar()) << 12) | (hexval(getChar()) << 8) | (hexval(getChar()) << 4)| (hexval(getChar())));
+}
+throw err("Invalid character escape in string");
+}

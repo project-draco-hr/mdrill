@@ -1,0 +1,23 @@
+{
+  size=0;
+  int heapSize;
+  if (0 == maxSize)   heapSize=2;
+ else {
+    if (maxSize == Integer.MAX_VALUE) {
+      heapSize=Integer.MAX_VALUE;
+    }
+ else {
+      heapSize=maxSize + 1;
+    }
+  }
+  heap=(T[])new Object[heapSize];
+  this.maxSize=maxSize;
+  T sentinel=getSentinelObject();
+  if (sentinel != null) {
+    heap[1]=sentinel;
+    for (int i=2; i < heap.length; i++) {
+      heap[i]=getSentinelObject();
+    }
+    size=maxSize;
+  }
+}

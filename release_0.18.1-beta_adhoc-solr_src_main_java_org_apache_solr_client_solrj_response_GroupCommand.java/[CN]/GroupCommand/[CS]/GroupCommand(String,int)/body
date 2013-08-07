@@ -1,0 +1,5 @@
+{
+  _name=name;
+  _matches=matches;
+  _ngroups=null;
+}

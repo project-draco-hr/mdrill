@@ -1,0 +1,3 @@
+String hql
+String[] cmd
+String[] env

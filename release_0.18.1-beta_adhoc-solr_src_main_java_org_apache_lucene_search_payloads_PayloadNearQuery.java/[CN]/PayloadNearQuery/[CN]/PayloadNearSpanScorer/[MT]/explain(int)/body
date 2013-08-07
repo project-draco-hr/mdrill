@@ -1,0 +1,10 @@
+{
+  Explanation result=new Explanation();
+  Explanation nonPayloadExpl=super.explain(doc);
+  result.addDetail(nonPayloadExpl);
+  Explanation payloadExpl=function.explain(doc,payloadsSeen,payloadScore);
+  result.addDetail(payloadExpl);
+  result.setValue(nonPayloadExpl.getValue() * payloadExpl.getValue());
+  result.setDescription("PayloadNearQuery, product of:");
+  return result;
+}

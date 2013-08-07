@@ -1,0 +1,19 @@
+{
+  if (!more) {
+    return false;
+  }
+  doc=spans.doc();
+  freq=0.0f;
+  payloadScore=0;
+  payloadsSeen=0;
+  do {
+    int matchLength=spans.end() - spans.start();
+    freq+=getSimilarity().sloppyFreq(matchLength);
+    Spans[] spansArr=new Spans[1];
+    spansArr[0]=spans;
+    getPayloads(spansArr);
+    more=spans.next();
+  }
+ while (more && (doc == spans.doc()));
+  return true;
+}

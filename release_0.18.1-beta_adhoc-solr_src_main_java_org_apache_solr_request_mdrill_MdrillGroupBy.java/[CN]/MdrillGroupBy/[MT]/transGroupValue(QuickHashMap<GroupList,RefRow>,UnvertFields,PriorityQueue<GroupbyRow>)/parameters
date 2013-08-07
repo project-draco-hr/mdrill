@@ -1,0 +1,3 @@
+QuickHashMap<GroupList,RefRow> groups
+UnvertFields ufs
+PriorityQueue<GroupbyRow> res

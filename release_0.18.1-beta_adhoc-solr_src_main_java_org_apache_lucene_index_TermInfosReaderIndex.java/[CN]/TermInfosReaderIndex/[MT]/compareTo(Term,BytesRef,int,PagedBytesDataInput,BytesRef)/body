@@ -1,0 +1,10 @@
+{
+  int c=compareField(term,termIndex,input);
+  if (c == 0) {
+    reuse.length=input.readVInt();
+    reuse.grow(reuse.length);
+    input.readBytes(reuse.bytes,0,reuse.length);
+    return comparator.compare(termBytesRef,reuse);
+  }
+  return c;
+}

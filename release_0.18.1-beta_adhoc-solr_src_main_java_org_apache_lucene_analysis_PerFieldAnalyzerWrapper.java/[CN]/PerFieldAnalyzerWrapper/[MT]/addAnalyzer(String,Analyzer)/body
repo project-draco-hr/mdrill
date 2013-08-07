@@ -1,0 +1,3 @@
+{
+  analyzerMap.put(fieldName,analyzer);
+}

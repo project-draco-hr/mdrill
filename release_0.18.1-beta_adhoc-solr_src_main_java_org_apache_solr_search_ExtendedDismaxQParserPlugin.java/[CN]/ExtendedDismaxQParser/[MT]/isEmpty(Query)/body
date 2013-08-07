@@ -1,0 +1,5 @@
+{
+  if (q == null)   return true;
+  if (q instanceof BooleanQuery && ((BooleanQuery)q).clauses().size() == 0)   return true;
+  return false;
+}

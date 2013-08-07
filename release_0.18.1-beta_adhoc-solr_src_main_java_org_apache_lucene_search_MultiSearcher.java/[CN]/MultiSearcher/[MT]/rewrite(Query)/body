@@ -1,0 +1,7 @@
+{
+  final Query[] queries=new Query[searchables.length];
+  for (int i=0; i < searchables.length; i++) {
+    queries[i]=searchables[i].rewrite(original);
+  }
+  return queries[0].combine(queries);
+}

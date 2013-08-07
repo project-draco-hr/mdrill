@@ -1,0 +1,8 @@
+{
+  super(new LinkedHashMap<K,V>((int)Math.ceil(cacheSize / LOADFACTOR) + 1,LOADFACTOR,true){
+    @Override protected boolean removeEldestEntry(    Map.Entry<K,V> eldest){
+      return size() > cacheSize;
+    }
+  }
+);
+}

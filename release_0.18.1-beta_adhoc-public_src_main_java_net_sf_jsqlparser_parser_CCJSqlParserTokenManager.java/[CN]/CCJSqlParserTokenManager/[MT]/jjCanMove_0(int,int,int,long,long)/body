@@ -1,0 +1,8 @@
+{
+switch (hiByte) {
+case 0:
+    return ((jjbitVec0[i2] & l2) != 0L);
+default :
+  return false;
+}
+}

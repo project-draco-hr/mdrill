@@ -1,0 +1,22 @@
+{
+  String filename=this.field + ".index" + UnInvertedFieldBase.CacheVersion+ "."+ key;
+  if (dir.fileExists(filename)) {
+    IndexInput input=dir.openInput(filename);
+    nTerms=input.readInt();
+    sizeOfStrings=input.readLong();
+    index=new String[input.readInt()];
+    for (int i=0; i < index.length; i++) {
+      index[i]=input.readString();
+    }
+    input.close();
+  }
+ else {
+    NumberedTermEnum te=this.getEnumerator(reader);
+    for (; ; ) {
+      Term t=te.term();
+      if (t == null)       break;
+      te.next();
+    }
+    te.close();
+  }
+}

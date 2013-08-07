@@ -1,0 +1,6 @@
+{
+  SolrInputField field=getField(name);
+  Object o=null;
+  if (field != null)   o=field.getFirstValue();
+  return o;
+}

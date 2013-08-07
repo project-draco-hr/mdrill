@@ -1,0 +1,12 @@
+{
+  Vector v=new Vector();
+  for (int i=0; i < search.length; i++) {
+    String s=search[i].toString();
+    if (match(s)) {
+      v.addElement(s);
+    }
+  }
+  String[] ret=new String[v.size()];
+  v.copyInto(ret);
+  return ret;
+}

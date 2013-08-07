@@ -1,0 +1,3 @@
+{
+  return flag(BIT_LAST_ARC);
+}

@@ -1,0 +1,16 @@
+{
+  SchemaField sf=schema.getUniqueKeyField();
+  if (indexedId != null && sf != null) {
+    return sf.getType().indexedToReadable(indexedId);
+  }
+  if (doc != null) {
+    return schema.printableUniqueKey(doc);
+  }
+  if (solrDoc != null && sf != null) {
+    SolrInputField field=solrDoc.getField(sf.getName());
+    if (field != null) {
+      return field.getFirstValue().toString();
+    }
+  }
+  return "(null)";
+}

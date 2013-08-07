@@ -1,0 +1,4 @@
+{
+  commands.add(commandField);
+  return this;
+}

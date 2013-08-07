@@ -1,0 +1,15 @@
+{
+  char[] tmp=new char[len];
+  int l=input.read(tmp,0,len);
+  if (l != -1) {
+    for (int i=0; i < l; i++)     pushLastChar(tmp[i]);
+  }
+  l=0;
+  for (int i=off; i < off + len; i++) {
+    int c=read();
+    if (c == -1)     break;
+    cbuf[i]=(char)c;
+    l++;
+  }
+  return l == 0 ? -1 : l;
+}

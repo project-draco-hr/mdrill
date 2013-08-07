@@ -1,0 +1,7 @@
+{
+  String path=findContainingJar(myClass);
+  if (path == null) {
+    return;
+  }
+  jars.add(path);
+}

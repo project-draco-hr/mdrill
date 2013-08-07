@@ -1,0 +1,31 @@
+{
+  if (out == null || out.length != dimension)   out=new String[dimension];
+  int idx=externalVal.indexOf(',');
+  int end=idx;
+  int start=0;
+  int i=0;
+  if (idx == -1 && dimension == 1 && externalVal.length() > 0) {
+    out[0]=externalVal.trim();
+    i=1;
+  }
+ else   if (idx > 0) {
+    for (; i < dimension; i++) {
+      while (start < end && externalVal.charAt(start) == ' ')       start++;
+      while (end > start && externalVal.charAt(end - 1) == ' ')       end--;
+      if (start == end) {
+        break;
+      }
+      out[i]=externalVal.substring(start,end);
+      start=idx + 1;
+      end=externalVal.indexOf(',',start);
+      idx=end;
+      if (end == -1) {
+        end=externalVal.length();
+      }
+    }
+  }
+  if (i != dimension) {
+    throw new InvalidGeoException("incompatible dimension (" + dimension + ") and values ("+ externalVal+ ").  Only "+ i+ " values specified");
+  }
+  return out;
+}

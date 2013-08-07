@@ -1,0 +1,5 @@
+{
+  if (!(o instanceof RandomValueSource))   return false;
+  RandomValueSource other=(RandomValueSource)o;
+  return this.field.equals(other.field);
+}

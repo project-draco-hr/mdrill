@@ -1,0 +1,31 @@
+{
+  Map<String,StateHeartbeat> workeridHbstate=null;
+  int now=TimeUtils.current_time_secs();
+  Map<String,Integer> approvedIds=(Map<String,Integer>)localState.get(Common.LS_APPROVED_WORKERS);
+  Map<String,WorkerHeartbeat> idToHeartbeat=readWorkerHeartbeats(conf);
+  if (idToHeartbeat != null) {
+    workeridHbstate=new HashMap<String,StateHeartbeat>();
+    Set<Map.Entry<String,WorkerHeartbeat>> entrySet=idToHeartbeat.entrySet();
+    for (Iterator<Map.Entry<String,WorkerHeartbeat>> it=entrySet.iterator(); it.hasNext(); ) {
+      Map.Entry<String,WorkerHeartbeat> entry=it.next();
+      String workerid=entry.getKey().toString();
+      WorkerHeartbeat whb=entry.getValue();
+      State state=null;
+      if (whb == null) {
+        state=State.notStarted;
+      }
+ else       if (approvedIds == null || approvedIds.containsKey(workerid) == false || matchesAssignment(whb,assignedTasks) == false) {
+        state=State.disallowed;
+      }
+ else       if ((now - whb.getTimeSecs()) > (Integer)conf.get(Config.SUPERVISOR_WORKER_TIMEOUT_SECS)) {
+        state=State.timedOut;
+      }
+ else {
+        state=State.valid;
+      }
+      LOG.debug("Worker:" + workerid + " state:"+ state+ " WorkerHeartbeat: "+ whb+ " at supervisor time-secs "+ now);
+      workeridHbstate.put(workerid,new StateHeartbeat(state,whb));
+    }
+  }
+  return workeridHbstate;
+}

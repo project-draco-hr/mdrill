@@ -1,0 +1,16 @@
+{
+  if (key.length() == 0 || automaton == null) {
+    return EMPTY_RESULT;
+  }
+  try {
+    if (!onlyMorePopular && rootArcs.length > 1) {
+      return lookupSortedAlphabetically(key,num);
+    }
+ else {
+      return lookupSortedByWeight(key,num,false);
+    }
+  }
+ catch (  IOException e) {
+    throw new RuntimeException(e);
+  }
+}

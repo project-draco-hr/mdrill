@@ -1,0 +1,20 @@
+{
+  if (thisPrecise != null) {
+    double dif=0;
+switch (thisPrecise) {
+case EXACT:
+      return x;
+case TWOFEET:
+    dif=x % 0.0001;
+  break;
+case TWENTYFEET:
+dif=x % 0.001;
+break;
+case TWOHUNDREDFEET:
+dif=x % 0.01;
+break;
+}
+return x - dif;
+}
+return x;
+}

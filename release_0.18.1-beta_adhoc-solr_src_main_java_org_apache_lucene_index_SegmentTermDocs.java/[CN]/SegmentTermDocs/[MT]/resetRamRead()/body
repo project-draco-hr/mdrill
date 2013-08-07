@@ -1,0 +1,11 @@
+{
+  if (!isfrqCompress) {
+    this.ramread=freqStream;
+    return;
+  }
+  if (ramread != null) {
+    ramread.close();
+    ramread=null;
+  }
+  ramread=freqStream.readZipStream();
+}

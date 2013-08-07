@@ -1,0 +1,16 @@
+{
+  final Transformer t=getTransformer(request);
+  final CharArrayWriter w=new CharArrayWriter();
+  XMLWriter.writeResponse(w,request,response);
+  final Reader r=new BufferedReader(new CharArrayReader(w.toCharArray()));
+  final StreamSource source=new StreamSource(r);
+  final StreamResult result=new StreamResult(writer);
+  try {
+    t.transform(source,result);
+  }
+ catch (  TransformerException te) {
+    final IOException ioe=new IOException("XSLT transformation error");
+    ioe.initCause(te);
+    throw ioe;
+  }
+}

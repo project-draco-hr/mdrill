@@ -1,0 +1,7 @@
+{
+  if (count-- > 0) {
+    position=tp.nextPosition() - offset;
+    return true;
+  }
+ else   return false;
+}

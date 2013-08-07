@@ -1,0 +1,13 @@
+{
+  Set<A> inlist=new HashSet<A>();
+  FileReader freader;
+  freader=new FileReader(file);
+  BufferedReader br=new BufferedReader(freader);
+  String s1=null;
+  while ((s1=br.readLine()) != null) {
+    inlist.add(this.trans.trans(s1));
+  }
+  br.close();
+  freader.close();
+  return new ListTermEnum<A>(reader,inlist,this.field,this.trans);
+}

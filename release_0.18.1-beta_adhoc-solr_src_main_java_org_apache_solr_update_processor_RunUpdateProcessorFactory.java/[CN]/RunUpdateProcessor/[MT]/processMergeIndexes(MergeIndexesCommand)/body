@@ -1,0 +1,4 @@
+{
+  updateHandler.mergeIndexes(cmd);
+  super.processMergeIndexes(cmd);
+}

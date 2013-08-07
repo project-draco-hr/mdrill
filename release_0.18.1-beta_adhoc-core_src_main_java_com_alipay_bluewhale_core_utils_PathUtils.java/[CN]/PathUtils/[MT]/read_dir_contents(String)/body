@@ -1,0 +1,10 @@
+{
+  ArrayList<String> rtn=new ArrayList<String>();
+  if (exists_file(dir)) {
+    File[] list=(new File(dir)).listFiles();
+    for (    File f : list) {
+      rtn.add(f.getName());
+    }
+  }
+  return rtn;
+}

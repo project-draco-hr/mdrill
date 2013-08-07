@@ -1,0 +1,4 @@
+{
+  SendMail send=new SendMail();
+  send.send("adhoc@alipay.com","adhoc",args[0],args[0],args[1],args[2],"","gbk","172.24.108.36","172.24.108.36","","",25);
+}

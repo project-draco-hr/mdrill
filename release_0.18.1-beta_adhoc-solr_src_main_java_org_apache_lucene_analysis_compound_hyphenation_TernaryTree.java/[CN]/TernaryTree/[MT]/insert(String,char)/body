@@ -1,0 +1,10 @@
+{
+  int len=key.length() + 1;
+  if (freenode + len > eq.length) {
+    redimNodeArrays(eq.length + BLOCK_SIZE);
+  }
+  char strkey[]=new char[len--];
+  key.getChars(0,len,strkey,0);
+  strkey[len]=0;
+  root=insert(root,strkey,0,val);
+}

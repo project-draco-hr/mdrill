@@ -1,0 +1,22 @@
+{
+  final byte[] aBytes=a.bytes;
+  int aUpto=a.offset;
+  final byte[] bBytes=b.bytes;
+  int bUpto=b.offset;
+  final int aStop;
+  if (a.length < b.length) {
+    aStop=aUpto + a.length;
+  }
+ else {
+    aStop=aUpto + b.length;
+  }
+  while (aUpto < aStop) {
+    int aByte=aBytes[aUpto++] & 0xff;
+    int bByte=bBytes[bUpto++] & 0xff;
+    int diff=aByte - bByte;
+    if (diff != 0) {
+      return diff;
+    }
+  }
+  return a.length - b.length;
+}

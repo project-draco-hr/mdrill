@@ -1,0 +1,3 @@
+Map<Object,Object> conf
+String tmpJarLocation
+String stormroot

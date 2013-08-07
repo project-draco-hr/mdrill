@@ -1,0 +1,4 @@
+{
+  this.ptMin=new Point2D(ptMin);
+  this.ptMax=new Point2D(ptMax);
+}

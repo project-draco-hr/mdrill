@@ -1,0 +1,4 @@
+String name
+Field.Store store
+Field.Index index
+Field.TermVector termVector

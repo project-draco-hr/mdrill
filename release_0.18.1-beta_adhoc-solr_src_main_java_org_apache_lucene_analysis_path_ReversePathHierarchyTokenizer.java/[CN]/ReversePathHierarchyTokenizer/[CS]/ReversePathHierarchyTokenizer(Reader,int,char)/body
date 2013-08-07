@@ -1,0 +1,3 @@
+{
+  this(input,bufferSize,delimiter,delimiter,DEFAULT_SKIP);
+}

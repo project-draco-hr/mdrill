@@ -1,0 +1,5 @@
+{
+  long bits=Double.doubleToLongBits(defVal);
+  int ibits=(int)(bits ^ (bits >>> 32));
+  return hcode + super.hashCode() + ibits;
+}

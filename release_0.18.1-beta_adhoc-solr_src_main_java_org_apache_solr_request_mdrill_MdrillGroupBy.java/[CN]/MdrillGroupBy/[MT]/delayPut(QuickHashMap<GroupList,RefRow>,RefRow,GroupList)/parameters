@@ -1,0 +1,3 @@
+QuickHashMap<GroupList,RefRow> groups
+RefRow cnt
+GroupList group

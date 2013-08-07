@@ -1,0 +1,4 @@
+{
+  ts.end();
+  ofsAtt.setOffset(endOfs,endOfs);
+}

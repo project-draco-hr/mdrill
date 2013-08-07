@@ -1,0 +1,4 @@
+String name
+FieldType ft
+int props
+String defValue

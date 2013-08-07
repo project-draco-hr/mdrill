@@ -1,0 +1,4 @@
+{
+  this.docsToCollect=docsToCollect;
+  return this;
+}

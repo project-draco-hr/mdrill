@@ -1,0 +1,53 @@
+{
+  int totalBytes=request.getContentLength();
+  ServletInputStream in=request.getInputStream();
+  int readBytes=0;
+  this.resetHeader();
+  boolean isReadHeader=true;
+  int index=0;
+  for (int totalRead=0; totalRead < totalBytes; totalRead+=readBytes) {
+    int size=totalBytes - totalRead;
+    readBytes=in.read(buffer,0,Math.min(size,BUFFER_LEN));
+    if (index++ % 10000 == 0) {
+      Log.info("total read=" + totalRead);
+    }
+    int i=0;
+    i=this.setBoundary(readBytes,i);
+    if (i >= readBytes) {
+      continue;
+    }
+    boolean isloop=true;
+    while (isloop) {
+      isloop=false;
+      if (isReadHeader) {
+        if (this.setHearder(readBytes,i,charset)) {
+          isReadHeader=false;
+          isloop=true;
+        }
+      }
+ else {
+        if (this.setHeadVal(readBytes,i,charset,out,params)) {
+          isReadHeader=true;
+          isloop=true;
+        }
+      }
+      i=readBytes;
+    }
+  }
+  if (this.splitbuffer.length > 0) {
+    for (int j=0; j < this.splitbuffer.length; j++) {
+      writebuff.append(splitbuffer[j]);
+    }
+  }
+  if (writebuff.size() > 0 && !keys.contains(fieldName)) {
+    if (isFile) {
+      out.write(writebuff.toArray(),0,writebuff.size());
+    }
+ else {
+      String val=new String(writebuff.toArray(),0,writebuff.size(),charset).replaceAll("^[\r|\n]*","").replaceAll("[\r|\n]*$","");
+      params.put(fieldName,val);
+      LOG.info("@@@@@@@keyval_final:" + fieldName + "="+ val);
+    }
+    writebuff=new ByteBuffer(10752);
+  }
+}

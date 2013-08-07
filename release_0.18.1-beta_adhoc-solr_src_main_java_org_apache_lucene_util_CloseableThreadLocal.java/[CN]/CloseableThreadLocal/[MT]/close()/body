@@ -1,0 +1,7 @@
+{
+  hardRefs=null;
+  if (t != null) {
+    t.remove();
+  }
+  t=null;
+}

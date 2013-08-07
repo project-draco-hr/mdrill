@@ -1,0 +1,4 @@
+{
+  String sval=f.stringValue();
+  writer.writeDouble(name,NumberUtils.SortableStr2double(sval));
+}

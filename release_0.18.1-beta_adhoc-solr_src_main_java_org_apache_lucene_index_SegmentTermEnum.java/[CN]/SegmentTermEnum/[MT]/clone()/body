@@ -1,0 +1,14 @@
+{
+  SegmentTermEnum clone=null;
+  try {
+    clone=(SegmentTermEnum)super.clone();
+  }
+ catch (  CloneNotSupportedException e) {
+  }
+  clone.input=(IndexInput)input.clone();
+  clone.termInfo=new TermInfo(termInfo);
+  clone.termBuffer=(TermBuffer)termBuffer.clone();
+  clone.prevBuffer=(TermBuffer)prevBuffer.clone();
+  clone.scanBuffer=new TermBuffer();
+  return clone;
+}

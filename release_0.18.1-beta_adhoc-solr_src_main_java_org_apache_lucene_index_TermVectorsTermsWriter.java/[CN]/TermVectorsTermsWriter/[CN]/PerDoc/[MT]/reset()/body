@@ -1,0 +1,5 @@
+{
+  perDocTvf.reset();
+  buffer.recycle();
+  numVectorFields=0;
+}

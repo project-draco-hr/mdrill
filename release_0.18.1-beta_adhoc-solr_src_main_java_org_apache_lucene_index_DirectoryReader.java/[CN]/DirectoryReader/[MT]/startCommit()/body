@@ -1,0 +1,6 @@
+{
+  rollbackHasChanges=hasChanges;
+  for (int i=0; i < subReaders.length; i++) {
+    subReaders[i].startCommit();
+  }
+}

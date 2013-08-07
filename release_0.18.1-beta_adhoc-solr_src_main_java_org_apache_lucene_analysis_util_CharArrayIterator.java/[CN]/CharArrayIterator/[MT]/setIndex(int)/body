@@ -1,0 +1,5 @@
+{
+  if (position < getBeginIndex() || position > getEndIndex())   throw new IllegalArgumentException("Illegal Position: " + position);
+  index=start + position;
+  return current();
+}

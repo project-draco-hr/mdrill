@@ -1,0 +1,4 @@
+Weight weight
+PhraseQuery.PostingsAndFreq[] postings
+Similarity similarity
+byte[] norms

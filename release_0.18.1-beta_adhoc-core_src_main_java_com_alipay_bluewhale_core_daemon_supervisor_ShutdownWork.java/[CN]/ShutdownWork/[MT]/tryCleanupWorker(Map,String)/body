@@ -1,0 +1,10 @@
+{
+  try {
+    PathUtils.rmr(StormConfig.worker_heartbeats_root(conf,workerId));
+    PathUtils.rmpath(StormConfig.worker_pids_root(conf,workerId));
+    PathUtils.rmpath(StormConfig.worker_root(conf,workerId));
+  }
+ catch (  RuntimeException e) {
+    LOG.warn(e + "Failed to cleanup worker " + workerId+ ". Will retry later");
+  }
+}

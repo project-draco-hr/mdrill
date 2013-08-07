@@ -1,0 +1,18 @@
+{
+synchronized (deleteList) {
+    deleteList.addAll(files);
+    List<File> deleted=new ArrayList<File>();
+    for (    File df : deleteList) {
+      try {
+        df.delete();
+        deleted.add(df);
+      }
+ catch (      SecurityException e) {
+        if (!df.exists()) {
+          deleted.add(df);
+        }
+      }
+    }
+    deleteList.removeAll(deleted);
+  }
+}

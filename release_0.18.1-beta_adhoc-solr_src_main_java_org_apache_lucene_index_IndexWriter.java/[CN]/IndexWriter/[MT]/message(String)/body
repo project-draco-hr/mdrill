@@ -1,0 +1,3 @@
+{
+  if (infoStream != null)   infoStream.println("IW " + messageID + " ["+ new Date()+ "; "+ Thread.currentThread().getName()+ "]: "+ message);
+}

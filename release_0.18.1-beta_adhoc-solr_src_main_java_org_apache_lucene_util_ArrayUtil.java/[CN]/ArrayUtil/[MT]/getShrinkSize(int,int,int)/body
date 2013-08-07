@@ -1,0 +1,5 @@
+{
+  final int newSize=oversize(targetSize,bytesPerElement);
+  if (newSize < currentSize / 2)   return newSize;
+ else   return currentSize;
+}

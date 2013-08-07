@@ -1,0 +1,10 @@
+{
+  Query query=hasNewAPI ? getFieldQuery(field,queryText,true) : getFieldQuery(field,queryText);
+  if (query instanceof PhraseQuery) {
+    ((PhraseQuery)query).setSlop(slop);
+  }
+  if (query instanceof MultiPhraseQuery) {
+    ((MultiPhraseQuery)query).setSlop(slop);
+  }
+  return query;
+}

@@ -1,0 +1,10 @@
+{
+synchronized (modifyCurrentIndexLock) {
+    ensureOpen();
+    if (!IndexReader.indexExists(spellIndexDir)) {
+      IndexWriter writer=new IndexWriter(spellIndexDir,new IndexWriterConfig(Version.LUCENE_CURRENT,new WhitespaceAnalyzer(Version.LUCENE_CURRENT)));
+      writer.close();
+    }
+    swapSearcher(spellIndexDir);
+  }
+}

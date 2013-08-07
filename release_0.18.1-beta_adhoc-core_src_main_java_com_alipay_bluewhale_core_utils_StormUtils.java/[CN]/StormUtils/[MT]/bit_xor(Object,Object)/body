@@ -1,0 +1,20 @@
+{
+  Long rtn=0l;
+  if (b instanceof Set) {
+    Long bs=bit_xor_vals_sets((Set)b);
+    return bit_xor(a,bs);
+  }
+  if (a instanceof Set) {
+    Long as=bit_xor_vals_sets((Set)a);
+    return bit_xor(as,b);
+  }
+  if (a instanceof Long && b instanceof Long) {
+    rtn=((Long)a) ^ ((Long)b);
+  }
+ else {
+    Long ai=Long.parseLong(String.valueOf(a));
+    Long bi=Long.parseLong(String.valueOf(b));
+    rtn=ai ^ bi;
+  }
+  return rtn;
+}

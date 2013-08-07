@@ -1,0 +1,9 @@
+{
+  final int prime=31;
+  int result=0;
+  final int end=offset + length;
+  for (int i=offset; i < end; i++) {
+    result=prime * result + ints[i];
+  }
+  return result;
+}

@@ -1,0 +1,8 @@
+{
+  return new MdrillMetaDataResultSet(Arrays.asList("TYPE_CAT","TYPE_SCHEM","TYPE_NAME","CLASS_NAME","DATA_TYPE","REMARKS","BASE_TYPE"),Arrays.asList("STRING","STRING","STRING","STRING","INT","STRING","INT"),null){
+    public boolean next() throws SQLException {
+      return false;
+    }
+  }
+;
+}

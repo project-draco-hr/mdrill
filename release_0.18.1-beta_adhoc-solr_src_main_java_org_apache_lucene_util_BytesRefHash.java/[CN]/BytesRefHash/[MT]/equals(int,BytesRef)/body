@@ -1,0 +1,3 @@
+{
+  return pool.setBytesRef(scratch1,bytesStart[ord]).bytesEquals(b);
+}

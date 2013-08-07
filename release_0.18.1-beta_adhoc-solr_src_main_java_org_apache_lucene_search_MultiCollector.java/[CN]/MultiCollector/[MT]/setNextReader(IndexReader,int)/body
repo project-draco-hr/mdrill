@@ -1,0 +1,5 @@
+{
+  for (  Collector c : collectors) {
+    c.setNextReader(reader,o);
+  }
+}

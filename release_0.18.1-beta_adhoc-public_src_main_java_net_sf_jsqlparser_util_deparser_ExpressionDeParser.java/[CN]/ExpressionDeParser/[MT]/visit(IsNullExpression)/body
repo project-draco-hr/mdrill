@@ -1,0 +1,9 @@
+{
+  isNullExpression.getLeftExpression().accept(this);
+  if (isNullExpression.isNot()) {
+    buffer.append(" IS NOT NULL");
+  }
+ else {
+    buffer.append(" IS NULL");
+  }
+}

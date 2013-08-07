@@ -1,0 +1,4 @@
+{
+  this.commit=commit;
+  return this;
+}

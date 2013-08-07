@@ -1,0 +1,4 @@
+SolrParams params
+List<String> lst
+List<String> mslist
+ResponseBuilder rb

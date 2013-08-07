@@ -1,0 +1,7 @@
+{
+  String dictName=params.get(SPELLCHECK_DICT);
+  if (dictName == null) {
+    dictName=SolrSpellChecker.DEFAULT_DICTIONARY_NAME;
+  }
+  return dictName;
+}

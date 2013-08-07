@@ -1,0 +1,3 @@
+{
+  return CONTENT_TYPE_XML_UTF8;
+}

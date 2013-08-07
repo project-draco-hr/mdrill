@@ -1,0 +1,3 @@
+{
+  return (properties & STORE_TERMPOSITIONS) != 0;
+}

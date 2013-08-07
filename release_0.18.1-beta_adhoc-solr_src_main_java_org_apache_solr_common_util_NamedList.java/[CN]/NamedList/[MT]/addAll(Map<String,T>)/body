@@ -1,0 +1,6 @@
+{
+  for (  Map.Entry<String,T> entry : args.entrySet()) {
+    add(entry.getKey(),entry.getValue());
+  }
+  return args.size() > 0;
+}

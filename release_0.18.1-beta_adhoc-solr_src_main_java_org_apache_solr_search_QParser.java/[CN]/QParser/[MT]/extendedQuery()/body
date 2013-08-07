@@ -1,0 +1,10 @@
+{
+  if (query instanceof ExtendedQuery) {
+    return (ExtendedQuery)query;
+  }
+ else {
+    WrappedQuery wq=new WrappedQuery(query);
+    query=wq;
+    return wq;
+  }
+}

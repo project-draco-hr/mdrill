@@ -1,0 +1,35 @@
+{
+  this.directory=directory;
+  this.readOnly=readOnly;
+  this.segmentInfos=sis;
+  this.deletionPolicy=deletionPolicy;
+  this.termInfosIndexDivisor=termInfosIndexDivisor;
+  if (readerFinishedListeners == null) {
+    this.readerFinishedListeners=new MapBackedSet<ReaderFinishedListener>(new ConcurrentHashMap<ReaderFinishedListener,Boolean>());
+  }
+ else {
+    this.readerFinishedListeners=readerFinishedListeners;
+  }
+  applyAllDeletes=false;
+  SegmentReader[] readers=new SegmentReader[sis.size()];
+  for (int i=sis.size() - 1; i >= 0; i--) {
+    boolean success=false;
+    try {
+      readers[i]=SegmentReader.get(readOnly,sis.info(i),termInfosIndexDivisor);
+      readers[i].readerFinishedListeners=this.readerFinishedListeners;
+      success=true;
+    }
+  finally {
+      if (!success) {
+        for (i++; i < sis.size(); i++) {
+          try {
+            readers[i].close();
+          }
+ catch (          Throwable ignore) {
+          }
+        }
+      }
+    }
+  }
+  initialize(readers);
+}

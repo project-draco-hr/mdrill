@@ -1,0 +1,15 @@
+{
+  String urlSnippet=config.get("admin/pingQuery","").trim();
+  StringTokenizer qtokens=new StringTokenizer(urlSnippet,"&");
+  String tok;
+  NamedList params=new NamedList();
+  while (qtokens.hasMoreTokens()) {
+    tok=qtokens.nextToken();
+    String[] split=tok.split("=",2);
+    params.add(split[0],split[1]);
+  }
+  if (0 < params.size()) {
+    log.warn("The <pingQuery> syntax is deprecated, " + "please use PingRequestHandler instead");
+  }
+  return params;
+}

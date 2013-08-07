@@ -1,0 +1,5 @@
+{
+  String dyn=(type == STARTS_WITH) ? sourceField.substring(str.length()) : sourceField.substring(0,sourceField.length() - str.length());
+  String name=(dtype == STARTS_WITH) ? (dstr + dyn) : (dyn + dstr);
+  return dynamic.makeSchemaField(name);
+}

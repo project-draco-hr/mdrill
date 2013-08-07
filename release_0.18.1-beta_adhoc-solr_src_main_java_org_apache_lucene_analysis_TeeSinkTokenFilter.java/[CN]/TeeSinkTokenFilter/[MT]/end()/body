@@ -1,0 +1,10 @@
+{
+  super.end();
+  AttributeSource.State finalState=captureState();
+  for (  WeakReference<SinkTokenStream> ref : sinks) {
+    final SinkTokenStream sink=ref.get();
+    if (sink != null) {
+      sink.setFinalState(finalState);
+    }
+  }
+}

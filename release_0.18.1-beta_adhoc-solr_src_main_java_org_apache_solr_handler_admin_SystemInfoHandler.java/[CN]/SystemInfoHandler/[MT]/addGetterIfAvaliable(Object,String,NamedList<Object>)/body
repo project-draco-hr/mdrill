@@ -1,0 +1,12 @@
+{
+  try {
+    String n=Character.toUpperCase(getter.charAt(0)) + getter.substring(1);
+    Method m=obj.getClass().getMethod("get" + n);
+    Object v=m.invoke(obj,(Object[])null);
+    if (v != null) {
+      info.add(getter,v);
+    }
+  }
+ catch (  Exception ex) {
+  }
+}

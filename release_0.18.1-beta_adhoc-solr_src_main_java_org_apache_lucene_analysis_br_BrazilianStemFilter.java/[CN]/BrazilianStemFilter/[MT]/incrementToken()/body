@@ -1,0 +1,13 @@
+{
+  if (input.incrementToken()) {
+    final String term=termAtt.toString();
+    if (!keywordAttr.isKeyword() && (exclusions == null || !exclusions.contains(term))) {
+      final String s=stemmer.stem(term);
+      if ((s != null) && !s.equals(term))       termAtt.setEmpty().append(s);
+    }
+    return true;
+  }
+ else {
+    return false;
+  }
+}

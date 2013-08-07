@@ -1,0 +1,6 @@
+String field
+int precisionStep
+Integer min
+Integer max
+boolean minInclusive
+boolean maxInclusive

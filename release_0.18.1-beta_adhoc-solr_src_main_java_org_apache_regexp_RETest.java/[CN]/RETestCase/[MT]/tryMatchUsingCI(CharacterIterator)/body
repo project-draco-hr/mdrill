@@ -1,0 +1,16 @@
+{
+  try {
+    boolean result=regexp.match(matchAgainst,0);
+    log.append("   Match: " + (result ? "YES" : "NO") + "\n");
+    return checkResult(result) && (!shouldMatch || checkParens());
+  }
+ catch (  Exception e) {
+    test.fail(log,"Matcher threw exception: " + e.toString());
+    e.printStackTrace();
+  }
+catch (  Error e) {
+    test.fail(log,"Matcher threw fatal error \"" + e.getMessage() + "\"");
+    e.printStackTrace();
+  }
+  return false;
+}

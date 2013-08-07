@@ -1,0 +1,121 @@
+{
+  int among_var;
+  int v_1;
+  lab0:   do {
+    v_1=limit - cursor;
+    lab1:     do {
+      ket=cursor;
+      among_var=find_among_b(a_3,16);
+      if (among_var == 0) {
+        break lab1;
+      }
+      bra=cursor;
+switch (among_var) {
+case 0:
+        break lab1;
+case 1:
+      if (!r_R1()) {
+        break lab1;
+      }
+    slice_from("ie");
+  break;
+case 2:
+if (!r_R1()) {
+  break lab1;
+}
+slice_from("eer");
+break;
+case 3:
+if (!r_R1()) {
+break lab1;
+}
+slice_del();
+break;
+case 4:
+if (!r_R1()) {
+break lab1;
+}
+if (!r_V()) {
+break lab1;
+}
+slice_from("n");
+break;
+case 5:
+if (!r_R1()) {
+break lab1;
+}
+if (!r_V()) {
+break lab1;
+}
+slice_from("l");
+break;
+case 6:
+if (!r_R1()) {
+break lab1;
+}
+if (!r_V()) {
+break lab1;
+}
+slice_from("r");
+break;
+case 7:
+if (!r_R1()) {
+break lab1;
+}
+slice_from("teer");
+break;
+case 8:
+if (!r_R1()) {
+break lab1;
+}
+slice_from("lijk");
+break;
+case 9:
+if (!r_R1()) {
+break lab1;
+}
+slice_del();
+break;
+case 10:
+if (!r_R1()) {
+break lab1;
+}
+if (!r_C()) {
+break lab1;
+}
+slice_del();
+if (!r_lengthen_V()) {
+break lab1;
+}
+break;
+}
+break lab0;
+}
+ while (false);
+cursor=limit - v_1;
+ket=cursor;
+among_var=find_among_b(a_4,3);
+if (among_var == 0) {
+return false;
+}
+bra=cursor;
+switch (among_var) {
+case 0:
+return false;
+case 1:
+if (!r_R1()) {
+return false;
+}
+if (!r_C()) {
+return false;
+}
+slice_del();
+if (!r_lengthen_V()) {
+return false;
+}
+break;
+}
+}
+ while (false);
+return true;
+}

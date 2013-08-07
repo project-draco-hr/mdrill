@@ -1,0 +1,3 @@
+{
+  return retrieveTerms(r,fieldNames[0]);
+}

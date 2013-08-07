@@ -1,0 +1,5 @@
+{
+  if (chars.length < newLength) {
+    chars=ArrayUtil.grow(chars,newLength);
+  }
+}

@@ -1,0 +1,6 @@
+{
+  writeTag(ARR,coll.size());
+  for (  Object o : coll) {
+    writeVal(o);
+  }
+}

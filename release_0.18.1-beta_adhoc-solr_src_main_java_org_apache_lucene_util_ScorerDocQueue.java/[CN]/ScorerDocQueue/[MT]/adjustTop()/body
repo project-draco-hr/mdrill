@@ -1,0 +1,4 @@
+{
+  topHSD.adjust();
+  downHeap();
+}

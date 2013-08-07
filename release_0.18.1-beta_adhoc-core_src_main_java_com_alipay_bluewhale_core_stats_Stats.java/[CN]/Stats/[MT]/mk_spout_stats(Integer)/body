@@ -1,0 +1,7 @@
+{
+  CommonStatsRolling common=mk_common_stats(rate);
+  RollingWindowSet acked=keyed_counter_rolling_window_set(NUM_STAT_BUCKETS,STAT_BUCKETS);
+  RollingWindowSet failed=keyed_counter_rolling_window_set(NUM_STAT_BUCKETS,STAT_BUCKETS);
+  RollingWindowSet complete_latencies=keyed_avg_rolling_window_set(NUM_STAT_BUCKETS,STAT_BUCKETS);
+  return new SpoutTaskStatsRolling(common,acked,failed,complete_latencies);
+}

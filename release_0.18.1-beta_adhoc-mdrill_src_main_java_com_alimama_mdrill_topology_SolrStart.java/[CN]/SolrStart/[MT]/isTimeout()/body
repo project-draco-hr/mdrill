@@ -1,0 +1,11 @@
+{
+  if (jetty.isTimeout()) {
+    return true;
+  }
+  for (  SolrStartTable table : tables) {
+    if (table.isTimeout()) {
+      return true;
+    }
+  }
+  return false;
+}

@@ -1,0 +1,5 @@
+{
+  long size=size(obj);
+  seen.clear();
+  return size;
+}

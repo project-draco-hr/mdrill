@@ -1,0 +1,32 @@
+{
+  StringBuilder sb=new StringBuilder(128);
+  try {
+    String amp=xml ? "&amp;" : "&";
+    boolean first=true;
+    Iterator<String> names=params.getParameterNamesIterator();
+    while (names.hasNext()) {
+      String key=names.next();
+      String[] valarr=params.getParams(key);
+      if (valarr == null) {
+        sb.append(first ? "?" : amp);
+        sb.append(key);
+        first=false;
+      }
+ else {
+        for (        String val : valarr) {
+          sb.append(first ? "?" : amp);
+          sb.append(key);
+          if (val != null) {
+            sb.append('=');
+            sb.append(URLEncoder.encode(val,"UTF-8"));
+          }
+          first=false;
+        }
+      }
+    }
+  }
+ catch (  IOException e) {
+    throw new RuntimeException(e);
+  }
+  return sb.toString();
+}

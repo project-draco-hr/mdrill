@@ -1,0 +1,30 @@
+{
+  clearAttributes();
+  int posIncr=1;
+  while (true) {
+    int tokenType=scanner.getNextToken();
+    if (tokenType == StandardTokenizerInterface.YYEOF) {
+      return false;
+    }
+    if (scanner.yylength() <= maxTokenLength) {
+      posIncrAtt.setPositionIncrement(posIncr);
+      scanner.getText(termAtt);
+      final int start=scanner.yychar();
+      offsetAtt.setOffset(correctOffset(start),correctOffset(start + termAtt.length()));
+      if (tokenType == ClassicTokenizer.ACRONYM_DEP) {
+        if (replaceInvalidAcronym) {
+          typeAtt.setType(ClassicTokenizer.TOKEN_TYPES[ClassicTokenizer.HOST]);
+          termAtt.setLength(termAtt.length() - 1);
+        }
+ else {
+          typeAtt.setType(ClassicTokenizer.TOKEN_TYPES[ClassicTokenizer.ACRONYM]);
+        }
+      }
+ else {
+        typeAtt.setType(ClassicTokenizer.TOKEN_TYPES[tokenType]);
+      }
+      return true;
+    }
+ else     posIncr++;
+  }
+}

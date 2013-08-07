@@ -1,0 +1,56 @@
+{
+  responseWriter.start();
+  NamedList nl=response.getValues();
+  for (int i=0; i < nl.size(); i++) {
+    String name=nl.getName(i);
+    Object val=nl.getVal(i);
+    if ("responseHeader".equals(name)) {
+      Boolean omitHeader=request.getParams().getBool(CommonParams.OMIT_HEADER);
+      if (omitHeader == null || !omitHeader)       responseWriter.writeResponseHeader((NamedList)val);
+    }
+ else     if (val instanceof SolrDocumentList) {
+      SolrDocumentList list=(SolrDocumentList)val;
+      DocListInfo info=new DocListInfo((int)list.getNumFound(),list.size(),(int)list.getStart(),list.getMaxScore());
+      if (responseWriter.isStreamingDocs()) {
+        responseWriter.startDocumentList(name,info);
+        for (        SolrDocument solrDocument : list)         responseWriter.writeDoc(solrDocument);
+        responseWriter.endDocumentList();
+      }
+ else {
+        responseWriter.writeAllDocs(info,list);
+      }
+    }
+ else     if (val instanceof DocList) {
+      DocList docList=(DocList)val;
+      int sz=docList.size();
+      IdxInfo idxInfo=new IdxInfo(request.getSchema(),request.getSearcher(),response.getReturnFields());
+      DocListInfo info=new DocListInfo(docList.matches(),docList.size(),docList.offset(),docList.maxScore());
+      DocIterator iterator=docList.iterator();
+      if (responseWriter.isStreamingDocs()) {
+        responseWriter.startDocumentList(name,info);
+        for (int j=0; j < sz; j++) {
+          SolrDocument sdoc=getDoc(iterator.nextDoc(),idxInfo);
+          if (idxInfo.includeScore && docList.hasScores()) {
+            sdoc.addField(SCORE_FIELD,iterator.score());
+          }
+          responseWriter.writeDoc(sdoc);
+        }
+      }
+ else {
+        ArrayList<SolrDocument> list=new ArrayList<SolrDocument>(docList.size());
+        for (int j=0; j < sz; j++) {
+          SolrDocument sdoc=getDoc(iterator.nextDoc(),idxInfo);
+          if (idxInfo.includeScore && docList.hasScores()) {
+            sdoc.addField(SCORE_FIELD,iterator.score());
+          }
+          list.add(sdoc);
+        }
+        responseWriter.writeAllDocs(info,list);
+      }
+    }
+ else {
+      responseWriter.writeOther(name,val);
+    }
+  }
+  responseWriter.end();
+}

@@ -1,0 +1,31 @@
+{
+  GridBagLayout gb=new GridBagLayout();
+  setLayout(gb);
+  GridBagConstraints c=new GridBagConstraints();
+  c.insets=new Insets(5,5,5,5);
+  c.anchor=GridBagConstraints.EAST;
+  gb.setConstraints(add(new Label("Regular expression:",Label.RIGHT)),c);
+  c.gridy=0;
+  c.anchor=GridBagConstraints.WEST;
+  gb.setConstraints(add(fieldRE=new TextField("\\[([:javastart:][:javapart:]*)\\]",40)),c);
+  c.gridx=0;
+  c.gridy=GridBagConstraints.RELATIVE;
+  c.anchor=GridBagConstraints.EAST;
+  gb.setConstraints(add(new Label("String:",Label.RIGHT)),c);
+  c.gridy=1;
+  c.gridx=GridBagConstraints.RELATIVE;
+  c.anchor=GridBagConstraints.WEST;
+  gb.setConstraints(add(fieldMatch=new TextField("aaa([foo])aaa",40)),c);
+  c.gridy=2;
+  c.gridx=GridBagConstraints.RELATIVE;
+  c.fill=GridBagConstraints.BOTH;
+  c.weighty=1.0;
+  c.weightx=1.0;
+  gb.setConstraints(add(outRE=new TextArea()),c);
+  c.gridy=2;
+  c.gridx=GridBagConstraints.RELATIVE;
+  gb.setConstraints(add(outMatch=new TextArea()),c);
+  fieldRE.addTextListener(this);
+  fieldMatch.addTextListener(this);
+  textValueChanged(null);
+}

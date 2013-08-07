@@ -1,0 +1,9 @@
+{
+  if (input.incrementToken()) {
+    if (!keywordAtt.isKeyword())     termAtt.setLength(stemmer.stem(termAtt.buffer(),termAtt.length()));
+    return true;
+  }
+ else {
+    return false;
+  }
+}

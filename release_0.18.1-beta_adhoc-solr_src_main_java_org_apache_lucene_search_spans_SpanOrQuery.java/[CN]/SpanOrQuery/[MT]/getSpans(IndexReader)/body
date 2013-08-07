@@ -1,0 +1,78 @@
+{
+  if (clauses.size() == 1)   return (clauses.get(0)).getSpans(reader);
+  return new Spans(){
+    private SpanQueue queue=null;
+    private boolean initSpanQueue(    int target) throws IOException {
+      queue=new SpanQueue(clauses.size());
+      Iterator<SpanQuery> i=clauses.iterator();
+      while (i.hasNext()) {
+        Spans spans=i.next().getSpans(reader);
+        if (((target == -1) && spans.next()) || ((target != -1) && spans.skipTo(target))) {
+          queue.add(spans);
+        }
+      }
+      return queue.size() != 0;
+    }
+    @Override public boolean next() throws IOException {
+      if (queue == null) {
+        return initSpanQueue(-1);
+      }
+      if (queue.size() == 0) {
+        return false;
+      }
+      if (top().next()) {
+        queue.updateTop();
+        return true;
+      }
+      queue.pop();
+      return queue.size() != 0;
+    }
+    private Spans top(){
+      return queue.top();
+    }
+    @Override public boolean skipTo(    int target) throws IOException {
+      if (queue == null) {
+        return initSpanQueue(target);
+      }
+      boolean skipCalled=false;
+      while (queue.size() != 0 && top().doc() < target) {
+        if (top().skipTo(target)) {
+          queue.updateTop();
+        }
+ else {
+          queue.pop();
+        }
+        skipCalled=true;
+      }
+      if (skipCalled) {
+        return queue.size() != 0;
+      }
+      return next();
+    }
+    @Override public int doc(){
+      return top().doc();
+    }
+    @Override public int start(){
+      return top().start();
+    }
+    @Override public int end(){
+      return top().end();
+    }
+    @Override public Collection<byte[]> getPayload() throws IOException {
+      ArrayList<byte[]> result=null;
+      Spans theTop=top();
+      if (theTop != null && theTop.isPayloadAvailable()) {
+        result=new ArrayList<byte[]>(theTop.getPayload());
+      }
+      return result;
+    }
+    @Override public boolean isPayloadAvailable(){
+      Spans top=top();
+      return top != null && top.isPayloadAvailable();
+    }
+    @Override public String toString(){
+      return "spans(" + SpanOrQuery.this + ")@"+ ((queue == null) ? "START" : (queue.size() > 0 ? (doc() + ":" + start()+ "-"+ end()) : "END"));
+    }
+  }
+;
+}

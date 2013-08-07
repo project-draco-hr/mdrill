@@ -1,0 +1,61 @@
+{
+  if (initParams != null) {
+    LOG.info("Initializing spell checkers");
+    boolean hasDefault=false;
+    for (int i=0; i < initParams.size(); i++) {
+      if (initParams.getName(i).equals("spellchecker")) {
+        NamedList spellchecker=(NamedList)initParams.getVal(i);
+        String className=(String)spellchecker.get("classname");
+        if (className == null)         className=IndexBasedSpellChecker.class.getName();
+        SolrResourceLoader loader=core.getResourceLoader();
+        SolrSpellChecker checker=(SolrSpellChecker)loader.newInstance(className);
+        if (checker != null) {
+          String dictionary=checker.init(spellchecker,core);
+          if (dictionary != null) {
+            boolean isDefault=dictionary.equals(SolrSpellChecker.DEFAULT_DICTIONARY_NAME);
+            if (isDefault == true && hasDefault == false) {
+              hasDefault=true;
+            }
+ else             if (isDefault == true && hasDefault == true) {
+              throw new RuntimeException("More than one dictionary is missing name.");
+            }
+            spellCheckers.put(dictionary,checker);
+          }
+ else {
+            if (hasDefault == false) {
+              spellCheckers.put(SolrSpellChecker.DEFAULT_DICTIONARY_NAME,checker);
+              hasDefault=true;
+            }
+ else {
+              throw new RuntimeException("More than one dictionary is missing name.");
+            }
+          }
+          core.registerFirstSearcherListener(new SpellCheckerListener(core,checker,false,false));
+          boolean buildOnCommit=Boolean.parseBoolean((String)spellchecker.get("buildOnCommit"));
+          boolean buildOnOptimize=Boolean.parseBoolean((String)spellchecker.get("buildOnOptimize"));
+          if (buildOnCommit || buildOnOptimize) {
+            LOG.info("Registering newSearcher listener for spellchecker: " + checker.getDictionaryName());
+            core.registerNewSearcherListener(new SpellCheckerListener(core,checker,buildOnCommit,buildOnOptimize));
+          }
+        }
+ else {
+          throw new RuntimeException("Can't load spell checker: " + className);
+        }
+      }
+    }
+    Map<String,QueryConverter> queryConverters=new HashMap<String,QueryConverter>();
+    core.initPlugins(queryConverters,QueryConverter.class);
+    if (queryConverters.size() == 0) {
+      LOG.warn("No queryConverter defined, using default converter");
+      queryConverters.put("queryConverter",new SpellingQueryConverter());
+    }
+    if (queryConverters.size() == 1) {
+      queryConverter=queryConverters.values().iterator().next();
+      IndexSchema schema=core.getSchema();
+      String fieldTypeName=(String)initParams.get("queryAnalyzerFieldType");
+      FieldType fieldType=schema.getFieldTypes().get(fieldTypeName);
+      Analyzer analyzer=fieldType == null ? new WhitespaceAnalyzer(core.getSolrConfig().luceneMatchVersion) : fieldType.getQueryAnalyzer();
+      queryConverter.setAnalyzer(analyzer);
+    }
+  }
+}

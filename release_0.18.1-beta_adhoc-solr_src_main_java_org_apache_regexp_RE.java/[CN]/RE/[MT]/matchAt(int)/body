@@ -1,0 +1,23 @@
+{
+  start0=-1;
+  end0=-1;
+  start1=-1;
+  end1=-1;
+  start2=-1;
+  end2=-1;
+  startn=null;
+  endn=null;
+  parenCount=1;
+  setParenStart(0,i);
+  if ((program.flags & REProgram.OPT_HASBACKREFS) != 0) {
+    startBackref=new int[maxParen];
+    endBackref=new int[maxParen];
+  }
+  int idx;
+  if ((idx=matchNodes(0,maxNode,i)) != -1) {
+    setParenEnd(0,idx);
+    return true;
+  }
+  parenCount=0;
+  return false;
+}

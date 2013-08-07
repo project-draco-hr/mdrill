@@ -1,0 +1,12 @@
+{
+synchronized (DocumentsWriter.this) {
+    final int size=freeByteBlocks.size();
+    final byte[] b;
+    if (0 == size) {
+      b=new byte[blockSize];
+      bytesUsed.addAndGet(blockSize);
+    }
+ else     b=freeByteBlocks.remove(size - 1);
+    return b;
+  }
+}

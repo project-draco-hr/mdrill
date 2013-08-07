@@ -1,0 +1,24 @@
+{
+  indexArray=0;
+  i=fromIndex >> 6;
+  if (i >= words) {
+    word=0;
+    return -1;
+  }
+  wordShift=fromIndex & 0x3f;
+  word=arr[i] >>> wordShift;
+  if (word != 0) {
+    wordShift--;
+  }
+ else {
+    while (word == 0) {
+      if (++i >= words)       return -1;
+      word=arr[i];
+    }
+    wordShift=-1;
+  }
+  shift();
+  int bitIndex=(indexArray & 0x0f) + wordShift;
+  indexArray>>>=4;
+  return (i << 6) + bitIndex;
+}

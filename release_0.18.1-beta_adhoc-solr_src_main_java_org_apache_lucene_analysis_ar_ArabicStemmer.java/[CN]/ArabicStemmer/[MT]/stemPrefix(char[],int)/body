@@ -1,0 +1,4 @@
+{
+  for (int i=0; i < prefixes.length; i++)   if (startsWithCheckLength(s,len,prefixes[i]))   return deleteN(s,0,len,prefixes[i].length);
+  return len;
+}

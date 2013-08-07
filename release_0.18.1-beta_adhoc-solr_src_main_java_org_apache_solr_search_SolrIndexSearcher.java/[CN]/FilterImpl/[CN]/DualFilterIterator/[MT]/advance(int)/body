@@ -1,0 +1,9 @@
+{
+  int doc=a.advance(target);
+  for (; ; ) {
+    int other=b.advance(doc);
+    if (other == doc)     return doc;
+    doc=a.advance(other);
+    if (other == doc)     return doc;
+  }
+}

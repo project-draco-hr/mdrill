@@ -1,0 +1,9 @@
+{
+  int numStopWords=0;
+  Collection<String> fieldNames=reader.getFieldNames(IndexReader.FieldOption.INDEXED);
+  for (Iterator<String> iter=fieldNames.iterator(); iter.hasNext(); ) {
+    String fieldName=iter.next();
+    numStopWords+=addStopWords(reader,fieldName,maxPercentDocs);
+  }
+  return numStopWords;
+}

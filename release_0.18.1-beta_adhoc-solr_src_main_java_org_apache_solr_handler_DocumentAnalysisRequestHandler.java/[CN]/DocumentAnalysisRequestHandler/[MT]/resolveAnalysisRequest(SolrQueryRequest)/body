@@ -1,0 +1,40 @@
+{
+  DocumentAnalysisRequest request=new DocumentAnalysisRequest();
+  SolrParams params=req.getParams();
+  String query=params.get(AnalysisParams.QUERY,params.get(CommonParams.Q,null));
+  request.setQuery(query);
+  boolean showMatch=params.getBool(AnalysisParams.SHOW_MATCH,false);
+  request.setShowMatch(showMatch);
+  ContentStream stream=extractSingleContentStream(req);
+  InputStream is=null;
+  XMLStreamReader parser=null;
+  try {
+    is=stream.getStream();
+    final String charset=ContentStreamBase.getCharsetFromContentType(stream.getContentType());
+    parser=(charset == null) ? inputFactory.createXMLStreamReader(is) : inputFactory.createXMLStreamReader(is,charset);
+    while (true) {
+      int event=parser.next();
+switch (event) {
+case XMLStreamConstants.END_DOCUMENT:
+{
+          parser.close();
+          return request;
+        }
+case XMLStreamConstants.START_ELEMENT:
+{
+        String currTag=parser.getLocalName();
+        if ("doc".equals(currTag)) {
+          log.trace("Reading doc...");
+          SolrInputDocument document=readDocument(parser,req.getSchema());
+          request.addDocument(document);
+        }
+        break;
+      }
+  }
+}
+}
+  finally {
+if (parser != null) parser.close();
+IOUtils.closeQuietly(is);
+}
+}

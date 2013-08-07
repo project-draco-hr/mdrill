@@ -1,0 +1,3 @@
+{
+  return getHighlighter(query,fieldName,request);
+}

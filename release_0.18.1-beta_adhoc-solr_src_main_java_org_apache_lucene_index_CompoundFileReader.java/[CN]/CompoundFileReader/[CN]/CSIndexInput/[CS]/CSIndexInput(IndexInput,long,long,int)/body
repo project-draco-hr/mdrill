@@ -1,0 +1,6 @@
+{
+  super(readBufferSize);
+  this.base=(IndexInput)base.clone();
+  this.fileOffset=fileOffset;
+  this.length=length;
+}

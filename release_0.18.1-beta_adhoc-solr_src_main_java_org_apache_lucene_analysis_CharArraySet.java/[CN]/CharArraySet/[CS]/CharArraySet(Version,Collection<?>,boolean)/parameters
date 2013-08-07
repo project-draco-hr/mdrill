@@ -1,0 +1,3 @@
+Version matchVersion
+Collection<?> c
+boolean ignoreCase

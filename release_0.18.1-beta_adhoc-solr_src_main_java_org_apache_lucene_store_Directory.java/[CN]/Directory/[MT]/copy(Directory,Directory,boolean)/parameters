@@ -1,0 +1,3 @@
+Directory src
+Directory dest
+boolean closeDirSrc

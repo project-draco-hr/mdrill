@@ -1,0 +1,13 @@
+{
+  FromItem fromItem=null;
+  Join join=null;
+  SubJoin subJoin=new SubJoin();
+  fromItem=FromItem();
+  subJoin.setLeft(fromItem);
+  join=JoinerExpression();
+  subJoin.setJoin(join);
+{
+    if (true)     return subJoin;
+  }
+  throw new Error("Missing return statement in function");
+}

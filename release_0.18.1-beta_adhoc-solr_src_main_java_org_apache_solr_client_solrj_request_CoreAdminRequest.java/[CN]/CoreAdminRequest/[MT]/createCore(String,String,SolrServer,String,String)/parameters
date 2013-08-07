@@ -1,0 +1,5 @@
+String name
+String instanceDir
+SolrServer server
+String configFile
+String schemaFile

@@ -1,0 +1,7 @@
+{
+  if (o instanceof FilteredQuery) {
+    FilteredQuery fq=(FilteredQuery)o;
+    return (query.equals(fq.query) && filter.equals(fq.filter) && getBoost() == fq.getBoost());
+  }
+  return false;
+}

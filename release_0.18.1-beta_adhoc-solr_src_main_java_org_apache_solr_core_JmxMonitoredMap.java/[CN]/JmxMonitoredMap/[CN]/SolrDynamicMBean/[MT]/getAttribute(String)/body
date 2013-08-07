@@ -1,0 +1,22 @@
+{
+  Object val;
+  if ("coreHashCode".equals(attribute)) {
+    val=coreHashCode;
+  }
+ else   if (staticStats.contains(attribute) && attribute != null && attribute.length() > 0) {
+    try {
+      String getter="get" + attribute.substring(0,1).toUpperCase(Locale.ENGLISH) + attribute.substring(1);
+      Method meth=infoBean.getClass().getMethod(getter);
+      val=meth.invoke(infoBean);
+    }
+ catch (    Exception e) {
+      throw new AttributeNotFoundException(attribute);
+    }
+  }
+ else {
+    NamedList list=infoBean.getStatistics();
+    val=list.get(attribute);
+  }
+  if (val != null)   return val.toString();
+ else   return val;
+}

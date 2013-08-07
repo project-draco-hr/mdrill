@@ -1,0 +1,8 @@
+{
+  Socket socket=ZeroMq.socket(context,ZeroMq.pull);
+  ZeroMq.bind(socket,url);
+  Map<Integer,Socket> virtual_mapping=new HashMap<Integer,ZMQ.Socket>();
+  RunnableCallback loop_fn=new VirtualPortDispatch(context,socket,virtual_mapping,url,valid_ports);
+  AsyncLoopThread vthread=new AsyncLoopThread(loop_fn,daemon,kill_fn,priority,true);
+  return new VirtualPortShutdown(context,vthread,url);
+}

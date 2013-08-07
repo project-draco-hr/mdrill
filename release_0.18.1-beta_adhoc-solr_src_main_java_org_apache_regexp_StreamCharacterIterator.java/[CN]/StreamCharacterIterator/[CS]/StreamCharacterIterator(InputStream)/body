@@ -1,0 +1,5 @@
+{
+  this.is=is;
+  this.buff=new StringBuffer(512);
+  this.closed=false;
+}

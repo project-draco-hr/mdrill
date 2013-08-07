@@ -1,0 +1,4 @@
+{
+  final int ord=index.order[doc];
+  return ord == 0 ? null : index.lookup[ord];
+}

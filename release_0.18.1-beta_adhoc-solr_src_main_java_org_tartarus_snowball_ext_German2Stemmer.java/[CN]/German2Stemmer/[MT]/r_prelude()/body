@@ -1,0 +1,108 @@
+{
+  int among_var;
+  int v_1;
+  int v_2;
+  int v_3;
+  int v_4;
+  int v_5;
+  v_1=cursor;
+  replab0:   while (true) {
+    v_2=cursor;
+    lab1:     do {
+      golab2:       while (true) {
+        v_3=cursor;
+        lab3:         do {
+          if (!(in_grouping(g_v,97,252))) {
+            break lab3;
+          }
+          bra=cursor;
+          lab4:           do {
+            v_4=cursor;
+            lab5:             do {
+              if (!(eq_s(1,"u"))) {
+                break lab5;
+              }
+              ket=cursor;
+              if (!(in_grouping(g_v,97,252))) {
+                break lab5;
+              }
+              slice_from("U");
+              break lab4;
+            }
+ while (false);
+            cursor=v_4;
+            if (!(eq_s(1,"y"))) {
+              break lab3;
+            }
+            ket=cursor;
+            if (!(in_grouping(g_v,97,252))) {
+              break lab3;
+            }
+            slice_from("Y");
+          }
+ while (false);
+          cursor=v_3;
+          break golab2;
+        }
+ while (false);
+        cursor=v_3;
+        if (cursor >= limit) {
+          break lab1;
+        }
+        cursor++;
+      }
+      continue replab0;
+    }
+ while (false);
+    cursor=v_2;
+    break replab0;
+  }
+  cursor=v_1;
+  replab6:   while (true) {
+    v_5=cursor;
+    lab7:     do {
+      bra=cursor;
+      among_var=find_among(a_0,6);
+      if (among_var == 0) {
+        break lab7;
+      }
+      ket=cursor;
+switch (among_var) {
+case 0:
+        break lab7;
+case 1:
+      slice_from("ss");
+    break;
+case 2:
+  slice_from("\u00E4");
+break;
+case 3:
+slice_from("\u00F6");
+break;
+case 4:
+slice_from("\u00FC");
+break;
+case 5:
+{
+int c=cursor + 2;
+if (0 > c || c > limit) {
+break lab7;
+}
+cursor=c;
+}
+break;
+case 6:
+if (cursor >= limit) {
+break lab7;
+}
+cursor++;
+break;
+}
+continue replab6;
+}
+ while (false);
+cursor=v_5;
+break replab6;
+}
+return true;
+}

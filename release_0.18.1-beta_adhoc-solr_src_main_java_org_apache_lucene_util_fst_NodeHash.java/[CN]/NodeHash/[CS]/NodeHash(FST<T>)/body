@@ -1,0 +1,5 @@
+{
+  table=new int[16];
+  mask=15;
+  this.fst=fst;
+}

@@ -1,0 +1,7 @@
+{
+  super.reset();
+  hasMoreTokensInClone=false;
+  clonedToken=null;
+  clonedTermAtt=null;
+  clonedOffsetAtt=null;
+}

@@ -1,0 +1,6 @@
+{
+  ensureOpen();
+  TermDocs termDocs=termDocs(buffer);
+  termDocs.seek(term);
+  return termDocs;
+}

@@ -1,0 +1,3 @@
+{
+  System.out.println(parsePercent("2","Stage-1 map = 100.0%, reduce = 97.49997%",false));
+}

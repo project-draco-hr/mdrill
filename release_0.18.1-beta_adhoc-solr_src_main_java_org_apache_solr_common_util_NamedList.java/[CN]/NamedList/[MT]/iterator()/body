@@ -1,0 +1,33 @@
+{
+  final NamedList list=this;
+  Iterator<Map.Entry<String,T>> iter=new Iterator<Map.Entry<String,T>>(){
+    int idx=0;
+    public boolean hasNext(){
+      return idx < list.size();
+    }
+    public Map.Entry<String,T> next(){
+      final int index=idx++;
+      Map.Entry<String,T> nv=new Map.Entry<String,T>(){
+        public String getKey(){
+          return list.getName(index);
+        }
+        @SuppressWarnings("unchecked") public T getValue(){
+          return (T)list.getVal(index);
+        }
+        @Override public String toString(){
+          return getKey() + "=" + getValue();
+        }
+        public T setValue(        T value){
+          return (T)list.setVal(index,value);
+        }
+      }
+;
+      return nv;
+    }
+    public void remove(){
+      throw new UnsupportedOperationException();
+    }
+  }
+;
+  return iter;
+}

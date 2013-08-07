@@ -1,0 +1,3 @@
+{
+  return schema.getField(base.getName() + suffixes[i]);
+}

@@ -1,0 +1,4 @@
+IndexReader reader
+IndexReader[] subReaders
+int[] docStarts
+ExecutorService executor

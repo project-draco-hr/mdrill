@@ -1,0 +1,6 @@
+{
+  test.say(tag + "(" + number+ "): "+ pattern);
+  if (testCreation()) {
+    testMatch();
+  }
+}

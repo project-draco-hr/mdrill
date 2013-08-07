@@ -1,0 +1,13 @@
+{
+  if (this == o) {
+    return true;
+  }
+  if (!(o instanceof FixedBitSet)) {
+    return false;
+  }
+  FixedBitSet other=(FixedBitSet)o;
+  if (numBits != other.length()) {
+    return false;
+  }
+  return Arrays.equals(bits,other.bits);
+}

@@ -1,0 +1,8 @@
+{
+  Map<Object,Double> result=null;
+  if (args != null && args.length > 0) {
+    Map<Object,Pair> v=(Map<Object,Pair>)args[0];
+    result=StatFunction.extract_key_avg(v);
+  }
+  return result;
+}

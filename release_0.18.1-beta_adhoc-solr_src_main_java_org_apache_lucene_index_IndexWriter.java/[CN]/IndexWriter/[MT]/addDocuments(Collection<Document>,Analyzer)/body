@@ -1,0 +1,3 @@
+{
+  updateDocuments(null,docs,analyzer);
+}

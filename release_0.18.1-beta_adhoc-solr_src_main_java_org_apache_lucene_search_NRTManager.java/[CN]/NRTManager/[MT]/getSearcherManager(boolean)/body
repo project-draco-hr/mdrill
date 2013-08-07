@@ -1,0 +1,13 @@
+{
+  if (applyAllDeletes) {
+    return withDeletes.manager;
+  }
+ else {
+    if (withDeletes.generation > withoutDeletes.generation) {
+      return withDeletes.manager;
+    }
+ else {
+      return withoutDeletes.manager;
+    }
+  }
+}

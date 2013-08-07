@@ -1,0 +1,15 @@
+{
+  if (map == EMPTY_MAP)   return emptyMap();
+  if (map instanceof CharArrayMap) {
+    CharArrayMap<V> m=(CharArrayMap<V>)map;
+    final char[][] keys=new char[m.keys.length][];
+    System.arraycopy(m.keys,0,keys,0,keys.length);
+    final V[] values=(V[])new Object[m.values.length];
+    System.arraycopy(m.values,0,values,0,values.length);
+    m=new CharArrayMap<V>(m);
+    m.keys=keys;
+    m.values=values;
+    return m;
+  }
+  return new CharArrayMap<V>(matchVersion,map,false);
+}

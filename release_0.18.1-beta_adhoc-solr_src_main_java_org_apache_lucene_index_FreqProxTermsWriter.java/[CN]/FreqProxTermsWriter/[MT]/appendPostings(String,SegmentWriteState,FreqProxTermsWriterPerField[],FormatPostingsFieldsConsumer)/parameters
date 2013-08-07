@@ -1,0 +1,4 @@
+String fieldName
+SegmentWriteState state
+FreqProxTermsWriterPerField[] fields
+FormatPostingsFieldsConsumer consumer

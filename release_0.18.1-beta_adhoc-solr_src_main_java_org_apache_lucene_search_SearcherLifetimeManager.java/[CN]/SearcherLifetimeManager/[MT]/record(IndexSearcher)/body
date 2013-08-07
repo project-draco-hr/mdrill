@@ -1,0 +1,15 @@
+{
+  ensureOpen();
+  final long version=searcher.getIndexReader().getVersion();
+  SearcherTracker tracker=searchers.get(version);
+  if (tracker == null) {
+    tracker=new SearcherTracker(searcher);
+    if (searchers.putIfAbsent(version,tracker) != null) {
+      tracker.close();
+    }
+  }
+ else   if (tracker.searcher != searcher) {
+    throw new IllegalArgumentException("the provided searcher has the same underlying reader version yet the searcher instance differs from before (new=" + searcher + " vs old="+ tracker.searcher);
+  }
+  return version;
+}

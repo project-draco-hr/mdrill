@@ -1,0 +1,8 @@
+{
+  HashSet<Directory> dups=new HashSet<Directory>();
+  for (  Directory dir : dirs) {
+    if (dups.contains(dir))     throw new IllegalArgumentException("Directory " + dir + " appears more than once");
+    if (dir == directory)     throw new IllegalArgumentException("Cannot add directory to itself");
+    dups.add(dir);
+  }
+}

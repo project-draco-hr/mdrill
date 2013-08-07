@@ -1,0 +1,23 @@
+{
+  if (query instanceof ExtendedQuery) {
+    ExtendedQuery eq=(ExtendedQuery)query;
+    if (!eq.getCache()) {
+      if (query instanceof WrappedQuery) {
+        query=((WrappedQuery)query).getWrappedQuery();
+      }
+      query=QueryUtils.makeQueryable(query);
+      return getDocSetNC(query,null);
+    }
+  }
+  Query absQ=QueryUtils.getAbs(query);
+  boolean positive=query == absQ;
+  DocSet absAnswer=this.filterCacheGet(absQ);
+  if (absAnswer != null) {
+    if (positive)     return absAnswer;
+ else     return getPositiveDocSet(matchAllDocsQuery).andNot(absAnswer);
+  }
+  absAnswer=getDocSetNC(absQ,null);
+  DocSet answer=positive ? absAnswer : getPositiveDocSet(matchAllDocsQuery).andNot(absAnswer);
+  this.filterCachePut(absQ,absAnswer);
+  return answer;
+}

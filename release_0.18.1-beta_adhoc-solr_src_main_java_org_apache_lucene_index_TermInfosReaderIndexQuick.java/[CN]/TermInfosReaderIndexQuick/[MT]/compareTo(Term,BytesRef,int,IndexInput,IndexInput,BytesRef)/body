@@ -1,0 +1,4 @@
+{
+  TiiInfo ti=this.getTiiInfo(termIndex,tiiInput,quickTii);
+  return term.compareTo(ti.tm);
+}

@@ -1,0 +1,4 @@
+String name
+int precisionStep
+Field.Store store
+boolean index

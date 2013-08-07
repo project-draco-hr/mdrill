@@ -1,0 +1,4 @@
+{
+  this.maskedQuery=maskedQuery;
+  this.field=maskedField;
+}

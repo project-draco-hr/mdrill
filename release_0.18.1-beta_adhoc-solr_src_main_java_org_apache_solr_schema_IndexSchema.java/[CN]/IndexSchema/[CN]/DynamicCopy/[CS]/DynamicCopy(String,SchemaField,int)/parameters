@@ -1,0 +1,3 @@
+String regex
+SchemaField targetField
+int maxChars

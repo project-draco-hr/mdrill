@@ -1,0 +1,4 @@
+{
+  this.setResponse(res);
+  this.solrServer=solrServer;
+}

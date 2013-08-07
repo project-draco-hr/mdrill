@@ -1,0 +1,7 @@
+{
+  if (o.getClass() != ByteFieldSource.class) {
+    return false;
+  }
+  ByteFieldSource other=(ByteFieldSource)o;
+  return this.parser == null ? other.parser == null : this.parser.getClass() == other.parser.getClass();
+}

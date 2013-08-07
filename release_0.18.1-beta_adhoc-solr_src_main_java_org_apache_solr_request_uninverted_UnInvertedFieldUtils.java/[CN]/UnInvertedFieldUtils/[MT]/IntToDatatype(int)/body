@@ -1,0 +1,20 @@
+{
+switch (d) {
+case 1:
+{
+      return Datatype.d_string;
+    }
+case 2:
+{
+    return Datatype.d_long;
+  }
+case 3:
+{
+  return Datatype.d_double;
+}
+default :
+{
+return Datatype.d_default;
+}
+}
+}

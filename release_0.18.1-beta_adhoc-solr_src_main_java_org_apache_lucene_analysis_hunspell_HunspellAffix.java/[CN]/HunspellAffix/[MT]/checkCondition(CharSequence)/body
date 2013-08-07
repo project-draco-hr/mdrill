@@ -1,0 +1,3 @@
+{
+  return conditionPattern.matcher(text).matches();
+}

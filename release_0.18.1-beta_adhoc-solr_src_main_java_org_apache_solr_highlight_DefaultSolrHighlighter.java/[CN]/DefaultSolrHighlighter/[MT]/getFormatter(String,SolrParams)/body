@@ -1,0 +1,8 @@
+{
+  String str=params.getFieldParam(fieldName,HighlightParams.FORMATTER);
+  SolrFormatter formatter=formatters.get(str);
+  if (formatter == null) {
+    throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,"Unknown formatter: " + str);
+  }
+  return formatter.getFormatter(fieldName,params);
+}

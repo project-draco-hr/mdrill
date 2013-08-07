@@ -1,0 +1,5 @@
+{
+  double brng=upperRight ? DEG_45_AS_RADS : DEG_225_AS_RADS;
+  result=pointOnBearing(latCenter,lonCenter,distance,brng,result,sphereRadius);
+  return result;
+}

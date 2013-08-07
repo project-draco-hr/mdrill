@@ -1,0 +1,6 @@
+{
+  this.taskToNodeport=taskToNodeport;
+  this.nodeHost=nodeHost;
+  this.taskStartTimeSecs=taskStartTimeSecs;
+  this.masterCodeDir=masterCodeDir;
+}

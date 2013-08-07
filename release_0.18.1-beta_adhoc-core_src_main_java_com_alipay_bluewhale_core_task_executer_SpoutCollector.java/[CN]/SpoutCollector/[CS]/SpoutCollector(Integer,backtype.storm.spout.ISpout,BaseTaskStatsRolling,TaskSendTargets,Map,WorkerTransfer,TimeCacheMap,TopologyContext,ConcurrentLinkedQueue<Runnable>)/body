@@ -1,0 +1,12 @@
+{
+  this.sendTargets=sendTargets;
+  this.storm_conf=_storm_conf;
+  this.transfer_fn=_transfer_fn;
+  this.pending=pending;
+  this.topology_context=topology_context;
+  this.sampler=StormConfig.mk_stats_sampler(storm_conf);
+  this.event_queue=event_queue;
+  this.task_stats=task_stats;
+  this.spout=spout;
+  this.task_id=task_id;
+}

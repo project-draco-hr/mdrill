@@ -1,0 +1,3 @@
+{
+  return this.termValueLong.get(tm.get(doc));
+}

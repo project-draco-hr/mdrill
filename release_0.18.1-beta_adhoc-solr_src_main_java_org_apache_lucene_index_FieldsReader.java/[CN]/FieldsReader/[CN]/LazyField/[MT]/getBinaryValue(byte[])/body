@@ -1,0 +1,37 @@
+{
+  ensureOpen();
+  if (isBinary) {
+    if (fieldsData == null) {
+      final byte[] b;
+      byte[] value;
+      if (result == null || result.length < toRead)       b=new byte[toRead];
+ else       b=result;
+      IndexInput localFieldsStream=getFieldStream();
+      try {
+        localFieldsStream.seek(pointer);
+        localFieldsStream.readBytes(b,0,toRead);
+        if (isCompressed == true) {
+          value=uncompress(b);
+        }
+ else {
+          value=b;
+        }
+      }
+ catch (      IOException e) {
+        throw new FieldReaderException(e);
+      }
+      binaryOffset=0;
+      binaryLength=toRead;
+      if (cacheResult == true) {
+        fieldsData=value;
+      }
+      return value;
+    }
+ else {
+      return (byte[])fieldsData;
+    }
+  }
+ else {
+    return null;
+  }
+}

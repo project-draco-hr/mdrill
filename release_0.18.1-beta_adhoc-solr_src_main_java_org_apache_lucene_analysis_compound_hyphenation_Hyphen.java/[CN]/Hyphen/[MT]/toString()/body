@@ -1,0 +1,13 @@
+{
+  if (noBreak == null && postBreak == null && preBreak != null && preBreak.equals("-")) {
+    return "-";
+  }
+  StringBuilder res=new StringBuilder("{");
+  res.append(preBreak);
+  res.append("}{");
+  res.append(postBreak);
+  res.append("}{");
+  res.append(noBreak);
+  res.append('}');
+  return res.toString();
+}

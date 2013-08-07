@@ -1,0 +1,89 @@
+{
+  DocListAndSet out=new DocListAndSet();
+  qr.setDocListAndSet(out);
+  QueryResultKey key=null;
+  int maxDocRequested=cmd.getOffset() + cmd.getLen();
+  if (maxDocRequested < 0 || maxDocRequested > maxDoc())   maxDocRequested=maxDoc();
+  int supersetMaxDoc=maxDocRequested;
+  DocList superset=null;
+  int flags=cmd.getFlags();
+  Query q=cmd.getQuery();
+  if (q instanceof ExtendedQuery) {
+    ExtendedQuery eq=(ExtendedQuery)q;
+    if (!eq.getCache()) {
+      flags|=(NO_CHECK_QCACHE | NO_SET_QCACHE | NO_CHECK_FILTERCACHE);
+    }
+  }
+  if (queryResultCache != null && cmd.getFilter() == null && (flags & (NO_CHECK_QCACHE | NO_SET_QCACHE)) != ((NO_CHECK_QCACHE | NO_SET_QCACHE))) {
+    key=new QueryResultKey(q,cmd.getFilterList(),cmd.getSort(),flags);
+    if ((flags & NO_CHECK_QCACHE) == 0) {
+      superset=queryResultCache.get(key);
+      if (superset != null) {
+        if ((flags & GET_SCORES) == 0 || superset.hasScores()) {
+          out.docList=superset.subset(cmd.getOffset(),cmd.getLen());
+        }
+      }
+      if (out.docList != null) {
+        if (out.docSet == null && ((flags & GET_DOCSET) != 0)) {
+          if (cmd.getFilterList() == null) {
+            out.docSet=getDocSet(cmd.getQuery());
+          }
+ else {
+            List<Query> newList=new ArrayList<Query>(cmd.getFilterList().size() + 1);
+            newList.add(cmd.getQuery());
+            newList.addAll(cmd.getFilterList());
+            out.docSet=getDocSet(newList);
+          }
+        }
+        return;
+      }
+    }
+    if ((flags & NO_SET_QCACHE) == 0) {
+      if (maxDocRequested < queryResultWindowSize) {
+        supersetMaxDoc=queryResultWindowSize;
+      }
+ else {
+        supersetMaxDoc=((maxDocRequested - 1) / queryResultWindowSize + 1) * queryResultWindowSize;
+        if (supersetMaxDoc < 0)         supersetMaxDoc=maxDocRequested;
+      }
+    }
+ else {
+      key=null;
+    }
+  }
+  boolean useFilterCache=false;
+  if ((flags & (GET_SCORES | NO_CHECK_FILTERCACHE)) == 0 && useFilterForSortedQuery && cmd.getSort() != null && filterCache != null) {
+    useFilterCache=true;
+    SortField[] sfields=cmd.getSort().getSort();
+    for (    SortField sf : sfields) {
+      if (sf.getType() == SortField.SCORE) {
+        useFilterCache=false;
+        break;
+      }
+    }
+  }
+  if (useFilterCache) {
+    if (out.docSet == null) {
+      out.docSet=getDocSet(cmd.getQuery(),cmd.getFilter());
+      DocSet bigFilt=getDocSet(cmd.getFilterList());
+      if (bigFilt != null)       out.docSet=out.docSet.intersection(bigFilt);
+    }
+    superset=sortDocSet(out.docSet,cmd.getSort(),supersetMaxDoc);
+    out.docList=superset.subset(cmd.getOffset(),cmd.getLen());
+  }
+ else {
+    cmd.setSupersetMaxDoc(supersetMaxDoc);
+    if ((flags & GET_DOCSET) != 0) {
+      DocSet qDocSet=getDocListAndSetNC(qr,cmd);
+      if (qDocSet != null && filterCache != null && !qr.isPartialResults())       this.filterCachePut(cmd.getQuery(),qDocSet);
+    }
+ else {
+      getDocListNC(qr,cmd);
+    }
+    superset=out.docList;
+    out.docList=superset.subset(cmd.getOffset(),cmd.getLen());
+  }
+  if (key != null && superset.size() <= queryResultMaxDocsCached && !qr.isPartialResults()) {
+    queryResultCache.put(key,superset);
+  }
+}

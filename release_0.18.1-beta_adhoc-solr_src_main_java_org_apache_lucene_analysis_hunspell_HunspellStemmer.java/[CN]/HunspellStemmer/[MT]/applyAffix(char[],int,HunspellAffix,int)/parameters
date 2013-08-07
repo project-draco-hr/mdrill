@@ -1,0 +1,4 @@
+char strippedWord[]
+int length
+HunspellAffix affix
+int recursionDepth

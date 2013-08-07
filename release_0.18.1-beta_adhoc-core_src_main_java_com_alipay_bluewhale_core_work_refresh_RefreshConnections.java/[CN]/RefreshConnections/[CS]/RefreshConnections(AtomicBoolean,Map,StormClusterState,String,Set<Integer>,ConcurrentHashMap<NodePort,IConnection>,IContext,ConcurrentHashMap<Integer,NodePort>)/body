@@ -1,0 +1,10 @@
+{
+  this.active=active;
+  this.conf=conf;
+  this.zkCluster=zkCluster;
+  this.topologyId=topologyId;
+  this.outboundTasks=outbound_tasks;
+  this.nodeportSocket=node_port__socket;
+  this.mqContext=mq_context;
+  this.taskNodeport=task__node_port;
+}

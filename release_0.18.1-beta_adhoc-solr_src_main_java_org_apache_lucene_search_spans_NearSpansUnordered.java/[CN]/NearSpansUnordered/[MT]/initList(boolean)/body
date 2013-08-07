@@ -1,0 +1,9 @@
+{
+  for (int i=0; more && i < ordered.size(); i++) {
+    SpansCell cell=ordered.get(i);
+    if (next)     more=cell.next();
+    if (more) {
+      addToList(cell);
+    }
+  }
+}

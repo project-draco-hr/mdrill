@@ -1,0 +1,11 @@
+{
+  reset(true);
+  try {
+    consumer.abort();
+  }
+  finally {
+    if (nextPerThread != null) {
+      nextPerThread.abort();
+    }
+  }
+}

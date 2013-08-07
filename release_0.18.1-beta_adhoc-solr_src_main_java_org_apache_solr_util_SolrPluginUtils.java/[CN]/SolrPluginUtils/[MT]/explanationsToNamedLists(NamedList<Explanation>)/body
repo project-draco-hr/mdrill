@@ -1,0 +1,7 @@
+{
+  NamedList<NamedList<Object>> out=new SimpleOrderedMap<NamedList<Object>>();
+  for (  Map.Entry<String,Explanation> entry : explanations) {
+    out.add(entry.getKey(),explanationToNamedList(entry.getValue()));
+  }
+  return out;
+}

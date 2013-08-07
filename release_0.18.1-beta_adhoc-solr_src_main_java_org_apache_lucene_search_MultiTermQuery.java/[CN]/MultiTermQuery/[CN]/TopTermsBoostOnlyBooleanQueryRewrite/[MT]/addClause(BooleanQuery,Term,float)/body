@@ -1,0 +1,5 @@
+{
+  final Query q=new ConstantScoreQuery(new TermQuery(term));
+  q.setBoost(boost);
+  topLevel.add(q,BooleanClause.Occur.SHOULD);
+}

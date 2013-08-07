@@ -1,0 +1,4 @@
+Query query
+TokenStream tokenStream
+String fieldName
+IndexReader reader

@@ -1,0 +1,17 @@
+{
+  final DocValues latDV=lat.getValues(context,reader);
+  final DocValues lonDV=lon.getValues(context,reader);
+  return new DocValues(){
+    @Override public String strVal(    int doc){
+      return GeoHashUtils.encode(latDV.doubleVal(doc),lonDV.doubleVal(doc));
+    }
+    @Override public String toString(    int doc){
+      StringBuilder sb=new StringBuilder();
+      sb.append(name()).append('(');
+      sb.append(latDV.toString(doc)).append(',').append(lonDV.toString(doc));
+      sb.append(')');
+      return sb.toString();
+    }
+  }
+;
+}

@@ -1,0 +1,5 @@
+{
+  super(writer,req,rsp);
+  this.utf8=new UnicodeUtil.UTF8Result();
+  doIndent=false;
+}

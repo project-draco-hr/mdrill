@@ -1,0 +1,12 @@
+{
+  query.setParam("start","" + start);
+  query.setParam("rows","" + rows);
+  query.setParam("fl",fl);
+  for (  String s : fqList) {
+    query.addFilterQuery(s);
+  }
+  if (sortType != null && sortType.sortField != null && sortType.order != null && sortType.sortType.equals("value")) {
+    query.addSortField(sortType.sortField,sortType.order.toLowerCase().equals("true") ? ORDER.desc : ORDER.asc);
+  }
+  query.setQuery("*:*");
+}

@@ -1,0 +1,10 @@
+{
+  final int prime=31;
+  int result=super.hashCode();
+  result=prime * result + ((dataType == null) ? 0 : dataType.hashCode());
+  result=prime * result + ((field == null) ? 0 : field.hashCode());
+  result=prime * result + ((file == null) ? 0 : file.hashCode());
+  result=prime * result + precisionStep;
+  result=prime * result + ((trans == null) ? 0 : trans.hashCode());
+  return result;
+}

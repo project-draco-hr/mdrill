@@ -1,0 +1,4 @@
+{
+  socket.setHWM(hwm);
+  return socket;
+}

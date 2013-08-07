@@ -1,0 +1,3 @@
+{
+  this(matchVersion,delegate,indexReader,fields,(int)(indexReader.numDocs() * maxPercentDocs));
+}

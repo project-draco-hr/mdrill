@@ -1,0 +1,15 @@
+{
+  super(groupValue,doc + docBase);
+  sortValues=new String[sortsIndex.length];
+  sortOrds=new int[sortsIndex.length];
+  scores=new float[sortsIndex.length];
+  for (int i=0; i < sortsIndex.length; i++) {
+    if (fields[i].getType() == SortField.SCORE) {
+      scores[i]=scorer.score();
+    }
+ else {
+      sortValues[i]=sortsIndex[i].lookup[sortsIndex[i].order[doc]];
+      sortOrds[i]=sortsIndex[i].order[doc];
+    }
+  }
+}

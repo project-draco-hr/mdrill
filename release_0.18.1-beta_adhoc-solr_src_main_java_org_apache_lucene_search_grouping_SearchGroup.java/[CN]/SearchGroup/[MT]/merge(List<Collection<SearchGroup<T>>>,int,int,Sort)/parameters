@@ -1,0 +1,4 @@
+List<Collection<SearchGroup<T>>> topGroups
+int offset
+int topN
+Sort groupSort

@@ -1,0 +1,18 @@
+{
+  if (name == null)   throw new NullPointerException("name cannot be null");
+  if (value == null)   throw new NullPointerException("value cannot be null");
+  if (index == Index.NO && store == Store.NO)   throw new IllegalArgumentException("it doesn't make sense to have a field that " + "is neither indexed nor stored");
+  if (index == Index.NO && termVector != TermVector.NO)   throw new IllegalArgumentException("cannot store term vector information " + "for a field that is not indexed");
+  if (internName)   name=StringHelper.intern(name);
+  this.name=name;
+  this.fieldsData=value;
+  this.isStored=store.isStored();
+  this.isIndexed=index.isIndexed();
+  this.isTokenized=index.isAnalyzed();
+  this.omitNorms=index.omitNorms();
+  if (index == Index.NO) {
+    this.indexOptions=IndexOptions.DOCS_AND_FREQS_AND_POSITIONS;
+  }
+  this.isBinary=false;
+  setStoreTermVector(termVector);
+}

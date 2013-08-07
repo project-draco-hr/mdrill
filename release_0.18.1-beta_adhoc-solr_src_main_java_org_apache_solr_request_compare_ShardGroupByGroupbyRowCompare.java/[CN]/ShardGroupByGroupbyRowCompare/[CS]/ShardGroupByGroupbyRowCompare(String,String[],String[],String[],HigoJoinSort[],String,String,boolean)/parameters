@@ -1,0 +1,8 @@
+String columntype
+String[] groupby
+String[] crossFs
+String[] distFS
+HigoJoinSort[] joinSort
+String fl
+String type
+boolean _isdesc

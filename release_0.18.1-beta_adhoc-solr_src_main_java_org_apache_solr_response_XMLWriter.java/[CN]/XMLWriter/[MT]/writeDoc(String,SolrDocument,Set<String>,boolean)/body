@@ -1,0 +1,32 @@
+{
+  startTag("doc",name,false);
+  incLevel();
+  if (includeScore && returnFields != null) {
+    returnFields.add("score");
+  }
+  for (  String fname : doc.getFieldNames()) {
+    if (returnFields != null && !returnFields.contains(fname)) {
+      continue;
+    }
+    Object val=doc.getFieldValue(fname);
+    if (val instanceof Collection) {
+      writeVal(fname,val);
+    }
+ else {
+      SchemaField sf=schema.getFieldOrNull(fname);
+      if (version >= 2100 && sf != null && sf.multiValued()) {
+        startTag("arr",fname,false);
+        doIndent=false;
+        writeVal(fname,val);
+        writer.write("</arr>");
+        doIndent=defaultIndent;
+      }
+ else {
+        writeVal(fname,val);
+      }
+    }
+  }
+  decLevel();
+  if (doIndent)   indent();
+  writer.write("</doc>");
+}

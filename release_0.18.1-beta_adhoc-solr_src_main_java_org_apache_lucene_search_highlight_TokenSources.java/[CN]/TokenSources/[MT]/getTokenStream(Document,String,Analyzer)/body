@@ -1,0 +1,7 @@
+{
+  String contents=doc.get(field);
+  if (contents == null) {
+    throw new IllegalArgumentException("Field " + field + " in document is not stored and cannot be analyzed");
+  }
+  return getTokenStream(field,contents,analyzer);
+}

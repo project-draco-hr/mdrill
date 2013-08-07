@@ -1,0 +1,17 @@
+{
+  int sz=val.size();
+  writeMapOpener(sz);
+  incLevel();
+  for (int i=0; i < sz; i++) {
+    if (i != 0) {
+      writeMapSeparator();
+    }
+    String key=val.getName(i);
+    if (key == null)     key="";
+    indent();
+    writeKey(key,true);
+    writeVal(key,val.getVal(i));
+  }
+  decLevel();
+  writeMapCloser();
+}

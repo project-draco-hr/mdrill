@@ -1,0 +1,5 @@
+{
+  Suggestion s=suggestionMap.get(token);
+  if (s == null || s.getAlternatives().isEmpty())   return null;
+  return s.getAlternatives().get(0);
+}

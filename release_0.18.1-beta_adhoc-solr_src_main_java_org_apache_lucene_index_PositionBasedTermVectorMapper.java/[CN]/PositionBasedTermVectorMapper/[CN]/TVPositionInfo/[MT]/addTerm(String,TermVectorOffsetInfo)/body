@@ -1,0 +1,6 @@
+{
+  terms.add(term);
+  if (offsets != null) {
+    offsets.add(info);
+  }
+}

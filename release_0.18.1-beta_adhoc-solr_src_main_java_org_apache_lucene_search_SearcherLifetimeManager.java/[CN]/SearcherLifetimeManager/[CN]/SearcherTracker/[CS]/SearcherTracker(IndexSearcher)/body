@@ -1,0 +1,6 @@
+{
+  this.searcher=searcher;
+  version=searcher.getIndexReader().getVersion();
+  searcher.getIndexReader().incRef();
+  recordTimeSec=TimeUnit.NANOSECONDS.toSeconds(System.nanoTime());
+}

@@ -1,0 +1,3 @@
+{
+  return create(numHits,null,docsScoredInOrder);
+}

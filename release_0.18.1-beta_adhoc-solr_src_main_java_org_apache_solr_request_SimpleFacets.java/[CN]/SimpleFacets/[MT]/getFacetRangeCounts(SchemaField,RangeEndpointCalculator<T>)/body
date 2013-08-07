@@ -1,0 +1,63 @@
+{
+  final String f=sf.getName();
+  final NamedList res=new SimpleOrderedMap();
+  final NamedList counts=new NamedList();
+  res.add("counts",counts);
+  final T start=calc.getValue(required.getFieldParam(f,FacetParams.FACET_RANGE_START));
+  T end=calc.getValue(required.getFieldParam(f,FacetParams.FACET_RANGE_END));
+  if (end.compareTo(start) < 0) {
+    throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,"range facet 'end' comes before 'start': " + end + " < "+ start);
+  }
+  final String gap=required.getFieldParam(f,FacetParams.FACET_RANGE_GAP);
+  res.add("gap",calc.getGap(gap));
+  final int minCount=params.getFieldInt(f,FacetParams.FACET_MINCOUNT,0);
+  final EnumSet<FacetRangeInclude> include=FacetRangeInclude.parseParam(params.getFieldParams(f,FacetParams.FACET_RANGE_INCLUDE));
+  T low=start;
+  while (low.compareTo(end) < 0) {
+    T high=calc.addGap(low,gap);
+    if (end.compareTo(high) < 0) {
+      if (params.getFieldBool(f,FacetParams.FACET_RANGE_HARD_END,false)) {
+        high=end;
+      }
+ else {
+        end=high;
+      }
+    }
+    if (high.compareTo(low) < 0) {
+      throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,"range facet infinite loop (is gap negative? did the math overflow?)");
+    }
+    final boolean includeLower=(include.contains(FacetRangeInclude.LOWER) || (include.contains(FacetRangeInclude.EDGE) && 0 == low.compareTo(start)));
+    final boolean includeUpper=(include.contains(FacetRangeInclude.UPPER) || (include.contains(FacetRangeInclude.EDGE) && 0 == high.compareTo(end)));
+    final String lowS=calc.formatValue(low);
+    final String highS=calc.formatValue(high);
+    final int count=rangeCount(sf,lowS,highS,includeLower,includeUpper);
+    if (count >= minCount) {
+      counts.add(lowS,count);
+    }
+    low=high;
+  }
+  res.add("start",start);
+  res.add("end",end);
+  final String[] othersP=params.getFieldParams(f,FacetParams.FACET_RANGE_OTHER);
+  if (null != othersP && 0 < othersP.length) {
+    Set<FacetRangeOther> others=EnumSet.noneOf(FacetRangeOther.class);
+    for (    final String o : othersP) {
+      others.add(FacetRangeOther.get(o));
+    }
+    if (!others.contains(FacetRangeOther.NONE)) {
+      boolean all=others.contains(FacetRangeOther.ALL);
+      final String startS=calc.formatValue(start);
+      final String endS=calc.formatValue(end);
+      if (all || others.contains(FacetRangeOther.BEFORE)) {
+        res.add(FacetRangeOther.BEFORE.toString(),rangeCount(sf,null,startS,false,(include.contains(FacetRangeInclude.OUTER) || (!(include.contains(FacetRangeInclude.LOWER) || include.contains(FacetRangeInclude.EDGE))))));
+      }
+      if (all || others.contains(FacetRangeOther.AFTER)) {
+        res.add(FacetRangeOther.AFTER.toString(),rangeCount(sf,endS,null,(include.contains(FacetRangeInclude.OUTER) || (!(include.contains(FacetRangeInclude.UPPER) || include.contains(FacetRangeInclude.EDGE)))),false));
+      }
+      if (all || others.contains(FacetRangeOther.BETWEEN)) {
+        res.add(FacetRangeOther.BETWEEN.toString(),rangeCount(sf,startS,endS,(include.contains(FacetRangeInclude.LOWER) || include.contains(FacetRangeInclude.EDGE)),(include.contains(FacetRangeInclude.UPPER) || include.contains(FacetRangeInclude.EDGE))));
+      }
+    }
+  }
+  return res;
+}

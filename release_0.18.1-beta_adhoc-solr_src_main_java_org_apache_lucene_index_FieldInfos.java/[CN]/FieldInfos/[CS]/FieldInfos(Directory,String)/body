@@ -1,0 +1,28 @@
+{
+  IndexInput input=d.openInput(name);
+  try {
+    try {
+      read(input,name);
+    }
+ catch (    IOException ioe) {
+      if (format == FORMAT_PRE) {
+        input.seek(0);
+        input.setModifiedUTF8StringsMode();
+        byNumber.clear();
+        byName.clear();
+        try {
+          read(input,name);
+        }
+ catch (        Throwable t) {
+          throw ioe;
+        }
+      }
+ else {
+        throw ioe;
+      }
+    }
+  }
+  finally {
+    input.close();
+  }
+}

@@ -1,0 +1,9 @@
+{
+  if (this == obj)   return true;
+  if (getClass() != obj.getClass())   return false;
+  FixedLatLng other=(FixedLatLng)obj;
+  if (lat != other.lat)   return false;
+  if (lng != other.lng)   return false;
+  if (normalized != other.normalized)   return false;
+  return true;
+}

@@ -1,0 +1,24 @@
+{
+  if (cmd.id != null) {
+    if (deletes == null) {
+      deletes=new ArrayList<String>();
+      toLog.add("delete",deletes);
+    }
+    if (deletes.size() < maxNumToLog) {
+      deletes.add(cmd.id);
+    }
+    if (logDebug) {
+      log.debug("delete {}",cmd.id);
+    }
+  }
+ else {
+    if (toLog.size() < maxNumToLog) {
+      toLog.add("deleteByQuery",cmd.query);
+    }
+    if (logDebug) {
+      log.debug("deleteByQuery {}",cmd.query);
+    }
+  }
+  numDeletes++;
+  if (next != null)   next.processDelete(cmd);
+}

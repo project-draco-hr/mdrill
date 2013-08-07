@@ -1,0 +1,25 @@
+{
+  if (limit == 0) {
+    return new NamedList();
+  }
+  NamedList counts;
+  SchemaField sf=searcher.getSchema().getField(field);
+  FieldType ft=sf.getType();
+  boolean multiToken=sf.multiValued() || ft.multiValuedFieldCache();
+  if (TrieField.usedMainPrefix(ft)) {
+    multiToken=true;
+  }
+  if (enumMethod) {
+    counts=getFacetTermEnumCounts(searcher,dc,field,offset,limit,mincount,missing,sort,prefix);
+  }
+ else {
+    if (multiToken) {
+      UnInvertedField uif=UnInvertedField.getUnInvertedField(field,searcher);
+      counts=uif.getCounts(searcher,dc,offset,limit,mincount,missing,sort,prefix,iscross,isRow);
+    }
+ else {
+      counts=getFieldCacheCounts(searcher,dc,field,offset,limit,mincount,missing,sort,prefix);
+    }
+  }
+  return counts;
+}

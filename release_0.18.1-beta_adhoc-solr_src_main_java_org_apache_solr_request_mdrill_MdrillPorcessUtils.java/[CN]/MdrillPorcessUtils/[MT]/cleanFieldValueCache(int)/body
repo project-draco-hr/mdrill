@@ -1,0 +1,14 @@
+{
+  LinkedBlockingQueue<GroupList> rtn=fieldValueCache.get(size);
+  if (rtn == null) {
+    return;
+  }
+  LOG.info("fieldValueCache.size=" + rtn.size() + ",size="+ size);
+  int sz=Math.min(UniqConfig.ShardMaxGroups(),640000);
+  if (rtn.size() > sz) {
+    int left=rtn.size() - sz + 1;
+    for (int i=0; i < left; i++) {
+      rtn.poll();
+    }
+  }
+}

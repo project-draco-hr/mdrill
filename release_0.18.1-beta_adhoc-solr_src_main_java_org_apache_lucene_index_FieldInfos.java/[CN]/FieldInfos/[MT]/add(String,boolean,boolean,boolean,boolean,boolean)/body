@@ -1,0 +1,3 @@
+{
+  add(name,isIndexed,storeTermVector,storePositionWithTermVector,storeOffsetWithTermVector,omitNorms,false,IndexOptions.DOCS_AND_FREQS_AND_POSITIONS);
+}

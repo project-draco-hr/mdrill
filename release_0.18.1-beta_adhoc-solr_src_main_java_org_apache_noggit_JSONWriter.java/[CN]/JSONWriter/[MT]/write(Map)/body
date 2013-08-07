@@ -1,0 +1,18 @@
+{
+  startObject();
+  int sz=val.size();
+  boolean first=true;
+  for (  Map.Entry entry : (Set<Map.Entry>)val.entrySet()) {
+    if (first) {
+      first=false;
+    }
+ else {
+      writeValueSeparator();
+    }
+    if (sz > 1)     indent();
+    writeString(entry.getKey().toString());
+    writeNameSeparator();
+    write(entry.getValue());
+  }
+  endObject();
+}

@@ -1,0 +1,19 @@
+{
+  if (outputQuickTii != null) {
+    outputQuickTii.close();
+  }
+  try {
+    outputSize.writeLong(size);
+  }
+  finally {
+    try {
+      outputSize.close();
+      output.close();
+    }
+  finally {
+      if (!isIndex) {
+        other.close();
+      }
+    }
+  }
+}

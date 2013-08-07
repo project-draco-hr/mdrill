@@ -1,0 +1,8 @@
+{
+  for (  BooleanClause c : clauses) {
+    if (c.isRequired()) {
+      return false;
+    }
+  }
+  return true;
+}

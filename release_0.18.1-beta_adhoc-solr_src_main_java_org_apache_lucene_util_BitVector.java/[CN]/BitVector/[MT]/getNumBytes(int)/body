@@ -1,0 +1,7 @@
+{
+  int bytesLength=size >>> 3;
+  if ((size & 7) != 0) {
+    bytesLength++;
+  }
+  return bytesLength;
+}

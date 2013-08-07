@@ -1,0 +1,19 @@
+{
+  this.name=name;
+  this.si=si;
+  this.ft=facetFieldType;
+  this.numStatsTerms=numStatsTerms;
+  this.statFieldType=statFieldType;
+  terms=si.lookup;
+  termNum=si.order;
+  startTermIndex=1;
+  endTermIndex=terms.length;
+  nTerms=endTermIndex - startTermIndex;
+  facetStatsValues=new HashMap<String,StatsValues>();
+  facetStatsTerms=new ArrayList<HashMap<String,Integer>>();
+  if (numStatsTerms == 0)   return;
+  int i=0;
+  for (; i < numStatsTerms; i++) {
+    facetStatsTerms.add(new HashMap<String,Integer>());
+  }
+}

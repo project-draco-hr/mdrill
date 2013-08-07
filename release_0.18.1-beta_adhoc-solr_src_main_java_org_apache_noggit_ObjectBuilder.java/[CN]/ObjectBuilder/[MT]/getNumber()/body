@@ -1,0 +1,7 @@
+{
+  CharArr num=parser.getNumberChars();
+  String numstr=num.toString();
+  double d=Double.parseDouble(numstr);
+  if (!Double.isInfinite(d))   return Double.valueOf(d);
+  return new BigDecimal(numstr);
+}

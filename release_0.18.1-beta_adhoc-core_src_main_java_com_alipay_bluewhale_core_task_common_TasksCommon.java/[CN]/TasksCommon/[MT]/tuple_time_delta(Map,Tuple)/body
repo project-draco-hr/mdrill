@@ -1,0 +1,7 @@
+{
+  Object start_time=start_times.remove(tuple);
+  if (start_time != null) {
+    return TimeUtils.time_delta_ms((Long)start_time);
+  }
+  return null;
+}

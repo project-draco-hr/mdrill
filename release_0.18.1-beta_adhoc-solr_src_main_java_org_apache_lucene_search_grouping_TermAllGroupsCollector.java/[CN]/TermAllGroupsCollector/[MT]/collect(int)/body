@@ -1,0 +1,8 @@
+{
+  int key=index.order[doc];
+  if (!ordSet.exists(key)) {
+    ordSet.put(key);
+    String term=key == 0 ? null : index.lookup[key];
+    groups.add(term);
+  }
+}

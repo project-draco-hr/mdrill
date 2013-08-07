@@ -1,0 +1,3 @@
+{
+  aSearcher.getIndexReader().decRef();
+}

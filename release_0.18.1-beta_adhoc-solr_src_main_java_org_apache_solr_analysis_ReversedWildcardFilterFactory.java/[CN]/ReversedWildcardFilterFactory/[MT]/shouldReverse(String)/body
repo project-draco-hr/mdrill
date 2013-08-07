@@ -1,0 +1,35 @@
+{
+  int posQ=token.indexOf('?');
+  int posA=token.indexOf('*');
+  if (posQ == -1 && posA == -1) {
+    return false;
+  }
+  int pos;
+  int lastPos;
+  int len=token.length();
+  lastPos=token.lastIndexOf('?');
+  pos=token.lastIndexOf('*');
+  if (pos > lastPos)   lastPos=pos;
+  if (posQ != -1) {
+    pos=posQ;
+    if (posA != -1) {
+      pos=Math.min(posQ,posA);
+    }
+  }
+ else {
+    pos=posA;
+  }
+  if (len - lastPos < minTrailing) {
+    return false;
+  }
+  if (posQ != -1 && posQ < maxPosQuestion) {
+    return true;
+  }
+  if (posA != -1 && posA < maxPosAsterisk) {
+    return true;
+  }
+  if (maxFractionAsterisk > 0.0f && pos < (float)token.length() * maxFractionAsterisk) {
+    return true;
+  }
+  return false;
+}

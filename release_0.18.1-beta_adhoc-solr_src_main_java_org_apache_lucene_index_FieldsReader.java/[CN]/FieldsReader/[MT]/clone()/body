@@ -1,0 +1,4 @@
+{
+  ensureOpen();
+  return new FieldsReader(fieldInfos,numTotalDocs,size,format,formatSize,docStoreOffset,cloneableFieldsStream,cloneableIndexStream);
+}

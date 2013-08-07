@@ -1,0 +1,6 @@
+{
+  norm*=getBoost();
+  for (  Weight wt : weights) {
+    wt.normalize(norm);
+  }
+}

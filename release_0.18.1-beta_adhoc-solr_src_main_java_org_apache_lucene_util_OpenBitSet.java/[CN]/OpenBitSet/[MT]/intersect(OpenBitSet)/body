@@ -1,0 +1,13 @@
+{
+  int newLen=Math.min(this.wlen,other.wlen);
+  long[] thisArr=this.bits;
+  long[] otherArr=other.bits;
+  int pos=newLen;
+  while (--pos >= 0) {
+    thisArr[pos]&=otherArr[pos];
+  }
+  if (this.wlen > newLen) {
+    Arrays.fill(bits,newLen,this.wlen,0);
+  }
+  this.wlen=newLen;
+}

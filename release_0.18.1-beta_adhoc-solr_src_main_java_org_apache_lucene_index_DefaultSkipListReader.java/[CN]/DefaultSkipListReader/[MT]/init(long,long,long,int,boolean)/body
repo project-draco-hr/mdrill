@@ -1,0 +1,9 @@
+{
+  super.init(skipPointer,df);
+  this.currentFieldStoresPayloads=storesPayloads;
+  lastFreqPointer=freqBasePointer;
+  lastProxPointer=proxBasePointer;
+  Arrays.fill(freqPointer,freqBasePointer);
+  Arrays.fill(proxPointer,proxBasePointer);
+  Arrays.fill(payloadLength,0);
+}

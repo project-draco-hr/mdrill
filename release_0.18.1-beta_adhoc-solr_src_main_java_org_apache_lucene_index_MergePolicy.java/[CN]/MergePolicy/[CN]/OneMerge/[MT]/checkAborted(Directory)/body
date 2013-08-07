@@ -1,0 +1,16 @@
+{
+  if (aborted) {
+    throw new MergeAbortedException("merge is aborted: " + segString(dir));
+  }
+  while (paused) {
+    try {
+      wait(1000);
+    }
+ catch (    InterruptedException ie) {
+      throw new RuntimeException(ie);
+    }
+    if (aborted) {
+      throw new MergeAbortedException("merge is aborted: " + segString(dir));
+    }
+  }
+}

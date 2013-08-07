@@ -1,0 +1,11 @@
+{
+  closed=true;
+  final List<SearcherTracker> toClose=new ArrayList<SearcherTracker>(searchers.values());
+  for (  SearcherTracker tracker : toClose) {
+    searchers.remove(tracker.version);
+  }
+  IOUtils.close(toClose);
+  if (searchers.size() != 0) {
+    throw new IllegalStateException("another thread called record while this SearcherLifetimeManager instance was being closed; not all searchers were closed");
+  }
+}

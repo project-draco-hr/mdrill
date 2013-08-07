@@ -1,0 +1,6 @@
+{
+  if (numericTS != null)   numericTS.setIntValue(value);
+  fieldsData=Integer.valueOf(value);
+  type=DataType.INT;
+  return this;
+}

@@ -1,0 +1,14 @@
+{
+  this.coreContainer=coreContainer;
+  this.name=name;
+  if (name == null) {
+    throw new RuntimeException("Core needs a name");
+  }
+  if (instanceDir == null) {
+    throw new NullPointerException("Missing required \'instanceDir\'");
+  }
+  instanceDir=SolrResourceLoader.normalizeDir(instanceDir);
+  this.instanceDir=instanceDir;
+  this.configName=getDefaultConfigName();
+  this.schemaName=getDefaultSchemaName();
+}

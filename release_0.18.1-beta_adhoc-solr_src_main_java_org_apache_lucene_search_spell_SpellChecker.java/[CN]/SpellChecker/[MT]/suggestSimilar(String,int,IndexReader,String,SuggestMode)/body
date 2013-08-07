@@ -1,0 +1,3 @@
+{
+  return suggestSimilar(word,numSug,ir,field,suggestMode,this.accuracy);
+}

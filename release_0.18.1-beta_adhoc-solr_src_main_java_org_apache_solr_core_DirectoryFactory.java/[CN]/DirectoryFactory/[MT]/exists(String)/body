@@ -1,0 +1,4 @@
+{
+  File dirFile=new File(path);
+  return dirFile.canRead();
+}

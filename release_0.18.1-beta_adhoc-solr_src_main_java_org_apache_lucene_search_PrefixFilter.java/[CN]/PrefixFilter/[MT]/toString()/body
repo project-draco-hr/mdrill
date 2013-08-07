@@ -1,0 +1,7 @@
+{
+  StringBuilder buffer=new StringBuilder();
+  buffer.append("PrefixFilter(");
+  buffer.append(getPrefix().toString());
+  buffer.append(")");
+  return buffer.toString();
+}

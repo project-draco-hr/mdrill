@@ -1,0 +1,3 @@
+{
+  super(new TermRangeQuery(fieldName,lowerTerm,upperTerm,includeLower,includeUpper,collator));
+}

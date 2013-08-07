@@ -1,0 +1,5 @@
+{
+  docFreq=df;
+  freqPointer=fp;
+  proxPointer=pp;
+}

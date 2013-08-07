@@ -1,0 +1,4 @@
+{
+  textEndPos=frag2.textEndPos;
+  score=Math.max(score,frag2.score);
+}

@@ -1,0 +1,12 @@
+{
+  Object obj=getObject(columnIndex);
+  if (obj == null) {
+    return null;
+  }
+  try {
+    return Date.valueOf((String)obj);
+  }
+ catch (  Exception e) {
+    throw new SQLException("Cannot convert column " + columnIndex + " to date: "+ e.toString());
+  }
+}

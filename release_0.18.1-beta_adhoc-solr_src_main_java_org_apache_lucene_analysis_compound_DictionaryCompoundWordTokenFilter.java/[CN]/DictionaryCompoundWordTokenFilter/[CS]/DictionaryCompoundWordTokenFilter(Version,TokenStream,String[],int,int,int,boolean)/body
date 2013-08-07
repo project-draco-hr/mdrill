@@ -1,0 +1,3 @@
+{
+  super(matchVersion,input,dictionary,minWordSize,minSubwordSize,maxSubwordSize,onlyLongestMatch);
+}

@@ -1,0 +1,5 @@
+String field
+Integer lowerVal
+Integer upperVal
+boolean includeLower
+boolean includeUpper

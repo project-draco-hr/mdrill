@@ -1,0 +1,4 @@
+{
+  int sortType=sortField.getType();
+  return sortType != SortField.STRING_VAL && sortType != SortField.STRING && sortType != SortField.SCORE;
+}

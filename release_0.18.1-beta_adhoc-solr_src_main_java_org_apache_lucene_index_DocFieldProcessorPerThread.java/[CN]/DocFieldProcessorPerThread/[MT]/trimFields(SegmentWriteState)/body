@@ -1,0 +1,19 @@
+{
+  for (int i=0; i < fieldHash.length; i++) {
+    DocFieldProcessorPerField perField=fieldHash[i];
+    DocFieldProcessorPerField lastPerField=null;
+    while (perField != null) {
+      if (perField.lastGen == -1) {
+        if (lastPerField == null)         fieldHash[i]=perField.next;
+ else         lastPerField.next=perField.next;
+        if (state.infoStream != null)         state.infoStream.println("  purge field=" + perField.fieldInfo.name);
+        totalFieldCount--;
+      }
+ else {
+        perField.lastGen=-1;
+        lastPerField=perField;
+      }
+      perField=perField.next;
+    }
+  }
+}

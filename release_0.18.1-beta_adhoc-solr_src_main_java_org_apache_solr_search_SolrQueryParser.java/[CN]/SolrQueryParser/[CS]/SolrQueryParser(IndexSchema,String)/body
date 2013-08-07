@@ -1,0 +1,10 @@
+{
+  super(schema.getSolrConfig().luceneMatchVersion,defaultField == null ? schema.getDefaultSearchFieldName() : defaultField,schema.getQueryAnalyzer());
+  this.schema=schema;
+  this.parser=null;
+  this.defaultField=defaultField;
+  setAllowLeadingWildcard(true);
+  setLowercaseExpandedTerms(false);
+  setEnablePositionIncrements(true);
+  checkAllowLeadingWildcards();
+}

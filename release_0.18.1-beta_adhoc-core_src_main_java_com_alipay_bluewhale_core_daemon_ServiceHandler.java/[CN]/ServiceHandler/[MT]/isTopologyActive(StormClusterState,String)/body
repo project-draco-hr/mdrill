@@ -1,0 +1,7 @@
+{
+  boolean rtn=false;
+  if (Common.get_storm_id(stormClusterState,topologyName) != null) {
+    rtn=true;
+  }
+  return rtn;
+}

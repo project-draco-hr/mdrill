@@ -1,0 +1,6 @@
+{
+  int h=clauses.hashCode();
+  h^=(h << 10) | (h >>> 23);
+  h^=Float.floatToRawIntBits(getBoost());
+  return h;
+}

@@ -1,0 +1,2 @@
+String facetName
+Map<String,StatsValues> facetValues

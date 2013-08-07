@@ -1,0 +1,32 @@
+{
+  if (!input.incrementToken())   return false;
+  char[] termBuffer=termAtt.buffer();
+  int termBufferLength=termAtt.length();
+  char[] backup=null;
+  if (factory.maxWordCount < CapitalizationFilterFactory.DEFAULT_MAX_WORD_COUNT) {
+    backup=new char[termBufferLength];
+    System.arraycopy(termBuffer,0,backup,0,termBufferLength);
+  }
+  if (termBufferLength < factory.maxTokenLength) {
+    int wordCount=0;
+    int lastWordStart=0;
+    for (int i=0; i < termBufferLength; i++) {
+      char c=termBuffer[i];
+      if (c <= ' ' || c == '.') {
+        int len=i - lastWordStart;
+        if (len > 0) {
+          factory.processWord(termBuffer,lastWordStart,len,wordCount++);
+          lastWordStart=i + 1;
+          i++;
+        }
+      }
+    }
+    if (lastWordStart < termBufferLength) {
+      factory.processWord(termBuffer,lastWordStart,termBufferLength - lastWordStart,wordCount++);
+    }
+    if (wordCount > factory.maxWordCount) {
+      termAtt.copyBuffer(backup,0,termBufferLength);
+    }
+  }
+  return true;
+}

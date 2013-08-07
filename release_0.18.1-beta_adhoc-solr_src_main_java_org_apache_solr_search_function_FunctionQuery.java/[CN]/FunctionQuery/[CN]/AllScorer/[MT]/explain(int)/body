@@ -1,0 +1,8 @@
+{
+  float sc=qWeight * vals.floatVal(doc);
+  Explanation result=new ComplexExplanation(true,sc,"FunctionQuery(" + func + "), product of:");
+  result.addDetail(vals.explain(doc));
+  result.addDetail(new Explanation(getBoost(),"boost"));
+  result.addDetail(new Explanation(weight.queryNorm,"queryNorm"));
+  return result;
+}

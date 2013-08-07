@@ -1,0 +1,16 @@
+{
+  Analyzer analyzer=new WhitespaceAnalyzer(Version.LUCENE_CURRENT);
+  QueryParser parser=new QueryParser(Version.LUCENE_CURRENT,"f",analyzer);
+  Query query=parser.parse("a x:b");
+  FieldQuery fieldQuery=new FieldQuery(query,true,false);
+  Directory dir=new RAMDirectory();
+  IndexWriter writer=new IndexWriter(dir,new IndexWriterConfig(Version.LUCENE_CURRENT,analyzer));
+  Document doc=new Document();
+  doc.add(new Field("f","a a a b b c a b b c d e f",Store.YES,Index.ANALYZED,TermVector.WITH_POSITIONS_OFFSETS));
+  doc.add(new Field("f","b a b a f",Store.YES,Index.ANALYZED,TermVector.WITH_POSITIONS_OFFSETS));
+  writer.addDocument(doc);
+  writer.close();
+  IndexReader reader=IndexReader.open(dir,true);
+  new FieldTermStack(reader,0,"f",fieldQuery);
+  reader.close();
+}

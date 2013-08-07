@@ -1,0 +1,15 @@
+{
+  if (this == other)   return 0;
+  final byte[] aBytes=this.bytes;
+  int aUpto=this.offset;
+  final byte[] bBytes=other.bytes;
+  int bUpto=other.offset;
+  final int aStop=aUpto + Math.min(this.length,other.length);
+  while (aUpto < aStop) {
+    int aByte=aBytes[aUpto++] & 0xff;
+    int bByte=bBytes[bUpto++] & 0xff;
+    int diff=aByte - bByte;
+    if (diff != 0)     return diff;
+  }
+  return this.length - other.length;
+}

@@ -1,0 +1,10 @@
+{
+  int iOutcome=0;
+  byte bLoop;
+  for (int i=0; i < 4; i++) {
+    bLoop=b[i];
+    int off=(b.length - 1 - i) * 8;
+    iOutcome+=(bLoop & 0xFF) << off;
+  }
+  return iOutcome;
+}

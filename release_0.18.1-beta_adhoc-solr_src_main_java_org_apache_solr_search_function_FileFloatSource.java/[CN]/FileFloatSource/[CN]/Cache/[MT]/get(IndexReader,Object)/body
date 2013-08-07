@@ -1,0 +1,33 @@
+{
+  Map innerCache;
+  Object value;
+synchronized (readerCache) {
+    innerCache=(Map)readerCache.get(reader);
+    if (innerCache == null) {
+      innerCache=new HashMap();
+      readerCache.put(reader,innerCache);
+      value=null;
+    }
+ else {
+      value=innerCache.get(key);
+    }
+    if (value == null) {
+      value=new CreationPlaceholder();
+      innerCache.put(key,value);
+    }
+  }
+  if (value instanceof CreationPlaceholder) {
+synchronized (value) {
+      CreationPlaceholder progress=(CreationPlaceholder)value;
+      if (progress.value == null) {
+        progress.value=createValue(reader,key);
+synchronized (readerCache) {
+          innerCache.put(key,progress.value);
+          onlyForTesting=progress.value;
+        }
+      }
+      return progress.value;
+    }
+  }
+  return value;
+}

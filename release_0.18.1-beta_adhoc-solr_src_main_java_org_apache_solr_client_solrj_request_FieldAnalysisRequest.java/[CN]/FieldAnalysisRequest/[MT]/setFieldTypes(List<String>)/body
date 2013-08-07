@@ -1,0 +1,4 @@
+{
+  this.fieldTypes=fieldTypes;
+  return this;
+}

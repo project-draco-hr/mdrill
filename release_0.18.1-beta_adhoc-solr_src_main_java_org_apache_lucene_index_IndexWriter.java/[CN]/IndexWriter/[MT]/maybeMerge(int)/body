@@ -1,0 +1,5 @@
+{
+  ensureOpen(false);
+  updatePendingMerges(maxNumSegments);
+  mergeScheduler.merge(this);
+}

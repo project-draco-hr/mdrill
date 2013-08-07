@@ -1,0 +1,9 @@
+{
+  if (this == other) {
+    return true;
+  }
+  if (other instanceof FlagsAttributeImpl) {
+    return ((FlagsAttributeImpl)other).flags == flags;
+  }
+  return false;
+}

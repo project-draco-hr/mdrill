@@ -1,0 +1,8 @@
+{
+  long x=0;
+  boolean negative=arr[start] == '-';
+  for (int i=negative ? start + 1 : start; i < end; i++) {
+    x=x * 10 + (arr[i] - '0');
+  }
+  return negative ? -x : x;
+}

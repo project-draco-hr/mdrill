@@ -1,0 +1,6 @@
+QParser parser
+SchemaField field
+String part1
+String part2
+boolean minInclusive
+boolean maxInclusive

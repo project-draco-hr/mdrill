@@ -1,0 +1,15 @@
+{
+  String[] slist=super.listAll();
+  ArrayList<String> rtn=new ArrayList<String>();
+  for (int i=0; i < slist.length; i++) {
+    rtn.add(slist[i]);
+  }
+  for (  java.util.Map.Entry<String,File> e : this.links.entrySet()) {
+    rtn.add(e.getKey());
+  }
+  for (  java.util.Map.Entry<String,Path> e : this.hdfsLinks.entrySet()) {
+    rtn.add(e.getKey());
+  }
+  String[] result=new String[rtn.size()];
+  return rtn.toArray(result);
+}

@@ -1,0 +1,8 @@
+{
+  if (terms.size() == 1) {
+    TermQuery tq=new TermQuery(terms.get(0));
+    tq.setBoost(getBoost());
+    return tq;
+  }
+ else   return super.rewrite(reader);
+}

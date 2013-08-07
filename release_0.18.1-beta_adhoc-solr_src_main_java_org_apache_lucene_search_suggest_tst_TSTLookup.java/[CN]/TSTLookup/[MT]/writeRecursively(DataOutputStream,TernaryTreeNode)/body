@@ -1,0 +1,21 @@
+{
+  out.writeChar(node.splitchar);
+  byte mask=0;
+  if (node.eqKid != null)   mask|=EQ_KID;
+  if (node.loKid != null)   mask|=LO_KID;
+  if (node.hiKid != null)   mask|=HI_KID;
+  if (node.token != null)   mask|=HAS_TOKEN;
+  if (node.val != null)   mask|=HAS_VALUE;
+  out.writeByte(mask);
+  if (node.token != null)   out.writeUTF(node.token);
+  if (node.val != null)   out.writeFloat((Float)node.val);
+  if (node.loKid != null) {
+    writeRecursively(out,node.loKid);
+  }
+  if (node.eqKid != null) {
+    writeRecursively(out,node.eqKid);
+  }
+  if (node.hiKid != null) {
+    writeRecursively(out,node.hiKid);
+  }
+}

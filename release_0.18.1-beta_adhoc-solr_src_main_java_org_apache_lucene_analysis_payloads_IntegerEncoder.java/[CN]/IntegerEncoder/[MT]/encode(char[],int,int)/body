@@ -1,0 +1,7 @@
+{
+  Payload result=new Payload();
+  int payload=ArrayUtil.parseInt(buffer,offset,length);
+  byte[] bytes=PayloadHelper.encodeInt(payload);
+  result.setData(bytes);
+  return result;
+}

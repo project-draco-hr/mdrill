@@ -1,0 +1,11 @@
+{
+  SchemaField f=fields.get(fieldName);
+  if (f != null)   return f;
+  for (  DynamicField df : dynamicFields) {
+    if (df.matches(fieldName))     return df.makeSchemaField(fieldName);
+  }
+  if (!fieldName.endsWith("_s")) {
+    return getFieldOrNull(fieldName + "_s");
+  }
+  return f;
+}

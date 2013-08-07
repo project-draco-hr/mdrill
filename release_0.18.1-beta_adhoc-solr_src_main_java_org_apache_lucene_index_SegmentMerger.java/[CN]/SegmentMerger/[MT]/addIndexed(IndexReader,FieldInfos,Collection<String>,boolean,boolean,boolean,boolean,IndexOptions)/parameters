@@ -1,0 +1,8 @@
+IndexReader reader
+FieldInfos fInfos
+Collection<String> names
+boolean storeTermVectors
+boolean storePositionWithTermVector
+boolean storeOffsetWithTermVector
+boolean storePayloads
+IndexOptions indexOptions

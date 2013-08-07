@@ -1,0 +1,16 @@
+{
+  logger.info("Construct a shard writer " + indexOutputPathStr);
+  perm=new Path(indexOutputPathStr);
+  if (!fs.exists(perm)) {
+    fs.mkdirs(perm);
+  }
+ else {
+    moveToTrash(iconf,perm);
+    fs.mkdirs(perm);
+  }
+  this.dir=new FileSystemDirectory(fs,perm,true,iconf);
+  writer=new IndexWriter(dir,null,new KeepOnlyLastCommitDeletionPolicy(),MaxFieldLength.UNLIMITED);
+  writer.setMergeFactor(256);
+  writer.setTermIndexInterval(16);
+  writer.setUseCompoundFile(false);
+}

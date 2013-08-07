@@ -1,0 +1,36 @@
+{
+  if (string == null) {
+    return "2099-09-09T00:00:00Z";
+  }
+  try {
+    yyyymmdd_matcher.reset(string);
+    int len=string.length();
+    if (len == 8 && yyyymmdd_matcher.find()) {
+      return yyyymmdd_matcher.group(1) + "-" + yyyymmdd_matcher.group(2)+ "-"+ yyyymmdd_matcher.group(3)+ "T00:00:00Z";
+    }
+    yyyy_mm_dd_matcher.reset(string);
+    if (len == 10 && yyyy_mm_dd_matcher.find()) {
+      return yyyy_mm_dd_matcher.group(1) + "-" + yyyy_mm_dd_matcher.group(2)+ "-"+ yyyy_mm_dd_matcher.group(3)+ "T00:00:00Z";
+    }
+    yyyy_mm_dd_2_matcher.reset(string);
+    if (len == 10 && yyyy_mm_dd_2_matcher.find()) {
+      return yyyy_mm_dd_2_matcher.group(1) + "-" + yyyy_mm_dd_2_matcher.group(2)+ "-"+ yyyy_mm_dd_2_matcher.group(3)+ "T00:00:00Z";
+    }
+    yyyymmddhhsshh_matcher.reset(string);
+    if (len == 14 && yyyymmddhhsshh_matcher.find()) {
+      return yyyymmddhhsshh_matcher.group(1) + "-" + yyyymmddhhsshh_matcher.group(2)+ "-"+ yyyymmddhhsshh_matcher.group(3)+ "T"+ yyyymmddhhsshh_matcher.group(4)+ ":"+ yyyymmddhhsshh_matcher.group(5)+ ":"+ yyyymmddhhsshh_matcher.group(6)+ "Z";
+    }
+    yyyy_mm_dd_hh_ss_hh_matcher.reset(string);
+    if (len == 19 && yyyy_mm_dd_hh_ss_hh_matcher.find()) {
+      return yyyy_mm_dd_hh_ss_hh_matcher.group(1) + "T" + yyyy_mm_dd_hh_ss_hh_matcher.group(2)+ "Z";
+    }
+    valid_matcher.reset(string);
+    if (valid_matcher.find()) {
+      return valid_matcher.group();
+    }
+    return "2099-09-09T00:00:00Z";
+  }
+ catch (  Exception e) {
+  }
+  return "2099-09-09T00:00:00Z";
+}

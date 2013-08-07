@@ -1,0 +1,3 @@
+{
+  return "Packed64(bitsPerValue=" + bitsPerValue + ", size="+ size()+ ", maxPos="+ maxPos+ ", elements.length="+ blocks.length+ ")";
+}

@@ -1,0 +1,29 @@
+{
+  short type=nd.getNodeType();
+switch (type) {
+case Node.ELEMENT_NODE:
+case Node.ENTITY_NODE:
+case Node.ENTITY_REFERENCE_NODE:
+case Node.DOCUMENT_FRAGMENT_NODE:
+    NodeList childs=nd.getChildNodes();
+  for (int i=0; i < childs.getLength(); i++) {
+    Node child=childs.item(i);
+    short childType=child.getNodeType();
+    if (childType != Node.COMMENT_NODE && childType != Node.PROCESSING_INSTRUCTION_NODE) {
+      getText(child,buf);
+    }
+  }
+break;
+case Node.ATTRIBUTE_NODE:
+case Node.TEXT_NODE:
+case Node.CDATA_SECTION_NODE:
+case Node.COMMENT_NODE:
+case Node.PROCESSING_INSTRUCTION_NODE:
+buf.append(nd.getNodeValue());
+break;
+case Node.DOCUMENT_NODE:
+case Node.DOCUMENT_TYPE_NODE:
+case Node.NOTATION_NODE:
+default :
+}
+}

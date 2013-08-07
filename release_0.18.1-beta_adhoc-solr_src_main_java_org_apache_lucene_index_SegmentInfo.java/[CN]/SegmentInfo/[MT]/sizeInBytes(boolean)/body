@@ -1,0 +1,29 @@
+{
+  if (includeDocStores) {
+    if (sizeInBytesWithStore != -1) {
+      return sizeInBytesWithStore;
+    }
+    long sum=0;
+    for (    final String fileName : files()) {
+      if (docStoreOffset == -1 || !IndexFileNames.isDocStoreFile(fileName)) {
+        sum+=dir.fileLength(fileName);
+      }
+    }
+    sizeInBytesWithStore=sum;
+    return sizeInBytesWithStore;
+  }
+ else {
+    if (sizeInBytesNoStore != -1) {
+      return sizeInBytesNoStore;
+    }
+    long sum=0;
+    for (    final String fileName : files()) {
+      if (IndexFileNames.isDocStoreFile(fileName)) {
+        continue;
+      }
+      sum+=dir.fileLength(fileName);
+    }
+    sizeInBytesNoStore=sum;
+    return sizeInBytesNoStore;
+  }
+}

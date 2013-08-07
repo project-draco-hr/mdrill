@@ -1,0 +1,3 @@
+{
+  readBytes(b,offset,len,true);
+}

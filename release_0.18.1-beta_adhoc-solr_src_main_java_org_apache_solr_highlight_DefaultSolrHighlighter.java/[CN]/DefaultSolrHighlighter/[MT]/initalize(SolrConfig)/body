@@ -1,0 +1,21 @@
+{
+  if (initialized)   return;
+  SolrFragmenter frag=new GapFragmenter();
+  fragmenters.put("",frag);
+  fragmenters.put(null,frag);
+  SolrFormatter fmt=new HtmlFormatter();
+  formatters.put("",fmt);
+  formatters.put(null,fmt);
+  SolrEncoder enc=new DefaultEncoder();
+  encoders.put("",enc);
+  encoders.put(null,enc);
+  SolrFragListBuilder fragListBuilder=new SimpleFragListBuilder();
+  fragListBuilders.put("",fragListBuilder);
+  fragListBuilders.put(null,fragListBuilder);
+  SolrFragmentsBuilder fragsBuilder=new ScoreOrderFragmentsBuilder();
+  fragmentsBuilders.put("",fragsBuilder);
+  fragmentsBuilders.put(null,fragsBuilder);
+  SolrBoundaryScanner boundaryScanner=new SimpleBoundaryScanner();
+  boundaryScanners.put("",boundaryScanner);
+  boundaryScanners.put(null,boundaryScanner);
+}

@@ -1,0 +1,3 @@
+int[] blocks
+int valueCount
+int bitsPerValue

@@ -1,0 +1,4 @@
+{
+  this.result=this.obj.sync(this.issync);
+  isfinish.set(true);
+}

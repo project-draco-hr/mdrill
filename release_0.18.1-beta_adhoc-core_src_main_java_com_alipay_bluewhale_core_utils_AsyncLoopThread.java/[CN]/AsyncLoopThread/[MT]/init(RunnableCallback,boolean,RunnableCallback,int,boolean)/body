@@ -1,0 +1,15 @@
+{
+  Runnable runable=new AsyncLoopRunnable(afn,kill_fn);
+  thread=new Thread(runable);
+  thread.setDaemon(daemon);
+  thread.setPriority(priority);
+  thread.setUncaughtExceptionHandler(new UncaughtExceptionHandler(){
+    @Override public void uncaughtException(    Thread t,    Throwable e){
+      LOG.error("uncaughtException",e);
+    }
+  }
+);
+  if (start) {
+    thread.start();
+  }
+}

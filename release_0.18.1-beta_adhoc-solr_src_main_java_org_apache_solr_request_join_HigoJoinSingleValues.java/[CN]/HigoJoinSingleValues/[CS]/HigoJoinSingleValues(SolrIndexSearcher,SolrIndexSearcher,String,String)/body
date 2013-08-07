@@ -1,0 +1,7 @@
+{
+  this.readerleft=readerleft;
+  this.readerright=readerright;
+  this.fieldLeft=fieldLeft;
+  this.fieldRigth=fieldRigth;
+  this.makejoin();
+}

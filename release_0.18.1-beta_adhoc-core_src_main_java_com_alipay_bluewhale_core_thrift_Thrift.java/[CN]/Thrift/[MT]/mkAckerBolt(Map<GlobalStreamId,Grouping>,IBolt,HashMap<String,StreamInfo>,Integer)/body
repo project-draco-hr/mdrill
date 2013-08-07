@@ -1,0 +1,6 @@
+{
+  ComponentCommon common=mkAckerComponentcommon(inputs,output,p);
+  byte[] boltSer=Utils.serialize(bolt);
+  ComponentObject component=ComponentObject.serialized_java(boltSer);
+  return new Bolt(component,common);
+}

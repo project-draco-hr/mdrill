@@ -1,0 +1,25 @@
+{
+  Map<Integer,LocalAssignment> portLA=null;
+  List<String> topologyIds=stormClusterState.assignments(callback);
+  if (topologyIds != null) {
+    portLA=new HashMap<Integer,LocalAssignment>();
+    for (    String topologyId : topologyIds) {
+      Map<Integer,LocalAssignment> portTasks=readMyTasks(stormClusterState,topologyId,supervisorId,callback);
+      if (portTasks == null) {
+        continue;
+      }
+      Set<Entry<Integer,LocalAssignment>> entrySet=portTasks.entrySet();
+      for (      Entry<Integer,LocalAssignment> entry : entrySet) {
+        Integer port=entry.getKey();
+        LocalAssignment la=entry.getValue();
+        if (!portLA.containsKey(port)) {
+          portLA.put(port,la);
+        }
+ else {
+          throw new RuntimeException("Should not have multiple topologys assigned to one port");
+        }
+      }
+    }
+  }
+  return portLA;
+}

@@ -1,0 +1,4 @@
+{
+  LLRect box=LLRect.createBox(new FloatLatLng(x1,y1),miles,miles);
+  return box.toRectangle();
+}

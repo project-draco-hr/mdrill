@@ -1,0 +1,12 @@
+{
+  SelectDetailRow rtn=instanceCache.poll();
+  if (rtn == null) {
+    rtn=new SelectDetailRow();
+  }
+  rtn.docid=docid;
+  rtn.value=value;
+  rtn.key=null;
+  rtn.isFinalResult=false;
+  rtn.colVal=null;
+  return rtn;
+}

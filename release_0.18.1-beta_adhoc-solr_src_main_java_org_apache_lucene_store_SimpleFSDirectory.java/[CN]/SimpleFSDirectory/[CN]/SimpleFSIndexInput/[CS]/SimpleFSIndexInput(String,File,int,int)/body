@@ -1,0 +1,5 @@
+{
+  super(resourceDesc,bufferSize);
+  file=new Descriptor(path,"r");
+  this.chunkSize=chunkSize;
+}

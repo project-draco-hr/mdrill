@@ -1,0 +1,60 @@
+{
+  while (true) {
+    if (!chunkStates[0].posEnum.next()) {
+      docID=DocIdSetIterator.NO_MORE_DOCS;
+      return docID;
+    }
+    final int doc=chunkStates[0].posEnum.doc();
+    int i=1;
+    while (i < chunkStates.length) {
+      final ChunkState cs=chunkStates[i];
+      int doc2=cs.posEnum.doc();
+      if (cs.useAdvance) {
+        if (doc2 < doc) {
+          if (!cs.posEnum.skipTo(doc)) {
+            docID=DocIdSetIterator.NO_MORE_DOCS;
+            return docID;
+          }
+ else {
+            doc2=cs.posEnum.doc();
+          }
+        }
+      }
+ else {
+        int iter=0;
+        while (doc2 < doc) {
+          if (++iter == 50) {
+            if (!cs.posEnum.skipTo(doc)) {
+              docID=DocIdSetIterator.NO_MORE_DOCS;
+              return docID;
+            }
+ else {
+              doc2=cs.posEnum.doc();
+            }
+            break;
+          }
+ else {
+            if (cs.posEnum.next()) {
+              doc2=cs.posEnum.doc();
+            }
+ else {
+              docID=DocIdSetIterator.NO_MORE_DOCS;
+              return docID;
+            }
+          }
+        }
+      }
+      if (doc2 > doc) {
+        break;
+      }
+      i++;
+    }
+    if (i == chunkStates.length) {
+      docID=doc;
+      freq=phraseFreq();
+      if (freq != 0) {
+        return docID;
+      }
+    }
+  }
+}

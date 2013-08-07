@@ -1,0 +1,6 @@
+{
+  ServerSocket socket=new ServerSocket(port);
+  int rtn=socket.getLocalPort();
+  socket.close();
+  return rtn;
+}

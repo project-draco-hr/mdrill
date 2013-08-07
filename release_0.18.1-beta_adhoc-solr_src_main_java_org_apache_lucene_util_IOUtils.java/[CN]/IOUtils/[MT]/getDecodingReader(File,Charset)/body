@@ -1,0 +1,15 @@
+{
+  FileInputStream stream=null;
+  boolean success=false;
+  try {
+    stream=new FileInputStream(file);
+    final Reader reader=getDecodingReader(stream,charSet);
+    success=true;
+    return reader;
+  }
+  finally {
+    if (!success) {
+      IOUtils.close(stream);
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  this.columnName=columnName;
+  this.tableName=tableName;
+  this.tableCatalog=tableCatalog;
+  this.type=type;
+  this.comment=comment;
+  this.ordinalPos=ordinalPos;
+}

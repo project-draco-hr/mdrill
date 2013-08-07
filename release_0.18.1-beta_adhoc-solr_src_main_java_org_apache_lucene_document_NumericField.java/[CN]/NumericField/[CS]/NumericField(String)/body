@@ -1,0 +1,3 @@
+{
+  this(name,NumericUtils.PRECISION_STEP_DEFAULT,Field.Store.NO,true);
+}

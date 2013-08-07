@@ -1,0 +1,76 @@
+{
+  super.setValues(args);
+  Object tmp;
+  tmp=args.get(TIE);
+  if (null != tmp) {
+    if (tmp instanceof Float) {
+      tiebreaker=((Float)tmp).floatValue();
+    }
+ else {
+      log.error("init param is not a float: " + TIE);
+    }
+  }
+  tmp=args.get(QF);
+  if (null != tmp) {
+    if (tmp instanceof String) {
+      qf=tmp.toString();
+    }
+ else {
+      log.error("init param is not a str: " + QF);
+    }
+  }
+  tmp=args.get(PF);
+  if (null != tmp) {
+    if (tmp instanceof String) {
+      pf=tmp.toString();
+    }
+ else {
+      log.error("init param is not a str: " + PF);
+    }
+  }
+  tmp=args.get(MM);
+  if (null != tmp) {
+    if (tmp instanceof String) {
+      mm=tmp.toString();
+    }
+ else {
+      log.error("init param is not a str: " + MM);
+    }
+  }
+  tmp=args.get(PS);
+  if (null != tmp) {
+    if (tmp instanceof Integer) {
+      pslop=((Integer)tmp).intValue();
+    }
+ else {
+      log.error("init param is not an int: " + PS);
+    }
+  }
+  tmp=args.get(BQ);
+  if (null != tmp) {
+    if (tmp instanceof String) {
+      bq=tmp.toString();
+    }
+ else {
+      log.error("init param is not a str: " + BQ);
+    }
+  }
+  tmp=args.get(BF);
+  if (null != tmp) {
+    if (tmp instanceof String) {
+      bf=tmp.toString();
+    }
+ else {
+      log.error("init param is not a str: " + BF);
+    }
+  }
+  tmp=args.get(FQ);
+  if (null != tmp) {
+    if (tmp instanceof String) {
+      fq=tmp.toString();
+    }
+ else {
+      log.error("init param is not a str: " + FQ);
+    }
+  }
+}

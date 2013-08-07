@@ -1,0 +1,5 @@
+{
+  this.type=type;
+  this.killTimeSecs=-1;
+  this.delaySecs=-1;
+}

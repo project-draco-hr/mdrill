@@ -1,0 +1,4 @@
+int timeSecs
+String hostName
+List<Integer> workPorts
+int uptimeSecs

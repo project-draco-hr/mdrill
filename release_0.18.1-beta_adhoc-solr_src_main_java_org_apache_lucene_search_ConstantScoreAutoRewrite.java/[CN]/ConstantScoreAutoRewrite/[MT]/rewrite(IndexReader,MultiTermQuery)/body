@@ -1,0 +1,25 @@
+{
+  final int docCountCutoff=(int)((docCountPercent / 100.) * reader.maxDoc());
+  final int termCountLimit=Math.min(BooleanQuery.getMaxClauseCount(),termCountCutoff);
+  final CutOffTermCollector col=new CutOffTermCollector(reader,docCountCutoff,termCountLimit);
+  collectTerms(reader,query,col);
+  if (col.hasCutOff) {
+    return MultiTermQuery.CONSTANT_SCORE_FILTER_REWRITE.rewrite(reader,query);
+  }
+ else {
+    final Query result;
+    if (col.pendingTerms.isEmpty()) {
+      result=getTopLevelQuery();
+    }
+ else {
+      BooleanQuery bq=getTopLevelQuery();
+      for (      Term term : col.pendingTerms) {
+        addClause(bq,term,1.0f);
+      }
+      result=new ConstantScoreQuery(bq);
+      result.setBoost(query.getBoost());
+    }
+    query.incTotalNumberOfTerms(col.pendingTerms.size());
+    return result;
+  }
+}

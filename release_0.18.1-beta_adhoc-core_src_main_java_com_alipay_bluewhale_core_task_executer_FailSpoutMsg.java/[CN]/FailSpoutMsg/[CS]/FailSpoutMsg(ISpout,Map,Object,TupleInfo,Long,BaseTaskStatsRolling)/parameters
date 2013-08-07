@@ -1,0 +1,6 @@
+ISpout _spout
+Map _storm_conf
+Object _msg_id
+TupleInfo _tuple
+Long _time_delta
+BaseTaskStatsRolling _task_stats

@@ -1,0 +1,7 @@
+{
+  int c=new Integer(internalRank).compareTo(scc.internalRank);
+  if (c == 0) {
+    return collationQuery.compareTo(scc.collationQuery);
+  }
+  return c;
+}

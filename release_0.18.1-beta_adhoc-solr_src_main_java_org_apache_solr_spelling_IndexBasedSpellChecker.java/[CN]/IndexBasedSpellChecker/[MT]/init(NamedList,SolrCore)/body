@@ -1,0 +1,6 @@
+{
+  super.init(config,core);
+  threshold=config.get(THRESHOLD_TOKEN_FREQUENCY) == null ? 0.0f : (Float)config.get(THRESHOLD_TOKEN_FREQUENCY);
+  initSourceReader();
+  return name;
+}

@@ -1,0 +1,6 @@
+{
+  if (mergeThreadPriority == -1) {
+    mergeThreadPriority=1 + Thread.currentThread().getPriority();
+    if (mergeThreadPriority > Thread.MAX_PRIORITY)     mergeThreadPriority=Thread.MAX_PRIORITY;
+  }
+}

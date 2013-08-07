@@ -1,0 +1,22 @@
+{
+  boolean match=false;
+  for (int i=theEndingClass.length - 1; i >= 0; i--) {
+    char[] theEnding=theEndingClass[i];
+    if (startIndex < theEnding.length - 1) {
+      match=false;
+      continue;
+    }
+    match=true;
+    int stemmingIndex=startIndex;
+    for (int j=theEnding.length - 1; j >= 0; j--) {
+      if (stemmingZone.charAt(stemmingIndex--) != theEnding[j]) {
+        match=false;
+        break;
+      }
+    }
+    if (match) {
+      return theEndingClass[i].length;
+    }
+  }
+  return 0;
+}

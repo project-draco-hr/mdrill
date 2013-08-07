@@ -1,0 +1,37 @@
+{
+  this.offset=params.getInt(FacetParams.FACET_CROSS_OFFSET,0);
+  this.limit=params.getInt(FacetParams.FACET_CROSS_LIMIT,100);
+  boolean issub=params.getBool(FacetParams.IS_SUB_SHARDS,false);
+  if (issub) {
+    isFinalResult=false;
+  }
+ else {
+    isFinalResult=true;
+  }
+  this.isdetail=params.getBool(FacetParams.FACET_CROSS_DETAIL,false);
+  if (this.isdetail) {
+    this.sort_type="detailMerge";
+  }
+ else {
+    this.sort_type=params.get(FacetParams.FACET_CROSS_SORT_TYPE,"index");
+  }
+  this.sort_fl=params.get(FacetParams.FACET_CROSS_SORT_FL,null);
+  this.isdesc=params.getBool(FacetParams.FACET_CROSS_SORT_ISDESC,true);
+  this.crossFs=params.getParams(FacetParams.FACET_CROSS_FL);
+  this.distFS=params.getParams(FacetParams.FACET_CROSSDIST_FL);
+  this.facetFs=params.getParams(FacetParams.FACET_FIELD);
+  String[] joinList=params.getParams(HigoJoinUtils.getTables());
+  if (joinList == null) {
+    joinList=new String[0];
+  }
+  this.joinSort=new HigoJoinSort[joinList.length];
+  for (int i=0; i < joinList.length; i++) {
+    this.joinSort[i]=new HigoJoinSort(joinList[i],params);
+  }
+  if (UniqTypeNum.parseSelectDetailType(this.facetFs,joinSort) != null) {
+    this.sort_column_type="string";
+  }
+ else {
+    this.sort_column_type=params.get("facet.cross.sort.cp");
+  }
+}

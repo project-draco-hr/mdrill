@@ -1,0 +1,3 @@
+{
+  return norms.get(field).refCount == 0;
+}

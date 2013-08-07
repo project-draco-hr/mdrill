@@ -1,0 +1,18 @@
+{
+  if (rb.stage < ResponseBuilder.STAGE_PARSE_QUERY)   return ResponseBuilder.STAGE_PARSE_QUERY;
+  if (rb.stage == ResponseBuilder.STAGE_PARSE_QUERY) {
+    createDistributedIdf(rb);
+    return ResponseBuilder.STAGE_EXECUTE_QUERY;
+  }
+  if (rb.stage < ResponseBuilder.STAGE_EXECUTE_QUERY)   return ResponseBuilder.STAGE_EXECUTE_QUERY;
+  if (rb.stage == ResponseBuilder.STAGE_EXECUTE_QUERY) {
+    createMainQuery(rb);
+    return ResponseBuilder.STAGE_GET_FIELDS;
+  }
+  if (rb.stage < ResponseBuilder.STAGE_GET_FIELDS)   return ResponseBuilder.STAGE_GET_FIELDS;
+  if (rb.stage == ResponseBuilder.STAGE_GET_FIELDS) {
+    createRetrieveDocs(rb);
+    return ResponseBuilder.STAGE_DONE;
+  }
+  return ResponseBuilder.STAGE_DONE;
+}

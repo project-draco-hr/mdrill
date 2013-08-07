@@ -1,0 +1,3 @@
+{
+  return (docs.length << 2) + (scores == null ? 0 : (scores.length << 2)) + 24;
+}

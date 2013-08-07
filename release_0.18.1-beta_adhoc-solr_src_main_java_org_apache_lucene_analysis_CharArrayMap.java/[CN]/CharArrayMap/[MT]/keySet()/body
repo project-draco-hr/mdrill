@@ -1,0 +1,20 @@
+{
+  if (keySet == null) {
+    keySet=new CharArraySet((CharArrayMap)this){
+      @Override public boolean add(      Object o){
+        throw new UnsupportedOperationException();
+      }
+      @Override public boolean add(      CharSequence text){
+        throw new UnsupportedOperationException();
+      }
+      @Override public boolean add(      String text){
+        throw new UnsupportedOperationException();
+      }
+      @Override public boolean add(      char[] text){
+        throw new UnsupportedOperationException();
+      }
+    }
+;
+  }
+  return keySet;
+}

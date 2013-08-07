@@ -1,0 +1,5 @@
+String query
+String qtype
+int start
+int limit
+Map args

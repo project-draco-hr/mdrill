@@ -1,0 +1,13 @@
+{
+  long skipPointer=output.getFilePointer();
+  if (skipBuffer == null || skipBuffer.length == 0)   return skipPointer;
+  for (int level=numberOfSkipLevels - 1; level > 0; level--) {
+    long length=skipBuffer[level].getFilePointer();
+    if (length > 0) {
+      output.writeVLong(length);
+      skipBuffer[level].writeTo(output);
+    }
+  }
+  skipBuffer[0].writeTo(output);
+  return skipPointer;
+}

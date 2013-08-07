@@ -1,0 +1,9 @@
+{
+  if ((value == null) || (suffix == null)) {
+    return false;
+  }
+  if (suffix.length() > value.length()) {
+    return false;
+  }
+  return value.substring(value.length() - suffix.length()).equals(suffix);
+}

@@ -1,0 +1,3 @@
+{
+  add(name,isIndexed,storeTermVector,storePositionWithTermVector,storeOffsetWithTermVector,false);
+}

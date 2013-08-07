@@ -1,0 +1,11 @@
+{
+  terms[currentPosition]=term;
+  termFreqs[currentPosition]=frequency;
+  if (storingOffsets) {
+    this.offsets[currentPosition]=offsets;
+  }
+  if (storingPositions) {
+    this.positions[currentPosition]=positions;
+  }
+  currentPosition++;
+}

@@ -1,0 +1,11 @@
+{
+  while (true) {
+    final Segment[] curr=this.contents.get();
+    final Segment[] update=new Segment[curr.length + 1];
+    System.arraycopy(curr,0,update,0,curr.length);
+    update[curr.length]=segment;
+    if (this.contents.compareAndSet(curr,update)) {
+      return;
+    }
+  }
+}

@@ -1,0 +1,3 @@
+{
+  return cluster_state.get_children(Cluster.TASKS_SUBTREE,false);
+}

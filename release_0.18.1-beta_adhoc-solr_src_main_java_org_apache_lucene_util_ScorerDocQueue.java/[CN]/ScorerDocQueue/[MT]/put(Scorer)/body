@@ -1,0 +1,5 @@
+{
+  size++;
+  heap[size]=new HeapedScorerDoc(scorer);
+  upHeap();
+}

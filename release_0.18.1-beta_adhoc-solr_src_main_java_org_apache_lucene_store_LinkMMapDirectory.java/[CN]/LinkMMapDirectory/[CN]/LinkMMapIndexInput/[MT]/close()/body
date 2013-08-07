@@ -1,0 +1,16 @@
+{
+  try {
+    if (isClone || buffers == null)     return;
+    for (int bufNr=0; bufNr < buffers.length; bufNr++) {
+      try {
+        cleanMapping(buffers[bufNr]);
+      }
+  finally {
+        buffers[bufNr]=null;
+      }
+    }
+  }
+  finally {
+    buffers=null;
+  }
+}

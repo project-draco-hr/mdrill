@@ -1,0 +1,7 @@
+{
+  String s="d:" + doc + " o:"+ offset+ " p:"+ position+ " c:"+ count;
+  if (nextRepeating != null) {
+    s+=" rpt[ " + nextRepeating + " ]";
+  }
+  return s;
+}

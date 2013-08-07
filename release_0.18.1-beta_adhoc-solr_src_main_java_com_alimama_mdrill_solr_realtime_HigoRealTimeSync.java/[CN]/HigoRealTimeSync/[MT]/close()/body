@@ -1,0 +1,16 @@
+{
+  this.setIsstop(true);
+  try {
+    if (checkpointposwrite != null) {
+      checkpointposwrite.close();
+    }
+    if (checkpointpos != null) {
+      checkpointpos.close();
+    }
+    if (binlog != null) {
+      binlog.close();
+    }
+  }
+ catch (  IOException e) {
+  }
+}

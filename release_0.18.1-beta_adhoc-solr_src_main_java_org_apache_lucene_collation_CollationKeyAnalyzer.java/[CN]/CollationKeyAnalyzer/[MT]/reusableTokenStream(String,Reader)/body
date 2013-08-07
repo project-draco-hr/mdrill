@@ -1,0 +1,13 @@
+{
+  SavedStreams streams=(SavedStreams)getPreviousTokenStream();
+  if (streams == null) {
+    streams=new SavedStreams();
+    streams.source=new KeywordTokenizer(reader);
+    streams.result=new CollationKeyFilter(streams.source,collator);
+    setPreviousTokenStream(streams);
+  }
+ else {
+    streams.source.reset(reader);
+  }
+  return streams.result;
+}

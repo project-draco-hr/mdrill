@@ -1,0 +1,3 @@
+{
+  return WRITE_LOCK_TIMEOUT;
+}

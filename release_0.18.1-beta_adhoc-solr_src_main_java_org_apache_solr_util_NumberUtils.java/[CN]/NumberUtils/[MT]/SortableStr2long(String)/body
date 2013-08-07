@@ -1,0 +1,4 @@
+{
+  long ival=SortableStr2long(val,0,5);
+  return Long.toString(ival);
+}

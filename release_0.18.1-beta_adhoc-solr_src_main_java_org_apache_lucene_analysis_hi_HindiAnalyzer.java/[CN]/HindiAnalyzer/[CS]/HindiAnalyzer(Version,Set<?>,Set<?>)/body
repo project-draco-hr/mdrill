@@ -1,0 +1,4 @@
+{
+  super(version,stopwords);
+  this.stemExclusionSet=CharArraySet.unmodifiableSet(CharArraySet.copy(matchVersion,stemExclusionSet));
+}

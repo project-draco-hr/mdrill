@@ -1,0 +1,11 @@
+{
+  List<Collector> collectors=new ArrayList<Collector>();
+  secondPassCollector=new TermSecondPassGroupingCollector(field.getName(),firstPhaseGroups,groupSort,sortWithinGroup,maxDocPerGroup,needScores,needMaxScore,true);
+  collectors.add(secondPassCollector);
+  if (!needGroupCount) {
+    return collectors;
+  }
+  allGroupsCollector=new TermAllGroupsCollector(field.getName());
+  collectors.add(allGroupsCollector);
+  return collectors;
+}

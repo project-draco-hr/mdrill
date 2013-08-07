@@ -1,0 +1,25 @@
+{
+  Alias a=aliases.get(field);
+  if (a != null) {
+    List<Query> lst=getQueries(a);
+    if (lst == null || lst.size() == 0)     return getQuery();
+    if (makeDismax) {
+      DisjunctionMaxQuery q=new DisjunctionMaxQuery(lst,a.tie);
+      return q;
+    }
+ else {
+      BooleanQuery q=new BooleanQuery(disableCoord);
+      for (      Query sub : lst) {
+        q.add(sub,BooleanClause.Occur.SHOULD);
+      }
+      return q;
+    }
+  }
+ else {
+    if (exceptions) {
+      FieldType ft=schema.getFieldTypeNoEx(field);
+      if (ft == null)       throw unknownField;
+    }
+    return getQuery();
+  }
+}

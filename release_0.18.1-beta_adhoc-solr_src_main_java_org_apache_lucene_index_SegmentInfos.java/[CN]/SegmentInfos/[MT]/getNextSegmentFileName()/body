@@ -1,0 +1,13 @@
+{
+  long nextGeneration;
+  if (generation == -1) {
+    nextGeneration=1;
+  }
+ else {
+    nextGeneration=generation + 1;
+  }
+  String[] rtn=new String[2];
+  rtn[0]=IndexFileNames.fileNameFromGeneration(IndexFileNames.SEGMENTS,"",nextGeneration);
+  rtn[1]=IndexFileNames.fileNameFromGeneration(IndexFileNames.SEGMENTS_CHECKSUM,"",nextGeneration);
+  return rtn;
+}

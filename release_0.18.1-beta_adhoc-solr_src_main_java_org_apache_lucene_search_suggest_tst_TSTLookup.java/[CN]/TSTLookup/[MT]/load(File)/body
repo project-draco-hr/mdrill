@@ -1,0 +1,15 @@
+{
+  File data=new File(storeDir,FILENAME);
+  if (!data.exists() || !data.canRead()) {
+    return false;
+  }
+  DataInputStream in=new DataInputStream(new FileInputStream(data));
+  root=new TernaryTreeNode();
+  try {
+    readRecursively(in,root);
+  }
+  finally {
+    in.close();
+  }
+  return true;
+}

@@ -1,0 +1,3 @@
+{
+  return params.getFieldBool(fieldName,HighlightParams.MERGE_CONTIGUOUS_FRAGMENTS,false);
+}

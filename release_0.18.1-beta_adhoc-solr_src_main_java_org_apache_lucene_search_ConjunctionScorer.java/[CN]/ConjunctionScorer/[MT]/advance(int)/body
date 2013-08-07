@@ -1,0 +1,9 @@
+{
+  if (lastDoc == NO_MORE_DOCS) {
+    return lastDoc;
+  }
+ else   if (scorers[(scorers.length - 1)].docID() < target) {
+    scorers[(scorers.length - 1)].advance(target);
+  }
+  return lastDoc=doNext();
+}

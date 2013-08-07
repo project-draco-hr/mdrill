@@ -1,0 +1,9 @@
+Directory directory
+SegmentInfos infos
+SegmentReader[] oldReaders
+int[] oldStarts
+Map<String,byte[]> oldNormsCache
+boolean readOnly
+boolean doClone
+int termInfosIndexDivisor
+Collection<ReaderFinishedListener> readerFinishedListeners

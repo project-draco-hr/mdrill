@@ -1,0 +1,17 @@
+{
+  int n=0;
+  int y=(int)(x >>> 32);
+  if (y == 0) {
+    n+=32;
+    y=(int)(x);
+  }
+  if ((y & 0xFFFF0000) == 0) {
+    n+=16;
+    y<<=16;
+  }
+  if ((y & 0xFF000000) == 0) {
+    n+=8;
+    y<<=8;
+  }
+  return n + nlzTable[y >>> 24];
+}

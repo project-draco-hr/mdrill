@@ -1,0 +1,19 @@
+{
+  SimpleDateFormat fmt=new SimpleDateFormat("yyyyMMdd");
+  String day=fmt.format(new Date());
+  Map stormconf=Utils.readStormConfig();
+  String store=(String)stormconf.get("higo.download.offline.store") + "/" + day+ "/upload_"+ java.util.UUID.randomUUID().toString();
+  Configuration conf=getConf(stormconf);
+  FileSystem fs=FileSystem.get(conf);
+  if (!fs.exists(new Path(store))) {
+    fs.mkdirs(new Path(store));
+  }
+  HashMap<String,String> params=new HashMap<String,String>();
+  Path outpath=new Path(store,String.valueOf(System.currentTimeMillis()));
+  FSDataOutputStream out=fs.create(outpath);
+  Upload up=new Upload();
+  up.mergerTo(request,response,"utf-8",out,params);
+  out.close();
+  String rtn=addTxt(params.get("tableName"),store,params.get("callback"));
+  outStream.append(rtn);
+}

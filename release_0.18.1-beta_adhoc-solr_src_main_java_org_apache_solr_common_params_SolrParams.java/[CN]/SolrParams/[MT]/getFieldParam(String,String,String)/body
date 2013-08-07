@@ -1,0 +1,4 @@
+{
+  String val=get(fpname(field,param));
+  return val != null ? val : get(param,def);
+}

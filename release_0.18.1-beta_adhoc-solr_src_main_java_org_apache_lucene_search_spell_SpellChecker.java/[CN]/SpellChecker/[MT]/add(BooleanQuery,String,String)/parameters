@@ -1,0 +1,3 @@
+BooleanQuery q
+String name
+String value

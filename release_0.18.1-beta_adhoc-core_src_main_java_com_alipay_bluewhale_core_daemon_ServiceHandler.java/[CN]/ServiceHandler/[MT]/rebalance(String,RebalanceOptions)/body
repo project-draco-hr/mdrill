@@ -1,0 +1,13 @@
+{
+  try {
+    checkTopologyActive(data,topologyName,true);
+    int wait_amt=0;
+    if (options.is_set_wait_secs()) {
+      wait_amt=options.get_wait_secs();
+    }
+    StatusTransition.transitionName(data,topologyName,true,StatusType.rebalance,wait_amt);
+  }
+ catch (  AlreadyAliveException e) {
+    LOG.error("Rebalance Error",e);
+  }
+}

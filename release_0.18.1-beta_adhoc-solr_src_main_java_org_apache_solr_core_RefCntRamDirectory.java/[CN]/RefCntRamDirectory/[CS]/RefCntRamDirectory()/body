@@ -1,0 +1,4 @@
+{
+  super();
+  refCount.set(1);
+}

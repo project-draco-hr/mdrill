@@ -1,0 +1,14 @@
+{
+  termVectorsLocal.close();
+  fieldsReaderLocal.close();
+  if (deletedDocs != null) {
+    deletedDocsRef.decrementAndGet();
+    deletedDocs=null;
+  }
+  for (  final SegmentNorms norm : norms.values()) {
+    norm.decRef();
+  }
+  if (core != null) {
+    core.decRef();
+  }
+}

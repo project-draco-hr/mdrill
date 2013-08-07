@@ -1,0 +1,13 @@
+{
+  super.visitSubScorers(parent,relationship,visitor);
+  final Query q=weight.getQuery();
+  for (  Scorer s : optionalScorers) {
+    s.visitSubScorers(q,Occur.SHOULD,visitor);
+  }
+  for (  Scorer s : prohibitedScorers) {
+    s.visitSubScorers(q,Occur.MUST_NOT,visitor);
+  }
+  for (  Scorer s : requiredScorers) {
+    s.visitSubScorers(q,Occur.MUST,visitor);
+  }
+}

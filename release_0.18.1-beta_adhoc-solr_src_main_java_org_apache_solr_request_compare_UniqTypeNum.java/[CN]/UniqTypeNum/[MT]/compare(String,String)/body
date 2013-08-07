@@ -1,0 +1,3 @@
+{
+  return value2.compareTo(value1);
+}

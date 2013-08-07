@@ -1,0 +1,4 @@
+{
+  if (termEnum == null)   return 0;
+  return termEnum.docFreq();
+}

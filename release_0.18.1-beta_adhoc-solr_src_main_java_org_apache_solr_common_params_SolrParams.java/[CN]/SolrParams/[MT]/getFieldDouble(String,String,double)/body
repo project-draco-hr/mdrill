@@ -1,0 +1,9 @@
+{
+  String val=getFieldParam(field,param);
+  try {
+    return val == null ? def : Double.parseDouble(val);
+  }
+ catch (  Exception ex) {
+    throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,ex.getMessage(),ex);
+  }
+}

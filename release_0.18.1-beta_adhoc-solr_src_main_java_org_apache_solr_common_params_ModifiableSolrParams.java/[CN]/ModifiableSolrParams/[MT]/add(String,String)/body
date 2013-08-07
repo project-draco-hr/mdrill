@@ -1,0 +1,18 @@
+{
+  String[] old=vals.put(name,val);
+  if (old != null) {
+    if (val == null || val.length < 1) {
+      String[] both=new String[old.length + 1];
+      System.arraycopy(old,0,both,0,old.length);
+      both[old.length]=null;
+      vals.put(name,both);
+    }
+ else {
+      String[] both=new String[old.length + val.length];
+      System.arraycopy(old,0,both,0,old.length);
+      System.arraycopy(val,0,both,old.length,val.length);
+      vals.put(name,both);
+    }
+  }
+  return this;
+}

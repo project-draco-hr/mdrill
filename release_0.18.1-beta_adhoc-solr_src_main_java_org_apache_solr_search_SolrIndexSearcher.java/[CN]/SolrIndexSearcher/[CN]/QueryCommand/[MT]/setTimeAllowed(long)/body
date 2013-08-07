@@ -1,0 +1,4 @@
+{
+  this.timeAllowed=timeAllowed;
+  return this;
+}

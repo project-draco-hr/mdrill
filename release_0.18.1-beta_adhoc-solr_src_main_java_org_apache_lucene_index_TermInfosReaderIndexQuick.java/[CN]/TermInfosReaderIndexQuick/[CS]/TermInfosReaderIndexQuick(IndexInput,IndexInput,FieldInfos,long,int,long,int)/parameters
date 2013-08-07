@@ -1,0 +1,7 @@
+IndexInput tiiInput
+IndexInput quickTii
+FieldInfos fieldInfos
+long tiifilesize
+int indexDivisor
+long tiiFileLength
+int totalIndexInterval

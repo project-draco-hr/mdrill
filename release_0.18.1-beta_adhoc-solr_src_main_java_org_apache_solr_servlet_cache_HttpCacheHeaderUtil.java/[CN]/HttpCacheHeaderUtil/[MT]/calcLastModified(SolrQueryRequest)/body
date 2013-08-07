@@ -1,0 +1,13 @@
+{
+  final SolrCore core=solrReq.getCore();
+  final SolrIndexSearcher searcher=solrReq.getSearcher();
+  final LastModFrom lastModFrom=core.getSolrConfig().getHttpCachingConfig().getLastModFrom();
+  long lastMod;
+  try {
+    lastMod=LastModFrom.DIRLASTMOD == lastModFrom ? IndexReader.lastModified(searcher.getReader().directory()) : searcher.getOpenTime();
+  }
+ catch (  IOException e) {
+    throw new SolrException(ErrorCode.SERVER_ERROR,e);
+  }
+  return lastMod - (lastMod % 1000L);
+}

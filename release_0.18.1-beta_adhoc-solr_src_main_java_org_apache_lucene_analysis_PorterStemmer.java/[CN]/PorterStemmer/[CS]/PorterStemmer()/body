@@ -1,0 +1,4 @@
+{
+  b=new char[INITIAL_SIZE];
+  i=0;
+}

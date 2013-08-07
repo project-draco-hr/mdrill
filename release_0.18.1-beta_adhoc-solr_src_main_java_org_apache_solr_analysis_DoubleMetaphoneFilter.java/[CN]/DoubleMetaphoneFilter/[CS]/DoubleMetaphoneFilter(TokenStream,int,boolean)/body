@@ -1,0 +1,5 @@
+{
+  super(input);
+  this.encoder.setMaxCodeLen(maxCodeLength);
+  this.inject=inject;
+}

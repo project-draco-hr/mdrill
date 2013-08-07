@@ -1,0 +1,10 @@
+{
+  Iterator<PositionSpan> positionSpanIt=positionSpans.iterator();
+  while (positionSpanIt.hasNext()) {
+    PositionSpan posSpan=positionSpanIt.next();
+    if (((position >= posSpan.start) && (position <= posSpan.end))) {
+      return true;
+    }
+  }
+  return false;
+}

@@ -1,0 +1,10 @@
+{
+  Document d;
+  if (!enableLazyFieldLoading || fields == null) {
+    d=getIndexReader().document(i);
+  }
+ else {
+    d=getIndexReader().document(i,new SetNonLazyFieldSelector(fields));
+  }
+  return d;
+}

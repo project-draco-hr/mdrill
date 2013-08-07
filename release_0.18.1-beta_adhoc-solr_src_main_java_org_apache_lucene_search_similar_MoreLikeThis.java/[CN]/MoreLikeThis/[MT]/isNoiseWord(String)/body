@@ -1,0 +1,13 @@
+{
+  int len=term.length();
+  if (minWordLen > 0 && len < minWordLen) {
+    return true;
+  }
+  if (maxWordLen > 0 && len > maxWordLen) {
+    return true;
+  }
+  if (stopWords != null && stopWords.contains(term)) {
+    return true;
+  }
+  return false;
+}

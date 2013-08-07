@@ -1,0 +1,38 @@
+{
+synchronized (file) {
+    long position=getFilePointer();
+    if (position != file.position) {
+      file.seek(position);
+      file.position=position;
+    }
+    int total=0;
+    try {
+      do {
+        final int readLength;
+        if (total + chunkSize > len) {
+          readLength=len - total;
+        }
+ else {
+          readLength=chunkSize;
+        }
+        final int i=file.read(b,offset + total,readLength);
+        if (i == -1) {
+          throw new IOException("read past EOF");
+        }
+        file.position+=i;
+        total+=i;
+      }
+ while (total < len);
+    }
+ catch (    OutOfMemoryError e) {
+      final OutOfMemoryError outOfMemoryError=new OutOfMemoryError("OutOfMemoryError likely caused by the Sun VM Bug described in " + "https://issues.apache.org/jira/browse/LUCENE-1566; try calling FSDirectory.setReadChunkSize " + "with a value smaller than the current chunk size (" + chunkSize + ")");
+      outOfMemoryError.initCause(e);
+      throw outOfMemoryError;
+    }
+catch (    IOException ioe) {
+      IOException newIOE=new IOException(ioe.getMessage() + ": " + this);
+      newIOE.initCause(ioe);
+      throw newIOE;
+    }
+  }
+}

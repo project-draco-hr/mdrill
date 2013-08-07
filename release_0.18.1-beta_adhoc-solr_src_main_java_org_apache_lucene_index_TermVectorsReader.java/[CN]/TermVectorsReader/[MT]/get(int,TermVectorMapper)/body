@@ -1,0 +1,16 @@
+{
+  if (tvx != null) {
+    seekTvx(docNumber);
+    long tvdPosition=tvx.readLong();
+    tvd.seek(tvdPosition);
+    int fieldCount=tvd.readVInt();
+    if (fieldCount != 0) {
+      final String[] fields=readFields(fieldCount);
+      final long[] tvfPointers=readTvfPointers(fieldCount);
+      mapper.setDocumentNumber(docNumber);
+      readTermVectors(fields,tvfPointers,mapper);
+    }
+  }
+ else {
+  }
+}

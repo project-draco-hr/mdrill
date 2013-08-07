@@ -1,0 +1,15 @@
+{
+  List<Entry> entries=new ArrayList<Entry>();
+  while (tfit.hasNext()) {
+    String term=tfit.next();
+    char[] termChars=new char[term.length() + 1];
+    for (int i=0; i < term.length(); i++)     termChars[i + 1]=term.charAt(i);
+    entries.add(new Entry(termChars,tfit.freq()));
+  }
+  if (entries.size() > 0) {
+    redistributeWeightsProportionalMinMax(entries,buckets);
+    encodeWeightPrefix(entries);
+  }
+  this.automaton=buildAutomaton(entries);
+  cacheRootArcs();
+}

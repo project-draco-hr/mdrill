@@ -1,0 +1,15 @@
+{
+  if (text == null)   throw new IllegalArgumentException("text must not be null");
+  TokenStream stream;
+  if (pattern == NON_WORD_PATTERN) {
+    stream=new FastStringTokenizer(text,true,toLowerCase,stopWords);
+  }
+ else   if (pattern == WHITESPACE_PATTERN) {
+    stream=new FastStringTokenizer(text,false,toLowerCase,stopWords);
+  }
+ else {
+    stream=new PatternTokenizer(text,pattern,toLowerCase);
+    if (stopWords != null)     stream=new StopFilter(matchVersion,stream,stopWords);
+  }
+  return stream;
+}

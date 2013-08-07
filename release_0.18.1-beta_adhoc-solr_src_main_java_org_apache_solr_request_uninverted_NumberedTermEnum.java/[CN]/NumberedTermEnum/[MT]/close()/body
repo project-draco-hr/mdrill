@@ -1,0 +1,3 @@
+{
+  if (tenum != null)   tenum.close();
+}

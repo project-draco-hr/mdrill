@@ -1,0 +1,7 @@
+{
+  super.setup(context);
+  heartBeater=new HeartBeater(context);
+  heartBeater.needHeartBeat();
+  shardWriter=this.initShardWriter(context);
+  shardWriter.getDir().setAllowLinks(true);
+}

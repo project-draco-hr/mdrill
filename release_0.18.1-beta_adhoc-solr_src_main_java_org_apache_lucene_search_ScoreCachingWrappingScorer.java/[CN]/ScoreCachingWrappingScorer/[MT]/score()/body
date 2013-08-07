@@ -1,0 +1,8 @@
+{
+  int doc=scorer.docID();
+  if (doc != curDoc) {
+    curScore=scorer.score();
+    curDoc=doc;
+  }
+  return curScore;
+}

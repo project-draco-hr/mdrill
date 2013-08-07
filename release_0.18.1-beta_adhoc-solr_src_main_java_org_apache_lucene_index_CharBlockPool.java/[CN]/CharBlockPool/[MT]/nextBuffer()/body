@@ -1,0 +1,11 @@
+{
+  if (1 + bufferUpto == buffers.length) {
+    char[][] newBuffers=new char[ArrayUtil.oversize(buffers.length + 1,NUM_BYTES_OBJECT_REF)][];
+    System.arraycopy(buffers,0,newBuffers,0,buffers.length);
+    buffers=newBuffers;
+  }
+  buffer=buffers[1 + bufferUpto]=docWriter.getCharBlock();
+  bufferUpto++;
+  charUpto=0;
+  charOffset+=DocumentsWriter.CHAR_BLOCK_SIZE;
+}

@@ -1,0 +1,8 @@
+{
+  while (source.hasNext()) {
+    String w=source.next();
+    Entry e=new Entry(w,source.freq());
+    entries.add(e);
+  }
+  curPos=0;
+}

@@ -1,0 +1,35 @@
+{
+  super.init(args);
+  String v=args.get("delimiter");
+  if (v != null) {
+    if (v.length() != 1) {
+      throw new IllegalArgumentException("delimiter should be a char. \"" + v + "\" is invalid");
+    }
+ else {
+      delimiter=v.charAt(0);
+    }
+  }
+ else {
+    delimiter=PathHierarchyTokenizer.DEFAULT_DELIMITER;
+  }
+  v=args.get("replace");
+  if (v != null) {
+    if (v.length() != 1) {
+      throw new IllegalArgumentException("replace should be a char. \"" + v + "\" is invalid");
+    }
+ else {
+      replacement=v.charAt(0);
+    }
+  }
+ else {
+    replacement=delimiter;
+  }
+  v=args.get("reverse");
+  if (v != null) {
+    reverse="true".equals(v);
+  }
+  v=args.get("skip");
+  if (v != null) {
+    skip=Integer.parseInt(v);
+  }
+}

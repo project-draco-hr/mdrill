@@ -1,0 +1,4 @@
+byte[] bytes1
+int len1
+byte[] bytes2
+int len2

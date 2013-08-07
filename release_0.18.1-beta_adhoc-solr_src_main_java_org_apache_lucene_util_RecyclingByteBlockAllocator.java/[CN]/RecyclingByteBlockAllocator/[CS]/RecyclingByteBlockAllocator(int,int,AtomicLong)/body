@@ -1,0 +1,6 @@
+{
+  super(blockSize);
+  freeByteBlocks=new byte[Math.min(10,maxBufferedBlocks)][];
+  this.maxBufferedBlocks=maxBufferedBlocks;
+  this.bytesUsed=bytesUsed;
+}

@@ -1,0 +1,7 @@
+{
+  long total=0;
+  for (  SegmentInfo info : segments) {
+    total+=info.sizeInBytes(true);
+  }
+  return total;
+}

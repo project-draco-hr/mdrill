@@ -1,0 +1,11 @@
+{
+  MMapDirectory mapDirectory=new MMapDirectory(new File(path));
+  try {
+    mapDirectory.setUseUnmap(unmapHack);
+  }
+ catch (  Exception e) {
+    log.warn("Unmap not supported on this JVM, continuing on without setting unmap",e);
+  }
+  mapDirectory.setMaxChunkSize(maxChunk);
+  return mapDirectory;
+}

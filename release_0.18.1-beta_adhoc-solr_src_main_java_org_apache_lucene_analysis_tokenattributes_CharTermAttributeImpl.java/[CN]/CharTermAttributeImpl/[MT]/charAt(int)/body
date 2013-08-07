@@ -1,0 +1,4 @@
+{
+  if (index >= termLength)   throw new IndexOutOfBoundsException();
+  return termBuffer[index];
+}

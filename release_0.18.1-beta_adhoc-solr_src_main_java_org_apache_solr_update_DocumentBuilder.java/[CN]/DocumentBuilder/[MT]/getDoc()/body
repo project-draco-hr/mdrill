@@ -1,0 +1,33 @@
+{
+  List<String> missingFields=null;
+  for (  SchemaField field : schema.getRequiredFields()) {
+    if (doc.getFieldable(field.getName()) == null) {
+      if (field.getDefaultValue() != null) {
+        addField(doc,field,field.getDefaultValue(),1.0f);
+      }
+ else {
+        if (missingFields == null) {
+          missingFields=new ArrayList<String>(1);
+        }
+        missingFields.add(field.getName());
+      }
+    }
+  }
+  if (missingFields != null) {
+    StringBuilder builder=new StringBuilder();
+    if (schema.getUniqueKeyField() != null) {
+      String n=schema.getUniqueKeyField().getName();
+      String v=doc.get(n);
+      builder.append("Document [" + n + "="+ v+ "] ");
+    }
+    builder.append("missing required fields: ");
+    for (    String field : missingFields) {
+      builder.append(field);
+      builder.append(" ");
+    }
+    throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,builder.toString());
+  }
+  Document ret=doc;
+  doc=null;
+  return ret;
+}

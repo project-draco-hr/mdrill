@@ -1,0 +1,17 @@
+{
+  final int adjustment=s.length() - (c_ket - c_bra);
+  final int newLength=limit + adjustment;
+  if (newLength > current.length) {
+    char newBuffer[]=new char[ArrayUtil.oversize(newLength,RamUsageEstimator.NUM_BYTES_CHAR)];
+    System.arraycopy(current,0,newBuffer,0,limit);
+    current=newBuffer;
+  }
+  if (adjustment != 0 && c_ket < limit) {
+    System.arraycopy(current,c_ket,current,c_bra + s.length(),limit - c_ket);
+  }
+  for (int i=0; i < s.length(); i++)   current[c_bra + i]=s.charAt(i);
+  limit+=adjustment;
+  if (cursor >= c_ket)   cursor+=adjustment;
+ else   if (cursor > c_bra)   cursor=c_bra;
+  return adjustment;
+}

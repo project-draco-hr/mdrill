@@ -1,0 +1,4 @@
+TokenStream tokenStream
+String text
+boolean mergeContiguousFragments
+int maxNumFragments

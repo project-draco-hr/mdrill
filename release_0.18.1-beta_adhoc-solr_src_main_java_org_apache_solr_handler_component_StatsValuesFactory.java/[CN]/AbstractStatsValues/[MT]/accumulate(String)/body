@@ -1,0 +1,6 @@
+{
+  count++;
+  T typedValue=toTypedValue(value);
+  updateMinMax(typedValue,typedValue);
+  updateTypeSpecificStats(typedValue);
+}

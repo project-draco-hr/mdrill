@@ -1,0 +1,3 @@
+Map<Object,Long> map
+Object key
+long amt

@@ -1,0 +1,28 @@
+{
+  SimpleOrderedMap<Object> system=new SimpleOrderedMap<Object>();
+  rsp.add("system",system);
+  ThreadMXBean tmbean=ManagementFactory.getThreadMXBean();
+  SimpleOrderedMap<Object> nl=new SimpleOrderedMap<Object>();
+  nl.add("current",tmbean.getThreadCount());
+  nl.add("peak",tmbean.getPeakThreadCount());
+  nl.add("daemon",tmbean.getDaemonThreadCount());
+  system.add("threadCount",nl);
+  ThreadInfo[] tinfos;
+  long[] tids=tmbean.findMonitorDeadlockedThreads();
+  if (tids != null) {
+    tinfos=tmbean.getThreadInfo(tids,Integer.MAX_VALUE);
+    NamedList<SimpleOrderedMap<Object>> lst=new NamedList<SimpleOrderedMap<Object>>();
+    for (    ThreadInfo ti : tinfos) {
+      lst.add("thread",getThreadInfo(ti,tmbean));
+    }
+    system.add("deadlocks",lst);
+  }
+  tids=tmbean.getAllThreadIds();
+  tinfos=tmbean.getThreadInfo(tids,Integer.MAX_VALUE);
+  NamedList<SimpleOrderedMap<Object>> lst=new NamedList<SimpleOrderedMap<Object>>();
+  for (  ThreadInfo ti : tinfos) {
+    lst.add("thread",getThreadInfo(ti,tmbean));
+  }
+  system.add("threadDump",lst);
+  rsp.setHttpCaching(false);
+}

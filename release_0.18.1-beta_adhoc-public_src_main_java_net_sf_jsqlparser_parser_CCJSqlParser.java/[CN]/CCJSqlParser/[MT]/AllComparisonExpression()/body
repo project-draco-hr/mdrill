@@ -1,0 +1,13 @@
+{
+  AllComparisonExpression retval=null;
+  SubSelect subselect=null;
+  jj_consume_token(K_ALL);
+  jj_consume_token(79);
+  subselect=SubSelect();
+  jj_consume_token(80);
+  retval=new AllComparisonExpression(subselect);
+{
+    if (true)     return retval;
+  }
+  throw new Error("Missing return statement in function");
+}

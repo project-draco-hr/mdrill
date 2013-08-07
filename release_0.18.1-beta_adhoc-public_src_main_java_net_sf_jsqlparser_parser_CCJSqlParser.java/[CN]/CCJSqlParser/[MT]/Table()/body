@@ -1,0 +1,28 @@
+{
+  Table table=null;
+  String name1=null;
+  String name2=null;
+  if (jj_2_4(3)) {
+    name1=RelObjectName();
+    jj_consume_token(81);
+    name2=RelObjectName();
+    table=new Table(name1,name2);
+  }
+ else {
+switch ((jj_ntk == -1) ? jj_ntk() : jj_ntk) {
+case S_IDENTIFIER:
+case S_QUOTED_IDENTIFIER:
+      name1=RelObjectName();
+    table=new Table(null,name1);
+  break;
+default :
+jj_la1[21]=jj_gen;
+jj_consume_token(-1);
+throw new ParseException();
+}
+}
+{
+if (true) return table;
+}
+throw new Error("Missing return statement in function");
+}

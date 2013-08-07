@@ -1,0 +1,8 @@
+double lat
+double lng
+double miles
+String geoHashFieldPrefix
+String tierFieldPrefix
+boolean needPrecise
+int minTierIndexed
+int maxTierIndexed

@@ -1,0 +1,8 @@
+{
+  TermVectorOffsetInfo[] result=TermVectorOffsetInfo.EMPTY_OFFSET_INFO;
+  if (offsets == null)   return null;
+  if (index >= 0 && index < offsets.length) {
+    result=offsets[index];
+  }
+  return result;
+}

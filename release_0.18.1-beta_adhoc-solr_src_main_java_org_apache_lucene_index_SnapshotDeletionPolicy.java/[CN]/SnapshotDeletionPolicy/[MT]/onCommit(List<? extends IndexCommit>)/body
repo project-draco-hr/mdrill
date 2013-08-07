@@ -1,0 +1,4 @@
+{
+  primary.onCommit(wrapCommits(commits));
+  lastCommit=commits.get(commits.size() - 1);
+}

@@ -1,0 +1,3 @@
+Version matchVersion
+int minShingleSize
+int maxShingleSize

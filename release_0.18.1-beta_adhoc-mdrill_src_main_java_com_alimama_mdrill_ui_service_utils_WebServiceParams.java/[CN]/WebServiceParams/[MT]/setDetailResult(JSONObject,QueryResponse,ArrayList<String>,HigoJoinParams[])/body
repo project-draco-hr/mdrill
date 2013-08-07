@@ -1,0 +1,45 @@
+{
+  FacetField ff=qr.getFacetField("solrCorssFields_s");
+  long totalRecord=ff.getTotal();
+  jsonObj.put("code","1");
+  jsonObj.put("message","success");
+  JSONObject jsonObj2=new JSONObject();
+  JSONArray jsonArray=new JSONArray();
+  List<Count> facetCounts=ff.getValues();
+  int fcsize=0;
+  if (facetCounts != null) {
+    fcsize=facetCounts.size();
+  }
+  jsonObj.put("total",totalRecord);
+  for (int i=0; i < fcsize; i++) {
+    Count row=facetCounts.get(i);
+    JSONObject jo=new JSONObject();
+    String groupValues=row.getName();
+    String[] values=EncodeUtils.decode(groupValues.split(UniqConfig.GroupJoinString()));
+    int valuesoffset=2;
+    for (int j=0; j < (values.length - valuesoffset) && j < showFields.size(); j++) {
+      if (values[j + valuesoffset] == null || values[j + valuesoffset].equals("")) {
+        jo.put(showFields.get(j)," ");
+      }
+ else {
+        jo.put(showFields.get(j),transDate(values[j + valuesoffset]));
+      }
+    }
+    int joinoffset=showFields.size() + valuesoffset;
+    for (    HigoJoinParams inv : joins) {
+      for (int j=0; j < inv.fl.length; j++) {
+        int pos=j + joinoffset;
+        if (pos < values.length) {
+          jo.put(inv.returnPrefix + "@" + inv.fl[j],transDate(values[pos]));
+        }
+ else {
+          jo.put(inv.returnPrefix + "@" + inv.fl[j]," ");
+        }
+      }
+      joinoffset+=inv.fl.length;
+    }
+    jsonArray.add(i,jo);
+  }
+  jsonObj2.put("docs",jsonArray);
+  jsonObj.put("data",jsonObj2);
+}

@@ -1,0 +1,19 @@
+{
+switch (columnType) {
+case Types.BOOLEAN:
+    return columnPrecision(columnType);
+case Types.VARCHAR:
+  return Integer.MAX_VALUE;
+case Types.TINYINT:
+case Types.SMALLINT:
+case Types.INTEGER:
+case Types.BIGINT:
+return columnPrecision(columnType) + 1;
+case Types.FLOAT:
+return 24;
+case Types.DOUBLE:
+return 25;
+default :
+throw new SQLException("Invalid column type: " + columnType);
+}
+}

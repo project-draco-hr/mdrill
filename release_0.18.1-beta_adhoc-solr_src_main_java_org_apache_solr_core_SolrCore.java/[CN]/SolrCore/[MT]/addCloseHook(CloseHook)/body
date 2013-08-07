@@ -1,0 +1,6 @@
+{
+  if (closeHooks == null) {
+    closeHooks=new ArrayList<CloseHook>();
+  }
+  closeHooks.add(hook);
+}

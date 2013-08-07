@@ -1,0 +1,4 @@
+int[] docs
+int offset
+int len
+float inverseLoadFactor

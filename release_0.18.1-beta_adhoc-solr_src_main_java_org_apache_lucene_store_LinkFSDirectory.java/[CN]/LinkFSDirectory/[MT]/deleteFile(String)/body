@@ -1,0 +1,20 @@
+{
+  if (this.hdfsLinks.containsKey(name)) {
+    Configuration conf=getConf();
+    Path p=this.hdfsLinks.get(name);
+    try {
+      FileSystemDirectory dir=new FileSystemDirectory(FileSystem.get(conf),p.getParent(),false,conf);
+      dir.deleteFile(p.getName());
+    }
+ catch (    IOException e) {
+      SolrCore.log.error("hdfs",e);
+    }
+  }
+  if (!this.links.containsKey(name)) {
+    super.deleteFile(name);
+  }
+  File file=this.links.get(name);
+  if (file != null && file.exists()) {
+    file.delete();
+  }
+}

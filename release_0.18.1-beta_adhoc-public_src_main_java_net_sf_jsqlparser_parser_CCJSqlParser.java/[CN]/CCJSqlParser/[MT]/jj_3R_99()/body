@@ -1,0 +1,4 @@
+{
+  if (jj_scan_token(K_REPLACE))   return true;
+  return false;
+}

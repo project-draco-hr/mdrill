@@ -1,0 +1,4 @@
+boolean disableCoord
+Similarity similarity
+Scorer req1
+Scorer req2

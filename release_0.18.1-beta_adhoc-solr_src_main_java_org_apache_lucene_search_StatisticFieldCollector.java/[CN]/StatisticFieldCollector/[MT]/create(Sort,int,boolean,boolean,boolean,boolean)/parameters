@@ -1,0 +1,6 @@
+Sort sort
+int numHits
+boolean fillFields
+boolean trackDocScores
+boolean trackMaxScore
+boolean docsScoredInOrder

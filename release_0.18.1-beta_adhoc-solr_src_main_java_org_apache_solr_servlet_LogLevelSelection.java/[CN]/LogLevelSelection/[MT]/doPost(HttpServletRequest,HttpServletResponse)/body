@@ -1,0 +1,36 @@
+{
+  if (request.getParameter("submit").equals("set")) {
+    Map paramMap=request.getParameterMap();
+    Iterator iParams=paramMap.entrySet().iterator();
+    while (iParams.hasNext()) {
+      Map.Entry p=(Map.Entry)iParams.next();
+      String name=(String)p.getKey();
+      String value=((String[])p.getValue())[0];
+      if (name.equals("submit"))       continue;
+      Logger logger;
+      LogManager logManager=LogManager.getLogManager();
+      if ("root".equals(name)) {
+        logger=logManager.getLogger("");
+      }
+ else       logger=logManager.getLogger(name);
+      if ("unset".equals(value)) {
+        if ((logger != null) && (logger.getLevel() != null)) {
+          logger.setLevel(null);
+          log.info("Unset log level on '" + name + "'.");
+        }
+      }
+ else {
+        Level level=Level.parse(value);
+        if (logger == null)         logger=Logger.getLogger(name);
+        if (logger.getLevel() != level) {
+          logger.setLevel(level);
+          log.info("Set '" + name + "' to "+ level+ " level.");
+        }
+      }
+    }
+  }
+ else {
+    log.fine("Selection form cancelled");
+  }
+  response.sendRedirect(request.getRequestURI());
+}

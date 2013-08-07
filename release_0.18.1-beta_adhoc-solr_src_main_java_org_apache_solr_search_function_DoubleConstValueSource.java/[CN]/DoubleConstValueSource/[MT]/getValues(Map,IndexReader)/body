@@ -1,0 +1,23 @@
+{
+  return new DocValues(){
+    @Override public float floatVal(    int doc){
+      return fv;
+    }
+    @Override public int intVal(    int doc){
+      return (int)lv;
+    }
+    @Override public long longVal(    int doc){
+      return lv;
+    }
+    @Override public double doubleVal(    int doc){
+      return constant;
+    }
+    @Override public String strVal(    int doc){
+      return Double.toString(constant);
+    }
+    @Override public String toString(    int doc){
+      return description();
+    }
+  }
+;
+}

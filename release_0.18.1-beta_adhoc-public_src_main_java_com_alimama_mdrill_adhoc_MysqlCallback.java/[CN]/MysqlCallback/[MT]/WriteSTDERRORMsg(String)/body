@@ -1,0 +1,5 @@
+{
+synchronized (lock) {
+    this.appendCut(this.stderror,line,10000,2);
+  }
+}

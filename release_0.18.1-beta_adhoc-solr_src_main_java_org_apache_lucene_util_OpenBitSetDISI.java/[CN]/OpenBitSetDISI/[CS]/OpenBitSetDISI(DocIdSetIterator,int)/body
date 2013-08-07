@@ -1,0 +1,4 @@
+{
+  super(maxSize);
+  inPlaceOr(disi);
+}

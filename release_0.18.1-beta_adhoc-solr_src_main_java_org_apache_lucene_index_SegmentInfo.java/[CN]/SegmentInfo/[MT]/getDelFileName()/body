@@ -1,0 +1,8 @@
+{
+  if (delGen == NO) {
+    return null;
+  }
+ else {
+    return IndexFileNames.fileNameFromGeneration(name,IndexFileNames.DELETES_EXTENSION,delGen);
+  }
+}

@@ -1,0 +1,3 @@
+{
+  return new CartesianPoint(this.x + deltaX,this.y + deltaY);
+}

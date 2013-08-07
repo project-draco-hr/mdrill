@@ -1,0 +1,14 @@
+{
+  try {
+    parser.parse(source);
+  }
+ catch (  FileNotFoundException fnfe) {
+    throw new HyphenationException("File not found: " + fnfe.getMessage());
+  }
+catch (  IOException ioe) {
+    throw new HyphenationException(ioe.getMessage());
+  }
+catch (  SAXException e) {
+    throw new HyphenationException(errMsg);
+  }
+}

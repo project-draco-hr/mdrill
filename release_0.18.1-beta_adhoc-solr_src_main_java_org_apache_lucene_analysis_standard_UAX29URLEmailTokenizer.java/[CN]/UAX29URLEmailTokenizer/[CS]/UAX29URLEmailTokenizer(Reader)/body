@@ -1,0 +1,3 @@
+{
+  this(Version.LUCENE_31,input);
+}

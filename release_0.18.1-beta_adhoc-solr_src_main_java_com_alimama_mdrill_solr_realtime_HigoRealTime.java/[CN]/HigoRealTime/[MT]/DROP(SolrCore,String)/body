@@ -1,0 +1,13 @@
+{
+synchronized (instance) {
+    String key=core.getIndexDir(day);
+    String key2=HigoRealTime.normalize_path((new File(key)).getAbsolutePath());
+    ramDirectory.remove(key2);
+    HigoRealTime rtn=instance.remove(key);
+    if (rtn == null) {
+      return;
+    }
+    rtn.stop();
+    rtn=null;
+  }
+}

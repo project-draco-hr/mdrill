@@ -1,0 +1,5 @@
+{
+  final byte b=main.readByte();
+  digest.update(b);
+  return b;
+}

@@ -1,0 +1,10 @@
+{
+  int rtn=-1;
+  try {
+    rtn=try_port(prefered);
+  }
+ catch (  IOException e) {
+    rtn=available_port();
+  }
+  return rtn;
+}

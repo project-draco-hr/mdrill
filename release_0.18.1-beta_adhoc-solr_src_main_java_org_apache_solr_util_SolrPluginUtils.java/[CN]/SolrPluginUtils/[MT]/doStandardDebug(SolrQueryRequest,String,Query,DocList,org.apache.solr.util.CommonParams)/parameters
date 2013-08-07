@@ -1,0 +1,5 @@
+SolrQueryRequest req
+String userQuery
+Query query
+DocList results
+org.apache.solr.util.CommonParams params

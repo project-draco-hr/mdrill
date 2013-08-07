@@ -1,0 +1,6 @@
+{
+  if (o instanceof char[]) {
+    return put((char[])o,value);
+  }
+  return put(o.toString(),value);
+}

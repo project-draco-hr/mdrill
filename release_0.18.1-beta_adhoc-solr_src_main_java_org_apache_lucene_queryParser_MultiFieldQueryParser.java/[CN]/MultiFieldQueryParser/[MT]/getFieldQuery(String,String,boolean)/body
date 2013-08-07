@@ -1,0 +1,21 @@
+{
+  if (field == null) {
+    List<BooleanClause> clauses=new ArrayList<BooleanClause>();
+    for (int i=0; i < fields.length; i++) {
+      Query q=super.getFieldQuery(fields[i],queryText,quoted);
+      if (q != null) {
+        if (boosts != null) {
+          Float boost=boosts.get(fields[i]);
+          if (boost != null) {
+            q.setBoost(boost.floatValue());
+          }
+        }
+        clauses.add(new BooleanClause(q,BooleanClause.Occur.SHOULD));
+      }
+    }
+    if (clauses.size() == 0)     return null;
+    return getBooleanQuery(clauses,true);
+  }
+  Query q=super.getFieldQuery(field,queryText,quoted);
+  return q;
+}

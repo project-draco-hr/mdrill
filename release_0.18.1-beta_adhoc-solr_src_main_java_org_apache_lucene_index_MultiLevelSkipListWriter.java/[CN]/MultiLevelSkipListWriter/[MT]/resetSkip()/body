@@ -1,0 +1,10 @@
+{
+  if (skipBuffer == null) {
+    init();
+  }
+ else {
+    for (int i=0; i < skipBuffer.length; i++) {
+      skipBuffer[i].reset();
+    }
+  }
+}

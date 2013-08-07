@@ -1,0 +1,3 @@
+{
+  return this.tnr.tNumToString(tnum,ft,te,def);
+}

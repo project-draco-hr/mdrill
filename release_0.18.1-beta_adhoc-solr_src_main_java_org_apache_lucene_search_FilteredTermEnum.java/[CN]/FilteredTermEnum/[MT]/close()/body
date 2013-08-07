@@ -1,0 +1,5 @@
+{
+  if (actualEnum != null)   actualEnum.close();
+  currentTerm=null;
+  actualEnum=null;
+}

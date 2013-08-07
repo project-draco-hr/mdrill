@@ -1,0 +1,3 @@
+{
+  substituteProperties(node,null);
+}

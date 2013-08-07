@@ -1,0 +1,6 @@
+SolrQuery query
+int start
+int rows
+String fl
+ArrayList<String> fqList
+SortParam sortType

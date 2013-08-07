@@ -1,0 +1,11 @@
+{
+  if (sb.length() < 4)   return;
+  String end=sb.substring(sb.length() - 4,sb.length());
+  char c=end.charAt(0);
+  char v1=end.charAt(1);
+  char v2=end.charAt(2);
+  char d=end.charAt(3);
+  if (v1 == v2 && d != 'I' && v1 != 'i' && isVowel(v1) && !isVowel(d) && !isVowel(c)) {
+    sb.delete(sb.length() - 2,sb.length() - 1);
+  }
+}

@@ -1,0 +1,11 @@
+{
+  this.isdesc=_isdesc;
+  if (columntype.equals("string")) {
+    LOG.info("##cmp string##");
+    this.cmpobj=new CompareColumn();
+  }
+ else {
+    LOG.info("##cmp num##");
+    this.cmpobj=new CompareColumnNum();
+  }
+}

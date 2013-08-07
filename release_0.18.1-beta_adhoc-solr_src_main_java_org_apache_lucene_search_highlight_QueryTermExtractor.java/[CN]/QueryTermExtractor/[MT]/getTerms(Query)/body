@@ -1,0 +1,3 @@
+{
+  return getTerms(query,false);
+}

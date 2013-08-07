@@ -1,0 +1,4 @@
+int docFreq
+long freqPointer
+long proxPointer
+int skipOffset

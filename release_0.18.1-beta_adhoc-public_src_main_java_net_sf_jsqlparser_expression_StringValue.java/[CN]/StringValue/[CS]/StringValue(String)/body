@@ -1,0 +1,3 @@
+{
+  value=escapedValue.substring(1,escapedValue.length() - 1);
+}

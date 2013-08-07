@@ -1,0 +1,4 @@
+SolrQueryRequest req
+SolrQueryResponse rsp
+InputStream stream
+UpdateRequestProcessor processor

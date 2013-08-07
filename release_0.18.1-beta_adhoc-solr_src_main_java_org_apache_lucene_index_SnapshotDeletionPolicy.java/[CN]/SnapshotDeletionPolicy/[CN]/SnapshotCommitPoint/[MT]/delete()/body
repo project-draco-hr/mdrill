@@ -1,0 +1,7 @@
+{
+synchronized (SnapshotDeletionPolicy.this) {
+    if (shouldDelete(getSegmentsFileName())) {
+      cp.delete();
+    }
+  }
+}

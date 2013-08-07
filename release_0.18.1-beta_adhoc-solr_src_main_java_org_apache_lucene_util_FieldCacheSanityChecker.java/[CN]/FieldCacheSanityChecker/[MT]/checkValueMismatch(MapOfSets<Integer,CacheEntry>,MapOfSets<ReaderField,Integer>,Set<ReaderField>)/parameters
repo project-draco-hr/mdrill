@@ -1,0 +1,3 @@
+MapOfSets<Integer,CacheEntry> valIdToItems
+MapOfSets<ReaderField,Integer> readerFieldToValIds
+Set<ReaderField> valMismatchKeys

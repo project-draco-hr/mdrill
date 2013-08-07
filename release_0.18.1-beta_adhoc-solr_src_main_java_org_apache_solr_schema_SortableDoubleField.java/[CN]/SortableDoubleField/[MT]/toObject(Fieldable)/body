@@ -1,0 +1,3 @@
+{
+  return NumberUtils.SortableStr2double(f.stringValue());
+}

@@ -1,0 +1,18 @@
+{
+  TimeCacheMap<Object,Object> uploaders=data.getUploaders();
+  Object obj=uploaders.get(location);
+  if (obj == null) {
+    throw new RuntimeException("File for that location does not exist (or timed out)");
+  }
+  try {
+    if (obj instanceof WritableByteChannel) {
+      WritableByteChannel channel=(WritableByteChannel)obj;
+      channel.close();
+      LOG.info("Finished uploading file from client: " + location);
+      uploaders.remove(location);
+    }
+  }
+ catch (  IOException e) {
+    LOG.error(" WritableByteChannel close failed when finishFileUpload " + location);
+  }
+}

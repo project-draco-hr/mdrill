@@ -1,0 +1,3 @@
+RefRow ref
+String groupname
+PriorityQueue<GroupbyRow> res

@@ -1,0 +1,38 @@
+{
+  if (original == null) {
+    return Collections.emptyList();
+  }
+  Collection<Token> result=new ArrayList<Token>();
+  Matcher matcher=QUERY_REGEX.matcher(original);
+  TokenStream stream;
+  while (matcher.find()) {
+    String word=matcher.group(0);
+    if (word.equals("AND") == false && word.equals("OR") == false) {
+      try {
+        stream=analyzer.reusableTokenStream("",new StringReader(word));
+        CharTermAttribute termAtt=stream.addAttribute(CharTermAttribute.class);
+        FlagsAttribute flagsAtt=stream.addAttribute(FlagsAttribute.class);
+        TypeAttribute typeAtt=stream.addAttribute(TypeAttribute.class);
+        PayloadAttribute payloadAtt=stream.addAttribute(PayloadAttribute.class);
+        PositionIncrementAttribute posIncAtt=stream.addAttribute(PositionIncrementAttribute.class);
+        stream.reset();
+        while (stream.incrementToken()) {
+          Token token=new Token();
+          token.copyBuffer(termAtt.buffer(),0,termAtt.length());
+          token.setStartOffset(matcher.start());
+          token.setEndOffset(matcher.end());
+          token.setFlags(flagsAtt.getFlags());
+          token.setType(typeAtt.type());
+          token.setPayload(payloadAtt.getPayload());
+          token.setPositionIncrement(posIncAtt.getPositionIncrement());
+          result.add(token);
+        }
+        stream.end();
+        stream.close();
+      }
+ catch (      IOException e) {
+      }
+    }
+  }
+  return result;
+}

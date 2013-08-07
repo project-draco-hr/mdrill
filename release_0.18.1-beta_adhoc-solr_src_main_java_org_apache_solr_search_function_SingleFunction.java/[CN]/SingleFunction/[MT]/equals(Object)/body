@@ -1,0 +1,5 @@
+{
+  if (this.getClass() != o.getClass())   return false;
+  SingleFunction other=(SingleFunction)o;
+  return this.name().equals(other.name()) && this.source.equals(other.source);
+}

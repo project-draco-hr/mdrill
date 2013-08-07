@@ -1,0 +1,3 @@
+{
+  return leftExpression + " " + ((not) ? "NOT " : "")+ "IN "+ itemsList+ "";
+}

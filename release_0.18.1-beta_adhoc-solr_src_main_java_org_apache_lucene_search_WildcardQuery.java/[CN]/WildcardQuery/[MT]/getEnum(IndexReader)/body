@@ -1,0 +1,11 @@
+{
+  if (termIsPrefix) {
+    return new PrefixTermEnum(reader,term.createTerm(term.text().substring(0,term.text().indexOf('*'))));
+  }
+ else   if (termContainsWildcard) {
+    return new WildcardTermEnum(reader,getTerm());
+  }
+ else {
+    return new SingleTermEnum(reader,getTerm());
+  }
+}

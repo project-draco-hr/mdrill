@@ -1,0 +1,4 @@
+{
+  final String name=clazz.getName();
+  return (!name.startsWith("org.apache.lucene.") && !name.startsWith("org.apache.solr.")) || name.equals("org.apache.lucene.util.TestAttributeSource$TestAttributeImpl");
+}

@@ -1,0 +1,19 @@
+{
+  Set<Integer> rtn=null;
+  if (task_ids != null) {
+    rtn=new HashSet<Integer>();
+    for (    Integer taskid : task_ids) {
+      TopologyContext context=mk_topology_context.make(taskid);
+      if (context != null) {
+        Map<String,Map<String,Grouping>> targets=context.getThisTargets();
+        for (        Map<String,Grouping> e : targets.values()) {
+          for (          String componentId : e.keySet()) {
+            List<Integer> tasks=context.getComponentTasks(componentId);
+            rtn.addAll(tasks);
+          }
+        }
+      }
+    }
+  }
+  return rtn;
+}

@@ -1,0 +1,9 @@
+{
+  this.p1=p1;
+  this.p2=p2;
+  if (p1.dimension() != 2 || p2.dimension() != 2) {
+    throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,"Illegal dimension for value sources");
+  }
+  this.radius=radius;
+  this.convertToRadians=convertToRads;
+}

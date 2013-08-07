@@ -1,0 +1,8 @@
+{
+  byte[] byteArray=new byte[Short.SIZE / 8];
+  for (int i=0; i < byteArray.length; i++) {
+    int off=(byteArray.length - 1 - i) * 8;
+    byteArray[i]=(byte)((v >> off) & 0xFF);
+  }
+  return byteArray;
+}

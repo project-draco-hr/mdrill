@@ -1,0 +1,4 @@
+String name
+Rule rules[]
+int min
+String suffixes[]

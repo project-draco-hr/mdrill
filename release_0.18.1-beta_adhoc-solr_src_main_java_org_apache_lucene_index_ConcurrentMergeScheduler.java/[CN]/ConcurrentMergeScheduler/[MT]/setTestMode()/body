@@ -1,0 +1,3 @@
+{
+  allInstances=new ArrayList<ConcurrentMergeScheduler>();
+}

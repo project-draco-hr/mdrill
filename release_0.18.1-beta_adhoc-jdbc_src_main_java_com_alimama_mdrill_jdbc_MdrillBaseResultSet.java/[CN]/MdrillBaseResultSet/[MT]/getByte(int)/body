@@ -1,0 +1,10 @@
+{
+  Object obj=getObject(columnIndex);
+  if (Number.class.isInstance(obj)) {
+    return ((Number)obj).byteValue();
+  }
+ else   if (obj == null) {
+    return 0;
+  }
+  throw new SQLException("Cannot convert column " + columnIndex + " to byte");
+}

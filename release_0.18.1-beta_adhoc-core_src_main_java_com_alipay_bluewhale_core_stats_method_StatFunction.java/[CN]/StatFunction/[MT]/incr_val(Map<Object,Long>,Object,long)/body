@@ -1,0 +1,8 @@
+{
+  long value=0l;
+  if (map.containsKey(key)) {
+    value=map.get(key);
+  }
+  value+=amt;
+  map.put(key,value);
+}

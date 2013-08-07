@@ -1,0 +1,7 @@
+{
+  OpenBitSetDISI result=initialResult(reader,logic,index);
+  for (; index[0] < chain.length; index[0]++) {
+    doChain(result,logic,chain[index[0]].getDocIdSet(reader));
+  }
+  return finalResult(result,reader.maxDoc());
+}

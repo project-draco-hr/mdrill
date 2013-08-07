@@ -1,0 +1,5 @@
+int a[]
+int lena
+int b[]
+int lenb
+int[] target

@@ -1,0 +1,7 @@
+{
+  Object curr=new Integer(0);
+  if (pending.containsKey(key)) {
+    curr=pending.get(key);
+  }
+  pending.put(key,StormUtils.bit_xor(curr,id));
+}

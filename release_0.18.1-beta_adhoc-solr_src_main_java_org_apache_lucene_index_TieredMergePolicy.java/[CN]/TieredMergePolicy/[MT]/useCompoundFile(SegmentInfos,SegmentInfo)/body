@@ -1,0 +1,15 @@
+{
+  final boolean doCFS;
+  if (!useCompoundFile) {
+    doCFS=false;
+  }
+ else   if (noCFSRatio == 1.0) {
+    doCFS=true;
+  }
+ else {
+    long totalSize=0;
+    for (    SegmentInfo info : infos)     totalSize+=size(info);
+    doCFS=size(mergedInfo) <= noCFSRatio * totalSize;
+  }
+  return doCFS;
+}

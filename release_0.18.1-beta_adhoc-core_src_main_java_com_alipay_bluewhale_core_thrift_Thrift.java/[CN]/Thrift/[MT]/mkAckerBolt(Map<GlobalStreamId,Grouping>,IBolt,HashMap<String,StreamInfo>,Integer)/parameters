@@ -1,0 +1,4 @@
+Map<GlobalStreamId,Grouping> inputs
+IBolt bolt
+HashMap<String,StreamInfo> output
+Integer p

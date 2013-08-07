@@ -1,0 +1,12 @@
+{
+  FieldType ft=searcher.getSchema().getFieldType(field);
+  List<String> terms=StrUtils.splitSmart(termList,",",true);
+  NamedList res=new NamedList();
+  Term t=new Term(field);
+  for (  String term : terms) {
+    String internal=ft.toInternal(term);
+    int count=searcher.numDocs(new TermQuery(t.createTerm(internal)),dc);
+    res.add(term,count);
+  }
+  return res;
+}

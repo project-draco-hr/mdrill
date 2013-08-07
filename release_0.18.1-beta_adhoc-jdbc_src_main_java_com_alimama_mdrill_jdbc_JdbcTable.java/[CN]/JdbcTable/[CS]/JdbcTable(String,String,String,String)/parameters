@@ -1,0 +1,4 @@
+String tableCatalog
+String tableName
+String type
+String comment

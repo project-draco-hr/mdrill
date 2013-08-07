@@ -1,0 +1,16 @@
+{
+  delegate=new TopTermsRewrite<SpanOrQuery>(size){
+    @Override protected int getMaxSize(){
+      return Integer.MAX_VALUE;
+    }
+    @Override protected SpanOrQuery getTopLevelQuery(){
+      return new SpanOrQuery();
+    }
+    @Override protected void addClause(    SpanOrQuery topLevel,    Term term,    float boost){
+      final SpanTermQuery q=new SpanTermQuery(term);
+      q.setBoost(boost);
+      topLevel.addClause(q);
+    }
+  }
+;
+}

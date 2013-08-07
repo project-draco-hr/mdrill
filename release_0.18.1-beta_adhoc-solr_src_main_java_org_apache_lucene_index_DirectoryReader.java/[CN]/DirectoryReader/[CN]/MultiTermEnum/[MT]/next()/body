@@ -1,0 +1,25 @@
+{
+  for (int i=0; i < matchingSegments.length; i++) {
+    SegmentMergeInfo smi=matchingSegments[i];
+    if (smi == null)     break;
+    if (smi.next())     queue.add(smi);
+ else     smi.close();
+  }
+  int numMatchingSegments=0;
+  matchingSegments[0]=null;
+  SegmentMergeInfo top=queue.top();
+  if (top == null) {
+    term=null;
+    return false;
+  }
+  term=top.term;
+  docFreq=0;
+  while (top != null && term.compareTo(top.term) == 0) {
+    matchingSegments[numMatchingSegments++]=top;
+    queue.pop();
+    docFreq+=top.termEnum.docFreq();
+    top=queue.top();
+  }
+  matchingSegments[numMatchingSegments]=null;
+  return true;
+}

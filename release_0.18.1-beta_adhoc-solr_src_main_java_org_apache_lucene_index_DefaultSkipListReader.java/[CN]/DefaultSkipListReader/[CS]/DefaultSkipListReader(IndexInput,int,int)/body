@@ -1,0 +1,6 @@
+{
+  super(skipStream,maxSkipLevels,skipInterval);
+  freqPointer=new long[maxSkipLevels];
+  proxPointer=new long[maxSkipLevels];
+  payloadLength=new int[maxSkipLevels];
+}

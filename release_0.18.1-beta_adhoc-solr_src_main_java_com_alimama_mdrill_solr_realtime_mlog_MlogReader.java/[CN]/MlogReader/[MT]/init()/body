@@ -1,0 +1,13 @@
+{
+  this.minStart=0;
+  this.maxEnd=0;
+  this.currStart=0;
+  this.currEnd=0;
+  this.currIndex=0;
+  this.setList();
+  if (this.list.size() > 0) {
+    this.minStart=this.list.get(0);
+    this.setMaxEnd();
+    this.setCurrIndex(0);
+  }
+}

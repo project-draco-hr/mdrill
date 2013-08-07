@@ -1,0 +1,3 @@
+{
+  super(Version.LUCENE_30,input,dictionary,minWordSize,minSubwordSize,maxSubwordSize,onlyLongestMatch);
+}

@@ -1,0 +1,22 @@
+{
+  SavedStreams streams=(SavedStreams)getPreviousTokenStream();
+  if (streams == null) {
+    streams=new SavedStreams();
+    streams.wrapped=defaultAnalyzer.reusableTokenStream(fieldName,reader);
+    streams.shingle=new ShingleFilter(streams.wrapped);
+    setPreviousTokenStream(streams);
+  }
+ else {
+    TokenStream result=defaultAnalyzer.reusableTokenStream(fieldName,reader);
+    if (result != streams.wrapped) {
+      streams.wrapped=result;
+      streams.shingle=new ShingleFilter(streams.wrapped);
+    }
+  }
+  streams.shingle.setMaxShingleSize(maxShingleSize);
+  streams.shingle.setMinShingleSize(minShingleSize);
+  streams.shingle.setTokenSeparator(tokenSeparator);
+  streams.shingle.setOutputUnigrams(outputUnigrams);
+  streams.shingle.setOutputUnigramsIfNoShingles(outputUnigramsIfNoShingles);
+  return streams.shingle;
+}

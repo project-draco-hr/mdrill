@@ -1,0 +1,19 @@
+{
+  String type=args[0];
+  if (type.equals("table")) {
+    runTable(args);
+    return;
+  }
+  if (type.equals("create")) {
+    createtable(args);
+    return;
+  }
+  if (type.equals("drop")) {
+    cleartable(args);
+    return;
+  }
+  if (type.equals("index")) {
+    makeIndex(args);
+    return;
+  }
+}

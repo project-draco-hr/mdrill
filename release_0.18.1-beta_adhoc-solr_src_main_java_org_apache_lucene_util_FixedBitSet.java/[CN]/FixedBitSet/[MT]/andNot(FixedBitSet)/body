@@ -1,0 +1,3 @@
+{
+  andNot(other.bits,other.bits.length);
+}

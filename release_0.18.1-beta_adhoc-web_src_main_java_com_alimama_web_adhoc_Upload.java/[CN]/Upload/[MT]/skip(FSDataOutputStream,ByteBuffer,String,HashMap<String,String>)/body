@@ -1,0 +1,12 @@
+{
+  keys.add(fieldName);
+  if (this.isFile) {
+    out.write(writebuff.toArray(),0,writebuff.size());
+  }
+ else {
+    String val=new String(writebuff.toArray(),0,writebuff.size(),charset).replaceAll("^[\r|\n]*","").replaceAll("[\r|\n]*$","");
+    params.put(fieldName,val);
+    LOG.info("@@@@@@@keyval:" + fieldName + "="+ val);
+  }
+  this.resetHeader();
+}

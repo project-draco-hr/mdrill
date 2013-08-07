@@ -1,0 +1,3 @@
+{
+  if (termDocs != null)   termDocs.close();
+}

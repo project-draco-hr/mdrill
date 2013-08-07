@@ -1,0 +1,19 @@
+{
+  String sort=req.getParams().get(CommonParams.SORT);
+  if (null == sort || sort.equals("")) {
+    return null;
+  }
+  SolrException sortE=null;
+  Sort ss=null;
+  try {
+    ss=QueryParsing.parseSort(sort,req);
+  }
+ catch (  SolrException e) {
+    sortE=e;
+  }
+  if ((null == ss) || (null != sortE)) {
+    SolrCore.log.warn("Invalid sort \"" + sort + "\" was specified, ignoring",sortE);
+    return null;
+  }
+  return ss;
+}

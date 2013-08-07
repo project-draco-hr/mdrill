@@ -1,0 +1,30 @@
+{
+  final String[] geoHashValues=FieldCache.DEFAULT.getStrings(reader,geoHashField);
+  final int docBase=nextDocBase;
+  nextDocBase+=reader.maxDoc();
+  return new FilteredDocIdSet(startingFilter.getDocIdSet(reader)){
+    @Override public boolean match(    int doc){
+      String geoHash=geoHashValues[doc];
+      double[] coords=GeoHashUtils.decode(geoHash);
+      double x=coords[0];
+      double y=coords[1];
+      Double cachedDistance=distanceLookupCache.get(geoHash);
+      double d;
+      if (cachedDistance != null) {
+        d=cachedDistance.doubleValue();
+      }
+ else {
+        d=DistanceUtils.getDistanceMi(lat,lng,x,y);
+        distanceLookupCache.put(geoHash,d);
+      }
+      if (d < distance) {
+        distances.put(doc + docBase,d);
+        return true;
+      }
+ else {
+        return false;
+      }
+    }
+  }
+;
+}

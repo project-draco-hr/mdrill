@@ -1,0 +1,9 @@
+{
+  if (this == obj)   return true;
+  if (getClass() != obj.getClass())   return false;
+  FloatLatLng other=(FloatLatLng)obj;
+  if (Double.doubleToLongBits(lat) != Double.doubleToLongBits(other.lat))   return false;
+  if (Double.doubleToLongBits(lng) != Double.doubleToLongBits(other.lng))   return false;
+  if (normalized != other.normalized)   return false;
+  return true;
+}

@@ -1,0 +1,5 @@
+{
+  if ((properties & props) != 0) {
+    throw new RuntimeException("schema fieldtype " + typeName + "("+ this.getClass().getName()+ ")"+ " invalid properties:"+ propertiesToString(properties & props));
+  }
+}

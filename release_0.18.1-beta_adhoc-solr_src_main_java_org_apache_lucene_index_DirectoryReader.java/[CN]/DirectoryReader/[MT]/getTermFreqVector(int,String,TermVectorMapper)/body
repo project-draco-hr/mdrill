@@ -1,0 +1,5 @@
+{
+  ensureOpen();
+  int i=readerIndex(docNumber);
+  subReaders[i].getTermFreqVector(docNumber - starts[i],field,mapper);
+}

@@ -1,0 +1,24 @@
+{
+  if (source != null) {
+    for (int i=0; i < search.length; i++) {
+      if (source.endsWith(prefix + search[i])) {
+        sb.delete(sb.length() - (prefix.length() + search[i].length()),sb.length());
+        modified=true;
+        setStrings();
+        break;
+      }
+ else       if (from != null && from.endsWith(prefix + search[i])) {
+        sb.replace(sb.length() - (prefix.length() + search[i].length()),sb.length(),replace);
+        modified=true;
+        setStrings();
+        break;
+      }
+ else       if (without && source.endsWith(search[i])) {
+        sb.delete(sb.length() - search[i].length(),sb.length());
+        modified=true;
+        setStrings();
+        break;
+      }
+    }
+  }
+}

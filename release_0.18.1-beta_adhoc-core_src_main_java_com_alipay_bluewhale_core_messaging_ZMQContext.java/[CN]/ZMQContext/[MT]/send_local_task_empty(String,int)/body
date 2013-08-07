@@ -1,0 +1,6 @@
+{
+  Socket pusher=ZeroMq.socket(context,ZeroMq.push);
+  pusher=VirtualPort.virtual_connect(pusher,virtual_port);
+  ZeroMq.send(pusher,new byte[0]);
+  pusher.close();
+}

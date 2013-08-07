@@ -1,0 +1,7 @@
+{
+  long startTime=System.currentTimeMillis();
+  UpdateResponse res=new UpdateResponse();
+  res.setResponse(server.request(this));
+  res.setElapsedTime(System.currentTimeMillis() - startTime);
+  return res;
+}

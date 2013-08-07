@@ -1,0 +1,7 @@
+{
+  super(startingFilter,miles);
+  this.lat=lat;
+  this.lng=lng;
+  this.latField=latField;
+  this.lngField=lngField;
+}

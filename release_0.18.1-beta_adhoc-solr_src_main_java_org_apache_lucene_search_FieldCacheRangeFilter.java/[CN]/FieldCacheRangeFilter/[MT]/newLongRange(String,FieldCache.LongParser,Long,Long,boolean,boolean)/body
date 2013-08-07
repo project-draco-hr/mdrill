@@ -1,0 +1,32 @@
+{
+  return new FieldCacheRangeFilter<Long>(field,parser,lowerVal,upperVal,includeLower,includeUpper){
+    @Override public DocIdSet getDocIdSet(    IndexReader reader) throws IOException {
+      final long inclusiveLowerPoint, inclusiveUpperPoint;
+      if (lowerVal != null) {
+        long i=lowerVal.longValue();
+        if (!includeLower && i == Long.MAX_VALUE)         return DocIdSet.EMPTY_DOCIDSET;
+        inclusiveLowerPoint=includeLower ? i : (i + 1L);
+      }
+ else {
+        inclusiveLowerPoint=Long.MIN_VALUE;
+      }
+      if (upperVal != null) {
+        long i=upperVal.longValue();
+        if (!includeUpper && i == Long.MIN_VALUE)         return DocIdSet.EMPTY_DOCIDSET;
+        inclusiveUpperPoint=includeUpper ? i : (i - 1L);
+      }
+ else {
+        inclusiveUpperPoint=Long.MAX_VALUE;
+      }
+      if (inclusiveLowerPoint > inclusiveUpperPoint)       return DocIdSet.EMPTY_DOCIDSET;
+      final long[] values=FieldCache.DEFAULT.getLongs(reader,field,(FieldCache.LongParser)parser);
+      return new FieldCacheDocIdSet(reader,(inclusiveLowerPoint <= 0L && inclusiveUpperPoint >= 0L)){
+        @Override boolean matchDoc(        int doc){
+          return values[doc] >= inclusiveLowerPoint && values[doc] <= inclusiveUpperPoint;
+        }
+      }
+;
+    }
+  }
+;
+}

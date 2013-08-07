@@ -1,0 +1,8 @@
+{
+  int[] result=EMPTY_TERM_POS;
+  if (positions == null)   return null;
+  if (index >= 0 && index < positions.length) {
+    result=positions[index];
+  }
+  return result;
+}

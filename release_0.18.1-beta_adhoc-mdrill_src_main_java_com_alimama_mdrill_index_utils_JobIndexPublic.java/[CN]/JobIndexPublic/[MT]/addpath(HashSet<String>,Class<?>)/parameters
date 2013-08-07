@@ -1,0 +1,2 @@
+HashSet<String> jars
+Class<?> myClass

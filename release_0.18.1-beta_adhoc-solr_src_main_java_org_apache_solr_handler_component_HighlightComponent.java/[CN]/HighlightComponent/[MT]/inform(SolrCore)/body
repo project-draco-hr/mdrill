@@ -1,0 +1,18 @@
+{
+  List<PluginInfo> children=info.getChildren("highlighting");
+  if (children.isEmpty()) {
+    PluginInfo pluginInfo=core.getSolrConfig().getPluginInfo(SolrHighlighter.class.getName());
+    if (pluginInfo != null) {
+      highlighter=core.createInitInstance(pluginInfo,SolrHighlighter.class,null,DefaultSolrHighlighter.class.getName());
+      highlighter.initalize(core.getSolrConfig());
+    }
+ else {
+      DefaultSolrHighlighter defHighlighter=new DefaultSolrHighlighter(core);
+      defHighlighter.init(PluginInfo.EMPTY_INFO);
+      highlighter=defHighlighter;
+    }
+  }
+ else {
+    highlighter=core.createInitInstance(children.get(0),SolrHighlighter.class,null,DefaultSolrHighlighter.class.getName());
+  }
+}

@@ -1,0 +1,19 @@
+{
+synchronized (descriptor) {
+    long position=getFilePointer();
+    if (position != descriptor.position) {
+      descriptor.in.seek(position);
+      descriptor.position=position;
+    }
+    int total=0;
+    do {
+      int i=descriptor.in.read(b,offset + total,len - total);
+      if (i == -1) {
+        throw new IOException("Read past EOF");
+      }
+      descriptor.position+=i;
+      total+=i;
+    }
+ while (total < len);
+  }
+}

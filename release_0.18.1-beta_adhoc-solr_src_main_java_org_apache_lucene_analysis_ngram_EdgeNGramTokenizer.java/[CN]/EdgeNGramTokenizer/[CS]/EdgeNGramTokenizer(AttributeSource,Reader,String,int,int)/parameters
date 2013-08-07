@@ -1,0 +1,5 @@
+AttributeSource source
+Reader input
+String sideLabel
+int minGram
+int maxGram

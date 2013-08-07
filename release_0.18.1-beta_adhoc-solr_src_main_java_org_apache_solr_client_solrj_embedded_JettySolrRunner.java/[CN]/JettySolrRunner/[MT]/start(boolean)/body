@@ -1,0 +1,6 @@
+{
+  if (!server.isRunning()) {
+    server.start();
+  }
+  if (waitForSolr)   waitForSolr(context);
+}

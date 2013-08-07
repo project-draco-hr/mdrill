@@ -1,0 +1,6 @@
+{
+  this.conf=conf;
+  this.heartbeat=heartbeat;
+  this.active=active;
+  this.result=null;
+}

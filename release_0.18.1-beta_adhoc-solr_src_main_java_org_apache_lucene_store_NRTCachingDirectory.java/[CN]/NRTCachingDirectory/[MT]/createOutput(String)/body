@@ -1,0 +1,14 @@
+{
+  if (VERBOSE) {
+    System.out.println("nrtdir.createOutput name=" + name);
+  }
+  if (doCacheWrite(name)) {
+    if (VERBOSE) {
+      System.out.println("  to cache");
+    }
+    return cache.createOutput(name);
+  }
+ else {
+    return delegate.createOutput(name);
+  }
+}

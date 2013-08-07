@@ -1,0 +1,10 @@
+{
+  balance();
+  redimNodeArrays(freenode);
+  CharVector kx=new CharVector();
+  kx.alloc(1);
+  TernaryTree map=new TernaryTree();
+  compact(kx,map,root);
+  kv=kx;
+  kv.trimToSize();
+}

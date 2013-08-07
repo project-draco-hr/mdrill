@@ -1,0 +1,34 @@
+{
+  Map conf=StormConfig.read_storm_config();
+  final Drpc service=new Drpc();
+  int port=StormUtils.parseInt(conf.get(Config.DRPC_PORT));
+  TNonblockingServerSocket socket=new TNonblockingServerSocket(port);
+  THsHaServer.Args targs=new THsHaServer.Args(socket);
+  targs.workerThreads(64);
+  targs.protocolFactory(new TBinaryProtocol.Factory());
+  targs.processor(new DistributedRPC.Processor<DistributedRPC.Iface>(service));
+  final THsHaServer handler_server=new THsHaServer(targs);
+  int portinvoke=StormUtils.parseInt(conf.get(Config.DRPC_INVOCATIONS_PORT));
+  TNonblockingServerSocket socketInvoke=new TNonblockingServerSocket(portinvoke);
+  THsHaServer.Args targsInvoke=new THsHaServer.Args(socketInvoke);
+  targsInvoke.workerThreads(64);
+  targsInvoke.protocolFactory(new TBinaryProtocol.Factory());
+  targsInvoke.processor(new DistributedRPCInvocations.Processor<DistributedRPCInvocations.Iface>(service));
+  final THsHaServer invoke_server=new THsHaServer(targsInvoke);
+  Runtime.getRuntime().addShutdownHook(new Thread(){
+    public void run(){
+      service.shutdown();
+      handler_server.stop();
+      invoke_server.stop();
+    }
+  }
+);
+  LOG.info("Starting Distributed RPC servers...");
+  new Thread(new Runnable(){
+    @Override public void run(){
+      invoke_server.serve();
+    }
+  }
+).start();
+  handler_server.serve();
+}

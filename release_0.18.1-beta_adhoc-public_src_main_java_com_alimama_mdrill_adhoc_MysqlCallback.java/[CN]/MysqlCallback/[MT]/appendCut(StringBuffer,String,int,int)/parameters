@@ -1,0 +1,4 @@
+StringBuffer buff
+String line
+int num
+int step

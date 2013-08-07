@@ -1,0 +1,6 @@
+byte[] buffer
+byte[] search
+int offset
+int start
+int end
+boolean fuzzle

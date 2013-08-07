@@ -1,0 +1,19 @@
+{
+  NamedList<NamedList> result=new NamedList<NamedList>();
+  for (  Command command : data) {
+    NamedList commandResult;
+    if (SearchGroupsFieldCommand.class.isInstance(command)) {
+      SearchGroupsFieldCommand fieldCommand=(SearchGroupsFieldCommand)command;
+      Collection<SearchGroup<String>> searchGroups=fieldCommand.result();
+      if (searchGroups == null) {
+        continue;
+      }
+      commandResult=serializeSearchGroup(searchGroups,fieldCommand.getGroupSort());
+    }
+ else {
+      commandResult=null;
+    }
+    result.add(command.getKey(),commandResult);
+  }
+  return result;
+}

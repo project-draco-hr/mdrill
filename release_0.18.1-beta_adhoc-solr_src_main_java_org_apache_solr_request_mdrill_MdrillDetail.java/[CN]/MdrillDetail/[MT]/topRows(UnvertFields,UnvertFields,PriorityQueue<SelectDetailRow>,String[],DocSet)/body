@@ -1,0 +1,55 @@
+{
+  DocIterator iter=baseDocs.iterator();
+  int doc=-1;
+  if (this.SelectDetailSort != null) {
+    int cmpValue=0;
+    HigoJoinInvert inv=this.joinInvert[this.SelectDetailSort.sortIndex];
+    while (iter.hasNext()) {
+      doc=iter.nextDoc();
+      if (!this.joincontains(doc)) {
+        continue;
+      }
+      cmpValue=inv.fieldNumTop(doc,this.SelectDetailSort.selfOffset,this.isdesc);
+      SelectDetailRow row=SelectDetailRow.INSTANCE(doc,cmpValue);
+      MdrillPorcessUtils.put2QueueDetail(row,res,this.limit_offset,this.cmpTermNum);
+      this.recordCount.inc(1);
+    }
+  }
+ else   if (this.isNeedSort && sortufs.listIndex.length > 0) {
+    int cmpValue=0;
+    UnvertFile uf=sortufs.cols[0];
+    UnInvertedField cif=uf.uif;
+    while (iter.hasNext()) {
+      doc=iter.nextDoc();
+      if (!this.joincontains(doc)) {
+        continue;
+      }
+      cmpValue=cif.termNum(doc);
+      SelectDetailRow row=SelectDetailRow.INSTANCE(doc,cmpValue);
+      MdrillPorcessUtils.put2QueueDetail(row,res,this.limit_offset,this.cmpTermNum);
+      this.recordCount.inc(1);
+    }
+  }
+ else {
+    while (iter.hasNext()) {
+      doc=iter.nextDoc();
+      if (!this.joincontains(doc)) {
+        continue;
+      }
+      SelectDetailRow row=SelectDetailRow.INSTANCE(doc,doc);
+      MdrillPorcessUtils.put2QueueDetail(row,res,this.limit_offset,this.cmpTermNum);
+      this.recordCount.inc(1);
+      if (res.size() >= this.limit_offset) {
+        break;
+      }
+    }
+    while (iter.hasNext()) {
+      doc=iter.nextDoc();
+      if (!this.joincontains(doc)) {
+        continue;
+      }
+      this.recordCount.inc(1);
+    }
+  }
+  return this.transGroupValue(ufs,res,sortufs);
+}

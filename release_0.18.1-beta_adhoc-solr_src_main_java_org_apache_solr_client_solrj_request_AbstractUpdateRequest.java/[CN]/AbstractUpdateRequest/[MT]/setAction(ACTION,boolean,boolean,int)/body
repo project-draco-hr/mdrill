@@ -1,0 +1,13 @@
+{
+  if (params == null)   params=new ModifiableSolrParams();
+  if (action == ACTION.OPTIMIZE) {
+    params.set(UpdateParams.OPTIMIZE,"true");
+    params.set(UpdateParams.MAX_OPTIMIZE_SEGMENTS,maxSegments);
+  }
+ else   if (action == ACTION.COMMIT) {
+    params.set(UpdateParams.COMMIT,"true");
+  }
+  params.set(UpdateParams.WAIT_FLUSH,String.valueOf(waitFlush));
+  params.set(UpdateParams.WAIT_SEARCHER,String.valueOf(waitSearcher));
+  return this;
+}

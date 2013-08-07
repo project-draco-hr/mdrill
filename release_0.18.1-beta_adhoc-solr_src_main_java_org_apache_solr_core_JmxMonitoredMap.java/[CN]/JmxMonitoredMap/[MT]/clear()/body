@@ -1,0 +1,8 @@
+{
+  if (server != null) {
+    for (    Map.Entry<String,SolrInfoMBean> entry : entrySet()) {
+      unregister(entry.getKey(),entry.getValue());
+    }
+  }
+  super.clear();
+}

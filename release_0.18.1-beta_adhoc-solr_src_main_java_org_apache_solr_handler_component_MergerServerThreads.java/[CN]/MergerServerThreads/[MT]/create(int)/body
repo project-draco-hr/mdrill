@@ -1,0 +1,6 @@
+{
+  if (i < EXECUTE.length) {
+    return new ExecutorCompletionService<ShardResponse>(EXECUTE[i]);
+  }
+  return new ExecutorCompletionService<ShardResponse>(commExecutor);
+}

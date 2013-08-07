@@ -1,0 +1,6 @@
+{
+  this.core=core;
+  _className=className;
+  _args=args;
+  _handler=null;
+}

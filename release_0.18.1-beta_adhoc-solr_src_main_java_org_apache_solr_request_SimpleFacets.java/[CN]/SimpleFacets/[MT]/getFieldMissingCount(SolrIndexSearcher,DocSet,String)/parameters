@@ -1,0 +1,3 @@
+SolrIndexSearcher searcher
+DocSet docs
+String fieldName

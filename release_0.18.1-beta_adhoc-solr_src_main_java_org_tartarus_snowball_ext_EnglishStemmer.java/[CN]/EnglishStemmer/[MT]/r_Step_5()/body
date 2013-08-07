@@ -1,0 +1,54 @@
+{
+  int among_var;
+  int v_1;
+  int v_2;
+  ket=cursor;
+  among_var=find_among_b(a_8,2);
+  if (among_var == 0) {
+    return false;
+  }
+  bra=cursor;
+switch (among_var) {
+case 0:
+    return false;
+case 1:
+  lab0:   do {
+    v_1=limit - cursor;
+    lab1:     do {
+      if (!r_R2()) {
+        break lab1;
+      }
+      break lab0;
+    }
+ while (false);
+    cursor=limit - v_1;
+    if (!r_R1()) {
+      return false;
+    }
+{
+      v_2=limit - cursor;
+      lab2:       do {
+        if (!r_shortv()) {
+          break lab2;
+        }
+        return false;
+      }
+ while (false);
+      cursor=limit - v_2;
+    }
+  }
+ while (false);
+slice_del();
+break;
+case 2:
+if (!r_R2()) {
+return false;
+}
+if (!(eq_s_b(1,"l"))) {
+return false;
+}
+slice_del();
+break;
+}
+return true;
+}

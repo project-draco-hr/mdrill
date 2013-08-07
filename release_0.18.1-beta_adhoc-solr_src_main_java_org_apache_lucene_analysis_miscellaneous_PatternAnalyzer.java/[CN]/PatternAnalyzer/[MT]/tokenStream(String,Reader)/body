@@ -1,0 +1,12 @@
+{
+  if (reader instanceof FastStringReader) {
+    return tokenStream(fieldName,((FastStringReader)reader).getString());
+  }
+  try {
+    String text=toString(reader);
+    return tokenStream(fieldName,text);
+  }
+ catch (  IOException e) {
+    throw new RuntimeException(e);
+  }
+}

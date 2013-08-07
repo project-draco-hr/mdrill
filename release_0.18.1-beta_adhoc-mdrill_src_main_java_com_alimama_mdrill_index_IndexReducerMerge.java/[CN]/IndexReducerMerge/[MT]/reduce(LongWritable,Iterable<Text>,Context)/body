@@ -1,0 +1,10 @@
+{
+  Configuration conf=context.getConfiguration();
+  FileSystem fs=FileSystem.get(conf);
+  Iterator<Text> iterator=values.iterator();
+  while (iterator.hasNext()) {
+    Text path=iterator.next();
+    shardWriter.process(new FileSystemDirectory(fs,new Path(path.toString()),false,conf));
+    context.write(key,path);
+  }
+}

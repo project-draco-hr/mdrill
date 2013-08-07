@@ -1,0 +1,73 @@
+{
+  try {
+    HashMap<String,Long> dayAmt=new HashMap<String,Long>();
+    SolrInfoList infolist=GetShards.getSolrInfoList(projectName);
+    for (    SolrInfo info : infolist.getlist()) {
+      if (info != null) {
+        if (info.stat == ShardsState.SERVICE && !info.isMergeServer) {
+          for (          Entry<String,ShardCount> e : info.daycount.entrySet()) {
+            Long amt=dayAmt.get(e.getKey());
+            if (amt == null) {
+              amt=0l;
+            }
+            long cnt=e.getValue().cnt;
+            if (cnt > 1000) {
+              amt+=1;
+            }
+            dayAmt.put(e.getKey(),amt);
+          }
+        }
+      }
+    }
+    long maxamt=0;
+    for (    Entry<String,Long> e : dayAmt.entrySet()) {
+      maxamt=Math.max(e.getValue(),maxamt);
+    }
+    ArrayList<String> matchlist=new ArrayList<String>();
+    for (    Entry<String,Long> e : dayAmt.entrySet()) {
+      if (e.getValue() >= maxamt) {
+        matchlist.add(e.getKey());
+      }
+    }
+    int maxValue=0;
+    int minValue=Integer.MAX_VALUE;
+    int fcsize=0;
+    for (    String s : matchlist) {
+      fcsize++;
+      int value=Integer.parseInt(String.valueOf(s));
+      if (value > maxValue) {
+        maxValue=value;
+      }
+      if (value < minValue) {
+        minValue=value;
+      }
+    }
+    JSONArray jsonArray=new JSONArray();
+    int total=0;
+    if (fcsize > 0) {
+      int start=WebServiceParams.parseStart(startStr);
+      int rows=WebServiceParams.parseRows(rowsStr);
+      SimpleDateFormat fmt=new SimpleDateFormat("yyyyMMdd");
+      Date d1=fmt.parse(String.valueOf(maxValue));
+      Date d2=fmt.parse(String.valueOf(minValue));
+      total=((int)(d1.getTime() / 1000) - (int)(d2.getTime() / 1000)) / 3600 / 24 + 1;
+      for (int i=start; i < (start + rows) && i < total; i++) {
+        jsonArray.put(fmt.format(new Date(d2.getTime() + i * 1000l * 3600* 24)));
+      }
+    }
+    JSONObject jsonObj=new JSONObject();
+    JSONObject jo=new JSONObject();
+    jo.put("min",minValue);
+    jo.put("max",maxValue);
+    jo.put("total",total);
+    jo.put("list",jsonArray);
+    jsonObj.put("data",jo);
+    jsonObj.put("code","1");
+    jsonObj.put("message","success");
+    jsonObj.put("fcsize",fcsize);
+    return callback + "(" + jsonObj.toString()+ ")";
+  }
+ catch (  Exception e) {
+    throw new JSONException(e);
+  }
+}

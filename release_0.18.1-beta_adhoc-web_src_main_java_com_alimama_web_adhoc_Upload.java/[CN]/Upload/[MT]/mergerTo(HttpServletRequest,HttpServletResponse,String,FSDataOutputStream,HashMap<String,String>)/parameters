@@ -1,0 +1,5 @@
+HttpServletRequest request
+HttpServletResponse response
+String charset
+FSDataOutputStream out
+HashMap<String,String> params

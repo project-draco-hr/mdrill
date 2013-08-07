@@ -1,0 +1,5 @@
+{
+  Date d=new Date();
+  d.setTime(a);
+  return dateField.toInternal(d);
+}

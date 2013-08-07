@@ -1,0 +1,167 @@
+{
+  Union union=new Union();
+  List orderByElements=null;
+  Limit limit=null;
+  PlainSelect select=null;
+  ArrayList selects=new ArrayList();
+switch ((jj_ntk == -1) ? jj_ntk() : jj_ntk) {
+case 79:
+    jj_consume_token(79);
+  select=PlainSelect();
+selects.add(select);
+jj_consume_token(80);
+jj_consume_token(K_UNION);
+switch ((jj_ntk == -1) ? jj_ntk() : jj_ntk) {
+case K_ALL:
+case K_DISTINCT:
+switch ((jj_ntk == -1) ? jj_ntk() : jj_ntk) {
+case K_ALL:
+jj_consume_token(K_ALL);
+union.setAll(true);
+break;
+case K_DISTINCT:
+jj_consume_token(K_DISTINCT);
+union.setDistinct(true);
+break;
+default :
+jj_la1[34]=jj_gen;
+jj_consume_token(-1);
+throw new ParseException();
+}
+break;
+default :
+jj_la1[35]=jj_gen;
+;
+}
+jj_consume_token(79);
+select=PlainSelect();
+selects.add(select);
+jj_consume_token(80);
+label_7: while (true) {
+switch ((jj_ntk == -1) ? jj_ntk() : jj_ntk) {
+case K_UNION:
+;
+break;
+default :
+jj_la1[36]=jj_gen;
+break label_7;
+}
+jj_consume_token(K_UNION);
+switch ((jj_ntk == -1) ? jj_ntk() : jj_ntk) {
+case K_ALL:
+case K_DISTINCT:
+switch ((jj_ntk == -1) ? jj_ntk() : jj_ntk) {
+case K_ALL:
+jj_consume_token(K_ALL);
+break;
+case K_DISTINCT:
+jj_consume_token(K_DISTINCT);
+break;
+default :
+jj_la1[37]=jj_gen;
+jj_consume_token(-1);
+throw new ParseException();
+}
+break;
+default :
+jj_la1[38]=jj_gen;
+;
+}
+jj_consume_token(79);
+select=PlainSelect();
+selects.add(select);
+jj_consume_token(80);
+}
+switch ((jj_ntk == -1) ? jj_ntk() : jj_ntk) {
+case K_ORDER:
+orderByElements=OrderByElements();
+union.setOrderByElements(orderByElements);
+break;
+default :
+jj_la1[39]=jj_gen;
+;
+}
+switch ((jj_ntk == -1) ? jj_ntk() : jj_ntk) {
+case K_LIMIT:
+case K_OFFSET:
+limit=Limit();
+union.setLimit(limit);
+break;
+default :
+jj_la1[40]=jj_gen;
+;
+}
+break;
+case K_SELECT:
+select=PlainSelect();
+selects.add(select);
+jj_consume_token(K_UNION);
+switch ((jj_ntk == -1) ? jj_ntk() : jj_ntk) {
+case K_ALL:
+case K_DISTINCT:
+switch ((jj_ntk == -1) ? jj_ntk() : jj_ntk) {
+case K_ALL:
+jj_consume_token(K_ALL);
+union.setAll(true);
+break;
+case K_DISTINCT:
+jj_consume_token(K_DISTINCT);
+union.setDistinct(true);
+break;
+default :
+jj_la1[41]=jj_gen;
+jj_consume_token(-1);
+throw new ParseException();
+}
+break;
+default :
+jj_la1[42]=jj_gen;
+;
+}
+select=PlainSelect();
+selects.add(select);
+label_8: while (true) {
+switch ((jj_ntk == -1) ? jj_ntk() : jj_ntk) {
+case K_UNION:
+;
+break;
+default :
+jj_la1[43]=jj_gen;
+break label_8;
+}
+jj_consume_token(K_UNION);
+switch ((jj_ntk == -1) ? jj_ntk() : jj_ntk) {
+case K_ALL:
+case K_DISTINCT:
+switch ((jj_ntk == -1) ? jj_ntk() : jj_ntk) {
+case K_ALL:
+jj_consume_token(K_ALL);
+break;
+case K_DISTINCT:
+jj_consume_token(K_DISTINCT);
+break;
+default :
+jj_la1[44]=jj_gen;
+jj_consume_token(-1);
+throw new ParseException();
+}
+break;
+default :
+jj_la1[45]=jj_gen;
+;
+}
+select=PlainSelect();
+selects.add(select);
+}
+break;
+default :
+jj_la1[46]=jj_gen;
+jj_consume_token(-1);
+throw new ParseException();
+}
+union.setPlainSelects(selects);
+{
+if (true) return union;
+}
+throw new Error("Missing return statement in function");
+}

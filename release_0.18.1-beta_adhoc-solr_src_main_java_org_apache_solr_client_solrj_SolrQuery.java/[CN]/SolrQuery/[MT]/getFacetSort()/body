@@ -1,0 +1,3 @@
+{
+  return this.get(FacetParams.FACET_SORT,FacetParams.FACET_SORT_COUNT).equals(FacetParams.FACET_SORT_COUNT);
+}

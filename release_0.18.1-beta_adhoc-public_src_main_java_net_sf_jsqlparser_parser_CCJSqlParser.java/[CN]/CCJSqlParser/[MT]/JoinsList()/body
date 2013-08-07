@@ -1,0 +1,27 @@
+{
+  ArrayList joinsList=new ArrayList();
+  Join join=null;
+  label_12:   while (true) {
+switch ((jj_ntk == -1) ? jj_ntk() : jj_ntk) {
+case K_JOIN:
+case K_LEFT:
+case K_FULL:
+case K_INNER:
+case K_OUTER:
+case K_RIGHT:
+case K_NATURAL:
+case 78:
+      ;
+    break;
+default :
+  jj_la1[58]=jj_gen;
+break label_12;
+}
+join=JoinerExpression();
+joinsList.add(join);
+}
+{
+if (true) return joinsList;
+}
+throw new Error("Missing return statement in function");
+}

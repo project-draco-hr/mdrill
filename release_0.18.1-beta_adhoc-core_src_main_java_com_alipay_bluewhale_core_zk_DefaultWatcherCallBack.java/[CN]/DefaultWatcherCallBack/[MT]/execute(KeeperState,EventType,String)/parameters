@@ -1,0 +1,3 @@
+KeeperState state
+EventType type
+String path

@@ -1,0 +1,24 @@
+{
+  if (position++ >= size - 1) {
+    prevBuffer.set(termBuffer);
+    termBuffer.reset();
+    return false;
+  }
+  prevBuffer.set(termBuffer);
+  termBuffer.read(input,fieldInfos);
+  termInfo.docFreq=input.readVInt();
+  termInfo.freqPointer+=input.readVLong();
+  termInfo.proxPointer+=input.readVLong();
+  if (format == -1) {
+    if (!isIndex) {
+      if (termInfo.docFreq > formatM1SkipInterval) {
+        termInfo.skipOffset=input.readVInt();
+      }
+    }
+  }
+ else {
+    if (termInfo.docFreq >= skipInterval)     termInfo.skipOffset=input.readVInt();
+  }
+  if (isIndex)   indexPointer+=input.readVLong();
+  return true;
+}

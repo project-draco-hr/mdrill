@@ -1,0 +1,7 @@
+{
+  int startTime=TimeUtils.current_time_secs();
+  for (Iterator<String> iter=workerIds.iterator(); iter.hasNext(); ) {
+    String workerId=iter.next();
+    waitForWorkerLaunch(conf,workerId,startTime);
+  }
+}

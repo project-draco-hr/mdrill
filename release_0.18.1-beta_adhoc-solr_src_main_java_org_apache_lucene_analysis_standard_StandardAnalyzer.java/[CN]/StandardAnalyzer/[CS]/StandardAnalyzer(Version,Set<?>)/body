@@ -1,0 +1,4 @@
+{
+  super(matchVersion,stopWords);
+  replaceInvalidAcronym=matchVersion.onOrAfter(Version.LUCENE_24);
+}

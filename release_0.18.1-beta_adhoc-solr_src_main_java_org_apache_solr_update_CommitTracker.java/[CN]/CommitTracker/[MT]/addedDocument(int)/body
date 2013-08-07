@@ -1,0 +1,13 @@
+{
+  if (docsUpperBound > 0) {
+    long docs=docsSinceCommit.incrementAndGet();
+    if (docs == docsUpperBound + 1) {
+      docsSinceCommit.set(0);
+      _scheduleCommitWithin(DOC_COMMIT_DELAY_MS);
+    }
+  }
+  long ctime=(commitWithin > 0) ? commitWithin : timeUpperBound;
+  if (ctime > 0) {
+    _scheduleCommitWithin(ctime);
+  }
+}

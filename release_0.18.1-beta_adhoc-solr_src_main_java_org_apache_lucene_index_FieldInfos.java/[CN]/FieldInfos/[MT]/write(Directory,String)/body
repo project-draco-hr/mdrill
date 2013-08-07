@@ -1,0 +1,9 @@
+{
+  IndexOutput output=d.createOutput(name);
+  try {
+    write(output);
+  }
+  finally {
+    output.close();
+  }
+}

@@ -1,0 +1,3 @@
+Term t
+Collection<Document> docs
+Analyzer a

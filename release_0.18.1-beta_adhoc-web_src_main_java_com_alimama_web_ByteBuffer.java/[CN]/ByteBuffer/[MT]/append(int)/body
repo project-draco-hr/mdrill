@@ -1,0 +1,4 @@
+{
+  ensureCapacityHelper(elementCount + 4);
+  doAppend(value);
+}

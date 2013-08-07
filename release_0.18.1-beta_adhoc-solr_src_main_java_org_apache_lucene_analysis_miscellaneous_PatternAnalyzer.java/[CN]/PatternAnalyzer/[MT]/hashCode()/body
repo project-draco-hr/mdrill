@@ -1,0 +1,10 @@
+{
+  if (this == DEFAULT_ANALYZER)   return -1218418418;
+  if (this == EXTENDED_ANALYZER)   return 1303507063;
+  int h=1;
+  h=31 * h + pattern.pattern().hashCode();
+  h=31 * h + pattern.flags();
+  h=31 * h + (toLowerCase ? 1231 : 1237);
+  h=31 * h + (stopWords != null ? stopWords.hashCode() : 0);
+  return h;
+}

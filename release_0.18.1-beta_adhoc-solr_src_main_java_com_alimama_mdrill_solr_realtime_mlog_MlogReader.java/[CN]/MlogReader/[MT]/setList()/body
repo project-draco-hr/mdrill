@@ -1,0 +1,16 @@
+{
+  try {
+    FileStatus[] flist=this.fs.listStatus(new Path(this.filepath));
+    if (flist != null) {
+      for (      FileStatus s : flist) {
+        String name=s.getPath().getName();
+        if (MLogUtil.isSigment(name)) {
+          this.list.add(MLogUtil.parseSigment(name));
+        }
+      }
+    }
+  }
+ catch (  IOException e) {
+  }
+  Collections.sort(this.list);
+}

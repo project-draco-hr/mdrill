@@ -1,0 +1,3 @@
+{
+  return function.docScore(doc,term.field(),payloadsSeen,payloadScore);
+}

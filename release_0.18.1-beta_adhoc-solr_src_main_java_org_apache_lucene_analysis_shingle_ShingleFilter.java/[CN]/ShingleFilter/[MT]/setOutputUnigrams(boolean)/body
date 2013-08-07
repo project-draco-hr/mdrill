@@ -1,0 +1,4 @@
+{
+  this.outputUnigrams=outputUnigrams;
+  gramSize=new CircularSequence();
+}

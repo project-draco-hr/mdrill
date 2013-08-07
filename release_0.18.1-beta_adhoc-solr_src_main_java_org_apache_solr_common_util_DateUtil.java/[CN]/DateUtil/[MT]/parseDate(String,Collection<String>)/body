@@ -1,0 +1,6 @@
+{
+  if (d.endsWith("Z") && d.length() > 20) {
+    return getThreadLocalDateFormat().parse(d);
+  }
+  return parseDate(d,fmts,null);
+}

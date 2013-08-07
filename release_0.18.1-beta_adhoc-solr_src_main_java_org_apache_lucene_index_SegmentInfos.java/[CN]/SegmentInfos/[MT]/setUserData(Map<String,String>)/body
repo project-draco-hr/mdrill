@@ -1,0 +1,8 @@
+{
+  if (data == null) {
+    userData=Collections.<String,String>emptyMap();
+  }
+ else {
+    userData=data;
+  }
+}

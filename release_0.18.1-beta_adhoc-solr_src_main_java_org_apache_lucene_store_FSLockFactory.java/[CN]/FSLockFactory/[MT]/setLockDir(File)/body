@@ -1,0 +1,4 @@
+{
+  if (this.lockDir != null)   throw new IllegalStateException("You can set the lock directory for this factory only once.");
+  this.lockDir=lockDir;
+}

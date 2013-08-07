@@ -1,0 +1,6 @@
+{
+  if (server.isRunning()) {
+    server.stop();
+    server.join();
+  }
+}

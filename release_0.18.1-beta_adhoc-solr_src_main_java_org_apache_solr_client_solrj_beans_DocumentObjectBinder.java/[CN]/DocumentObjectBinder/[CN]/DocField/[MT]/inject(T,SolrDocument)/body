@@ -1,0 +1,37 @@
+{
+  Object val=getFieldValue(sdoc);
+  if (val == null) {
+    return;
+  }
+  if (isArray && !isContainedInMap) {
+    List list=null;
+    if (val.getClass().isArray()) {
+      set(obj,val);
+      return;
+    }
+ else     if (val instanceof List) {
+      list=(List)val;
+    }
+ else {
+      list=new ArrayList();
+      list.add(val);
+    }
+    set(obj,list.toArray((Object[])Array.newInstance(type,list.size())));
+  }
+ else   if (isList && !isContainedInMap) {
+    if (!(val instanceof List)) {
+      ArrayList list=new ArrayList();
+      list.add(val);
+      val=list;
+    }
+    set(obj,val);
+  }
+ else   if (isContainedInMap) {
+    if (val instanceof Map) {
+      set(obj,val);
+    }
+  }
+ else {
+    set(obj,val);
+  }
+}

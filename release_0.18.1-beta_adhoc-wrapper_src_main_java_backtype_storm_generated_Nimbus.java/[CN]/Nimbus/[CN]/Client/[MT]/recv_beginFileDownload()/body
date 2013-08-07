@@ -1,0 +1,8 @@
+{
+  beginFileDownload_result result=new beginFileDownload_result();
+  receiveBase(result,"beginFileDownload");
+  if (result.is_set_success()) {
+    return result.success;
+  }
+  throw new org.apache.thrift7.TApplicationException(org.apache.thrift7.TApplicationException.MISSING_RESULT,"beginFileDownload failed: unknown result");
+}

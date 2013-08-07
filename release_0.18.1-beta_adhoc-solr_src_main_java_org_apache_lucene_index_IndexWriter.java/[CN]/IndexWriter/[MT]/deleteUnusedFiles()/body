@@ -1,0 +1,5 @@
+{
+  ensureOpen(false);
+  deleter.deletePendingFiles();
+  deleter.revisitPolicy();
+}

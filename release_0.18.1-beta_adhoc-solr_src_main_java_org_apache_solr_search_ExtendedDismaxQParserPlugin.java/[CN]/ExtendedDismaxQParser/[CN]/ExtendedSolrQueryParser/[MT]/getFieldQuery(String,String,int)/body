@@ -1,0 +1,7 @@
+{
+  this.type=QType.PHRASE;
+  this.field=field;
+  this.val=val;
+  this.slop=slop;
+  return getAliasedQuery();
+}

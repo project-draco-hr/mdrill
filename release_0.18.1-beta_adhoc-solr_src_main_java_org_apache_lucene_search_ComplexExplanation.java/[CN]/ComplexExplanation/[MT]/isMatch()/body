@@ -1,0 +1,4 @@
+{
+  Boolean m=getMatch();
+  return (null != m ? m.booleanValue() : super.isMatch());
+}

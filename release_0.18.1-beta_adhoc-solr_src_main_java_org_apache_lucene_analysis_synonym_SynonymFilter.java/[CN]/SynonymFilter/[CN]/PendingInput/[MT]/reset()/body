@@ -1,0 +1,6 @@
+{
+  state=null;
+  consumed=true;
+  keepOrig=false;
+  matched=false;
+}

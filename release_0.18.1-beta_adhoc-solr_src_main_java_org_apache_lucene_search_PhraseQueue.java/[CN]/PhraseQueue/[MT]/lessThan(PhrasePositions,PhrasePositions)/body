@@ -1,0 +1,14 @@
+{
+  if (pp1.doc == pp2.doc)   if (pp1.position == pp2.position)   if (pp1.offset == pp2.offset) {
+    return pp1.ord < pp2.ord;
+  }
+ else {
+    return pp1.offset < pp2.offset;
+  }
+ else {
+    return pp1.position < pp2.position;
+  }
+ else {
+    return pp1.doc < pp2.doc;
+  }
+}

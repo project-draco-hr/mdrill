@@ -1,0 +1,25 @@
+{
+  final long len=this.worker.getMaxOffset();
+  AtomicLong pos=this.pos;
+  while (pos.get() < len) {
+    try {
+      int size=this.worker.read(bf,pos.get());
+      pos.addAndGet(size);
+      return size;
+    }
+ catch (    final ArrayIndexOutOfBoundsException e) {
+      pos.set(this.worker.getNearestOffset(pos.get()));
+    }
+catch (    EOFException e) {
+      log.warn("read eof " + pos.get(),e);
+      long nextpos=this.worker.skipToNext(pos.get());
+      if (nextpos >= 0) {
+        pos.set(nextpos);
+      }
+ else {
+        return -1;
+      }
+    }
+  }
+  return -1;
+}

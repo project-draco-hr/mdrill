@@ -1,0 +1,39 @@
+{
+  if (subpackages == null || subpackages.length == 0 || subpackages == packages) {
+    subpackages=packages;
+    String c=classNameCache.get(cname);
+    if (c != null) {
+      try {
+        return Class.forName(c,true,classLoader);
+      }
+ catch (      ClassNotFoundException e) {
+        log.error("Unable to load cached class-name :  " + c + " for shortname : "+ cname+ e);
+      }
+    }
+  }
+  Class clazz=null;
+  try {
+    return Class.forName(cname,true,classLoader);
+  }
+ catch (  ClassNotFoundException e) {
+    String newName=cname;
+    if (newName.startsWith(project)) {
+      newName=cname.substring(project.length() + 1);
+    }
+    for (    String subpackage : subpackages) {
+      try {
+        String name=base + '.' + subpackage+ newName;
+        log.trace("Trying class name " + name);
+        return clazz=Class.forName(name,true,classLoader);
+      }
+ catch (      ClassNotFoundException e1) {
+      }
+    }
+    throw new SolrException(SolrException.ErrorCode.SERVER_ERROR,"Error loading class '" + cname + "'",e,false);
+  }
+ finally {
+    if (clazz != null && clazz.getClassLoader() == SolrResourceLoader.class.getClassLoader() && !cname.equals(clazz.getName()) && (subpackages.length == 0 || subpackages == packages)) {
+      classNameCache.put(cname,clazz.getName());
+    }
+  }
+}

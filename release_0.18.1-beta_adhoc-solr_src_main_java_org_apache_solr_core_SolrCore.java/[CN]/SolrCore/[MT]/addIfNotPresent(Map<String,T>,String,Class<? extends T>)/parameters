@@ -1,0 +1,3 @@
+Map<String,T> registry
+String name
+Class<? extends T> c

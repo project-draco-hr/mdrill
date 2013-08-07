@@ -1,0 +1,12 @@
+{
+  if (lockExists())   return true;
+  if (!path.exists())   return false;
+  try {
+    boolean obtained=obtain();
+    if (obtained)     release();
+    return !obtained;
+  }
+ catch (  IOException ioe) {
+    return false;
+  }
+}

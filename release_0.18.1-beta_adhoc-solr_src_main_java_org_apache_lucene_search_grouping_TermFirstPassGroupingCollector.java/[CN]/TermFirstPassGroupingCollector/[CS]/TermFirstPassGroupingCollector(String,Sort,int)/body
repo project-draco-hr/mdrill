@@ -1,0 +1,4 @@
+{
+  super(groupSort,topNGroups);
+  this.groupField=groupField;
+}

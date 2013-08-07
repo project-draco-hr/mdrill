@@ -1,0 +1,6 @@
+{
+  skipBuffer=new RAMOutputStream[numberOfSkipLevels];
+  for (int i=0; i < numberOfSkipLevels; i++) {
+    skipBuffer[i]=new RAMOutputStream();
+  }
+}

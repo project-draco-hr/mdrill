@@ -1,0 +1,5 @@
+{
+  SimpleFSIndexInput clone=(SimpleFSIndexInput)super.clone();
+  clone.isClone=true;
+  return clone;
+}

@@ -1,0 +1,15 @@
+{
+  Map<String,String[]> map=new HashMap<String,String[]>();
+  for (Iterator iter=args.entrySet().iterator(); iter.hasNext(); ) {
+    Map.Entry e=(Map.Entry)iter.next();
+    String k=e.getKey().toString();
+    Object v=e.getValue();
+    if (v instanceof String[])     map.put(k,(String[])v);
+ else     map.put(k,new String[]{v.toString()});
+  }
+  if (query != null)   map.put(CommonParams.Q,new String[]{query});
+  if (qtype != null)   map.put(CommonParams.QT,new String[]{qtype});
+  map.put(CommonParams.START,new String[]{Integer.toString(start)});
+  map.put(CommonParams.ROWS,new String[]{Integer.toString(limit)});
+  return new MultiMapSolrParams(map);
+}

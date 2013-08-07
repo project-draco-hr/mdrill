@@ -1,0 +1,6 @@
+{
+  if (fields == null) {
+    fields=new ArrayList<String>();
+  }
+  fields.add(f);
+}

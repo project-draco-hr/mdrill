@@ -1,0 +1,4 @@
+{
+  tokenStart=bufferPosition;
+  return readChar();
+}

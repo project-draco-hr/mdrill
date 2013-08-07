@@ -1,0 +1,14 @@
+{
+  try {
+    if (zkobj.exists(zk,path,false)) {
+      zkobj.setData(zk,path,data);
+    }
+ else {
+      zkobj.mkdirs(zk,PathUtils.parent_path(path));
+      zkobj.createNode(zk,path,data,CreateMode.PERSISTENT);
+    }
+  }
+ catch (  Exception e) {
+    LOG.error("set_data",e);
+  }
+}

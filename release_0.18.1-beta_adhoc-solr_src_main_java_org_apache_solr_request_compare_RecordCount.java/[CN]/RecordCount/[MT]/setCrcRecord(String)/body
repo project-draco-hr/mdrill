@@ -1,0 +1,12 @@
+{
+  int len=newparentGroup.length();
+  CRC32 crc32=new CRC32();
+  crc32.update(new String(newparentGroup).getBytes());
+  int crcvalue=(int)crc32.getValue();
+  int hashCode=newparentGroup.hashCode();
+  ArrayList<Integer> key=new ArrayList<Integer>(3);
+  key.add(crcvalue);
+  key.add(len);
+  key.add(hashCode);
+  this.adduniq(key);
+}

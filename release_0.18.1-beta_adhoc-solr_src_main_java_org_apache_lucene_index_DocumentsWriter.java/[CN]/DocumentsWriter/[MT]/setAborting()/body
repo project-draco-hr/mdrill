@@ -1,0 +1,6 @@
+{
+  if (infoStream != null) {
+    message("setAborting");
+  }
+  aborting=true;
+}

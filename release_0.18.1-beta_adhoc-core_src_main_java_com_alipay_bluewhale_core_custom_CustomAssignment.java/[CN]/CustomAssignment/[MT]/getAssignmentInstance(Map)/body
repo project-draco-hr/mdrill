@@ -1,0 +1,12 @@
+{
+  String customClassName=null;
+  Object repClassName=topology_conf.get(TOPOLOGY_CUSTOM_ASSIGNMENT);
+  if (repClassName != null) {
+    customClassName=String.valueOf(repClassName);
+  }
+  LOG.info("CustomAssignment:" + customClassName);
+  if (customClassName == null) {
+    return null;
+  }
+  return instance(customClassName);
+}

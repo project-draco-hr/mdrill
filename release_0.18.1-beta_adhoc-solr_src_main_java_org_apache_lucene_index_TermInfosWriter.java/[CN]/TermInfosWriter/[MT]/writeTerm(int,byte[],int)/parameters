@@ -1,0 +1,3 @@
+int fieldNumber
+byte[] termBytes
+int termBytesLength

@@ -1,0 +1,4 @@
+{
+  String sval=f.stringValue();
+  writer.writeFloat(name,NumberUtils.SortableStr2float(sval));
+}

@@ -1,0 +1,3 @@
+{
+  queryTerms.addAll(terms);
+}

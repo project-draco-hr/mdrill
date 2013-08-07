@@ -1,0 +1,3 @@
+Query query
+Filter luceneFilter
+List<Collector> collectors

@@ -1,0 +1,5 @@
+{
+  for (  SearchGroupDocs<GROUP_VALUE_TYPE> group : groupMap.values()) {
+    group.collector.setScorer(scorer);
+  }
+}

@@ -1,0 +1,10 @@
+{
+  if (!isClone && file.isOpen) {
+    try {
+      channel.close();
+    }
+  finally {
+      file.close();
+    }
+  }
+}

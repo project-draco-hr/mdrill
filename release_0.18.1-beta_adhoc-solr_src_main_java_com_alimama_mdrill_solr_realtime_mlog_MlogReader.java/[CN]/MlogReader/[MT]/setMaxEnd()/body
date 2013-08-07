@@ -1,0 +1,19 @@
+{
+  long endfile=this.list.get(this.list.size() - 1);
+  String strendfile=this.filepath + "/" + MLogUtil.parseFile(endfile);
+  try {
+    MLogSigmentReader sigread=new MLogSigmentReader(this.conf,strendfile,endfile);
+    while (true) {
+      try {
+        sigread.readByte();
+      }
+ catch (      IOException e) {
+        break;
+      }
+    }
+    this.maxEnd=sigread.getPos();
+    sigread.close();
+  }
+ catch (  IOException e) {
+  }
+}

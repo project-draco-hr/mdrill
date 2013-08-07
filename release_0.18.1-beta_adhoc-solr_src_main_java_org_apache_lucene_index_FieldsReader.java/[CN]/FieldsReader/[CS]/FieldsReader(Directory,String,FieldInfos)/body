@@ -1,0 +1,3 @@
+{
+  this(d,segment,fn,BufferedIndexInput.BUFFER_SIZE,-1,0);
+}

@@ -1,0 +1,2 @@
+Map<DocFieldConsumerPerThread,Collection<DocFieldConsumerPerField>> threadsAndFields
+SegmentWriteState state

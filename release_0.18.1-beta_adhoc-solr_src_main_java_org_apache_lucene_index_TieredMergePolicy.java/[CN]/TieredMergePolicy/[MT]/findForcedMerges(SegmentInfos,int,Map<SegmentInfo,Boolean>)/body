@@ -1,0 +1,58 @@
+{
+  if (verbose()) {
+    message("findForcedMerges maxSegmentCount=" + maxSegmentCount + " infos="+ writer.get().segString(infos)+ " segmentsToMerge="+ segmentsToMerge);
+  }
+  List<SegmentInfo> eligible=new ArrayList<SegmentInfo>();
+  boolean forceMergeRunning=false;
+  final Collection<SegmentInfo> merging=writer.get().getMergingSegments();
+  boolean segmentIsOriginal=false;
+  for (  SegmentInfo info : infos) {
+    final Boolean isOriginal=segmentsToMerge.get(info);
+    if (isOriginal != null) {
+      segmentIsOriginal=isOriginal;
+      if (!merging.contains(info)) {
+        eligible.add(info);
+      }
+ else {
+        forceMergeRunning=true;
+      }
+    }
+  }
+  if (eligible.size() == 0) {
+    return null;
+  }
+  if ((maxSegmentCount > 1 && eligible.size() <= maxSegmentCount) || (maxSegmentCount == 1 && eligible.size() == 1 && (!segmentIsOriginal || isMerged(eligible.get(0))))) {
+    if (verbose()) {
+      message("already merged");
+    }
+    return null;
+  }
+  Collections.sort(eligible,segmentByteSizeDescending);
+  if (verbose()) {
+    message("eligible=" + eligible);
+    message("forceMergeRunning=" + forceMergeRunning);
+  }
+  int end=eligible.size();
+  MergeSpecification spec=null;
+  while (end >= maxMergeAtOnceExplicit + maxSegmentCount - 1) {
+    if (spec == null) {
+      spec=new MergeSpecification();
+    }
+    final OneMerge merge=new OneMerge(eligible.subList(end - maxMergeAtOnceExplicit,end));
+    if (verbose()) {
+      message("add merge=" + writer.get().segString(merge.segments));
+    }
+    spec.add(merge);
+    end-=maxMergeAtOnceExplicit;
+  }
+  if (spec == null && !forceMergeRunning) {
+    final int numToMerge=end - maxSegmentCount + 1;
+    final OneMerge merge=new OneMerge(eligible.subList(end - numToMerge,end));
+    if (verbose()) {
+      message("add final merge=" + merge.segString(writer.get().getDirectory()));
+    }
+    spec=new MergeSpecification();
+    spec.add(merge);
+  }
+  return spec;
+}

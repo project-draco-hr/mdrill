@@ -1,0 +1,27 @@
+{
+switch (e) {
+case STRING:
+    return "STRING";
+case LONG:
+  return "LONG";
+case NUMBER:
+return "NUMBER";
+case BIGNUMBER:
+return "BIGNUMBER";
+case BOOLEAN:
+return "BOOLEAN";
+case NULL:
+return "NULL";
+case OBJECT_START:
+return "OBJECT_START";
+case OBJECT_END:
+return "OBJECT_END";
+case ARRAY_START:
+return "ARRAY_START";
+case ARRAY_END:
+return "ARRAY_END";
+case EOF:
+return "EOF";
+}
+return "Unknown: " + e;
+}

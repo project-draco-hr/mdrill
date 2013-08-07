@@ -1,0 +1,6 @@
+Map conf
+String worker_id
+Integer port
+String topologyId
+CopyOnWriteArraySet<Integer> task_ids
+AtomicBoolean active

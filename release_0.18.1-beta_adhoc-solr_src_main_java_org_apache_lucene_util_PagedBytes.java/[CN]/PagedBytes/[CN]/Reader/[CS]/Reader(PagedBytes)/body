@@ -1,0 +1,13 @@
+{
+  blocks=new byte[pagedBytes.blocks.size()][];
+  for (int i=0; i < blocks.length; i++) {
+    blocks[i]=pagedBytes.blocks.get(i);
+  }
+  blockEnds=new int[blocks.length];
+  for (int i=0; i < blockEnds.length; i++) {
+    blockEnds[i]=pagedBytes.blockEnd.get(i);
+  }
+  blockBits=pagedBytes.blockBits;
+  blockMask=pagedBytes.blockMask;
+  blockSize=pagedBytes.blockSize;
+}

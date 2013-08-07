@@ -1,0 +1,4 @@
+{
+  if (!(o instanceof CachingWrapperFilter))   return false;
+  return this.filter.equals(((CachingWrapperFilter)o).filter);
+}

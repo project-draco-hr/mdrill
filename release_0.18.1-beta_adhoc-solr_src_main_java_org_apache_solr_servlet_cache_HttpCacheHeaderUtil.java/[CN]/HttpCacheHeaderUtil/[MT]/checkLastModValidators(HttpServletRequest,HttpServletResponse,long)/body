@@ -1,0 +1,17 @@
+{
+  try {
+    final long modifiedSince=req.getDateHeader("If-Modified-Since");
+    if (modifiedSince != -1L && lastMod <= modifiedSince) {
+      sendNotModified(resp);
+      return true;
+    }
+    final long unmodifiedSince=req.getDateHeader("If-Unmodified-Since");
+    if (unmodifiedSince != -1L && lastMod > unmodifiedSince) {
+      sendPreconditionFailed(resp);
+      return true;
+    }
+  }
+ catch (  IllegalArgumentException iae) {
+  }
+  return false;
+}

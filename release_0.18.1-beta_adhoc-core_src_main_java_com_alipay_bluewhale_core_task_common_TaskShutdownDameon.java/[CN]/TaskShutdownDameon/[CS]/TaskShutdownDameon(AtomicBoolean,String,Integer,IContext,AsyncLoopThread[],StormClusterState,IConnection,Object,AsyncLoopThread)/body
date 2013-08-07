@@ -1,0 +1,11 @@
+{
+  this.active=active;
+  this.storm_id=storm_id;
+  this.task_id=task_id;
+  this.mq_context=mq_context;
+  this.all_threads=all_threads;
+  this.zkCluster=zkCluster;
+  this.puller=puller;
+  this.task_obj=task_obj;
+  this.heartbeat_thread=heartbeat_thread;
+}

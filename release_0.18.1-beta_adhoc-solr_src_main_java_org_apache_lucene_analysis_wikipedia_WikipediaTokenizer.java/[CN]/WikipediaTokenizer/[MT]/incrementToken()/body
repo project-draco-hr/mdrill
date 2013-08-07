@@ -1,0 +1,25 @@
+{
+  if (tokens != null && tokens.hasNext()) {
+    AttributeSource.State state=tokens.next();
+    restoreState(state);
+    return true;
+  }
+  clearAttributes();
+  int tokenType=scanner.getNextToken();
+  if (tokenType == WikipediaTokenizerImpl.YYEOF) {
+    return false;
+  }
+  String type=WikipediaTokenizerImpl.TOKEN_TYPES[tokenType];
+  if (tokenOutput == TOKENS_ONLY || untokenizedTypes.contains(type) == false) {
+    setupToken();
+  }
+ else   if (tokenOutput == UNTOKENIZED_ONLY && untokenizedTypes.contains(type) == true) {
+    collapseTokens(tokenType);
+  }
+ else   if (tokenOutput == BOTH) {
+    collapseAndSaveTokens(tokenType,type);
+  }
+  posIncrAtt.setPositionIncrement(scanner.getPositionIncrement());
+  typeAtt.setType(type);
+  return true;
+}

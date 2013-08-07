@@ -1,0 +1,2 @@
+IndexDeletionPolicy primary
+Map<String,String> snapshotsInfo

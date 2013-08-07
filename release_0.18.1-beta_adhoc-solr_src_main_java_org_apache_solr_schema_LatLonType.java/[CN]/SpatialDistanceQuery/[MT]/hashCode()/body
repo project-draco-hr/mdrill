@@ -1,0 +1,5 @@
+{
+  long hash=Double.doubleToLongBits(latCenter);
+  hash=hash * 31 + Double.doubleToLongBits(lonMin);
+  return (int)(hash >> 32 + hash);
+}

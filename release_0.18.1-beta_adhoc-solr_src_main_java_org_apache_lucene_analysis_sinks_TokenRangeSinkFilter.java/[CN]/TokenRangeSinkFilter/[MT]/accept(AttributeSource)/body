@@ -1,0 +1,11 @@
+{
+  try {
+    if (count >= lower && count < upper) {
+      return true;
+    }
+    return false;
+  }
+  finally {
+    count++;
+  }
+}

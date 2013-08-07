@@ -1,0 +1,17 @@
+{
+  for (Iterator iter=union.getPlainSelects().iterator(); iter.hasNext(); ) {
+    buffer.append("(");
+    PlainSelect plainSelect=(PlainSelect)iter.next();
+    plainSelect.accept(this);
+    buffer.append(")");
+    if (iter.hasNext()) {
+      buffer.append(" UNION ");
+    }
+  }
+  if (union.getOrderByElements() != null) {
+    deparseOrderBy(union.getOrderByElements());
+  }
+  if (union.getLimit() != null) {
+    deparseLimit(union.getLimit());
+  }
+}

@@ -1,0 +1,5 @@
+{
+  this.reversed=new int[numberOfSorts];
+  this.compIDXEnd=numberOfSorts - 1;
+  temporalResult=new TemporalResult();
+}

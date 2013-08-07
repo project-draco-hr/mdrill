@@ -1,0 +1,5 @@
+{
+  Entry<K,V> e=table[bucketIndex];
+  table[bucketIndex]=new Entry<K,V>(hash,key,value,e);
+  size++;
+}

@@ -1,0 +1,3 @@
+{
+  return documentAnalysisByKey.entrySet().iterator();
+}

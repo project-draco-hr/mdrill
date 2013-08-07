@@ -1,0 +1,53 @@
+{
+  ensureOpen();
+  boolean changed=false;
+  IndexReader[] newSubReaders=new IndexReader[subReaders.length];
+  boolean success=false;
+  try {
+    for (int i=0; i < subReaders.length; i++) {
+      if (doClone) {
+        newSubReaders[i]=(IndexReader)subReaders[i].clone();
+        changed=true;
+      }
+ else {
+        final IndexReader newSubReader=IndexReader.openIfChanged(subReaders[i]);
+        if (newSubReader != null) {
+          newSubReaders[i]=newSubReader;
+          changed=true;
+        }
+ else {
+          newSubReaders[i]=subReaders[i];
+        }
+      }
+    }
+    success=true;
+  }
+  finally {
+    if (!success && changed) {
+      for (int i=0; i < newSubReaders.length; i++) {
+        if (newSubReaders[i] != subReaders[i]) {
+          try {
+            newSubReaders[i].close();
+          }
+ catch (          IOException ignore) {
+          }
+        }
+      }
+    }
+  }
+  if (changed) {
+    boolean[] newDecrefOnClose=new boolean[subReaders.length];
+    for (int i=0; i < subReaders.length; i++) {
+      if (newSubReaders[i] == subReaders[i]) {
+        newSubReaders[i].incRef();
+        newDecrefOnClose[i]=true;
+      }
+    }
+    MultiReader mr=new MultiReader(newSubReaders);
+    mr.decrefOnClose=newDecrefOnClose;
+    return mr;
+  }
+ else {
+    return null;
+  }
+}

@@ -1,0 +1,7 @@
+{
+  int code=0;
+  for (State state=getCurrentState(); state != null; state=state.next) {
+    code=code * 31 + state.attribute.hashCode();
+  }
+  return code;
+}

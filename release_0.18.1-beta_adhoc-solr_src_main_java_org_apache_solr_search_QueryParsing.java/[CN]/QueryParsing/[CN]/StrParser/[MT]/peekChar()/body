@@ -1,0 +1,3 @@
+{
+  return pos < end ? val.charAt(pos) : 0;
+}

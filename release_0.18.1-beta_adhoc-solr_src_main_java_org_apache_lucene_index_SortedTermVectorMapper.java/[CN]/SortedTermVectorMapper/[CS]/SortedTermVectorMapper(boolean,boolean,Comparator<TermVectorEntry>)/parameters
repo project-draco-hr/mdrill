@@ -1,0 +1,3 @@
+boolean ignoringPositions
+boolean ignoringOffsets
+Comparator<TermVectorEntry> comparator

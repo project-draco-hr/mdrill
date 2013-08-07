@@ -1,0 +1,9 @@
+{
+  long v=in.readVLong();
+  if (v == 0) {
+    return NO_OUTPUT;
+  }
+ else {
+    return v;
+  }
+}

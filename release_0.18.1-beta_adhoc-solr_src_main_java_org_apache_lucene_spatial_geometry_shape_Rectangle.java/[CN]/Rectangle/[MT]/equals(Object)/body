@@ -1,0 +1,15 @@
+{
+  if (this == obj)   return true;
+  if (obj == null)   return false;
+  if (getClass() != obj.getClass())   return false;
+  Rectangle other=(Rectangle)obj;
+  if (ptMax == null) {
+    if (other.ptMax != null)     return false;
+  }
+ else   if (!ptMax.equals(other.ptMax))   return false;
+  if (ptMin == null) {
+    if (other.ptMin != null)     return false;
+  }
+ else   if (!ptMin.equals(other.ptMin))   return false;
+  return true;
+}

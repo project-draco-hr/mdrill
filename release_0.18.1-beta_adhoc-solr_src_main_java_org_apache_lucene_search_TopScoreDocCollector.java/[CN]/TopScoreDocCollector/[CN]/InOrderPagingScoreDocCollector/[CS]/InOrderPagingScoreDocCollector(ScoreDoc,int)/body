@@ -1,0 +1,4 @@
+{
+  super(numHits);
+  this.after=after;
+}

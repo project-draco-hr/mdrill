@@ -1,0 +1,3 @@
+{
+  return this.get(TermsParams.TERMS_LOWER,"");
+}

@@ -1,0 +1,7 @@
+{
+  HashSet<Integer> sets=new HashSet<Integer>();
+  for (  Integer i : valid_ports) {
+    sets.add(i);
+  }
+  return launch_virtual_port(context,url,daemon,kill_fn,priority,sets);
+}

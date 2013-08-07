@@ -1,0 +1,6 @@
+String field
+FieldCache.ShortParser parser
+Short lowerVal
+Short upperVal
+boolean includeLower
+boolean includeUpper

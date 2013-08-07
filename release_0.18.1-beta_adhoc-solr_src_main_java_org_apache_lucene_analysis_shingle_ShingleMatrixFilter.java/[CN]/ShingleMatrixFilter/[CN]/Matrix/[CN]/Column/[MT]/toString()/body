@@ -1,0 +1,3 @@
+{
+  return "Column{" + "first=" + first + ", last="+ last+ ", rows="+ rows+ '}';
+}

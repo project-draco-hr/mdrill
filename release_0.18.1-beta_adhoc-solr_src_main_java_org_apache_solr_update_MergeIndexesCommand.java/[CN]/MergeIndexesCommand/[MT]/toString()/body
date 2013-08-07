@@ -1,0 +1,11 @@
+{
+  StringBuilder sb=new StringBuilder(commandName);
+  sb.append(':');
+  if (readers != null && readers.length > 0) {
+    sb.append(readers[0].directory());
+    for (int i=1; i < readers.length; i++) {
+      sb.append(",").append(readers[i].directory());
+    }
+  }
+  return sb.toString();
+}

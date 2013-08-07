@@ -1,0 +1,19 @@
+{
+  int offset=params.getFieldInt(field,FacetParams.FACET_OFFSET,0);
+  int limit=params.getFieldInt(field,FacetParams.FACET_LIMIT,100);
+  if (limit == 0)   return new NamedList();
+  boolean missing=params.getFieldBool(field,FacetParams.FACET_MISSING,false);
+  String sort=params.getFieldParam(field,FacetParams.FACET_SORT,limit > 0 ? FacetParams.FACET_SORT_COUNT : FacetParams.FACET_SORT_INDEX);
+  String prefix=params.getFieldParam(field,FacetParams.FACET_PREFIX);
+  SchemaField sf=searcher.getSchema().getField(field);
+  FieldType ft=sf.getType();
+  String method=params.getFieldParam(field,FacetParams.FACET_METHOD);
+  boolean enumMethod=FacetParams.FACET_METHOD_enum.equals(method);
+  if (method == null && ft instanceof BoolField) {
+    enumMethod=true;
+  }
+  if (TrieField.getMainValuePrefix(ft) != null) {
+    enumMethod=false;
+  }
+  return getTermCountsLimit(field,dc,offset,limit,mincount,missing,sort,prefix,enumMethod,iscross,isrow);
+}

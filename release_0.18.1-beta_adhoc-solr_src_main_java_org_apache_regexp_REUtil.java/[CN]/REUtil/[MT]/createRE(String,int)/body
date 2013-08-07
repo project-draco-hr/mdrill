@@ -1,0 +1,6 @@
+{
+  if (expression.startsWith(complexPrefix)) {
+    return new RE(expression.substring(complexPrefix.length()),matchFlags);
+  }
+  return new RE(RE.simplePatternToFullRegularExpression(expression),matchFlags);
+}

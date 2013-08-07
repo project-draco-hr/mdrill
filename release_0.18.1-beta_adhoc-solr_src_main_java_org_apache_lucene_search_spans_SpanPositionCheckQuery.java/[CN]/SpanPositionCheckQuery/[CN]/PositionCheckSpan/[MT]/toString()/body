@@ -1,0 +1,3 @@
+{
+  return "spans(" + SpanPositionCheckQuery.this.toString() + ")";
+}

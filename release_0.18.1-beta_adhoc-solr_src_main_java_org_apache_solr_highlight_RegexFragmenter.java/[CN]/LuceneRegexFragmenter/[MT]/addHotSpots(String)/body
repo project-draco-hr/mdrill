@@ -1,0 +1,16 @@
+{
+  ArrayList<Integer> temphs=new ArrayList<Integer>(text.length() / targetFragChars);
+  Matcher match=textRE.matcher(text);
+  int cur=0;
+  while (match.find() && cur < maxAnalyzedChars) {
+    int start=match.start(), end=match.end();
+    temphs.add(start);
+    temphs.add(end);
+    cur=end;
+  }
+  hotspots=new int[temphs.size()];
+  for (int i=0; i < temphs.size(); i++) {
+    hotspots[i]=temphs.get(i);
+  }
+  Arrays.sort(hotspots);
+}

@@ -1,0 +1,3 @@
+{
+  return createRE(expression,RE.MATCH_NORMAL);
+}

@@ -1,0 +1,8 @@
+{
+  if (set == EMPTY_SET)   return EMPTY_SET;
+  if (set instanceof CharArraySet) {
+    final CharArraySet source=(CharArraySet)set;
+    return new CharArraySet(CharArrayMap.copy(source.map.matchVersion,source.map));
+  }
+  return new CharArraySet(matchVersion,set,false);
+}

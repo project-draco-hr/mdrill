@@ -1,0 +1,4 @@
+{
+  field=intern ? StringHelper.intern(fld) : fld;
+  text=txt;
+}

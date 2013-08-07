@@ -1,0 +1,28 @@
+{
+  initialize(shardHits.length);
+  this.shardHits=new ScoreDoc[shardHits.length][];
+  for (int shardIDX=0; shardIDX < shardHits.length; shardIDX++) {
+    final ScoreDoc[] shard=shardHits[shardIDX].scoreDocs;
+    if (shard != null) {
+      this.shardHits[shardIDX]=shard;
+      for (int hitIDX=0; hitIDX < shard.length; hitIDX++) {
+        final ScoreDoc sd=shard[hitIDX];
+        if (!(sd instanceof FieldDoc)) {
+          throw new IllegalArgumentException("shard " + shardIDX + " was not sorted by the provided Sort (expected FieldDoc but got ScoreDoc)");
+        }
+        final FieldDoc fd=(FieldDoc)sd;
+        if (fd.fields == null) {
+          throw new IllegalArgumentException("shard " + shardIDX + " did not set sort field values (FieldDoc.fields is null); you must pass fillFields=true to IndexSearcher.search on each shard");
+        }
+      }
+    }
+  }
+  final SortField[] sortFields=sort.getSort();
+  comparators=new FieldComparator[sortFields.length];
+  reverseMul=new int[sortFields.length];
+  for (int compIDX=0; compIDX < sortFields.length; compIDX++) {
+    final SortField sortField=sortFields[compIDX];
+    comparators[compIDX]=sortField.getComparator(1,compIDX);
+    reverseMul[compIDX]=sortField.getReverse() ? -1 : 1;
+  }
+}

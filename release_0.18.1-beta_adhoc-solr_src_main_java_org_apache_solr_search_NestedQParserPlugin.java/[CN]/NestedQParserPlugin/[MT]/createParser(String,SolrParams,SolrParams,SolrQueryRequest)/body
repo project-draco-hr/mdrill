@@ -1,0 +1,21 @@
+{
+  return new QParser(qstr,localParams,params,req){
+    QParser baseParser;
+    ValueSource vs;
+    String b;
+    @Override public Query parse() throws ParseException {
+      baseParser=subQuery(localParams.get(QueryParsing.V),null);
+      return baseParser.getQuery();
+    }
+    @Override public String[] getDefaultHighlightFields(){
+      return baseParser.getDefaultHighlightFields();
+    }
+    @Override public Query getHighlightQuery() throws ParseException {
+      return baseParser.getHighlightQuery();
+    }
+    @Override public void addDebugInfo(    NamedList<Object> debugInfo){
+      baseParser.addDebugInfo(debugInfo);
+    }
+  }
+;
+}

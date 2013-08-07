@@ -1,0 +1,28 @@
+{
+  final int def=defVal;
+  return new StringIndexDocValues(this,reader,field){
+    @Override protected String toTerm(    String readableValue){
+      return NumberUtils.int2sortableStr(readableValue);
+    }
+    @Override public float floatVal(    int doc){
+      return (float)intVal(doc);
+    }
+    @Override public int intVal(    int doc){
+      int ord=order[doc];
+      return ord == 0 ? def : NumberUtils.SortableStr2int(lookup[ord],0,3);
+    }
+    @Override public long longVal(    int doc){
+      return (long)intVal(doc);
+    }
+    @Override public double doubleVal(    int doc){
+      return (double)intVal(doc);
+    }
+    @Override public String strVal(    int doc){
+      return Integer.toString(intVal(doc));
+    }
+    @Override public String toString(    int doc){
+      return description() + '=' + intVal(doc);
+    }
+  }
+;
+}

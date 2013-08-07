@@ -1,0 +1,6 @@
+{
+  final int index=this.indexOf(si);
+  if (index >= 0) {
+    this.remove(index);
+  }
+}

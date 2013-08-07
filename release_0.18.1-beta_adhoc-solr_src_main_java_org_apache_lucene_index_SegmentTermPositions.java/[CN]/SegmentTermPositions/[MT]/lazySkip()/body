@@ -1,0 +1,14 @@
+{
+  if (proxStream == null) {
+    proxStream=(IndexInput)parent.core.proxStream.clone();
+  }
+  skipPayload();
+  if (lazySkipPointer != -1) {
+    proxStream.seek(lazySkipPointer);
+    lazySkipPointer=-1;
+  }
+  if (lazySkipProxCount != 0) {
+    skipPositions(lazySkipProxCount);
+    lazySkipProxCount=0;
+  }
+}

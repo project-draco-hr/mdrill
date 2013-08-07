@@ -1,0 +1,5 @@
+{
+  LOG.info("Delaying event " + oldStatus.getStatusType().getStatus() + " for "+ oldStatus.getKillTimeSecs()+ " secs for "+ topologyid);
+  data.getScheduExec().schedule(new DelayEventRunnable(data,topologyid,StatusType.remove),oldStatus.getKillTimeSecs(),TimeUnit.SECONDS);
+  return null;
+}

@@ -1,0 +1,2 @@
+Collection<Document> docs
+Analyzer analyzer

@@ -1,0 +1,3 @@
+{
+  this(dir,name,posname,null);
+}

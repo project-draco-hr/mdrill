@@ -1,0 +1,28 @@
+{
+  if (systemId == null)   return null;
+  try {
+    final URI uri=resolveRelativeURI(baseURI,systemId);
+    if (RESOURCE_LOADER_URI_SCHEME.equals(uri.getScheme())) {
+      String path=uri.getPath(), authority=uri.getAuthority();
+      if (!RESOURCE_LOADER_AUTHORITY_ABSOLUTE.equals(authority)) {
+        path=path.substring(1);
+      }
+      try {
+        final InputSource is=new InputSource(loader.openResource(path));
+        is.setSystemId(uri.toASCIIString());
+        is.setPublicId(publicId);
+        return is;
+      }
+ catch (      RuntimeException re) {
+        throw (IOException)(new IOException(re.getMessage()).initCause(re));
+      }
+    }
+ else {
+      return null;
+    }
+  }
+ catch (  URISyntaxException use) {
+    log.warn("An URI systax problem occurred during resolving SystemId, falling back to default resolver",use);
+    return null;
+  }
+}

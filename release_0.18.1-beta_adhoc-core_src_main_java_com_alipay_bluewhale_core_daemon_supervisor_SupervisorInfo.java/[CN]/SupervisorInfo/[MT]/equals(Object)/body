@@ -1,0 +1,6 @@
+{
+  if (hb instanceof SupervisorInfo && ((SupervisorInfo)hb).timeSecs.equals(timeSecs) && ((SupervisorInfo)hb).hostName.equals(hostName)&& ((SupervisorInfo)hb).workPorts.equals(workPorts)&& ((SupervisorInfo)hb).uptimeSecs.equals(uptimeSecs)) {
+    return true;
+  }
+  return false;
+}
