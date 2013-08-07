@@ -1,4 +1,7 @@
 {
+  if (outputQuickTii != null) {
+    outputQuickTii.close();
+  }
   try {
     outputSize.writeLong(size);
   }
