@@ -1,9 +1,0 @@
-{
-  String minday=this.DatePlus(this.yyyymmdd,delay);
-  Date min=this.transDay(minday);
-  Date start=this.transDay(starday);
-  if (min.compareTo(start) >= 0) {
-    return minday;
-  }
-  return starday;
-}

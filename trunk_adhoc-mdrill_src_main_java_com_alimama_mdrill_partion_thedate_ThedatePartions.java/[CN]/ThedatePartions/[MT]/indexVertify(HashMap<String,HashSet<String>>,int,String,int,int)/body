@@ -1,0 +1,21 @@
+{
+  String upFinishyyyymmdd=this.getUpdateFinishDay(dayDelay,startday);
+  HashMap<String,String> rtn=new HashMap<String,String>();
+  for (  Entry<String,HashSet<String>> e : partions.entrySet()) {
+    String partion=e.getKey();
+    HashSet<String> days=e.getValue();
+    boolean writeDay=false;
+    for (    String day : days) {
+      if (day.compareTo(upFinishyyyymmdd) >= 0) {
+        writeDay=true;
+        break;
+      }
+    }
+    String partionvertify="partionV" + MdrillPartions.PARTION_VERSION + "@001@"+ partion+ "@"+ shards+ "@"+ days.size()+ "@"+ days.hashCode();
+    if (writeDay) {
+      partionvertify+="@" + this.getToday() + "@"+ upFinishyyyymmdd;
+    }
+    rtn.put(partion,partionvertify);
+  }
+  return rtn;
+}

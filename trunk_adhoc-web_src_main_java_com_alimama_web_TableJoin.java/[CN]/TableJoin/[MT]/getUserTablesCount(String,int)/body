@@ -7,12 +7,13 @@
   MySqlConn m_fpsql=new MySqlConn(connstr,uname,passwd);
   Connection conn=m_fpsql.getConn();
   Statement stmt=conn.createStatement();
-  String strsqlJoin="select count(*) as cnt" + " from adhoc_joins where username='" + username.replaceAll("'","") + "' and status<>'DEL' ";
+  String strsqlJoin="select count(*) as cnt" + " from adhoc_joins where username='" + username.replaceAll("'","") + "' and status<>'DEL' and (copy_uuid is null or copy_uuid='')  ";
   StringBuffer bufferSql=new StringBuffer();
   if (type == 0) {
+    String strsqlJoin2="select count(*) as cnt" + " from adhoc_joins where username='" + username.replaceAll("'","") + "' and status<>'DEL' and (copy_uuid is not null and copy_uuid<>'')  ";
     String strsqlDownload="select count(*) as cnt" + " from adhoc_download where username='" + username.replaceAll("'","") + "' and status<>'DEL' ";
     bufferSql.append("select sum(cnt) as cnt");
-    bufferSql.append(" from (" + strsqlJoin + " union "+ strsqlDownload+ ") tmp  limit 10 ");
+    bufferSql.append(" from (" + strsqlJoin + " union "+ strsqlDownload+ " union "+ strsqlJoin2+ ") tmp  limit 10 ");
   }
   if (type == 1) {
     bufferSql.append(strsqlJoin + " and status='INDEX' order by createtime desc limit 10 ");

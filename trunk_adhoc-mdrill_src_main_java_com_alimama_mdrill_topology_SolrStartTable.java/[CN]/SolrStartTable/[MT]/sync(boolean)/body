@@ -1,5 +1,4 @@
 {
-  this.partstat.resetDayPartion(this.part.parttype);
   try {
     this.resetFileSystem();
     this.validate();

@@ -3,7 +3,7 @@
     return;
   }
   try {
-    this.partstat.setupRecordCount(this.solrservice,this.tablename,this.part);
+    this.partstat.fetchCount(this.solrservice,this.tablename,this.part);
     statcollect.setLastTime(System.currentTimeMillis());
     this.zkHeatbeat();
   }

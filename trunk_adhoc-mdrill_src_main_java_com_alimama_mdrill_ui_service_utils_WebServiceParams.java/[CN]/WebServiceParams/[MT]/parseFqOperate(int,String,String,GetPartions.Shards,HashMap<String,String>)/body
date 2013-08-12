@@ -1,7 +1,4 @@
 {
-  if (key.equals("thedate")) {
-    value2=value2.replaceAll("-","");
-  }
   String ft="string";
   if (fieldColumntypeMap != null && fieldColumntypeMap.containsKey(key)) {
     ft=fieldColumntypeMap.get(key);

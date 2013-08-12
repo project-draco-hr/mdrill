@@ -1,0 +1,20 @@
+{
+  HashSet<String> rtn=new HashSet<String>();
+  JSONArray jsonStr=new JSONArray(queryStr.trim());
+  for (int j=0; j < jsonStr.length(); j++) {
+    JSONObject obj=jsonStr.getJSONObject(j);
+    if (obj.has(this.fieldname)) {
+      JSONObject thedate=obj.getJSONObject(this.fieldname);
+      Integer operate=Integer.parseInt(thedate.get("operate").toString());
+      OperateType optype=WebServiceParams.parseOperateType(operate);
+      String[] val=WebServiceParams.parseFqValue(thedate.getString("value"),operate).split(",");
+      if (optype.equals(OperateType.eq) || optype.equals(OperateType.in)) {
+        for (        String dir : val) {
+          rtn.add(dir);
+        }
+      }
+    }
+  }
+  String[] rtnarr=new String[rtn.size()];
+  return rtn.toArray(rtnarr);
+}

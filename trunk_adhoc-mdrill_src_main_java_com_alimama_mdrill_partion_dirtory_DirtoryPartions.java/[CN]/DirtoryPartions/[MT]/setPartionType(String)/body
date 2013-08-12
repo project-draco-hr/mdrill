@@ -1,0 +1,7 @@
+{
+  this.parttype=parttype;
+  String[] params=this.parttype.split("@");
+  if (params.length > 1) {
+    this.fieldname=params[1];
+  }
+}

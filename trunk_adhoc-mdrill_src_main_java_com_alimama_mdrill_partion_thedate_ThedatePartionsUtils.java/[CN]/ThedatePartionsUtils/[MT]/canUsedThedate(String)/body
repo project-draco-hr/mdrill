@@ -1,0 +1,3 @@
+{
+  return parttype.equals("day") || parttype.equals("default") || parttype.equals("month");
+}

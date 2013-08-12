@@ -1,0 +1,6 @@
+{
+  StatListenerInterface rtn=new ThedateListener();
+  rtn.setPartionType(this.parttype);
+  rtn.init();
+  return rtn;
+}

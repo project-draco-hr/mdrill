@@ -1,0 +1,6 @@
+{
+  HashMap<String,ShardCount> daystat=new HashMap<String,SolrInfo.ShardCount>();
+  daystat.putAll(this.getSmallestDaycount());
+  daystat.putAll(this.getBiggestDaycount());
+  return daystat;
+}

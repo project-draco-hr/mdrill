@@ -7,6 +7,8 @@
   this.taskIndex=taskIndex;
   this.tablename=tblName;
   this.part=GetPartions.partion(this.tablename);
+  this.mdrillpartion=MdrillPartions.INSTANCE(this.part.parttype);
+  this.partstat=this.mdrillpartion.getStatObj();
   this.taskid=taskid;
   this.solrservice=solrservice;
   this.diskDirList=diskList;

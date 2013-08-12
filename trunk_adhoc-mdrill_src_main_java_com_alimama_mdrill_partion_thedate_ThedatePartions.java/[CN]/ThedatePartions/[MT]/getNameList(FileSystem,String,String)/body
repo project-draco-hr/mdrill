@@ -1,0 +1,15 @@
+{
+  HashSet<String> rtn=new HashSet<String>();
+  Date start=this.transDay(startPoint);
+  FileStatus[] list=fs.listStatus(new Path(inputBase));
+  if (list != null) {
+    for (    FileStatus f : list) {
+      String name=f.getPath().getName().trim();
+      name=JobIndexPublic.parseThedate(name);
+      if (name != null && !name.isEmpty() && this.transDay(name).compareTo(start) >= 0) {
+        rtn.add(name);
+      }
+    }
+  }
+  return rtn;
+}
