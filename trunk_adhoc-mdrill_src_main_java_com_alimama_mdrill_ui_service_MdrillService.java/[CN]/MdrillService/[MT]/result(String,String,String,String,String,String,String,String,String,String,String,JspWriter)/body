@@ -7,7 +7,6 @@
   new Thread(hb).start();
   try {
     queryStr=WebServiceParams.query(queryStr);
-    queryStr=WebServiceParams.queryadHoc(queryStr,part.parttype);
     String logParams2=logRequest(projectName,callback,startStr,rowsStr,queryStr,dist,fl,groupby,sort,order,leftjoin);
     LOG.info("query:" + logParams2);
     int start=WebServiceParams.parseStart(startStr);

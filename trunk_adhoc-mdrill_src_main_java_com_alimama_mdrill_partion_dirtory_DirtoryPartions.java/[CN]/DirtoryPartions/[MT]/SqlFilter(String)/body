@@ -1,5 +1,5 @@
 {
-  JSONArray rtn=new JSONArray(queryStr.trim());
+  JSONArray rtn=new JSONArray();
   JSONArray jsonStr=new JSONArray(queryStr.trim());
   for (int j=0; j < jsonStr.length(); j++) {
     JSONObject obj=jsonStr.getJSONObject(j);

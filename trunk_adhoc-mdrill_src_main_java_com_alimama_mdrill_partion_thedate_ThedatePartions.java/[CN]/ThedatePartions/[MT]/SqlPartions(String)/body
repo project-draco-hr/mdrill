@@ -56,7 +56,7 @@
     String[] rtnarr=new String[rtn.size()];
     return rtn.toArray(rtnarr);
   }
-  Long step=1000l * 3600 * 24;
+  Long step=1000l * 3600 * 24* 30;
   Long max=0l;
   Long initDate=(new Date()).getTime();
   max=initDate;

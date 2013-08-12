@@ -50,7 +50,7 @@
     boolean isallowEdit=!res.getString("status").equals("INDEXING") && res.getString("source").equals("1");
     item.put("allowCreate",String.valueOf(res.getString("source").equals("2") && issuccess));
     item.put("allowUpload",String.valueOf(isallowEdit));
-    item.put("allowDownload",String.valueOf(!res.getString("status").equals("INDEXING")));
+    item.put("allowDownload",String.valueOf(issuccess));
     item.put("allowJoin",String.valueOf(res.getString("source").equals("1") && issuccess));
     item.put("allowSend",String.valueOf(res.getString("source").equals("1") && issuccess));
     jsonArray.put(item);

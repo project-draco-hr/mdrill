@@ -3,6 +3,7 @@
   if (queryStr == null || queryStr.isEmpty() || queryStr.equals("*:*")) {
     return fqList;
   }
+  queryStr=WebServiceParams.query(queryStr);
   JSONArray jsonStr=new JSONArray(queryStr.trim());
   for (int j=0; j < jsonStr.length(); j++) {
     JSONObject obj=jsonStr.getJSONObject(j);

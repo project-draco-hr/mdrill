@@ -52,7 +52,7 @@
       Date d2=fmt.parse(String.valueOf(minValue));
       total=((int)(d1.getTime() / 1000) - (int)(d2.getTime() / 1000)) / 3600 / 24 + 1;
       for (int i=start; i < (start + rows) && i < total; i++) {
-        jsonArray.put(fmt.format(new Date(d2.getTime() + i * 1000l * 3600* 24)));
+        jsonArray.put(fmt.format(new Date(d1.getTime() - i * 1000l * 3600* 24)));
       }
     }
     JSONObject jsonObj=new JSONObject();

@@ -1,0 +1,8 @@
+{
+  final HashMap<String,String> tableInfo=getTableInfo(uuid);
+  if (tableInfo == null || tableInfo.isEmpty()) {
+    return "adhoc.csv";
+  }
+  String tablename=tableInfo.get("tableShowName");
+  return tablename.replaceAll("[\n|\\/|:|\t|\\.|\\\\|\\?|<|>|\\*|\\?|\\|\"]","_") + "_adhoc.csv";
+}
