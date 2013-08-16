@@ -8,6 +8,6 @@
       queryFacets.put(queryFacet.getKey(),queryFacet);
     }
   }
-  DistribFieldFacet cross=new DistribFieldFacet(params,"solrCorssFields_s");
+  this.cross=new DistribFieldFacet(params,"solrCorssFields_s");
   facets.put(cross.getKey(),cross);
 }
