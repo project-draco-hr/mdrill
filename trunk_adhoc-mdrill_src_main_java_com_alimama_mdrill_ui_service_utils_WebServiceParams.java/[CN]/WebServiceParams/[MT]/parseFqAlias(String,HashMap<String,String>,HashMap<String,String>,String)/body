@@ -1,0 +1,10 @@
+{
+  String rtn=key;
+  if (tblname != null && colMap2 != null && colMap2.containsKey(key)) {
+    rtn=tblname + "." + colMap2.get(key);
+  }
+ else   if (tblname != null && colMap != null && colMap.containsKey(key)) {
+    rtn=tblname + "." + colMap.get(key);
+  }
+  return rtn;
+}

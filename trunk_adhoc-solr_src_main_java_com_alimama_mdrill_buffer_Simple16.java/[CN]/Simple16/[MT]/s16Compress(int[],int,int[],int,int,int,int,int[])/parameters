@@ -1,0 +1,8 @@
+int[] out
+int outOffset
+int[] in
+int inOffset
+int n
+int blockSize
+int oriBlockSize
+int[] oriInputBlock

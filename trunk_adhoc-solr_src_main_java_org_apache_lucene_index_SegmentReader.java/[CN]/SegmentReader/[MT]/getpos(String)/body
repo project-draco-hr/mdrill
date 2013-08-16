@@ -1,0 +1,5 @@
+{
+  Integer fileNum=this.fieldInfos().fieldNumber(field);
+  HashMap<Integer,Long> filepos=core.getTermsReader().fieldPos;
+  return filepos.get(fileNum);
+}

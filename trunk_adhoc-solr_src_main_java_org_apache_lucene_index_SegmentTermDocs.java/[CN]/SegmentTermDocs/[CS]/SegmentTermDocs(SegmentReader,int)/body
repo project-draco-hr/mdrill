@@ -24,9 +24,6 @@
   }
  catch (  IOException e) {
   }
-  if (!this.isfrqCompress) {
-    ramread=this.freqStream;
-  }
 synchronized (parent) {
     this.deletedDocs=parent.deletedDocs;
   }

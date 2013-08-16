@@ -1,8 +1,21 @@
 {
-  FieldType ftleft=readerleft.getSchema().getFieldType(fieldLeft);
+  IndexSchema schema=null;
+  if (this.leftreader != null) {
+    schema=this.schema;
+  }
+ else {
+    schema=readerleft.getSchema();
+  }
+  FieldType ftleft=schema.getFieldType(fieldLeft);
   String prefixLeft=TrieField.getMainValuePrefix(ftleft);
   TermIndex tiLeft=new TermIndex(fieldLeft,prefixLeft);
-  NumberedTermEnum teLeft=tiLeft.getEnumerator(readerleft.getReader());
+  NumberedTermEnum teLeft=null;
+  if (this.leftreader != null) {
+    teLeft=tiLeft.getEnumerator(this.leftreader);
+  }
+ else {
+    teLeft=tiLeft.getEnumerator(readerleft.getReader());
+  }
   FieldType ftright=readerright.getSchema().getFieldType(fieldRigth);
   String prefixRight=TrieField.getMainValuePrefix(ftright);
   TermIndex tiRight=new TermIndex(fieldRigth,prefixRight);

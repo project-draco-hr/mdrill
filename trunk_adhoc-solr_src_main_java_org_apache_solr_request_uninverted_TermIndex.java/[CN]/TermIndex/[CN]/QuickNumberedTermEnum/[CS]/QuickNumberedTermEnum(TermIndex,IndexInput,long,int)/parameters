@@ -1,0 +1,4 @@
+TermIndex ti
+IndexInput quicktisInput
+long pos
+int cnt

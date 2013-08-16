@@ -1,0 +1,15 @@
+{
+  int currentB=POSSIBLE_B[0];
+  int tmpB=currentB;
+  int optSize=estimateCompressedSize(inBlock,tmpB,blockSize);
+  for (int i=1; i < POSSIBLE_B.length; ++i) {
+    tmpB=POSSIBLE_B[i];
+    int curSize=estimateCompressedSize(inBlock,tmpB,blockSize);
+    if (curSize < optSize) {
+      currentB=tmpB;
+      optSize=curSize;
+    }
+  }
+  int[] outBlock=compressOneBlockCore(inBlock,currentB,blockSize);
+  return outBlock;
+}

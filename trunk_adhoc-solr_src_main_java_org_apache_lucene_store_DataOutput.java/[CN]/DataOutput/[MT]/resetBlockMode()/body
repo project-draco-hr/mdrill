@@ -1,0 +1,4 @@
+{
+  this.blockmode_compress=false;
+  this.uptopos_compress=0;
+}

@@ -15,5 +15,9 @@ catch (  ParseException e) {
     SolrException.logOnce(SolrCore.log,"Exception during facet counts",e);
     throw new SolrException(ErrorCode.BAD_REQUEST,e);
   }
+catch (  Exception e) {
+    SolrException.logOnce(SolrCore.log,"Exception during facet counts",e);
+    throw new SolrException(ErrorCode.SERVER_ERROR,e);
+  }
   return facetResponse;
 }

@@ -7,11 +7,11 @@
       boolean isdetail=params.getBool(FacetParams.FACET_CROSS_DETAIL,false);
       if (isdetail) {
         MdrillDetail crossObj=new MdrillDetail(searcher,params,this.req);
-        res.add("solrCorssFields_s",crossObj.getDetail(facetFs,this.base));
+        res.add("solrCorssFields_s",crossObj.getBySchemaReader(facetFs,this.base));
       }
  else {
         MdrillGroupBy crossObj=new MdrillGroupBy(searcher,params,this.req);
-        res.add("solrCorssFields_s",crossObj.getCross(facetFs,this.base));
+        res.add("solrCorssFields_s",crossObj.getBySchemaReader(facetFs,this.base));
       }
     }
  else {

@@ -1,0 +1,6 @@
+{
+  this.ti=ti;
+  this.quicktisInput=(IndexInput)quicktisInput.clone();
+  this.quicktisInput.seek(pos);
+  this.count=cnt;
+}

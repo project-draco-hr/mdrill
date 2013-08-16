@@ -1,0 +1,8 @@
+{
+  this.isSchemaReaderType=true;
+  this.reader=reader;
+  this.req=req;
+  this.searcher=_searcher;
+  this.params=_params;
+  this.init();
+}

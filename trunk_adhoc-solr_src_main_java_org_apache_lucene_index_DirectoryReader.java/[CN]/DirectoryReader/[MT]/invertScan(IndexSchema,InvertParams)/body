@@ -1,0 +1,30 @@
+{
+  InvertResult rtn=new InvertResult();
+  rtn.setParams(schema,params);
+  DocSet docset=params.getDocset();
+  DocSet[] subdocset=new DocSet[subReaders.length];
+  if (subdocset.length == 1) {
+    subdocset[0]=docset;
+  }
+ else {
+    for (int i=0; i < subReaders.length; i++) {
+      subdocset[i]=new BitDocSet();
+    }
+    int index=0;
+    int end=this.getend(index);
+    DocIterator iter=docset.iterator();
+    while (iter.hasNext()) {
+      int doc=iter.nextDoc();
+      if (doc >= end) {
+        index=this.readerIndex(doc);
+        end=this.getend(index);
+      }
+      subdocset[index].add(doc - this.starts[index]);
+    }
+  }
+  for (int i=0; i < subReaders.length; i++) {
+    params.setDocset(subdocset[i]);
+    rtn.merge(subReaders[i].invertScan(schema,params));
+  }
+  return rtn;
+}

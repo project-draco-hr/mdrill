@@ -1,0 +1,16 @@
+{
+  if (!this.isfrqCompress || df < DataOutput.BLOGK_SIZE_USED_COMPRESS) {
+    return stream.readVInt();
+  }
+  while (pos >= buffer.length) {
+    int size=stream.readVInt();
+    int compresssize=stream.readVInt();
+    int[] compress=new int[compresssize];
+    for (int i=0; i < compresssize; i++) {
+      compress[i]=stream.readInt();
+    }
+    this.buffer=PForDelta.decompressOneBlock(compress,size);
+    this.pos=0;
+  }
+  return this.buffer[this.pos++];
+}

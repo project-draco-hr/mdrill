@@ -1,0 +1,19 @@
+{
+  if (pos >= this.count) {
+    return false;
+  }
+  if ((pos & intervalMask) == 0) {
+    text=this.quicktisInput.readString();
+    this.ti.sizeOfStrings+=text.length() << 1;
+    if (lst == null) {
+      lst=new ArrayList<String>();
+    }
+    lst.add(text);
+  }
+  vvvlong=this.quicktisInput.readVVVLong();
+  doccount=this.quicktisInput.readVInt();
+  long pos=this.quicktisInput.readVLong();
+  docspos=pos + lastfreqPointer;
+  this.lastfreqPointer=pos;
+  return true;
+}

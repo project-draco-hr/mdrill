@@ -9,7 +9,6 @@
     if (newCount > count) {
       freqStream.seek(skipListReader.getFreqPointer());
       skipProx(skipListReader.getProxPointer(),skipListReader.getPayloadLength());
-      this.resetRamRead();
       doc=skipListReader.getDoc();
       count=newCount;
     }

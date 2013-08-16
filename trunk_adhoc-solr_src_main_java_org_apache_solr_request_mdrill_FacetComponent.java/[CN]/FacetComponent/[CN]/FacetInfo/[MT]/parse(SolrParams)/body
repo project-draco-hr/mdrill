@@ -1,0 +1,13 @@
+{
+  queryFacets=new LinkedHashMap<String,QueryFacet>();
+  facets=new LinkedHashMap<String,DistribFieldFacet>();
+  String[] facetQs=params.getParams(FacetParams.FACET_QUERY);
+  if (facetQs != null) {
+    for (    String query : facetQs) {
+      QueryFacet queryFacet=new QueryFacet(params,query);
+      queryFacets.put(queryFacet.getKey(),queryFacet);
+    }
+  }
+  DistribFieldFacet cross=new DistribFieldFacet(params,"solrCorssFields_s");
+  facets.put(cross.getKey(),cross);
+}

@@ -1,0 +1,4 @@
+SolrIndexSearcher _searcher
+SegmentReader reader
+SolrParams _params
+SolrQueryRequest req

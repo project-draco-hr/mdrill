@@ -13,7 +13,9 @@
     proxBasePointer=ti.proxPointer;
     skipPointer=freqBasePointer + ti.skipOffset;
     freqStream.seek(freqBasePointer);
-    this.resetRamRead();
+    this.compress=new ReadCompress(this.freqStream);
+    this.compress.setCompressMode(isfrqCompress);
+    this.compress.resetCompressblock();
     haveSkipped=false;
   }
 }

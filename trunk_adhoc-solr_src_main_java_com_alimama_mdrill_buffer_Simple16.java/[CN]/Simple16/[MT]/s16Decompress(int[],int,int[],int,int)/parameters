@@ -1,0 +1,5 @@
+int[] out
+int outOffset
+int[] in
+int inOffset
+int n

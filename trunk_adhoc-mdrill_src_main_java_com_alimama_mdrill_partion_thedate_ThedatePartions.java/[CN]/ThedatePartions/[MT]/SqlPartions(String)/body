@@ -9,8 +9,19 @@
     if (obj.has("thedate")) {
       JSONObject thedate=obj.getJSONObject("thedate");
       Integer operate=Integer.parseInt(thedate.get("operate").toString());
+      OperateType optype=WebServiceParams.parseOperateType(operate);
       String[] val=WebServiceParams.parseFqValue(thedate.getString("value"),operate).split(",");
-      if (operate == 1 || operate == 5 || operate == 6 || operate == 7 || operate == 8 || operate == 9) {
+      if (optype.equals(OperateType.eq) || optype.equals(OperateType.in)) {
+        for (        String day : val) {
+          Date d=fmt.parse(day.replaceAll("-",""));
+          String[] partions=get(d.getTime(),d.getTime(),parttype);
+          for (          String partion : partions) {
+            rtn.add(partion);
+            isset=true;
+          }
+        }
+      }
+      if (optype.equals(OperateType.range)) {
         Long min=Long.MAX_VALUE;
         Long max=Long.MIN_VALUE;
         for (        String day : val) {
@@ -26,14 +37,14 @@
         }
         break;
       }
-      if (operate == 13 || operate == 3) {
+      if (optype.equals(OperateType.gt) || optype.equals(OperateType.gteq)) {
         for (        String day : val) {
           Date d=fmt.parse(day.replaceAll("-",""));
           Long time=d.getTime() + (operate == 3 ? 0 : 1);
           small=small > 0 ? Math.min(small,time) : time;
         }
       }
-      if (operate == 14 || operate == 4) {
+      if (optype.equals(OperateType.lg) || optype.equals(OperateType.lgeq)) {
         for (        String day : val) {
           Date d=fmt.parse(day.replaceAll("-",""));
           Long time=d.getTime() - (operate == 4 ? 0 : 1);

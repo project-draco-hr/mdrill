@@ -1,0 +1,31 @@
+{
+  Map stormconf=Utils.readStormConfig();
+  String connstr=(String)stormconf.get("higo.download.offline.conn");
+  String uname=(String)stormconf.get("higo.download.offline.username");
+  String passwd=(String)stormconf.get("higo.download.offline.passwd");
+  MySqlConn m_fpsql=new MySqlConn(connstr,uname,passwd);
+  Connection conn=m_fpsql.getConn();
+  Statement stmt=conn.createStatement();
+  String sql="select tab_key,tab_value from tab_infos where tab_key='" + key + "' limit 10";
+  ResultSet res=stmt.executeQuery(sql);
+  JSONObject jsonObj=new JSONObject();
+  HashMap<String,String> rtn=new HashMap<String,String>();
+  jsonObj.put("code","0");
+  boolean issetup=false;
+  while (res.next()) {
+    rtn.put("tab_key",res.getString("tab_key"));
+    rtn.put("tab_value",res.getString("tab_value"));
+    issetup=true;
+  }
+  m_fpsql.close();
+  if (issetup) {
+    jsonObj.put("data",rtn.get("tab_key"));
+    jsonObj.put("code","1");
+  }
+ else {
+    jsonObj.put("message","nodata");
+    jsonObj.put("data","");
+    jsonObj.put("code","1");
+  }
+  return jsonObj.toString();
+}

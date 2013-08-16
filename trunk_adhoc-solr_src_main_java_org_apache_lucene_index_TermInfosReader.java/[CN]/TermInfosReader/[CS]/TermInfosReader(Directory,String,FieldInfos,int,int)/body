@@ -9,9 +9,29 @@
     fieldInfos=fis;
     long tisfilesize=-1;
     String tisFileSize=IndexFileNames.segmentFileName(segment,IndexFileNames.TERMS_EXTENSION_SIZE);
+    String quickTis=IndexFileNames.segmentFileName(segment,IndexFileNames.TERMS_EXTENSION_QUICK);
     if (directory.fileExists(tisFileSize)) {
       IndexInput sizebuff=directory.openInput(tisFileSize,readBufferSize);
       tisfilesize=sizebuff.readLong();
+      if (directory.fileExists(quickTis)) {
+        supportquick=true;
+        if (directory instanceof FSDirectory) {
+          FSDirectory dddir=(FSDirectory)directory;
+          String absPath=dddir.getDirectory().getAbsolutePath();
+          quicktisInput=new BlockBufferInput(directory.openInput(quickTis,readBufferSize),absPath + "@" + quickTis);
+        }
+ else {
+          quicktisInput=directory.openInput(quickTis,readBufferSize);
+        }
+        int size=sizebuff.readInt();
+        for (int i=0; i < size; i++) {
+          fieldPos.put(sizebuff.readInt(),sizebuff.readLong());
+        }
+        size=sizebuff.readInt();
+        for (int i=0; i < size; i++) {
+          fieldCount.put(sizebuff.readInt(),sizebuff.readInt());
+        }
+      }
       sizebuff.close();
     }
     String filename=IndexFileNames.segmentFileName(segment,IndexFileNames.TERMS_EXTENSION);

@@ -1,0 +1,11 @@
+{
+  int inOffset=(inStartOffsetInBits + 31) >>> 5;
+  int num, outOffset=0, numLeft;
+  for (numLeft=blockSize; numLeft > 0; numLeft-=num) {
+    num=Simple16.s16Decompress(outDecompBlock,outOffset,inCompBlock,inOffset,numLeft);
+    outOffset+=num;
+    inOffset++;
+  }
+  int compressedBitSize=(inOffset << 5) - inStartOffsetInBits;
+  return compressedBitSize;
+}

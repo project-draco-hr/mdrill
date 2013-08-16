@@ -1,0 +1,14 @@
+{
+  this.facetType=facetType;
+  this.facetStr=facetStr;
+  this.localParams=localParams;
+  this.facetOn=facetStr;
+  this.key=facetStr;
+  if (localParams != null) {
+    if (!facetType.equals(FacetParams.FACET_QUERY)) {
+      facetOn=localParams.get(CommonParams.VALUE);
+      key=facetOn;
+    }
+    key=localParams.get(CommonParams.OUTPUT_KEY,key);
+  }
+}

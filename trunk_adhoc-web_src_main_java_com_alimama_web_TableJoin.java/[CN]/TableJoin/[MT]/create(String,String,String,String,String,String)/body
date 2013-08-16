@@ -1,5 +1,16 @@
 {
+  HashMap<String,String> tablecount=getUserTablesCount(username,1);
   JSONObject jsonObj=new JSONObject();
+  if (tablecount != null && tablecount.containsKey("cnt") && Integer.parseInt(tablecount.get("cnt")) >= 50) {
+    jsonObj.put("code","0");
+    jsonObj.put("message","??????????????????" + tablecount.get("cnt") + "???????????????????????????????????????50????????????");
+    if (callback != null && callback.length() > 0) {
+      return callback + "(" + jsonObj.toString()+ ")";
+    }
+ else {
+      return jsonObj.toString();
+    }
+  }
   SimpleDateFormat fmt=new SimpleDateFormat("yyyyMMdd");
   String day=fmt.format(new Date());
   Map stormconf=Utils.readStormConfig();

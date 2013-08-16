@@ -1,0 +1,10 @@
+{
+  int numIdx, j=0, bits=0;
+  numIdx=in[inOffset] >>> S16_BITSSIZE;
+  int num=S16_NUM[numIdx] < n ? S16_NUM[numIdx] : n;
+  for (j=0, bits=0; j < num; j++) {
+    out[outOffset + j]=readBitsForS16(in,inOffset,bits,S16_BITS[numIdx][j]);
+    bits+=S16_BITS[numIdx][j];
+  }
+  return num;
+}

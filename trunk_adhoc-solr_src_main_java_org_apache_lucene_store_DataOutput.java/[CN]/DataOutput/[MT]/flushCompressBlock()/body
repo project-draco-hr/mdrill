@@ -1,0 +1,22 @@
+{
+  if (this.uptopos_compress <= 0) {
+    return;
+  }
+  if (!this.blockmode_compress) {
+    for (int i=0; i < uptopos_compress; i++) {
+      this.writeVInt(buffer_compress[i]);
+    }
+    this.uptopos_compress=0;
+    return;
+  }
+  final int[] compressedBuffer=PForDelta.compressOneBlock(buffer_compress,uptopos_compress);
+  if (printindex_compress++ < 1000) {
+    System.out.println("##flushCompressBlock##" + compressedBuffer.length + "@"+ uptopos_compress);
+  }
+  this.writeVInt(uptopos_compress);
+  this.writeVInt(compressedBuffer.length);
+  for (int i=0; i < compressedBuffer.length; i++) {
+    this.writeInt(compressedBuffer[i]);
+  }
+  this.uptopos_compress=0;
+}

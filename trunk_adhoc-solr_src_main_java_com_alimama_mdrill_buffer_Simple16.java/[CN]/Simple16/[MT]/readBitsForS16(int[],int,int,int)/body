@@ -1,0 +1,4 @@
+{
+  final int val=(in[inIntOffset] >>> inWithIntOffset);
+  return val & (0xffffffff >>> (32 - bits));
+}

@@ -1,4 +1,4 @@
 {
   UnicodeUtil.UTF16toUTF8(term.text,0,term.text.length(),utf8Result);
-  add(fieldInfos.fieldNumber(term.field),utf8Result.result,utf8Result.length,ti);
+  add(term,fieldInfos.fieldNumber(term.field),utf8Result.result,utf8Result.length,ti);
 }

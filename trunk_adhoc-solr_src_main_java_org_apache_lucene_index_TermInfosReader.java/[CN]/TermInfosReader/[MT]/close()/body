@@ -1,4 +1,7 @@
 {
+  if (this.quicktisInput != null) {
+    quicktisInput.close();
+  }
   if (this.isQuickMode) {
     if (tiiInput != null) {
       tiiInput.close();

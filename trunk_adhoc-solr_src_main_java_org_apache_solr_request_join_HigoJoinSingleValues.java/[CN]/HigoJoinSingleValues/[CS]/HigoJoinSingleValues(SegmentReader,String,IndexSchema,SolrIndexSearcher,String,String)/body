@@ -1,0 +1,10 @@
+{
+  this.readerleft=null;
+  this.partion=partion;
+  this.schema=schema;
+  this.leftreader=reader;
+  this.readerright=readerright;
+  this.fieldLeft=fieldLeft;
+  this.fieldRigth=fieldRigth;
+  this.makejoin();
+}

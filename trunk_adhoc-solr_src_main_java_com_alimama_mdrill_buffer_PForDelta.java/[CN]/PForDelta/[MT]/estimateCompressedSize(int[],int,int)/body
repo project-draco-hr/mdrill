@@ -1,0 +1,12 @@
+{
+  int maxNoExp=(1 << bits) - 1;
+  int outputOffset=HEADER_SIZE + bits * blockSize;
+  int expNum=0;
+  for (int i=0; i < blockSize; ++i) {
+    if (inputBlock[i] > maxNoExp) {
+      expNum++;
+    }
+  }
+  outputOffset+=(expNum << 5);
+  return outputOffset;
+}

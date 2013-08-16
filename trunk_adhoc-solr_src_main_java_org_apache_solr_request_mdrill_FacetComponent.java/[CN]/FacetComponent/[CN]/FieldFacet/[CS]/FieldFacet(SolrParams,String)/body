@@ -1,0 +1,4 @@
+{
+  super(localParams,FacetParams.FACET_FIELD,facetStr);
+  fillParams(localParams,facetOn);
+}
