@@ -1,14 +1,14 @@
 {
-  if (this.lastfieldNumber != fieldNumber) {
-    fieldCount.put(this.lastfieldNumber,this.pos);
+  if (this.lastquickfieldNumber != fieldNumber) {
+    fieldCount.put(this.lastquickfieldNumber,this.termNum);
     fieldPos.put(fieldNumber,this.outputQuickTis.getFilePointer());
     this.ft=this.schemainfo.getField(term.field).getType();
     this.dataType=UnInvertedFieldUtils.getDataType(ft);
-    this.lastfieldNumber=fieldNumber;
-    this.pos=0;
+    this.lastquickfieldNumber=fieldNumber;
+    this.termNum=0;
     this.lastfreqPointer=0;
   }
-  if ((this.pos & TermIndex.intervalMask) == 0) {
+  if ((this.termNum & TermIndex.intervalMask) == 0) {
     this.outputQuickTis.writeString(term.text());
   }
   if (dataType == Datatype.d_long) {
@@ -27,5 +27,5 @@
   this.outputQuickTis.writeVInt(ti.docFreq);
   this.outputQuickTis.writeVLong(ti.freqPointer - lastfreqPointer);
   lastfreqPointer=ti.freqPointer;
-  this.pos++;
+  this.termNum++;
 }

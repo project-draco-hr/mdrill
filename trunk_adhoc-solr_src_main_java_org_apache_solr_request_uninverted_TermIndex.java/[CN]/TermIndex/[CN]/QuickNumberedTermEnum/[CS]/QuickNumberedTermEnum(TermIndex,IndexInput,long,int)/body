@@ -1,6 +1,8 @@
 {
   this.ti=ti;
-  this.quicktisInput=(IndexInput)quicktisInput.clone();
+  this.quicktisInput=quicktisInput;
   this.quicktisInput.seek(pos);
-  this.count=cnt;
+  this.termCount=cnt;
+  this.termNum=0;
+  this.lst=new ArrayList<String>();
 }

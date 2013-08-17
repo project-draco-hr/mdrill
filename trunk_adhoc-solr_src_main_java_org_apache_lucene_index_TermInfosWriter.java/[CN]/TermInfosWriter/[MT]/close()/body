@@ -12,7 +12,7 @@
       outputSize.writeInt(e.getKey());
       outputSize.writeLong(e.getValue());
     }
-    fieldCount.put(this.lastfieldNumber,this.pos);
+    fieldCount.put(this.lastquickfieldNumber,this.termNum);
     outputSize.writeInt(fieldCount.size());
     for (    Entry<Integer,Integer> e : fieldCount.entrySet()) {
       outputSize.writeInt(e.getKey());

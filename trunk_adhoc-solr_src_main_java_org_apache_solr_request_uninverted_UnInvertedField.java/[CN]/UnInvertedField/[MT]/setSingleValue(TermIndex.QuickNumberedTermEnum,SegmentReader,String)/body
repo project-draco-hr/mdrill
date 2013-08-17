@@ -40,7 +40,6 @@
  else     if (dataType == Datatype.d_string) {
       this.termValueLong.set(termNum,te.getVVVlong());
     }
-    te.next();
   }
   if (termInstances == 0) {
     INT_BUFFER.free(this.index);
