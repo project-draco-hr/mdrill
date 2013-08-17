@@ -1,0 +1,36 @@
+{
+  FileSystem fs=FileSystem.get(conf);
+  fs.mkdirs(path);
+  Date now=new Date();
+synchronized (lock) {
+    if (now.getTime() - 1000 * 60 < lasttime) {
+      return "skip";
+    }
+    lasttime=now.getTime();
+  }
+  StringBuffer buff=new StringBuffer();
+  FileStatus[] fsArrays=fs.listStatus(path);
+  int index=0;
+  int savetime=1000 * 600;
+  for (  FileStatus f : fsArrays) {
+    index++;
+    String filename=f.getPath().getName();
+    long acctime=f.getAccessTime();
+    long modtime=f.getModificationTime();
+    if (index <= 10) {
+      buff.append(">>" + filename + "@"+ acctime+ "@"+ modtime+ "@"+ now.getTime());
+    }
+    if (filename.indexOf("grep") >= 0 && (acctime + savetime) < now.getTime() && (modtime + savetime) < now.getTime()) {
+      if (index <= 10) {
+        buff.append("@del");
+      }
+      fs.delete(f.getPath(),true);
+    }
+ else {
+      if (index <= 10) {
+        buff.append("@save");
+      }
+    }
+  }
+  return buff.toString();
+}

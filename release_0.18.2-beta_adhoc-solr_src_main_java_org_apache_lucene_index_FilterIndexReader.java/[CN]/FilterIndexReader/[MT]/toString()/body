@@ -1,0 +1,6 @@
+{
+  final StringBuilder buffer=new StringBuilder("FilterReader(");
+  buffer.append(in);
+  buffer.append(')');
+  return buffer.toString();
+}

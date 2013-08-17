@@ -1,0 +1,28 @@
+{
+  Expression result=null;
+  Expression leftExpression=null;
+  Expression rightExpression=null;
+  leftExpression=AdditiveExpression();
+  result=leftExpression;
+  label_20:   while (true) {
+switch ((jj_ntk == -1) ? jj_ntk() : jj_ntk) {
+case 91:
+      ;
+    break;
+default :
+  jj_la1[101]=jj_gen;
+break label_20;
+}
+jj_consume_token(91);
+rightExpression=AdditiveExpression();
+Concat binExp=new Concat();
+binExp.setLeftExpression(leftExpression);
+binExp.setRightExpression(rightExpression);
+result=binExp;
+leftExpression=result;
+}
+{
+if (true) return result;
+}
+throw new Error("Missing return statement in function");
+}

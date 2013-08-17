@@ -1,0 +1,6 @@
+{
+  StringBuilder buffer=new StringBuilder();
+  buffer.append("*:*");
+  buffer.append(ToStringUtils.boost(getBoost()));
+  return buffer.toString();
+}

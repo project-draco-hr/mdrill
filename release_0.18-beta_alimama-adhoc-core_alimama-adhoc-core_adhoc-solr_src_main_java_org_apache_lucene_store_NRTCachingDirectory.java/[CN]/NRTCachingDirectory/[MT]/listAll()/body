@@ -1,0 +1,17 @@
+{
+  final Set<String> files=new HashSet<String>();
+  for (  String f : cache.listAll()) {
+    files.add(f);
+  }
+  try {
+    for (    String f : delegate.listAll()) {
+      files.add(f);
+    }
+  }
+ catch (  NoSuchDirectoryException ex) {
+    if (files.isEmpty()) {
+      throw ex;
+    }
+  }
+  return files.toArray(new String[files.size()]);
+}

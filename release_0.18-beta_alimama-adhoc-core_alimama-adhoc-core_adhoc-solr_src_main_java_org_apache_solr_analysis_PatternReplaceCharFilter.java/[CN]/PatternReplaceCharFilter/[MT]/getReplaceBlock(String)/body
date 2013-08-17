@@ -1,0 +1,4 @@
+{
+  char[] blockChars=block.toCharArray();
+  return getReplaceBlock(blockChars,0,blockChars.length);
+}

@@ -1,0 +1,12 @@
+{
+  if (!positions.skipTo(target)) {
+    doc=Integer.MAX_VALUE;
+    return false;
+  }
+  doc=positions.doc();
+  freq=positions.freq();
+  count=0;
+  position=positions.nextPosition();
+  count++;
+  return true;
+}

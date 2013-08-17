@@ -1,0 +1,7 @@
+{
+synchronized (this.getThrLockObj()) {
+    statcollect.setStat(ShardsState.UINIT);
+    this.zkHeatbeat();
+    this.stopService();
+  }
+}

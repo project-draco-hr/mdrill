@@ -1,0 +1,52 @@
+{
+  boolean mergingStillBeingDone;
+  if (frag.length > 1)   do {
+    mergingStillBeingDone=false;
+    for (int i=0; i < frag.length; i++) {
+      if (frag[i] == null) {
+        continue;
+      }
+      for (int x=0; x < frag.length; x++) {
+        if (frag[x] == null) {
+          continue;
+        }
+        if (frag[i] == null) {
+          break;
+        }
+        TextFragment frag1=null;
+        TextFragment frag2=null;
+        int frag1Num=0;
+        int frag2Num=0;
+        int bestScoringFragNum;
+        int worstScoringFragNum;
+        if (frag[i].follows(frag[x])) {
+          frag1=frag[x];
+          frag1Num=x;
+          frag2=frag[i];
+          frag2Num=i;
+        }
+ else         if (frag[x].follows(frag[i])) {
+          frag1=frag[i];
+          frag1Num=i;
+          frag2=frag[x];
+          frag2Num=x;
+        }
+        if (frag1 != null) {
+          if (frag1.getScore() > frag2.getScore()) {
+            bestScoringFragNum=frag1Num;
+            worstScoringFragNum=frag2Num;
+          }
+ else {
+            bestScoringFragNum=frag2Num;
+            worstScoringFragNum=frag1Num;
+          }
+          frag1.merge(frag2);
+          frag[worstScoringFragNum]=null;
+          mergingStillBeingDone=true;
+          frag[bestScoringFragNum]=frag1;
+        }
+      }
+    }
+  }
+ while (mergingStillBeingDone);
+}

@@ -1,0 +1,44 @@
+{
+  ArrayList<Fieldable> single=new ArrayList<Fieldable>();
+  LinkedHashMap<String,MultiValueField> multi=new LinkedHashMap<String,MultiValueField>();
+  for (  Fieldable ff : fields) {
+    String fname=ff.name();
+    if (returnFields != null && !returnFields.contains(fname)) {
+      continue;
+    }
+    SchemaField sf=schema.getField(fname);
+    if (sf.multiValued()) {
+      MultiValueField mf=multi.get(fname);
+      if (mf == null) {
+        mf=new MultiValueField(sf,ff);
+        multi.put(fname,mf);
+      }
+ else {
+        mf.fields.add(ff);
+      }
+    }
+ else {
+      single.add(ff);
+    }
+  }
+  writeArrayOpener(single.size() + multi.size() + ((pseudoFields != null) ? pseudoFields.size() : 0));
+  for (  Fieldable ff : single) {
+    SchemaField sf=schema.getField(ff.name());
+    writeKey(ff.name(),true);
+    sf.write(this,ff.name(),ff);
+  }
+  for (  MultiValueField mvf : multi.values()) {
+    writeKey(mvf.sfield.getName(),true);
+    writeArrayOpener(mvf.fields.size());
+    int i=0;
+    for (    Fieldable ff : mvf.fields) {
+      writeKey(i++,false);
+      mvf.sfield.write(this,null,ff);
+    }
+    writeArrayCloser();
+  }
+  if (pseudoFields != null && pseudoFields.size() > 0) {
+    writeMap(null,pseudoFields,true,false);
+  }
+  writeArrayCloser();
+}

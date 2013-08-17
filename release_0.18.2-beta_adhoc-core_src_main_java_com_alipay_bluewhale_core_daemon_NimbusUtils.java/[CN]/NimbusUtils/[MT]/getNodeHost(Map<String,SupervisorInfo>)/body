@@ -1,0 +1,14 @@
+{
+  Map<String,String> rtn=null;
+  if (supInfos != null) {
+    rtn=new HashMap<String,String>();
+    Set<Map.Entry<String,SupervisorInfo>> entrySet=supInfos.entrySet();
+    for (Iterator<Entry<String,SupervisorInfo>> it=entrySet.iterator(); it.hasNext(); ) {
+      Entry<String,SupervisorInfo> entry=it.next();
+      SupervisorInfo superinfo=entry.getValue();
+      String supervisorid=entry.getKey();
+      rtn.put(supervisorid,superinfo.getHostName());
+    }
+  }
+  return rtn;
+}

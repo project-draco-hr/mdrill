@@ -1,0 +1,25 @@
+{
+  while (flushPending) {
+    try {
+      wait();
+    }
+ catch (    InterruptedException ie) {
+      throw new ThreadInterruptedException(ie);
+    }
+  }
+  docCount+=docInc;
+  delCount+=delInc;
+  if (skipWait) {
+    return false;
+  }
+  final int maxBufferedDocs=config.getMaxBufferedDocs();
+  if (maxBufferedDocs != IndexWriterConfig.DISABLE_AUTO_FLUSH && docCount >= maxBufferedDocs) {
+    return setFlushPending("maxBufferedDocs",true);
+  }
+  final int maxBufferedDeleteTerms=config.getMaxBufferedDeleteTerms();
+  if (maxBufferedDeleteTerms != IndexWriterConfig.DISABLE_AUTO_FLUSH && delCount >= maxBufferedDeleteTerms) {
+    flushDeletes=true;
+    return setFlushPending("maxBufferedDeleteTerms",true);
+  }
+  return flushByRAMUsage("add delete/doc");
+}

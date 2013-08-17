@@ -1,0 +1,5 @@
+{
+  if (QueryValueSource.class != o.getClass())   return false;
+  QueryValueSource other=(QueryValueSource)o;
+  return this.q.equals(other.q) && this.defVal == other.defVal;
+}

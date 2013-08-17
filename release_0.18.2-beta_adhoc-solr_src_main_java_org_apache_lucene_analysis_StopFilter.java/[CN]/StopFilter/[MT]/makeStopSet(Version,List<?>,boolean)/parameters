@@ -1,0 +1,3 @@
+Version matchVersion
+List<?> stopWords
+boolean ignoreCase

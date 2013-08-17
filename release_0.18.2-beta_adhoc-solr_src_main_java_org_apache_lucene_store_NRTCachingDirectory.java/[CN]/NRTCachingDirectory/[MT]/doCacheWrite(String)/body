@@ -1,0 +1,4 @@
+{
+  final MergePolicy.OneMerge merge=merges.get(Thread.currentThread());
+  return !name.equals(IndexFileNames.SEGMENTS_GEN) && (merge == null || merge.estimatedMergeBytes <= maxMergeSizeBytes) && cache.sizeInBytes() <= maxCachedBytes;
+}

@@ -1,0 +1,5 @@
+{
+  if (StormConfig.local_mode(conf)) {
+    throw new IllegalArgumentException("Cannot start server in local mode!");
+  }
+}

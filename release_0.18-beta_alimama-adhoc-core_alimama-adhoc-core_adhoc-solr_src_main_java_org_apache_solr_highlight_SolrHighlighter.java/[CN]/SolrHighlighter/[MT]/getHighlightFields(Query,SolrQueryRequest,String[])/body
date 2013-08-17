@@ -1,0 +1,29 @@
+{
+  String fields[]=request.getParams().getParams(HighlightParams.FIELDS);
+  if (emptyArray(fields)) {
+    if (emptyArray(defaultFields)) {
+      String defaultSearchField=request.getSchema().getDefaultSearchFieldName();
+      fields=null == defaultSearchField ? new String[]{} : new String[]{defaultSearchField};
+    }
+ else {
+      fields=defaultFields;
+    }
+  }
+ else   if (fields.length == 1) {
+    if (fields[0].contains("*")) {
+      String fieldRegex=fields[0].replaceAll("\\*",".*");
+      Collection<String> storedHighlightFieldNames=request.getSearcher().getStoredHighlightFieldNames();
+      List<String> storedFieldsToHighlight=new ArrayList<String>();
+      for (      String storedFieldName : storedHighlightFieldNames) {
+        if (storedFieldName.matches(fieldRegex)) {
+          storedFieldsToHighlight.add(storedFieldName);
+        }
+      }
+      fields=storedFieldsToHighlight.toArray(new String[]{});
+    }
+ else {
+      fields=SolrPluginUtils.split(fields[0]);
+    }
+  }
+  return fields;
+}

@@ -1,0 +1,29 @@
+{
+  NamedList nl=new NamedList();
+  NamedList params=solrParamsToNamedList(updateRequest.getParams());
+  if (updateRequest.getCommitWithin() != -1) {
+    params.add("commitWithin",updateRequest.getCommitWithin());
+  }
+  Iterator<SolrInputDocument> docIter=null;
+  if (updateRequest.getDocuments() != null) {
+    docIter=updateRequest.getDocuments().iterator();
+  }
+  if (updateRequest.getDocIterator() != null) {
+    docIter=updateRequest.getDocIterator();
+  }
+  nl.add("params",params);
+  nl.add("delById",updateRequest.getDeleteById());
+  nl.add("delByQ",updateRequest.getDeleteQuery());
+  nl.add("docs",docIter);
+  new JavaBinCodec(){
+    @Override public void writeMap(    Map val) throws IOException {
+      if (val instanceof SolrInputDocument) {
+        writeVal(solrInputDocumentToList((SolrInputDocument)val));
+      }
+ else {
+        super.writeMap(val);
+      }
+    }
+  }
+.marshal(nl,os);
+}

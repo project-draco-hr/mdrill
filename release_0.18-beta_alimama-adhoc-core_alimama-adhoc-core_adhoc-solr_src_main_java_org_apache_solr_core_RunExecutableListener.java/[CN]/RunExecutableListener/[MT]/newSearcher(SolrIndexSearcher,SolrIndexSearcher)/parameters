@@ -1,0 +1,2 @@
+SolrIndexSearcher newSearcher
+SolrIndexSearcher currentSearcher

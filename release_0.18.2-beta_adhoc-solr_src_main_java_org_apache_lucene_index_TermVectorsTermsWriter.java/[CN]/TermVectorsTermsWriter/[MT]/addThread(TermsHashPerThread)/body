@@ -1,0 +1,3 @@
+{
+  return new TermVectorsTermsWriterPerThread(termsHashPerThread,this);
+}

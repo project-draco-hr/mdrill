@@ -1,0 +1,10 @@
+{
+  this.maxScore=maxScore;
+  this.totalHits=totalHits;
+  this.scoreDocs=scoreDocs;
+  this.groupValue=groupValue;
+  this.groupSortValues=groupSortValues;
+  this.sum=sum;
+  this.max=max;
+  this.min=min;
+}

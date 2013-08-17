@@ -1,0 +1,14 @@
+{
+  BufferedReader br=null;
+  try {
+    br=getBufferedReader(reader);
+    String word=null;
+    while ((word=br.readLine()) != null) {
+      result.add(word.trim());
+    }
+  }
+  finally {
+    IOUtils.close(br);
+  }
+  return result;
+}

@@ -1,0 +1,18 @@
+{
+  try {
+    final char[] prefix;
+    if (getPrefixMethod != null) {
+      prefix=(char[])getPrefixMethod.invoke(regexp.getProgram());
+    }
+ else     if (prefixField != null) {
+      prefix=(char[])prefixField.get(regexp.getProgram());
+    }
+ else {
+      return null;
+    }
+    return prefix == null ? null : new String(prefix);
+  }
+ catch (  Exception e) {
+    return null;
+  }
+}

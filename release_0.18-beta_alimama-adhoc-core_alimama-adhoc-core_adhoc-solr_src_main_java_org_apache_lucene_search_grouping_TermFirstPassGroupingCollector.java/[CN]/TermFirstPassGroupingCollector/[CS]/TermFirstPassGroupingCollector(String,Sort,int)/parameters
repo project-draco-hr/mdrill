@@ -1,0 +1,3 @@
+String groupField
+Sort groupSort
+int topNGroups

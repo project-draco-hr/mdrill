@@ -1,0 +1,48 @@
+{
+  this.cleanTmp();
+  HashSet<String> namelist=this.mdrillpartion.getNameList(fs,this.inputBase,this.startday,dayDelay,maxRunDays);
+  HashMap<String,HashSet<String>> partions=this.mdrillpartion.indexPartions(namelist,startday,dayDelay,maxRunDays);
+  HashMap<String,String> vertifyset=this.mdrillpartion.indexVertify(partions,shards,startday,dayDelay,maxRunDays);
+  HashSet<String> copy=new HashSet<String>();
+  Set<String> olds=parse.readPartion(this.index);
+  for (  Entry<String,HashSet<String>> e : partions.entrySet()) {
+    String partion=e.getKey();
+    olds.remove(partion);
+    HashSet<String> days=e.getValue();
+    String partionvertify=vertifyset.get(partion);
+    if (partionvertify == null || partionvertify.isEmpty()) {
+      partionvertify="partionV" + MdrillPartions.PARTION_VERSION + "@001@single@"+ this.shards+ "@"+ java.util.UUID.randomUUID().toString();
+    }
+    Path indexOtherPath=new Path(this.index,partion);
+    Path tmpindexOtherPath=new Path(this.tmp,partion);
+    Path otherveritify=new Path(indexOtherPath,"vertify");
+    if (!partionvertify.equals(parse.readFirstLineStr(otherveritify))) {
+      int ret=0;
+      if (days.size() > 0) {
+        ret=this.subRun(days,tmpindexOtherPath.toString(),args[0],args[1]);
+        parse.writeStr(new Path(tmpindexOtherPath,"vertify"),partionvertify);
+        copy.add(partion);
+      }
+      if (ret != 0) {
+        return ret;
+      }
+    }
+  }
+  for (  String old : olds) {
+    Path indexOtherPath=new Path(this.index,old);
+    if (this.fs.exists(indexOtherPath)) {
+      this.fs.delete(indexOtherPath,true);
+    }
+  }
+  for (  String partion : copy) {
+    Path indexOtherPath=new Path(this.index,partion);
+    Path tmpindexOtherPath=new Path(this.tmp,partion);
+    if (this.fs.exists(indexOtherPath)) {
+      this.fs.delete(indexOtherPath,true);
+    }
+    this.fs.mkdirs(indexOtherPath.getParent());
+    this.fs.rename(tmpindexOtherPath,indexOtherPath);
+  }
+  this.cleanTmp();
+  return 0;
+}

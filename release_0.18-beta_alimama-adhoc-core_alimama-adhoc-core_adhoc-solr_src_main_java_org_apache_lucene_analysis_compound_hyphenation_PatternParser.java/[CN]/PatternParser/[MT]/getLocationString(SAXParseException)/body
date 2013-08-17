@@ -1,0 +1,16 @@
+{
+  StringBuilder str=new StringBuilder();
+  String systemId=ex.getSystemId();
+  if (systemId != null) {
+    int index=systemId.lastIndexOf('/');
+    if (index != -1) {
+      systemId=systemId.substring(index + 1);
+    }
+    str.append(systemId);
+  }
+  str.append(':');
+  str.append(ex.getLineNumber());
+  str.append(':');
+  str.append(ex.getColumnNumber());
+  return str.toString();
+}

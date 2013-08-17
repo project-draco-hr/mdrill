@@ -1,0 +1,17 @@
+{
+  if (this == obj)   return true;
+  if (obj == null)   return false;
+  if (getClass() != obj.getClass())   return false;
+  FuzzyLikeThisQuery other=(FuzzyLikeThisQuery)obj;
+  if (analyzer == null) {
+    if (other.analyzer != null)     return false;
+  }
+ else   if (!analyzer.equals(other.analyzer))   return false;
+  if (fieldVals == null) {
+    if (other.fieldVals != null)     return false;
+  }
+ else   if (!fieldVals.equals(other.fieldVals))   return false;
+  if (ignoreTF != other.ignoreTF)   return false;
+  if (maxNumTerms != other.maxNumTerms)   return false;
+  return true;
+}

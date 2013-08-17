@@ -1,0 +1,3 @@
+{
+  return "NumericSelectInQuery [field=" + field + ", precisionStep="+ precisionStep+ ", dataType="+ dataType+ ", file="+ file+ ", trans="+ trans+ "]";
+}

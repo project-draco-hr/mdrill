@@ -1,0 +1,6 @@
+{
+  if (assignment instanceof CommonStatsData && ((CommonStatsData)assignment).get_emitted().equals(emitted) && ((CommonStatsData)assignment).transferred.equals(transferred)&& ((CommonStatsData)assignment).getRate() == rate) {
+    return true;
+  }
+  return false;
+}

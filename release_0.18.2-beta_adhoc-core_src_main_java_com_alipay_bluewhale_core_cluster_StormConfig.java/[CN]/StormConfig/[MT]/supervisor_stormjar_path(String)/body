@@ -1,0 +1,3 @@
+{
+  return stormroot + "/stormjar.jar";
+}

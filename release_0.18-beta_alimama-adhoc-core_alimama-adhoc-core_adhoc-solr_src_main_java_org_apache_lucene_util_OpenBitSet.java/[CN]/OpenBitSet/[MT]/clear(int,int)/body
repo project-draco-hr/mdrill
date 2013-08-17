@@ -1,0 +1,20 @@
+{
+  if (endIndex <= startIndex)   return;
+  int startWord=(startIndex >> 6);
+  if (startWord >= wlen)   return;
+  int endWord=((endIndex - 1) >> 6);
+  long startmask=-1L << startIndex;
+  long endmask=-1L >>> -endIndex;
+  startmask=~startmask;
+  endmask=~endmask;
+  if (startWord == endWord) {
+    bits[startWord]&=(startmask | endmask);
+    return;
+  }
+  bits[startWord]&=startmask;
+  int middle=Math.min(wlen,endWord);
+  Arrays.fill(bits,startWord + 1,middle,0L);
+  if (endWord < wlen) {
+    bits[endWord]&=endmask;
+  }
+}

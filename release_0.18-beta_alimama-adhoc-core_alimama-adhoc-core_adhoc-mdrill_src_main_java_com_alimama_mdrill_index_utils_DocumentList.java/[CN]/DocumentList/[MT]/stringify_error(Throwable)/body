@@ -1,0 +1,6 @@
+{
+  StringWriter result=new StringWriter();
+  PrintWriter printer=new PrintWriter(result);
+  error.printStackTrace(printer);
+  return result.toString();
+}

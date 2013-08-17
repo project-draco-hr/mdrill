@@ -1,0 +1,3 @@
+{
+  return (pattern != null ? pattern.hashCode() : 0);
+}

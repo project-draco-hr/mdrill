@@ -1,0 +1,3 @@
+{
+  return new GreekLowerCaseFilter(luceneMatchVersion,in);
+}

@@ -1,0 +1,10 @@
+{
+  this.conf=conf;
+  this.stormClusterState=Cluster.mk_storm_cluster_state(conf);
+  this.taskHeartbeatsCache=new ConcurrentHashMap<String,Map<Integer,Map<TkHbCacheTime,Integer>>>();
+  this.downloaders=downloaders;
+  this.uploaders=uploaders;
+  this.startTime=TimeUtils.current_time_secs();
+  this.submittedCount=new AtomicInteger(0);
+  this.scheduExec=Executors.newScheduledThreadPool(6);
+}

@@ -1,0 +1,3 @@
+{
+  return "SelectInListQuery [term=" + field + ", contains="+ Arrays.toString(contains)+ ", hashcode="+ Arrays.hashCode(this.contains)+ "]";
+}

@@ -1,0 +1,35 @@
+{
+  LOG.info("Starting BlueWhale with conf " + conf);
+  TimeCacheMap.ExpiredCallback<Object,Object> expiredCallback=new TimeCacheMap.ExpiredCallback<Object,Object>(){
+    @Override public void expire(    Object key,    Object val){
+      try {
+        if (val != null) {
+          if (val instanceof Channel) {
+            Channel channel=(Channel)val;
+            channel.close();
+          }
+ else           if (val instanceof BufferFileInputStream) {
+            BufferFileInputStream is=(BufferFileInputStream)val;
+            is.close();
+          }
+        }
+      }
+ catch (      IOException e) {
+        LOG.error(e.getMessage(),e);
+      }
+    }
+  }
+;
+  int file_copy_expiration_secs=(Integer)conf.get(Config.NIMBUS_FILE_COPY_EXPIRATION_SECS);
+  TimeCacheMap<Object,Object> uploaders=new TimeCacheMap<Object,Object>(file_copy_expiration_secs,expiredCallback);
+  TimeCacheMap<Object,Object> downloaders=new TimeCacheMap<Object,Object>(file_copy_expiration_secs,expiredCallback);
+  NimbusData data=new NimbusData(conf,downloaders,uploaders);
+  cleanup_corrupt_topologies(data);
+  List<String> active_ids=data.getStormClusterState().active_storms();
+  if (active_ids != null) {
+    for (    String topologyid : active_ids) {
+      StatusTransition.transition(data,topologyid,false,StatusType.startup);
+    }
+  }
+  return data;
+}

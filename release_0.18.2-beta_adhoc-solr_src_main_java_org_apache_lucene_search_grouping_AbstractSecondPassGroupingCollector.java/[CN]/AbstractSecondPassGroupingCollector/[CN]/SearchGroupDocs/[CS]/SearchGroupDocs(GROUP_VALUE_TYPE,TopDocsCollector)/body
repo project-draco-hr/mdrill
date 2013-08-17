@@ -1,0 +1,4 @@
+{
+  this.groupValue=groupValue;
+  this.collector=collector;
+}

@@ -1,0 +1,3 @@
+{
+  return new NumericRangeQuery<Integer>(field,precisionStep,DataType.INT,min,max,minInclusive,maxInclusive);
+}

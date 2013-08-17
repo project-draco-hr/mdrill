@@ -1,0 +1,10 @@
+{
+  try {
+    StringBuilder sb=new StringBuilder();
+    toString(query,schema,sb,0);
+    return sb.toString();
+  }
+ catch (  Exception e) {
+    throw new RuntimeException(e);
+  }
+}

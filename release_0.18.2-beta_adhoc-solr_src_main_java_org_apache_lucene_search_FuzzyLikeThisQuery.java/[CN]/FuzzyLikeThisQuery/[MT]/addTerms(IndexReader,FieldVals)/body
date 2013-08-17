@@ -1,0 +1,54 @@
+{
+  if (f.queryString == null)   return;
+  TokenStream ts=analyzer.reusableTokenStream(f.fieldName,new StringReader(f.queryString));
+  CharTermAttribute termAtt=ts.addAttribute(CharTermAttribute.class);
+  int corpusNumDocs=reader.numDocs();
+  Term internSavingTemplateTerm=new Term(f.fieldName);
+  HashSet<String> processedTerms=new HashSet<String>();
+  ts.reset();
+  while (ts.incrementToken()) {
+    String term=termAtt.toString();
+    if (!processedTerms.contains(term)) {
+      processedTerms.add(term);
+      ScoreTermQueue variantsQ=new ScoreTermQueue(MAX_VARIANTS_PER_TERM);
+      float minScore=0;
+      Term startTerm=internSavingTemplateTerm.createTerm(term);
+      FuzzyTermEnum fe=new FuzzyTermEnum(reader,startTerm,f.minSimilarity,f.prefixLength);
+      TermEnum origEnum=reader.terms(startTerm);
+      int df=0;
+      if (startTerm.equals(origEnum.term())) {
+        df=origEnum.docFreq();
+      }
+      int numVariants=0;
+      int totalVariantDocFreqs=0;
+      do {
+        Term possibleMatch=fe.term();
+        if (possibleMatch != null) {
+          numVariants++;
+          totalVariantDocFreqs+=fe.docFreq();
+          float score=fe.difference();
+          if (variantsQ.size() < MAX_VARIANTS_PER_TERM || score > minScore) {
+            ScoreTerm st=new ScoreTerm(possibleMatch,score,startTerm);
+            variantsQ.insertWithOverflow(st);
+            minScore=variantsQ.top().score;
+          }
+        }
+      }
+ while (fe.next());
+      if (numVariants > 0) {
+        int avgDf=totalVariantDocFreqs / numVariants;
+        if (df == 0) {
+          df=avgDf;
+        }
+        int size=variantsQ.size();
+        for (int i=0; i < size; i++) {
+          ScoreTerm st=variantsQ.pop();
+          st.score=(st.score * st.score) * sim.idf(df,corpusNumDocs);
+          q.insertWithOverflow(st);
+        }
+      }
+    }
+  }
+  ts.end();
+  ts.close();
+}

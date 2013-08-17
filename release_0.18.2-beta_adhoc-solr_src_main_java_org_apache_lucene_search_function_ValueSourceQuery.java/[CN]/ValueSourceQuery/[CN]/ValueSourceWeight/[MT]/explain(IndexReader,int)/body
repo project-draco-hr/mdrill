@@ -1,0 +1,9 @@
+{
+  DocValues vals=valSrc.getValues(reader);
+  float sc=queryWeight * vals.floatVal(doc);
+  Explanation result=new ComplexExplanation(true,sc,ValueSourceQuery.this.toString() + ", product of:");
+  result.addDetail(vals.explain(doc));
+  result.addDetail(new Explanation(getBoost(),"boost"));
+  result.addDetail(new Explanation(queryNorm,"queryNorm"));
+  return result;
+}

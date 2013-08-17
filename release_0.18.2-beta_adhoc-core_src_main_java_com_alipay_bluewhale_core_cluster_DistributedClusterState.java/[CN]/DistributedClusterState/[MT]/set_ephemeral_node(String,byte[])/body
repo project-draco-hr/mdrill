@@ -1,0 +1,14 @@
+{
+  try {
+    zkobj.mkdirs(zk,PathUtils.parent_path(path));
+    if (zkobj.exists(zk,path,false)) {
+      zkobj.setData(zk,path,data);
+    }
+ else {
+      zkobj.createNode(zk,path,data,CreateMode.EPHEMERAL);
+    }
+  }
+ catch (  Exception e) {
+    LOG.error("set_ephemeral_node",e);
+  }
+}

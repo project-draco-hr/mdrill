@@ -1,0 +1,14 @@
+{
+  TermInfo ti;
+  Term term;
+  if (termEnum instanceof SegmentTermEnum && ((SegmentTermEnum)termEnum).fieldInfos == parent.core.fieldInfos) {
+    SegmentTermEnum segmentTermEnum=((SegmentTermEnum)termEnum);
+    term=segmentTermEnum.term();
+    ti=segmentTermEnum.termInfo();
+  }
+ else {
+    term=termEnum.term();
+    ti=parent.core.getTermsReader().get(term);
+  }
+  seek(ti,term);
+}

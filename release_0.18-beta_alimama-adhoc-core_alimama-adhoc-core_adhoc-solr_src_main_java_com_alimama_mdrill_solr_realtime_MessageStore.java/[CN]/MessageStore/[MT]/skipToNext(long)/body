@@ -1,0 +1,11 @@
+{
+  Segment seg=this.findSegment(this.segments.view(),offset);
+  if (seg == null) {
+    return -1;
+  }
+  Segment rtn=this.findSegmentNext(this.segments.view(),seg);
+  if (rtn == null) {
+    return -1;
+  }
+  return rtn.start;
+}

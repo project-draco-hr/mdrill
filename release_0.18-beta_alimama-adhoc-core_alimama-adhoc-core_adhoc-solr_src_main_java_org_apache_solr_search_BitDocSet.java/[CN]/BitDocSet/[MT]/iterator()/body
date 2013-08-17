@@ -1,0 +1,24 @@
+{
+  return new DocIterator(){
+    private final OpenBitSetIterator iter=new OpenBitSetIterator(bits);
+    private int pos=iter.nextDoc();
+    public boolean hasNext(){
+      return pos != DocIdSetIterator.NO_MORE_DOCS;
+    }
+    public Integer next(){
+      return nextDoc();
+    }
+    public void remove(){
+      bits.clear(pos);
+    }
+    public int nextDoc(){
+      int old=pos;
+      pos=iter.nextDoc();
+      return old;
+    }
+    public float score(){
+      return 0.0f;
+    }
+  }
+;
+}

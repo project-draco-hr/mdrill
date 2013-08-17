@@ -1,0 +1,4 @@
+{
+  this.chain=chain;
+  this.solrCore=solrCore;
+}

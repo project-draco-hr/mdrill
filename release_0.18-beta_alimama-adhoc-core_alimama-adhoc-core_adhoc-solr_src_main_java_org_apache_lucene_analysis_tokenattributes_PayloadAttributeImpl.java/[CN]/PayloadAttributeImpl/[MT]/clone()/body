@@ -1,0 +1,7 @@
+{
+  PayloadAttributeImpl clone=(PayloadAttributeImpl)super.clone();
+  if (payload != null) {
+    clone.payload=(Payload)payload.clone();
+  }
+  return clone;
+}

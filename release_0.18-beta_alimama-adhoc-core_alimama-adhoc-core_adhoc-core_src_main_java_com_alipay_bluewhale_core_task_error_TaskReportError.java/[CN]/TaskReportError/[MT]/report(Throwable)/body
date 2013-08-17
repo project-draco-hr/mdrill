@@ -1,0 +1,4 @@
+{
+  LOG.error("ReportError",error);
+  zkCluster.report_task_error(storm_id,task_id,error);
+}

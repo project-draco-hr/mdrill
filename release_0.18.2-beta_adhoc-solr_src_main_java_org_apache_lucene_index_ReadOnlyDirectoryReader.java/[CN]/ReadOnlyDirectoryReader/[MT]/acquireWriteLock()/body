@@ -1,0 +1,3 @@
+{
+  ReadOnlySegmentReader.noWrite();
+}

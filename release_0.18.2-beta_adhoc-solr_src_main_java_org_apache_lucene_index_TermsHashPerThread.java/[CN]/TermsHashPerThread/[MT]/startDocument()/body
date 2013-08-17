@@ -1,0 +1,4 @@
+{
+  consumer.startDocument();
+  if (nextPerThread != null)   nextPerThread.consumer.startDocument();
+}

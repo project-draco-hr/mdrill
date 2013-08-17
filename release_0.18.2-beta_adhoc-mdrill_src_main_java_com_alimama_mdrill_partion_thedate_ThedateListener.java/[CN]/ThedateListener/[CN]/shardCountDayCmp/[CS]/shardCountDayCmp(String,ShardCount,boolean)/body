@@ -1,0 +1,6 @@
+{
+  super();
+  this.day=day;
+  this.shardCount=shardCount;
+  this.isdesc=isdesc;
+}

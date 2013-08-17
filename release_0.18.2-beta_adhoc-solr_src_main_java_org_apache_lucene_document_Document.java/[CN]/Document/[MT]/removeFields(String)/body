@@ -1,0 +1,9 @@
+{
+  Iterator<Fieldable> it=fields.iterator();
+  while (it.hasNext()) {
+    Fieldable field=it.next();
+    if (field.name().equals(name)) {
+      it.remove();
+    }
+  }
+}

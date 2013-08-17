@@ -1,0 +1,11 @@
+{
+  ensureOpen();
+  if (mergeScheduler == null)   throw new NullPointerException("MergeScheduler must be non-null");
+  if (this.mergeScheduler != mergeScheduler) {
+    finishMerges(true);
+    this.mergeScheduler.close();
+  }
+  this.mergeScheduler=mergeScheduler;
+  if (infoStream != null)   message("setMergeScheduler " + mergeScheduler);
+  config.setMergeScheduler(mergeScheduler);
+}

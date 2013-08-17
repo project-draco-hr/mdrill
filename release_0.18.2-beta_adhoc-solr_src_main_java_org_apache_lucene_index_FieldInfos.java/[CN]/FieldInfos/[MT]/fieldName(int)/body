@@ -1,0 +1,4 @@
+{
+  FieldInfo fi=fieldInfo(fieldNumber);
+  return (fi != null) ? fi.name : "";
+}

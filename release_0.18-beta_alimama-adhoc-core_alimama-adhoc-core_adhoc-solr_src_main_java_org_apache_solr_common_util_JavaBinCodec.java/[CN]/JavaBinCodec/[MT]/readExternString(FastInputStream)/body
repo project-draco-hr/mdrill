@@ -1,0 +1,12 @@
+{
+  int idx=readSize(fis);
+  if (idx != 0) {
+    return stringsList.get(idx - 1);
+  }
+ else {
+    String s=(String)readVal(fis);
+    if (stringsList == null)     stringsList=new ArrayList<String>();
+    stringsList.add(s);
+    return s;
+  }
+}

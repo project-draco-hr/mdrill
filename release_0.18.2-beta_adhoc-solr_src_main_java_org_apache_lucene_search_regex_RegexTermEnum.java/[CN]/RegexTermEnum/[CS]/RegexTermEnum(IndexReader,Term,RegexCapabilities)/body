@@ -1,0 +1,10 @@
+{
+  super();
+  field=term.field();
+  String text=term.text();
+  this.regexImpl=regexImpl;
+  regexImpl.compile(text);
+  pre=regexImpl.prefix();
+  if (pre == null)   pre="";
+  setEnum(reader.terms(new Term(term.field(),pre)));
+}

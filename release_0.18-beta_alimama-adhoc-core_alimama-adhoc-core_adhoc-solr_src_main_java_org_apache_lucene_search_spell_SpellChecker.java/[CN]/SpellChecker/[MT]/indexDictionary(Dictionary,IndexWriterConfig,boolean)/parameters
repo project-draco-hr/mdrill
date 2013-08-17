@@ -1,0 +1,3 @@
+Dictionary dict
+IndexWriterConfig config
+boolean fullMerge

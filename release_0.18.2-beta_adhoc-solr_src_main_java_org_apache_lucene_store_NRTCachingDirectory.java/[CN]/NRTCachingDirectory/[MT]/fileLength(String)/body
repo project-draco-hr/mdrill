@@ -1,0 +1,8 @@
+{
+  if (cache.fileExists(name)) {
+    return cache.fileLength(name);
+  }
+ else {
+    return delegate.fileLength(name);
+  }
+}

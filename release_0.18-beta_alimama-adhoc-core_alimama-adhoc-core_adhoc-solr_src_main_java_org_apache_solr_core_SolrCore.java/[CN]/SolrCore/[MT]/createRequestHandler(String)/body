@@ -1,0 +1,3 @@
+{
+  return createInstance(className,SolrRequestHandler.class,"Request Handler");
+}

@@ -1,0 +1,4 @@
+{
+  final Date date=new Date(round(time,resolution));
+  return TL_FORMATS.get()[resolution.formatLen].format(date);
+}

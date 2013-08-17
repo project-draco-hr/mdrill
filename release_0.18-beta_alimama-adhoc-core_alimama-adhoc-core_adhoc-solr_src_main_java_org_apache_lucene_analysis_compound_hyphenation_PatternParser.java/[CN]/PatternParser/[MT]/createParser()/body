@@ -1,0 +1,10 @@
+{
+  try {
+    SAXParserFactory factory=SAXParserFactory.newInstance();
+    factory.setNamespaceAware(true);
+    return factory.newSAXParser().getXMLReader();
+  }
+ catch (  Exception e) {
+    throw new RuntimeException("Couldn't create XMLReader: " + e.getMessage());
+  }
+}

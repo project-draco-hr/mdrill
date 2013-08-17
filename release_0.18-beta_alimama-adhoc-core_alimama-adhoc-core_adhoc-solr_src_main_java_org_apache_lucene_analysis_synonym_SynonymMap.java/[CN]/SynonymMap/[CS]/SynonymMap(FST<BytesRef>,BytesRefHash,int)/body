@@ -1,0 +1,5 @@
+{
+  this.fst=fst;
+  this.words=words;
+  this.maxHorizontalContext=maxHorizontalContext;
+}

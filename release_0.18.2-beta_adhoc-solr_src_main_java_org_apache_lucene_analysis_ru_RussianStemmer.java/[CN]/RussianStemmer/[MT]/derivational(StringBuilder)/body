@@ -1,0 +1,13 @@
+{
+  int endingLength=findEnding(stemmingZone,derivationalEndings);
+  if (endingLength == 0)   return false;
+ else {
+    if (R2 - RV <= stemmingZone.length() - endingLength) {
+      stemmingZone.setLength(stemmingZone.length() - endingLength);
+      return true;
+    }
+ else {
+      return false;
+    }
+  }
+}

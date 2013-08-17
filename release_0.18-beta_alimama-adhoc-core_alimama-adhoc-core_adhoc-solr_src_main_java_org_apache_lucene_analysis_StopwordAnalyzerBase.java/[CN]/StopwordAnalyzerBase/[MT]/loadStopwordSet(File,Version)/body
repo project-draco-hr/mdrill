@@ -1,0 +1,10 @@
+{
+  Reader reader=null;
+  try {
+    reader=IOUtils.getDecodingReader(stopwords,IOUtils.CHARSET_UTF_8);
+    return WordlistLoader.getWordSet(reader,matchVersion);
+  }
+  finally {
+    IOUtils.close(reader);
+  }
+}

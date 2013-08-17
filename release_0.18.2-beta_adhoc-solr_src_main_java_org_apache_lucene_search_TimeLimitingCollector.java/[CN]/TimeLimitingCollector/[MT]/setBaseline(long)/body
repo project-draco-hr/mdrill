@@ -1,0 +1,4 @@
+{
+  t0=clockTime;
+  timeout=t0 + ticksAllowed;
+}

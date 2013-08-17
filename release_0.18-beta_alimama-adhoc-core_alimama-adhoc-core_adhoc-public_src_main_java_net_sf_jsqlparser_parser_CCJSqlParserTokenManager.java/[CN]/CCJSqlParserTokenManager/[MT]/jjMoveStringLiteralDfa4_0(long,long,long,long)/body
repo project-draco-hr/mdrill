@@ -1,0 +1,57 @@
+{
+  if (((active0&=old0) | (active1&=old1)) == 0L)   return jjStartNfa_0(2,old0,old1);
+  try {
+    curChar=input_stream.readChar();
+  }
+ catch (  java.io.IOException e) {
+    jjStopStringLiteralDfa_0(3,active0,active1);
+    return 4;
+  }
+switch (curChar) {
+case 65:
+case 97:
+    return jjMoveStringLiteralDfa5_0(active0,0x2800000000000000L,active1,0L);
+case 67:
+case 99:
+  return jjMoveStringLiteralDfa5_0(active0,0x8008000000000000L,active1,0L);
+case 69:
+case 101:
+if ((active0 & 0x2000000000L) != 0L) return jjStartNfaWithStates_0(4,37,36);
+ else if ((active0 & 0x4000000000L) != 0L) return jjStartNfaWithStates_0(4,38,36);
+return jjMoveStringLiteralDfa5_0(active0,0x4210000000000000L,active1,0L);
+case 71:
+case 103:
+if ((active0 & 0x8000000000L) != 0L) return jjStartNfaWithStates_0(4,39,36);
+break;
+case 73:
+case 105:
+return jjMoveStringLiteralDfa5_0(active0,0L,active1,0x1L);
+case 78:
+case 110:
+if ((active0 & 0x10000000000L) != 0L) return jjStartNfaWithStates_0(4,40,36);
+ else if ((active0 & 0x40000000000L) != 0L) return jjStartNfaWithStates_0(4,42,36);
+return jjMoveStringLiteralDfa5_0(active0,0x40000000000000L,active1,0L);
+case 80:
+case 112:
+if ((active0 & 0x20000000000L) != 0L) return jjStartNfaWithStates_0(4,41,36);
+return jjMoveStringLiteralDfa5_0(active0,0x400000000000000L,active1,0L);
+case 82:
+case 114:
+if ((active0 & 0x100000000000L) != 0L) return jjStartNfaWithStates_0(4,44,36);
+ else if ((active0 & 0x400000000000L) != 0L) return jjStartNfaWithStates_0(4,46,36);
+ else if ((active0 & 0x800000000000L) != 0L) return jjStartNfaWithStates_0(4,47,36);
+return jjMoveStringLiteralDfa5_0(active0,0x1080000000000000L,active1,0x2L);
+case 84:
+case 116:
+if ((active0 & 0x200000000000L) != 0L) return jjStartNfaWithStates_0(4,45,36);
+ else if ((active0 & 0x1000000000000L) != 0L) return jjStartNfaWithStates_0(4,48,36);
+return jjMoveStringLiteralDfa5_0(active0,0x126000000000000L,active1,0L);
+case 88:
+case 120:
+if ((active0 & 0x80000000000L) != 0L) return jjStartNfaWithStates_0(4,43,36);
+break;
+default :
+break;
+}
+return jjStartNfa_0(3,active0,active1);
+}

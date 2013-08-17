@@ -1,0 +1,82 @@
+{
+  int v_1;
+  int v_2;
+  int v_3;
+  int v_4;
+  int v_5;
+  int v_6;
+  int v_7;
+  int v_8;
+  v_1=cursor;
+  lab0:   do {
+    if (!r_prelude()) {
+      break lab0;
+    }
+  }
+ while (false);
+  cursor=v_1;
+  v_2=cursor;
+  lab1:   do {
+    if (!r_mark_regions()) {
+      break lab1;
+    }
+  }
+ while (false);
+  cursor=v_2;
+  limit_backward=cursor;
+  cursor=limit;
+  v_3=limit - cursor;
+  lab2:   do {
+    if (!r_step_0()) {
+      break lab2;
+    }
+  }
+ while (false);
+  cursor=limit - v_3;
+  v_4=limit - cursor;
+  lab3:   do {
+    if (!r_standard_suffix()) {
+      break lab3;
+    }
+  }
+ while (false);
+  cursor=limit - v_4;
+  v_5=limit - cursor;
+  lab4:   do {
+    lab5:     do {
+      v_6=limit - cursor;
+      lab6:       do {
+        if (!(B_standard_suffix_removed)) {
+          break lab6;
+        }
+        break lab5;
+      }
+ while (false);
+      cursor=limit - v_6;
+      if (!r_verb_suffix()) {
+        break lab4;
+      }
+    }
+ while (false);
+  }
+ while (false);
+  cursor=limit - v_5;
+  v_7=limit - cursor;
+  lab7:   do {
+    if (!r_vowel_suffix()) {
+      break lab7;
+    }
+  }
+ while (false);
+  cursor=limit - v_7;
+  cursor=limit_backward;
+  v_8=cursor;
+  lab8:   do {
+    if (!r_postlude()) {
+      break lab8;
+    }
+  }
+ while (false);
+  cursor=v_8;
+  return true;
+}

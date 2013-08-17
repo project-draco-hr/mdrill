@@ -1,0 +1,6 @@
+{
+  if (postings == null) {
+    postings=reader.termPositions();
+  }
+  return postings;
+}

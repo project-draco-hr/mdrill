@@ -1,0 +1,3 @@
+{
+  this(AttributeFactory.DEFAULT_ATTRIBUTE_FACTORY);
+}

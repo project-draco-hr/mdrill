@@ -1,0 +1,4 @@
+{
+  super.newBuffer(newBuffer);
+  byteBuf=ByteBuffer.wrap(newBuffer);
+}

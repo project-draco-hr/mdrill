@@ -1,0 +1,3 @@
+Version matchVersion
+String name
+String[] stopWords

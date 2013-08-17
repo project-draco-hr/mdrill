@@ -1,0 +1,3 @@
+{
+  return (float)Math.pow(aVals.floatVal(doc),bVals.floatVal(doc));
+}

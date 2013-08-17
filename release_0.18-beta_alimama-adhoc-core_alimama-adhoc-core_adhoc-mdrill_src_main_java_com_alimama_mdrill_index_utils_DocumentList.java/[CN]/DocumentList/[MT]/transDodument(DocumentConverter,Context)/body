@@ -1,0 +1,17 @@
+{
+  ArrayList<Document> doclist=new ArrayList<Document>(list.size());
+  for (  HashMap<String,String> res : list) {
+    try {
+      Document doc=documentConverter.convert(res);
+      doclist.add(doc);
+    }
+ catch (    org.apache.solr.common.SolrException e) {
+      context.getCounter("higo","skipdocument").increment(1);
+      if (debuglines < 100) {
+        debuglines++;
+        System.out.println("skipdocument: " + res.toString() + ","+ stringify_error(e));
+      }
+    }
+  }
+  return doclist;
+}

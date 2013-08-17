@@ -1,0 +1,4 @@
+{
+  FieldSelectorResult selection=fieldSelections.get(field);
+  return selection != null ? selection : FieldSelectorResult.NO_LOAD;
+}

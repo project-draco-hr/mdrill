@@ -1,0 +1,4 @@
+{
+  if (o == null)   throw new NullPointerException();
+  return false;
+}

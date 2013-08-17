@@ -1,0 +1,39 @@
+{
+  StringBuilder buffer=new StringBuilder();
+  if (field != null && !field.equals(f)) {
+    buffer.append(field);
+    buffer.append(":");
+  }
+  buffer.append("\"");
+  String[] pieces=new String[maxPosition + 1];
+  for (int i=0; i < terms.size(); i++) {
+    int pos=positions.get(i).intValue();
+    String s=pieces[pos];
+    if (s == null) {
+      s=(terms.get(i)).text();
+    }
+ else {
+      s=s + "|" + (terms.get(i)).text();
+    }
+    pieces[pos]=s;
+  }
+  for (int i=0; i < pieces.length; i++) {
+    if (i > 0) {
+      buffer.append(' ');
+    }
+    String s=pieces[i];
+    if (s == null) {
+      buffer.append('?');
+    }
+ else {
+      buffer.append(s);
+    }
+  }
+  buffer.append("\"");
+  if (slop != 0) {
+    buffer.append("~");
+    buffer.append(slop);
+  }
+  buffer.append(ToStringUtils.boost(getBoost()));
+  return buffer.toString();
+}

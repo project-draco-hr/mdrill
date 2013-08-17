@@ -1,0 +1,4 @@
+{
+  consumer.startDocument();
+  endConsumer.startDocument();
+}

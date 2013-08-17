@@ -1,0 +1,6 @@
+{
+  if (cachedPositions == null) {
+    cachedPositions=ArrayUtils.add(basePositions,position);
+  }
+  return cachedPositions;
+}

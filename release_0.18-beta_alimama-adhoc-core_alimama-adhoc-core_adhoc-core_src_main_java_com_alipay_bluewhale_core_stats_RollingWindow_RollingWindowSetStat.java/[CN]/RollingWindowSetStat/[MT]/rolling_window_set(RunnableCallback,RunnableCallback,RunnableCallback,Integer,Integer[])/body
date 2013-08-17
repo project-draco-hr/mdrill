@@ -1,0 +1,11 @@
+{
+  RollingWindowSet rtn=new RollingWindowSet();
+  rtn.updater=updater;
+  rtn.extractor=extractor;
+  rtn.windows=new RollingWindow[bucket_size.length];
+  for (int i=0; i < bucket_size.length; i++) {
+    rtn.windows[i]=RollingWindowStat.rolling_window(updater,merger,extractor,bucket_size[i],num_buckets);
+  }
+  rtn.all_time=null;
+  return rtn;
+}

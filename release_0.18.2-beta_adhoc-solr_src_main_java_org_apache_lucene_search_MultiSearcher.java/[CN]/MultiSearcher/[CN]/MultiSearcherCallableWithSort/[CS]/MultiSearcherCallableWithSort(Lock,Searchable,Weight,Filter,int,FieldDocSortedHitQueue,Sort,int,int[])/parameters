@@ -1,0 +1,9 @@
+Lock lock
+Searchable searchable
+Weight weight
+Filter filter
+int nDocs
+FieldDocSortedHitQueue hq
+Sort sort
+int i
+int[] starts

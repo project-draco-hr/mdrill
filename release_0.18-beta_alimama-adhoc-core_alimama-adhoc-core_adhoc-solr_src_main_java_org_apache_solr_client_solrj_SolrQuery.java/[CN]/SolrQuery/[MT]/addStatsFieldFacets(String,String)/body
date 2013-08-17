@@ -1,0 +1,10 @@
+{
+  if (field == null) {
+    this.add(StatsParams.STATS_FACET,facets);
+  }
+ else {
+    for (    String f : facets) {
+      this.add("f." + field + "."+ StatsParams.STATS_FACET,f);
+    }
+  }
+}

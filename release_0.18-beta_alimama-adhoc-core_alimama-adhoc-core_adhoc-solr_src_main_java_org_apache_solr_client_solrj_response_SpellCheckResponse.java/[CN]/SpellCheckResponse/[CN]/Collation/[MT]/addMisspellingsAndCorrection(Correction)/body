@@ -1,0 +1,4 @@
+{
+  this.misspellingsAndCorrections.add(correction);
+  return this;
+}

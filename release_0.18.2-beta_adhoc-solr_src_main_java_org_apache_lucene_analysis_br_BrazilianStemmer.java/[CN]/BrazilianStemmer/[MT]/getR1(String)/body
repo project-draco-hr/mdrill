@@ -1,0 +1,25 @@
+{
+  int i;
+  int j;
+  if (value == null) {
+    return null;
+  }
+  i=value.length() - 1;
+  for (j=0; j < i; j++) {
+    if (isVowel(value.charAt(j))) {
+      break;
+    }
+  }
+  if (!(j < i)) {
+    return null;
+  }
+  for (; j < i; j++) {
+    if (!(isVowel(value.charAt(j)))) {
+      break;
+    }
+  }
+  if (!(j < i)) {
+    return null;
+  }
+  return value.substring(j + 1);
+}

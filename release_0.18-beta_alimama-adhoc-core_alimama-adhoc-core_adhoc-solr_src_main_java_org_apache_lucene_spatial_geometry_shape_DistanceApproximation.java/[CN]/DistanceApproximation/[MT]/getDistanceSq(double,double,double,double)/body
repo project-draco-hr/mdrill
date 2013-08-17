@@ -1,0 +1,11 @@
+{
+  double v1y=lat2 - lat1;
+  double v1x=lng2 - lng1;
+  double v2y=m_testLat - lat1;
+  double v2x=m_testLng - lng1;
+  double dot=v1x * v2x + v1y * v2y;
+  if (dot <= 0.0f)   return getDistanceSq(lat1,lng1);
+  double c=dot / (v1x * v1x + v1y * v1y);
+  if (c >= 1.0f)   return getDistanceSq(lat2,lng2);
+  return getDistanceSq((lat1 + v1y * c),(lng1 + v1x * c));
+}

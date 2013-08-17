@@ -1,0 +1,12 @@
+{
+  StringBuilder sb=new StringBuilder();
+  sb.append("frange(");
+  sb.append(valueSource);
+  sb.append("):");
+  sb.append(includeLower ? '[' : '{');
+  sb.append(lowerVal == null ? "*" : lowerVal);
+  sb.append(" TO ");
+  sb.append(upperVal == null ? "*" : upperVal);
+  sb.append(includeUpper ? ']' : '}');
+  return sb.toString();
+}

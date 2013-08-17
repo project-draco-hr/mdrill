@@ -1,0 +1,5 @@
+List<LookupResult> res
+int num
+float weight
+StringBuilder output
+Arc<Object> arc

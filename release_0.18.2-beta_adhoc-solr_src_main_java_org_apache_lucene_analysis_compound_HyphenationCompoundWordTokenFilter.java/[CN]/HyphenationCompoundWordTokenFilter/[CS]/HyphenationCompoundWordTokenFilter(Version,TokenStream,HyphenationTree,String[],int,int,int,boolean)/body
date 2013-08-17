@@ -1,0 +1,3 @@
+{
+  this(matchVersion,input,hyphenator,makeDictionary(matchVersion,dictionary),minWordSize,minSubwordSize,maxSubwordSize,onlyLongestMatch);
+}

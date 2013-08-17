@@ -1,0 +1,4 @@
+{
+  List<PluginInfo> result=readPluginInfos(tag,requireName,requireClass);
+  if (!result.isEmpty())   pluginStore.put(clazz.getName(),result);
+}

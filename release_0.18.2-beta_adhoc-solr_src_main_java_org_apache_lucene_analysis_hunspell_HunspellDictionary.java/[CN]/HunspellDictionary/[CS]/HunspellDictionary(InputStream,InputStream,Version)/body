@@ -1,0 +1,3 @@
+{
+  this(affix,Arrays.asList(dictionary),version,IGNORE_CASE_DEFAULT);
+}

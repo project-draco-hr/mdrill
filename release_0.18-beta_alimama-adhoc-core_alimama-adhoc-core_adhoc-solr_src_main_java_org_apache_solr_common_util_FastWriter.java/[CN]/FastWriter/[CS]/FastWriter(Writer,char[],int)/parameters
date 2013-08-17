@@ -1,0 +1,3 @@
+Writer sink
+char[] tempBuffer
+int start

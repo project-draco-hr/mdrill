@@ -1,0 +1,3 @@
+{
+  return new NumericRangeFilter<Integer>(NumericRangeQuery.newIntRange(field,min,max,minInclusive,maxInclusive));
+}

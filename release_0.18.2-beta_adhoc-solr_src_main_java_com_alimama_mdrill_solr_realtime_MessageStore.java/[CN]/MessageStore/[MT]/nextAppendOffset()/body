@@ -1,0 +1,5 @@
+{
+  final Segment last=this.segments.last();
+  last.fileMessageSet.flush();
+  return last.start + last.size();
+}

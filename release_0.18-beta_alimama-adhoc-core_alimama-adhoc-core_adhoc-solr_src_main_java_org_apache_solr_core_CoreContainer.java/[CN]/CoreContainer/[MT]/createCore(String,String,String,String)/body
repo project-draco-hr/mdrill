@@ -1,0 +1,23 @@
+{
+  CoreDescriptor p=new CoreDescriptor(this,name,instanceDir);
+  p.setSchemaName(schema);
+  p.setDataDir(datadir);
+  p.setCoreProperties(new Properties());
+  SolrResourceLoader solrLoader=new SolrResourceLoader(p.getInstanceDir(),null,p.getCoreProperties());
+  SolrConfig sconfig=new SolrConfig(solrLoader,p.getConfigName(),null);
+  if (sconfig.getBool("abortOnConfigurationError",defaultAbortOnConfigError)) {
+    numCoresAbortOnConfigError++;
+  }
+  IndexSchema ischema=new IndexSchema(sconfig,p.getSchemaName(),null);
+  SolrCore core=new SolrCore(p.getName(),p.getDataDir(),sconfig,ischema,p);
+  core.setName(name);
+  core.getCoreDescriptor().name=name;
+  SolrCore old=cores.put(name,core);
+  if (old == null || old == core) {
+    log.info("registering core: " + name);
+  }
+ else {
+    log.info("replacing core: " + name);
+    old.close();
+  }
+}

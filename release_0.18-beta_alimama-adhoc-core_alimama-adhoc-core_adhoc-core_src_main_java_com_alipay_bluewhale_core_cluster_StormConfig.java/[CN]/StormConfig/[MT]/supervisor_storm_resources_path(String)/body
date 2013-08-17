@@ -1,0 +1,3 @@
+{
+  return stormroot + "/" + RESOURCES_SUBDIR;
+}

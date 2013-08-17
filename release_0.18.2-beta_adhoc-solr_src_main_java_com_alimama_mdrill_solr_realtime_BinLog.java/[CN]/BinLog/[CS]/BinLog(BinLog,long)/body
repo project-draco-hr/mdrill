@@ -1,0 +1,4 @@
+{
+  this.pos.set(pos);
+  this.worker=binlog.worker;
+}

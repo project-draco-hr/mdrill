@@ -1,0 +1,3 @@
+{
+  return "cpuUsed:" + cpuUsed + ", memTotal:"+ memTotal+ ", memUsed: "+ memUsed+ ", diskTotal:"+ diskTotal+ ", diskFree:"+ diskFree+ ", path:"+ path;
+}

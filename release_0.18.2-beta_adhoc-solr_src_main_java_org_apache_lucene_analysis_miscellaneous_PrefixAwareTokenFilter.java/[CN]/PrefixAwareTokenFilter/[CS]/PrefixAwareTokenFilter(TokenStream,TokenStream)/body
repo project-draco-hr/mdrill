@@ -1,0 +1,18 @@
+{
+  super(suffix);
+  this.suffix=suffix;
+  this.prefix=prefix;
+  prefixExhausted=false;
+  termAtt=addAttribute(CharTermAttribute.class);
+  posIncrAtt=addAttribute(PositionIncrementAttribute.class);
+  payloadAtt=addAttribute(PayloadAttribute.class);
+  offsetAtt=addAttribute(OffsetAttribute.class);
+  typeAtt=addAttribute(TypeAttribute.class);
+  flagsAtt=addAttribute(FlagsAttribute.class);
+  p_termAtt=prefix.addAttribute(CharTermAttribute.class);
+  p_posIncrAtt=prefix.addAttribute(PositionIncrementAttribute.class);
+  p_payloadAtt=prefix.addAttribute(PayloadAttribute.class);
+  p_offsetAtt=prefix.addAttribute(OffsetAttribute.class);
+  p_typeAtt=prefix.addAttribute(TypeAttribute.class);
+  p_flagsAtt=prefix.addAttribute(FlagsAttribute.class);
+}

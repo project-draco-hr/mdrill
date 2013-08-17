@@ -1,0 +1,32 @@
+{
+  int d;
+  char p=root;
+  int i=start;
+  char c;
+  while (p != 0) {
+    if (sc[p] == 0xFFFF) {
+      if (strcmp(key,i,kv.getArray(),lo[p]) == 0) {
+        return eq[p];
+      }
+ else {
+        return -1;
+      }
+    }
+    c=key[i];
+    d=c - sc[p];
+    if (d == 0) {
+      if (c == 0) {
+        return eq[p];
+      }
+      i++;
+      p=eq[p];
+    }
+ else     if (d < 0) {
+      p=lo[p];
+    }
+ else {
+      p=hi[p];
+    }
+  }
+  return -1;
+}

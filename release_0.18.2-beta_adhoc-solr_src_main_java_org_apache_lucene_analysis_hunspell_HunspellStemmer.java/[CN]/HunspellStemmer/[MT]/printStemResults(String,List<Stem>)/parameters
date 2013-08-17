@@ -1,0 +1,2 @@
+String originalWord
+List<Stem> stems

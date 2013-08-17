@@ -1,0 +1,3 @@
+boolean triggerMerge
+boolean flushDocStores
+boolean flushDeletes

@@ -1,0 +1,21 @@
+{
+  StringBuilder buffer=new StringBuilder();
+  SegmentReader reader=readerPool.getIfExists(info);
+  try {
+    if (reader != null) {
+      buffer.append(reader.toString());
+    }
+ else {
+      buffer.append(info.toString(directory,0));
+      if (info.dir != directory) {
+        buffer.append("**");
+      }
+    }
+  }
+  finally {
+    if (reader != null) {
+      readerPool.release(reader);
+    }
+  }
+  return buffer.toString();
+}

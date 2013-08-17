@@ -1,0 +1,19 @@
+{
+  TokenStream ts=a.reusableTokenStream(field,new StringReader(body));
+  CharTermAttribute termAtt=ts.addAttribute(CharTermAttribute.class);
+  BooleanQuery tmp=new BooleanQuery();
+  Set<String> already=new HashSet<String>();
+  while (ts.incrementToken()) {
+    String word=termAtt.toString();
+    if (stop != null && stop.contains(word))     continue;
+    if (!already.add(word))     continue;
+    TermQuery tq=new TermQuery(new Term(field,word));
+    try {
+      tmp.add(tq,BooleanClause.Occur.SHOULD);
+    }
+ catch (    BooleanQuery.TooManyClauses too) {
+      break;
+    }
+  }
+  return tmp;
+}

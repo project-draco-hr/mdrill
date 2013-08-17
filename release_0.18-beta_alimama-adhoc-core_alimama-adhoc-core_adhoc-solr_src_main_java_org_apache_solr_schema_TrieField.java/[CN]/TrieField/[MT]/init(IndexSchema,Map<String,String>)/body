@@ -1,0 +1,21 @@
+{
+  String p=args.remove("precisionStep");
+  if (p != null) {
+    precisionStepArg=Integer.parseInt(p);
+  }
+  precisionStep=precisionStepArg;
+  if (precisionStep <= 0 || precisionStep >= 64)   precisionStep=Integer.MAX_VALUE;
+  String t=args.remove("type");
+  if (t != null) {
+    try {
+      type=TrieTypes.valueOf(t.toUpperCase(Locale.ENGLISH));
+    }
+ catch (    IllegalArgumentException e) {
+      throw new SolrException(SolrException.ErrorCode.SERVER_ERROR,"Invalid type specified in schema.xml for field: " + args.get("name"),e);
+    }
+  }
+  CharFilterFactory[] filterFactories=new CharFilterFactory[0];
+  TokenFilterFactory[] tokenFilterFactories=new TokenFilterFactory[0];
+  analyzer=new TokenizerChain(filterFactories,new TrieTokenizerFactory(type,precisionStep),tokenFilterFactories);
+  queryAnalyzer=new TokenizerChain(filterFactories,new TrieTokenizerFactory(type,Integer.MAX_VALUE),tokenFilterFactories);
+}

@@ -1,0 +1,10 @@
+{
+  while (!allThreadsIdle()) {
+    try {
+      wait();
+    }
+ catch (    InterruptedException ie) {
+      throw new ThreadInterruptedException(ie);
+    }
+  }
+}

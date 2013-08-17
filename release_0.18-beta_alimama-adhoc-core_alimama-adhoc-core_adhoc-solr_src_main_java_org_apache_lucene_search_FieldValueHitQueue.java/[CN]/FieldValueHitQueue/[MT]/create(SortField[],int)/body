@@ -1,0 +1,11 @@
+{
+  if (fields.length == 0) {
+    throw new IllegalArgumentException("Sort must contain at least one field");
+  }
+  if (fields.length == 1) {
+    return new OneComparatorFieldValueHitQueue<T>(fields,size);
+  }
+ else {
+    return new MultiComparatorsFieldValueHitQueue<T>(fields,size);
+  }
+}

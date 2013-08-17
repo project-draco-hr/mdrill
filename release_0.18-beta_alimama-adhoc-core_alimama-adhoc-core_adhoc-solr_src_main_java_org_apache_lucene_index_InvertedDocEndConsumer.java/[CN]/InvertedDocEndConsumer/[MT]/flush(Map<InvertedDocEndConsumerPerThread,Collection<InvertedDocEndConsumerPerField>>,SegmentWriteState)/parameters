@@ -1,0 +1,2 @@
+Map<InvertedDocEndConsumerPerThread,Collection<InvertedDocEndConsumerPerField>> threadsAndFields
+SegmentWriteState state

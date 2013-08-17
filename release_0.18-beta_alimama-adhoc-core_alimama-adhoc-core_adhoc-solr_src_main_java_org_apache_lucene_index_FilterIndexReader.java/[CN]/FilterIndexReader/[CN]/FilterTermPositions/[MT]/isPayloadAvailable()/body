@@ -1,0 +1,3 @@
+{
+  return ((TermPositions)this.in).isPayloadAvailable();
+}

@@ -1,0 +1,12 @@
+{
+  if (offsets == null) {
+    offsets=new int[64];
+    diffs=new int[64];
+  }
+ else   if (size == offsets.length) {
+    offsets=ArrayUtil.grow(offsets);
+    diffs=ArrayUtil.grow(diffs);
+  }
+  offsets[size]=off;
+  diffs[size++]=cumulativeDiff;
+}

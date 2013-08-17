@@ -1,0 +1,5 @@
+{
+  assert(shardDoc.sortFieldValues.getName(fieldNum).equals(fieldName));
+  List lst=(List)shardDoc.sortFieldValues.getVal(fieldNum);
+  return lst.get(shardDoc.orderInShard);
+}

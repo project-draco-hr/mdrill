@@ -1,0 +1,18 @@
+{
+  this.perThread=perThread;
+  intPool=perThread.intPool;
+  charPool=perThread.charPool;
+  bytePool=perThread.bytePool;
+  docState=perThread.docState;
+  postingsHash=new int[postingsHashSize];
+  Arrays.fill(postingsHash,-1);
+  bytesUsed(postingsHashSize * RamUsageEstimator.NUM_BYTES_INT);
+  fieldState=docInverterPerField.fieldState;
+  this.consumer=perThread.consumer.addField(this,fieldInfo);
+  initPostingsArray();
+  streamCount=consumer.getStreamCount();
+  numPostingInt=2 * streamCount;
+  this.fieldInfo=fieldInfo;
+  if (nextPerThread != null)   nextPerField=(TermsHashPerField)nextPerThread.addField(docInverterPerField,fieldInfo);
+ else   nextPerField=null;
+}

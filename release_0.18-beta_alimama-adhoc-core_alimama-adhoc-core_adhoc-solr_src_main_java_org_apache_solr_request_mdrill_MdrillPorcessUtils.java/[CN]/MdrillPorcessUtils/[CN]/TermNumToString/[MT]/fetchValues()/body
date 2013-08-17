@@ -1,0 +1,18 @@
+{
+  int size=tmlist.size();
+  if (size <= 0) {
+    return;
+  }
+  Integer[] list=new Integer[size];
+  tmlist.toArray(list);
+  Arrays.sort(list);
+synchronized (TermNumToString.lock) {
+    for (    Integer i : list) {
+      UnvertFile uf=ufs.cols[this.index];
+      if (uf != null) {
+        String fieldvalue=uf.uif.tNumToString(i,uf.filetype,uf.ti,"null");
+        tmMap.put(i,fieldvalue);
+      }
+    }
+  }
+}

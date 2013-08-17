@@ -1,0 +1,3 @@
+Map<Term,Integer> dfMap
+int maxDoc
+Similarity similarity

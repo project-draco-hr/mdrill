@@ -1,0 +1,21 @@
+{
+  ensureOpen();
+  final int rc=refCount.getAndDecrement();
+  if (rc == 1) {
+    boolean success=false;
+    try {
+      commit();
+      doClose();
+      success=true;
+    }
+  finally {
+      if (!success) {
+        refCount.incrementAndGet();
+      }
+    }
+    readerFinished();
+  }
+ else   if (rc <= 0) {
+    throw new IllegalStateException("too many decRef calls: refCount was " + rc + " before decrement");
+  }
+}

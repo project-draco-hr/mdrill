@@ -1,0 +1,7 @@
+{
+  int h=Float.floatToIntBits(slope);
+  h=(h >>> 2) | (h << 30);
+  h+=Float.floatToIntBits(intercept);
+  h^=(h << 14) | (h >>> 19);
+  return h + source.hashCode();
+}

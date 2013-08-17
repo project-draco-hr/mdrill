@@ -1,0 +1,3 @@
+{
+  return stem(word,0,wordLen);
+}

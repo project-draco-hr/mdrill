@@ -1,0 +1,16 @@
+{
+  HashMap<String,Vertify> rtn=new HashMap<String,Vertify>();
+  if (fs.exists(dir)) {
+    FileStatus[] list=fs.listStatus(dir);
+    for (    FileStatus d : list) {
+      String dirname=d.getPath().getName();
+      if (!d.isDir() || dirname.startsWith("_") || dirname.startsWith(".")|| dirname.equals("index")|| dirname.equals("spellchecker")|| dirname.equals("default")) {
+        continue;
+      }
+      Path p=d.getPath();
+      Vertify ver=new Vertify(p,IndexUtils.readVertify(fs,p));
+      rtn.put(p.getName(),ver);
+    }
+  }
+  return rtn;
+}

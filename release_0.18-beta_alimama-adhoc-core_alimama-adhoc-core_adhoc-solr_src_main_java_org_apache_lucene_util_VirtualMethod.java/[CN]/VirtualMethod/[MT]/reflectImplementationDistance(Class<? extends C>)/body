@@ -1,0 +1,17 @@
+{
+  if (!baseClass.isAssignableFrom(subclazz))   throw new IllegalArgumentException(subclazz.getName() + " is not a subclass of " + baseClass.getName());
+  boolean overridden=false;
+  int distance=0;
+  for (Class<?> clazz=subclazz; clazz != baseClass && clazz != null; clazz=clazz.getSuperclass()) {
+    if (!overridden) {
+      try {
+        clazz.getDeclaredMethod(method,parameters);
+        overridden=true;
+      }
+ catch (      NoSuchMethodException nsme) {
+      }
+    }
+    if (overridden)     distance++;
+  }
+  return distance;
+}

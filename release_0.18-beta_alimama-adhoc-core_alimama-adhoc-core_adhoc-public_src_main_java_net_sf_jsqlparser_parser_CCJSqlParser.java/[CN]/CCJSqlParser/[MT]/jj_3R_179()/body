@@ -1,0 +1,15 @@
+{
+  if (jj_scan_token(K_USING))   return true;
+  if (jj_scan_token(79))   return true;
+  if (jj_3R_36())   return true;
+  Token xsp;
+  while (true) {
+    xsp=jj_scanpos;
+    if (jj_3R_215()) {
+      jj_scanpos=xsp;
+      break;
+    }
+  }
+  if (jj_scan_token(80))   return true;
+  return false;
+}

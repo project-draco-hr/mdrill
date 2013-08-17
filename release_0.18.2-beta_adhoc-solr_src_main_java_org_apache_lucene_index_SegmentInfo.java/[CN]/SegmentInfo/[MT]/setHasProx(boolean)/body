@@ -1,0 +1,4 @@
+{
+  this.hasProx=hasProx;
+  clearFiles();
+}

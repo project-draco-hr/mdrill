@@ -1,0 +1,3 @@
+{
+  return input instanceof CharStream ? (CharStream)input : new CharReader(input);
+}

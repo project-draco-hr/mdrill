@@ -1,0 +1,5 @@
+{
+  if (!(o instanceof ConstValueSource))   return false;
+  ConstValueSource other=(ConstValueSource)o;
+  return this.constant == other.constant;
+}

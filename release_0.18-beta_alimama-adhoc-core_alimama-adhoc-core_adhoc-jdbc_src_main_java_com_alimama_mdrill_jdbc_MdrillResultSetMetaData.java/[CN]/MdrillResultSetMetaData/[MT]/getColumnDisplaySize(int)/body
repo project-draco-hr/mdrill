@@ -1,0 +1,4 @@
+{
+  int columnType=getColumnType(column);
+  return JdbcColumn.columnDisplaySize(columnType);
+}

@@ -1,0 +1,11 @@
+{
+  if (numVectorFields == fieldNumbers.length) {
+    fieldNumbers=ArrayUtil.grow(fieldNumbers);
+  }
+  if (numVectorFields == fieldPointers.length) {
+    fieldPointers=ArrayUtil.grow(fieldPointers);
+  }
+  fieldNumbers[numVectorFields]=fieldNumber;
+  fieldPointers[numVectorFields]=perDocTvf.getFilePointer();
+  numVectorFields++;
+}

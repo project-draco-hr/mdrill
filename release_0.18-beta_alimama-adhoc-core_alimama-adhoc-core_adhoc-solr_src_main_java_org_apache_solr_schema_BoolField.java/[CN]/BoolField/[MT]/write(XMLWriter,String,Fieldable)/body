@@ -1,0 +1,3 @@
+{
+  xmlWriter.writeBool(name,f.stringValue().charAt(0) == 'T');
+}

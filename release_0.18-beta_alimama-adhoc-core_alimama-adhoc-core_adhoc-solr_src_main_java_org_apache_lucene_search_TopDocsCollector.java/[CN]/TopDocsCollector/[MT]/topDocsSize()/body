@@ -1,0 +1,3 @@
+{
+  return totalHits < pq.size() ? totalHits : pq.size();
+}

@@ -1,0 +1,4 @@
+FST<T> fst
+char[] input
+int offset
+int length

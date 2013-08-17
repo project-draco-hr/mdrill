@@ -1,0 +1,14 @@
+{
+  if (length != -1) {
+    totalLength-=length;
+  }
+  if (condition) {
+    length=end() - start();
+    totalLength+=length;
+    if (max == null || doc() > max.doc() || (doc() == max.doc()) && (end() > max.end())) {
+      max=this;
+    }
+  }
+  more=condition;
+  return condition;
+}

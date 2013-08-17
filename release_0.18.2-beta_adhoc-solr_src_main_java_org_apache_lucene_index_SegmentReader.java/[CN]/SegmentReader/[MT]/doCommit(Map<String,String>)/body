@@ -1,0 +1,15 @@
+{
+  if (hasChanges) {
+    startCommit();
+    boolean success=false;
+    try {
+      commitChanges(commitUserData);
+      success=true;
+    }
+  finally {
+      if (!success) {
+        rollbackCommit();
+      }
+    }
+  }
+}

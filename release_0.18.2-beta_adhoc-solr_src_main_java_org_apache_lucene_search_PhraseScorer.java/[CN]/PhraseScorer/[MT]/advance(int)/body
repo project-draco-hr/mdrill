@@ -1,0 +1,18 @@
+{
+  freq=0.0f;
+  if (!advanceMin(target)) {
+    return NO_MORE_DOCS;
+  }
+  boolean restart=false;
+  while (freq == 0.0f) {
+    while (min.doc < max.doc || restart) {
+      restart=false;
+      if (!advanceMin(max.doc)) {
+        return NO_MORE_DOCS;
+      }
+    }
+    freq=phraseFreq();
+    restart=true;
+  }
+  return max.doc;
+}

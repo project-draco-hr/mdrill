@@ -1,0 +1,13 @@
+{
+  Date d=super.parse(i,p);
+  int milliIndex=p.getIndex();
+  if (null != d && -1 == p.getErrorIndex() && milliIndex + 1 < i.length() && '.' == i.charAt(milliIndex)) {
+    p.setIndex(++milliIndex);
+    Number millis=millisParser.parse(i,p);
+    if (-1 == p.getErrorIndex()) {
+      int endIndex=p.getIndex();
+      d=new Date(d.getTime() + (long)(millis.doubleValue() * Math.pow(10,(3 - endIndex + milliIndex))));
+    }
+  }
+  return d;
+}

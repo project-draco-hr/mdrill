@@ -1,0 +1,3 @@
+{
+  return luceneFilter.accept(null,path.getName());
+}

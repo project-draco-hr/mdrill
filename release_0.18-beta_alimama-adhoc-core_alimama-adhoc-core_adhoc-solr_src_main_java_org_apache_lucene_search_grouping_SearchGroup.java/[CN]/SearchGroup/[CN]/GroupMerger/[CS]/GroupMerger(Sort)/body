@@ -1,0 +1,5 @@
+{
+  groupComp=new GroupComparator<T>(groupSort);
+  queue=new TreeSet<MergedGroup<T>>(groupComp);
+  groupsSeen=new HashMap<T,MergedGroup<T>>();
+}

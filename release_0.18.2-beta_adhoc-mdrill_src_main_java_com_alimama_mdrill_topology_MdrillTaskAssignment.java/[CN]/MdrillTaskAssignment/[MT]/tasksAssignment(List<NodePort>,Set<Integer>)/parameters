@@ -1,0 +1,2 @@
+List<NodePort> reassignSlots
+Set<Integer> reassignIds

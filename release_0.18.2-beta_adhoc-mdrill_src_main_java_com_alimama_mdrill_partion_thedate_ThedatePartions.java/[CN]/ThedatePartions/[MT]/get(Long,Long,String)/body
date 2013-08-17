@@ -1,0 +1,14 @@
+{
+  Long step=1000l * 3600 * 24;
+  Long start=min;
+  HashSet<String> list=new HashSet<String>();
+  SimpleDateFormat fmt=new SimpleDateFormat("yyyyMMdd");
+  while (start <= max) {
+    list.add(fmt.format(new Date(start)));
+    start+=step;
+  }
+  HashMap<String,HashSet<String>> rtn=ThedatePartionsUtils.parseDays(list,parttype);
+  Set<String> ks=rtn.keySet();
+  String[] rtnarr=new String[ks.size()];
+  return ks.toArray(rtnarr);
+}

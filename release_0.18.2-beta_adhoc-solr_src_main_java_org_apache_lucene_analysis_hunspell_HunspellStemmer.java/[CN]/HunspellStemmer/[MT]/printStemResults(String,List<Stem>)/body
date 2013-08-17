@@ -1,0 +1,21 @@
+{
+  StringBuilder builder=new StringBuilder().append("stem(").append(originalWord).append(")").append("\n");
+  for (  Stem stem : stems) {
+    builder.append("- ").append(stem.getStem()).append(": ");
+    for (    HunspellAffix prefix : stem.getPrefixes()) {
+      builder.append(prefix.getAppend()).append("+");
+      if (hasText(prefix.getStrip())) {
+        builder.append(prefix.getStrip()).append("-");
+      }
+    }
+    builder.append(stem.getStem());
+    for (    HunspellAffix suffix : stem.getSuffixes()) {
+      if (hasText(suffix.getStrip())) {
+        builder.append("-").append(suffix.getStrip());
+      }
+      builder.append("+").append(suffix.getAppend());
+    }
+    builder.append("\n");
+  }
+  System.out.println(builder);
+}

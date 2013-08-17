@@ -1,0 +1,28 @@
+{
+  if (tvx != null) {
+    int fieldNumber=fieldInfos.fieldNumber(field);
+    seekTvx(docNum);
+    long tvdPosition=tvx.readLong();
+    tvd.seek(tvdPosition);
+    int fieldCount=tvd.readVInt();
+    int number=0;
+    int found=-1;
+    for (int i=0; i < fieldCount; i++) {
+      if (format >= FORMAT_VERSION)       number=tvd.readVInt();
+ else       number+=tvd.readVInt();
+      if (number == fieldNumber)       found=i;
+    }
+    if (found != -1) {
+      long position;
+      if (format >= FORMAT_VERSION2)       position=tvx.readLong();
+ else       position=tvd.readVLong();
+      for (int i=1; i <= found; i++)       position+=tvd.readVLong();
+      mapper.setDocumentNumber(docNum);
+      readTermVector(field,position,mapper);
+    }
+ else {
+    }
+  }
+ else {
+  }
+}

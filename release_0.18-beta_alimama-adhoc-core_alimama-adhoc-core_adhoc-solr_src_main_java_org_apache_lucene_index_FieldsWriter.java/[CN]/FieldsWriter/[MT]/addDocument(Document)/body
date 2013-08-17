@@ -1,0 +1,12 @@
+{
+  indexStream.writeLong(fieldsStream.getFilePointer());
+  int storedCount=0;
+  List<Fieldable> fields=doc.getFields();
+  for (  Fieldable field : fields) {
+    if (field.isStored())     storedCount++;
+  }
+  fieldsStream.writeVInt(storedCount);
+  for (  Fieldable field : fields) {
+    if (field.isStored())     writeField(fieldInfos.fieldInfo(field.name()),field);
+  }
+}

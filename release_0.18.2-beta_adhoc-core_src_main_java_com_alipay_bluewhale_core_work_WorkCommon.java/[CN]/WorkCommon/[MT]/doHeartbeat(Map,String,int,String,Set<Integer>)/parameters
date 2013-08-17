@@ -1,0 +1,5 @@
+Map conf
+String worker_id
+int port
+String storm_id
+Set<Integer> task_ids

@@ -1,0 +1,5 @@
+{
+  this.strurl=null;
+  resultSet=null;
+  isClosed=true;
+}

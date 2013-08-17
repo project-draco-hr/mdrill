@@ -1,0 +1,9 @@
+{
+  int columnIndex=columnNames.indexOf(columnName);
+  if (columnIndex == -1) {
+    throw new SQLException();
+  }
+ else {
+    return ++columnIndex;
+  }
+}

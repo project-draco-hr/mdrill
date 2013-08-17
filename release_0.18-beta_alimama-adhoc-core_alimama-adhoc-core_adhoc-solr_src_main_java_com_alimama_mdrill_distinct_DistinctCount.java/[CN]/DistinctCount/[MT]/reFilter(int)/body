@@ -1,0 +1,13 @@
+{
+  if (this.currentTimes == times) {
+    return;
+  }
+  this.currentTimes=times;
+  HashSet<Integer> data=new HashSet<Integer>();
+  for (  Integer ucrc : this.uniq) {
+    if (this.isallow(ucrc)) {
+      data.add(ucrc);
+    }
+  }
+  this.uniq=data;
+}

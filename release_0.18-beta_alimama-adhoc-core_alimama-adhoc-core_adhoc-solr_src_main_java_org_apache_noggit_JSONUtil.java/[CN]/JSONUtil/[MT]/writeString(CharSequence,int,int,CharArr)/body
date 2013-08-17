@@ -1,0 +1,5 @@
+{
+  out.write('"');
+  writeStringPart(val,start,end,out);
+  out.write('"');
+}

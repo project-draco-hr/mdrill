@@ -1,0 +1,8 @@
+{
+  if (rb.grouping()) {
+    return groupedDistributedProcess(rb);
+  }
+ else {
+    return regularDistributedProcess(rb);
+  }
+}

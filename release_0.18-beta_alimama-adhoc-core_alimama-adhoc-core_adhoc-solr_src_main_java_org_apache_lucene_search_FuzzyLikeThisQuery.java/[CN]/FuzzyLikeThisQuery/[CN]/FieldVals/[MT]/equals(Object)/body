@@ -1,0 +1,17 @@
+{
+  if (this == obj)   return true;
+  if (obj == null)   return false;
+  if (getClass() != obj.getClass())   return false;
+  FieldVals other=(FieldVals)obj;
+  if (fieldName == null) {
+    if (other.fieldName != null)     return false;
+  }
+ else   if (!fieldName.equals(other.fieldName))   return false;
+  if (Float.floatToIntBits(minSimilarity) != Float.floatToIntBits(other.minSimilarity))   return false;
+  if (prefixLength != other.prefixLength)   return false;
+  if (queryString == null) {
+    if (other.queryString != null)     return false;
+  }
+ else   if (!queryString.equals(other.queryString))   return false;
+  return true;
+}

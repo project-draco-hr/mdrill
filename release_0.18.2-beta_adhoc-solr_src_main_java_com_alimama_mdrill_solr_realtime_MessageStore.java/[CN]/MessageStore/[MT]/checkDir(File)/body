@@ -1,0 +1,10 @@
+{
+  if (!dir.exists()) {
+    if (!dir.mkdir()) {
+      throw new RuntimeException("Create directory failed:" + dir.getAbsolutePath());
+    }
+  }
+  if (!dir.isDirectory()) {
+    throw new RuntimeException("Path is not a directory:" + dir.getAbsolutePath());
+  }
+}

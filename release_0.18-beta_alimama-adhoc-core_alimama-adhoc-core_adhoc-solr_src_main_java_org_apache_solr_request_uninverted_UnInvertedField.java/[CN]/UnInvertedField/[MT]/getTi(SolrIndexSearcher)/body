@@ -1,0 +1,3 @@
+{
+  return ti.getEnumerator(searcher.getReader());
+}

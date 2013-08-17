@@ -1,0 +1,7 @@
+int upperWaterMark
+int lowerWaterMark
+int acceptableWatermark
+int initialSize
+boolean runCleanupThread
+boolean runNewThreadForCleanup
+EvictionListener<K,V> evictionListener

@@ -1,0 +1,3 @@
+LongWritable key
+Iterable<DocumentList> values
+Context context

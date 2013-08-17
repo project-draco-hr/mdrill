@@ -1,0 +1,3 @@
+{
+  return super.fileExists(name) || this.links.containsKey(name) || this.hdfsLinks.containsKey(name);
+}

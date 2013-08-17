@@ -1,0 +1,6 @@
+{
+  if (this.dir != null) {
+    this.dir.close();
+    this.dir=null;
+  }
+}

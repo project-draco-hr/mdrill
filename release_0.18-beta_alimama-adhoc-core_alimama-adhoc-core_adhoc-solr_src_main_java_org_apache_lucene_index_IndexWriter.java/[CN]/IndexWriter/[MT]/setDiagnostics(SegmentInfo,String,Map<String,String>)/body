@@ -1,0 +1,14 @@
+{
+  Map<String,String> diagnostics=new HashMap<String,String>();
+  diagnostics.put("source",source);
+  diagnostics.put("lucene.version",Constants.LUCENE_VERSION);
+  diagnostics.put("os",Constants.OS_NAME);
+  diagnostics.put("os.arch",Constants.OS_ARCH);
+  diagnostics.put("os.version",Constants.OS_VERSION);
+  diagnostics.put("java.version",Constants.JAVA_VERSION);
+  diagnostics.put("java.vendor",Constants.JAVA_VENDOR);
+  if (details != null) {
+    diagnostics.putAll(details);
+  }
+  info.setDiagnostics(diagnostics);
+}

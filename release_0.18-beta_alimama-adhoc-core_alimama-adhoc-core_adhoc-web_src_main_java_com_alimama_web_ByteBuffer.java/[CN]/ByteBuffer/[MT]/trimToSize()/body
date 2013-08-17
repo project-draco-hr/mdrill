@@ -1,0 +1,8 @@
+{
+  int oldCapacity=elementData.length;
+  if (elementCount < oldCapacity) {
+    byte oldData[]=elementData;
+    elementData=new byte[elementCount];
+    System.arraycopy(oldData,0,elementData,0,elementCount);
+  }
+}

@@ -1,0 +1,4 @@
+{
+  System.out.println("higo execute " + Arrays.toString(args));
+  MdrillMain.main(args);
+}

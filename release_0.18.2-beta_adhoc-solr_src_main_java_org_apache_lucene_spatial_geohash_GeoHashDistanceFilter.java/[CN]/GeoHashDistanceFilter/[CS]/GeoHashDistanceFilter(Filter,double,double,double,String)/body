@@ -1,0 +1,6 @@
+{
+  super(startingFilter,miles);
+  this.lat=lat;
+  this.lng=lng;
+  this.geoHashField=geoHashField;
+}

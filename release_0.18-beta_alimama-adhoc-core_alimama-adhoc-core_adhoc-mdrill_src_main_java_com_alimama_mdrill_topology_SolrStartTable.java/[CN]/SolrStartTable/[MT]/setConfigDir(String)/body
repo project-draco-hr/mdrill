@@ -1,0 +1,3 @@
+{
+  LinkFSDirectory.setHdfsConfDir(dir);
+}

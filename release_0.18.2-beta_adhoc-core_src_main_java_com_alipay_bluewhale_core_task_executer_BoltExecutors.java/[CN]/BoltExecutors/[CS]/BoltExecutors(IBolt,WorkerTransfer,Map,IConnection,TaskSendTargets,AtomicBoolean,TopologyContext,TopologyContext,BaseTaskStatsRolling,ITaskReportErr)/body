@@ -1,0 +1,16 @@
+{
+  this.bolt=_bolt;
+  this.puller=_puller;
+  this.zkActive=_storm_active_atom;
+  this.task_id=_topology_context.getThisTaskId();
+  this.sampler=StormConfig.mk_stats_sampler(storm_conf);
+  String component_id=_topology_context.getThisComponentId();
+  String timeoutkey=Config.TOPOLOGY_MESSAGE_TIMEOUT_SECS;
+  int message_timeout_secs=StormUtils.parseInt(storm_conf.get(timeoutkey));
+  this.tuple_start_times=new TimeCacheMap<Tuple,Long>(message_timeout_secs);
+  IOutputCollector output_collector=new BoltCollector(message_timeout_secs,_report_error,_send_fn,_transfer_fn,_topology_context,task_id,tuple_start_times,_task_stats);
+  LOG.info("Preparing bolt " + component_id + ":"+ task_id);
+  bolt.prepare(storm_conf,_user_context,new OutputCollector(output_collector));
+  LOG.info("Prepared bolt " + component_id + ":"+ task_id);
+  deserializer=new KryoTupleDeserializer(storm_conf,_topology_context);
+}

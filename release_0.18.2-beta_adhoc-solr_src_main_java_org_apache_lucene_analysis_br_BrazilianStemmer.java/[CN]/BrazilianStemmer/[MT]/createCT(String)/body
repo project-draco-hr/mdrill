@@ -1,0 +1,11 @@
+{
+  CT=changeTerm(term);
+  if (CT.length() < 2)   return;
+  if ((CT.charAt(0) == '"') || (CT.charAt(0) == '\'') || (CT.charAt(0) == '-')|| (CT.charAt(0) == ',')|| (CT.charAt(0) == ';')|| (CT.charAt(0) == '.')|| (CT.charAt(0) == '?')|| (CT.charAt(0) == '!')) {
+    CT=CT.substring(1);
+  }
+  if (CT.length() < 2)   return;
+  if ((CT.charAt(CT.length() - 1) == '-') || (CT.charAt(CT.length() - 1) == ',') || (CT.charAt(CT.length() - 1) == ';')|| (CT.charAt(CT.length() - 1) == '.')|| (CT.charAt(CT.length() - 1) == '?')|| (CT.charAt(CT.length() - 1) == '!')|| (CT.charAt(CT.length() - 1) == '\'')|| (CT.charAt(CT.length() - 1) == '"')) {
+    CT=CT.substring(0,CT.length() - 1);
+  }
+}

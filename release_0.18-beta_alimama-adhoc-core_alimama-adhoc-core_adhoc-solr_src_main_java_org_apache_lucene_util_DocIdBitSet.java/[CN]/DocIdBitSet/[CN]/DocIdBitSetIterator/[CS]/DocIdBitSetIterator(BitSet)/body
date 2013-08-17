@@ -1,0 +1,4 @@
+{
+  this.bitSet=bitSet;
+  this.docId=-1;
+}

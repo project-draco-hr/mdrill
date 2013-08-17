@@ -1,0 +1,13 @@
+{
+  if (fieldTypes == null && fieldNames == null) {
+    throw new IllegalStateException("At least one field type or field name need to be specified");
+  }
+  if (fieldValue == null) {
+    throw new IllegalStateException("The field value must be set");
+  }
+  long startTime=System.currentTimeMillis();
+  FieldAnalysisResponse res=new FieldAnalysisResponse();
+  res.setResponse(server.request(this));
+  res.setElapsedTime(System.currentTimeMillis() - startTime);
+  return res;
+}

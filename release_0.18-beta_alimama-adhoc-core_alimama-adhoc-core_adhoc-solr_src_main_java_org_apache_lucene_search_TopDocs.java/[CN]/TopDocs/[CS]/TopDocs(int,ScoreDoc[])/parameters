@@ -1,0 +1,2 @@
+int totalHits
+ScoreDoc[] scoreDocs

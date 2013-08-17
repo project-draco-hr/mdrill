@@ -1,0 +1,30 @@
+{
+  if (member instanceof java.lang.reflect.Field) {
+    field=(java.lang.reflect.Field)member;
+  }
+ else {
+    setter=(Method)member;
+  }
+  Field annotation=member.getAnnotation(Field.class);
+  storeName(annotation);
+  storeType();
+  if (setter != null) {
+    String gname=setter.getName();
+    if (gname.startsWith("set")) {
+      gname="get" + gname.substring(3);
+      try {
+        getter=setter.getDeclaringClass().getMethod(gname,(Class[])null);
+      }
+ catch (      Exception ex) {
+        if (type == Boolean.class) {
+          gname="is" + setter.getName().substring(3);
+          try {
+            getter=setter.getDeclaringClass().getMethod(gname,(Class[])null);
+          }
+ catch (          Exception ex2) {
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,7 @@
+TokenStream input
+HyphenationTree hyphenator
+Set<?> dictionary
+int minWordSize
+int minSubwordSize
+int maxSubwordSize
+boolean onlyLongestMatch

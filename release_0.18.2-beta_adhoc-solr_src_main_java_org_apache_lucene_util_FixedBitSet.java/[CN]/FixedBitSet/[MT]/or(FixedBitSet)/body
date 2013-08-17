@@ -1,0 +1,3 @@
+{
+  or(other.bits,other.bits.length);
+}

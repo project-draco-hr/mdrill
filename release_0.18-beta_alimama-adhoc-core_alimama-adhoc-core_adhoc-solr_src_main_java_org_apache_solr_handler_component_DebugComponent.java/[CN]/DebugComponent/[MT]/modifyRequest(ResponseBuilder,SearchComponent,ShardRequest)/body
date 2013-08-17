@@ -1,0 +1,10 @@
+{
+  if (!rb.isDebug())   return;
+  if ((sreq.purpose & ShardRequest.PURPOSE_GET_FIELDS) != 0) {
+    sreq.purpose|=ShardRequest.PURPOSE_GET_DEBUG;
+    sreq.params.set("debugQuery","true");
+  }
+ else {
+    sreq.params.set("debugQuery","false");
+  }
+}

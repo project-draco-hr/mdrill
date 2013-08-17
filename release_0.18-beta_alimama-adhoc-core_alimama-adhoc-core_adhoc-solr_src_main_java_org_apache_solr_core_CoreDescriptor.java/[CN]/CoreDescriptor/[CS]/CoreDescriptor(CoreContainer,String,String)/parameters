@@ -1,0 +1,3 @@
+CoreContainer coreContainer
+String name
+String instanceDir

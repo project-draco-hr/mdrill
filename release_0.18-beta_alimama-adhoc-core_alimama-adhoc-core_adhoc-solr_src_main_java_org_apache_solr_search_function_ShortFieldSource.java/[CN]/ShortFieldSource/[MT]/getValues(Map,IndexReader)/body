@@ -1,0 +1,30 @@
+{
+  final short[] arr=(parser == null) ? cache.getShorts(reader,field) : cache.getShorts(reader,field,parser);
+  return new DocValues(){
+    @Override public byte byteVal(    int doc){
+      return (byte)arr[doc];
+    }
+    @Override public short shortVal(    int doc){
+      return arr[doc];
+    }
+    @Override public float floatVal(    int doc){
+      return (float)arr[doc];
+    }
+    @Override public int intVal(    int doc){
+      return (int)arr[doc];
+    }
+    @Override public long longVal(    int doc){
+      return (long)arr[doc];
+    }
+    @Override public double doubleVal(    int doc){
+      return (double)arr[doc];
+    }
+    @Override public String strVal(    int doc){
+      return Short.toString(arr[doc]);
+    }
+    @Override public String toString(    int doc){
+      return description() + '=' + shortVal(doc);
+    }
+  }
+;
+}

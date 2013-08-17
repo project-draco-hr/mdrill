@@ -1,0 +1,38 @@
+{
+  final int bytesize, size;
+switch (numeric) {
+case 0:
+    size=fieldsStream.readVInt();
+  bytesize=(binary || compressed) ? size : 2 * size;
+break;
+case FieldsWriter.FIELD_IS_NUMERIC_INT:
+fieldsStream.readVVInt();
+size=0;
+bytesize=4;
+break;
+case FieldsWriter.FIELD_IS_NUMERIC_FLOAT:
+fieldsStream.readVVVInt();
+size=0;
+bytesize=4;
+break;
+case FieldsWriter.FIELD_IS_NUMERIC_LONG:
+fieldsStream.readVVLong();
+size=0;
+bytesize=8;
+break;
+case FieldsWriter.FIELD_IS_NUMERIC_DOUBLE:
+fieldsStream.readVVVLong();
+size=0;
+bytesize=8;
+break;
+default :
+throw new FieldReaderException("Invalid numeric type: " + Integer.toHexString(numeric));
+}
+byte[] sizebytes=new byte[4];
+sizebytes[0]=(byte)(bytesize >>> 24);
+sizebytes[1]=(byte)(bytesize >>> 16);
+sizebytes[2]=(byte)(bytesize >>> 8);
+sizebytes[3]=(byte)bytesize;
+doc.add(new Field(fi.name,sizebytes));
+return size;
+}

@@ -1,0 +1,4 @@
+{
+  final Tokenizer source=new CJKTokenizer(reader);
+  return new TokenStreamComponents(source,new StopFilter(matchVersion,source,stopwords));
+}

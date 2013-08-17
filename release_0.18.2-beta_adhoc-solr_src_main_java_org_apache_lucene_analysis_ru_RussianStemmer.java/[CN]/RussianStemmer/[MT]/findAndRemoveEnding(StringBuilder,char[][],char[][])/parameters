@@ -1,0 +1,3 @@
+StringBuilder stemmingZone
+char[][] theEndingClass
+char[][] thePredessors

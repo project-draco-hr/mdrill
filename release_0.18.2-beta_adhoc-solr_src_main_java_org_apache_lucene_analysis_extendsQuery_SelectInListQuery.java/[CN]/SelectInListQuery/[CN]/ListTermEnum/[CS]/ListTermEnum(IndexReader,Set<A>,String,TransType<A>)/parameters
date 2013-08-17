@@ -1,0 +1,4 @@
+IndexReader reader
+Set<A> list
+String field
+TransType<A> trans

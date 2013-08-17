@@ -1,0 +1,3 @@
+NRTManager manager
+double targetMaxStaleSec
+double targetMinStaleSec

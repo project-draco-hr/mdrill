@@ -1,0 +1,4 @@
+{
+  cachedir=dir;
+  this.key=key;
+}

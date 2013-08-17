@@ -1,0 +1,5 @@
+{
+  this.partitionDir=new File(dataPath);
+  this.checkDir(this.partitionDir);
+  this.loadSegments(offsetIfCreate);
+}

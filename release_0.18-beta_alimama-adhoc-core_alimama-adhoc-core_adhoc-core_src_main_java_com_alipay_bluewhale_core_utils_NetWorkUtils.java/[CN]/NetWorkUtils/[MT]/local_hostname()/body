@@ -1,0 +1,10 @@
+{
+  String hostname=null;
+  try {
+    hostname=InetAddress.getLocalHost().getCanonicalHostName();
+  }
+ catch (  UnknownHostException e) {
+    LOG.error("local_hostname",e);
+  }
+  return hostname;
+}

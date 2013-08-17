@@ -1,0 +1,3 @@
+{
+  return new WordDelimiterFilter(input,typeTable == null ? WordDelimiterIterator.DEFAULT_WORD_DELIM_TABLE : typeTable,flags,protectedWords);
+}

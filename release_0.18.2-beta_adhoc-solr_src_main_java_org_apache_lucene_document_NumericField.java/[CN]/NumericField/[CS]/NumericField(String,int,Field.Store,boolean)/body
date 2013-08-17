@@ -1,0 +1,5 @@
+{
+  super(name,store,index ? Field.Index.ANALYZED_NO_NORMS : Field.Index.NO,Field.TermVector.NO);
+  this.precisionStep=precisionStep;
+  setIndexOptions(IndexOptions.DOCS_ONLY);
+}

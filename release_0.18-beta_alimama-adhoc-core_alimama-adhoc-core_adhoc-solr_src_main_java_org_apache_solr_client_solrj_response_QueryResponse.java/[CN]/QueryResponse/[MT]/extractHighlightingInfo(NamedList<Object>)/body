@@ -1,0 +1,11 @@
+{
+  _highlighting=new HashMap<String,Map<String,List<String>>>();
+  for (  Map.Entry<String,Object> doc : info) {
+    Map<String,List<String>> fieldMap=new HashMap<String,List<String>>();
+    _highlighting.put(doc.getKey(),fieldMap);
+    NamedList<List<String>> fnl=(NamedList<List<String>>)doc.getValue();
+    for (    Map.Entry<String,List<String>> field : fnl) {
+      fieldMap.put(field.getKey(),field.getValue());
+    }
+  }
+}

@@ -1,0 +1,4 @@
+FilteredQuery query
+HashSet<WeightedTerm> terms
+boolean prohibited
+String fieldName

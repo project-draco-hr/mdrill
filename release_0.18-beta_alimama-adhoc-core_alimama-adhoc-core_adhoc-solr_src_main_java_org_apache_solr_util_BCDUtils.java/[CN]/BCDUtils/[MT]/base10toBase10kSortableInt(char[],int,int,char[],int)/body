@@ -1,0 +1,40 @@
+{
+  int wpos=outend;
+  boolean neg=false;
+  --end;
+  while (start <= end) {
+    char val=arr[start];
+    if (val == '-')     neg=!neg;
+ else     if (val >= '1' && val <= '9')     break;
+    start++;
+  }
+  outer:   while (start <= end) {
+switch (arr[end]) {
+case ' ':
+case '\t':
+case '\n':
+case '\r':
+      end--;
+    break;
+default :
+  break outer;
+}
+}
+int exp=0;
+while (start <= end) {
+int val=arr[end--] - '0';
+if (start <= end) {
+val+=(arr[end--] - '0') * 10;
+if (start <= end) {
+  val+=(arr[end--] - '0') * 100;
+  if (start <= end) {
+    val+=(arr[end--] - '0') * 1000;
+  }
+}
+}
+out[--wpos]=neg ? (char)(9999 - val) : (char)val;
+}
+exp+=outend - wpos;
+out[--wpos]=neg ? (char)(ZERO_EXPONENT - exp) : (char)(ZERO_EXPONENT + exp);
+return outend - wpos;
+}

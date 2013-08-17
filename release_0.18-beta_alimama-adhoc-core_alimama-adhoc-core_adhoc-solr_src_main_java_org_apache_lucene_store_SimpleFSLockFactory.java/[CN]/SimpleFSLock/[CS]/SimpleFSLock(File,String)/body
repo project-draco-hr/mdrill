@@ -1,0 +1,4 @@
+{
+  this.lockDir=lockDir;
+  lockFile=new File(lockDir,lockFileName);
+}

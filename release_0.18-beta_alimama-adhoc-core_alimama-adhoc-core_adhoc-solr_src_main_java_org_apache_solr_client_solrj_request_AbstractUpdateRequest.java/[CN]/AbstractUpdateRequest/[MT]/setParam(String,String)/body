@@ -1,0 +1,4 @@
+{
+  if (params == null)   params=new ModifiableSolrParams();
+  params.set(param,value);
+}

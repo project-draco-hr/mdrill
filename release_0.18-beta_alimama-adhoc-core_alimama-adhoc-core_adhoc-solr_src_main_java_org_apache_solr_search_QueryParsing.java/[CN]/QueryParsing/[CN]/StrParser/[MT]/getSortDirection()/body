@@ -1,0 +1,25 @@
+{
+  final int startPos=pos;
+  final String order=getId(null);
+  Boolean top=null;
+  if (null != order) {
+    if ("desc".equals(order) || "top".equals(order)) {
+      top=true;
+    }
+ else     if ("asc".equals(order) || "bottom".equals(order)) {
+      top=false;
+    }
+    eatws();
+    final char c=ch();
+    if (0 == c) {
+    }
+ else     if (',' == c) {
+      pos++;
+    }
+ else {
+      top=null;
+    }
+  }
+  if (null == top)   pos=startPos;
+  return top;
+}

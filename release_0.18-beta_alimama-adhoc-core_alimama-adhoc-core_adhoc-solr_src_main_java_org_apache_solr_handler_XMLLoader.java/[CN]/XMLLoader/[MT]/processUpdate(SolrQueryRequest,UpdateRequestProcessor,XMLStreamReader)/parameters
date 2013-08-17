@@ -1,0 +1,3 @@
+SolrQueryRequest req
+UpdateRequestProcessor processor
+XMLStreamReader parser

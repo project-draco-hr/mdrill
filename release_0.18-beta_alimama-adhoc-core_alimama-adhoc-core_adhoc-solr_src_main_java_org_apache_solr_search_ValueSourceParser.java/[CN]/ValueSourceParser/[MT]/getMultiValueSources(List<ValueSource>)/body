@@ -1,0 +1,30 @@
+{
+  MVResult mvr=new MVResult();
+  if (sources.size() % 2 != 0) {
+    throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,"Illegal number of sources.  There must be an even number of sources");
+  }
+  if (sources.size() == 2) {
+    boolean s1MV=sources.get(0) instanceof MultiValueSource;
+    boolean s2MV=sources.get(1) instanceof MultiValueSource;
+    if (s1MV && s2MV) {
+      mvr.mv1=(MultiValueSource)sources.get(0);
+      mvr.mv2=(MultiValueSource)sources.get(1);
+    }
+ else     if (s1MV || s2MV) {
+      throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,"Illegal number of sources.  There must be an even number of sources");
+    }
+ else {
+      mvr.mv1=new VectorValueSource(Collections.singletonList(sources.get(0)));
+      mvr.mv2=new VectorValueSource(Collections.singletonList(sources.get(1)));
+    }
+  }
+ else {
+    int dim=sources.size() / 2;
+    List<ValueSource> sources1=new ArrayList<ValueSource>(dim);
+    List<ValueSource> sources2=new ArrayList<ValueSource>(dim);
+    splitSources(dim,sources,sources1,sources2);
+    mvr.mv1=new VectorValueSource(sources1);
+    mvr.mv2=new VectorValueSource(sources2);
+  }
+  return mvr;
+}

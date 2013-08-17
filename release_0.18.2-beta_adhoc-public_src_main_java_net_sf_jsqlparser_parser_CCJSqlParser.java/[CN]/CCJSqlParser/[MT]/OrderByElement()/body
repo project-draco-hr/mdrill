@@ -1,0 +1,32 @@
+{
+  OrderByElement orderByElement=new OrderByElement();
+  List retval=new ArrayList();
+  Expression columnReference=null;
+  columnReference=SimpleExpression();
+switch ((jj_ntk == -1) ? jj_ntk() : jj_ntk) {
+case K_ASC:
+case K_DESC:
+switch ((jj_ntk == -1) ? jj_ntk() : jj_ntk) {
+case K_ASC:
+      jj_consume_token(K_ASC);
+    break;
+case K_DESC:
+  jj_consume_token(K_DESC);
+orderByElement.setAsc(false);
+break;
+default :
+jj_la1[69]=jj_gen;
+jj_consume_token(-1);
+throw new ParseException();
+}
+break;
+default :
+jj_la1[70]=jj_gen;
+;
+}
+orderByElement.setExpression(columnReference);
+{
+if (true) return orderByElement;
+}
+throw new Error("Missing return statement in function");
+}

@@ -1,0 +1,17 @@
+{
+  position+=posIncAtt.getPositionIncrement();
+  String termText=termAtt.toString();
+  WeightedSpanTerm weightedSpanTerm;
+  if ((weightedSpanTerm=fieldWeightedSpanTerms.get(termText)) == null) {
+    return 0;
+  }
+  if (weightedSpanTerm.positionSensitive && !weightedSpanTerm.checkPosition(position)) {
+    return 0;
+  }
+  float score=weightedSpanTerm.getWeight();
+  if (!foundTerms.contains(termText)) {
+    totalScore+=score;
+    foundTerms.add(termText);
+  }
+  return score;
+}

@@ -1,0 +1,3 @@
+{
+  return this.nodeHost.hashCode() + this.taskStartTimeSecs.hashCode() + this.masterCodeDir.hashCode()+ this.taskToNodeport.hashCode();
+}

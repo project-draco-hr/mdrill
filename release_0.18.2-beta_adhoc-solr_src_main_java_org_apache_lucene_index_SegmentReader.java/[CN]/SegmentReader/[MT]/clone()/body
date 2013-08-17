@@ -1,0 +1,8 @@
+{
+  try {
+    return clone(readOnly);
+  }
+ catch (  Exception ex) {
+    throw new RuntimeException(ex);
+  }
+}

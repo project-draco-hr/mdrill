@@ -1,0 +1,3 @@
+{
+  return ZeroMq.send(socket,mk_packet(virtual_port,message),flags);
+}

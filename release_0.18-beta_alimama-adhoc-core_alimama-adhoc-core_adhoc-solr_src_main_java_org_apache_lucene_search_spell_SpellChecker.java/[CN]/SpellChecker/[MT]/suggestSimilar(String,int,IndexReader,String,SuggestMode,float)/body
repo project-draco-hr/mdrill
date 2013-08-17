@@ -1,0 +1,71 @@
+{
+  final IndexSearcher indexSearcher=obtainSearcher();
+  try {
+    if (ir == null || field == null) {
+      suggestMode=SuggestMode.SUGGEST_ALWAYS;
+    }
+    if (suggestMode == SuggestMode.SUGGEST_ALWAYS) {
+      ir=null;
+      field=null;
+    }
+    final int lengthWord=word.length();
+    final int freq=(ir != null && field != null) ? ir.docFreq(new Term(field,word)) : 0;
+    final int goalFreq=suggestMode == SuggestMode.SUGGEST_MORE_POPULAR ? freq : 0;
+    if (suggestMode == SuggestMode.SUGGEST_WHEN_NOT_IN_INDEX && freq > 0) {
+      return new String[]{word};
+    }
+    BooleanQuery query=new BooleanQuery();
+    String[] grams;
+    String key;
+    for (int ng=getMin(lengthWord); ng <= getMax(lengthWord); ng++) {
+      key="gram" + ng;
+      grams=formGrams(word,ng);
+      if (grams.length == 0) {
+        continue;
+      }
+      if (bStart > 0) {
+        add(query,"start" + ng,grams[0],bStart);
+      }
+      if (bEnd > 0) {
+        add(query,"end" + ng,grams[grams.length - 1],bEnd);
+      }
+      for (int i=0; i < grams.length; i++) {
+        add(query,key,grams[i]);
+      }
+    }
+    int maxHits=10 * numSug;
+    ScoreDoc[] hits=indexSearcher.search(query,null,maxHits).scoreDocs;
+    SuggestWordQueue sugQueue=new SuggestWordQueue(numSug,comparator);
+    int stop=Math.min(hits.length,maxHits);
+    SuggestWord sugWord=new SuggestWord();
+    for (int i=0; i < stop; i++) {
+      sugWord.string=indexSearcher.doc(hits[i].doc).get(F_WORD);
+      if (sugWord.string.equals(word)) {
+        continue;
+      }
+      sugWord.score=sd.getDistance(word,sugWord.string);
+      if (sugWord.score < accuracy) {
+        continue;
+      }
+      if (ir != null && field != null) {
+        sugWord.freq=ir.docFreq(new Term(field,sugWord.string));
+        if ((suggestMode == SuggestMode.SUGGEST_MORE_POPULAR && goalFreq > sugWord.freq) || sugWord.freq < 1) {
+          continue;
+        }
+      }
+      sugQueue.insertWithOverflow(sugWord);
+      if (sugQueue.size() == numSug) {
+        accuracy=sugQueue.top().score;
+      }
+      sugWord=new SuggestWord();
+    }
+    String[] list=new String[sugQueue.size()];
+    for (int i=sugQueue.size() - 1; i >= 0; i--) {
+      list[i]=sugQueue.pop().string;
+    }
+    return list;
+  }
+  finally {
+    releaseSearcher(indexSearcher);
+  }
+}

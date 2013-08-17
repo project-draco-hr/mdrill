@@ -1,0 +1,4 @@
+{
+  lastDoc=skipDoc[level];
+  lastChildPointer=childPointer[level];
+}

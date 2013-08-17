@@ -1,0 +1,76 @@
+{
+  HashSet<String> rtn=new HashSet<String>();
+  boolean isset=false;
+  Long small=-1l;
+  Long bigger=-1l;
+  JSONArray jsonStr=new JSONArray(queryStr.trim());
+  for (int j=0; j < jsonStr.length(); j++) {
+    JSONObject obj=jsonStr.getJSONObject(j);
+    if (obj.has("thedate")) {
+      JSONObject thedate=obj.getJSONObject("thedate");
+      Integer operate=Integer.parseInt(thedate.get("operate").toString());
+      OperateType optype=WebServiceParams.parseOperateType(operate);
+      String[] val=WebServiceParams.parseFqValue(thedate.getString("value"),operate).split(",");
+      if (optype.equals(OperateType.eq) || optype.equals(OperateType.in)) {
+        for (        String day : val) {
+          Date d=fmt.parse(day.replaceAll("-",""));
+          String[] partions=get(d.getTime(),d.getTime(),parttype);
+          for (          String partion : partions) {
+            rtn.add(partion);
+            isset=true;
+          }
+        }
+      }
+      if (optype.equals(OperateType.range)) {
+        Long min=Long.MAX_VALUE;
+        Long max=Long.MIN_VALUE;
+        for (        String day : val) {
+          Date d=fmt.parse(day.replaceAll("-",""));
+          Long time=d.getTime();
+          max=Math.max(max,time);
+          min=Math.min(min,time);
+          isset=true;
+        }
+        String[] partions=get(min,max,parttype);
+        for (        String partion : partions) {
+          rtn.add(partion);
+        }
+        break;
+      }
+      if (optype.equals(OperateType.gt) || optype.equals(OperateType.gteq)) {
+        for (        String day : val) {
+          Date d=fmt.parse(day.replaceAll("-",""));
+          Long time=d.getTime() + (operate == 3 ? 0 : 1);
+          small=small > 0 ? Math.min(small,time) : time;
+        }
+      }
+      if (optype.equals(OperateType.lg) || optype.equals(OperateType.lgeq)) {
+        for (        String day : val) {
+          Date d=fmt.parse(day.replaceAll("-",""));
+          Long time=d.getTime() - (operate == 4 ? 0 : 1);
+          bigger=bigger > 0 ? Math.max(bigger,time) : time;
+        }
+      }
+      if (bigger > 0 && small > 0) {
+        isset=true;
+        String[] partions=get(small,bigger,parttype);
+        for (        String partion : partions) {
+          rtn.add(partion);
+        }
+        small=Long.MAX_VALUE;
+        bigger=Long.MIN_VALUE;
+        break;
+      }
+    }
+  }
+  if (isset) {
+    String[] rtnarr=new String[rtn.size()];
+    return rtn.toArray(rtnarr);
+  }
+  Long step=1000l * 3600 * 24* 30;
+  Long max=0l;
+  Long initDate=(new Date()).getTime();
+  max=initDate;
+  Long min=initDate - step;
+  return get(min,max,parttype);
+}

@@ -1,0 +1,9 @@
+{
+  if (!this.getAttributeFactory().equals(sink.getAttributeFactory())) {
+    throw new IllegalArgumentException("The supplied sink is not compatible to this tee");
+  }
+  for (Iterator<AttributeImpl> it=this.cloneAttributes().getAttributeImplsIterator(); it.hasNext(); ) {
+    sink.addAttributeImpl(it.next());
+  }
+  this.sinks.add(new WeakReference<SinkTokenStream>(sink));
+}

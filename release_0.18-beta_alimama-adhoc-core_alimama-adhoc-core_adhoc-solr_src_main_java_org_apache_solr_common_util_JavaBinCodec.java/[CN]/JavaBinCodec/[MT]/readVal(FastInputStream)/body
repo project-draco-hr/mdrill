@@ -1,0 +1,54 @@
+{
+  tagByte=dis.readByte();
+switch (tagByte >>> 5) {
+case STR >>> 5:
+    return readStr(dis);
+case SINT >>> 5:
+  return readSmallInt(dis);
+case SLONG >>> 5:
+return readSmallLong(dis);
+case ARR >>> 5:
+return readArray(dis);
+case ORDERED_MAP >>> 5:
+return readOrderedMap(dis);
+case NAMED_LST >>> 5:
+return readNamedList(dis);
+case EXTERN_STRING >>> 5:
+return readExternString(dis);
+}
+switch (tagByte) {
+case NULL:
+return null;
+case DATE:
+return new Date(dis.readLong());
+case INT:
+return dis.readInt();
+case BOOL_TRUE:
+return Boolean.TRUE;
+case BOOL_FALSE:
+return Boolean.FALSE;
+case FLOAT:
+return dis.readFloat();
+case DOUBLE:
+return dis.readDouble();
+case LONG:
+return dis.readLong();
+case BYTE:
+return dis.readByte();
+case SHORT:
+return dis.readShort();
+case MAP:
+return readMap(dis);
+case SOLRDOC:
+return readSolrDocument(dis);
+case SOLRDOCLST:
+return readSolrDocumentList(dis);
+case BYTEARR:
+return readByteArray(dis);
+case ITERATOR:
+return readIterator(dis);
+case END:
+return END_OBJ;
+}
+throw new RuntimeException("Unknown type " + tagByte);
+}

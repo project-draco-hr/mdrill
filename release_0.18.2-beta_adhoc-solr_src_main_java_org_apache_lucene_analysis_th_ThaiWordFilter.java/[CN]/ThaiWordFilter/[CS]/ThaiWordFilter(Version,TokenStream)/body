@@ -1,0 +1,5 @@
+{
+  super(matchVersion.onOrAfter(Version.LUCENE_31) ? input : new LowerCaseFilter(matchVersion,input));
+  if (!DBBI_AVAILABLE)   throw new UnsupportedOperationException("This JRE does not have support for Thai segmentation");
+  handlePosIncr=matchVersion.onOrAfter(Version.LUCENE_31);
+}

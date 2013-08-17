@@ -1,0 +1,3 @@
+{
+  return "LimitTokenCountAnalyzer(" + delegate.toString() + ", maxTokenCount="+ maxTokenCount+ ")";
+}

@@ -1,0 +1,3 @@
+{
+  spans=match.getSpans(reader);
+}

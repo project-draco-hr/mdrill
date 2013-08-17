@@ -1,0 +1,11 @@
+{
+  JSONArray rtn=new JSONArray();
+  JSONArray jsonStr=new JSONArray(queryStr.trim());
+  for (int j=0; j < jsonStr.length(); j++) {
+    JSONObject obj=jsonStr.getJSONObject(j);
+    if (!obj.has(this.fieldname)) {
+      rtn.put(obj);
+    }
+  }
+  return rtn.toString();
+}

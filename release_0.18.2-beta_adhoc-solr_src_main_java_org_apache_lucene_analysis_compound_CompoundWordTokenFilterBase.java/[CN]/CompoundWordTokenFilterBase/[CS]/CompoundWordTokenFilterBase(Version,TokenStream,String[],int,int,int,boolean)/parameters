@@ -1,0 +1,7 @@
+Version matchVersion
+TokenStream input
+String[] dictionary
+int minWordSize
+int minSubwordSize
+int maxSubwordSize
+boolean onlyLongestMatch

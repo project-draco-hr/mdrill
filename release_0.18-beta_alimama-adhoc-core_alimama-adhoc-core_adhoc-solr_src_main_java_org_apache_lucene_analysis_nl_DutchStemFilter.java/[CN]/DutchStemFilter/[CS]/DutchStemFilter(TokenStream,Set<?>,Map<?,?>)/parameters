@@ -1,0 +1,3 @@
+TokenStream _in
+Set<?> exclusiontable
+Map<?,?> stemdictionary

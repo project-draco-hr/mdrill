@@ -1,0 +1,3 @@
+{
+  return (!checkDeletes || !reader.isDeleted(doc)) && matchesValue(doc);
+}

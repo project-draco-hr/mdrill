@@ -1,0 +1,3 @@
+char[] wordBuffer
+int offset
+int wordLen

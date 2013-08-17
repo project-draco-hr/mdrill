@@ -1,0 +1,3 @@
+{
+  return readerIndex(n,this.starts,this.subReaders.length);
+}

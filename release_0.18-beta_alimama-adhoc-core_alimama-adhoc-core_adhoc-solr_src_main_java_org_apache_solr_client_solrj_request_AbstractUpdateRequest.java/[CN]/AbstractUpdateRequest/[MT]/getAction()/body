@@ -1,0 +1,6 @@
+{
+  if (params == null)   return null;
+  if (params.getBool(UpdateParams.COMMIT,false))   return ACTION.COMMIT;
+  if (params.getBool(UpdateParams.OPTIMIZE,false))   return ACTION.OPTIMIZE;
+  return null;
+}

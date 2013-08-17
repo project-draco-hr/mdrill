@@ -1,0 +1,16 @@
+{
+  if (len > 8) {
+    if (s[len - 1] == 'e' || s[len - 1] == 'o' || s[len - 1] == 'u')     len--;
+  }
+  if (len > 4) {
+    if (s[len - 1] == 'i')     len--;
+    if (len > 4) {
+      char ch=s[0];
+      for (int i=1; i < len; i++) {
+        if (s[i] == ch && (ch == 'k' || ch == 'p' || ch == 't'))         len=delete(s,i--,len);
+ else         ch=s[i];
+      }
+    }
+  }
+  return len;
+}

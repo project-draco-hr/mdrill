@@ -1,0 +1,24 @@
+{
+  return new DocValues(){
+    private final int seed=getSeed(field,reader);
+    @Override public float floatVal(    int doc){
+      return (float)hash(doc + seed);
+    }
+    @Override public int intVal(    int doc){
+      return hash(doc + seed);
+    }
+    @Override public long longVal(    int doc){
+      return (long)hash(doc + seed);
+    }
+    @Override public double doubleVal(    int doc){
+      return (double)hash(doc + seed);
+    }
+    @Override public String strVal(    int doc){
+      return Integer.toString(hash(doc + seed));
+    }
+    @Override public String toString(    int doc){
+      return description() + '=' + intVal(doc);
+    }
+  }
+;
+}

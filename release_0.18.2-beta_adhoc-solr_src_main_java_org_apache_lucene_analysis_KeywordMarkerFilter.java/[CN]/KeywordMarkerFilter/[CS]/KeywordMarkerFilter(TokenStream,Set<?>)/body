@@ -1,0 +1,3 @@
+{
+  this(in,keywordSet instanceof CharArraySet ? (CharArraySet)keywordSet : CharArraySet.copy(Version.LUCENE_31,keywordSet));
+}

@@ -1,0 +1,77 @@
+{
+  if (currentPermuationTokens != null) {
+    currentShingleLength++;
+    if (currentShingleLength + currentPermutationTokensStartOffset <= currentPermuationTokens.size() && currentShingleLength <= maximumShingleSize) {
+      if (ignoringSinglePrefixOrSuffixShingle && currentShingleLength == 1 && ((currentPermutationRows.get(currentPermutationTokensStartOffset)).getColumn().isFirst() || (currentPermutationRows.get(currentPermutationTokensStartOffset)).getColumn().isLast())) {
+        return getNextToken(reusableToken);
+      }
+      int termLength=0;
+      List<Token> shingle=new ArrayList<Token>(currentShingleLength);
+      for (int i=0; i < currentShingleLength; i++) {
+        Token shingleToken=currentPermuationTokens.get(i + currentPermutationTokensStartOffset);
+        termLength+=shingleToken.length();
+        shingle.add(shingleToken);
+      }
+      if (spacerCharacter != null) {
+        termLength+=currentShingleLength - 1;
+      }
+      if (!shinglesSeen.add(shingle)) {
+        return request_next_token;
+      }
+      StringBuilder sb=new StringBuilder(termLength + 10);
+      for (      Token shingleToken : shingle) {
+        if (spacerCharacter != null && sb.length() > 0) {
+          sb.append(spacerCharacter);
+        }
+        sb.append(shingleToken.buffer(),0,shingleToken.length());
+      }
+      reusableToken.setEmpty().append(sb);
+      updateToken(reusableToken,shingle,currentPermutationTokensStartOffset,currentPermutationRows,currentPermuationTokens);
+      return reusableToken;
+    }
+ else {
+      if (currentPermutationTokensStartOffset < currentPermuationTokens.size() - 1) {
+        currentPermutationTokensStartOffset++;
+        currentShingleLength=minimumShingleSize - 1;
+        return request_next_token;
+      }
+      if (permutations == null) {
+        return null;
+      }
+      if (!permutations.hasNext()) {
+        if (input != null && readColumn()) {
+        }
+        Matrix.Column deletedColumn=matrix.columns.remove(0);
+        List<Token> deletedColumnTokens=new ArrayList<Token>();
+        for (        Matrix.Column.Row row : deletedColumn.getRows()) {
+          for (          Token token : row.getTokens()) {
+            deletedColumnTokens.add(token);
+          }
+        }
+        for (Iterator<List<Token>> shinglesSeenIterator=shinglesSeen.iterator(); shinglesSeenIterator.hasNext(); ) {
+          List<Token> shingle=shinglesSeenIterator.next();
+          for (          Token deletedColumnToken : deletedColumnTokens) {
+            if (shingle.contains(deletedColumnToken)) {
+              shinglesSeenIterator.remove();
+              break;
+            }
+          }
+        }
+        if (matrix.columns.size() < minimumShingleSize) {
+          return null;
+        }
+        permutations=matrix.permutationIterator();
+      }
+      nextTokensPermutation();
+      return request_next_token;
+    }
+  }
+  if (permutations == null) {
+    permutations=matrix.permutationIterator();
+  }
+  if (!permutations.hasNext()) {
+    return null;
+  }
+  nextTokensPermutation();
+  return request_next_token;
+}

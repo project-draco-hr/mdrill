@@ -1,0 +1,6 @@
+{
+  if (numericTS != null)   numericTS.setLongValue(value);
+  fieldsData=Long.valueOf(value);
+  type=DataType.LONG;
+  return this;
+}

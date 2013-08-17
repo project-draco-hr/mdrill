@@ -1,0 +1,4 @@
+{
+  Charset charset=Charset.forName(encoding);
+  return charset.newDecoder();
+}

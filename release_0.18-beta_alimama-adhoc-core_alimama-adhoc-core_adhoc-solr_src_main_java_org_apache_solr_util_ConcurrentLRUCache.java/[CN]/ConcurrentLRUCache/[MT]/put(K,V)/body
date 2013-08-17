@@ -1,0 +1,35 @@
+{
+  if (val == null)   return null;
+  CacheEntry<K,V> e=new CacheEntry<K,V>(key,val,stats.accessCounter.incrementAndGet());
+  CacheEntry<K,V> oldCacheEntry=map.put(key,e);
+  int currentSize;
+  if (oldCacheEntry == null) {
+    currentSize=stats.size.incrementAndGet();
+  }
+ else {
+    currentSize=stats.size.get();
+  }
+  if (islive) {
+    stats.putCounter.incrementAndGet();
+  }
+ else {
+    stats.nonLivePutCounter.incrementAndGet();
+  }
+  if (currentSize > upperWaterMark && !isCleaning) {
+    if (newThreadForCleanup) {
+      new Thread(){
+        @Override public void run(){
+          markAndSweep();
+        }
+      }
+.start();
+    }
+ else     if (cleanupThread != null) {
+      cleanupThread.wakeThread();
+    }
+ else {
+      markAndSweep();
+    }
+  }
+  return oldCacheEntry == null ? null : oldCacheEntry.value;
+}

@@ -1,0 +1,5 @@
+String partionKey
+String path
+boolean mdirs
+boolean isclearCache
+boolean ishb

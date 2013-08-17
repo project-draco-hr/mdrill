@@ -1,0 +1,5 @@
+{
+  super(th);
+  this.code=code;
+  logged=true;
+}

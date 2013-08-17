@@ -1,0 +1,3 @@
+{
+  this.value=Time.valueOf(value.substring(1,value.length() - 1));
+}

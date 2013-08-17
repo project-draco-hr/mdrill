@@ -1,0 +1,6 @@
+{
+  if (currentBlockUpto == blockSize) {
+    nextBlock();
+  }
+  return currentBlock[currentBlockUpto++];
+}

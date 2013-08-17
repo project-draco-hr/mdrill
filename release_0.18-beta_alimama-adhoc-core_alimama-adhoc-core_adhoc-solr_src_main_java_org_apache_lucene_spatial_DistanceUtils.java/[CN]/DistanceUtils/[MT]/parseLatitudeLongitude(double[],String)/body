@@ -1,0 +1,15 @@
+{
+  if (latLon == null) {
+    latLon=new double[2];
+  }
+  double[] toks=parsePointDouble(null,latLonStr,2);
+  if (toks[0] < -90.0 || toks[0] > 90.0) {
+    throw new InvalidGeoException("Invalid latitude: latitudes are range -90 to 90: provided lat: [" + toks[0] + "]");
+  }
+  latLon[0]=toks[0];
+  if (toks[1] < -180.0 || toks[1] > 180.0) {
+    throw new InvalidGeoException("Invalid longitude: longitudes are range -180 to 180: provided lon: [" + toks[1] + "]");
+  }
+  latLon[1]=toks[1];
+  return latLon;
+}

@@ -1,0 +1,7 @@
+SolrQuery query
+ArrayList<String> fqList
+ArrayList<String> showFields
+int start
+int rows
+SortParam sortType
+HigoJoinParams[] joins

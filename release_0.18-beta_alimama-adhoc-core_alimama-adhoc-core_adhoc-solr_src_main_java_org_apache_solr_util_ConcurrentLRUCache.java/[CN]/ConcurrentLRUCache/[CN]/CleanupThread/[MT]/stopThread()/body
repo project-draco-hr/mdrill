@@ -1,0 +1,6 @@
+{
+synchronized (this) {
+    stop=true;
+    this.notify();
+  }
+}

@@ -1,0 +1,3 @@
+{
+  return (int)(Time.currentTimeMillis() / 1000);
+}

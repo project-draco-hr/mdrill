@@ -1,0 +1,3 @@
+{
+  topLevel.add(new TermQuery(term),BooleanClause.Occur.SHOULD);
+}

@@ -1,0 +1,3 @@
+{
+  out.write("  " + name + " ["+ (shape != null ? "shape=" + shape : "")+ " "+ (color != null ? "color=" + color : "")+ " "+ (label != null ? "label=\"" + label + "\"" : "label=\"\"")+ " "+ "]\n");
+}

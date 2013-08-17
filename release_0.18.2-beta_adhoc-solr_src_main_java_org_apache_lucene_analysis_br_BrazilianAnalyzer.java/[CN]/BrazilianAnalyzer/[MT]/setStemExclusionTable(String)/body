@@ -1,0 +1,4 @@
+{
+  excltable=StopFilter.makeStopSet(matchVersion,exclusionlist);
+  setPreviousTokenStream(null);
+}

@@ -1,0 +1,5 @@
+{
+  byte[] data=this.serialize(this.list);
+  out.writeInt(data.length);
+  out.write(data);
+}

@@ -1,0 +1,3 @@
+ACTION action
+boolean waitFlush
+boolean waitSearcher

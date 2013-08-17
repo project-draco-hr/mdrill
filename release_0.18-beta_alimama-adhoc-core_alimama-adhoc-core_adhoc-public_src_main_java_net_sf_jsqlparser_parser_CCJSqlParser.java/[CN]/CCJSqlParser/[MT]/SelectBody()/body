@@ -1,0 +1,21 @@
+{
+  SelectBody selectBody=null;
+  if (jj_2_5(2147483647)) {
+    selectBody=Union();
+  }
+ else {
+switch ((jj_ntk == -1) ? jj_ntk() : jj_ntk) {
+case K_SELECT:
+      selectBody=PlainSelect();
+    break;
+default :
+  jj_la1[23]=jj_gen;
+jj_consume_token(-1);
+throw new ParseException();
+}
+}
+{
+if (true) return selectBody;
+}
+throw new Error("Missing return statement in function");
+}

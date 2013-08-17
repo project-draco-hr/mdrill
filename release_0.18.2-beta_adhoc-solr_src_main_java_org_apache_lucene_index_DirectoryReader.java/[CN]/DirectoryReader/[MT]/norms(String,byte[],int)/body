@@ -1,0 +1,15 @@
+{
+  ensureOpen();
+  byte[] bytes=normsCache.get(field);
+  if (bytes == null && !hasNorms(field)) {
+    Arrays.fill(result,offset,result.length,Similarity.getDefault().encodeNormValue(1.0f));
+  }
+ else   if (bytes != null) {
+    System.arraycopy(bytes,0,result,offset,maxDoc());
+  }
+ else {
+    for (int i=0; i < subReaders.length; i++) {
+      subReaders[i].norms(field,result,offset + starts[i]);
+    }
+  }
+}

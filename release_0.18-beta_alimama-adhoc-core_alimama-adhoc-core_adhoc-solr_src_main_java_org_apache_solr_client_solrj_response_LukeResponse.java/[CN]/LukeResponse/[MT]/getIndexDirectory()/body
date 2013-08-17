@@ -1,0 +1,4 @@
+{
+  if (indexInfo == null)   return null;
+  return (String)indexInfo.get("directory");
+}

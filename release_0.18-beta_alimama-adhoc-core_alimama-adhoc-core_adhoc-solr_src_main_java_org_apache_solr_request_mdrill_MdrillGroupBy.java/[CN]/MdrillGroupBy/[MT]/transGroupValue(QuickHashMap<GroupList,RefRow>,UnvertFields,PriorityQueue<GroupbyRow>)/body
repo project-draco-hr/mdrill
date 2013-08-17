@@ -1,0 +1,31 @@
+{
+  TermNumToString[] tm=this.prefetch(groups,ufs);
+  for (  Entry<GroupList,RefRow> e : groups.entrySet()) {
+    int[] group=e.getKey().list;
+    StringBuffer buff=new StringBuffer();
+    String j="";
+    for (int i=0; i < ufs.length; i++) {
+      Integer termNum=group[i];
+      buff.append(j);
+      if (ufs.cols[i] != null) {
+        buff.append(EncodeUtils.encode(tm[i].getTermValue(termNum)));
+      }
+ else {
+        buff.append("-");
+      }
+      j=UniqConfig.GroupJoinString();
+    }
+    int joinoffset=ufs.length;
+    for (    HigoJoinInvert inv : joinInvert) {
+      int fc=inv.fieldCount();
+      for (int i=0; i < fc; i++) {
+        buff.append(j);
+        buff.append(EncodeUtils.encode(inv.getTermNumValue(group[joinoffset + i],i)));
+        j=UniqConfig.GroupJoinString();
+      }
+      joinoffset+=inv.fieldCount();
+    }
+    String groupname=buff.toString();
+    this.setCrossRow(e.getValue(),groupname,res);
+  }
+}

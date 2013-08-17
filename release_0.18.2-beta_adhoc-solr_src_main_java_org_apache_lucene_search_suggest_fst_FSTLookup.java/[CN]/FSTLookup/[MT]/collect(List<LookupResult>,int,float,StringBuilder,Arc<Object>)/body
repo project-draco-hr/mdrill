@@ -1,0 +1,22 @@
+{
+  output.append((char)arc.label);
+  automaton.readFirstTargetArc(arc,arc);
+  while (true) {
+    if (arc.label == FST.END_LABEL) {
+      res.add(new LookupResult(output.toString(),weight));
+      if (res.size() >= num)       return true;
+    }
+ else {
+      int save=output.length();
+      if (collect(res,num,weight,output,new Arc<Object>().copyFrom(arc))) {
+        return true;
+      }
+      output.setLength(save);
+    }
+    if (arc.isLast()) {
+      break;
+    }
+    automaton.readNextArc(arc);
+  }
+  return false;
+}

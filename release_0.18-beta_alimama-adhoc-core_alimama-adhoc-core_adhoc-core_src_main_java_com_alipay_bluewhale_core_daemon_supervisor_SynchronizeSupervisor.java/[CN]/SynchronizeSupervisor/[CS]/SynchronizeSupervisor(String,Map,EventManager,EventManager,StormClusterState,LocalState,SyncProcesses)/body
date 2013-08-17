@@ -1,0 +1,9 @@
+{
+  this.syncProcesses=syncProcesses;
+  this.eventManager=eventManager;
+  this.processesEventManager=processesEventManager;
+  this.stormClusterState=stormClusterState;
+  this.conf=conf;
+  this.supervisorId=supervisorId;
+  this.localState=localState;
+}

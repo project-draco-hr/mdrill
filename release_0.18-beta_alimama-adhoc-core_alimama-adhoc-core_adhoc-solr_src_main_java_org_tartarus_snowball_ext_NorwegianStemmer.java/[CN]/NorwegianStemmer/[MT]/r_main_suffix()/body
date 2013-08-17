@@ -1,0 +1,54 @@
+{
+  int among_var;
+  int v_1;
+  int v_2;
+  int v_3;
+  v_1=limit - cursor;
+  if (cursor < I_p1) {
+    return false;
+  }
+  cursor=I_p1;
+  v_2=limit_backward;
+  limit_backward=cursor;
+  cursor=limit - v_1;
+  ket=cursor;
+  among_var=find_among_b(a_0,29);
+  if (among_var == 0) {
+    limit_backward=v_2;
+    return false;
+  }
+  bra=cursor;
+  limit_backward=v_2;
+switch (among_var) {
+case 0:
+    return false;
+case 1:
+  slice_del();
+break;
+case 2:
+lab0: do {
+v_3=limit - cursor;
+lab1: do {
+  if (!(in_grouping_b(g_s_ending,98,122))) {
+    break lab1;
+  }
+  break lab0;
+}
+ while (false);
+cursor=limit - v_3;
+if (!(eq_s_b(1,"k"))) {
+  return false;
+}
+if (!(out_grouping_b(g_v,97,248))) {
+  return false;
+}
+}
+ while (false);
+slice_del();
+break;
+case 3:
+slice_from("er");
+break;
+}
+return true;
+}

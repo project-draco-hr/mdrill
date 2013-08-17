@@ -1,0 +1,4 @@
+{
+  this.channel.force(true);
+  this.highWaterMark.set(this.sizeInBytes.get());
+}

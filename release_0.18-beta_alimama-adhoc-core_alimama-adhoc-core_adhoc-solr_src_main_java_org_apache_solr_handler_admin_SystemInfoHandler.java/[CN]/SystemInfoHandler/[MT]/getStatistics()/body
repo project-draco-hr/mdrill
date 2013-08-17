@@ -1,0 +1,6 @@
+{
+  NamedList lst=super.getStatistics();
+  Info info=LinuxOsInfo.getInfo();
+  lst.add("higoInfo",info);
+  return lst;
+}

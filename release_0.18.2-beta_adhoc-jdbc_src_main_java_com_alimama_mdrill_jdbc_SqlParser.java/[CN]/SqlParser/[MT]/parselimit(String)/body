@@ -1,0 +1,11 @@
+{
+  String[] limit=limitReg.split(otherSql);
+  this.start="0";
+  this.rows="20";
+  if (limit.length > 1) {
+    String[] cols=limit[1].trim().split(",");
+    this.start=cols[0].trim();
+    this.rows=cols[1].trim();
+  }
+  return limit[0];
+}

@@ -1,0 +1,18 @@
+{
+  final int[] arr=FieldCache.DEFAULT.getStringIndex(reader,field).order;
+  return new DocValues(){
+    @Override public float floatVal(    int doc){
+      return arr[doc];
+    }
+    @Override public String strVal(    int doc){
+      return Integer.toString(arr[doc]);
+    }
+    @Override public String toString(    int doc){
+      return description() + '=' + intVal(doc);
+    }
+    @Override Object getInnerArray(){
+      return arr;
+    }
+  }
+;
+}

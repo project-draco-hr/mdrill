@@ -1,0 +1,4 @@
+char[] s
+int offset
+int length
+T output

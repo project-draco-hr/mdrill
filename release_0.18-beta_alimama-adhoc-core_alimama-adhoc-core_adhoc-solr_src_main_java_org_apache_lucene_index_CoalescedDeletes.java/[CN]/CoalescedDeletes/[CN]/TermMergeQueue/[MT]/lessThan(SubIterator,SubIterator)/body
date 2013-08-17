@@ -1,0 +1,9 @@
+{
+  final int cmp=a.current.compareTo(b.current);
+  if (cmp != 0) {
+    return cmp < 0;
+  }
+ else {
+    return a.index < b.index;
+  }
+}

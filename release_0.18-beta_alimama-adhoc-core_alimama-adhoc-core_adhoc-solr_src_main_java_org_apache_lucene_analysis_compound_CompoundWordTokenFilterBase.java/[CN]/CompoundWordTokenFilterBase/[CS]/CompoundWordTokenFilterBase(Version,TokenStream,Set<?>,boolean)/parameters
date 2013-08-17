@@ -1,0 +1,4 @@
+Version matchVersion
+TokenStream input
+Set<?> dictionary
+boolean onlyLongestMatch

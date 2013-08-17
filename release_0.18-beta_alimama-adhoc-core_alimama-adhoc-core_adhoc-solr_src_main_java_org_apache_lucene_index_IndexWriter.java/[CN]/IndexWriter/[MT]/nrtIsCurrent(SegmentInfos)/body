@@ -1,0 +1,4 @@
+{
+  ensureOpen();
+  return infos.version == segmentInfos.version && !docWriter.anyChanges() && !bufferedDeletesStream.any();
+}

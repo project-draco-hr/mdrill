@@ -1,0 +1,5 @@
+{
+  orderBy.getExpression().accept(expressionVisitor);
+  if (orderBy.isAsc())   buffer.append(" ASC");
+ else   buffer.append(" DESC");
+}

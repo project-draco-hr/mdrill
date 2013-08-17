@@ -1,0 +1,2 @@
+Class<? extends RSLPStemmerBase> clazz
+String resource

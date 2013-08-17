@@ -1,0 +1,39 @@
+{
+  return new QParser(qstr,localParams,params,req){
+    @Override public Query parse() throws ParseException {
+      try {
+        String file=localParams.get(QueryParsing.V);
+        String field=localParams.get(QueryParsing.F);
+        SchemaField sf=req.getSchema().getField(field);
+        FieldType ft=sf.getType();
+        if (ft instanceof StrField) {
+          return new StringSelectInQuery<String>(file,field,new HdfsToSet.TransString());
+        }
+        if (ft instanceof TrieField) {
+          TrieField tft=(TrieField)ft;
+          TrieTypes cdt=tft.getType();
+          if (cdt.equals(TrieTypes.INTEGER)) {
+            return new NumericSelectInQuery<Integer>(field,tft.getPrecisionStep(),DataType.INT,new HdfsToSet.TransInt(),file);
+          }
+          if (cdt.equals(TrieTypes.LONG)) {
+            return new NumericSelectInQuery<Long>(field,tft.getPrecisionStep(),DataType.LONG,new HdfsToSet.TransLong(),file);
+          }
+          if (cdt.equals(TrieTypes.FLOAT)) {
+            return new NumericSelectInQuery<Float>(field,tft.getPrecisionStep(),DataType.FLOAT,new HdfsToSet.TransFloat(),file);
+          }
+          if (cdt.equals(TrieTypes.DOUBLE)) {
+            return new NumericSelectInQuery<Double>(field,tft.getPrecisionStep(),DataType.DOUBLE,new HdfsToSet.TransDouble(),file);
+          }
+          if (cdt.equals(TrieTypes.DATE)) {
+            return new NumericSelectInQuery<Long>(field,tft.getPrecisionStep(),DataType.LONG,new HdfsToSet.TransDate(),file);
+          }
+        }
+        throw new ParseException("file type error");
+      }
+ catch (      Exception e) {
+        throw new ParseException(e.toString());
+      }
+    }
+  }
+;
+}

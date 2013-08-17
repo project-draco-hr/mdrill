@@ -1,0 +1,3 @@
+{
+  return delegee.scorePayload(docId,fieldName,start,end,payload,offset,length);
+}

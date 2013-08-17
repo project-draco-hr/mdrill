@@ -1,0 +1,6 @@
+{
+  if (this == o)   return true;
+  if (!(o instanceof SolrConstantScoreQuery))   return false;
+  SolrConstantScoreQuery other=(SolrConstantScoreQuery)o;
+  return this.getBoost() == other.getBoost() && filter.equals(other.filter);
+}

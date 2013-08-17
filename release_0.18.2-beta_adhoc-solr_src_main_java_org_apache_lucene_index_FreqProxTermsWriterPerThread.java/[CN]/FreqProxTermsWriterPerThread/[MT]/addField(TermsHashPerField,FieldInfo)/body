@@ -1,0 +1,3 @@
+{
+  return new FreqProxTermsWriterPerField(termsHashPerField,this,fieldInfo);
+}

@@ -1,0 +1,15 @@
+{
+  if (weight == null)   throw new UnsupportedOperationException();
+  final Query q=weight.getQuery();
+switch (relationship) {
+case MUST:
+    visitor.visitRequired(parent,q,this);
+  break;
+case MUST_NOT:
+visitor.visitProhibited(parent,q,this);
+break;
+case SHOULD:
+visitor.visitOptional(parent,q,this);
+break;
+}
+}

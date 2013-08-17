@@ -1,0 +1,8 @@
+{
+  jetty=new SolrStartJetty(collector,conf,solrhomeBase + "/" + tableNames[0],diskList,portbase,taskIndex,topologyName,taskid,partions);
+  tables=new SolrStartTable[tableNames.length];
+  for (int i=0; i < tableNames.length; i++) {
+    LOG.info("create table " + tableNames[i]);
+    tables[i]=new SolrStartTable(collector,conf,solrhomeBase + "/" + tableNames[i],diskList,taskIndex,tableNames[i],taskid,jetty);
+  }
+}

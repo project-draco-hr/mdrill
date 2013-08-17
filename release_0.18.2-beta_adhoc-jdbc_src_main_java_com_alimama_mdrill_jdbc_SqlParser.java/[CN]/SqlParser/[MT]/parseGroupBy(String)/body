@@ -1,0 +1,7 @@
+{
+  String[] group=groupbyReg.split(otherSql);
+  if (group.length > 1) {
+    this.groupby=group[1].trim();
+  }
+  return group[0];
+}

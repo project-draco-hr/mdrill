@@ -1,0 +1,15 @@
+{
+  final ClassicTokenizer src=new ClassicTokenizer(matchVersion,reader);
+  src.setMaxTokenLength(maxTokenLength);
+  src.setReplaceInvalidAcronym(replaceInvalidAcronym);
+  TokenStream tok=new ClassicFilter(src);
+  tok=new LowerCaseFilter(matchVersion,tok);
+  tok=new StopFilter(matchVersion,tok,stopwords);
+  return new TokenStreamComponents(src,tok){
+    @Override protected boolean reset(    final Reader reader) throws IOException {
+      src.setMaxTokenLength(ClassicAnalyzer.this.maxTokenLength);
+      return super.reset(reader);
+    }
+  }
+;
+}

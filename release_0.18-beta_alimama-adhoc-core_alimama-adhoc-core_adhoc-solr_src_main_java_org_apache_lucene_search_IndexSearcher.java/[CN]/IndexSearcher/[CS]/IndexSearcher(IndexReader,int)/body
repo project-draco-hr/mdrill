@@ -1,0 +1,9 @@
+{
+  reader=r;
+  this.executor=null;
+  closeReader=false;
+  this.docBase=docBase;
+  subReaders=new IndexReader[]{r};
+  docStarts=new int[]{0};
+  subSearchers=null;
+}

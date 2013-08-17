@@ -1,0 +1,11 @@
+{
+  doc+=base;
+  if (pos < scratch.length) {
+    scratch[pos]=doc;
+  }
+ else {
+    if (bits == null)     bits=new OpenBitSet(maxDoc);
+    bits.fastSet(doc);
+  }
+  pos++;
+}

@@ -1,0 +1,4 @@
+{
+  this.fieldInfos=fieldInfos;
+  consumer.setFieldInfos(fieldInfos);
+}

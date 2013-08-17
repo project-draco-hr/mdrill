@@ -1,0 +1,7 @@
+{
+  seek(termEnum.term());
+  if (termEnum instanceof MultiTermEnum) {
+    tenum=(MultiTermEnum)termEnum;
+    if (topReader != tenum.topReader)     tenum=null;
+  }
+}

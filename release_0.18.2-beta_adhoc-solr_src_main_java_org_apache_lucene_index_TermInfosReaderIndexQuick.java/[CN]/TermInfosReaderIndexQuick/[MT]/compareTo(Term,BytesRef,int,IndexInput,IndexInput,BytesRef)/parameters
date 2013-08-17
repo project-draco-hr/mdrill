@@ -1,0 +1,6 @@
+Term term
+BytesRef termBytesRef
+int termIndex
+IndexInput tiiInput
+IndexInput quickTii
+BytesRef reuse

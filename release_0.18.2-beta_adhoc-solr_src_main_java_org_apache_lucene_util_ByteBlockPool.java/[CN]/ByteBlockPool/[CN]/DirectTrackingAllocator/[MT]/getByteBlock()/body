@@ -1,0 +1,4 @@
+{
+  bytesUsed.addAndGet(blockSize);
+  return new byte[blockSize];
+}

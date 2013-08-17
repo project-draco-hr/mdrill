@@ -1,0 +1,30 @@
+{
+  termAttribute=addAttribute(CharTermAttribute.class);
+  positionIncrementAttribute=addAttribute(PositionIncrementAttribute.class);
+  offsetAttribute=addAttribute(OffsetAttribute.class);
+  final String[] terms=termPositionVector.getTerms();
+  for (int i=0; i < terms.length; i++) {
+    final TermVectorOffsetInfo[] offsets=termPositionVector.getOffsets(i);
+    final int[] termPositions=termPositionVector.getTermPositions(i);
+    for (int j=0; j < termPositions.length; j++) {
+      Token token;
+      if (offsets != null) {
+        token=new Token(terms[i].toCharArray(),0,terms[i].length(),offsets[j].getStartOffset(),offsets[j].getEndOffset());
+      }
+ else {
+        token=new Token();
+        token.setEmpty().append(terms[i]);
+      }
+      token.setPositionIncrement(termPositions[j]);
+      this.positionedTokens.add(token);
+    }
+  }
+  CollectionUtil.mergeSort(this.positionedTokens,tokenComparator);
+  int lastPosition=-1;
+  for (  final Token token : this.positionedTokens) {
+    int thisPosition=token.getPositionIncrement();
+    token.setPositionIncrement(thisPosition - lastPosition);
+    lastPosition=thisPosition;
+  }
+  this.tokensAtCurrentPosition=this.positionedTokens.iterator();
+}

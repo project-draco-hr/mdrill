@@ -1,0 +1,3 @@
+{
+  this(likeText,moreLikeFields,analyzer,moreLikeFields[0]);
+}

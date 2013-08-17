@@ -1,0 +1,24 @@
+{
+  numberOfSkipLevels=docCount == 0 ? 0 : (int)Math.floor(Math.log(docCount) / Math.log(skipInterval[0]));
+  if (numberOfSkipLevels > maxNumberOfSkipLevels) {
+    numberOfSkipLevels=maxNumberOfSkipLevels;
+  }
+  skipStream[0].seek(skipPointer[0]);
+  int toBuffer=numberOfLevelsToBuffer;
+  for (int i=numberOfSkipLevels - 1; i > 0; i--) {
+    long length=skipStream[0].readVLong();
+    skipPointer[i]=skipStream[0].getFilePointer();
+    if (toBuffer > 0) {
+      skipStream[i]=new SkipBuffer(skipStream[0],(int)length);
+      toBuffer--;
+    }
+ else {
+      skipStream[i]=(IndexInput)skipStream[0].clone();
+      if (inputIsBuffered && length < BufferedIndexInput.BUFFER_SIZE) {
+        ((BufferedIndexInput)skipStream[i]).setBufferSize((int)length);
+      }
+      skipStream[0].seek(skipStream[0].getFilePointer() + length);
+    }
+  }
+  skipPointer[0]=skipStream[0].getFilePointer();
+}

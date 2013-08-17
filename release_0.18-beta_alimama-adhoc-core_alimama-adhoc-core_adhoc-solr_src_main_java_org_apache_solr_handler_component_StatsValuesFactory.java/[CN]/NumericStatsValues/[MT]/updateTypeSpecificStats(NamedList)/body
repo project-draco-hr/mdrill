@@ -1,0 +1,4 @@
+{
+  sum+=((Number)stv.get("sum")).doubleValue();
+  sumOfSquares+=((Number)stv.get("sumOfSquares")).doubleValue();
+}

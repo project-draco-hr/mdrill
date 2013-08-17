@@ -1,0 +1,22 @@
+{
+  node.splitchar=in.readChar();
+  byte mask=in.readByte();
+  if ((mask & HAS_VALUE) != 0) {
+    node.data=new Float(in.readFloat());
+  }
+  if ((mask & LO_KID) != 0) {
+    TSTNode kid=trie.new TSTNode('\0',node);
+    node.relatives[TSTNode.LOKID]=kid;
+    readRecursively(in,kid);
+  }
+  if ((mask & EQ_KID) != 0) {
+    TSTNode kid=trie.new TSTNode('\0',node);
+    node.relatives[TSTNode.EQKID]=kid;
+    readRecursively(in,kid);
+  }
+  if ((mask & HI_KID) != 0) {
+    TSTNode kid=trie.new TSTNode('\0',node);
+    node.relatives[TSTNode.HIKID]=kid;
+    readRecursively(in,kid);
+  }
+}

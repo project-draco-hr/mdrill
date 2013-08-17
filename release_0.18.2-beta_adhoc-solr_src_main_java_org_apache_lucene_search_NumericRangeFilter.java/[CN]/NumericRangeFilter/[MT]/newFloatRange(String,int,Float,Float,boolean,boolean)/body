@@ -1,0 +1,3 @@
+{
+  return new NumericRangeFilter<Float>(NumericRangeQuery.newFloatRange(field,precisionStep,min,max,minInclusive,maxInclusive));
+}

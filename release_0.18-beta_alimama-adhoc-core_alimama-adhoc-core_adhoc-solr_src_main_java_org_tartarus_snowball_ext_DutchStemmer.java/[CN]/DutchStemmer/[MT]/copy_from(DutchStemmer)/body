@@ -1,0 +1,6 @@
+{
+  I_p2=other.I_p2;
+  I_p1=other.I_p1;
+  B_e_found=other.B_e_found;
+  super.copy_from(other);
+}

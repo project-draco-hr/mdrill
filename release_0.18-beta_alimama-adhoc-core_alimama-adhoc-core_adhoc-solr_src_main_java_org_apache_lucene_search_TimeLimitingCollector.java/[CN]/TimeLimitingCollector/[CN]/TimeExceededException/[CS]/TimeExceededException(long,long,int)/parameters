@@ -1,0 +1,3 @@
+long timeAllowed
+long timeElapsed
+int lastDocCollected

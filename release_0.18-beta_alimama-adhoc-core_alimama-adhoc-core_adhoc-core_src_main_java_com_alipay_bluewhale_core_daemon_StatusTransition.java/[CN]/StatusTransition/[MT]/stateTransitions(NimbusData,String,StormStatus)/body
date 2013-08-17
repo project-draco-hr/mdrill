@@ -1,0 +1,28 @@
+{
+  rtn=new HashMap<StatusType,Map<StatusType,Callback>>();
+  Map<StatusType,Callback> activeMap=new HashMap<StatusType,Callback>();
+  activeMap.put(StatusType.monitor,new ReassignTransitionCallback(data,topologyid));
+  activeMap.put(StatusType.inactive,new InactiveTransitionCallback());
+  activeMap.put(StatusType.activate,null);
+  activeMap.put(StatusType.rebalance,new RebalanceTransitionCallback(data,topologyid,status));
+  activeMap.put(StatusType.kill,new KillTransitionCallback(data,topologyid,status));
+  rtn.put(StatusType.active,activeMap);
+  Map<StatusType,Callback> inactiveMap=new HashMap<StatusType,Callback>();
+  inactiveMap.put(StatusType.monitor,new ReassignTransitionCallback(data,topologyid));
+  inactiveMap.put(StatusType.activate,new ActiveTransitionCallback());
+  inactiveMap.put(StatusType.inactivate,null);
+  inactiveMap.put(StatusType.rebalance,new RebalanceTransitionCallback(data,topologyid,status));
+  inactiveMap.put(StatusType.kill,new KillTransitionCallback(data,topologyid,status));
+  rtn.put(StatusType.inactive,inactiveMap);
+  Map<StatusType,Callback> killedMap=new HashMap<StatusType,Callback>();
+  killedMap.put(StatusType.startup,new DelayRemoveTransitionCallback(data,topologyid,status));
+  killedMap.put(StatusType.kill,new KillTransitionCallback(data,topologyid,status));
+  killedMap.put(StatusType.remove,new RemoveTransitionCallback(data,topologyid));
+  rtn.put(StatusType.killed,killedMap);
+  Map<StatusType,Callback> rebalancingMap=new HashMap<StatusType,Callback>();
+  rebalancingMap.put(StatusType.startup,new DelayRebalanceTransitionCallback(data,topologyid,status));
+  rebalancingMap.put(StatusType.kill,new KillTransitionCallback(data,topologyid,status));
+  rebalancingMap.put(StatusType.do_rebalance,new DoRebalanceTransitionCallback(data,topologyid,status));
+  rtn.put(StatusType.rebalancing,rebalancingMap);
+  return rtn;
+}

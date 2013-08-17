@@ -1,0 +1,8 @@
+{
+  if (doVectorOffsets) {
+    offsetAttribute=fieldState.attributeSource.addAttribute(OffsetAttribute.class);
+  }
+ else {
+    offsetAttribute=null;
+  }
+}

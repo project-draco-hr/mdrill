@@ -1,0 +1,22 @@
+{
+  int exclDoc=exclDisi.docID();
+  int reqDoc=reqScorer.docID();
+  do {
+    if (reqDoc < exclDoc) {
+      return reqDoc;
+    }
+ else     if (reqDoc > exclDoc) {
+      exclDoc=exclDisi.advance(reqDoc);
+      if (exclDoc == NO_MORE_DOCS) {
+        exclDisi=null;
+        return reqDoc;
+      }
+      if (exclDoc > reqDoc) {
+        return reqDoc;
+      }
+    }
+  }
+ while ((reqDoc=reqScorer.nextDoc()) != NO_MORE_DOCS);
+  reqScorer=null;
+  return NO_MORE_DOCS;
+}

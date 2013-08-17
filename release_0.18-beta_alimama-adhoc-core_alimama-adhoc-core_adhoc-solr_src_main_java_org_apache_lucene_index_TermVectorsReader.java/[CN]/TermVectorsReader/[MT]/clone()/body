@@ -1,0 +1,9 @@
+{
+  final TermVectorsReader clone=(TermVectorsReader)super.clone();
+  if (tvx != null && tvd != null && tvf != null) {
+    clone.tvx=(IndexInput)tvx.clone();
+    clone.tvd=(IndexInput)tvd.clone();
+    clone.tvf=(IndexInput)tvf.clone();
+  }
+  return clone;
+}

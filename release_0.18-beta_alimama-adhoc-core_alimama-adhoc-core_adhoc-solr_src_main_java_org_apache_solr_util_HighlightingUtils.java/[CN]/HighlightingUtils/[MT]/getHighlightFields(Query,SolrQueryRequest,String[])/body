@@ -1,0 +1,3 @@
+{
+  return HIGHLIGHTER.getHighlightFields(query,request,defaultFields);
+}

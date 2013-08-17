@@ -1,0 +1,12 @@
+{
+  if (storePositions == false) {
+    throw new RuntimeException("You must store positions in order to use this Mapper");
+  }
+  if (storeOffsets == true) {
+  }
+  fieldToTerms=new HashMap<String,Map<Integer,TVPositionInfo>>(numTerms);
+  this.storeOffsets=storeOffsets;
+  currentField=field;
+  currentPositions=new HashMap<Integer,TVPositionInfo>();
+  fieldToTerms.put(currentField,currentPositions);
+}

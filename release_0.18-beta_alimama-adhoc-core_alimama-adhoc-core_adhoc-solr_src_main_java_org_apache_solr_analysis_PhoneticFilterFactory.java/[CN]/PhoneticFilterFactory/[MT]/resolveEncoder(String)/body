@@ -1,0 +1,18 @@
+{
+  Class<? extends Encoder> clazz=null;
+  try {
+    clazz=lookupEncoder(PACKAGE_CONTAINING_ENCODERS + name);
+  }
+ catch (  ClassNotFoundException e) {
+    try {
+      clazz=lookupEncoder(name);
+    }
+ catch (    ClassNotFoundException cnfe) {
+      throw new SolrException(SolrException.ErrorCode.SERVER_ERROR,"Unknown encoder: " + name + " ["+ registry.keySet()+ "]");
+    }
+  }
+catch (  ClassCastException e) {
+    throw new SolrException(SolrException.ErrorCode.SERVER_ERROR,"Not an encoder: " + name + " ["+ registry.keySet()+ "]");
+  }
+  return clazz;
+}

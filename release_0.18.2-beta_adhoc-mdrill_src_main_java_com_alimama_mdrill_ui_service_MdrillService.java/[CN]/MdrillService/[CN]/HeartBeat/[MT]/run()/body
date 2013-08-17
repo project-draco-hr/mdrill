@@ -1,0 +1,23 @@
+{
+  while (true) {
+    if (this.thrStop.get()) {
+      thrStop.set(true);
+      return;
+    }
+    try {
+synchronized (this.lock) {
+        if (this.out != null) {
+          this.out.write(" ");
+          this.out.flush();
+        }
+      }
+    }
+ catch (    Throwable e) {
+    }
+    try {
+      Thread.sleep(1000);
+    }
+ catch (    InterruptedException e) {
+    }
+  }
+}

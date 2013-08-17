@@ -1,0 +1,10 @@
+{
+  try {
+    OpenBitSet obs=(OpenBitSet)super.clone();
+    obs.bits=obs.bits.clone();
+    return obs;
+  }
+ catch (  CloneNotSupportedException e) {
+    throw new RuntimeException(e);
+  }
+}

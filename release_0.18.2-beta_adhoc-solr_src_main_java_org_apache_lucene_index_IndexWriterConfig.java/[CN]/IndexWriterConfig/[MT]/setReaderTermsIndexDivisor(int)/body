@@ -1,0 +1,7 @@
+{
+  if (divisor <= 0 && divisor != -1) {
+    throw new IllegalArgumentException("divisor must be >= 1, or -1 (got " + divisor + ")");
+  }
+  readerTermsIndexDivisor=divisor;
+  return this;
+}

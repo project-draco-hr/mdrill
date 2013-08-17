@@ -1,0 +1,6 @@
+{
+  QuickHashMapBase<K,V> result=(QuickHashMapBase<K,V>)super.clone();
+  result.keySet=null;
+  result.values=null;
+  return result;
+}

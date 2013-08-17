@@ -1,0 +1,8 @@
+{
+  if (cache.fileExists(name)) {
+    cache.touchFile(name);
+  }
+ else {
+    delegate.touchFile(name);
+  }
+}

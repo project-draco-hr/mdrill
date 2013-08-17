@@ -1,0 +1,2 @@
+SolrIndexReader target
+HashMap<IndexReader,SolrReaderInfo> map

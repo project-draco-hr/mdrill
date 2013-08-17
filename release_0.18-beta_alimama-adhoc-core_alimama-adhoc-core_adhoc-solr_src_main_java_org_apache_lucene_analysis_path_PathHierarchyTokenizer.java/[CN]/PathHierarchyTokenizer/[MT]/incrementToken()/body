@@ -1,0 +1,81 @@
+{
+  clearAttributes();
+  termAtt.append(resultToken);
+  if (resultToken.length() == 0) {
+    posAtt.setPositionIncrement(1);
+  }
+ else {
+    posAtt.setPositionIncrement(0);
+  }
+  int length=0;
+  boolean added=false;
+  if (endDelimiter) {
+    termAtt.append(replacement);
+    length++;
+    endDelimiter=false;
+    added=true;
+  }
+  while (true) {
+    int c=input.read();
+    if (c < 0) {
+      if (skipped > skip) {
+        length+=resultToken.length();
+        termAtt.setLength(length);
+        finalOffset=correctOffset(startPosition + length);
+        offsetAtt.setOffset(correctOffset(startPosition),finalOffset);
+        if (added) {
+          resultToken.setLength(0);
+          resultToken.append(termAtt.buffer(),0,length);
+        }
+        return added;
+      }
+ else {
+        finalOffset=correctOffset(startPosition + length);
+        return false;
+      }
+    }
+    if (!added) {
+      added=true;
+      skipped++;
+      if (skipped > skip) {
+        termAtt.append(c == delimiter ? replacement : (char)c);
+        length++;
+      }
+ else {
+        startPosition++;
+      }
+    }
+ else {
+      if (c == delimiter) {
+        if (skipped > skip) {
+          endDelimiter=true;
+          break;
+        }
+        skipped++;
+        if (skipped > skip) {
+          termAtt.append(replacement);
+          length++;
+        }
+ else {
+          startPosition++;
+        }
+      }
+ else {
+        if (skipped > skip) {
+          termAtt.append((char)c);
+          length++;
+        }
+ else {
+          startPosition++;
+        }
+      }
+    }
+  }
+  length+=resultToken.length();
+  termAtt.setLength(length);
+  finalOffset=correctOffset(startPosition + length);
+  offsetAtt.setOffset(correctOffset(startPosition),finalOffset);
+  resultToken.setLength(0);
+  resultToken.append(termAtt.buffer(),0,length);
+  return true;
+}

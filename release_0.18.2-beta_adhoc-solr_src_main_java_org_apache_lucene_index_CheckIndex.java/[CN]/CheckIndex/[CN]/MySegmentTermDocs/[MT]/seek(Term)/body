@@ -1,0 +1,4 @@
+{
+  super.seek(term);
+  delCount=0;
+}

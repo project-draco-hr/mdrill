@@ -1,0 +1,27 @@
+{
+  if (function.isEscaped()) {
+    buffer.append("{fn ");
+  }
+  buffer.append(function.getName());
+  if (function.isAllColumns()) {
+    buffer.append("(*)");
+  }
+ else   if (function.getParameters() == null) {
+    buffer.append("()");
+  }
+ else {
+    boolean oldUseBracketsInExprList=useBracketsInExprList;
+    if (function.isDistinct()) {
+      useBracketsInExprList=false;
+      buffer.append("(DISTINCT ");
+    }
+    visit(function.getParameters());
+    useBracketsInExprList=oldUseBracketsInExprList;
+    if (function.isDistinct()) {
+      buffer.append(")");
+    }
+  }
+  if (function.isEscaped()) {
+    buffer.append("}");
+  }
+}

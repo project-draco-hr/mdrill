@@ -1,0 +1,22 @@
+{
+  if (getSlop() != 0)   return super.rewrite(reader);
+  if (n < 2 || getTerms().length < 3)   return super.rewrite(reader);
+  int[] positions=getPositions();
+  Term[] terms=getTerms();
+  int prevPosition=positions[0];
+  for (int i=1; i < positions.length; i++) {
+    int pos=positions[i];
+    if (prevPosition + 1 != pos)     return super.rewrite(reader);
+    prevPosition=pos;
+  }
+  PhraseQuery optimized=new PhraseQuery();
+  int pos=0;
+  final int lastPos=terms.length - 1;
+  for (int i=0; i < terms.length; i++) {
+    if (pos % n == 0 || pos >= lastPos) {
+      optimized.add(terms[i],positions[i]);
+    }
+    pos++;
+  }
+  return optimized;
+}

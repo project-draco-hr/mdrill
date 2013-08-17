@@ -1,0 +1,12 @@
+{
+  final StringBuilder buffer=new StringBuilder();
+  if (!term.field().equals(field)) {
+    buffer.append(term.field());
+    buffer.append(":");
+  }
+  buffer.append(term.text());
+  buffer.append('~');
+  buffer.append(Float.toString(minimumSimilarity));
+  buffer.append(ToStringUtils.boost(getBoost()));
+  return buffer.toString();
+}

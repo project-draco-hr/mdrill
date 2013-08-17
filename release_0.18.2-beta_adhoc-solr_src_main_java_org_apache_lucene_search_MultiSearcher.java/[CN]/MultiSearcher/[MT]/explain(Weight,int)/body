@@ -1,0 +1,4 @@
+{
+  final int i=subSearcher(doc);
+  return searchables[i].explain(weight,doc - starts[i]);
+}

@@ -1,0 +1,5 @@
+char[] left
+int offsetLeft
+char[] right
+int offsetRight
+int length

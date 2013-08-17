@@ -1,0 +1,5 @@
+{
+  super();
+  this.buff=buff;
+  this.size=size;
+}

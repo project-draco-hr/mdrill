@@ -1,0 +1,26 @@
+{
+  Directory d=directoryFactory.open(path);
+  String rawLockType=(null == config) ? null : config.lockType;
+  if (null == rawLockType) {
+    log.warn("No lockType configured for " + path + " assuming 'simple'");
+    rawLockType="simple";
+  }
+  final String lockType=rawLockType.toLowerCase(Locale.ENGLISH).trim();
+  if ("simple".equals(lockType)) {
+    d.setLockFactory(new SimpleFSLockFactory(path));
+  }
+ else   if ("native".equals(lockType)) {
+    d.setLockFactory(new NativeFSLockFactory(path));
+  }
+ else   if ("single".equals(lockType)) {
+    if (!(d.getLockFactory() instanceof SingleInstanceLockFactory))     d.setLockFactory(new SingleInstanceLockFactory());
+  }
+ else   if ("none".equals(lockType)) {
+    log.error("CONFIGURATION WARNING: locks are disabled on " + path);
+    d.setLockFactory(NoLockFactory.getNoLockFactory());
+  }
+ else {
+    throw new SolrException(SolrException.ErrorCode.SERVER_ERROR,"Unrecognized lockType: " + rawLockType);
+  }
+  return d;
+}

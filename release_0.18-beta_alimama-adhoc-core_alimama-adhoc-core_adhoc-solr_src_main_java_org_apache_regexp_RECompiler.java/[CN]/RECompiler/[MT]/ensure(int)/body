@@ -1,0 +1,11 @@
+{
+  int curlen=instruction.length;
+  if (lenInstruction + n >= curlen) {
+    while (lenInstruction + n >= curlen) {
+      curlen*=2;
+    }
+    char[] newInstruction=new char[curlen];
+    System.arraycopy(instruction,0,newInstruction,0,lenInstruction);
+    instruction=newInstruction;
+  }
+}

@@ -1,0 +1,7 @@
+{
+  spout=_spout;
+  msg_id=_msg_id;
+  tuple=_tuple;
+  time_delta=_time_delta;
+  task_stats=_task_stats;
+}

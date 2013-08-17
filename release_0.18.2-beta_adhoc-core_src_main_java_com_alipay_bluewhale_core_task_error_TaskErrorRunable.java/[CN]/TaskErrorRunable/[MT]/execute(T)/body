@@ -1,0 +1,10 @@
+{
+  Exception e=null;
+  if (args != null && args.length > 0) {
+    e=(Exception)args[0];
+  }
+  if (e != null) {
+    report_error_and_die.report(e);
+  }
+  return null;
+}

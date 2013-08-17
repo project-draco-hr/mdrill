@@ -1,0 +1,18 @@
+{
+  if (which < parenCount) {
+switch (which) {
+case 0:
+      return end0;
+case 1:
+    return end1;
+case 2:
+  return end2;
+default :
+if (endn == null) {
+  allocParens();
+}
+return endn[which];
+}
+}
+return -1;
+}

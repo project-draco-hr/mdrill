@@ -1,0 +1,16 @@
+{
+  sortedFilterItems=new TreeSet<Map.Entry<Integer,FilterItem>>(new Comparator<Map.Entry<Integer,FilterItem>>(){
+    public int compare(    Map.Entry<Integer,FilterItem> a,    Map.Entry<Integer,FilterItem> b){
+      FilterItem fia=a.getValue();
+      FilterItem fib=b.getValue();
+      if (fia.timestamp == fib.timestamp) {
+        return 0;
+      }
+      if (fia.timestamp < fib.timestamp) {
+        return -1;
+      }
+      return 1;
+    }
+  }
+);
+}

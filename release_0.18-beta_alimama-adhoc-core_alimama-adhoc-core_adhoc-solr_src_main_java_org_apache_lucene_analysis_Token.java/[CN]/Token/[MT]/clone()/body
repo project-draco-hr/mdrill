@@ -1,0 +1,7 @@
+{
+  Token t=(Token)super.clone();
+  if (payload != null) {
+    t.payload=(Payload)payload.clone();
+  }
+  return t;
+}

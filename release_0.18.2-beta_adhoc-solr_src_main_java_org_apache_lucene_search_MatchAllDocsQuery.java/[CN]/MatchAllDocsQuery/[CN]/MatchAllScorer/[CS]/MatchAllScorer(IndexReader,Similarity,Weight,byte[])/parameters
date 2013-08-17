@@ -1,0 +1,4 @@
+IndexReader reader
+Similarity similarity
+Weight w
+byte[] norms

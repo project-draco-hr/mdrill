@@ -1,0 +1,62 @@
+{
+  try {
+    log.info("init start");
+    this.init();
+    long t1=System.currentTimeMillis();
+    boolean needflush=false;
+    log.info("init end");
+    while (!this.isIsstop()) {
+      ArrayList<Document> doclist=new ArrayList<Document>();
+      SolrInputDocumentMessage map=new SolrInputDocumentMessage();
+      for (int i=0; i < 1000; i++) {
+        int res=binlog.read(map);
+        if (res >= 0) {
+          SolrInputDocument doc=map.getMap();
+          Document lucenedoc=DocumentBuilder.toDocument(doc,core.getSchema());
+          doclist.add(lucenedoc);
+        }
+ else {
+          break;
+        }
+      }
+      if (doclist.size() > 0 && !this.isIsstop()) {
+        WriteLock wlock=HigoRealTimeSync.getLock().writeLock();
+        wlock.lock();
+        try {
+          log.info("addDocuments " + doclist.size());
+          SolrIndexWriter indexwriter=new SolrIndexWriter(this.day,core.getIndexDir(this.day),core.getDirectoryFactory(),false,core.getSchema(),core.getSolrConfig().mainIndexConfig,core.getDeletionPolicy());
+          indexwriter.addDocuments(doclist);
+          indexwriter.close();
+          needflush=true;
+          log.info("flushcache " + doclist.size());
+          core.getSearcher(day,true,true,false);
+        }
+  finally {
+          wlock.unlock();
+        }
+      }
+ else {
+        try {
+          Thread.sleep(100);
+        }
+ catch (        InterruptedException e) {
+        }
+      }
+      if (needflush && !this.isIsstop()) {
+        long t2=System.currentTimeMillis();
+        if (t2 - t1 > 1000l * 1800) {
+          log.info("writeCheckpoint " + doclist.size());
+          t1=t2;
+          needflush=false;
+          this.writeCheckpoint();
+          this.writeCheckpointPos(checkpointposwrite,binlog.getpos(),this.checkpointindex);
+        }
+      }
+    }
+  }
+ catch (  IOException e) {
+  }
+ finally {
+    this.close();
+  }
+}

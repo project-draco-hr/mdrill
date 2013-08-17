@@ -1,0 +1,5 @@
+{
+  len=stemPrefix(s,len);
+  len=stemSuffix(s,len);
+  return len;
+}

@@ -1,0 +1,13 @@
+{
+  if (isSimple())   return "" + rightItem;
+ else {
+    String type="";
+    if (isRight())     type+="RIGHT ";
+ else     if (isNatural())     type+="NATURAL ";
+ else     if (isFull())     type+="FULL ";
+ else     if (isLeft())     type+="LEFT ";
+    if (isOuter())     type+="OUTER ";
+ else     if (isInner())     type+="INNER ";
+    return type + "JOIN " + rightItem+ ((onExpression != null) ? " ON " + onExpression + "" : "")+ PlainSelect.getFormatedList(usingColumns,"USING",true,true);
+  }
+}

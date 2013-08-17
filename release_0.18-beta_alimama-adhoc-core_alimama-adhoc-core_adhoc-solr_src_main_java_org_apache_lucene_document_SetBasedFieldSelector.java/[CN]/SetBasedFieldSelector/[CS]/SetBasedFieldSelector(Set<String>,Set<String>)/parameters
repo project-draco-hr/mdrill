@@ -1,0 +1,2 @@
+Set<String> fieldsToLoad
+Set<String> lazyFieldsToLoad

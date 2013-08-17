@@ -1,0 +1,4 @@
+{
+  this.pos=pos;
+  this.allowModify=allowModify;
+}

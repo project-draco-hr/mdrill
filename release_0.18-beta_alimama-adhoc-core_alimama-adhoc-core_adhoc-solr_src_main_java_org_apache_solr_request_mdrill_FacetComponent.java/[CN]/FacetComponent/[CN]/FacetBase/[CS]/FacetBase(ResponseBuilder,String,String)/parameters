@@ -1,0 +1,3 @@
+ResponseBuilder rb
+String facetType
+String facetStr

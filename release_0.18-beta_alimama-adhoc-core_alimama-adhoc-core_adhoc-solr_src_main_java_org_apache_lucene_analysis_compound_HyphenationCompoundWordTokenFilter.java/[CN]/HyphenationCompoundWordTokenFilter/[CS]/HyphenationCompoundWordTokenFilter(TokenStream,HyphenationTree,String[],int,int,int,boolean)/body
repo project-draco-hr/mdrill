@@ -1,0 +1,3 @@
+{
+  this(Version.LUCENE_30,input,hyphenator,makeDictionary(Version.LUCENE_30,dictionary),minWordSize,minSubwordSize,maxSubwordSize,onlyLongestMatch);
+}

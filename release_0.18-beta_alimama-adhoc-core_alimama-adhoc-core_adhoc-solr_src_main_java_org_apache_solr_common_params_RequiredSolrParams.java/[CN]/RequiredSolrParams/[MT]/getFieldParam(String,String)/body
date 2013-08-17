@@ -1,0 +1,11 @@
+{
+  final String fpname=fpname(field,param);
+  String val=params.get(fpname);
+  if (null == val) {
+    val=params.get(param);
+    if (null == val) {
+      throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,"Missing required parameter: " + fpname + " (or default: "+ param+ ")");
+    }
+  }
+  return val;
+}

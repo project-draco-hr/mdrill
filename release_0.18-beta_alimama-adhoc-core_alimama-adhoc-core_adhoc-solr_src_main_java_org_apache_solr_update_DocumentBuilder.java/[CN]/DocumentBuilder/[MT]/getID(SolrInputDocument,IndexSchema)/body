@@ -1,0 +1,8 @@
+{
+  String id="";
+  SchemaField sf=schema.getUniqueKeyField();
+  if (sf != null) {
+    id="[doc=" + doc.getFieldValue(sf.getName()) + "] ";
+  }
+  return id;
+}

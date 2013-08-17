@@ -1,0 +1,4 @@
+BoltTaskStatsRolling stats
+String component
+String stream
+Long latency_ms

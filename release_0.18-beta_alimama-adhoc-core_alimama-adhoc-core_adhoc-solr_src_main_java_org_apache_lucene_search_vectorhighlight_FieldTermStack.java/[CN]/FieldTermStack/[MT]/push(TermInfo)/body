@@ -1,0 +1,3 @@
+{
+  termList.addFirst(termInfo);
+}

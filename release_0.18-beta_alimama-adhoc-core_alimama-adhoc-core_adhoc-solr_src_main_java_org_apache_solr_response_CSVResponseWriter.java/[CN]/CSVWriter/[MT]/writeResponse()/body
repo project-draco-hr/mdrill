@@ -1,0 +1,135 @@
+{
+  SolrParams params=req.getParams();
+  strategy=new CSVStrategy(',','"',CSVStrategy.COMMENTS_DISABLED,CSVStrategy.ESCAPE_DISABLED,false,false,false,true);
+  CSVStrategy strat=strategy;
+  String sep=params.get(CSV_SEPARATOR);
+  if (sep != null) {
+    if (sep.length() != 1)     throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,"Invalid separator:'" + sep + "'");
+    strat.setDelimiter(sep.charAt(0));
+  }
+  String nl=params.get(CSV_NEWLINE);
+  if (nl != null) {
+    if (nl.length() == 0)     throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,"Invalid newline:'" + nl + "'");
+    strat.setPrinterNewline(nl);
+  }
+  String encapsulator=params.get(CSV_ENCAPSULATOR);
+  String escape=params.get(CSV_ESCAPE);
+  if (encapsulator != null) {
+    if (encapsulator.length() != 1)     throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,"Invalid encapsulator:'" + encapsulator + "'");
+    strat.setEncapsulator(encapsulator.charAt(0));
+  }
+  if (escape != null) {
+    if (escape.length() != 1)     throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,"Invalid escape:'" + escape + "'");
+    strat.setEscape(escape.charAt(0));
+    if (encapsulator == null) {
+      strat.setEncapsulator(CSVStrategy.ENCAPSULATOR_DISABLED);
+    }
+  }
+  if (strat.getEscape() == '\\') {
+    strat.setUnicodeEscapeInterpretation(true);
+  }
+  printer=new CSVPrinter(writer,strategy);
+  CSVStrategy mvStrategy=new CSVStrategy(strategy.getDelimiter(),CSVStrategy.ENCAPSULATOR_DISABLED,CSVStrategy.COMMENTS_DISABLED,'\\',false,false,false,false);
+  strat=mvStrategy;
+  sep=params.get(MV_SEPARATOR);
+  if (sep != null) {
+    if (sep.length() != 1)     throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,"Invalid mv separator:'" + sep + "'");
+    strat.setDelimiter(sep.charAt(0));
+  }
+  encapsulator=params.get(MV_ENCAPSULATOR);
+  escape=params.get(MV_ESCAPE);
+  if (encapsulator != null) {
+    if (encapsulator.length() != 1)     throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,"Invalid mv encapsulator:'" + encapsulator + "'");
+    strat.setEncapsulator(encapsulator.charAt(0));
+    if (escape == null) {
+      strat.setEscape(CSVStrategy.ESCAPE_DISABLED);
+    }
+  }
+  escape=params.get(MV_ESCAPE);
+  if (escape != null) {
+    if (escape.length() != 1)     throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,"Invalid mv escape:'" + escape + "'");
+    strat.setEscape(escape.charAt(0));
+  }
+  returnScore=returnFields != null && returnFields.contains("score");
+  boolean needListOfFields=returnFields == null || returnFields.size() == 0 || (returnFields.size() == 1 && returnScore) || returnFields.contains("*");
+  Collection<String> fields=returnFields;
+  Object responseObj=rsp.getValues().get("response");
+  if (needListOfFields) {
+    if (responseObj instanceof SolrDocumentList) {
+      fields=new LinkedHashSet<String>();
+      for (      SolrDocument sdoc : (SolrDocumentList)responseObj) {
+        fields.addAll(sdoc.getFieldNames());
+      }
+    }
+ else {
+      fields=req.getSearcher().getFieldNames();
+    }
+    if (returnScore) {
+      fields.add("score");
+    }
+ else {
+      fields.remove("score");
+    }
+  }
+  CSVSharedBufPrinter csvPrinterMV=new CSVSharedBufPrinter(mvWriter,mvStrategy);
+  for (  String field : fields) {
+    if (field.equals("score")) {
+      CSVField csvField=new CSVField();
+      csvField.name="score";
+      csvFields.put("score",csvField);
+      continue;
+    }
+    SchemaField sf=schema.getFieldOrNull(field);
+    if (sf == null) {
+      FieldType ft=new StrField();
+      sf=new SchemaField(field,ft);
+    }
+    if (returnFields == null && sf != null && !sf.stored()) {
+      continue;
+    }
+    sep=params.get("f." + field + '.'+ CSV_SEPARATOR);
+    encapsulator=params.get("f." + field + '.'+ CSV_ENCAPSULATOR);
+    escape=params.get("f." + field + '.'+ CSV_ESCAPE);
+    CSVSharedBufPrinter csvPrinter=csvPrinterMV;
+    if (sep != null || encapsulator != null || escape != null) {
+      strat=(CSVStrategy)mvStrategy.clone();
+      if (sep != null) {
+        if (sep.length() != 1)         throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,"Invalid mv separator:'" + sep + "'");
+        strat.setDelimiter(sep.charAt(0));
+      }
+      if (encapsulator != null) {
+        if (encapsulator.length() != 1)         throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,"Invalid mv encapsulator:'" + encapsulator + "'");
+        strat.setEncapsulator(encapsulator.charAt(0));
+        if (escape == null) {
+          strat.setEscape(CSVStrategy.ESCAPE_DISABLED);
+        }
+      }
+      if (escape != null) {
+        if (escape.length() != 1)         throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,"Invalid mv escape:'" + escape + "'");
+        strat.setEscape(escape.charAt(0));
+        if (encapsulator == null) {
+          strat.setEncapsulator(CSVStrategy.ENCAPSULATOR_DISABLED);
+        }
+      }
+      csvPrinter=new CSVSharedBufPrinter(mvWriter,strat);
+    }
+    CSVField csvField=new CSVField();
+    csvField.name=field;
+    csvField.sf=sf;
+    csvField.mvPrinter=csvPrinter;
+    csvFields.put(field,csvField);
+  }
+  NullValue=params.get(CSV_NULL,"");
+  if (params.getBool(CSV_HEADER,true)) {
+    for (    CSVField csvField : csvFields.values()) {
+      printer.print(csvField.name);
+    }
+    printer.println();
+  }
+  if (responseObj instanceof DocList) {
+    writeDocList(null,(DocList)responseObj,null,null);
+  }
+ else   if (responseObj instanceof SolrDocumentList) {
+    writeSolrDocumentList(null,(SolrDocumentList)responseObj,null,null);
+  }
+}

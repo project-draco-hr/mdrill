@@ -1,0 +1,10 @@
+{
+  LinkedHashMap<String,Integer> map=this.suggestions.get(token);
+  if (map == null) {
+    map=new LinkedHashMap<String,Integer>();
+    this.suggestions.put(token,map);
+  }
+  for (  String suggestion : suggestions) {
+    map.put(suggestion,NO_FREQUENCY_INFO);
+  }
+}

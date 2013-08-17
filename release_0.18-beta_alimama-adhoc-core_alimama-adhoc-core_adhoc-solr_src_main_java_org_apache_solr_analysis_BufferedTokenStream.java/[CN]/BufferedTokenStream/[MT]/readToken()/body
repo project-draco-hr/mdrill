@@ -1,0 +1,15 @@
+{
+  if (!input.incrementToken()) {
+    return null;
+  }
+ else {
+    Token token=new Token();
+    token.copyBuffer(termAtt.buffer(),0,termAtt.length());
+    token.setOffset(offsetAtt.startOffset(),offsetAtt.endOffset());
+    token.setType(typeAtt.type());
+    token.setFlags(flagsAtt.getFlags());
+    token.setPositionIncrement(posIncAtt.getPositionIncrement());
+    token.setPayload(payloadAtt.getPayload());
+    return token;
+  }
+}

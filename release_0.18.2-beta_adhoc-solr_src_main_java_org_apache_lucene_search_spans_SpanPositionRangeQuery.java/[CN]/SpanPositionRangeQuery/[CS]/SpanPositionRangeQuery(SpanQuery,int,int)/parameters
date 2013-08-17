@@ -1,0 +1,3 @@
+SpanQuery match
+int start
+int end

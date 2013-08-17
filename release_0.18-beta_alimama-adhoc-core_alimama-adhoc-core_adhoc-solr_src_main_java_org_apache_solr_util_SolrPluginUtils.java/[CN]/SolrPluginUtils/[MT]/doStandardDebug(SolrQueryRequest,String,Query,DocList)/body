@@ -1,0 +1,24 @@
+{
+  String debug=req.getParams().get(CommonParams.DEBUG_QUERY);
+  NamedList dbg=null;
+  if (debug != null) {
+    dbg=new SimpleOrderedMap();
+    SolrIndexSearcher searcher=req.getSearcher();
+    IndexSchema schema=req.getSchema();
+    boolean explainStruct=req.getParams().getBool(CommonParams.EXPLAIN_STRUCT,false);
+    dbg.add("rawquerystring",req.getParams().get(CommonParams.Q));
+    dbg.add("querystring",userQuery);
+    dbg.add("parsedquery",QueryParsing.toString(query,schema));
+    dbg.add("parsedquery_toString",query.toString());
+    NamedList<Explanation> explain=getExplanations(query,results,searcher,schema);
+    dbg.add("explain",explainStruct ? explanationsToNamedLists(explain) : explanationsToStrings(explain));
+    String otherQueryS=req.getParams().get(CommonParams.EXPLAIN_OTHER);
+    if (otherQueryS != null && otherQueryS.length() > 0) {
+      DocList otherResults=doSimpleQuery(otherQueryS,req,0,10);
+      dbg.add("otherQuery",otherQueryS);
+      NamedList<Explanation> explainO=getExplanations(query,otherResults,searcher,schema);
+      dbg.add("explainOther",explainStruct ? explanationsToNamedLists(explainO) : explanationsToStrings(explainO));
+    }
+  }
+  return dbg;
+}

@@ -1,0 +1,5 @@
+{
+  this.socket=ZeroMq.socket(context,ZeroMq.pull);
+  this.socket=VirtualPort.virtual_bind(socket,virtual_port);
+  return new ZMQConnection(socket);
+}

@@ -1,0 +1,65 @@
+{
+  Function function=null;
+  AllColumns allTableColumns=null;
+  Column tableColumn=null;
+  String alias=null;
+  SelectItem selectItem=null;
+  SelectExpressionItem selectExpressionItem=null;
+  Expression expression=null;
+  SubSelect subSelect=null;
+switch ((jj_ntk == -1) ? jj_ntk() : jj_ntk) {
+case 82:
+    jj_consume_token(82);
+  selectItem=new AllColumns();
+break;
+default :
+jj_la1[51]=jj_gen;
+if (jj_2_6(2147483647)) {
+selectItem=AllTableColumns();
+}
+ else {
+switch ((jj_ntk == -1) ? jj_ntk() : jj_ntk) {
+case K_NULL:
+case K_CASE:
+case K_REPLACE:
+case S_DOUBLE:
+case S_INTEGER:
+case S_IDENTIFIER:
+case S_CHAR_LITERAL:
+case S_QUOTED_IDENTIFIER:
+case 79:
+case 83:
+case 94:
+case 95:
+case 98:
+case 100:
+case 101:
+case 102:
+expression=SimpleExpression();
+selectExpressionItem=new SelectExpressionItem();
+selectExpressionItem.setExpression(expression);
+switch ((jj_ntk == -1) ? jj_ntk() : jj_ntk) {
+case K_AS:
+case S_IDENTIFIER:
+case S_QUOTED_IDENTIFIER:
+alias=Alias();
+selectExpressionItem.setAlias(alias);
+break;
+default :
+jj_la1[50]=jj_gen;
+;
+}
+selectItem=selectExpressionItem;
+break;
+default :
+jj_la1[52]=jj_gen;
+jj_consume_token(-1);
+throw new ParseException();
+}
+}
+}
+{
+if (true) return selectItem;
+}
+throw new Error("Missing return statement in function");
+}

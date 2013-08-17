@@ -1,0 +1,183 @@
+{
+  SolrParams params=rb.req.getParams();
+  if (!params.getBool(COMPONENT_NAME,false) || rb.stage != ResponseBuilder.STAGE_GET_FIELDS)   return;
+  boolean extendedResults=params.getBool(SPELLCHECK_EXTENDED_RESULTS,false);
+  boolean collate=params.getBool(SPELLCHECK_COLLATE,false);
+  boolean collationExtendedResults=params.getBool(SPELLCHECK_COLLATE_EXTENDED_RESULTS,false);
+  int maxCollationTries=params.getInt(SPELLCHECK_MAX_COLLATION_TRIES,0);
+  int maxCollations=params.getInt(SPELLCHECK_MAX_COLLATIONS,1);
+  String origQuery=params.get(SPELLCHECK_Q);
+  if (origQuery == null) {
+    origQuery=rb.getQueryString();
+    if (origQuery == null) {
+      origQuery=params.get(CommonParams.Q);
+    }
+  }
+  int count=rb.req.getParams().getInt(SPELLCHECK_COUNT,1);
+  float min=0.5f;
+  StringDistance sd=null;
+  int numSug=Math.max(count,AbstractLuceneSpellChecker.DEFAULT_SUGGESTION_COUNT);
+  SolrSpellChecker checker=getSpellChecker(rb.req.getParams());
+  if (checker instanceof AbstractLuceneSpellChecker) {
+    AbstractLuceneSpellChecker spellChecker=(AbstractLuceneSpellChecker)checker;
+    min=spellChecker.getAccuracy();
+    sd=spellChecker.getStringDistance();
+  }
+  if (sd == null)   sd=new LevensteinDistance();
+  Collection<Token> tokens=null;
+  try {
+    tokens=getTokens(origQuery,checker.getQueryAnalyzer());
+  }
+ catch (  IOException e) {
+    LOG.error("Could not get tokens (this should never happen)",e);
+  }
+  Map<String,SpellCheckResponse.Suggestion> origVsSuggestion=new HashMap<String,SpellCheckResponse.Suggestion>();
+  Map<String,Integer> origVsFreq=new HashMap<String,Integer>();
+  Map<String,Integer> origVsShards=new HashMap<String,Integer>();
+  Map<String,HashSet<String>> origVsSuggested=new LinkedHashMap<String,HashSet<String>>();
+  Map<String,SuggestWord> suggestedVsWord=new HashMap<String,SuggestWord>();
+  Map<String,SpellCheckCollation> collations=new HashMap<String,SpellCheckCollation>();
+  int totalNumberShardResponses=0;
+  for (  ShardRequest sreq : rb.finished) {
+    for (    ShardResponse srsp : sreq.responses) {
+      NamedList nl=(NamedList)srsp.getSolrResponse().getResponse().get("spellcheck");
+      LOG.info(srsp.getShard() + " " + nl);
+      if (nl != null) {
+        totalNumberShardResponses++;
+        SpellCheckResponse spellCheckResp=new SpellCheckResponse(nl);
+        for (        SpellCheckResponse.Suggestion suggestion : spellCheckResp.getSuggestions()) {
+          origVsSuggestion.put(suggestion.getToken(),suggestion);
+          HashSet<String> suggested=origVsSuggested.get(suggestion.getToken());
+          if (suggested == null) {
+            suggested=new HashSet<String>();
+            origVsSuggested.put(suggestion.getToken(),suggested);
+          }
+          int origFreq=0;
+          Integer o=origVsFreq.get(suggestion.getToken());
+          if (o != null)           origFreq+=o;
+          origFreq+=suggestion.getOriginalFrequency();
+          origVsFreq.put(suggestion.getToken(),origFreq);
+          Integer origShards=origVsShards.get(suggestion.getToken());
+          if (origShards == null) {
+            origVsShards.put(suggestion.getToken(),1);
+          }
+ else {
+            origVsShards.put(suggestion.getToken(),++origShards);
+          }
+          for (int i=0; i < suggestion.getNumFound(); i++) {
+            String alternative=suggestion.getAlternatives().get(i);
+            suggested.add(alternative);
+            SuggestWord sug=suggestedVsWord.get(alternative);
+            if (sug == null) {
+              sug=new SuggestWord();
+              suggestedVsWord.put(alternative,sug);
+            }
+            sug.string=alternative;
+            if (suggestion.getAlternativeFrequencies() != null && suggestion.getAlternativeFrequencies().size() > 0) {
+              Integer freq=suggestion.getAlternativeFrequencies().get(i);
+              if (freq != null)               sug.freq+=freq;
+            }
+          }
+        }
+        NamedList suggestions=(NamedList)nl.get("suggestions");
+        if (suggestions != null) {
+          List<Object> collationList=suggestions.getAll("collation");
+          List<Object> collationRankList=suggestions.getAll("collationInternalRank");
+          int i=0;
+          if (collationList != null) {
+            for (            Object o : collationList) {
+              if (o instanceof String) {
+                SpellCheckCollation coll=new SpellCheckCollation();
+                coll.setCollationQuery((String)o);
+                if (collationRankList != null && collationRankList.size() > 0) {
+                  coll.setInternalRank((Integer)collationRankList.get(i));
+                  i++;
+                }
+                SpellCheckCollation priorColl=collations.get(coll.getCollationQuery());
+                if (priorColl != null) {
+                  coll.setInternalRank(Math.max(coll.getInternalRank(),priorColl.getInternalRank()));
+                }
+                collations.put(coll.getCollationQuery(),coll);
+              }
+ else {
+                NamedList expandedCollation=(NamedList)o;
+                SpellCheckCollation coll=new SpellCheckCollation();
+                coll.setCollationQuery((String)expandedCollation.get("collationQuery"));
+                coll.setHits((Integer)expandedCollation.get("hits"));
+                if (maxCollationTries > 0) {
+                  coll.setInternalRank((Integer)expandedCollation.get("collationInternalRank"));
+                }
+                coll.setMisspellingsAndCorrections((NamedList)expandedCollation.get("misspellingsAndCorrections"));
+                SpellCheckCollation priorColl=collations.get(coll.getCollationQuery());
+                if (priorColl != null) {
+                  coll.setHits(coll.getHits() + priorColl.getHits());
+                  coll.setInternalRank(Math.max(coll.getInternalRank(),priorColl.getInternalRank()));
+                }
+                collations.put(coll.getCollationQuery(),coll);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  SpellingResult result=new SpellingResult(tokens);
+  for (  Map.Entry<String,HashSet<String>> entry : origVsSuggested.entrySet()) {
+    String original=entry.getKey();
+    Integer numShards=origVsShards.get(original);
+    if (numShards < totalNumberShardResponses) {
+      continue;
+    }
+    HashSet<String> suggested=entry.getValue();
+    SuggestWordQueue sugQueue=new SuggestWordQueue(numSug);
+    for (    String suggestion : suggested) {
+      SuggestWord sug=suggestedVsWord.get(suggestion);
+      sug.score=sd.getDistance(original,sug.string);
+      if (sug.score < min)       continue;
+      sugQueue.insertWithOverflow(sug);
+      if (sugQueue.size() == numSug) {
+        min=sugQueue.top().score;
+      }
+    }
+    SpellCheckResponse.Suggestion suggestion=origVsSuggestion.get(original);
+    Token token=new Token(original,suggestion.getStartOffset(),suggestion.getEndOffset());
+    SuggestWord[] suggestions=new SuggestWord[Math.min(count,sugQueue.size())];
+    for (int k=0; k < sugQueue.size() - count; k++)     sugQueue.pop();
+    for (int k=Math.min(count,sugQueue.size()) - 1; k >= 0; k--) {
+      suggestions[k]=sugQueue.pop();
+    }
+    if (extendedResults) {
+      Integer o=origVsFreq.get(original);
+      if (o != null)       result.addFrequency(token,o);
+      for (      SuggestWord word : suggestions)       result.add(token,word.string,word.freq);
+    }
+ else {
+      List<String> words=new ArrayList<String>(sugQueue.size());
+      for (      SuggestWord word : suggestions)       words.add(word.string);
+      result.add(token,words);
+    }
+  }
+  NamedList response=new SimpleOrderedMap();
+  NamedList suggestions=toNamedList(false,result,origQuery,extendedResults,collate);
+  if (collate) {
+    SpellCheckCollation[] sortedCollations=collations.values().toArray(new SpellCheckCollation[collations.size()]);
+    Arrays.sort(sortedCollations);
+    int i=0;
+    while (i < maxCollations && i < sortedCollations.length) {
+      SpellCheckCollation collation=sortedCollations[i];
+      i++;
+      if (collationExtendedResults) {
+        NamedList extendedResult=new NamedList();
+        extendedResult.add("collationQuery",collation.getCollationQuery());
+        extendedResult.add("hits",collation.getHits());
+        extendedResult.add("misspellingsAndCorrections",collation.getMisspellingsAndCorrections());
+        suggestions.add("collation",extendedResult);
+      }
+ else {
+        suggestions.add("collation",collation.getCollationQuery());
+      }
+    }
+  }
+  response.add("suggestions",suggestions);
+  rb.rsp.add("spellcheck",response);
+}

@@ -1,0 +1,4 @@
+{
+  super.init(args);
+  warnDeprecated("Use StandardTokenizerFactory instead.");
+}

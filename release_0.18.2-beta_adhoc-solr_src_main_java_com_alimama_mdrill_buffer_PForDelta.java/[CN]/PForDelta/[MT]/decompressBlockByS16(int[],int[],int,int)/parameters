@@ -1,0 +1,4 @@
+int[] outDecompBlock
+int[] inCompBlock
+int inStartOffsetInBits
+int blockSize

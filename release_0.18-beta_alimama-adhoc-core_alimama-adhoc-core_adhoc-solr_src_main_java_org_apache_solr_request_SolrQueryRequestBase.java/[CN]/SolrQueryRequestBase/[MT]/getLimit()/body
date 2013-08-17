@@ -1,0 +1,3 @@
+{
+  return params.getInt(CommonParams.ROWS,10);
+}

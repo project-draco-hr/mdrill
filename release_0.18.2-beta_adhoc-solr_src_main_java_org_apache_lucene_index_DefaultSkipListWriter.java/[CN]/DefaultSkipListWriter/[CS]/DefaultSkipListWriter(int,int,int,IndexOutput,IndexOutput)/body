@@ -1,0 +1,9 @@
+{
+  super(skipInterval,numberOfSkipLevels,docCount);
+  this.freqOutput=freqOutput;
+  this.proxOutput=proxOutput;
+  lastSkipDoc=new int[numberOfSkipLevels];
+  lastSkipPayloadLength=new int[numberOfSkipLevels];
+  lastSkipFreqPointer=new long[numberOfSkipLevels];
+  lastSkipProxPointer=new long[numberOfSkipLevels];
+}

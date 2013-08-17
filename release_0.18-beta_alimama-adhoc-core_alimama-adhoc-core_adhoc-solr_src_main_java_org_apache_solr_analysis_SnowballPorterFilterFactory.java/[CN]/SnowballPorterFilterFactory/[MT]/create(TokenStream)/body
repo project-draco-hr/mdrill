@@ -1,0 +1,11 @@
+{
+  SnowballProgram program;
+  try {
+    program=(SnowballProgram)stemClass.newInstance();
+  }
+ catch (  Exception e) {
+    throw new RuntimeException("Error instantiating stemmer for language " + language + "from class "+ stemClass,e);
+  }
+  if (protectedWords != null)   input=new KeywordMarkerFilter(input,protectedWords);
+  return new SnowballFilter(input,program);
+}

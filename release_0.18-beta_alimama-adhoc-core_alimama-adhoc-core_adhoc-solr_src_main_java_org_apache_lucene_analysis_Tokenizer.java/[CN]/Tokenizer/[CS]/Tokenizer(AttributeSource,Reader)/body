@@ -1,0 +1,4 @@
+{
+  super(source);
+  this.input=CharReader.get(input);
+}

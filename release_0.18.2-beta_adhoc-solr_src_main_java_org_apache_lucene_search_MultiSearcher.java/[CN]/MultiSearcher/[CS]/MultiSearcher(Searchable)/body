@@ -1,0 +1,9 @@
+{
+  this.searchables=searchables;
+  starts=new int[searchables.length + 1];
+  for (int i=0; i < searchables.length; i++) {
+    starts[i]=maxDoc;
+    maxDoc+=searchables[i].maxDoc();
+  }
+  starts[searchables.length]=maxDoc;
+}

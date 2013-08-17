@@ -1,0 +1,12 @@
+{
+  if (subject == null) {
+    return null;
+  }
+  byte[] bytes=null;
+  try {
+    bytes=(charset == null ? subject.getBytes() : subject.getBytes(charset));
+  }
+ catch (  Exception e) {
+  }
+  return (bytes == null ? null : "=?" + charset + "?B?"+ Base64Encode.encode(bytes,0,bytes.length)+ "?=");
+}

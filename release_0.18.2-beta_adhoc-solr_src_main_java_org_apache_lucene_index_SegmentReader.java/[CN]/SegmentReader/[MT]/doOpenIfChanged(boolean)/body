@@ -1,0 +1,3 @@
+{
+  return reopenSegment(si,false,openReadOnly);
+}

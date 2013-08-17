@@ -1,0 +1,6 @@
+{
+  if (0 <= index && index < this.length) {
+    return this.data[this.offset + index];
+  }
+  throw new ArrayIndexOutOfBoundsException(index);
+}

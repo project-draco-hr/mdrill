@@ -1,0 +1,3 @@
+{
+  this.articles=CharArraySet.unmodifiableSet(CharArraySet.copy(matchVersion,articles));
+}

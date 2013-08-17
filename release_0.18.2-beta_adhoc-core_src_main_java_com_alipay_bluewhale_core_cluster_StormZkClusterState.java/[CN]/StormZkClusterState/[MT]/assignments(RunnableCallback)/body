@@ -1,0 +1,6 @@
+{
+  if (callback != null) {
+    assignments_callback.set(callback);
+  }
+  return cluster_state.get_children(Cluster.ASSIGNMENTS_SUBTREE,callback != null);
+}

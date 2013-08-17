@@ -1,0 +1,6 @@
+{
+  if (numericTS != null)   numericTS.setDoubleValue(value);
+  fieldsData=Double.valueOf(value);
+  type=DataType.DOUBLE;
+  return this;
+}

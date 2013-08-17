@@ -1,0 +1,7 @@
+{
+  super.init(args);
+  inject=getBoolean(INJECT,true);
+  if (args.get(MAX_CODE_LENGTH) != null) {
+    maxCodeLength=Integer.parseInt(args.get(MAX_CODE_LENGTH));
+  }
+}

@@ -1,0 +1,4 @@
+{
+  String npath=PathUtils.normalize_path(path);
+  return zk.create().withMode(mode).withACL(ZooDefs.Ids.OPEN_ACL_UNSAFE).forPath(npath,data);
+}

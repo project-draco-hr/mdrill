@@ -1,0 +1,5 @@
+{
+  HashMap<String,HashSet<String>> rtn=new HashMap<String,HashSet<String>>();
+  rtn.put("single",namelist);
+  return rtn;
+}

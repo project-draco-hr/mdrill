@@ -1,0 +1,24 @@
+{
+  Map<TermsHashConsumerPerThread,Collection<TermsHashConsumerPerField>> childThreadsAndFields=new HashMap<TermsHashConsumerPerThread,Collection<TermsHashConsumerPerField>>();
+  Map<InvertedDocConsumerPerThread,Collection<InvertedDocConsumerPerField>> nextThreadsAndFields;
+  if (nextTermsHash != null)   nextThreadsAndFields=new HashMap<InvertedDocConsumerPerThread,Collection<InvertedDocConsumerPerField>>();
+ else   nextThreadsAndFields=null;
+  for (  final Map.Entry<InvertedDocConsumerPerThread,Collection<InvertedDocConsumerPerField>> entry : threadsAndFields.entrySet()) {
+    TermsHashPerThread perThread=(TermsHashPerThread)entry.getKey();
+    Collection<InvertedDocConsumerPerField> fields=entry.getValue();
+    Iterator<InvertedDocConsumerPerField> fieldsIt=fields.iterator();
+    Collection<TermsHashConsumerPerField> childFields=new HashSet<TermsHashConsumerPerField>();
+    Collection<InvertedDocConsumerPerField> nextChildFields;
+    if (nextTermsHash != null)     nextChildFields=new HashSet<InvertedDocConsumerPerField>();
+ else     nextChildFields=null;
+    while (fieldsIt.hasNext()) {
+      TermsHashPerField perField=(TermsHashPerField)fieldsIt.next();
+      childFields.add(perField.consumer);
+      if (nextTermsHash != null)       nextChildFields.add(perField.nextPerField);
+    }
+    childThreadsAndFields.put(perThread.consumer,childFields);
+    if (nextTermsHash != null)     nextThreadsAndFields.put(perThread.nextPerThread,nextChildFields);
+  }
+  consumer.flush(childThreadsAndFields,state);
+  if (nextTermsHash != null)   nextTermsHash.flush(nextThreadsAndFields,state);
+}

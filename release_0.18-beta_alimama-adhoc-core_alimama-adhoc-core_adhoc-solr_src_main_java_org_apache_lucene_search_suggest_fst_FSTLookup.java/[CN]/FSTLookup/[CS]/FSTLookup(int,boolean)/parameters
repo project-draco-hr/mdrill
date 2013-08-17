@@ -1,0 +1,2 @@
+int buckets
+boolean exactMatchFirst

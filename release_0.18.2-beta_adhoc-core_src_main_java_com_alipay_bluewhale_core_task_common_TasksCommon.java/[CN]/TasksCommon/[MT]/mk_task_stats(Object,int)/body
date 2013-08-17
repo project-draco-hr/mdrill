@@ -1,0 +1,10 @@
+{
+  BaseTaskStatsRolling stat=null;
+  if (obj instanceof IBolt) {
+    stat=Stats.mk_bolt_stats(rate);
+  }
+ else {
+    stat=Stats.mk_spout_stats(rate);
+  }
+  return stat;
+}

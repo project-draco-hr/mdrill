@@ -1,0 +1,6 @@
+{
+  super.reset();
+  lastWasCommon=false;
+  savedState=null;
+  buffer.setLength(0);
+}

@@ -1,0 +1,3 @@
+{
+  for (  final IndexReader reader : readers)   reader.commit(commitUserData);
+}

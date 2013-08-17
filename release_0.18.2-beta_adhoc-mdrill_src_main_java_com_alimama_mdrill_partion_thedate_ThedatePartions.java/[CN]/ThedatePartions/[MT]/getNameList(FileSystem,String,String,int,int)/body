@@ -1,0 +1,4 @@
+{
+  String startyyyymmddd=this.getStartDay(dayDelay,maxRunDays,startday);
+  return getNameList(fs,inputBase,startyyyymmddd);
+}

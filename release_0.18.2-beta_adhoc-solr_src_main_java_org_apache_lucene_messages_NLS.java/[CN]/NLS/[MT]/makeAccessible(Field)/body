@@ -1,0 +1,14 @@
+{
+  if (System.getSecurityManager() == null) {
+    field.setAccessible(true);
+  }
+ else {
+    AccessController.doPrivileged(new PrivilegedAction<Void>(){
+      public Void run(){
+        field.setAccessible(true);
+        return null;
+      }
+    }
+);
+  }
+}

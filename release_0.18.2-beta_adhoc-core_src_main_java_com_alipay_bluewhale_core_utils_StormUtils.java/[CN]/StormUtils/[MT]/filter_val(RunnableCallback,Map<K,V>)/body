@@ -1,0 +1,11 @@
+{
+  HashMap<K,V> rtn=new HashMap<K,V>();
+  for (  Entry<K,V> entry : amap.entrySet()) {
+    V value=entry.getValue();
+    Object result=fn.execute(value);
+    if (result == (Boolean)true) {
+      rtn.put(entry.getKey(),value);
+    }
+  }
+  return rtn;
+}

@@ -1,0 +1,19 @@
+{
+  String[] infos=infoStr.split(",");
+  if (infos.length != 6) {
+    return this;
+  }
+  String[] temps=infos[0].split(":");
+  cpuUsed=Double.parseDouble(temps[1]);
+  temps=infos[1].split(":");
+  memTotal=Double.parseDouble(temps[1]);
+  temps=infos[2].split(":");
+  memUsed=Double.parseDouble(temps[1]);
+  temps=infos[3].split(":");
+  diskTotal=Double.parseDouble(temps[1]);
+  temps=infos[4].split(":");
+  diskFree=Double.parseDouble(temps[1]);
+  temps=infos[5].split(":");
+  path=temps[1];
+  return this;
+}

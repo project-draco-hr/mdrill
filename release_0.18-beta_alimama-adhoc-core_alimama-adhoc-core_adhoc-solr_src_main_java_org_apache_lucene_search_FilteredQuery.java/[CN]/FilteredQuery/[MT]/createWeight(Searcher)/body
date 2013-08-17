@@ -1,0 +1,44 @@
+{
+  final Weight weight=query.createWeight(searcher);
+  final Similarity similarity=query.getSimilarity(searcher);
+  return new Weight(){
+    private float value;
+    @Override public float getValue(){
+      return value;
+    }
+    @Override public boolean scoresDocsOutOfOrder(){
+      return false;
+    }
+    public float sumOfSquaredWeights() throws IOException {
+      return weight.sumOfSquaredWeights() * getBoost() * getBoost();
+    }
+    @Override public void normalize(    float v){
+      weight.normalize(v * getBoost());
+      value=weight.getValue();
+    }
+    @Override public Explanation explain(    IndexReader ir,    int i) throws IOException {
+      Explanation inner=weight.explain(ir,i);
+      Filter f=FilteredQuery.this.filter;
+      DocIdSet docIdSet=f.getDocIdSet(ir);
+      DocIdSetIterator docIdSetIterator=docIdSet == null ? DocIdSet.EMPTY_DOCIDSET.iterator() : docIdSet.iterator();
+      if (docIdSetIterator == null) {
+        docIdSetIterator=DocIdSet.EMPTY_DOCIDSET.iterator();
+      }
+      if (docIdSetIterator.advance(i) == i) {
+        return inner;
+      }
+ else {
+        Explanation result=new Explanation(0.0f,"failure to match filter: " + f.toString());
+        result.addDetail(inner);
+        return result;
+      }
+    }
+    @Override public Query getQuery(){
+      return FilteredQuery.this;
+    }
+    @Override public Scorer scorer(    IndexReader indexReader,    boolean scoreDocsInOrder,    boolean topScorer) throws IOException {
+      return FilteredQuery.getFilteredScorer(indexReader,similarity,weight,this,filter);
+    }
+  }
+;
+}

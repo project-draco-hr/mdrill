@@ -1,0 +1,13 @@
+{
+  root=new TernaryTreeNode();
+  if (!(tfit instanceof SortedIterator)) {
+    tfit=new SortedTermFreqIteratorWrapper(tfit);
+  }
+  ArrayList<String> tokens=new ArrayList<String>();
+  ArrayList<Float> vals=new ArrayList<Float>();
+  while (tfit.hasNext()) {
+    tokens.add(tfit.next());
+    vals.add(new Float(tfit.freq()));
+  }
+  autocomplete.balancedTree(tokens.toArray(),vals.toArray(),0,tokens.size() - 1,root);
+}

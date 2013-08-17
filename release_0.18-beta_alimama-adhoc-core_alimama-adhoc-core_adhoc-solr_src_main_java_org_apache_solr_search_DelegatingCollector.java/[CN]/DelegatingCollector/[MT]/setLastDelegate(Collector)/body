@@ -1,0 +1,6 @@
+{
+  DelegatingCollector ptr=this;
+  for (; ptr.getDelegate() instanceof DelegatingCollector; ptr=(DelegatingCollector)ptr.getDelegate())   ;
+  ptr.setDelegate(delegate);
+  setLastDelegateCount++;
+}

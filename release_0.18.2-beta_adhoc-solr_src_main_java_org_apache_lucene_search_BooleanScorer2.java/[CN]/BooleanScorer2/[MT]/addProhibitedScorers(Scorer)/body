@@ -1,0 +1,3 @@
+{
+  return (prohibitedScorers.size() == 0) ? requiredCountingSumScorer : new ReqExclScorer(requiredCountingSumScorer,((prohibitedScorers.size() == 1) ? prohibitedScorers.get(0) : new DisjunctionSumScorer(weight,prohibitedScorers)));
+}

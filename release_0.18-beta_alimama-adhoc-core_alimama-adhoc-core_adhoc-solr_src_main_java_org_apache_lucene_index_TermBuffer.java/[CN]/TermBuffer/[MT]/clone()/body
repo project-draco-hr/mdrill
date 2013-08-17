@@ -1,0 +1,13 @@
+{
+  TermBuffer clone=null;
+  try {
+    clone=(TermBuffer)super.clone();
+  }
+ catch (  CloneNotSupportedException e) {
+  }
+  clone.dirty=true;
+  clone.bytes=new UnicodeUtil.UTF8Result();
+  clone.text=new UnicodeUtil.UTF16Result();
+  clone.text.copyText(text);
+  return clone;
+}

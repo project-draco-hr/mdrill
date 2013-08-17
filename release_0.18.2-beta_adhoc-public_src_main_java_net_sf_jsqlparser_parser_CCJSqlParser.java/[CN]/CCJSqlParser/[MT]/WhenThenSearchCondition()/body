@@ -1,0 +1,15 @@
+{
+  WhenClause whenThen=new WhenClause();
+  Expression whenExp=null;
+  Expression thenExp=null;
+  jj_consume_token(K_WHEN);
+  whenExp=Expression();
+  jj_consume_token(K_THEN);
+  thenExp=SimpleExpression();
+  whenThen.setWhenExpression(whenExp);
+  whenThen.setThenExpression(thenExp);
+{
+    if (true)     return whenThen;
+  }
+  throw new Error("Missing return statement in function");
+}

@@ -1,0 +1,7 @@
+{
+  String sql="DISTINCT";
+  if (onSelectItems != null && onSelectItems.size() > 0) {
+    sql+=" ON (" + PlainSelect.getStringList(onSelectItems) + ")";
+  }
+  return sql;
+}

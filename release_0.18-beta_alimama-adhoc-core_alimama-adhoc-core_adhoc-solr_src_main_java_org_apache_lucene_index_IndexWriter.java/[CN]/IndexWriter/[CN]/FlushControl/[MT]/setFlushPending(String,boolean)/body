@@ -1,0 +1,22 @@
+{
+  if (flushPending || flushing) {
+    if (doWait) {
+      while (flushPending || flushing) {
+        try {
+          wait();
+        }
+ catch (        InterruptedException ie) {
+          throw new ThreadInterruptedException(ie);
+        }
+      }
+    }
+    return false;
+  }
+ else {
+    if (infoStream != null) {
+      message("now trigger flush reason=" + reason);
+    }
+    flushPending=true;
+    return flushPending;
+  }
+}

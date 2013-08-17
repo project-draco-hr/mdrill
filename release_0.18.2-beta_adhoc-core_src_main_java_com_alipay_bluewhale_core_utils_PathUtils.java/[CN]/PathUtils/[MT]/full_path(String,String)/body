@@ -1,0 +1,3 @@
+{
+  return normalize_path(parent + "/" + name);
+}

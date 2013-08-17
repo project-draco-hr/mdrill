@@ -1,0 +1,4 @@
+SegmentInfo info
+String segName
+Map<String,String> dsNames
+Set<String> dsFilesCopied

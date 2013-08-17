@@ -1,0 +1,9 @@
+{
+  int compareType=o1.getType().compareTo(o2.getType());
+  if (compareType == 0) {
+    return o1.getTableName().compareTo(o2.getTableName());
+  }
+ else {
+    return compareType;
+  }
+}

@@ -1,0 +1,28 @@
+{
+  Query result=null;
+  double[] point=new double[0];
+  try {
+    point=DistanceUtils.parsePointDouble(null,options.pointStr,dimension);
+  }
+ catch (  InvalidGeoException e) {
+    throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,e);
+  }
+  if (dimension == 1) {
+    String lower=String.valueOf(point[0] - options.distance);
+    String upper=String.valueOf(point[0] + options.distance);
+    SchemaField subSF=subField(options.field,0);
+    result=subSF.getType().getRangeQuery(parser,subSF,lower,upper,true,true);
+  }
+ else {
+    BooleanQuery tmp=new BooleanQuery();
+    double[] ur=DistanceUtils.vectorBoxCorner(point,null,options.distance,true);
+    double[] ll=DistanceUtils.vectorBoxCorner(point,null,options.distance,false);
+    for (int i=0; i < ur.length; i++) {
+      SchemaField subSF=subField(options.field,i);
+      Query range=subSF.getType().getRangeQuery(parser,subSF,String.valueOf(ll[i]),String.valueOf(ur[i]),true,true);
+      tmp.add(range,BooleanClause.Occur.MUST);
+    }
+    result=tmp;
+  }
+  return result;
+}

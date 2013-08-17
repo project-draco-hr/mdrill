@@ -1,0 +1,4 @@
+{
+  this.docWriter=docWriter;
+  this.fieldInfos=fieldInfos;
+}

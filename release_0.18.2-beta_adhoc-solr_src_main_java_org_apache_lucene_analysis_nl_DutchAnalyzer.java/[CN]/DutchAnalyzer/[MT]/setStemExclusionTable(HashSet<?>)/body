@@ -1,0 +1,4 @@
+{
+  excltable=exclusionlist;
+  setPreviousTokenStream(null);
+}

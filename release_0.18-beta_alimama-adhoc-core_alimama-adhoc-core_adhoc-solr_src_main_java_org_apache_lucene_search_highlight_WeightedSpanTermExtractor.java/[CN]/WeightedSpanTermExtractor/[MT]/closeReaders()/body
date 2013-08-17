@@ -1,0 +1,10 @@
+{
+  Collection<IndexReader> readerSet=readers.values();
+  for (  final IndexReader reader : readerSet) {
+    try {
+      reader.close();
+    }
+ catch (    IOException e) {
+    }
+  }
+}

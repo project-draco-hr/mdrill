@@ -1,0 +1,9 @@
+{
+  for (  DynamicField df : dynamicFields) {
+    if (df.matches(fieldName))     return df.prototype.getType();
+  }
+  if (!fieldName.endsWith("_s")) {
+    return dynFieldType(fieldName + "_s");
+  }
+  return null;
+}

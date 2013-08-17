@@ -1,0 +1,3 @@
+{
+  IOUtils.close(termsOut,termsWriter);
+}

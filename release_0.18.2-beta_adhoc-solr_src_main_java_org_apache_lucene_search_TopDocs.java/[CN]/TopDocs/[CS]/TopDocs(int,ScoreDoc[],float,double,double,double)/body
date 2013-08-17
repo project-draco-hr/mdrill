@@ -1,0 +1,8 @@
+{
+  this.totalHits=totalHits;
+  this.scoreDocs=scoreDocs;
+  this.maxScore=maxScore;
+  this.sum=sum;
+  this.max=max;
+  this.min=min;
+}

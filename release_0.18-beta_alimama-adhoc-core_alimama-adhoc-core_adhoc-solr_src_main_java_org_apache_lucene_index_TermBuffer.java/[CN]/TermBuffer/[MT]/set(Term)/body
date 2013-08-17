@@ -1,0 +1,13 @@
+{
+  if (term == null) {
+    reset();
+    return;
+  }
+  final String termText=term.text();
+  final int termLen=termText.length();
+  text.setLength(termLen);
+  termText.getChars(0,termLen,text.result,0);
+  dirty=true;
+  field=term.field();
+  this.term=term;
+}

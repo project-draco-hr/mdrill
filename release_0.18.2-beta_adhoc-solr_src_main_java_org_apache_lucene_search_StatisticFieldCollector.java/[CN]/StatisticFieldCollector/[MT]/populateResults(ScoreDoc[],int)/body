@@ -1,0 +1,14 @@
+{
+  if (fillFields) {
+    FieldValueHitQueue<Entry> queue=(FieldValueHitQueue<Entry>)pq;
+    for (int i=howMany - 1; i >= 0; i--) {
+      results[i]=queue.fillFields(queue.pop());
+    }
+  }
+ else {
+    for (int i=howMany - 1; i >= 0; i--) {
+      Entry entry=pq.pop();
+      results[i]=new FieldDoc(entry.doc,entry.score);
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  if (directory != null) {
+    try {
+      IOUtils.close(fieldsStream,indexStream);
+    }
+  finally {
+      fieldsStream=indexStream=null;
+    }
+  }
+}

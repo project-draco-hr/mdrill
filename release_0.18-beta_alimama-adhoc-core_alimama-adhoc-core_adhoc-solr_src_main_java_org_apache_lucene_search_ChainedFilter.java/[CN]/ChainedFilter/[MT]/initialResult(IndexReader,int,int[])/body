@@ -1,0 +1,16 @@
+{
+  OpenBitSetDISI result;
+  if (logic == AND) {
+    result=new OpenBitSetDISI(getDISI(chain[index[0]],reader),reader.maxDoc());
+    ++index[0];
+  }
+ else   if (logic == ANDNOT) {
+    result=new OpenBitSetDISI(getDISI(chain[index[0]],reader),reader.maxDoc());
+    result.flip(0,reader.maxDoc());
+    ++index[0];
+  }
+ else {
+    result=new OpenBitSetDISI(reader.maxDoc());
+  }
+  return result;
+}

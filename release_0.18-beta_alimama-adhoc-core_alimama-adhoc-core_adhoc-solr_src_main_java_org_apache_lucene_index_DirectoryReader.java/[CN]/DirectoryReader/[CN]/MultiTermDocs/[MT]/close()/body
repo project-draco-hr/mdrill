@@ -1,0 +1,5 @@
+{
+  for (int i=0; i < readerTermDocs.length; i++) {
+    if (readerTermDocs[i] != null)     readerTermDocs[i].close();
+  }
+}

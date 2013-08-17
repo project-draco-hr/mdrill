@@ -1,0 +1,4 @@
+{
+  this(new RECompiler().compile(pattern));
+  setMatchFlags(matchFlags);
+}

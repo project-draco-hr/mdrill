@@ -1,0 +1,4 @@
+{
+  this.storeOffsets=storeOffsets;
+  this.storePositions=storePositions;
+}

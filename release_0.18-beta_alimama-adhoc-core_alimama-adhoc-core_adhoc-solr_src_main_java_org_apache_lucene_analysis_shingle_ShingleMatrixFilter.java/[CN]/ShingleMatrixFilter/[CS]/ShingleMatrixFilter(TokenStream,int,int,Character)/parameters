@@ -1,0 +1,4 @@
+TokenStream input
+int minimumShingleSize
+int maximumShingleSize
+Character spacerCharacter

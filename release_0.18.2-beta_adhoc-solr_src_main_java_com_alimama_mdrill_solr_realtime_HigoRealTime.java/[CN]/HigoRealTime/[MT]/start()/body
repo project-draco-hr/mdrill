@@ -1,0 +1,7 @@
+{
+  this.logwriter=new HigoRealTimeBinlog(core,day);
+  this.sync=new HigoRealTimeSync(this.logwriter.getbinlog(),core,day);
+  this.sync_thr=new Thread(sync);
+  this.sync_thr.setPriority(Thread.MAX_PRIORITY);
+  this.sync_thr.start();
+}

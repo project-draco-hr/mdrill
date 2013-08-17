@@ -1,0 +1,31 @@
+{
+  int end=initPhrasePositions();
+  if (end == Integer.MIN_VALUE) {
+    return 0.0f;
+  }
+  float freq=0.0f;
+  PhrasePositions pp=pq.pop();
+  int matchLength=end - pp.position;
+  int next=pq.size() > 0 ? pq.top().position : pp.position;
+  while (pp.nextPosition() && (end=advanceRepeats(pp,end)) != Integer.MIN_VALUE) {
+    if (pp.position > next) {
+      if (matchLength <= slop) {
+        freq+=getSimilarity().sloppyFreq(matchLength);
+      }
+      pq.add(pp);
+      pp=pq.pop();
+      next=pq.size() > 0 ? pq.top().position : pp.position;
+      matchLength=end - pp.position;
+    }
+ else {
+      int matchLength2=end - pp.position;
+      if (matchLength2 < matchLength) {
+        matchLength=matchLength2;
+      }
+    }
+  }
+  if (matchLength <= slop) {
+    freq+=getSimilarity().sloppyFreq(matchLength);
+  }
+  return freq;
+}

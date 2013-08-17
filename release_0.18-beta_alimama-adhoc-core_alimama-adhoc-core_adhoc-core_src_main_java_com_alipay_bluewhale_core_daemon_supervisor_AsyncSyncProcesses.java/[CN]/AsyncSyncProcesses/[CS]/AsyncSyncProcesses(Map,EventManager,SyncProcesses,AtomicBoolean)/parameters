@@ -1,0 +1,4 @@
+Map conf
+EventManager processesEventManager
+SyncProcesses syncProcesses
+AtomicBoolean active

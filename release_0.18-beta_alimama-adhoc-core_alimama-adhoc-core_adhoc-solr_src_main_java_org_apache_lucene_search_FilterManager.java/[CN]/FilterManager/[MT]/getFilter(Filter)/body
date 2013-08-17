@@ -1,0 +1,12 @@
+{
+synchronized (cache) {
+    FilterItem fi=null;
+    fi=cache.get(Integer.valueOf(filter.hashCode()));
+    if (fi != null) {
+      fi.timestamp=new Date().getTime();
+      return fi.filter;
+    }
+    cache.put(Integer.valueOf(filter.hashCode()),new FilterItem(filter));
+    return filter;
+  }
+}

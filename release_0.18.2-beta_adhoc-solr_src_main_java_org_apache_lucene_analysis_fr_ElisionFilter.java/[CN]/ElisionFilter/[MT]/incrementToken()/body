@@ -1,0 +1,23 @@
+{
+  if (input.incrementToken()) {
+    char[] termBuffer=termAtt.buffer();
+    int termLength=termAtt.length();
+    int minPoz=Integer.MAX_VALUE;
+    for (int i=0; i < apostrophes.length; i++) {
+      char apos=apostrophes[i];
+      for (int poz=0; poz < termLength; poz++) {
+        if (termBuffer[poz] == apos) {
+          minPoz=Math.min(poz,minPoz);
+          break;
+        }
+      }
+    }
+    if (minPoz != Integer.MAX_VALUE && articles.contains(termAtt.buffer(),0,minPoz)) {
+      termAtt.copyBuffer(termAtt.buffer(),minPoz + 1,termAtt.length() - (minPoz + 1));
+    }
+    return true;
+  }
+ else {
+    return false;
+  }
+}

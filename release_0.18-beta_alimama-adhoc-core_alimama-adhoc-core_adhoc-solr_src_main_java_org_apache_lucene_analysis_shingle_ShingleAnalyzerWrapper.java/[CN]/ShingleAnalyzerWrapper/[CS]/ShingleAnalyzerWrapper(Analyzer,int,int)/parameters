@@ -1,0 +1,3 @@
+Analyzer defaultAnalyzer
+int minShingleSize
+int maxShingleSize

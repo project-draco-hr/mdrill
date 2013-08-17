@@ -1,0 +1,4 @@
+{
+  File fullFile=new File(directory,name);
+  this.fsync(fullFile);
+}

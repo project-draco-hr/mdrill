@@ -1,0 +1,4 @@
+{
+  JSONParser p=new JSONParser(json);
+  return getVal(p);
+}

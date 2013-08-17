@@ -1,0 +1,4 @@
+{
+  TaskShutdownDameon shutdown=new TaskShutdownDameon(active,topologyid,taskid,mqContext,all_threads,zkCluster,puller,taskObj,heartbeat_thread);
+  return shutdown;
+}

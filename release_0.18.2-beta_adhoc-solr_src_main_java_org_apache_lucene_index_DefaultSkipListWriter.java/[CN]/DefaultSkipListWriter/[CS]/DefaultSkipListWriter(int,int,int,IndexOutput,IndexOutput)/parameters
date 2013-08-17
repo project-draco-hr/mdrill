@@ -1,0 +1,5 @@
+int skipInterval
+int numberOfSkipLevels
+int docCount
+IndexOutput freqOutput
+IndexOutput proxOutput

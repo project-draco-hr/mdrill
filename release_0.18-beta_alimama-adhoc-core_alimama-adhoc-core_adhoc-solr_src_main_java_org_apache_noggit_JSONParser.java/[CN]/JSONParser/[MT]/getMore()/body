@@ -1,0 +1,6 @@
+{
+  fill();
+  if (start >= end) {
+    throw err(null);
+  }
+}

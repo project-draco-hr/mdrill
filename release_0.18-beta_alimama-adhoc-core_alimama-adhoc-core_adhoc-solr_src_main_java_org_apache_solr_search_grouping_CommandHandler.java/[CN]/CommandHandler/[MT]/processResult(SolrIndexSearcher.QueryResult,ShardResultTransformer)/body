@@ -1,0 +1,6 @@
+{
+  if (docSet != null) {
+    queryResult.setDocSet(docSet);
+  }
+  return transformer.transform(commands);
+}

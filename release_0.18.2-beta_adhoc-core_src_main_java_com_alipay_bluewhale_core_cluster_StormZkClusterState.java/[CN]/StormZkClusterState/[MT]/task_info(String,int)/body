@@ -1,0 +1,9 @@
+{
+  String taskPath=Cluster.task_path(stormId,taskId);
+  byte[] znodeData=cluster_state.get_data(taskPath,false);
+  Object data=Cluster.maybe_deserialize(znodeData);
+  if (data == null) {
+    return null;
+  }
+  return (TaskInfo)data;
+}

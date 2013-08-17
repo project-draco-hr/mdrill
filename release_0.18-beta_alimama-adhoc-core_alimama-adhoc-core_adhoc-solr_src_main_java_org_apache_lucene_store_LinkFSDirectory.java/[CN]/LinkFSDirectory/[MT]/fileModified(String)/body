@@ -1,0 +1,17 @@
+{
+  if (this.hdfsLinks.containsKey(name)) {
+    Configuration conf=getConf();
+    Path p=this.hdfsLinks.get(name);
+    try {
+      FileSystemDirectory dir=new FileSystemDirectory(FileSystem.get(conf),p.getParent(),false,conf);
+      return dir.fileModified(p.getName());
+    }
+ catch (    IOException e) {
+      SolrCore.log.error("hdfs",e);
+    }
+  }
+  if (!this.links.containsKey(name)) {
+    return super.fileModified(name);
+  }
+  return this.links.get(name).lastModified();
+}

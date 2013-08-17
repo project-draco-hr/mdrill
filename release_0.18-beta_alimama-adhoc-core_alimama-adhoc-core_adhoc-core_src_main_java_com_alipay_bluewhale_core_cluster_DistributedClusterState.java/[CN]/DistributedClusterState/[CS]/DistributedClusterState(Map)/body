@@ -1,0 +1,27 @@
+{
+  conf=_conf;
+  zkobj=new Zookeeper();
+  CuratorFramework _zk=mkZk();
+  String path=String.valueOf(conf.get(Config.STORM_ZOOKEEPER_ROOT));
+  zkobj.mkdirs(_zk,path);
+  _zk.close();
+  active=new AtomicBoolean(true);
+  watcher=new WatcherCallBack(){
+    @SuppressWarnings("unchecked") @Override public void execute(    KeeperState state,    EventType type,    String path){
+      if (active.get()) {
+        if (!(state.equals(KeeperState.SyncConnected))) {
+          LOG.warn("Received event " + state + ":"+ type+ ":"+ path+ " with disconnected Zookeeper.");
+        }
+        if (!type.equals(EventType.None)) {
+          for (          Entry<UUID,ClusterStateCallback> e : callbacks.entrySet()) {
+            ClusterStateCallback fn=e.getValue();
+            fn.execute(type,path);
+          }
+        }
+      }
+    }
+  }
+;
+  zk=null;
+  zk=mkZk(watcher);
+}

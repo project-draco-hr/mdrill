@@ -1,0 +1,3 @@
+String field
+SolrIndexSearcher searcher
+IndexReader reader

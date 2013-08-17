@@ -1,0 +1,17 @@
+{
+  final char[] charBuffer=buffer.buffer;
+  buffer.offset=0;
+  charBuffer[0]=buffer.lastTrailingHighSurrogate;
+  final int offset=buffer.lastTrailingHighSurrogate == 0 ? 0 : 1;
+  buffer.lastTrailingHighSurrogate=0;
+  final int read=reader.read(charBuffer,offset,charBuffer.length - offset);
+  if (read == -1) {
+    buffer.length=offset;
+    return offset != 0;
+  }
+  buffer.length=read + offset;
+  if (buffer.length > 1 && Character.isHighSurrogate(charBuffer[buffer.length - 1])) {
+    buffer.lastTrailingHighSurrogate=charBuffer[--buffer.length];
+  }
+  return true;
+}

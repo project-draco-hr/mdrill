@@ -1,0 +1,9 @@
+{
+  final IndexSearcher indexSearcher=obtainSearcher();
+  try {
+    return indexSearcher.docFreq(F_WORD_TERM.createTerm(word)) > 0;
+  }
+  finally {
+    releaseSearcher(indexSearcher);
+  }
+}

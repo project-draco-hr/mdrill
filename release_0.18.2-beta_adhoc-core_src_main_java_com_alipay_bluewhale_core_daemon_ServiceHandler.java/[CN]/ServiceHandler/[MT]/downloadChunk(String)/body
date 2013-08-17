@@ -1,0 +1,21 @@
+{
+  TimeCacheMap<Object,Object> downloaders=data.getDownloaders();
+  Object obj=downloaders.get(id);
+  if (obj == null) {
+    throw new RuntimeException("Could not find input stream for that id");
+  }
+  byte[] ret=null;
+  try {
+    if (obj instanceof BufferFileInputStream) {
+      BufferFileInputStream is=(BufferFileInputStream)obj;
+      ret=is.read();
+      if (ret != null) {
+        downloaders.put(id,(BufferFileInputStream)is);
+      }
+    }
+  }
+ catch (  IOException e) {
+    LOG.error(e + "BufferFileInputStream read failed when downloadChunk ");
+  }
+  return ByteBuffer.wrap(ret);
+}

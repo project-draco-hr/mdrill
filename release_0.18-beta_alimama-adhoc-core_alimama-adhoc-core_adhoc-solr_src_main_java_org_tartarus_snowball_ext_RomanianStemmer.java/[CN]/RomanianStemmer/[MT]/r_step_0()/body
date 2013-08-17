@@ -1,0 +1,50 @@
+{
+  int among_var;
+  int v_1;
+  ket=cursor;
+  among_var=find_among_b(a_1,16);
+  if (among_var == 0) {
+    return false;
+  }
+  bra=cursor;
+  if (!r_R1()) {
+    return false;
+  }
+switch (among_var) {
+case 0:
+    return false;
+case 1:
+  slice_del();
+break;
+case 2:
+slice_from("a");
+break;
+case 3:
+slice_from("e");
+break;
+case 4:
+slice_from("i");
+break;
+case 5:
+{
+v_1=limit - cursor;
+lab0: do {
+if (!(eq_s_b(2,"ab"))) {
+break lab0;
+}
+return false;
+}
+ while (false);
+cursor=limit - v_1;
+}
+slice_from("i");
+break;
+case 6:
+slice_from("at");
+break;
+case 7:
+slice_from("a\u0163i");
+break;
+}
+return true;
+}

@@ -1,0 +1,5 @@
+{
+  if (!(o instanceof Entry))   return false;
+  Entry other=(Entry)o;
+  return ffs.equals(other.ffs);
+}

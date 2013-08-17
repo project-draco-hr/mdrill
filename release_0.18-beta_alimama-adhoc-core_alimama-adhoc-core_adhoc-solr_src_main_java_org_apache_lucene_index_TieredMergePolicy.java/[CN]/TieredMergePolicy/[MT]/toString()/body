@@ -1,0 +1,12 @@
+{
+  StringBuilder sb=new StringBuilder("[" + getClass().getSimpleName() + ": ");
+  sb.append("maxMergeAtOnce=").append(maxMergeAtOnce).append(", ");
+  sb.append("maxMergeAtOnceExplicit=").append(maxMergeAtOnceExplicit).append(", ");
+  sb.append("maxMergedSegmentMB=").append(maxMergedSegmentBytes / 1024 / 1024.).append(", ");
+  sb.append("floorSegmentMB=").append(floorSegmentBytes / 1024 / 1024.).append(", ");
+  sb.append("forceMergeDeletesPctAllowed=").append(forceMergeDeletesPctAllowed).append(", ");
+  sb.append("segmentsPerTier=").append(segsPerTier).append(", ");
+  sb.append("useCompoundFile=").append(useCompoundFile).append(", ");
+  sb.append("noCFSRatio=").append(noCFSRatio);
+  return sb.toString();
+}

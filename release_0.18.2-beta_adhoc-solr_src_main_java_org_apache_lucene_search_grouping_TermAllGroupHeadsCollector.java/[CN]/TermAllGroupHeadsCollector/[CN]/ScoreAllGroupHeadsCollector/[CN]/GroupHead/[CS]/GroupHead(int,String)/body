@@ -1,0 +1,8 @@
+{
+  super(groupValue,doc + docBase);
+  scores=new float[fields.length];
+  float score=scorer.score();
+  for (int i=0; i < scores.length; i++) {
+    scores[i]=score;
+  }
+}

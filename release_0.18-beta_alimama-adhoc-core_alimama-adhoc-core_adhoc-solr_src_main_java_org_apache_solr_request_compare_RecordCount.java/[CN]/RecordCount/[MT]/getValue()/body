@@ -1,0 +1,3 @@
+{
+  return (long)(this.isoversize ? this.maxUniqSize : this.uniq.size());
+}

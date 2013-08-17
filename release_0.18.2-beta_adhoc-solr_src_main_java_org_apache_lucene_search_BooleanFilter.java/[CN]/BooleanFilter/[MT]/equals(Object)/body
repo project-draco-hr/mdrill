@@ -1,0 +1,10 @@
+{
+  if (this == obj) {
+    return true;
+  }
+  if ((obj == null) || (obj.getClass() != this.getClass())) {
+    return false;
+  }
+  final BooleanFilter other=(BooleanFilter)obj;
+  return clauses.equals(other.clauses);
+}

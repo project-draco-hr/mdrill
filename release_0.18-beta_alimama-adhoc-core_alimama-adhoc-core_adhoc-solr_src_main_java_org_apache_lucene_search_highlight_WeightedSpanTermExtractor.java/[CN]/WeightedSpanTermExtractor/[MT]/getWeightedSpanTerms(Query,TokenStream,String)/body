@@ -1,0 +1,17 @@
+{
+  if (fieldName != null) {
+    this.fieldName=StringHelper.intern(fieldName);
+  }
+ else {
+    this.fieldName=null;
+  }
+  Map<String,WeightedSpanTerm> terms=new PositionCheckingMap<String>();
+  this.tokenStream=tokenStream;
+  try {
+    extract(query,terms);
+  }
+  finally {
+    closeReaders();
+  }
+  return terms;
+}

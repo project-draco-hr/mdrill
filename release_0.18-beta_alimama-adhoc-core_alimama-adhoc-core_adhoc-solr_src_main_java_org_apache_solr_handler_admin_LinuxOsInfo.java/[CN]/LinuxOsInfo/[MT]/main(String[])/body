@@ -1,0 +1,10 @@
+{
+  Info info=LinuxOsInfo.getInfo();
+  System.out.println("cpuUsed : " + info.getCpuUsed());
+  System.out.println("diskFree : " + info.getDiskFree());
+  System.out.println("diskTotal : " + info.getDiskTotal());
+  System.out.println("memTotal : " + info.getMemTotal());
+  System.out.println("memUsed : " + info.getMemUsed());
+  System.out.println("currentPath : " + info.getPath());
+  System.out.println();
+}

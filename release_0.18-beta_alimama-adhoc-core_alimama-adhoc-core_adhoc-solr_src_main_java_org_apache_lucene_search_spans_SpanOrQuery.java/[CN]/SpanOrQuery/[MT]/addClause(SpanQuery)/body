@@ -1,0 +1,9 @@
+{
+  if (field == null) {
+    field=clause.getField();
+  }
+ else   if (!clause.getField().equals(field)) {
+    throw new IllegalArgumentException("Clauses must have same field.");
+  }
+  this.clauses.add(clause);
+}

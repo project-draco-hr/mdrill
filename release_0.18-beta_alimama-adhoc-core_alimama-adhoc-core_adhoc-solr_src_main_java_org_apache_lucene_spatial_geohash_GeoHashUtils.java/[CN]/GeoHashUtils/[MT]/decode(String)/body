@@ -1,0 +1,32 @@
+{
+  final double[] latInterval={-90.0,90.0};
+  final double[] lngInterval={-180.0,180.0};
+  boolean isEven=true;
+  double latitude;
+  double longitude;
+  for (int i=0; i < geohash.length(); i++) {
+    final int cd=DECODE_MAP.get(Character.valueOf(geohash.charAt(i))).intValue();
+    for (    int mask : BITS) {
+      if (isEven) {
+        if ((cd & mask) != 0) {
+          lngInterval[0]=(lngInterval[0] + lngInterval[1]) / 2D;
+        }
+ else {
+          lngInterval[1]=(lngInterval[0] + lngInterval[1]) / 2D;
+        }
+      }
+ else {
+        if ((cd & mask) != 0) {
+          latInterval[0]=(latInterval[0] + latInterval[1]) / 2D;
+        }
+ else {
+          latInterval[1]=(latInterval[0] + latInterval[1]) / 2D;
+        }
+      }
+      isEven=!isEven;
+    }
+  }
+  latitude=(latInterval[0] + latInterval[1]) / 2D;
+  longitude=(lngInterval[0] + lngInterval[1]) / 2D;
+  return new double[]{latitude,longitude};
+}

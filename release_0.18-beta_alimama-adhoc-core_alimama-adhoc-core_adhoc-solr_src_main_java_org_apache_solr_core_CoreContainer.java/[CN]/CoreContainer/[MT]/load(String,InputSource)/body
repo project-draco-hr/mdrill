@@ -1,0 +1,12 @@
+{
+  this.loader=new SolrResourceLoader(dir);
+  this.solrHome=loader.getInstanceDir();
+  Config cfg=new Config(loader,null,cfgis,null);
+  try {
+    containerProperties=readProperties(cfg,((NodeList)cfg.evaluate("solr",XPathConstants.NODESET)).item(0));
+  }
+ catch (  Throwable e) {
+    SolrConfig.severeErrors.add(e);
+    SolrException.logOnce(log,null,e);
+  }
+}

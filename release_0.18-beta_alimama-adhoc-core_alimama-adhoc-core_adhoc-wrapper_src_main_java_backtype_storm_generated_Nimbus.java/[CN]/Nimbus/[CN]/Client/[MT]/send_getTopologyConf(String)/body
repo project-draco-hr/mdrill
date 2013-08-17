@@ -1,0 +1,5 @@
+{
+  getTopologyConf_args args=new getTopologyConf_args();
+  args.set_id(id);
+  sendBase("getTopologyConf",args);
+}

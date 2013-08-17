@@ -1,0 +1,13 @@
+String from
+String formName
+String to
+String replyTO
+String subject
+String content
+String attachment
+String charset
+String smtpAddress
+String smtpHost
+String user
+String pass
+int port

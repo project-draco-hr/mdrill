@@ -1,0 +1,13 @@
+{
+  String vvalue;
+  if ((value == null) || (toReplace == null) || (changeTo == null)) {
+    return value;
+  }
+  vvalue=removeSuffix(value,toReplace);
+  if (value.equals(vvalue)) {
+    return value;
+  }
+ else {
+    return vvalue + changeTo;
+  }
+}

@@ -1,0 +1,3 @@
+{
+  return "Add documents with XML, transforming with XSLT first";
+}

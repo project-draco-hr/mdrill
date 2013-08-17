@@ -1,0 +1,36 @@
+{
+  for (int i=0; i < num; i++) {
+    if (min >= minRange[i] && max <= maxRange[i]) {
+      return;
+    }
+ else     if (min <= minRange[i] && max >= maxRange[i]) {
+      delete(i);
+      merge(min,max);
+      return;
+    }
+ else     if (min >= minRange[i] && min <= maxRange[i]) {
+      min=minRange[i];
+      delete(i);
+      merge(min,max);
+      return;
+    }
+ else     if (max >= minRange[i] && max <= maxRange[i]) {
+      max=maxRange[i];
+      delete(i);
+      merge(min,max);
+      return;
+    }
+  }
+  if (num >= size) {
+    size*=2;
+    int[] newMin=new int[size];
+    int[] newMax=new int[size];
+    System.arraycopy(minRange,0,newMin,0,num);
+    System.arraycopy(maxRange,0,newMax,0,num);
+    minRange=newMin;
+    maxRange=newMax;
+  }
+  minRange[num]=min;
+  maxRange[num]=max;
+  num++;
+}

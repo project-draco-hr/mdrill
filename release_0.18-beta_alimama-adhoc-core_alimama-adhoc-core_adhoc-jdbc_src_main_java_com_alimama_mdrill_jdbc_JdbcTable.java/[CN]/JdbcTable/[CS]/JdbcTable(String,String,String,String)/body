@@ -1,0 +1,6 @@
+{
+  this.tableCatalog=tableCatalog;
+  this.tableName=tableName;
+  this.type=type;
+  this.comment=comment;
+}

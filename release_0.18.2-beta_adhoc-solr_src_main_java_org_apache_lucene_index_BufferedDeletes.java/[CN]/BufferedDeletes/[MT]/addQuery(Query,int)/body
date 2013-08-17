@@ -1,0 +1,6 @@
+{
+  Integer current=queries.put(query,docIDUpto);
+  if (current == null) {
+    bytesUsed.addAndGet(BYTES_PER_DEL_QUERY);
+  }
+}

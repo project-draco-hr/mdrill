@@ -1,0 +1,12 @@
+{
+  if (!dir.exists())   throw new NoSuchDirectoryException("directory '" + dir + "' does not exist");
+ else   if (!dir.isDirectory())   throw new NoSuchDirectoryException("file '" + dir + "' exists but is not a directory");
+  String[] result=dir.list(new FilenameFilter(){
+    public boolean accept(    File dir,    String file){
+      return !new File(dir,file).isDirectory();
+    }
+  }
+);
+  if (result == null)   throw new IOException("directory '" + dir + "' exists and is a directory, but cannot be listed: list() returned null");
+  return result;
+}

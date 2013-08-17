@@ -1,0 +1,7 @@
+{
+  Map stormconf=Utils.readStormConfig();
+  Configuration conf=getConf(stormconf);
+  HashSet<String> inputs=new HashSet<String>();
+  inputs.add(args[2]);
+  MakeIndex.make(FileSystem.get(conf),args[0],conf,"txt",args[1],inputs,"*",args[3],new Path(args[4]),1,args[5],false,args[6],null);
+}

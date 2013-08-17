@@ -1,0 +1,13 @@
+{
+  String url=null;
+  if (ipc) {
+    url="ipc://" + port + ".ipc";
+  }
+ else {
+    url="tcp://" + host + ":"+ port;
+  }
+  this.socket=ZeroMq.socket(context,ZeroMq.push);
+  this.socket=ZeroMq.set_linger(socket,linger_ms);
+  this.socket=ZeroMq.connect(socket,url);
+  return new ZMQConnection(socket);
+}

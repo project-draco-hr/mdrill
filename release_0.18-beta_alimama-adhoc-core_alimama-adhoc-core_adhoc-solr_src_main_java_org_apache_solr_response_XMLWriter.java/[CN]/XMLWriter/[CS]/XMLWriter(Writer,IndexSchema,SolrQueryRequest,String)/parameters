@@ -1,0 +1,4 @@
+Writer writer
+IndexSchema schema
+SolrQueryRequest req
+String version

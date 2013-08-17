@@ -1,0 +1,3 @@
+{
+  return getExactMatchStartingFromRootArc(0,key);
+}

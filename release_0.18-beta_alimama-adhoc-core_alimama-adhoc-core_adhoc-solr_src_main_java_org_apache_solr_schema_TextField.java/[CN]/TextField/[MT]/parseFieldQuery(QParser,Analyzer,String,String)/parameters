@@ -1,0 +1,4 @@
+QParser parser
+Analyzer analyzer
+String field
+String queryText

@@ -1,0 +1,17 @@
+{
+  if (end - pos >= n) {
+    pos+=n;
+    return n;
+  }
+  if (end - pos < 0)   return -1;
+  int r=end - pos;
+  pos=end;
+  while (r < n) {
+    refill();
+    if (end - pos <= 0)     return r;
+    int toRead=Math.min(end - pos,n - r);
+    r+=toRead;
+    pos+=toRead;
+  }
+  return r;
+}

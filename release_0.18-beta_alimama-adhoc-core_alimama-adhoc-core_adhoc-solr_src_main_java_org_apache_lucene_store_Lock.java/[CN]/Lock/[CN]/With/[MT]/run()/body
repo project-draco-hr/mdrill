@@ -1,0 +1,10 @@
+{
+  boolean locked=false;
+  try {
+    locked=lock.obtain(lockWaitTimeout);
+    return doBody();
+  }
+  finally {
+    if (locked)     lock.release();
+  }
+}

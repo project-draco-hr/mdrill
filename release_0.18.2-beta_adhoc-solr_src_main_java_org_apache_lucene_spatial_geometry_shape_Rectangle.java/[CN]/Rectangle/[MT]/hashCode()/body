@@ -1,0 +1,7 @@
+{
+  final int prime=31;
+  int result=1;
+  result=prime * result + ((ptMax == null) ? 0 : ptMax.hashCode());
+  result=prime * result + ((ptMin == null) ? 0 : ptMin.hashCode());
+  return result;
+}

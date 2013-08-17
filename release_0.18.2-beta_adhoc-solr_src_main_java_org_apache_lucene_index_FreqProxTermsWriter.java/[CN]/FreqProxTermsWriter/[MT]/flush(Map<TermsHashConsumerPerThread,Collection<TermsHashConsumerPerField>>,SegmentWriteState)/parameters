@@ -1,0 +1,2 @@
+Map<TermsHashConsumerPerThread,Collection<TermsHashConsumerPerField>> threadsAndFields
+SegmentWriteState state

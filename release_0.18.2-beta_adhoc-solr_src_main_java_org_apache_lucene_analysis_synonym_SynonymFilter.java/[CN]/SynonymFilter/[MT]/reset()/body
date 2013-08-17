@@ -1,0 +1,11 @@
+{
+  super.reset();
+  captureCount=0;
+  finished=false;
+  for (  PendingInput input : futureInputs) {
+    input.reset();
+  }
+  for (  PendingOutputs output : futureOutputs) {
+    output.reset();
+  }
+}

@@ -1,0 +1,3 @@
+{
+  writeBool(name,Boolean.toString(val));
+}

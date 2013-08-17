@@ -1,0 +1,10 @@
+{
+  this.reportError=report_error;
+  this.sendTargets=_send_fn;
+  this.workerTransfer=_transfer_fn;
+  this.topologyContext=_topology_context;
+  this.task_id=task_id;
+  this.task_stats=_task_stats;
+  this.pending_acks=new TimeCacheMap<Tuple,Long>(message_timeout_secs);
+  this.tuple_start_times=tuple_start_times;
+}

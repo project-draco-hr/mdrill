@@ -1,0 +1,38 @@
+{
+  if (done) {
+    throw new NoSuchElementException();
+  }
+  List<SpellCheckCorrection> possibleCorrection=new ArrayList<SpellCheckCorrection>();
+  int rank=0;
+  for (int i=0; i < correctionIndex.length; i++) {
+    List<SpellCheckCorrection> singleWordPossibilities=possibilityList.get(i);
+    SpellCheckCorrection singleWordPossibility=singleWordPossibilities.get(correctionIndex[i]);
+    rank+=correctionIndex[i];
+    if (i == correctionIndex.length - 1) {
+      correctionIndex[i]++;
+      if (correctionIndex[i] == singleWordPossibilities.size()) {
+        correctionIndex[i]=0;
+        if (correctionIndex.length == 1) {
+          done=true;
+        }
+        for (int ii=i - 1; ii >= 0; ii--) {
+          correctionIndex[ii]++;
+          if (correctionIndex[ii] >= possibilityList.get(ii).size() && ii > 0) {
+            correctionIndex[ii]=0;
+          }
+ else {
+            break;
+          }
+        }
+      }
+    }
+    possibleCorrection.add(singleWordPossibility);
+  }
+  if (correctionIndex[0] == possibilityList.get(0).size()) {
+    done=true;
+  }
+  RankedSpellPossibility rsl=new RankedSpellPossibility();
+  rsl.setCorrections(possibleCorrection);
+  rsl.setRank(rank);
+  return rsl;
+}

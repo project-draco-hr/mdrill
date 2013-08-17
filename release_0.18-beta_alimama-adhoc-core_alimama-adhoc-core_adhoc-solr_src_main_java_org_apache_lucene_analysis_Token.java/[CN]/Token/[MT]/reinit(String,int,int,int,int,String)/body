@@ -1,0 +1,8 @@
+{
+  clear();
+  append(newTerm,newTermOffset,newTermOffset + newTermLength);
+  startOffset=newStartOffset;
+  endOffset=newEndOffset;
+  type=newType;
+  return this;
+}

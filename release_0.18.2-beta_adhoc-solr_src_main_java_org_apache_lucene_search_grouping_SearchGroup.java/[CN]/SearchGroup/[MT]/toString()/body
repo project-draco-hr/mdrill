@@ -1,0 +1,3 @@
+{
+  return ("SearchGroup(groupValue=" + groupValue + " sortValues="+ Arrays.toString(sortValues)+ ")");
+}

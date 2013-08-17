@@ -1,0 +1,4 @@
+{
+  this(matchVersion,fields,analyzer);
+  this.boosts=boosts;
+}

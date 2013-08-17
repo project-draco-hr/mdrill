@@ -1,0 +1,6 @@
+String field
+String lowerTerm
+String upperTerm
+boolean includeLower
+boolean includeUpper
+Collator collator

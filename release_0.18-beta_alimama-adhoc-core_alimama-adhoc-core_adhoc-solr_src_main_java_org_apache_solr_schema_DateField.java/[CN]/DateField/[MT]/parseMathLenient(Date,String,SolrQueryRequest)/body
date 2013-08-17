@@ -1,0 +1,32 @@
+{
+  String math=null;
+  final DateMathParser p=new DateMathParser(MATH_TZ,MATH_LOCALE);
+  if (null != now)   p.setNow(now);
+  if (val.startsWith(NOW)) {
+    math=val.substring(NOW.length());
+  }
+ else {
+    final int zz=val.indexOf(Z);
+    if (0 < zz) {
+      math=val.substring(zz + 1);
+      try {
+        p.setNow(parseDateLenient(val.substring(0,zz + 1),req));
+      }
+ catch (      ParseException e) {
+        throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,"Invalid Date in Date Math String:'" + val + '\'',e);
+      }
+    }
+ else {
+      throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,"Invalid Date String:'" + val + '\'');
+    }
+  }
+  if (null == math || math.equals("")) {
+    return p.getNow();
+  }
+  try {
+    return p.parseMath(math);
+  }
+ catch (  ParseException e) {
+    throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,"Invalid Date Math String:'" + val + '\'',e);
+  }
+}

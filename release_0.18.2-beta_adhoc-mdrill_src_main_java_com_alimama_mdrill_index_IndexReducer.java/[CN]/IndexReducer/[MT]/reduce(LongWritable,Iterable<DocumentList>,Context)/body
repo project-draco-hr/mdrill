@@ -1,0 +1,21 @@
+{
+  lastkey=key;
+  RamWriter ramMerger=null;
+  Iterator<DocumentList> iterator=values.iterator();
+  while (iterator.hasNext()) {
+    if (doccount > maxDocCount) {
+      break;
+    }
+    ramMerger=this.maybeCreate(ramMerger);
+    DocumentList doclist=iterator.next();
+    RamWriter ram=doclist.toRamWriter(documentConverter,analyzer,context);
+    ramMerger.process(ram);
+    doclist.clean();
+    if (this.maybeFlush(ramMerger,context,false)) {
+      ramMerger=null;
+    }
+  }
+  if (this.maybeFlush(ramMerger,context,true)) {
+    ramMerger=null;
+  }
+}

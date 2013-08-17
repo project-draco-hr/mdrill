@@ -1,0 +1,4 @@
+{
+  super(spans,weight,similarity,norms);
+  this.spans=spans;
+}

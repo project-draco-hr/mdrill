@@ -1,0 +1,10 @@
+{
+  while (len > 0) {
+    final int cnt=is.read(b,offset,len);
+    if (cnt < 0) {
+      throw new EOFException();
+    }
+    len-=cnt;
+    offset+=cnt;
+  }
+}

@@ -1,0 +1,3 @@
+TokenStream in
+Set<String> words
+boolean ignoreCase

@@ -1,0 +1,10 @@
+{
+  XMLStreamReader parser=null;
+  try {
+    parser=factory.createXMLStreamReader(in,encoding);
+  }
+ catch (  XMLStreamException e) {
+    throw new SolrException(SolrException.ErrorCode.SERVER_ERROR,"parsing error",e);
+  }
+  return processResponse(parser);
+}

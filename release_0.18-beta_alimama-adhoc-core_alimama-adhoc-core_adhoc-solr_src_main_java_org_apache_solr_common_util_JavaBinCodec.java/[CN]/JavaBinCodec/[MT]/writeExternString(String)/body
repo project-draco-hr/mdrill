@@ -1,0 +1,14 @@
+{
+  if (s == null) {
+    writeTag(NULL);
+    return;
+  }
+  Integer idx=stringsMap == null ? null : stringsMap.get(s);
+  if (idx == null)   idx=0;
+  writeTag(EXTERN_STRING,idx);
+  if (idx == 0) {
+    writeStr(s);
+    if (stringsMap == null)     stringsMap=new HashMap<String,Integer>();
+    stringsMap.put(s,++stringsCount);
+  }
+}

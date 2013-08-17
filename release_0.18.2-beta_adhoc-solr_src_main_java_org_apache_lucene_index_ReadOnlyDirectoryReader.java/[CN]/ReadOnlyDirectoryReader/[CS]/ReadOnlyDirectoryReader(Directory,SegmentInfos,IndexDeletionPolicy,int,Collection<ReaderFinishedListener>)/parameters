@@ -1,0 +1,5 @@
+Directory directory
+SegmentInfos sis
+IndexDeletionPolicy deletionPolicy
+int termInfosIndexDivisor
+Collection<ReaderFinishedListener> readerFinishedListeners

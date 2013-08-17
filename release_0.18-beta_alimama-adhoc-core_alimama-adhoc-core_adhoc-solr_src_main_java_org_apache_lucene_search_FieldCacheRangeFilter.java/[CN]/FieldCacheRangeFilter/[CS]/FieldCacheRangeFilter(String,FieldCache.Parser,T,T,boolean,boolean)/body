@@ -1,0 +1,8 @@
+{
+  this.field=field;
+  this.parser=parser;
+  this.lowerVal=lowerVal;
+  this.upperVal=upperVal;
+  this.includeLower=includeLower;
+  this.includeUpper=includeUpper;
+}

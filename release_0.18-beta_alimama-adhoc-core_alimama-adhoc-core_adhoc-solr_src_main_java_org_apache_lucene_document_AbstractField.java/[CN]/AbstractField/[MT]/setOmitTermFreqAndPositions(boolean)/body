@@ -1,0 +1,8 @@
+{
+  if (omitTermFreqAndPositions) {
+    indexOptions=IndexOptions.DOCS_ONLY;
+  }
+ else {
+    indexOptions=IndexOptions.DOCS_AND_FREQS_AND_POSITIONS;
+  }
+}

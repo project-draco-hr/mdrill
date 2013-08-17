@@ -1,0 +1,6 @@
+{
+  if (this == obj)   return true;
+  if (getClass() != obj.getClass())   return false;
+  final KeywordAttributeImpl other=(KeywordAttributeImpl)obj;
+  return keyword == other.keyword;
+}

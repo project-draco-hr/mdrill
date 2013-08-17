@@ -1,0 +1,3 @@
+{
+  VirtualPort.virtual_send(socket,task,message);
+}

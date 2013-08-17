@@ -1,0 +1,10 @@
+{
+synchronized (lock) {
+    LOG.info("Killing process " + pid);
+    WorkerShutdown shutdownHandle=getProcessHandle(pid);
+    processMap.remove(pid);
+    if (shutdownHandle != null) {
+      shutdownHandle.shutdown();
+    }
+  }
+}

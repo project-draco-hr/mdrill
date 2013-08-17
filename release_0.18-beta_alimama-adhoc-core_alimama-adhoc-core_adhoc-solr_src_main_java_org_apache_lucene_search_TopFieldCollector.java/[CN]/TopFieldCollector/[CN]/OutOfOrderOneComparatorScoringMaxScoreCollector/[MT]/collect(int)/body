@@ -1,0 +1,24 @@
+{
+  final float score=scorer.score();
+  if (score > maxScore) {
+    maxScore=score;
+  }
+  ++totalHits;
+  if (queueFull) {
+    final int cmp=reverseMul * comparator.compareBottom(doc);
+    if (cmp < 0 || (cmp == 0 && doc + docBase > bottom.doc)) {
+      return;
+    }
+    comparator.copy(bottom.slot,doc);
+    updateBottom(doc,score);
+    comparator.setBottom(bottom.slot);
+  }
+ else {
+    final int slot=totalHits - 1;
+    comparator.copy(slot,doc);
+    add(slot,doc,score);
+    if (queueFull) {
+      comparator.setBottom(bottom.slot);
+    }
+  }
+}

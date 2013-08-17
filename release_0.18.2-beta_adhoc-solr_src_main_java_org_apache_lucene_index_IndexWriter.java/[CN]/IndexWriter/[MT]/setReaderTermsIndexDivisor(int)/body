@@ -1,0 +1,7 @@
+{
+  ensureOpen();
+  config.setReaderTermsIndexDivisor(divisor);
+  if (infoStream != null) {
+    message("setReaderTermsIndexDivisor " + divisor);
+  }
+}

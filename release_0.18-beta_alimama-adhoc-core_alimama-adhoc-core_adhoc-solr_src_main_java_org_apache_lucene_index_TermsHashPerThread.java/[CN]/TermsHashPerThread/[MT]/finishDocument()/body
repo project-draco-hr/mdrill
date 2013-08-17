@@ -1,0 +1,11 @@
+{
+  final DocumentsWriter.DocWriter doc=consumer.finishDocument();
+  final DocumentsWriter.DocWriter doc2;
+  if (nextPerThread != null)   doc2=nextPerThread.consumer.finishDocument();
+ else   doc2=null;
+  if (doc == null)   return doc2;
+ else {
+    doc.setNext(doc2);
+    return doc;
+  }
+}

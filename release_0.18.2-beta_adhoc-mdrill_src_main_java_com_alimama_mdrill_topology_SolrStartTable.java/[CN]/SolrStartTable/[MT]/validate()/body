@@ -1,0 +1,10 @@
+{
+  try {
+    if (!fs.exists(hdfsSolrpath)) {
+      throw new RuntimeException("can`t not found path " + hdfsSolrpath);
+    }
+  }
+ catch (  IOException e) {
+    LOG.error("igno hadoo error",e);
+  }
+}

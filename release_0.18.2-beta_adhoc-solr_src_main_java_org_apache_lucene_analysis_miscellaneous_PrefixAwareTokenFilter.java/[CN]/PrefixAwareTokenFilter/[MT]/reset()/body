@@ -1,0 +1,10 @@
+{
+  super.reset();
+  if (prefix != null) {
+    prefixExhausted=false;
+    prefix.reset();
+  }
+  if (suffix != null) {
+    suffix.reset();
+  }
+}

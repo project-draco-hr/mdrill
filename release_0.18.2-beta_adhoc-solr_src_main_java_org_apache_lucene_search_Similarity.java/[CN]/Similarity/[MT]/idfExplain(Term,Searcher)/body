@@ -1,0 +1,3 @@
+{
+  return idfExplain(term,searcher,searcher.docFreq(term));
+}

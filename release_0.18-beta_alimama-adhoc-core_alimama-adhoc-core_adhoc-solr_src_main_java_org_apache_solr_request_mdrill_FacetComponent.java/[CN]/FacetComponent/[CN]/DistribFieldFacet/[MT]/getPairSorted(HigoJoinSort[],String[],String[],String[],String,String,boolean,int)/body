@@ -1,0 +1,8 @@
+{
+  if (this.isdetail) {
+    return getPairSortedDetail(crossFs,distFS,fl,type,isdesc,saverecords);
+  }
+ else {
+    return getPairSortedGroup(joinSort,facetFs,crossFs,distFS,fl,type,isdesc,saverecords);
+  }
+}

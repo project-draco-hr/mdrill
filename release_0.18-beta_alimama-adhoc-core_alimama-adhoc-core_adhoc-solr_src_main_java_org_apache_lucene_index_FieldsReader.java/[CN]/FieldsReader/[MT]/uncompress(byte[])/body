@@ -1,0 +1,10 @@
+{
+  try {
+    return CompressionTools.decompress(b);
+  }
+ catch (  DataFormatException e) {
+    CorruptIndexException newException=new CorruptIndexException("field data are in wrong format: " + e.toString());
+    newException.initCause(e);
+    throw newException;
+  }
+}

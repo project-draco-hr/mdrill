@@ -1,0 +1,8 @@
+{
+  if (token.getPositionIncrement() == 0) {
+    return TokenPositioner.newRow;
+  }
+ else {
+    return TokenPositioner.newColumn;
+  }
+}

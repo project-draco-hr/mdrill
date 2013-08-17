@@ -1,0 +1,61 @@
+{
+  int v_1;
+  int v_2;
+  int v_3;
+  int v_4;
+  int v_5;
+  v_1=limit - cursor;
+{
+    int c=cursor - 2;
+    if (limit_backward > c || c > limit) {
+      return false;
+    }
+    cursor=c;
+  }
+  cursor=limit - v_1;
+{
+    v_2=limit - cursor;
+    lab0:     do {
+      if (!(eq_s_b(1,"u"))) {
+        break lab0;
+      }
+      return false;
+    }
+ while (false);
+    cursor=limit - v_2;
+  }
+{
+    v_3=limit - cursor;
+    lab1:     do {
+      if (!(eq_s_b(1,"x"))) {
+        break lab1;
+      }
+      return false;
+    }
+ while (false);
+    cursor=limit - v_3;
+  }
+{
+    v_4=limit - cursor;
+    lab2:     do {
+      if (!(eq_s_b(1,"s"))) {
+        break lab2;
+      }
+{
+        v_5=limit - cursor;
+        lab3:         do {
+          if (!(eq_s_b(1,"o"))) {
+            break lab3;
+          }
+          break lab2;
+        }
+ while (false);
+        cursor=limit - v_5;
+      }
+      return false;
+    }
+ while (false);
+    cursor=limit - v_4;
+  }
+  return true;
+}

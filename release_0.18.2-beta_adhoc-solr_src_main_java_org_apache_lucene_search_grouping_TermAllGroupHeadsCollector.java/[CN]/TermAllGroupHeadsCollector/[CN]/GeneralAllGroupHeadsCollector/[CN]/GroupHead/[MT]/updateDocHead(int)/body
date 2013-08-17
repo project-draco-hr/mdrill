@@ -1,0 +1,7 @@
+{
+  for (  FieldComparator comparator : comparators) {
+    comparator.copy(0,doc);
+    comparator.setBottom(0);
+  }
+  this.doc=doc + docBase;
+}

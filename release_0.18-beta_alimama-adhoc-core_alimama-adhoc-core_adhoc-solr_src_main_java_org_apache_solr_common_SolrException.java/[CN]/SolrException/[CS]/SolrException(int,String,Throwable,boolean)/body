@@ -1,0 +1,5 @@
+{
+  super(msg,th);
+  this.code=code;
+  logged=alreadyLogged;
+}

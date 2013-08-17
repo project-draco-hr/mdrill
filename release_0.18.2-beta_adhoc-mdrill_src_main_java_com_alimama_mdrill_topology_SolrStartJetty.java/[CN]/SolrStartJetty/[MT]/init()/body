@@ -1,0 +1,6 @@
+{
+  this.hdfsSolrpath=new Path(hdfsSolrhome,"solr");
+  this.localSolrPath=this.getLocalPath("solr");
+  this.localTablePath=this.getLocalPath("tablelist");
+  this.localTmpPath=this.getLocalPath("higotmp");
+}

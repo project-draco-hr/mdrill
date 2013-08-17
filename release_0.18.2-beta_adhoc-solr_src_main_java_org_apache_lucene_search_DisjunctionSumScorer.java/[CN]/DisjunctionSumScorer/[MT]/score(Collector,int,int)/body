@@ -1,0 +1,10 @@
+{
+  collector.setScorer(this);
+  while (currentDoc < max) {
+    collector.collect(currentDoc);
+    if (nextDoc() == NO_MORE_DOCS) {
+      return false;
+    }
+  }
+  return true;
+}

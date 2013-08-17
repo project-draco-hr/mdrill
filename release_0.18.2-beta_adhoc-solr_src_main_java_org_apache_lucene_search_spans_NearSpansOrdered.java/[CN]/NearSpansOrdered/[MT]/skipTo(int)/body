@@ -1,0 +1,25 @@
+{
+  if (firstTime) {
+    firstTime=false;
+    for (int i=0; i < subSpans.length; i++) {
+      if (!subSpans[i].skipTo(target)) {
+        more=false;
+        return false;
+      }
+    }
+    more=true;
+  }
+ else   if (more && (subSpans[0].doc() < target)) {
+    if (subSpans[0].skipTo(target)) {
+      inSameDoc=false;
+    }
+ else {
+      more=false;
+      return false;
+    }
+  }
+  if (collectPayloads) {
+    matchPayload.clear();
+  }
+  return advanceAfterOrdered();
+}

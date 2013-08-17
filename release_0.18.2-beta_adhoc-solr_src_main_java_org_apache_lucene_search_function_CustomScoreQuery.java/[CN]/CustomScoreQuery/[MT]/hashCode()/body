@@ -1,0 +1,3 @@
+{
+  return (getClass().hashCode() + subQuery.hashCode() + Arrays.hashCode(valSrcQueries)) ^ Float.floatToIntBits(getBoost()) ^ (strict ? 1234 : 4321);
+}

@@ -1,0 +1,21 @@
+{
+  center=new Point2D();
+  center.x((p1.x() + p2.x()) * 0.5f);
+  center.y((p1.y() + p2.y()) * 0.5f);
+  double angleRad=Math.toRadians(angle);
+  c=Math.cos(angleRad);
+  s=Math.sin(angleRad);
+  double dx=Math.abs(p2.x() - p1.x()) * 0.5;
+  double dy=Math.abs(p2.y() - p1.y()) * 0.5;
+  if (dx >= dy) {
+    a=dx;
+    b=dy;
+  }
+ else {
+    a=dy;
+    b=dx;
+  }
+  k1=SQR(c / a) + SQR(s / b);
+  k2=2 * s * c* ((1 / SQR(a)) - (1 / SQR(b)));
+  k3=SQR(s / a) + SQR(c / b);
+}

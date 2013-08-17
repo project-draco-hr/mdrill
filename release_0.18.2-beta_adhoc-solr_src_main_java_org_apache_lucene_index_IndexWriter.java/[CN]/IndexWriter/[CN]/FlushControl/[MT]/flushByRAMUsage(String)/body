@@ -1,0 +1,15 @@
+{
+  final double ramBufferSizeMB=config.getRAMBufferSizeMB();
+  if (ramBufferSizeMB != IndexWriterConfig.DISABLE_AUTO_FLUSH) {
+    final long limit=(long)(ramBufferSizeMB * 1024 * 1024);
+    long used=bufferedDeletesStream.bytesUsed() + docWriter.bytesUsed();
+    if (used >= limit) {
+      docWriter.balanceRAM();
+      used=bufferedDeletesStream.bytesUsed() + docWriter.bytesUsed();
+      if (used >= limit) {
+        return setFlushPending("ram full: " + reason,false);
+      }
+    }
+  }
+  return false;
+}

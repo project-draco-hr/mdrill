@@ -1,0 +1,41 @@
+{
+  long lastReopenStartNS=System.nanoTime();
+  try {
+    while (true) {
+      boolean hasWaiting=false;
+synchronized (this) {
+        while (!finish) {
+          hasWaiting=waitingGen > manager.getCurrentSearchingGen(waitingNeedsDeletes);
+          final long nextReopenStartNS=lastReopenStartNS + (hasWaiting ? targetMinStaleNS : targetMaxStaleNS);
+          final long sleepNS=nextReopenStartNS - System.nanoTime();
+          if (sleepNS > 0) {
+            try {
+              wait(sleepNS / 1000000,(int)(sleepNS % 1000000));
+            }
+ catch (            InterruptedException ie) {
+              Thread.currentThread().interrupt();
+              finish=true;
+              break;
+            }
+          }
+ else {
+            break;
+          }
+        }
+        if (finish) {
+          return;
+        }
+      }
+      lastReopenStartNS=System.nanoTime();
+      try {
+        manager.maybeReopen(waitingNeedsDeletes);
+      }
+ catch (      IOException ioe) {
+        throw new RuntimeException(ioe);
+      }
+    }
+  }
+ catch (  Throwable t) {
+    throw new RuntimeException(t);
+  }
+}

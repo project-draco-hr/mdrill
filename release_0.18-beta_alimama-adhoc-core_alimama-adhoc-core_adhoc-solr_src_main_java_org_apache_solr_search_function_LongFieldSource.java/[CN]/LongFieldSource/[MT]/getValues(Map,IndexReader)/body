@@ -1,0 +1,50 @@
+{
+  final long[] arr=(parser == null) ? cache.getLongs(reader,field) : cache.getLongs(reader,field,parser);
+  return new DocValues(){
+    @Override public float floatVal(    int doc){
+      return (float)arr[doc];
+    }
+    @Override public int intVal(    int doc){
+      return (int)arr[doc];
+    }
+    @Override public long longVal(    int doc){
+      return arr[doc];
+    }
+    @Override public double doubleVal(    int doc){
+      return arr[doc];
+    }
+    @Override public String strVal(    int doc){
+      return Long.toString(arr[doc]);
+    }
+    @Override public String toString(    int doc){
+      return description() + '=' + longVal(doc);
+    }
+    @Override public ValueSourceScorer getRangeScorer(    IndexReader reader,    String lowerVal,    String upperVal,    boolean includeLower,    boolean includeUpper){
+      long lower, upper;
+      if (lowerVal == null) {
+        lower=Long.MIN_VALUE;
+      }
+ else {
+        lower=externalToLong(lowerVal);
+        if (!includeLower && lower < Long.MAX_VALUE)         lower++;
+      }
+      if (upperVal == null) {
+        upper=Long.MAX_VALUE;
+      }
+ else {
+        upper=externalToLong(upperVal);
+        if (!includeUpper && upper > Long.MIN_VALUE)         upper--;
+      }
+      final long ll=lower;
+      final long uu=upper;
+      return new ValueSourceScorer(reader,this){
+        @Override public boolean matchesValue(        int doc){
+          long val=arr[doc];
+          return val >= ll && val <= uu;
+        }
+      }
+;
+    }
+  }
+;
+}

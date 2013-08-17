@@ -1,0 +1,3 @@
+{
+  return (index == limit) ? DONE : jreBugWorkaround(array[index]);
+}

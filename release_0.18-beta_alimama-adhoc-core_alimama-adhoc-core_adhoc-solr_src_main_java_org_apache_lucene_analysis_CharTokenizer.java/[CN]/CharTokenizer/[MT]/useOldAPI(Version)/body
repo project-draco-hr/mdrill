@@ -1,0 +1,5 @@
+{
+  final Class<? extends CharTokenizer> clazz=this.getClass();
+  if (matchVersion.onOrAfter(Version.LUCENE_31) && (isTokenCharMethod.isOverriddenAsOf(clazz) || normalizeMethod.isOverriddenAsOf(clazz)))   throw new IllegalArgumentException("For matchVersion >= LUCENE_31, CharTokenizer subclasses must not override isTokenChar(char) or normalize(char).");
+  return !matchVersion.onOrAfter(Version.LUCENE_31);
+}

@@ -1,0 +1,8 @@
+{
+  if (!(scorer instanceof ScoreCachingWrappingScorer)) {
+    this.scorer=new ScoreCachingWrappingScorer(scorer);
+  }
+ else {
+    this.scorer=scorer;
+  }
+}

@@ -1,0 +1,16 @@
+{
+  while (true) {
+synchronized (this) {
+      if (stop)       break;
+      try {
+        this.wait();
+      }
+ catch (      InterruptedException e) {
+      }
+    }
+    if (stop)     break;
+    ConcurrentLRUCache c=cache.get();
+    if (c == null)     break;
+    c.markAndSweep();
+  }
+}

@@ -1,0 +1,3 @@
+{
+  return new DisMaxQParser(qstr,localParams,params,req);
+}

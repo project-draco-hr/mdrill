@@ -1,0 +1,4 @@
+{
+  socket.unsubscribe(topic);
+  return socket;
+}

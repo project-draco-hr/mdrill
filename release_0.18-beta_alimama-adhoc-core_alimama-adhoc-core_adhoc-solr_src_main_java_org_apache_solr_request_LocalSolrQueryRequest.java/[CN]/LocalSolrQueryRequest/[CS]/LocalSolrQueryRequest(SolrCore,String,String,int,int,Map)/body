@@ -1,0 +1,3 @@
+{
+  super(core,makeParams(query,qtype,start,limit,args));
+}

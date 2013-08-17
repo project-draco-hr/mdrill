@@ -1,0 +1,3 @@
+{
+  return type + " " + PlainSelect.getStringList(columnsNames,true,true)+ (name != null ? " " + name : "");
+}

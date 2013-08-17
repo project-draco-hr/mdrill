@@ -1,0 +1,17 @@
+{
+  List<DocIdSetIterator> iterators=new ArrayList<DocIdSetIterator>(weights.size() + 1);
+  if (docIdSet != null) {
+    DocIdSetIterator iter=docIdSet.iterator();
+    if (iter == null)     return null;
+    iterators.add(iter);
+  }
+  for (  Weight w : weights) {
+    Scorer scorer=w.scorer(reader,true,false);
+    if (scorer == null)     return null;
+    iterators.add(scorer);
+  }
+  if (iterators.size() == 0)   return null;
+  if (iterators.size() == 1)   return iterators.get(0);
+  if (iterators.size() == 2)   return new DualFilterIterator(iterators.get(0),iterators.get(1));
+  return new FilterIterator(iterators.toArray(new DocIdSetIterator[iterators.size()]));
+}

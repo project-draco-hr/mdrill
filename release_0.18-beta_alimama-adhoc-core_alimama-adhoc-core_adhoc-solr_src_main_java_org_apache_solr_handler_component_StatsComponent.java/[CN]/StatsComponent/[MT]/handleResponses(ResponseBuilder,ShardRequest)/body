@@ -1,0 +1,16 @@
+{
+  if (!rb.doStats || (sreq.purpose & ShardRequest.PURPOSE_GET_STATS) == 0)   return;
+  StatsInfo si=rb._statsInfo;
+  for (  ShardResponse srsp : sreq.responses) {
+    NamedList stats=(NamedList)srsp.getSolrResponse().getResponse().get("stats");
+    NamedList stats_fields=(NamedList)stats.get("stats_fields");
+    if (stats_fields != null) {
+      for (int i=0; i < stats_fields.size(); i++) {
+        String field=stats_fields.getName(i);
+        StatsValues stv=si.statsFields.get(field);
+        NamedList shardStv=(NamedList)stats_fields.get(field);
+        stv.accumulate(shardStv);
+      }
+    }
+  }
+}

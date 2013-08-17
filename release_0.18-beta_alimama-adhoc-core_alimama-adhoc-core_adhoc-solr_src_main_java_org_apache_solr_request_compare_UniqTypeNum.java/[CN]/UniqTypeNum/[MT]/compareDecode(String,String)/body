@@ -1,0 +1,3 @@
+{
+  return compare(EncodeUtils.decode(value1),EncodeUtils.decode(value2));
+}

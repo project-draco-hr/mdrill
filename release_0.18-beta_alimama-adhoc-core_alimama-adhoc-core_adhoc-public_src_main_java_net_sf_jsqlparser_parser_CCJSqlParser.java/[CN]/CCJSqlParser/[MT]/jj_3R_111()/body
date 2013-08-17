@@ -1,0 +1,4 @@
+{
+  if (jj_scan_token(S_CHAR_LITERAL))   return true;
+  return false;
+}

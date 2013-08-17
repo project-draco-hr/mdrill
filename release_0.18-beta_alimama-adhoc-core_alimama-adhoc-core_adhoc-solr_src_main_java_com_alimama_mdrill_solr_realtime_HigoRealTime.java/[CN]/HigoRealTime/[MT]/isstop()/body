@@ -1,0 +1,3 @@
+{
+  return this.logwriter.isIsstop() || this.sync.isIsstop();
+}

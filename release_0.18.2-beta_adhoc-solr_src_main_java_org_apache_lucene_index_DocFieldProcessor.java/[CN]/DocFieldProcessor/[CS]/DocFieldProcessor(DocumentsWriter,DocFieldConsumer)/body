@@ -1,0 +1,7 @@
+{
+  this.docWriter=docWriter;
+  this.consumer=consumer;
+  fieldInfos=docWriter.getFieldInfos();
+  consumer.setFieldInfos(fieldInfos);
+  fieldsWriter=new StoredFieldsWriter(docWriter,fieldInfos);
+}

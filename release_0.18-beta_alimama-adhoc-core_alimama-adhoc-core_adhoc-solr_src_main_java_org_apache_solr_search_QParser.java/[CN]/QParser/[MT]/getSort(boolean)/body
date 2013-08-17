@@ -1,0 +1,32 @@
+{
+  getQuery();
+  String sortStr=null;
+  String startS=null;
+  String rowsS=null;
+  if (localParams != null) {
+    sortStr=localParams.get(CommonParams.SORT);
+    startS=localParams.get(CommonParams.START);
+    rowsS=localParams.get(CommonParams.ROWS);
+    if (sortStr != null || startS != null || rowsS != null) {
+      useGlobalParams=false;
+    }
+  }
+  if (useGlobalParams) {
+    if (sortStr == null) {
+      sortStr=params.get(CommonParams.SORT);
+    }
+    if (startS == null) {
+      startS=params.get(CommonParams.START);
+    }
+    if (rowsS == null) {
+      rowsS=params.get(CommonParams.ROWS);
+    }
+  }
+  int start=startS != null ? Integer.parseInt(startS) : 0;
+  int rows=rowsS != null ? Integer.parseInt(rowsS) : 10;
+  Sort sort=null;
+  if (sortStr != null) {
+    sort=QueryParsing.parseSort(sortStr,req);
+  }
+  return new SortSpec(sort,start,rows);
+}

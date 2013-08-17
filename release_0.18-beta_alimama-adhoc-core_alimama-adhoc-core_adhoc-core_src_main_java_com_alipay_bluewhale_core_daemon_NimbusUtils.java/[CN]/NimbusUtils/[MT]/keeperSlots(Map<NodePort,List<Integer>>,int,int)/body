@@ -1,0 +1,20 @@
+{
+  Map<NodePort,List<Integer>> keepers=null;
+  if (numWorkers != 0) {
+    keepers=new HashMap<NodePort,List<Integer>>();
+    Map<Integer,Integer> distribution=StormUtils.integer_divided(numTaskIds,numWorkers);
+    Set<Entry<NodePort,List<Integer>>> entrySet=aliveAssigned.entrySet();
+    for (Iterator<Entry<NodePort,List<Integer>>> it=entrySet.iterator(); it.hasNext(); ) {
+      Entry<NodePort,List<Integer>> entry=it.next();
+      NodePort nodeport=entry.getKey();
+      List<Integer> tasklist=entry.getValue();
+      Integer taskCount=tasklist.size();
+      Integer val=distribution.get(taskCount);
+      if (val != null && val > 0) {
+        keepers.put(nodeport,tasklist);
+        distribution.put(taskCount,val - 1);
+      }
+    }
+  }
+  return keepers;
+}

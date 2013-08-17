@@ -1,0 +1,4 @@
+{
+  super(scorer.weight);
+  this.scorer=scorer;
+}

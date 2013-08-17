@@ -1,0 +1,4 @@
+Collection<String> names
+boolean storeTermVectors
+boolean storePositionWithTermVector
+boolean storeOffsetWithTermVector

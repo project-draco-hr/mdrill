@@ -1,0 +1,5 @@
+{
+  char[] ret=next;
+  goNext();
+  return ret;
+}

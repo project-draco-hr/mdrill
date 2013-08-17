@@ -1,0 +1,4 @@
+{
+  termAttribute=addAttribute(CharTermAttribute.class);
+  offsetAttribute=addAttribute(OffsetAttribute.class);
+}

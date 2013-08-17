@@ -1,0 +1,14 @@
+{
+  boolean needRestart=this.sync(false);
+  if (!needRestart) {
+    this.checkSolr();
+    if (!statcollect.getStat().equals(ShardsState.SERVICE)) {
+      this.startService();
+    }
+  }
+ else {
+    this.stopService();
+    this.sync(false);
+    this.startService();
+  }
+}

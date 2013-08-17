@@ -1,0 +1,9 @@
+{
+  if (startingFilter == null) {
+    throw new IllegalArgumentException("please provide a non-null startingFilter; you can use QueryWrapperFilter(MatchAllDocsQuery) as a no-op filter");
+  }
+  this.startingFilter=startingFilter;
+  this.distance=distance;
+  distances=new HashMap<Integer,Double>();
+  distanceLookupCache=new WeakHashMap<String,Double>();
+}

@@ -1,0 +1,7 @@
+{
+  if (active.get()) {
+    String key=Config.TASK_REFRESH_POLL_SECS;
+    return conf.get(key);
+  }
+  return -1;
+}

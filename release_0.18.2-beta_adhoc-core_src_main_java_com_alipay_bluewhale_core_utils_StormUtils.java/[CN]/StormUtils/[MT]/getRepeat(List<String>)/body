@@ -1,0 +1,23 @@
+{
+  RunnableCallback fn=new RunnableCallback(){
+    @Override public <T>Object execute(    T... args){
+      int num=(Integer)args[0];
+      boolean isFilter=false;
+      if (num > 1) {
+        isFilter=true;
+      }
+ else {
+        isFilter=false;
+      }
+      return isFilter;
+    }
+  }
+;
+  HashMap<String,Integer> multi=multi_set(sets);
+  HashMap<String,Integer> filters=filter_val(fn,multi);
+  ArrayList<String> rtn=new ArrayList<String>();
+  for (  Entry<String,Integer> entry : filters.entrySet()) {
+    rtn.add(entry.getKey());
+  }
+  return rtn;
+}

@@ -1,0 +1,7 @@
+{
+  SegmentReader sr=readerMap.get(info);
+  if (sr != null) {
+    sr.incRef();
+  }
+  return sr;
+}

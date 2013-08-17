@@ -1,0 +1,4 @@
+{
+  beginFileUpload_args args=new beginFileUpload_args();
+  sendBase("beginFileUpload",args);
+}

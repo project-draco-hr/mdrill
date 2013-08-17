@@ -1,0 +1,3 @@
+{
+  return (fieldsData == null) ? null : fieldsData.toString();
+}

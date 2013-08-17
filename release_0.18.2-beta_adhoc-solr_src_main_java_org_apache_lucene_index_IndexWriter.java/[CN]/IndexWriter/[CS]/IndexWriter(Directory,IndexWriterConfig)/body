@@ -1,0 +1,81 @@
+{
+  config=(IndexWriterConfig)conf.clone();
+  directory=d;
+  analyzer=conf.getAnalyzer();
+  infoStream=defaultInfoStream;
+  writeLockTimeout=conf.getWriteLockTimeout();
+  similarity=conf.getSimilarity();
+  mergePolicy=conf.getMergePolicy();
+  mergePolicy.setIndexWriter(this);
+  mergeScheduler=conf.getMergeScheduler();
+  bufferedDeletesStream=new BufferedDeletesStream(messageID);
+  bufferedDeletesStream.setInfoStream(infoStream);
+  poolReaders=conf.getReaderPooling();
+  writeLock=directory.makeLock(WRITE_LOCK_NAME);
+  if (!writeLock.obtain(writeLockTimeout))   throw new LockObtainFailedException("Index locked for write: " + writeLock);
+  OpenMode mode=conf.getOpenMode();
+  boolean create;
+  if (mode == OpenMode.CREATE) {
+    create=true;
+  }
+ else   if (mode == OpenMode.APPEND) {
+    create=false;
+  }
+ else {
+    create=!IndexReader.indexExists(directory);
+  }
+  boolean success=false;
+  try {
+    if (create) {
+      try {
+        segmentInfos.read(directory);
+        segmentInfos.clear();
+      }
+ catch (      IOException e) {
+      }
+      changeCount++;
+      segmentInfos.changed();
+    }
+ else {
+      segmentInfos.read(directory);
+      IndexCommit commit=conf.getIndexCommit();
+      if (commit != null) {
+        if (commit.getDirectory() != directory)         throw new IllegalArgumentException("IndexCommit's directory doesn't match my directory");
+        SegmentInfos oldInfos=new SegmentInfos();
+        oldInfos.read(directory,commit.getSegmentsFileName());
+        segmentInfos.replace(oldInfos);
+        changeCount++;
+        segmentInfos.changed();
+        if (infoStream != null)         message("init: loaded commit \"" + commit.getSegmentsFileName() + "\"");
+      }
+    }
+    rollbackSegments=segmentInfos.createBackupSegmentInfos(true);
+    docWriter=new DocumentsWriter(config,directory,this,getCurrentFieldInfos(),bufferedDeletesStream);
+    docWriter.setInfoStream(infoStream);
+    docWriter.setMaxFieldLength(maxFieldLength);
+synchronized (this) {
+      deleter=new IndexFileDeleter(directory,conf.getIndexDeletionPolicy(),segmentInfos,infoStream,this);
+    }
+    if (deleter.startingCommitDeleted) {
+      changeCount++;
+      segmentInfos.changed();
+    }
+    if (infoStream != null) {
+      messageState();
+    }
+    success=true;
+  }
+  finally {
+    if (!success) {
+      if (infoStream != null) {
+        message("init: hit exception on init; releasing write lock");
+      }
+      try {
+        writeLock.release();
+      }
+ catch (      Throwable t) {
+      }
+      writeLock=null;
+    }
+  }
+}

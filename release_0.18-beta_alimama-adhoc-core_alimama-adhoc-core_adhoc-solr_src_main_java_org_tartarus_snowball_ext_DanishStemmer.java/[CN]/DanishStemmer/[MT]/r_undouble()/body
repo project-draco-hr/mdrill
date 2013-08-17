@@ -1,0 +1,25 @@
+{
+  int v_1;
+  int v_2;
+  v_1=limit - cursor;
+  if (cursor < I_p1) {
+    return false;
+  }
+  cursor=I_p1;
+  v_2=limit_backward;
+  limit_backward=cursor;
+  cursor=limit - v_1;
+  ket=cursor;
+  if (!(out_grouping_b(g_v,97,248))) {
+    limit_backward=v_2;
+    return false;
+  }
+  bra=cursor;
+  S_ch=slice_to(S_ch);
+  limit_backward=v_2;
+  if (!(eq_v_b(S_ch))) {
+    return false;
+  }
+  slice_del();
+  return true;
+}

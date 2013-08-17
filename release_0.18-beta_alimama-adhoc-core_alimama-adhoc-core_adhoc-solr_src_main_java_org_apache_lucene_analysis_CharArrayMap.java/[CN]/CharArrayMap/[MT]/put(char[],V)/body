@@ -1,0 +1,18 @@
+{
+  if (ignoreCase)   for (int i=0; i < text.length; ) {
+    i+=Character.toChars(Character.toLowerCase(charUtils.codePointAt(text,i)),text,i);
+  }
+  int slot=getSlot(text,0,text.length);
+  if (keys[slot] != null) {
+    final V oldValue=values[slot];
+    values[slot]=value;
+    return oldValue;
+  }
+  keys[slot]=text;
+  values[slot]=value;
+  count++;
+  if (count + (count >> 2) > keys.length) {
+    rehash();
+  }
+  return null;
+}

@@ -1,0 +1,9 @@
+{
+  String name=args[0];
+  Map conf=StormConfig.read_storm_config();
+  Object value=conf.get(name);
+  if (value == null) {
+    value=" ";
+  }
+  System.out.println("VALUE: " + value);
+}

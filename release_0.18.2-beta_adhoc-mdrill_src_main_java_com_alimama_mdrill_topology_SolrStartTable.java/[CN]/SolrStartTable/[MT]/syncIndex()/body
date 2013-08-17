@@ -1,0 +1,35 @@
+{
+  if (this.isRealTime) {
+    return false;
+  }
+  if (this.isMergeServer) {
+    return false;
+  }
+  boolean ischange=false;
+  HashMap<String,Vertify> hdfsVertify=IndexUtils.readVertifyList(fs,hdfsIndexpath);
+  HashMap<String,Vertify> localVertify=IndexUtils.readVertifyList(lfs,localIndexPath);
+  this.partstat.syncClearPartions();
+  for (  Entry<String,Vertify> e : hdfsVertify.entrySet()) {
+    String partion=e.getKey();
+    this.partstat.addPartionStat(partion);
+    Vertify hdfsValue=e.getValue();
+    Vertify localValue=localVertify.remove(partion);
+    if (localValue == null || !localValue.getVertify().equals(hdfsValue.getVertify())) {
+      this.syncPartion(partion,hdfsValue.getPath());
+      SolrResourceLoader.SetCacheFlushKey(System.currentTimeMillis());
+    }
+  }
+  this.partstat.syncClearStat();
+  HashSet<String> skiplist=new HashSet<String>();
+  skiplist.add("default");
+  skiplist.add("");
+  for (  Entry<String,Vertify> e : localVertify.entrySet()) {
+    if (skiplist.contains(e.getKey())) {
+      continue;
+    }
+    this.dropPartion(e.getValue().getPath());
+    SolrResourceLoader.SetCacheFlushKey(System.currentTimeMillis());
+  }
+  LOG.info("higolog loadIndex finish:" + this.tablename + ",ischange"+ ischange);
+  return false;
+}

@@ -1,0 +1,7 @@
+{
+  for (  SegmentInfo info : merge.segments) {
+    if (!segmentInfos.contains(info)) {
+      throw new MergePolicy.MergeException("MergePolicy selected a segment (" + info.name + ") that is not in the current index "+ segString(),directory);
+    }
+  }
+}

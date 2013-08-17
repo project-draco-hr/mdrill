@@ -1,0 +1,4 @@
+{
+  for (int i=0; i < nChars; i++)   len=delete(s,pos,len);
+  return len;
+}

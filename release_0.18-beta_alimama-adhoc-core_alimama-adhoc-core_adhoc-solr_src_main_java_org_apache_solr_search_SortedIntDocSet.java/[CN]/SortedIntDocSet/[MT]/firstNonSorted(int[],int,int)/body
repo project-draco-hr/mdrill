@@ -1,0 +1,16 @@
+{
+  if (len <= 1)   return -1;
+  int lower=arr[offset];
+  int end=offset + len;
+  for (int i=offset + 1; i < end; i++) {
+    int next=arr[i];
+    if (next <= lower) {
+      for (int j=i - 1; j > offset; j--) {
+        if (arr[j] < next)         return j + 1;
+      }
+      return offset;
+    }
+    lower=next;
+  }
+  return -1;
+}

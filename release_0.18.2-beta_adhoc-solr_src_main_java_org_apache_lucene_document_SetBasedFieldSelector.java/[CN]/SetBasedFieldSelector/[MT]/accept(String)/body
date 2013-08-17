@@ -1,0 +1,10 @@
+{
+  FieldSelectorResult result=FieldSelectorResult.NO_LOAD;
+  if (fieldsToLoad.contains(fieldName) == true) {
+    result=FieldSelectorResult.LOAD;
+  }
+  if (lazyFieldsToLoad.contains(fieldName) == true) {
+    result=FieldSelectorResult.LAZY_LOAD;
+  }
+  return result;
+}

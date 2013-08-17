@@ -1,0 +1,8 @@
+{
+  sr.searcher=searcher;
+  SolrIndexReader[] readers=sr.getSequentialSubReaders();
+  if (readers == null)   return;
+  for (  SolrIndexReader r : readers) {
+    setSearcher(r,searcher);
+  }
+}

@@ -1,0 +1,76 @@
+{
+  SortSpec ss=rb.getSortSpec();
+  Sort sort=ss.getSort();
+  SortField[] sortFields=null;
+  if (sort != null)   sortFields=sort.getSort();
+ else {
+    sortFields=new SortField[]{SortField.FIELD_SCORE};
+  }
+  SchemaField uniqueKeyField=rb.req.getSchema().getUniqueKeyField();
+  HashMap<Object,String> uniqueDoc=new HashMap<Object,String>();
+  ShardFieldSortedHitQueue queue;
+  queue=new ShardFieldSortedHitQueue(sortFields,ss.getOffset() + ss.getCount());
+  long numFound=0;
+  Float maxScore=null;
+  double sum=0.0f;
+  double max=Double.NEGATIVE_INFINITY;
+  double min=Double.POSITIVE_INFINITY;
+  for (  ShardResponse srsp : sreq.responses) {
+    SolrDocumentList docs=(SolrDocumentList)srsp.getSolrResponse().getResponse().get("response");
+    if (docs != null) {
+      if (docs.getMaxScore() != null) {
+        maxScore=maxScore == null ? docs.getMaxScore() : Math.max(maxScore,docs.getMaxScore());
+      }
+      sum+=docs.getSum();
+      max=Math.max(max,docs.getMax());
+      min=Math.min(min,docs.getMin());
+      numFound+=docs.getNumFound();
+      NamedList sortFieldValues=(NamedList)(srsp.getSolrResponse().getResponse().get("sort_values"));
+      for (int i=0; i < docs.size(); i++) {
+        SolrDocument doc=docs.get(i);
+        Object id=doc.getFieldValue(uniqueKeyField.getName());
+        String prevShard=uniqueDoc.put(id,srsp.getShard());
+        if (prevShard != null) {
+          numFound--;
+          continue;
+        }
+        ShardDoc shardDoc=new ShardDoc();
+        shardDoc.id=id;
+        shardDoc.shard=srsp.getShard();
+        shardDoc.orderInShard=i;
+        Object scoreObj=doc.getFieldValue("score");
+        if (scoreObj != null) {
+          if (scoreObj instanceof String) {
+            shardDoc.score=Float.parseFloat((String)scoreObj);
+          }
+ else {
+            shardDoc.score=(Float)scoreObj;
+          }
+        }
+        shardDoc.sortFieldValues=sortFieldValues;
+        queue.insertWithOverflow(shardDoc);
+      }
+    }
+ else {
+      SolrCore.log.error("mergeIds response is null " + srsp.getShard() + ",response="+ srsp.getSolrResponse().getResponse().toString(),new Exception());
+    }
+  }
+  int resultSize=queue.size() - ss.getOffset();
+  resultSize=Math.max(0,resultSize);
+  Map<Object,ShardDoc> resultIds=new HashMap<Object,ShardDoc>();
+  for (int i=resultSize - 1; i >= 0; i--) {
+    ShardDoc shardDoc=queue.pop();
+    shardDoc.positionInResponse=i;
+    resultIds.put(shardDoc.id.toString(),shardDoc);
+  }
+  SolrDocumentList responseDocs=new SolrDocumentList();
+  if (maxScore != null)   responseDocs.setMaxScore(maxScore);
+  responseDocs.setSum(sum);
+  responseDocs.setMax(max);
+  responseDocs.setMin(min);
+  responseDocs.setNumFound(numFound);
+  responseDocs.setStart(ss.getOffset());
+  for (int i=0; i < resultSize; i++)   responseDocs.add(null);
+  rb.resultIds=resultIds;
+  rb._responseDocs=responseDocs;
+}

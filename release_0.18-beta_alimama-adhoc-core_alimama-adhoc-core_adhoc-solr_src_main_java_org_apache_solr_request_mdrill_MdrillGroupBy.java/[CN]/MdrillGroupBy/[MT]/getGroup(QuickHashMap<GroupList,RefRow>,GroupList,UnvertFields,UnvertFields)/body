@@ -1,0 +1,34 @@
+{
+  RefRow cnt=groups.get(group);
+  if (cnt == null) {
+    if (groups.size() >= this.limit_offset_maxgroups) {
+      mergercount++;
+      if (mergercount >= UniqConfig.shardMergerCount()) {
+        return getEmptyRow();
+      }
+      this.recordCount.setCrcRecord("-");
+      this.recordCount.setIsoversize(true);
+      TopMaps(crossufs,distufs,groups);
+    }
+    cnt=new RefRow();
+    if (this.crossFs != null) {
+      cnt.stat=new RefRowStat[this.crossFs.length];
+      for (int i=0; i < this.crossFs.length; i++) {
+        cnt.stat[i]=new RefRowStat();
+      }
+    }
+    if (this.distFS != null) {
+      cnt.dist=new DistinctCount[this.distFS.length];
+      for (int i=0; i < this.distFS.length; i++) {
+        cnt.dist[i]=new DistinctCount();
+      }
+    }
+    if (smallestShardGroup == null) {
+      groups.put(group.copy(this.groupListCache),cnt);
+    }
+ else {
+      cnt.delayPut=true;
+    }
+  }
+  return cnt;
+}

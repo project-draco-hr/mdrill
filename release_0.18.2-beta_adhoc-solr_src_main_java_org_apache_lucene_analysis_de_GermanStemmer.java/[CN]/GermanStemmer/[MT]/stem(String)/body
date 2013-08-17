@@ -1,0 +1,12 @@
+{
+  term=term.toLowerCase();
+  if (!isStemmable(term))   return term;
+  sb.delete(0,sb.length());
+  sb.insert(0,term);
+  substitute(sb);
+  strip(sb);
+  optimize(sb);
+  resubstitute(sb);
+  removeParticleDenotion(sb);
+  return sb.toString();
+}

@@ -1,0 +1,6 @@
+{
+  this.fieldInfo=fieldInfo;
+  omitTermFreqAndPositions=fieldInfo.indexOptions == IndexOptions.DOCS_ONLY;
+  storePayloads=fieldInfo.storePayloads;
+  posWriter.setField(fieldInfo);
+}

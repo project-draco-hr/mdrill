@@ -1,0 +1,8 @@
+{
+  super();
+  this.sortField=realSort;
+  this.sortType=realSortPt;
+  this.order=order;
+  this.sortRow=sortRow;
+  this.isnum=isnum;
+}

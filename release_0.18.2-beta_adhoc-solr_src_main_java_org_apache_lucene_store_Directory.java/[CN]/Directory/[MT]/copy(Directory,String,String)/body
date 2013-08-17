@@ -1,0 +1,16 @@
+{
+  IndexOutput os=null;
+  IndexInput is=null;
+  IOException priorException=null;
+  try {
+    os=to.createOutput(dest);
+    is=openInput(src);
+    is.copyBytes(os,is.length());
+  }
+ catch (  IOException ioe) {
+    priorException=ioe;
+  }
+ finally {
+    IOUtils.closeWhileHandlingException(priorException,os,is);
+  }
+}

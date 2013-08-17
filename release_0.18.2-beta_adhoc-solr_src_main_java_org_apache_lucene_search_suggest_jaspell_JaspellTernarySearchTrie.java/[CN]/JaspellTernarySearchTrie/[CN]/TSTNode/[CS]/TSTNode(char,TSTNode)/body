@@ -1,0 +1,4 @@
+{
+  this.splitchar=splitchar;
+  relatives[PARENT]=parent;
+}

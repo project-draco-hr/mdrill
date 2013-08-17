@@ -1,0 +1,6 @@
+{
+  vals=new LinkedHashMap<String,String[]>();
+  if (params != null) {
+    this.add(params);
+  }
+}

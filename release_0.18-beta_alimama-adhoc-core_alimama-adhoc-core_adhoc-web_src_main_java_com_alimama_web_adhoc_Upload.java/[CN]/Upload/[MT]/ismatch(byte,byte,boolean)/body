@@ -1,0 +1,6 @@
+{
+  if (fuzzle) {
+    return mat == 42 || a == mat;
+  }
+  return a == mat;
+}

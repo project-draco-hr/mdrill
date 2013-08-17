@@ -1,0 +1,4 @@
+{
+  int h=vs.hashCode();
+  return (h << 1) | (h >>> 31);
+}

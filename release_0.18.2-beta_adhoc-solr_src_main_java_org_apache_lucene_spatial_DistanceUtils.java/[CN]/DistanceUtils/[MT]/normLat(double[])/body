@@ -1,0 +1,20 @@
+{
+  if (latLng[0] > DEG_90_AS_RADS) {
+    latLng[0]=DEG_90_AS_RADS - (latLng[0] - DEG_90_AS_RADS);
+    if (latLng[1] < 0) {
+      latLng[1]=latLng[1] + DEG_180_AS_RADS;
+    }
+ else {
+      latLng[1]=latLng[1] - DEG_180_AS_RADS;
+    }
+  }
+ else   if (latLng[0] < -DEG_90_AS_RADS) {
+    latLng[0]=-DEG_90_AS_RADS - (latLng[0] + DEG_90_AS_RADS);
+    if (latLng[1] < 0) {
+      latLng[1]=latLng[1] + DEG_180_AS_RADS;
+    }
+ else {
+      latLng[1]=latLng[1] - DEG_180_AS_RADS;
+    }
+  }
+}

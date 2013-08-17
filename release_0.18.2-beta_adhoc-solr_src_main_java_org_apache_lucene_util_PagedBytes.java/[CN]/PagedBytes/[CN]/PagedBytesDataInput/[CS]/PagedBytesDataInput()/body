@@ -1,0 +1,3 @@
+{
+  currentBlock=blocks.get(0);
+}

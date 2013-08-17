@@ -1,0 +1,26 @@
+{
+  super(in);
+  assert(!(in instanceof SolrIndexReader));
+  this.parent=parent;
+  this.base=base;
+  IndexReader subs[]=in.getSequentialSubReaders();
+  if (subs != null) {
+    subReaders=new SolrIndexReader[subs.length];
+    int numLeaves=subs.length;
+    leafOffsets=new int[numLeaves];
+    int b=0;
+    for (int i=0; i < subReaders.length; i++) {
+      SolrIndexReader sir=subReaders[i]=new SolrIndexReader(subs[i],this,b);
+      leafOffsets[i]=b;
+      b+=sir.maxDoc();
+      IndexReader subLeaves[]=sir.leafReaders;
+      numLeaves+=subLeaves.length - 1;
+    }
+    leafReaders=getLeaves(numLeaves);
+  }
+ else {
+    subReaders=null;
+    leafReaders=new SolrIndexReader[]{this};
+    leafOffsets=zeroIntArray;
+  }
+}

@@ -1,0 +1,6 @@
+{
+  this.conf=conf;
+  this.fs=FileSystem.get(this.conf);
+  this.write=this.fs.create(new Path(filepath));
+  this.startoffset=offset;
+}

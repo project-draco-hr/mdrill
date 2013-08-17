@@ -1,0 +1,15 @@
+{
+  if (!storeDir.exists() || !storeDir.isDirectory() || !storeDir.canWrite()) {
+    return false;
+  }
+  File data=new File(storeDir,FILENAME);
+  DataOutputStream out=new DataOutputStream(new FileOutputStream(data));
+  try {
+    writeRecursively(out,root);
+    out.flush();
+  }
+  finally {
+    out.close();
+  }
+  return true;
+}

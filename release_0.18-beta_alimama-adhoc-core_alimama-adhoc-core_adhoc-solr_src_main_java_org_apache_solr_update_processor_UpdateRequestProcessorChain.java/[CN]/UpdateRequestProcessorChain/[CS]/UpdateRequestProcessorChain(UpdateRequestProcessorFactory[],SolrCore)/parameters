@@ -1,0 +1,2 @@
+UpdateRequestProcessorFactory[] chain
+SolrCore solrCore

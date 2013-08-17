@@ -1,0 +1,4 @@
+{
+  float boost=getBoost();
+  return (boost != 1.0 ? "(" : "") + "geofilt(latlonSource=" + origField+ "("+ latSource+ ","+ lonSource+ ")"+ ",latCenter="+ latCenter+ ",lonCenter="+ lonCenter+ ",dist="+ dist+ ",latMin="+ latMin+ ",latMax="+ latMax+ ",lonMin="+ lonMin+ ",lonMax"+ lonMax+ ",lon2Min="+ lon2Min+ ",lon2Max"+ lon2Max+ ",calcDist="+ calcDist+ ",planetRadius="+ planetRadius+ ")"+ (boost == 1.0 ? "" : ")^" + boost);
+}

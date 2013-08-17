@@ -1,0 +1,6 @@
+{
+  LOG.info("Activating " + topologyName + ": "+ stormId);
+  StormStatus status=new StormStatus(StatusType.active);
+  StormBase stormBase=new StormBase(topologyName,TimeUtils.current_time_secs(),status);
+  stormClusterState.activate_storm(stormId,stormBase);
+}

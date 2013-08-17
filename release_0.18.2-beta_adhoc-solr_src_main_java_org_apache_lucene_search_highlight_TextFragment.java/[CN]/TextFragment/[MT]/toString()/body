@@ -1,0 +1,3 @@
+{
+  return markedUpText.subSequence(textStartPos,textEndPos).toString();
+}

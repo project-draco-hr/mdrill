@@ -1,0 +1,9 @@
+{
+  SortedVIntListBuilder builder=new SortedVIntListBuilder();
+  int nextInt=bits.nextSetBit(0);
+  while (nextInt != -1) {
+    builder.addInt(nextInt);
+    nextInt=bits.nextSetBit(nextInt + 1);
+  }
+  builder.done();
+}

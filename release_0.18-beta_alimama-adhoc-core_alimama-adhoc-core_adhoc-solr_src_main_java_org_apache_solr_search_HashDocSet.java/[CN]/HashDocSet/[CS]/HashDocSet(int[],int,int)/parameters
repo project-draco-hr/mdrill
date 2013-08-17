@@ -1,0 +1,3 @@
+int[] docs
+int offset
+int len

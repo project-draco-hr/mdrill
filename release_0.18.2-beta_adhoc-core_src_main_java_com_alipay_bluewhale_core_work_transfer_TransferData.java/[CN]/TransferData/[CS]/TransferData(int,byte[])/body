@@ -1,0 +1,4 @@
+{
+  this.taskid=taskid;
+  this.data=data;
+}

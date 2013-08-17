@@ -1,0 +1,9 @@
+{
+  if (useBracketsInExprList)   buffer.append("(");
+  for (Iterator iter=expressionList.getExpressions().iterator(); iter.hasNext(); ) {
+    Expression expression=(Expression)iter.next();
+    expression.accept(this);
+    if (iter.hasNext())     buffer.append(", ");
+  }
+  if (useBracketsInExprList)   buffer.append(")");
+}

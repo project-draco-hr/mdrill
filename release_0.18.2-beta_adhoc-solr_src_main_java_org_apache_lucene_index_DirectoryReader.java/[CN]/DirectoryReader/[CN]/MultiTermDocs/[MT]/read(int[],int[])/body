@@ -1,0 +1,30 @@
+{
+  while (true) {
+    while (current == null) {
+      if (pointer < readers.length) {
+        if (tenum != null) {
+          smi=tenum.matchingSegments[matchingSegmentPos++];
+          if (smi == null) {
+            pointer=readers.length;
+            return 0;
+          }
+          pointer=smi.ord;
+        }
+        base=starts[pointer];
+        current=termDocs(pointer++);
+      }
+ else {
+        return 0;
+      }
+    }
+    int end=current.read(docs,freqs);
+    if (end == 0) {
+      current=null;
+    }
+ else {
+      final int b=base;
+      for (int i=0; i < end; i++)       docs[i]+=b;
+      return end;
+    }
+  }
+}

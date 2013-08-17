@@ -1,0 +1,4 @@
+String source
+String[] search
+String prefix
+boolean without

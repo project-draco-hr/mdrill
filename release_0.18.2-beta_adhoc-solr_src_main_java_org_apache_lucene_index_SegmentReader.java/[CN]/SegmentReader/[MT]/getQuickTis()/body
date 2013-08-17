@@ -1,0 +1,3 @@
+{
+  return this.core.getTermsReader().getQuickTis();
+}

@@ -1,0 +1,3 @@
+{
+  if (lockFile.exists() && !lockFile.delete())   throw new LockReleaseFailedException("failed to delete " + lockFile);
+}

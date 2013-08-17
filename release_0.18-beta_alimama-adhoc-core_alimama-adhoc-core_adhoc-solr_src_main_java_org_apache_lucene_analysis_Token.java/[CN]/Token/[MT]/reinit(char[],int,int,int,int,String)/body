@@ -1,0 +1,10 @@
+{
+  clearNoTermBuffer();
+  copyBuffer(newTermBuffer,newTermOffset,newTermLength);
+  payload=null;
+  positionIncrement=1;
+  startOffset=newStartOffset;
+  endOffset=newEndOffset;
+  type=newType;
+  return this;
+}

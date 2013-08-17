@@ -1,0 +1,4 @@
+Directory d
+Analyzer a
+IndexDeletionPolicy deletionPolicy
+MaxFieldLength mfl

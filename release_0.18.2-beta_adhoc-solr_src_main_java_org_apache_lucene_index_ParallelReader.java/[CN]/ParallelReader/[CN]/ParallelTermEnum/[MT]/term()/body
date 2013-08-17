@@ -1,0 +1,4 @@
+{
+  if (termEnum == null)   return null;
+  return termEnum.term();
+}

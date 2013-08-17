@@ -1,0 +1,50 @@
+{
+  int v_1;
+  int v_2;
+  v_1=limit - cursor;
+  lab0:   do {
+    ket=cursor;
+    if (!(in_grouping_b(g_AEIO,97,242))) {
+      cursor=limit - v_1;
+      break lab0;
+    }
+    bra=cursor;
+    if (!r_RV()) {
+      cursor=limit - v_1;
+      break lab0;
+    }
+    slice_del();
+    ket=cursor;
+    if (!(eq_s_b(1,"i"))) {
+      cursor=limit - v_1;
+      break lab0;
+    }
+    bra=cursor;
+    if (!r_RV()) {
+      cursor=limit - v_1;
+      break lab0;
+    }
+    slice_del();
+  }
+ while (false);
+  v_2=limit - cursor;
+  lab1:   do {
+    ket=cursor;
+    if (!(eq_s_b(1,"h"))) {
+      cursor=limit - v_2;
+      break lab1;
+    }
+    bra=cursor;
+    if (!(in_grouping_b(g_CG,99,103))) {
+      cursor=limit - v_2;
+      break lab1;
+    }
+    if (!r_RV()) {
+      cursor=limit - v_2;
+      break lab1;
+    }
+    slice_del();
+  }
+ while (false);
+  return true;
+}

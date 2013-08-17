@@ -1,0 +1,20 @@
+{
+  n=Math.min(n,maxDoc());
+  FieldDocSortedHitQueue hq=new FieldDocSortedHitQueue(n);
+  int totalHits=0;
+  float maxScore=Float.NEGATIVE_INFINITY;
+  double sum=0.0f;
+  double max=Double.NEGATIVE_INFINITY;
+  double min=Double.POSITIVE_INFINITY;
+  for (int i=0; i < searchables.length; i++) {
+    final TopFieldDocs docs=new MultiSearcherCallableWithSort(DummyConcurrentLock.INSTANCE,searchables[i],weight,filter,n,hq,sort,i,starts).call();
+    totalHits+=docs.totalHits;
+    maxScore=Math.max(maxScore,docs.getMaxScore());
+    sum+=docs.getSum();
+    max=Math.max(max,docs.getMax());
+    min=Math.min(min,docs.getMin());
+  }
+  final ScoreDoc[] scoreDocs=new ScoreDoc[hq.size()];
+  for (int i=hq.size() - 1; i >= 0; i--)   scoreDocs[i]=hq.pop();
+  return new TopFieldDocs(totalHits,scoreDocs,hq.getFields(),maxScore,sum,max,min);
+}

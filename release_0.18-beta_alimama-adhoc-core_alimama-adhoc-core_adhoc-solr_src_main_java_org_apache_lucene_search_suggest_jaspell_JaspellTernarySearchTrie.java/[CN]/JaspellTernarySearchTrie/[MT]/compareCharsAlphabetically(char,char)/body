@@ -1,0 +1,3 @@
+{
+  return Character.toLowerCase(cCompare2) - Character.toLowerCase(cRef);
+}

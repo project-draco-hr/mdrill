@@ -1,0 +1,11 @@
+{
+  int h=source.hashCode();
+  h^=(h << 10) | (h >>> 23);
+  h+=Float.floatToIntBits(min);
+  h^=(h << 14) | (h >>> 19);
+  h+=Float.floatToIntBits(max);
+  h^=(h << 13) | (h >>> 20);
+  h+=Float.floatToIntBits(target);
+  if (defaultVal != null)   h+=defaultVal.hashCode();
+  return h;
+}

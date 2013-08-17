@@ -1,0 +1,5 @@
+{
+  this.formatter=formatter;
+  this.encoder=encoder;
+  this.fragmentScorer=fragmentScorer;
+}

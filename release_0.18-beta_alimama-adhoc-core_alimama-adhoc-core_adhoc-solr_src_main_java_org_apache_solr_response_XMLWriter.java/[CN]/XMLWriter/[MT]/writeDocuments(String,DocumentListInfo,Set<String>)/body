@@ -1,0 +1,33 @@
+{
+  boolean includeScore=false;
+  if (fields != null) {
+    includeScore=fields.contains("score");
+    if (fields.size() == 0 || (fields.size() == 1 && includeScore) || fields.contains("*")) {
+      fields=null;
+    }
+  }
+  int sz=docs.getCount();
+  if (doIndent)   indent();
+  writer.write("<result");
+  writeAttr("name",name);
+  writeAttr("numFound",Long.toString(docs.getNumFound()));
+  writeAttr("start",Long.toString(docs.getStart()));
+  if (includeScore && docs.getMaxScore() != null) {
+    writeAttr("maxScore",Float.toString(docs.getMaxScore()));
+  }
+  writeAttr("sum",Double.toString(docs.getSum()));
+  writeAttr("max",Double.toString(docs.getMax()));
+  writeAttr("min",Double.toString(docs.getMin()));
+  if (sz == 0) {
+    writer.write("/>");
+    return;
+  }
+ else {
+    writer.write('>');
+  }
+  incLevel();
+  docs.writeDocs(includeScore,fields);
+  decLevel();
+  if (doIndent)   indent();
+  writer.write("</result>");
+}

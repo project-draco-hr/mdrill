@@ -1,0 +1,2 @@
+DocumentsWriter.DocState docState
+StoredFieldsWriter storedFieldsWriter

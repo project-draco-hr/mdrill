@@ -1,0 +1,8 @@
+{
+  if (set.compareAndSet(false,true)) {
+    this.obj=obj;
+  }
+ else {
+    throw new AlreadySetException();
+  }
+}

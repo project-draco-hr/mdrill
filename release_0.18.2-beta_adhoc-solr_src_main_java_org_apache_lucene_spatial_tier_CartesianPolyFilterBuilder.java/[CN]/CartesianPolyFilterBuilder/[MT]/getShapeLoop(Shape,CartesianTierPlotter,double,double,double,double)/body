@@ -1,0 +1,29 @@
+{
+  double beginAt=ctp.getTierBoxId(latX,longX);
+  double endAt=ctp.getTierBoxId(latY,longY);
+  if (beginAt > endAt) {
+    double tmp=beginAt;
+    beginAt=endAt;
+    endAt=tmp;
+  }
+  double tierVert=ctp.getTierVerticalPosDivider();
+  double startX=beginAt - (beginAt % 1);
+  double startY=beginAt - startX;
+  double endX=endAt - (endAt % 1);
+  double endY=endAt - endX;
+  int scale=(int)Math.log10(tierVert);
+  endY=new BigDecimal(endY).setScale(scale,RoundingMode.HALF_EVEN).doubleValue();
+  startY=new BigDecimal(startY).setScale(scale,RoundingMode.HALF_EVEN).doubleValue();
+  double xInc=1.0d / tierVert;
+  xInc=new BigDecimal(xInc).setScale(scale,RoundingMode.HALF_EVEN).doubleValue();
+  for (; startX <= endX; startX++) {
+    double itY=startY;
+    while (itY <= endY) {
+      double boxId=startX + itY;
+      shape.addBox(boxId);
+      itY+=xInc;
+      itY=new BigDecimal(itY).setScale(scale,RoundingMode.HALF_EVEN).doubleValue();
+    }
+  }
+  return shape;
+}

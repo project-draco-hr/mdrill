@@ -1,0 +1,48 @@
+{
+  HashMap<String,String[]> statFieldAll=new HashMap<String,String[]>();
+  ArrayList<String> ext=row.getExtList();
+  if (ext != null) {
+    for (    String extStr : ext) {
+      String[] extValues=extStr.split(",");
+      if (extValues.length >= 4) {
+        String field=extValues[0];
+        String[] mapValue=statFieldAll.get(extValues[0]);
+        if (mapValue == null) {
+          mapValue=new String[6];
+          statFieldAll.put(field,mapValue);
+        }
+        boolean isCountNull=false;
+        if (field.indexOf("higoempty_") >= 0) {
+          isCountNull=true;
+        }
+        mapValue[0]=String.valueOf(isCountNull ? row.getCount() : 0);
+        mapValue[1]=extValues[1];
+        mapValue[2]=extValues[2];
+        mapValue[3]=extValues[3];
+        double tempValue=Double.parseDouble(extValues[1]);
+        if (row.getCount() != 0) {
+          mapValue[4]="" + (tempValue / row.getCount());
+        }
+ else {
+          mapValue[4]="0";
+        }
+        if (extValues.length >= 5) {
+          mapValue[5]=extValues[4];
+        }
+ else {
+          mapValue[5]="0";
+        }
+        if (extValues.length >= 6) {
+          double cnt=Double.parseDouble(extValues[5]);
+          if (cnt > 0) {
+            mapValue[4]="" + (tempValue / cnt);
+          }
+          if (!isCountNull) {
+            mapValue[0]=String.valueOf((long)cnt);
+          }
+        }
+      }
+    }
+  }
+  return statFieldAll;
+}

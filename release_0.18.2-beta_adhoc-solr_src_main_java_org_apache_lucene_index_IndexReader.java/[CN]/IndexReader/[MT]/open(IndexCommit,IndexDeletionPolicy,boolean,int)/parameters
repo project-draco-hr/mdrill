@@ -1,0 +1,4 @@
+IndexCommit commit
+IndexDeletionPolicy deletionPolicy
+boolean readOnly
+int termInfosIndexDivisor

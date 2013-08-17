@@ -1,0 +1,4 @@
+HashSet<String> namelist
+String startday
+int dayDelay
+int maxRunDays

@@ -1,0 +1,11 @@
+{
+  this.writer=writer;
+  if (alwaysApplyDeletes) {
+    withoutDeletes=withDeletes=new SearcherManagerRef(true,0,new SearcherManager(writer,true,warmer,es));
+  }
+ else {
+    withDeletes=new SearcherManagerRef(true,0,new SearcherManager(writer,true,warmer,es));
+    withoutDeletes=new SearcherManagerRef(false,0,new SearcherManager(writer,false,warmer,es));
+  }
+  indexingGen=new AtomicLong(1);
+}

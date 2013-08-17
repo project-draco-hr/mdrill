@@ -1,0 +1,6 @@
+{
+  super("Elapsed time: " + timeElapsed + "Exceeded allowed search time: "+ timeAllowed+ " ms.");
+  this.timeAllowed=timeAllowed;
+  this.timeElapsed=timeElapsed;
+  this.lastDocCollected=lastDocCollected;
+}

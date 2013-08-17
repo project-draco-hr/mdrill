@@ -1,0 +1,15 @@
+{
+  flush();
+  final long end=file.length;
+  long pos=0;
+  int buffer=0;
+  while (pos < end) {
+    int length=BUFFER_SIZE;
+    long nextPos=pos + length;
+    if (nextPos > end) {
+      length=(int)(end - pos);
+    }
+    out.writeBytes(file.getBuffer(buffer++),length);
+    pos=nextPos;
+  }
+}

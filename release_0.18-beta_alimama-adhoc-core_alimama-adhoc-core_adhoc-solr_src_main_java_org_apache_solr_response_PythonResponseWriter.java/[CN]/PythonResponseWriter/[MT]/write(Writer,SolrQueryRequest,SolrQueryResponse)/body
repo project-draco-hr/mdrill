@@ -1,0 +1,9 @@
+{
+  PythonWriter w=new PythonWriter(writer,req,rsp);
+  try {
+    w.writeResponse();
+  }
+  finally {
+    w.close();
+  }
+}

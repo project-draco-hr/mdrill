@@ -1,0 +1,346 @@
+{
+  int idx=idxStart;
+  int next, opcode, opdata;
+  int idxNew;
+  char[] instruction=program.instruction;
+  for (int node=firstNode; node < lastNode; ) {
+    opcode=instruction[node + offsetOpcode];
+    next=node + (short)instruction[node + offsetNext];
+    opdata=instruction[node + offsetOpdata];
+switch (opcode) {
+case OP_RELUCTANTMAYBE:
+{
+        int once=0;
+        do {
+          if ((idxNew=matchNodes(next,maxNode,idx)) != -1) {
+            return idxNew;
+          }
+        }
+ while ((once++ == 0) && (idx=matchNodes(node + nodeSize,next,idx)) != -1);
+        return -1;
+      }
+case OP_RELUCTANTPLUS:
+    while ((idx=matchNodes(node + nodeSize,next,idx)) != -1) {
+      if ((idxNew=matchNodes(next,maxNode,idx)) != -1) {
+        return idxNew;
+      }
+    }
+  return -1;
+case OP_RELUCTANTSTAR:
+do {
+  if ((idxNew=matchNodes(next,maxNode,idx)) != -1) {
+    return idxNew;
+  }
+}
+ while ((idx=matchNodes(node + nodeSize,next,idx)) != -1);
+return -1;
+case OP_OPEN:
+if ((program.flags & REProgram.OPT_HASBACKREFS) != 0) {
+startBackref[opdata]=idx;
+}
+if ((idxNew=matchNodes(next,maxNode,idx)) != -1) {
+if ((opdata + 1) > parenCount) {
+parenCount=opdata + 1;
+}
+if (getParenStart(opdata) == -1) {
+setParenStart(opdata,idx);
+}
+}
+return idxNew;
+case OP_CLOSE:
+if ((program.flags & REProgram.OPT_HASBACKREFS) != 0) {
+endBackref[opdata]=idx;
+}
+if ((idxNew=matchNodes(next,maxNode,idx)) != -1) {
+if ((opdata + 1) > parenCount) {
+parenCount=opdata + 1;
+}
+if (getParenEnd(opdata) == -1) {
+setParenEnd(opdata,idx);
+}
+}
+return idxNew;
+case OP_OPEN_CLUSTER:
+case OP_CLOSE_CLUSTER:
+return matchNodes(next,maxNode,idx);
+case OP_BACKREF:
+{
+int s=startBackref[opdata];
+int e=endBackref[opdata];
+if (s == -1 || e == -1) {
+return -1;
+}
+if (s == e) {
+break;
+}
+int l=e - s;
+if (search.isEnd(idx + l - 1)) {
+return -1;
+}
+final boolean caseFold=((matchFlags & MATCH_CASEINDEPENDENT) != 0);
+for (int i=0; i < l; i++) {
+if (compareChars(search.charAt(idx++),search.charAt(s + i),caseFold) != 0) {
+return -1;
+}
+}
+}
+break;
+case OP_BOL:
+if (idx != 0) {
+if ((matchFlags & MATCH_MULTILINE) == MATCH_MULTILINE) {
+if (idx <= 0 || !isNewline(idx - 1)) {
+return -1;
+}
+ else {
+break;
+}
+}
+return -1;
+}
+break;
+case OP_EOL:
+if (!search.isEnd(0) && !search.isEnd(idx)) {
+if ((matchFlags & MATCH_MULTILINE) == MATCH_MULTILINE) {
+if (!isNewline(idx)) {
+return -1;
+}
+ else {
+break;
+}
+}
+return -1;
+}
+break;
+case OP_ESCAPE:
+switch (opdata) {
+case E_NBOUND:
+case E_BOUND:
+{
+char cLast=((idx == 0) ? '\n' : search.charAt(idx - 1));
+char cNext=((search.isEnd(idx)) ? '\n' : search.charAt(idx));
+if ((Character.isLetterOrDigit(cLast) == Character.isLetterOrDigit(cNext)) == (opdata == E_BOUND)) {
+return -1;
+}
+}
+break;
+case E_ALNUM:
+case E_NALNUM:
+case E_DIGIT:
+case E_NDIGIT:
+case E_SPACE:
+case E_NSPACE:
+if (search.isEnd(idx)) {
+return -1;
+}
+char c=search.charAt(idx);
+switch (opdata) {
+case E_ALNUM:
+case E_NALNUM:
+if (!((Character.isLetterOrDigit(c) || c == '_') == (opdata == E_ALNUM))) {
+return -1;
+}
+break;
+case E_DIGIT:
+case E_NDIGIT:
+if (!(Character.isDigit(c) == (opdata == E_DIGIT))) {
+return -1;
+}
+break;
+case E_SPACE:
+case E_NSPACE:
+if (!(Character.isWhitespace(c) == (opdata == E_SPACE))) {
+return -1;
+}
+break;
+}
+idx++;
+break;
+default :
+internalError("Unrecognized escape '" + opdata + "'");
+}
+break;
+case OP_ANY:
+if ((matchFlags & MATCH_SINGLELINE) == MATCH_SINGLELINE) {
+if (search.isEnd(idx)) {
+return -1;
+}
+}
+ else {
+if (search.isEnd(idx) || isNewline(idx)) {
+return -1;
+}
+}
+idx++;
+break;
+case OP_ATOM:
+{
+if (search.isEnd(idx)) {
+return -1;
+}
+int lenAtom=opdata;
+int startAtom=node + nodeSize;
+if (search.isEnd(lenAtom + idx - 1)) {
+return -1;
+}
+final boolean caseFold=((matchFlags & MATCH_CASEINDEPENDENT) != 0);
+for (int i=0; i < lenAtom; i++) {
+if (compareChars(search.charAt(idx++),instruction[startAtom + i],caseFold) != 0) {
+return -1;
+}
+}
+}
+break;
+case OP_POSIXCLASS:
+{
+if (search.isEnd(idx)) {
+return -1;
+}
+switch (opdata) {
+case POSIX_CLASS_ALNUM:
+if (!Character.isLetterOrDigit(search.charAt(idx))) {
+return -1;
+}
+break;
+case POSIX_CLASS_ALPHA:
+if (!Character.isLetter(search.charAt(idx))) {
+return -1;
+}
+break;
+case POSIX_CLASS_DIGIT:
+if (!Character.isDigit(search.charAt(idx))) {
+return -1;
+}
+break;
+case POSIX_CLASS_BLANK:
+if (!Character.isSpaceChar(search.charAt(idx))) {
+return -1;
+}
+break;
+case POSIX_CLASS_SPACE:
+if (!Character.isWhitespace(search.charAt(idx))) {
+return -1;
+}
+break;
+case POSIX_CLASS_CNTRL:
+if (Character.getType(search.charAt(idx)) != Character.CONTROL) {
+return -1;
+}
+break;
+case POSIX_CLASS_GRAPH:
+switch (Character.getType(search.charAt(idx))) {
+case Character.MATH_SYMBOL:
+case Character.CURRENCY_SYMBOL:
+case Character.MODIFIER_SYMBOL:
+case Character.OTHER_SYMBOL:
+break;
+default :
+return -1;
+}
+break;
+case POSIX_CLASS_LOWER:
+if (Character.getType(search.charAt(idx)) != Character.LOWERCASE_LETTER) {
+return -1;
+}
+break;
+case POSIX_CLASS_UPPER:
+if (Character.getType(search.charAt(idx)) != Character.UPPERCASE_LETTER) {
+return -1;
+}
+break;
+case POSIX_CLASS_PRINT:
+if (Character.getType(search.charAt(idx)) == Character.CONTROL) {
+return -1;
+}
+break;
+case POSIX_CLASS_PUNCT:
+{
+int type=Character.getType(search.charAt(idx));
+switch (type) {
+case Character.DASH_PUNCTUATION:
+case Character.START_PUNCTUATION:
+case Character.END_PUNCTUATION:
+case Character.CONNECTOR_PUNCTUATION:
+case Character.OTHER_PUNCTUATION:
+break;
+default :
+return -1;
+}
+}
+break;
+case POSIX_CLASS_XDIGIT:
+{
+boolean isXDigit=((search.charAt(idx) >= '0' && search.charAt(idx) <= '9') || (search.charAt(idx) >= 'a' && search.charAt(idx) <= 'f') || (search.charAt(idx) >= 'A' && search.charAt(idx) <= 'F'));
+if (!isXDigit) {
+return -1;
+}
+}
+break;
+case POSIX_CLASS_JSTART:
+if (!Character.isJavaIdentifierStart(search.charAt(idx))) {
+return -1;
+}
+break;
+case POSIX_CLASS_JPART:
+if (!Character.isJavaIdentifierPart(search.charAt(idx))) {
+return -1;
+}
+break;
+default :
+internalError("Bad posix class");
+break;
+}
+idx++;
+}
+break;
+case OP_ANYOF:
+{
+if (search.isEnd(idx)) {
+return -1;
+}
+char c=search.charAt(idx);
+boolean caseFold=(matchFlags & MATCH_CASEINDEPENDENT) != 0;
+int idxRange=node + nodeSize;
+int idxEnd=idxRange + (opdata * 2);
+boolean match=false;
+for (int i=idxRange; !match && i < idxEnd; ) {
+char s=instruction[i++];
+char e=instruction[i++];
+match=((compareChars(c,s,caseFold) >= 0) && (compareChars(c,e,caseFold) <= 0));
+}
+if (!match) {
+return -1;
+}
+idx++;
+}
+break;
+case OP_BRANCH:
+{
+if (instruction[next + offsetOpcode] != OP_BRANCH) {
+node+=nodeSize;
+continue;
+}
+short nextBranch;
+do {
+if ((idxNew=matchNodes(node + nodeSize,maxNode,idx)) != -1) {
+return idxNew;
+}
+nextBranch=(short)instruction[node + offsetNext];
+node+=nextBranch;
+}
+ while (nextBranch != 0 && (instruction[node + offsetOpcode] == OP_BRANCH));
+return -1;
+}
+case OP_NOTHING:
+case OP_GOTO:
+break;
+case OP_END:
+setParenEnd(0,idx);
+return idx;
+default :
+internalError("Invalid opcode '" + opcode + "'");
+}
+node=next;
+}
+internalError("Corrupt program");
+return -1;
+}

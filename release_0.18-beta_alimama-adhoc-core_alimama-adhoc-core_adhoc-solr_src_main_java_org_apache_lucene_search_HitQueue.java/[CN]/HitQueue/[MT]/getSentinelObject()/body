@@ -1,0 +1,3 @@
+{
+  return !prePopulate ? null : new ScoreDoc(Integer.MAX_VALUE,Float.NEGATIVE_INFINITY);
+}

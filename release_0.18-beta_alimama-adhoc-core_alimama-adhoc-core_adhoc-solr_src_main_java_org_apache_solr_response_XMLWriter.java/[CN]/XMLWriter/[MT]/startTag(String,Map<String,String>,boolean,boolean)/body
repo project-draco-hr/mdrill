@@ -1,0 +1,16 @@
+{
+  if (doIndent)   indent();
+  writer.write('<');
+  writer.write(tag);
+  if (!attributes.isEmpty()) {
+    for (    Map.Entry<String,String> entry : attributes.entrySet()) {
+      writeAttr(entry.getKey(),entry.getValue(),escape);
+    }
+  }
+  if (closeTag) {
+    writer.write("/>");
+  }
+ else {
+    writer.write('>');
+  }
+}

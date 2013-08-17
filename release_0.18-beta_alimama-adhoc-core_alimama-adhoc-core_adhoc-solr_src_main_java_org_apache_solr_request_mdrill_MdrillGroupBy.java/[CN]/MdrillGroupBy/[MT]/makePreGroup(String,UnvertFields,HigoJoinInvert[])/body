@@ -1,0 +1,21 @@
+{
+  String[] values=EncodeUtils.decode(g.split(UniqConfig.GroupJoinString()));
+  GroupList group=GroupList.INSTANCE(this.groupListCache,values.length);
+  group.reset();
+  for (  int i : ufs.listIndex) {
+    UnvertFile uf=ufs.cols[i];
+    try {
+      group.list[i]=uf.uif.getTermNum(uf.ti,values[i],uf.filetype);
+    }
+ catch (    Throwable e) {
+      LOG.error("makePreGroup",e);
+      group.list[i]=uf.uif.getNullTm();
+    }
+  }
+  int joinoffset=ufs.length;
+  for (  HigoJoinInvert inv : joinInvert) {
+    inv.setfieldNum(values,joinoffset,group);
+    joinoffset+=inv.fieldCount();
+  }
+  return group;
+}

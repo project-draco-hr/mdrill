@@ -1,0 +1,23 @@
+{
+  if (this.bitset == null) {
+    return;
+  }
+  long[] list=this.bitset.getBits();
+  int count=0;
+  for (int i=0; i < list.length; i++) {
+    long bit=list[i];
+    if (bit != 0) {
+      bitMaps.put(i,new LongBit(bit));
+    }
+    count++;
+    if (count > oversize) {
+      isover=true;
+      break;
+    }
+  }
+  this.bitset=null;
+  if (isover) {
+    this.bitMaps.clear();
+    this.bitMaps=null;
+  }
+}

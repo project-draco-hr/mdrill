@@ -1,0 +1,3 @@
+URLClassLoader oldLoader
+File base
+FileFilter filter

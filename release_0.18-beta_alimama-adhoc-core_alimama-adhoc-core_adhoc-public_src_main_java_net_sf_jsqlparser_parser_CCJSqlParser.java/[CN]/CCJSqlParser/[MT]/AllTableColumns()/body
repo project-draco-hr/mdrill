@@ -1,0 +1,10 @@
+{
+  Table table=null;
+  table=Table();
+  jj_consume_token(81);
+  jj_consume_token(82);
+{
+    if (true)     return new AllTableColumns(table);
+  }
+  throw new Error("Missing return statement in function");
+}

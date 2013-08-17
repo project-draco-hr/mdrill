@@ -1,0 +1,7 @@
+{
+  Integer fileNum=this.fieldInfos().fieldNumber(field);
+  HashMap<Integer,Integer> fileCount=core.getTermsReader().fieldCount;
+  int rtn=fileCount.get(fileNum);
+  log.info("##getCount##" + fileNum + "@"+ field+ ","+ rtn);
+  return rtn;
+}

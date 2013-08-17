@@ -1,0 +1,6 @@
+{
+  this.term=term;
+  String text=term.text();
+  this.termContainsWildcard=(text.indexOf('*') != -1) || (text.indexOf('?') != -1);
+  this.termIsPrefix=termContainsWildcard && (text.indexOf('?') == -1) && (text.indexOf('*') == text.length() - 1);
+}

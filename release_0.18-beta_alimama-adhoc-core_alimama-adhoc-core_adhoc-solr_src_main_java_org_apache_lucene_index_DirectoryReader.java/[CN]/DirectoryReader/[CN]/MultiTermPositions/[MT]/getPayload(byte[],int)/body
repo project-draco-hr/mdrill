@@ -1,0 +1,3 @@
+{
+  return ((TermPositions)current).getPayload(data,offset);
+}

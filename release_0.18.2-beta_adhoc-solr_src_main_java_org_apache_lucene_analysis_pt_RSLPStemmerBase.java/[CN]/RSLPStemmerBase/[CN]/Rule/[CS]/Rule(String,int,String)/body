@@ -1,0 +1,5 @@
+{
+  this.suffix=suffix.toCharArray();
+  this.replacement=replacement.toCharArray();
+  this.min=min;
+}

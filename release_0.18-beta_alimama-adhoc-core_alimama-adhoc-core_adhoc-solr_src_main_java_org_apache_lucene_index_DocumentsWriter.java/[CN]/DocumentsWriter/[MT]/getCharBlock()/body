@@ -1,0 +1,10 @@
+{
+  final int size=freeCharBlocks.size();
+  final char[] c;
+  if (0 == size) {
+    bytesUsed.addAndGet(CHAR_BLOCK_SIZE * RamUsageEstimator.NUM_BYTES_CHAR);
+    c=new char[CHAR_BLOCK_SIZE];
+  }
+ else   c=freeCharBlocks.remove(size - 1);
+  return c;
+}

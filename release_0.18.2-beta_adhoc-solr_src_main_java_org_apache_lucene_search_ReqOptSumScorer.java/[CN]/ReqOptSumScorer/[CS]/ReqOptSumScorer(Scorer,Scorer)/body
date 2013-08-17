@@ -1,0 +1,5 @@
+{
+  super(reqScorer.weight);
+  this.reqScorer=reqScorer;
+  this.optScorer=optScorer;
+}

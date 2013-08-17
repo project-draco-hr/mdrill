@@ -1,0 +1,3 @@
+String tierPrefix
+int minTierIndexed
+int maxTierIndexed

@@ -1,0 +1,8 @@
+{
+  Semaphore sem=this.idtoSem.get(id);
+  LOG.debug("failRequest result  for id " + id + " at "+ (System.currentTimeMillis()));
+  if (sem != null) {
+    this.idtoResult.put(id,new DRPCExecutionException("Request failed"));
+    sem.release();
+  }
+}

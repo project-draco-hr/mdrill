@@ -1,0 +1,8 @@
+{
+  try {
+    fieldsWriter.abort();
+  }
+  finally {
+    consumer.abort();
+  }
+}

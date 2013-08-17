@@ -1,0 +1,13 @@
+{
+  TokenStream ts=null;
+  TermFreqVector tfv=reader.getTermFreqVector(docId,field);
+  if (tfv != null) {
+    if (tfv instanceof TermPositionVector) {
+      ts=getTokenStream((TermPositionVector)tfv);
+    }
+  }
+  if (ts == null) {
+    ts=getTokenStream(doc,field,analyzer);
+  }
+  return ts;
+}

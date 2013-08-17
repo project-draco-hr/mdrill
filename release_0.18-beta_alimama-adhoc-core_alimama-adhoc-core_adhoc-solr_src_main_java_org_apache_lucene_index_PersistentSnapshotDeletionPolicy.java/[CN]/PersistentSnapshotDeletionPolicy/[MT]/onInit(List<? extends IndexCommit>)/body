@@ -1,0 +1,4 @@
+{
+  super.onInit(commits);
+  persistSnapshotInfos(null,null);
+}

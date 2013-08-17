@@ -1,0 +1,3 @@
+{
+  return new FixedLatLng((lat + other.getFixedLat()) / 2,(lng + other.getFixedLng()) / 2);
+}

@@ -1,0 +1,4 @@
+{
+  doCommit(commitUserData);
+  hasChanges=false;
+}

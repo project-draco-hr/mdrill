@@ -1,0 +1,10 @@
+{
+synchronized (lock) {
+    Date now=new java.util.Date();
+    ;
+    if (now.getTime() - this.lastsynctime.getTime() > 10000) {
+      this.lastsynctime=now;
+      this.sync();
+    }
+  }
+}

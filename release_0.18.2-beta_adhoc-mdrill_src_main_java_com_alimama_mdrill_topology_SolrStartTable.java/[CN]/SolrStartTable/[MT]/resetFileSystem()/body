@@ -1,0 +1,4 @@
+{
+  this.fs=FileSystem.get(this.conf);
+  this.lfs=FileSystem.getLocal(this.conf);
+}

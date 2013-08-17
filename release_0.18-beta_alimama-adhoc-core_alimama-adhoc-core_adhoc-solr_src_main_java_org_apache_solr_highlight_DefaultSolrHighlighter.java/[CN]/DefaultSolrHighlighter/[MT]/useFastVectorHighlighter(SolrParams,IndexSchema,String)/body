@@ -1,0 +1,4 @@
+{
+  SchemaField schemaField=schema.getFieldOrNull(fieldName);
+  return schemaField != null && schemaField.storeTermPositions() && schemaField.storeTermOffsets() && params.getFieldBool(fieldName,HighlightParams.USE_FVH,false);
+}

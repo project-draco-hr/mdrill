@@ -1,0 +1,9 @@
+{
+  SolrInputField field=_fields.get(name);
+  if (field == null || field.value == null) {
+    setField(name,value,boost);
+  }
+ else {
+    field.addValue(value,boost);
+  }
+}

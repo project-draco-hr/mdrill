@@ -1,0 +1,9 @@
+{
+  validate_basic(topology);
+  StormTopology ret=topology.deepCopy();
+  String key=Config.TOPOLOGY_ACKERS;
+  Integer ackercount=StormUtils.parseInt(storm_conf.get(key));
+  add_acker(ackercount,ret);
+  add_system_streams(ret);
+  return ret;
+}

@@ -1,0 +1,37 @@
+{
+  LOG.info("init: " + config);
+  String name=super.init(config,core);
+  threshold=config.get(THRESHOLD_TOKEN_FREQUENCY) == null ? 0.0f : (Float)config.get(THRESHOLD_TOKEN_FREQUENCY);
+  sourceLocation=(String)config.get(LOCATION);
+  lookupImpl=(String)config.get(LOOKUP_IMPL);
+  if (lookupImpl == null || "org.apache.solr.spelling.suggest.jaspell.JaspellLookup".equals(lookupImpl)) {
+    lookupImpl=JaspellLookupFactory.class.getName();
+  }
+ else   if ("org.apache.solr.spelling.suggest.tst.TSTLookup".equals(lookupImpl)) {
+    lookupImpl=TSTLookupFactory.class.getName();
+  }
+ else   if ("org.apache.solr.spelling.suggest.fst.FSTLookup".equals(lookupImpl)) {
+    lookupImpl=FSTLookupFactory.class.getName();
+  }
+  LookupFactory factory=(LookupFactory)core.getResourceLoader().newInstance(lookupImpl);
+  lookup=factory.create(config,core);
+  String store=(String)config.get(STORE_DIR);
+  if (store != null) {
+    storeDir=new File(store);
+    if (!storeDir.isAbsolute()) {
+      storeDir=new File(core.getDataDir() + File.separator + storeDir);
+    }
+    if (!storeDir.exists()) {
+      storeDir.mkdirs();
+    }
+ else {
+      try {
+        lookup.load(storeDir);
+      }
+ catch (      IOException e) {
+        LOG.warn("Loading stored lookup data failed",e);
+      }
+    }
+  }
+  return name;
+}

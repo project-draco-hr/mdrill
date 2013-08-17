@@ -1,0 +1,26 @@
+{
+  int len=text.length();
+  for (int ng=ng1; ng <= ng2; ng++) {
+    String key="gram" + ng;
+    String end=null;
+    for (int i=0; i < len - ng + 1; i++) {
+      String gram=text.substring(i,i + ng);
+      Field ngramField=new Field(key,gram,Field.Store.NO,Field.Index.NOT_ANALYZED);
+      ngramField.setIndexOptions(IndexOptions.DOCS_AND_FREQS);
+      doc.add(ngramField);
+      if (i == 0) {
+        Field startField=new Field("start" + ng,gram,Field.Store.NO,Field.Index.NOT_ANALYZED);
+        startField.setIndexOptions(IndexOptions.DOCS_ONLY);
+        startField.setOmitNorms(true);
+        doc.add(startField);
+      }
+      end=gram;
+    }
+    if (end != null) {
+      Field endField=new Field("end" + ng,end,Field.Store.NO,Field.Index.NOT_ANALYZED);
+      endField.setIndexOptions(IndexOptions.DOCS_ONLY);
+      endField.setOmitNorms(true);
+      doc.add(endField);
+    }
+  }
+}

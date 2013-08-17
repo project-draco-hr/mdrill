@@ -1,0 +1,9 @@
+{
+  if (other == null)   return;
+  map.put(other.getWrappedReader(),other.info);
+  SolrIndexReader[] readers=other.getSequentialSubReaders();
+  if (readers == null)   return;
+  for (  SolrIndexReader r : readers) {
+    buildInfoMap(r,map);
+  }
+}

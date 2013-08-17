@@ -1,0 +1,7 @@
+{
+  if (this.istmp) {
+    cleandir(path.getParent(),conf);
+  }
+  FileSystem fs=FileSystem.get(conf);
+  fs.mkdirs(path.getParent());
+}

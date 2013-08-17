@@ -1,0 +1,3 @@
+{
+  if (!isOpen)   throw new AlreadyClosedException("this Directory is closed");
+}

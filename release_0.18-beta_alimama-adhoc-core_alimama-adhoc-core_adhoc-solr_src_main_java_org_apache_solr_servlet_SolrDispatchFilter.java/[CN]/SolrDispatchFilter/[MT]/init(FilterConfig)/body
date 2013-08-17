@@ -1,0 +1,27 @@
+{
+  log.info("SolrDispatchFilter.init()");
+  boolean abortOnConfigurationError=true;
+  CoreContainer.Initializer init=createInitializer();
+  try {
+    this.cores=init.initialize();
+    abortOnConfigurationError=init.isAbortOnConfigurationError();
+  }
+ catch (  Throwable t) {
+    log.error("Could not start Solr. Check solr/home property",t);
+    SolrConfig.severeErrors.add(t);
+    SolrCore.log(t);
+    CoreContainer.setException();
+  }
+  if (abortOnConfigurationError && SolrConfig.severeErrors.size() > 0) {
+    StringWriter sw=new StringWriter();
+    PrintWriter out=new PrintWriter(sw);
+    out.println("Severe errors in solr configuration.\n");
+    for (    Throwable t : SolrConfig.severeErrors) {
+      out.println("-------------------------------------------------------------");
+      t.printStackTrace(out);
+    }
+    out.flush();
+    abortErrorMessage=sw.toString();
+  }
+  log.info("SolrDispatchFilter.init() done");
+}

@@ -1,0 +1,7 @@
+{
+  AttributeImpl attImpl=attributes.get(attClass);
+  if (attImpl == null) {
+    throw new IllegalArgumentException("This AttributeSource does not have the attribute '" + attClass.getName() + "'.");
+  }
+  return attClass.cast(attImpl);
+}

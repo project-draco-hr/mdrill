@@ -1,0 +1,7 @@
+{
+  String val=params.get(param);
+  if (val == null) {
+    throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,"Missing required parameter: " + param);
+  }
+  return val;
+}

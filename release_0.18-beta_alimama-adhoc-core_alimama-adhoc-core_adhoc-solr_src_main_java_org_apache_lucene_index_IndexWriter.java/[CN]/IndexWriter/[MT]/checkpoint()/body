@@ -1,0 +1,5 @@
+{
+  changeCount++;
+  segmentInfos.changed();
+  deleter.checkpoint(segmentInfos,false);
+}

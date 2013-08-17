@@ -1,0 +1,5 @@
+{
+  final StringBuilder sb=new StringBuilder();
+  if (!this.field.equals(field))   sb.append(this.field).append(':');
+  return sb.append(minInclusive ? '[' : '{').append((min == null) ? "*" : min.toString()).append(" TO ").append((max == null) ? "*" : max.toString()).append(maxInclusive ? ']' : '}').append(ToStringUtils.boost(getBoost())).toString();
+}

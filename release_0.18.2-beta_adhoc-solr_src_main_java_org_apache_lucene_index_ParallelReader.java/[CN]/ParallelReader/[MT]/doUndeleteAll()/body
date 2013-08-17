@@ -1,0 +1,6 @@
+{
+  for (  final IndexReader reader : readers) {
+    reader.undeleteAll();
+  }
+  hasDeletions=false;
+}

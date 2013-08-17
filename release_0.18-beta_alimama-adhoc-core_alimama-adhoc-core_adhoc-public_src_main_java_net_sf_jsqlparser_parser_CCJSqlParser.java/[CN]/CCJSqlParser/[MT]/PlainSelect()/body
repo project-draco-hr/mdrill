@@ -1,0 +1,122 @@
+{
+  PlainSelect plainSelect=new PlainSelect();
+  List selectItems=null;
+  FromItem fromItem=null;
+  List joins=null;
+  List distinctOn=null;
+  Expression where=null;
+  List orderByElements;
+  List groupByColumnReferences=null;
+  Expression having=null;
+  Limit limit=null;
+  Top top=null;
+  jj_consume_token(K_SELECT);
+switch ((jj_ntk == -1) ? jj_ntk() : jj_ntk) {
+case K_ALL:
+case K_DISTINCT:
+switch ((jj_ntk == -1) ? jj_ntk() : jj_ntk) {
+case K_ALL:
+      jj_consume_token(K_ALL);
+    break;
+case K_DISTINCT:
+  jj_consume_token(K_DISTINCT);
+Distinct distinct=new Distinct();
+plainSelect.setDistinct(distinct);
+switch ((jj_ntk == -1) ? jj_ntk() : jj_ntk) {
+case K_ON:
+jj_consume_token(K_ON);
+jj_consume_token(79);
+distinctOn=SelectItemsList();
+plainSelect.getDistinct().setOnSelectItems(distinctOn);
+jj_consume_token(80);
+break;
+default :
+jj_la1[24]=jj_gen;
+;
+}
+break;
+default :
+jj_la1[25]=jj_gen;
+jj_consume_token(-1);
+throw new ParseException();
+}
+break;
+default :
+jj_la1[26]=jj_gen;
+;
+}
+switch ((jj_ntk == -1) ? jj_ntk() : jj_ntk) {
+case K_TOP:
+top=Top();
+plainSelect.setTop(top);
+break;
+default :
+jj_la1[27]=jj_gen;
+;
+}
+selectItems=SelectItemsList();
+switch ((jj_ntk == -1) ? jj_ntk() : jj_ntk) {
+case K_INTO:
+IntoClause();
+break;
+default :
+jj_la1[28]=jj_gen;
+;
+}
+jj_consume_token(K_FROM);
+fromItem=FromItem();
+joins=JoinsList();
+switch ((jj_ntk == -1) ? jj_ntk() : jj_ntk) {
+case K_WHERE:
+where=WhereClause();
+plainSelect.setWhere(where);
+break;
+default :
+jj_la1[29]=jj_gen;
+;
+}
+switch ((jj_ntk == -1) ? jj_ntk() : jj_ntk) {
+case K_GROUP:
+groupByColumnReferences=GroupByColumnReferences();
+plainSelect.setGroupByColumnReferences(groupByColumnReferences);
+break;
+default :
+jj_la1[30]=jj_gen;
+;
+}
+switch ((jj_ntk == -1) ? jj_ntk() : jj_ntk) {
+case K_HAVING:
+having=Having();
+plainSelect.setHaving(having);
+break;
+default :
+jj_la1[31]=jj_gen;
+;
+}
+switch ((jj_ntk == -1) ? jj_ntk() : jj_ntk) {
+case K_ORDER:
+orderByElements=OrderByElements();
+plainSelect.setOrderByElements(orderByElements);
+break;
+default :
+jj_la1[32]=jj_gen;
+;
+}
+switch ((jj_ntk == -1) ? jj_ntk() : jj_ntk) {
+case K_LIMIT:
+case K_OFFSET:
+limit=Limit();
+plainSelect.setLimit(limit);
+break;
+default :
+jj_la1[33]=jj_gen;
+;
+}
+plainSelect.setSelectItems(selectItems);
+plainSelect.setFromItem(fromItem);
+if (joins.size() > 0) plainSelect.setJoins(joins);
+{
+if (true) return plainSelect;
+}
+throw new Error("Missing return statement in function");
+}

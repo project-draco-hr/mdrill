@@ -1,0 +1,4 @@
+{
+  ensureOpen();
+  throw new UnsupportedOperationException("This reader does not support this method.");
+}

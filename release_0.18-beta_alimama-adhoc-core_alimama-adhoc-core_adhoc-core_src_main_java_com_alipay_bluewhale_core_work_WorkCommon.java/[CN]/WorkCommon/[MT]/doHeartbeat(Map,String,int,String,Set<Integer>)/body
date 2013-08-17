@@ -1,0 +1,7 @@
+{
+  int currtime=TimeUtils.current_time_secs();
+  WorkerHeartbeat hb=new WorkerHeartbeat(currtime,storm_id,task_ids,port);
+  LOG.debug("Doing heartbeat:" + worker_id + ",port:"+ port+ ",hb"+ hb.toString());
+  LocalState state=StormConfig.worker_state(conf,worker_id);
+  state.put(Common.LS_WORKER_HEARTBEAT,hb);
+}

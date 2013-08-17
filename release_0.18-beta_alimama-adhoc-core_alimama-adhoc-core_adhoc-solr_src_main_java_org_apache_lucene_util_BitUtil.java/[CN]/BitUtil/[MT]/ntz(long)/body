@@ -1,0 +1,22 @@
+{
+  int lower=(int)val;
+  int lowByte=lower & 0xff;
+  if (lowByte != 0)   return ntzTable[lowByte];
+  if (lower != 0) {
+    lowByte=(lower >>> 8) & 0xff;
+    if (lowByte != 0)     return ntzTable[lowByte] + 8;
+    lowByte=(lower >>> 16) & 0xff;
+    if (lowByte != 0)     return ntzTable[lowByte] + 16;
+    return ntzTable[lower >>> 24] + 24;
+  }
+ else {
+    int upper=(int)(val >> 32);
+    lowByte=upper & 0xff;
+    if (lowByte != 0)     return ntzTable[lowByte] + 32;
+    lowByte=(upper >>> 8) & 0xff;
+    if (lowByte != 0)     return ntzTable[lowByte] + 40;
+    lowByte=(upper >>> 16) & 0xff;
+    if (lowByte != 0)     return ntzTable[lowByte] + 48;
+    return ntzTable[upper >>> 24] + 56;
+  }
+}

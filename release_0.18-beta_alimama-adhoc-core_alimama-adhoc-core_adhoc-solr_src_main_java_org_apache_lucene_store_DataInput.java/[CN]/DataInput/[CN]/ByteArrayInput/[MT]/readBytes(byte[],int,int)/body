@@ -1,0 +1,10 @@
+{
+  while (len > 0) {
+    int ret=bis.read(b,off,len);
+    if (ret == -1) {
+      throw new EOFException();
+    }
+    off+=ret;
+    len-=ret;
+  }
+}

@@ -1,0 +1,16 @@
+{
+  try {
+    this.resetFileSystem();
+    this.validate();
+    LOG.info("higolog loadSolr start:" + this.tablename);
+    boolean ischangeSolr=this.syncSolr(isforce);
+    LOG.info("higolog loadIndex start:" + this.tablename);
+    boolean ischangeIndex=this.syncIndex();
+    boolean ischange=ischangeIndex || ischangeSolr;
+    return ischange;
+  }
+ catch (  Throwable e) {
+    LOG.error(StormUtils.stringify_error(e));
+    return false;
+  }
+}

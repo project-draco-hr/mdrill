@@ -1,0 +1,6 @@
+{
+  if (scorerDocQueue.size() < minimumNrMatchers || !advanceAfterCurrent()) {
+    currentDoc=NO_MORE_DOCS;
+  }
+  return currentDoc;
+}

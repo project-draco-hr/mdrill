@@ -1,0 +1,4 @@
+{
+  this.x=p1.getX();
+  this.y=p1.getY();
+}

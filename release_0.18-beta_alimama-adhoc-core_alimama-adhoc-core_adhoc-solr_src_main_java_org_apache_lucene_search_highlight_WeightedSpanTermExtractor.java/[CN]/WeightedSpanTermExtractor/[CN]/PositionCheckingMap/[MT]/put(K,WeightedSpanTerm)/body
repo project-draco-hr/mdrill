@@ -1,0 +1,10 @@
+{
+  WeightedSpanTerm prev=super.put(key,value);
+  if (prev == null)   return prev;
+  WeightedSpanTerm prevTerm=prev;
+  WeightedSpanTerm newTerm=value;
+  if (!prevTerm.positionSensitive) {
+    newTerm.positionSensitive=false;
+  }
+  return prev;
+}

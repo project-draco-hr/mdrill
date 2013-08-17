@@ -1,0 +1,5 @@
+{
+  this.queryNorm=norm;
+  queryWeight*=this.queryNorm;
+  if (innerWeight != null)   innerWeight.normalize(norm);
+}

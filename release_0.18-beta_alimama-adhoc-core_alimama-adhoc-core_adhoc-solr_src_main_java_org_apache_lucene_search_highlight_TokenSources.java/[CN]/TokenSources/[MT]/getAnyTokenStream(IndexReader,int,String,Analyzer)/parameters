@@ -1,0 +1,4 @@
+IndexReader reader
+int docId
+String field
+Analyzer analyzer

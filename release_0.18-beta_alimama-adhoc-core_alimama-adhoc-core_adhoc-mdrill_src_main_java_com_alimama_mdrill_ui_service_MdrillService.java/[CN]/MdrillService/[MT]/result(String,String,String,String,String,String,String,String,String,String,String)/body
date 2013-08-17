@@ -1,0 +1,49 @@
+{
+  long t1=System.currentTimeMillis();
+  String logParams=logRequest(projectName,callback,startStr,rowsStr,queryStr,dist,fl,groupby,sort,order,leftjoin);
+  LOG.info("higorequest:" + logParams);
+  TablePartion part=GetPartions.partion(projectName);
+  try {
+    queryStr=WebServiceParams.query(queryStr);
+    queryStr=WebServiceParams.queryadHoc(queryStr,part.parttype);
+    String logParams2=logRequest(projectName,callback,startStr,rowsStr,queryStr,dist,fl,groupby,sort,order,leftjoin);
+    LOG.info("query:" + logParams2);
+    int start=WebServiceParams.parseStart(startStr);
+    int rows=WebServiceParams.parseRows(rowsStr);
+    SortParam sortType=WebServiceParams.sort(sort,order);
+    ArrayList<String> groupbyFields=WebServiceParams.groupFields(groupby);
+    ArrayList<String> showFields=WebServiceParams.showFields(fl);
+    HashSet<String> commonStatMap=new HashSet<String>();
+    HashSet<String> distStatFieldMap=new HashSet<String>();
+    WebServiceParams.setCrossStatMap(showFields,commonStatMap,distStatFieldMap);
+    HashMap<String,String> fieldColumntypeMap=readFieldsFromSchemaXml(part.name);
+    String[] cores=GetShards.get(part.name,false,10000);
+    String[] ms=GetShards.get(part.name,true,10000);
+    String[] partionsAll=GetPartions.get(queryStr,part.parttype);
+    Arrays.sort(partionsAll);
+    LOG.info("partionsAll:" + Arrays.toString(partionsAll));
+    GetPartions.Shards shard=GetPartions.getshard(part,partionsAll,cores,ms,10000,0);
+    HigoJoinParams[] joins=WebServiceParams.parseJoins(leftjoin,shard);
+    ArrayList<String> fqList=WebServiceParams.fqList(queryStr,shard,fieldColumntypeMap);
+    String rtn=result(part,callback,fqList,shard,start,rows,sortType,groupbyFields,showFields,commonStatMap,distStatFieldMap,joins);
+    long t2=System.currentTimeMillis();
+    LOG.info("timetaken:" + (t2 - t1) + ",logParams2:"+ logParams2);
+    return rtn;
+  }
+ catch (  RuntimeException e) {
+    SolrInfoList infolist=GetShards.getSolrInfoList(part.name);
+    infolist.run();
+    long t2=System.currentTimeMillis();
+    LOG.error("timetaken:" + (t2 - t1) + ",logParams:"+ logParams);
+    LOG.error(logParams,e);
+    throw e;
+  }
+catch (  Exception e) {
+    SolrInfoList infolist=GetShards.getSolrInfoList(part.name);
+    infolist.run();
+    long t2=System.currentTimeMillis();
+    LOG.error("timetaken:" + (t2 - t1) + ",logParams:"+ logParams);
+    LOG.error(logParams,e);
+    throw e;
+  }
+}

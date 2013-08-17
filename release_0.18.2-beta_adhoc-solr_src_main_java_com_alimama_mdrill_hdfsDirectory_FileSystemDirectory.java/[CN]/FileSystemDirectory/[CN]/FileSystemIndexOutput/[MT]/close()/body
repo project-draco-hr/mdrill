@@ -1,0 +1,10 @@
+{
+  if (isOpen) {
+    super.close();
+    out.close();
+    isOpen=false;
+  }
+ else {
+    throw new IOException("Index file " + filePath + " already closed");
+  }
+}

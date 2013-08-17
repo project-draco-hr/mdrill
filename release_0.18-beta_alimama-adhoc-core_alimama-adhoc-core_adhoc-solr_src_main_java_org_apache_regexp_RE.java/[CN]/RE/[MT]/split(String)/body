@@ -1,0 +1,24 @@
+{
+  Vector v=new Vector();
+  int pos=0;
+  int len=s.length();
+  while (pos < len && match(s,pos)) {
+    int start=getParenStart(0);
+    int newpos=getParenEnd(0);
+    if (newpos == pos) {
+      v.addElement(s.substring(pos,start + 1));
+      newpos++;
+    }
+ else {
+      v.addElement(s.substring(pos,start));
+    }
+    pos=newpos;
+  }
+  String remainder=s.substring(pos);
+  if (remainder.length() != 0) {
+    v.addElement(remainder);
+  }
+  String[] ret=new String[v.size()];
+  v.copyInto(ret);
+  return ret;
+}

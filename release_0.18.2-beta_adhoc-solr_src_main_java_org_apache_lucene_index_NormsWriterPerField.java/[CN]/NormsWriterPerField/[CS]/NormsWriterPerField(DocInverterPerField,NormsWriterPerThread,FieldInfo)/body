@@ -1,0 +1,6 @@
+{
+  this.perThread=perThread;
+  this.fieldInfo=fieldInfo;
+  docState=perThread.docState;
+  fieldState=docInverterPerField.fieldState;
+}

@@ -1,0 +1,4 @@
+{
+  _array=ArrayUtil.grow(_array,_arraySize + 1);
+  _arraySize=_array.length;
+}

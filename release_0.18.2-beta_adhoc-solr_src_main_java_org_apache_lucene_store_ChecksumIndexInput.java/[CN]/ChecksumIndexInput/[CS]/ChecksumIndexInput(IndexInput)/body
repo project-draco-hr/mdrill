@@ -1,0 +1,5 @@
+{
+  super("ChecksumIndexInput(" + main + ")");
+  this.main=main;
+  digest=new CRC32();
+}

@@ -1,0 +1,4 @@
+{
+  String sval=f.stringValue();
+  writer.writeInt(name,NumberUtils.SortableStr2int(sval,0,sval.length()));
+}

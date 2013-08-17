@@ -1,0 +1,17 @@
+{
+  matchDoc=subSpans[0].doc();
+  for (int i=1; inSameDoc && (i < subSpans.length); i++) {
+    while (!docSpansOrdered(subSpans[i - 1],subSpans[i])) {
+      if (!subSpans[i].next()) {
+        inSameDoc=false;
+        more=false;
+        break;
+      }
+ else       if (matchDoc != subSpans[i].doc()) {
+        inSameDoc=false;
+        break;
+      }
+    }
+  }
+  return inSameDoc;
+}

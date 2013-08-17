@@ -1,0 +1,7 @@
+{
+  try {
+    setLockFactory(new SingleInstanceLockFactory());
+  }
+ catch (  IOException e) {
+  }
+}

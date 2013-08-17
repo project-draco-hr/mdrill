@@ -1,0 +1,7 @@
+{
+  nextCharCounter++;
+  if (buffer != null && !buffer.isEmpty()) {
+    return buffer.removeFirst().charValue();
+  }
+  return input.read();
+}

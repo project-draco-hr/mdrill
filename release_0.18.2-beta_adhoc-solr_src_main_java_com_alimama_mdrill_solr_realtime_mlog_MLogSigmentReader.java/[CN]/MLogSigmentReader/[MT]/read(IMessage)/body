@@ -1,0 +1,4 @@
+{
+  byte[] d=this.readByte();
+  msg.setData(d);
+}

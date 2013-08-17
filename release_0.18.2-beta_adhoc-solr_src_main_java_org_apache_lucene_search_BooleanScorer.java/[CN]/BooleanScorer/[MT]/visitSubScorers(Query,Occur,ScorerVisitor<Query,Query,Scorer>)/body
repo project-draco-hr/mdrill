@@ -1,0 +1,15 @@
+{
+  super.visitSubScorers(parent,relationship,visitor);
+  final Query q=weight.getQuery();
+  SubScorer sub=scorers;
+  while (sub != null) {
+    if (!sub.prohibited) {
+      relationship=Occur.SHOULD;
+    }
+ else {
+      relationship=Occur.MUST_NOT;
+    }
+    sub.scorer.visitSubScorers(q,relationship,visitor);
+    sub=sub.next;
+  }
+}

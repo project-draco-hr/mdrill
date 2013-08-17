@@ -1,0 +1,5 @@
+{
+  if (o.getClass() != TopValueSource.class)   return false;
+  TopValueSource other=(TopValueSource)o;
+  return vs.equals(other.vs);
+}

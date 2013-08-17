@@ -1,0 +1,5 @@
+HashMap<String,HashSet<String>> partions
+int shards
+String startday
+int dayDelay
+int maxRunDays

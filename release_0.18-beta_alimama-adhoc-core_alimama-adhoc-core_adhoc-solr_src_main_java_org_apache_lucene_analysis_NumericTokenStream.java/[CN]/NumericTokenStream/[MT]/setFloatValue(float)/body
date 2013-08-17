@@ -1,0 +1,6 @@
+{
+  this.value=NumericUtils.floatToSortableInt(value);
+  valSize=32;
+  shift=0;
+  return this;
+}

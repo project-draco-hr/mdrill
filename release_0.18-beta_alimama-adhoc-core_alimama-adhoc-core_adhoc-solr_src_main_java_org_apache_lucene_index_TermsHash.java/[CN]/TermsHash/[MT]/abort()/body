@@ -1,0 +1,10 @@
+{
+  try {
+    consumer.abort();
+  }
+  finally {
+    if (nextTermsHash != null) {
+      nextTermsHash.abort();
+    }
+  }
+}

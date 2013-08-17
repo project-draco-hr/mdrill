@@ -1,0 +1,3 @@
+{
+  this.positionSpans.addAll(positionSpans);
+}

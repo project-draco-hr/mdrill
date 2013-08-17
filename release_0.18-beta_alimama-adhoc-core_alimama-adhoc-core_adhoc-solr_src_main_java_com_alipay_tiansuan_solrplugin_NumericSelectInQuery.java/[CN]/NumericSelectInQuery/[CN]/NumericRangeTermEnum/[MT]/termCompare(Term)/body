@@ -1,0 +1,6 @@
+{
+  if (!term.field().equals(field)) {
+    return false;
+  }
+  return isContainsTerm(term);
+}

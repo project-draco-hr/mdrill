@@ -1,0 +1,4 @@
+{
+  KeywordAttribute attr=(KeywordAttribute)target;
+  attr.setKeyword(keyword);
+}

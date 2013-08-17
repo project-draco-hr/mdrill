@@ -1,0 +1,16 @@
+{
+  StringBuilder sb=new StringBuilder();
+  sb.append(name()).append('(');
+  boolean firstTime=true;
+  for (  ValueSource source : sources) {
+    if (firstTime) {
+      firstTime=false;
+    }
+ else {
+      sb.append(',');
+    }
+    sb.append(source);
+  }
+  sb.append(')');
+  return sb.toString();
+}

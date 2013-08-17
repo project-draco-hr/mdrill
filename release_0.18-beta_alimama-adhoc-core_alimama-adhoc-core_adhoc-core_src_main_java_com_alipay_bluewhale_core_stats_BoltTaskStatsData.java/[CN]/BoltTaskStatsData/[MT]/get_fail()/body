@@ -1,0 +1,13 @@
+{
+  Map<String,Map<GlobalStreamId,Long>> rtn=new HashMap<String,Map<GlobalStreamId,Long>>();
+  for (  Entry<Integer,Object> times : failed.entrySet()) {
+    Map<Object,Long> val=(Map<Object,Long>)times.getValue();
+    String key=Stats.parseTimeKey(times.getKey());
+    Map<GlobalStreamId,Long> stats=new HashMap<GlobalStreamId,Long>();
+    for (    Entry<Object,Long> stat : val.entrySet()) {
+      stats.put((GlobalStreamId)stat.getKey(),stat.getValue());
+    }
+    rtn.put(key,stats);
+  }
+  return rtn;
+}

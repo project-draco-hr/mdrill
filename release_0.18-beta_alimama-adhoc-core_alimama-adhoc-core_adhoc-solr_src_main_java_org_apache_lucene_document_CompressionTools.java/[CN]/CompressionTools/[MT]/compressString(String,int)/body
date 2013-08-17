@@ -1,0 +1,5 @@
+{
+  UnicodeUtil.UTF8Result result=new UnicodeUtil.UTF8Result();
+  UnicodeUtil.UTF16toUTF8(value,0,value.length(),result);
+  return compress(result.result,0,result.length,compressionLevel);
+}

@@ -1,0 +1,9 @@
+{
+  if (!input.incrementToken()) {
+    return false;
+  }
+  final char[] buffer=termAtt.buffer();
+  final int bufferLength=termAtt.length();
+  if (bufferLength >= 2 && buffer[bufferLength - 2] == '\'' && (buffer[bufferLength - 1] == 's' || buffer[bufferLength - 1] == 'S'))   termAtt.setLength(bufferLength - 2);
+  return true;
+}

@@ -1,0 +1,10 @@
+{
+  long tot=BitUtil.pop_xor(a.bits,b.bits,0,Math.min(a.wlen,b.wlen));
+  if (a.wlen < b.wlen) {
+    tot+=BitUtil.pop_array(b.bits,a.wlen,b.wlen - a.wlen);
+  }
+ else   if (a.wlen > b.wlen) {
+    tot+=BitUtil.pop_array(a.bits,b.wlen,a.wlen - b.wlen);
+  }
+  return tot;
+}

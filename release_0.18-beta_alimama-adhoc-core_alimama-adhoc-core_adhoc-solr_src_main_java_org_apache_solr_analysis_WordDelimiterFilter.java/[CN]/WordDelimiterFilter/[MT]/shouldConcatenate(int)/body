@@ -1,0 +1,3 @@
+{
+  return (has(CATENATE_WORDS) && isAlpha(wordType)) || (has(CATENATE_NUMBERS) && isDigit(wordType));
+}

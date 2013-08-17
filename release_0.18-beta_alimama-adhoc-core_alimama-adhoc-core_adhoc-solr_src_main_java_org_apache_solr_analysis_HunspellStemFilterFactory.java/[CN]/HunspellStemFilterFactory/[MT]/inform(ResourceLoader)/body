@@ -1,0 +1,21 @@
+{
+  assureMatchVersion();
+  String dictionaryFiles[]=args.get(PARAM_DICTIONARY).split(",");
+  String affixFile=args.get(PARAM_AFFIX);
+  String pic=args.get(PARAM_IGNORE_CASE);
+  if (pic != null) {
+    if (pic.equalsIgnoreCase(TRUE))     ignoreCase=true;
+ else     if (pic.equalsIgnoreCase(FALSE))     ignoreCase=false;
+ else     throw new SolrException(ErrorCode.UNKNOWN,"Unknown value for " + PARAM_IGNORE_CASE + ": "+ pic+ ". Must be true or false");
+  }
+  try {
+    List<InputStream> dictionaries=new ArrayList<InputStream>();
+    for (    String file : dictionaryFiles) {
+      dictionaries.add(loader.openResource(file));
+    }
+    this.dictionary=new HunspellDictionary(loader.openResource(affixFile),dictionaries,luceneMatchVersion,ignoreCase);
+  }
+ catch (  Exception e) {
+    throw new RuntimeException("Unable to load hunspell data! [dictionary=" + args.get("dictionary") + ",affix="+ affixFile+ "]",e);
+  }
+}

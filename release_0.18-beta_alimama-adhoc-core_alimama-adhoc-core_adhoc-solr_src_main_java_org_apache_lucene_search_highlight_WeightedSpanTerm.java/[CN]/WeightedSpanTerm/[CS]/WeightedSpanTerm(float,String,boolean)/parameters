@@ -1,0 +1,3 @@
+float weight
+String term
+boolean positionSensitive

@@ -1,0 +1,15 @@
+{
+  super(suffix);
+  prefix=new PrefixAwareTokenFilter(prefix,input){
+    @Override public Token updateSuffixToken(    Token suffixToken,    Token lastInputToken){
+      return PrefixAndSuffixAwareTokenFilter.this.updateInputToken(suffixToken,lastInputToken);
+    }
+  }
+;
+  this.suffix=new PrefixAwareTokenFilter(prefix,suffix){
+    @Override public Token updateSuffixToken(    Token suffixToken,    Token lastInputToken){
+      return PrefixAndSuffixAwareTokenFilter.this.updateSuffixToken(suffixToken,lastInputToken);
+    }
+  }
+;
+}

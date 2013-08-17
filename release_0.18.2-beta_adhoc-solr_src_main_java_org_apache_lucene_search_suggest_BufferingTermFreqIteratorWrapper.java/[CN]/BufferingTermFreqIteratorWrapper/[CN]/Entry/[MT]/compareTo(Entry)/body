@@ -1,0 +1,3 @@
+{
+  return word.compareTo(o.word);
+}

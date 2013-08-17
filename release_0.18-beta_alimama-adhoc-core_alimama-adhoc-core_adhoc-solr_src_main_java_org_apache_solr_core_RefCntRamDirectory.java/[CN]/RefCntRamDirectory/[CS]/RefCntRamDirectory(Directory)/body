@@ -1,0 +1,9 @@
+{
+  this();
+  IndexFileNameFilter filter=IndexFileNameFilter.getFilter();
+  for (  String file : dir.listAll()) {
+    if (filter.accept(null,file)) {
+      dir.copy(this,file,file);
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  readMasks=MASKS[bitsPerValue];
+  maxPos=(int)((((long)blocks.length) * BLOCK_SIZE / bitsPerValue) - 2);
+  shifts=SHIFTS[bitsPerValue];
+  writeMasks=WRITE_MASKS[bitsPerValue];
+}

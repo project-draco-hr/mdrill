@@ -1,0 +1,25 @@
+{
+  Info info=new Info();
+  double[] cpuData=new double[]{0,0};
+  try {
+    cpuData=getInstance().getCpuData();
+  }
+ catch (  Exception e) {
+  }
+  info.setCpuUsed(cpuData[0]);
+  double diskFree=getInstance().getDiskFree();
+  info.setDiskFree(diskFree);
+  double diskTotal=getInstance().getDiskTotal();
+  info.setDiskTotal(diskTotal);
+  double[] memData=new double[]{0,0,0};
+  try {
+    memData=getInstance().getMemData();
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
+  info.setMemUsed(memData[1]);
+  info.setMemTotal(memData[0]);
+  info.setPath(new File("/").getAbsolutePath());
+  return info;
+}

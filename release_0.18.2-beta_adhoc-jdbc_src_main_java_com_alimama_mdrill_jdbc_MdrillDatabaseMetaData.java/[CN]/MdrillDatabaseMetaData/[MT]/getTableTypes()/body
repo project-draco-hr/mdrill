@@ -1,0 +1,20 @@
+{
+  final TableType[] tt=TableType.values();
+  ResultSet result=new MdrillMetaDataResultSet<TableType>(Arrays.asList("TABLE_TYPE"),Arrays.asList("STRING"),new ArrayList<TableType>(Arrays.asList(tt))){
+    private int cnt=0;
+    public boolean next() throws SQLException {
+      if (cnt < data.size()) {
+        List<Object> a=new ArrayList<Object>(1);
+        a.add(toJdbcTableType(data.get(cnt).name()));
+        row=a;
+        cnt++;
+        return true;
+      }
+ else {
+        return false;
+      }
+    }
+  }
+;
+  return result;
+}

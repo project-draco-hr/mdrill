@@ -1,0 +1,5 @@
+{
+  B_continue_stemming_noun_suffixes=other.B_continue_stemming_noun_suffixes;
+  I_strlen=other.I_strlen;
+  super.copy_from(other);
+}

@@ -1,0 +1,4 @@
+{
+  offsetAtt=stream.addAttribute(OffsetAttribute.class);
+  currentNumFrags=1;
+}

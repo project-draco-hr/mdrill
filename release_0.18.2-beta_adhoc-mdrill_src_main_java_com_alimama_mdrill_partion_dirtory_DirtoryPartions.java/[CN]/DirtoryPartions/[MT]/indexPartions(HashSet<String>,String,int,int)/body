@@ -1,0 +1,9 @@
+{
+  HashMap<String,HashSet<String>> rtn=new HashMap<String,HashSet<String>>();
+  for (  String s : namelist) {
+    HashSet<String> list=new HashSet<String>();
+    list.add(s);
+    rtn.put(s,list);
+  }
+  return rtn;
+}

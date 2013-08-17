@@ -1,0 +1,15 @@
+{
+  int s=find(key);
+  if (s < 0) {
+    if (count >= rehashCount) {
+      rehash();
+      s=getSlot(key);
+    }
+ else {
+      s=-s - 1;
+    }
+    count++;
+    keys[s]=key;
+  }
+  return s;
+}

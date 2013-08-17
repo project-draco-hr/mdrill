@@ -1,0 +1,13 @@
+{
+  boolean oldVersionHadoop=new File(hadoopConfDir,"hadoop-default.xml").exists() || new File(hadoopConfDir,"hadoop-site.xml").exists();
+  if (oldVersionHadoop) {
+    conf.addResource(new Path(hadoopConfDir,"hadoop-default.xml"));
+    conf.addResource(new Path(hadoopConfDir,"hadoop-site.xml"));
+  }
+ else {
+    conf.addResource(new Path(hadoopConfDir,"mapred-site.xml"));
+    conf.addResource(new Path(hadoopConfDir,"hdfs-site.xml"));
+    conf.addResource(new Path(hadoopConfDir,"core-site.xml"));
+  }
+  return conf;
+}

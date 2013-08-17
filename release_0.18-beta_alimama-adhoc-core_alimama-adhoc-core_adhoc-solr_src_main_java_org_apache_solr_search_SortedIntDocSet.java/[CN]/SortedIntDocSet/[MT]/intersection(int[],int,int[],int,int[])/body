@@ -1,0 +1,35 @@
+{
+  if (lena > lenb) {
+    int ti=lena;
+    lena=lenb;
+    lenb=ti;
+    int[] ta=a;
+    a=b;
+    b=ta;
+  }
+  if (lena == 0)   return 0;
+  if ((lenb >> 3) >= lena) {
+    return intersectionBinarySearch(a,lena,b,lenb,target);
+  }
+  int icount=0;
+  int i=0, j=0;
+  int doca=a[i], docb=b[j];
+  for (; ; ) {
+    if (doca > docb) {
+      if (++j >= lenb)       break;
+      docb=b[j];
+    }
+ else     if (doca < docb) {
+      if (++i >= lena)       break;
+      doca=a[i];
+    }
+ else {
+      target[icount++]=doca;
+      if (++i >= lena)       break;
+      doca=a[i];
+      if (++j >= lenb)       break;
+      docb=b[j];
+    }
+  }
+  return icount;
+}

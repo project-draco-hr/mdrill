@@ -1,0 +1,6 @@
+{
+  if (v == null) {
+    return new HashMap<Object,Long>();
+  }
+  return v;
+}

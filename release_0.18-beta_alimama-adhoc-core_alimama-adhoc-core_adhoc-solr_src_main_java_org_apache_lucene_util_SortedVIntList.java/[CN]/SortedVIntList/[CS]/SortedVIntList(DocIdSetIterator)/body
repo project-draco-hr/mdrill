@@ -1,0 +1,8 @@
+{
+  SortedVIntListBuilder builder=new SortedVIntListBuilder();
+  int doc;
+  while ((doc=docIdSetIterator.nextDoc()) != DocIdSetIterator.NO_MORE_DOCS) {
+    builder.addInt(doc);
+  }
+  builder.done();
+}

@@ -1,0 +1,10 @@
+{
+  if (columnTypes == null) {
+    throw new SQLException("Could not determine column type name for ResultSet");
+  }
+  if (column < 1 || column > columnTypes.size()) {
+    throw new SQLException("Invalid column value: " + column);
+  }
+  String type=columnTypes.get(column - 1);
+  return Utils.hiveTypeToSqlType(type);
+}

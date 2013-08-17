@@ -1,0 +1,4 @@
+{
+  ensureOpen();
+  setNorm(doc,field,Similarity.getDefault().encodeNormValue(value));
+}

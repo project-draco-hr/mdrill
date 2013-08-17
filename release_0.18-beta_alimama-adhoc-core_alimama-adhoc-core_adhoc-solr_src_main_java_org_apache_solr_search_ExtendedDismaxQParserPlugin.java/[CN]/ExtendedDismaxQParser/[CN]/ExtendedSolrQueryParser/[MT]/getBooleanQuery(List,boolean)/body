@@ -1,0 +1,7 @@
+{
+  Query q=super.getBooleanQuery(clauses,disableCoord);
+  if (q != null) {
+    q=QueryUtils.makeQueryable(q);
+  }
+  return q;
+}

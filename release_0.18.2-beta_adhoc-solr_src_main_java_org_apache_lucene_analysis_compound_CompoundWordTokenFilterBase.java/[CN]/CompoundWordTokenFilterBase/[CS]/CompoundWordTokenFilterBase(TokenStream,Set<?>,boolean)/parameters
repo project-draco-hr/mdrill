@@ -1,0 +1,3 @@
+TokenStream input
+Set<?> dictionary
+boolean onlyLongestMatch

@@ -1,0 +1,4 @@
+CharSequence val
+int start
+int end
+CharArr out

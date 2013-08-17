@@ -1,0 +1,3 @@
+{
+  this(loader,name,(is == null) ? null : new InputSource(is),prefix);
+}

@@ -1,0 +1,7 @@
+{
+  data[offset]=(byte)(payload >> 24);
+  data[offset + 1]=(byte)(payload >> 16);
+  data[offset + 2]=(byte)(payload >> 8);
+  data[offset + 3]=(byte)payload;
+  return data;
+}

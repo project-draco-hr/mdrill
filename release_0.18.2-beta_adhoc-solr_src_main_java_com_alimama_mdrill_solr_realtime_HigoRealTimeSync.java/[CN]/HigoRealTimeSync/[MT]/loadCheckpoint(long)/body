@@ -1,0 +1,19 @@
+{
+  if (index < 0) {
+    return;
+  }
+  File p=new File(basePath + "/checkpointpos_" + index);
+  if (!p.exists()) {
+    return;
+  }
+  FSDirectory fsdir=FSDirectory.open(p);
+  Directory ram=core.getDirectoryFactory().open(core.getIndexDir(this.day));
+  String[] list=ram.listAll();
+  for (  String tdel : list) {
+    ram.deleteFile(tdel);
+  }
+  for (  String fname : fsdir.listAll()) {
+    fsdir.copy(ram,fname,fname);
+  }
+  core.getSearcher(day,false,true,false);
+}

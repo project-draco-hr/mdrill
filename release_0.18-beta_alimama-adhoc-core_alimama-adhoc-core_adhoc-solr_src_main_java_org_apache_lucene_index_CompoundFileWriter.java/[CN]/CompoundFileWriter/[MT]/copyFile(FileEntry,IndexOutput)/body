@@ -1,0 +1,17 @@
+{
+  IndexInput is=source.dir.openInput(source.file);
+  try {
+    long startPtr=os.getFilePointer();
+    long length=is.length();
+    os.copyBytes(is,length);
+    if (checkAbort != null) {
+      checkAbort.work(length);
+    }
+    long endPtr=os.getFilePointer();
+    long diff=endPtr - startPtr;
+    if (diff != length)     throw new IOException("Difference in the output file offsets " + diff + " does not match the original file length "+ length);
+  }
+  finally {
+    is.close();
+  }
+}

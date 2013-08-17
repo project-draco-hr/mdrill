@@ -1,0 +1,10 @@
+{
+  StringBuilder pat=new StringBuilder();
+  int len=word.length();
+  for (int i=0; i < len; i++) {
+    if (!Character.isDigit(word.charAt(i))) {
+      pat.append(word.charAt(i));
+    }
+  }
+  return pat.toString();
+}

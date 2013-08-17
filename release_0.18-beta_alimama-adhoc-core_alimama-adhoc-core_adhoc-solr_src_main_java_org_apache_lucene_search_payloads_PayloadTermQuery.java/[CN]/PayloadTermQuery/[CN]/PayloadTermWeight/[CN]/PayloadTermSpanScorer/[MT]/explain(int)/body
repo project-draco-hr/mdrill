@@ -1,0 +1,21 @@
+{
+  Explanation nonPayloadExpl=super.explain(doc);
+  Explanation payloadBoost=new Explanation();
+  float payloadScore=getPayloadScore();
+  payloadBoost.setValue(payloadScore);
+  payloadBoost.setDescription("scorePayload(...)");
+  ComplexExplanation result=new ComplexExplanation();
+  if (includeSpanScore) {
+    result.addDetail(nonPayloadExpl);
+    result.addDetail(payloadBoost);
+    result.setValue(nonPayloadExpl.getValue() * payloadScore);
+    result.setDescription("btq, product of:");
+  }
+ else {
+    result.addDetail(payloadBoost);
+    result.setValue(payloadScore);
+    result.setDescription("btq(includeSpanScore=false), result of:");
+  }
+  result.setMatch(nonPayloadExpl.getValue() == 0 ? Boolean.FALSE : Boolean.TRUE);
+  return result;
+}

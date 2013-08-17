@@ -1,0 +1,9 @@
+{
+  for (  DynamicField df : dynamicFields) {
+    if (df.matches(fieldName))     return df.regex;
+  }
+  if (!fieldName.endsWith("_s")) {
+    return getDynamicPattern(fieldName + "_s");
+  }
+  return null;
+}

@@ -1,0 +1,17 @@
+{
+  if (actualEnum == null)   return false;
+  currentTerm=null;
+  while (currentTerm == null) {
+    if (endEnum())     return false;
+    if (actualEnum.next()) {
+      Term term=actualEnum.term();
+      if (termCompare(term)) {
+        currentTerm=term;
+        return true;
+      }
+    }
+ else     return false;
+  }
+  currentTerm=null;
+  return false;
+}

@@ -1,0 +1,7 @@
+{
+  String v=req.getParam(param);
+  if (null == v || "".equals(v.trim())) {
+    return def;
+  }
+  return v;
+}

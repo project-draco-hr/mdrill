@@ -1,0 +1,13 @@
+{
+  StringBuilder sb=new StringBuilder();
+  sb.append("SolrIndexReader{this=").append(Integer.toHexString(this.hashCode()));
+  sb.append(",r=").append(shortName(in));
+  sb.append(",refCnt=").append(getRefCount());
+  sb.append(",segments=");
+  sb.append(subReaders == null ? 1 : subReaders.length);
+  if (parent != null) {
+    sb.append(",parent=").append(parent.toString());
+  }
+  sb.append('}');
+  return sb.toString();
+}

@@ -1,0 +1,44 @@
+{
+  if (f instanceof NumericField) {
+    final Number val=((NumericField)f).getNumericValue();
+    if (val == null)     throw new SolrException(SolrException.ErrorCode.SERVER_ERROR,"Invalid field contents: " + f.name());
+switch (type) {
+case INTEGER:
+      return NumericUtils.intToPrefixCoded(val.intValue());
+case FLOAT:
+    return NumericUtils.intToPrefixCoded(NumericUtils.floatToSortableInt(val.floatValue()));
+case LONG:
+case DATE:
+  return NumericUtils.longToPrefixCoded(val.longValue());
+case DOUBLE:
+return NumericUtils.longToPrefixCoded(NumericUtils.doubleToSortableLong(val.doubleValue()));
+default :
+throw new SolrException(SolrException.ErrorCode.SERVER_ERROR,"Unknown type for trie field: " + f.name());
+}
+}
+ else {
+final byte[] arr=f.getBinaryValue();
+if (arr == null) throw new SolrException(SolrException.ErrorCode.SERVER_ERROR,"Invalid field contents: " + f.name());
+switch (type) {
+case INTEGER:
+return NumericUtils.intToPrefixCoded(toInt(arr));
+case FLOAT:
+{
+int v=toInt(arr);
+if (v < 0) v^=0x7fffffff;
+return NumericUtils.intToPrefixCoded(v);
+}
+case LONG:
+case DATE:
+return NumericUtils.longToPrefixCoded(toLong(arr));
+case DOUBLE:
+{
+long v=toLong(arr);
+if (v < 0) v^=0x7fffffffffffffffL;
+return NumericUtils.longToPrefixCoded(v);
+}
+default :
+throw new SolrException(SolrException.ErrorCode.SERVER_ERROR,"Unknown type for trie field: " + f.name());
+}
+}
+}

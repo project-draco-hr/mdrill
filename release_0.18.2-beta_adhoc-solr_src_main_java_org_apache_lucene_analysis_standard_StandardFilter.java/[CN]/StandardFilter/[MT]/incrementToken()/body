@@ -1,0 +1,4 @@
+{
+  if (matchVersion.onOrAfter(Version.LUCENE_31))   return input.incrementToken();
+ else   return incrementTokenClassic();
+}

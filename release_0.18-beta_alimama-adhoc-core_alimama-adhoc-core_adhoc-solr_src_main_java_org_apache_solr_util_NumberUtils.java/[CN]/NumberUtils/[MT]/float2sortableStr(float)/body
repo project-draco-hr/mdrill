@@ -1,0 +1,5 @@
+{
+  int f=Float.floatToRawIntBits(val);
+  if (f < 0)   f^=0x7fffffff;
+  return int2sortableStr(f);
+}

@@ -1,0 +1,5 @@
+{
+  int v=is.read();
+  if (v == -1)   throw new EOFException();
+  return (byte)v;
+}

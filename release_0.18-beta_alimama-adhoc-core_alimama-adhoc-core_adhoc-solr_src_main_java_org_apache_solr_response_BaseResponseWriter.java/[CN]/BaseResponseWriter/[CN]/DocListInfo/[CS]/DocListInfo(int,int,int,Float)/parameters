@@ -1,0 +1,4 @@
+int numFound
+int sz
+int start
+Float maxScore

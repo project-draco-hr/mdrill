@@ -1,0 +1,5 @@
+{
+  this.collector=collector;
+  String key=Config.TOPOLOGY_MESSAGE_TIMEOUT_SECS;
+  pending=new TimeCacheMap(StormUtils.parseInt(stormConf.get(key)));
+}

@@ -1,0 +1,10 @@
+{
+  SolrInfoMBean[] arr;
+synchronized (infoMBeans) {
+    arr=infoMBeans.toArray(new SolrInfoMBean[infoMBeans.size()]);
+    waitingForResources.clear();
+  }
+  for (  SolrInfoMBean bean : arr) {
+    infoRegistry.put(bean.getName(),bean);
+  }
+}

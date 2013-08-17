@@ -1,0 +1,10 @@
+{
+  try {
+    termEnum.close();
+  }
+  finally {
+    if (postings != null) {
+      postings.close();
+    }
+  }
+}

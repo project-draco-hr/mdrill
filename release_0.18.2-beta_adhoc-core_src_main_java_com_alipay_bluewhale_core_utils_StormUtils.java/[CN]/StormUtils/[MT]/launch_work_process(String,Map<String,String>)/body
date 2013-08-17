@@ -1,0 +1,15 @@
+{
+  String[] cmdlist={"nohup","/bin/sh","-c",command + " 1>/dev/null 2>/dev/null"};
+  ArrayList<String> buff=new ArrayList<String>();
+  for (  String tok : cmdlist) {
+    if (!tok.isEmpty()) {
+      buff.add(tok);
+    }
+  }
+  ProcessBuilder builder=new ProcessBuilder(buff);
+  Map<String,String> process_evn=builder.environment();
+  for (  Entry<String,String> entry : environment.entrySet()) {
+    process_evn.put(entry.getKey(),entry.getValue());
+  }
+  return builder.start();
+}

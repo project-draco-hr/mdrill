@@ -1,0 +1,4 @@
+{
+  ensureOpen();
+  readerFinishedListeners.remove(listener);
+}

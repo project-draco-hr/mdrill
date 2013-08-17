@@ -1,0 +1,3 @@
+{
+  return (requiredScorers.size() == 0) ? makeCountingSumScorerNoReq(disableCoord,similarity) : makeCountingSumScorerSomeReq(disableCoord,similarity);
+}

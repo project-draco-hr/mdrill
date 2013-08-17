@@ -1,0 +1,4 @@
+IndexWriter writer
+SegmentInfos infos
+int termInfosIndexDivisor
+boolean applyAllDeletes

@@ -1,0 +1,19 @@
+{
+  String plusday=this.DatePlus(this.yyyymmdd,delay);
+  String strtmonth=getMonth(starday);
+  Date currentMonth=this.transMonth(plusday);
+  HashSet<String> rtn=new HashSet<String>();
+  for (  String str : all) {
+    Date m=this.transMonth(str);
+    if (m.compareTo(currentMonth) < 0) {
+      String month=getMonth(str);
+      if (month.equals(strtmonth)) {
+        currentmonth.add(str);
+      }
+ else {
+        rtn.add(month);
+      }
+    }
+  }
+  return rtn;
+}

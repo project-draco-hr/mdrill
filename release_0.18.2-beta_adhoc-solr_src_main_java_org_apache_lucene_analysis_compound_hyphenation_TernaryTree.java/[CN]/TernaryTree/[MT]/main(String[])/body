@@ -1,0 +1,12 @@
+{
+  TernaryTree tt=new TernaryTree();
+  tt.insert("Carlos",'C');
+  tt.insert("Car",'r');
+  tt.insert("palos",'l');
+  tt.insert("pa",'p');
+  tt.trimToSize();
+  System.out.println((char)tt.find("Car"));
+  System.out.println((char)tt.find("Carlos"));
+  System.out.println((char)tt.find("alto"));
+  tt.printStats();
+}

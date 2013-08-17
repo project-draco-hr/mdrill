@@ -1,0 +1,6 @@
+{
+  LOG.error(StormUtils.stringify_error(e));
+  statcollect.setStat(ShardsState.INITFAIL);
+  this.zkHeatbeat();
+  errorCollect.setException(e);
+}

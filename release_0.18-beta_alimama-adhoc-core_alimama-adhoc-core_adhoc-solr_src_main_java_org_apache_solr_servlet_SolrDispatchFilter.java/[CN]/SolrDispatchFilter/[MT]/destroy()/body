@@ -1,0 +1,6 @@
+{
+  if (cores != null) {
+    cores.shutdown();
+    cores=null;
+  }
+}

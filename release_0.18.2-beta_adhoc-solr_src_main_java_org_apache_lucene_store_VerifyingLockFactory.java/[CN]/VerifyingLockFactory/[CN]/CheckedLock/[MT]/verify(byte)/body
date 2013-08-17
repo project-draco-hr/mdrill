@@ -1,0 +1,17 @@
+{
+  try {
+    Socket s=new Socket(host,port);
+    OutputStream out=s.getOutputStream();
+    out.write(id);
+    out.write(message);
+    InputStream in=s.getInputStream();
+    int result=in.read();
+    in.close();
+    out.close();
+    s.close();
+    if (result != 0)     throw new RuntimeException("lock was double acquired");
+  }
+ catch (  Exception e) {
+    throw new RuntimeException(e);
+  }
+}

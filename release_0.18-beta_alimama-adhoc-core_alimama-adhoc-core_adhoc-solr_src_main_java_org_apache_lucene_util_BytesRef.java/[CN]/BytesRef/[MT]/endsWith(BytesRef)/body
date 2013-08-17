@@ -1,0 +1,3 @@
+{
+  return sliceEquals(other,length - other.length);
+}

@@ -1,0 +1,11 @@
+{
+  EnumSet<FieldFlag> result=EnumSet.noneOf(FieldFlag.class);
+  char[] chars=flagStr.toCharArray();
+  for (int i=0; i < chars.length; i++) {
+    if (chars[i] != '-') {
+      FieldFlag flag=FieldFlag.getFlag(chars[i]);
+      result.add(flag);
+    }
+  }
+  return result;
+}

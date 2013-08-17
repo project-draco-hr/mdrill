@@ -1,0 +1,5 @@
+String fieldName
+String lowerTerm
+String upperTerm
+boolean includeLower
+boolean includeUpper

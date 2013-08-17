@@ -1,0 +1,4 @@
+{
+  getDocListC(qr,cmd);
+  return qr;
+}

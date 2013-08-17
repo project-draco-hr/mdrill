@@ -1,0 +1,3 @@
+{
+  return terms.size() > 0 || docIDs.size() > 0 || queries.size() > 0;
+}

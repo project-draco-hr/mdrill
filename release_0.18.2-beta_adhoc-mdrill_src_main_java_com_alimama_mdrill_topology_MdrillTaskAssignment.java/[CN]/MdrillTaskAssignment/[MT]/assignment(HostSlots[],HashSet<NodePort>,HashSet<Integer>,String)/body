@@ -1,0 +1,28 @@
+{
+  Map<Integer,NodePort> rtn=new HashMap<Integer,NodePort>();
+  if (jobids.size() <= 0) {
+    return rtn;
+  }
+  int hostsize=ResourceMap.length;
+  if (hostsize > 0) {
+    for (    Integer tid : jobids) {
+      Integer index=tid % hostsize;
+      HostSlots hostslot=ResourceMap[index];
+      List<NodePort> list=hostslot.ports;
+      if (hostslot.index < list.size()) {
+        NodePort np=list.get(hostslot.index);
+        rtn.put(tid,np);
+        LOG.info("higolog assign:" + logtype + "@"+ tid+ "==>"+ hostslot.host+ ","+ hostslot.index+ ","+ np.getPort());
+        hostslot.index++;
+      }
+    }
+  }
+ else {
+    LOG.info("higolog assign:" + logtype + " is empty");
+  }
+  for (  Entry<Integer,NodePort> e : rtn.entrySet()) {
+    jobids.remove(e.getKey());
+    resource.remove(e.getValue());
+  }
+  return rtn;
+}

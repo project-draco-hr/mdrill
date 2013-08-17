@@ -1,0 +1,17 @@
+{
+  this.defaultAnalyzer=defaultAnalyzer;
+  if (maxShingleSize < 2) {
+    throw new IllegalArgumentException("Max shingle size must be >= 2");
+  }
+  this.maxShingleSize=maxShingleSize;
+  if (minShingleSize < 2) {
+    throw new IllegalArgumentException("Min shingle size must be >= 2");
+  }
+  if (minShingleSize > maxShingleSize) {
+    throw new IllegalArgumentException("Min shingle size must be <= max shingle size");
+  }
+  this.minShingleSize=minShingleSize;
+  this.tokenSeparator=(tokenSeparator == null ? "" : tokenSeparator);
+  this.outputUnigrams=outputUnigrams;
+  this.outputUnigramsIfNoShingles=outputUnigramsIfNoShingles;
+}

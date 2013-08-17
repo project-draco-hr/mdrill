@@ -1,0 +1,4 @@
+{
+  statcollect.setStat(ShardsState.SOLRSTOP);
+  this.zkHeatbeat();
+}

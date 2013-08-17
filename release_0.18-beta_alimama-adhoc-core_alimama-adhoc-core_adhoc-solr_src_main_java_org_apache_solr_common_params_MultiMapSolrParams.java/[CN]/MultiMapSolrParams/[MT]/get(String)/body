@@ -1,0 +1,4 @@
+{
+  String[] arr=map.get(name);
+  return arr == null ? null : arr[0];
+}

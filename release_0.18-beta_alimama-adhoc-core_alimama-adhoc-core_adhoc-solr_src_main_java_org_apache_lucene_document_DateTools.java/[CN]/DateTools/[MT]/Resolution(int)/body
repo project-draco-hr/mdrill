@@ -1,0 +1,5 @@
+{
+  this.formatLen=formatLen;
+  this.format=new SimpleDateFormat("yyyyMMddHHmmssSSS".substring(0,formatLen),Locale.US);
+  this.format.setTimeZone(GMT);
+}

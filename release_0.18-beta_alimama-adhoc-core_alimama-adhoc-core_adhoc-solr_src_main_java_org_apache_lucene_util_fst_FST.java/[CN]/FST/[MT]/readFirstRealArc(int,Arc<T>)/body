@@ -1,0 +1,15 @@
+{
+  final BytesReader in=getBytesReader(address);
+  arc.flags=in.readByte();
+  if (arc.flag(BIT_ARCS_AS_FIXED_ARRAY)) {
+    arc.numArcs=in.readVInt();
+    arc.bytesPerArc=in.readInt();
+    arc.arcIdx=-1;
+    arc.nextArc=arc.posArcsStart=in.pos;
+  }
+ else {
+    arc.nextArc=address;
+    arc.bytesPerArc=0;
+  }
+  return readNextRealArc(arc,in);
+}

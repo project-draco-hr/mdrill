@@ -1,0 +1,6 @@
+{
+  super(size);
+  freqs=new int[size];
+  lastOffsets=new int[size];
+  lastPositions=new int[size];
+}

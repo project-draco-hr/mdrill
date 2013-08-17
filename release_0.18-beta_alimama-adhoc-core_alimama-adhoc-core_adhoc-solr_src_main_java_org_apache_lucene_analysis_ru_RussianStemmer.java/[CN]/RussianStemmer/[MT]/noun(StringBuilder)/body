@@ -1,0 +1,3 @@
+{
+  return findAndRemoveEnding(stemmingZone,nounEndings);
+}

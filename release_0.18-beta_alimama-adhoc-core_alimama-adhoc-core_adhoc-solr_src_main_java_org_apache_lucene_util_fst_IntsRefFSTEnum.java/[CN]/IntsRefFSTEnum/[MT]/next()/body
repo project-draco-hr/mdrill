@@ -1,0 +1,4 @@
+{
+  doNext();
+  return setResult();
+}

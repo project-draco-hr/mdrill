@@ -1,0 +1,6 @@
+String field
+int precisionStep
+Float min
+Float max
+boolean minInclusive
+boolean maxInclusive

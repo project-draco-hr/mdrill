@@ -1,0 +1,3 @@
+Map<Integer,Double> distances
+Map<String,Double> distanceLookupCache
+Precision precise

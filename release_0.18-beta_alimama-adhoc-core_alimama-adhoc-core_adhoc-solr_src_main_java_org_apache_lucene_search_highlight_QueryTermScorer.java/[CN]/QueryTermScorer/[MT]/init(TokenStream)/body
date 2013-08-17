@@ -1,0 +1,4 @@
+{
+  termAtt=tokenStream.addAttribute(CharTermAttribute.class);
+  return null;
+}

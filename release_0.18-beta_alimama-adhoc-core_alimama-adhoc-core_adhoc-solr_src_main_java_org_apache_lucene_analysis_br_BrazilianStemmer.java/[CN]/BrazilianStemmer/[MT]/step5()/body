@@ -1,0 +1,17 @@
+{
+  if (RV == null)   return;
+  if (suffix(RV,"e")) {
+    if (suffixPreceded(RV,"e","gu")) {
+      CT=removeSuffix(CT,"e");
+      CT=removeSuffix(CT,"u");
+      return;
+    }
+    if (suffixPreceded(RV,"e","ci")) {
+      CT=removeSuffix(CT,"e");
+      CT=removeSuffix(CT,"i");
+      return;
+    }
+    CT=removeSuffix(CT,"e");
+    return;
+  }
+}

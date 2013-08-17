@@ -1,0 +1,3 @@
+{
+  return o instanceof PrefixFilter && ((PrefixFilter)o).prefix.equals(this.prefix);
+}

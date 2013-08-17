@@ -1,0 +1,5 @@
+{
+synchronized (locks) {
+    return locks.contains(lockName);
+  }
+}

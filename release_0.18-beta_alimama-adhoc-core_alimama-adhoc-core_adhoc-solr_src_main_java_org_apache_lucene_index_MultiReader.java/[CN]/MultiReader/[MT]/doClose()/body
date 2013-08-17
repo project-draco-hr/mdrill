@@ -1,0 +1,10 @@
+{
+  for (int i=0; i < subReaders.length; i++) {
+    if (decrefOnClose[i]) {
+      subReaders[i].decRef();
+    }
+ else {
+      subReaders[i].close();
+    }
+  }
+}

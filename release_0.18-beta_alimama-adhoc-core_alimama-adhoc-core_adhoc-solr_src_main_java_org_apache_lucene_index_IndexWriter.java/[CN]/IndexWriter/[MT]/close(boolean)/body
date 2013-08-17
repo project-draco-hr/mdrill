@@ -1,0 +1,6 @@
+{
+  if (shouldClose()) {
+    if (hitOOM)     rollbackInternal();
+ else     closeInternal(waitForMerges);
+  }
+}

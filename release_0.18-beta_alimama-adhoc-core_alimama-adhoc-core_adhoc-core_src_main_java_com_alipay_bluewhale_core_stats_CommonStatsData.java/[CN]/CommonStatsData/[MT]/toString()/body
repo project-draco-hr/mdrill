@@ -1,0 +1,3 @@
+{
+  return "CommonStatsData [emitted=" + emitted + ", transferred="+ transferred+ ", rate="+ rate+ "]";
+}

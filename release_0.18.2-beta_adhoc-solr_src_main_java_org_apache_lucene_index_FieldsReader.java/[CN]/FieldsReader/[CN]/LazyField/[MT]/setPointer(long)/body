@@ -1,0 +1,4 @@
+{
+  ensureOpen();
+  this.pointer=pointer;
+}

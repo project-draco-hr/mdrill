@@ -1,0 +1,16 @@
+{
+  output.writeInt(-1);
+  output.writeInt(size());
+  output.writeInt(count());
+  int last=0;
+  int n=count();
+  int m=bits.length;
+  for (int i=0; i < m && n > 0; i++) {
+    if (bits[i] != 0) {
+      output.writeVInt(i - last);
+      output.writeByte(bits[i]);
+      last=i;
+      n-=BYTE_COUNTS[bits[i] & 0xFF];
+    }
+  }
+}

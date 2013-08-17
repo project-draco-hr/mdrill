@@ -1,0 +1,24 @@
+{
+  if (action == null) {
+    throw new RuntimeException("no action specified!");
+  }
+  ModifiableSolrParams params=new ModifiableSolrParams();
+  params.set(CoreAdminParams.ACTION,action.toString());
+  if (action.equals(CoreAdminAction.CREATE)) {
+    params.set(CoreAdminParams.NAME,core);
+  }
+ else {
+    params.set(CoreAdminParams.CORE,core);
+  }
+  params.set(CoreAdminParams.INSTANCE_DIR,instanceDir);
+  if (configName != null) {
+    params.set(CoreAdminParams.CONFIG,configName);
+  }
+  if (schemaName != null) {
+    params.set(CoreAdminParams.SCHEMA,schemaName);
+  }
+  if (dataDir != null) {
+    params.set(CoreAdminParams.DATA_DIR,dataDir);
+  }
+  return params;
+}

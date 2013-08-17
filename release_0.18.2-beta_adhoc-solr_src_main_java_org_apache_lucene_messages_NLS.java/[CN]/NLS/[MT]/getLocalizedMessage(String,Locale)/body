@@ -1,0 +1,7 @@
+{
+  Object message=getResourceBundleObject(key,locale);
+  if (message == null) {
+    return "Message with key:" + key + " and locale: "+ locale+ " not found.";
+  }
+  return message.toString();
+}

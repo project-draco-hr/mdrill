@@ -1,0 +1,7 @@
+{
+  slice_check();
+  int len=ket - bra;
+  s.setLength(0);
+  s.append(current,bra,len);
+  return s;
+}

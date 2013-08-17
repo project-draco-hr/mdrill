@@ -1,0 +1,16 @@
+{
+  this.name=name;
+  this.rules=rules;
+  if (min == 0) {
+    min=Integer.MAX_VALUE;
+    for (    Rule r : rules)     min=Math.min(min,r.min + r.suffix.length);
+  }
+  this.min=min;
+  if (suffixes == null || suffixes.length == 0) {
+    this.suffixes=null;
+  }
+ else {
+    this.suffixes=new char[suffixes.length][];
+    for (int i=0; i < suffixes.length; i++)     this.suffixes[i]=suffixes[i].toCharArray();
+  }
+}

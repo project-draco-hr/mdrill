@@ -1,0 +1,12 @@
+{
+  while (actualEnum.next()) {
+    currentTerm=actualEnum.term();
+    if (isEndTerm(currentTerm)) {
+      break;
+    }
+    if (isContainsTerm(currentTerm)) {
+      return true;
+    }
+  }
+  return false;
+}

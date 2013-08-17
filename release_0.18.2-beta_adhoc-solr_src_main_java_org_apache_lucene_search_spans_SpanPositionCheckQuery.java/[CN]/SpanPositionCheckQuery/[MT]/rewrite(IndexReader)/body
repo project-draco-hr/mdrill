@@ -1,0 +1,14 @@
+{
+  SpanPositionCheckQuery clone=null;
+  SpanQuery rewritten=(SpanQuery)match.rewrite(reader);
+  if (rewritten != match) {
+    clone=(SpanPositionCheckQuery)this.clone();
+    clone.match=rewritten;
+  }
+  if (clone != null) {
+    return clone;
+  }
+ else {
+    return this;
+  }
+}

@@ -1,0 +1,5 @@
+{
+  ensureOpen();
+  final File path=new File(directory,name);
+  return new SimpleFSIndexInput("SimpleFSIndexInput(path=\"" + path.getPath() + "\")",path,bufferSize,getReadChunkSize());
+}

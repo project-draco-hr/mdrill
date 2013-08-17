@@ -1,0 +1,4 @@
+{
+  ensureOpen();
+  updateDocument(term,doc,getAnalyzer());
+}

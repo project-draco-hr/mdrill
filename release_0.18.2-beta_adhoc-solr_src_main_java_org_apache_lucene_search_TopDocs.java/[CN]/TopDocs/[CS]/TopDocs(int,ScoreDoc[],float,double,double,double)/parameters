@@ -1,0 +1,6 @@
+int totalHits
+ScoreDoc[] scoreDocs
+float maxScore
+double sum
+double max
+double min

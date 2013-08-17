@@ -1,0 +1,8 @@
+{
+  token.setType(ShingleMatrixFilter.class.getName());
+  token.setFlags(0);
+  token.setPositionIncrement(1);
+  token.setStartOffset(shingle.get(0).startOffset());
+  token.setEndOffset(shingle.get(shingle.size() - 1).endOffset());
+  settingsCodec.setWeight(token,calculateShingleWeight(token,shingle,currentPermutationStartOffset,currentPermutationRows,currentPermuationTokens));
+}

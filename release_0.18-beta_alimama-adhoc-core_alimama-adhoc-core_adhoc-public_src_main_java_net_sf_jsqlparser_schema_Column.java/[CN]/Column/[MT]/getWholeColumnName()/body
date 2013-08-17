@@ -1,0 +1,11 @@
+{
+  String columnWholeName=null;
+  String tableWholeName=table.getWholeTableName();
+  if (tableWholeName != null && tableWholeName.length() != 0) {
+    columnWholeName=tableWholeName + "." + columnName;
+  }
+ else {
+    columnWholeName=columnName;
+  }
+  return columnWholeName;
+}

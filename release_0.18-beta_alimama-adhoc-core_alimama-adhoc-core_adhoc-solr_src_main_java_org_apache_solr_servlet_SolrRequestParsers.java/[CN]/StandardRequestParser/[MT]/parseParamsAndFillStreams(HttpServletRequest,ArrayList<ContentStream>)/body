@@ -1,0 +1,23 @@
+{
+  String method=req.getMethod().toUpperCase(Locale.ENGLISH);
+  if ("GET".equals(method) || "HEAD".equals(method)) {
+    return new ServletSolrParams(req);
+  }
+  if ("POST".equals(method)) {
+    String contentType=req.getContentType();
+    if (contentType != null) {
+      int idx=contentType.indexOf(';');
+      if (idx > 0) {
+        contentType=contentType.substring(0,idx);
+      }
+      if ("application/x-www-form-urlencoded".equals(contentType.toLowerCase(Locale.ENGLISH))) {
+        return new ServletSolrParams(req);
+      }
+      if (ServletFileUpload.isMultipartContent(req)) {
+        return multipart.parseParamsAndFillStreams(req,streams);
+      }
+    }
+    return raw.parseParamsAndFillStreams(req,streams);
+  }
+  throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,"Unsupported method: " + method);
+}

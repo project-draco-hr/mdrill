@@ -1,0 +1,9 @@
+{
+  flags=0;
+  numSyllables=0;
+  for (int i=0; i < length; i++)   if (isVowel(text[i]))   numSyllables++;
+  if (numSyllables > 2)   length=removeParticle(text,length);
+  if (numSyllables > 2)   length=removePossessivePronoun(text,length);
+  if (stemDerivational)   length=stemDerivational(text,length);
+  return length;
+}

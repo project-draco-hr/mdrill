@@ -1,0 +1,14 @@
+{
+  int lo=0;
+  int hi=indexSize - 1;
+  PagedBytesDataInput input=(PagedBytesDataInput)dataInput.clone();
+  BytesRef scratch=new BytesRef();
+  while (hi >= lo) {
+    int mid=(lo + hi) >>> 1;
+    int delta=compareTo(term,termBytesRef,mid,input,scratch);
+    if (delta < 0)     hi=mid - 1;
+ else     if (delta > 0)     lo=mid + 1;
+ else     return mid;
+  }
+  return hi;
+}

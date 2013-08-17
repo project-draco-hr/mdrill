@@ -1,0 +1,2 @@
+KryoTupleSerializer serializer
+LinkedBlockingQueue<TransferData> _transfer_queue

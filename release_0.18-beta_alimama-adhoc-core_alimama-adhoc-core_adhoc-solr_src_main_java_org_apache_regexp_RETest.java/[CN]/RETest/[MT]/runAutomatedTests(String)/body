@@ -1,0 +1,28 @@
+{
+  long ms=System.currentTimeMillis();
+  testPrecompiledRE();
+  testSplitAndGrep();
+  testSubst();
+  testOther();
+  File testInput=new File(testDocument);
+  if (!testInput.exists()) {
+    throw new Exception("Could not find: " + testDocument);
+  }
+  BufferedReader br=new BufferedReader(new FileReader(testInput));
+  try {
+    while (br.ready()) {
+      RETestCase testcase=getNextTestCase(br);
+      if (testcase != null) {
+        testcase.runTest();
+      }
+    }
+  }
+  finally {
+    br.close();
+  }
+  say(NEW_LINE + NEW_LINE + "Match time = "+ (System.currentTimeMillis() - ms)+ " ms.");
+  if (failures > 0) {
+    say("*************** THERE ARE FAILURES! *******************");
+  }
+  say("Tests complete.  " + testCount + " tests, "+ failures+ " failure(s).");
+}

@@ -1,0 +1,29 @@
+{
+  UnvertFields ufs=new UnvertFields(fields,searcher);
+  UnvertFields sortufs=new UnvertFields(new String[]{this.sort_fl},searcher);
+  this.joinInvert=new HigoJoinInvert[this.joinList.length];
+  this.joinSort=new HigoJoinSort[this.joinList.length];
+  for (int i=0; i < this.joinList.length; i++) {
+    this.joinSort[i]=new HigoJoinSort(this.joinList[i],this.req);
+    this.joinInvert[i]=new HigoJoinInvert(this.joinList[i],this.searcher);
+    this.joinInvert[i].open(this.req);
+    baseDocs=this.joinInvert[i].filterRight(baseDocs);
+  }
+  this.SelectDetailSort=UniqTypeNum.parseSelectDetailType(fields,joinSort);
+  if (this.SelectDetailSort != null) {
+    this.isNeedSort=true;
+  }
+  int groupbySize=ufs.length;
+  for (  HigoJoinInvert inv : joinInvert) {
+    groupbySize+=inv.fieldCount();
+  }
+  PriorityQueue<SelectDetailRow> rtn=this.topRows(sortufs,ufs,res,fields,baseDocs);
+  for (int i=0; i < this.joinList.length; i++) {
+    this.joinInvert[i].close();
+  }
+  ufs.free();
+  sortufs.free();
+  MdrillPorcessUtils.cleanFieldValueCache(groupbySize);
+  SelectDetailRow.CLEAN();
+  return rtn;
+}

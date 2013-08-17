@@ -1,0 +1,6 @@
+{
+  if (m_sql == null) {
+    m_sql=getConn().createStatement();
+  }
+  return m_sql;
+}

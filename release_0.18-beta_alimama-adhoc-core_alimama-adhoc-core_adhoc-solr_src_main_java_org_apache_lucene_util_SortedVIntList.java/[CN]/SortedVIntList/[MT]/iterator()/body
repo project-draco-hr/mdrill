@@ -1,0 +1,38 @@
+{
+  return new DocIdSetIterator(){
+    int bytePos=0;
+    int lastInt=0;
+    int doc=-1;
+    private void advance(){
+      byte b=bytes[bytePos++];
+      lastInt+=b & VB1;
+      for (int s=BIT_SHIFT; (b & ~VB1) != 0; s+=BIT_SHIFT) {
+        b=bytes[bytePos++];
+        lastInt+=(b & VB1) << s;
+      }
+    }
+    @Override public int docID(){
+      return doc;
+    }
+    @Override public int nextDoc(){
+      if (bytePos >= lastBytePos) {
+        doc=NO_MORE_DOCS;
+      }
+ else {
+        advance();
+        doc=lastInt;
+      }
+      return doc;
+    }
+    @Override public int advance(    int target){
+      while (bytePos < lastBytePos) {
+        advance();
+        if (lastInt >= target) {
+          return doc=lastInt;
+        }
+      }
+      return doc=NO_MORE_DOCS;
+    }
+  }
+;
+}

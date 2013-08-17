@@ -1,0 +1,21 @@
+{
+  count=0;
+  FieldInfo fi=parent.core.fieldInfos.fieldInfo(term.field);
+  indexOptions=(fi != null) ? fi.indexOptions : IndexOptions.DOCS_AND_FREQS_AND_POSITIONS;
+  currentFieldStoresPayloads=(fi != null) ? fi.storePayloads : false;
+  if (ti == null) {
+    df=0;
+  }
+ else {
+    df=ti.docFreq;
+    doc=0;
+    freqBasePointer=ti.freqPointer;
+    proxBasePointer=ti.proxPointer;
+    skipPointer=freqBasePointer + ti.skipOffset;
+    freqStream.seek(freqBasePointer);
+    this.compress=new ReadCompress(this.freqStream);
+    this.compress.setCompressMode(isfrqCompress);
+    this.compress.resetCompressblock();
+    haveSkipped=false;
+  }
+}

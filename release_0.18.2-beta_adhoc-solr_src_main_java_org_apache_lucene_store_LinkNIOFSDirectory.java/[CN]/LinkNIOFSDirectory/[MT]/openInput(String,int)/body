@@ -1,0 +1,10 @@
+{
+  File file=null;
+  if (!this.links.containsKey(name)) {
+    file=new File(directory,name);
+  }
+ else {
+    file=this.links.get(name);
+  }
+  return new NIOFSDirectory.NIOFSIndexInput(file,bufferSize,getReadChunkSize());
+}

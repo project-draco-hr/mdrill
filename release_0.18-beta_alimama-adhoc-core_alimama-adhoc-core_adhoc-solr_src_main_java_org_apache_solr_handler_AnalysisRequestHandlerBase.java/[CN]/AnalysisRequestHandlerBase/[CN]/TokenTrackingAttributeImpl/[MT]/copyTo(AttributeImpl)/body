@@ -1,0 +1,4 @@
+{
+  final TokenTrackingAttribute t=(TokenTrackingAttribute)target;
+  t.reset(basePositions,position);
+}

@@ -1,0 +1,11 @@
+{
+  List<T> result=new ArrayList<T>();
+  int sz=size();
+  for (int i=0; i < sz; i++) {
+    String n=getName(i);
+    if (name == n || (name != null && name.equals(n))) {
+      result.add(getVal(i));
+    }
+  }
+  return result;
+}

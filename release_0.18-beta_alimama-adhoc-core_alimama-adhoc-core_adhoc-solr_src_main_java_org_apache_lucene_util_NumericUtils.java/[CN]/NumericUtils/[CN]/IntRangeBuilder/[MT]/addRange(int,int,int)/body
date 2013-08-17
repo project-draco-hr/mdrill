@@ -1,0 +1,3 @@
+{
+  addRange(intToPrefixCoded(min,shift),intToPrefixCoded(max,shift));
+}

@@ -1,0 +1,50 @@
+{
+  try {
+    Assignment assignment=zkCluster.assignment_info(topologyId,this);
+    Map<Integer,NodePort> my_assignment=new HashMap<Integer,NodePort>();
+    Map<Integer,NodePort> taskNodeportAll=null;
+    Map<String,String> node=null;
+    if (assignment != null) {
+      taskNodeportAll=assignment.getTaskToNodeport();
+      node=assignment.getNodeHost();
+    }
+    Set<NodePort> need_connections=new HashSet<NodePort>();
+    if (taskNodeportAll != null && outboundTasks != null) {
+      for (      Entry<Integer,NodePort> mm : taskNodeportAll.entrySet()) {
+        int taks_id=mm.getKey();
+        if (outboundTasks.contains(taks_id)) {
+          my_assignment.put(taks_id,mm.getValue());
+          need_connections.add(mm.getValue());
+        }
+      }
+    }
+    taskNodeport.putAll(my_assignment);
+    Set<NodePort> current_connections=nodeportSocket.keySet();
+    Set<NodePort> new_connections=new HashSet<NodePort>();
+    Set<NodePort> remove_connections=new HashSet<NodePort>();
+    for (    NodePort node_port : need_connections) {
+      if (!current_connections.contains(node_port)) {
+        new_connections.add(node_port);
+      }
+    }
+    for (    NodePort node_port : current_connections) {
+      if (!need_connections.contains(node_port)) {
+        remove_connections.add(node_port);
+      }
+    }
+    if (node != null) {
+      for (      NodePort nodePort : new_connections) {
+        String host=node.get(nodePort.getNode());
+        int port=nodePort.getPort();
+        IConnection conn=mqContext.connect(topologyId,host,port);
+        nodeportSocket.put(nodePort,conn);
+      }
+    }
+    for (    NodePort node_port : remove_connections) {
+      nodeportSocket.remove(node_port).close();
+    }
+  }
+ catch (  Exception e) {
+    LOG.error(e.getMessage(),e);
+  }
+}

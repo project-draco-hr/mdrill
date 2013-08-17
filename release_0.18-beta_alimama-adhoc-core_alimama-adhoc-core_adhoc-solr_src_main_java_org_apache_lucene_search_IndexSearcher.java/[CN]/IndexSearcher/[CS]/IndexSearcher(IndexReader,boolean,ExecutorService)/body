@@ -1,0 +1,24 @@
+{
+  reader=r;
+  this.executor=executor;
+  this.closeReader=closeReader;
+  List<IndexReader> subReadersList=new ArrayList<IndexReader>();
+  gatherSubReaders(subReadersList,reader);
+  subReaders=subReadersList.toArray(new IndexReader[subReadersList.size()]);
+  docStarts=new int[subReaders.length];
+  int maxDoc=0;
+  for (int i=0; i < subReaders.length; i++) {
+    docStarts[i]=maxDoc;
+    maxDoc+=subReaders[i].maxDoc();
+  }
+  if (executor == null) {
+    subSearchers=null;
+  }
+ else {
+    subSearchers=new IndexSearcher[subReaders.length];
+    for (int i=0; i < subReaders.length; i++) {
+      subSearchers[i]=new IndexSearcher(subReaders[i],docStarts[i]);
+    }
+  }
+  docBase=0;
+}

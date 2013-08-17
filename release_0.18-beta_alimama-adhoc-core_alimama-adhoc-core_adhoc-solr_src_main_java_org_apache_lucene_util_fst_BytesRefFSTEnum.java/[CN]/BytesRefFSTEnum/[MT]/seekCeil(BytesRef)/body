@@ -1,0 +1,6 @@
+{
+  this.target=target;
+  targetLength=target.length;
+  super.doSeekCeil();
+  return setResult();
+}

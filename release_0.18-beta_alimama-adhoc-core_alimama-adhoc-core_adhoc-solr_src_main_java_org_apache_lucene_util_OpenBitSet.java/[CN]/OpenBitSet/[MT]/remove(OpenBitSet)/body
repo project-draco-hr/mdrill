@@ -1,0 +1,8 @@
+{
+  int idx=Math.min(wlen,other.wlen);
+  long[] thisArr=this.bits;
+  long[] otherArr=other.bits;
+  while (--idx >= 0) {
+    thisArr[idx]&=~otherArr[idx];
+  }
+}

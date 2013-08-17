@@ -1,0 +1,3 @@
+ByteBlockPool pool
+int startIndex
+int endIndex

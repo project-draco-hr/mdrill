@@ -1,0 +1,16 @@
+{
+  if (endIndex <= startIndex)   return;
+  int startWord=(int)(startIndex >> 6);
+  int endWord=expandingWordNum(endIndex - 1);
+  long startmask=-1L << startIndex;
+  long endmask=-1L >>> -endIndex;
+  if (startWord == endWord) {
+    bits[startWord]^=(startmask & endmask);
+    return;
+  }
+  bits[startWord]^=startmask;
+  for (int i=startWord + 1; i < endWord; i++) {
+    bits[i]=~bits[i];
+  }
+  bits[endWord]^=endmask;
+}

@@ -1,0 +1,7 @@
+{
+  if (!(o instanceof FieldCacheSource)) {
+    return false;
+  }
+  FieldCacheSource other=(FieldCacheSource)o;
+  return this.field.equals(other.field) && cachedFieldSourceEquals(other);
+}

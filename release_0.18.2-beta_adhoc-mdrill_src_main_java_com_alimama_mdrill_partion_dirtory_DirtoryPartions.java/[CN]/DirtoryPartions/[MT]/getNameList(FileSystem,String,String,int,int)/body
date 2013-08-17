@@ -1,0 +1,13 @@
+{
+  HashSet<String> rtn=new HashSet<String>();
+  FileStatus[] list=fs.listStatus(new Path(inputBase));
+  if (list != null) {
+    for (    FileStatus f : list) {
+      String name=f.getPath().getName().trim();
+      if (name != null && !name.isEmpty()) {
+        rtn.add(name);
+      }
+    }
+  }
+  return rtn;
+}

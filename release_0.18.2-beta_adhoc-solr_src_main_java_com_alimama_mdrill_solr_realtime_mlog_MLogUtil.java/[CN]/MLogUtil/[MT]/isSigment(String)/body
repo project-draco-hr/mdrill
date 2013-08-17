@@ -1,0 +1,3 @@
+{
+  return name.endsWith(MLOG_EXT_NAME);
+}

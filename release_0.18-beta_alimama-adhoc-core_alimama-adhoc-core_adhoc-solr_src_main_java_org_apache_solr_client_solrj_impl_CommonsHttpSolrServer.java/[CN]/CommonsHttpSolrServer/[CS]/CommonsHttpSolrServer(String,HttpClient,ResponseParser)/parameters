@@ -1,0 +1,3 @@
+String solrServerUrl
+HttpClient httpClient
+ResponseParser parser

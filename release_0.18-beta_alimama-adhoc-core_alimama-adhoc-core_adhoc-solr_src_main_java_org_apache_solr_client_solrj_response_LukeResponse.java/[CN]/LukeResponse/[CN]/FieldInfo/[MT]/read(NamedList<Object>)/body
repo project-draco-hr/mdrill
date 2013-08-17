@@ -1,0 +1,25 @@
+{
+  for (  Map.Entry<String,Object> entry : nl) {
+    if ("type".equals(entry.getKey())) {
+      type=(String)entry.getValue();
+    }
+    if ("flags".equals(entry.getKey())) {
+      flags=parseFlags((String)entry.getValue());
+    }
+ else     if ("schema".equals(entry.getKey())) {
+      schema=(String)entry.getValue();
+    }
+ else     if ("docs".equals(entry.getKey())) {
+      docs=(Integer)entry.getValue();
+    }
+ else     if ("distinct".equals(entry.getKey())) {
+      distinct=(Integer)entry.getValue();
+    }
+ else     if ("cacheableFaceting".equals(entry.getKey())) {
+      cacheableFaceting=(Boolean)entry.getValue();
+    }
+ else     if ("topTerms".equals(entry.getKey())) {
+      topTerms=(NamedList<Integer>)entry.getValue();
+    }
+  }
+}

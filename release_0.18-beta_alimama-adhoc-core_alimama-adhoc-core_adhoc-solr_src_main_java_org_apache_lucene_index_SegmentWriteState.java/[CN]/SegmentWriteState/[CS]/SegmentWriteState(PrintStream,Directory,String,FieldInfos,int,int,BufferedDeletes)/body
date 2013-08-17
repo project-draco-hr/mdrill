@@ -1,0 +1,9 @@
+{
+  this.infoStream=infoStream;
+  this.segDeletes=segDeletes;
+  this.directory=directory;
+  this.segmentName=segmentName;
+  this.fieldInfos=fieldInfos;
+  this.numDocs=numDocs;
+  this.termIndexInterval=termIndexInterval;
+}

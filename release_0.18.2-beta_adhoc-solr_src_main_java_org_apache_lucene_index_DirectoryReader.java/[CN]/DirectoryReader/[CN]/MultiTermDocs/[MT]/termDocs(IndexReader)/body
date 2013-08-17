@@ -1,0 +1,3 @@
+{
+  return term == null ? reader.termDocs(null,this.buffer) : reader.termDocs(this.buffer);
+}

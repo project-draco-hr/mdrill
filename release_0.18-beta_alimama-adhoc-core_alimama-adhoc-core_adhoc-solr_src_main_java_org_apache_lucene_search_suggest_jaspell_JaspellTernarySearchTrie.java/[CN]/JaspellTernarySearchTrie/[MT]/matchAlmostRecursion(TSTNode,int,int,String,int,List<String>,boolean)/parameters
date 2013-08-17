@@ -1,0 +1,7 @@
+TSTNode currentNode
+int charIndex
+int d
+String matchAlmostKey
+int matchAlmostNumReturnValues
+List<String> matchAlmostResult2
+boolean upTo

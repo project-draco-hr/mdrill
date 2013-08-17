@@ -1,0 +1,4 @@
+{
+  this.state=state;
+  cache.setAlive(state == State.LIVE);
+}

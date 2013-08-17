@@ -1,0 +1,15 @@
+{
+  if (path[0].equals("common")) {
+    return get_path_value_stats(spec.getCommon(),StormUtils.mk_arr(path[1]));
+  }
+  if (path[0].equals("acked")) {
+    return RollingWindowSetStat.value_rolling_window_set(spec.getAcked());
+  }
+  if (path[0].equals("failed")) {
+    return RollingWindowSetStat.value_rolling_window_set(spec.getFailed());
+  }
+  if (path[0].equals("process_latencies")) {
+    return RollingWindowSetStat.value_rolling_window_set(spec.getProcess_latencies());
+  }
+  return null;
+}

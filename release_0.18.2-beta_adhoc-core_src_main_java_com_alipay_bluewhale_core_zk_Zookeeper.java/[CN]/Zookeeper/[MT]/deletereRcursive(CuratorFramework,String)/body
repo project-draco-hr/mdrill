@@ -1,0 +1,11 @@
+{
+  String npath=PathUtils.normalize_path(path);
+  if (existsNode(zk,npath,false)) {
+    List<String> childs=getChildren(zk,npath,false);
+    for (    String child : childs) {
+      String childFullPath=PathUtils.full_path(npath,child);
+      deletereRcursive(zk,childFullPath);
+    }
+    deleteNode(zk,npath);
+  }
+}

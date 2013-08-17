@@ -1,0 +1,3 @@
+{
+  getLogMergePolicy().setMergeFactor(mergeFactor);
+}

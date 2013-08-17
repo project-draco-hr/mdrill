@@ -1,0 +1,12 @@
+{
+  SolrInfoMBean infoBean=get(key);
+  if (infoBean != null) {
+    try {
+      unregister((String)key,infoBean);
+    }
+ catch (    RuntimeException e) {
+      LOG.warn("Failed to unregister info bean: " + key,e);
+    }
+  }
+  return super.remove(key);
+}

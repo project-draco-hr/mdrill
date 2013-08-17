@@ -1,0 +1,72 @@
+{
+  final boolean doBalance;
+  final long deletesRAMUsed;
+  deletesRAMUsed=bufferedDeletesStream.bytesUsed();
+  final long ramBufferSize;
+  final double mb=config.getRAMBufferSizeMB();
+  if (mb == IndexWriterConfig.DISABLE_AUTO_FLUSH) {
+    ramBufferSize=IndexWriterConfig.DISABLE_AUTO_FLUSH;
+  }
+ else {
+    ramBufferSize=(long)(mb * 1024 * 1024);
+  }
+synchronized (this) {
+    if (ramBufferSize == IndexWriterConfig.DISABLE_AUTO_FLUSH || bufferIsFull) {
+      return;
+    }
+    doBalance=bytesUsed() + deletesRAMUsed >= ramBufferSize;
+  }
+  if (doBalance) {
+    if (infoStream != null) {
+      message("  RAM: balance allocations: usedMB=" + toMB(bytesUsed()) + " vs trigger="+ toMB(ramBufferSize)+ " deletesMB="+ toMB(deletesRAMUsed)+ " byteBlockFree="+ toMB(byteBlockAllocator.freeByteBlocks.size() * BYTE_BLOCK_SIZE)+ " perDocFree="+ toMB(perDocAllocator.freeByteBlocks.size() * PER_DOC_BLOCK_SIZE)+ " charBlockFree="+ toMB(freeCharBlocks.size() * CHAR_BLOCK_SIZE * RamUsageEstimator.NUM_BYTES_CHAR));
+    }
+    final long startBytesUsed=bytesUsed() + deletesRAMUsed;
+    int iter=0;
+    boolean any=true;
+    final long freeLevel=(long)(0.95 * ramBufferSize);
+    while (bytesUsed() + deletesRAMUsed > freeLevel) {
+synchronized (this) {
+        if (0 == perDocAllocator.freeByteBlocks.size() && 0 == byteBlockAllocator.freeByteBlocks.size() && 0 == freeCharBlocks.size() && 0 == freeIntBlocks.size() && !any) {
+          bufferIsFull=bytesUsed() + deletesRAMUsed > ramBufferSize;
+          if (infoStream != null) {
+            if (bytesUsed() + deletesRAMUsed > ramBufferSize) {
+              message("    nothing to free; set bufferIsFull");
+            }
+ else {
+              message("    nothing to free");
+            }
+          }
+          break;
+        }
+        if ((0 == iter % 5) && byteBlockAllocator.freeByteBlocks.size() > 0) {
+          byteBlockAllocator.freeByteBlocks.remove(byteBlockAllocator.freeByteBlocks.size() - 1);
+          bytesUsed.addAndGet(-BYTE_BLOCK_SIZE);
+        }
+        if ((1 == iter % 5) && freeCharBlocks.size() > 0) {
+          freeCharBlocks.remove(freeCharBlocks.size() - 1);
+          bytesUsed.addAndGet(-CHAR_BLOCK_SIZE * RamUsageEstimator.NUM_BYTES_CHAR);
+        }
+        if ((2 == iter % 5) && freeIntBlocks.size() > 0) {
+          freeIntBlocks.remove(freeIntBlocks.size() - 1);
+          bytesUsed.addAndGet(-INT_BLOCK_SIZE * RamUsageEstimator.NUM_BYTES_INT);
+        }
+        if ((3 == iter % 5) && perDocAllocator.freeByteBlocks.size() > 0) {
+          for (int i=0; i < 32; ++i) {
+            perDocAllocator.freeByteBlocks.remove(perDocAllocator.freeByteBlocks.size() - 1);
+            bytesUsed.addAndGet(-PER_DOC_BLOCK_SIZE);
+            if (perDocAllocator.freeByteBlocks.size() == 0) {
+              break;
+            }
+          }
+        }
+      }
+      if ((4 == iter % 5) && any) {
+        any=consumer.freeRAM();
+      }
+      iter++;
+    }
+    if (infoStream != null) {
+      message("    after free: freedMB=" + nf.format((startBytesUsed - bytesUsed() - deletesRAMUsed) / 1024. / 1024.) + " usedMB="+ nf.format((bytesUsed() + deletesRAMUsed) / 1024. / 1024.));
+    }
+  }
+}

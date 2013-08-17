@@ -1,0 +1,6 @@
+Directory d
+String segment
+FieldInfos fn
+int readBufferSize
+int docStoreOffset
+int size

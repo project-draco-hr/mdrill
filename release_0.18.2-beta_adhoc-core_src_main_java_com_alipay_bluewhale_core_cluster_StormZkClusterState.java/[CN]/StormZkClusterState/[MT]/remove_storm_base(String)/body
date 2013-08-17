@@ -1,0 +1,3 @@
+{
+  cluster_state.delete_node(Cluster.storm_path(stormId));
+}

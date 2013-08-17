@@ -1,0 +1,4 @@
+{
+  buffer.append(" ALL ");
+  allComparisonExpression.GetSubSelect().accept((ExpressionVisitor)this);
+}

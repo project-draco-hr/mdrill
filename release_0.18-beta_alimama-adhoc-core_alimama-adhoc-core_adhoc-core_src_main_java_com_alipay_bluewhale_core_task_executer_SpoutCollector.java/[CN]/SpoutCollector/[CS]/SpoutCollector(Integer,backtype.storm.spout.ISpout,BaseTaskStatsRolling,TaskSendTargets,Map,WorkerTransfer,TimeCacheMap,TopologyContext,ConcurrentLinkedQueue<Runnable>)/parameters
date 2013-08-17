@@ -1,0 +1,9 @@
+Integer task_id
+backtype.storm.spout.ISpout spout
+BaseTaskStatsRolling task_stats
+TaskSendTargets sendTargets
+Map _storm_conf
+WorkerTransfer _transfer_fn
+TimeCacheMap pending
+TopologyContext topology_context
+ConcurrentLinkedQueue<Runnable> event_queue

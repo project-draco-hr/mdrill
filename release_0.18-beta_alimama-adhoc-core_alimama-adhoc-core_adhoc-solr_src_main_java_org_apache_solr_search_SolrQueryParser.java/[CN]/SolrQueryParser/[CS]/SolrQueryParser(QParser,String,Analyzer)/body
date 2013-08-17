@@ -1,0 +1,10 @@
+{
+  super(parser.getReq().getSchema().getSolrConfig().luceneMatchVersion,defaultField,analyzer);
+  this.schema=parser.getReq().getSchema();
+  this.parser=parser;
+  this.defaultField=defaultField;
+  setAllowLeadingWildcard(true);
+  setLowercaseExpandedTerms(false);
+  setEnablePositionIncrements(true);
+  checkAllowLeadingWildcards();
+}

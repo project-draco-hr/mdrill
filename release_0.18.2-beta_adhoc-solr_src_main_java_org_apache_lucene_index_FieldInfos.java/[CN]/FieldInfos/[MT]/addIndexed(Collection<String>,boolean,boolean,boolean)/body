@@ -1,0 +1,5 @@
+{
+  for (  String name : names) {
+    add(name,true,storeTermVectors,storePositionWithTermVector,storeOffsetWithTermVector);
+  }
+}

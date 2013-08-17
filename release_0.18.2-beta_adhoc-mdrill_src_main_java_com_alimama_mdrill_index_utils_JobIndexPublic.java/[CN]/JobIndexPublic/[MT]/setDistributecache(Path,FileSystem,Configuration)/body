@@ -1,0 +1,10 @@
+{
+  DistributedCache.createSymlink(conf);
+  FileStatus[] flist=fs.listStatus(distpath);
+  for (  FileStatus f : flist) {
+    if (f.isDir()) {
+      continue;
+    }
+    DistributedCache.addCacheFile(new URI(new Path(distpath,f.getPath().getName()).toUri().toString() + "#" + f.getPath().getName()),conf);
+  }
+}

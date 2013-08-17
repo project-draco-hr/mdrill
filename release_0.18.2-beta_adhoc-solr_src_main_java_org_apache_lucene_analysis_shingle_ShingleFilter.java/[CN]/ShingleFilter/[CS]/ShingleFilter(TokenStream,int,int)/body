@@ -1,0 +1,5 @@
+{
+  super(input);
+  setMaxShingleSize(maxShingleSize);
+  setMinShingleSize(minShingleSize);
+}

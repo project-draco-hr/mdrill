@@ -1,0 +1,4 @@
+int stream
+byte[] b
+int offset
+int len

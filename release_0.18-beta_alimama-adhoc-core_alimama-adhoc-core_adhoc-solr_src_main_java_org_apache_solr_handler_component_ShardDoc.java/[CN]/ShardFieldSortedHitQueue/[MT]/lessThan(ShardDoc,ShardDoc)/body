@@ -1,0 +1,14 @@
+{
+  if (docA.shard == docB.shard) {
+    return !(docA.orderInShard < docB.orderInShard);
+  }
+  final int n=comparators.length;
+  int c=0;
+  for (int i=0; i < n && c == 0; i++) {
+    c=(fields[i].getReverse()) ? comparators[i].compare(docB,docA) : comparators[i].compare(docA,docB);
+  }
+  if (c == 0) {
+    c=-docA.shard.compareTo(docB.shard);
+  }
+  return c < 0;
+}

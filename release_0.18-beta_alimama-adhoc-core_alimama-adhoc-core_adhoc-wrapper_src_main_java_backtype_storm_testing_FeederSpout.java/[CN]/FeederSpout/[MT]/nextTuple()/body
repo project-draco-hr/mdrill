@@ -1,0 +1,9 @@
+{
+  List<Object> tuple=(List<Object>)InprocMessaging.pollMessage(_id);
+  if (tuple != null) {
+    _collector.emit(tuple,UUID.randomUUID().toString());
+  }
+ else {
+    Utils.sleep(10);
+  }
+}

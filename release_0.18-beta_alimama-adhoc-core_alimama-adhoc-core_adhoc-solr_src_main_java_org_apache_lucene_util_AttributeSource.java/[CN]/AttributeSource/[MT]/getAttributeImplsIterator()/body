@@ -1,0 +1,24 @@
+{
+  final State initState=getCurrentState();
+  if (initState != null) {
+    return new Iterator<AttributeImpl>(){
+      private State state=initState;
+      public void remove(){
+        throw new UnsupportedOperationException();
+      }
+      public AttributeImpl next(){
+        if (state == null)         throw new NoSuchElementException();
+        final AttributeImpl att=state.attribute;
+        state=state.next;
+        return att;
+      }
+      public boolean hasNext(){
+        return state != null;
+      }
+    }
+;
+  }
+ else {
+    return Collections.<AttributeImpl>emptySet().iterator();
+  }
+}

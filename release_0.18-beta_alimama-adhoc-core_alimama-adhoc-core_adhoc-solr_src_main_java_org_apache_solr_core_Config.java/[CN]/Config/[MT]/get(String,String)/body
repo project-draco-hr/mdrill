@@ -1,0 +1,4 @@
+{
+  String val=getVal(path,false);
+  return val != null ? val : def;
+}

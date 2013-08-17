@@ -1,0 +1,4 @@
+{
+  writer.updateDocuments(t,docs,a);
+  return indexingGen.get();
+}

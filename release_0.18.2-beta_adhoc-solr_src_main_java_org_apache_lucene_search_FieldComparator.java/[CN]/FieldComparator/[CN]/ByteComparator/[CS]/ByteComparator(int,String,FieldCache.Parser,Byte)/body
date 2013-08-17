@@ -1,0 +1,5 @@
+{
+  super(field,missingValue);
+  values=new byte[numHits];
+  this.parser=(ByteParser)parser;
+}

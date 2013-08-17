@@ -1,0 +1,4 @@
+{
+  assertsOn=true;
+  return true;
+}

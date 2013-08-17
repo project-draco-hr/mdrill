@@ -1,0 +1,21 @@
+{
+  if (this.currentTerm != null && this.getterms()) {
+    return true;
+  }
+  currentTerm=null;
+  while (lowBounds.size() >= 1) {
+    if (actualEnum != null) {
+      actualEnum.close();
+      actualEnum=null;
+    }
+    String lowerBound=this.lowBounds.removeFirst();
+    maxset=rangeBounds.get(lowerBound);
+    actualEnum=reader.terms(termTemplate.createTerm(lowerBound));
+    currentTerm=actualEnum.term();
+    if (currentTerm != null && (termCompare(currentTerm) || this.getterms())) {
+      return true;
+    }
+    currentTerm=null;
+  }
+  return false;
+}

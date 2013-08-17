@@ -1,0 +1,5 @@
+{
+  final TermQuery tq=new TermQuery(term);
+  tq.setBoost(boost);
+  topLevel.add(tq,BooleanClause.Occur.SHOULD);
+}

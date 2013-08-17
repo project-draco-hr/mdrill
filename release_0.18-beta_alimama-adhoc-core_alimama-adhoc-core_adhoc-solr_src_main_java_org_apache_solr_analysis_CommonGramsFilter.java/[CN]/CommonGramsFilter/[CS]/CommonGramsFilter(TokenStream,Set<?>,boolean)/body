@@ -1,0 +1,3 @@
+{
+  this(Version.LUCENE_29,input,commonWords,ignoreCase);
+}

@@ -1,0 +1,3 @@
+{
+  return HadoopBaseUtils.grabConfiguration(hadoopConfDir,conf);
+}

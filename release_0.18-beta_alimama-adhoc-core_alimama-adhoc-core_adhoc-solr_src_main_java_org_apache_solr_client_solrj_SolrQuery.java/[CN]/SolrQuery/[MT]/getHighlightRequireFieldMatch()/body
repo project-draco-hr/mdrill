@@ -1,0 +1,3 @@
+{
+  return this.getBool(HighlightParams.FIELD_MATCH,false);
+}

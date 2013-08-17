@@ -1,0 +1,5 @@
+{
+  if (currentSearcher != null) {
+    swapSearcher(null);
+  }
+}

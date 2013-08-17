@@ -1,0 +1,10 @@
+{
+  List<String> list=null;
+  try {
+    list=zkobj.getChildren(zk,path,watch);
+  }
+ catch (  Exception e) {
+    LOG.error("get_children",e);
+  }
+  return list;
+}

@@ -1,0 +1,12 @@
+{
+  Map<Integer,String> taskToComponetId=mkTaskComponentAssignments(conf,stormId);
+  if (taskToComponetId == null) {
+    return;
+  }
+  Set<Entry<Integer,String>> entrySet=taskToComponetId.entrySet();
+  for (Iterator<Entry<Integer,String>> it=entrySet.iterator(); it.hasNext(); ) {
+    Entry<Integer,String> entry=it.next();
+    TaskInfo taskinfo=new TaskInfo(entry.getValue());
+    stormClusterState.set_task(stormId,entry.getKey(),taskinfo);
+  }
+}

@@ -1,0 +1,6 @@
+{
+  if (debugInfo == null) {
+    debugInfo=new SimpleOrderedMap<Object>();
+  }
+  debugInfo.add(name,val);
+}

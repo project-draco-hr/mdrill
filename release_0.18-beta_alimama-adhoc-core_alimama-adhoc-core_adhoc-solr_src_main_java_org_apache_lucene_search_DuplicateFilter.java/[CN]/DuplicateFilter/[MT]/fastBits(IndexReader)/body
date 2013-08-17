@@ -1,0 +1,32 @@
+{
+  FixedBitSet bits=new FixedBitSet(reader.maxDoc());
+  bits.set(0,reader.maxDoc());
+  Term startTerm=new Term(fieldName);
+  TermEnum te=reader.terms(startTerm);
+  if (te != null) {
+    Term currTerm=te.term();
+    while ((currTerm != null) && (currTerm.field() == startTerm.field())) {
+      if (te.docFreq() > 1) {
+        int lastDoc=-1;
+        TermDocs td=reader.termDocs(currTerm);
+        td.next();
+        if (keepMode == KM_USE_FIRST_OCCURRENCE) {
+          td.next();
+        }
+        do {
+          lastDoc=td.doc();
+          bits.clear(lastDoc);
+        }
+ while (td.next());
+        if (keepMode == KM_USE_LAST_OCCURRENCE) {
+          bits.set(lastDoc);
+        }
+      }
+      if (!te.next()) {
+        break;
+      }
+      currTerm=te.term();
+    }
+  }
+  return bits;
+}

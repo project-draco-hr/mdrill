@@ -1,0 +1,6 @@
+{
+  StormClusterState stat=GetShards.getCluster();
+  List<String> list=stat.higo_tableList();
+  String[] rtn=new String[list.size()];
+  return list.toArray(rtn);
+}

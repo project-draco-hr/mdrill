@@ -1,0 +1,25 @@
+{
+  if (dictionary.isIgnoreCase()) {
+    for (int i=0; i < strippedWord.length; ) {
+      i+=Character.toChars(Character.toLowerCase(charUtils.codePointAt(strippedWord,i)),strippedWord,i);
+    }
+  }
+  segment.setLength(0);
+  segment.append(strippedWord,0,length);
+  if (!affix.checkCondition(segment)) {
+    return Collections.EMPTY_LIST;
+  }
+  List<Stem> stems=new ArrayList<Stem>();
+  List<HunspellWord> words=dictionary.lookupWord(strippedWord,0,length);
+  if (words != null) {
+    for (    HunspellWord hunspellWord : words) {
+      if (hunspellWord.hasFlag(affix.getFlag())) {
+        stems.add(new Stem(strippedWord,length));
+      }
+    }
+  }
+  if (affix.isCrossProduct() && recursionDepth < RECURSION_CAP) {
+    stems.addAll(stem(strippedWord,length,affix.getAppendFlags(),++recursionDepth));
+  }
+  return stems;
+}

@@ -1,0 +1,6 @@
+{
+  this.similarity=searcher.getSimilarity();
+  for (  Query disjunctQuery : disjuncts) {
+    weights.add(disjunctQuery.createWeight(searcher));
+  }
+}

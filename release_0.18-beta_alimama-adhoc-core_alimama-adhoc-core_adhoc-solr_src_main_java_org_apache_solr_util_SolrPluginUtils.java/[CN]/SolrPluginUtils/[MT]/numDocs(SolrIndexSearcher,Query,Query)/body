@@ -1,0 +1,3 @@
+{
+  return (null == f) ? s.getDocSet(q).size() : s.numDocs(q,f);
+}

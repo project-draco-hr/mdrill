@@ -1,0 +1,36 @@
+{
+  int v_1;
+  int v_3;
+  v_1=cursor;
+{
+    int v_2=2;
+    replab0:     while (true) {
+      v_3=cursor;
+      lab1:       do {
+        golab2:         while (true) {
+          lab3:           do {
+            if (!(in_grouping(g_vowel,97,305))) {
+              break lab3;
+            }
+            break golab2;
+          }
+ while (false);
+          if (cursor >= limit) {
+            break lab1;
+          }
+          cursor++;
+        }
+        v_2--;
+        continue replab0;
+      }
+ while (false);
+      cursor=v_3;
+      break replab0;
+    }
+    if (v_2 > 0) {
+      return false;
+    }
+  }
+  cursor=v_1;
+  return true;
+}

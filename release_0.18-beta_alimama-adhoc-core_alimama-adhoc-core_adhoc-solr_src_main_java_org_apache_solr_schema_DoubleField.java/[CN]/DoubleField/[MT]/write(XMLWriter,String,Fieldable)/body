@@ -1,0 +1,3 @@
+{
+  xmlWriter.writeDouble(name,f.stringValue());
+}

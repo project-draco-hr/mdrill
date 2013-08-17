@@ -1,0 +1,7 @@
+{
+  SnapshotInfo snapshotInfo=idToSnapshot.get(id);
+  if (snapshotInfo == null) {
+    throw new IllegalStateException("No snapshot exists by ID: " + id);
+  }
+  return snapshotInfo.commit;
+}

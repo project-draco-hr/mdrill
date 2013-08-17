@@ -1,0 +1,19 @@
+{
+  String ans="";
+  String comma=",";
+  if (!useComma) {
+    comma="";
+  }
+  if (list != null) {
+    if (useBrackets) {
+      ans+="(";
+    }
+    for (int i=0; i < list.size(); i++) {
+      ans+="" + list.get(i) + ((i < list.size() - 1) ? comma + " " : "");
+    }
+    if (useBrackets) {
+      ans+=")";
+    }
+  }
+  return ans;
+}

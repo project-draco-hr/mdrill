@@ -1,0 +1,6 @@
+{
+  super(similarity,w);
+  qWeight=w.getValue();
+  vals=valSrc.getValues(reader);
+  termDocs=reader.termDocs(null);
+}

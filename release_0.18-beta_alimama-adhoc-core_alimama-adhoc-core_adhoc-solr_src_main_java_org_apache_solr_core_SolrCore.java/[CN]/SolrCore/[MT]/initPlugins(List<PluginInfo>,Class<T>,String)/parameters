@@ -1,0 +1,3 @@
+List<PluginInfo> pluginInfos
+Class<T> type
+String defClassName

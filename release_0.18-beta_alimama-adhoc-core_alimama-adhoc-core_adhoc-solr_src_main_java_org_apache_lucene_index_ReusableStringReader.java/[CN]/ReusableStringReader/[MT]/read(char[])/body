@@ -1,0 +1,3 @@
+{
+  return read(c,0,c.length);
+}

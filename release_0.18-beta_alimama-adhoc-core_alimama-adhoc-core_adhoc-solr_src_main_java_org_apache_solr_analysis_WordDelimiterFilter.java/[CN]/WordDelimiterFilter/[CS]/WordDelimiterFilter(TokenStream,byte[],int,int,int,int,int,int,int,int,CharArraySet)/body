@@ -1,0 +1,3 @@
+{
+  this(in,charTypeTable,generateWordParts,generateNumberParts,catenateWords,catenateNumbers,catenateAll,splitOnCaseChange,preserveOriginal,1,1,null);
+}

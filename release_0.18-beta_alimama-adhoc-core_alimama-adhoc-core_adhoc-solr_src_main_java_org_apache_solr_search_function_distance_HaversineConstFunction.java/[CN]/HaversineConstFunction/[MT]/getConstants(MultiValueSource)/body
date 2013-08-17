@@ -1,0 +1,8 @@
+{
+  if (!(vs instanceof VectorValueSource))   return null;
+  List<ValueSource> sources=((VectorValueSource)vs).getSources();
+  if (sources.get(0) instanceof ConstNumberSource && sources.get(1) instanceof ConstNumberSource) {
+    return new double[]{((ConstNumberSource)sources.get(0)).getDouble(),((ConstNumberSource)sources.get(1)).getDouble()};
+  }
+  return null;
+}

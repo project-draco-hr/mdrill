@@ -1,0 +1,8 @@
+{
+  try {
+    return fmtThreadLocal.get().parse(s);
+  }
+ catch (  Exception e) {
+    return DateUtil.parseDate(s);
+  }
+}

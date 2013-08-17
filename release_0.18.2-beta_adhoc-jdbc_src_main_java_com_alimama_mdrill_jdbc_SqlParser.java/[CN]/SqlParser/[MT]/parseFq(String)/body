@@ -1,0 +1,15 @@
+{
+  String[] split=whereReg.split(this.tablename + " " + otherSql.trim());
+  if (split.length > 1) {
+    String where=split[1].trim();
+    CCJSqlParserManager pm=new CCJSqlParserManager();
+    PlainSelect plainSelect=(PlainSelect)((Select)pm.parse(new StringReader("select * from abc where " + where))).getSelectBody();
+    Expression e=getExpressionWithoutParenthesis(plainSelect.getWhere());
+    JSONArray jsonObj=new JSONArray();
+    JSONObject subQuery=new JSONObject();
+    subQuery.put("subQuery","1");
+    subQuery.put("filter","AND");
+    subQuery.put("list",jsonObj);
+    this.queryStr=generateList(e,jsonObj,subQuery).toString();
+  }
+}

@@ -1,0 +1,16 @@
+{
+  int delta;
+  if (currentFieldStoresPayloads) {
+    delta=skipStream.readVInt();
+    if ((delta & 1) != 0) {
+      payloadLength[level]=skipStream.readVInt();
+    }
+    delta>>>=1;
+  }
+ else {
+    delta=skipStream.readVInt();
+  }
+  freqPointer[level]+=skipStream.readVInt();
+  proxPointer[level]+=skipStream.readVInt();
+  return delta;
+}

@@ -1,0 +1,4 @@
+Token prototype
+char[] newTermBuffer
+int offset
+int length

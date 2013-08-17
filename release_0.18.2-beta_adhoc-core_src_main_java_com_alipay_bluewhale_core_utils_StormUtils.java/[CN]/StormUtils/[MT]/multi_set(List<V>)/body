@@ -1,0 +1,11 @@
+{
+  HashMap<V,Integer> rtn=new HashMap<V,Integer>();
+  for (  V v : list) {
+    int cnt=1;
+    if (rtn.containsKey(v)) {
+      cnt+=rtn.get(v);
+    }
+    rtn.put(v,cnt);
+  }
+  return rtn;
+}

@@ -1,0 +1,7 @@
+{
+synchronized (MdrillPorcessUtils.getLock()) {
+    PriorityQueue<SelectDetailRow> topItems=new PriorityQueue<SelectDetailRow>(this.limit_offset,Collections.reverseOrder(cmpTermNum));
+    PriorityQueue<SelectDetailRow> rows=this.execute(topItems,fields,base);
+    return this.toNameList(rows);
+  }
+}

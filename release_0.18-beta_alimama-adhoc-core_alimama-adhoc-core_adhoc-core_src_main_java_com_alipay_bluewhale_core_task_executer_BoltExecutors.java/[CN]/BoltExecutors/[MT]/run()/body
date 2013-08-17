@@ -1,0 +1,21 @@
+{
+  byte[] ser_msg=puller.recv();
+  if (ser_msg != null && ser_msg.length > 0) {
+    LOG.debug("Processing message");
+    Tuple tuple=deserializer.deserialize(ser_msg);
+    if (sampler.getResult()) {
+      tuple_start_times.put(tuple,System.currentTimeMillis());
+    }
+    try {
+      bolt.execute(tuple);
+    }
+ catch (    RuntimeException e) {
+      errorReport=e;
+      LOG.error("bolt execute error ",e);
+    }
+catch (    Exception e) {
+      errorReport=e;
+      LOG.error("bolt execute error ",e);
+    }
+  }
+}

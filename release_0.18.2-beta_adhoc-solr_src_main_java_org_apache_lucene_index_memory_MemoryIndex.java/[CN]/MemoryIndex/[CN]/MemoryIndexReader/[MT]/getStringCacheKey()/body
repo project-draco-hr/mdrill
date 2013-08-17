@@ -1,0 +1,3 @@
+{
+  return this.getCoreCacheKey().toString();
+}

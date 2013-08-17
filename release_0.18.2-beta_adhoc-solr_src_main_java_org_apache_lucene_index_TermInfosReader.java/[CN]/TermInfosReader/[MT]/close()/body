@@ -1,0 +1,17 @@
+{
+  if (this.quicktisInput != null) {
+    quicktisInput.close();
+  }
+  if (this.isQuickMode) {
+    if (tiiInput != null) {
+      tiiInput.close();
+    }
+    if (tiiInputquick != null) {
+      tiiInputquick.close();
+    }
+  }
+  if (origEnum != null) {
+    origEnum.close();
+  }
+  threadResources.close();
+}

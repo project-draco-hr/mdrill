@@ -1,0 +1,6 @@
+{
+  if (d == null) {
+    return new Text("_");
+  }
+  return new Text(transformSolrMetacharactor(d.toString(),type));
+}

@@ -1,0 +1,11 @@
+{
+  if (endsWith(text,length,"ku") || endsWith(text,length,"mu")) {
+    numSyllables--;
+    return length - 2;
+  }
+  if (endsWith(text,length,"nya")) {
+    numSyllables--;
+    return length - 3;
+  }
+  return length;
+}

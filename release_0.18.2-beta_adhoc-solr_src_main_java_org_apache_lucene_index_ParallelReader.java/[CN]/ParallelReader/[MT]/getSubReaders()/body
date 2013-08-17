@@ -1,0 +1,3 @@
+{
+  return readers.toArray(new IndexReader[readers.size()]);
+}

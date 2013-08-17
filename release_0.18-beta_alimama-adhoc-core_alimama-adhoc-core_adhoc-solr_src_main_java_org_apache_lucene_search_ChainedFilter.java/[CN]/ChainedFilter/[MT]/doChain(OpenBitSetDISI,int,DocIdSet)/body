@@ -1,0 +1,50 @@
+{
+  if (dis instanceof OpenBitSet) {
+switch (logic) {
+case OR:
+      result.or((OpenBitSet)dis);
+    break;
+case AND:
+  result.and((OpenBitSet)dis);
+break;
+case ANDNOT:
+result.andNot((OpenBitSet)dis);
+break;
+case XOR:
+result.xor((OpenBitSet)dis);
+break;
+default :
+doChain(result,DEFAULT,dis);
+break;
+}
+}
+ else {
+DocIdSetIterator disi;
+if (dis == null) {
+disi=DocIdSet.EMPTY_DOCIDSET.iterator();
+}
+ else {
+disi=dis.iterator();
+if (disi == null) {
+disi=DocIdSet.EMPTY_DOCIDSET.iterator();
+}
+}
+switch (logic) {
+case OR:
+result.inPlaceOr(disi);
+break;
+case AND:
+result.inPlaceAnd(disi);
+break;
+case ANDNOT:
+result.inPlaceNot(disi);
+break;
+case XOR:
+result.inPlaceXor(disi);
+break;
+default :
+doChain(result,DEFAULT,dis);
+break;
+}
+}
+}

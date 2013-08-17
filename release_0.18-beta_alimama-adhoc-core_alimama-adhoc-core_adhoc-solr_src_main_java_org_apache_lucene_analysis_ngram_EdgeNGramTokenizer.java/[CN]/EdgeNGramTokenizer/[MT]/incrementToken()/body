@@ -1,0 +1,23 @@
+{
+  clearAttributes();
+  if (!started) {
+    started=true;
+    char[] chars=new char[1024];
+    int charsRead=input.read(chars);
+    inStr=new String(chars,0,charsRead).trim();
+    inLen=inStr.length();
+    gramSize=minGram;
+  }
+  if (gramSize > inLen) {
+    return false;
+  }
+  if (gramSize > maxGram) {
+    return false;
+  }
+  int start=side == Side.FRONT ? 0 : inLen - gramSize;
+  int end=start + gramSize;
+  termAtt.setEmpty().append(inStr,start,end);
+  offsetAtt.setOffset(correctOffset(start),correctOffset(end));
+  gramSize++;
+  return true;
+}

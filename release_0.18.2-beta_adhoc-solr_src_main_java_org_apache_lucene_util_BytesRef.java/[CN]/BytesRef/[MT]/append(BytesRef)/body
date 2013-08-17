@@ -1,0 +1,11 @@
+{
+  int newLen=length + other.length;
+  if (bytes.length < newLen) {
+    byte[] newBytes=new byte[newLen];
+    System.arraycopy(bytes,offset,newBytes,0,length);
+    offset=0;
+    bytes=newBytes;
+  }
+  System.arraycopy(other.bytes,other.offset,bytes,length + offset,other.length);
+  length=newLen;
+}

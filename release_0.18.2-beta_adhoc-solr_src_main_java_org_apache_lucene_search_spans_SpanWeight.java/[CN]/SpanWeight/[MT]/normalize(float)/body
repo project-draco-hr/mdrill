@@ -1,0 +1,5 @@
+{
+  this.queryNorm=queryNorm;
+  queryWeight*=queryNorm;
+  value=queryWeight * idf;
+}

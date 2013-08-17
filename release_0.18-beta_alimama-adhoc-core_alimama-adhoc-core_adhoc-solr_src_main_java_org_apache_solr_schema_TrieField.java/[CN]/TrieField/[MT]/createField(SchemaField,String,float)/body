@@ -1,0 +1,32 @@
+{
+  boolean indexed=field.indexed();
+  boolean stored=field.stored();
+  if (!indexed && !stored) {
+    if (log.isTraceEnabled())     log.trace("Ignoring unindexed/unstored field: " + field);
+    return null;
+  }
+  final NumericField f=new NumericField(field.getName(),precisionStep,stored ? Field.Store.YES : Field.Store.NO,indexed);
+switch (type) {
+case INTEGER:
+    f.setIntValue(Integer.parseInt(externalVal));
+  break;
+case FLOAT:
+f.setFloatValue(Float.parseFloat(externalVal));
+break;
+case LONG:
+f.setLongValue(Long.parseLong(externalVal));
+break;
+case DOUBLE:
+f.setDoubleValue(Double.parseDouble(externalVal));
+break;
+case DATE:
+f.setLongValue(dateField.parseMath(null,externalVal).getTime());
+break;
+default :
+throw new SolrException(SolrException.ErrorCode.SERVER_ERROR,"Unknown type for trie field: " + type);
+}
+f.setOmitNorms(field.omitNorms());
+f.setIndexOptions(getIndexOptions(field,externalVal));
+f.setBoost(boost);
+return f;
+}

@@ -1,0 +1,4 @@
+{
+  List<PluginInfo> l=solrConfig.readPluginInfos(path,false,true);
+  return l.isEmpty() ? def : l.get(0);
+}

@@ -1,0 +1,10 @@
+{
+  final int v;
+  if (inputType == INPUT_TYPE.BYTE1) {
+    v=in.readByte() & 0xFF;
+  }
+ else {
+    v=in.readVInt();
+  }
+  return v;
+}

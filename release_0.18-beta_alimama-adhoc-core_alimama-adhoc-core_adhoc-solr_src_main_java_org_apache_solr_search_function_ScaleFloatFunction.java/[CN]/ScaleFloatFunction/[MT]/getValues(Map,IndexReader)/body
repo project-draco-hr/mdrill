@@ -1,0 +1,45 @@
+{
+  final DocValues vals=source.getValues(context,reader);
+  int maxDoc=reader.maxDoc();
+  float minVal=0.0f;
+  float maxVal=0.0f;
+  if (maxDoc > 0) {
+    minVal=maxVal=vals.floatVal(0);
+  }
+  for (int i=0; i < maxDoc; i++) {
+    float val=vals.floatVal(i);
+    if ((Float.floatToRawIntBits(val) & (0xff << 23)) == 0xff << 23) {
+      continue;
+    }
+    if (val < minVal) {
+      minVal=val;
+    }
+ else     if (val > maxVal) {
+      maxVal=val;
+    }
+  }
+  final float scale=(maxVal - minVal == 0) ? 0 : (max - min) / (maxVal - minVal);
+  final float minSource=minVal;
+  final float maxSource=maxVal;
+  return new DocValues(){
+    @Override public float floatVal(    int doc){
+      return (vals.floatVal(doc) - minSource) * scale + min;
+    }
+    @Override public int intVal(    int doc){
+      return (int)floatVal(doc);
+    }
+    @Override public long longVal(    int doc){
+      return (long)floatVal(doc);
+    }
+    @Override public double doubleVal(    int doc){
+      return (double)floatVal(doc);
+    }
+    @Override public String strVal(    int doc){
+      return Float.toString(floatVal(doc));
+    }
+    @Override public String toString(    int doc){
+      return "scale(" + vals.toString(doc) + ",toMin="+ min+ ",toMax="+ max+ ",fromMin="+ minSource+ ",fromMax="+ maxSource+ ")";
+    }
+  }
+;
+}

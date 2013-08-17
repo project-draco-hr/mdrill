@@ -1,0 +1,18 @@
+{
+  if (HAS_BUGGY_BREAKITERATORS) {
+    return new CharArrayIterator(){
+      @Override protected char jreBugWorkaround(      char ch){
+        return ch >= 0xD800 && ch <= 0xDFFF ? 0x0041 : ch;
+      }
+    }
+;
+  }
+ else {
+    return new CharArrayIterator(){
+      @Override protected char jreBugWorkaround(      char ch){
+        return ch;
+      }
+    }
+;
+  }
+}

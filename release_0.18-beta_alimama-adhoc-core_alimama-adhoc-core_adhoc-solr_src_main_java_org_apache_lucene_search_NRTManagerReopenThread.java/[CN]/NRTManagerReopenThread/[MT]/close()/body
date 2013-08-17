@@ -1,0 +1,11 @@
+{
+  manager.removeWaitingListener(this);
+  this.finish=true;
+  notify();
+  try {
+    join();
+  }
+ catch (  InterruptedException ie) {
+    throw new ThreadInterruptedException(ie);
+  }
+}

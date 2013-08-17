@@ -1,0 +1,8 @@
+{
+  String hadoopConfDir=(String)stormconf.get("hadoop.conf.dir");
+  String opts=(String)stormconf.get("hadoop.java.opts");
+  Configuration conf=new Configuration();
+  conf.set("mapred.child.java.opts",opts);
+  HadoopUtil.grabConfiguration(hadoopConfDir,conf);
+  return conf;
+}

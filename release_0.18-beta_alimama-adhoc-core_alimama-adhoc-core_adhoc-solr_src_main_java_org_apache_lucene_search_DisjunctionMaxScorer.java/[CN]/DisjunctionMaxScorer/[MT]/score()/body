@@ -1,0 +1,8 @@
+{
+  int doc=subScorers[0].docID();
+  scoreSum=scoreMax=subScorers[0].score();
+  int size=numScorers;
+  scoreAll(1,size,doc);
+  scoreAll(2,size,doc);
+  return scoreMax + (scoreSum - scoreMax) * tieBreakerMultiplier;
+}

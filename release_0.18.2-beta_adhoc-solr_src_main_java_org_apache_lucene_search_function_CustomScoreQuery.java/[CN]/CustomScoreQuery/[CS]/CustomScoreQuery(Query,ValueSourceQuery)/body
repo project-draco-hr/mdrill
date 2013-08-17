@@ -1,0 +1,5 @@
+{
+  this.subQuery=subQuery;
+  this.valSrcQueries=valSrcQueries != null ? valSrcQueries : new ValueSourceQuery[0];
+  if (subQuery == null)   throw new IllegalArgumentException("<subquery> must not be null!");
+}

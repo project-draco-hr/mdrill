@@ -1,0 +1,3 @@
+{
+  return base.findForcedDeletesMerges(segmentInfos);
+}

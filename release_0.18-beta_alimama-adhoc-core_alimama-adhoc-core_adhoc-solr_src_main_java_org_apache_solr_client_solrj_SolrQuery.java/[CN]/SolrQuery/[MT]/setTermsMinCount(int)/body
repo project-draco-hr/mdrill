@@ -1,0 +1,4 @@
+{
+  this.set(TermsParams.TERMS_MINCOUNT,cnt);
+  return this;
+}

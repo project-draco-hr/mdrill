@@ -1,0 +1,4 @@
+{
+  RunnableCallback kill_fn=new AsyncLoopDefaultKill();
+  this.init(afn,daemon,kill_fn,priority,start);
+}

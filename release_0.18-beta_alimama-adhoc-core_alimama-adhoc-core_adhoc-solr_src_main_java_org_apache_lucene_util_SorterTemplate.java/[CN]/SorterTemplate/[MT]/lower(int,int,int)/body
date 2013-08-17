@@ -1,0 +1,14 @@
+{
+  int len=hi - lo;
+  while (len > 0) {
+    final int half=len >>> 1, mid=lo + half;
+    if (compare(mid,val) < 0) {
+      lo=mid + 1;
+      len=len - half - 1;
+    }
+ else {
+      len=half;
+    }
+  }
+  return lo;
+}

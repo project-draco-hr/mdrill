@@ -1,0 +1,6 @@
+{
+  List<IndexCommitWrapper> wrapperList=wrap(list);
+  deletionPolicy.onInit(wrapperList);
+  updateCommitPoints(wrapperList);
+  cleanReserves();
+}

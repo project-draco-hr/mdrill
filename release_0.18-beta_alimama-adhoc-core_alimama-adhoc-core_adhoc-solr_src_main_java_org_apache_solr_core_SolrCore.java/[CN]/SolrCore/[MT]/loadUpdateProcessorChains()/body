@@ -1,0 +1,14 @@
+{
+  Map<String,UpdateRequestProcessorChain> map=new HashMap<String,UpdateRequestProcessorChain>();
+  UpdateRequestProcessorChain def=initPlugins(map,UpdateRequestProcessorChain.class,UpdateRequestProcessorChain.class.getName());
+  if (def == null) {
+    def=map.get(null);
+  }
+  if (def == null) {
+    UpdateRequestProcessorFactory[] factories=new UpdateRequestProcessorFactory[]{new LogUpdateProcessorFactory(),new RunUpdateProcessorFactory()};
+    def=new UpdateRequestProcessorChain(factories,this);
+  }
+  map.put(null,def);
+  map.put("",def);
+  return map;
+}

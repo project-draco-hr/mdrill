@@ -1,0 +1,3 @@
+ErrorCode code
+String msg
+boolean alreadyLogged

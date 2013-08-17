@@ -1,0 +1,25 @@
+{
+  log.append("   Match against: '" + toMatch + "'\n");
+  try {
+    boolean result=regexp.match(toMatch);
+    log.append("   Matched: " + (result ? "YES" : "NO") + "\n");
+    if (checkResult(result) && (!shouldMatch || checkParens())) {
+      log.append("   Match using StringCharacterIterator\n");
+      if (!tryMatchUsingCI(new StringCharacterIterator(toMatch)))       return;
+      log.append("   Match using CharacterArrayCharacterIterator\n");
+      if (!tryMatchUsingCI(new CharacterArrayCharacterIterator(toMatch.toCharArray(),0,toMatch.length())))       return;
+      log.append("   Match using StreamCharacterIterator\n");
+      if (!tryMatchUsingCI(new StreamCharacterIterator(new StringBufferInputStream(toMatch))))       return;
+      log.append("   Match using ReaderCharacterIterator\n");
+      if (!tryMatchUsingCI(new ReaderCharacterIterator(new StringReader(toMatch))))       return;
+    }
+  }
+ catch (  Exception e) {
+    test.fail(log,"Matcher threw exception: " + e.toString());
+    e.printStackTrace();
+  }
+catch (  Error e) {
+    test.fail(log,"Matcher threw fatal error \"" + e.getMessage() + "\"");
+    e.printStackTrace();
+  }
+}

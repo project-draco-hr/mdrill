@@ -1,0 +1,9 @@
+{
+  query=rewrite(query);
+  Weight weight=query.createWeight(this);
+  float sum=weight.sumOfSquaredWeights();
+  float norm=query.getSimilarity(this).queryNorm(sum);
+  if (Float.isInfinite(norm) || Float.isNaN(norm))   norm=1.0f;
+  weight.normalize(norm);
+  return weight;
+}

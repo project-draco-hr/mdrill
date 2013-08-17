@@ -1,0 +1,16 @@
+{
+  LOG.warn(StormUtils.stringify_error(error));
+  String path=Cluster.taskerror_path(stormId,taskId);
+  cluster_state.mkdirs(path);
+  List<Integer> children=new ArrayList<Integer>();
+  for (  String str : cluster_state.get_children(path,false)) {
+    children.add(Integer.parseInt(str));
+  }
+  Collections.sort(children);
+  while (children.size() >= 10) {
+    cluster_state.delete_node(path + "/" + children.remove(0));
+  }
+  String timestampPath=path + "/" + TimeUtils.current_time_secs();
+  byte[] errorData=new String(StormUtils.stringify_error(error)).getBytes();
+  cluster_state.set_data(timestampPath,errorData);
+}

@@ -1,0 +1,4 @@
+{
+  doc=new Document();
+  map=new HashMap<String,String>();
+}

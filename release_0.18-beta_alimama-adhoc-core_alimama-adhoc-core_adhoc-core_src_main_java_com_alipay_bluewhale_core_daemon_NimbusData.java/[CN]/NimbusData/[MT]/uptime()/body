@@ -1,0 +1,3 @@
+{
+  return (TimeUtils.current_time_secs() - startTime);
+}

@@ -1,0 +1,11 @@
+{
+  if (len > 2 && endsWith(s,len,"????")) {
+    len-=2;
+    if (endsWithVowel(s,len))     len++;
+  }
+ else   if (len > 3 && (endsWith(s,len,"??????") || endsWith(s,len,"??????"))) {
+    len-=3;
+    if (endsWithVowel(s,len))     len++;
+  }
+  return len;
+}

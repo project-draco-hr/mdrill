@@ -1,0 +1,11 @@
+{
+  HashSet<String> toclear=new HashSet<String>();
+  for (  String k : recorecount.keySet()) {
+    if (!this.containsTablePartion(k)) {
+      toclear.add(k);
+    }
+  }
+  for (  String k : toclear) {
+    this.recorecount.remove(k);
+  }
+}

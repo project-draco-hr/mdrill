@@ -1,0 +1,20 @@
+{
+  int i=name.lastIndexOf('.');
+  if (i != -1) {
+    String extension=name.substring(1 + i);
+    if (extensions.contains(extension)) {
+      return true;
+    }
+ else     if (extension.startsWith("f") && extension.matches("f\\d+")) {
+      return true;
+    }
+ else     if (extension.startsWith("s") && extension.matches("s\\d+")) {
+      return true;
+    }
+  }
+ else {
+    if (name.equals(IndexFileNames.DELETABLE))     return true;
+ else     if (name.startsWith(IndexFileNames.SEGMENTS))     return true;
+  }
+  return false;
+}

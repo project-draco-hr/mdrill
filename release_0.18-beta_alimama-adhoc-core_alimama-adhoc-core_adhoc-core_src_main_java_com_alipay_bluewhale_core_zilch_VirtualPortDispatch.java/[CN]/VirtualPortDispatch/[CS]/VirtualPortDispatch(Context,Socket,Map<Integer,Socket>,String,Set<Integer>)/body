@@ -1,0 +1,7 @@
+{
+  this.context=context;
+  this.socket=socket;
+  this.virtual_mapping=virtual_mapping;
+  this.url=url;
+  this.valid_ports=valid_ports;
+}

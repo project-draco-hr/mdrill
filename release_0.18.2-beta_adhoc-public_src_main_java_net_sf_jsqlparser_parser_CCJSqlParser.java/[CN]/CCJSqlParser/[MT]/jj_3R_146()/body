@@ -1,0 +1,11 @@
+{
+  if (jj_scan_token(K_CASE))   return true;
+  Token xsp;
+  xsp=jj_scanpos;
+  if (jj_3R_220()) {
+    jj_scanpos=xsp;
+    if (jj_3R_221())     return true;
+  }
+  if (jj_scan_token(K_END))   return true;
+  return false;
+}

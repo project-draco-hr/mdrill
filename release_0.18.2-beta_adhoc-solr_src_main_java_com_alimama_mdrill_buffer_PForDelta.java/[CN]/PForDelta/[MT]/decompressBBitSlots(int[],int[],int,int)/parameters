@@ -1,0 +1,4 @@
+int[] outDecompSlots
+int[] inCompBlock
+int blockSize
+int bits

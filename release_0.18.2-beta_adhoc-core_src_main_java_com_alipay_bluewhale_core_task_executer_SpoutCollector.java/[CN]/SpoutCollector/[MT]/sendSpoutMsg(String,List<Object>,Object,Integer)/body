@@ -1,0 +1,36 @@
+{
+  java.util.Set<Integer> out_tasks=null;
+  if (out_task_id != null) {
+    out_tasks=sendTargets.get(out_task_id,out_stream_id,values);
+  }
+ else {
+    out_tasks=sendTargets.get(out_stream_id,values);
+  }
+  long root_id=MessageId.generateId();
+  Integer askers=StormUtils.parseInt(storm_conf.get(Config.TOPOLOGY_ACKERS));
+  Boolean isroot=(message_id != null) && (askers > 0);
+  for (  Integer t : out_tasks) {
+    MessageId msgid;
+    if (isroot) {
+      msgid=MessageId.makeRootId(root_id,t);
+    }
+ else {
+      msgid=MessageId.makeUnanchored();
+    }
+    Tuple tp=new Tuple(topology_context,values,task_id,out_stream_id,msgid);
+    transfer_fn.transfer(t,tp);
+  }
+  TupleInfo info=new TupleInfo(out_stream_id,values);
+  if (isroot) {
+    Long ms=null;
+    if (sampler.getResult()) {
+      ms=System.currentTimeMillis();
+    }
+    pending.put(root_id,StormUtils.mk_list(message_id,info,ms));
+    UnanchoredSend.send(topology_context,sendTargets,transfer_fn,Acker.ACKER_INIT_STREAM_ID,StormUtils.mk_list((Object)root_id,StormUtils.bit_xor_vals(out_tasks),task_id));
+  }
+ else   if (askers <= 0) {
+    event_queue.add(new AckSpoutMsg(spout,storm_conf,message_id,info,null,task_stats));
+  }
+  return StormUtils.mk_list(out_tasks);
+}

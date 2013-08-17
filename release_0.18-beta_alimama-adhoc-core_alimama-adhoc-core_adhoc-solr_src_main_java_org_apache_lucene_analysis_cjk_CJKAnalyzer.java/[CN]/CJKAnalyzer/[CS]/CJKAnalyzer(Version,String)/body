@@ -1,0 +1,3 @@
+{
+  super(matchVersion,StopFilter.makeStopSet(matchVersion,stopWords));
+}

@@ -1,0 +1,10 @@
+Object _task_obj
+WorkerTransfer transfer_fn
+Map _storm_conf
+IConnection _puller
+TaskSendTargets sendTargets
+AtomicBoolean _storm_active_atom
+TopologyContext _topology_context
+TopologyContext _user_context
+BaseTaskStatsRolling _task_stats
+ITaskReportErr _report_error

@@ -1,0 +1,9 @@
+{
+  collector.setScorer(this);
+  int doc=firstDocID;
+  while (doc < max) {
+    collector.collect(doc);
+    doc=nextDoc();
+  }
+  return doc != NO_MORE_DOCS;
+}

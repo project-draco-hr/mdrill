@@ -1,0 +1,12 @@
+{
+  Map<?,?> conf=data.getConf();
+  if ((Boolean)conf.get(Config.NIMBUS_REASSIGN)) {
+    try {
+      NimbusUtils.mkAssignments(data,topologyid);
+    }
+ catch (    IOException e) {
+      LOG.error("mkAssignments failure! ",e);
+    }
+  }
+  return null;
+}

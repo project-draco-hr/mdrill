@@ -1,0 +1,4 @@
+{
+  offsetAtt=tokenStream.addAttribute(OffsetAttribute.class);
+  termAtt=tokenStream.addAttribute(CharTermAttribute.class);
+}

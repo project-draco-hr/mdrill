@@ -1,0 +1,4 @@
+{
+  setLeftExpression(leftExpression);
+  setItemsList(itemsList);
+}

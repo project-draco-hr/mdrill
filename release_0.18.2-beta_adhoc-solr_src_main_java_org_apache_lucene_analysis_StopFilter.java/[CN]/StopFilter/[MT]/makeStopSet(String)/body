@@ -1,0 +1,3 @@
+{
+  return makeStopSet(Version.LUCENE_30,stopWords,false);
+}

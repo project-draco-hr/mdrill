@@ -1,0 +1,4 @@
+{
+  SupervisorInfo sInfo=new SupervisorInfo(TimeUtils.current_time_secs(),myHostName,(List<Integer>)conf.get(Config.SUPERVISOR_SLOTS_PORTS),(int)(TimeUtils.current_time_secs() - startTime));
+  stormClusterState.supervisor_heartbeat(supervisorId,sInfo);
+}

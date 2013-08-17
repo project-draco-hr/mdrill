@@ -1,0 +1,3 @@
+{
+  return new NumericRangeQuery<Double>(field,NumericUtils.PRECISION_STEP_DEFAULT,DataType.DOUBLE,min,max,minInclusive,maxInclusive);
+}

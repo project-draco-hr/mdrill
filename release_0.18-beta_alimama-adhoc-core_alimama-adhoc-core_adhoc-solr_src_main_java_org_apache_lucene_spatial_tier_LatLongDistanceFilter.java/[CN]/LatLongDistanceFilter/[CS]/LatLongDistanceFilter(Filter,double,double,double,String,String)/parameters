@@ -1,0 +1,6 @@
+Filter startingFilter
+double lat
+double lng
+double miles
+String latField
+String lngField

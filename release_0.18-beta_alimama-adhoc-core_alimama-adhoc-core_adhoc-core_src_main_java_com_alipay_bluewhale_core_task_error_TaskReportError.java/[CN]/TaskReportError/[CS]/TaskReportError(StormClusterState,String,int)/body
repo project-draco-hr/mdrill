@@ -1,0 +1,5 @@
+{
+  this.zkCluster=_storm_cluster_state;
+  this.storm_id=_storm_id;
+  this.task_id=_task_id;
+}

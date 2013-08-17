@@ -1,0 +1,6 @@
+{
+  String s=sb.substring(0,endIndex);
+  if (s.endsWith("kk") || s.endsWith("tt") || s.endsWith("dd")|| s.endsWith("nn")|| s.endsWith("mm")|| s.endsWith("ff")) {
+    sb.delete(endIndex - 1,endIndex);
+  }
+}

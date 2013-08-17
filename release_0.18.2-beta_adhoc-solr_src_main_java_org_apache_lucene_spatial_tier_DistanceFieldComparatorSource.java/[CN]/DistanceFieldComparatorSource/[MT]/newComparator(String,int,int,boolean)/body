@@ -1,0 +1,4 @@
+{
+  dsdlc=new DistanceScoreDocLookupComparator(numHits);
+  return dsdlc;
+}

@@ -1,0 +1,45 @@
+{
+  TermNumToString[] tm=new TermNumToString[ufs.length + 1];
+  for (int i=0; i < ufs.length; i++) {
+    tm[i]=new TermNumToString(ufs,i);
+  }
+  tm[ufs.length]=new TermNumToString(sortufs,0);
+  boolean usedsort=!isNumberVal && this.SelectDetailSort == null;
+  for (  SelectDetailRow row : res) {
+    int doc=row.docid;
+    for (int i=0; i < ufs.length; i++) {
+      UnvertFile uf=ufs.cols[i];
+      if (uf != null) {
+        Integer termNum=uf.uif.termNum(doc);
+        tm[i].addTermNum(termNum);
+      }
+    }
+    if (usedsort) {
+      int ternnum=(int)row.value;
+      tm[ufs.length].addTermNum(ternnum);
+    }
+    for (    HigoJoinInvert inv : joinInvert) {
+      int fc=inv.fieldCount();
+      LinkedBlockingQueue<GroupList> groupListCache=inv.getGroupListCache();
+      GroupList base=GroupList.INSTANCE(groupListCache,fc);
+      base.reset();
+      GroupList[] groups=inv.fieldNum(doc,base);
+      for (      GroupList group : groups) {
+        for (int i=0; i < fc; i++) {
+          inv.addTermNum(group.list[i],i);
+        }
+      }
+      for (      GroupList group : groups) {
+        groupListCache.add(group);
+      }
+      groupListCache.add(base);
+    }
+  }
+  for (int i=0; i < tm.length; i++) {
+    tm[i].fetchValues();
+  }
+  for (  HigoJoinInvert inv : joinInvert) {
+    inv.fetchValues();
+  }
+  return tm;
+}

@@ -1,0 +1,4 @@
+{
+  writeTag(BYTEARR,len);
+  daos.write(arr,offset,len);
+}

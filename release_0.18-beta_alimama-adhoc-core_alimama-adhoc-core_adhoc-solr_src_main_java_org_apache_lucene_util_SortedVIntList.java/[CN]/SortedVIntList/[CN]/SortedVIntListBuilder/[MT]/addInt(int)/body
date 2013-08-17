@@ -1,0 +1,16 @@
+{
+  int diff=nextInt - lastInt;
+  if (diff < 0) {
+    throw new IllegalArgumentException("Input not sorted or first element negative.");
+  }
+  if ((lastBytePos + MAX_BYTES_PER_INT) > bytes.length) {
+    resizeBytes(ArrayUtil.oversize(lastBytePos + MAX_BYTES_PER_INT,1));
+  }
+  while ((diff & ~VB1) != 0) {
+    bytes[lastBytePos++]=(byte)((diff & VB1) | ~VB1);
+    diff>>>=BIT_SHIFT;
+  }
+  bytes[lastBytePos++]=(byte)diff;
+  size++;
+  lastInt=nextInt;
+}

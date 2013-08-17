@@ -1,0 +1,3 @@
+{
+  return current.bytes[upto] & 0xFF;
+}

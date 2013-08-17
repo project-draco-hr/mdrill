@@ -1,0 +1,4 @@
+{
+  this.fieldsToLoad=fieldsToLoad;
+  this.lazyFieldsToLoad=lazyFieldsToLoad;
+}

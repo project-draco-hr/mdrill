@@ -1,0 +1,12 @@
+{
+  StringBuilder fragment=new StringBuilder();
+  int srcIndex=0;
+  for (  SubInfo subInfo : fragInfo.subInfos) {
+    for (    Toffs to : subInfo.termsOffsets) {
+      fragment.append(encoder.encodeText(src.substring(srcIndex,to.startOffset - s))).append(getPreTag(preTags,subInfo.seqnum)).append(encoder.encodeText(src.substring(to.startOffset - s,to.endOffset - s))).append(getPostTag(postTags,subInfo.seqnum));
+      srcIndex=to.endOffset - s;
+    }
+  }
+  fragment.append(encoder.encodeText(src.substring(srcIndex)));
+  return fragment.toString();
+}

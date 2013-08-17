@@ -1,0 +1,8 @@
+{
+  t=tenum.term();
+  if (t == null || t.field() != tindex.fterm.field() || (tindex.prefix != null && !t.text().startsWith(tindex.prefix,0))) {
+    t=null;
+    return false;
+  }
+  return true;
+}

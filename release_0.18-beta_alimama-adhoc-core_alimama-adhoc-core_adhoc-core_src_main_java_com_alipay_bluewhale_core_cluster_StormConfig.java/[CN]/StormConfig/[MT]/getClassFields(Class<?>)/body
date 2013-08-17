@@ -1,0 +1,9 @@
+{
+  java.lang.reflect.Field[] list=cls.getDeclaredFields();
+  HashMap<String,Object> rtn=new HashMap<String,Object>();
+  for (  java.lang.reflect.Field f : list) {
+    String name=f.getName();
+    rtn.put(name,f.get(null).toString());
+  }
+  return rtn;
+}

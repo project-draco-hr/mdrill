@@ -1,0 +1,4 @@
+{
+  this.ignoringPositions=ignoringPositions;
+  this.ignoringOffsets=ignoringOffsets;
+}

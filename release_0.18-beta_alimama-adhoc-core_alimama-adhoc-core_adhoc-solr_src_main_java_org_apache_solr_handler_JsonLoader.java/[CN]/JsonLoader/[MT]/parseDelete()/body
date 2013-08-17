@@ -1,0 +1,34 @@
+{
+  assertNextEvent(JSONParser.OBJECT_START);
+  DeleteUpdateCommand cmd=new DeleteUpdateCommand();
+  cmd.fromCommitted=cmd.fromPending=true;
+  while (true) {
+    int ev=parser.nextEvent();
+    if (ev == JSONParser.STRING) {
+      String key=parser.getString();
+      if (parser.wasKey()) {
+        if ("id".equals(key)) {
+          cmd.id=parser.getString();
+        }
+ else         if ("query".equals(key)) {
+          cmd.query=parser.getString();
+        }
+ else {
+          throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,"Unknown key: " + key + " ["+ parser.getPosition()+ "]");
+        }
+      }
+ else {
+        throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,"invalid string: " + key + " at ["+ parser.getPosition()+ "]");
+      }
+    }
+ else     if (ev == JSONParser.OBJECT_END) {
+      if (cmd.id == null && cmd.query == null) {
+        throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,"Missing id or query for delete [" + parser.getPosition() + "]");
+      }
+      return cmd;
+    }
+ else {
+      throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,"Got: " + JSONParser.getEventString(ev) + " at ["+ parser.getPosition()+ "]");
+    }
+  }
+}

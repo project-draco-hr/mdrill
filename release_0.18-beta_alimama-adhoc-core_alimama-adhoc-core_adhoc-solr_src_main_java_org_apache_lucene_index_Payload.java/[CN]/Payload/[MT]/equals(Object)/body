@@ -1,0 +1,12 @@
+{
+  if (obj == this)   return true;
+  if (obj instanceof Payload) {
+    Payload other=(Payload)obj;
+    if (length == other.length) {
+      for (int i=0; i < length; i++)       if (data[offset + i] != other.data[other.offset + i])       return false;
+      return true;
+    }
+ else     return false;
+  }
+ else   return false;
+}

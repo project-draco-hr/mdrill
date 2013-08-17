@@ -1,0 +1,5 @@
+{
+  ensureOpen();
+  IndexReader reader=fieldToReader.get(field);
+  return reader == null ? false : reader.hasNorms(field);
+}

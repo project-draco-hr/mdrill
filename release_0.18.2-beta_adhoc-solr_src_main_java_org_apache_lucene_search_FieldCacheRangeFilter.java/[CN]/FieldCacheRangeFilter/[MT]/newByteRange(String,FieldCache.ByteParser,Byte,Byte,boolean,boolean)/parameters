@@ -1,0 +1,6 @@
+String field
+FieldCache.ByteParser parser
+Byte lowerVal
+Byte upperVal
+boolean includeLower
+boolean includeUpper

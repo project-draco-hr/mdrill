@@ -1,0 +1,6 @@
+{
+  if (buff == null) {
+    return Integer.SIZE / 8;
+  }
+  return buff.length + Integer.SIZE / 8;
+}

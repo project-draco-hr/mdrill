@@ -1,0 +1,3 @@
+{
+  return nvPairs.size() >> 1;
+}

@@ -1,0 +1,4 @@
+IndexInput base
+long fileOffset
+long length
+int readBufferSize

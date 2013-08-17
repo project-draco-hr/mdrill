@@ -1,0 +1,2 @@
+List<IndexReader> allSubReaders
+IndexReader r

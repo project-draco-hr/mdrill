@@ -1,0 +1,13 @@
+{
+  final FilteredTermEnum enumerator=query.getEnum(reader);
+  try {
+    do {
+      final Term t=enumerator.term();
+      if (t == null || !collector.collect(t,enumerator.difference()))       break;
+    }
+ while (enumerator.next());
+  }
+  finally {
+    enumerator.close();
+  }
+}

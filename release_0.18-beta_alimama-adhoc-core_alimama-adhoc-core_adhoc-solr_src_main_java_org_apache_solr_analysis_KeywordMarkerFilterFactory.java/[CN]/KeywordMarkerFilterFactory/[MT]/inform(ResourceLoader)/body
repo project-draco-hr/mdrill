@@ -1,0 +1,12 @@
+{
+  String wordFiles=args.get(PROTECTED_TOKENS);
+  ignoreCase=getBoolean("ignoreCase",false);
+  if (wordFiles != null) {
+    try {
+      protectedWords=getWordSet(loader,wordFiles,ignoreCase);
+    }
+ catch (    IOException e) {
+      throw new RuntimeException(e);
+    }
+  }
+}

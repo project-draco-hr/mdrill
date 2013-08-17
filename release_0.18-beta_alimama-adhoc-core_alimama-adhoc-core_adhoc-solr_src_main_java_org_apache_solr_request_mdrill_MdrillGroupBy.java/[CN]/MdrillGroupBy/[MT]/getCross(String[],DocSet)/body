@@ -1,0 +1,7 @@
+{
+synchronized (MdrillPorcessUtils.getLock()) {
+    PriorityQueue<GroupbyRow> topItems=new PriorityQueue<GroupbyRow>(this.limit_offset,Collections.reverseOrder(cmpString));
+    this.execute(topItems,fields,base);
+    return this.toNameList(topItems);
+  }
+}

@@ -1,0 +1,11 @@
+{
+  int circ=28892;
+  double r=miles / 2.0;
+  double corner=r - Math.sqrt(Math.pow(r,2) / 2.0d);
+  double times=circ / corner;
+  int bestFit=(int)Math.ceil(log2(times)) + 1;
+  if (bestFit > 15) {
+    return 15;
+  }
+  return bestFit;
+}

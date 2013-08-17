@@ -1,0 +1,7 @@
+{
+  int[] index=new int[1];
+  index[0]=0;
+  if (logic != -1)   return getDocIdSet(reader,logic,index);
+ else   if (logicArray != null)   return getDocIdSet(reader,logicArray,index);
+ else   return getDocIdSet(reader,DEFAULT,index);
+}

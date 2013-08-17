@@ -1,0 +1,5 @@
+{
+  this.constant=constant;
+  this.fv=(float)constant;
+  this.lv=(long)constant;
+}

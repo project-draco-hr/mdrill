@@ -1,0 +1,3 @@
+SolrStartJetty solrservice
+String tablename
+GetPartions.TablePartion part

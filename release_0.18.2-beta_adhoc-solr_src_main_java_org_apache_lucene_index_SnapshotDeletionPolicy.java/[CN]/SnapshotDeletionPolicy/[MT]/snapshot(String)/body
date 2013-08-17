@@ -1,0 +1,8 @@
+{
+  if (lastCommit == null) {
+    throw new IllegalStateException("No index commit to snapshot");
+  }
+  checkSnapshotted(id);
+  registerSnapshotInfo(id,lastCommit.getSegmentsFileName(),lastCommit);
+  return lastCommit;
+}

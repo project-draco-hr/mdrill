@@ -1,0 +1,8 @@
+{
+  this.conf=conf;
+  this.supervisorId=supervisor_id;
+  this.port=port;
+  this.mqContext=mq_context;
+  this.taskIds=task_ids;
+  this.stormId=storm_id;
+}

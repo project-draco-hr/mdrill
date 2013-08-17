@@ -1,0 +1,9 @@
+{
+  ensureOpen();
+  SegmentNorms norm=norms.get(field);
+  if (norm == null) {
+    Arrays.fill(bytes,offset,bytes.length,Similarity.getDefault().encodeNormValue(1.0f));
+    return;
+  }
+  norm.bytes(bytes,offset,maxDoc());
+}

@@ -1,0 +1,28 @@
+{
+  Map<K,V> result=new LinkedHashMap<K,V>();
+  if (n <= 0)   return result;
+  TreeSet<CacheEntry> tree=new TreeSet<CacheEntry>();
+  markAndSweepLock.lock();
+  try {
+    for (    Map.Entry<Object,CacheEntry<K,V>> entry : map.entrySet()) {
+      CacheEntry ce=entry.getValue();
+      ce.lastAccessedCopy=ce.lastAccessed;
+      if (tree.size() < n) {
+        tree.add(ce);
+      }
+ else {
+        if (ce.lastAccessedCopy < tree.first().lastAccessedCopy) {
+          tree.remove(tree.first());
+          tree.add(ce);
+        }
+      }
+    }
+  }
+  finally {
+    markAndSweepLock.unlock();
+  }
+  for (  CacheEntry<K,V> e : tree) {
+    result.put(e.key,e.value);
+  }
+  return result;
+}

@@ -1,0 +1,3 @@
+{
+  super(new CharArrayMap<V>(Version.LUCENE_CURRENT,0,false));
+}

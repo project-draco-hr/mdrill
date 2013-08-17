@@ -1,0 +1,6 @@
+{
+  this.size=size;
+  textStarts=new int[size];
+  intStarts=new int[size];
+  byteStarts=new int[size];
+}

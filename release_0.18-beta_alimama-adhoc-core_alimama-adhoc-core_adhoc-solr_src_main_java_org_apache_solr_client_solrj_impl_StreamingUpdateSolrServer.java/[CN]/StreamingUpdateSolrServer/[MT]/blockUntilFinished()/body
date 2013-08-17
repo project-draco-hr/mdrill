@@ -1,0 +1,18 @@
+{
+  lock=new CountDownLatch(1);
+  try {
+    for (; ; ) {
+      Runner runner;
+synchronized (runners) {
+        runner=runners.peek();
+      }
+      if (runner == null)       break;
+      runner.runnerLock.lock();
+      runner.runnerLock.unlock();
+    }
+  }
+  finally {
+    lock.countDown();
+    lock=null;
+  }
+}

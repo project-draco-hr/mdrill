@@ -1,0 +1,7 @@
+{
+  buffer.append("(");
+  subjoin.getLeft().accept(this);
+  buffer.append(" ");
+  deparseJoin(subjoin.getJoin());
+  buffer.append(")");
+}

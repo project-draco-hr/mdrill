@@ -1,0 +1,9 @@
+{
+  reset();
+  if (b.length < wordLen) {
+    b=new char[ArrayUtil.oversize(wordLen,NUM_BYTES_CHAR)];
+  }
+  System.arraycopy(wordBuffer,offset,b,0,wordLen);
+  i=wordLen;
+  return stem(0);
+}

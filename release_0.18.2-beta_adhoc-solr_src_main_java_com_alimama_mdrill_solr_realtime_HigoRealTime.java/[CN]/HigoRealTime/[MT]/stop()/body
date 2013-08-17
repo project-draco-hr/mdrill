@@ -1,0 +1,5 @@
+{
+  this.logwriter.setIsstop(true);
+  this.logwriter.close();
+  this.sync.setIsstop(true);
+}

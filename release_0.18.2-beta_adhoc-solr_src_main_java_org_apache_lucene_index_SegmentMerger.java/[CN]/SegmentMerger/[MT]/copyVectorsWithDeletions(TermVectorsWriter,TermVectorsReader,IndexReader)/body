@@ -1,0 +1,35 @@
+{
+  final int maxDoc=reader.maxDoc();
+  if (matchingVectorsReader != null) {
+    for (int docNum=0; docNum < maxDoc; ) {
+      if (reader.isDeleted(docNum)) {
+        ++docNum;
+        continue;
+      }
+      int start=docNum, numDocs=0;
+      do {
+        docNum++;
+        numDocs++;
+        if (docNum >= maxDoc)         break;
+        if (reader.isDeleted(docNum)) {
+          docNum++;
+          break;
+        }
+      }
+ while (numDocs < MAX_RAW_MERGE_DOCS);
+      matchingVectorsReader.rawDocs(rawDocLengths,rawDocLengths2,start,numDocs);
+      termVectorsWriter.addRawDocuments(matchingVectorsReader,rawDocLengths,rawDocLengths2,numDocs);
+      checkAbort.work(300 * numDocs);
+    }
+  }
+ else {
+    for (int docNum=0; docNum < maxDoc; docNum++) {
+      if (reader.isDeleted(docNum)) {
+        continue;
+      }
+      TermFreqVector[] vectors=reader.getTermFreqVectors(docNum);
+      termVectorsWriter.addAllDocVectors(vectors);
+      checkAbort.work(300);
+    }
+  }
+}

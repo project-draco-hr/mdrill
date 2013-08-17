@@ -1,0 +1,9 @@
+{
+  if (term.field().equals(this.field) && list.contains(this.trans.trans(term.text()))) {
+    return true;
+  }
+  if (term.compareTo(this.maxTerm) > 0) {
+    endEnum=true;
+  }
+  return false;
+}

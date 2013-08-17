@@ -1,0 +1,3 @@
+{
+  return "NRTCachingDirectory(" + delegate + "; maxCacheMB="+ (maxCachedBytes / 1024 / 1024.)+ " maxMergeSizeMB="+ (maxMergeSizeBytes / 1024 / 1024.)+ ")";
+}

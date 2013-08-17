@@ -1,0 +1,11 @@
+{
+  if (!isClone) {
+    if (isOpen) {
+      descriptor.in.close();
+      isOpen=false;
+    }
+ else {
+      throw new IOException("Index file " + filePath + " already closed");
+    }
+  }
+}

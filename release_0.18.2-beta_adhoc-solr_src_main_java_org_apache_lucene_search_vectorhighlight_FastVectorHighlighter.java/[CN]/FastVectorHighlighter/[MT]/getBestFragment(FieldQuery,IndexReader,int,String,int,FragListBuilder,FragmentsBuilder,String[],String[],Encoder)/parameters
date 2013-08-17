@@ -1,0 +1,10 @@
+FieldQuery fieldQuery
+IndexReader reader
+int docId
+String fieldName
+int fragCharSize
+FragListBuilder fragListBuilder
+FragmentsBuilder fragmentsBuilder
+String[] preTags
+String[] postTags
+Encoder encoder

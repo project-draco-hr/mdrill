@@ -1,0 +1,5 @@
+{
+  this.field=_field;
+  this.fterm=new Term(_field,"");
+  this.prefix=prefix;
+}

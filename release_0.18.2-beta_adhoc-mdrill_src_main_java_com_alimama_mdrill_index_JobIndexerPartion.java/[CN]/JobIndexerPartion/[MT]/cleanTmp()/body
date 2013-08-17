@@ -1,0 +1,5 @@
+{
+  if (this.fs.exists(this.tmp)) {
+    this.fs.delete(this.tmp,true);
+  }
+}

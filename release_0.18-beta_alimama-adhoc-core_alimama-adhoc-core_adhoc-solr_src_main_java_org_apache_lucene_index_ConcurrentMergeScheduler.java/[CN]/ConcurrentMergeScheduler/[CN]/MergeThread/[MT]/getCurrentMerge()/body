@@ -1,0 +1,11 @@
+{
+  if (done) {
+    return null;
+  }
+ else   if (runningMerge != null) {
+    return runningMerge;
+  }
+ else {
+    return startMerge;
+  }
+}

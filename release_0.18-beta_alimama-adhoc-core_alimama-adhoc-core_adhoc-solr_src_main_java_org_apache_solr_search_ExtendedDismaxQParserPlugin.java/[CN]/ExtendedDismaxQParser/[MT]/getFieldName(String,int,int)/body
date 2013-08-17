@@ -1,0 +1,14 @@
+{
+  if (pos >= end)   return null;
+  int p=pos;
+  int colon=s.indexOf(':',pos);
+  if (colon <= pos || colon + 1 >= end || Character.isWhitespace(s.charAt(colon + 1)))   return null;
+  char ch=s.charAt(p++);
+  if (!Character.isJavaIdentifierPart(ch))   return null;
+  while (p < colon) {
+    ch=s.charAt(p++);
+    if (!(Character.isJavaIdentifierPart(ch) || ch == '-' || ch == '.'))     return null;
+  }
+  String fname=s.substring(pos,p);
+  return getReq().getSchema().getFieldTypeNoEx(fname) == null ? null : fname;
+}

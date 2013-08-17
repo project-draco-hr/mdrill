@@ -1,0 +1,3 @@
+{
+  score(c,Integer.MAX_VALUE,nextDoc());
+}

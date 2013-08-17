@@ -1,0 +1,14 @@
+{
+  StringBuffer retval=new StringBuffer();
+  if (withItemsList != null && !withItemsList.isEmpty()) {
+    retval.append("WITH ");
+    for (Iterator iter=withItemsList.iterator(); iter.hasNext(); ) {
+      WithItem withItem=(WithItem)iter.next();
+      retval.append(withItem);
+      if (iter.hasNext())       retval.append(",");
+      retval.append(" ");
+    }
+  }
+  retval.append(selectBody);
+  return retval.toString();
+}

@@ -1,0 +1,4 @@
+{
+  initFieldType(field,CUSTOM);
+  this.comparatorSource=comparator;
+}

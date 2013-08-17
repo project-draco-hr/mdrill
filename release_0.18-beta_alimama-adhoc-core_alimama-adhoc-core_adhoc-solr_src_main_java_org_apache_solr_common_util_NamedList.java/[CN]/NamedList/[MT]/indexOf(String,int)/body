@@ -1,0 +1,13 @@
+{
+  int sz=size();
+  for (int i=start; i < sz; i++) {
+    String n=getName(i);
+    if (name == null) {
+      if (n == null)       return i;
+    }
+ else     if (name.equals(n)) {
+      return i;
+    }
+  }
+  return -1;
+}

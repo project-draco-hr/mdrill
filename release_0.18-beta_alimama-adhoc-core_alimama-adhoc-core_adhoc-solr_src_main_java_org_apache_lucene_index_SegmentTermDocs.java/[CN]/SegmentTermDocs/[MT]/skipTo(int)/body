@@ -1,0 +1,22 @@
+{
+  if ((target - skipInterval) >= doc && df >= skipInterval) {
+    if (skipListReader == null)     skipListReader=new DefaultSkipListReader((IndexInput)freqStream.clone(),maxSkipLevels,skipInterval);
+    if (!haveSkipped) {
+      skipListReader.init(skipPointer,freqBasePointer,proxBasePointer,df,currentFieldStoresPayloads);
+      haveSkipped=true;
+    }
+    int newCount=skipListReader.skipTo(target);
+    if (newCount > count) {
+      freqStream.seek(skipListReader.getFreqPointer());
+      skipProx(skipListReader.getProxPointer(),skipListReader.getPayloadLength());
+      this.resetRamRead();
+      doc=skipListReader.getDoc();
+      count=newCount;
+    }
+  }
+  do {
+    if (!next())     return false;
+  }
+ while (target > doc);
+  return true;
+}

@@ -1,0 +1,4 @@
+{
+  this.ll=ll;
+  this.ur=ur;
+}

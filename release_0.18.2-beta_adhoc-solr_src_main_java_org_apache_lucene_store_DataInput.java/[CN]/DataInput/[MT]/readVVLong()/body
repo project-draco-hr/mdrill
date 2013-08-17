@@ -1,0 +1,4 @@
+{
+  long rtn=this.readVLong();
+  return VNumberic.unVLong(rtn);
+}

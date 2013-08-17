@@ -1,0 +1,10 @@
+{
+  if (other == this) {
+    return true;
+  }
+  if (other instanceof OffsetAttributeImpl) {
+    OffsetAttributeImpl o=(OffsetAttributeImpl)other;
+    return o.startOffset == startOffset && o.endOffset == endOffset;
+  }
+  return false;
+}

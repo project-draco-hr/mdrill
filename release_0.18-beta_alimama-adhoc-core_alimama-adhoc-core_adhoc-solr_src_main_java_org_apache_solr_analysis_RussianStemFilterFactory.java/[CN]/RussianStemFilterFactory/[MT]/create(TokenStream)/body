@@ -1,0 +1,3 @@
+{
+  return new SnowballFilter(in,new org.tartarus.snowball.ext.RussianStemmer());
+}

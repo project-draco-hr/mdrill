@@ -1,0 +1,5 @@
+{
+  if (index == null) {
+    throw new IllegalStateException("terms index was not loaded when this reader was created");
+  }
+}

@@ -1,0 +1,8 @@
+{
+  if (other instanceof BitDocSet) {
+    return (int)OpenBitSet.andNotCount(this.bits,((BitDocSet)other).bits);
+  }
+ else {
+    return super.andNotSize(other);
+  }
+}

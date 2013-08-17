@@ -1,0 +1,5 @@
+{
+  values=new String[numHits];
+  this.field=field;
+  collator=Collator.getInstance(locale);
+}

@@ -1,0 +1,4 @@
+{
+  latSource.createWeight(context,searcher);
+  lonSource.createWeight(context,searcher);
+}

@@ -1,0 +1,10 @@
+{
+  index=FieldCache.DEFAULT.getStringIndex(reader,groupField);
+  ordSet.clear();
+  for (  String countedGroup : groups) {
+    int ord=index.binarySearchLookup(countedGroup);
+    if (ord >= 0) {
+      ordSet.put(ord);
+    }
+  }
+}

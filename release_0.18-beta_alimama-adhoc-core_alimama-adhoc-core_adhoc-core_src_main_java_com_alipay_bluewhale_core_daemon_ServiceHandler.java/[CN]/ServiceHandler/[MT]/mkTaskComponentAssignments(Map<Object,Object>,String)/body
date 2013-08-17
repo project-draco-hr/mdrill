@@ -1,0 +1,14 @@
+{
+  Map<Object,Object> stormConf=readStormConf(conf,topologyid);
+  StormTopology stopology=readStormTopology(conf,topologyid);
+  StormTopology topology=null;
+  Map<Integer,String> rtn=new HashMap<Integer,String>();
+  if (stopology != null) {
+    topology=Common.system_topology(stormConf,stopology);
+    Integer count=0;
+    count=mkTaskMaker(stormConf,topology.get_bolts(),rtn,count);
+    count=mkTaskMaker(stormConf,topology.get_spouts(),rtn,count);
+    mkTaskMaker(stormConf,topology.get_state_spouts(),rtn,count);
+  }
+  return rtn;
+}

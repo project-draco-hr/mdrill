@@ -1,0 +1,5 @@
+{
+  this.uni=uni;
+  this.tm=UnInvertedFieldUtils.getBlockArrayRead(this.uni);
+  this.termValueDouble=this.uni.termValueDouble;
+}

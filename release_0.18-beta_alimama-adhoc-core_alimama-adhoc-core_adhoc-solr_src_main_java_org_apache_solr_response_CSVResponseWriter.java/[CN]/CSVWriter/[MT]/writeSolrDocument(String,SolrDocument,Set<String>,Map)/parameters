@@ -1,0 +1,4 @@
+String name
+SolrDocument doc
+Set<String> returnFields
+Map pseudoFields

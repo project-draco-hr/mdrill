@@ -1,0 +1,14 @@
+{
+  int endOffset=offsetAttribute.endOffset();
+  restoreState(savedState);
+  savedState=null;
+  char term[]=termAttribute.buffer();
+  int length=hyphenated.length();
+  if (length > termAttribute.length()) {
+    term=termAttribute.resizeBuffer(length);
+  }
+  hyphenated.getChars(0,length,term,0);
+  termAttribute.setLength(length);
+  offsetAttribute.setOffset(offsetAttribute.startOffset(),endOffset);
+  hyphenated.setLength(0);
+}

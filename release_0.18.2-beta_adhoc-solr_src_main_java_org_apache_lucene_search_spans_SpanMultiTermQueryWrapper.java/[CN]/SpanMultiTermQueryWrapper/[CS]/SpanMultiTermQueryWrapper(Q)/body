@@ -1,0 +1,27 @@
+{
+  this.query=query;
+  MultiTermQuery.RewriteMethod method=query.getRewriteMethod();
+  if (method instanceof TopTermsRewrite) {
+    final int pqsize=((TopTermsRewrite)method).getSize();
+    setRewriteMethod(new TopTermsSpanBooleanQueryRewrite(pqsize));
+  }
+ else {
+    setRewriteMethod(SCORING_SPAN_QUERY_REWRITE);
+  }
+  try {
+    getFieldMethod=query.getClass().getMethod("getField");
+  }
+ catch (  Exception e1) {
+    try {
+      getTermMethod=query.getClass().getMethod("getTerm");
+    }
+ catch (    Exception e2) {
+      try {
+        getTermMethod=query.getClass().getMethod("getPrefix");
+      }
+ catch (      Exception e3) {
+        throw new IllegalArgumentException("SpanMultiTermQueryWrapper can only wrap MultiTermQueries" + " that can return a field name using getField() or getTerm()");
+      }
+    }
+  }
+}

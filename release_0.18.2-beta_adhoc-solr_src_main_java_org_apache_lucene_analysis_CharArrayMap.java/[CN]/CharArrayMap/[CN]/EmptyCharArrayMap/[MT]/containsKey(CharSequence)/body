@@ -1,0 +1,4 @@
+{
+  if (cs == null)   throw new NullPointerException();
+  return false;
+}

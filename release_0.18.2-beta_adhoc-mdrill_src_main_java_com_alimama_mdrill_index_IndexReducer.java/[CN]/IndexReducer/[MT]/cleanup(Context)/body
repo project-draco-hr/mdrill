@@ -1,0 +1,23 @@
+{
+  try {
+    shardWriter.optimize();
+    shardWriter.close();
+    Configuration conf=context.getConfiguration();
+    FileSystem fs=FileSystem.get(conf);
+    fs.copyFromLocalFile(new Path(localtmpath),new Path(tmpath));
+    if (!fs.exists(new Path(indexHdfsPath))) {
+      fs.rename(new Path(tmpath),new Path(indexHdfsPath));
+    }
+    if (shardWriter.getNumDocs() > 0 && lastkey != null) {
+      context.write(new LongWritable(lastkey.get()),new Text(indexHdfsPath));
+    }
+    FileSystem lfs=FileSystem.getLocal(conf);
+    if (lfs.exists(new Path(localtmpath))) {
+      lfs.delete(new Path(localtmpath),true);
+    }
+  }
+ catch (  Exception e) {
+  }
+  heartBeater.cancelHeartBeat();
+  heartBeater.interrupt();
+}

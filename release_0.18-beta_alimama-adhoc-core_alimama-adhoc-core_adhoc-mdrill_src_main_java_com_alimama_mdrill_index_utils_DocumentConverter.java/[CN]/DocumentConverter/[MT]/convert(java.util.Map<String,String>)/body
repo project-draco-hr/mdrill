@@ -1,0 +1,9 @@
+{
+  SolrInputDocument doc=new SolrInputDocument();
+  for (  Entry<String,String> e : value.entrySet()) {
+    String fieldName=e.getKey();
+    String fieldValue=e.getValue();
+    doc.addField(fieldName,fieldValue);
+  }
+  return DocumentBuilder.toDocument(doc,this.schema);
+}

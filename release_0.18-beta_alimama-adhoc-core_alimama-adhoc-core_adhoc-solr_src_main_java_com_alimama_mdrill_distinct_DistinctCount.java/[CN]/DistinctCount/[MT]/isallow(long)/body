@@ -1,0 +1,6 @@
+{
+  if (crc % this.currentTimes == 0) {
+    return true;
+  }
+  return false;
+}

@@ -1,0 +1,5 @@
+{
+  super(source,input);
+  charUtils=CharacterUtils.getInstance(matchVersion);
+  useOldAPI=useOldAPI(matchVersion);
+}

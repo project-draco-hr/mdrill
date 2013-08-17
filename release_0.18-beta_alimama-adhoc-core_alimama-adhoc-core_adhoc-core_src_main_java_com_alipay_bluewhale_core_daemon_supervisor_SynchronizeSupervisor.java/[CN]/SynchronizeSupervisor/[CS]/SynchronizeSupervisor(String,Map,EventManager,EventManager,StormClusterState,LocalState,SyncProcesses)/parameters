@@ -1,0 +1,7 @@
+String supervisorId
+Map conf
+EventManager eventManager
+EventManager processesEventManager
+StormClusterState stormClusterState
+LocalState localState
+SyncProcesses syncProcesses

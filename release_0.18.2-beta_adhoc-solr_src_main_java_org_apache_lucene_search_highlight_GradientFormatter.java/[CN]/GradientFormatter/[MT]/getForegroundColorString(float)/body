@@ -1,0 +1,11 @@
+{
+  int rVal=getColorVal(fgRMin,fgRMax,score);
+  int gVal=getColorVal(fgGMin,fgGMax,score);
+  int bVal=getColorVal(fgBMin,fgBMax,score);
+  StringBuilder sb=new StringBuilder();
+  sb.append("#");
+  sb.append(intToHex(rVal));
+  sb.append(intToHex(gVal));
+  sb.append(intToHex(bVal));
+  return sb.toString();
+}

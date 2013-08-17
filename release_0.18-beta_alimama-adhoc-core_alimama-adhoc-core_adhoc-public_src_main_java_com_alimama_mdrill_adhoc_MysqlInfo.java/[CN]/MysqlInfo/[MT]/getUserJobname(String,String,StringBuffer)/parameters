@@ -1,0 +1,3 @@
+String username
+String jobname
+StringBuffer sqlbuff

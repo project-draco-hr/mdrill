@@ -1,0 +1,70 @@
+{
+  Expression result=null;
+  Expression leftExpression=null;
+  Expression rightExpression=null;
+  if (jj_2_23(2147483647)) {
+    leftExpression=BitwiseXor();
+  }
+ else {
+switch ((jj_ntk == -1) ? jj_ntk() : jj_ntk) {
+case 79:
+      jj_consume_token(79);
+    leftExpression=AdditiveExpression();
+  jj_consume_token(80);
+leftExpression=new Parenthesis(leftExpression);
+break;
+default :
+jj_la1[104]=jj_gen;
+jj_consume_token(-1);
+throw new ParseException();
+}
+}
+result=leftExpression;
+label_23: while (true) {
+if (jj_2_24(2)) {
+;
+}
+ else {
+break label_23;
+}
+switch ((jj_ntk == -1) ? jj_ntk() : jj_ntk) {
+case 82:
+jj_consume_token(82);
+result=new Multiplication();
+break;
+case 96:
+jj_consume_token(96);
+result=new Division();
+break;
+default :
+jj_la1[105]=jj_gen;
+jj_consume_token(-1);
+throw new ParseException();
+}
+if (jj_2_25(2147483647)) {
+rightExpression=BitwiseXor();
+}
+ else {
+switch ((jj_ntk == -1) ? jj_ntk() : jj_ntk) {
+case 79:
+jj_consume_token(79);
+rightExpression=AdditiveExpression();
+jj_consume_token(80);
+rightExpression=new Parenthesis(rightExpression);
+break;
+default :
+jj_la1[106]=jj_gen;
+jj_consume_token(-1);
+throw new ParseException();
+}
+}
+BinaryExpression binExp=(BinaryExpression)result;
+binExp.setLeftExpression(leftExpression);
+binExp.setRightExpression(rightExpression);
+leftExpression=result;
+}
+{
+if (true) return result;
+}
+throw new Error("Missing return statement in function");
+}

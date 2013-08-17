@@ -1,0 +1,6 @@
+{
+  this.fieldName=fieldName;
+  this.fieldType=fieldType;
+  this.analyzer=analyzer;
+  this.termsToMatch=termsToMatch;
+}

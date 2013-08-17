@@ -1,0 +1,6 @@
+{
+  super(searchables);
+  this.searchables=searchables;
+  this.starts=getStarts();
+  this.executor=executor;
+}

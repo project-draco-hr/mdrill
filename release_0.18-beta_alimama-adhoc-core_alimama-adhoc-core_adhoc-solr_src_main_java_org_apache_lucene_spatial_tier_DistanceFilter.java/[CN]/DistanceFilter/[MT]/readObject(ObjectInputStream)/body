@@ -1,0 +1,4 @@
+{
+  stream.defaultReadObject();
+  distanceLookupCache=new WeakHashMap<String,Double>();
+}

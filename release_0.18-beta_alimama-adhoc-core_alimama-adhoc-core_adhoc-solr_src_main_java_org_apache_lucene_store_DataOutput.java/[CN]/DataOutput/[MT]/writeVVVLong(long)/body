@@ -1,0 +1,10 @@
+{
+  if (i < 0) {
+    this.writeVInt(1);
+    this.writeVLong(i * -1);
+  }
+ else {
+    this.writeVInt(0);
+    this.writeVLong(i);
+  }
+}

@@ -1,0 +1,8 @@
+{
+  int current=value;
+  for (int ctr=0; ctr < 4; ctr++) {
+    elementData[elementCount + ctr]=(byte)(current & 255);
+    current=current >> 8;
+  }
+  elementCount+=4;
+}

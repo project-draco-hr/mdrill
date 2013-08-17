@@ -1,0 +1,4 @@
+{
+  this.bytesUsed=new AtomicLong(0);
+  this.initSize=initSize;
+}

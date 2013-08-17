@@ -1,0 +1,16 @@
+{
+  failures++;
+  say("" + NEW_LINE + "");
+  say("*******************************************************");
+  say("*********************  FAILURE!  **********************");
+  say("*******************************************************");
+  say("" + NEW_LINE + "");
+  say(s);
+  say("");
+  if (compiler != null) {
+    PrintWriter writer=new PrintWriter(System.out);
+    compiler.dumpProgram(writer);
+    writer.flush();
+    say("" + NEW_LINE + "");
+  }
+}

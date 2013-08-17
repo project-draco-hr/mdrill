@@ -1,0 +1,4 @@
+HashSet<String> all
+HashSet<String> currentmonth
+int delay
+String starday

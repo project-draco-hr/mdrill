@@ -1,0 +1,21 @@
+{
+  while (true) {
+    if (bufferedToken == null) {
+      if (!bufferedTokenStream.incrementToken())       return false;
+      bufferedToken=bufferedTokenStream.captureState();
+      bufferedStartOffset=bufferedOffsetAtt.startOffset();
+      bufferedEndOffset=bufferedOffsetAtt.endOffset();
+    }
+    if (startOffset <= bufferedStartOffset && bufferedEndOffset <= endOffset) {
+      restoreState(bufferedToken);
+      bufferedToken=null;
+      offsetAtt.setOffset(offsetAtt.startOffset() - startOffset,offsetAtt.endOffset() - startOffset);
+      return true;
+    }
+ else     if (bufferedEndOffset > endOffset) {
+      startOffset+=length + 1;
+      return false;
+    }
+    bufferedToken=null;
+  }
+}

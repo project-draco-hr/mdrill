@@ -1,0 +1,7 @@
+{
+  int rtn=this.day.compareTo(o.day);
+  if (isdesc) {
+    rtn*=-1;
+  }
+  return rtn;
+}

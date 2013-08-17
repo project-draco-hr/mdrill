@@ -1,0 +1,14 @@
+{
+  for (int i=0; i < length; i++) {
+    byte b=readByte();
+    if ((b & 0x80) == 0) {
+    }
+ else     if ((b & 0xE0) != 0xE0) {
+      readByte();
+    }
+ else {
+      readByte();
+      readByte();
+    }
+  }
+}

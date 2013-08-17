@@ -1,0 +1,7 @@
+{
+  if (message == null) {
+    return null;
+  }
+  byte[] bytes=message.getBytes();
+  return Base64Encode.encode(bytes,0,bytes.length);
+}

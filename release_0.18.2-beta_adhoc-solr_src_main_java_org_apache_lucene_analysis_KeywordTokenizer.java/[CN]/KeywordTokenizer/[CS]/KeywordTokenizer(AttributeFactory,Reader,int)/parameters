@@ -1,0 +1,3 @@
+AttributeFactory factory
+Reader input
+int bufferSize

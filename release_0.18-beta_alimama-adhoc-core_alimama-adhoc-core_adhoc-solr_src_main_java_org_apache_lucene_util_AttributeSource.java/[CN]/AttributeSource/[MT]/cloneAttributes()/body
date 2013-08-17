@@ -1,0 +1,12 @@
+{
+  final AttributeSource clone=new AttributeSource(this.factory);
+  if (hasAttributes()) {
+    for (State state=getCurrentState(); state != null; state=state.next) {
+      clone.attributeImpls.put(state.attribute.getClass(),(AttributeImpl)state.attribute.clone());
+    }
+    for (    Entry<Class<? extends Attribute>,AttributeImpl> entry : this.attributes.entrySet()) {
+      clone.attributes.put(entry.getKey(),clone.attributeImpls.get(entry.getValue().getClass()));
+    }
+  }
+  return clone;
+}

@@ -1,0 +1,14 @@
+{
+  if (pos < 0 || length - pos < other.length) {
+    return false;
+  }
+  int i=offset + pos;
+  int j=other.offset;
+  final int k=other.offset + other.length;
+  while (j < k) {
+    if (bytes[i++] != other.bytes[j++]) {
+      return false;
+    }
+  }
+  return true;
+}

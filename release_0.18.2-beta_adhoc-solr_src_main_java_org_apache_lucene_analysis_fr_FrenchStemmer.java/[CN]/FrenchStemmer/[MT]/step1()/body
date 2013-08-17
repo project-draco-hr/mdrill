@@ -1,0 +1,33 @@
+{
+  String[] suffix={"ances","iqUes","ismes","ables","istes","ance","iqUe","isme","able","iste"};
+  deleteFrom(R2,suffix);
+  replaceFrom(R2,new String[]{"logies","logie"},"log");
+  replaceFrom(R2,new String[]{"usions","utions","usion","ution"},"u");
+  replaceFrom(R2,new String[]{"ences","ence"},"ent");
+  String[] search={"atrices","ateurs","ations","atrice","ateur","ation"};
+  deleteButSuffixFromElseReplace(R2,search,"ic",true,R0,"iqU");
+  deleteButSuffixFromElseReplace(R2,new String[]{"ements","ement"},"eus",false,R0,"eux");
+  deleteButSuffixFrom(R2,new String[]{"ements","ement"},"ativ",false);
+  deleteButSuffixFrom(R2,new String[]{"ements","ement"},"iv",false);
+  deleteButSuffixFrom(R2,new String[]{"ements","ement"},"abl",false);
+  deleteButSuffixFrom(R2,new String[]{"ements","ement"},"iqU",false);
+  deleteFromIfTestVowelBeforeIn(R1,new String[]{"issements","issement"},false,R0);
+  deleteFrom(RV,new String[]{"ements","ement"});
+  deleteButSuffixFromElseReplace(R2,new String[]{"it??s","it??"},"abil",false,R0,"abl");
+  deleteButSuffixFromElseReplace(R2,new String[]{"it??s","it??"},"ic",false,R0,"iqU");
+  deleteButSuffixFrom(R2,new String[]{"it??s","it??"},"iv",true);
+  String[] autre={"ifs","ives","if","ive"};
+  deleteButSuffixFromElseReplace(R2,autre,"icat",false,R0,"iqU");
+  deleteButSuffixFromElseReplace(R2,autre,"at",true,R2,"iqU");
+  replaceFrom(R0,new String[]{"eaux"},"eau");
+  replaceFrom(R1,new String[]{"aux"},"al");
+  deleteButSuffixFromElseReplace(R2,new String[]{"euses","euse"},"",true,R1,"eux");
+  deleteFrom(R2,new String[]{"eux"});
+  boolean temp=false;
+  temp=replaceFrom(RV,new String[]{"amment"},"ant");
+  if (temp == true)   suite=true;
+  temp=replaceFrom(RV,new String[]{"emment"},"ent");
+  if (temp == true)   suite=true;
+  temp=deleteFromIfTestVowelBeforeIn(RV,new String[]{"ments","ment"},true,RV);
+  if (temp == true)   suite=true;
+}

@@ -1,0 +1,3 @@
+{
+  return hcode + super.hashCode() + (int)defVal;
+}

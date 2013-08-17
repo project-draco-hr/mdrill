@@ -1,0 +1,7 @@
+{
+  if (v < 0.0) {
+    throw new IllegalArgumentException("reclaimDeletesWeight must be >= 0.0 (got " + v + ")");
+  }
+  reclaimDeletesWeight=v;
+  return this;
+}

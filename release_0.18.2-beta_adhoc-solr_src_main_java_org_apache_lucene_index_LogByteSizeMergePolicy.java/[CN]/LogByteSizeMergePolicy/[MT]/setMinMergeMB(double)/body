@@ -1,0 +1,3 @@
+{
+  minMergeSize=(long)(mb * 1024 * 1024);
+}

@@ -1,0 +1,24 @@
+{
+  LOG.info("HeartBeat thread running");
+  while (true) {
+    try {
+synchronized (this) {
+        if (threadsNeedingHeartBeat > 0) {
+          progress.progress();
+          if (LOG.isInfoEnabled()) {
+            LOG.info(String.format("Issuing heart beat for %d threads",threadsNeedingHeartBeat));
+          }
+        }
+ else {
+          if (LOG.isInfoEnabled()) {
+            LOG.info(String.format("heartbeat skipped count %d",threadsNeedingHeartBeat));
+          }
+        }
+        this.wait(waitTimeMs);
+      }
+    }
+ catch (    Throwable e) {
+      LOG.error("HeartBeat throwable",e);
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  System.out.println(parseThedate("dt=20120321"));
+  System.out.println(parseThedate("dt=20120321000000"));
+  System.out.println(parseThedate("ef=20120321000000"));
+  System.out.println(parseThedate("dt=2012032w"));
+  System.out.println(parseThedate("dt=201203212"));
+  System.out.println(parseThedate("201203212"));
+  System.out.println(parseThedate("201203212123"));
+  System.out.println(parseThedate("201203212877d"));
+  System.out.println("===");
+  System.out.println(parseThedate(new Path("/xxx/xxx//xxx/x/xxxxx///x"),new Path("/xxx/////////////.////////./////////////////////////xxx//xxx/x/xxxxx///x","a/dt=20120321/abc.txt")));
+  System.out.println(parseThedate(new Path("/xxx/xxx//xxx/x/xxxxx///x"),new Path("/xxx/xxx//xxx/x/xxxxx///x","a/dt=20120321//e/abc.txt")));
+  System.out.println(parseThedate(new Path("/xxx/xxx//xxx/x/xxxxx///x"),new Path("/xxx/xxx//xxx/x/xxxxx///x","a/dt=20120321//e/dt=20120322")));
+  System.out.println(parseThedate(new Path("/xxx/xxx/./xxx/x/xxxxx///x"),new Path("/xxx/xxx//////////////////xxx/x/xxxxx///x","a/dt=20120321//e/dt=20120322")));
+}

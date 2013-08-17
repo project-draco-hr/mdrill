@@ -1,0 +1,9 @@
+{
+  isrunning.set(false);
+  runningThread.interrupt();
+  try {
+    runningThread.join();
+  }
+ catch (  InterruptedException e) {
+  }
+}

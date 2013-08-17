@@ -1,0 +1,5 @@
+{
+  if (field == null)   return null;
+  if (term == null)   term=new Term(field,new String(text.result,0,text.length),false);
+  return term;
+}

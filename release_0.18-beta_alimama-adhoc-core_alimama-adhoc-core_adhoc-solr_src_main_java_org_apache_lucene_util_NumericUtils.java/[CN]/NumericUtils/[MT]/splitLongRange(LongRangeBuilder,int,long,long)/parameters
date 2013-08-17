@@ -1,0 +1,4 @@
+LongRangeBuilder builder
+int precisionStep
+long minBound
+long maxBound

@@ -1,0 +1,13 @@
+{
+  while (--lim >= 0) {
+    int ch=getChar();
+    if (ch >= '0' && ch <= '9') {
+      arr.write(ch);
+    }
+ else {
+      if (ch != -1)       start--;
+      return NUMBER;
+    }
+  }
+  return BIGNUMBER;
+}

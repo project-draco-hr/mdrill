@@ -1,0 +1,8 @@
+{
+  StringBuffer buff=new StringBuffer();
+  for (  IndexReader r : this.subReaders) {
+    buff.append(r.getStringCacheKey());
+    buff.append(",");
+  }
+  return buff.toString();
+}

@@ -1,0 +1,18 @@
+{
+  System.setProperty("org.mortbay.jetty.Request.maxFormContentSize","9000000");
+  this.context=context;
+  server=new Server();
+  QueuedThreadPool threads=new QueuedThreadPool(256);
+  threads.setDaemon(true);
+  SelectChannelConnector conn=new SelectChannelConnector();
+  conn.setPort(port);
+  conn.setLowResourcesConnections(10240);
+  conn.setMaxIdleTime(3600000);
+  conn.setLowResourceMaxIdleTime(600000);
+  server.setThreadPool(threads);
+  server.setConnectors(new Connector[]{conn});
+  server.setStopAtShutdown(true);
+  Context root=new Context(server,context,Context.SESSIONS);
+  root.addServlet(Servlet404.class,"/*");
+  dispatchFilter=root.addFilter(SolrDispatchFilter.class,"*",Handler.REQUEST);
+}

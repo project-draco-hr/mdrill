@@ -1,0 +1,10 @@
+{
+  Stat stat=null;
+  if (watch) {
+    stat=zk.checkExists().watched().forPath(PathUtils.normalize_path(path));
+  }
+ else {
+    stat=zk.checkExists().forPath(PathUtils.normalize_path(path));
+  }
+  return stat != null;
+}

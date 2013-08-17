@@ -1,0 +1,9 @@
+{
+  Expression having=null;
+  jj_consume_token(K_HAVING);
+  having=Expression();
+{
+    if (true)     return having;
+  }
+  throw new Error("Missing return statement in function");
+}

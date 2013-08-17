@@ -1,0 +1,81 @@
+{
+  for (; ; ) {
+switch (ch) {
+case ' ':
+case '\t':
+      break;
+case '\r':
+case '\n':
+    break;
+case '"':
+  valstate=STRING;
+return STRING;
+case '{':
+push();
+state=DID_OBJSTART;
+return OBJECT_START;
+case '[':
+push();
+state=DID_ARRSTART;
+return ARRAY_START;
+case '0':
+out.reset();
+ch=getChar();
+if (ch == '.') {
+start--;
+ch='0';
+readNumber('0',false);
+return valstate;
+}
+ else if (ch > '9' || ch < '0') {
+out.unsafeWrite('0');
+if (ch != -1) start--;
+lval=0;
+valstate=LONG;
+return LONG;
+}
+ else {
+throw err("Leading zeros not allowed");
+}
+case '1':
+case '2':
+case '3':
+case '4':
+case '5':
+case '6':
+case '7':
+case '8':
+case '9':
+out.reset();
+lval=readNumber(ch,false);
+return valstate;
+case '-':
+out.reset();
+out.unsafeWrite('-');
+ch=getChar();
+if (ch < '0' || ch > '9') throw err("expected digit after '-'");
+lval=readNumber(ch,true);
+return valstate;
+case 't':
+valstate=BOOLEAN;
+expect(JSONUtil.TRUE_CHARS);
+bool=true;
+return BOOLEAN;
+case 'f':
+valstate=BOOLEAN;
+expect(JSONUtil.FALSE_CHARS);
+bool=false;
+return BOOLEAN;
+case 'n':
+valstate=NULL;
+expect(JSONUtil.NULL_CHARS);
+return NULL;
+case -1:
+if (getLevel() > 0) throw err("Premature EOF");
+return EOF;
+default :
+throw err(null);
+}
+ch=getChar();
+}
+}

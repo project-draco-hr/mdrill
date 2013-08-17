@@ -1,0 +1,3 @@
+{
+  if (len > (buf.length - pos))   flushBuffer();
+}

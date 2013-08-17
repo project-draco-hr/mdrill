@@ -1,0 +1,11 @@
+{
+  this.baseClass=baseClass;
+  this.method=method;
+  this.parameters=parameters;
+  try {
+    if (!singletonSet.add(baseClass.getDeclaredMethod(method,parameters)))     throw new UnsupportedOperationException("VirtualMethod instances must be singletons and therefore " + "assigned to static final members in the same class, they use as baseClass ctor param.");
+  }
+ catch (  NoSuchMethodException nsme) {
+    throw new IllegalArgumentException(baseClass.getName() + " has no such method: " + nsme.getMessage());
+  }
+}

@@ -1,0 +1,10 @@
+{
+  doc=target;
+  while (doc < maxDoc) {
+    if (!isDeleted(doc)) {
+      return true;
+    }
+    doc++;
+  }
+  return false;
+}

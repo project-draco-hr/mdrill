@@ -1,0 +1,4 @@
+{
+  HdfsToSet<A> toset=new HdfsToSet<A>();
+  return new ListTermEnum<A>(reader,toset.toset(file,trans),this.field,this.trans);
+}

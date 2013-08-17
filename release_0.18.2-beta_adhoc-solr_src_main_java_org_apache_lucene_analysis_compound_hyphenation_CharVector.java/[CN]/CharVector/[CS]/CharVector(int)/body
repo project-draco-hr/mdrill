@@ -1,0 +1,10 @@
+{
+  if (capacity > 0) {
+    blockSize=capacity;
+  }
+ else {
+    blockSize=DEFAULT_BLOCK_SIZE;
+  }
+  array=new char[blockSize];
+  n=0;
+}

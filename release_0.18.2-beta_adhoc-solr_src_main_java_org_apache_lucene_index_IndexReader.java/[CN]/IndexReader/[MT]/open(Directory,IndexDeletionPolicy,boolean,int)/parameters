@@ -1,0 +1,4 @@
+Directory directory
+IndexDeletionPolicy deletionPolicy
+boolean readOnly
+int termInfosIndexDivisor

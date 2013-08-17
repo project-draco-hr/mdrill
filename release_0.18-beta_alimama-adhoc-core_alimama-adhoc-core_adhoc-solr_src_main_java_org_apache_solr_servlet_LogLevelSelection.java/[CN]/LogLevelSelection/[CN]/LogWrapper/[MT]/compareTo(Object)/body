@@ -1,0 +1,6 @@
+{
+  if (this.equals(other))   return 0;
+  if (this == ROOT)   return -1;
+  if (other == ROOT)   return 1;
+  return name.compareTo(((LogWrapper)other).name);
+}

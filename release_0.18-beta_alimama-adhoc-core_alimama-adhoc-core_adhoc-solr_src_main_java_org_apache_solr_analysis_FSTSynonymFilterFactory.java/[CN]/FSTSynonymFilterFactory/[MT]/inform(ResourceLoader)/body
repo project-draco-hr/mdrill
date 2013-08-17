@@ -1,0 +1,32 @@
+{
+  final boolean ignoreCase=getBoolean("ignoreCase",false);
+  this.ignoreCase=ignoreCase;
+  String tf=args.get("tokenizerFactory");
+  final TokenizerFactory factory=tf == null ? null : loadTokenizerFactory(loader,tf,args);
+  Analyzer analyzer=new ReusableAnalyzerBase(){
+    @Override protected TokenStreamComponents createComponents(    String fieldName,    Reader reader){
+      Tokenizer tokenizer=factory == null ? new WhitespaceTokenizer(Version.LUCENE_31,reader) : factory.create(reader);
+      TokenStream stream=ignoreCase ? new LowerCaseFilter(Version.LUCENE_31,tokenizer) : tokenizer;
+      return new TokenStreamComponents(tokenizer,stream);
+    }
+  }
+;
+  String format=args.get("format");
+  try {
+    if (format == null || format.equals("solr")) {
+      map=loadSolrSynonyms(loader,true,analyzer);
+    }
+ else     if (format.equals("wordnet")) {
+      map=loadWordnetSynonyms(loader,true,analyzer);
+    }
+ else {
+      throw new RuntimeException("Unrecognized synonyms format: " + format);
+    }
+  }
+ catch (  Exception e) {
+    throw new RuntimeException(e);
+  }
+  if (map.fst == null) {
+    log.warn("Synonyms loaded with " + args + " has empty rule set!");
+  }
+}

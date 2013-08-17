@@ -1,0 +1,34 @@
+{
+  List<PluginInitInfo> info=new ArrayList<PluginInitInfo>();
+  T plugin=null;
+  try {
+    String name=DOMUtil.getAttr(node,"name",requireName ? type : null);
+    String className=DOMUtil.getAttr(node,"class",type);
+    plugin=create(loader,name,className,node);
+    log.info("created " + name + ": "+ plugin.getClass().getName());
+    if (preRegister) {
+      info.add(new PluginInitInfo(plugin,node));
+    }
+ else {
+      init(plugin,node);
+    }
+    T old=register(name,plugin);
+    if (old != null && !(name == null && !requireName)) {
+      throw new SolrException(SolrException.ErrorCode.SERVER_ERROR,"Multiple " + type + " registered to the same name: "+ name+ " ignoring: "+ old);
+    }
+  }
+ catch (  Exception e) {
+    SolrConfig.severeErrors.add(e);
+    SolrException.logOnce(log,null,e);
+  }
+  for (  PluginInitInfo pinfo : info) {
+    try {
+      init(pinfo.plugin,pinfo.node);
+    }
+ catch (    Exception ex) {
+      SolrConfig.severeErrors.add(ex);
+      SolrException.logOnce(log,null,ex);
+    }
+  }
+  return plugin;
+}

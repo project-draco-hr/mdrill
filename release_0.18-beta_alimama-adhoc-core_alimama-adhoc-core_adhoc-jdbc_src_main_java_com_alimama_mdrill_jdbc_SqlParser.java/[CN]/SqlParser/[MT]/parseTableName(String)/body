@@ -1,0 +1,10 @@
+{
+  String tblname=otherSql.trim();
+  int end=tblname.length();
+  int index=tblname.indexOf(" ");
+  if (index > 0) {
+    end=index;
+  }
+  this.tablename=tblname.substring(0,end);
+  return tblname.substring(end);
+}

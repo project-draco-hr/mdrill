@@ -1,0 +1,22 @@
+{
+  StringBuilder sb=new StringBuilder();
+  try {
+    sb.append("commit{");
+    Directory dir=commit.getDirectory();
+    if (dir instanceof FSDirectory) {
+      FSDirectory fsd=(FSDirectory)dir;
+      sb.append("dir=").append(fsd.getDirectory());
+    }
+ else {
+      sb.append("dir=").append(dir);
+    }
+    sb.append(",segFN=").append(commit.getSegmentsFileName());
+    sb.append(",version=").append(commit.getVersion());
+    sb.append(",generation=").append(commit.getGeneration());
+    sb.append(",filenames=").append(commit.getFileNames());
+  }
+ catch (  Exception e) {
+    sb.append(e);
+  }
+  return sb.toString();
+}

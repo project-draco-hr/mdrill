@@ -1,0 +1,55 @@
+{
+  int off=start;
+  if (!txt.startsWith(LOCALPARAM_START,off))   return start;
+  StrParser p=new StrParser(txt,start,txt.length());
+  p.pos+=2;
+  for (; ; ) {
+    char ch=p.peek();
+    if (ch == LOCALPARAM_END) {
+      return p.pos + 1;
+    }
+    String id=p.getId();
+    if (id.length() == 0) {
+      throw new ParseException("Expected identifier '}' parsing local params '" + txt + '"');
+    }
+    String val=null;
+    ch=p.peek();
+    if (ch != '=') {
+      val=id;
+      id=TYPE;
+    }
+ else {
+      p.pos++;
+      ch=p.peek();
+      boolean deref=false;
+      if (ch == '$') {
+        p.pos++;
+        ch=p.peek();
+        deref=true;
+      }
+      if (ch == '\"' || ch == '\'') {
+        val=p.getQuotedString();
+      }
+ else {
+        int valStart=p.pos;
+        for (; ; ) {
+          if (p.pos >= p.end) {
+            throw new ParseException("Missing end to unquoted value starting at " + valStart + " str='"+ txt+ "'");
+          }
+          char c=p.val.charAt(p.pos);
+          if (c == LOCALPARAM_END || Character.isWhitespace(c)) {
+            val=p.val.substring(valStart,p.pos);
+            break;
+          }
+          p.pos++;
+        }
+      }
+      if (deref) {
+        if (params != null) {
+          val=params.get(val);
+        }
+      }
+    }
+    if (target != null)     target.put(id,val);
+  }
+}

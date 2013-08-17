@@ -1,0 +1,4 @@
+{
+  bottom=pq.add(new Entry(slot,docBase + doc,score));
+  queueFull=totalHits == numHits;
+}

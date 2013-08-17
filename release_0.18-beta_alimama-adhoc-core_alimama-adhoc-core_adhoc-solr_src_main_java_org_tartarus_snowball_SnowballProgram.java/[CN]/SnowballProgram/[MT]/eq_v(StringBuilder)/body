@@ -1,0 +1,3 @@
+{
+  return eq_s(s.length(),(CharSequence)s);
+}

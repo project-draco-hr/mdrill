@@ -1,0 +1,23 @@
+{
+  List<String> list=new ArrayList<String>();
+  for (  StormTopology._Fields field : Thrift.STORM_TOPOLOGY_FIELDS) {
+    Object value=topology.getFieldValue(field);
+    if (value != null) {
+      Map<String,Object> obj_map=(Map<String,Object>)value;
+      Set<String> commids=obj_map.keySet();
+      list.addAll(commids);
+      for (      String id : commids) {
+        if (system_id(id)) {
+          throw new InvalidTopologyException(id + " is not a valid component id");
+        }
+      }
+      for (      Object obj : obj_map.values()) {
+        validate_component(obj);
+      }
+    }
+  }
+  List<String> offending=StormUtils.getRepeat(list);
+  if (!offending.isEmpty()) {
+    throw new InvalidTopologyException("Duplicate component ids: " + offending);
+  }
+}

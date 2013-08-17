@@ -1,0 +1,3 @@
+{
+  return "TermVectorEntry{" + "field='" + field + '\''+ ", term='"+ term+ '\''+ ", frequency="+ frequency+ '}';
+}

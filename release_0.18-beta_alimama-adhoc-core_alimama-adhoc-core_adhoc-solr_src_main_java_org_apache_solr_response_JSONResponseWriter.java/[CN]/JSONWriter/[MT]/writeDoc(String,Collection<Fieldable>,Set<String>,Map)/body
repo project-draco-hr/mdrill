@@ -1,0 +1,68 @@
+{
+  writeMapOpener(-1);
+  incLevel();
+  HashMap<String,MultiValueField> multi=new HashMap<String,MultiValueField>();
+  boolean first=true;
+  for (  Fieldable ff : fields) {
+    String fname=ff.name();
+    if (returnFields != null && !returnFields.contains(fname)) {
+      continue;
+    }
+    SchemaField sf=schema.getField(fname);
+    if (sf.multiValued()) {
+      MultiValueField mf=multi.get(fname);
+      if (mf == null) {
+        mf=new MultiValueField(sf,ff);
+        multi.put(fname,mf);
+      }
+ else {
+        mf.fields.add(ff);
+      }
+    }
+ else {
+      if (first) {
+        first=false;
+      }
+ else {
+        writeMapSeparator();
+      }
+      indent();
+      writeKey(fname,true);
+      sf.write(this,fname,ff);
+    }
+  }
+  for (  MultiValueField mvf : multi.values()) {
+    if (first) {
+      first=false;
+    }
+ else {
+      writeMapSeparator();
+    }
+    indent();
+    writeKey(mvf.sfield.getName(),true);
+    boolean indentArrElems=false;
+    if (doIndent) {
+      indentArrElems=(mvf.sfield.getType() instanceof TextField);
+    }
+    writeArrayOpener(-1);
+    boolean firstArrElem=true;
+    incLevel();
+    for (    Fieldable ff : mvf.fields) {
+      if (firstArrElem) {
+        firstArrElem=false;
+      }
+ else {
+        writeArraySeparator();
+      }
+      if (indentArrElems)       indent();
+      mvf.sfield.write(this,null,ff);
+    }
+    writeArrayCloser();
+    decLevel();
+  }
+  if (pseudoFields != null && pseudoFields.size() > 0) {
+    writeMap(null,pseudoFields,true,first);
+  }
+  decLevel();
+  writeMapCloser();
+}

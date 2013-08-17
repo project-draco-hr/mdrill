@@ -1,0 +1,16 @@
+{
+  if (current == null) {
+    if (itit.hasNext()) {
+      current=itit.next();
+    }
+ else {
+      return false;
+    }
+  }
+  boolean result=current.hasNext();
+  if (!result) {
+    current=null;
+    result=recursiveHasNext();
+  }
+  return result;
+}

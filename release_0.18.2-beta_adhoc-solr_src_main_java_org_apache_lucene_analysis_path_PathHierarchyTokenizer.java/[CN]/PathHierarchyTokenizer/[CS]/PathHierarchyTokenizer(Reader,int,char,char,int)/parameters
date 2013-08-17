@@ -1,0 +1,5 @@
+Reader input
+int bufferSize
+char delimiter
+char replacement
+int skip

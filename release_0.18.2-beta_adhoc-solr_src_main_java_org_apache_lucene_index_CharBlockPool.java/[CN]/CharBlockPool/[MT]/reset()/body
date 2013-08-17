@@ -1,0 +1,6 @@
+{
+  docWriter.recycleCharBlocks(buffers,1 + bufferUpto);
+  bufferUpto=-1;
+  charUpto=DocumentsWriter.CHAR_BLOCK_SIZE;
+  charOffset=-DocumentsWriter.CHAR_BLOCK_SIZE;
+}

@@ -1,0 +1,16 @@
+{
+  File data=new File(storeDir,FILENAME);
+  if (!data.exists() || !data.canRead()) {
+    return false;
+  }
+  DataInputStream in=new DataInputStream(new FileInputStream(data));
+  TSTNode root=trie.new TSTNode('\0',null);
+  try {
+    readRecursively(in,root);
+    trie.setRoot(root);
+  }
+  finally {
+    in.close();
+  }
+  return true;
+}

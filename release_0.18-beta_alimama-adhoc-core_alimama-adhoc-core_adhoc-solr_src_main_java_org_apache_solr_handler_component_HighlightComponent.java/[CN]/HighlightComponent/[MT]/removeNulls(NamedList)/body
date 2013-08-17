@@ -1,0 +1,15 @@
+{
+  for (int i=0; i < nl.size(); i++) {
+    if (nl.getName(i) == null) {
+      NamedList newList=nl instanceof SimpleOrderedMap ? new SimpleOrderedMap() : new NamedList();
+      for (int j=0; j < nl.size(); j++) {
+        String n=nl.getName(j);
+        if (n != null) {
+          newList.add(n,nl.getVal(j));
+        }
+      }
+      return newList;
+    }
+  }
+  return nl;
+}

@@ -1,0 +1,12 @@
+{
+  if (source != null) {
+    for (int i=0; i < suffix.length; i++) {
+      if (source.endsWith(suffix[i])) {
+        sb.delete(sb.length() - suffix[i].length(),sb.length());
+        modified=true;
+        setStrings();
+        break;
+      }
+    }
+  }
+}

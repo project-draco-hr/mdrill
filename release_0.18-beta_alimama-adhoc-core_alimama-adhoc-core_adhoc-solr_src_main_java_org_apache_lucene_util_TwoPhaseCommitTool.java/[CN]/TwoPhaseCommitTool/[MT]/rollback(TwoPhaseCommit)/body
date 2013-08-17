@@ -1,0 +1,11 @@
+{
+  for (  TwoPhaseCommit tpc : objects) {
+    if (tpc != null) {
+      try {
+        tpc.rollback();
+      }
+ catch (      Throwable t) {
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+{
+  NormalizeCharMap result=null;
+  if (map.submap != null) {
+    int chr=nextChar();
+    if (chr != -1) {
+      NormalizeCharMap subMap=map.submap.get(Character.valueOf((char)chr));
+      if (subMap != null) {
+        result=match(subMap);
+      }
+      if (result == null) {
+        pushChar(chr);
+      }
+    }
+  }
+  if (result == null && map.normStr != null) {
+    result=map;
+  }
+  return result;
+}

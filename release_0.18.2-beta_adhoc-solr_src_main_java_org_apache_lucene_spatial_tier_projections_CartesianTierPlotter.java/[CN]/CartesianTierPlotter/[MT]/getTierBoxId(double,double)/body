@@ -1,0 +1,5 @@
+{
+  double[] coords=projector.coords(latitude,longitude);
+  double id=getBoxId(coords[0]) + (getBoxId(coords[1]) / tierVerticalPosDivider);
+  return id;
+}

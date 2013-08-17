@@ -1,0 +1,7 @@
+{
+  this.conf=conf;
+  this.fs=FileSystem.get(this.conf);
+  this.minStart=0;
+  this.filepath=filepath;
+  this.init();
+}

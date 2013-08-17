@@ -1,0 +1,18 @@
+{
+  String urlMain="";
+  String urlShards="";
+  Random rdm=new Random();
+  String[] cores=GetShards.get(tablename,false,100000);
+  if (cores != null && cores.length > 0) {
+    int count=0;
+    int r=rdm.nextInt(cores.length);
+    for (    String c : cores) {
+      if (count == r) {
+        urlMain="http://" + c + "/solr";
+      }
+      urlShards+=c + "/solr,";
+      count++;
+    }
+  }
+  return urlMain + "/select/?q=*:*&start=0&rows=1&indent=on&shards=" + urlShards;
+}

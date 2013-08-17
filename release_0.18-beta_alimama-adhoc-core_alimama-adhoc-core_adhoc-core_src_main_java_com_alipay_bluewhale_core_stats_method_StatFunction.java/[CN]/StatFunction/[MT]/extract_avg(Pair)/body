@@ -1,0 +1,6 @@
+{
+  if (p.second == 0) {
+    return 0d;
+  }
+  return (p.first * 1.0) / p.second;
+}

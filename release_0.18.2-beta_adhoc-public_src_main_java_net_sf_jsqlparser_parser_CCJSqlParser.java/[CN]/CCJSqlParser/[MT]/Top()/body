@@ -1,0 +1,23 @@
+{
+  Top top=new Top();
+  Token token=null;
+  jj_consume_token(K_TOP);
+switch ((jj_ntk == -1) ? jj_ntk() : jj_ntk) {
+case S_INTEGER:
+    token=jj_consume_token(S_INTEGER);
+  top.setRowCount(Long.parseLong(token.image));
+break;
+case 83:
+jj_consume_token(83);
+top.setRowCountJdbcParameter(true);
+break;
+default :
+jj_la1[78]=jj_gen;
+jj_consume_token(-1);
+throw new ParseException();
+}
+{
+if (true) return top;
+}
+throw new Error("Missing return statement in function");
+}

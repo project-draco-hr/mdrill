@@ -1,0 +1,3 @@
+{
+  return TaskSpecificStats.spout(new SpoutStats(get_acked(),get_fail(),get_complete_latencies()));
+}

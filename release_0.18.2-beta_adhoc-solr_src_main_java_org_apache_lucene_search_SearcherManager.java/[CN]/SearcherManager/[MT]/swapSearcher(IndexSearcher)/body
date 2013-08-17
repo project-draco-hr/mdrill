@@ -1,0 +1,6 @@
+{
+  ensureOpen();
+  final IndexSearcher oldSearcher=currentSearcher;
+  currentSearcher=newSearcher;
+  release(oldSearcher);
+}

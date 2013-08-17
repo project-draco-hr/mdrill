@@ -1,0 +1,8 @@
+{
+  if (isMultiValued) {
+    return new TermNumReadMulty();
+  }
+ else {
+    return new TermNumReadSingle();
+  }
+}

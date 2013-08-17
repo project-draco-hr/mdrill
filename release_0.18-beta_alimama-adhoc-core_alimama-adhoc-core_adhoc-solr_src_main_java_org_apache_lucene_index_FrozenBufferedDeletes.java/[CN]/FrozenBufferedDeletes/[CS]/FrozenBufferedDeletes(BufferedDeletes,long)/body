@@ -1,0 +1,21 @@
+{
+  Term termsArray[]=deletes.terms.keySet().toArray(new Term[deletes.terms.size()]);
+  termCount=termsArray.length;
+  ArrayUtil.mergeSort(termsArray);
+  PrefixCodedTerms.Builder builder=new PrefixCodedTerms.Builder();
+  for (  Term term : termsArray) {
+    builder.add(term);
+  }
+  terms=builder.finish();
+  queries=new Query[deletes.queries.size()];
+  queryLimits=new int[deletes.queries.size()];
+  int upto=0;
+  for (  Map.Entry<Query,Integer> ent : deletes.queries.entrySet()) {
+    queries[upto]=ent.getKey();
+    queryLimits[upto]=ent.getValue();
+    upto++;
+  }
+  bytesUsed=(int)terms.getSizeInBytes() + queries.length * BYTES_PER_DEL_QUERY;
+  numTermDeletes=deletes.numTermDeletes.get();
+  this.gen=gen;
+}

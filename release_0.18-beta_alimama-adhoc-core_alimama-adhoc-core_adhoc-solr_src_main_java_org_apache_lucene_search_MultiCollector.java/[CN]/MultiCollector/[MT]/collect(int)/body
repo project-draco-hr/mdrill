@@ -1,0 +1,5 @@
+{
+  for (  Collector c : collectors) {
+    c.collect(doc);
+  }
+}

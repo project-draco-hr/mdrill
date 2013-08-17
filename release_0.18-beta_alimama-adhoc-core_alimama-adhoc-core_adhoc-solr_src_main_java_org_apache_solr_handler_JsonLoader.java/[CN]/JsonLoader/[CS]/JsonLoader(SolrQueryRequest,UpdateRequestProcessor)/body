@@ -1,0 +1,6 @@
+{
+  this.processor=processor;
+  this.req=req;
+  commitWithin=req.getParams().getInt(UpdateParams.COMMIT_WITHIN,-1);
+  overwrite=req.getParams().getBool(XmlUpdateRequestHandler.OVERWRITE,true);
+}

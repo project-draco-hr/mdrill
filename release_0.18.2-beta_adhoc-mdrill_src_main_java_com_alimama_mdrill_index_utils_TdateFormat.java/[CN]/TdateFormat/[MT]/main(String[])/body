@@ -1,0 +1,4 @@
+{
+  System.out.println(TdateFormat.ensureTdate("2013/01/02",""));
+  ;
+}

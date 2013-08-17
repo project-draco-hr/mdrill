@@ -1,0 +1,10 @@
+{
+  if (isInit.get()) {
+    return true;
+  }
+  long nowtime=System.currentTimeMillis();
+  if (nowtime - statcollect.getSetupTime() < 1000l * 60 * 20) {
+    return false;
+  }
+  throw new Exception("init timeout");
+}

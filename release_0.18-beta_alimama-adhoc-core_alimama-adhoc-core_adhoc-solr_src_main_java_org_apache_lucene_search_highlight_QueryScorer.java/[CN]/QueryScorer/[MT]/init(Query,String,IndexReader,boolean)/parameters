@@ -1,0 +1,4 @@
+Query query
+String field
+IndexReader reader
+boolean expandMultiTermQuery

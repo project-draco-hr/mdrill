@@ -1,0 +1,8 @@
+{
+  final int prime=31;
+  int result=super.hashCode();
+  result=prime * result + Float.floatToIntBits(minimumSimilarity);
+  result=prime * result + prefixLength;
+  result=prime * result + ((term == null) ? 0 : term.hashCode());
+  return result;
+}

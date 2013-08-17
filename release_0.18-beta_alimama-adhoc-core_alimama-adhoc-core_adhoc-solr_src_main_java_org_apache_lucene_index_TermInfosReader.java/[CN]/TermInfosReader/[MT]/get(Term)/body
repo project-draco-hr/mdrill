@@ -1,0 +1,4 @@
+{
+  BytesRef termBytesRef=new BytesRef(term.text);
+  return get(term,false,termBytesRef);
+}

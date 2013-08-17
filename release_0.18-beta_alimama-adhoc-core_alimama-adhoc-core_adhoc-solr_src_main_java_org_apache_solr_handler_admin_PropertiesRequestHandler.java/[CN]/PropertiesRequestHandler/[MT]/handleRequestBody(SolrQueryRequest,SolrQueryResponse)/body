@@ -1,0 +1,14 @@
+{
+  Object props=null;
+  String name=req.getParams().get("name");
+  if (name != null) {
+    NamedList<String> p=new SimpleOrderedMap<String>();
+    p.add(name,System.getProperty(name));
+    props=p;
+  }
+ else {
+    props=System.getProperties();
+  }
+  rsp.add("system.properties",props);
+  rsp.setHttpCaching(false);
+}

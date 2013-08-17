@@ -1,0 +1,3 @@
+Sort sort
+int topN
+TopDocs[] shardHits

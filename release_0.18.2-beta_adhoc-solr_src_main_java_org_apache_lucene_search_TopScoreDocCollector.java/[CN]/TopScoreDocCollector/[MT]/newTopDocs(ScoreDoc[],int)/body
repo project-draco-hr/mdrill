@@ -1,0 +1,19 @@
+{
+  if (results == null) {
+    return EMPTY_TOPDOCS;
+  }
+  float maxScore=Float.NaN;
+  double sum=0.0f;
+  double max=Double.NEGATIVE_INFINITY;
+  double min=Double.POSITIVE_INFINITY;
+  if (start == 0) {
+    maxScore=results[0].score;
+  }
+ else {
+    for (int i=pq.size(); i > 1; i--) {
+      pq.pop();
+    }
+    maxScore=pq.pop().score;
+  }
+  return new TopDocs(totalHits,results,maxScore,sum,max,min);
+}

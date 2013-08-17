@@ -1,0 +1,72 @@
+{
+  if (currentNode == null) {
+    return null;
+  }
+  if (currentNode.relatives[TSTNode.EQKID] != null || currentNode.data != null) {
+    return null;
+  }
+  TSTNode currentParent=currentNode.relatives[TSTNode.PARENT];
+  boolean lokidNull=currentNode.relatives[TSTNode.LOKID] == null;
+  boolean hikidNull=currentNode.relatives[TSTNode.HIKID] == null;
+  int childType;
+  if (currentParent.relatives[TSTNode.LOKID] == currentNode) {
+    childType=TSTNode.LOKID;
+  }
+ else   if (currentParent.relatives[TSTNode.EQKID] == currentNode) {
+    childType=TSTNode.EQKID;
+  }
+ else   if (currentParent.relatives[TSTNode.HIKID] == currentNode) {
+    childType=TSTNode.HIKID;
+  }
+ else {
+    rootNode=null;
+    return null;
+  }
+  if (lokidNull && hikidNull) {
+    currentParent.relatives[childType]=null;
+    return currentParent;
+  }
+  if (lokidNull) {
+    currentParent.relatives[childType]=currentNode.relatives[TSTNode.HIKID];
+    currentNode.relatives[TSTNode.HIKID].relatives[TSTNode.PARENT]=currentParent;
+    return currentParent;
+  }
+  if (hikidNull) {
+    currentParent.relatives[childType]=currentNode.relatives[TSTNode.LOKID];
+    currentNode.relatives[TSTNode.LOKID].relatives[TSTNode.PARENT]=currentParent;
+    return currentParent;
+  }
+  int deltaHi=currentNode.relatives[TSTNode.HIKID].splitchar - currentNode.splitchar;
+  int deltaLo=currentNode.splitchar - currentNode.relatives[TSTNode.LOKID].splitchar;
+  int movingKid;
+  TSTNode targetNode;
+  if (deltaHi == deltaLo) {
+    if (Math.random() < 0.5) {
+      deltaHi++;
+    }
+ else {
+      deltaLo++;
+    }
+  }
+  if (deltaHi > deltaLo) {
+    movingKid=TSTNode.HIKID;
+    targetNode=currentNode.relatives[TSTNode.LOKID];
+  }
+ else {
+    movingKid=TSTNode.LOKID;
+    targetNode=currentNode.relatives[TSTNode.HIKID];
+  }
+  while (targetNode.relatives[movingKid] != null) {
+    targetNode=targetNode.relatives[movingKid];
+  }
+  targetNode.relatives[movingKid]=currentNode.relatives[movingKid];
+  currentParent.relatives[childType]=targetNode;
+  targetNode.relatives[TSTNode.PARENT]=currentParent;
+  if (!lokidNull) {
+    currentNode.relatives[TSTNode.LOKID]=null;
+  }
+  if (!hikidNull) {
+    currentNode.relatives[TSTNode.HIKID]=null;
+  }
+  return currentParent;
+}

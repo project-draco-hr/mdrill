@@ -1,0 +1,5 @@
+FileSystem fs
+String inputBase
+String startday
+int dayDelay
+int maxRunDays

@@ -1,0 +1,3 @@
+{
+  return strlen(a,0);
+}

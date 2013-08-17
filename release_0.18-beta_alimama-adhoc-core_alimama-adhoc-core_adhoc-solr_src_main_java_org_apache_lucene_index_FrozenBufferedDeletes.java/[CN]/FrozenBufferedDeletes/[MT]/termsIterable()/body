@@ -1,0 +1,8 @@
+{
+  return new Iterable<Term>(){
+    public Iterator<Term> iterator(){
+      return terms.iterator();
+    }
+  }
+;
+}

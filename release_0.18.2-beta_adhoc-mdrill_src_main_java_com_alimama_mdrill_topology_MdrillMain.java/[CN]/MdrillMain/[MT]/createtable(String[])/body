@@ -1,0 +1,58 @@
+{
+  String tableConfig=args[1];
+  String stormhome=System.getProperty("storm.home");
+  if (stormhome == null) {
+    stormhome=".";
+  }
+  Map stormconf=Utils.readStormConfig();
+  String hdfsSolrDir=(String)stormconf.get("higo.table.path");
+  Configuration conf=getConf(stormconf);
+  FileSystem fs=FileSystem.get(conf);
+  FileSystem lfs=FileSystem.getLocal(conf);
+  String topschema=getFileContent(lfs,new Path(stormhome,"solr/conf/schema.top.txt"));
+  String downschema=getFileContent(lfs,new Path(stormhome,"solr/conf/schema.down.txt"));
+  String fieldschema=getFileContent(lfs,new Path(tableConfig));
+  CCJSqlParserManager parserManager=new CCJSqlParserManager();
+  CreateTable createTable=(CreateTable)parserManager.parse(new StringReader(fieldschema));
+  StringBuffer buffer=new StringBuffer();
+  String tableName=createTable.getTable().getName();
+  buffer.append("\r\n");
+  for (int i=0; i < createTable.getColumnDefinitions().size(); i++) {
+    ColumnDefinition col=(ColumnDefinition)createTable.getColumnDefinitions().get(i);
+    String colname=col.getColumnName();
+    String type=col.getColDataType().getDataType();
+    if (type.equals("long") || type.equals("int") || type.equals("tint")|| type.equals("bigint")) {
+      type="tlong";
+    }
+    if (type.equals("float") || type.equals("double") || type.equals("tfloat")) {
+      type="tdouble";
+    }
+    if (type.indexOf("char") > 0 || type.indexOf("string") > 0) {
+      type="string";
+    }
+    buffer.append("<field name=\"" + colname + "\" type=\""+ type+ "\" indexed=\"true\" stored=\"false\"/>");
+    buffer.append("\r\n");
+  }
+  Path tablepath=new Path(hdfsSolrDir,tableName);
+  Path solrpath=new Path(tablepath,"solr");
+  if (!fs.exists(tablepath)) {
+    fs.mkdirs(tablepath);
+  }
+  if (fs.exists(solrpath)) {
+    fs.delete(solrpath,true);
+  }
+  fs.copyFromLocalFile(new Path(stormhome,"solr"),solrpath);
+  if (fs.exists(new Path(solrpath,"conf/schema.xml"))) {
+    fs.delete(new Path(solrpath,"conf/schema.xml"),true);
+  }
+  FSDataOutputStream out=fs.create(new Path(solrpath,"conf/schema.xml"));
+  java.io.BufferedWriter writer=new BufferedWriter(new OutputStreamWriter(out));
+  writer.append(topschema);
+  writer.append(buffer.toString());
+  writer.append(downschema);
+  writer.close();
+  out.close();
+  System.out.println(buffer.toString());
+  System.out.println("create succ at " + tablepath.toString());
+  System.exit(0);
+}

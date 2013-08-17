@@ -1,0 +1,3 @@
+{
+  return recursiveNodeCalculator(startingNode,true,0);
+}

@@ -1,0 +1,9 @@
+{
+  this.trans=trans;
+  this.maxmincmp=this.TermMaxMin(field,list,this.trans);
+  this.list=list;
+  this.field=field;
+  Term start=this.maxmincmp.getMin();
+  this.maxTerm=this.maxmincmp.getMax();
+  this.setEnum(reader.terms(start));
+}

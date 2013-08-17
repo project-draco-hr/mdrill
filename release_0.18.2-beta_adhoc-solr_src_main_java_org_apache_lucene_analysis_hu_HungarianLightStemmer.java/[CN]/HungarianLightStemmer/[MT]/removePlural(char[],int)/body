@@ -1,0 +1,11 @@
+{
+  if (len > 3 && s[len - 1] == 'k') switch (s[len - 2]) {
+case 'a':
+case 'o':
+case 'e':
+    if (len > 4)     return len - 2;
+default :
+  return len - 1;
+}
+return len;
+}

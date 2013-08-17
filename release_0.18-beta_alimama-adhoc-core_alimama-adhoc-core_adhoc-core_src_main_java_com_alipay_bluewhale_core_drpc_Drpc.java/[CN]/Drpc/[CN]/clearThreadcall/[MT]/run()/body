@@ -1,0 +1,18 @@
+{
+  for (  String id : this.lastclean) {
+    Drpc.this.cleanup(id);
+  }
+  java.util.HashSet<String> set=new HashSet<String>();
+  for (  Entry<String,Integer> e : Drpc.this.idtoStart.entrySet()) {
+    if (TimeUtils.time_delta(e.getValue()) > clearThreadcall.REQUEST_TIMEOUT_SECS) {
+      String id=e.getKey();
+      Drpc.this.idtoResult.put(id,new DRPCExecutionException("Request timed out"));
+      Semaphore s=Drpc.this.idtoSem.get(id);
+      if (s != null) {
+        s.release();
+      }
+      set.add(id);
+    }
+  }
+  this.lastclean=set;
+}

@@ -1,0 +1,3 @@
+{
+  and(other.bits,other.bits.length);
+}

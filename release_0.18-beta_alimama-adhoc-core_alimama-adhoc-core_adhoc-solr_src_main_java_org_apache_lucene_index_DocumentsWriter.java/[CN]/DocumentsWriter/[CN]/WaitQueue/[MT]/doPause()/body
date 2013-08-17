@@ -1,0 +1,11 @@
+{
+  final double mb=config.getRAMBufferSizeMB();
+  final long waitQueuePauseBytes;
+  if (mb == IndexWriterConfig.DISABLE_AUTO_FLUSH) {
+    waitQueuePauseBytes=4 * 1024 * 1024;
+  }
+ else {
+    waitQueuePauseBytes=(long)(mb * 1024 * 1024* 0.1);
+  }
+  return waitingBytes > waitQueuePauseBytes;
+}

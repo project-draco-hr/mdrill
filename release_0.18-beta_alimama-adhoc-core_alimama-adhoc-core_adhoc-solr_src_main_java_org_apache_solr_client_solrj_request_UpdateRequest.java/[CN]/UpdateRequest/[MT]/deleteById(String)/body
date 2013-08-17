@@ -1,0 +1,7 @@
+{
+  if (deleteById == null) {
+    deleteById=new ArrayList<String>();
+  }
+  deleteById.add(id);
+  return this;
+}

@@ -1,0 +1,7 @@
+{
+synchronized (normsCache) {
+    normsCache.remove(field);
+  }
+  int i=readerIndex(n);
+  subReaders[i].setNorm(n - starts[i],field,value);
+}

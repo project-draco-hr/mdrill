@@ -1,0 +1,15 @@
+{
+  k=i - 1;
+  k0=i0;
+  if (k > k0 + 1) {
+    step1();
+    step2();
+    step3();
+    step4();
+    step5();
+    step6();
+  }
+  if (i != k + 1)   dirty=true;
+  i=k + 1;
+  return dirty;
+}

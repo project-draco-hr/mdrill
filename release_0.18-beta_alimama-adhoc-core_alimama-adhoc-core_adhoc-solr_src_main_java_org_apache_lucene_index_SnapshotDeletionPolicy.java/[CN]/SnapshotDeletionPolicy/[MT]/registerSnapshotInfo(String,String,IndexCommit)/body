@@ -1,0 +1,9 @@
+{
+  idToSnapshot.put(id,new SnapshotInfo(id,segment,commit));
+  Set<String> ids=segmentsFileToIDs.get(segment);
+  if (ids == null) {
+    ids=new HashSet<String>();
+    segmentsFileToIDs.put(segment,ids);
+  }
+  ids.add(id);
+}

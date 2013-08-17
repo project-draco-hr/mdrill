@@ -1,0 +1,16 @@
+{
+  boolean isMatch=true;
+  LocalAssignment localAssignment=assignedTasks.get(whb.getPort());
+  if (localAssignment == null) {
+    isMatch=false;
+  }
+ else   if (!whb.getTopologyId().equals(localAssignment.getTopologyId())) {
+    LOG.info("topology id not equal whb=" + whb.getTopologyId() + ",localAssignment="+ localAssignment.getTopologyId());
+    isMatch=false;
+  }
+ else   if (!(whb.getTaskIds().equals(localAssignment.getTaskIds()))) {
+    LOG.info("task-id isn't equal whb=" + whb.getTaskIds() + ",localAssignment="+ localAssignment.getTaskIds());
+    isMatch=false;
+  }
+  return isMatch;
+}

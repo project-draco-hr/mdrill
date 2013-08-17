@@ -1,0 +1,3 @@
+{
+  return getHyphenationTree(new InputSource(hyphenationFilename));
+}

@@ -1,0 +1,7 @@
+{
+  String t=term.text();
+  if (maxset != null && maxset.bound.contains(t)) {
+    return true;
+  }
+  return false;
+}

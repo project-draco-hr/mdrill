@@ -1,0 +1,3 @@
+{
+  super(maxScore,minForegroundColor,maxForegroundColor,minBackgroundColor,maxBackgroundColor);
+}

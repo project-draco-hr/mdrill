@@ -1,0 +1,32 @@
+{
+  if (stormConf.get(Config.TOPOLOGY_DEBUG).equals(Boolean.TRUE)) {
+    LOG.info("Emitting: " + taskReadableName + " "+ stream);
+  }
+  Map<String,MkGrouper> componentCrouping=streamComponentgrouper.get(stream);
+  java.util.Set<Integer> out_tasks=new HashSet<Integer>();
+  if (componentCrouping != null) {
+    for (    Entry<String,MkGrouper> ee : componentCrouping.entrySet()) {
+      MkGrouper g=ee.getValue();
+      if (GrouperType.direct.equals(g.gettype())) {
+        throw new IllegalArgumentException("Cannot do regular emit to direct stream");
+      }
+      List<Integer> tasks=componentTasks.get(ee.getKey());
+      List<Integer> indices=g.grouper(tuple);
+      for (      Integer i : indices) {
+        Integer outtask=tasks.get(i);
+        if (outtask != null) {
+          out_tasks.add(outtask);
+        }
+ else {
+          LOG.error("can`t found task at tasks by " + i);
+        }
+      }
+    }
+  }
+  int num_out_tasks=out_tasks.size();
+  if (emitSampler.getResult()) {
+    Stats.emitted_tuple(taskStats,stream);
+    Stats.transferred_tuples(taskStats,stream,num_out_tasks);
+  }
+  return out_tasks;
+}

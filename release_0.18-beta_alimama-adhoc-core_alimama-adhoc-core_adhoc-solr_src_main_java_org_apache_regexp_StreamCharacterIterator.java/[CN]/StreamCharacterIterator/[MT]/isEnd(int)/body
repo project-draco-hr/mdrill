@@ -1,0 +1,14 @@
+{
+  if (buff.length() > pos) {
+    return false;
+  }
+ else {
+    try {
+      ensure(pos);
+      return (buff.length() <= pos);
+    }
+ catch (    IOException e) {
+      throw new StringIndexOutOfBoundsException(e.getMessage());
+    }
+  }
+}

@@ -1,0 +1,16 @@
+{
+  BufferedReader br=null;
+  try {
+    br=getBufferedReader(reader);
+    String word=null;
+    while ((word=br.readLine()) != null) {
+      if (word.startsWith(comment) == false) {
+        result.add(word.trim());
+      }
+    }
+  }
+  finally {
+    IOUtils.close(br);
+  }
+  return result;
+}

@@ -1,0 +1,14 @@
+{
+  int i=index >> 6;
+  if (i >= wlen)   return -1;
+  int subIndex=index & 0x3f;
+  long word=bits[i] >> subIndex;
+  if (word != 0) {
+    return (i << 6) + subIndex + BitUtil.ntz(word);
+  }
+  while (++i < wlen) {
+    word=bits[i];
+    if (word != 0)     return (i << 6) + BitUtil.ntz(word);
+  }
+  return -1;
+}

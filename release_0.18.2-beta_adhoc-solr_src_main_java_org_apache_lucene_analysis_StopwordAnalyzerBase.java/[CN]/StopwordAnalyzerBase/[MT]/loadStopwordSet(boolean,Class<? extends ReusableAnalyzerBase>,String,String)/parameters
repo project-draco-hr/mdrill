@@ -1,0 +1,4 @@
+boolean ignoreCase
+Class<? extends ReusableAnalyzerBase> aClass
+String resource
+String comment

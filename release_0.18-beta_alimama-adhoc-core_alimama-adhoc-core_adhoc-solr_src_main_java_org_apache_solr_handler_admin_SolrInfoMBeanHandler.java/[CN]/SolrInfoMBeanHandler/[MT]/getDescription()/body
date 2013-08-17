@@ -1,0 +1,3 @@
+{
+  return "Get Info (and statistics) about all registered SolrInfoMBeans";
+}

@@ -1,0 +1,7 @@
+{
+  jetty.start();
+  for (  SolrStartTable table : tables) {
+    table.start();
+  }
+  TaskHeartbeatRunable.regieterStopCheck(this);
+}

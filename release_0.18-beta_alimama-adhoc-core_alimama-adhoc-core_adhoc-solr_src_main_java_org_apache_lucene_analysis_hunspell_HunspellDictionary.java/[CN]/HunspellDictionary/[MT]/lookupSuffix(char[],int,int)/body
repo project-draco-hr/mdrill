@@ -1,0 +1,3 @@
+{
+  return suffixes.get(word,offset,length);
+}

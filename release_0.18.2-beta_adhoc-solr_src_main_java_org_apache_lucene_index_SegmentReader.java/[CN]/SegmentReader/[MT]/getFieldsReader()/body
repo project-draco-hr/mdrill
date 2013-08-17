@@ -1,0 +1,3 @@
+{
+  return fieldsReaderLocal.get();
+}

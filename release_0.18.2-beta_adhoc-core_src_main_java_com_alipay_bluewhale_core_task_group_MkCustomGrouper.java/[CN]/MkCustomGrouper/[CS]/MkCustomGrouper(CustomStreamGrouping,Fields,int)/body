@@ -1,0 +1,6 @@
+{
+  this.grouping=_grouping;
+  this.num_tasks=_num_tasks;
+  this.out_fields=_out_fields;
+  this.grouping.prepare(this.out_fields,this.num_tasks);
+}

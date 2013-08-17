@@ -1,0 +1,6 @@
+{
+  buffer.append(" WHEN ");
+  whenClause.getWhenExpression().accept(this);
+  buffer.append(" THEN ");
+  whenClause.getThenExpression().accept(this);
+}

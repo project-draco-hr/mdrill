@@ -1,0 +1,5 @@
+{
+  if (refCount.get() <= 0) {
+    throw new AlreadyClosedException("this IndexReader is closed");
+  }
+}

@@ -1,0 +1,7 @@
+{
+  boolean isNewFrag=offsetAtt.endOffset() >= (fragmentSize * currentNumFrags);
+  if (isNewFrag) {
+    currentNumFrags++;
+  }
+  return isNewFrag;
+}

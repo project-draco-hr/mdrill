@@ -1,0 +1,8 @@
+{
+  Semaphore sem=this.idtoSem.get(id);
+  LOG.debug("Received result " + result + " for id "+ id+ " at "+ (System.currentTimeMillis()));
+  if (sem != null) {
+    this.idtoResult.put(id,result);
+    sem.release();
+  }
+}

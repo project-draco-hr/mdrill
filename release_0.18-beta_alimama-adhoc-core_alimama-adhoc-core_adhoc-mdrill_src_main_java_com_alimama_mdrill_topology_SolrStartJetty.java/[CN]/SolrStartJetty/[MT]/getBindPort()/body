@@ -1,0 +1,15 @@
+{
+  int rtn=0;
+synchronized (this.jettyObj) {
+    if (this.jetty != null) {
+      rtn=this.jetty.getLocalPort();
+    }
+  }
+  if (rtn > 0) {
+    return rtn;
+  }
+  if (this.bindPort <= 0) {
+    return this.getTryPort();
+  }
+  return this.bindPort;
+}

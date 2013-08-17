@@ -1,0 +1,15 @@
+{
+  if (!uri.startsWith(URI_PREFIX) && !uri.startsWith(URI_PREFIX_OLD)) {
+    throw new SQLException("Invalid URL: " + uri,"08S01");
+  }
+  if (uri.startsWith(URI_PREFIX_OLD)) {
+    httpurl=uri.substring(URI_PREFIX_OLD.length());
+  }
+ else {
+    httpurl=uri.substring(URI_PREFIX.length());
+  }
+  if (httpurl.isEmpty()) {
+    throw new SQLException("Invalid URL: " + uri,"08S01");
+  }
+  isClosed=false;
+}

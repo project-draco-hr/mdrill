@@ -1,0 +1,3 @@
+{
+  return timeToString(date.getTime(),resolution);
+}

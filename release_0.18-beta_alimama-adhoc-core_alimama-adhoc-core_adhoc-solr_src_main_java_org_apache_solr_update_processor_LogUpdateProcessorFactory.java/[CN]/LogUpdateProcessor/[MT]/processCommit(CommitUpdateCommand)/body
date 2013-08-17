@@ -1,0 +1,8 @@
+{
+  final String msg=cmd.optimize ? "optimize" : "commit";
+  toLog.add(msg,"");
+  if (logDebug) {
+    log.debug(msg);
+  }
+  if (next != null)   next.processCommit(cmd);
+}

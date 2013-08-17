@@ -1,0 +1,10 @@
+{
+  final StringBuilder sb=new StringBuilder().append('(');
+  if (hasAttributes()) {
+    for (State state=getCurrentState(); state != null; state=state.next) {
+      if (sb.length() > 1)       sb.append(',');
+      sb.append(state.attribute.toString());
+    }
+  }
+  return sb.append(')').toString();
+}

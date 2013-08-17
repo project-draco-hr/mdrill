@@ -1,0 +1,13 @@
+{
+  Map<String,Float> ff=parseFieldBoosts(in);
+  List<Query> funcs=new ArrayList<Query>(ff.keySet().size());
+  for (  String f : ff.keySet()) {
+    Query fq=QueryParsing.parseFunction(f,s);
+    Float b=ff.get(f);
+    if (null != b) {
+      fq.setBoost(b);
+    }
+    funcs.add(fq);
+  }
+  return funcs;
+}

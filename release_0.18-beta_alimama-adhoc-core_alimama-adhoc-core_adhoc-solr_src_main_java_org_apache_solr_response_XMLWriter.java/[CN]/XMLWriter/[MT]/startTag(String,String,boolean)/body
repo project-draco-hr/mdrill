@@ -1,0 +1,22 @@
+{
+  if (doIndent)   indent();
+  writer.write('<');
+  writer.write(tag);
+  if (name != null) {
+    writeAttr("name",name);
+    if (closeTag) {
+      writer.write("/>");
+    }
+ else {
+      writer.write(">");
+    }
+  }
+ else {
+    if (closeTag) {
+      writer.write("/>");
+    }
+ else {
+      writer.write('>');
+    }
+  }
+}

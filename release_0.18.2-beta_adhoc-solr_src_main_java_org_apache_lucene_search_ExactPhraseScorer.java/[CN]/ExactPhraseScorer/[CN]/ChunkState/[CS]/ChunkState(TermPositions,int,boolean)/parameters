@@ -1,0 +1,3 @@
+TermPositions posEnum
+int offset
+boolean useAdvance

@@ -1,0 +1,119 @@
+{
+  int v_1;
+  int v_2;
+  int v_3;
+  int v_4;
+  int v_5;
+  int v_6;
+  int v_7;
+  int v_8;
+  int v_9;
+  v_1=limit - cursor;
+  if (cursor < I_p1) {
+    return false;
+  }
+  cursor=I_p1;
+  v_2=limit_backward;
+  limit_backward=cursor;
+  cursor=limit - v_1;
+  v_3=limit - cursor;
+  lab0:   do {
+    v_4=limit - cursor;
+    if (!r_LONG()) {
+      break lab0;
+    }
+    cursor=limit - v_4;
+    ket=cursor;
+    if (cursor <= limit_backward) {
+      break lab0;
+    }
+    cursor--;
+    bra=cursor;
+    slice_del();
+  }
+ while (false);
+  cursor=limit - v_3;
+  v_5=limit - cursor;
+  lab1:   do {
+    ket=cursor;
+    if (!(in_grouping_b(g_AEI,97,228))) {
+      break lab1;
+    }
+    bra=cursor;
+    if (!(out_grouping_b(g_V1,97,246))) {
+      break lab1;
+    }
+    slice_del();
+  }
+ while (false);
+  cursor=limit - v_5;
+  v_6=limit - cursor;
+  lab2:   do {
+    ket=cursor;
+    if (!(eq_s_b(1,"j"))) {
+      break lab2;
+    }
+    bra=cursor;
+    lab3:     do {
+      v_7=limit - cursor;
+      lab4:       do {
+        if (!(eq_s_b(1,"o"))) {
+          break lab4;
+        }
+        break lab3;
+      }
+ while (false);
+      cursor=limit - v_7;
+      if (!(eq_s_b(1,"u"))) {
+        break lab2;
+      }
+    }
+ while (false);
+    slice_del();
+  }
+ while (false);
+  cursor=limit - v_6;
+  v_8=limit - cursor;
+  lab5:   do {
+    ket=cursor;
+    if (!(eq_s_b(1,"o"))) {
+      break lab5;
+    }
+    bra=cursor;
+    if (!(eq_s_b(1,"j"))) {
+      break lab5;
+    }
+    slice_del();
+  }
+ while (false);
+  cursor=limit - v_8;
+  limit_backward=v_2;
+  golab6:   while (true) {
+    v_9=limit - cursor;
+    lab7:     do {
+      if (!(out_grouping_b(g_V1,97,246))) {
+        break lab7;
+      }
+      cursor=limit - v_9;
+      break golab6;
+    }
+ while (false);
+    cursor=limit - v_9;
+    if (cursor <= limit_backward) {
+      return false;
+    }
+    cursor--;
+  }
+  ket=cursor;
+  if (cursor <= limit_backward) {
+    return false;
+  }
+  cursor--;
+  bra=cursor;
+  S_x=slice_to(S_x);
+  if (!(eq_v_b(S_x))) {
+    return false;
+  }
+  slice_del();
+  return true;
+}

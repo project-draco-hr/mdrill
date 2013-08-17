@@ -1,0 +1,55 @@
+{
+  LOG.debug("Determining assignment for " + topologyid);
+  Map<?,?> conf=data.getConf();
+  StormClusterState stormClusterState=data.getStormClusterState();
+  RunnableCallback callback=new TransitionZkCallback(data,topologyid);
+  Map<String,SupervisorInfo> supInfos=allSupervisorInfo(stormClusterState,callback);
+  Map<String,String> nodeHost=getNodeHost(supInfos);
+  Assignment existingAssignment=stormClusterState.assignment_info(topologyid,null);
+  Map<Integer,NodePort> taskNodePort=computeNewTaskToNodePort(data,topologyid,existingAssignment,stormClusterState,callback,supInfos,isScratch);
+  Map<String,String> allNodeHost=new HashMap<String,String>();
+  if (existingAssignment != null) {
+    allNodeHost=existingAssignment.getNodeHost();
+  }
+  if (nodeHost != null) {
+    allNodeHost.putAll(nodeHost);
+  }
+  Set<Integer> reassignIds=null;
+  if (existingAssignment != null && existingAssignment.getTaskToNodeport() != null) {
+    reassignIds=changeIds(existingAssignment.getTaskToNodeport(),taskNodePort);
+  }
+ else {
+    reassignIds=changeIds(new HashMap<Integer,NodePort>(),taskNodePort);
+  }
+  int nowSecs=TimeUtils.current_time_secs();
+  Map<Integer,Integer> startTimes=new HashMap<Integer,Integer>();
+  if (existingAssignment != null) {
+    Map<Integer,Integer> taskStartTimeSecs=existingAssignment.getTaskStartTimeSecs();
+    if (taskStartTimeSecs != null) {
+      startTimes.putAll(taskStartTimeSecs);
+    }
+  }
+  if (reassignIds != null) {
+    for (Iterator<Integer> it=reassignIds.iterator(); it.hasNext(); ) {
+      Integer entry=it.next();
+      startTimes.put(entry,nowSecs);
+    }
+  }
+  if (taskNodePort != null) {
+    Set<Entry<Integer,NodePort>> entryNodeHost=taskNodePort.entrySet();
+    for (Iterator<Entry<Integer,NodePort>> it=entryNodeHost.iterator(); it.hasNext(); ) {
+      Entry<Integer,NodePort> entry=it.next();
+      if (!allNodeHost.containsKey((entry.getValue()).getNode())) {
+        allNodeHost.remove((entry.getValue()).getNode());
+      }
+    }
+  }
+  Assignment assignment=new Assignment(StormConfig.masterStormdistRoot(conf,topologyid),taskNodePort,allNodeHost,startTimes);
+  if (assignment.equals(existingAssignment)) {
+    LOG.debug("Assignment for " + topologyid + " hasn't changed");
+  }
+ else {
+    LOG.info("Setting new assignment for storm id " + topologyid + ": "+ assignment);
+    stormClusterState.set_assignment(topologyid,assignment);
+  }
+}

@@ -1,0 +1,11 @@
+{
+  if (exhausted) {
+    return false;
+  }
+ else {
+    clearAttributes();
+    singleToken.copyTo(tokenAtt);
+    exhausted=true;
+    return true;
+  }
+}

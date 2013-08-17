@@ -1,0 +1,4 @@
+{
+  if (t != null && field == null)   field=t.field();
+  return super.terms(t);
+}

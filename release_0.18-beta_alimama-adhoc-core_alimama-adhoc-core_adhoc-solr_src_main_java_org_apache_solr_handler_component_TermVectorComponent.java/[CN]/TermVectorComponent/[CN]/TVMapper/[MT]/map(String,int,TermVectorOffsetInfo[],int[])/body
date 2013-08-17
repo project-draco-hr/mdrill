@@ -1,0 +1,30 @@
+{
+  NamedList<Object> termInfo=new NamedList<Object>();
+  fieldNL.add(term,termInfo);
+  if (fieldOptions.termFreq) {
+    termInfo.add("tf",frequency);
+  }
+  if (useOffsets) {
+    NamedList<Integer> theOffsets=new NamedList<Integer>();
+    termInfo.add("offsets",theOffsets);
+    for (int i=0; i < offsets.length; i++) {
+      TermVectorOffsetInfo offset=offsets[i];
+      theOffsets.add("start",offset.getStartOffset());
+      theOffsets.add("end",offset.getEndOffset());
+    }
+  }
+  if (usePositions) {
+    NamedList<Integer> positionsNL=new NamedList<Integer>();
+    for (int i=0; i < positions.length; i++) {
+      positionsNL.add("position",positions[i]);
+    }
+    termInfo.add("positions",positionsNL);
+  }
+  if (fieldOptions.docFreq) {
+    termInfo.add("df",getDocFreq(term));
+  }
+  if (fieldOptions.tfIdf) {
+    double tfIdfVal=((double)frequency) / getDocFreq(term);
+    termInfo.add("tf-idf",tfIdfVal);
+  }
+}

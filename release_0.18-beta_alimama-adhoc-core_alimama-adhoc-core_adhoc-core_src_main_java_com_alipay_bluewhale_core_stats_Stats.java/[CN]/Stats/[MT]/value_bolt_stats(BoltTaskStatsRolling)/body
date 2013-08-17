@@ -1,0 +1,8 @@
+{
+  cleanup_bolt_stats(stats,true);
+  CommonStatsData common=value_common_stats(stats.getCommon());
+  HashMap<Integer,Object> acked=get_path_value_stats(stats,StormUtils.mk_arr("acked"));
+  HashMap<Integer,Object> failed=get_path_value_stats(stats,StormUtils.mk_arr("failed"));
+  HashMap<Integer,Object> process_latencies=get_path_value_stats(stats,StormUtils.mk_arr("process_latencies"));
+  return new BoltTaskStatsData(common,acked,failed,process_latencies);
+}

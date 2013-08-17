@@ -1,0 +1,5 @@
+{
+  curr.first+=val;
+  curr.second++;
+  return curr;
+}

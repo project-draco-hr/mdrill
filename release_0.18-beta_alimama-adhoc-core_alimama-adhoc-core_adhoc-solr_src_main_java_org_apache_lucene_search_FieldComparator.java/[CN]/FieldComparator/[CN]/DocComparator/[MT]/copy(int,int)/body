@@ -1,0 +1,3 @@
+{
+  docIDs[slot]=docBase + doc;
+}

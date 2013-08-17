@@ -1,0 +1,25 @@
+{
+  ExpressionList retval=new ExpressionList();
+  List expressions=new ArrayList();
+  Expression expr=null;
+  expr=SimpleExpression();
+  expressions.add(expr);
+  label_19:   while (true) {
+switch ((jj_ntk == -1) ? jj_ntk() : jj_ntk) {
+case 78:
+      ;
+    break;
+default :
+  jj_la1[97]=jj_gen;
+break label_19;
+}
+jj_consume_token(78);
+expr=SimpleExpression();
+expressions.add(expr);
+}
+retval.setExpressions(expressions);
+{
+if (true) return retval;
+}
+throw new Error("Missing return statement in function");
+}

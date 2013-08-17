@@ -1,0 +1,3 @@
+{
+  this(QueryTermExtractor.getTerms(query,false,fieldName));
+}

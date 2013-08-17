@@ -1,0 +1,3 @@
+{
+  return masterStormdistRoot(conf) + "/" + stormId;
+}

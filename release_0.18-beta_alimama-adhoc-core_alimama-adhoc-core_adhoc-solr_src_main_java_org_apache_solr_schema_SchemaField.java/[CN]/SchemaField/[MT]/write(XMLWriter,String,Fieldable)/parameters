@@ -1,0 +1,3 @@
+XMLWriter writer
+String name
+Fieldable val

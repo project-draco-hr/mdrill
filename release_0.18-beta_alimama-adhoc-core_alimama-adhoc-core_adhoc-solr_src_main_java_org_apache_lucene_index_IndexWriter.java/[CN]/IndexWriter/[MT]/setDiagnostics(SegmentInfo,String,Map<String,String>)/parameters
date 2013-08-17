@@ -1,0 +1,3 @@
+SegmentInfo info
+String source
+Map<String,String> details

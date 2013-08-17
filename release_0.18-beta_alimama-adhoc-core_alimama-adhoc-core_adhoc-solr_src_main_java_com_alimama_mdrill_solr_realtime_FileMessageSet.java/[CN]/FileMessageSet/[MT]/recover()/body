@@ -1,0 +1,16 @@
+{
+  final long len=this.channel.size();
+  long next=0L;
+  long msgCount=0;
+  while (next < len) {
+    next+=this.readMsgSize(next);
+    msgCount++;
+  }
+  ;
+  this.channel.truncate(next);
+  this.sizeInBytes.set(next);
+  this.highWaterMark.set(next);
+  this.messageCount.set(msgCount);
+  this.channel.position(next);
+  return len - next;
+}

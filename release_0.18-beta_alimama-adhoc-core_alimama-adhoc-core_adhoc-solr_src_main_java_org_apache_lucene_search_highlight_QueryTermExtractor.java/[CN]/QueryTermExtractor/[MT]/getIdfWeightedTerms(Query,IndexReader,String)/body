@@ -1,0 +1,17 @@
+{
+  WeightedTerm[] terms=getTerms(query,false,fieldName);
+  int totalNumDocs=reader.numDocs();
+  for (int i=0; i < terms.length; i++) {
+    try {
+      int docFreq=reader.docFreq(new Term(fieldName,terms[i].term));
+      if (totalNumDocs < docFreq) {
+        docFreq=totalNumDocs;
+      }
+      float idf=(float)(Math.log((float)totalNumDocs / (double)(docFreq + 1)) + 1.0);
+      terms[i].weight*=idf;
+    }
+ catch (    IOException e) {
+    }
+  }
+  return terms;
+}

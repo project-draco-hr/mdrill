@@ -1,0 +1,3 @@
+TermsHashPerField termsHashPerField
+TermVectorsTermsWriterPerThread perThread
+FieldInfo fieldInfo

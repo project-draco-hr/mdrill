@@ -1,0 +1,4 @@
+{
+  update_task_stat(stats,StormUtils.mk_arr("acked"),stream,stats_rate(stats));
+  update_task_stat(stats,StormUtils.mk_arr("complete_latencies"),stream,latency_ms);
+}

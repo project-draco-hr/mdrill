@@ -1,0 +1,5 @@
+{
+  HashMap<IndexReader,SolrReaderInfo> map=new HashMap<IndexReader,SolrReaderInfo>();
+  buildInfoMap(source,map);
+  setInfo(this,map);
+}

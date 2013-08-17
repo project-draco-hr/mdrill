@@ -1,0 +1,10 @@
+{
+  char[][] doubleN={{N,N}};
+  if (findEnding(stemmingZone,doubleN) != 0) {
+    stemmingZone.setLength(stemmingZone.length() - 1);
+    return true;
+  }
+ else {
+    return false;
+  }
+}

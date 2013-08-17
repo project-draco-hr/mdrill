@@ -1,0 +1,6 @@
+{
+  if (maxShingleSize < 2) {
+    throw new IllegalArgumentException("Max shingle size must be >= 2");
+  }
+  this.maxShingleSize=maxShingleSize;
+}

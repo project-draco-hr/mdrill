@@ -1,0 +1,5 @@
+{
+  this.str=str;
+  this.hash=hash;
+  this.next=next;
+}

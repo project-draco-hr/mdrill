@@ -1,0 +1,7 @@
+{
+  for (  final Term[] arr : termArrays) {
+    for (    final Term term : arr) {
+      terms.add(term);
+    }
+  }
+}

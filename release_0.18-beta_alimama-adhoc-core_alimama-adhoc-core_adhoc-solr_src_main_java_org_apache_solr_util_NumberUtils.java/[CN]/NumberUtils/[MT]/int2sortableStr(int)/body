@@ -1,0 +1,5 @@
+{
+  char[] arr=new char[3];
+  int2sortableStr(val,arr,0);
+  return new String(arr,0,3);
+}

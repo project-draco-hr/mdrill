@@ -1,0 +1,7 @@
+{
+  if (infoStream != null) {
+    message("hit OutOfMemoryError inside " + location);
+  }
+  hitOOM=true;
+  throw oom;
+}

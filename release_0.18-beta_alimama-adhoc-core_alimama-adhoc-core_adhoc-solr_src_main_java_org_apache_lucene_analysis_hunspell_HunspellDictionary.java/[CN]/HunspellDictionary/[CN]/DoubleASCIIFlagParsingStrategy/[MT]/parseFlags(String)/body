@@ -1,0 +1,13 @@
+{
+  if (rawFlags.length() == 0) {
+    return new char[0];
+  }
+  StringBuilder builder=new StringBuilder();
+  for (int i=0; i < rawFlags.length(); i+=2) {
+    char cookedFlag=(char)((int)rawFlags.charAt(i) + (int)rawFlags.charAt(i + 1));
+    builder.append(cookedFlag);
+  }
+  char flags[]=new char[builder.length()];
+  builder.getChars(0,builder.length(),flags,0);
+  return flags;
+}

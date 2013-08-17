@@ -1,0 +1,22 @@
+{
+  if (b) {
+    this.set(TermsParams.TERMS,true);
+  }
+ else {
+    this.remove(TermsParams.TERMS);
+    this.remove(TermsParams.TERMS_FIELD);
+    this.remove(TermsParams.TERMS_LOWER);
+    this.remove(TermsParams.TERMS_UPPER);
+    this.remove(TermsParams.TERMS_UPPER_INCLUSIVE);
+    this.remove(TermsParams.TERMS_LOWER_INCLUSIVE);
+    this.remove(TermsParams.TERMS_LIMIT);
+    this.remove(TermsParams.TERMS_PREFIX_STR);
+    this.remove(TermsParams.TERMS_MINCOUNT);
+    this.remove(TermsParams.TERMS_MAXCOUNT);
+    this.remove(TermsParams.TERMS_RAW);
+    this.remove(TermsParams.TERMS_SORT);
+    this.remove(TermsParams.TERMS_REGEXP_STR);
+    this.remove(TermsParams.TERMS_REGEXP_FLAG);
+  }
+  return this;
+}

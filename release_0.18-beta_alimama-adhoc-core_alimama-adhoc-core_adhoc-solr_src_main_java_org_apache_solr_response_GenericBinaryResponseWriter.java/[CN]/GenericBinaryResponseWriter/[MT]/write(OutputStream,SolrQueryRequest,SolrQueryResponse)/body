@@ -1,0 +1,3 @@
+{
+  super.write(getSingleResponseWriter(out,request,response),request,response);
+}

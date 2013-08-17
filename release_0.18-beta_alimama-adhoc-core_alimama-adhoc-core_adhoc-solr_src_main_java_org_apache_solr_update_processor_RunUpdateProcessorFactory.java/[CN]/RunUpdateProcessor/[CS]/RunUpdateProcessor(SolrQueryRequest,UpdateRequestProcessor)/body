@@ -1,0 +1,5 @@
+{
+  super(next);
+  this.req=req;
+  this.updateHandler=req.getCore().getUpdateHandler();
+}

@@ -1,0 +1,3 @@
+{
+  return params != null && params.getBool(UpdateParams.WAIT_FLUSH,false);
+}

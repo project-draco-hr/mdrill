@@ -1,0 +1,18 @@
+{
+  String number="";
+  while (br.ready()) {
+    number=br.readLine();
+    if (number == null) {
+      break;
+    }
+    number=number.trim();
+    if (number.startsWith("#")) {
+      break;
+    }
+    if (!number.equals("")) {
+      say("Script error.  Line = " + number);
+      System.exit(-1);
+    }
+  }
+  return number;
+}

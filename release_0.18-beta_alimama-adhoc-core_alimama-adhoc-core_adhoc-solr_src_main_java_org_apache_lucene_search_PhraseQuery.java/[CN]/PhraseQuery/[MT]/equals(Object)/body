@@ -1,0 +1,5 @@
+{
+  if (!(o instanceof PhraseQuery))   return false;
+  PhraseQuery other=(PhraseQuery)o;
+  return (this.getBoost() == other.getBoost()) && (this.slop == other.slop) && this.terms.equals(other.terms)&& this.positions.equals(other.positions);
+}

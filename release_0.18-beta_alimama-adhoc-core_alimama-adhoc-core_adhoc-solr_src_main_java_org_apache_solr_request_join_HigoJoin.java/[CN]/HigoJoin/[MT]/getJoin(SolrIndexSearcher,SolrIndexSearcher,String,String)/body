@@ -1,0 +1,27 @@
+{
+  Cache<String,HigoJoin> cache=HigoJoin.fieldValueCache;
+  StringBuffer key=new StringBuffer();
+  key.append(readerleft.getPartionKey());
+  key.append("@");
+  key.append(fieldLeft);
+  key.append("@");
+  key.append(LuceneUtils.crcKey(readerleft.getReader()));
+  key.append("@");
+  key.append(readerright.getPartionKey());
+  key.append("@");
+  key.append(fieldRigth);
+  key.append("@");
+  key.append(LuceneUtils.crcKey(readerright.getReader()));
+  String cachekey=key.toString();
+  HigoJoin uif=cache.get(cachekey);
+  if (uif == null) {
+synchronized (cache) {
+      uif=cache.get(cachekey);
+      if (uif == null) {
+        uif=new HigoJoin(readerleft,readerright,fieldLeft,fieldRigth);
+        cache.put(cachekey,uif);
+      }
+    }
+  }
+  return uif;
+}

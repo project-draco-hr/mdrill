@@ -1,0 +1,5 @@
+{
+  final int size=list.size();
+  if (size <= 1)   return;
+  getSorter(list).mergeSort(0,size - 1);
+}

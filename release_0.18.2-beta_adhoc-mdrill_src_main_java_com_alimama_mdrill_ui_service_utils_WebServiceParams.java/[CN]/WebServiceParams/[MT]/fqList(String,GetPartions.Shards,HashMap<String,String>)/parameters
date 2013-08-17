@@ -1,0 +1,3 @@
+String queryStr
+GetPartions.Shards shard
+HashMap<String,String> fieldColumntypeMap

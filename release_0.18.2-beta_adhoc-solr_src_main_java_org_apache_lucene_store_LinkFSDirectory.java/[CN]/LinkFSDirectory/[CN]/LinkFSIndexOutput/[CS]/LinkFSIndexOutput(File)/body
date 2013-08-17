@@ -1,0 +1,4 @@
+{
+  file=new RandomAccessFile(f,"rw");
+  isOpen=true;
+}

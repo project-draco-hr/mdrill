@@ -1,0 +1,14 @@
+{
+  if (in != null) {
+    if (in != owner.singleNormStream) {
+      in.close();
+    }
+ else {
+      if (owner.singleNormRef.decrementAndGet() == 0) {
+        owner.singleNormStream.close();
+        owner.singleNormStream=null;
+      }
+    }
+    in=null;
+  }
+}

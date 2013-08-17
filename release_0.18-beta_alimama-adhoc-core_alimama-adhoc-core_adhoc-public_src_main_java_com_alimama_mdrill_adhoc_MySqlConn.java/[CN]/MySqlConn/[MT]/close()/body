@@ -1,0 +1,11 @@
+{
+  if (m_sql != null) {
+    m_sql.close();
+    m_sql=null;
+  }
+  m_dbmd=null;
+  if (m_conn != null) {
+    m_conn.close();
+    m_conn=null;
+  }
+}

@@ -1,0 +1,8 @@
+{
+  out.append('\\');
+  out.append('u');
+  out.append(hexdigits[(ch >>> 12)]);
+  out.append(hexdigits[(ch >>> 8) & 0xf]);
+  out.append(hexdigits[(ch >>> 4) & 0xf]);
+  out.append(hexdigits[(ch) & 0xf]);
+}

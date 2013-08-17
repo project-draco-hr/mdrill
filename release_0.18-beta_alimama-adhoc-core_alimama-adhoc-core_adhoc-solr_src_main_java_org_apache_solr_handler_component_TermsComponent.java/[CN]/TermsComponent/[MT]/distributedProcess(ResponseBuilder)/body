@@ -1,0 +1,20 @@
+{
+  if (!rb.doTerms) {
+    return ResponseBuilder.STAGE_DONE;
+  }
+  if (rb.stage == ResponseBuilder.STAGE_EXECUTE_QUERY) {
+    TermsHelper th=rb._termsHelper;
+    if (th == null) {
+      th=rb._termsHelper=new TermsHelper();
+      th.init(rb.req.getParams());
+    }
+    ShardRequest sreq=createShardQuery(rb.req.getParams());
+    rb.addRequest(this,sreq);
+  }
+  if (rb.stage < ResponseBuilder.STAGE_EXECUTE_QUERY) {
+    return ResponseBuilder.STAGE_EXECUTE_QUERY;
+  }
+ else {
+    return ResponseBuilder.STAGE_DONE;
+  }
+}

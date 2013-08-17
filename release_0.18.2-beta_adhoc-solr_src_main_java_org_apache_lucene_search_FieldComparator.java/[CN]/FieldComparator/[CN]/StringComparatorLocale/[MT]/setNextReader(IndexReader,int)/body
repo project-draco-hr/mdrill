@@ -1,0 +1,3 @@
+{
+  currentReaderValues=FieldCache.DEFAULT.getStrings(reader,field);
+}

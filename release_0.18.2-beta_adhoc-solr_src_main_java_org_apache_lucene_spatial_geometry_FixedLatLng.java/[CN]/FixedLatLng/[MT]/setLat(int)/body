@@ -1,0 +1,6 @@
+{
+  if (lat > 90 * SCALE_FACTOR || lat < -90 * SCALE_FACTOR) {
+    throw new IllegalArgumentException("Illegal lattitude");
+  }
+  this.lat=lat;
+}

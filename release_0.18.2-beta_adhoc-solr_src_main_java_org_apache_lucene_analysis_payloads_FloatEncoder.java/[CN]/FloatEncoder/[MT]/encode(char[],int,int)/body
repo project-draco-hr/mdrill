@@ -1,0 +1,7 @@
+{
+  Payload result=new Payload();
+  float payload=Float.parseFloat(new String(buffer,offset,length));
+  byte[] bytes=PayloadHelper.encodeFloat(payload);
+  result.setData(bytes);
+  return result;
+}

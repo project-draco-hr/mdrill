@@ -1,0 +1,3 @@
+{
+  sync(Collections.singleton(name));
+}

@@ -1,0 +1,3 @@
+{
+  SolrException.logOnce(log,null,e);
+}

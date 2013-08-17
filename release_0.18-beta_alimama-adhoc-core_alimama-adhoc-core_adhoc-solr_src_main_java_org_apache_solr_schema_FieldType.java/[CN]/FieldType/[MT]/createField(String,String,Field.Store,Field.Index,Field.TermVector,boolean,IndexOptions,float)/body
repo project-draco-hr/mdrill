@@ -1,0 +1,9 @@
+{
+  Field f=new Field(name,val,storage,index,vec);
+  if (index.isIndexed()) {
+    f.setOmitNorms(omitNorms);
+    f.setIndexOptions(options);
+    f.setBoost(boost);
+  }
+  return f;
+}

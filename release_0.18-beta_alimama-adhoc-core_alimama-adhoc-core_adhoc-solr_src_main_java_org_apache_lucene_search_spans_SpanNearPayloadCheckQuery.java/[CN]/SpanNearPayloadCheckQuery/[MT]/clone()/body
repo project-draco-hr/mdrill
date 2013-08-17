@@ -1,0 +1,5 @@
+{
+  SpanNearPayloadCheckQuery result=new SpanNearPayloadCheckQuery((SpanNearQuery)match.clone(),payloadToMatch);
+  result.setBoost(getBoost());
+  return result;
+}

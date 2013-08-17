@@ -1,0 +1,5 @@
+{
+  FileSystemIndexInput clone=(FileSystemIndexInput)super.clone();
+  clone.isClone=true;
+  return clone;
+}

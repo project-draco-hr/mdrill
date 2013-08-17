@@ -1,0 +1,3 @@
+{
+  write(arr.buf,start,end - start);
+}

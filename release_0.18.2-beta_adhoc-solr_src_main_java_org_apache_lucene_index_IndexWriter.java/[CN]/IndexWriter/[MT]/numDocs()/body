@@ -1,0 +1,10 @@
+{
+  ensureOpen();
+  int count;
+  if (docWriter != null)   count=docWriter.getNumDocs();
+ else   count=0;
+  for (  final SegmentInfo info : segmentInfos) {
+    count+=info.docCount - numDeletedDocs(info);
+  }
+  return count;
+}

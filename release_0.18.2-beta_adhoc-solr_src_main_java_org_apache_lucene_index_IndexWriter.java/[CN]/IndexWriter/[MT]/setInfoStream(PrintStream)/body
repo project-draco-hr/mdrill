@@ -1,0 +1,8 @@
+{
+  ensureOpen();
+  this.infoStream=infoStream;
+  docWriter.setInfoStream(infoStream);
+  deleter.setInfoStream(infoStream);
+  bufferedDeletesStream.setInfoStream(infoStream);
+  if (infoStream != null)   messageState();
+}

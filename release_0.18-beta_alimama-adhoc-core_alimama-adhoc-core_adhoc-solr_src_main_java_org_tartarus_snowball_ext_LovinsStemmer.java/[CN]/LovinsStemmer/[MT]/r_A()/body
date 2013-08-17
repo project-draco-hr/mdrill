@@ -1,0 +1,10 @@
+{
+{
+    int c=cursor - 2;
+    if (limit_backward > c || c > limit) {
+      return false;
+    }
+    cursor=c;
+  }
+  return true;
+}

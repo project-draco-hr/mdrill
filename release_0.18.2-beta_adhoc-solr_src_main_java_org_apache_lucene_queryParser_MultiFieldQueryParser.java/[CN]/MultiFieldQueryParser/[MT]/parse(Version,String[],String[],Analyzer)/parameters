@@ -1,0 +1,4 @@
+Version matchVersion
+String[] queries
+String[] fields
+Analyzer analyzer

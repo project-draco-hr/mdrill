@@ -1,0 +1,12 @@
+{
+  String fields=get(CommonParams.FL,"*");
+  if (includeScore) {
+    if (!scorePattern.matcher(fields).find()) {
+      this.set(CommonParams.FL,fields + ",score");
+    }
+  }
+ else {
+    this.set(CommonParams.FL,scorePattern.matcher(fields).replaceAll(""));
+  }
+  return this;
+}

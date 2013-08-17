@@ -1,0 +1,41 @@
+{
+synchronized (data.getSubmitLock()) {
+    if (system_events == null) {
+      system_events=new ArrayList<String>();
+      system_events.add(StatusType.startup.getStatus());
+      system_events.add(StatusType.monitor.getStatus());
+    }
+    StormBase stormbase=data.getStormClusterState().storm_base(topologyid,null);
+    StormStatus topologyStatus=null;
+    if (stormbase != null) {
+      topologyStatus=stormbase.getStatus();
+    }
+    if (topologyStatus != null) {
+      rtn=stateTransitions(data,topologyid,topologyStatus);
+      Map<StatusType,Callback> transition_map=rtn.get(topologyStatus.getStatusType());
+      if (transition_map.containsKey(transition_status)) {
+        Callback callback=transition_map.get(transition_status);
+        if (callback != null) {
+          Object obj=callback.execute(args);
+          if (obj != null && obj instanceof StormStatus) {
+            StormStatus newStatus=(StormStatus)obj;
+            data.getStormClusterState().update_storm(topologyid,newStatus);
+            LOG.info("Updated " + topologyid + " with status "+ newStatus);
+          }
+        }
+      }
+ else {
+        String msg="No transition for event: " + transition_status.getStatus() + ", status: "+ topologyStatus+ " topology-id: "+ topologyid;
+        if (errorOnNoTransition) {
+          throw new RuntimeException(msg);
+        }
+ else         if (system_events.contains(transition_status.getStatus())) {
+          LOG.info(msg);
+        }
+      }
+    }
+ else {
+      LOG.info("Cannot apply event " + transition_status.getStatus() + " to "+ topologyid+ " because topology no longer exists");
+    }
+  }
+}

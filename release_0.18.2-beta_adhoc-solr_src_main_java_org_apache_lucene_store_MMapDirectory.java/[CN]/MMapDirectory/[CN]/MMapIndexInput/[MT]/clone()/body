@@ -1,0 +1,18 @@
+{
+  if (buffers == null) {
+    throw new AlreadyClosedException("MMapIndexInput already closed: " + this);
+  }
+  final MMapIndexInput clone=(MMapIndexInput)super.clone();
+  clone.isClone=true;
+  clone.buffers=new ByteBuffer[buffers.length];
+  for (int bufNr=0; bufNr < buffers.length; bufNr++) {
+    clone.buffers[bufNr]=buffers[bufNr].duplicate();
+  }
+  try {
+    clone.seek(getFilePointer());
+  }
+ catch (  IOException ioe) {
+    throw new RuntimeException("Should never happen: " + this,ioe);
+  }
+  return clone;
+}

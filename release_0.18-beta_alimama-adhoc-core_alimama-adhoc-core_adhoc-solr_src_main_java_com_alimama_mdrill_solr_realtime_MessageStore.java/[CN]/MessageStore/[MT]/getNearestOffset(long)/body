@@ -1,0 +1,3 @@
+{
+  return this.getNearestOffset(offset,this.segments);
+}

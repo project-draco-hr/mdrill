@@ -1,0 +1,7 @@
+{
+  Integer distance=cache.get(subclazz);
+  if (distance == null) {
+    cache.put(subclazz,distance=Integer.valueOf(reflectImplementationDistance(subclazz)));
+  }
+  return distance.intValue();
+}

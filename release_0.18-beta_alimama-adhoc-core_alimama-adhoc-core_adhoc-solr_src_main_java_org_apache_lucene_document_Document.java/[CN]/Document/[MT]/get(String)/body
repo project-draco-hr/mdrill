@@ -1,0 +1,6 @@
+{
+  for (  Fieldable field : fields) {
+    if (field.name().equals(name) && (!field.isBinary()))     return field.stringValue();
+  }
+  return null;
+}

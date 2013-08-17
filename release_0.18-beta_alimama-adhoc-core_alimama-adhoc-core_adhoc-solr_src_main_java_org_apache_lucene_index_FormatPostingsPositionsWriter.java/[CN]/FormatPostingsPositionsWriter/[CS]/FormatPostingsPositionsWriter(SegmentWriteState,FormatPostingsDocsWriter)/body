@@ -1,0 +1,9 @@
+{
+  this.parent=parent;
+  omitTermFreqAndPositions=parent.omitTermFreqAndPositions;
+  if (parent.parent.parent.fieldInfos.hasProx()) {
+    out=parent.parent.parent.dir.createOutput(IndexFileNames.segmentFileName(parent.parent.parent.segment,IndexFileNames.PROX_EXTENSION));
+    parent.skipListWriter.setProxOutput(out);
+  }
+ else   out=null;
+}

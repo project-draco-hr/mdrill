@@ -1,0 +1,6 @@
+{
+  StatListenerInterface rtn=new PartionListener();
+  rtn.setPartionType(this.parttype);
+  rtn.init();
+  return rtn;
+}

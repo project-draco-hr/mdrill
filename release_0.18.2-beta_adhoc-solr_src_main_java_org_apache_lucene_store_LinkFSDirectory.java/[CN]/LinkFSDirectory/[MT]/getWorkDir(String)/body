@@ -1,0 +1,12 @@
+{
+  Integer index=indexmap.get(path);
+  if (index == null) {
+    index=0;
+  }
+  index++;
+  if (index > 100) {
+    index=0;
+  }
+  indexmap.put(path,index);
+  return "workerspace_" + index;
+}

@@ -1,0 +1,4 @@
+{
+  if (termDocs == null)   return false;
+  return termDocs.skipTo(target);
+}

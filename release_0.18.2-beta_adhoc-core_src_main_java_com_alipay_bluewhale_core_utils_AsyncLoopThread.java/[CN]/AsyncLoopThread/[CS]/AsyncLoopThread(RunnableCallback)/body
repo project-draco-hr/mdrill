@@ -1,0 +1,3 @@
+{
+  this.init(afn,false,Thread.NORM_PRIORITY,true);
+}

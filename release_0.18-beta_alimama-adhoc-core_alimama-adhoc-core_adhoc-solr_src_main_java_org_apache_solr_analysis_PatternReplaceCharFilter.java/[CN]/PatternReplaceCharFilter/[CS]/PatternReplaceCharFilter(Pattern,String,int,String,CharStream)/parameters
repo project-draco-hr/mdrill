@@ -1,0 +1,5 @@
+Pattern pattern
+String replacement
+int maxBlockChars
+String blockDelimiters
+CharStream in

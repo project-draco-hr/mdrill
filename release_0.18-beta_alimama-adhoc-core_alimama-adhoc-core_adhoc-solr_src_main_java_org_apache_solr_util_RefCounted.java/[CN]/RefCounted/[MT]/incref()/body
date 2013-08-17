@@ -1,0 +1,4 @@
+{
+  refcount.incrementAndGet();
+  return this;
+}

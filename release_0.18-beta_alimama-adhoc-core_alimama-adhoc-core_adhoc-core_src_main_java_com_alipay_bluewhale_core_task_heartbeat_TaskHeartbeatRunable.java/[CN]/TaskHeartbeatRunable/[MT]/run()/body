@@ -1,0 +1,12 @@
+{
+synchronized (lock) {
+    if (TaskHeartbeatRunable.stopcheck.isStop()) {
+      LOG.info("stopcheck is true");
+      return;
+    }
+  }
+  Integer currtime=TimeUtils.current_time_secs();
+  TaskHeartbeat hb=new TaskHeartbeat(currtime,uptime.uptime(),Stats.render_stats(task_stats));
+  LOG.debug("task hearbeat task_id=" + task_id + ",storm_id="+ storm_id+ "=>"+ hb.toString());
+  zkCluster.task_heartbeat(storm_id,task_id,hb);
+}

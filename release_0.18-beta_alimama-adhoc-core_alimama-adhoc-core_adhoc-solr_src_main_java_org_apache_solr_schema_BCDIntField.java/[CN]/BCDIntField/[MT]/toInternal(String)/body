@@ -1,0 +1,3 @@
+{
+  return BCDUtils.base10toBase10kSortableInt(val);
+}

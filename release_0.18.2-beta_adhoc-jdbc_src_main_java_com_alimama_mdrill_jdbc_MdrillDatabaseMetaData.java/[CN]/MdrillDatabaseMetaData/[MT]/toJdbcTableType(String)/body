@@ -1,0 +1,17 @@
+{
+  if (hivetabletype == null) {
+    return null;
+  }
+ else   if (hivetabletype.equals(TableType.MANAGED_TABLE.toString())) {
+    return "TABLE";
+  }
+ else   if (hivetabletype.equals(TableType.VIRTUAL_VIEW.toString())) {
+    return "VIEW";
+  }
+ else   if (hivetabletype.equals(TableType.EXTERNAL_TABLE.toString())) {
+    return "EXTERNAL TABLE";
+  }
+ else {
+    return hivetabletype;
+  }
+}

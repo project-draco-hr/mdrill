@@ -1,0 +1,4 @@
+{
+  this.endOffset=endOffset;
+  this.startOffset=startOffset;
+}

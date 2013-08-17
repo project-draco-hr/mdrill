@@ -1,0 +1,17 @@
+{
+  SavedStreams streams=(SavedStreams)getPreviousTokenStream();
+  if (streams == null) {
+    streams=new SavedStreams();
+    streams.source=new StandardTokenizer(matchVersion,reader);
+    streams.result=new StandardFilter(matchVersion,streams.source);
+    if (matchVersion.onOrAfter(Version.LUCENE_31) && name.equals("Turkish"))     streams.result=new TurkishLowerCaseFilter(streams.result);
+ else     streams.result=new LowerCaseFilter(matchVersion,streams.result);
+    if (stopSet != null)     streams.result=new StopFilter(matchVersion,streams.result,stopSet);
+    streams.result=new SnowballFilter(streams.result,name);
+    setPreviousTokenStream(streams);
+  }
+ else {
+    streams.source.reset(reader);
+  }
+  return streams.result;
+}

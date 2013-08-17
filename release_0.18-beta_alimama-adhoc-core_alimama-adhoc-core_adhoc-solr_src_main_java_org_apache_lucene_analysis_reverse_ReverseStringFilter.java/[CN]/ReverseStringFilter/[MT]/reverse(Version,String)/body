@@ -1,0 +1,5 @@
+{
+  final char[] charInput=input.toCharArray();
+  reverse(matchVersion,charInput,0,charInput.length);
+  return new String(charInput);
+}

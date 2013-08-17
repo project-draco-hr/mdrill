@@ -1,0 +1,4 @@
+{
+  digest.update(b,offset,length);
+  main.writeBytes(b,offset,length);
+}

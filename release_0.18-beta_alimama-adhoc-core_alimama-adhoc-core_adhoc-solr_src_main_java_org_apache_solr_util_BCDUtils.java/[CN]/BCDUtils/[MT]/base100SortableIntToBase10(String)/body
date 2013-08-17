@@ -1,0 +1,7 @@
+{
+  int slen=val.length();
+  char[] arr=new char[slen << 2];
+  val.getChars(0,slen,arr,0);
+  int len=base100SortableIntToBase10(arr,0,slen,arr,slen);
+  return new String(arr,slen,len);
+}

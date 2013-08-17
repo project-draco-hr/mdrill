@@ -1,0 +1,14 @@
+{
+  WeakReference<T> weakRef=t.get();
+  if (weakRef == null) {
+    T iv=initialValue();
+    if (iv != null) {
+      set(iv);
+      return iv;
+    }
+ else     return null;
+  }
+ else {
+    return weakRef.get();
+  }
+}

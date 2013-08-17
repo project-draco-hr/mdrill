@@ -1,0 +1,3 @@
+{
+  return findEnding(stemmingZone,stemmingZone.length() - 1,theEndingClass);
+}

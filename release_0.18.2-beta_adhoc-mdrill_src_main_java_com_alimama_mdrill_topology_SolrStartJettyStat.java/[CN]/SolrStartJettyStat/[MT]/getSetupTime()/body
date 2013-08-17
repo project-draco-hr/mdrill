@@ -1,0 +1,5 @@
+{
+synchronized (statlock) {
+    return this.setuptime;
+  }
+}

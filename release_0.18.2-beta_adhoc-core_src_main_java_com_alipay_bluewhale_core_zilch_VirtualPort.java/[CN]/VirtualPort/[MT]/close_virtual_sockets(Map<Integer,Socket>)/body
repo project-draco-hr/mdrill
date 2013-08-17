@@ -1,0 +1,8 @@
+{
+synchronized (mapping_atom) {
+    for (    Entry<Integer,Socket> entry : mapping_atom.entrySet()) {
+      entry.getValue().close();
+    }
+    mapping_atom.clear();
+  }
+}

@@ -1,0 +1,10 @@
+{
+  if (field == term.field()) {
+    String searchText=term.text();
+    if (searchText.startsWith(pre)) {
+      return regexImpl.match(searchText);
+    }
+  }
+  endEnum=true;
+  return false;
+}

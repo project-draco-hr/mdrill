@@ -1,0 +1,16 @@
+{
+  pointer++;
+  if (pointer >= pointerMax) {
+    pointerMax=termDocs.read(docs,freqs);
+    if (pointerMax != 0) {
+      pointer=0;
+    }
+ else {
+      termDocs.close();
+      return doc=NO_MORE_DOCS;
+    }
+  }
+  doc=docs[pointer];
+  freq=freqs[pointer];
+  return doc;
+}

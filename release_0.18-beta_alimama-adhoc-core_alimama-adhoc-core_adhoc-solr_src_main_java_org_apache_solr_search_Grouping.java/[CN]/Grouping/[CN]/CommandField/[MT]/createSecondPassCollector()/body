@@ -1,0 +1,28 @@
+{
+  if (actualGroupsToFind <= 0) {
+    allGroupsCollector=new TermAllGroupsCollector(groupBy);
+    return totalCount == TotalCount.grouped ? allGroupsCollector : null;
+  }
+  topGroups=format == Format.grouped ? firstPass.getTopGroups(offset,false) : firstPass.getTopGroups(0,false);
+  if (topGroups == null) {
+    if (totalCount == TotalCount.grouped) {
+      allGroupsCollector=new TermAllGroupsCollector(groupBy);
+      fallBackCollector=new TotalHitCountCollector();
+      return MultiCollector.wrap(allGroupsCollector,fallBackCollector);
+    }
+ else {
+      fallBackCollector=new TotalHitCountCollector();
+      return fallBackCollector;
+    }
+  }
+  int groupedDocsToCollect=getMax(groupOffset,docsPerGroup,maxDoc);
+  groupedDocsToCollect=Math.max(groupedDocsToCollect,1);
+  secondPass=new TermSecondPassGroupingCollector(groupBy,topGroups,sort,groupSort,groupedDocsToCollect,needScores,needScores,false);
+  if (totalCount == TotalCount.grouped) {
+    allGroupsCollector=new TermAllGroupsCollector(groupBy);
+    return MultiCollector.wrap(secondPass,allGroupsCollector);
+  }
+ else {
+    return secondPass;
+  }
+}

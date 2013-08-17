@@ -1,0 +1,10 @@
+{
+  if (!prefix.incrementToken())   return null;
+  token.copyBuffer(p_termAtt.buffer(),0,p_termAtt.length());
+  token.setPositionIncrement(p_posIncrAtt.getPositionIncrement());
+  token.setFlags(p_flagsAtt.getFlags());
+  token.setOffset(p_offsetAtt.startOffset(),p_offsetAtt.endOffset());
+  token.setType(p_typeAtt.type());
+  token.setPayload(p_payloadAtt.getPayload());
+  return token;
+}

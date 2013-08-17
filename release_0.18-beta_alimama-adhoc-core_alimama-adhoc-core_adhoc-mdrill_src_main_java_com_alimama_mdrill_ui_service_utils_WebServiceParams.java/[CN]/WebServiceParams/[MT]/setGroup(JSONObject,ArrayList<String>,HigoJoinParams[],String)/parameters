@@ -1,0 +1,4 @@
+JSONObject jo
+ArrayList<String> groupFields
+HigoJoinParams[] joins
+String groupValues

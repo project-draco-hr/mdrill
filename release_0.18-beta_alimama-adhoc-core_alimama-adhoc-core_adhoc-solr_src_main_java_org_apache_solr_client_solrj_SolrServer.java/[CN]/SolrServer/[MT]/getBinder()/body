@@ -1,0 +1,6 @@
+{
+  if (binder == null) {
+    binder=new DocumentObjectBinder();
+  }
+  return binder;
+}

@@ -1,0 +1,5 @@
+{
+  this.reader=reader;
+  this.docBase=docBase;
+  delegate.setNextReader(reader,docBase);
+}

@@ -1,0 +1,14 @@
+{
+  super(input);
+  this.tokens=new LinkedList<CompoundToken>();
+  this.minWordSize=minWordSize;
+  this.minSubwordSize=minSubwordSize;
+  this.maxSubwordSize=maxSubwordSize;
+  this.onlyLongestMatch=onlyLongestMatch;
+  if (dictionary == null || dictionary instanceof CharArraySet) {
+    this.dictionary=(CharArraySet)dictionary;
+  }
+ else {
+    this.dictionary=new CharArraySet(matchVersion,dictionary,true);
+  }
+}

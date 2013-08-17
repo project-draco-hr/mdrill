@@ -1,0 +1,4 @@
+String name
+String instanceDir
+String schema
+String datadir

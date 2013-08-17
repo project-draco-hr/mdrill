@@ -1,0 +1,21 @@
+{
+  MySqlConn conn=new MySqlConn("jdbc:mysql://tiansuan1.kgb.cm4:3306/adhoc_download","adhoc","adhoc");
+  MysqlCallback callback=new MysqlCallback(conn);
+  OfflineDownload download=new OfflineDownload();
+  download.setOffline(callback);
+  download.setMailto("yannian.mu@alipay.com");
+  download.setHql(args[0]);
+  download.setUseName(args[1]);
+  download.setJobName(args[2]);
+  download.setDisplayParams(args[3]);
+  download.setStoreDir(args[4]);
+  download.run();
+  while (!callback.isfinished()) {
+    try {
+      Thread.sleep(1000);
+    }
+ catch (    InterruptedException e) {
+      e.printStackTrace();
+    }
+  }
+}

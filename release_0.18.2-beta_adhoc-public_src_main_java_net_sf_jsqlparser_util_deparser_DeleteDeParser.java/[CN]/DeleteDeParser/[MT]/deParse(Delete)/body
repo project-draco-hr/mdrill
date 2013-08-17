@@ -1,0 +1,7 @@
+{
+  buffer.append("DELETE FROM " + delete.getTable().getWholeTableName());
+  if (delete.getWhere() != null) {
+    buffer.append(" WHERE ");
+    delete.getWhere().accept(expressionVisitor);
+  }
+}

@@ -1,0 +1,18 @@
+{
+  if (chars == null || radix < Character.MIN_RADIX || radix > Character.MAX_RADIX) {
+    throw new NumberFormatException();
+  }
+  int i=0;
+  if (len == 0) {
+    throw new NumberFormatException("chars length is 0");
+  }
+  boolean negative=chars[offset + i] == '-';
+  if (negative && ++i == len) {
+    throw new NumberFormatException("can't convert to an int");
+  }
+  if (negative == true) {
+    offset++;
+    len--;
+  }
+  return parse(chars,offset,len,radix,negative);
+}

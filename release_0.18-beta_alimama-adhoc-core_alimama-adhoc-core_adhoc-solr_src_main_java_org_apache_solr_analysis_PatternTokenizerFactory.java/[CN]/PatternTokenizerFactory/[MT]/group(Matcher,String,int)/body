@@ -1,0 +1,8 @@
+{
+  ArrayList<Token> matchList=new ArrayList<Token>();
+  while (matcher.find()) {
+    Token t=new Token(matcher.group(group),matcher.start(group),matcher.end(group));
+    matchList.add(t);
+  }
+  return matchList;
+}

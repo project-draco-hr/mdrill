@@ -1,0 +1,35 @@
+{
+  if (normGen == null) {
+    if (!preLockless) {
+      return false;
+    }
+ else {
+      String[] result=dir.listAll();
+      if (result == null)       throw new IOException("cannot read directory " + dir + ": listAll() returned null");
+      final IndexFileNameFilter filter=IndexFileNameFilter.getFilter();
+      String pattern;
+      pattern=name + ".s";
+      int patternLength=pattern.length();
+      for (int i=0; i < result.length; i++) {
+        String fileName=result[i];
+        if (filter.accept(null,fileName) && fileName.startsWith(pattern) && Character.isDigit(fileName.charAt(patternLength)))         return true;
+      }
+      return false;
+    }
+  }
+ else {
+    for (int i=0; i < normGen.length; i++) {
+      if (normGen[i] >= YES) {
+        return true;
+      }
+    }
+    for (int i=0; i < normGen.length; i++) {
+      if (normGen[i] == CHECK_DIR) {
+        if (hasSeparateNorms(i)) {
+          return true;
+        }
+      }
+    }
+  }
+  return false;
+}

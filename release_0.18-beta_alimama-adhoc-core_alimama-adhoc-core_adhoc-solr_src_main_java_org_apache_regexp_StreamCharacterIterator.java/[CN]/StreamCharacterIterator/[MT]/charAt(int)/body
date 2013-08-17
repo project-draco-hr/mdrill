@@ -1,0 +1,9 @@
+{
+  try {
+    ensure(pos);
+    return buff.charAt(pos);
+  }
+ catch (  IOException e) {
+    throw new StringIndexOutOfBoundsException(e.getMessage());
+  }
+}

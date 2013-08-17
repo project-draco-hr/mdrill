@@ -1,0 +1,6 @@
+{
+  this.links.remove(name);
+  if (!fs.delete(new Path(directory,name))) {
+    throw new IOException("Cannot delete index file " + name);
+  }
+}

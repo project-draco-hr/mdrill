@@ -1,0 +1,5 @@
+{
+  int f=Float.floatToIntBits(val);
+  if (f < 0)   f^=0x7fffffff;
+  return f;
+}

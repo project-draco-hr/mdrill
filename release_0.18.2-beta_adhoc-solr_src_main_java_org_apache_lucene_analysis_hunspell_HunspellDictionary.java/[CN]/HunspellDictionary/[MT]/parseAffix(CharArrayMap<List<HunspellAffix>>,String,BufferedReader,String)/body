@@ -1,0 +1,32 @@
+{
+  String args[]=header.split("\\s+");
+  boolean crossProduct=args[2].equals("Y");
+  int numLines=Integer.parseInt(args[3]);
+  for (int i=0; i < numLines; i++) {
+    String line=reader.readLine();
+    String ruleArgs[]=line.split("\\s+");
+    HunspellAffix affix=new HunspellAffix();
+    affix.setFlag(flagParsingStrategy.parseFlag(ruleArgs[1]));
+    affix.setStrip(ruleArgs[2].equals("0") ? "" : ruleArgs[2]);
+    String affixArg=ruleArgs[3];
+    int flagSep=affixArg.lastIndexOf('/');
+    if (flagSep != -1) {
+      char appendFlags[]=flagParsingStrategy.parseFlags(affixArg.substring(flagSep + 1));
+      Arrays.sort(appendFlags);
+      affix.setAppendFlags(appendFlags);
+      affix.setAppend(affixArg.substring(0,flagSep));
+    }
+ else {
+      affix.setAppend(affixArg);
+    }
+    String condition=ruleArgs[4];
+    affix.setCondition(condition,String.format(conditionPattern,condition));
+    affix.setCrossProduct(crossProduct);
+    List<HunspellAffix> list=affixes.get(affix.getAppend());
+    if (list == null) {
+      list=new ArrayList<HunspellAffix>();
+      affixes.put(affix.getAppend(),list);
+    }
+    list.add(affix);
+  }
+}

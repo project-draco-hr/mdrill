@@ -1,0 +1,10 @@
+{
+  LOG.info("instanceCache.size=" + instanceCache);
+  int sz=Math.min(UniqConfig.ShardMaxGroups(),640000);
+  if (instanceCache.size() > sz) {
+    int left=instanceCache.size() - sz + 1;
+    for (int i=0; i < left; i++) {
+      instanceCache.poll();
+    }
+  }
+}

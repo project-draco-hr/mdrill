@@ -1,0 +1,18 @@
+{
+  StringReader reader=new StringReader(source);
+  TokenStream ts=loadTokenizer(tokFactory,reader);
+  List<String> tokList=new ArrayList<String>();
+  try {
+    CharTermAttribute termAtt=ts.addAttribute(CharTermAttribute.class);
+    while (ts.incrementToken()) {
+      if (termAtt.length() > 0)       tokList.add(termAtt.toString());
+    }
+  }
+ catch (  IOException e) {
+    throw new RuntimeException(e);
+  }
+ finally {
+    reader.close();
+  }
+  return tokList;
+}

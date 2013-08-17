@@ -1,0 +1,4 @@
+{
+  if (stem(s.toCharArray(),s.length()))   return toString();
+ else   return s;
+}

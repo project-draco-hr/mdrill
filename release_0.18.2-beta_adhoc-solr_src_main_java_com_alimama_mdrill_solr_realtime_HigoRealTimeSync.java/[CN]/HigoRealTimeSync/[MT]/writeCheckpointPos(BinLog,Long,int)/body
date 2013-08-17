@@ -1,0 +1,9 @@
+{
+  HashMap<String,String> data=new HashMap<String,String>();
+  data.put("pos",String.valueOf(pos));
+  data.put("index",String.valueOf(pos));
+  HashMapMessage posdata=new HashMapMessage();
+  posdata.setMap(data);
+  checkpointwrite.append(posdata);
+  checkpointwrite.flush();
+}

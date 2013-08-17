@@ -1,0 +1,6 @@
+{
+  byte[] outputArray=new byte[getDecodedLength(input)];
+  ByteBuffer output=ByteBuffer.wrap(outputArray);
+  decode(input,output);
+  return output;
+}

@@ -1,0 +1,7 @@
+{
+  final StringBuilder sb=new StringBuilder("XML parser reported ").append(errorType);
+  if (loc != null) {
+    sb.append(" in \"").append(loc.getSystemId()).append("\", line ").append(loc.getLineNumber()).append(", column ").append(loc.getColumnNumber());
+  }
+  log.warn(sb.append(": ").append(message).toString());
+}

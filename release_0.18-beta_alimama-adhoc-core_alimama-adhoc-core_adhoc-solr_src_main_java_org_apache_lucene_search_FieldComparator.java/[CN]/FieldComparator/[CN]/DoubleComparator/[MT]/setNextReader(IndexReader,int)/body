@@ -1,0 +1,4 @@
+{
+  currentReaderValues=FieldCache.DEFAULT.getDoubles(reader,field,parser,missingValue != null);
+  super.setNextReader(reader,docBase);
+}

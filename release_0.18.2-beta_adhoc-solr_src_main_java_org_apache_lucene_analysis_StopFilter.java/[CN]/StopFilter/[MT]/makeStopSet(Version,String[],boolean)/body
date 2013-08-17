@@ -1,0 +1,5 @@
+{
+  CharArraySet stopSet=new CharArraySet(matchVersion,stopWords.length,ignoreCase);
+  stopSet.addAll(Arrays.asList(stopWords));
+  return stopSet;
+}

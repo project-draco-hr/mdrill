@@ -1,0 +1,4 @@
+{
+  super(doc,score,shardIndex);
+  this.fields=fields;
+}

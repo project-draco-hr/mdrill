@@ -1,0 +1,22 @@
+{
+  Connection conn=m_fpsql.getConn();
+  Statement stmt=conn.createStatement();
+  long d=new Date().getTime() - 1000l * 3600 * 6;
+  String finish="";
+  if (onlyfinish) {
+    finish=" and isfinish=1  and UNIX_TIMESTAMP(starttime)>" + (d / 1000);
+  }
+  String sql="select isfinish,cols,mailto,hql,cmd,env,stdmsg,errmsg,exceptionmsg,failmsg,slotcount,resultkb,rows" + ",percent,hadoopjobid,extval,isfail,username,storedir,jobname,params,starttime,endtime,stage,md5,uuid from adhoc_download where username='" + username.replaceAll("'","") + "' "+ finish;
+  sqlbuff.append(sql);
+  ResultSet res=stmt.executeQuery(sql);
+  ArrayList<HashMap<String,String>> rtn=new ArrayList<HashMap<String,String>>();
+  while (res.next()) {
+    HashMap<String,String> map=new HashMap<String,String>();
+    map.put("cols",res.getString("cols"));
+    map.put("storedir",res.getString("storedir"));
+    map.put("isfinish",String.valueOf(res.getInt("isfinish")));
+    rtn.add(map);
+  }
+  m_fpsql.close();
+  return rtn;
+}

@@ -1,0 +1,8 @@
+{
+  if (lockFactory == null) {
+    lockFactory=new NativeFSLockFactory();
+  }
+  directory=getCanonicalPath(path);
+  if (directory.exists() && !directory.isDirectory())   throw new NoSuchDirectoryException("file '" + directory + "' exists but is not a directory");
+  setLockFactory(lockFactory);
+}

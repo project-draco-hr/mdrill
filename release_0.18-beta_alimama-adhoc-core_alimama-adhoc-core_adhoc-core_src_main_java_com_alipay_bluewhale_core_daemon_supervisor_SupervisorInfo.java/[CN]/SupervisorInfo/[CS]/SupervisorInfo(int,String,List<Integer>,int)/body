@@ -1,0 +1,6 @@
+{
+  this.timeSecs=timeSecs;
+  this.hostName=hostName;
+  this.workPorts=workPorts;
+  this.uptimeSecs=uptimeSecs;
+}

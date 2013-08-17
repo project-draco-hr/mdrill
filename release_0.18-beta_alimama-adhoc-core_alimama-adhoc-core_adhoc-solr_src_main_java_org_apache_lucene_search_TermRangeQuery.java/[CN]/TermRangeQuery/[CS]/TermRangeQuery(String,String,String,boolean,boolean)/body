@@ -1,0 +1,3 @@
+{
+  this(field,lowerTerm,upperTerm,includeLower,includeUpper,null);
+}

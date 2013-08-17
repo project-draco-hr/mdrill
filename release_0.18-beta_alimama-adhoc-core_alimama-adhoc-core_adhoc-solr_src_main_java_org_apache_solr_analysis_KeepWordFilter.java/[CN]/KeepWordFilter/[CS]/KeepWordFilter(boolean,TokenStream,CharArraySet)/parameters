@@ -1,0 +1,3 @@
+boolean enablePositionIncrements
+TokenStream in
+CharArraySet words

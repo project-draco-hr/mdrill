@@ -1,0 +1,3 @@
+{
+  return search(createNormalizedWeight(query),null,n,sort);
+}

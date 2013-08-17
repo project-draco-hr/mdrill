@@ -1,0 +1,14 @@
+{
+  initialize(directory,segment,fis,interval,false);
+  boolean success=false;
+  try {
+    other=new TermInfosWriter(directory,segment,fis,interval,true);
+    other.other=this;
+    success=true;
+  }
+  finally {
+    if (!success) {
+      IOUtils.closeWhileHandlingException(output,outputSize,other,outputQuickTii,outputQuickTis);
+    }
+  }
+}

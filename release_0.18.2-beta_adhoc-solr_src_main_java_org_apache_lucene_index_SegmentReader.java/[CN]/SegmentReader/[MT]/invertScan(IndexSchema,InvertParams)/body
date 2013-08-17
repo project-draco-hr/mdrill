@@ -1,0 +1,14 @@
+{
+  ensureOpen();
+  InvertResult rtn=new InvertResult();
+  rtn.setParams(schema,params);
+  if (params.isdetail) {
+    MdrillDetail detail=new MdrillDetail(params._searcher,this,params._params,params.req);
+    rtn.setNamelist(detail.getDetail(params.fields,params.base));
+  }
+ else {
+    MdrillGroupBy groupby=new MdrillGroupBy(params._searcher,this,params._params,params.req);
+    rtn.setNamelist(groupby.getCross(params.fields,params.base));
+  }
+  return rtn;
+}

@@ -1,0 +1,4 @@
+{
+  ensureOpen();
+  return segmentInfos.size() == 1 && !hasDeletions();
+}

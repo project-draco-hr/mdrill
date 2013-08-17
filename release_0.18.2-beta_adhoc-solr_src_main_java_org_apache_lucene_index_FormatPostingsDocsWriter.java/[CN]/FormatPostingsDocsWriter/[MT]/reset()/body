@@ -1,0 +1,7 @@
+{
+  if (this.currentIsUseCompress) {
+    this.out.setUsedBlock();
+  }
+  this.out.resetBlockMode();
+  return true;
+}

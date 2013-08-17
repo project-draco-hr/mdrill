@@ -1,0 +1,4 @@
+CharArrayMap<List<HunspellAffix>> affixes
+String header
+BufferedReader reader
+String conditionPattern

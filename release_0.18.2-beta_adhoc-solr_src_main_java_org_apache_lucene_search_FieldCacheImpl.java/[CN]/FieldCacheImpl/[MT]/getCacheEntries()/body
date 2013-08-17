@@ -1,0 +1,19 @@
+{
+  List<CacheEntry> result=new ArrayList<CacheEntry>(17);
+  for (  final Map.Entry<Class<?>,Cache> cacheEntry : caches.entrySet()) {
+    final Cache cache=cacheEntry.getValue();
+    final Class<?> cacheType=cacheEntry.getKey();
+synchronized (cache.readerCache) {
+      for (      final Map.Entry<Object,Map<Entry,Object>> readerCacheEntry : cache.readerCache.entrySet()) {
+        final Object readerKey=readerCacheEntry.getKey();
+        if (readerKey == null)         continue;
+        final Map<Entry,Object> innerCache=readerCacheEntry.getValue();
+        for (        final Map.Entry<Entry,Object> mapEntry : innerCache.entrySet()) {
+          Entry entry=mapEntry.getKey();
+          result.add(new CacheEntryImpl(readerKey,entry.field,cacheType,entry.custom,mapEntry.getValue()));
+        }
+      }
+    }
+  }
+  return result.toArray(new CacheEntry[result.size()]);
+}

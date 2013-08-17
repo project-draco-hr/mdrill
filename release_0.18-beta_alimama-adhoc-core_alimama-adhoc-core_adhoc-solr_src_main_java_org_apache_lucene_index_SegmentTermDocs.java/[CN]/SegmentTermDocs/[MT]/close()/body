@@ -1,0 +1,8 @@
+{
+  if (isfrqCompress && ramread != null) {
+    ramread.close();
+    ramread=null;
+  }
+  freqStream.close();
+  if (skipListReader != null)   skipListReader.close();
+}

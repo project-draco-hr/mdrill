@@ -1,0 +1,5 @@
+{
+  if (closed) {
+    throw new AlreadyClosedException("this SearcherLifetimeManager instance is closed");
+  }
+}

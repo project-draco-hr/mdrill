@@ -1,0 +1,6 @@
+{
+  if (queries == null) {
+    return;
+  }
+  this.queries=queries;
+}

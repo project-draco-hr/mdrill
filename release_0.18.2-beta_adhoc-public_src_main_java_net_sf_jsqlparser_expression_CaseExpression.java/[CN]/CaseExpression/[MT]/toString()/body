@@ -1,0 +1,3 @@
+{
+  return "CASE " + ((switchExpression != null) ? switchExpression + " " : "") + PlainSelect.getStringList(whenClauses,false,false)+ " "+ ((elseExpression != null) ? "ELSE " + elseExpression + " " : "")+ "END";
+}

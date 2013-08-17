@@ -1,0 +1,6 @@
+double latCenter
+double lonCenter
+double distance
+double[] result
+boolean upperRight
+double sphereRadius

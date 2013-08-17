@@ -1,0 +1,7 @@
+{
+synchronized (searcherLock) {
+    ensureOpen();
+    searcher.getIndexReader().incRef();
+    return searcher;
+  }
+}

@@ -1,0 +1,4 @@
+char[] dst
+int di
+char[] src
+int si

@@ -1,0 +1,9 @@
+{
+  CustomScoreQuery clone=(CustomScoreQuery)super.clone();
+  clone.subQuery=(Query)subQuery.clone();
+  clone.valSrcQueries=new ValueSourceQuery[valSrcQueries.length];
+  for (int i=0; i < valSrcQueries.length; i++) {
+    clone.valSrcQueries[i]=(ValueSourceQuery)valSrcQueries[i].clone();
+  }
+  return clone;
+}

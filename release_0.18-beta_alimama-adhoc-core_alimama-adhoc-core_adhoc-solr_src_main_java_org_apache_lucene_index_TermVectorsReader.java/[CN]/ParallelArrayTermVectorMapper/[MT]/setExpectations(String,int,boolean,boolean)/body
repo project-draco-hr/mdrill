@@ -1,0 +1,9 @@
+{
+  this.field=field;
+  terms=new String[numTerms];
+  termFreqs=new int[numTerms];
+  this.storingOffsets=storeOffsets;
+  this.storingPositions=storePositions;
+  if (storePositions)   this.positions=new int[numTerms][];
+  if (storeOffsets)   this.offsets=new TermVectorOffsetInfo[numTerms][];
+}

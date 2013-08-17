@@ -1,0 +1,3 @@
+{
+  return output == NO_OUTPUT || !output.equals(NO_OUTPUT);
+}

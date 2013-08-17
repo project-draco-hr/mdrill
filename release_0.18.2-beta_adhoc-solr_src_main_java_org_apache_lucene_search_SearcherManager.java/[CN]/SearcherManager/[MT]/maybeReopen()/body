@@ -1,0 +1,31 @@
+{
+  ensureOpen();
+  if (reopenLock.tryAcquire()) {
+    try {
+      final IndexReader newReader=IndexReader.openIfChanged(currentSearcher.getIndexReader());
+      if (newReader != null) {
+        final IndexSearcher newSearcher=new IndexSearcher(newReader,es);
+        boolean success=false;
+        try {
+          if (warmer != null) {
+            warmer.warm(newSearcher);
+          }
+          swapSearcher(newSearcher);
+          success=true;
+        }
+  finally {
+          if (!success) {
+            release(newSearcher);
+          }
+        }
+      }
+      return true;
+    }
+  finally {
+      reopenLock.release();
+    }
+  }
+ else {
+    return false;
+  }
+}

@@ -1,0 +1,10 @@
+{
+  if (!rb.doHighlights)   return;
+  if ((sreq.purpose & ShardRequest.PURPOSE_GET_FIELDS) != 0) {
+    sreq.purpose|=ShardRequest.PURPOSE_GET_HIGHLIGHTS;
+    sreq.params.set(HighlightParams.HIGHLIGHT,"true");
+  }
+ else {
+    sreq.params.set(HighlightParams.HIGHLIGHT,"false");
+  }
+}

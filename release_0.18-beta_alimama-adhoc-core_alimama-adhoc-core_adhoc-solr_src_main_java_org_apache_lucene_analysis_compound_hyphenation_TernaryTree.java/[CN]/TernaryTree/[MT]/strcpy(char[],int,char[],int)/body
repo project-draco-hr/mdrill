@@ -1,0 +1,6 @@
+{
+  while (src[si] != 0) {
+    dst[di++]=src[si++];
+  }
+  dst[di]=0;
+}

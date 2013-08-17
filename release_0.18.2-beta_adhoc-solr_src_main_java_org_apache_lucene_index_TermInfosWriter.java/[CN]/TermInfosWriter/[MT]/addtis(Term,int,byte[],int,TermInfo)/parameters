@@ -1,0 +1,5 @@
+Term term
+int fieldNumber
+byte[] termBytes
+int termBytesLength
+TermInfo ti

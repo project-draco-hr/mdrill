@@ -1,0 +1,23 @@
+{
+  String dir=null;
+  boolean deletePriorCommits=false;
+  PrintStream out=null;
+  for (  String arg : args) {
+    if ("-delete-prior-commits".equals(arg)) {
+      deletePriorCommits=true;
+    }
+ else     if ("-verbose".equals(arg)) {
+      out=System.out;
+    }
+ else     if (dir == null) {
+      dir=arg;
+    }
+ else {
+      printUsage();
+    }
+  }
+  if (dir == null) {
+    printUsage();
+  }
+  new IndexUpgrader(FSDirectory.open(new File(dir)),Version.LUCENE_CURRENT,out,deletePriorCommits).upgrade();
+}

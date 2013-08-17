@@ -1,0 +1,20 @@
+{
+  if (matchVersion.onOrAfter(Version.LUCENE_31)) {
+    final Tokenizer source=new StandardTokenizer(matchVersion,reader);
+    TokenStream result=new StandardFilter(matchVersion,source);
+    result=new ElisionFilter(matchVersion,result);
+    result=new LowerCaseFilter(matchVersion,result);
+    result=new StopFilter(matchVersion,result,stopwords);
+    if (!excltable.isEmpty())     result=new KeywordMarkerFilter(result,excltable);
+    result=new SnowballFilter(result,new org.tartarus.snowball.ext.FrenchStemmer());
+    return new TokenStreamComponents(source,result);
+  }
+ else {
+    final Tokenizer source=new StandardTokenizer(matchVersion,reader);
+    TokenStream result=new StandardFilter(matchVersion,source);
+    result=new StopFilter(matchVersion,result,stopwords);
+    if (!excltable.isEmpty())     result=new KeywordMarkerFilter(result,excltable);
+    result=new FrenchStemFilter(result);
+    return new TokenStreamComponents(source,new LowerCaseFilter(matchVersion,result));
+  }
+}

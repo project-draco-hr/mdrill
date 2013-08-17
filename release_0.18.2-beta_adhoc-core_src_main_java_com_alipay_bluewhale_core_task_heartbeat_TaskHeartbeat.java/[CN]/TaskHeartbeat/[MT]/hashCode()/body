@@ -1,0 +1,3 @@
+{
+  return timeSecs.hashCode() + uptimeSecs.hashCode() + stats.hashCode();
+}

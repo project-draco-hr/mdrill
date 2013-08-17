@@ -1,0 +1,3 @@
+EventManager eventManager
+SynchronizeSupervisor synchronizeSupervisor
+AtomicBoolean active

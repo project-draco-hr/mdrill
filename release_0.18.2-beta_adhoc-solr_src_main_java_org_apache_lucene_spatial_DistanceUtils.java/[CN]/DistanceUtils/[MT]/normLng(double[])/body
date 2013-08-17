@@ -1,0 +1,8 @@
+{
+  if (latLng[1] > DEG_180_AS_RADS) {
+    latLng[1]=-1.0 * (DEG_180_AS_RADS - (latLng[1] - DEG_180_AS_RADS));
+  }
+ else   if (latLng[1] < -DEG_180_AS_RADS) {
+    latLng[1]=(latLng[1] + DEG_180_AS_RADS) + DEG_180_AS_RADS;
+  }
+}

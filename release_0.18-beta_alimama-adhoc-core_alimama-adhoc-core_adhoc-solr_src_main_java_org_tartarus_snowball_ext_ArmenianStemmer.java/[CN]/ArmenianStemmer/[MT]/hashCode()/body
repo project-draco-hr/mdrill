@@ -1,0 +1,3 @@
+{
+  return ArmenianStemmer.class.getName().hashCode();
+}

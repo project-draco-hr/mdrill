@@ -1,0 +1,8 @@
+{
+  int endOffset=offsetAtt.endOffset();
+  boolean isNewFrag=endOffset >= fragOffset + getFragmentSize() || posIncAtt.getPositionIncrement() > INCREMENT_THRESHOLD;
+  if (isNewFrag) {
+    fragOffset=endOffset;
+  }
+  return isNewFrag;
+}

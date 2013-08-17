@@ -1,0 +1,10 @@
+{
+  StringBuilder buffer=new StringBuilder();
+  if (!this.field.equals(field)) {
+    buffer.append(this.field);
+    buffer.append(":");
+  }
+  buffer.append(this.toString());
+  buffer.append(ToStringUtils.boost(getBoost()));
+  return buffer.toString();
+}

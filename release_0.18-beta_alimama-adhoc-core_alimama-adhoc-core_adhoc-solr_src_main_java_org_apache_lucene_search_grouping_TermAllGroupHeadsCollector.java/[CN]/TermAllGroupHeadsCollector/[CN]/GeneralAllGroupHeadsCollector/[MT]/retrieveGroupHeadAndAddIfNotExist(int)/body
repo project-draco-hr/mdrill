@@ -1,0 +1,14 @@
+{
+  final int ord=groupIndex.order[doc];
+  final String groupValue=ord == 0 ? null : groupIndex.lookup[ord];
+  GroupHead groupHead=groups.get(groupValue);
+  if (groupHead == null) {
+    groupHead=new GroupHead(groupValue,sortWithinGroup,doc);
+    groups.put(groupValue == null ? null : groupValue,groupHead);
+    temporalResult.stop=true;
+  }
+ else {
+    temporalResult.stop=false;
+  }
+  temporalResult.groupHead=groupHead;
+}

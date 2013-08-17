@@ -1,0 +1,8 @@
+{
+  if (docIdSetIterator instanceof Scorer) {
+    ((Scorer)docIdSetIterator).score(wrapCollector(collector));
+  }
+ else {
+    super.score(collector);
+  }
+}

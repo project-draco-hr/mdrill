@@ -1,0 +1,39 @@
+{
+  int docCount=0;
+  final int maxDoc=reader.maxDoc();
+  if (matchingFieldsReader != null) {
+    for (int j=0; j < maxDoc; ) {
+      if (reader.isDeleted(j)) {
+        ++j;
+        continue;
+      }
+      int start=j, numDocs=0;
+      do {
+        j++;
+        numDocs++;
+        if (j >= maxDoc)         break;
+        if (reader.isDeleted(j)) {
+          j++;
+          break;
+        }
+      }
+ while (numDocs < MAX_RAW_MERGE_DOCS);
+      IndexInput stream=matchingFieldsReader.rawDocs(rawDocLengths,start,numDocs);
+      fieldsWriter.addRawDocuments(stream,rawDocLengths,numDocs);
+      docCount+=numDocs;
+      checkAbort.work(300 * numDocs);
+    }
+  }
+ else {
+    for (int j=0; j < maxDoc; j++) {
+      if (reader.isDeleted(j)) {
+        continue;
+      }
+      Document doc=reader.document(j);
+      fieldsWriter.addDocument(doc);
+      docCount++;
+      checkAbort.work(300);
+    }
+  }
+  return docCount;
+}

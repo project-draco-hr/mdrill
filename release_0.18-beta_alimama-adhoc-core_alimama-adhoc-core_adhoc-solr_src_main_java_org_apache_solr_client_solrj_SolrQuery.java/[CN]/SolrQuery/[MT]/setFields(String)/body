@@ -1,0 +1,14 @@
+{
+  if (fields == null || fields.length == 0) {
+    this.remove(CommonParams.FL);
+    return this;
+  }
+  StringBuilder sb=new StringBuilder();
+  sb.append(fields[0]);
+  for (int i=1; i < fields.length; i++) {
+    sb.append(',');
+    sb.append(fields[i]);
+  }
+  this.set(CommonParams.FL,sb.toString());
+  return this;
+}

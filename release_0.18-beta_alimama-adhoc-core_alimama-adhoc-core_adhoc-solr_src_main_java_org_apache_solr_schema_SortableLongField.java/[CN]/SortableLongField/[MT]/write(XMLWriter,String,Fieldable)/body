@@ -1,0 +1,4 @@
+{
+  String sval=f.stringValue();
+  xmlWriter.writeLong(name,NumberUtils.SortableStr2long(sval,0,sval.length()));
+}

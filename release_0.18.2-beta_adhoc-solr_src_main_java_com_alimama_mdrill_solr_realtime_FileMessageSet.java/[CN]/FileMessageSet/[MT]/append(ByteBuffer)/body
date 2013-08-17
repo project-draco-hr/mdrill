@@ -1,0 +1,13 @@
+{
+  if (!this.mutable) {
+    throw new UnsupportedOperationException("Immutable message set");
+  }
+  final long offset=this.sizeInBytes.get();
+  int sizeInBytes=0;
+  while (buf.hasRemaining()) {
+    sizeInBytes+=this.channel.write(buf);
+  }
+  this.sizeInBytes.addAndGet(sizeInBytes);
+  this.messageCount.incrementAndGet();
+  return offset;
+}

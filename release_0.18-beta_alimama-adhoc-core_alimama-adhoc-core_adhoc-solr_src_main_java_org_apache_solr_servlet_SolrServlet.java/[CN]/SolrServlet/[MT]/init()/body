@@ -1,0 +1,7 @@
+{
+  log.info("SolrServlet.init()");
+  String instanceDir=SolrResourceLoader.locateInstanceDir();
+  File fconf=new File(instanceDir,"solr.xml");
+  hasMulticore=fconf.exists();
+  log.info("SolrServlet.init() done");
+}

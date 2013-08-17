@@ -1,0 +1,3 @@
+{
+  log.warn(getClass().getSimpleName() + " is deprecated. " + message);
+}

@@ -1,0 +1,19 @@
+{
+  ensureOpen();
+  RAMFile file=fileMap.get(name);
+  if (file == null) {
+    throw new FileNotFoundException(name);
+  }
+  long ts2, ts1=System.currentTimeMillis();
+  do {
+    try {
+      Thread.sleep(0,1);
+    }
+ catch (    InterruptedException ie) {
+      throw new ThreadInterruptedException(ie);
+    }
+    ts2=System.currentTimeMillis();
+  }
+ while (ts1 == ts2);
+  file.setLastModified(ts2);
+}

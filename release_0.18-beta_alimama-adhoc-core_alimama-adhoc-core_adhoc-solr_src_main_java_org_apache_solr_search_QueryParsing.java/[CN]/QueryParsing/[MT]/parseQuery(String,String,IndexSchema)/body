@@ -1,0 +1,13 @@
+{
+  try {
+    Query query=schema.getSolrQueryParser(defaultField).parse(qs);
+    if (SolrCore.log.isTraceEnabled()) {
+      SolrCore.log.trace("After QueryParser:" + query);
+    }
+    return query;
+  }
+ catch (  ParseException e) {
+    SolrCore.log(e);
+    throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,"Error parsing Lucene query",e);
+  }
+}

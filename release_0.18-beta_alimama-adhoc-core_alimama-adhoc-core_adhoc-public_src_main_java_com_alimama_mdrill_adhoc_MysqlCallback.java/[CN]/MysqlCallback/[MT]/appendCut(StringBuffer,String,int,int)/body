@@ -1,0 +1,8 @@
+{
+  buff.append(line + "\r\n");
+  if (buff.length() > (num * step)) {
+    String cutstr=this.cutLast(buff.toString(),num);
+    buff.setLength(0);
+    buff.append(cutstr);
+  }
+}

@@ -1,0 +1,12 @@
+{
+  Map<DocFieldConsumerPerThread,Collection<DocFieldConsumerPerField>> childThreadsAndFields=new HashMap<DocFieldConsumerPerThread,Collection<DocFieldConsumerPerField>>();
+  for (  DocConsumerPerThread thread : threads) {
+    DocFieldProcessorPerThread perThread=(DocFieldProcessorPerThread)thread;
+    childThreadsAndFields.put(perThread.consumer,perThread.fields());
+    perThread.trimFields(state);
+  }
+  fieldsWriter.flush(state);
+  consumer.flush(childThreadsAndFields,state);
+  final String fileName=IndexFileNames.segmentFileName(state.segmentName,IndexFileNames.FIELD_INFOS_EXTENSION);
+  fieldInfos.write(state.directory,fileName);
+}

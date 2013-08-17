@@ -1,0 +1,20 @@
+{
+  if (readOnly) {
+    ReadOnlySegmentReader.noWrite();
+  }
+  if (segmentInfos != null) {
+    ensureOpen();
+    if (stale)     throw new StaleReaderException("IndexReader out of date and no longer valid for delete, undelete, or setNorm operations");
+    if (writeLock == null) {
+      Lock writeLock=directory.makeLock(IndexWriter.WRITE_LOCK_NAME);
+      if (!writeLock.obtain(IndexWriterConfig.WRITE_LOCK_TIMEOUT))       throw new LockObtainFailedException("Index locked for write: " + writeLock);
+      this.writeLock=writeLock;
+      if (SegmentInfos.readCurrentVersion(directory) > maxIndexVersion) {
+        stale=true;
+        this.writeLock.release();
+        this.writeLock=null;
+        throw new StaleReaderException("IndexReader out of date and no longer valid for delete, undelete, or setNorm operations");
+      }
+    }
+  }
+}

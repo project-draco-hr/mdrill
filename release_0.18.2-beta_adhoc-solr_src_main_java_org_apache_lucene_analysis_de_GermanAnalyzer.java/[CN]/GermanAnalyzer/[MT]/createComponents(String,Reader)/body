@@ -1,0 +1,10 @@
+{
+  final Tokenizer source=new StandardTokenizer(matchVersion,reader);
+  TokenStream result=new StandardFilter(matchVersion,source);
+  result=new LowerCaseFilter(matchVersion,result);
+  result=new StopFilter(matchVersion,result,stopwords);
+  result=new KeywordMarkerFilter(result,exclusionSet);
+  if (matchVersion.onOrAfter(Version.LUCENE_31))   result=new SnowballFilter(result,new German2Stemmer());
+ else   result=new GermanStemFilter(result);
+  return new TokenStreamComponents(source,result);
+}

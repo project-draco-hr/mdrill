@@ -1,0 +1,8 @@
+{
+  if (output1 == outputs1.getNoOutput() && output2 == outputs2.getNoOutput()) {
+    return NO_OUTPUT;
+  }
+ else {
+    return new Pair<A,B>(output1,output2);
+  }
+}

@@ -1,0 +1,8 @@
+{
+  try {
+    termEnum=reader.terms(new Term(field));
+  }
+ catch (  IOException e) {
+    throw new RuntimeException(e);
+  }
+}

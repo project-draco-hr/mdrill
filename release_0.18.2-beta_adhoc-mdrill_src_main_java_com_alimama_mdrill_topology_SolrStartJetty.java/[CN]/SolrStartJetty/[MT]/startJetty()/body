@@ -1,0 +1,31 @@
+{
+  statcollect.setStat(ShardsState.STARTSOLR);
+  String solrHome=this.localSolrPath.toUri().getPath();
+  SolrResourceLoader.SetSolrHome(solrHome);
+  SolrResourceLoader.SetSchemaHome(this.localTablePath.toUri().getPath());
+  LOG.info("higolog startJetty start:" + this.tablename + ",solrhome:"+ solrHome);
+  this.bindPort=NetWorkUtils.available_port(this.getTryPort());
+  int tryCont=3;
+  for (int i=0; i <= tryCont; i++) {
+    try {
+synchronized (this.jettyObj) {
+        this.jetty=null;
+        this.jetty=new JettySolrRunner("/solr",this.bindPort);
+        LOG.info("higolog startJetty create:" + this.tablename + ",solrhome:"+ solrHome+ ",port:"+ this.bindPort);
+        jetty.start();
+        this.bindPort=jetty.getLocalPort();
+      }
+      LOG.info("higolog startJetty started:" + this.tablename + ",solrhome:"+ solrHome+ ",port:"+ this.bindPort);
+      statcollect.setStat(ShardsState.SERVICE);
+      this.zkHeatbeat();
+      break;
+    }
+ catch (    java.net.BindException e) {
+      LOG.error(StormUtils.stringify_error(e));
+      if (i >= tryCont) {
+        throw e;
+      }
+      this.bindPort=NetWorkUtils.available_port();
+    }
+  }
+}

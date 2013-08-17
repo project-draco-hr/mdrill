@@ -1,0 +1,72 @@
+{
+  Expression result=null;
+  Expression leftExpression;
+  Expression rightExpression;
+  boolean not=false;
+switch ((jj_ntk == -1) ? jj_ntk() : jj_ntk) {
+case K_NOT:
+    jj_consume_token(K_NOT);
+  not=true;
+break;
+default :
+jj_la1[85]=jj_gen;
+;
+}
+leftExpression=ComparisonItem();
+result=leftExpression;
+switch ((jj_ntk == -1) ? jj_ntk() : jj_ntk) {
+case 84:
+jj_consume_token(84);
+result=new GreaterThan();
+break;
+case 85:
+jj_consume_token(85);
+result=new MinorThan();
+break;
+case 77:
+jj_consume_token(77);
+result=new EqualsTo();
+break;
+case 86:
+jj_consume_token(86);
+result=new GreaterThanEquals();
+break;
+case 87:
+jj_consume_token(87);
+result=new MinorThanEquals();
+break;
+case 88:
+case 89:
+switch ((jj_ntk == -1) ? jj_ntk() : jj_ntk) {
+case 88:
+jj_consume_token(88);
+break;
+case 89:
+jj_consume_token(89);
+break;
+default :
+jj_la1[86]=jj_gen;
+jj_consume_token(-1);
+throw new ParseException();
+}
+result=new NotEqualsTo();
+break;
+case 90:
+jj_consume_token(90);
+result=new Matches();
+break;
+default :
+jj_la1[87]=jj_gen;
+jj_consume_token(-1);
+throw new ParseException();
+}
+rightExpression=ComparisonItem();
+BinaryExpression regCond=(BinaryExpression)result;
+regCond.setLeftExpression(leftExpression);
+regCond.setRightExpression(rightExpression);
+if (not) regCond.setNot();
+{
+if (true) return result;
+}
+throw new Error("Missing return statement in function");
+}

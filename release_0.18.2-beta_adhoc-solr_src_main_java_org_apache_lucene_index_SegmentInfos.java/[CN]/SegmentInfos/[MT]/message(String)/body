@@ -1,0 +1,3 @@
+{
+  infoStream.println("SIS [" + Thread.currentThread().getName() + "]: "+ message);
+}

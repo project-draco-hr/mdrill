@@ -1,0 +1,5 @@
+{
+  super(field,missingValue);
+  values=new long[numHits];
+  this.parser=(LongParser)parser;
+}

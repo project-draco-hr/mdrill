@@ -1,0 +1,36 @@
+{
+  Map<String,SpoutSpec> spouts=topology.get_spouts();
+  Map<String,Bolt> bolts=topology.get_bolts();
+  Map<String,StateSpoutSpec> state_spouts=topology.get_state_spouts();
+  ComponentObject obj=null;
+  if (spouts.containsKey(component_id)) {
+    obj=spouts.get(component_id).get_spout_object();
+  }
+ else   if (bolts.containsKey(component_id)) {
+    obj=bolts.get(component_id).get_bolt_object();
+  }
+ else   if (state_spouts.containsKey(component_id)) {
+    obj=state_spouts.get(component_id).get_state_spout_object();
+  }
+  if (obj == null) {
+    LOG.error("get_task_object->obj == null");
+    throw new RuntimeException("Could not find " + component_id + " in "+ topology.toString());
+  }
+  Object componentObject=getSetComponentObject(obj);
+  Object rtn=null;
+  if (componentObject instanceof JavaObject) {
+    rtn=Thrift.instantiateJavaObject((JavaObject)componentObject);
+  }
+ else   if (componentObject instanceof ShellComponent) {
+    if (spouts.containsKey(component_id)) {
+      rtn=new ShellSpout((ShellComponent)componentObject);
+    }
+ else {
+      rtn=new ShellBolt((ShellComponent)componentObject);
+    }
+  }
+ else {
+    rtn=componentObject;
+  }
+  return rtn;
+}

@@ -1,0 +1,5 @@
+{
+synchronized (this.getThrLockObj()) {
+    Worker.getCluster().higo_remove_task(this.tablename,this.taskid);
+  }
+}

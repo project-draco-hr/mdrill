@@ -1,0 +1,22 @@
+{
+  final int maxSize=Math.min(size,getMaxSize());
+  final PriorityQueue<ScoreTerm> stQueue=new PriorityQueue<ScoreTerm>();
+  collectTerms(reader,query,new TermCollector(){
+    public boolean collect(    Term t,    float boost){
+      if (stQueue.size() >= maxSize && boost <= stQueue.peek().boost)       return true;
+      st.term=t;
+      st.boost=boost;
+      stQueue.offer(st);
+      st=(stQueue.size() > maxSize) ? stQueue.poll() : new ScoreTerm();
+      return true;
+    }
+    private ScoreTerm st=new ScoreTerm();
+  }
+);
+  final Q q=getTopLevelQuery();
+  for (  final ScoreTerm st : stQueue) {
+    addClause(q,st.term,query.getBoost() * st.boost);
+  }
+  query.incTotalNumberOfTerms(stQueue.size());
+  return q;
+}

@@ -1,0 +1,11 @@
+{
+  long position=getFilePointer();
+  int off=offset;
+  int len=length;
+  while (len > 0) {
+    int size=this.getbuff(position,b,off,len);
+    position+=size;
+    off+=size;
+    len-=size;
+  }
+}

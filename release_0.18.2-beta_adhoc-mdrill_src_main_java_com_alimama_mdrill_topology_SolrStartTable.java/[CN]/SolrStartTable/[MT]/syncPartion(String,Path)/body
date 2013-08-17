@@ -1,0 +1,29 @@
+{
+  Path localPartionWork=new Path(localIndexPath,key);
+  String partionDisk=IndexUtils.getPath(this.diskDirList,taskIndex,key.hashCode(),this.lfs);
+  Path localPartionStorePath=new Path(new Path(partionDisk,"higo"),tablename + "/" + taskid+ "_"+ this.taskIndex+ "/"+ key);
+  boolean iscopy=false;
+  if (!this.isMergeServer) {
+    Path hdfsPartionShardPath=new Path(hdfspartion,IndexUtils.getHdfsForder(taskIndex));
+    iscopy=IndexUtils.copyToLocal(fs,lfs,hdfsPartionShardPath,localPartionStorePath,new Path(partionDisk,"higotmp/" + tablename + "/"+ taskid+ "_"+ this.taskIndex));
+    if (!iscopy) {
+      copy2indexFailTimes.incrementAndGet();
+    }
+  }
+  Path indexlinks=new Path(localPartionWork,"indexLinks");
+  if (iscopy || !lfs.exists(indexlinks)) {
+    IndexUtils.truncate(lfs,localPartionWork);
+    FSDataOutputStream outlinks=lfs.create(indexlinks);
+    if (!this.isMergeServer && iscopy) {
+      outlinks.write((new String(localPartionStorePath.toString() + "\r\n")).getBytes());
+    }
+    outlinks.close();
+  }
+  if (iscopy) {
+    boolean issuccess=IndexUtils.copyToLocal(fs,lfs,new Path(hdfspartion,"vertify"),new Path(localPartionWork,"vertify"),this.localTmpPath);
+    if (!issuccess) {
+      copy2indexFailTimes.incrementAndGet();
+    }
+  }
+  statcollect.setLastTime(System.currentTimeMillis());
+}

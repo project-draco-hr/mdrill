@@ -1,0 +1,11 @@
+{
+  if (bufferUpto != -1) {
+    for (int i=0; i < bufferUpto; i++)     Arrays.fill(buffers[i],(byte)0);
+    Arrays.fill(buffers[bufferUpto],0,byteUpto,(byte)0);
+    if (bufferUpto > 0)     allocator.recycleByteBlocks(buffers,1,1 + bufferUpto);
+    bufferUpto=0;
+    byteUpto=0;
+    byteOffset=0;
+    buffer=buffers[0];
+  }
+}

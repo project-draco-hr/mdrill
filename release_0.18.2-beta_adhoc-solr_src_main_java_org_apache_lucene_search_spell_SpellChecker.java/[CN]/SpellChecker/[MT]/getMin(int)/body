@@ -1,0 +1,9 @@
+{
+  if (l > 5) {
+    return 3;
+  }
+  if (l == 5) {
+    return 2;
+  }
+  return 1;
+}

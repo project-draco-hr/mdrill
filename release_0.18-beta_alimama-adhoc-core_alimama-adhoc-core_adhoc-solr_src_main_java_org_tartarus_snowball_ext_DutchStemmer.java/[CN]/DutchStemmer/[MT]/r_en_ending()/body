@@ -1,0 +1,28 @@
+{
+  int v_1;
+  int v_2;
+  if (!r_R1()) {
+    return false;
+  }
+  v_1=limit - cursor;
+  if (!(out_grouping_b(g_v,97,232))) {
+    return false;
+  }
+  cursor=limit - v_1;
+{
+    v_2=limit - cursor;
+    lab0:     do {
+      if (!(eq_s_b(3,"gem"))) {
+        break lab0;
+      }
+      return false;
+    }
+ while (false);
+    cursor=limit - v_2;
+  }
+  slice_del();
+  if (!r_undouble()) {
+    return false;
+  }
+  return true;
+}

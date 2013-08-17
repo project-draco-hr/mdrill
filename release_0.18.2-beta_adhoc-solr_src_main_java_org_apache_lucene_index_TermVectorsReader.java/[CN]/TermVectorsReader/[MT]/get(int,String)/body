@@ -1,0 +1,5 @@
+{
+  ParallelArrayTermVectorMapper mapper=new ParallelArrayTermVectorMapper();
+  get(docNum,field,mapper);
+  return mapper.materializeVector();
+}

@@ -1,0 +1,22 @@
+{
+  StringBuilder sb=new StringBuilder();
+  sb.append("matchVersion=").append(matchVersion).append("\n");
+  sb.append("analyzer=").append(analyzer == null ? "null" : analyzer.getClass().getName()).append("\n");
+  sb.append("delPolicy=").append(delPolicy.getClass().getName()).append("\n");
+  sb.append("commit=").append(commit == null ? "null" : commit).append("\n");
+  sb.append("openMode=").append(openMode).append("\n");
+  sb.append("similarity=").append(similarity.getClass().getName()).append("\n");
+  sb.append("termIndexInterval=").append(termIndexInterval).append("\n");
+  sb.append("mergeScheduler=").append(mergeScheduler.getClass().getName()).append("\n");
+  sb.append("default WRITE_LOCK_TIMEOUT=").append(WRITE_LOCK_TIMEOUT).append("\n");
+  sb.append("writeLockTimeout=").append(writeLockTimeout).append("\n");
+  sb.append("maxBufferedDeleteTerms=").append(maxBufferedDeleteTerms).append("\n");
+  sb.append("ramBufferSizeMB=").append(ramBufferSizeMB).append("\n");
+  sb.append("maxBufferedDocs=").append(maxBufferedDocs).append("\n");
+  sb.append("mergedSegmentWarmer=").append(mergedSegmentWarmer).append("\n");
+  sb.append("mergePolicy=").append(mergePolicy).append("\n");
+  sb.append("maxThreadStates=").append(maxThreadStates).append("\n");
+  sb.append("readerPooling=").append(readerPooling).append("\n");
+  sb.append("readerTermsIndexDivisor=").append(readerTermsIndexDivisor).append("\n");
+  return sb.toString();
+}

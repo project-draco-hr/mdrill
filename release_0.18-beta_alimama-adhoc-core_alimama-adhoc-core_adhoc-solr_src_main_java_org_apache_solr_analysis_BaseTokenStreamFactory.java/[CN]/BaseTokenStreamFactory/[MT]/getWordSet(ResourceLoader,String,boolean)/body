@@ -1,0 +1,13 @@
+{
+  assureMatchVersion();
+  List<String> files=StrUtils.splitFileNames(wordFiles);
+  CharArraySet words=null;
+  if (files.size() > 0) {
+    words=new CharArraySet(luceneMatchVersion,files.size() * 10,ignoreCase);
+    for (    String file : files) {
+      List<String> wlist=loader.getLines(file.trim());
+      words.addAll(StopFilter.makeStopSet(luceneMatchVersion,wlist,ignoreCase));
+    }
+  }
+  return words;
+}

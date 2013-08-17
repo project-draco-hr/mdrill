@@ -1,0 +1,7 @@
+{
+  int idx=segmentInfos.indexOf(info);
+  if (idx != -1) {
+    info=segmentInfos.info(idx);
+  }
+  return info;
+}

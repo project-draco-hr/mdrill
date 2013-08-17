@@ -1,0 +1,3 @@
+{
+  return typeName + "{class=" + this.getClass().getName()+ (analyzer != null ? ",analyzer=" + analyzer.getClass().getName() : "")+ ",args="+ args+ "}";
+}

@@ -1,0 +1,8 @@
+{
+  CharArr num=parser.getNumberChars();
+  String numstr=num.toString();
+  for (int ch; (ch=num.read()) != -1; ) {
+    if (ch == '.' || ch == 'e' || ch == 'E')     return new BigDecimal(numstr);
+  }
+  return new BigInteger(numstr);
+}

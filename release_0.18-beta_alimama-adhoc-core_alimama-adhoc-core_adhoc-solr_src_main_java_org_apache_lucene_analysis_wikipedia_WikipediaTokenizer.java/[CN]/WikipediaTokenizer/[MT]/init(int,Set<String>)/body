@@ -1,0 +1,4 @@
+{
+  this.tokenOutput=tokenOutput;
+  this.untokenizedTypes=untokenizedTypes;
+}

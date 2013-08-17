@@ -1,0 +1,188 @@
+{
+  int among_var;
+  int v_1;
+  int v_2;
+  int v_3;
+  int v_4;
+  ket=cursor;
+  among_var=find_among_b(a_0,7);
+  if (among_var == 0) {
+    return false;
+  }
+  bra=cursor;
+switch (among_var) {
+case 0:
+    return false;
+case 1:
+  slice_del();
+break;
+case 2:
+if (!r_R1()) {
+return false;
+}
+{
+v_1=limit - cursor;
+lab0: do {
+if (!(eq_s_b(1,"t"))) {
+  break lab0;
+}
+if (!r_R1()) {
+  break lab0;
+}
+return false;
+}
+ while (false);
+cursor=limit - v_1;
+}
+if (!r_C()) {
+return false;
+}
+slice_del();
+break;
+case 3:
+if (!r_R1()) {
+return false;
+}
+slice_from("ie");
+break;
+case 4:
+lab1: do {
+v_2=limit - cursor;
+lab2: do {
+if (!(eq_s_b(2,"ar"))) {
+break lab2;
+}
+if (!r_R1()) {
+break lab2;
+}
+if (!r_C()) {
+break lab2;
+}
+bra=cursor;
+slice_del();
+if (!r_lengthen_V()) {
+break lab2;
+}
+break lab1;
+}
+ while (false);
+cursor=limit - v_2;
+lab3: do {
+if (!(eq_s_b(2,"er"))) {
+break lab3;
+}
+if (!r_R1()) {
+break lab3;
+}
+if (!r_C()) {
+break lab3;
+}
+bra=cursor;
+slice_del();
+break lab1;
+}
+ while (false);
+cursor=limit - v_2;
+if (!r_R1()) {
+return false;
+}
+if (!r_C()) {
+return false;
+}
+slice_from("e");
+}
+ while (false);
+break;
+case 5:
+if (!r_R1()) {
+return false;
+}
+if (!r_V()) {
+return false;
+}
+slice_from("au");
+break;
+case 6:
+lab4: do {
+v_3=limit - cursor;
+lab5: do {
+if (!(eq_s_b(3,"hed"))) {
+break lab5;
+}
+if (!r_R1()) {
+break lab5;
+}
+bra=cursor;
+slice_from("heid");
+break lab4;
+}
+ while (false);
+cursor=limit - v_3;
+lab6: do {
+if (!(eq_s_b(2,"nd"))) {
+break lab6;
+}
+slice_del();
+break lab4;
+}
+ while (false);
+cursor=limit - v_3;
+lab7: do {
+if (!(eq_s_b(1,"d"))) {
+break lab7;
+}
+if (!r_R1()) {
+break lab7;
+}
+if (!r_C()) {
+break lab7;
+}
+bra=cursor;
+slice_del();
+break lab4;
+}
+ while (false);
+cursor=limit - v_3;
+lab8: do {
+lab9: do {
+v_4=limit - cursor;
+lab10: do {
+if (!(eq_s_b(1,"i"))) {
+break lab10;
+}
+break lab9;
+}
+ while (false);
+cursor=limit - v_4;
+if (!(eq_s_b(1,"j"))) {
+break lab8;
+}
+}
+ while (false);
+if (!r_V()) {
+break lab8;
+}
+slice_del();
+break lab4;
+}
+ while (false);
+cursor=limit - v_3;
+if (!r_R1()) {
+return false;
+}
+if (!r_C()) {
+return false;
+}
+slice_del();
+if (!r_lengthen_V()) {
+return false;
+}
+}
+ while (false);
+break;
+case 7:
+slice_from("nd");
+break;
+}
+return true;
+}

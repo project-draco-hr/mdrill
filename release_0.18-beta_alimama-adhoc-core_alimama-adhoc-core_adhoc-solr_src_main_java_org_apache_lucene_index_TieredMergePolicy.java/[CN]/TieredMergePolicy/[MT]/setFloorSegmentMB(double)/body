@@ -1,0 +1,7 @@
+{
+  if (v <= 0.0) {
+    throw new IllegalArgumentException("floorSegmentMB must be >= 0.0 (got " + v + ")");
+  }
+  floorSegmentBytes=(long)(v * 1024 * 1024);
+  return this;
+}

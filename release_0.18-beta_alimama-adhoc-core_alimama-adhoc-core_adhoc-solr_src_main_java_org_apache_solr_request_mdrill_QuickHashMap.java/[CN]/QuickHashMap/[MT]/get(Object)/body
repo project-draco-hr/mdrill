@@ -1,0 +1,8 @@
+{
+  int hash=hash(key.hashCode());
+  for (Entry<K,V> e=table[indexFor(hash,table.length)]; e != null; e=e.next) {
+    Object k=e.key;
+    if (e.hash == hash && key.equals(k))     return e.value;
+  }
+  return null;
+}

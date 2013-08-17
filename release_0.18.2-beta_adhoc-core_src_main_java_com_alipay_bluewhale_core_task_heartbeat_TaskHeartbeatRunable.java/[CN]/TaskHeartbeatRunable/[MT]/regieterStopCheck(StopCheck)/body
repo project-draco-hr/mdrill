@@ -1,0 +1,6 @@
+{
+synchronized (lock) {
+    LOG.info("higolog regieterStopCheck" + check.getClass().getName());
+    TaskHeartbeatRunable.stopcheck=check;
+  }
+}

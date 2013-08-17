@@ -1,0 +1,12 @@
+{
+  final Weight weight=new IndexSearcher(reader).createNormalizedWeight(query);
+  return new DocIdSet(){
+    @Override public DocIdSetIterator iterator() throws IOException {
+      return weight.scorer(reader,true,false);
+    }
+    @Override public boolean isCacheable(){
+      return false;
+    }
+  }
+;
+}

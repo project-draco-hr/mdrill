@@ -1,0 +1,76 @@
+{
+  if (startsWith(text,length,"meng")) {
+    flags|=REMOVED_MENG;
+    numSyllables--;
+    return deleteN(text,0,length,4);
+  }
+  if (startsWith(text,length,"meny") && length > 4 && isVowel(text[4])) {
+    flags|=REMOVED_MENG;
+    text[3]='s';
+    numSyllables--;
+    return deleteN(text,0,length,3);
+  }
+  if (startsWith(text,length,"men")) {
+    flags|=REMOVED_MENG;
+    numSyllables--;
+    return deleteN(text,0,length,3);
+  }
+  if (startsWith(text,length,"mem")) {
+    flags|=REMOVED_MENG;
+    numSyllables--;
+    return deleteN(text,0,length,3);
+  }
+  if (startsWith(text,length,"me")) {
+    flags|=REMOVED_MENG;
+    numSyllables--;
+    return deleteN(text,0,length,2);
+  }
+  if (startsWith(text,length,"peng")) {
+    flags|=REMOVED_PENG;
+    numSyllables--;
+    return deleteN(text,0,length,4);
+  }
+  if (startsWith(text,length,"peny") && length > 4 && isVowel(text[4])) {
+    flags|=REMOVED_PENG;
+    text[3]='s';
+    numSyllables--;
+    return deleteN(text,0,length,3);
+  }
+  if (startsWith(text,length,"peny")) {
+    flags|=REMOVED_PENG;
+    numSyllables--;
+    return deleteN(text,0,length,4);
+  }
+  if (startsWith(text,length,"pen") && length > 3 && isVowel(text[3])) {
+    flags|=REMOVED_PENG;
+    text[2]='t';
+    numSyllables--;
+    return deleteN(text,0,length,2);
+  }
+  if (startsWith(text,length,"pen")) {
+    flags|=REMOVED_PENG;
+    numSyllables--;
+    return deleteN(text,0,length,3);
+  }
+  if (startsWith(text,length,"pem")) {
+    flags|=REMOVED_PENG;
+    numSyllables--;
+    return deleteN(text,0,length,3);
+  }
+  if (startsWith(text,length,"di")) {
+    flags|=REMOVED_DI;
+    numSyllables--;
+    return deleteN(text,0,length,2);
+  }
+  if (startsWith(text,length,"ter")) {
+    flags|=REMOVED_TER;
+    numSyllables--;
+    return deleteN(text,0,length,3);
+  }
+  if (startsWith(text,length,"ke")) {
+    flags|=REMOVED_KE;
+    numSyllables--;
+    return deleteN(text,0,length,2);
+  }
+  return length;
+}

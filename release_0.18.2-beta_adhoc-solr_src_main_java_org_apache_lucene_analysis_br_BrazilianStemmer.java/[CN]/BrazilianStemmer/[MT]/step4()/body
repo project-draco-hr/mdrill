@@ -1,0 +1,19 @@
+{
+  if (RV == null)   return;
+  if (suffix(RV,"os")) {
+    CT=removeSuffix(CT,"os");
+    return;
+  }
+  if (suffix(RV,"a")) {
+    CT=removeSuffix(CT,"a");
+    return;
+  }
+  if (suffix(RV,"i")) {
+    CT=removeSuffix(CT,"i");
+    return;
+  }
+  if (suffix(RV,"o")) {
+    CT=removeSuffix(CT,"o");
+    return;
+  }
+}

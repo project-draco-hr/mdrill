@@ -1,0 +1,3 @@
+{
+  if (stemmer != null)   stemmer.setStemDictionary(dict);
+}

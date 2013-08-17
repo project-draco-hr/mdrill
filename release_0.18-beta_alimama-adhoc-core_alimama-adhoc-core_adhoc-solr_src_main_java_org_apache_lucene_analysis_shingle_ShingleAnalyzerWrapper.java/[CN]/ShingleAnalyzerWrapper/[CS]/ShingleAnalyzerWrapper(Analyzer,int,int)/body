@@ -1,0 +1,3 @@
+{
+  this(defaultAnalyzer,minShingleSize,maxShingleSize,ShingleFilter.TOKEN_SEPARATOR,true,false);
+}

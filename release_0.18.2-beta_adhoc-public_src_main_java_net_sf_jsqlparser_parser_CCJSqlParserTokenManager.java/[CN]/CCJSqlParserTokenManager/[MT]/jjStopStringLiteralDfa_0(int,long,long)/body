@@ -1,0 +1,73 @@
+{
+switch (pos) {
+case 0:
+    if ((active0 & 0xffffffffffffffe0L) != 0L || (active1 & 0x3L) != 0L) {
+      jjmatchedKind=71;
+      return 36;
+    }
+  if ((active1 & 0x100000000L) != 0L)   return 8;
+if ((active1 & 0x20000L) != 0L) return 1;
+if ((active1 & 0x80000000L) != 0L) return 5;
+return -1;
+case 1:
+if ((active0 & 0xff7f67ffffbbf000L) != 0L || (active1 & 0x1L) != 0L) {
+if (jjmatchedPos != 1) {
+jjmatchedKind=71;
+jjmatchedPos=1;
+}
+return 36;
+}
+if ((active0 & 0x80980000440fe0L) != 0L || (active1 & 0x2L) != 0L) return 36;
+return -1;
+case 2:
+if ((active0 & 0xffffffffffe00000L) != 0L || (active1 & 0x3L) != 0L) {
+jjmatchedKind=71;
+jjmatchedPos=2;
+return 36;
+}
+if ((active0 & 0x1ff000L) != 0L) return 36;
+return -1;
+case 3:
+if ((active0 & 0xffffffe000000000L) != 0L || (active1 & 0x3L) != 0L) {
+jjmatchedKind=71;
+jjmatchedPos=3;
+return 36;
+}
+if ((active0 & 0x1fffe00000L) != 0L) return 36;
+return -1;
+case 4:
+if ((active0 & 0xfffe000000000000L) != 0L || (active1 & 0x3L) != 0L) {
+jjmatchedKind=71;
+jjmatchedPos=4;
+return 36;
+}
+if ((active0 & 0x1ffe000000000L) != 0L) return 36;
+return -1;
+case 5:
+if ((active0 & 0xf800000000000000L) != 0L || (active1 & 0x3L) != 0L) {
+jjmatchedKind=71;
+jjmatchedPos=5;
+return 36;
+}
+if ((active0 & 0x7fe000000000000L) != 0L) return 36;
+return -1;
+case 6:
+if ((active0 & 0x8000000000000000L) != 0L || (active1 & 0x3L) != 0L) {
+jjmatchedKind=71;
+jjmatchedPos=6;
+return 36;
+}
+if ((active0 & 0x7800000000000000L) != 0L) return 36;
+return -1;
+case 7:
+if ((active1 & 0x2L) != 0L) {
+jjmatchedKind=71;
+jjmatchedPos=7;
+return 36;
+}
+if ((active0 & 0x8000000000000000L) != 0L || (active1 & 0x1L) != 0L) return 36;
+return -1;
+default :
+return -1;
+}
+}

@@ -1,0 +1,9 @@
+{
+  if (isBinary) {
+    throw new IllegalArgumentException("cannot set a Reader value on a binary field");
+  }
+  if (isStored) {
+    throw new IllegalArgumentException("cannot set a Reader value on a stored field");
+  }
+  fieldsData=value;
+}

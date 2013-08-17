@@ -1,0 +1,5 @@
+{
+  if (!(that instanceof ReaderField))   return false;
+  ReaderField other=(ReaderField)that;
+  return (this.readerKey == other.readerKey && this.fieldName.equals(other.fieldName));
+}

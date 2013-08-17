@@ -1,0 +1,11 @@
+{
+  if (this.tokensAtCurrentPosition.hasNext()) {
+    final Token next=this.tokensAtCurrentPosition.next();
+    clearAttributes();
+    termAttribute.setEmpty().append(next);
+    positionIncrementAttribute.setPositionIncrement(next.getPositionIncrement());
+    offsetAttribute.setOffset(next.startOffset(),next.endOffset());
+    return true;
+  }
+  return false;
+}

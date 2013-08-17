@@ -1,0 +1,4 @@
+{
+  this.similarity=similarity;
+  this.weight=weight;
+}

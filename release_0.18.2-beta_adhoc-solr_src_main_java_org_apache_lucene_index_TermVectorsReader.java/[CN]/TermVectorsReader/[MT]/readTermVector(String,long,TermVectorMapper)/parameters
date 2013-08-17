@@ -1,0 +1,3 @@
+String field
+long tvfPointer
+TermVectorMapper mapper

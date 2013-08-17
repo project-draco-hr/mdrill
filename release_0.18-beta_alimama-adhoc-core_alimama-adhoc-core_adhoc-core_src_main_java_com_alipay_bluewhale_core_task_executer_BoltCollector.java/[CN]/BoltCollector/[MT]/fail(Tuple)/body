@@ -1,0 +1,10 @@
+{
+  pending_acks.remove(input);
+  for (  Entry<Long,Long> e : input.getMessageId().getAnchorsToIds().entrySet()) {
+    UnanchoredSend.send(topologyContext,sendTargets,workerTransfer,Acker.ACKER_FAIL_STREAM_ID,StormUtils.mk_list((Object)e.getKey()));
+  }
+  Long delta=TasksCommon.tuple_time_delta(tuple_start_times,input);
+  if (delta != null) {
+    Stats.bolt_failed_tuple((BoltTaskStatsRolling)task_stats,input.getSourceComponent(),input.getSourceStreamId(),delta);
+  }
+}

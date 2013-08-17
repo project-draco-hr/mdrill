@@ -1,0 +1,6 @@
+{
+  StormClusterState stat=GetShards.getCluster();
+  List<String> list=stat.heartbeat_storms();
+  String[] rtn=new String[list.size()];
+  return list.toArray(rtn);
+}

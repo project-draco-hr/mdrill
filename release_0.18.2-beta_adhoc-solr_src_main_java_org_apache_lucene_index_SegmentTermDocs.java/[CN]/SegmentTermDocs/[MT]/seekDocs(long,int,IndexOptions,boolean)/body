@@ -1,0 +1,12 @@
+{
+  count=0;
+  this.indexOptions=indexOptions;
+  this.currentFieldStoresPayloads=currentFieldStoresPayloads;
+  df=docFreq;
+  doc=0;
+  freqStream.seek(pos);
+  haveSkipped=false;
+  this.compress=new ReadCompress(this.freqStream);
+  this.compress.setCompressMode(isfrqCompress);
+  this.compress.resetCompressblock();
+}

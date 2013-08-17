@@ -1,0 +1,4 @@
+{
+  FieldInfo fi=fieldInfo(fieldName);
+  return (fi != null) ? fi.number : -1;
+}

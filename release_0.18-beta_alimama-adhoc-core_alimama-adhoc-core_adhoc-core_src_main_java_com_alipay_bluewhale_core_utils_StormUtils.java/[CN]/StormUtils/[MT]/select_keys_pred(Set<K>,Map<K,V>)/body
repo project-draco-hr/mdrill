@@ -1,0 +1,9 @@
+{
+  Map<K,V> filterMap=new HashMap<K,V>();
+  for (  Entry<K,V> entry : all.entrySet()) {
+    if (!filter.contains(entry.getKey())) {
+      filterMap.put(entry.getKey(),entry.getValue());
+    }
+  }
+  return filterMap;
+}

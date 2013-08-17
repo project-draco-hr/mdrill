@@ -1,0 +1,30 @@
+{
+  HashMap<String,StreamInfo> outputs=new HashMap<String,StreamInfo>();
+  ArrayList<String> fields=new ArrayList<String>();
+  fields.add("id");
+  outputs.put(ACKER_ACK_STREAM_ID,Thrift.directOutputFields(fields));
+  outputs.put(ACKER_FAIL_STREAM_ID,Thrift.directOutputFields(fields));
+  IBolt ackerbolt=new Acker();
+  Map<GlobalStreamId,Grouping> inputs=acker_inputs(ret);
+  Bolt acker_bolt=Thrift.mkAckerBolt(inputs,ackerbolt,outputs,num_tasks);
+  for (  Entry<String,Bolt> e : ret.get_bolts().entrySet()) {
+    Bolt bolt=e.getValue();
+    ComponentCommon common=bolt.get_common();
+    List<String> ackList=StormUtils.mk_list("id","ack-val");
+    common.put_to_streams(ACKER_ACK_STREAM_ID,Thrift.outputFields(ackList));
+    List<String> failList=StormUtils.mk_list("id");
+    common.put_to_streams(ACKER_FAIL_STREAM_ID,Thrift.outputFields(failList));
+    bolt.set_common(common);
+  }
+  for (  Entry<String,SpoutSpec> kv : ret.get_spouts().entrySet()) {
+    SpoutSpec bolt=kv.getValue();
+    ComponentCommon common=bolt.get_common();
+    List<String> initList=StormUtils.mk_list("id","init-val","spout-task");
+    common.put_to_streams(ACKER_INIT_STREAM_ID,Thrift.outputFields(initList));
+    GlobalStreamId ack_ack=new GlobalStreamId(ACKER_COMPONENT_ID,ACKER_ACK_STREAM_ID);
+    common.put_to_inputs(ack_ack,Thrift.mkDirectGrouping());
+    GlobalStreamId ack_fail=new GlobalStreamId(ACKER_COMPONENT_ID,ACKER_FAIL_STREAM_ID);
+    common.put_to_inputs(ack_fail,Thrift.mkDirectGrouping());
+  }
+  ret.put_to_bolts("__acker",acker_bolt);
+}

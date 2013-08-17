@@ -1,0 +1,4 @@
+{
+  field.checkSortability();
+  return new SortField(field.name,SortField.SHORT,reverse);
+}

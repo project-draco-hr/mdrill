@@ -1,0 +1,5 @@
+{
+  CharVector cv=new CharVector(array.clone(),blockSize);
+  cv.n=this.n;
+  return cv;
+}

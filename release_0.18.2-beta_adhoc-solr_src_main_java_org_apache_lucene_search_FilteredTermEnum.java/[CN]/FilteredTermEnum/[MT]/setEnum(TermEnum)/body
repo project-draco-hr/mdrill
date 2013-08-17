@@ -1,0 +1,6 @@
+{
+  this.actualEnum=actualEnum;
+  Term term=actualEnum.term();
+  if (term != null && termCompare(term))   currentTerm=term;
+ else   next();
+}

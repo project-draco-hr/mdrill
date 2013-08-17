@@ -1,0 +1,9 @@
+AtomicBoolean active
+String storm_id
+Integer task_id
+IContext mq_context
+AsyncLoopThread[] all_threads
+StormClusterState zkCluster
+IConnection puller
+Object task_obj
+AsyncLoopThread heartbeat_thread

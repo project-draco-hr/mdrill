@@ -1,0 +1,8 @@
+{
+  if (bytes.length < other.length) {
+    bytes=new byte[other.length];
+  }
+  System.arraycopy(other.bytes,other.offset,bytes,0,other.length);
+  length=other.length;
+  offset=0;
+}

@@ -1,0 +1,14 @@
+{
+  if (input.incrementToken()) {
+    if (firstTokenPositioned) {
+      posIncrAtt.setPositionIncrement(positionIncrement);
+    }
+ else {
+      firstTokenPositioned=true;
+    }
+    return true;
+  }
+ else {
+    return false;
+  }
+}

@@ -1,0 +1,14 @@
+{
+  if (VERBOSE) {
+    System.out.println("nrtdir.openInput name=" + name);
+  }
+  if (cache.fileExists(name)) {
+    if (VERBOSE) {
+      System.out.println("  from cache");
+    }
+    return cache.openInput(name);
+  }
+ else {
+    return delegate.openInput(name);
+  }
+}

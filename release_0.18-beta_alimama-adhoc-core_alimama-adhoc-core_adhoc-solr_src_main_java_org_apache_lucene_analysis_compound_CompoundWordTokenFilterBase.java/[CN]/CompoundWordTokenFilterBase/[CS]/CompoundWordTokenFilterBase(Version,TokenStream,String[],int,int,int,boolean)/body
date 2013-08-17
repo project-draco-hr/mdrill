@@ -1,0 +1,3 @@
+{
+  this(matchVersion,input,makeDictionary(matchVersion,dictionary),minWordSize,minSubwordSize,maxSubwordSize,onlyLongestMatch);
+}

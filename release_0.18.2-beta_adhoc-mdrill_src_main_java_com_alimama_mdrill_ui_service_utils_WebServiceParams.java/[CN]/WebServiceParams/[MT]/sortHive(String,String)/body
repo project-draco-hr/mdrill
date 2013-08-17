@@ -1,0 +1,46 @@
+{
+  String sortType=null;
+  if (sort != null && !sort.equals("")) {
+    if (sort.startsWith("count(")) {
+      sortType=sort;
+    }
+ else     if (sort.startsWith("sum(")) {
+      sortType=sort;
+    }
+ else     if (sort.startsWith("index(")) {
+      sortType=sort;
+    }
+ else     if (sort.startsWith("max(")) {
+      sortType=sort;
+    }
+ else     if (sort.startsWith("min(")) {
+      sortType=sort;
+    }
+ else     if (sort.startsWith("dist(")) {
+      String sortField=sort.substring(5,sort.length() - 1);
+      sortType="count(distinct(" + sortField + "))";
+    }
+ else {
+      sortType=sort;
+    }
+  }
+  if (sort != null && !sort.equals("")) {
+    if (order == null || order.equals("")) {
+      order="desc";
+    }
+ else {
+      if (order.equals("true")) {
+        order="desc";
+      }
+ else       if (order.equals("false")) {
+        order="asc";
+      }
+ else {
+        order="desc";
+      }
+    }
+  }
+  if (sortType != null && order != null) {
+  }
+  return "";
+}

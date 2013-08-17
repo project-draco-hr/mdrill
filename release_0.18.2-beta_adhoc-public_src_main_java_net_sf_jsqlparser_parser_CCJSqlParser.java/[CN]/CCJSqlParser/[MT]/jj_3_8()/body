@@ -1,0 +1,16 @@
+{
+  if (jj_scan_token(K_LIMIT))   return true;
+  Token xsp;
+  xsp=jj_scanpos;
+  if (jj_3R_41()) {
+    jj_scanpos=xsp;
+    if (jj_3R_42())     return true;
+  }
+  if (jj_scan_token(78))   return true;
+  xsp=jj_scanpos;
+  if (jj_3R_231()) {
+    jj_scanpos=xsp;
+    if (jj_3R_232())     return true;
+  }
+  return false;
+}

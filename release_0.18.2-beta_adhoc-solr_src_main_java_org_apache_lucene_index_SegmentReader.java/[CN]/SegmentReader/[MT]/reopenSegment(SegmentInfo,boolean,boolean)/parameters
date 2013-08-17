@@ -1,0 +1,3 @@
+SegmentInfo si
+boolean doClone
+boolean openReadOnly

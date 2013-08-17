@@ -1,0 +1,12 @@
+{
+  if (fields.containsKey(fieldName)) {
+    return true;
+  }
+  for (  DynamicField df : dynamicFields) {
+    if (df.matches(fieldName))     return true;
+  }
+  if (!fieldName.endsWith("_s")) {
+    return hasExplicitField(fieldName + "_s");
+  }
+  return false;
+}

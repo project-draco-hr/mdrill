@@ -1,0 +1,12 @@
+{
+  if (size == 0)   return -1;
+  ensureIndexIsRead();
+  BytesRef termBytesRef=new BytesRef(term.text);
+  int indexOffset=index.getIndexOffset(term,termBytesRef);
+  SegmentTermEnum enumerator=getThreadResources().termEnum;
+  index.seekEnum(enumerator,indexOffset);
+  while (term.compareTo(enumerator.term()) > 0 && enumerator.next()) {
+  }
+  if (term.compareTo(enumerator.term()) == 0)   return enumerator.position;
+ else   return -1;
+}

@@ -1,0 +1,24 @@
+{
+  if (upto + bytes.length + 2 > blockSize) {
+    if (bytes.length + 2 > blockSize) {
+      throw new IllegalArgumentException("block size " + blockSize + " is too small to store length "+ bytes.length+ " bytes");
+    }
+    if (currentBlock != null) {
+      blocks.add(currentBlock);
+      blockEnd.add(upto);
+    }
+    currentBlock=new byte[blockSize];
+    upto=0;
+  }
+  final long pointer=getPointer();
+  if (bytes.length < 128) {
+    currentBlock[upto++]=(byte)bytes.length;
+  }
+ else {
+    currentBlock[upto++]=(byte)(0x80 | (bytes.length >> 8));
+    currentBlock[upto++]=(byte)(bytes.length & 0xff);
+  }
+  System.arraycopy(bytes.bytes,bytes.offset,currentBlock,upto,bytes.length);
+  upto+=bytes.length;
+  return pointer;
+}

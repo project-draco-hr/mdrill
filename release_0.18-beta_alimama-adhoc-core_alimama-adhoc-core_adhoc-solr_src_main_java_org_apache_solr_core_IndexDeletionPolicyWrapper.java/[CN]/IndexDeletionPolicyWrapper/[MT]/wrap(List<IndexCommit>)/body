@@ -1,0 +1,5 @@
+{
+  List<IndexCommitWrapper> result=new ArrayList<IndexCommitWrapper>();
+  for (  IndexCommit indexCommit : list)   result.add(new IndexCommitWrapper(indexCommit));
+  return result;
+}

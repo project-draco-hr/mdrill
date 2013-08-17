@@ -1,0 +1,31 @@
+{
+  this.writeDocuments(name,new DocumentListInfo(){
+    public int getCount(){
+      return docs.size();
+    }
+    public Float getMaxScore(){
+      return docs.getMaxScore();
+    }
+    public double getSum(){
+      return docs.getSum();
+    }
+    public double getMin(){
+      return docs.getMin();
+    }
+    public double getMax(){
+      return docs.getMax();
+    }
+    public long getNumFound(){
+      return docs.getNumFound();
+    }
+    public long getStart(){
+      return docs.getStart();
+    }
+    public void writeDocs(    boolean includeScore,    Set<String> fields) throws IOException {
+      for (      SolrDocument doc : docs) {
+        writeDoc(null,doc,fields,includeScore);
+      }
+    }
+  }
+,fields);
+}

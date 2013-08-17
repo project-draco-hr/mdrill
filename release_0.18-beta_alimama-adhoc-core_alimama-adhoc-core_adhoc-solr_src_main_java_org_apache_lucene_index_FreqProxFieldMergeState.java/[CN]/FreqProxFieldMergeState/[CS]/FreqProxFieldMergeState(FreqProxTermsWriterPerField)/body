@@ -1,0 +1,7 @@
+{
+  this.field=field;
+  this.charPool=field.perThread.termsHashPerThread.charPool;
+  this.numPostings=field.termsHashPerField.numPostings;
+  this.termIDs=field.termsHashPerField.sortPostings();
+  this.postings=(FreqProxPostingsArray)field.termsHashPerField.postingsArray;
+}

@@ -1,0 +1,5 @@
+{
+  byte[] arr=new byte[readVInt(dis)];
+  dis.readFully(arr);
+  return arr;
+}

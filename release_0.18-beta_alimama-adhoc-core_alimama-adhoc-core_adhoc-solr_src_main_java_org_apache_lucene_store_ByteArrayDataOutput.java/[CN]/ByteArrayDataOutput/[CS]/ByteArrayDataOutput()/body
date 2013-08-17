@@ -1,0 +1,3 @@
+{
+  reset(BytesRef.EMPTY_BYTES);
+}

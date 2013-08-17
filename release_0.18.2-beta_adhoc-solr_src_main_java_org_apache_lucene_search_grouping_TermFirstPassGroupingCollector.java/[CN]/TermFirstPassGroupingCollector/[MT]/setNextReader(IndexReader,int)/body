@@ -1,0 +1,4 @@
+{
+  super.setNextReader(reader,docBase);
+  index=FieldCache.DEFAULT.getStringIndex(reader,groupField);
+}

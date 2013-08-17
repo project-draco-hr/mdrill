@@ -1,0 +1,2 @@
+int maxSize
+Comparator<? super E> c

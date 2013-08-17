@@ -1,0 +1,5 @@
+{
+  if (jj_scan_token(K_ESCAPE))   return true;
+  if (jj_scan_token(S_CHAR_LITERAL))   return true;
+  return false;
+}

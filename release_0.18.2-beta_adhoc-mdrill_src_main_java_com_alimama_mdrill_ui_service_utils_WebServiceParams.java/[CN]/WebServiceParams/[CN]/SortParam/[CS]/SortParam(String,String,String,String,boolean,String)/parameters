@@ -1,0 +1,6 @@
+String realSort
+String realSortPt
+String order
+String sortRow
+boolean isnum
+String cmptype

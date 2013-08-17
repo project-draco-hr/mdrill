@@ -1,0 +1,5 @@
+{
+  blockSize=DEFAULT_BLOCK_SIZE;
+  array=a;
+  n=a.length;
+}

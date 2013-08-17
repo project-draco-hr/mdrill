@@ -1,0 +1,10 @@
+{
+  if (termEnum.next()) {
+    term=termEnum.term();
+    return true;
+  }
+ else {
+    term=null;
+    return false;
+  }
+}

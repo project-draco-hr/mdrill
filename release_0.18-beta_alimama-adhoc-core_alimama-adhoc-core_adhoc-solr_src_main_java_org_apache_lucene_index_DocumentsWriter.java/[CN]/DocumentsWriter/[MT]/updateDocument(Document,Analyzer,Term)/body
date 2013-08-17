@@ -1,0 +1,53 @@
+{
+  boolean doFlush=flushControl.waitUpdate(1,delTerm != null ? 1 : 0);
+  final DocumentsWriterThreadState state=getThreadState(delTerm,1);
+  final DocState docState=state.docState;
+  docState.doc=doc;
+  docState.analyzer=analyzer;
+  boolean success=false;
+  try {
+    final DocWriter perDoc;
+    try {
+      perDoc=state.consumer.processDocument();
+    }
+  finally {
+      docState.clear();
+    }
+    finishDocument(state,perDoc);
+    success=true;
+  }
+  finally {
+    if (!success) {
+      if (doFlush) {
+        flushControl.clearFlushPending();
+      }
+      if (infoStream != null) {
+        message("exception in updateDocument aborting=" + aborting);
+      }
+synchronized (this) {
+        state.isIdle=true;
+        notifyAll();
+        if (aborting) {
+          abort();
+        }
+ else {
+          skipDocWriter.docID=docState.docID;
+          boolean success2=false;
+          try {
+            waitQueue.add(skipDocWriter);
+            success2=true;
+          }
+  finally {
+            if (!success2) {
+              abort();
+              return false;
+            }
+          }
+          deleteDocID(state.docState.docID);
+        }
+      }
+    }
+  }
+  doFlush|=flushControl.flushByRAMUsage("new document");
+  return doFlush;
+}

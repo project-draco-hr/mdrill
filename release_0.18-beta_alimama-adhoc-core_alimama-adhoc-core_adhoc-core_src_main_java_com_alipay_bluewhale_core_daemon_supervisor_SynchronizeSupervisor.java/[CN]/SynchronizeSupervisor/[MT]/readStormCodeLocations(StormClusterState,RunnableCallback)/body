@@ -1,0 +1,12 @@
+{
+  Map<String,String> rtn=null;
+  List<String> topologyids=stormClusterState.assignments(callback);
+  if (topologyids != null) {
+    rtn=new HashMap<String,String>();
+    for (    String topologyid : topologyids) {
+      Assignment assignmenInfo=stormClusterState.assignment_info(topologyid,callback);
+      rtn.put(topologyid,assignmenInfo.getMasterCodeDir());
+    }
+  }
+  return rtn;
+}

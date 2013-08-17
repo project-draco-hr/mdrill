@@ -1,0 +1,17 @@
+{
+  if (disjuncts.size() == 1)   return weights.get(0).explain(reader,doc);
+  ComplexExplanation result=new ComplexExplanation();
+  float max=0.0f, sum=0.0f;
+  result.setDescription(tieBreakerMultiplier == 0.0f ? "max of:" : "max plus " + tieBreakerMultiplier + " times others of:");
+  for (  Weight wt : weights) {
+    Explanation e=wt.explain(reader,doc);
+    if (e.isMatch()) {
+      result.setMatch(Boolean.TRUE);
+      result.addDetail(e);
+      sum+=e.getValue();
+      max=Math.max(max,e.getValue());
+    }
+  }
+  result.setValue(max + (sum - max) * tieBreakerMultiplier);
+  return result;
+}

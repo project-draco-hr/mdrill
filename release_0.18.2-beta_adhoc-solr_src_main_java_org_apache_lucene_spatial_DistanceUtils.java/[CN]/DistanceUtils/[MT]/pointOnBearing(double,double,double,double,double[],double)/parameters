@@ -1,0 +1,6 @@
+double startLat
+double startLon
+double distance
+double bearing
+double[] result
+double sphereRadius

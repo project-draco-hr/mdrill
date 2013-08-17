@@ -1,0 +1,32 @@
+{
+  if (sourceQuery instanceof BooleanQuery) {
+    BooleanQuery bq=(BooleanQuery)sourceQuery;
+    for (    BooleanClause clause : bq.getClauses()) {
+      if (!clause.isProhibited())       flatten(clause.getQuery(),reader,flatQueries);
+    }
+  }
+ else   if (sourceQuery instanceof DisjunctionMaxQuery) {
+    DisjunctionMaxQuery dmq=(DisjunctionMaxQuery)sourceQuery;
+    for (    Query query : dmq) {
+      flatten(query,reader,flatQueries);
+    }
+  }
+ else   if (sourceQuery instanceof TermQuery) {
+    if (!flatQueries.contains(sourceQuery))     flatQueries.add(sourceQuery);
+  }
+ else   if (sourceQuery instanceof MultiTermQuery && reader != null) {
+    MultiTermQuery copy=(MultiTermQuery)sourceQuery.clone();
+    copy.setRewriteMethod(new MultiTermQuery.TopTermsScoringBooleanQueryRewrite(MAX_MTQ_TERMS));
+    BooleanQuery mtqTerms=(BooleanQuery)copy.rewrite(reader);
+    flatten(mtqTerms,reader,flatQueries);
+  }
+ else   if (sourceQuery instanceof PhraseQuery) {
+    if (!flatQueries.contains(sourceQuery)) {
+      PhraseQuery pq=(PhraseQuery)sourceQuery;
+      if (pq.getTerms().length > 1)       flatQueries.add(pq);
+ else       if (pq.getTerms().length == 1) {
+        flatQueries.add(new TermQuery(pq.getTerms()[0]));
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  if (tokenGroup.getTotalScore() == 0)   return originalText;
+  float score=tokenGroup.getTotalScore();
+  if (score == 0) {
+    return originalText;
+  }
+  StringBuilder sb=new StringBuilder();
+  sb.append("<font ");
+  if (highlightForeground) {
+    sb.append("color=\"");
+    sb.append(getForegroundColorString(score));
+    sb.append("\" ");
+  }
+  if (highlightBackground) {
+    sb.append("bgcolor=\"");
+    sb.append(getBackgroundColorString(score));
+    sb.append("\" ");
+  }
+  sb.append(">");
+  sb.append(originalText);
+  sb.append("</font>");
+  return sb.toString();
+}

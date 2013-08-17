@@ -1,0 +1,9 @@
+{
+  String ret=masterLocalDir(conf) + "/inbox";
+  try {
+    FileUtils.forceMkdir(new File(ret));
+  }
+ catch (  IOException e) {
+  }
+  return ret;
+}

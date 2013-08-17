@@ -1,0 +1,26 @@
+{
+  try {
+    int len=256;
+    char[] buffer=new char[len];
+    char[] output=new char[len];
+    len=0;
+    int n;
+    while ((n=input.read(buffer)) >= 0) {
+      if (len + n > output.length) {
+        char[] tmp=new char[Math.max(output.length << 1,len + n)];
+        System.arraycopy(output,0,tmp,0,len);
+        System.arraycopy(buffer,0,tmp,len,n);
+        buffer=output;
+        output=tmp;
+      }
+ else {
+        System.arraycopy(buffer,0,output,len,n);
+      }
+      len+=n;
+    }
+    return new String(output,0,len);
+  }
+  finally {
+    input.close();
+  }
+}

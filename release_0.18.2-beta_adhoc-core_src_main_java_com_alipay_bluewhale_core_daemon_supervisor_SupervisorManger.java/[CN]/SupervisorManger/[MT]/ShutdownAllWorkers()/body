@@ -1,0 +1,14 @@
+{
+  LOG.info("Begin to shutdown all workers");
+  String path=StormConfig.worker_root(conf);
+  List<String> myWorkerIds=PathUtils.read_dir_contents(path);
+  for (  String workerId : myWorkerIds) {
+    try {
+      shutWorker(conf,supervisorId,workerId,workerThreadPidsAtom);
+    }
+ catch (    Exception e) {
+      String errMsg="Failed to shutdown supervisorId:" + supervisorId + ",workerId:"+ workerId+ "workerThreadPidsAtom:"+ workerThreadPidsAtom+ "\n";
+      LOG.error(errMsg,e);
+    }
+  }
+}
