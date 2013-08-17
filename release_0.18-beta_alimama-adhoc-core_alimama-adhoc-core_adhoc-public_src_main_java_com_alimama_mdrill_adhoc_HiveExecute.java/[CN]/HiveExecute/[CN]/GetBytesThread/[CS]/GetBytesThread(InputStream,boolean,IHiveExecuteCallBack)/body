@@ -1,6 +1,0 @@
-{
-  this.callback=callback;
-  this.reader=new BufferedReader(makeStream(input));
-  this.isERR=isERR;
-  setDaemon(true);
-}

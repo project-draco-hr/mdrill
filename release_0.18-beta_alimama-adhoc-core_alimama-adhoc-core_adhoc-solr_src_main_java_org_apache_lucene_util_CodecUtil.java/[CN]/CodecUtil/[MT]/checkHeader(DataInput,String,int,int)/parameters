@@ -1,4 +1,0 @@
-DataInput in
-String codec
-int minVersion
-int maxVersion

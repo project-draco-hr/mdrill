@@ -1,3 +1,0 @@
-org.zeromq.ZMQ.Context _context
-int _linger_ms
-boolean _ipc

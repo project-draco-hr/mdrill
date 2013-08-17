@@ -1,7 +1,0 @@
-{
-  int format=in.readInt();
-  if (format > FORMAT_CURRENT) {
-    throw new IndexFormatTooNewException(in,format,1,FORMAT_CURRENT);
-  }
-  return format;
-}

@@ -1,4 +1,0 @@
-{
-  goNext();
-  return new MapEntry(lastPos,allowModify);
-}

@@ -1,4 +1,0 @@
-{
-  char ch=s.length() > 0 ? s.charAt(0) : 0;
-  return (ch == '1' || ch == 't' || ch == 'T');
-}

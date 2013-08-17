@@ -1,4 +1,0 @@
-{
-  super.init(schema,args);
-  createSuffixCache(3);
-}

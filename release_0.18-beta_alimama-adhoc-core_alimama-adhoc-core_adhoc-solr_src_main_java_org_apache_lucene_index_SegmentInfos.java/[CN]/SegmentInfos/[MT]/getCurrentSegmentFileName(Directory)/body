@@ -1,3 +1,0 @@
-{
-  return IndexFileNames.fileNameFromGeneration(IndexFileNames.SEGMENTS,"",getCurrentSegmentGeneration(directory));
-}

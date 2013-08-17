@@ -1,3 +1,0 @@
-{
-  return createComponents(fieldName,initReader(reader)).getTokenStream();
-}

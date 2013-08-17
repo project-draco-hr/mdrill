@@ -1,7 +1,0 @@
-{
-  String str=getLocalizedMessage(key,locale);
-  if (args.length > 0) {
-    str=MessageFormat.format(str,args);
-  }
-  return str;
-}

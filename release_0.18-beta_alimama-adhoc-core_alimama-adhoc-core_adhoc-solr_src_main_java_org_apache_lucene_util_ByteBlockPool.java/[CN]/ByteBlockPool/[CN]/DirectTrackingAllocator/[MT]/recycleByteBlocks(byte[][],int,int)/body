@@ -1,6 +1,0 @@
-{
-  bytesUsed.addAndGet(-((end - start) * blockSize));
-  for (int i=start; i < end; i++) {
-    blocks[i]=null;
-  }
-}

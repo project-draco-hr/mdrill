@@ -1,5 +1,0 @@
-SolrQueryResponse solrRsp
-ServletResponse response
-QueryResponseWriter responseWriter
-SolrQueryRequest solrReq
-Method reqMethod

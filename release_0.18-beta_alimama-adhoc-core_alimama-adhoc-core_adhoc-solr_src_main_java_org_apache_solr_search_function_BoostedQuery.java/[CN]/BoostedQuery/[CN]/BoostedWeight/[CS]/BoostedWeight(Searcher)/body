@@ -1,6 +1,0 @@
-{
-  this.searcher=searcher;
-  this.qWeight=q.createWeight(searcher);
-  this.context=boostVal.newContext();
-  boostVal.createWeight(context,searcher);
-}

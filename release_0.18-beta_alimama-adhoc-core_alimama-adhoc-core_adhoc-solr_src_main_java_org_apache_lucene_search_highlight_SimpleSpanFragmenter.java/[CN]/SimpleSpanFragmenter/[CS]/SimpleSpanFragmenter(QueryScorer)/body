@@ -1,3 +1,0 @@
-{
-  this(queryScorer,DEFAULT_FRAGMENT_SIZE);
-}

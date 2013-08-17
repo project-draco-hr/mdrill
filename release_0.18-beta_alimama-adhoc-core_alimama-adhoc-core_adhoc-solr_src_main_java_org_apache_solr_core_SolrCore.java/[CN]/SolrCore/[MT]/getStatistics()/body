@@ -1,7 +1,0 @@
-{
-  NamedList lst=new SimpleOrderedMap();
-  lst.add("coreName",name == null ? "(null)" : name);
-  lst.add("startTime",new Date(startTime));
-  lst.add("refCount",getOpenCount());
-  return lst;
-}

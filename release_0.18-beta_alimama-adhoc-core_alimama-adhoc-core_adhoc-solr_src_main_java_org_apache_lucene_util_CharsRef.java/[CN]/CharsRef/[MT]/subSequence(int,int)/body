@@ -1,3 +1,0 @@
-{
-  return new CharsRef(chars,offset + start,offset + end - 1);
-}

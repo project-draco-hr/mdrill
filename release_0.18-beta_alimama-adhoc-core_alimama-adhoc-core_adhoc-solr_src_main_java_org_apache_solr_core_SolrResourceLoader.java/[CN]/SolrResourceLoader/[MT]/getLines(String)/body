@@ -1,3 +1,0 @@
-{
-  return getLines(resource,UTF_8);
-}

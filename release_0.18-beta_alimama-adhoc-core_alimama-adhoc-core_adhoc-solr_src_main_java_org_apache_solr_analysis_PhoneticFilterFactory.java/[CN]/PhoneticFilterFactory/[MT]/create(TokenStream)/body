@@ -1,3 +1,0 @@
-{
-  return new PhoneticFilter(input,encoder,name,inject);
-}

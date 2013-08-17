@@ -1,7 +1,0 @@
-{
-  this.timerThread=timerThread;
-  this.queue=queue;
-  this.active=active;
-  this.lock=lock;
-  this.cancelNotifier=cancelNotifier;
-}

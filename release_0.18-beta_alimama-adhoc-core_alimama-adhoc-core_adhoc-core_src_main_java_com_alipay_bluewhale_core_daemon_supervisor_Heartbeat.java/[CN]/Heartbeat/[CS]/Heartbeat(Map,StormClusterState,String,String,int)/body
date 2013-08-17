@@ -1,7 +1,0 @@
-{
-  this.stormClusterState=stormClusterState;
-  this.supervisorId=supervisorId;
-  this.conf=conf;
-  this.myHostName=myHostName;
-  this.startTime=startTimeStamp;
-}

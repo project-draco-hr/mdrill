@@ -1,3 +1,0 @@
-{
-  writeAttr(name,val,true);
-}

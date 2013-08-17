@@ -1,4 +1,0 @@
-{
-  String basePath=core.getRealTimeDir(this.day) + "/realtime";
-  binlog=new BinLog(basePath + "/binlog",0l);
-}

@@ -1,8 +1,0 @@
-{
-  List<Stem> stems=new ArrayList<Stem>();
-  if (dictionary.lookupWord(word,0,length) != null) {
-    stems.add(new Stem(word,length));
-  }
-  stems.addAll(stem(word,length,null,0));
-  return stems;
-}

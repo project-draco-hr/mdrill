@@ -1,4 +1,0 @@
-Sort groupSort
-int topNGroups
-boolean needsScores
-Filter lastDocPerGroup

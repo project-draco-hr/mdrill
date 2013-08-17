@@ -1,6 +1,0 @@
-{
-  append(text);
-  startOffset=start;
-  endOffset=end;
-  type=typ;
-}

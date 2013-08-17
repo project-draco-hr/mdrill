@@ -1,5 +1,0 @@
-{
-  if (closeReader)   reader.decRef();
-  this.SolrCoreClearCache();
-  numCloses.incrementAndGet();
-}

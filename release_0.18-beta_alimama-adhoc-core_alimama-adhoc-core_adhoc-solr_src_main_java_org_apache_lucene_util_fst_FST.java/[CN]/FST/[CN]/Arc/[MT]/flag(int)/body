@@ -1,3 +1,0 @@
-{
-  return FST.flag(flags,flag);
-}

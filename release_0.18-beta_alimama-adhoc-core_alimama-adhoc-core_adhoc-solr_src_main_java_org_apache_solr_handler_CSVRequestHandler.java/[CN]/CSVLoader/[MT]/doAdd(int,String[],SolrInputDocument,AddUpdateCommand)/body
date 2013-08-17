@@ -1,9 +1,0 @@
-{
-  for (int i=0; i < vals.length; i++) {
-    if (fields[i] == null)     continue;
-    String val=vals[i];
-    adders[i].add(doc,line,i,val);
-  }
-  template.solrDoc=doc;
-  processor.processAdd(template);
-}

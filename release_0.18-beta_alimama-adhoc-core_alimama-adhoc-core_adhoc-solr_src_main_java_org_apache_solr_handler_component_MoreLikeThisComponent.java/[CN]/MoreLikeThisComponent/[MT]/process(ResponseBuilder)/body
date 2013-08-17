@@ -1,8 +1,0 @@
-{
-  SolrParams p=rb.req.getParams();
-  if (p.getBool(MoreLikeThisParams.MLT,false)) {
-    SolrIndexSearcher searcher=rb.req.getSearcher();
-    NamedList<DocList> sim=getMoreLikeThese(rb,searcher,rb.getResults().docList,rb.getFieldFlags());
-    rb.rsp.add("moreLikeThis",sim);
-  }
-}

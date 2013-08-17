@@ -1,4 +1,0 @@
-{
-  this.numBits=numBits;
-  bits=new long[bits2words(numBits)];
-}

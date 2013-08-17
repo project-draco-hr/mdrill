@@ -1,4 +1,0 @@
-{
-  super(prototype.name);
-  this.prototype=prototype;
-}

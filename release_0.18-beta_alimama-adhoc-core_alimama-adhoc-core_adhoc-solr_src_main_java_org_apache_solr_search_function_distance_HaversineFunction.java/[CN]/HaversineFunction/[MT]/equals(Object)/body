@@ -1,5 +1,0 @@
-{
-  if (this.getClass() != o.getClass())   return false;
-  HaversineFunction other=(HaversineFunction)o;
-  return this.name().equals(other.name()) && p1.equals(other.p1) && p2.equals(other.p2)&& radius == other.radius;
-}

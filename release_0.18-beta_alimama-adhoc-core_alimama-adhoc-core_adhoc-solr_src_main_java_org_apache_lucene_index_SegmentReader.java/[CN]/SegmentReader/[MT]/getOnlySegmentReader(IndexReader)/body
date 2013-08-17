@@ -1,9 +1,0 @@
-{
-  if (reader instanceof SegmentReader)   return (SegmentReader)reader;
-  if (reader instanceof DirectoryReader) {
-    IndexReader[] subReaders=reader.getSequentialSubReaders();
-    if (subReaders.length != 1)     throw new IllegalArgumentException(reader + " has " + subReaders.length+ " segments instead of exactly one");
-    return (SegmentReader)subReaders[0];
-  }
-  throw new IllegalArgumentException(reader + " is not a SegmentReader or a single-segment DirectoryReader");
-}

@@ -1,3 +1,0 @@
-{
-  return SegmentInfos.readCurrentVersion(directory);
-}

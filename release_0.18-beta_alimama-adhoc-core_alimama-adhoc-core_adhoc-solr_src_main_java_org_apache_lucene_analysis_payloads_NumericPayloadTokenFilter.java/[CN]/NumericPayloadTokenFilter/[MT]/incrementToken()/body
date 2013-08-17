@@ -1,9 +1,0 @@
-{
-  if (input.incrementToken()) {
-    if (typeAtt.type().equals(typeMatch))     payloadAtt.setPayload(thePayload);
-    return true;
-  }
- else {
-    return false;
-  }
-}

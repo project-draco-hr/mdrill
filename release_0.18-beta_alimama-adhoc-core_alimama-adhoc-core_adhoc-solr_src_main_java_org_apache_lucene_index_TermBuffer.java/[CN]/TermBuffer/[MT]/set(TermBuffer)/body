@@ -1,6 +1,0 @@
-{
-  text.copyText(other.text);
-  dirty=true;
-  field=other.field;
-  term=other.term;
-}

@@ -1,8 +1,0 @@
-{
-  try {
-    return curBuf.getInt();
-  }
- catch (  BufferUnderflowException e) {
-    return super.readInt();
-  }
-}

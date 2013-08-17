@@ -1,8 +1,0 @@
-{
-synchronized (lock) {
-    this.extval=val;
-    if (this.extval != 0) {
-      isfail=true;
-    }
-  }
-}

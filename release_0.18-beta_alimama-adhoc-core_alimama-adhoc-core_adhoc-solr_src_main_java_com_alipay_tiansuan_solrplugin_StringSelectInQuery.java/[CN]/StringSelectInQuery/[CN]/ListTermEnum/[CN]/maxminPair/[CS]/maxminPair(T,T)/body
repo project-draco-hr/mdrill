@@ -1,5 +1,0 @@
-{
-  super();
-  this.max=max;
-  this.min=min;
-}

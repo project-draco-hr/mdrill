@@ -1,4 +1,0 @@
-{
-  if (field.isTokenized())   return 1;
- else   return 0;
-}

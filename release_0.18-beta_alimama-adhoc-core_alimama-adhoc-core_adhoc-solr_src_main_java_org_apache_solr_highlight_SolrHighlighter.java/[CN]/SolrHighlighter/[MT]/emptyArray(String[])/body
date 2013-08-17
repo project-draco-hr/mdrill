@@ -1,3 +1,0 @@
-{
-  return (arr == null || arr.length == 0 || arr[0] == null || arr[0].trim().length() == 0);
-}

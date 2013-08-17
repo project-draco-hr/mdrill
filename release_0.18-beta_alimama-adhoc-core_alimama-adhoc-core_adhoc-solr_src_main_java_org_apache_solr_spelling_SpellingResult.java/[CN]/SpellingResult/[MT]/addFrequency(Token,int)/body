@@ -1,6 +1,0 @@
-{
-  if (tokenFrequency == null) {
-    tokenFrequency=new LinkedHashMap<Token,Integer>();
-  }
-  tokenFrequency.put(token,docFreq);
-}

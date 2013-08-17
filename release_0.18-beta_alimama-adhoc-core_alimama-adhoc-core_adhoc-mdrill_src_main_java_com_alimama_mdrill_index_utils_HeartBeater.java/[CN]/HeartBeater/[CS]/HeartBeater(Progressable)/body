@@ -1,6 +1,0 @@
-{
-  setDaemon(true);
-  this.progress=progress;
-  LOG.info("Heart beat reporting class is " + progress.getClass().getName());
-  start();
-}

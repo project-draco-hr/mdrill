@@ -1,8 +1,0 @@
-{
-  checkSnapshotted(id);
-  if (SNAPSHOTS_ID.equals(id)) {
-    throw new IllegalArgumentException(id + " is reserved and cannot be used as a snapshot id");
-  }
-  persistSnapshotInfos(id,lastCommit.getSegmentsFileName());
-  return super.snapshot(id);
-}

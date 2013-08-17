@@ -1,3 +1,0 @@
-Map conf
-TimeCacheMap<Object,Object> downloaders
-TimeCacheMap<Object,Object> uploaders

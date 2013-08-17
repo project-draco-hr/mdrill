@@ -1,6 +1,0 @@
-{
-  super.seekChild(level);
-  freqPointer[level]=lastFreqPointer;
-  proxPointer[level]=lastProxPointer;
-  payloadLength[level]=lastPayloadLength;
-}

@@ -1,4 +1,0 @@
-{
-  this.docIdSet=docIdSet;
-  this.reader=reader;
-}

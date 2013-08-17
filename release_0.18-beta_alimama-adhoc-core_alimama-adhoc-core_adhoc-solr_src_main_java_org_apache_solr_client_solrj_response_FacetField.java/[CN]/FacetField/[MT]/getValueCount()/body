@@ -1,3 +1,0 @@
-{
-  return _values == null ? 0 : _values.size();
-}

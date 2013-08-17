@@ -1,3 +1,0 @@
-{
-  return new FieldCacheTermsFilterDocIdSet(getFieldCache().getStringIndex(reader,field));
-}

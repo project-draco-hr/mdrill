@@ -1,3 +1,0 @@
-{
-  return new ListTermEnum(reader,this.field,this.contains);
-}

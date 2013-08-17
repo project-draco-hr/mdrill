@@ -1,8 +1,0 @@
-{
-  for (int i=1; i < arr.length; i++) {
-    int ch=getChar();
-    if (ch != arr[i]) {
-      throw err("Expected " + new String(arr));
-    }
-  }
-}

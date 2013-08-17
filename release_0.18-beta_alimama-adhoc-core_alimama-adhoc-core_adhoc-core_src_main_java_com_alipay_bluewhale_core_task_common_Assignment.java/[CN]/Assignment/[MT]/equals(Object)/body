@@ -1,6 +1,0 @@
-{
-  if (assignment instanceof Assignment && ((Assignment)assignment).getNodeHost().equals(nodeHost) && ((Assignment)assignment).getTaskStartTimeSecs().equals(taskStartTimeSecs)&& ((Assignment)assignment).getMasterCodeDir().equals(masterCodeDir)&& ((Assignment)assignment).getTaskToNodeport().equals(taskToNodeport)) {
-    return true;
-  }
-  return false;
-}

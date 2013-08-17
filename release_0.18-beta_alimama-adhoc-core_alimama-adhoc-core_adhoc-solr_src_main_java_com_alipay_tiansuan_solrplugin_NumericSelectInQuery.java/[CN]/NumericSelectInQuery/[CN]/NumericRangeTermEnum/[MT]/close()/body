@@ -1,5 +1,0 @@
-{
-  rangeBounds.clear();
-  lowBounds.clear();
-  super.close();
-}

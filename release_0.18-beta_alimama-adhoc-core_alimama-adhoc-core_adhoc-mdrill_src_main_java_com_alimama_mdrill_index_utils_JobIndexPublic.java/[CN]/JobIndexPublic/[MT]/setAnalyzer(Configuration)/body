@@ -1,3 +1,0 @@
-{
-  return new StandardAnalyzer((Version)Enum.valueOf((Class)Class.forName("org.apache.lucene.util.Version"),Version.LUCENE_35.name()));
-}

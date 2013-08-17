@@ -1,4 +1,0 @@
-{
-  LOG.debug("Making dirs at" + path);
-  FileUtils.forceMkdir(new File(path));
-}

@@ -1,5 +1,0 @@
-IndexReader reader
-String lowerVal
-String upperVal
-boolean includeLower
-boolean includeUpper

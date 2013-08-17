@@ -1,3 +1,0 @@
-{
-  return FieldSelectorResult.LOAD_AND_BREAK;
-}

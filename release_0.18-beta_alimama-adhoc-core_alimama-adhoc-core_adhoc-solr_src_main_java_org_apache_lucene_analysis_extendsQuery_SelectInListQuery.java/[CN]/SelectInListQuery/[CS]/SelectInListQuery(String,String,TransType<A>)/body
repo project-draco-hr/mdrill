@@ -1,5 +1,0 @@
-{
-  this.field=field;
-  this.file=file;
-  this.trans=trans;
-}

@@ -1,5 +1,0 @@
-{
-  CharArr out=new CharArr();
-  new JSONWriter(out,indentSize).write(o);
-  return out.toString();
-}

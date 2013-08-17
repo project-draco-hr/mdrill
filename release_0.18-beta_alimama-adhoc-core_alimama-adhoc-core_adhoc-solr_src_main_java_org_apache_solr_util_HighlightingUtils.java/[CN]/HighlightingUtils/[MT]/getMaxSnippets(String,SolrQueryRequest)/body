@@ -1,3 +1,0 @@
-{
-  return HIGHLIGHTER.getMaxSnippetsX(fieldName,request);
-}

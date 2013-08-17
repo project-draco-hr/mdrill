@@ -1,4 +1,0 @@
-{
-  mergeExceptions=new ArrayList<MergePolicy.OneMerge>();
-  mergeGen++;
-}

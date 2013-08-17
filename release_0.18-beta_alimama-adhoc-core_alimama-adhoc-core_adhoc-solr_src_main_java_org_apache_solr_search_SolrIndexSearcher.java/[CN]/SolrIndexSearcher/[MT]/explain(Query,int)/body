@@ -1,3 +1,0 @@
-{
-  return super.explain(QueryUtils.makeQueryable(query),doc);
-}

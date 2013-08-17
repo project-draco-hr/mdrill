@@ -1,4 +1,0 @@
-IndexWriter writer
-ExecutorService es
-SearcherWarmer warmer
-boolean alwaysApplyDeletes

@@ -1,8 +1,0 @@
-{
-  if (token.getPayload() == null || token.getPayload().getData() == null) {
-    return 1f;
-  }
- else {
-    return PayloadHelper.decodeFloat(token.getPayload().getData());
-  }
-}

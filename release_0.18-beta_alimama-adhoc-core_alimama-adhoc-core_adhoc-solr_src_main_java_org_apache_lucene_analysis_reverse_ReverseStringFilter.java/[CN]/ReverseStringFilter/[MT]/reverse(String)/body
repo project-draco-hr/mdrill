@@ -1,3 +1,0 @@
-{
-  return reverse(Version.LUCENE_30,input);
-}

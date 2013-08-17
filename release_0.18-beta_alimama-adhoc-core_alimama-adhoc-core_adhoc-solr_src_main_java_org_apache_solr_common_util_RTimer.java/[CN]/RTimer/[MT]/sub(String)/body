@@ -1,8 +1,0 @@
-{
-  RTimer child=children.get(desc);
-  if (child == null) {
-    child=new RTimer();
-    children.add(desc,child);
-  }
-  return child;
-}

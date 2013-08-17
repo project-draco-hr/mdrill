@@ -1,4 +1,0 @@
-int rc
-String msg
-HttpServletRequest request
-HttpServletResponse response

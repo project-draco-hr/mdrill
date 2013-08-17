@@ -1,6 +1,0 @@
-Directory d
-String segment
-FieldInfos fieldInfos
-int readBufferSize
-int docStoreOffset
-int size

@@ -1,8 +1,0 @@
-{
-  if (higozkCluster == null) {
-    Map stormconf=Utils.readStormConfig();
-    ClusterState zkClusterstate=Cluster.mk_distributed_cluster_state(stormconf);
-    higozkCluster=Cluster.mk_storm_cluster_state(zkClusterstate);
-  }
-  return higozkCluster;
-}

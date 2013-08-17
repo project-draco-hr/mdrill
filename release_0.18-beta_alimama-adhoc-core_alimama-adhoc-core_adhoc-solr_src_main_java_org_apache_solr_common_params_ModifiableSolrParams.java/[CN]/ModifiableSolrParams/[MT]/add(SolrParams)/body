@@ -1,7 +1,0 @@
-{
-  Iterator<String> names=params.getParameterNamesIterator();
-  while (names.hasNext()) {
-    String name=names.next();
-    set(name,params.getParams(name));
-  }
-}

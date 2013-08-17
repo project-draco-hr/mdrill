@@ -1,5 +1,0 @@
-{
-  LOG.info("Killing topology: " + topologyid);
-  data.getStormClusterState().remove_storm(topologyid);
-  return null;
-}

@@ -1,3 +1,0 @@
-{
-  this(dir,new IndexWriterConfig(matchVersion,null),infoStream,deletePriorCommits);
-}

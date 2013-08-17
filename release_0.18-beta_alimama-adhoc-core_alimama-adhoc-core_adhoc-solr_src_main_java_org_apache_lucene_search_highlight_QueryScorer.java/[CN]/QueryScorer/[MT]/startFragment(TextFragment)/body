@@ -1,4 +1,0 @@
-{
-  foundTerms=new HashSet<String>();
-  totalScore=0;
-}

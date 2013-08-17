@@ -1,6 +1,0 @@
-{
-  if (fields == null) {
-    return;
-  }
-  this.fields=fields;
-}

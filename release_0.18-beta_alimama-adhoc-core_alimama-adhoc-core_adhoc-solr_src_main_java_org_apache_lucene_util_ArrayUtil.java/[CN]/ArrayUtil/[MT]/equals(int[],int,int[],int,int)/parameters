@@ -1,5 +1,0 @@
-int[] left
-int offsetLeft
-int[] right
-int offsetRight
-int length

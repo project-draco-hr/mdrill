@@ -1,3 +1,0 @@
-{
-  return RamUsageEstimator.NUM_BYTES_ARRAY_HEADER + blocks.length * RamUsageEstimator.NUM_BYTES_INT;
-}

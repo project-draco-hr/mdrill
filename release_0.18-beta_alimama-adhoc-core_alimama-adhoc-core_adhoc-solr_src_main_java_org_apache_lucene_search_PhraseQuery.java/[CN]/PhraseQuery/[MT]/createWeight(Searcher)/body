@@ -1,9 +1,0 @@
-{
-  if (terms.size() == 1) {
-    Term term=terms.get(0);
-    Query termQuery=new TermQuery(term);
-    termQuery.setBoost(getBoost());
-    return termQuery.createWeight(searcher);
-  }
-  return new PhraseWeight(searcher);
-}

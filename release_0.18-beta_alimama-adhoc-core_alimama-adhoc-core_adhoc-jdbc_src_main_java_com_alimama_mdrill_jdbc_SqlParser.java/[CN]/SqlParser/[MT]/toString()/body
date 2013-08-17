@@ -1,3 +1,0 @@
-{
-  return "SqlParser [\n  sql=" + sql + ",\n  tablename="+ tablename+ ",\n  fl="+ fl+ ",\n  groupby="+ groupby+ ",\n  sort="+ sort+ ",\n  order="+ order+ ",\n  queryStr="+ queryStr+ ",\n start="+ start+ ",\n rows="+ rows+ ",\n  colsAliasNames="+ Arrays.toString(colsAliasNames)+ ",\n  colsNames="+ Arrays.toString(colsNames)+ "\n]";
-}

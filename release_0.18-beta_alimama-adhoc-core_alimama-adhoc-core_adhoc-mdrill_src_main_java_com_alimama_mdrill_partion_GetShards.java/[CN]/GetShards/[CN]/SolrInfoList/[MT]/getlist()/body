@@ -1,7 +1,0 @@
-{
-synchronized (lock) {
-    List<SolrInfo> rtn=new ArrayList<SolrInfo>();
-    rtn.addAll(this.infolist);
-    return rtn;
-  }
-}

@@ -1,6 +1,0 @@
-{
-  if ((systemId != null && systemId.matches("(?i).*\\bhyphenation.dtd\\b.*")) || ("hyphenation-info".equals(publicId))) {
-    return new InputSource(this.getClass().getResource("hyphenation.dtd").toExternalForm());
-  }
-  return null;
-}

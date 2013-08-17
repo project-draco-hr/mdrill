@@ -1,7 +1,0 @@
-{
-  super(null,null);
-  this.reader=reader;
-  this.maxDoc=reader.maxDoc();
-  this.values=values;
-  setCheckDeletes(true);
-}

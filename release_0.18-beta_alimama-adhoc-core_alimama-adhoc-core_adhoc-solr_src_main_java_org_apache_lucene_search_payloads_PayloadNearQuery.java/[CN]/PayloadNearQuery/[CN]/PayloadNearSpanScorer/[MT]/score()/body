@@ -1,3 +1,0 @@
-{
-  return super.score() * function.docScore(doc,fieldName,payloadsSeen,payloadScore);
-}

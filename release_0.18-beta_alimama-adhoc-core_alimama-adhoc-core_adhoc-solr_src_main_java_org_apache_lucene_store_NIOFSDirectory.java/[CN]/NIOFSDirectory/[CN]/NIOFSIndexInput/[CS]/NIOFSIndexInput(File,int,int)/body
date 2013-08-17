@@ -1,4 +1,0 @@
-{
-  super("NIOFSIndexInput(path=\"" + path + "\")",path,bufferSize,chunkSize);
-  channel=file.getChannel();
-}

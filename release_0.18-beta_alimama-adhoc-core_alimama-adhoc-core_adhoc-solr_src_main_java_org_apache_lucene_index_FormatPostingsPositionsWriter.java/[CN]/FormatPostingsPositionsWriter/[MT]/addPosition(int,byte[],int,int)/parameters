@@ -1,4 +1,0 @@
-int position
-byte[] payload
-int payloadOffset
-int payloadLength

@@ -1,4 +1,0 @@
-{
-  String name=input.getString(0);
-  collector.emit(new Values(name,_conf.get(name)));
-}

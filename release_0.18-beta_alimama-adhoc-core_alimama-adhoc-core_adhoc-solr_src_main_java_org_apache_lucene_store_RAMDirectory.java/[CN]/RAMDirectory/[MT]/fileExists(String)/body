@@ -1,4 +1,0 @@
-{
-  ensureOpen();
-  return fileMap.containsKey(name);
-}

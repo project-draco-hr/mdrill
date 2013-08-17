@@ -1,6 +1,0 @@
-{
-  final int size=posWrite + length;
-  bytes=ArrayUtil.grow(bytes,size);
-  System.arraycopy(b,offset,bytes,posWrite,length);
-  posWrite+=length;
-}

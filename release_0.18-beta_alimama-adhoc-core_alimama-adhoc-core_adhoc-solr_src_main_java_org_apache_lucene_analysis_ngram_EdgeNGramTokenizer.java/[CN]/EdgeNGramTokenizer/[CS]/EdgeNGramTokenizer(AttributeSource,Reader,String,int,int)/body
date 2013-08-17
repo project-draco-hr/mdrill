@@ -1,3 +1,0 @@
-{
-  this(source,input,Side.getSide(sideLabel),minGram,maxGram);
-}

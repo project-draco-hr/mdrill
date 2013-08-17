@@ -1,4 +1,0 @@
-{
-  super(source);
-  Collections.sort(entries);
-}

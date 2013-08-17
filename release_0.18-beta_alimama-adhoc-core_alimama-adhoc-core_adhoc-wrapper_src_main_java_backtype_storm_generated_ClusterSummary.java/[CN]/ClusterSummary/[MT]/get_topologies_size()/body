@@ -1,3 +1,0 @@
-{
-  return (this.topologies == null) ? 0 : this.topologies.size();
-}

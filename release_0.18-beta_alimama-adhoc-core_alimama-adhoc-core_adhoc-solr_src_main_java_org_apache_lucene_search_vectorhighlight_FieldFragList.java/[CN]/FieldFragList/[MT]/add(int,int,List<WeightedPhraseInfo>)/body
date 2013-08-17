@@ -1,3 +1,0 @@
-{
-  fragInfos.add(new WeightedFragInfo(startOffset,endOffset,phraseInfoList));
-}

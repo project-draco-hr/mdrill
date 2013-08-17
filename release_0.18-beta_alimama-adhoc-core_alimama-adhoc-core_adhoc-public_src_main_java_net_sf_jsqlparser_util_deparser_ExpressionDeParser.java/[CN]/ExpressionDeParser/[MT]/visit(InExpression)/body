@@ -1,6 +1,0 @@
-{
-  inExpression.getLeftExpression().accept(this);
-  if (inExpression.isNot())   buffer.append(" NOT");
-  buffer.append(" IN ");
-  inExpression.getItemsList().accept(this);
-}

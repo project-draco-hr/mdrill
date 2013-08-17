@@ -1,7 +1,0 @@
-{
-  if (rb.doStats) {
-    SolrParams params=rb.req.getParams();
-    SimpleStats s=new SimpleStats(rb.req,rb.getResults().docSet,params);
-    rb.rsp.add("stats",s.getStatsCounts());
-  }
-}

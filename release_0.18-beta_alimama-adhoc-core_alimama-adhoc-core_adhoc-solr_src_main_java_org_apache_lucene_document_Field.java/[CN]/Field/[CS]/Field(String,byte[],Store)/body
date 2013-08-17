@@ -1,6 +1,0 @@
-{
-  this(name,value,0,value.length);
-  if (store == Store.NO) {
-    throw new IllegalArgumentException("binary values can't be unstored");
-  }
-}

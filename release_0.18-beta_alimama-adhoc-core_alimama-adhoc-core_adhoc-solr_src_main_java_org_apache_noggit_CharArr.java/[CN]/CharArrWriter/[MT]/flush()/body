@@ -1,9 +1,0 @@
-{
-  try {
-    sink.write(buf,start,end - start);
-  }
- catch (  IOException e) {
-    throw new RuntimeException(e);
-  }
-  start=end=0;
-}

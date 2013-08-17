@@ -1,3 +1,0 @@
-{
-  return docWriter.getPendingDeletes().terms.size();
-}

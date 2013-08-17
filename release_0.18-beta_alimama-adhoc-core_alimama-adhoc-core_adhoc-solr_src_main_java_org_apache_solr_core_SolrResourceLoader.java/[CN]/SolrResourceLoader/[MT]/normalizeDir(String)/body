@@ -1,3 +1,0 @@
-{
-  return (path != null && (!(path.endsWith("/") || path.endsWith("\\")))) ? path + File.separator : path;
-}

@@ -1,7 +1,0 @@
-{
-  SolrQueryRequest req=rb.req;
-  SolrQueryResponse rsp=rb.rsp;
-  if (!req.getParams().getBool(ShardParams.IS_SHARD,false) && rb.getResults().docList != null && rb.getResults().docList.size() <= 50) {
-    SolrPluginUtils.optimizePreFetchDocs(rb.getResults().docList,rb.getQuery(),req,rsp);
-  }
-}

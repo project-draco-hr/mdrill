@@ -1,7 +1,0 @@
-{
-  StringBuilder builder=new StringBuilder();
-  builder.append("SpanMultiTermQueryWrapper(");
-  builder.append(query.toString(field));
-  builder.append(")");
-  return builder.toString();
-}

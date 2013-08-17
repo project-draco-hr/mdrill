@@ -1,5 +1,0 @@
-{
-  this.chars=string.toCharArray();
-  this.offset=0;
-  this.length=chars.length;
-}

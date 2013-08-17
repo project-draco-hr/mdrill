@@ -1,9 +1,0 @@
-{
-  ArrayList<PluginInfo> result=new ArrayList<PluginInfo>();
-  NodeList nodes=(NodeList)evaluate(tag,XPathConstants.NODESET);
-  for (int i=0; i < nodes.getLength(); i++) {
-    PluginInfo pluginInfo=new PluginInfo(nodes.item(i),"[solrconfig.xml] " + tag,requireName,requireClass);
-    if (pluginInfo.isEnabled())     result.add(pluginInfo);
-  }
-  return result;
-}

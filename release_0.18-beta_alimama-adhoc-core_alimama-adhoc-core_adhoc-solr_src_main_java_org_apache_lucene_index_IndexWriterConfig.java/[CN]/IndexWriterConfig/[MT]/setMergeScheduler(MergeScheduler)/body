@@ -1,4 +1,0 @@
-{
-  this.mergeScheduler=mergeScheduler == null ? new ConcurrentMergeScheduler() : mergeScheduler;
-  return this;
-}

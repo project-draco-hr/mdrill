@@ -1,3 +1,0 @@
-{
-  return (sink instanceof FastOutputStream) ? (FastOutputStream)sink : new FastOutputStream(sink);
-}

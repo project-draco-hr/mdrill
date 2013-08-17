@@ -1,7 +1,0 @@
-{
-  final Segment[] copy=this.view();
-  if (copy.length > 0) {
-    return copy[copy.length - 1];
-  }
-  return null;
-}

@@ -1,4 +1,0 @@
-String masterCodeDir
-Map<Integer,NodePort> taskToNodeport
-Map<String,String> nodeHost
-Map<Integer,Integer> taskStartTimeSecs

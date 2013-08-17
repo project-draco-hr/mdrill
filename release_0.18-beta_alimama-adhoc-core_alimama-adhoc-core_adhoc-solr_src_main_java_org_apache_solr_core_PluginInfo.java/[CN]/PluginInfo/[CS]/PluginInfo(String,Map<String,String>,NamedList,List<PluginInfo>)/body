@@ -1,8 +1,0 @@
-{
-  this.type=type;
-  this.name=attrs.get("name");
-  this.className=attrs.get("class");
-  this.initArgs=initArgs;
-  attributes=unmodifiableMap(attrs);
-  this.children=children == null ? Collections.<PluginInfo>emptyList() : unmodifiableList(children);
-}

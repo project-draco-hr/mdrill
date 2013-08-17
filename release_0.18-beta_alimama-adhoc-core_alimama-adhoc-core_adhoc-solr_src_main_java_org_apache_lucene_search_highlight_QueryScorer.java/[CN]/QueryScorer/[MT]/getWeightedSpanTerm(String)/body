@@ -1,3 +1,0 @@
-{
-  return fieldWeightedSpanTerms.get(token);
-}

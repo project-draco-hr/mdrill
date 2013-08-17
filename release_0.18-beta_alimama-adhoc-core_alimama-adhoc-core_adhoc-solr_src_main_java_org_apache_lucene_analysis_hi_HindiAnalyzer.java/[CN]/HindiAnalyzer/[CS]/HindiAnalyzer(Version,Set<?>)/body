@@ -1,3 +1,0 @@
-{
-  this(version,stopwords,CharArraySet.EMPTY_SET);
-}

@@ -1,3 +1,0 @@
-{
-  insert(c_bra,c_ket,(CharSequence)s);
-}

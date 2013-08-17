@@ -1,7 +1,0 @@
-{
-  ShingleFilter r=new ShingleFilter(input,minShingleSize,maxShingleSize);
-  r.setOutputUnigrams(outputUnigrams);
-  r.setOutputUnigramsIfNoShingles(outputUnigramsIfNoShingles);
-  r.setTokenSeparator(tokenSeparator);
-  return r;
-}

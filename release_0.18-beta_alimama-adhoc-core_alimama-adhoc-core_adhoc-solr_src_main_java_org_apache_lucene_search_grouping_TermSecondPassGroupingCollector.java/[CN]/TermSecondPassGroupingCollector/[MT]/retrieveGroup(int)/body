@@ -1,7 +1,0 @@
-{
-  int slot=ordSet.find(index.order[doc]);
-  if (slot >= 0) {
-    return groupDocs[slot];
-  }
-  return null;
-}

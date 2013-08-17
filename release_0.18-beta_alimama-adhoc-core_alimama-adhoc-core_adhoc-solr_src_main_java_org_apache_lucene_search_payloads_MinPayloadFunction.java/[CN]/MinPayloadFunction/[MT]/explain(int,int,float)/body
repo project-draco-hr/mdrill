@@ -1,7 +1,0 @@
-{
-  Explanation expl=new Explanation();
-  float minPayloadScore=(numPayloadsSeen > 0 ? payloadScore : 1);
-  expl.setValue(minPayloadScore);
-  expl.setDescription("MinPayloadFunction(...)");
-  return expl;
-}

@@ -1,3 +1,0 @@
-{
-  return values[getSlot(text,off,len)];
-}

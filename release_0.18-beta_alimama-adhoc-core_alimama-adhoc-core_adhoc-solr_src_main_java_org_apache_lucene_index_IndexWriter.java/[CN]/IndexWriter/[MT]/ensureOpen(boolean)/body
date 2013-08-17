@@ -1,5 +1,0 @@
-{
-  if (closed || (includePendingClose && closing)) {
-    throw new AlreadyClosedException("this IndexWriter is closed");
-  }
-}

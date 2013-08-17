@@ -1,3 +1,0 @@
-{
-  return currentBlockIndex * blockSize + currentBlockUpto;
-}

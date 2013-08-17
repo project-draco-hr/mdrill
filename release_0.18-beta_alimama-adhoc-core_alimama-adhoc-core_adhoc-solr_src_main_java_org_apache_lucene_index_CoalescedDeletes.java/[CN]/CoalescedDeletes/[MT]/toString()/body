@@ -1,3 +1,0 @@
-{
-  return "CoalescedDeletes(termSets=" + iterables.size() + ",queries="+ queries.size()+ ")";
-}

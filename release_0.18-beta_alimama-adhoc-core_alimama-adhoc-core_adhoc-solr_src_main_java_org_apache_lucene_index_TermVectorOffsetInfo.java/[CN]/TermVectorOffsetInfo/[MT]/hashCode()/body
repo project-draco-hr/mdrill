@@ -1,6 +1,0 @@
-{
-  int result;
-  result=startOffset;
-  result=29 * result + endOffset;
-  return result;
-}

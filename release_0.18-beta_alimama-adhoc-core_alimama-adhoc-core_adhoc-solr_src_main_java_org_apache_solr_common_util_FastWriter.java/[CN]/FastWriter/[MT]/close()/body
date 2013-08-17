@@ -1,4 +1,0 @@
-{
-  flush();
-  sink.close();
-}

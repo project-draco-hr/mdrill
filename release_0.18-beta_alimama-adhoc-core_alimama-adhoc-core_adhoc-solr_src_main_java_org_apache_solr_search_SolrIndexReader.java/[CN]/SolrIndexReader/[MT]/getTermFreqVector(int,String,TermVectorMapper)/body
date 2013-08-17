@@ -1,3 +1,0 @@
-{
-  in.getTermFreqVector(docNumber,field,mapper);
-}

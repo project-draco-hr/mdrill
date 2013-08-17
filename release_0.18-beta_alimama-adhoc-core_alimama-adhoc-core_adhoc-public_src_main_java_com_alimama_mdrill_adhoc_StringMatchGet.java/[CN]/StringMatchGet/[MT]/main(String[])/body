@@ -1,4 +1,0 @@
-{
-  StringMatchGet m=new StringMatchGet();
-  System.out.println(m.evaluate("Launching Job 1 out of 1",".*Launching.*Job.*out.*of(.*$)",1,"Integer"));
-}

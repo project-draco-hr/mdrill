@@ -1,5 +1,0 @@
-{
-  this.m_url=m_url;
-  this.m_username=m_username;
-  this.m_passwd=m_passwd;
-}

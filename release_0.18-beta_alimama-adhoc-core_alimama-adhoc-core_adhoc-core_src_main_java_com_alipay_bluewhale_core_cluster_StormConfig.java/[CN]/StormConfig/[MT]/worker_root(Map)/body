@@ -1,3 +1,0 @@
-{
-  return String.valueOf(conf.get(Config.STORM_LOCAL_DIR)) + "/workers";
-}

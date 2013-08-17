@@ -1,4 +1,0 @@
-{
-  this.set(name,values);
-  return this;
-}

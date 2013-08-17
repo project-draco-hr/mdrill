@@ -1,4 +1,0 @@
-{
-  this.set(TermsParams.TERMS_MAXCOUNT,cnt);
-  return this;
-}

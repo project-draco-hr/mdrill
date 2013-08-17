@@ -1,8 +1,0 @@
-{
-  String fmt=params.getFieldParam(fieldName,HighlightParams.FRAGMENTER);
-  SolrFragmenter frag=fragmenters.get(fmt);
-  if (frag == null) {
-    throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,"Unknown fragmenter: " + fmt);
-  }
-  return frag.getFragmenter(fieldName,params);
-}

@@ -1,3 +1,0 @@
-{
-  values[index]=(int)(value & 0xFFFFFFFF);
-}

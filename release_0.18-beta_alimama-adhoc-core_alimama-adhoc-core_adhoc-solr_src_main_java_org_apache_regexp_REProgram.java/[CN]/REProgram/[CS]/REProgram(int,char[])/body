@@ -1,4 +1,0 @@
-{
-  this(instruction,instruction.length);
-  this.maxParens=parens;
-}

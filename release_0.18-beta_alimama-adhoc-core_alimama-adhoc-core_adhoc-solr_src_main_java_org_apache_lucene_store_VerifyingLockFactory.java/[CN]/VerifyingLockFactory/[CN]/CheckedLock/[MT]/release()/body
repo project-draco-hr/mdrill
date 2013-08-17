@@ -1,6 +1,0 @@
-{
-  if (isLocked()) {
-    verify((byte)0);
-    lock.release();
-  }
-}

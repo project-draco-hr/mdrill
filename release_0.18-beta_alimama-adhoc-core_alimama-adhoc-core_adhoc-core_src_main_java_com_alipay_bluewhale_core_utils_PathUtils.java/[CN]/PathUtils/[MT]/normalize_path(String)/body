@@ -1,4 +1,0 @@
-{
-  String rtn=toks_to_path(tokenize_path(path));
-  return rtn;
-}

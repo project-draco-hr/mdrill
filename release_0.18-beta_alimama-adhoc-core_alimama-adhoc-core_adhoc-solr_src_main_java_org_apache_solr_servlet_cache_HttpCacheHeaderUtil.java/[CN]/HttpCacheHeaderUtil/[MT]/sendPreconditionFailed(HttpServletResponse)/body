@@ -1,3 +1,0 @@
-{
-  res.setStatus(HttpServletResponse.SC_PRECONDITION_FAILED);
-}

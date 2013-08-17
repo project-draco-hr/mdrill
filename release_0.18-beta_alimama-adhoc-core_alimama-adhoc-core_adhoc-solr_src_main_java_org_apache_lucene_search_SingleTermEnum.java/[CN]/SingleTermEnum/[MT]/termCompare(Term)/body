@@ -1,9 +1,0 @@
-{
-  if (term.equals(singleTerm)) {
-    return true;
-  }
- else {
-    endEnum=true;
-    return false;
-  }
-}

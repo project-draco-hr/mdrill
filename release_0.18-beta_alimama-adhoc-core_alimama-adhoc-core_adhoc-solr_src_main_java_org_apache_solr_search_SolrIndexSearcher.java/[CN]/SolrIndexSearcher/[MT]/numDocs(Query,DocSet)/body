@@ -1,5 +1,0 @@
-{
-  Query absQ=QueryUtils.getAbs(a);
-  DocSet positiveA=getPositiveDocSet(absQ);
-  return a == absQ ? b.intersectionSize(positiveA) : b.andNotSize(positiveA);
-}

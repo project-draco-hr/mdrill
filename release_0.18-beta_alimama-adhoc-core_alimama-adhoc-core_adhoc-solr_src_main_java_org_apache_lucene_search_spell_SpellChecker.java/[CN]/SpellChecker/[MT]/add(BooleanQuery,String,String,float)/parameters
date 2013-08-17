@@ -1,4 +1,0 @@
-BooleanQuery q
-String name
-String value
-float boost

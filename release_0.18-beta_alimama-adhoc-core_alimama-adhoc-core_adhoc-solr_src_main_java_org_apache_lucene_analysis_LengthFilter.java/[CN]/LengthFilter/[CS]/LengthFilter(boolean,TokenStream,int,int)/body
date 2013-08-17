@@ -1,5 +1,0 @@
-{
-  super(enablePositionIncrements,in);
-  this.min=min;
-  this.max=max;
-}

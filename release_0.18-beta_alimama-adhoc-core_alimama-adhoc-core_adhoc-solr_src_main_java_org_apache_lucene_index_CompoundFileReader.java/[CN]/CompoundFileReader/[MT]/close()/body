@@ -1,6 +1,0 @@
-{
-  if (stream == null)   throw new IOException("Already closed");
-  entries.clear();
-  stream.close();
-  stream=null;
-}

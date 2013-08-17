@@ -1,3 +1,0 @@
-{
-  vals=new LinkedHashMap<String,String[]>();
-}

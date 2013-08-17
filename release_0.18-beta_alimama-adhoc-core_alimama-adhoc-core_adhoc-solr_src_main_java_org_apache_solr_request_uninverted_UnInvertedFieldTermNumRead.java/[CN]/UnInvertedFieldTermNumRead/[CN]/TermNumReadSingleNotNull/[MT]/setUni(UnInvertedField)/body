@@ -1,5 +1,0 @@
-{
-  this.uni=uni;
-  this.td=UnInvertedFieldQuickDouble.termDoubleValue.INSTANCE(uni);
-  this.tm=UnInvertedFieldUtils.getBlockArrayRead(uni);
-}

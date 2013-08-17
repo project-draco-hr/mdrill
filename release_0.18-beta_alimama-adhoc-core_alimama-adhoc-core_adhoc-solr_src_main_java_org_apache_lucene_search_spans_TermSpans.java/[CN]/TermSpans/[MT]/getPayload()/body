@@ -1,5 +1,0 @@
-{
-  byte[] bytes=new byte[positions.getPayloadLength()];
-  bytes=positions.getPayload(bytes,0);
-  return Collections.singletonList(bytes);
-}

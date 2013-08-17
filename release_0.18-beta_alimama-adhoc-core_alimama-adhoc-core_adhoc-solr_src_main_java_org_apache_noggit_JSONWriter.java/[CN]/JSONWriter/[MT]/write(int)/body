@@ -1,3 +1,0 @@
-{
-  JSONUtil.writeNumber(number,out);
-}

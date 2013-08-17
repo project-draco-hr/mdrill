@@ -1,3 +1,0 @@
-{
-  this.singleToken=(Token)token.clone();
-}

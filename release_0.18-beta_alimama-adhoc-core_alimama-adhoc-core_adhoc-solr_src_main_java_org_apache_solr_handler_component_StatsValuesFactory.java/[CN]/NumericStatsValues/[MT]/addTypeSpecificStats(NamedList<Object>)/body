@@ -1,6 +1,0 @@
-{
-  res.add("sum",sum);
-  res.add("sumOfSquares",sumOfSquares);
-  res.add("mean",sum / count);
-  res.add("stddev",getStandardDeviation());
-}

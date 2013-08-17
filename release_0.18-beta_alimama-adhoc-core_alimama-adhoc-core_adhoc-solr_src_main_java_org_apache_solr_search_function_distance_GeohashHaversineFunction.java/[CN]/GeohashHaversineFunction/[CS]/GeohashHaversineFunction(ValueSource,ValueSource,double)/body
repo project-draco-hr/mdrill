@@ -1,5 +1,0 @@
-{
-  this.geoHash1=geoHash1;
-  this.geoHash2=geoHash2;
-  this.radius=radius;
-}

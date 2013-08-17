@@ -1,4 +1,0 @@
-{
-  tokenStreams.close();
-  tokenStreams=null;
-}

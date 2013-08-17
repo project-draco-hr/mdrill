@@ -1,3 +1,0 @@
-{
-  if (next != null)   next.processRollback(cmd);
-}

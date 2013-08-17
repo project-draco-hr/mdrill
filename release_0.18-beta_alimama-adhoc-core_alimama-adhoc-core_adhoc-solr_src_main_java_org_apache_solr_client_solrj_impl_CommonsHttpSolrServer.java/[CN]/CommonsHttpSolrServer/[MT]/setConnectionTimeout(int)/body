@@ -1,3 +1,0 @@
-{
-  getConnectionManager().getParams().setConnectionTimeout(timeout);
-}

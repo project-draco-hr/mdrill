@@ -1,3 +1,0 @@
-{
-  return splitList.split(value.trim(),0);
-}

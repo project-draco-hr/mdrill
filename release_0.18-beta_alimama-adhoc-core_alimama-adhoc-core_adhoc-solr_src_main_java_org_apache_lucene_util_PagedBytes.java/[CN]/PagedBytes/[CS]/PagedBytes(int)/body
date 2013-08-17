@@ -1,6 +1,0 @@
-{
-  this.blockSize=1 << blockBits;
-  this.blockBits=blockBits;
-  blockMask=blockSize - 1;
-  upto=blockSize;
-}

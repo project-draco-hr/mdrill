@@ -1,3 +1,0 @@
-{
-  restrictProps(SORT_MISSING_FIRST | SORT_MISSING_LAST);
-}

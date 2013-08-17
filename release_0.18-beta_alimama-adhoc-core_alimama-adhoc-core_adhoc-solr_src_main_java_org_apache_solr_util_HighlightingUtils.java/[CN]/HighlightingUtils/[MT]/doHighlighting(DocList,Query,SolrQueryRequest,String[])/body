@@ -1,3 +1,0 @@
-{
-  return HIGHLIGHTER.doHighlighting(docs,query,req,defaultFields);
-}

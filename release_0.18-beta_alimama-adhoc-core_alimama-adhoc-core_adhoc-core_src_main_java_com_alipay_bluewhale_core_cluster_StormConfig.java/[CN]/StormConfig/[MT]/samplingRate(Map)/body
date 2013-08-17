@@ -1,3 +1,0 @@
-{
-  return sampling_rate(conf);
-}

@@ -1,5 +1,0 @@
-{
-  int h=prefix.hashCode() ^ Float.floatToIntBits(getBoost());
-  h^=(h << 14) | (h >>> 19);
-  return h;
-}

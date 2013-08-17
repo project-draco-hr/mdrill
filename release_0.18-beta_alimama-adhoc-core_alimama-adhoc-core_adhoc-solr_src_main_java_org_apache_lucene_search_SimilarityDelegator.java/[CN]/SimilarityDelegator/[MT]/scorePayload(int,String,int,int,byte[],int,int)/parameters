@@ -1,7 +1,0 @@
-int docId
-String fieldName
-int start
-int end
-byte[] payload
-int offset
-int length

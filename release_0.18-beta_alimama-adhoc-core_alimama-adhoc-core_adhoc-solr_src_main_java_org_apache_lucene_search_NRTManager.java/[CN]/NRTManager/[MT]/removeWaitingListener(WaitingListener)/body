@@ -1,3 +1,0 @@
-{
-  waitingListeners.remove(l);
-}

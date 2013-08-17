@@ -1,8 +1,0 @@
-{
-  LinkedHashMap<String,Integer> map=this.suggestions.get(token);
-  if (map == null) {
-    map=new LinkedHashMap<String,Integer>();
-    this.suggestions.put(token,map);
-  }
-  map.put(suggestion,docFreq);
-}

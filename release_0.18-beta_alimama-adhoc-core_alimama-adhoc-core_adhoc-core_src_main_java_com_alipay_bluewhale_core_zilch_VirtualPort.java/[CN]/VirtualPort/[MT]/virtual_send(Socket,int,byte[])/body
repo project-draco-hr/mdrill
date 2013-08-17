@@ -1,3 +1,0 @@
-{
-  return virtual_send(socket,virtual_port,message,ZMQ.NOBLOCK);
-}

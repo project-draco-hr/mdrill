@@ -1,4 +1,0 @@
-{
-  super.addReaderFinishedListener(listener);
-  in.addReaderFinishedListener(listener);
-}

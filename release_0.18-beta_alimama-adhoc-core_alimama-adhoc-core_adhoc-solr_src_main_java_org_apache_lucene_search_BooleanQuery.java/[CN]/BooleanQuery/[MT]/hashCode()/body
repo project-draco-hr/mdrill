@@ -1,3 +1,0 @@
-{
-  return Float.floatToIntBits(getBoost()) ^ clauses.hashCode() + getMinimumNumberShouldMatch() + (disableCoord ? 17 : 0);
-}

@@ -1,7 +1,0 @@
-{
-  SimpleDateFormat fmt=new SimpleDateFormat("yyyyMMdd");
-  Date d=fmt.parse(str);
-  Date pd=new Date();
-  pd.setTime(d.getTime() - 1000l * 3600 * 24* day);
-  return fmt.format(pd);
-}

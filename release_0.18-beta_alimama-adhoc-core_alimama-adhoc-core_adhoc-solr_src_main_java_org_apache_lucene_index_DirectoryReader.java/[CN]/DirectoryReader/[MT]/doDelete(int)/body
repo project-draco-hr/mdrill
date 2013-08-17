@@ -1,6 +1,0 @@
-{
-  numDocs=-1;
-  int i=readerIndex(n);
-  subReaders[i].deleteDocument(n - starts[i]);
-  hasDeletions=true;
-}

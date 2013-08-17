@@ -1,4 +1,0 @@
-{
-  socket.setLinger(linger_ms);
-  return socket;
-}

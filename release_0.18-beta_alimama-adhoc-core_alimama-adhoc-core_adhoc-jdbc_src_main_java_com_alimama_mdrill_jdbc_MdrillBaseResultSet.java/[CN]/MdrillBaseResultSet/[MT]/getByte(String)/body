@@ -1,3 +1,0 @@
-{
-  return getByte(findColumn(columnName));
-}

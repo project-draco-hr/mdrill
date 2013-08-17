@@ -1,4 +1,0 @@
-{
-  this.freq=freq;
-  this.target=r.nextInt(freq);
-}

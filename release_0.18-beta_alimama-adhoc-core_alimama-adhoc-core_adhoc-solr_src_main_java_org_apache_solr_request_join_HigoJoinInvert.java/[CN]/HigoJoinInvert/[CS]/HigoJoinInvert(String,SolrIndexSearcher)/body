@@ -1,5 +1,0 @@
-{
-  super();
-  this.tableName=tableName;
-  this.leftSearcher=leftSearcher;
-}

@@ -1,4 +1,0 @@
-Document doc
-int docId
-IndexReader reader
-IndexSchema schema

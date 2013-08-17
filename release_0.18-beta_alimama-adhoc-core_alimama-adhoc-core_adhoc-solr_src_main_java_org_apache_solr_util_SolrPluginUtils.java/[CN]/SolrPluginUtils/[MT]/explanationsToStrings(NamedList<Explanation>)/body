@@ -1,7 +1,0 @@
-{
-  NamedList<String> out=new SimpleOrderedMap<String>();
-  for (  Map.Entry<String,Explanation> entry : explanations) {
-    out.add(entry.getKey(),"\n" + entry.getValue().toString());
-  }
-  return out;
-}

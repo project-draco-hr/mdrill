@@ -1,4 +1,0 @@
-{
-  super(weight,term);
-  this.positionSensitive=positionSensitive;
-}

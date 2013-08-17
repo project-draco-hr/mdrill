@@ -1,4 +1,0 @@
-{
-  if (pos < len)   System.arraycopy(s,pos + 1,s,pos,len - pos - 1);
-  return len - 1;
-}

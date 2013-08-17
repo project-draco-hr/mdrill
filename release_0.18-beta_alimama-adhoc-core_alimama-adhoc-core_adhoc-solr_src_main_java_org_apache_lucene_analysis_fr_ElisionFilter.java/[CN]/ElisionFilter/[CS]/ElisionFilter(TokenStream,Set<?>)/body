@@ -1,3 +1,0 @@
-{
-  this(Version.LUCENE_30,input,articles);
-}

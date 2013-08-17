@@ -1,6 +1,0 @@
-{
-  Alias a=new Alias();
-  a.tie=tiebreaker;
-  a.fields=fieldBoosts;
-  aliases.put(field,a);
-}

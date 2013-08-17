@@ -1,6 +1,0 @@
-String name
-boolean internName
-String value
-Store store
-Index index
-TermVector termVector

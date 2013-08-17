@@ -1,3 +1,0 @@
-{
-  visitSubScorers(null,Occur.MUST,visitor);
-}

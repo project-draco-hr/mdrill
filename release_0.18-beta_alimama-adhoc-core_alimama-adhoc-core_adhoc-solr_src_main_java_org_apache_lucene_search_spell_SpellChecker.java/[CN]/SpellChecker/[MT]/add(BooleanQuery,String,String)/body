@@ -1,3 +1,0 @@
-{
-  q.add(new BooleanClause(new TermQuery(new Term(name,value)),BooleanClause.Occur.SHOULD));
-}

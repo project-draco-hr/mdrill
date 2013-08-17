@@ -1,8 +1,0 @@
-{
-switch (hiByte) {
-case 48:
-    return ((jjbitVec0[i2] & l2) != 0L);
-default :
-  return false;
-}
-}

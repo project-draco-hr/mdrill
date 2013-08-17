@@ -1,7 +1,0 @@
-{
-  if (other instanceof SortedIntDocSet || other instanceof HashDocSet) {
-    return other.intersection(this);
-  }
-  HashDocSet h=new HashDocSet(docs,offset,len);
-  return h.intersection(other);
-}

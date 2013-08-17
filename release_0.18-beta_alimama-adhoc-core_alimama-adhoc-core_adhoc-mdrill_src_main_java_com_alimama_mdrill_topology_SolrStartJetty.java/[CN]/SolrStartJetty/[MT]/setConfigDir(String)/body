@@ -1,5 +1,0 @@
-{
-  HadoopUtil.setHdfsConfDir(dir);
-  LinkFSDirectory.setHdfsConfDir(dir);
-  HigoJoinUtils.setHdfsConfDir(dir);
-}

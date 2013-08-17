@@ -1,3 +1,0 @@
-{
-  return this.acquire_random_range_id();
-}

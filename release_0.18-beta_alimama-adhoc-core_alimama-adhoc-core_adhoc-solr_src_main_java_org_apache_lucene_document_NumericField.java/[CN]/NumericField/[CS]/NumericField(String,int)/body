@@ -1,3 +1,0 @@
-{
-  this(name,precisionStep,Field.Store.NO,true);
-}

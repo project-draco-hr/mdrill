@@ -1,5 +1,0 @@
-{
-  String supervisorPath=Cluster.supervisor_path(supervisorId);
-  byte[] infoData=Utils.serialize(info);
-  cluster_state.set_ephemeral_node(supervisorPath,infoData);
-}

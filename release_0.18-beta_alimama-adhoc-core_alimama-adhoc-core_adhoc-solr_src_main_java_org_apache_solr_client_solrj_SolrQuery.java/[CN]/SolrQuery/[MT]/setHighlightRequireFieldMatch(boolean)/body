@@ -1,4 +1,0 @@
-{
-  this.set(HighlightParams.FIELD_MATCH,flag);
-  return this;
-}

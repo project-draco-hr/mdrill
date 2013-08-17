@@ -1,8 +1,0 @@
-{
-  if (o == this)   return true;
-  if (o == null)   return false;
-  if (this.getClass().equals(o.getClass())) {
-    return this.query.equals(((MultiTermQueryWrapperFilter)o).query);
-  }
-  return false;
-}

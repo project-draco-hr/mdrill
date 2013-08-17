@@ -1,2 +1,0 @@
-WorkerHeartbeat whb
-Map<Integer,LocalAssignment> assignedTasks

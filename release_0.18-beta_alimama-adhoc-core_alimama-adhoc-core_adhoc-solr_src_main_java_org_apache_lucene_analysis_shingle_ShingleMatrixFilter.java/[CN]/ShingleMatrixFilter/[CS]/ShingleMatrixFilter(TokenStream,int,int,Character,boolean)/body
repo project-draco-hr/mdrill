@@ -1,3 +1,0 @@
-{
-  this(input,minimumShingleSize,maximumShingleSize,spacerCharacter,ignoringSinglePrefixOrSuffixShingle,defaultSettingsCodec);
-}

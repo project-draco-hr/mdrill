@@ -1,3 +1,0 @@
-{
-  initialize(directory,segment,fis,interval,isIndex);
-}

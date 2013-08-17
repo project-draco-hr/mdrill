@@ -1,4 +1,0 @@
-{
-  this.service.submit(task);
-  ++numTasks;
-}

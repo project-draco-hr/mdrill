@@ -1,9 +1,0 @@
-{
-  ensureOpen();
-  if (subReaders.length == 1) {
-    return subReaders[0].terms(term);
-  }
- else {
-    return new MultiTermEnum(this,subReaders,starts,term);
-  }
-}

@@ -1,7 +1,0 @@
-{
-  if (o.getClass() != FloatFieldSource.class) {
-    return false;
-  }
-  FloatFieldSource other=(FloatFieldSource)o;
-  return this.parser == null ? other.parser == null : this.parser.getClass() == other.parser.getClass();
-}

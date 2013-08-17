@@ -1,8 +1,0 @@
-{
-  if (fieldState.attributeSource.hasAttribute(PayloadAttribute.class)) {
-    payloadAttribute=fieldState.attributeSource.getAttribute(PayloadAttribute.class);
-  }
- else {
-    payloadAttribute=null;
-  }
-}

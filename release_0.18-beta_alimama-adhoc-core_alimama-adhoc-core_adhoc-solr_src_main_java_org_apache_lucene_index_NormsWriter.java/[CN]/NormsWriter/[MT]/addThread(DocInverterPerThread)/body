@@ -1,3 +1,0 @@
-{
-  return new NormsWriterPerThread(docInverterPerThread,this);
-}

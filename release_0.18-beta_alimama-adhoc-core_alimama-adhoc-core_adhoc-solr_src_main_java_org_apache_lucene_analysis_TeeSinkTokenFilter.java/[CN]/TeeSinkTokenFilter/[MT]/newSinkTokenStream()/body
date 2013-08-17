@@ -1,3 +1,0 @@
-{
-  return newSinkTokenStream(ACCEPT_ALL_FILTER);
-}

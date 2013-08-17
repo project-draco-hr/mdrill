@@ -1,4 +1,0 @@
-{
-  super(numberOfSorts);
-  this.groupField=groupField;
-}

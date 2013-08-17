@@ -1,4 +1,0 @@
-{
-  ensureOpen();
-  prepareCommit(null);
-}

@@ -1,3 +1,0 @@
-String userQuery
-SolrPluginUtils.DisjunctionMaxQueryParser up
-SolrParams solrParams

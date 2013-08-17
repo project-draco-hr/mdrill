@@ -1,5 +1,0 @@
-{
-  if (!(o instanceof MultiPhraseQuery))   return false;
-  MultiPhraseQuery other=(MultiPhraseQuery)o;
-  return this.getBoost() == other.getBoost() && this.slop == other.slop && termArraysEquals(this.termArrays,other.termArrays) && this.positions.equals(other.positions);
-}

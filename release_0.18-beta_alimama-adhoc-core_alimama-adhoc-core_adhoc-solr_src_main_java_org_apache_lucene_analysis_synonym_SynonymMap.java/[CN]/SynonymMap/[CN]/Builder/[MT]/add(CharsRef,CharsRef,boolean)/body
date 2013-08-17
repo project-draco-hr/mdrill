@@ -1,3 +1,0 @@
-{
-  add(input,countWords(input),output,countWords(output),includeOrig);
-}

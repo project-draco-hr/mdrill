@@ -1,9 +1,0 @@
-{
-  if (!min.skipTo(target)) {
-    max.doc=NO_MORE_DOCS;
-    return false;
-  }
-  min=min.next;
-  max=max.next;
-  return true;
-}

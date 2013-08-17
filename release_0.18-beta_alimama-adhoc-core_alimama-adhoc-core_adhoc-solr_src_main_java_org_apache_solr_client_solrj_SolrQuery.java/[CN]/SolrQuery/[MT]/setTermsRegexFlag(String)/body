@@ -1,4 +1,0 @@
-{
-  this.add(TermsParams.TERMS_REGEXP_FLAG,flag);
-  return this;
-}

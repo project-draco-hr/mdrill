@@ -1,4 +1,0 @@
-{
-  String taskbeatPath=Cluster.taskbeat_storm_root(stormId);
-  return cluster_state.get_children(taskbeatPath,false);
-}

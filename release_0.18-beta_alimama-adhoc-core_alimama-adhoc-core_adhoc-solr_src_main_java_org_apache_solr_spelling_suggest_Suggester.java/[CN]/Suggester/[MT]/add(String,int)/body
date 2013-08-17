@@ -1,4 +1,0 @@
-{
-  LOG.info("add " + query + ", "+ numHits);
-  lookup.add(query,new Integer(numHits));
-}

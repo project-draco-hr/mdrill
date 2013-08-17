@@ -1,4 +1,0 @@
-{
-  System.arraycopy(b,off,buf,end,len);
-  end+=len;
-}

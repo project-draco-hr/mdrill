@@ -1,2 +1,0 @@
-int maxSize
-Collection<? extends E> c

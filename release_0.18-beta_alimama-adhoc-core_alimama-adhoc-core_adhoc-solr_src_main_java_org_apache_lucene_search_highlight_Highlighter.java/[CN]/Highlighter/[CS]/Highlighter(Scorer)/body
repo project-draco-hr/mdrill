@@ -1,3 +1,0 @@
-{
-  this(new SimpleHTMLFormatter(),fragmentScorer);
-}

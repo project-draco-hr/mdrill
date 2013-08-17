@@ -1,5 +1,0 @@
-{
-  lastPos=pos;
-  pos++;
-  while (pos < keys.length && keys[pos] == null)   pos++;
-}

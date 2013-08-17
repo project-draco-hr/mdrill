@@ -1,8 +1,0 @@
-{
-  super.reset(input);
-  resultToken.setLength(0);
-  finalOffset=0;
-  skipped=0;
-  delimitersCount=-1;
-  delimiterPositions.clear();
-}

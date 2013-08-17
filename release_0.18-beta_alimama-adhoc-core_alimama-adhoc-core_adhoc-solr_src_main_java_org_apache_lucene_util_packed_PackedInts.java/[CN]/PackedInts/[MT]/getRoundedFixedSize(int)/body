@@ -1,8 +1,0 @@
-{
-  if (bitsPerValue > 58 || (bitsPerValue < 32 && bitsPerValue > 29)) {
-    return getNextFixedSize(bitsPerValue);
-  }
- else {
-    return bitsPerValue;
-  }
-}

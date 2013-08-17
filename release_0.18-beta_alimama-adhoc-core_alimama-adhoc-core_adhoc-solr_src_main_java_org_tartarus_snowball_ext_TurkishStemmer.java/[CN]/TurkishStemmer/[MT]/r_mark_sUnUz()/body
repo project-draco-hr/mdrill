@@ -1,6 +1,0 @@
-{
-  if (find_among_b(a_15,4) == 0) {
-    return false;
-  }
-  return true;
-}

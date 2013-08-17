@@ -1,3 +1,0 @@
-{
-  this(core,schema,name,core.getIndexReaderFactory().newReader(directory,readOnly),true);
-}

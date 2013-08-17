@@ -1,5 +1,0 @@
-Map conf
-StormClusterState stormClusterState
-String supervisorId
-String myHostName
-int startTimeStamp

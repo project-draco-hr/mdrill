@@ -1,4 +1,0 @@
-{
-  super("commit");
-  this.optimize=optimize;
-}

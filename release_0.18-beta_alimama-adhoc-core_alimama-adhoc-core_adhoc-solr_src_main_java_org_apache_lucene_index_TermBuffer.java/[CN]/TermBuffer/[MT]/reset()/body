@@ -1,6 +1,0 @@
-{
-  field=null;
-  text.setLength(0);
-  term=null;
-  dirty=true;
-}

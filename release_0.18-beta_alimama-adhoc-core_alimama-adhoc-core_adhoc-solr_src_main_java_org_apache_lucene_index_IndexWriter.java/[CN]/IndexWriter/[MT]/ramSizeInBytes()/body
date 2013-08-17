@@ -1,4 +1,0 @@
-{
-  ensureOpen();
-  return docWriter.bytesUsed() + bufferedDeletesStream.bytesUsed();
-}

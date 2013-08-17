@@ -1,3 +1,0 @@
-{
-  return readOnlyOpen(path,null);
-}

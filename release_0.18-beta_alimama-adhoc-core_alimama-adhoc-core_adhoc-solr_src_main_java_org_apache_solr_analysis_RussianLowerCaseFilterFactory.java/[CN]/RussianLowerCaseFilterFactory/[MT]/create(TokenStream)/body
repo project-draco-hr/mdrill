@@ -1,3 +1,0 @@
-{
-  return new LowerCaseFilter(Version.LUCENE_29,in);
-}

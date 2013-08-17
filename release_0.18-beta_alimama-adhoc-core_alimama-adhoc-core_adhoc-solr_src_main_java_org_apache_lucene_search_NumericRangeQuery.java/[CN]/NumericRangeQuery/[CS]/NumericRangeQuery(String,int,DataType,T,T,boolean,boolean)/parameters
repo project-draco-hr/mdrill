@@ -1,7 +1,0 @@
-String field
-int precisionStep
-DataType dataType
-T min
-T max
-boolean minInclusive
-boolean maxInclusive

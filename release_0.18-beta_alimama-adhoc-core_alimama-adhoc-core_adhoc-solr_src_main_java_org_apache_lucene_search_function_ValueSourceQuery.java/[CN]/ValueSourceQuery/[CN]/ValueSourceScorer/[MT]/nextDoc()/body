@@ -1,3 +1,0 @@
-{
-  return doc=termDocs.next() ? termDocs.doc() : NO_MORE_DOCS;
-}

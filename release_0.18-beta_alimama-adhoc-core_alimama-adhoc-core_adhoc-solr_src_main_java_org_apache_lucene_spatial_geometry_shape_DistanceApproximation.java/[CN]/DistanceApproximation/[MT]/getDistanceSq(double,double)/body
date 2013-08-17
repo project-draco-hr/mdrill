@@ -1,5 +1,0 @@
-{
-  double latMiles=(lat - m_testLat) * MILES_PER_LATITUDE;
-  double lngMiles=(lng - m_testLng) * m_mpd;
-  return (latMiles * latMiles + lngMiles * lngMiles);
-}

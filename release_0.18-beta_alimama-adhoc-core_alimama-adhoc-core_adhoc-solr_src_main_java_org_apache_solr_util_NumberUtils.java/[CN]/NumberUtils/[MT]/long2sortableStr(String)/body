@@ -1,3 +1,0 @@
-{
-  return long2sortableStr(Long.parseLong(val));
-}

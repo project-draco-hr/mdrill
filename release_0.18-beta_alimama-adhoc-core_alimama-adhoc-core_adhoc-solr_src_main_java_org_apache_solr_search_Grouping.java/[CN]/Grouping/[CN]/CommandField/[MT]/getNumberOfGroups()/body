@@ -1,3 +1,0 @@
-{
-  return allGroupsCollector == null ? null : allGroupsCollector.getGroupCount();
-}

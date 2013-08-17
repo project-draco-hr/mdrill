@@ -1,7 +1,0 @@
-{
-  Scorer subQueryScorer=qWeight.scorer(reader,true,false);
-  if (subQueryScorer == null) {
-    return null;
-  }
-  return new BoostedQuery.CustomScorer(getSimilarity(searcher),searcher,reader,this,subQueryScorer,boostVal);
-}

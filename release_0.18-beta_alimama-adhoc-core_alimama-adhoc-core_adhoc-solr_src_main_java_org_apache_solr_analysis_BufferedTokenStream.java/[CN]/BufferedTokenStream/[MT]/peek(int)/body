@@ -1,9 +1,0 @@
-{
-  int fillCount=n - inQueue.size();
-  for (int i=0; i < fillCount; i++) {
-    Token t=readToken();
-    if (null == t)     return null;
-    inQueue.addLast(t);
-  }
-  return inQueue.get(n - 1);
-}

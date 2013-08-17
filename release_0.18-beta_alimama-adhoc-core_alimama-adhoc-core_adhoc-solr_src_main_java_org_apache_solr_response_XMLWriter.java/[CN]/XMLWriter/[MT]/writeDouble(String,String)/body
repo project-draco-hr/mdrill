@@ -1,3 +1,0 @@
-{
-  writePrim("double",name,val,false);
-}

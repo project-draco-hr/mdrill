@@ -1,8 +1,0 @@
-{
-  if (hash != null && reader.getSequentialSubReaders() == null && !hash.contains(reader.hashCode())) {
-    return null;
-  }
-  TermDocs termDocs=reader.termDocs(term);
-  if (termDocs == null)   return null;
-  return new TermScorer(this,termDocs,similarity,reader.norms(term.field()));
-}

@@ -1,5 +1,0 @@
-Directory d
-Analyzer a
-IndexDeletionPolicy deletionPolicy
-MaxFieldLength mfl
-IndexCommit commit

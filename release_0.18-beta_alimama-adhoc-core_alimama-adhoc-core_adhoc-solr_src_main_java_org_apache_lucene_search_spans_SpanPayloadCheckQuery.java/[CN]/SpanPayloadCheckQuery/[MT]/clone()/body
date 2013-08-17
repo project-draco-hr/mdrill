@@ -1,5 +1,0 @@
-{
-  SpanPayloadCheckQuery result=new SpanPayloadCheckQuery((SpanQuery)match.clone(),payloadToMatch);
-  result.setBoost(getBoost());
-  return result;
-}

@@ -1,4 +1,0 @@
-{
-  set(name,String.valueOf(val));
-  return this;
-}

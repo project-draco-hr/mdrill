@@ -1,3 +1,0 @@
-{
-  return new UpdateRequest().deleteById(id).process(this);
-}

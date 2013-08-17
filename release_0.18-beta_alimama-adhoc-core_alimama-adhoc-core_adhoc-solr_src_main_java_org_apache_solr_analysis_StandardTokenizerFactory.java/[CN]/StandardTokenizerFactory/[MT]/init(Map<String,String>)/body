@@ -1,5 +1,0 @@
-{
-  super.init(args);
-  assureMatchVersion();
-  maxTokenLength=getInt("maxTokenLength",StandardAnalyzer.DEFAULT_MAX_TOKEN_LENGTH);
-}

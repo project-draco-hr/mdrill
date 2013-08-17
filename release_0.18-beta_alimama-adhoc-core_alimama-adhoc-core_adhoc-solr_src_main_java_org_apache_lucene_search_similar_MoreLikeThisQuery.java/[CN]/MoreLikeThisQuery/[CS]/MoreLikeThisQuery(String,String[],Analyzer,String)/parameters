@@ -1,4 +1,0 @@
-String likeText
-String[] moreLikeFields
-Analyzer analyzer
-String fieldName

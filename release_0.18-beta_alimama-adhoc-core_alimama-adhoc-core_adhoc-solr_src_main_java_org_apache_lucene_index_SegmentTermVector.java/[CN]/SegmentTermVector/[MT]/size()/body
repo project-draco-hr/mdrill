@@ -1,3 +1,0 @@
-{
-  return terms == null ? 0 : terms.length;
-}

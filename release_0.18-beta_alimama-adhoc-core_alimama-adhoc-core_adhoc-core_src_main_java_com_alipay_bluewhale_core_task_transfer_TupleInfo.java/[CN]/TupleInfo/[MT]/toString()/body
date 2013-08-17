@@ -1,3 +1,0 @@
-{
-  return "TupleInfo [stream=" + stream + ", values="+ values+ "]";
-}

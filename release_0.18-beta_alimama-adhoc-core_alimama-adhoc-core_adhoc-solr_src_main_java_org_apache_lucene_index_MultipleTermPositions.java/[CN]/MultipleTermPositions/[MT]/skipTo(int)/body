@@ -1,8 +1,0 @@
-{
-  while (_termPositionsQueue.peek() != null && target > _termPositionsQueue.peek().doc()) {
-    TermPositions tp=_termPositionsQueue.pop();
-    if (tp.skipTo(target))     _termPositionsQueue.add(tp);
- else     tp.close();
-  }
-  return next();
-}

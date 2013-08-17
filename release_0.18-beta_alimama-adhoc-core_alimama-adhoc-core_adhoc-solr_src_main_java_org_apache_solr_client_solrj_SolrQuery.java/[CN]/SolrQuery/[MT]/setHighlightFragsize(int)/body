@@ -1,4 +1,0 @@
-{
-  this.set(HighlightParams.FRAGSIZE,num);
-  return this;
-}

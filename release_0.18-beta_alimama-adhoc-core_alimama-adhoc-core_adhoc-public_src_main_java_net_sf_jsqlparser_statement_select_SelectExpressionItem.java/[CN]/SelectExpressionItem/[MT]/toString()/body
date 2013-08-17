@@ -1,3 +1,0 @@
-{
-  return expression + ((alias != null) ? " AS " + alias : "");
-}

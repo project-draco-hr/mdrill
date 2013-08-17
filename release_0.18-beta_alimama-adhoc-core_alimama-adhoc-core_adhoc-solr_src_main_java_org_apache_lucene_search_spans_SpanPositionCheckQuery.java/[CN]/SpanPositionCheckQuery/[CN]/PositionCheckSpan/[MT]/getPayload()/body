@@ -1,7 +1,0 @@
-{
-  ArrayList<byte[]> result=null;
-  if (spans.isPayloadAvailable()) {
-    result=new ArrayList<byte[]>(spans.getPayload());
-  }
-  return result;
-}

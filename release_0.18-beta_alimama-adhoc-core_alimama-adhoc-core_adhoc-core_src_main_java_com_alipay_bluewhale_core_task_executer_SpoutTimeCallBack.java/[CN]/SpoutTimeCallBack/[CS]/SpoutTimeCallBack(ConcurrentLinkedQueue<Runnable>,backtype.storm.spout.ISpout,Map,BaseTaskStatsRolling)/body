@@ -1,6 +1,0 @@
-{
-  this.event_queue=_event_queue;
-  this.spout=_spout;
-  this.storm_conf=_storm_conf;
-  this.task_stats=stat;
-}

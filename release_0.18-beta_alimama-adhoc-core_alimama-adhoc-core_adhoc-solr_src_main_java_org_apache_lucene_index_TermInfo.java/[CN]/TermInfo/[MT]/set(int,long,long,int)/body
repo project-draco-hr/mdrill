@@ -1,6 +1,0 @@
-{
-  this.docFreq=docFreq;
-  this.freqPointer=freqPointer;
-  this.proxPointer=proxPointer;
-  this.skipOffset=skipOffset;
-}

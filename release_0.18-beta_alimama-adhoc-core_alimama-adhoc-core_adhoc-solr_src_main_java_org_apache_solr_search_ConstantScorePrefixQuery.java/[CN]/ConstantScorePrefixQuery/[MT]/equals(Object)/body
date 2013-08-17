@@ -1,6 +1,0 @@
-{
-  if (this == o)   return true;
-  if (!(o instanceof ConstantScorePrefixQuery))   return false;
-  ConstantScorePrefixQuery other=(ConstantScorePrefixQuery)o;
-  return this.prefix.equals(other.prefix) && this.getBoost() == other.getBoost();
-}

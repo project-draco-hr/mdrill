@@ -1,6 +1,0 @@
-{
-  final int newStart=CompoundWordTokenFilterBase.this.offsetAtt.startOffset() + offset;
-  this.txt=CompoundWordTokenFilterBase.this.termAtt.subSequence(offset,offset + length);
-  this.startOffset=newStart;
-  this.endOffset=newStart + length;
-}

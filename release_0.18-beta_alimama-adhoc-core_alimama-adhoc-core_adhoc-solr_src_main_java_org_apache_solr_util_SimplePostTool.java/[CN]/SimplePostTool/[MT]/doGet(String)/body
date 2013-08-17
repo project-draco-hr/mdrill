@@ -1,8 +1,0 @@
-{
-  try {
-    doGet(new URL(url));
-  }
- catch (  MalformedURLException e) {
-    fatal("The specified URL " + url + " is not a valid URL. Please check");
-  }
-}

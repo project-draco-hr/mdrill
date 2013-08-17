@@ -1,5 +1,0 @@
-{
-synchronized (lock) {
-    this.appendCut(this.exception,msg,10000,2);
-  }
-}

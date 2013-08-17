@@ -1,4 +1,0 @@
-{
-  super(out,strategy);
-  super.buf=sharedCSVBuf;
-}

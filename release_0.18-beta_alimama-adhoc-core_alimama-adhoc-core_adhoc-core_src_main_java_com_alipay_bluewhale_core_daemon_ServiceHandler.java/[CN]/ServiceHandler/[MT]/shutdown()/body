@@ -1,6 +1,0 @@
-{
-  LOG.info("Shutting down master");
-  data.getScheduExec().shutdownNow();
-  data.getStormClusterState().disconnect();
-  LOG.info("Shut down master");
-}

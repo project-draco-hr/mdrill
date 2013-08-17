@@ -1,4 +1,0 @@
-{
-  this.scorer=scorer;
-  this.doc=doc;
-}

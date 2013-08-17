@@ -1,5 +1,0 @@
-{
-  ensureOpen();
-  int i=readerIndex(n);
-  return subReaders[i].document(n - starts[i],fieldSelector);
-}

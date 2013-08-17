@@ -1,3 +1,0 @@
-{
-  return get(info,doOpenStores,BufferedIndexInput.BUFFER_SIZE,config.getReaderTermsIndexDivisor());
-}

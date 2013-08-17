@@ -1,3 +1,0 @@
-{
-  killTopologyWithOpts(name,new KillOptions());
-}

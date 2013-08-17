@@ -1,4 +1,0 @@
-{
-  Shape shape=getBoxShape(latitude,longitude,miles);
-  return new CartesianShapeFilter(shape,shape.getTierId());
-}

@@ -1,5 +1,0 @@
-{
-  assertNextEvent(JSONParser.OBJECT_START);
-  assertNextEvent(JSONParser.OBJECT_END);
-  return new RollbackUpdateCommand();
-}

@@ -1,3 +1,0 @@
-List<SegmentInfo> candidate
-boolean hitTooLarge
-long mergingBytes

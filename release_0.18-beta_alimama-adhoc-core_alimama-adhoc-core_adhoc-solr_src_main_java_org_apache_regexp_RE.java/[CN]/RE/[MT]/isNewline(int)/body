@@ -1,7 +1,0 @@
-{
-  char nextChar=search.charAt(i);
-  if (nextChar == '\n' || nextChar == '\r' || nextChar == '\u0085' || nextChar == '\u2028' || nextChar == '\u2029') {
-    return true;
-  }
-  return false;
-}

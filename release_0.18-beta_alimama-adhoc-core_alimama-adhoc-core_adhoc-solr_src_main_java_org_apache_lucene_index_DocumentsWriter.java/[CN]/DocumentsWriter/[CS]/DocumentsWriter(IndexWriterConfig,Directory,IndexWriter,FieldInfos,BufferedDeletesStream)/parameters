@@ -1,5 +1,0 @@
-IndexWriterConfig config
-Directory directory
-IndexWriter writer
-FieldInfos fieldInfos
-BufferedDeletesStream bufferedDeletesStream

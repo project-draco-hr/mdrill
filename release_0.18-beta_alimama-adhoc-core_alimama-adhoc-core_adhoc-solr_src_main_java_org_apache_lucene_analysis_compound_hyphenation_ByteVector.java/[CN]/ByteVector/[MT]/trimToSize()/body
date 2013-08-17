@@ -1,7 +1,0 @@
-{
-  if (n < array.length) {
-    byte[] aux=new byte[n];
-    System.arraycopy(array,0,aux,0,n);
-    array=aux;
-  }
-}

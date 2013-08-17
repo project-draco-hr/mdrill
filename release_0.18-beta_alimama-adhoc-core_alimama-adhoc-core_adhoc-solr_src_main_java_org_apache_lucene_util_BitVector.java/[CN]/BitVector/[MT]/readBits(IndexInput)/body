@@ -1,5 +1,0 @@
-{
-  count=input.readInt();
-  bits=new byte[getNumBytes(size)];
-  input.readBytes(bits,0,bits.length);
-}

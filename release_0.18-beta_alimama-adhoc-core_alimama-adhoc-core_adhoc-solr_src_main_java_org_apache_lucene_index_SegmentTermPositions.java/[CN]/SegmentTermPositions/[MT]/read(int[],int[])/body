@@ -1,3 +1,0 @@
-{
-  throw new UnsupportedOperationException("TermPositions does not support processing multiple documents in one call. Use TermDocs instead.");
-}

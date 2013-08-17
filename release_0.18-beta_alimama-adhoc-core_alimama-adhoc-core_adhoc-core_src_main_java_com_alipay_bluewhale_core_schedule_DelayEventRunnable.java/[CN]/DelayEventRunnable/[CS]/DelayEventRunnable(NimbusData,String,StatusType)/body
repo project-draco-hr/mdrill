@@ -1,5 +1,0 @@
-{
-  this.data=data;
-  this.topologyid=topologyid;
-  this.status=status;
-}

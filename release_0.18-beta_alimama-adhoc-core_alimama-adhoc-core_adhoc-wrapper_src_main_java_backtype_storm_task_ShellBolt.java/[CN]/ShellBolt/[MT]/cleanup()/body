@@ -1,7 +1,0 @@
-{
-  _subprocess.destroy();
-  _inputs.clear();
-  _processin=null;
-  _processout=null;
-  _collector=null;
-}

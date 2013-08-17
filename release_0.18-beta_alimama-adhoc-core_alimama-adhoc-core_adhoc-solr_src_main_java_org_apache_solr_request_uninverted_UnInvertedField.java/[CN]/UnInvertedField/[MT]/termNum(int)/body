@@ -1,3 +1,0 @@
-{
-  return this.tnr.termNum(doc,this.nullTermNum);
-}

@@ -1,9 +1,0 @@
-{
-  for (  DynamicField df : dynamicFields) {
-    if (df.matches(fieldName))     return df.prototype.getType();
-  }
-  if (!fieldName.endsWith("_s")) {
-    return getDynamicFieldType(fieldName + "_s");
-  }
-  throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,"undefined field " + fieldName);
-}

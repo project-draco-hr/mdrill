@@ -1,3 +1,0 @@
-{
-  this(name,tokenStream,TermVector.NO);
-}

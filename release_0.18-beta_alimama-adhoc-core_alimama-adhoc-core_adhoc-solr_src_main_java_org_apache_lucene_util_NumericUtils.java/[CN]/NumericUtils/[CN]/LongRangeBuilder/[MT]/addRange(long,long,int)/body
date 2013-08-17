@@ -1,3 +1,0 @@
-{
-  addRange(longToPrefixCoded(min,shift),longToPrefixCoded(max,shift));
-}

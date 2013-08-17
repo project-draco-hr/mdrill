@@ -1,3 +1,0 @@
-{
-  return (Integer)(bucket_size_secs * (time_secs / bucket_size_secs));
-}

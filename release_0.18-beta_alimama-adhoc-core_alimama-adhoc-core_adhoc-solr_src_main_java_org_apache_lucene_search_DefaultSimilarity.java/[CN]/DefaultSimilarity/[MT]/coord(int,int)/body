@@ -1,3 +1,0 @@
-{
-  return overlap / (float)maxOverlap;
-}

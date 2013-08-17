@@ -1,4 +1,0 @@
-{
-  if (from.equals(val))   val=to;
-  base.add(doc,line,column,val);
-}

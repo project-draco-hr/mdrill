@@ -1,3 +1,0 @@
-{
-  send(to,subject,content,attachment,charset,"","");
-}

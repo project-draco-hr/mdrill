@@ -1,3 +1,0 @@
-{
-  return (properties & SORT_MISSING_LAST) != 0;
-}

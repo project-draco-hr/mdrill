@@ -1,9 +1,0 @@
-{
-  SolrIndexReader top=(SolrIndexReader)r;
-  int base=0;
-  while (top.getParent() != null) {
-    base+=top.getBase();
-    top=top.getParent();
-  }
-  return fieldName.hashCode() + base + (int)top.getVersion();
-}

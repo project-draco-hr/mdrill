@@ -1,3 +1,0 @@
-{
-  return getSuggestions(tokens,reader,1,onlyMorePopular,extendedResults);
-}

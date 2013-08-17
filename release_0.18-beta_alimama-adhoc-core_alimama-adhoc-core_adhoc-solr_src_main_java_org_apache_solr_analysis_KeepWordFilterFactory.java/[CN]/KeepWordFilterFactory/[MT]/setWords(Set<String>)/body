@@ -1,3 +1,0 @@
-{
-  this.words=new CharArraySet(luceneMatchVersion,words,ignoreCase);
-}

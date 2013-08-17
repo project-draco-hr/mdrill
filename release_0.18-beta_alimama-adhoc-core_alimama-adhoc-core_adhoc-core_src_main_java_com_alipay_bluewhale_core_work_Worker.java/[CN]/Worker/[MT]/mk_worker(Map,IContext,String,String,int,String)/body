@@ -1,4 +1,0 @@
-{
-  Worker w=new Worker(conf,mq_context,topology_id,supervisor_id,port,worker_id);
-  return w.execute();
-}

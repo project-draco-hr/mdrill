@@ -1,9 +1,0 @@
-{
-  if ((source1.dimension() != source2.dimension())) {
-    throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,"Illegal number of sources");
-  }
-  this.power=power;
-  this.oneOverPower=1 / power;
-  this.source1=source1;
-  this.source2=source2;
-}

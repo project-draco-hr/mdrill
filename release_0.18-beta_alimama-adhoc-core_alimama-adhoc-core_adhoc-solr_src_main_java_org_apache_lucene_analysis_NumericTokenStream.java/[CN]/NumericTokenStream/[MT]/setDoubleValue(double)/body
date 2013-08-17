@@ -1,6 +1,0 @@
-{
-  this.value=NumericUtils.doubleToSortableLong(value);
-  valSize=64;
-  shift=0;
-  return this;
-}

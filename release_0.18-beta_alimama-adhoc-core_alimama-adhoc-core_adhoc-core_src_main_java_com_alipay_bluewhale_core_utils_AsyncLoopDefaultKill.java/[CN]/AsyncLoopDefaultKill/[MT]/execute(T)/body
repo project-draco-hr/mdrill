@@ -1,5 +1,0 @@
-{
-  Exception e=(Exception)args[0];
-  StormUtils.halt_process(1,"Async loop died!");
-  return e;
-}

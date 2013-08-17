@@ -1,3 +1,0 @@
-{
-  writePrim("null",name,"",false);
-}

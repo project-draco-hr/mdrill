@@ -1,6 +1,0 @@
-{
-  for (  final IndexReader reader : readers) {
-    reader.deleteDocument(n);
-  }
-  hasDeletions=true;
-}

@@ -1,6 +1,0 @@
-{
-  if (this.inputs == null) {
-    this.inputs=new HashMap<GlobalStreamId,Grouping>();
-  }
-  this.inputs.put(key,val);
-}

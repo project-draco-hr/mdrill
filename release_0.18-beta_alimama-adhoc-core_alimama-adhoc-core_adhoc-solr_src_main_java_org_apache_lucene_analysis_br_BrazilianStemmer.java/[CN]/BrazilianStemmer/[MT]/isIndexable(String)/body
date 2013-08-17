@@ -1,3 +1,0 @@
-{
-  return (term.length() < 30) && (term.length() > 2);
-}

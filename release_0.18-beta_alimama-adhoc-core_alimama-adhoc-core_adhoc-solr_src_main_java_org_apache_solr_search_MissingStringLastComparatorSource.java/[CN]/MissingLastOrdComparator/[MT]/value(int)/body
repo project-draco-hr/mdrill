@@ -1,4 +1,0 @@
-{
-  String v=values[slot];
-  return v == null ? nullVal : v;
-}

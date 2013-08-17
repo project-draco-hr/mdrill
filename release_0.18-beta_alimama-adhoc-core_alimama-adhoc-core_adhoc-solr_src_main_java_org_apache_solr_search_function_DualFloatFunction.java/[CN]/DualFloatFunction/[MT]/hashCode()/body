@@ -1,8 +1,0 @@
-{
-  int h=a.hashCode();
-  h^=(h << 13) | (h >>> 20);
-  h+=b.hashCode();
-  h^=(h << 23) | (h >>> 10);
-  h+=name().hashCode();
-  return h;
-}

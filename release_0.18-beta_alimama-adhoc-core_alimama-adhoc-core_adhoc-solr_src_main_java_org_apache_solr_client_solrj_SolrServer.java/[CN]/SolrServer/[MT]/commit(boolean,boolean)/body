@@ -1,3 +1,0 @@
-{
-  return new UpdateRequest().setAction(UpdateRequest.ACTION.COMMIT,waitFlush,waitSearcher).process(this);
-}

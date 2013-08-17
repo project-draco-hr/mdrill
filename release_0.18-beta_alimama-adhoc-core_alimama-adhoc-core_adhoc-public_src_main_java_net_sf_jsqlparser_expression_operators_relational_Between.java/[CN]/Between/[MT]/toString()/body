@@ -1,3 +1,0 @@
-{
-  return leftExpression + " " + (not ? "NOT " : "")+ "BETWEEN "+ betweenExpressionStart+ " AND "+ betweenExpressionEnd;
-}

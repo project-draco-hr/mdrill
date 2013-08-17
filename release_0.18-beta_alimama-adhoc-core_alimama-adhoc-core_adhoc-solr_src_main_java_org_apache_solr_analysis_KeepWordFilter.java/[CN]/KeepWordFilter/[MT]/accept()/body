@@ -1,3 +1,0 @@
-{
-  return words.contains(termAtt.buffer(),0,termAtt.length());
-}

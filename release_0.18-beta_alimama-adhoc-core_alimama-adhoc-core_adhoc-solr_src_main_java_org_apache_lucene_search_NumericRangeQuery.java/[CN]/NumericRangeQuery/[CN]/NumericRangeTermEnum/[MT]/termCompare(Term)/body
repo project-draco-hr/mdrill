@@ -1,3 +1,0 @@
-{
-  return (term.field() == field && term.text().compareTo(currentUpperBound) <= 0);
-}

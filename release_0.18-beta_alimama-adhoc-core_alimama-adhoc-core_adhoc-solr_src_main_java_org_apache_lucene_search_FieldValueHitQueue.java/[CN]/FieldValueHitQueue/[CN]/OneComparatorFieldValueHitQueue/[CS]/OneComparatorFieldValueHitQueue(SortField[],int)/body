@@ -1,9 +1,0 @@
-{
-  super(fields);
-  SortField field=fields[0];
-  comparator=field.getComparator(size,0);
-  oneReverseMul=field.reverse ? -1 : 1;
-  comparators[0]=comparator;
-  reverseMul[0]=oneReverseMul;
-  initialize(size);
-}

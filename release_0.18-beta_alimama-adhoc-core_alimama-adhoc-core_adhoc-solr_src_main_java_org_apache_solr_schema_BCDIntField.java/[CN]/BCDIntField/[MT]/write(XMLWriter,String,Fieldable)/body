@@ -1,3 +1,0 @@
-{
-  xmlWriter.writeInt(name,toExternal(f));
-}

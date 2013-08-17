@@ -1,4 +1,0 @@
-{
-  Node node=solrConfig.getNode(xpath,false);
-  return getConfig(solrConfig,node);
-}

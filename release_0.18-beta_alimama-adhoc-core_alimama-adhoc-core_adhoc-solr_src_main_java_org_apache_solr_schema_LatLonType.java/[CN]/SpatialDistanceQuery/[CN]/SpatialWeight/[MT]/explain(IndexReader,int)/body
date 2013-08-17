@@ -1,8 +1,0 @@
-{
-  SolrIndexReader topReader=(SolrIndexReader)reader;
-  SolrIndexReader[] subReaders=topReader.getLeafReaders();
-  int[] offsets=topReader.getLeafOffsets();
-  int readerPos=SolrIndexReader.readerIndex(doc,offsets);
-  int readerBase=offsets[readerPos];
-  return ((SpatialScorer)scorer(subReaders[readerPos],true,true)).explain(doc - readerBase);
-}

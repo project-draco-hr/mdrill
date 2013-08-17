@@ -1,4 +1,0 @@
-{
-  if (start > termLength || end > termLength)   throw new IndexOutOfBoundsException();
-  return new String(termBuffer,start,end - start);
-}

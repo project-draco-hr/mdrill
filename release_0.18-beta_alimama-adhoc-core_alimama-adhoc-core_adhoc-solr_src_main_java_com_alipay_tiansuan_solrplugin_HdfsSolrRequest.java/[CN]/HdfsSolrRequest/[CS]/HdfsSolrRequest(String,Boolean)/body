@@ -1,4 +1,0 @@
-{
-  String urlstr=solr + "/update/userimport?isdel=" + Boolean.toString(isdel);
-  this.init(urlstr);
-}

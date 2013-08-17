@@ -1,6 +1,0 @@
-{
-  subQuery.extractTerms(terms);
-  for (int i=0; i < valSrcQueries.length; i++) {
-    valSrcQueries[i].extractTerms(terms);
-  }
-}

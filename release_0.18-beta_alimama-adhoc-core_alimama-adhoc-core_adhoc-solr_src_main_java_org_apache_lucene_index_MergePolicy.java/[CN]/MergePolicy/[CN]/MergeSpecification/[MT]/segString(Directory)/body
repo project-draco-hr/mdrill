@@ -1,7 +1,0 @@
-{
-  StringBuilder b=new StringBuilder();
-  b.append("MergeSpec:\n");
-  final int count=merges.size();
-  for (int i=0; i < count; i++)   b.append("  ").append(1 + i).append(": ").append(merges.get(i).segString(dir));
-  return b.toString();
-}

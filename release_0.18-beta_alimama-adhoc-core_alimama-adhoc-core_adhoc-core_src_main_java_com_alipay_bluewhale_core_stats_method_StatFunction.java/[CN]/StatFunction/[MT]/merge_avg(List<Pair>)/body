@@ -1,8 +1,0 @@
-{
-  Pair rtn=new Pair();
-  for (  Pair p : avg) {
-    rtn.first+=p.first;
-    rtn.second+=p.second;
-  }
-  return rtn;
-}

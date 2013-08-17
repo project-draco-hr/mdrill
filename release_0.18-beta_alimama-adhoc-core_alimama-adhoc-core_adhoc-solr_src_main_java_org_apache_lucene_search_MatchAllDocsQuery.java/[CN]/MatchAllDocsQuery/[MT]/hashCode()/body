@@ -1,3 +1,0 @@
-{
-  return Float.floatToIntBits(getBoost()) ^ 0x1AA71190;
-}

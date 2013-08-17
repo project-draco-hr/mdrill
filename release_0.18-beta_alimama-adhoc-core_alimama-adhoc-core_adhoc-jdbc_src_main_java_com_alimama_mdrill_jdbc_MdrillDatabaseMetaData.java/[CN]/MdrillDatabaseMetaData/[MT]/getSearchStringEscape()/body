@@ -1,3 +1,0 @@
-{
-  return String.valueOf(SEARCH_STRING_ESCAPE);
-}

@@ -1,3 +1,0 @@
-{
-  return parseInt(chars,offset,len,10);
-}

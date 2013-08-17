@@ -1,2 +1,0 @@
-SolrInputDocument doc
-int commitWithinMs

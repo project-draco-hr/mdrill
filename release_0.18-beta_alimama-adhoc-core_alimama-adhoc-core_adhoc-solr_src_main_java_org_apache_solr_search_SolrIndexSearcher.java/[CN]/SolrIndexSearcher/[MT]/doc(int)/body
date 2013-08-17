@@ -1,3 +1,0 @@
-{
-  return doc(i,(Set<String>)null);
-}

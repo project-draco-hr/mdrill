@@ -1,7 +1,0 @@
-{
-  CommonStatsRolling rtn=new CommonStatsRolling();
-  rtn.emitted=keyed_counter_rolling_window_set(NUM_STAT_BUCKETS,STAT_BUCKETS);
-  rtn.transferred=keyed_counter_rolling_window_set(NUM_STAT_BUCKETS,STAT_BUCKETS);
-  rtn.rate=rate;
-  return rtn;
-}

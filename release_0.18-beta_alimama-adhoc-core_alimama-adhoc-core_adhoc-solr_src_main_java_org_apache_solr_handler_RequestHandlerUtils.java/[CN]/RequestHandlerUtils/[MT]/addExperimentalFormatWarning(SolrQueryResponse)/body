@@ -1,3 +1,0 @@
-{
-  rsp.add("WARNING","This response format is experimental.  It is likely to change in the future.");
-}

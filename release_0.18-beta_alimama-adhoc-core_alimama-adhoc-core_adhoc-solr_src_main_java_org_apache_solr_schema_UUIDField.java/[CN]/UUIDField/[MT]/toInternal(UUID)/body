@@ -1,3 +1,0 @@
-{
-  return uuid.toString().toLowerCase(Locale.ENGLISH);
-}

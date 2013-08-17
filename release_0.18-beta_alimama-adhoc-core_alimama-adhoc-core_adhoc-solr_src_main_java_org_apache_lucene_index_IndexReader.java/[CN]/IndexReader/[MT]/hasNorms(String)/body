@@ -1,4 +1,0 @@
-{
-  ensureOpen();
-  return norms(field) != null;
-}

@@ -1,3 +1,0 @@
-{
-  return dedupHash == null ? 0 : fst.nodeCount;
-}

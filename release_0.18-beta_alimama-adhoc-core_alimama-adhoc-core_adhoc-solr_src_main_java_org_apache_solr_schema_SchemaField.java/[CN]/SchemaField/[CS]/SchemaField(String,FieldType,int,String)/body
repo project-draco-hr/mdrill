@@ -1,7 +1,0 @@
-{
-  this.name=name;
-  this.type=type;
-  this.properties=properties;
-  this.defaultValue=defaultValue;
-  required=(properties & REQUIRED) != 0;
-}

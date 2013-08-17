@@ -1,3 +1,0 @@
-{
-  this(input,bufferSize,delimiter,replacement,DEFAULT_SKIP);
-}

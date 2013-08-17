@@ -1,4 +1,0 @@
-{
-  this.prefix=prefix;
-  setEnum(reader.terms(new Term(prefix.field(),prefix.text())));
-}

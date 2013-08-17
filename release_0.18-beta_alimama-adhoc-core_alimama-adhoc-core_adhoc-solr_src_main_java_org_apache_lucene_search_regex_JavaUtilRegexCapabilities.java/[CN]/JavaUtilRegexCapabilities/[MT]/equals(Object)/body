@@ -1,7 +1,0 @@
-{
-  if (this == o)   return true;
-  if (o == null || getClass() != o.getClass())   return false;
-  final JavaUtilRegexCapabilities that=(JavaUtilRegexCapabilities)o;
-  if (pattern != null ? !pattern.equals(that.pattern) : that.pattern != null)   return false;
-  return true;
-}

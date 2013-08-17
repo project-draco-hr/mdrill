@@ -1,7 +1,0 @@
-{
-  int k=super.find(pat);
-  if (k >= 0) {
-    return unpackValues(k);
-  }
-  return "";
-}

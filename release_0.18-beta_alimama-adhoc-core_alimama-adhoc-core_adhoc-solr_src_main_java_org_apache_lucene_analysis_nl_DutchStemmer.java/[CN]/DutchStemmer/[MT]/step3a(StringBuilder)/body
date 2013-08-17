@@ -1,9 +1,0 @@
-{
-  if (_R2 >= sb.length())   return;
-  String s=sb.toString();
-  int index=s.length() - 4;
-  if (s.endsWith("heid") && index >= _R2 && sb.charAt(index - 1) != 'c') {
-    sb.delete(index,index + 4);
-    enEnding(sb);
-  }
-}

@@ -1,5 +1,0 @@
-Version matchVersion
-Analyzer delegate
-IndexReader indexReader
-Collection<String> fields
-int maxDocFreq

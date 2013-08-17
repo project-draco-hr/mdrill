@@ -1,9 +1,0 @@
-{
-  pos++;
-  boolean b=tenum.next();
-  if (!b) {
-    t=null;
-    return false;
-  }
-  return setTerm();
-}

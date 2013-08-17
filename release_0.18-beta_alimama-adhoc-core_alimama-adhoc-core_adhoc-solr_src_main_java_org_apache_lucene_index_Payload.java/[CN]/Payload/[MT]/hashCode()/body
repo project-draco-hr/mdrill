@@ -1,3 +1,0 @@
-{
-  return ArrayUtil.hashCode(data,offset,offset + length);
-}

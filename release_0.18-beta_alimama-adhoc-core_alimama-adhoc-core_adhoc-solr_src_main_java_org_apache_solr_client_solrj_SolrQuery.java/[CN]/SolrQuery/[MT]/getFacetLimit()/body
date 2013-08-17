@@ -1,3 +1,0 @@
-{
-  return this.getInt(FacetParams.FACET_LIMIT,25);
-}

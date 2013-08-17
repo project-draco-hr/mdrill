@@ -1,3 +1,0 @@
-{
-  return this.getParams(TermsParams.TERMS_FIELD);
-}

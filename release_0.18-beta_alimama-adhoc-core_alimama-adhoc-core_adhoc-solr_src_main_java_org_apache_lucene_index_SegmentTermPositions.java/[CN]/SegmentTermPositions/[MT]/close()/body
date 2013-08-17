@@ -1,4 +1,0 @@
-{
-  super.close();
-  if (proxStream != null)   proxStream.close();
-}

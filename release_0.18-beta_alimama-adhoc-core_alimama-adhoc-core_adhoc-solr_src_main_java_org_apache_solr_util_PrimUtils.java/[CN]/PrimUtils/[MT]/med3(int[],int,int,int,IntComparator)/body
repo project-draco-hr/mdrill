@@ -1,4 +1,0 @@
-{
-  int x=array[a], y=array[b], z=array[c];
-  return comparator.lessThan(x,y) ? (comparator.lessThan(y,z) ? b : (comparator.lessThan(x,z) ? c : a)) : (comparator.lessThan(z,y) ? b : (comparator.lessThan(z,x) ? c : a));
-}

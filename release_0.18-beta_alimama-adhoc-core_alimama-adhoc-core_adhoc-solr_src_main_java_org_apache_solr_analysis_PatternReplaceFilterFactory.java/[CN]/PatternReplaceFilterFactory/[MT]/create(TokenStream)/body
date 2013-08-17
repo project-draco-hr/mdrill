@@ -1,3 +1,0 @@
-{
-  return new PatternReplaceFilter(input,p,replacement,all);
-}

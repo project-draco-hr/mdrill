@@ -1,5 +1,0 @@
-{
-  nextCharCounter--;
-  if (buffer == null)   buffer=new LinkedList<Character>();
-  buffer.addFirst(Character.valueOf((char)c));
-}

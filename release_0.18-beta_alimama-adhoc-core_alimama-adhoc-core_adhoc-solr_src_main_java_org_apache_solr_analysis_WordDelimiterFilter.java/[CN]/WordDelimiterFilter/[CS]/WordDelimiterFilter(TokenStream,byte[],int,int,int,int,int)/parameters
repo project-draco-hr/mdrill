@@ -1,7 +1,0 @@
-TokenStream in
-byte[] charTypeTable
-int generateWordParts
-int generateNumberParts
-int catenateWords
-int catenateNumbers
-int catenateAll

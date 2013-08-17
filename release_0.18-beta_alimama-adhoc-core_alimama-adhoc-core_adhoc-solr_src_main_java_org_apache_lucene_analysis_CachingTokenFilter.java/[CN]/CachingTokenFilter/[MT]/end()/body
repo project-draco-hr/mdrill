@@ -1,5 +1,0 @@
-{
-  if (finalState != null) {
-    restoreState(finalState);
-  }
-}

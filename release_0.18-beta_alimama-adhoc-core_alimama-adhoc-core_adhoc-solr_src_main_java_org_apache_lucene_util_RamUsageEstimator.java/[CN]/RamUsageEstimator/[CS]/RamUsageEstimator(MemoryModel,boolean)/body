@@ -1,8 +1,0 @@
-{
-  this.memoryModel=memoryModel;
-  this.checkInterned=checkInterned;
-  seen=new IdentityHashMap<Object,Object>(64);
-  this.refSize=memoryModel.getReferenceSize();
-  this.arraySize=memoryModel.getArraySize();
-  this.classSize=memoryModel.getClassSize();
-}

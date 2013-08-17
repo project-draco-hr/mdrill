@@ -1,5 +1,0 @@
-{
-  this.out_fields=_out_fields;
-  this.group_fields=_group_fields;
-  this.num_tasks=_num_tasks;
-}

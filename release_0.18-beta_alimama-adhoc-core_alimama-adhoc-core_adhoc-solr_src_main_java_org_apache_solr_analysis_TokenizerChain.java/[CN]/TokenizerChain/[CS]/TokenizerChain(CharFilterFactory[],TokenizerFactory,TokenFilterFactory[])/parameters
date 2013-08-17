@@ -1,3 +1,0 @@
-CharFilterFactory[] charFilters
-TokenizerFactory tokenizer
-TokenFilterFactory[] filters

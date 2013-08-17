@@ -1,3 +1,0 @@
-{
-  JSONUtil.writeBoolean(bool,out);
-}

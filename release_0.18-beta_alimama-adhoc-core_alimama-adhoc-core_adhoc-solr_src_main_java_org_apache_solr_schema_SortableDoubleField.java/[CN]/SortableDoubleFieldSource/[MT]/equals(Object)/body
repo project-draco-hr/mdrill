@@ -1,3 +1,0 @@
-{
-  return o instanceof SortableDoubleFieldSource && super.equals(o) && defVal == ((SortableDoubleFieldSource)o).defVal;
-}

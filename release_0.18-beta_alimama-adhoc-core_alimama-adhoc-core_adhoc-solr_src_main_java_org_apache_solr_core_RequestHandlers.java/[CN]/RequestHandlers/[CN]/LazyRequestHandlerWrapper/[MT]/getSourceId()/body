@@ -1,7 +1,0 @@
-{
-  String rev="$Id: RequestHandlers.java 1086822 2011-03-30 02:23:07Z koji $";
-  if (_handler != null) {
-    rev+=" :: " + _handler.getSourceId();
-  }
-  return rev;
-}

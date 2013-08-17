@@ -1,6 +1,0 @@
-{
-  super(solrServerUrl,client);
-  queue=new LinkedBlockingQueue<UpdateRequest>(queueSize);
-  this.threadCount=threadCount;
-  runners=new LinkedList<Runner>();
-}

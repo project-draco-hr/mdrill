@@ -1,9 +1,0 @@
-{
-  LocalState localState=null;
-  try {
-    localState=new LocalState(supervisor_local_dir(conf) + "/localstate");
-  }
- catch (  IOException e) {
-  }
-  return localState;
-}

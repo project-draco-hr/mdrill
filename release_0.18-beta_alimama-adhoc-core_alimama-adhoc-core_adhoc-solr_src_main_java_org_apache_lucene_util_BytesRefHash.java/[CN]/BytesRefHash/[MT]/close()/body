@@ -1,5 +1,0 @@
-{
-  clear(true);
-  ords=null;
-  bytesUsed.addAndGet(RamUsageEstimator.NUM_BYTES_INT * -hashSize);
-}

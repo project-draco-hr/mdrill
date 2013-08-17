@@ -1,3 +1,0 @@
-{
-  this(blockSize,maxBufferedBlocks,new AtomicLong());
-}

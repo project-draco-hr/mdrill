@@ -1,3 +1,0 @@
-{
-  return (ptMax.getX() - ptMin.getX()) * (ptMax.getY() - ptMin.getY());
-}

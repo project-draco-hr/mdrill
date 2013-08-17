@@ -1,4 +1,0 @@
-{
-  super(CharReader.get(in));
-  this.normMap=normMap;
-}

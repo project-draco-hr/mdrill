@@ -1,3 +1,0 @@
-{
-  return new RegexTermEnum(reader,term,regexImpl);
-}

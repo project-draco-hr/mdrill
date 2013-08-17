@@ -1,3 +1,0 @@
-{
-  return (in instanceof FastInputStream) ? (FastInputStream)in : new FastInputStream(in);
-}

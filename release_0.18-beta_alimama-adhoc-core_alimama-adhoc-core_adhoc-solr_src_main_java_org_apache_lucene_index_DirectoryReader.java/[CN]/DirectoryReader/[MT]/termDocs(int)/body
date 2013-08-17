@@ -1,9 +1,0 @@
-{
-  ensureOpen();
-  if (subReaders.length == 1) {
-    return subReaders[0].termDocs(buffer);
-  }
- else {
-    return new MultiTermDocs(this,subReaders,starts,buffer);
-  }
-}

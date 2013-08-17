@@ -1,3 +1,0 @@
-{
-  return jjMoveNfa_3(jjStopStringLiteralDfa_3(pos,active0),pos + 1);
-}

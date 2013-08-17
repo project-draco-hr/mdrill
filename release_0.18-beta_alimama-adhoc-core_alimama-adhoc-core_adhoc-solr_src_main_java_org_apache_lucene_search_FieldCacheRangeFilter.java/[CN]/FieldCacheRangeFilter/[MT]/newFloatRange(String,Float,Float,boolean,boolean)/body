@@ -1,3 +1,0 @@
-{
-  return newFloatRange(field,null,lowerVal,upperVal,includeLower,includeUpper);
-}

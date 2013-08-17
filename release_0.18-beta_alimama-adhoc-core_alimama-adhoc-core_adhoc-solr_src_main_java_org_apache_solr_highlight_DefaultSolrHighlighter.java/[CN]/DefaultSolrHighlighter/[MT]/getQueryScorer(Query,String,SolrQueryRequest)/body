@@ -1,9 +1,0 @@
-{
-  boolean reqFieldMatch=request.getParams().getFieldBool(fieldName,HighlightParams.FIELD_MATCH,false);
-  if (reqFieldMatch) {
-    return new QueryTermScorer(query,request.getSearcher().getReader(),fieldName);
-  }
- else {
-    return new QueryTermScorer(query);
-  }
-}

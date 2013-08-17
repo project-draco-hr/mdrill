@@ -1,5 +1,0 @@
-{
-  if (that == null)   return false;
-  if (that instanceof fetchRequest_result)   return this.equals((fetchRequest_result)that);
-  return false;
-}

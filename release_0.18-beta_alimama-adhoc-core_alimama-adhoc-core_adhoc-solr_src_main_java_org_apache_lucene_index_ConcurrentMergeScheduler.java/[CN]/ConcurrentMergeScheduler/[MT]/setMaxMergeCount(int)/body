@@ -1,9 +1,0 @@
-{
-  if (count < 1) {
-    throw new IllegalArgumentException("count should be at least 1");
-  }
-  if (count < maxThreadCount) {
-    throw new IllegalArgumentException("count should be >= maxThreadCount (= " + maxThreadCount + ")");
-  }
-  maxMergeCount=count;
-}

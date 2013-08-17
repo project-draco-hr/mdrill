@@ -1,7 +1,0 @@
-{
-  int ret=this.rr.remove(0);
-  if (this.rr.size() == 0) {
-    this.rr.addAll(rotating_random_range(this.amt));
-  }
-  return ret;
-}

@@ -1,9 +1,0 @@
-{
-  if (!(eq_s_b(3,"ken"))) {
-    return false;
-  }
-  if (!r_mark_suffix_with_optional_y_consonant()) {
-    return false;
-  }
-  return true;
-}

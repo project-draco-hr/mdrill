@@ -1,4 +1,0 @@
-{
-  super(value,description);
-  this.match=Boolean.valueOf(match);
-}

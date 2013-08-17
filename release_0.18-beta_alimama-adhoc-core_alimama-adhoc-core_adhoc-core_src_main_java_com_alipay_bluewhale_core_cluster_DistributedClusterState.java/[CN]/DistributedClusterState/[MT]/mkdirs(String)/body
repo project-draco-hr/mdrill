@@ -1,8 +1,0 @@
-{
-  try {
-    zkobj.mkdirs(zk,path);
-  }
- catch (  Exception e) {
-    LOG.error("mkdirs",e);
-  }
-}

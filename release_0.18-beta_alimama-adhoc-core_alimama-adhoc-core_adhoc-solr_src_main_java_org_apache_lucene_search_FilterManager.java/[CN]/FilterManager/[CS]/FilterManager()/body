@@ -1,9 +1,0 @@
-{
-  cache=new HashMap<Integer,FilterItem>();
-  cacheCleanSize=DEFAULT_CACHE_CLEAN_SIZE;
-  cleanSleepTime=DEFAULT_CACHE_SLEEP_TIME;
-  filterCleaner=new FilterCleaner();
-  Thread fcThread=new Thread(filterCleaner);
-  fcThread.setDaemon(true);
-  fcThread.start();
-}

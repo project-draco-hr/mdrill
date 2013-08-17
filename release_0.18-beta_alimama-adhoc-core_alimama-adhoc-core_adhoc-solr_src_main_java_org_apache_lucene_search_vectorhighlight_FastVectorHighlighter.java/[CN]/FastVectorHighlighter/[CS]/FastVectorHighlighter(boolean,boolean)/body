@@ -1,3 +1,0 @@
-{
-  this(phraseHighlight,fieldMatch,new SimpleFragListBuilder(),new ScoreOrderFragmentsBuilder());
-}

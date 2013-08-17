@@ -1,7 +1,0 @@
-{
-  String os=System.getProperty("os.name");
-  if (os.contains("Linux")) {
-    return true;
-  }
-  return false;
-}

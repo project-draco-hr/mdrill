@@ -1,4 +1,0 @@
-{
-  this(matchVersion,c.size(),ignoreCase);
-  addAll(c);
-}

@@ -1,8 +1,0 @@
-{
-  int k=ivalues.find(ivalue);
-  if (k <= 0) {
-    k=packValues(ivalue);
-    ivalues.insert(ivalue,(char)k);
-  }
-  insert(pattern,(char)k);
-}

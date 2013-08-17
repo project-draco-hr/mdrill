@@ -1,3 +1,0 @@
-{
-  return ZeroMq.bind(socket,virtual_url(virtual_port));
-}

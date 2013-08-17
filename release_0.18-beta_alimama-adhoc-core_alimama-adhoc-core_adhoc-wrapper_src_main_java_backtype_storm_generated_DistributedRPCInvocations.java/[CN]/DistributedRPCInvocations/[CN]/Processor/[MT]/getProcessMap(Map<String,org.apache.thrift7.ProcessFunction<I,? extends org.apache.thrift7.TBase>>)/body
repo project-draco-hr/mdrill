@@ -1,6 +1,0 @@
-{
-  processMap.put("result",new result());
-  processMap.put("fetchRequest",new fetchRequest());
-  processMap.put("failRequest",new failRequest());
-  return processMap;
-}

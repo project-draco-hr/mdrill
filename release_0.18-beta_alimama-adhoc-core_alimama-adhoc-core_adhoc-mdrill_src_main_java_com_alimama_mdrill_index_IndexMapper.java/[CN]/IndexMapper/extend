@@ -1,1 +1,0 @@
-Mapper<WritableComparable,Text,LongWritable,DocumentList>

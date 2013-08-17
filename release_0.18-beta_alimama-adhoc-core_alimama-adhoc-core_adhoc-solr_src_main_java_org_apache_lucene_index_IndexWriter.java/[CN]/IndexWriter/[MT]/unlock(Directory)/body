@@ -1,3 +1,0 @@
-{
-  directory.makeLock(IndexWriter.WRITE_LOCK_NAME).release();
-}

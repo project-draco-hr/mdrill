@@ -1,3 +1,0 @@
-{
-  this(pattern,replacement,DEFAULT_MAX_BLOCK_CHARS,null,in);
-}

@@ -1,3 +1,0 @@
-{
-  this(w,new char[BUFSIZE],0);
-}

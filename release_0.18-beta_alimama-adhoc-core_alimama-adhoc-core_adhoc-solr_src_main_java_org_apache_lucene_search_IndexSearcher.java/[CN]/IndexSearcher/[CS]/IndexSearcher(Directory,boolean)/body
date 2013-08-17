@@ -1,3 +1,0 @@
-{
-  this(IndexReader.open(path,readOnly),true,null);
-}

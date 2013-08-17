@@ -1,3 +1,0 @@
-{
-  return new SnowballFilter(_in,new org.tartarus.snowball.ext.DutchStemmer());
-}

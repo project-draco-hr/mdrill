@@ -1,6 +1,0 @@
-{
-  if (_handler == null) {
-    return getName();
-  }
-  return _handler.getDescription();
-}

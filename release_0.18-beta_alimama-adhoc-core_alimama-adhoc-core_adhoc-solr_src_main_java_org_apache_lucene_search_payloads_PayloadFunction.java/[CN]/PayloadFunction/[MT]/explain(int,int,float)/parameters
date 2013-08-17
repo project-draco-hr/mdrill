@@ -1,3 +1,0 @@
-int docId
-int numPayloadsSeen
-float payloadScore

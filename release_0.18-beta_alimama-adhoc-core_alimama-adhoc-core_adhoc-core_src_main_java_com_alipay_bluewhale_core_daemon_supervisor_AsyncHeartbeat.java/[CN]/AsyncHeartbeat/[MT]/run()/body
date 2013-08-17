@@ -1,9 +1,0 @@
-{
-  heartbeat.run();
-  if (active.get()) {
-    result=(Integer)conf.get(Config.SUPERVISOR_HEARTBEAT_FREQUENCY_SECS);
-  }
- else {
-    result=-1;
-  }
-}

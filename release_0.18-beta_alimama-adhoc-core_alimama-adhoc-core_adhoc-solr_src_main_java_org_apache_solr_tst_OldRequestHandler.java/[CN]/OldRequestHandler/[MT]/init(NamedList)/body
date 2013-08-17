@@ -1,3 +1,0 @@
-{
-  SolrCore.log.info("Unused request handler arguments:" + args);
-}

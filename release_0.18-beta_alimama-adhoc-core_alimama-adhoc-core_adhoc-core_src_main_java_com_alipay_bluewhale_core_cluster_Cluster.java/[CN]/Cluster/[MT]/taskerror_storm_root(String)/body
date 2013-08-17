@@ -1,3 +1,0 @@
-{
-  return TASKERRORS_SUBTREE + "/" + storm_id;
-}

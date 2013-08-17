@@ -1,5 +1,0 @@
-{
-  int length=zzMarkedPos - zzStartRead;
-  buffer.append(zzBuffer,zzStartRead,length);
-  return length;
-}

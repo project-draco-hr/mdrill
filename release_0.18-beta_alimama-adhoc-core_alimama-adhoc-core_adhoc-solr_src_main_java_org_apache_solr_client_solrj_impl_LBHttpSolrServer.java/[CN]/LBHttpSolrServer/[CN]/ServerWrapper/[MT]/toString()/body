@@ -1,3 +1,0 @@
-{
-  return solrServer.getBaseURL();
-}

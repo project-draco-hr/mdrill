@@ -1,4 +1,0 @@
-{
-  OffsetAttribute t=(OffsetAttribute)target;
-  t.setOffset(startOffset,endOffset);
-}

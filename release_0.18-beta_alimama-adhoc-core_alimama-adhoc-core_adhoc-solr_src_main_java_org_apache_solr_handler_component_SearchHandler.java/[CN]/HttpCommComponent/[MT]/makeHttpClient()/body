@@ -1,7 +1,0 @@
-{
-  HttpClient cli=new HttpClient();
-  cli.getHttpConnectionManager().getParams().setConnectionTimeout(1000 * 60 * 100);
-  cli.getHttpConnectionManager().getParams().setSoTimeout(1000 * 60 * 100);
-  cli.getParams().setConnectionManagerTimeout(1000 * 60 * 100);
-  return cli;
-}

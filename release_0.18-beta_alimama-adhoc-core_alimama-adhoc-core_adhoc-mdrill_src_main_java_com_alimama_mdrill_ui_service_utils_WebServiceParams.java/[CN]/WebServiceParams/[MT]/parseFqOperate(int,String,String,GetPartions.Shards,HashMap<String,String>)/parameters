@@ -1,5 +1,0 @@
-int operate
-String key
-String value2
-GetPartions.Shards shard
-HashMap<String,String> fieldColumntypeMap

@@ -1,6 +1,0 @@
-{
-  if (params.get(UpdateParams.UPDATE_CHAIN_DEPRECATED) != null && log != null) {
-    log.warn("Use of deprecated update request parameter " + UpdateParams.UPDATE_CHAIN_DEPRECATED + " detected. Please use the new parameter "+ UpdateParams.UPDATE_CHAIN+ " instead, as support"+ " for "+ UpdateParams.UPDATE_CHAIN_DEPRECATED+ " will be removed in a later version.");
-  }
-  return (params.get(UpdateParams.UPDATE_CHAIN) != null) ? params.get(UpdateParams.UPDATE_CHAIN) : params.get(UpdateParams.UPDATE_CHAIN_DEPRECATED);
-}

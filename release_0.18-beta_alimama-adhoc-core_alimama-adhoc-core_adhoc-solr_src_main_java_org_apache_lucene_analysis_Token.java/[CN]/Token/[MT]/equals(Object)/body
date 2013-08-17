@@ -1,8 +1,0 @@
-{
-  if (obj == this)   return true;
-  if (obj instanceof Token) {
-    final Token other=(Token)obj;
-    return (startOffset == other.startOffset && endOffset == other.endOffset && flags == other.flags && positionIncrement == other.positionIncrement && (type == null ? other.type == null : type.equals(other.type)) && (payload == null ? other.payload == null : payload.equals(other.payload)) && super.equals(obj));
-  }
- else   return false;
-}

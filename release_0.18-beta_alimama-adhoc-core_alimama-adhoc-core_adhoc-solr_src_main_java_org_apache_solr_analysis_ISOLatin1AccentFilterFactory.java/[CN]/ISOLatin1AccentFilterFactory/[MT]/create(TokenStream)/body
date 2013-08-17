@@ -1,3 +1,0 @@
-{
-  return new ISOLatin1AccentFilter(input);
-}

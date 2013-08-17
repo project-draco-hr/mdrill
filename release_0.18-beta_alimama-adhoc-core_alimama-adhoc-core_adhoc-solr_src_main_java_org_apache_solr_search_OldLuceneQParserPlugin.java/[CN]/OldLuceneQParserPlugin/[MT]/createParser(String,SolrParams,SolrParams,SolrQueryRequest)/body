@@ -1,3 +1,0 @@
-{
-  return new OldLuceneQParser(qstr,localParams,params,req);
-}

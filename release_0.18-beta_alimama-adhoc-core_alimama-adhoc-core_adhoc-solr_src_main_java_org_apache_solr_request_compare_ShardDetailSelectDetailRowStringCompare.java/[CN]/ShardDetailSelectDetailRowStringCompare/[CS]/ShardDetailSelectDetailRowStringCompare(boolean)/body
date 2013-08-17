@@ -1,4 +1,0 @@
-{
-  this.isdesc=_isdesc;
-  this.cmpobj=new CompareColumn();
-}

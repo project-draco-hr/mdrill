@@ -1,4 +1,0 @@
-{
-  index=start;
-  return current();
-}

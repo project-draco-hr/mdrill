@@ -1,4 +1,0 @@
-{
-  Weight w=searcher.createNormalizedWeight(q);
-  context.put(this,w);
-}

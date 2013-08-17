@@ -1,3 +1,0 @@
-{
-  return valSrc.toString() + ToStringUtils.boost(getBoost());
-}

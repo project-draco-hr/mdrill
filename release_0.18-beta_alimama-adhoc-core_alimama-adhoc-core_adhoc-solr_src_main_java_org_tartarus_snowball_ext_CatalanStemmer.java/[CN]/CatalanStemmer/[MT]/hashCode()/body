@@ -1,3 +1,0 @@
-{
-  return CatalanStemmer.class.getName().hashCode();
-}

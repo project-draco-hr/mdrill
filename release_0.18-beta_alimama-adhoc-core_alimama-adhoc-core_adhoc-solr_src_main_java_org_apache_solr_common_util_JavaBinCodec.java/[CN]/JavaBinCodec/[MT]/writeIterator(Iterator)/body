@@ -1,7 +1,0 @@
-{
-  writeTag(ITERATOR);
-  while (iter.hasNext()) {
-    writeVal(iter.next());
-  }
-  writeVal(END_OBJ);
-}

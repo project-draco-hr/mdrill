@@ -1,4 +1,0 @@
-{
-  bottom.doc=docBase + doc;
-  bottom=pq.updateTop();
-}

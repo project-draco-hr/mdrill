@@ -1,3 +1,0 @@
-{
-  xmlWriter.writeDate(name,toExternal(f));
-}

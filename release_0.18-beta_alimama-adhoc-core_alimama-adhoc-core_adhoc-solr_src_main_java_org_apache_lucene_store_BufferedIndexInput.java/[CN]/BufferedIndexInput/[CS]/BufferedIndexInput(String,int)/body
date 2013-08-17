@@ -1,5 +1,0 @@
-{
-  super(resourceDesc);
-  checkBufferSize(bufferSize);
-  this.bufferSize=bufferSize;
-}

@@ -1,5 +1,0 @@
-{
-  Boolean omitHeader=req.getParams().getBool(CommonParams.OMIT_HEADER);
-  if (omitHeader != null && omitHeader)   rsp.getValues().remove("responseHeader");
-  writeNamedList(null,rsp.getValues());
-}

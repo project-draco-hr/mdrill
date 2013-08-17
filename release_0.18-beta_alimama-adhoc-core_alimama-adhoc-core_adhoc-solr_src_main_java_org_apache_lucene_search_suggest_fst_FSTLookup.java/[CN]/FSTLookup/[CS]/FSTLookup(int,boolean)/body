@@ -1,4 +1,0 @@
-{
-  this.buckets=buckets;
-  this.exactMatchFirst=exactMatchFirst;
-}

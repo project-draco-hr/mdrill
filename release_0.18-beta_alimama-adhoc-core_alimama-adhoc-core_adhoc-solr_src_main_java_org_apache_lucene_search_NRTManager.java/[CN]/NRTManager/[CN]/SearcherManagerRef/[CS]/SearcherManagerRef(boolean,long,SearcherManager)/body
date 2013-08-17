@@ -1,6 +1,0 @@
-{
-  super();
-  this.applyDeletes=applyDeletes;
-  this.generation=generation;
-  this.manager=manager;
-}

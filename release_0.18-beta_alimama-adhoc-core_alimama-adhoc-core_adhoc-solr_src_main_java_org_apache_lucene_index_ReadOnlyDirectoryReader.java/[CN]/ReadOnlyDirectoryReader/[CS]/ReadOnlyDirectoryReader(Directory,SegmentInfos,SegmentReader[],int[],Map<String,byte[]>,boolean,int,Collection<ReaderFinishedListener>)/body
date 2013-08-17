@@ -1,3 +1,0 @@
-{
-  super(directory,infos,oldReaders,oldStarts,oldNormsCache,true,doClone,termInfosIndexDivisor,readerFinishedListeners);
-}

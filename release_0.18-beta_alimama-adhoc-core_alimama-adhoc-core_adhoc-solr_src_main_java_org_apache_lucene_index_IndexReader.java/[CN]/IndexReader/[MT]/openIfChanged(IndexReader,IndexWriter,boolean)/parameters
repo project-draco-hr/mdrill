@@ -1,3 +1,0 @@
-IndexReader oldReader
-IndexWriter writer
-boolean applyAllDeletes

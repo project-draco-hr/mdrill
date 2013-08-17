@@ -1,8 +1,0 @@
-{
-  if (label >= 0x20 && label <= 0x7d) {
-    return Character.toString((char)label);
-  }
- else {
-    return "0x" + Integer.toHexString(label);
-  }
-}

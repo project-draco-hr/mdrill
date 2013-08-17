@@ -1,5 +1,0 @@
-{
-  double value=v.doubleValue();
-  sumOfSquares+=(value * value * count);
-  sum+=value * count;
-}

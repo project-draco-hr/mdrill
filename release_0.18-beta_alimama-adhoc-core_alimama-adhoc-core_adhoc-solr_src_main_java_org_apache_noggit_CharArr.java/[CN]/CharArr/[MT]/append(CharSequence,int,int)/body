@@ -1,4 +1,0 @@
-{
-  write(csq.subSequence(start,end).toString());
-  return null;
-}

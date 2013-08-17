@@ -1,3 +1,0 @@
-{
-  return new StringBuilder().append(keys[pos]).append('=').append((values[pos] == CharArrayMap.this) ? "(this Map)" : values[pos]).toString();
-}

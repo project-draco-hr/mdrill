@@ -1,9 +1,0 @@
-{
-  FileSystem fs;
-  FileSystem lfs;
-  Configuration conf=new Configuration();
-  HadoopUtil.grabConfiguration("/home/taobao/config",conf);
-  fs=FileSystem.get(conf);
-  lfs=FileSystem.getLocal(conf);
-  IndexUtils.copyToLocal(fs,lfs,new Path(args[0]),new Path(args[1]),new Path(args[2]));
-}

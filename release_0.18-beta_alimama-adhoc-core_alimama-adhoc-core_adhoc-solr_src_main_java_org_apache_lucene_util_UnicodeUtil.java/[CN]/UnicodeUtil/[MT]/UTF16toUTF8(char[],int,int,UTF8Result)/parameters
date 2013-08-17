@@ -1,4 +1,0 @@
-char[] source
-int offset
-int length
-UTF8Result result

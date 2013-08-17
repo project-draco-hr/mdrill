@@ -1,5 +1,0 @@
-String field
-Integer min
-Integer max
-boolean minInclusive
-boolean maxInclusive

@@ -1,6 +1,0 @@
-{
-  if (doc != null) {
-    doc.abort();
-    doc=null;
-  }
-}

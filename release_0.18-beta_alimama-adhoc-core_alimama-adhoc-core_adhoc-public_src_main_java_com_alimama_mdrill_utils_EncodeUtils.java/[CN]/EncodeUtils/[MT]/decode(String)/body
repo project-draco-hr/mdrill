@@ -1,9 +1,0 @@
-{
-  try {
-    return java.net.URLDecoder.decode(s,"utf8");
-  }
- catch (  UnsupportedEncodingException e) {
-    LOG.error("decode for " + s,e);
-    return s;
-  }
-}

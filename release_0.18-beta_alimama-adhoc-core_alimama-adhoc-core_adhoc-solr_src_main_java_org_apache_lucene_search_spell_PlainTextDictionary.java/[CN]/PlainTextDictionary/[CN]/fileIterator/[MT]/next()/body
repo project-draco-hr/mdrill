@@ -1,7 +1,0 @@
-{
-  if (!hasNextCalled) {
-    hasNext();
-  }
-  hasNextCalled=false;
-  return line;
-}

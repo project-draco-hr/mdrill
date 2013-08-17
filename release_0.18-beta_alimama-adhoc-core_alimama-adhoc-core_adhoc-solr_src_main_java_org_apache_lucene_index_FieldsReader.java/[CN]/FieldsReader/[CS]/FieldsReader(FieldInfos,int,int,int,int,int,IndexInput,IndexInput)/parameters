@@ -1,8 +1,0 @@
-FieldInfos fieldInfos
-int numTotalDocs
-int size
-int format
-int formatSize
-int docStoreOffset
-IndexInput cloneableFieldsStream
-IndexInput cloneableIndexStream

@@ -1,5 +1,0 @@
-{
-  SolrInputField field=new SolrInputField(name);
-  _fields.put(name,field);
-  field.setValue(value,boost);
-}

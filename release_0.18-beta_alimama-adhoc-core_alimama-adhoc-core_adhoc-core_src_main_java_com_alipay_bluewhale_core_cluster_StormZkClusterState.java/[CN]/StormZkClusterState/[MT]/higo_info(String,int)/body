@@ -1,9 +1,0 @@
-{
-  String tablePath=Cluster.higo_path(tablename,taskId);
-  byte[] znodeData=cluster_state.get_data(tablePath,false);
-  Object data=Cluster.maybe_deserialize(znodeData);
-  if (data == null) {
-    return null;
-  }
-  return (SolrInfo)data;
-}

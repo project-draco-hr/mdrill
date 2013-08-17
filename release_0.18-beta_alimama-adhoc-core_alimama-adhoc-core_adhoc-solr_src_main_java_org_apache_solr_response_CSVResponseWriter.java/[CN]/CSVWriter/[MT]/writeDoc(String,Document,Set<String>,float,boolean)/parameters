@@ -1,5 +1,0 @@
-String name
-Document doc
-Set<String> returnFields
-float score
-boolean includeScore

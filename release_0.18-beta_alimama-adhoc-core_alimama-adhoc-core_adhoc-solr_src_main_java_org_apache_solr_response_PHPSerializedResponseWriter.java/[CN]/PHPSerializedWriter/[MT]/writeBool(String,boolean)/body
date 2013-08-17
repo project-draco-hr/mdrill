@@ -1,3 +1,0 @@
-{
-  writer.write(val ? "b:1;" : "b:0;");
-}

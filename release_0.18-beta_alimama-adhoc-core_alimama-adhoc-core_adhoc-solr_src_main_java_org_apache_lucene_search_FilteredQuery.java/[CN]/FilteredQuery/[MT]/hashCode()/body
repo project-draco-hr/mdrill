@@ -1,3 +1,0 @@
-{
-  return query.hashCode() ^ filter.hashCode() + Float.floatToRawIntBits(getBoost());
-}

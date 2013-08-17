@@ -1,7 +1,0 @@
-{
-  int doc;
-  long size=size();
-  while ((doc=disi.nextDoc()) < size) {
-    fastSet(doc);
-  }
-}

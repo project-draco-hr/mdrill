@@ -1,3 +1,0 @@
-{
-  return add(getBinder().toSolrInputDocument(obj),commitWithinMs);
-}

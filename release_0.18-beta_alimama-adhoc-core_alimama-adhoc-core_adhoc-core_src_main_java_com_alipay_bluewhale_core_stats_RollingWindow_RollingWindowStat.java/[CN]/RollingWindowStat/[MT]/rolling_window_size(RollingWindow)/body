@@ -1,3 +1,0 @@
-{
-  return rw.bucket_size_secs * rw.num_buckets;
-}

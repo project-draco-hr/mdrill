@@ -1,3 +1,0 @@
-{
-  return new SpanScorer(query.getSpans(reader),this,similarity,reader.norms(query.getField()));
-}

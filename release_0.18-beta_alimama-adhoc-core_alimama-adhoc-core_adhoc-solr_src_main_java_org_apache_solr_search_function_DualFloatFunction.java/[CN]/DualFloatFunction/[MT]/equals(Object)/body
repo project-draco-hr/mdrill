@@ -1,5 +1,0 @@
-{
-  if (this.getClass() != o.getClass())   return false;
-  DualFloatFunction other=(DualFloatFunction)o;
-  return this.a.equals(other.a) && this.b.equals(other.b);
-}

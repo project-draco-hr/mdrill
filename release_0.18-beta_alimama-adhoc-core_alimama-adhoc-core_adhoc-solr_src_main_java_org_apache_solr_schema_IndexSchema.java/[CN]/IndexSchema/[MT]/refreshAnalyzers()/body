@@ -1,4 +1,0 @@
-{
-  analyzer=new SolrIndexAnalyzer();
-  queryAnalyzer=new SolrQueryAnalyzer();
-}

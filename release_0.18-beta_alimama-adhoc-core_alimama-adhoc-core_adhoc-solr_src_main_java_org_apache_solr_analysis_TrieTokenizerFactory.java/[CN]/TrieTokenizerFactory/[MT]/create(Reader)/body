@@ -1,3 +1,0 @@
-{
-  return new TrieTokenizer(input,type,precisionStep,TrieTokenizer.getNumericTokenStream(precisionStep));
-}

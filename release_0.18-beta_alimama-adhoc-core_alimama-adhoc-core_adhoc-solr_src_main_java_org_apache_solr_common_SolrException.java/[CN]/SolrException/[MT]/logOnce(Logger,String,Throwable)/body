@@ -1,7 +1,0 @@
-{
-  if (e instanceof SolrException) {
-    if (((SolrException)e).logged)     return;
-  }
-  if (msg != null)   log(log,msg,e);
- else   log(log,e);
-}

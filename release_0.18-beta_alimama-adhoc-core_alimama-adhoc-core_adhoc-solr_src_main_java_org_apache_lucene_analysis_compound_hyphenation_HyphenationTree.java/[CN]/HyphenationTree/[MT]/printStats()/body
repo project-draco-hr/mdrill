@@ -1,4 +1,0 @@
-{
-  System.out.println("Value space size = " + Integer.toString(vspace.length()));
-  super.printStats();
-}

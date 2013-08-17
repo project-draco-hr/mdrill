@@ -1,5 +1,0 @@
-{
-  file=f;
-  currentBufferIndex=-1;
-  currentBuffer=null;
-}

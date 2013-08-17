@@ -1,4 +1,0 @@
-{
-  String sval=f.stringValue();
-  xmlWriter.writeInt(name,NumberUtils.SortableStr2int(sval,0,sval.length()));
-}

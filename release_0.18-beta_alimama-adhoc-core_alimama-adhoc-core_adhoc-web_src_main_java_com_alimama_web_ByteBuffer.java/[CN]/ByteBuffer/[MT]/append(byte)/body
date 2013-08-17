@@ -1,4 +1,0 @@
-{
-  ensureCapacityHelper(elementCount + 1);
-  elementData[elementCount++]=value;
-}

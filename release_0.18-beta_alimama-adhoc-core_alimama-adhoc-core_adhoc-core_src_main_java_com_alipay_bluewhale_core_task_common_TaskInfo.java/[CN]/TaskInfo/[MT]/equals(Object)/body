@@ -1,6 +1,0 @@
-{
-  if (assignment instanceof TaskInfo && ((TaskInfo)assignment).getComponentId().equals(getComponentId())) {
-    return true;
-  }
-  return false;
-}

@@ -1,9 +1,0 @@
-{
-  defaultResponseWriter=initPlugins(responseWriters,QueryResponseWriter.class);
-  for (  Map.Entry<String,QueryResponseWriter> entry : DEFAULT_RESPONSE_WRITERS.entrySet()) {
-    if (responseWriters.get(entry.getKey()) == null)     responseWriters.put(entry.getKey(),entry.getValue());
-  }
-  if (defaultResponseWriter == null) {
-    defaultResponseWriter=responseWriters.get("standard");
-  }
-}

@@ -1,3 +1,0 @@
-{
-  return decodeFloat(bytes,0);
-}

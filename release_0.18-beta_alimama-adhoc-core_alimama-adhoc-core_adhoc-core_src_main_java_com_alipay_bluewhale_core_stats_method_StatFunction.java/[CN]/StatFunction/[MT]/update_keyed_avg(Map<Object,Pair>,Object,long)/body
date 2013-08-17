@@ -1,8 +1,0 @@
-{
-  Pair p=map.get(key);
-  if (p == null) {
-    p=new Pair();
-  }
-  update_avg(p,val);
-  map.put(key,p);
-}

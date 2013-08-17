@@ -1,3 +1,0 @@
-{
-  return new NumericRangeFilter<Double>(NumericRangeQuery.newDoubleRange(field,min,max,minInclusive,maxInclusive));
-}

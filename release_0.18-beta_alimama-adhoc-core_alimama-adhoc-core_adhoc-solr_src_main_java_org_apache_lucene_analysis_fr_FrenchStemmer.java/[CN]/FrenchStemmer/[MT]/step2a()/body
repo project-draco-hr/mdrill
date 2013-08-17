@@ -1,4 +1,0 @@
-{
-  String[] search={"??mes","??tes","iraIent","irait","irais","irai","iras","ira","irent","iriez","irez","irions","irons","iront","issaIent","issais","issantes","issante","issants","issant","issait","issais","issions","issons","issiez","issez","issent","isses","isse","ir","is","??t","it","ies","ie","i"};
-  return deleteFromIfTestVowelBeforeIn(RV,search,false,RV);
-}

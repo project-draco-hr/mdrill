@@ -1,3 +1,0 @@
-SolrIndexSearcher searcher
-DocSet baseDocs
-String[] facet

@@ -1,5 +1,0 @@
-{
-  final int size=list.size();
-  if (size <= 1)   return;
-  getSorter(list).insertionSort(0,size - 1);
-}

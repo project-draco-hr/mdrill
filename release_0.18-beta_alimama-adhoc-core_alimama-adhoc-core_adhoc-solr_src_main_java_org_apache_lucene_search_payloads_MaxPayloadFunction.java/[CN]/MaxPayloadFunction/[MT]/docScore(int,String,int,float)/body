@@ -1,3 +1,0 @@
-{
-  return numPayloadsSeen > 0 ? payloadScore : 1;
-}

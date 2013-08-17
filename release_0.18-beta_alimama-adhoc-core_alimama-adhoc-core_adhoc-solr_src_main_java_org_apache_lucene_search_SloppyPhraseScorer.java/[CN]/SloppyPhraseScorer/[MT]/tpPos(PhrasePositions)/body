@@ -1,3 +1,0 @@
-{
-  return pp.position + pp.offset;
-}

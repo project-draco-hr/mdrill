@@ -1,3 +1,0 @@
-List<NodePort> freedSlots
-int reassign_num
-Set<Integer> reassignIds

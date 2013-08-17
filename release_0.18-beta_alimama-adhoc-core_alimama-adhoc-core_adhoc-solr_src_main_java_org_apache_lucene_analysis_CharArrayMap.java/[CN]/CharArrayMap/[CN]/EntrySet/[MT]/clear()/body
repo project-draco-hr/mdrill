@@ -1,4 +1,0 @@
-{
-  if (!allowModify)   throw new UnsupportedOperationException();
-  CharArrayMap.this.clear();
-}

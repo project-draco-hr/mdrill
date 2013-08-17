@@ -1,3 +1,0 @@
-{
-  return IndexReader.open(indexDir,null,readOnly,termInfosIndexDivisor);
-}

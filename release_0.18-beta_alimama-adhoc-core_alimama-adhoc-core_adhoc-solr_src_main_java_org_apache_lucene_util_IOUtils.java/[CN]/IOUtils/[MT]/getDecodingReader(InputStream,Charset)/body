@@ -1,4 +1,0 @@
-{
-  final CharsetDecoder charSetDecoder=charSet.newDecoder().onMalformedInput(CodingErrorAction.REPORT).onUnmappableCharacter(CodingErrorAction.REPORT);
-  return new BufferedReader(new InputStreamReader(stream,charSetDecoder));
-}

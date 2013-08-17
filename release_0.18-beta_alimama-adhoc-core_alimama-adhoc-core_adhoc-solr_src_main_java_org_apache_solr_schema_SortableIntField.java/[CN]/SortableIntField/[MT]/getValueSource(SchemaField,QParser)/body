@@ -1,4 +1,0 @@
-{
-  field.checkFieldCacheSource(qparser);
-  return new SortableIntFieldSource(field.name);
-}

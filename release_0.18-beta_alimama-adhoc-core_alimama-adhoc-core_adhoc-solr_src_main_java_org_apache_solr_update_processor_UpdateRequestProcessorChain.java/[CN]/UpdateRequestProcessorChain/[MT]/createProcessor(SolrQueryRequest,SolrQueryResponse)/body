@@ -1,9 +1,0 @@
-{
-  UpdateRequestProcessor processor=null;
-  UpdateRequestProcessor last=null;
-  for (int i=chain.length - 1; i >= 0; i--) {
-    processor=chain[i].getInstance(req,rsp,last);
-    last=processor == null ? last : processor;
-  }
-  return last;
-}

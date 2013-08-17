@@ -1,7 +1,0 @@
-{
-  for (  String fileName : cache.listAll()) {
-    unCache(fileName);
-  }
-  cache.close();
-  delegate.close();
-}

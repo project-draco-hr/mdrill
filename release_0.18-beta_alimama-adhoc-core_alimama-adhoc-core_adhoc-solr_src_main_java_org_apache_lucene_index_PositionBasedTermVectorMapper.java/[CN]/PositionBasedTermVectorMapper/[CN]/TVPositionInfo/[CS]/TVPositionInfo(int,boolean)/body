@@ -1,7 +1,0 @@
-{
-  this.position=position;
-  terms=new ArrayList<String>();
-  if (storeOffsets) {
-    offsets=new ArrayList<TermVectorOffsetInfo>();
-  }
-}

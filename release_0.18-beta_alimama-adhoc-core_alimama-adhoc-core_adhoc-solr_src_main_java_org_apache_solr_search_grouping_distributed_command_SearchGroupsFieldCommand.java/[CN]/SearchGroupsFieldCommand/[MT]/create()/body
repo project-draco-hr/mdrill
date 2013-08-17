@@ -1,4 +1,0 @@
-{
-  collector=new TermFirstPassGroupingCollector(field.getName(),groupSort,topNGroups);
-  return Arrays.asList((Collector)collector);
-}

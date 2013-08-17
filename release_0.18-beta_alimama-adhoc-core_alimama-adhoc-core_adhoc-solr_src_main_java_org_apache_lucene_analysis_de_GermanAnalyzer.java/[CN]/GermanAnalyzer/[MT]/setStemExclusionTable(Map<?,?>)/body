@@ -1,4 +1,0 @@
-{
-  exclusionSet=new HashSet<Object>(exclusionlist.keySet());
-  setPreviousTokenStream(null);
-}

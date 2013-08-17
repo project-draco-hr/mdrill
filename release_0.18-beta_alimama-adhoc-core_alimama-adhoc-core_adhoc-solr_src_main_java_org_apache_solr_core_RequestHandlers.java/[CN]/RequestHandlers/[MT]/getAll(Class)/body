@@ -1,7 +1,0 @@
-{
-  Map<String,SolrRequestHandler> result=new HashMap<String,SolrRequestHandler>(7);
-  for (  Map.Entry<String,SolrRequestHandler> e : handlers.entrySet()) {
-    if (clazz.isInstance(e.getValue()))     result.put(e.getKey(),e.getValue());
-  }
-  return result;
-}

@@ -1,5 +1,0 @@
-{
-  permutations=null;
-  shinglesSeen.clear();
-  input.reset();
-}

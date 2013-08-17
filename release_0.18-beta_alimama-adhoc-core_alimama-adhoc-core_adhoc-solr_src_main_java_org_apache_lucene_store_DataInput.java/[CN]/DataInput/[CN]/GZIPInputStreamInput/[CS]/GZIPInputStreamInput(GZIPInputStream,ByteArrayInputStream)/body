@@ -1,5 +1,0 @@
-{
-  super("GZIPInputStreamInput");
-  this.gzip=gzipi;
-  this.bis=bis1;
-}

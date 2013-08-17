@@ -1,4 +1,0 @@
-{
-  this.fragmentSize=fragmentSize;
-  this.queryScorer=queryScorer;
-}

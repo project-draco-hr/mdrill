@@ -1,3 +1,0 @@
-{
-  out.write(Double.toString(number));
-}

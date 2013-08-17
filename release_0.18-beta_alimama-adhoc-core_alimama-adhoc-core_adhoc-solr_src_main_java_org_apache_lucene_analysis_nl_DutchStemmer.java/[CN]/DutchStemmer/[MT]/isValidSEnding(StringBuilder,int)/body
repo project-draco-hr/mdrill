@@ -1,5 +1,0 @@
-{
-  char c=sb.charAt(index);
-  if (isVowel(c) || c == 'j')   return false;
-  return true;
-}

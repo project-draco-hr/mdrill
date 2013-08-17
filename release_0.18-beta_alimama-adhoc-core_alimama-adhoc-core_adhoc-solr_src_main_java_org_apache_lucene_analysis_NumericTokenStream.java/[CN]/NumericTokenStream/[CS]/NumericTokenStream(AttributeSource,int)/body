@@ -1,5 +1,0 @@
-{
-  super(source);
-  this.precisionStep=precisionStep;
-  if (precisionStep < 1)   throw new IllegalArgumentException("precisionStep must be >=1");
-}

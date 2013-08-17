@@ -1,3 +1,0 @@
-{
-  return setFacetMissing(Boolean.valueOf(fld));
-}

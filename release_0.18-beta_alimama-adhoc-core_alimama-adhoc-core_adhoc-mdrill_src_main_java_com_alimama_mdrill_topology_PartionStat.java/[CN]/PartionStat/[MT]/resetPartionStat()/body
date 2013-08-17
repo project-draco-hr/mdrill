@@ -1,6 +1,0 @@
-{
-  smallestPartion=null;
-  biggestPartion=null;
-  tablePartions.clear();
-  tablePartionsSet.clear();
-}

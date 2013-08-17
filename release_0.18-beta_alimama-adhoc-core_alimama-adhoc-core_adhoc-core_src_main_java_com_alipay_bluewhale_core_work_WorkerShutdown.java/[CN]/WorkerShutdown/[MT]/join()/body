@@ -1,8 +1,0 @@
-{
-  for (  TaskShutdownDameon task : shutdowntasks) {
-    task.join();
-  }
-  for (  AsyncLoopThread t : threads) {
-    t.join();
-  }
-}

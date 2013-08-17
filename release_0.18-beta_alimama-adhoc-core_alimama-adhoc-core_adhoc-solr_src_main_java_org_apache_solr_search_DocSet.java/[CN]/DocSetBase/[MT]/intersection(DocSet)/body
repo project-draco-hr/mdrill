@@ -1,8 +1,0 @@
-{
-  if (!(other instanceof BitDocSet)) {
-    return other.intersection(this);
-  }
-  OpenBitSet newbits=(OpenBitSet)(this.getBits().clone());
-  newbits.and(other.getBits());
-  return new BitDocSet(newbits);
-}

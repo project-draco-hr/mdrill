@@ -1,4 +1,0 @@
-{
-  endConsumer.finishDocument();
-  return consumer.finishDocument();
-}

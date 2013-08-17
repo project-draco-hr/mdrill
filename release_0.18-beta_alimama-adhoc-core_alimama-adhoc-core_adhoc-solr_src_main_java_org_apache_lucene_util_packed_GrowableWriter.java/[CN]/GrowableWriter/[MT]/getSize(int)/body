@@ -1,8 +1,0 @@
-{
-  if (roundFixedSize) {
-    return PackedInts.getNextFixedSize(bpv);
-  }
- else {
-    return bpv;
-  }
-}

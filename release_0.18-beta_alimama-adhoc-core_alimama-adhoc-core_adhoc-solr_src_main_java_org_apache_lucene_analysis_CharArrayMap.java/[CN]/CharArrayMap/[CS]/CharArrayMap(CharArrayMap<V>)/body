@@ -1,8 +1,0 @@
-{
-  this.keys=toCopy.keys;
-  this.values=toCopy.values;
-  this.ignoreCase=toCopy.ignoreCase;
-  this.count=toCopy.count;
-  this.charUtils=toCopy.charUtils;
-  this.matchVersion=toCopy.matchVersion;
-}

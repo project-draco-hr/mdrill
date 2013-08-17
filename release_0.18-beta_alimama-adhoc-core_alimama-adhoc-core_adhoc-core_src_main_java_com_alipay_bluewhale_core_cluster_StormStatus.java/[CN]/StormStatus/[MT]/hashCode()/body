@@ -1,3 +1,0 @@
-{
-  return this.getStatusType().hashCode() + this.getKillTimeSecs().hashCode() + this.getDelaySecs().hashCode();
-}

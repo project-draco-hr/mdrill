@@ -1,3 +1,0 @@
-{
-  return (NamedList)response.get("responseHeader");
-}

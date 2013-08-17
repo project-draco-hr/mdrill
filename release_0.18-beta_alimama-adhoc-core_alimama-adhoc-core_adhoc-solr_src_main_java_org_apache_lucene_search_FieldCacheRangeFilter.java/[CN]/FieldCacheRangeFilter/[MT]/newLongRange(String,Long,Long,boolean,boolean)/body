@@ -1,3 +1,0 @@
-{
-  return newLongRange(field,null,lowerVal,upperVal,includeLower,includeUpper);
-}

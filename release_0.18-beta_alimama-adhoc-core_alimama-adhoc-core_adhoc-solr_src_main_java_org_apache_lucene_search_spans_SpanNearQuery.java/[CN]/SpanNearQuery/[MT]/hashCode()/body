@@ -1,9 +1,0 @@
-{
-  int result;
-  result=clauses.hashCode();
-  result^=(result << 14) | (result >>> 19);
-  result+=Float.floatToRawIntBits(getBoost());
-  result+=slop;
-  result^=(inOrder ? 0x99AFD3BD : 0);
-  return result;
-}

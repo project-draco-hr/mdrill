@@ -1,4 +1,0 @@
-{
-  this.set(HighlightParams.SIMPLE_POST,f);
-  return this;
-}

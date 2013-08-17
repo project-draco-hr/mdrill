@@ -1,4 +1,0 @@
-{
-  writer.deleteDocuments(t);
-  return indexingGen.get();
-}

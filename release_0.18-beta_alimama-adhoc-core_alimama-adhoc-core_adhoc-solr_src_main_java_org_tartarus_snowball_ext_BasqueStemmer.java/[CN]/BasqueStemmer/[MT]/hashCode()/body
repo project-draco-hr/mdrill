@@ -1,3 +1,0 @@
-{
-  return BasqueStemmer.class.getName().hashCode();
-}

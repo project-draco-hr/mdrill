@@ -1,4 +1,0 @@
-{
-  ResultSet rs=executeQuery(sql);
-  return rs != null;
-}

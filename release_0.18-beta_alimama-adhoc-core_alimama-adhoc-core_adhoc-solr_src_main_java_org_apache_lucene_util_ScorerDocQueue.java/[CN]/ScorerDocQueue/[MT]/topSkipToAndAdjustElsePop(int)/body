@@ -1,3 +1,0 @@
-{
-  return checkAdjustElsePop(topHSD.scorer.advance(target) != DocIdSetIterator.NO_MORE_DOCS);
-}

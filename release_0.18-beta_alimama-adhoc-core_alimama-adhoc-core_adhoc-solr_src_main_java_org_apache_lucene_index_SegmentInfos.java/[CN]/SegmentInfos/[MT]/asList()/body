@@ -1,6 +1,0 @@
-{
-  if (cachedUnmodifiableList == null) {
-    cachedUnmodifiableList=Collections.unmodifiableList(segments);
-  }
-  return cachedUnmodifiableList;
-}

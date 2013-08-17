@@ -1,8 +1,0 @@
-{
-  Tokenizer tk=tokenizer.create(charStream(reader));
-  TokenStream ts=tk;
-  for (int i=0; i < filters.length; i++) {
-    ts=filters[i].create(ts);
-  }
-  return new TokenStreamInfo(tk,ts);
-}

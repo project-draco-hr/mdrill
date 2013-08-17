@@ -1,9 +1,0 @@
-{
-  eatws();
-  int slen=s.length();
-  if (val.regionMatches(pos,s,0,slen)) {
-    pos+=slen;
-    return true;
-  }
-  return false;
-}

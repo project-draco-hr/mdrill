@@ -1,5 +1,0 @@
-String tag
-Map<String,String> attributes
-String cdata
-boolean escapeCdata
-boolean escapeAttr

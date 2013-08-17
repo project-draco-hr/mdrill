@@ -1,3 +1,0 @@
-{
-  return ReaderUtil.subIndex(n,starts);
-}

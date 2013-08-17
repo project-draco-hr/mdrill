@@ -1,8 +1,0 @@
-{
-  long nowtime=System.currentTimeMillis();
-  if (nowtime - hbInterval < 1000l * 60) {
-    return false;
-  }
-  hbInterval=nowtime;
-  return true;
-}

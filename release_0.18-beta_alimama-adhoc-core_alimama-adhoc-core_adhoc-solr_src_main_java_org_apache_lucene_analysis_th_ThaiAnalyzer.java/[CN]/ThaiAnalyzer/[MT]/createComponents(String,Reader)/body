@@ -1,7 +1,0 @@
-{
-  final Tokenizer source=new StandardTokenizer(matchVersion,reader);
-  TokenStream result=new StandardFilter(matchVersion,source);
-  if (matchVersion.onOrAfter(Version.LUCENE_31))   result=new LowerCaseFilter(matchVersion,result);
-  result=new ThaiWordFilter(matchVersion,result);
-  return new TokenStreamComponents(source,new StopFilter(matchVersion,result,StopAnalyzer.ENGLISH_STOP_WORDS_SET));
-}

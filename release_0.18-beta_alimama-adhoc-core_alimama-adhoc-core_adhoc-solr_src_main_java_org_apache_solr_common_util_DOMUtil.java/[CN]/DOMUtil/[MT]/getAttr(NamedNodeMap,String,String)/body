@@ -1,9 +1,0 @@
-{
-  Node attr=attrs == null ? null : attrs.getNamedItem(name);
-  if (attr == null) {
-    if (missing_err == null)     return null;
-    throw new RuntimeException(missing_err + ": missing mandatory attribute '" + name+ "'");
-  }
-  String val=attr.getNodeValue();
-  return val;
-}

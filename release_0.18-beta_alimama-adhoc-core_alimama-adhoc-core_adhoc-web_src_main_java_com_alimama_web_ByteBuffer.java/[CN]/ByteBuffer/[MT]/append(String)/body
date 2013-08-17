@@ -1,7 +1,0 @@
-{
-  byte[] data=value.getBytes();
-  ensureCapacityHelper(elementCount + data.length + 4);
-  doAppend(data.length);
-  System.arraycopy(data,0,elementData,elementCount,data.length);
-  elementCount+=data.length;
-}

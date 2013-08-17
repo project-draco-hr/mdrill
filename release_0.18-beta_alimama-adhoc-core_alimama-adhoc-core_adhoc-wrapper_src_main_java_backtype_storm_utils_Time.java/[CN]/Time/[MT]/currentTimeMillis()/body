@@ -1,8 +1,0 @@
-{
-  if (simulating.get()) {
-    return simulatedCurrTimeMs.get();
-  }
- else {
-    return System.currentTimeMillis();
-  }
-}

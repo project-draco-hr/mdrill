@@ -1,3 +1,0 @@
-{
-  writePrim("short",name,val,false);
-}

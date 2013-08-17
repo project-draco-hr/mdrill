@@ -1,4 +1,0 @@
-{
-  super(bufferedTokenStream.cloneAttributes());
-  this.length=length;
-}

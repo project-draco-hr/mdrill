@@ -1,5 +1,0 @@
-{
-synchronized (locks) {
-    locks.remove(lockName);
-  }
-}

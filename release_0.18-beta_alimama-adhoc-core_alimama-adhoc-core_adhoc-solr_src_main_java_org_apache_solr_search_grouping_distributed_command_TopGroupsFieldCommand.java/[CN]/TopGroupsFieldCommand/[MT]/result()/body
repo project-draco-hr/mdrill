@@ -1,7 +1,0 @@
-{
-  TopGroups<String> result=secondPassCollector.getTopGroups(0);
-  if (allGroupsCollector != null) {
-    result=new TopGroups<String>(result,allGroupsCollector.getGroupCount());
-  }
-  return result;
-}

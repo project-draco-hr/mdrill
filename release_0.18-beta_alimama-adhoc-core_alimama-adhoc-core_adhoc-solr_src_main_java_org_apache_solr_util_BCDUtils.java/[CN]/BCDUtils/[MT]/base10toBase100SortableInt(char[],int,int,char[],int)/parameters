@@ -1,5 +1,0 @@
-char[] arr
-int start
-int end
-char[] out
-int outend

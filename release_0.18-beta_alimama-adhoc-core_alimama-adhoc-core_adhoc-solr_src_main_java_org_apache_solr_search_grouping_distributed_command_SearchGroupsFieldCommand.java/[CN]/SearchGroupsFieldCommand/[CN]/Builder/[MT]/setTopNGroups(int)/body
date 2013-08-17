@@ -1,4 +1,0 @@
-{
-  this.topNGroups=topNGroups;
-  return this;
-}

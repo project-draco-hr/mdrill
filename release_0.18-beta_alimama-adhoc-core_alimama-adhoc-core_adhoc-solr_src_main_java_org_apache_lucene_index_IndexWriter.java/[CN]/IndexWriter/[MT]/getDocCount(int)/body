@@ -1,8 +1,0 @@
-{
-  if (i >= 0 && i < segmentInfos.size()) {
-    return segmentInfos.info(i).docCount;
-  }
- else {
-    return -1;
-  }
-}

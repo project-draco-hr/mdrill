@@ -1,7 +1,0 @@
-{
-  buffer.append(tableName.getWholeTableName());
-  String alias=tableName.getAlias();
-  if (alias != null && !alias.equals("")) {
-    buffer.append(" AS " + alias);
-  }
-}

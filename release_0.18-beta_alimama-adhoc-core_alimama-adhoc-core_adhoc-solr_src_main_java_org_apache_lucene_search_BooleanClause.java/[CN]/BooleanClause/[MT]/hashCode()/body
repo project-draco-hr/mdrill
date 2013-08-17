@@ -1,3 +1,0 @@
-{
-  return query.hashCode() ^ (Occur.MUST == occur ? 1 : 0) ^ (Occur.MUST_NOT == occur ? 2 : 0);
-}

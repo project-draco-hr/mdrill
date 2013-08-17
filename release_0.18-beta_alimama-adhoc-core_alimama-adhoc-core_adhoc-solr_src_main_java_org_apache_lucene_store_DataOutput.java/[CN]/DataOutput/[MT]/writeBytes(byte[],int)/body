@@ -1,3 +1,0 @@
-{
-  writeBytes(b,0,length);
-}

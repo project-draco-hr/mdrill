@@ -1,3 +1,0 @@
-Integer out_task_id
-String stream
-List<Object> tuple

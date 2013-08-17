@@ -1,3 +1,0 @@
-{
-  return field.indexed() ? (isTokenized() ? Field.Index.ANALYZED : Field.Index.NOT_ANALYZED) : Field.Index.NO;
-}

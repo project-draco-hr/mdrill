@@ -1,4 +1,0 @@
-int fieldNumber
-byte[] termBytes
-int termBytesLength
-TermInfo ti

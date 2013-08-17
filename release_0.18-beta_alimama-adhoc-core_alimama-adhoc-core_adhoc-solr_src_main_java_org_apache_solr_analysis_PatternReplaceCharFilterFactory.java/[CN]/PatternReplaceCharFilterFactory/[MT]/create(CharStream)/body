@@ -1,3 +1,0 @@
-{
-  return new PatternReplaceCharFilter(p,replacement,maxBlockChars,blockDelimiters,input);
-}

@@ -1,4 +1,0 @@
-{
-  this.foundHeader=false;
-  this.boundarySkipLen=0;
-}

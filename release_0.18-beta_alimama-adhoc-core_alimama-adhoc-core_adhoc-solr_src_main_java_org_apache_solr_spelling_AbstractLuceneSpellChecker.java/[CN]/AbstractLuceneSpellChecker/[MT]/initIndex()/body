@@ -1,8 +1,0 @@
-{
-  if (indexDir != null) {
-    index=FSDirectory.open(new File(indexDir));
-  }
- else {
-    index=new RAMDirectory();
-  }
-}

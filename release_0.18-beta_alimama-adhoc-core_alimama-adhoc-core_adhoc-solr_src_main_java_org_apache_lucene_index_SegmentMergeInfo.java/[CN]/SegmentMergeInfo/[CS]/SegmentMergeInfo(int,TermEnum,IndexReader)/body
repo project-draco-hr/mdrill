@@ -1,6 +1,0 @@
-{
-  base=b;
-  reader=r;
-  termEnum=te;
-  term=te.term();
-}

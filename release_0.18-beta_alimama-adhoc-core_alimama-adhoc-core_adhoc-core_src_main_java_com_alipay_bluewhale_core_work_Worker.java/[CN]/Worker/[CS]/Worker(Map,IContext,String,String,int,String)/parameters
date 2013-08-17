@@ -1,6 +1,0 @@
-Map conf
-IContext mq_context
-String topology_id
-String supervisor_id
-int port
-String worker_id

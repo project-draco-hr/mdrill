@@ -1,3 +1,0 @@
-{
-  return "block [key=" + key + ", index="+ index+ ", flushkey="+ flushkey+ "]";
-}

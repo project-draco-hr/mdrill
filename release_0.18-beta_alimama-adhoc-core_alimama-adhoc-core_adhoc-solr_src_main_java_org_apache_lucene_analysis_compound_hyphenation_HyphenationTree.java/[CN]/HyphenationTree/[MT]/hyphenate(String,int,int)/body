@@ -1,4 +1,0 @@
-{
-  char[] w=word.toCharArray();
-  return hyphenate(w,0,w.length,remainCharCount,pushCharCount);
-}

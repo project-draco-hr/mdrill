@@ -1,5 +1,0 @@
-{
-  if (infoStream != null) {
-    writer.message("DW: " + message);
-  }
-}

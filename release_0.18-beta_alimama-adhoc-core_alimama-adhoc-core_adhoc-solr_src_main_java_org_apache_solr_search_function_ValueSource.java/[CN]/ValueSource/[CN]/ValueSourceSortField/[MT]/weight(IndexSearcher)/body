@@ -1,5 +1,0 @@
-{
-  Map context=newContext();
-  createWeight(context,searcher);
-  return new SortField(getField(),new ValueSourceComparatorSource(context),getReverse());
-}

@@ -1,3 +1,0 @@
-{
-  statementVisitor.visit(this);
-}

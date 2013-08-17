@@ -1,3 +1,0 @@
-{
-  return spellCheckers.get(getDictionaryName(params));
-}

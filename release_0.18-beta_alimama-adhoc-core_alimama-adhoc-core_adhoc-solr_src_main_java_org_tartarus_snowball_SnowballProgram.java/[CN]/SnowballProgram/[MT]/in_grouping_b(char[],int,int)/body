@@ -1,9 +1,0 @@
-{
-  if (cursor <= limit_backward)   return false;
-  char ch=current[cursor - 1];
-  if (ch > max || ch < min)   return false;
-  ch-=min;
-  if ((s[ch >> 3] & (0X1 << (ch & 0X7))) == 0)   return false;
-  cursor--;
-  return true;
-}

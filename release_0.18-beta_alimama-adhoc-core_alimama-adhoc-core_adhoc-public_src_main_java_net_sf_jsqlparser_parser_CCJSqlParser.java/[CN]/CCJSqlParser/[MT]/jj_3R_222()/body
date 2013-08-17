@@ -1,7 +1,0 @@
-{
-  if (jj_scan_token(K_ON))   return true;
-  if (jj_scan_token(79))   return true;
-  if (jj_3R_153())   return true;
-  if (jj_scan_token(80))   return true;
-  return false;
-}

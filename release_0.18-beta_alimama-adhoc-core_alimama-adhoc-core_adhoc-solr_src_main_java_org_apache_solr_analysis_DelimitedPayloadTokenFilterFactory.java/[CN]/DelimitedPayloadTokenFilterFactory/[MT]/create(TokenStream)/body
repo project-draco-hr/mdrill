@@ -1,3 +1,0 @@
-{
-  return new DelimitedPayloadTokenFilter(input,delimiter,encoder);
-}

@@ -1,4 +1,0 @@
-{
-  Task t=new Task(conf,stormConf,topologyContext,userContext,stormId,mqContext,clusterState,stormActive,workerTransfer,workHalt);
-  return t.execute();
-}

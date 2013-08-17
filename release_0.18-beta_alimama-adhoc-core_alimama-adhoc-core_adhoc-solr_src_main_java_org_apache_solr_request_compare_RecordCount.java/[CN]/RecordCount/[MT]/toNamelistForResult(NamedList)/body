@@ -1,5 +1,0 @@
-{
-  rtn.add("recordcount",this.getValue());
-  rtn.add("count",Integer.MAX_VALUE);
-  return rtn;
-}

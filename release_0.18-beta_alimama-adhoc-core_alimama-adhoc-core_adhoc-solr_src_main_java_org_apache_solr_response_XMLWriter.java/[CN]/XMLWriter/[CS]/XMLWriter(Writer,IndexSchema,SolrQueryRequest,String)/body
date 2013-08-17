@@ -1,7 +1,0 @@
-{
-  this.writer=writer;
-  this.schema=schema;
-  this.request=req;
-  float ver=version == null ? CURRENT_VERSION : Float.parseFloat(version);
-  this.version=(int)(ver * 1000);
-}

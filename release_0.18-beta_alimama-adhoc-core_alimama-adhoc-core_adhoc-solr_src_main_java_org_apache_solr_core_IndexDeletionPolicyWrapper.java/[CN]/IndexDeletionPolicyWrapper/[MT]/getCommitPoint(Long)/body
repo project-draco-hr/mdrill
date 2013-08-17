@@ -1,3 +1,0 @@
-{
-  return solrVersionVsCommits.get(version);
-}

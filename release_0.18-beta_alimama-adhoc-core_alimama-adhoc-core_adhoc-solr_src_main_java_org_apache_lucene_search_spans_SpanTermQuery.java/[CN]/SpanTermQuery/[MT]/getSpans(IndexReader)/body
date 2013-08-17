@@ -1,3 +1,0 @@
-{
-  return new TermSpans(reader.termPositions(term),term);
-}

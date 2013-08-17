@@ -1,5 +1,0 @@
-{
-  failRequest_result result=new failRequest_result();
-  receiveBase(result,"failRequest");
-  return;
-}

@@ -1,4 +1,0 @@
-{
-  collector.setNextReader(indexReader,docBase);
-  this.base=docBase;
-}

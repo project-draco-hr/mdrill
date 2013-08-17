@@ -1,4 +1,0 @@
-{
-  if (termDocs == null)   return 0;
-  return termDocs.read(docs,freqs);
-}

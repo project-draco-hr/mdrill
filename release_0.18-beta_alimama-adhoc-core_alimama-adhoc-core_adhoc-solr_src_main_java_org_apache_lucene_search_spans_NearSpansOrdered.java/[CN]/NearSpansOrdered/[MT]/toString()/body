@@ -1,3 +1,0 @@
-{
-  return getClass().getName() + "(" + query.toString()+ ")@"+ (firstTime ? "START" : (more ? (doc() + ":" + start()+ "-"+ end()) : "END"));
-}

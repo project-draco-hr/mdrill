@@ -1,4 +1,0 @@
-{
-  super.init(args);
-  this.args=SolrParams.toSolrParams(args);
-}

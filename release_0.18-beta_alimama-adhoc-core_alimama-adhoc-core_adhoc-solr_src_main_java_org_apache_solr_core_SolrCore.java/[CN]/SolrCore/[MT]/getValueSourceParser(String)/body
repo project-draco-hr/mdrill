@@ -1,3 +1,0 @@
-{
-  return valueSourceParsers.get(parserName);
-}

@@ -1,3 +1,0 @@
-{
-  throw new UnsupportedOperationException("This reader does not support reopen(IndexCommit).");
-}

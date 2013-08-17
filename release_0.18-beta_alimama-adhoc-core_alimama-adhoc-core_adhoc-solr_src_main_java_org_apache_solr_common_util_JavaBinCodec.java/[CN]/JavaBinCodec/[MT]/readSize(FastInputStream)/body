@@ -1,5 +1,0 @@
-{
-  int sz=tagByte & 0x1f;
-  if (sz == 0x1f)   sz+=readVInt(in);
-  return sz;
-}

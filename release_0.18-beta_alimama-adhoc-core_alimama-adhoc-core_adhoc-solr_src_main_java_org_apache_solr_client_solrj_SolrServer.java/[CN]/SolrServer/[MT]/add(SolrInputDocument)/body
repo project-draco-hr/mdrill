@@ -1,3 +1,0 @@
-{
-  return add(doc,-1);
-}

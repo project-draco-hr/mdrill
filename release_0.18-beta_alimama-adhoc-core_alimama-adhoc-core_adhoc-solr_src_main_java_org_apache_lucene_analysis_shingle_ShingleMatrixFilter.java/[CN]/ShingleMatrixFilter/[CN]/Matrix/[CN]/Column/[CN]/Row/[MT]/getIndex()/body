@@ -1,3 +1,0 @@
-{
-  return Column.this.rows.indexOf(this);
-}

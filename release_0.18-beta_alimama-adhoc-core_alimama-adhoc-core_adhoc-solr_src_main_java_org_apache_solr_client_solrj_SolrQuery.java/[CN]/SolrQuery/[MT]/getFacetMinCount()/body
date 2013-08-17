@@ -1,3 +1,0 @@
-{
-  return this.getInt(FacetParams.FACET_MINCOUNT,1);
-}

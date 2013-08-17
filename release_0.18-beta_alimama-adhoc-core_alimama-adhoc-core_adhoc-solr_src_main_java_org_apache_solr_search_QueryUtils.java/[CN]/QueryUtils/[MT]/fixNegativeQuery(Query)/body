@@ -1,5 +1,0 @@
-{
-  BooleanQuery newBq=(BooleanQuery)q.clone();
-  newBq.add(new MatchAllDocsQuery(),BooleanClause.Occur.MUST);
-  return newBq;
-}

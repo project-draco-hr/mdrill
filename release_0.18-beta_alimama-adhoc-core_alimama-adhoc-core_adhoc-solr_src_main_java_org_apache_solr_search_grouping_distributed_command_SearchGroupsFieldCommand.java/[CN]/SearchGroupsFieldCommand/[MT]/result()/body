@@ -1,3 +1,0 @@
-{
-  return collector.getTopGroups(0,true);
-}

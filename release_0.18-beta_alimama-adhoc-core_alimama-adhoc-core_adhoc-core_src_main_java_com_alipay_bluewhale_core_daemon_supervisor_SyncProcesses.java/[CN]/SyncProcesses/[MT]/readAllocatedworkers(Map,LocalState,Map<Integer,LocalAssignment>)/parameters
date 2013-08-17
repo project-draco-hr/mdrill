@@ -1,3 +1,0 @@
-Map conf
-LocalState localState
-Map<Integer,LocalAssignment> assignedTasks

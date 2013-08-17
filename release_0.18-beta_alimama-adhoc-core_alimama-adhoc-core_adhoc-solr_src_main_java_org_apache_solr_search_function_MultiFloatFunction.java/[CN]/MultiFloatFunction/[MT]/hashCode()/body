@@ -1,3 +1,0 @@
-{
-  return Arrays.hashCode(sources) + name().hashCode();
-}

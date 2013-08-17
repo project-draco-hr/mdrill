@@ -1,7 +1,0 @@
-{
-  String rev="$Revision: 1086822 $";
-  if (_handler != null) {
-    rev+=" :: " + _handler.getVersion();
-  }
-  return rev;
-}

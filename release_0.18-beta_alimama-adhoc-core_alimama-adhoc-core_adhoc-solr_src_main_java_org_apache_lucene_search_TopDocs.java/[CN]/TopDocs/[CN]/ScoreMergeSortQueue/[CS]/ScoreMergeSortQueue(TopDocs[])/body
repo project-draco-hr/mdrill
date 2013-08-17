@@ -1,7 +1,0 @@
-{
-  initialize(shardHits.length);
-  this.shardHits=new ScoreDoc[shardHits.length][];
-  for (int shardIDX=0; shardIDX < shardHits.length; shardIDX++) {
-    this.shardHits[shardIDX]=shardHits[shardIDX].scoreDocs;
-  }
-}

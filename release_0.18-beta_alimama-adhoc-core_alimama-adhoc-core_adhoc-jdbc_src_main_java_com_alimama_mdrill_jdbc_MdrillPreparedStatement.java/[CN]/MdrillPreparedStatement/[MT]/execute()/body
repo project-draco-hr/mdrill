@@ -1,4 +1,0 @@
-{
-  ResultSet rs=executeImmediate(sql);
-  return rs != null;
-}

@@ -1,3 +1,0 @@
-{
-  writeDate(name,DateField.formatExternal(val));
-}

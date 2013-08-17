@@ -1,6 +1,0 @@
-{
-  this.key=key;
-  this.value=(Double)nst.get("count");
-  this.docid=(Integer)nst.get("docid");
-  this.colVal=(String)nst.get("sortStr");
-}

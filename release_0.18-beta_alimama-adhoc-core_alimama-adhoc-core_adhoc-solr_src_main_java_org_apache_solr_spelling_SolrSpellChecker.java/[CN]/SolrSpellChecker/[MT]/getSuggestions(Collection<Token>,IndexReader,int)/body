@@ -1,3 +1,0 @@
-{
-  return getSuggestions(tokens,reader,count,false,false);
-}

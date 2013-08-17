@@ -1,4 +1,0 @@
-{
-  byte[] topic={};
-  return unsubscribe(socket,topic);
-}

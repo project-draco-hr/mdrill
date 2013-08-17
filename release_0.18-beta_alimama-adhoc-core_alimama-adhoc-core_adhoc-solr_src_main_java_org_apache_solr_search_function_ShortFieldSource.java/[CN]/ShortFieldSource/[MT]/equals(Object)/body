@@ -1,5 +1,0 @@
-{
-  if (o.getClass() != ShortFieldSource.class)   return false;
-  ShortFieldSource other=(ShortFieldSource)o;
-  return super.equals(other) && (this.parser == null ? other.parser == null : this.parser.getClass() == other.parser.getClass());
-}

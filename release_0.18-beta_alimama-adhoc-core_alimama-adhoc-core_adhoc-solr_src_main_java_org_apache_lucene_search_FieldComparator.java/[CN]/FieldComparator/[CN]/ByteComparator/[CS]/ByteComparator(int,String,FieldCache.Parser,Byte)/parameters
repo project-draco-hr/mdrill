@@ -1,4 +1,0 @@
-int numHits
-String field
-FieldCache.Parser parser
-Byte missingValue

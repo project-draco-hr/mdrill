@@ -1,4 +1,0 @@
-{
-  setLat(lat);
-  setLng(lng);
-}

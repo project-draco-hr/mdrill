@@ -1,8 +1,0 @@
-{
-  Explanation tfExplanation=new Explanation();
-  int expDoc=advance(doc);
-  float phraseFreq=(expDoc == doc) ? freq : 0.0f;
-  tfExplanation.setValue(getSimilarity().tf(phraseFreq));
-  tfExplanation.setDescription("tf(phraseFreq=" + phraseFreq + ")");
-  return tfExplanation;
-}

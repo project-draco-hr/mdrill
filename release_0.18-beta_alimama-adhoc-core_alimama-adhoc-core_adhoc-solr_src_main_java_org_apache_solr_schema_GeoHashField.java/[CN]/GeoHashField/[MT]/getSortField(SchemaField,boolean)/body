@@ -1,3 +1,0 @@
-{
-  return getStringSort(field,top);
-}

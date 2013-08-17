@@ -1,6 +1,0 @@
-{
-  if (null == parent) {
-    parent=Thread.currentThread().getContextClassLoader();
-  }
-  return replaceClassLoader(URLClassLoader.newInstance(new URL[0],parent),libDir,null);
-}

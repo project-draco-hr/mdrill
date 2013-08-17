@@ -1,7 +1,0 @@
-{
-  NamedList rtn=new NamedList();
-  if (!isFinalResult) {
-    return toNamelistForMerge(rtn);
-  }
-  return toNamelistForResult(rtn);
-}

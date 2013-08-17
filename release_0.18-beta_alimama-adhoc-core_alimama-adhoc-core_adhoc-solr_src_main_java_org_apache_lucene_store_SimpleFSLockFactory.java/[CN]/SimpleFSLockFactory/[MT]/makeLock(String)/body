@@ -1,6 +1,0 @@
-{
-  if (lockPrefix != null) {
-    lockName=lockPrefix + "-" + lockName;
-  }
-  return new SimpleFSLock(lockDir,lockName);
-}

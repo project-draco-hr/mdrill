@@ -1,3 +1,0 @@
-{
-  return makeCommonSet(commonWords,false);
-}

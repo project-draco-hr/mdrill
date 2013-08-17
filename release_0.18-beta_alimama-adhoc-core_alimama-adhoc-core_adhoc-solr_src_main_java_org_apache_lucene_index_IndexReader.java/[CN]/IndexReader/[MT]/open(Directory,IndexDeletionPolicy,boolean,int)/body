@@ -1,3 +1,0 @@
-{
-  return open(directory,deletionPolicy,null,readOnly,termInfosIndexDivisor);
-}

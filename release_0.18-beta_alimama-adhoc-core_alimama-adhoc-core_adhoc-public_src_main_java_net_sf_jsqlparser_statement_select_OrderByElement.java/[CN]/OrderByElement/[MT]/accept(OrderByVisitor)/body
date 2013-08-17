@@ -1,3 +1,0 @@
-{
-  orderByVisitor.visit(this);
-}

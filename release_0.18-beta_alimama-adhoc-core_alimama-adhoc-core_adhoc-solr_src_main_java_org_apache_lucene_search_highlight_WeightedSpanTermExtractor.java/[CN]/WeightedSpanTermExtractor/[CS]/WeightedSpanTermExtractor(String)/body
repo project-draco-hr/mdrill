@@ -1,5 +1,0 @@
-{
-  if (defaultField != null) {
-    this.defaultField=StringHelper.intern(defaultField);
-  }
-}

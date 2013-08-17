@@ -1,6 +1,0 @@
-{
-  if (max < 0) {
-    throw new SQLException("max must be >= 0");
-  }
-  this.maxRows=max;
-}

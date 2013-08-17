@@ -1,3 +1,0 @@
-{
-  return "$URL: https://svn.apache.org/repos/asf/lucene/dev/branches/lucene_solr_3_5/solr/core/src/java/org/apache/solr/search/FastLRUCache.java $";
-}

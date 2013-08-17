@@ -1,9 +1,0 @@
-{
-  super(groupField,sortWithinGroup.getSort().length);
-  this.sortWithinGroup=sortWithinGroup;
-  groups=new HashMap<String,GroupHead>();
-  final SortField[] sortFields=sortWithinGroup.getSort();
-  for (int i=0; i < sortFields.length; i++) {
-    reversed[i]=sortFields[i].getReverse() ? -1 : 1;
-  }
-}

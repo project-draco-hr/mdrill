@@ -1,8 +1,0 @@
-{
-  if (_task_obj instanceof IBolt) {
-    ((IBolt)_task_obj).cleanup();
-  }
-  if (_task_obj instanceof ISpout) {
-    ((ISpout)_task_obj).close();
-  }
-}

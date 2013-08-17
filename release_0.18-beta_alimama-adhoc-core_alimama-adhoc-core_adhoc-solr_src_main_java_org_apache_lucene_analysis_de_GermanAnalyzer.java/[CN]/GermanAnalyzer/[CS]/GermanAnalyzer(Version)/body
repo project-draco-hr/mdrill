@@ -1,3 +1,0 @@
-{
-  this(matchVersion,matchVersion.onOrAfter(Version.LUCENE_31) ? DefaultSetHolder.DEFAULT_SET : DefaultSetHolder.DEFAULT_SET_30);
-}

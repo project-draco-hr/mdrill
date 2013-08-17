@@ -1,8 +1,0 @@
-{
-  try {
-    return new URL[]{new URL("http://wiki.apache.org/solr/DisMaxRequestHandler")};
-  }
- catch (  MalformedURLException ex) {
-    return null;
-  }
-}

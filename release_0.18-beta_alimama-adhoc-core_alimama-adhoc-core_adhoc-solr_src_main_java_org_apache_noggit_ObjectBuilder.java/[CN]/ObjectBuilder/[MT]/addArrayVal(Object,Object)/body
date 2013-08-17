@@ -1,3 +1,0 @@
-{
-  ((List)arr).add(val);
-}

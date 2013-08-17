@@ -1,6 +1,0 @@
-{
-  int docs=form.getNumDocs();
-  numDocs+=docs;
-  numForms++;
-  this.process(form.getDirectory());
-}

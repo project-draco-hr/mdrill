@@ -1,4 +1,0 @@
-{
-  this.defaultField=StringHelper.intern(defaultField);
-  init(query,field,null,true);
-}

@@ -1,6 +1,0 @@
-{
-  if (!termLongEnough) {
-    return new SingleTermEnum(reader,term);
-  }
-  return new FuzzyTermEnum(reader,getTerm(),minimumSimilarity,prefixLength);
-}

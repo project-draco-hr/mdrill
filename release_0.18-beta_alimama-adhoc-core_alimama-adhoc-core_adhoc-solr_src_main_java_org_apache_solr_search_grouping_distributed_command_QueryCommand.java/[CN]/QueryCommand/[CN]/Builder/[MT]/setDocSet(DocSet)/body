@@ -1,4 +1,0 @@
-{
-  this.docSet=docSet;
-  return this;
-}

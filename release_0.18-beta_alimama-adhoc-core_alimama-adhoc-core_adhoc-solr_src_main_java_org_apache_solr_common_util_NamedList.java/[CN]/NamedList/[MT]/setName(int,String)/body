@@ -1,3 +1,0 @@
-{
-  nvPairs.set(idx << 1,name);
-}

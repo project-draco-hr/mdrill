@@ -1,3 +1,0 @@
-{
-  return worker_root(conf,id) + "/heartbeats";
-}

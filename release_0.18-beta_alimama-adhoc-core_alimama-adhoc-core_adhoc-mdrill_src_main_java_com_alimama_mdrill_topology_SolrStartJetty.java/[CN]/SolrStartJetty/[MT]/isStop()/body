@@ -1,7 +1,0 @@
-{
-  Boolean rtn=this.isTimeout();
-  if (rtn) {
-    this.collector.reportError(new RuntimeException("timeout:" + this.tablename));
-  }
-  return rtn;
-}

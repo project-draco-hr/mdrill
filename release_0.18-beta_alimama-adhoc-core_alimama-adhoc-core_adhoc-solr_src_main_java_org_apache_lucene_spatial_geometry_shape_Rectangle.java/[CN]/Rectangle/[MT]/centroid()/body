@@ -1,3 +1,0 @@
-{
-  return new Point2D((ptMin.getX() + ptMax.getX()) / 2,(ptMin.getY() + ptMax.getY()) / 2);
-}

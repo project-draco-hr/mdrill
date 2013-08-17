@@ -1,4 +1,0 @@
-{
-  writer.updateDocument(t,d);
-  return indexingGen.get();
-}

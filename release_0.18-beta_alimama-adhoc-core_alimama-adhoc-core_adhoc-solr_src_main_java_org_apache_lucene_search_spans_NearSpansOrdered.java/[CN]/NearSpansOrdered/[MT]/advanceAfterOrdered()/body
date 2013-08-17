@@ -1,8 +1,0 @@
-{
-  while (more && (inSameDoc || toSameDoc())) {
-    if (stretchToOrder() && shrinkToAfterShortestMatch()) {
-      return true;
-    }
-  }
-  return false;
-}

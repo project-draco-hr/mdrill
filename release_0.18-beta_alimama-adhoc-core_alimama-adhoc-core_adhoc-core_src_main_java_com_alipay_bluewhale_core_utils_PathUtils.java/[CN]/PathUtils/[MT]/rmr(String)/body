@@ -1,6 +1,0 @@
-{
-  LOG.debug("Rmr path " + path);
-  if (exists_file(path)) {
-    FileUtils.forceDelete(new File(path));
-  }
-}

@@ -1,6 +1,0 @@
-{
-  String msClassName=mergeSchedulerInfo == null ? SolrIndexConfig.DEFAULT_MERGE_SCHEDULER_CLASSNAME : mergeSchedulerInfo.className;
-  MergeScheduler scheduler=(MergeScheduler)schema.getResourceLoader().newInstance(msClassName);
-  if (mergeSchedulerInfo != null)   SolrPluginUtils.invokeSetters(scheduler,mergeSchedulerInfo.initArgs);
-  return scheduler;
-}

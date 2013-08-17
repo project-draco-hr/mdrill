@@ -1,4 +1,0 @@
-List<BooleanClause> clauses
-int conj
-int mods
-Query q

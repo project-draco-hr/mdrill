@@ -1,5 +1,0 @@
-{
-  WildcardQuery query=new WildcardQuery(t);
-  query.setRewriteMethod(multiTermRewriteMethod);
-  return query;
-}

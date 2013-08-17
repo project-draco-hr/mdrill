@@ -1,6 +1,0 @@
-{
-  if (!removeStopFilter) {
-    return queryAnalyzer.reusableTokenStream(fieldName,reader);
-  }
-  return tokenStream(fieldName,reader);
-}

@@ -1,3 +1,0 @@
-{
-  this.tierLength=(int)Math.pow(2,this.tierLevel);
-}

@@ -1,5 +1,0 @@
-{
-  BooleanQuery clone=(BooleanQuery)super.clone();
-  clone.clauses=(ArrayList<BooleanClause>)this.clauses.clone();
-  return clone;
-}

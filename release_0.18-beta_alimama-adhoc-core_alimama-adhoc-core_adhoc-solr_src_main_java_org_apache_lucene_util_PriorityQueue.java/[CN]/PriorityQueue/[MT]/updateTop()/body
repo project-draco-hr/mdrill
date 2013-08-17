@@ -1,4 +1,0 @@
-{
-  downHeap();
-  return heap[1];
-}

@@ -1,3 +1,0 @@
-{
-  reverseUnicode3(buffer,start,len);
-}

@@ -1,5 +1,0 @@
-{
-  for (  AsyncLoopThread t : all_threads) {
-    t.join();
-  }
-}

@@ -1,9 +1,0 @@
-{
-  if (!(eq_s_b(1,"i"))) {
-    return false;
-  }
-  if (!(in_grouping_b(g_V2,97,246))) {
-    return false;
-  }
-  return true;
-}

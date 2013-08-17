@@ -1,9 +1,0 @@
-{
-  if (this == o)   return true;
-  if (!(o instanceof LatLongDistanceFilter))   return false;
-  LatLongDistanceFilter other=(LatLongDistanceFilter)o;
-  if (!this.startingFilter.equals(other.startingFilter) || this.distance != other.distance || this.lat != other.lat || this.lng != other.lng || !this.latField.equals(other.latField) || !this.lngField.equals(other.lngField)) {
-    return false;
-  }
-  return true;
-}

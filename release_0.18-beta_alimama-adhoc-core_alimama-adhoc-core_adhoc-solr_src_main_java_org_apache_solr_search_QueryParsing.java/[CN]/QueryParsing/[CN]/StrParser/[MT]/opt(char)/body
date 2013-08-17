@@ -1,8 +1,0 @@
-{
-  eatws();
-  if (val.charAt(pos) == ch) {
-    pos++;
-    return true;
-  }
-  return false;
-}

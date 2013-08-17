@@ -1,7 +1,0 @@
-{
-  String ret=(String)hashOpcode.get(new Integer(opcode));
-  if (ret == null) {
-    ret="OP_????";
-  }
-  return ret;
-}

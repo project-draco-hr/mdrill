@@ -1,3 +1,0 @@
-{
-  this(to.getX() - from.getX(),to.getY() - from.getY());
-}

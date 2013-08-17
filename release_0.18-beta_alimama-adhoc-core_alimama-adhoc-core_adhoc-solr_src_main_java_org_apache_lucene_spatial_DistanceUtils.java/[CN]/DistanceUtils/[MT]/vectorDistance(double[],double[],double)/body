@@ -1,3 +1,0 @@
-{
-  return vectorDistance(vec1,vec2,power,1.0 / power);
-}

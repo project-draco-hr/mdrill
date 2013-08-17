@@ -1,6 +1,0 @@
-{
-  int h=match.hashCode();
-  h^=(h << 8) | (h >>> 25);
-  h^=Float.floatToRawIntBits(getBoost()) ^ end;
-  return h;
-}

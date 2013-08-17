@@ -1,5 +1,0 @@
-{
-  ensureOpen();
-  ensureCanWrite(name);
-  return new FSIndexOutput(this,name);
-}

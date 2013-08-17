@@ -1,8 +1,0 @@
-{
-  ByteBuffer buff=ByteBuffer.wrap(packet);
-  Integer port=buff.getInt();
-  byte[] message=new byte[buff.array().length - (Integer.SIZE / 8)];
-  buff.get(message);
-  PacketPair pair=new PacketPair(port,message);
-  return pair;
-}

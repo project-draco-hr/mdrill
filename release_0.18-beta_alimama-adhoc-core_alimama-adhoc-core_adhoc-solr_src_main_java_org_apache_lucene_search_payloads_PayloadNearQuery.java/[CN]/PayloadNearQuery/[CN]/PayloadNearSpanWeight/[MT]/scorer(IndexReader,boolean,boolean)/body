@@ -1,3 +1,0 @@
-{
-  return new PayloadNearSpanScorer(query.getSpans(reader),this,similarity,reader.norms(query.getField()));
-}

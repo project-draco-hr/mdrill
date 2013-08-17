@@ -1,9 +1,0 @@
-{
-  List<String> strList=StrUtils.splitSmart(str,separator,false);
-  List<List<String>> synList=new ArrayList<List<String>>();
-  for (  String toks : strList) {
-    List<String> tokList=tokFactory == null ? StrUtils.splitWS(toks,true) : splitByTokenizer(toks,tokFactory);
-    synList.add(tokList);
-  }
-  return synList;
-}

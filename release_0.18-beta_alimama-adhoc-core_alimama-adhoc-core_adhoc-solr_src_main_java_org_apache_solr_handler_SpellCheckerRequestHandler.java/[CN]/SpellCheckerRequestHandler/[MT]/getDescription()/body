@@ -1,3 +1,0 @@
-{
-  return "The SpellChecker Solr request handler for SpellChecker index: " + dirDescription;
-}

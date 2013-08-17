@@ -1,4 +1,0 @@
-{
-  SimpleDateFormat fmt=new SimpleDateFormat("yyyyMMdd");
-  return fmt.parse(str);
-}

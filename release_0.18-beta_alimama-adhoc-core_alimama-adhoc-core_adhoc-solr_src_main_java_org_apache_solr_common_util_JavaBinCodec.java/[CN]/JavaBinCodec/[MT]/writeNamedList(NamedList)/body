@@ -1,9 +1,0 @@
-{
-  writeTag(nl instanceof SimpleOrderedMap ? ORDERED_MAP : NAMED_LST,nl.size());
-  for (int i=0; i < nl.size(); i++) {
-    String name=nl.getName(i);
-    writeExternString(name);
-    Object val=nl.getVal(i);
-    writeVal(val);
-  }
-}

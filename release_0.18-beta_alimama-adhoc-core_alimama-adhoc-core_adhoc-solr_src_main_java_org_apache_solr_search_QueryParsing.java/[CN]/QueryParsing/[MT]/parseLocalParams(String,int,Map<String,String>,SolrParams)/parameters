@@ -1,4 +1,0 @@
-String txt
-int start
-Map<String,String> target
-SolrParams params

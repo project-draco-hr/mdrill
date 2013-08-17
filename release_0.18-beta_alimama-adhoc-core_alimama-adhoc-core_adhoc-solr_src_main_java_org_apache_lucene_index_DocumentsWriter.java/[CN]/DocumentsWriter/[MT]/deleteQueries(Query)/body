@@ -1,9 +1,0 @@
-{
-  final boolean doFlush=flushControl.waitUpdate(0,queries.length);
-synchronized (this) {
-    for (    Query query : queries) {
-      pendingDeletes.addQuery(query,numDocs);
-    }
-  }
-  return doFlush;
-}

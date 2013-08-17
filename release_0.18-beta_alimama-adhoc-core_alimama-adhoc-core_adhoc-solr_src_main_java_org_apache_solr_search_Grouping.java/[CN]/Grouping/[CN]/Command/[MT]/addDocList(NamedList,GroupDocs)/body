@@ -1,3 +1,0 @@
-{
-  rsp.add("doclist",getDocList(groups));
-}

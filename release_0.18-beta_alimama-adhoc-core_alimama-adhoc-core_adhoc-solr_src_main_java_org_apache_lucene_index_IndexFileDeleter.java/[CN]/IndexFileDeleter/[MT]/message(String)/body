@@ -1,3 +1,0 @@
-{
-  infoStream.println("IFD [" + new Date() + "; "+ Thread.currentThread().getName()+ "]: "+ message);
-}

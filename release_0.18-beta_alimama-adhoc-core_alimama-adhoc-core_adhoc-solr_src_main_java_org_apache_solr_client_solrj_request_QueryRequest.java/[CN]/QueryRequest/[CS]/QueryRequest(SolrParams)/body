@@ -1,4 +1,0 @@
-{
-  super(METHOD.GET,null);
-  query=q;
-}

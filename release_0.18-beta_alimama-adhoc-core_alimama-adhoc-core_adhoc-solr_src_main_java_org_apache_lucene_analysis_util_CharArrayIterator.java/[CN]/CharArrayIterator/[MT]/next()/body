@@ -1,9 +1,0 @@
-{
-  if (++index >= limit) {
-    index=limit;
-    return DONE;
-  }
- else {
-    return current();
-  }
-}

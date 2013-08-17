@@ -1,8 +1,0 @@
-{
-  try {
-    return parseDate(toExternal(f));
-  }
- catch (  ParseException ex) {
-    throw new RuntimeException(ex);
-  }
-}

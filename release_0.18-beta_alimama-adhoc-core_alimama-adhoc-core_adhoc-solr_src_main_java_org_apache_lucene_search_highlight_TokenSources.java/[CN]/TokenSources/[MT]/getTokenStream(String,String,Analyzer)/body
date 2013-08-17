@@ -1,8 +1,0 @@
-{
-  try {
-    return analyzer.reusableTokenStream(field,new StringReader(contents));
-  }
- catch (  IOException ex) {
-    throw new RuntimeException(ex);
-  }
-}

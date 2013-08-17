@@ -1,3 +1,0 @@
-{
-  this(Executors.newCachedThreadPool(new NamedThreadFactory(ParallelMultiSearcher.class.getSimpleName())),searchables);
-}

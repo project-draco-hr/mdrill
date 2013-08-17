@@ -1,5 +1,0 @@
-{
-  reserve(len);
-  s.getChars(stringOffset,len,buf,end);
-  end+=len;
-}

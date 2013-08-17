@@ -1,5 +1,0 @@
-Term term
-BytesRef termBytesRef
-int termIndex
-PagedBytesDataInput input
-BytesRef reuse

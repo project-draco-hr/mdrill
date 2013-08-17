@@ -1,3 +1,0 @@
-{
-  return addStopWords(reader,fieldName,(int)(reader.numDocs() * maxPercentDocs));
-}

@@ -1,8 +1,0 @@
-{
-  int compresssize=o.dist.size();
-  for (int i=0; i < compresssize; i++) {
-    DistinctCount vv=o.dist.get(i);
-    DistinctCount curr=this.dist.get(i);
-    curr.merge(vv);
-  }
-}

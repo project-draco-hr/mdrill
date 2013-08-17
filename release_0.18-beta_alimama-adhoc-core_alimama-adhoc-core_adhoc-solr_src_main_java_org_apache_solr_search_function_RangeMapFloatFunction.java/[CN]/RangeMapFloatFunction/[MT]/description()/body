@@ -1,3 +1,0 @@
-{
-  return "map(" + source.description() + ","+ min+ ","+ max+ ","+ target+ ")";
-}

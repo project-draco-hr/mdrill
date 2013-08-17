@@ -1,5 +1,0 @@
-Directory dir
-String seg
-FieldInfos fis
-int readBufferSize
-int indexDivisor

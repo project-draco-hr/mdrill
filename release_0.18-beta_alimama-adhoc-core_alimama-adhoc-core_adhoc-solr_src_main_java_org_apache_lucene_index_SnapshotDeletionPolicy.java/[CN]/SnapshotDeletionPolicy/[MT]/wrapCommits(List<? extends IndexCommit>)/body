@@ -1,7 +1,0 @@
-{
-  List<IndexCommit> wrappedCommits=new ArrayList<IndexCommit>(commits.size());
-  for (  IndexCommit ic : commits) {
-    wrappedCommits.add(new SnapshotCommitPoint(ic));
-  }
-  return wrappedCommits;
-}

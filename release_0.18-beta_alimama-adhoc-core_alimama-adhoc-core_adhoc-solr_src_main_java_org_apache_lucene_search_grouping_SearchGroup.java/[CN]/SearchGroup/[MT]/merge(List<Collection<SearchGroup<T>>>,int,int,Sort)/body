@@ -1,8 +1,0 @@
-{
-  if (topGroups.size() == 0) {
-    return null;
-  }
- else {
-    return new GroupMerger<T>(groupSort).merge(topGroups,offset,topN);
-  }
-}

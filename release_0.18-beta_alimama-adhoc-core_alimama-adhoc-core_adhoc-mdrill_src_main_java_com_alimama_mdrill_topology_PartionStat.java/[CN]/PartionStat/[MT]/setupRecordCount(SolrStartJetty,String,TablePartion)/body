@@ -1,8 +1,0 @@
-{
-  this.requestPartions(solrservice,tablename);
-  if (Partions.canUsedThedate(part.parttype)) {
-    this.requestDaycount(solrservice,tablename);
-    this.requestSmallest(solrservice,tablename,part);
-    this.requestBiggest(solrservice,tablename,part);
-  }
-}

@@ -1,6 +1,0 @@
-{
-synchronized (this.getLockObj()) {
-    this.isException=true;
-    this.lasterror=e;
-  }
-}

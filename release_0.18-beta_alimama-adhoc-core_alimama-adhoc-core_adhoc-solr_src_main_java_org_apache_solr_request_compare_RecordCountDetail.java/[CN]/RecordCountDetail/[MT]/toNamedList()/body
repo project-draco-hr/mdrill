@@ -1,9 +1,0 @@
-{
-  NamedList rtn=new NamedList();
-  rtn.add("recordcount",this.count);
-  rtn.add("count",Integer.MAX_VALUE);
-  if (!isFinalResult) {
-    rtn.add("rc",3);
-  }
-  return rtn;
-}

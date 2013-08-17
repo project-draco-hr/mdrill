@@ -1,4 +1,0 @@
-{
-  super(p,-1);
-  this.proxStream=null;
-}

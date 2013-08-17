@@ -1,4 +1,0 @@
-{
-  this(matchVersion,name);
-  stopSet=StopFilter.makeStopSet(matchVersion,stopWords);
-}

@@ -1,3 +1,0 @@
-{
-  stoplist.put(word,hyphenatedword);
-}

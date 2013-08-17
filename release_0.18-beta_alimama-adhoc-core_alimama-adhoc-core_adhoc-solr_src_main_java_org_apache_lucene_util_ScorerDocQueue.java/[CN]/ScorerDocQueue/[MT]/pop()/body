@@ -1,5 +1,0 @@
-{
-  Scorer result=topHSD.scorer;
-  popNoResult();
-  return result;
-}

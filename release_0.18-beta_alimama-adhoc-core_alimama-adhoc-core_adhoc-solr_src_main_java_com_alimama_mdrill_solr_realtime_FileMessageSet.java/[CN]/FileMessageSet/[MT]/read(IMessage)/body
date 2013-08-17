@@ -1,3 +1,0 @@
-{
-  return this.read(bf,this.offset);
-}

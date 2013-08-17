@@ -1,5 +1,0 @@
-{
-  final Query q=query.rewrite(reader);
-  if (!(q instanceof SpanQuery))   throw new UnsupportedOperationException("You can only use SpanMultiTermQueryWrapper with a suitable SpanRewriteMethod.");
-  return q;
-}

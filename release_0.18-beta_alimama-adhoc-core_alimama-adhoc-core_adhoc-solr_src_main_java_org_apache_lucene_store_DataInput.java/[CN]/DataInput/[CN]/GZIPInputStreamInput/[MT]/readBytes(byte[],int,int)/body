@@ -1,6 +1,0 @@
-{
-  int pos=0;
-  while (pos < len) {
-    pos+=gzip.read(buf,start + pos,len - pos);
-  }
-}

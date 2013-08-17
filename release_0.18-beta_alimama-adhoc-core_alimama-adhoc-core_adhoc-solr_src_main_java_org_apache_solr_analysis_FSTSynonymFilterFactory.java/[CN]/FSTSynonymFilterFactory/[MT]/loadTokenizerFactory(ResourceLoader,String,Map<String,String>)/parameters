@@ -1,3 +1,0 @@
-ResourceLoader loader
-String cname
-Map<String,String> args

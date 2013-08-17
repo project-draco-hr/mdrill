@@ -1,5 +1,0 @@
-{
-  ensureOpen();
-  this.writeLockTimeout=writeLockTimeout;
-  config.setWriteLockTimeout(writeLockTimeout);
-}

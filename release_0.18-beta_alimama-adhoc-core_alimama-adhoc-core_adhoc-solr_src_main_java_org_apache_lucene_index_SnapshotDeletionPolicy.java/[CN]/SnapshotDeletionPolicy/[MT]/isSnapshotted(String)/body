@@ -1,3 +1,0 @@
-{
-  return idToSnapshot.containsKey(id);
-}

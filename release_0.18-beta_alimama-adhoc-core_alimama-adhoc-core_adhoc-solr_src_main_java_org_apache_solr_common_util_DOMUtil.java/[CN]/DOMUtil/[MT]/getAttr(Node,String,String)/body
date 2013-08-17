@@ -1,3 +1,0 @@
-{
-  return getAttr(node.getAttributes(),name,missing_err);
-}

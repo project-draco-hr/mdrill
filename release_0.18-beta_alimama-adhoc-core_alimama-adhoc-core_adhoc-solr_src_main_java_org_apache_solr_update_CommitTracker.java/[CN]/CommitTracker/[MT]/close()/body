@@ -1,7 +1,0 @@
-{
-  if (pending != null) {
-    pending.cancel(true);
-    pending=null;
-  }
-  scheduler.shutdownNow();
-}

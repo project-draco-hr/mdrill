@@ -1,4 +1,0 @@
-{
-  writeStr(null,fname,needsEscaping);
-  writer.write(':');
-}

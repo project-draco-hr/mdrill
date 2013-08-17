@@ -1,5 +1,0 @@
-{
-  super(field,missingValue);
-  values=new int[numHits];
-  this.parser=(IntParser)parser;
-}

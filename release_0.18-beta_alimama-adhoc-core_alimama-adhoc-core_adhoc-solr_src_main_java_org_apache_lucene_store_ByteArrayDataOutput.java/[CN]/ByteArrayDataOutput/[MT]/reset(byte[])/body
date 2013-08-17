@@ -1,3 +1,0 @@
-{
-  reset(bytes,0,bytes.length);
-}

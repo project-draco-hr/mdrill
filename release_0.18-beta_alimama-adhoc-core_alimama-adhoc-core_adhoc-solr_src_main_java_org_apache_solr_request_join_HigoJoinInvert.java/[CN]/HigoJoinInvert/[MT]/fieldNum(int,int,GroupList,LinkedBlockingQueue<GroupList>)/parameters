@@ -1,4 +1,0 @@
-int doc
-int offset
-GroupList base
-LinkedBlockingQueue<GroupList> cache

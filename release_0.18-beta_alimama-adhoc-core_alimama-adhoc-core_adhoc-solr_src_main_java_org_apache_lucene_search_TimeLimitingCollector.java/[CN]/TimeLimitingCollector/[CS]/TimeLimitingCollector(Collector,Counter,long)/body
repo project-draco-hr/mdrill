@@ -1,5 +1,0 @@
-{
-  this.collector=collector;
-  this.clock=clock;
-  this.ticksAllowed=ticksAllowed;
-}

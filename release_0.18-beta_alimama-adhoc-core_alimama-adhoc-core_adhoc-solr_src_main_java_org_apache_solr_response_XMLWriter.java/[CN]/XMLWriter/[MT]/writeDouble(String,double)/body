@@ -1,3 +1,0 @@
-{
-  writeDouble(name,Double.toString(val));
-}

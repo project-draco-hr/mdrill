@@ -1,6 +1,0 @@
-String word
-int numSug
-IndexReader ir
-String field
-boolean morePopular
-float accuracy

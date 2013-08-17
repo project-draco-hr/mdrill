@@ -1,5 +1,0 @@
-{
-  for (  Collector c : collectors) {
-    c.setScorer(s);
-  }
-}

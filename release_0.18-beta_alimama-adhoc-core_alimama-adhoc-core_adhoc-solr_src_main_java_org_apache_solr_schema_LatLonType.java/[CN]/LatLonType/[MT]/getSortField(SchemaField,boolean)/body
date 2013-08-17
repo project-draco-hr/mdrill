@@ -1,3 +1,0 @@
-{
-  throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,"Sorting not supported on SpatialTileField " + field.getName());
-}

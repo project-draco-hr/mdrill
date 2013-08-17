@@ -1,5 +1,0 @@
-{
-  super(field,missingValue);
-  values=new short[numHits];
-  this.parser=(ShortParser)parser;
-}

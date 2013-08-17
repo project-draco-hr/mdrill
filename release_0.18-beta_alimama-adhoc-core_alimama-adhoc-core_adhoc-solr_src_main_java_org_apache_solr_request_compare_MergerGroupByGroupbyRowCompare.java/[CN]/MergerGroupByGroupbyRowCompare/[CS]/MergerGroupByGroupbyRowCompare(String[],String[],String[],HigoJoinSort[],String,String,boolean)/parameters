@@ -1,7 +1,0 @@
-String[] groupby
-String[] crossFs
-String[] distFS
-HigoJoinSort[] joinInvert
-String fl
-String type
-boolean _isdesc

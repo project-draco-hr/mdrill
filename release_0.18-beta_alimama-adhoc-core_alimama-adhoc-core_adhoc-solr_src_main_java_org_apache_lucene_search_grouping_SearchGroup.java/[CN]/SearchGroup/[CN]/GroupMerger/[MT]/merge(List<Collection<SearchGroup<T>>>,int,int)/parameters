@@ -1,3 +1,0 @@
-List<Collection<SearchGroup<T>>> shards
-int offset
-int topN

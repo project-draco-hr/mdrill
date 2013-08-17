@@ -1,6 +1,0 @@
-{
-  String str=parseArg();
-  if (argWasQuoted())   throw new ParseException("Expected double instead of quoted string:" + str);
-  int value=Integer.parseInt(str);
-  return value;
-}

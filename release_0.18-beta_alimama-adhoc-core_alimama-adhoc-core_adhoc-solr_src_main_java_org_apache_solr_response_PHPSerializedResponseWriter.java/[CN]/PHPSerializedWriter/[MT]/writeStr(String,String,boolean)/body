@@ -1,9 +1,0 @@
-{
-  UnicodeUtil.UTF16toUTF8(val,0,val.length(),utf8);
-  int nBytes=utf8.length;
-  writer.write("s:");
-  writer.write(Integer.toString(nBytes));
-  writer.write(":\"");
-  writer.write(val);
-  writer.write("\";");
-}

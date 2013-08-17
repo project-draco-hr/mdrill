@@ -1,3 +1,0 @@
-{
-  writer.writeVal(name,toObject(f));
-}

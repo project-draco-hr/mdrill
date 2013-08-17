@@ -1,3 +1,0 @@
-StormClusterState stormClusterState
-String supervisorId
-RunnableCallback callback

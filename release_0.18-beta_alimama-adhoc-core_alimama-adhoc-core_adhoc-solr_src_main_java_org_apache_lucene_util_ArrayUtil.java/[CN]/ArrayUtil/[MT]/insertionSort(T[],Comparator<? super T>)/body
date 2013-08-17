@@ -1,3 +1,0 @@
-{
-  insertionSort(a,0,a.length,comp);
-}

@@ -1,3 +1,0 @@
-{
-  return FixedLatLng.doubleToFixed(this.lat);
-}

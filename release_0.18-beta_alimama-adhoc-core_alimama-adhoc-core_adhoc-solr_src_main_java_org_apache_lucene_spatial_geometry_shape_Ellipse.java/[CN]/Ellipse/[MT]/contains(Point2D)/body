@@ -1,6 +1,0 @@
-{
-  double dx=pt.x() - center.x();
-  double dy=pt.y() - center.y();
-  double eq=(((k1 * SQR(dx)) + (k2 * dx * dy) + (k3 * SQR(dy)) - 1));
-  return eq <= 0;
-}

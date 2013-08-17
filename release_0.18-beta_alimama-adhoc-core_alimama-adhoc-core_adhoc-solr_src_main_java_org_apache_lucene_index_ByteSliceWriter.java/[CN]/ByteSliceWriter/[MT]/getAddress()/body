@@ -1,3 +1,0 @@
-{
-  return upto + (offset0 & DocumentsWriter.BYTE_BLOCK_NOT_MASK);
-}

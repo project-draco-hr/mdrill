@@ -1,5 +1,0 @@
-{
-  if (ev != expected) {
-    throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,"Expected: " + JSONParser.getEventString(expected) + " but got "+ JSONParser.getEventString(ev)+ " at ["+ parser.getPosition()+ "]");
-  }
-}

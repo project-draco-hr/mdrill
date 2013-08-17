@@ -1,5 +1,0 @@
-{
-  super(input);
-  this.dedup=dedup;
-  this.stemmer=new HunspellStemmer(dictionary);
-}

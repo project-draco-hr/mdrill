@@ -1,4 +1,0 @@
-{
-  if (toIndex - fromIndex <= 1)   return;
-  getSorter(a).mergeSort(fromIndex,toIndex - 1);
-}

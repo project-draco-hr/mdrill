@@ -1,7 +1,0 @@
-{
-  if (distanceFilter != null) {
-    distanceFilter.reset();
-  }
-  QueryWrapperFilter qf=new QueryWrapperFilter(query);
-  return new ChainedFilter(new Filter[]{qf,filter},ChainedFilter.AND);
-}

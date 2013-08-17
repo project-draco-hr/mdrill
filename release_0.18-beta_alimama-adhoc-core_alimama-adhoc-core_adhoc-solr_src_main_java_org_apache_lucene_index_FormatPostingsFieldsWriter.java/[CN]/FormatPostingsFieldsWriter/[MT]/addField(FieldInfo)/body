@@ -1,4 +1,0 @@
-{
-  termsWriter.setField(field);
-  return termsWriter;
-}

@@ -1,4 +1,0 @@
-{
-  super.setIndexWriter(writer);
-  base.setIndexWriter(writer);
-}

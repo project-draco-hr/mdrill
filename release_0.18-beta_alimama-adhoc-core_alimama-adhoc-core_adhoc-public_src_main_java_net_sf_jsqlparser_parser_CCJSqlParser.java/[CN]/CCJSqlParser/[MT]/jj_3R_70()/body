@@ -1,9 +1,0 @@
-{
-  Token xsp;
-  xsp=jj_scanpos;
-  if (jj_scan_token(67)) {
-    jj_scanpos=xsp;
-    if (jj_scan_token(74))     return true;
-  }
-  return false;
-}

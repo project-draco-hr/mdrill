@@ -1,6 +1,0 @@
-{
-  if (obj instanceof NodePort && ((NodePort)obj).getNode().equals(node) && ((NodePort)obj).getPort().equals(port)) {
-    return true;
-  }
-  return false;
-}

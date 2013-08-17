@@ -1,9 +1,0 @@
-{
-  Set<byte[]> matchPayload=new HashSet<byte[]>();
-  for (SpansCell cell=first; cell != null; cell=cell.next) {
-    if (cell.isPayloadAvailable()) {
-      matchPayload.addAll(cell.getPayload());
-    }
-  }
-  return matchPayload;
-}

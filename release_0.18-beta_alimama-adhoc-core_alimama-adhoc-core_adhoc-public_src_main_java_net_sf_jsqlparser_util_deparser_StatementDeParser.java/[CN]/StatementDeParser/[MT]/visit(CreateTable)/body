@@ -1,4 +1,0 @@
-{
-  CreateTableDeParser createTableDeParser=new CreateTableDeParser(buffer);
-  createTableDeParser.deParse(createTable);
-}

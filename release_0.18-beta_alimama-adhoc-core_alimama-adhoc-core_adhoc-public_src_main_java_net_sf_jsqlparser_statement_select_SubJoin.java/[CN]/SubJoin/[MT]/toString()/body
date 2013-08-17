@@ -1,3 +1,0 @@
-{
-  return "(" + left + " "+ join+ ")"+ ((alias != null) ? " AS " + alias : "");
-}

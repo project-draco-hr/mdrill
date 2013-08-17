@@ -1,5 +1,0 @@
-{
-  setAction(action,waitFlush,waitSearcher,maxSegments);
-  params.set(UpdateParams.EXPUNGE_DELETES,"" + expungeDeletes);
-  return this;
-}

@@ -1,5 +1,0 @@
-{
-  PrefixQuery query=new PrefixQuery(prefix);
-  query.setRewriteMethod(multiTermRewriteMethod);
-  return query;
-}

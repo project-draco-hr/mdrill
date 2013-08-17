@@ -1,9 +1,0 @@
-{
-  if (l > 5) {
-    return 4;
-  }
-  if (l == 5) {
-    return 3;
-  }
-  return 2;
-}

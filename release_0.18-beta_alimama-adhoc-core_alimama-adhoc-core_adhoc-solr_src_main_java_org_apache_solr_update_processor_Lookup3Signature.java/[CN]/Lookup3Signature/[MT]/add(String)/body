@@ -1,3 +1,0 @@
-{
-  hash=Hash.lookup3ycs64(content,0,content.length(),hash);
-}

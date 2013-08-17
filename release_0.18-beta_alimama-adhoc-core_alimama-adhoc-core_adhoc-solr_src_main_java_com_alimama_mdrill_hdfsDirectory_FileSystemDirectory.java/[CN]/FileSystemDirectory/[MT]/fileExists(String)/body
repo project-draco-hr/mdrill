@@ -1,3 +1,0 @@
-{
-  return fs.exists(new Path(directory,name)) || this.links.containsKey(name);
-}

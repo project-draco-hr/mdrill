@@ -1,3 +1,0 @@
-{
-  return StormUtils.barr(v);
-}

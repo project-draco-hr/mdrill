@@ -1,3 +1,0 @@
-{
-  return NumberUtils.double2sortableStr(val);
-}

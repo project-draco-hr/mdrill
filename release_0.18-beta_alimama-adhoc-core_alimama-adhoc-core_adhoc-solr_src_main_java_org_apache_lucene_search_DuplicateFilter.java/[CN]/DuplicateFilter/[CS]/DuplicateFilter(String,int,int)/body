@@ -1,5 +1,0 @@
-{
-  this.fieldName=fieldName;
-  this.keepMode=keepMode;
-  this.processingMode=processingMode;
-}

@@ -1,9 +1,0 @@
-{
-  if (endIndex > len) {
-    throw new IndexOutOfBoundsException("endIndex=" + endIndex + "; sequence size="+ len);
-  }
-  if (beginIndex < 0 || beginIndex > endIndex) {
-    throw new IndexOutOfBoundsException("beginIndex=" + beginIndex + "; endIndex="+ endIndex);
-  }
-  return new String(src,off + beginIndex,endIndex - beginIndex);
-}

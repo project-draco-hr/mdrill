@@ -1,4 +1,0 @@
-{
-  super.setNextReader(reader,base);
-  afterDoc=after.doc - docBase;
-}

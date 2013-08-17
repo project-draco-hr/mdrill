@@ -1,3 +1,0 @@
-{
-  return parseDate(d,DEFAULT_DATE_FORMATS);
-}

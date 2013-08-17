@@ -1,3 +1,0 @@
-{
-  return keyword ? 31 : 37;
-}

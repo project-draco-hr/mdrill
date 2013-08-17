@@ -1,3 +1,0 @@
-{
-  return dictionary == null ? input : new StemmerOverrideFilter(luceneMatchVersion,input,dictionary);
-}

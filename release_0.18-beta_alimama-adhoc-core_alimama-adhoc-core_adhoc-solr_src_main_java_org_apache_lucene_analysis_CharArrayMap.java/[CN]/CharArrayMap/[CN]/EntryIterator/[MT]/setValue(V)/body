@@ -1,6 +1,0 @@
-{
-  if (!allowModify)   throw new UnsupportedOperationException();
-  V old=values[lastPos];
-  values[lastPos]=value;
-  return old;
-}

@@ -1,5 +1,0 @@
-{
-  inputToken.setStartOffset(lastPrefixToken.endOffset() + inputToken.startOffset());
-  inputToken.setEndOffset(lastPrefixToken.endOffset() + inputToken.endOffset());
-  return inputToken;
-}

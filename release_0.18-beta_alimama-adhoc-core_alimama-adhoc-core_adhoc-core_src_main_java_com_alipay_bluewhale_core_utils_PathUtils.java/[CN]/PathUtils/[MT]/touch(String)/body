@@ -1,7 +1,0 @@
-{
-  LOG.debug("Touching file at" + path);
-  boolean success=(new File(path)).createNewFile();
-  if (!success) {
-    throw new RuntimeException("Failed to touch " + path);
-  }
-}

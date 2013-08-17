@@ -1,7 +1,0 @@
-{
-  if (this == obj)   return true;
-  if (obj == null)   return false;
-  if (getClass() != obj.getClass())   return false;
-  final TopTermsSpanBooleanQueryRewrite other=(TopTermsSpanBooleanQueryRewrite)obj;
-  return delegate.equals(other.delegate);
-}

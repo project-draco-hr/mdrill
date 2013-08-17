@@ -1,4 +1,0 @@
-{
-  final Tokenizer source=new ChineseTokenizer(reader);
-  return new TokenStreamComponents(source,new ChineseFilter(source));
-}

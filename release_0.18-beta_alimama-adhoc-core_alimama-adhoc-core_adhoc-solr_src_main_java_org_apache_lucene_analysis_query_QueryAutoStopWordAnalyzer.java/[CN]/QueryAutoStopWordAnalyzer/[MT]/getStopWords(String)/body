@@ -1,4 +1,0 @@
-{
-  Set<String> stopWords=stopWordsPerField.get(fieldName);
-  return stopWords != null ? stopWords.toArray(new String[stopWords.size()]) : new String[0];
-}

@@ -1,6 +1,0 @@
-{
-  Explanation result=new Explanation();
-  result.setDescription("Unimpl Payload Function Explain");
-  result.setValue(1);
-  return result;
-}

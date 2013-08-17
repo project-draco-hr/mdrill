@@ -1,4 +1,0 @@
-{
-  this.mergedSegmentWarmer=mergeSegmentWarmer;
-  return this;
-}

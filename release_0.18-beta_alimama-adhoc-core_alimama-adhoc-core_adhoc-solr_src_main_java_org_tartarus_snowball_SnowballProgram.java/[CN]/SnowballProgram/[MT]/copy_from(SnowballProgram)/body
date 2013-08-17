@@ -1,8 +1,0 @@
-{
-  current=other.current;
-  cursor=other.cursor;
-  limit=other.limit;
-  limit_backward=other.limit_backward;
-  bra=other.bra;
-  ket=other.ket;
-}

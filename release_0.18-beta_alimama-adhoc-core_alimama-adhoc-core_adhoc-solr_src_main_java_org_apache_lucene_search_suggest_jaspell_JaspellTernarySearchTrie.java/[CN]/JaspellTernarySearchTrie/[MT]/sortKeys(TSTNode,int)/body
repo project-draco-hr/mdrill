@@ -1,3 +1,0 @@
-{
-  return sortKeysRecursion(startNode,((numReturnValues < 0) ? -1 : numReturnValues),new Vector<String>());
-}

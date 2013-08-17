@@ -1,4 +1,0 @@
-IndexReader reader
-String field
-ShortParser parser
-boolean setDocsWithField

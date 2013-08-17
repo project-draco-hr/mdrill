@@ -1,3 +1,0 @@
-{
-  return getValueSource(field,null);
-}

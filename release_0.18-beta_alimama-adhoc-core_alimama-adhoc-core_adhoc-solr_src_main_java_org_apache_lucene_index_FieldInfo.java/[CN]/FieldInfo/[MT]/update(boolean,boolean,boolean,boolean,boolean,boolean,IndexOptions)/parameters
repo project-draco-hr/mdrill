@@ -1,7 +1,0 @@
-boolean isIndexed
-boolean storeTermVector
-boolean storePositionWithTermVector
-boolean storeOffsetWithTermVector
-boolean omitNorms
-boolean storePayloads
-IndexOptions indexOptions

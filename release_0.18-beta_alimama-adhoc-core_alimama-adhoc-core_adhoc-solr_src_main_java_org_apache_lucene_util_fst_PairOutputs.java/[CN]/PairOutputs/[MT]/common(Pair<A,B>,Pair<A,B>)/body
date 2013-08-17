@@ -1,3 +1,0 @@
-{
-  return get(outputs1.common(pair1.output1,pair2.output1),outputs2.common(pair1.output2,pair2.output2));
-}

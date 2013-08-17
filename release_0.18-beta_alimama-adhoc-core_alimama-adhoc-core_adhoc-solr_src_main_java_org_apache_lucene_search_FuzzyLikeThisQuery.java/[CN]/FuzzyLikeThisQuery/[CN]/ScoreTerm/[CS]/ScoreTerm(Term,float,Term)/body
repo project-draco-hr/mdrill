@@ -1,5 +1,0 @@
-{
-  this.term=term;
-  this.score=score;
-  this.fuzziedSourceTerm=fuzziedSourceTerm;
-}

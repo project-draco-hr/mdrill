@@ -1,3 +1,0 @@
-{
-  this(input,DEFAULT_MIN_SHINGLE_SIZE,maxShingleSize);
-}

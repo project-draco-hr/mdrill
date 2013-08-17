@@ -1,5 +1,0 @@
-IndexSchema schema
-Map<String,List<String>> typeusemap
-SimpleOrderedMap<Object> fields
-SchemaField uniqueField
-SchemaField f

@@ -1,5 +1,0 @@
-{
-  for (State state=getCurrentState(); state != null; state=state.next) {
-    state.attribute.clear();
-  }
-}

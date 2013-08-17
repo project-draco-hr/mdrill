@@ -1,3 +1,0 @@
-{
-  return TimeUtils.time_delta(start_time);
-}

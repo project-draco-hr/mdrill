@@ -1,3 +1,0 @@
-{
-  return new TermInfo(termInfo);
-}

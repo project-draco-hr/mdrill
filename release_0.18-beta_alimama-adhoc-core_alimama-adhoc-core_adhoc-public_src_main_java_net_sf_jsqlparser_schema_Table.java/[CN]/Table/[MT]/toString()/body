@@ -1,3 +1,0 @@
-{
-  return getWholeTableName() + ((alias != null) ? " AS " + alias : "");
-}

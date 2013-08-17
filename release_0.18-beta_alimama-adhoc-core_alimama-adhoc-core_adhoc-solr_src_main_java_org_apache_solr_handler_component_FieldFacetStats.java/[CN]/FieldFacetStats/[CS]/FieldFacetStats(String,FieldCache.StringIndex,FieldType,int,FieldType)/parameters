@@ -1,5 +1,0 @@
-String name
-FieldCache.StringIndex si
-FieldType facetFieldType
-int numStatsTerms
-FieldType statFieldType

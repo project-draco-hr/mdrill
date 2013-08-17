@@ -1,7 +1,0 @@
-{
-  ResponseParser responseParser=request.getResponseParser();
-  if (responseParser == null) {
-    responseParser=_parser;
-  }
-  return request(request,responseParser);
-}

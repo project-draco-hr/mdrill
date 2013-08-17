@@ -1,7 +1,0 @@
-{
-  I_x=cursor;
-  if (!(I_x >= I_p1)) {
-    return false;
-  }
-  return true;
-}

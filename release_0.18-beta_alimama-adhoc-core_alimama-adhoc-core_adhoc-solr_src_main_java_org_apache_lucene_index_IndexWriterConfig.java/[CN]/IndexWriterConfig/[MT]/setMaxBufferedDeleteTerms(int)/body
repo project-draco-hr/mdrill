@@ -1,5 +1,0 @@
-{
-  if (maxBufferedDeleteTerms != DISABLE_AUTO_FLUSH && maxBufferedDeleteTerms < 1)   throw new IllegalArgumentException("maxBufferedDeleteTerms must at least be 1 when enabled");
-  this.maxBufferedDeleteTerms=maxBufferedDeleteTerms;
-  return this;
-}

@@ -1,3 +1,0 @@
-{
-  JSONUtil.writeStringPart(partialStr.getArray(),partialStr.getStart(),partialStr.getEnd(),out);
-}

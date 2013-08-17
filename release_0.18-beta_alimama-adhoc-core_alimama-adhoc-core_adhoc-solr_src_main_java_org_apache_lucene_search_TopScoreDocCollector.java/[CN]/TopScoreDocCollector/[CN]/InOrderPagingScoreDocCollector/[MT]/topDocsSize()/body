@@ -1,3 +1,0 @@
-{
-  return collectedHits < pq.size() ? collectedHits : pq.size();
-}

@@ -1,3 +1,0 @@
-{
-  return createInstance(className,UpdateHandler.class,"Update Handler");
-}

@@ -1,4 +1,0 @@
-{
-  getClusterInfo_args args=new getClusterInfo_args();
-  sendBase("getClusterInfo",args);
-}

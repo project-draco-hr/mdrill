@@ -1,4 +1,0 @@
-{
-  checkBounds();
-  return bytes[pos++];
-}

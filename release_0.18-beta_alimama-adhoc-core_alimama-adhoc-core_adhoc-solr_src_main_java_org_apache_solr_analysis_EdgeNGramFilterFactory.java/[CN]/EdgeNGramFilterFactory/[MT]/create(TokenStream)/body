@@ -1,3 +1,0 @@
-{
-  return new EdgeNGramTokenFilter(input,side,minGramSize,maxGramSize);
-}

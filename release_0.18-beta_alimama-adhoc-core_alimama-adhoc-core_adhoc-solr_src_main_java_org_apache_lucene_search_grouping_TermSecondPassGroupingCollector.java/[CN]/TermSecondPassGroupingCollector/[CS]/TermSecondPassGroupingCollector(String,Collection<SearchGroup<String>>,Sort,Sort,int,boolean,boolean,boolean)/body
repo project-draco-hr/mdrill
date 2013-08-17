@@ -1,6 +1,0 @@
-{
-  super(groups,groupSort,withinGroupSort,maxDocsPerGroup,getScores,getMaxScores,fillSortFields);
-  ordSet=new SentinelIntSet(groupMap.size(),-1);
-  this.groupField=groupField;
-  groupDocs=(SearchGroupDocs<String>[])new SearchGroupDocs[ordSet.keys.length];
-}

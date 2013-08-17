@@ -1,8 +1,0 @@
-{
-  SolrRequestHandler handler=getRequestHandler(req.getQueryType());
-  if (handler == null) {
-    log.warn(logid + "Unknown Request Handler '" + req.getQueryType()+ "' :"+ req);
-    throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,"Unknown Request Handler '" + req.getQueryType() + "'",true);
-  }
-  execute(handler,req,rsp);
-}

@@ -1,3 +1,0 @@
-{
-  ensureCapacityWords(bits2words(numBits));
-}

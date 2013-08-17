@@ -1,3 +1,0 @@
-{
-  return reflectAsString(false);
-}

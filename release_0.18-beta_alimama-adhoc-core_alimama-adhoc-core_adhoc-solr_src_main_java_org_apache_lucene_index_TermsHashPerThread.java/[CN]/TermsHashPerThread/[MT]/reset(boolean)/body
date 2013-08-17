@@ -1,5 +1,0 @@
-{
-  intPool.reset();
-  bytePool.reset();
-  if (primary)   charPool.reset();
-}

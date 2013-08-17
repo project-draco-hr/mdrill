@@ -1,6 +1,0 @@
-TablePartion pname
-String[] partionsAll
-String[] cores
-String[] tmp
-int len
-int pos

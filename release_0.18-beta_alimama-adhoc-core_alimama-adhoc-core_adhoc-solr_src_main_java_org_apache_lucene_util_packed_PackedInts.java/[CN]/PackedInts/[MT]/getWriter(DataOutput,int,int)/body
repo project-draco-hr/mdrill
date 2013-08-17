@@ -1,3 +1,0 @@
-{
-  return new PackedWriter(out,valueCount,bitsPerValue);
-}
