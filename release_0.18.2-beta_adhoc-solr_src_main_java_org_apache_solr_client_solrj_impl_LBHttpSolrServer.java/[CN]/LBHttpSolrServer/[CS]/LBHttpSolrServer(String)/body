@@ -1,0 +1,3 @@
+{
+  this(new HttpClient(new MultiThreadedHttpConnectionManager()),solrServerUrls);
+}

@@ -1,0 +1,21 @@
+{
+  final List<AttributeSource> tokens=new ArrayList<AttributeSource>();
+  final PositionIncrementAttribute posIncrAtt=tokenStream.addAttribute(PositionIncrementAttribute.class);
+  final TokenTrackingAttribute trackerAtt=tokenStream.addAttribute(TokenTrackingAttribute.class);
+  tokenStream.addAttribute(CharTermAttribute.class);
+  tokenStream.addAttribute(OffsetAttribute.class);
+  tokenStream.addAttribute(TypeAttribute.class);
+  try {
+    tokenStream.reset();
+    int position=0;
+    while (tokenStream.incrementToken()) {
+      position+=posIncrAtt.getPositionIncrement();
+      trackerAtt.setActPosition(position);
+      tokens.add(tokenStream.cloneAttributes());
+    }
+  }
+ catch (  IOException ioe) {
+    throw new RuntimeException("Error occured while iterating over tokenstream",ioe);
+  }
+  return tokens;
+}

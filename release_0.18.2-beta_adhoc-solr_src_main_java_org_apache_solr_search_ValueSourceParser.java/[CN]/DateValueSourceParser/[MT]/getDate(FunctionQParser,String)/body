@@ -1,0 +1,7 @@
+{
+  if (arg == null)   return null;
+  if (arg.startsWith("NOW") || (arg.length() > 0 && Character.isDigit(arg.charAt(0)))) {
+    return df.parseMathLenient(null,arg,fp.req);
+  }
+  return null;
+}

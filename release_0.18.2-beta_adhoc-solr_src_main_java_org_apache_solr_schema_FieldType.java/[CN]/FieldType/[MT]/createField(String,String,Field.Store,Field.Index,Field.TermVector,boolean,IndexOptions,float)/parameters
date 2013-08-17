@@ -1,0 +1,8 @@
+String name
+String val
+Field.Store storage
+Field.Index index
+Field.TermVector vec
+boolean omitNorms
+IndexOptions options
+float boost

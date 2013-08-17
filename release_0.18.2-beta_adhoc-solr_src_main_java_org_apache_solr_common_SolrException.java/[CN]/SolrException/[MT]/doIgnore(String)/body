@@ -1,0 +1,9 @@
+{
+  if (ignorePatterns == null || m == null)   return null;
+  for (  String regex : ignorePatterns) {
+    Pattern pattern=Pattern.compile(regex);
+    Matcher matcher=pattern.matcher(m);
+    if (matcher.find())     return "Ignoring exception matching " + regex;
+  }
+  return null;
+}

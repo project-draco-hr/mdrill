@@ -1,0 +1,6 @@
+SegmentReader reader
+String partion
+IndexSchema schema
+SolrIndexSearcher readerright
+String fieldLeft
+String fieldRigth

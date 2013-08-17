@@ -1,0 +1,12 @@
+{
+  SolrInputDocument doc=cmd.getSolrInputDocument();
+  if (String.valueOf(doc.getFieldValue("higo_uuid")).trim().equals("0")) {
+    CRC32 crc32=new CRC32();
+    crc32.update(java.util.UUID.randomUUID().toString().getBytes());
+    doc.addField("higo_uuid",Long.toString(crc32.getValue()));
+  }
+  String thedate=String.valueOf(doc.getFieldValue("thedate"));
+  HigoRealTime rt=HigoRealTime.INSTANCE(this.core,thedate);
+  rt.getBinlog().write(doc);
+  return 1;
+}

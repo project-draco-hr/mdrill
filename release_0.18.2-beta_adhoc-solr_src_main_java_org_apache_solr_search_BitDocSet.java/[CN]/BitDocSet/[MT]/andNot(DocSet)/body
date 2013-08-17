@@ -1,0 +1,11 @@
+{
+  OpenBitSet newbits=(OpenBitSet)(bits.clone());
+  if (other instanceof BitDocSet) {
+    newbits.andNot(((BitDocSet)other).bits);
+  }
+ else {
+    DocIterator iter=other.iterator();
+    while (iter.hasNext())     newbits.clear(iter.nextDoc());
+  }
+  return new BitDocSet(newbits);
+}

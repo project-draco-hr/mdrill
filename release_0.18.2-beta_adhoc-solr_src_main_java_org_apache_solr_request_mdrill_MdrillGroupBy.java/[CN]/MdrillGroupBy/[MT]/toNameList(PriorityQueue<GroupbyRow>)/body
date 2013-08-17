@@ -1,0 +1,15 @@
+{
+  java.util.ArrayList<GroupbyRow> recommendations=new ArrayList<GroupbyRow>(topItems.size());
+  recommendations.addAll(topItems);
+  Collections.sort(recommendations,cmpString);
+  Integer index=0;
+  NamedList res=new NamedList();
+  res.add(recordCount.getKey(),recordCount.toNamedList());
+  for (  GroupbyRow kv : recommendations) {
+    if (index >= this.offset) {
+      res.add(kv.getKey(),kv.toNamedList());
+    }
+    index++;
+  }
+  return res;
+}

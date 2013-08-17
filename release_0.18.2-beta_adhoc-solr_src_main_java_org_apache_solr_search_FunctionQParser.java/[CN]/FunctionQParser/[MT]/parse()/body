@@ -1,0 +1,34 @@
+{
+  sp=new QueryParsing.StrParser(getString());
+  ValueSource vs=null;
+  List<ValueSource> lst=null;
+  for (; ; ) {
+    ValueSource valsource=parseValueSource(false);
+    sp.eatws();
+    if (!parseMultipleSources) {
+      vs=valsource;
+      break;
+    }
+ else {
+      if (lst != null) {
+        lst.add(valsource);
+      }
+ else {
+        vs=valsource;
+      }
+    }
+    if (sp.peek() != ',')     break;
+    consumeArgumentDelimiter();
+    if (lst == null) {
+      lst=new ArrayList<ValueSource>(2);
+      lst.add(valsource);
+    }
+  }
+  if (parseToEnd && sp.pos < sp.end) {
+    throw new ParseException("Unexpected text after function: " + sp.val.substring(sp.pos,sp.end));
+  }
+  if (lst != null) {
+    vs=new VectorValueSource(lst);
+  }
+  return new FunctionQuery(vs);
+}

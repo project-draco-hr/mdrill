@@ -1,0 +1,5 @@
+{
+  super(regex);
+  this.targetField=targetField;
+  this.maxChars=maxChars;
+}

@@ -1,0 +1,4 @@
+FSDataOutputStream out
+ByteBuffer writebuff
+String charset
+HashMap<String,String> params

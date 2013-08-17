@@ -1,0 +1,3 @@
+{
+  return parseFieldQuery(parser,getQueryAnalyzer(),field.getName(),externalVal);
+}

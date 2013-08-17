@@ -1,0 +1,77 @@
+{
+  int among_var;
+  ket=cursor;
+  among_var=find_among_b(a_10,31);
+  if (among_var == 0) {
+    return false;
+  }
+  bra=cursor;
+  if (!r_R1()) {
+    return false;
+  }
+switch (among_var) {
+case 0:
+    return false;
+case 1:
+  slice_del();
+break;
+case 2:
+slice_from("a");
+break;
+case 3:
+slice_from("e");
+break;
+case 4:
+slice_del();
+break;
+case 5:
+slice_from("a");
+break;
+case 6:
+slice_from("e");
+break;
+case 7:
+slice_del();
+break;
+case 8:
+slice_del();
+break;
+case 9:
+slice_del();
+break;
+case 10:
+slice_from("a");
+break;
+case 11:
+slice_from("e");
+break;
+case 12:
+slice_del();
+break;
+case 13:
+slice_del();
+break;
+case 14:
+slice_from("a");
+break;
+case 15:
+slice_from("e");
+break;
+case 16:
+slice_del();
+break;
+case 17:
+slice_del();
+break;
+case 18:
+slice_del();
+break;
+case 19:
+slice_from("a");
+break;
+case 20:
+slice_from("e");
+break;
+}
+return true;
+}

@@ -1,0 +1,9 @@
+{
+  String value=new String();
+  int start=0;
+  int end=0;
+  start=dataHeader.indexOf(":") + 1;
+  end=dataHeader.indexOf(";");
+  value=dataHeader.substring(start,end);
+  return value;
+}

@@ -1,0 +1,7 @@
+{
+  int cmp=UniqTypeNum.compare(o1.statVal.val,o2.statVal.val);
+  if (cmp == 0) {
+    cmp=index.compare(o1,o2);
+  }
+  return cmp;
+}

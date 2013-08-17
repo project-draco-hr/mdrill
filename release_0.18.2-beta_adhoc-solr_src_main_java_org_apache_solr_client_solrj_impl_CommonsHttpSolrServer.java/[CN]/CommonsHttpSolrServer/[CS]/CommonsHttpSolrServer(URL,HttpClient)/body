@@ -1,0 +1,3 @@
+{
+  this(baseURL,client,new BinaryResponseParser(),false);
+}

@@ -1,0 +1,4 @@
+{
+  double dist=(doc == lastDistDoc) ? lastDist : dist(latVals.doubleVal(doc),lonVals.doubleVal(doc));
+  return (float)(dist * qWeight);
+}

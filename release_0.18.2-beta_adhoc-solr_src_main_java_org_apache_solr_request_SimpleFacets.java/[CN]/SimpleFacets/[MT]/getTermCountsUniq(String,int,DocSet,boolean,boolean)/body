@@ -1,0 +1,10 @@
+{
+  parseParams(FacetParams.FACET_FIELD,f);
+  String termList=localParams == null ? null : localParams.get(CommonParams.TERMS);
+  if (termList != null) {
+    return getListedTermCounts(facetValue,termList,dc);
+  }
+ else {
+    return getTermCounts(facetValue,mincount,dc,iscross,isrow);
+  }
+}

@@ -1,0 +1,4 @@
+{
+  endOffset=startOffset + length;
+  return new MultiValuedStream(length);
+}

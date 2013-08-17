@@ -1,0 +1,19 @@
+{
+  long t1=System.currentTimeMillis();
+  FacetInfo fi=rb._facetInfo;
+  long addtime=0;
+  for (  ShardResponse srsp : sreq.responses) {
+    NamedList facet_counts=(NamedList)srsp.getSolrResponse().getResponse().get("facet_counts");
+    NamedList facet_fields=(NamedList)facet_counts.get("facet_fields");
+    if (facet_fields == null)     continue;
+    for (int i=0; i < facet_fields.size(); i++) {
+      String key=facet_fields.getName(i);
+      DistribFieldFacet dff=fi.facets.get(key);
+      if (dff == null)       continue;
+      NamedList shardCounts=(NamedList)facet_fields.getVal(i);
+      addtime+=dff.add(shardCounts,dff);
+    }
+  }
+  long t2=System.currentTimeMillis();
+  LOG.info("##refineFacets## time taken " + (t2 - t1) + ",responses.size="+ sreq.responses.size()+ ",addtime="+ addtime);
+}

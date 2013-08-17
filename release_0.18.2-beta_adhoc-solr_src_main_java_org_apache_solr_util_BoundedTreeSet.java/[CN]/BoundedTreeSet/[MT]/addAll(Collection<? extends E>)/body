@@ -1,0 +1,5 @@
+{
+  boolean out=super.addAll(c);
+  adjust();
+  return out;
+}

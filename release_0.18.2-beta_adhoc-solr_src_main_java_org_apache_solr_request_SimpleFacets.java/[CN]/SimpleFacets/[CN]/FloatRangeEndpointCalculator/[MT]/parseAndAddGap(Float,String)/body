@@ -1,0 +1,3 @@
+{
+  return new Float(value.floatValue() + Float.valueOf(gap).floatValue());
+}

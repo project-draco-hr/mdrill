@@ -1,0 +1,3 @@
+SolrParams localParams
+String facetType
+String facetStr

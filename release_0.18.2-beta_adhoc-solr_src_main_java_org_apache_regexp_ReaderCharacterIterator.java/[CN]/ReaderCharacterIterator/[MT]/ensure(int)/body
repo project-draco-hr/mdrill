@@ -1,0 +1,9 @@
+{
+  if (closed) {
+    return;
+  }
+  if (idx < buff.length()) {
+    return;
+  }
+  read(idx + 1 - buff.length());
+}

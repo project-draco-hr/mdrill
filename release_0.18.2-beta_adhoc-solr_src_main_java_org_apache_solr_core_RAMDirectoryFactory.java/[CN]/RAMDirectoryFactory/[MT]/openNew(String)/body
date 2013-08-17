@@ -1,0 +1,13 @@
+{
+  Directory directory;
+  File dirFile=new File(path);
+  boolean indexExists=dirFile.canRead();
+  if (indexExists) {
+    Directory dir=super.open(path);
+    directory=new RefCntRamDirectory(dir);
+  }
+ else {
+    directory=new RefCntRamDirectory();
+  }
+  return directory;
+}

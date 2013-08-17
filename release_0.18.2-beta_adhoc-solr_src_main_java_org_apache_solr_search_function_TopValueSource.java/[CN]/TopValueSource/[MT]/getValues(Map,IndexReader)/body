@@ -1,0 +1,36 @@
+{
+  int offset=0;
+  IndexReader topReader=reader;
+  if (topReader instanceof SolrIndexReader) {
+    SolrIndexReader r=(SolrIndexReader)topReader;
+    while (r.getParent() != null) {
+      offset+=r.getBase();
+      r=r.getParent();
+    }
+    topReader=r;
+  }
+  final int off=offset;
+  final DocValues vals=vs.getValues(context,topReader);
+  if (topReader == reader)   return vals;
+  return new DocValues(){
+    @Override public float floatVal(    int doc){
+      return vals.floatVal(doc + off);
+    }
+    @Override public int intVal(    int doc){
+      return vals.intVal(doc + off);
+    }
+    @Override public long longVal(    int doc){
+      return vals.longVal(doc + off);
+    }
+    @Override public double doubleVal(    int doc){
+      return vals.doubleVal(doc + off);
+    }
+    @Override public String strVal(    int doc){
+      return vals.strVal(doc + off);
+    }
+    @Override public String toString(    int doc){
+      return vals.strVal(doc + off);
+    }
+  }
+;
+}

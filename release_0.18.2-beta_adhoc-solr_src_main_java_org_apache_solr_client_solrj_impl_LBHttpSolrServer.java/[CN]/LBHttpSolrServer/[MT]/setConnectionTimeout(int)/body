@@ -1,0 +1,3 @@
+{
+  httpClient.getHttpConnectionManager().getParams().setConnectionTimeout(timeout);
+}

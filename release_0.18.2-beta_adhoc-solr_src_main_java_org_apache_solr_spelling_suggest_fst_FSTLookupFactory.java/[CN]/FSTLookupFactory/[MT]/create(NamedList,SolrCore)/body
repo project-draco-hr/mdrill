@@ -1,0 +1,5 @@
+{
+  int buckets=params.get(WEIGHT_BUCKETS) != null ? Integer.parseInt(params.get(WEIGHT_BUCKETS).toString()) : 10;
+  boolean exactMatchFirst=params.get(EXACT_MATCH_FIRST) != null ? Boolean.valueOf(params.get(EXACT_MATCH_FIRST).toString()) : true;
+  return new FSTLookup(buckets,exactMatchFirst);
+}

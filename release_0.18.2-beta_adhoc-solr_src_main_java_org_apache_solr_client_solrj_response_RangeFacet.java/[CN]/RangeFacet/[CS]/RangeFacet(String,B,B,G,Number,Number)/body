@@ -1,0 +1,8 @@
+{
+  this.name=name;
+  this.start=start;
+  this.end=end;
+  this.gap=gap;
+  this.before=before;
+  this.after=after;
+}

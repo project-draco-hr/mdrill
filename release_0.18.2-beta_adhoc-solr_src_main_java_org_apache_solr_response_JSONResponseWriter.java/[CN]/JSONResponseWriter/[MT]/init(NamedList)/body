@@ -1,0 +1,4 @@
+{
+  String contentType=(String)namedList.get("content-type");
+  this.contentType=(contentType != null) ? contentType : CONTENT_TYPE_JSON_UTF8;
+}

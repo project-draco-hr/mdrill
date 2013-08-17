@@ -1,0 +1,32 @@
+{
+  name=checkDefault(name);
+  if (name == null || name.indexOf('/') >= 0 || name.indexOf('\\') >= 0) {
+    throw new RuntimeException("Invalid core name: " + name);
+  }
+synchronized (cores) {
+    SolrCore core=cores.get(name);
+    if (core == null) {
+      String instanceDir=SolrResourceLoader.locateSolrHome();
+      String schema=instanceDir + "/conf/schema.xml";
+      String datadir=instanceDir + "/data/";
+      if (!name.isEmpty()) {
+        instanceDir=SolrResourceLoader.GetSchemaHome() + "/" + name+ "/solr";
+        schema=SolrResourceLoader.GetSchemaHome() + "/" + name+ "/solr/conf/schema.xml";
+        datadir=SolrResourceLoader.GetSchemaHome() + "/" + name+ "/solr/data/";
+      }
+      log.info("higolog getCore" + schema + ","+ datadir);
+      try {
+        this.createCore(name,instanceDir,schema,datadir);
+      }
+ catch (      Exception e) {
+        isException.set(true);
+        log.error("getCore",e);
+      }
+      core=cores.get(name);
+    }
+    if (core != null) {
+      core.open();
+    }
+    return core;
+  }
+}

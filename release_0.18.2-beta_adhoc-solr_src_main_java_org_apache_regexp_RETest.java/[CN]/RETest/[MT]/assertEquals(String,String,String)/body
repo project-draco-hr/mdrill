@@ -1,0 +1,5 @@
+{
+  if (expected != null && !expected.equals(actual) || actual != null && !actual.equals(expected)) {
+    fail(message + " (expected \"" + expected+ "\", actual \""+ actual+ "\")");
+  }
+}

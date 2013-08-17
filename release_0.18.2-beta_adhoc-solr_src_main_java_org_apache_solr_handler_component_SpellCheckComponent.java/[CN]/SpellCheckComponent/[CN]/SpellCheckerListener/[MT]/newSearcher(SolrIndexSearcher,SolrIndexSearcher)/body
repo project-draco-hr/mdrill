@@ -1,0 +1,24 @@
+{
+  if (currentSearcher == null) {
+    try {
+      LOG.info("Loading spell index for spellchecker: " + checker.getDictionaryName());
+      checker.reload(core,newSearcher);
+    }
+ catch (    IOException e) {
+      log.error("Exception in reloading spell check index for spellchecker: " + checker.getDictionaryName(),e);
+    }
+  }
+ else {
+    if (buildOnCommit) {
+      buildSpellIndex(newSearcher);
+    }
+ else     if (buildOnOptimize) {
+      if (newSearcher.getIndexReader().getSequentialSubReaders().length == 1) {
+        buildSpellIndex(newSearcher);
+      }
+ else {
+        LOG.info("Index is not optimized therefore skipping building spell check index for: " + checker.getDictionaryName());
+      }
+    }
+  }
+}

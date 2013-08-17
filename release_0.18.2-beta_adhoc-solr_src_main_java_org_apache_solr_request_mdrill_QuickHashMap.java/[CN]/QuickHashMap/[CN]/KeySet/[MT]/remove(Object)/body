@@ -1,0 +1,3 @@
+{
+  return QuickHashMap.this.removeEntryForKey(o) != null;
+}

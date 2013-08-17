@@ -1,0 +1,2 @@
+DocListInfo info
+List<SolrDocument> allDocs

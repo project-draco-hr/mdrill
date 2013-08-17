@@ -1,0 +1,4 @@
+{
+  slice_check();
+  replace_s(bra,ket,s);
+}

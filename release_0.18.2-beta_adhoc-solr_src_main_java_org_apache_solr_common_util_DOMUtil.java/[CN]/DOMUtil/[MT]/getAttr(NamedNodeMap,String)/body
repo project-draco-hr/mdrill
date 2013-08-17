@@ -1,0 +1,3 @@
+{
+  return getAttr(attrs,name,null);
+}

@@ -1,0 +1,25 @@
+{
+  final BAOS baos=new BAOS();
+  new JavaBinUpdateRequestCodec().marshal(request,baos);
+  return new ContentStream(){
+    public String getName(){
+      return null;
+    }
+    public String getSourceInfo(){
+      return "javabin";
+    }
+    public String getContentType(){
+      return "application/octet-stream";
+    }
+    public Long getSize(){
+      return new Long(baos.size());
+    }
+    public InputStream getStream() throws IOException {
+      return new ByteArrayInputStream(baos.getbuf(),0,baos.size());
+    }
+    public Reader getReader() throws IOException {
+      throw new RuntimeException("No reader available . this is a binarystream");
+    }
+  }
+;
+}

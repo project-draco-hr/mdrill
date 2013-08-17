@@ -1,0 +1,3 @@
+{
+  actualGroupsToFind=getMax(offset,numGroups,maxDoc);
+}

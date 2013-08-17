@@ -1,0 +1,3 @@
+SolrIndexSearcher _searcher
+SolrParams _params
+SolrQueryRequest req

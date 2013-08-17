@@ -1,0 +1,11 @@
+{
+  getTopologyConf_result result=new getTopologyConf_result();
+  receiveBase(result,"getTopologyConf");
+  if (result.is_set_success()) {
+    return result.success;
+  }
+  if (result.e != null) {
+    throw result.e;
+  }
+  throw new org.apache.thrift7.TApplicationException(org.apache.thrift7.TApplicationException.MISSING_RESULT,"getTopologyConf failed: unknown result");
+}

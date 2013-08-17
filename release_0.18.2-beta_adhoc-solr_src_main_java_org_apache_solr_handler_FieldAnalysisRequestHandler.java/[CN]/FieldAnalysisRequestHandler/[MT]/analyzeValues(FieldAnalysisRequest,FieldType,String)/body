@@ -1,0 +1,16 @@
+{
+  final String queryValue=analysisRequest.getQuery();
+  final Set<String> termsToMatch=(queryValue != null && analysisRequest.isShowMatch()) ? getQueryTokenSet(queryValue,fieldType.getQueryAnalyzer()) : Collections.<String>emptySet();
+  NamedList<NamedList> analyzeResults=new SimpleOrderedMap<NamedList>();
+  if (analysisRequest.getFieldValue() != null) {
+    AnalysisContext context=new AnalysisContext(fieldName,fieldType,fieldType.getAnalyzer(),termsToMatch);
+    NamedList analyzedTokens=analyzeValue(analysisRequest.getFieldValue(),context);
+    analyzeResults.add("index",analyzedTokens);
+  }
+  if (analysisRequest.getQuery() != null) {
+    AnalysisContext context=new AnalysisContext(fieldName,fieldType,fieldType.getQueryAnalyzer());
+    NamedList analyzedTokens=analyzeValue(analysisRequest.getQuery(),context);
+    analyzeResults.add("query",analyzedTokens);
+  }
+  return analyzeResults;
+}

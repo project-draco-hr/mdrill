@@ -1,0 +1,7 @@
+{
+  if (this.coreProperties == null) {
+    Properties p=initImplicitProperties();
+    this.coreProperties=new Properties(p);
+    if (coreProperties != null)     this.coreProperties.putAll(coreProperties);
+  }
+}

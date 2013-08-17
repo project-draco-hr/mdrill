@@ -1,0 +1,3 @@
+{
+  return (short)((readUnsignedByte() << 8) | readUnsignedByte());
+}

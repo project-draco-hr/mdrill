@@ -1,0 +1,4 @@
+{
+  double[] latLon=GeoHashUtils.decode(f.stringValue());
+  return latLon[0] + "," + latLon[1];
+}

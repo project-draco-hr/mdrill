@@ -1,0 +1,9 @@
+{
+  try {
+    digester.update(content.getBytes("UTF-8"));
+  }
+ catch (  UnsupportedEncodingException e) {
+    log.error("UTF-8 not supported",e);
+    throw new RuntimeException(e);
+  }
+}

@@ -1,0 +1,3 @@
+boolean waitFlush
+boolean waitSearcher
+int maxSegments

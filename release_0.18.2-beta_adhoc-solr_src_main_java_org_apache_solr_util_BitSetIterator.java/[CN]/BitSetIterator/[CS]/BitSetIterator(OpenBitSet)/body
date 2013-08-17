@@ -1,0 +1,3 @@
+{
+  this(obs.getBits(),obs.getNumWords());
+}

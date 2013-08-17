@@ -1,0 +1,4 @@
+DocList docs
+Query query
+SolrQueryRequest req
+String[] defaultFields

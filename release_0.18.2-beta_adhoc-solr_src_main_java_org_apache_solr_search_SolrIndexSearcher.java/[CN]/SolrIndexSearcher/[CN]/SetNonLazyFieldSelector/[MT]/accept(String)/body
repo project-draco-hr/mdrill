@@ -1,0 +1,4 @@
+{
+  if (fieldsToLoad.contains(fieldName))   return FieldSelectorResult.LOAD;
+ else   return FieldSelectorResult.LAZY_LOAD;
+}

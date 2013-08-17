@@ -1,0 +1,3 @@
+{
+  return field.stored() ? Field.Store.YES : Field.Store.NO;
+}

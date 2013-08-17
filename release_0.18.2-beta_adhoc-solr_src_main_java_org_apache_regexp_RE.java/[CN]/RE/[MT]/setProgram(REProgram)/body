@@ -1,0 +1,9 @@
+{
+  this.program=program;
+  if (program != null && program.maxParens != -1) {
+    this.maxParen=program.maxParens;
+  }
+ else {
+    this.maxParen=MAX_PAREN;
+  }
+}

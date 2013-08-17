@@ -1,0 +1,9 @@
+{
+  JSONWriter w=new JSONWriter(writer,req,rsp);
+  try {
+    w.writeResponse();
+  }
+  finally {
+    w.close();
+  }
+}

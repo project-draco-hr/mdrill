@@ -1,0 +1,7 @@
+{
+  int sz=size();
+  if (sz > 0)   cb.put(buf,start,end);
+  int sz2=in.read(cb);
+  if (sz2 >= 0)   return sz + sz2;
+  return sz > 0 ? sz : -1;
+}

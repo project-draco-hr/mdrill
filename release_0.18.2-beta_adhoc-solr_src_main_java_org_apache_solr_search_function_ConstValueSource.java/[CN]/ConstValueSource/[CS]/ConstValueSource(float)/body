@@ -1,0 +1,4 @@
+{
+  this.constant=constant;
+  this.dv=constant;
+}

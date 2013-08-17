@@ -1,0 +1,6 @@
+{
+  if (rb.req.getParams().getBool(FacetParams.FACET,false)) {
+    rb.setNeedDocSet(true);
+    rb.doFacets=true;
+  }
+}

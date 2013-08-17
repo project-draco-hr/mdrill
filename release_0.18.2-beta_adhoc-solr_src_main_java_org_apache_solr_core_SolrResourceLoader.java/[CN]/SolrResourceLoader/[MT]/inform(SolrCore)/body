@@ -1,0 +1,14 @@
+{
+  this.dataDir=core.getDataDir();
+  SolrCoreAware[] arr;
+  while (waitingForCore.size() > 0) {
+synchronized (waitingForCore) {
+      arr=waitingForCore.toArray(new SolrCoreAware[waitingForCore.size()]);
+      waitingForCore.clear();
+    }
+    for (    SolrCoreAware aware : arr) {
+      aware.inform(core);
+    }
+  }
+  live=true;
+}

@@ -1,0 +1,26 @@
+{
+  numRequests++;
+  try {
+    SolrPluginUtils.setDefaults(req,defaults,appends,invariants);
+    rsp.setHttpCaching(httpCaching);
+    handleRequestBody(req,rsp);
+    NamedList header=rsp.getResponseHeader();
+    if (header != null) {
+      Object partialResults=header.get("partialResults");
+      boolean timedOut=partialResults == null ? false : (Boolean)partialResults;
+      if (timedOut) {
+        numTimeouts++;
+        rsp.setHttpCaching(false);
+      }
+    }
+  }
+ catch (  Exception e) {
+    SolrException.log(SolrCore.log,e);
+    if (e instanceof ParseException) {
+      e=new SolrException(SolrException.ErrorCode.BAD_REQUEST,e);
+    }
+    rsp.setException(e);
+    numErrors++;
+  }
+  totalTime+=rsp.getEndTime() - req.getStartTime();
+}

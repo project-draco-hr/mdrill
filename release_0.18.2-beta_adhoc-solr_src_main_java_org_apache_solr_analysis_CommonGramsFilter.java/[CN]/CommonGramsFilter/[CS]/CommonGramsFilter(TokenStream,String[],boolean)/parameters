@@ -1,0 +1,3 @@
+TokenStream input
+String[] commonWords
+boolean ignoreCase

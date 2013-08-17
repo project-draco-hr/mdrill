@@ -1,0 +1,6 @@
+{
+  this.count+=count;
+  T typedValue=toTypedValue(value);
+  updateMinMax(typedValue,typedValue);
+  updateTypeSpecificStats(typedValue,count);
+}

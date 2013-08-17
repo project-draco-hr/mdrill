@@ -1,0 +1,7 @@
+{
+  SolrRequestHandler handler=_handler;
+  if (handler == null) {
+    handler=getWrappedHandler();
+  }
+  handler.handleRequest(req,rsp);
+}

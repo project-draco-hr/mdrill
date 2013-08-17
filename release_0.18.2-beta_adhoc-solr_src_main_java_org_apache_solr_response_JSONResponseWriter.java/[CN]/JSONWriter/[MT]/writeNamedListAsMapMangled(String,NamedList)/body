@@ -1,0 +1,38 @@
+{
+  int sz=val.size();
+  writeMapOpener(sz);
+  incLevel();
+  HashMap<String,Integer> repeats=new HashMap<String,Integer>(4);
+  boolean first=true;
+  for (int i=0; i < sz; i++) {
+    String key=val.getName(i);
+    if (key == null)     key="";
+    if (first) {
+      first=false;
+      repeats.put(key,0);
+    }
+ else {
+      writeMapSeparator();
+      Integer repeatCount=repeats.get(key);
+      if (repeatCount == null) {
+        repeats.put(key,0);
+      }
+ else {
+        String newKey=key;
+        int newCount=repeatCount;
+        do {
+          newKey=key + ' ' + (++newCount);
+          repeatCount=repeats.get(newKey);
+        }
+ while (repeatCount != null);
+        repeats.put(key,newCount);
+        key=newKey;
+      }
+    }
+    indent();
+    writeKey(key,true);
+    writeVal(key,val.getVal(i));
+  }
+  decLevel();
+  writeMapCloser();
+}

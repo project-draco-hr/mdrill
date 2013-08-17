@@ -1,0 +1,4 @@
+{
+  super("commit() failed on " + obj);
+  initCause(cause);
+}

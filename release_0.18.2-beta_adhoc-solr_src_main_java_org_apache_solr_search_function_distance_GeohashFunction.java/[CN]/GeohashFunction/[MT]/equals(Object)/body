@@ -1,0 +1,8 @@
+{
+  if (this == o)   return true;
+  if (!(o instanceof GeohashFunction))   return false;
+  GeohashFunction that=(GeohashFunction)o;
+  if (!lat.equals(that.lat))   return false;
+  if (!lon.equals(that.lon))   return false;
+  return true;
+}

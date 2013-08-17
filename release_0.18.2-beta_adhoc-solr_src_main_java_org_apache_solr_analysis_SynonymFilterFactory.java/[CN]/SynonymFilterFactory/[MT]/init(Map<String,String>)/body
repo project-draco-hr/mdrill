@@ -1,0 +1,14 @@
+{
+  super.init(args);
+  assureMatchVersion();
+  if (luceneMatchVersion.onOrAfter(Version.LUCENE_34)) {
+    delegator=new FSTSynonymFilterFactory();
+  }
+ else {
+    if (args.containsKey("format") && !args.get("format").equals("solr")) {
+      throw new IllegalArgumentException("You must specify luceneMatchVersion >= 3.4 to use alternate synonyms formats");
+    }
+    delegator=new SlowSynonymFilterFactory();
+  }
+  delegator.init(args);
+}

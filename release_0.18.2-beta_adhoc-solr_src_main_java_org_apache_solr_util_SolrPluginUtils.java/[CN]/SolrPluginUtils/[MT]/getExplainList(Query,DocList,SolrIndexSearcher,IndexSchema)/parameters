@@ -1,0 +1,4 @@
+Query query
+DocList docs
+SolrIndexSearcher searcher
+IndexSchema schema

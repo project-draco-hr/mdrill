@@ -1,0 +1,4 @@
+String sreq
+SolrQueryRequest req
+int start
+int limit

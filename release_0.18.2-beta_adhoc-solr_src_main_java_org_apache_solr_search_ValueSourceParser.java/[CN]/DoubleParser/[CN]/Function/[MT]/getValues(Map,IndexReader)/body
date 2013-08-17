@@ -1,0 +1,24 @@
+{
+  final DocValues vals=source.getValues(context,reader);
+  return new DocValues(){
+    @Override public float floatVal(    int doc){
+      return (float)doubleVal(doc);
+    }
+    @Override public int intVal(    int doc){
+      return (int)doubleVal(doc);
+    }
+    @Override public long longVal(    int doc){
+      return (long)doubleVal(doc);
+    }
+    @Override public double doubleVal(    int doc){
+      return func(doc,vals);
+    }
+    @Override public String strVal(    int doc){
+      return Double.toString(doubleVal(doc));
+    }
+    @Override public String toString(    int doc){
+      return name() + '(' + vals.toString(doc)+ ')';
+    }
+  }
+;
+}

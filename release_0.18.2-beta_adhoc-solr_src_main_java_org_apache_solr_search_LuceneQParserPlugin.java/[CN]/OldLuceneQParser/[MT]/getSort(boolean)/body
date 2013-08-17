@@ -1,0 +1,10 @@
+{
+  SortSpec sort=super.getSort(useGlobal);
+  if (sortStr != null && sortStr.length() > 0 && sort.getSort() == null) {
+    Sort oldSort=QueryParsing.parseSort(sortStr,getReq());
+    if (oldSort != null) {
+      sort.sort=oldSort;
+    }
+  }
+  return sort;
+}

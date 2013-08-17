@@ -1,0 +1,7 @@
+{
+  currentNumFrags=1;
+  currentOffset=0;
+  addHotSpots(originalText);
+  posIncAtt=tokenStream.getAttribute(PositionIncrementAttribute.class);
+  offsetAtt=tokenStream.getAttribute(OffsetAttribute.class);
+}

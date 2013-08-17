@@ -1,0 +1,3 @@
+{
+  return arc.target > 0;
+}

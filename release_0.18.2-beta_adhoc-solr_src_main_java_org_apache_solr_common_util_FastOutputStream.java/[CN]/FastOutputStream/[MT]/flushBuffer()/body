@@ -1,0 +1,5 @@
+{
+  out.write(buf,0,pos);
+  written+=pos;
+  pos=0;
+}

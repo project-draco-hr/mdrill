@@ -1,0 +1,18 @@
+{
+  this.number=++test.testCount;
+  this.test=test;
+  this.tag=tag;
+  this.pattern=pattern;
+  this.toMatch=toMatch;
+  this.badPattern=badPattern;
+  this.shouldMatch=shouldMatch;
+  if (parens != null) {
+    this.parens=new String[parens.length];
+    for (int i=0; i < parens.length; i++) {
+      this.parens[i]=parens[i];
+    }
+  }
+ else {
+    this.parens=null;
+  }
+}

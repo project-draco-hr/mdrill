@@ -1,0 +1,9 @@
+{
+  String val=get(param);
+  try {
+    return val == null ? def : Integer.parseInt(val);
+  }
+ catch (  Exception ex) {
+    throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,ex.getMessage(),ex);
+  }
+}

@@ -1,0 +1,9 @@
+{
+  GroupbyRow instance=(GroupbyRow)o;
+  if (this.key == null || this.key.isEmpty()) {
+    this.key=instance.key;
+  }
+  this.value+=instance.value;
+  this.mergeStat((GroupbyRow)o);
+  this.mergeDist((GroupbyRow)o);
+}

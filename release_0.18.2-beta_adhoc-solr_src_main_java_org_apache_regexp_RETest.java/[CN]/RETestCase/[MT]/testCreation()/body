@@ -1,0 +1,26 @@
+{
+  try {
+    regexp=new RE();
+    regexp.setProgram(test.compiler.compile(pattern));
+    if (badPattern) {
+      test.fail(log,"Was expected to be an error, but wasn't.");
+      return false;
+    }
+    return true;
+  }
+ catch (  Exception e) {
+    if (badPattern) {
+      log.append("   Match: ERR\n");
+      success("Produces an error (" + e.toString() + "), as expected.");
+      return false;
+    }
+    String message=(e.getMessage() == null) ? e.toString() : e.getMessage();
+    test.fail(log,"Produces an unexpected exception \"" + message + "\"");
+    e.printStackTrace();
+  }
+catch (  Error e) {
+    test.fail(log,"Compiler threw fatal error \"" + e.getMessage() + "\"");
+    e.printStackTrace();
+  }
+  return false;
+}

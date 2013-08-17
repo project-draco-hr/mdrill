@@ -1,0 +1,12 @@
+{
+  if (components != null) {
+    return;
+  }
+  List<String> list=getDefaultComponents();
+  components=new ArrayList<SearchComponent>(list.size());
+  for (  String c : list) {
+    SearchComponent comp=core.getSearchComponent(c);
+    components.add(comp);
+    log.info("Adding  component:" + comp);
+  }
+}

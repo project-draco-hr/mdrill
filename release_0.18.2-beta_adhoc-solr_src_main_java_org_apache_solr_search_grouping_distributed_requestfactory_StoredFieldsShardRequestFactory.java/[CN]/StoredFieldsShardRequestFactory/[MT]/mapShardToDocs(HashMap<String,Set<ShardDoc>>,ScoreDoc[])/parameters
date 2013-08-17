@@ -1,0 +1,2 @@
+HashMap<String,Set<ShardDoc>> shardMap
+ScoreDoc[] scoreDocs

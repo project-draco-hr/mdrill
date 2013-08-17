@@ -1,0 +1,6 @@
+BooleanQuery mainQuery
+List<Clause> clauses
+Map<String,Float> fields
+int shingleSize
+float tiebreaker
+int slop

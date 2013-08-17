@@ -1,0 +1,3 @@
+{
+  return propertyNames[Integer.numberOfTrailingZeros(property)];
+}

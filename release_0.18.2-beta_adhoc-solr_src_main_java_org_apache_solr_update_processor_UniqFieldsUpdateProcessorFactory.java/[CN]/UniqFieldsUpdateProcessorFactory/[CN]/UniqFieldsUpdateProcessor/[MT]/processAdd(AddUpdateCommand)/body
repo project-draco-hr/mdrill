@@ -1,0 +1,20 @@
+{
+  if (fields != null) {
+    SolrInputDocument solrInputDocument=cmd.getSolrInputDocument();
+    List<Object> uniqList=new ArrayList<Object>();
+    for (    String field : fields) {
+      uniqList.clear();
+      Collection<Object> col=solrInputDocument.getFieldValues(field);
+      if (col != null) {
+        for (        Object o : col) {
+          if (!uniqList.contains(o))           uniqList.add(o);
+        }
+        solrInputDocument.remove(field);
+        for (        Object o : uniqList) {
+          solrInputDocument.addField(field,o);
+        }
+      }
+    }
+  }
+  super.processAdd(cmd);
+}

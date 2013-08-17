@@ -1,0 +1,11 @@
+{
+  eatws();
+  int startPos=pos;
+  char ch;
+  while (pos < end) {
+    ch=val.charAt(pos);
+    if (Character.isWhitespace(ch))     break;
+    pos++;
+  }
+  return val.substring(startPos,pos);
+}

@@ -1,0 +1,16 @@
+{
+  int sz=val.size();
+  startTag("lst",name,sz <= 0);
+  if (sz < indentThreshold) {
+    doIndent=false;
+  }
+  incLevel();
+  for (int i=0; i < sz; i++) {
+    writeVal(val.getName(i),val.getVal(i));
+  }
+  decLevel();
+  if (sz > 0) {
+    if (doIndent)     indent();
+    writer.write("</lst>");
+  }
+}

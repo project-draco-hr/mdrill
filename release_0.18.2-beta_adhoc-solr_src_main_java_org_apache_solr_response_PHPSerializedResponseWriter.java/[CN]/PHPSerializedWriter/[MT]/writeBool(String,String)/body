@@ -1,0 +1,3 @@
+{
+  writeBool(name,val.charAt(0) == 't');
+}

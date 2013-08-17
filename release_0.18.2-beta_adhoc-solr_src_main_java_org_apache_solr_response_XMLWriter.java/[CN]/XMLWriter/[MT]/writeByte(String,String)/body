@@ -1,0 +1,3 @@
+{
+  writePrim("byte",name,val,false);
+}

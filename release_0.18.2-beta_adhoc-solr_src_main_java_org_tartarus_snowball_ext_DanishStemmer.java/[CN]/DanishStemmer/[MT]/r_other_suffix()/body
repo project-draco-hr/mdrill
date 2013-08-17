@@ -1,0 +1,56 @@
+{
+  int among_var;
+  int v_1;
+  int v_2;
+  int v_3;
+  int v_4;
+  v_1=limit - cursor;
+  lab0:   do {
+    ket=cursor;
+    if (!(eq_s_b(2,"st"))) {
+      break lab0;
+    }
+    bra=cursor;
+    if (!(eq_s_b(2,"ig"))) {
+      break lab0;
+    }
+    slice_del();
+  }
+ while (false);
+  cursor=limit - v_1;
+  v_2=limit - cursor;
+  if (cursor < I_p1) {
+    return false;
+  }
+  cursor=I_p1;
+  v_3=limit_backward;
+  limit_backward=cursor;
+  cursor=limit - v_2;
+  ket=cursor;
+  among_var=find_among_b(a_2,5);
+  if (among_var == 0) {
+    limit_backward=v_3;
+    return false;
+  }
+  bra=cursor;
+  limit_backward=v_3;
+switch (among_var) {
+case 0:
+    return false;
+case 1:
+  slice_del();
+v_4=limit - cursor;
+lab1: do {
+if (!r_consonant_pair()) {
+  break lab1;
+}
+}
+ while (false);
+cursor=limit - v_4;
+break;
+case 2:
+slice_from("l\u00F8s");
+break;
+}
+return true;
+}

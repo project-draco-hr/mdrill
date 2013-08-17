@@ -1,0 +1,3 @@
+{
+  return getMaxSnippets(fieldName,HighlightingUtils.getParams(request));
+}

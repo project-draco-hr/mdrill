@@ -1,0 +1,3 @@
+{
+  if (end + num > buf.length)   resize(end + num);
+}

@@ -1,0 +1,5 @@
+{
+  int v=len < 0 ? max : offset + len;
+  if (v < 0 || v > max)   v=max;
+  return v;
+}

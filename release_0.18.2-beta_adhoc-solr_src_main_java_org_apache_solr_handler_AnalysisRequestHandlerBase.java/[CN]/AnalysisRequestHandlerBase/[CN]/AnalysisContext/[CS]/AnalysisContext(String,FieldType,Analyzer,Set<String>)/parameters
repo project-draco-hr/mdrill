@@ -1,0 +1,4 @@
+String fieldName
+FieldType fieldType
+Analyzer analyzer
+Set<String> termsToMatch

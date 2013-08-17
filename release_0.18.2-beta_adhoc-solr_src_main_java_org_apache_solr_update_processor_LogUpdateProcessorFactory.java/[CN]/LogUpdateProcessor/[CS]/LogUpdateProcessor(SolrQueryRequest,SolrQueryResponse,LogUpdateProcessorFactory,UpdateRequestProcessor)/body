@@ -1,0 +1,7 @@
+{
+  super(next);
+  this.req=req;
+  this.rsp=rsp;
+  maxNumToLog=factory.maxNumToLog;
+  this.toLog=new SimpleOrderedMap<Object>();
+}

@@ -1,0 +1,3 @@
+SolrQueryRequest req
+SolrQueryResponse rsp
+boolean force

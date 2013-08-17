@@ -1,0 +1,3 @@
+{
+  outRE.setText(s);
+}

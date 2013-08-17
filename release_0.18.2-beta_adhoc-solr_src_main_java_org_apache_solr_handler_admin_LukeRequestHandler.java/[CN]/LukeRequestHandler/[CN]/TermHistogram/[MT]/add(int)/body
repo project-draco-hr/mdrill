@@ -1,0 +1,13 @@
+{
+  Integer bucket=getPowerOfTwoBucket(df);
+  if (bucket > maxBucket) {
+    maxBucket=bucket;
+  }
+  Integer old=hist.get(bucket);
+  if (old == null) {
+    hist.put(bucket,1);
+  }
+ else {
+    hist.put(bucket,old + 1);
+  }
+}

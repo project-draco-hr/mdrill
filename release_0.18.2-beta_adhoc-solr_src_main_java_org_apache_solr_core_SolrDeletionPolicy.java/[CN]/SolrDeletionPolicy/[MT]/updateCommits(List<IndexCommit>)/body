@@ -1,0 +1,37 @@
+{
+synchronized (this) {
+    long maxCommitAgeTimeStamp=-1L;
+    IndexCommit newest=commits.get(commits.size() - 1);
+    log.info("newest commit = " + newest.getVersion());
+    int singleSegKept=(newest.getSegmentCount() == 1) ? 1 : 0;
+    int totalKept=1;
+    for (int i=commits.size() - 2; i >= 0; i--) {
+      IndexCommit commit=commits.get(i);
+      try {
+        if (maxCommitAge != null) {
+          if (maxCommitAgeTimeStamp == -1) {
+            DateMathParser dmp=new DateMathParser(DateField.UTC,Locale.US);
+            maxCommitAgeTimeStamp=dmp.parseMath(maxCommitAge).getTime();
+          }
+          if (commit.getTimestamp() < maxCommitAgeTimeStamp) {
+            commit.delete();
+            continue;
+          }
+        }
+      }
+ catch (      Exception e) {
+        log.warn("Exception while checking commit point's age for deletion",e);
+      }
+      if (singleSegKept < maxOptimizedCommitsToKeep && commit.getSegmentCount() == 1) {
+        totalKept++;
+        singleSegKept++;
+        continue;
+      }
+      if (totalKept < maxCommitsToKeep) {
+        totalKept++;
+        continue;
+      }
+      commit.delete();
+    }
+  }
+}

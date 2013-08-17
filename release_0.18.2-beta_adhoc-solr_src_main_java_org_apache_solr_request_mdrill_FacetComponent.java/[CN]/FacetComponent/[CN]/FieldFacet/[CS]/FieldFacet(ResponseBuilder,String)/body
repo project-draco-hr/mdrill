@@ -1,0 +1,4 @@
+{
+  super(rb,FacetParams.FACET_FIELD,facetStr);
+  fillParams(rb.req.getParams(),facetOn);
+}

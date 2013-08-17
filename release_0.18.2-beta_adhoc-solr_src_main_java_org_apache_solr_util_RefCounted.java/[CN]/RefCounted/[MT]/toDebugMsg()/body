@@ -1,0 +1,7 @@
+{
+  StringBuffer buff=new StringBuffer();
+  buff.append(this.partion);
+  buff.append(",");
+  buff.append(refcount.get());
+  return buff.toString();
+}

@@ -1,0 +1,3 @@
+{
+  return stat.get(field).get(index);
+}

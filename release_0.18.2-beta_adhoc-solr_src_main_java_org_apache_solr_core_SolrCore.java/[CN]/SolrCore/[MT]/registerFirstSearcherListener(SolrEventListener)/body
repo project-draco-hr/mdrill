@@ -1,0 +1,3 @@
+{
+  firstSearcherListeners.add(listener);
+}

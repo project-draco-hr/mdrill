@@ -1,0 +1,2 @@
+Collection<SolrInputDocument> docs
+int commitWithinMs

@@ -1,0 +1,3 @@
+{
+  return collations == null || collations.size() == 0 ? null : collations.get(0).collationQueryString;
+}

@@ -1,0 +1,3 @@
+char[] source
+int offset
+UTF8Result result

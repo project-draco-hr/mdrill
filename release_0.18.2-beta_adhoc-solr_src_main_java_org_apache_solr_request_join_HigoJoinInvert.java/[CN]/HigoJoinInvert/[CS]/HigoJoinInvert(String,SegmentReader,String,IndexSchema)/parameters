@@ -1,0 +1,4 @@
+String tableName
+SegmentReader reader
+String partion
+IndexSchema schema

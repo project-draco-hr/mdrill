@@ -1,0 +1,22 @@
+{
+  termSourceField=args.get(SOURCE_FIELD,args.get("termSourceField"));
+  try {
+    String dir=args.get(INDEX_DIR,args.get("spellcheckerIndexDir"));
+    if (null != dir) {
+      File f=new File(dir);
+      if (!f.isAbsolute()) {
+        f=new File(core.getDataDir(),dir);
+      }
+      dirDescription=f.getAbsolutePath();
+      log.info("using spell directory: " + dirDescription);
+      spellcheckerIndexDir=FSDirectory.open(f);
+    }
+ else {
+      log.info("using RAM based spell directory");
+    }
+    spellChecker=new SpellChecker(spellcheckerIndexDir);
+  }
+ catch (  IOException e) {
+    throw new RuntimeException("Cannot open SpellChecker index",e);
+  }
+}

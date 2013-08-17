@@ -1,0 +1,21 @@
+{
+  if ("*".equals(field) && "*".equals(termStr)) {
+    return newMatchAllDocsQuery();
+  }
+  String type=schema.getFieldType(field).getTypeName();
+  ReversedWildcardFilterFactory factory=leadingWildcards.get(type);
+  if (factory != null && factory.shouldReverse(termStr)) {
+    int len=termStr.length();
+    char[] chars=new char[len + 1];
+    chars[0]=factory.getMarkerChar();
+    termStr.getChars(0,len,chars,1);
+    ReversedWildcardFilter.reverse(chars,1,len);
+    termStr=new String(chars);
+  }
+  Query q=super.getWildcardQuery(field,termStr);
+  if (q instanceof WildcardQuery) {
+    WildcardQuery wildcardQuery=new WildcardQuery(((WildcardQuery)q).getTerm());
+    return wildcardQuery;
+  }
+  return q;
+}

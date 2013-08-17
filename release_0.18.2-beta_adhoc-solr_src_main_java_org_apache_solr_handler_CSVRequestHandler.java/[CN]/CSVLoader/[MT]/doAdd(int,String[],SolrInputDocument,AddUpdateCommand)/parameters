@@ -1,0 +1,4 @@
+int line
+String[] vals
+SolrInputDocument doc
+AddUpdateCommand template

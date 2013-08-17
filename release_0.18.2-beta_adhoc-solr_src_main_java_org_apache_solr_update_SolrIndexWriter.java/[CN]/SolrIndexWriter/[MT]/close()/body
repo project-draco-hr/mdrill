@@ -1,0 +1,12 @@
+{
+  log.debug("Closing Writer " + name);
+  try {
+    super.close();
+    if (infoStream != null) {
+      infoStream.close();
+    }
+  }
+  finally {
+    isClosed=true;
+  }
+}

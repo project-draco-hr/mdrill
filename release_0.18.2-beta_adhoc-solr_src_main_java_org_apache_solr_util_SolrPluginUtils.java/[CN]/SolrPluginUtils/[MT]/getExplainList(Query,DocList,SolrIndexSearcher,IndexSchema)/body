@@ -1,0 +1,3 @@
+{
+  return explanationsToStrings(getExplanations(query,docs,searcher,schema));
+}

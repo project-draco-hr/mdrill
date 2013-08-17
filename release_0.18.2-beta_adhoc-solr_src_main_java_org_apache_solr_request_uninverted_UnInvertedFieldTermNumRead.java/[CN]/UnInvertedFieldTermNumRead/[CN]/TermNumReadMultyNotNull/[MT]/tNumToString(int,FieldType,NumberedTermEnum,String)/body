@@ -1,0 +1,10 @@
+{
+  if (tnum == this.uni.nullTermNum) {
+    return def;
+  }
+  String termText=this.uni.getTermText(te,tnum);
+  if (termText != null) {
+    return ft.indexedToReadable(termText);
+  }
+  return def;
+}

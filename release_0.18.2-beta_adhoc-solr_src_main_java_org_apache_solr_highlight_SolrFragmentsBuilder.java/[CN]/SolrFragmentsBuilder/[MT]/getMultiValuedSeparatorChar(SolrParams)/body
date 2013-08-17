@@ -1,0 +1,7 @@
+{
+  String separator=params.get(HighlightParams.MULTI_VALUED_SEPARATOR," ");
+  if (separator.length() > 1) {
+    throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,HighlightParams.MULTI_VALUED_SEPARATOR + " parameter must be a char, but is \"" + separator+ "\"");
+  }
+  return separator.charAt(0);
+}

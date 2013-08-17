@@ -1,0 +1,24 @@
+{
+  return new QParser(qstr,localParams,params,req){
+    ValueSource vs;
+    String funcStr;
+    @Override public Query parse() throws ParseException {
+      funcStr=localParams.get(QueryParsing.V,null);
+      Query funcQ=subQuery(funcStr,FunctionQParserPlugin.NAME).getQuery();
+      if (funcQ instanceof FunctionQuery) {
+        vs=((FunctionQuery)funcQ).getValueSource();
+      }
+ else {
+        vs=new QueryValueSource(funcQ,0.0f);
+      }
+      String l=localParams.get("l");
+      String u=localParams.get("u");
+      boolean includeLower=localParams.getBool("incl",true);
+      boolean includeUpper=localParams.getBool("incu",true);
+      ValueSourceRangeFilter rf=new ValueSourceRangeFilter(vs,l,u,includeLower,includeUpper);
+      FunctionRangeQuery frq=new FunctionRangeQuery(rf);
+      return frq;
+    }
+  }
+;
+}

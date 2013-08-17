@@ -1,0 +1,31 @@
+{
+  JSONObject jsonObj=new JSONObject();
+  MySqlConn m_fpsql=getConn();
+  Connection conn=m_fpsql.getConn();
+  String strSql="update adhoc_download set status='DEL',endtime=? where uuid=? ";
+  PreparedStatement m_fps=conn.prepareStatement(strSql);
+  try {
+    int index=1;
+    m_fps.setTimestamp(index++,new java.sql.Timestamp(System.currentTimeMillis()));
+    m_fps.setString(index++,uuid);
+    m_fps.executeUpdate();
+    String fullstrSql=m_fps.toString();
+    jsonObj.put("code","1");
+    jsonObj.put("__debug",fullstrSql);
+  }
+ catch (  Exception e) {
+    jsonObj.put("code","0");
+    TableJoin.LOG.error("updatePercent" + m_fps.toString(),e);
+    jsonObj.put("__debugerror",m_fps.toString());
+  }
+ finally {
+    m_fps.close();
+    m_fpsql.close();
+  }
+  if (callback != null && callback.length() > 0) {
+    return callback + "(" + jsonObj.toString()+ ")";
+  }
+ else {
+    return jsonObj.toString();
+  }
+}

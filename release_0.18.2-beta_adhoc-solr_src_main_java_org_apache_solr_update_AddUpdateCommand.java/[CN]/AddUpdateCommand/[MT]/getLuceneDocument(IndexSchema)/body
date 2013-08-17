@@ -1,0 +1,5 @@
+{
+  if (doc == null && solrDoc != null) {
+  }
+  return doc;
+}

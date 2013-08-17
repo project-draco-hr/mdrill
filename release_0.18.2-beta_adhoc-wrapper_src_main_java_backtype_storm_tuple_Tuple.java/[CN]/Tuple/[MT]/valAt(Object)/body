@@ -1,0 +1,13 @@
+{
+  try {
+    if (o instanceof Keyword) {
+      return getValueByField(((Keyword)o).getName());
+    }
+ else     if (o instanceof String) {
+      return getValueByField((String)o);
+    }
+  }
+ catch (  IllegalArgumentException e) {
+  }
+  return null;
+}

@@ -1,0 +1,13 @@
+{
+  if (Method.POST == reqMethod || Method.OTHER == reqMethod) {
+    return;
+  }
+  if (solrRsp.isHttpCaching() && solrRsp.getException() == null) {
+    return;
+  }
+  resp.setHeader("Cache-Control","no-cache, no-store");
+  resp.setHeader("Pragma","no-cache");
+  resp.setHeader("Expires","Sat, 01 Jan 2000 01:00:00 GMT");
+  resp.setDateHeader("Last-Modified",System.currentTimeMillis());
+  resp.setHeader("ETag",'"' + Long.toHexString(System.currentTimeMillis()) + '"');
+}

@@ -1,0 +1,211 @@
+{
+  log.info("Reading Solr Schema");
+  try {
+    Config schemaConf=new Config(loader,"schema",is,"/schema/");
+    Document document=schemaConf.getDocument();
+    final XPath xpath=schemaConf.getXPath();
+    final List<SchemaAware> schemaAware=new ArrayList<SchemaAware>();
+    Node nd=(Node)xpath.evaluate("/schema/@name",document,XPathConstants.NODE);
+    if (nd == null) {
+      log.warn("schema has no name!");
+    }
+ else {
+      name=nd.getNodeValue();
+      log.info("Schema name=" + name);
+    }
+    version=schemaConf.getFloat("/schema/@version",1.0f);
+    final IndexSchema schema=this;
+    AbstractPluginLoader<FieldType> fieldLoader=new AbstractPluginLoader<FieldType>("[schema.xml] fieldType",true,true){
+      @Override protected FieldType create(      ResourceLoader loader,      String name,      String className,      Node node) throws Exception {
+        FieldType ft=(FieldType)loader.newInstance(className);
+        ft.setTypeName(name);
+        String expression="./analyzer[@type='query']";
+        Node anode=(Node)xpath.evaluate(expression,node,XPathConstants.NODE);
+        Analyzer queryAnalyzer=readAnalyzer(anode);
+        expression="./analyzer[not(@type)] | ./analyzer[@type='index']";
+        anode=(Node)xpath.evaluate(expression,node,XPathConstants.NODE);
+        Analyzer analyzer=readAnalyzer(anode);
+        if (queryAnalyzer == null)         queryAnalyzer=analyzer;
+        if (analyzer == null)         analyzer=queryAnalyzer;
+        if (analyzer != null) {
+          ft.setAnalyzer(analyzer);
+          ft.setQueryAnalyzer(queryAnalyzer);
+        }
+        if (ft instanceof SchemaAware) {
+          schemaAware.add((SchemaAware)ft);
+        }
+        return ft;
+      }
+      @Override protected void init(      FieldType plugin,      Node node) throws Exception {
+        Map<String,String> params=DOMUtil.toMapExcept(node.getAttributes(),"name","class");
+        plugin.setArgs(schema,params);
+      }
+      @Override protected FieldType register(      String name,      FieldType plugin) throws Exception {
+        log.trace("fieldtype defined: " + plugin);
+        return fieldTypes.put(name,plugin);
+      }
+    }
+;
+    String expression="/schema/types/fieldtype | /schema/types/fieldType";
+    NodeList nodes=(NodeList)xpath.evaluate(expression,document,XPathConstants.NODESET);
+    fieldLoader.load(loader,nodes);
+    Map<String,Boolean> explicitRequiredProp=new HashMap<String,Boolean>();
+    ArrayList<DynamicField> dFields=new ArrayList<DynamicField>();
+    expression="/schema/fields/field | /schema/fields/dynamicField";
+    nodes=(NodeList)xpath.evaluate(expression,document,XPathConstants.NODESET);
+    for (int i=0; i < nodes.getLength(); i++) {
+      Node node=nodes.item(i);
+      NamedNodeMap attrs=node.getAttributes();
+      String name=DOMUtil.getAttr(attrs,"name","field definition");
+      log.trace("reading field def " + name);
+      String type=DOMUtil.getAttr(attrs,"type","field " + name);
+      FieldType ft=fieldTypes.get(type);
+      if (ft == null) {
+        throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,"Unknown fieldtype '" + type + "' specified on field "+ name,false);
+      }
+      Map<String,String> args=DOMUtil.toMapExcept(attrs,"name","type");
+      if (args.get("required") != null) {
+        explicitRequiredProp.put(name,Boolean.valueOf(args.get("required")));
+      }
+      SchemaField f=SchemaField.create(name,ft,args);
+      if (node.getNodeName().equals("field")) {
+        SchemaField old=fields.put(f.getName(),f);
+        if (old != null) {
+          String msg="[schema.xml] Duplicate field definition for '" + f.getName() + "' ignoring: "+ old.toString();
+          Throwable t=new SolrException(SolrException.ErrorCode.SERVER_ERROR,msg);
+          SolrException.logOnce(log,null,t);
+          SolrConfig.severeErrors.add(t);
+        }
+        log.debug("field defined: " + f);
+        if (f.getDefaultValue() != null) {
+          log.debug(name + " contains default value: " + f.getDefaultValue());
+          fieldsWithDefaultValue.add(f);
+        }
+        if (f.isRequired()) {
+          log.debug(name + " is required in this schema");
+          requiredFields.add(f);
+        }
+      }
+ else       if (node.getNodeName().equals("dynamicField")) {
+        addDynamicField(dFields,f);
+      }
+ else {
+        throw new RuntimeException("Unknown field type");
+      }
+    }
+    requiredFields.addAll(getFieldsWithDefaultValue());
+    Collections.sort(dFields);
+    log.trace("Dynamic Field Ordering:" + dFields);
+    dynamicFields=dFields.toArray(new DynamicField[dFields.size()]);
+    Node node=(Node)xpath.evaluate("/schema/similarity",document,XPathConstants.NODE);
+    if (node == null) {
+      similarityFactory=new SimilarityFactory(){
+        @Override public Similarity getSimilarity(){
+          return Similarity.getDefault();
+        }
+      }
+;
+      log.debug("using default similarity");
+    }
+ else {
+      final Object obj=loader.newInstance(((Element)node).getAttribute("class"));
+      if (obj instanceof SimilarityFactory) {
+        SolrParams params=SolrParams.toSolrParams(DOMUtil.childNodesToNamedList(node));
+        similarityFactory=(SimilarityFactory)obj;
+        similarityFactory.init(params);
+      }
+ else {
+        similarityFactory=new SimilarityFactory(){
+          @Override public Similarity getSimilarity(){
+            return (Similarity)obj;
+          }
+        }
+;
+      }
+      if (similarityFactory instanceof SchemaAware) {
+        schemaAware.add((SchemaAware)similarityFactory);
+      }
+      log.debug("using similarity factory" + similarityFactory.getClass().getName());
+    }
+    node=(Node)xpath.evaluate("/schema/defaultSearchField/text()",document,XPathConstants.NODE);
+    if (node == null) {
+      log.warn("no default search field specified in schema.");
+    }
+ else {
+      defaultSearchFieldName=node.getNodeValue().trim();
+      if (defaultSearchFieldName != null) {
+        SchemaField defaultSearchField=getFields().get(defaultSearchFieldName);
+        if ((defaultSearchField == null) || !defaultSearchField.indexed()) {
+          String msg="default search field '" + defaultSearchFieldName + "' not defined or not indexed";
+          throw new SolrException(SolrException.ErrorCode.SERVER_ERROR,msg);
+        }
+      }
+      log.info("default search field is " + defaultSearchFieldName);
+    }
+    node=(Node)xpath.evaluate("/schema/solrQueryParser/@defaultOperator",document,XPathConstants.NODE);
+    if (node == null) {
+      log.debug("using default query parser operator (OR)");
+    }
+ else {
+      queryParserDefaultOperator=node.getNodeValue().trim();
+      log.info("query parser default operator is " + queryParserDefaultOperator);
+    }
+    node=(Node)xpath.evaluate("/schema/uniqueKey/text()",document,XPathConstants.NODE);
+    if (node == null) {
+      log.warn("no uniqueKey specified in schema.");
+    }
+ else {
+      uniqueKeyField=getIndexedField(node.getNodeValue().trim());
+      if (!uniqueKeyField.stored()) {
+        log.error("uniqueKey is not stored - distributed search will not work");
+      }
+      if (uniqueKeyField.multiValued()) {
+        log.error("uniqueKey should not be multivalued");
+      }
+      uniqueKeyFieldName=uniqueKeyField.getName();
+      uniqueKeyFieldType=uniqueKeyField.getType();
+      log.info("unique key field: " + uniqueKeyFieldName);
+      if (Boolean.FALSE != explicitRequiredProp.get(uniqueKeyFieldName)) {
+        uniqueKeyField.required=true;
+        requiredFields.add(uniqueKeyField);
+      }
+    }
+    dynamicCopyFields=new DynamicCopy[]{};
+    expression="//copyField";
+    nodes=(NodeList)xpath.evaluate(expression,document,XPathConstants.NODESET);
+    for (int i=0; i < nodes.getLength(); i++) {
+      node=nodes.item(i);
+      NamedNodeMap attrs=node.getAttributes();
+      String source=DOMUtil.getAttr(attrs,"source","copyField definition");
+      String dest=DOMUtil.getAttr(attrs,"dest","copyField definition");
+      String maxChars=DOMUtil.getAttr(attrs,"maxChars");
+      int maxCharsInt=CopyField.UNLIMITED;
+      if (maxChars != null) {
+        try {
+          maxCharsInt=Integer.parseInt(maxChars);
+        }
+ catch (        NumberFormatException e) {
+          log.warn("Couldn't parse maxChars attribute for copyField from " + source + " to "+ dest+ " as integer. The whole field will be copied.");
+        }
+      }
+      registerCopyField(source,dest,maxCharsInt);
+    }
+    for (    Map.Entry<SchemaField,Integer> entry : copyFieldTargetCounts.entrySet()) {
+      if (entry.getValue() > 1 && !entry.getKey().multiValued()) {
+        log.warn("Field " + entry.getKey().name + " is not multivalued "+ "and destination for multiple copyFields ("+ entry.getValue()+ ")");
+      }
+    }
+    for (    SchemaAware aware : schemaAware) {
+      aware.inform(this);
+    }
+  }
+ catch (  SolrException e) {
+    SolrConfig.severeErrors.add(e);
+    throw e;
+  }
+catch (  Exception e) {
+    SolrConfig.severeErrors.add(e);
+    throw new SolrException(SolrException.ErrorCode.SERVER_ERROR,"Schema Parsing Failed: " + e.getMessage(),e,false);
+  }
+  refreshAnalyzers();
+}

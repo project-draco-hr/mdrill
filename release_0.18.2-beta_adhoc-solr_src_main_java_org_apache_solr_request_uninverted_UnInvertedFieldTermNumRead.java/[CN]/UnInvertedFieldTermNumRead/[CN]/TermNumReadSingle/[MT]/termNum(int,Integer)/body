@@ -1,0 +1,3 @@
+{
+  return this.inter.termNum(doc,def);
+}

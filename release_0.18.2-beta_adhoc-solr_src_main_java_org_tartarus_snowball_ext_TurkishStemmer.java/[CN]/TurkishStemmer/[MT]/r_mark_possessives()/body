@@ -1,0 +1,9 @@
+{
+  if (find_among_b(a_0,10) == 0) {
+    return false;
+  }
+  if (!r_mark_suffix_with_optional_U_vowel()) {
+    return false;
+  }
+  return true;
+}

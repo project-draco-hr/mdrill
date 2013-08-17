@@ -1,0 +1,35 @@
+{
+  try {
+    NamedList<Object> response=null;
+    for (int event=parser.next(); event != XMLStreamConstants.END_DOCUMENT; event=parser.next()) {
+switch (event) {
+case XMLStreamConstants.START_ELEMENT:
+        if (response != null) {
+          throw new Exception("already read the response!");
+        }
+      String name=parser.getLocalName();
+    if (name.equals("response") || name.equals("result")) {
+      response=readNamedList(parser);
+    }
+ else     if (name.equals("solr")) {
+      return new SimpleOrderedMap<Object>();
+    }
+ else {
+      throw new Exception("really needs to be response or result.  " + "not:" + parser.getLocalName());
+    }
+  break;
+}
+}
+return response;
+}
+ catch (Exception ex) {
+throw new SolrException(SolrException.ErrorCode.SERVER_ERROR,"parsing error",ex);
+}
+ finally {
+try {
+parser.close();
+}
+ catch (Exception ex) {
+}
+}
+}

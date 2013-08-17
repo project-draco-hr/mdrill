@@ -1,0 +1,8 @@
+{
+  int h=valueSource.hashCode();
+  h+=lowerVal != null ? lowerVal.hashCode() : 0x572353db;
+  h=(h << 16) | (h >>> 16);
+  h+=(upperVal != null ? (upperVal.hashCode()) : 0xe16fe9e7);
+  h+=(includeLower ? 0xdaa47978 : 0) + (includeUpper ? 0x9e634b57 : 0);
+  return h;
+}

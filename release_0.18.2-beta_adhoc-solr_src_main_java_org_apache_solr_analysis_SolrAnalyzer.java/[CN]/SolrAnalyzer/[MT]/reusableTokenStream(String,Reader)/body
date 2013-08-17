@@ -1,0 +1,12 @@
+{
+  TokenStreamInfo tsi=(TokenStreamInfo)getPreviousTokenStream();
+  if (tsi != null) {
+    tsi.getTokenizer().reset(charStream(reader));
+    return tsi.getTokenStream();
+  }
+ else {
+    tsi=getStream(fieldName,reader);
+    setPreviousTokenStream(tsi);
+    return tsi.getTokenStream();
+  }
+}

@@ -1,0 +1,6 @@
+{
+  this.in=null;
+  this.buf=data;
+  this.start=start;
+  this.end=end;
+}

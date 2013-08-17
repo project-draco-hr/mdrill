@@ -1,0 +1,8 @@
+{
+  ensure(RE.nodeSize);
+  System.arraycopy(instruction,insertAt,instruction,insertAt + RE.nodeSize,lenInstruction - insertAt);
+  instruction[insertAt + RE.offsetOpcode]=opcode;
+  instruction[insertAt + RE.offsetOpdata]=(char)opdata;
+  instruction[insertAt + RE.offsetNext]=0;
+  lenInstruction+=RE.nodeSize;
+}

@@ -1,0 +1,14 @@
+{
+  boolean first=true;
+  float val=0.0f;
+  for (  DocValues vals : valsArr) {
+    if (first) {
+      first=false;
+      val=vals.floatVal(doc);
+    }
+ else {
+      val=Math.min(vals.floatVal(doc),val);
+    }
+  }
+  return val;
+}

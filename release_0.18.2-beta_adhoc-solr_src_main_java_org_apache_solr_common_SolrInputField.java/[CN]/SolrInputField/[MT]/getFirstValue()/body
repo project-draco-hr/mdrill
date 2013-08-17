@@ -1,0 +1,10 @@
+{
+  if (value instanceof Collection) {
+    Collection c=(Collection<Object>)value;
+    if (c.size() > 0) {
+      return c.iterator().next();
+    }
+    return null;
+  }
+  return value;
+}

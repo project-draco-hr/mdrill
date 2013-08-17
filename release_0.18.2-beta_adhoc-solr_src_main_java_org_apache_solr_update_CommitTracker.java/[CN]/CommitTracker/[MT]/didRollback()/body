@@ -1,0 +1,9 @@
+{
+synchronized (this) {
+    if (pending != null) {
+      pending.cancel(false);
+      pending=null;
+    }
+    docsSinceCommit.set(0);
+  }
+}

@@ -1,0 +1,18 @@
+{
+  AddUpdateCommand addCmd=new AddUpdateCommand();
+  boolean overwrite=true;
+  Boolean overwritePending=null;
+  Boolean overwriteCommitted=null;
+  overwrite=params.getBool(UpdateParams.OVERWRITE,overwrite);
+  addCmd.commitWithin=params.getInt(UpdateParams.COMMIT_WITHIN,-1);
+  if (overwritePending != null && overwriteCommitted != null) {
+    if (overwritePending != overwriteCommitted) {
+      throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,"can't have different values for 'overwritePending' and 'overwriteCommitted'");
+    }
+    overwrite=overwritePending;
+  }
+  addCmd.overwriteCommitted=overwrite;
+  addCmd.overwritePending=overwrite;
+  addCmd.allowDups=!overwrite;
+  return addCmd;
+}

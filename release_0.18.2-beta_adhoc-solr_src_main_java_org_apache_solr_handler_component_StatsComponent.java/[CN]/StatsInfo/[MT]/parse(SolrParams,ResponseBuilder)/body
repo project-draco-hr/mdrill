@@ -1,0 +1,10 @@
+{
+  statsFields=new HashMap<String,StatsValues>();
+  String[] statsFs=params.getParams(StatsParams.STATS_FIELD);
+  if (statsFs != null) {
+    for (    String field : statsFs) {
+      FieldType ft=rb.req.getSchema().getFieldType(field);
+      statsFields.put(field,StatsValuesFactory.createStatsValues(ft));
+    }
+  }
+}

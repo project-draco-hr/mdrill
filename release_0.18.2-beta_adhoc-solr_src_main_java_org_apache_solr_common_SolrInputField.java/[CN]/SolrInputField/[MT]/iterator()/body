@@ -1,0 +1,19 @@
+{
+  if (value instanceof Collection) {
+    return ((Collection)value).iterator();
+  }
+  return new Iterator<Object>(){
+    boolean nxt=(value != null);
+    public boolean hasNext(){
+      return nxt;
+    }
+    public Object next(){
+      nxt=false;
+      return value;
+    }
+    public void remove(){
+      throw new UnsupportedOperationException();
+    }
+  }
+;
+}

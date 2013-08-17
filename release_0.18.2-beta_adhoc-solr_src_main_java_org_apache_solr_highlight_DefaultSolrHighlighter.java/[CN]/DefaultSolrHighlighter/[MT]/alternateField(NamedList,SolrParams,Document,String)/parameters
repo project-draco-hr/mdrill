@@ -1,0 +1,4 @@
+NamedList docSummaries
+SolrParams params
+Document doc
+String fieldName

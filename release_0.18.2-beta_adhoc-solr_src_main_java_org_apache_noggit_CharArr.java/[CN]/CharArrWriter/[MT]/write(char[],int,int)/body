@@ -1,0 +1,20 @@
+{
+  int space=buf.length - end;
+  if (len < space) {
+    unsafeWrite(b,off,len);
+  }
+ else   if (len < buf.length) {
+    unsafeWrite(b,off,space);
+    flush();
+    unsafeWrite(b,off + space,len - space);
+  }
+ else {
+    flush();
+    try {
+      sink.write(b,off,len);
+    }
+ catch (    IOException e) {
+      throw new RuntimeException(e);
+    }
+  }
+}

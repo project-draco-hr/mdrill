@@ -1,0 +1,3 @@
+{
+  this.thrStop.set(isstop);
+}

@@ -1,0 +1,3 @@
+{
+  return this.termValueDouble.get(tm.get(doc));
+}

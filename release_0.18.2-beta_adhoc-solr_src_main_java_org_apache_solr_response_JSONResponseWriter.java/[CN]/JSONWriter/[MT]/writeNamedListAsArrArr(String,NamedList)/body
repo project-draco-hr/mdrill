@@ -1,0 +1,31 @@
+{
+  int sz=val.size();
+  indent();
+  writeArrayOpener(sz);
+  incLevel();
+  boolean first=true;
+  for (int i=0; i < sz; i++) {
+    String key=val.getName(i);
+    if (first) {
+      first=false;
+    }
+ else {
+      writeArraySeparator();
+    }
+    indent();
+    writeArrayOpener(1);
+    incLevel();
+    if (key == null) {
+      writeNull(null);
+    }
+ else {
+      writeStr(null,key,true);
+    }
+    writeArraySeparator();
+    writeVal(key,val.getVal(i));
+    decLevel();
+    writeArrayCloser();
+  }
+  decLevel();
+  writeArrayCloser();
+}

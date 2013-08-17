@@ -1,0 +1,17 @@
+{
+  String qstr=getString();
+  String defaultField=getParam(CommonParams.DF);
+  if (defaultField == null) {
+    defaultField=getReq().getSchema().getDefaultSearchFieldName();
+  }
+  lparser=new SolrQueryParser(this,defaultField);
+  String opParam=getParam(QueryParsing.OP);
+  if (opParam != null) {
+    lparser.setDefaultOperator("AND".equals(opParam) ? QueryParser.Operator.AND : QueryParser.Operator.OR);
+  }
+ else {
+    QueryParser.Operator operator=getReq().getSchema().getSolrQueryParser(null).getDefaultOperator();
+    lparser.setDefaultOperator(null == operator ? QueryParser.Operator.OR : operator);
+  }
+  return lparser.parse(qstr);
+}

@@ -1,0 +1,6 @@
+{
+  if (endtime == 0) {
+    setEndTime();
+  }
+  return endtime;
+}

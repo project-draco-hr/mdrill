@@ -1,0 +1,4 @@
+String field
+SegmentReader reader
+String partion
+IndexSchema schema

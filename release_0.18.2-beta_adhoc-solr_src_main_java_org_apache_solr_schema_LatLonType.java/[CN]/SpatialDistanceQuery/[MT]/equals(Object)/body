@@ -1,0 +1,5 @@
+{
+  if (!super.equals(o))   return false;
+  SpatialDistanceQuery other=(SpatialDistanceQuery)o;
+  return this.latCenter == other.latCenter && this.lonCenter == other.lonCenter && this.latMin == other.latMin && this.latMax == other.latMax && this.lonMin == other.lonMin && this.lonMax == other.lonMax && this.lon2Min == other.lon2Min && this.lon2Max == other.lon2Max && this.dist == other.dist && this.planetRadius == other.planetRadius && this.calcDist == other.calcDist && this.lonSource.equals(other.lonSource) && this.latSource.equals(other.latSource) && this.getBoost() == other.getBoost();
+}

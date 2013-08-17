@@ -1,0 +1,7 @@
+{
+  SolrInputField field=getField(name);
+  if (field != null) {
+    return field.getValues();
+  }
+  return null;
+}

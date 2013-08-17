@@ -1,0 +1,3 @@
+{
+  return "DisjunctionMax Request Handler: Does relevancy based queries " + "across a variety of fields using configured boosts";
+}

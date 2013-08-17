@@ -1,0 +1,13 @@
+{
+  int cmp=0;
+  if (o1.colVal != null && o2.colVal != null) {
+    cmp=UniqTypeNum.compare(o1.colVal,o2.colVal);
+  }
+ else {
+    cmp=UniqTypeNum.compare(o1.getCompareValue(),o2.getCompareValue());
+  }
+  if (cmp == 0) {
+    cmp=index.compare(o1,o2);
+  }
+  return cmp;
+}

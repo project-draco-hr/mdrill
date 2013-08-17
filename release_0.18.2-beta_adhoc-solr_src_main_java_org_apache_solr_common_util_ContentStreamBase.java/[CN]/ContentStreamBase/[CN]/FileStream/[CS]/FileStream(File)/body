@@ -1,0 +1,7 @@
+{
+  file=f;
+  contentType=null;
+  name=file.getName();
+  size=file.length();
+  sourceInfo=file.toURI().toString();
+}

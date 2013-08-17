@@ -1,0 +1,33 @@
+{
+  GroupingSpecification groupSpec=rb.getGroupingSpec();
+  if (rb.mergedTopGroups.isEmpty()) {
+    for (    String field : groupSpec.getFields()) {
+      rb.mergedTopGroups.put(field,new TopGroups(null,null,0,0,new GroupDocs[]{}));
+    }
+    rb.resultIds=new HashMap<Object,ShardDoc>();
+  }
+  EndResultTransformer.SolrDocumentSource solrDocumentSource=new EndResultTransformer.SolrDocumentSource(){
+    public SolrDocument retrieve(    ScoreDoc doc){
+      ShardDoc solrDoc=(ShardDoc)doc;
+      return rb.retrievedDocuments.get(solrDoc.id);
+    }
+  }
+;
+  EndResultTransformer endResultTransformer;
+  if (groupSpec.isMain()) {
+    endResultTransformer=MAIN_END_RESULT_TRANSFORMER;
+  }
+ else   if (Grouping.Format.grouped == groupSpec.getResponseFormat()) {
+    endResultTransformer=new GroupedEndResultTransformer(rb.req.getSearcher());
+  }
+ else   if (Grouping.Format.simple == groupSpec.getResponseFormat() && !groupSpec.isMain()) {
+    endResultTransformer=SIMPLE_END_RESULT_TRANSFORMER;
+  }
+ else {
+    return;
+  }
+  Map<String,Object> combinedMap=new LinkedHashMap<String,Object>();
+  combinedMap.putAll(rb.mergedTopGroups);
+  combinedMap.putAll(rb.mergedQueryCommandResults);
+  endResultTransformer.transform(combinedMap,rb.rsp,rb.getGroupingSpec(),solrDocumentSource);
+}

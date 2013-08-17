@@ -1,0 +1,10 @@
+{
+  int sz=ids.size();
+  SolrIndexSearcher searcher=req.getSearcher();
+  DocIterator iterator=ids.iterator();
+  for (int i=0; i < sz; i++) {
+    int id=iterator.nextDoc();
+    Document doc=searcher.doc(id,fields);
+    writeDoc(null,doc,fields,(returnScore ? iterator.score() : 0.0f),returnScore);
+  }
+}

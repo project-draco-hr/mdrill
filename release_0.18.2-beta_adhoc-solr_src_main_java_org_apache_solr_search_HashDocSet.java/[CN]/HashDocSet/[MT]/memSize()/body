@@ -1,0 +1,3 @@
+{
+  return (table.length << 2) + 20;
+}

@@ -1,0 +1,30 @@
+{
+  long t1=System.currentTimeMillis();
+  FacetInfo fi=rb._facetInfo;
+  for (  ShardResponse srsp : sreq.responses) {
+    int shardNum=rb.getShardNum(srsp.getShard());
+    NamedList facet_counts=(NamedList)srsp.getSolrResponse().getResponse().get("facet_counts");
+    if (facet_counts != null) {
+      NamedList facet_queries=(NamedList)facet_counts.get("facet_queries");
+      if (facet_queries != null) {
+        for (int i=0; i < facet_queries.size(); i++) {
+          String returnedKey=facet_queries.getName(i);
+          long count=((Number)facet_queries.getVal(i)).longValue();
+          QueryFacet qf=fi.queryFacets.get(returnedKey);
+          qf.count+=count;
+        }
+      }
+      NamedList facet_fields=(NamedList)facet_counts.get("facet_fields");
+      if (facet_fields != null) {
+        for (        DistribFieldFacet dff : fi.facets.values()) {
+          dff.add((NamedList)facet_fields.get(dff.getKey()),dff);
+        }
+      }
+    }
+ else {
+      SolrCore.log.error("facet_counts is null " + srsp.getShard(),new Exception());
+    }
+  }
+  long t2=System.currentTimeMillis();
+  LOG.info("##countFacets## time taken " + (t2 - t1) + ",responses.size="+ sreq.responses.size());
+}

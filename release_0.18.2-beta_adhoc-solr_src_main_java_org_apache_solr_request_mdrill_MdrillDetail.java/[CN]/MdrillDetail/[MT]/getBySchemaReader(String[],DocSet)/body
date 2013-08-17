@@ -1,0 +1,34 @@
+{
+  SolrIndexReader reader=this.searcher.getReader();
+  IndexReader.InvertParams invparam=new IndexReader.InvertParams();
+  invparam._searcher=this.searcher;
+  invparam._params=this.params;
+  invparam.fields=fields;
+  invparam.base=base;
+  invparam.req=this.req;
+  invparam.isdetail=true;
+  IndexReader.InvertResult result=reader.invertScan(this.searcher.getSchema(),invparam);
+  ArrayList<NamedList> resultlist=result.getResult();
+  if (resultlist.size() == 1) {
+    return resultlist.get(0);
+  }
+  FacetComponent.FacetInfo fi=new FacetComponent.FacetInfo();
+  fi.parse(params);
+  DistribFieldFacet dff=fi.cross;
+  dff.isdetail=true;
+  long addtime=0;
+  for (  NamedList nl : resultlist) {
+    addtime+=dff.add(nl,dff);
+  }
+  NamedList fieldCounts=new NamedList();
+  GroupbyItem[] counts=dff.getPairSorted(dff.sort_column_type,dff.joinSort,dff.facetFs,dff.crossFs,dff.distFS,dff.sort_fl,dff.sort_type,dff.isdesc,this.limit_offset);
+  if (dff.recordcount != null) {
+    GroupbyItem recordcount=dff.recordcount;
+    fieldCounts.add(recordcount.getKey(),recordcount.toNamedList());
+  }
+  int end=this.limit_offset > counts.length ? counts.length : this.limit_offset;
+  for (int i=this.offset; i < end; i++) {
+    fieldCounts.add(counts[i].getKey(),counts[i].toNamedList());
+  }
+  return fieldCounts;
+}

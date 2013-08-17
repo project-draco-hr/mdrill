@@ -1,0 +1,3 @@
+String coreName
+String coreHashCode
+JmxConfiguration jmxConfig

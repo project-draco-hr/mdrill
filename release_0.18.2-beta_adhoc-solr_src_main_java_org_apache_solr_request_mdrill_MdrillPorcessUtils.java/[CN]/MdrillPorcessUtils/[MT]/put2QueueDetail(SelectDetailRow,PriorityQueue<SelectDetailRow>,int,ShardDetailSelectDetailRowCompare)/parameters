@@ -1,0 +1,4 @@
+SelectDetailRow mrow
+PriorityQueue<SelectDetailRow> res
+int limit_offset
+ShardDetailSelectDetailRowCompare cmp

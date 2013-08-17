@@ -1,0 +1,8 @@
+{
+  if (ptr >= stack.length) {
+    byte[] newstack=new byte[stack.length << 1];
+    System.arraycopy(stack,0,newstack,0,stack.length);
+    stack=newstack;
+  }
+  stack[ptr++]=state;
+}

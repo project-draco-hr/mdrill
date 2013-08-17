@@ -1,0 +1,11 @@
+{
+  this.schema=schema;
+  this.searcher=searcher;
+  this.includeScore=returnFields != null && returnFields.contains(SCORE_FIELD);
+  if (returnFields != null) {
+    if (returnFields.size() == 0 || (returnFields.size() == 1 && includeScore) || returnFields.contains("*")) {
+      returnFields=null;
+    }
+  }
+  this.returnFields=returnFields;
+}

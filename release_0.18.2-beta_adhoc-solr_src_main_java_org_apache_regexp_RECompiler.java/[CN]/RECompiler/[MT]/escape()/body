@@ -1,0 +1,75 @@
+{
+  if (pattern.charAt(idx) != '\\') {
+    internalError();
+  }
+  if (idx + 1 == len) {
+    syntaxError("Escape terminates string");
+  }
+  idx+=2;
+  char escapeChar=pattern.charAt(idx - 1);
+switch (escapeChar) {
+case RE.E_BOUND:
+case RE.E_NBOUND:
+    return ESC_COMPLEX;
+case RE.E_ALNUM:
+case RE.E_NALNUM:
+case RE.E_SPACE:
+case RE.E_NSPACE:
+case RE.E_DIGIT:
+case RE.E_NDIGIT:
+  return ESC_CLASS;
+case 'u':
+case 'x':
+{
+  int hexDigits=(escapeChar == 'u' ? 4 : 2);
+  int val=0;
+  for (; idx < len && hexDigits-- > 0; idx++) {
+    char c=pattern.charAt(idx);
+    if (c >= '0' && c <= '9') {
+      val=(val << 4) + c - '0';
+    }
+ else {
+      c=Character.toLowerCase(c);
+      if (c >= 'a' && c <= 'f') {
+        val=(val << 4) + (c - 'a') + 10;
+      }
+ else {
+        syntaxError("Expected " + hexDigits + " hexadecimal digits after \\"+ escapeChar);
+      }
+    }
+  }
+  return val;
+}
+case 't':
+return '\t';
+case 'n':
+return '\n';
+case 'r':
+return '\r';
+case 'f':
+return '\f';
+case '0':
+case '1':
+case '2':
+case '3':
+case '4':
+case '5':
+case '6':
+case '7':
+case '8':
+case '9':
+if ((idx < len && Character.isDigit(pattern.charAt(idx))) || escapeChar == '0') {
+int val=escapeChar - '0';
+if (idx < len && Character.isDigit(pattern.charAt(idx))) {
+val=((val << 3) + (pattern.charAt(idx++) - '0'));
+if (idx < len && Character.isDigit(pattern.charAt(idx))) {
+val=((val << 3) + (pattern.charAt(idx++) - '0'));
+}
+}
+return val;
+}
+return ESC_BACKREF;
+default :
+return escapeChar;
+}
+}

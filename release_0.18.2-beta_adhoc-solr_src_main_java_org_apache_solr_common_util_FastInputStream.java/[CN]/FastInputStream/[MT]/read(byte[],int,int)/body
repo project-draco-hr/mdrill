@@ -1,0 +1,24 @@
+{
+  int r=0;
+  if (end - pos > 0) {
+    r=Math.min(end - pos,len);
+    System.arraycopy(buf,pos,b,off,r);
+    pos+=r;
+  }
+  if (r == len)   return r;
+  if (len - r >= buf.length) {
+    int ret=in.read(b,off + r,len - r);
+    if (ret == -1)     return r == 0 ? -1 : r;
+    r+=ret;
+    return r;
+  }
+  refill();
+  if (end - pos > 0) {
+    int toRead=Math.min(end - pos,len - r);
+    System.arraycopy(buf,pos,b,off + r,toRead);
+    pos+=toRead;
+    r+=toRead;
+    return r;
+  }
+  return r > 0 ? r : -1;
+}

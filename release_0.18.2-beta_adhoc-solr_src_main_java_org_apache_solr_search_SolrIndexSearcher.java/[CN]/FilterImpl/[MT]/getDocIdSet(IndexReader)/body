@@ -1,0 +1,5 @@
+{
+  DocIdSet sub=topFilter == null ? null : topFilter.getDocIdSet(reader);
+  if (weights.size() == 0)   return sub;
+  return new FilterSet(sub,reader);
+}

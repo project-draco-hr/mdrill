@@ -1,0 +1,4 @@
+{
+  this.set(FacetParams.FACET_PREFIX,prefix);
+  return this;
+}

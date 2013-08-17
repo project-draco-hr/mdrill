@@ -1,0 +1,14 @@
+{
+  super.init(args);
+  inputFactory=XMLInputFactory.newInstance();
+  try {
+    inputFactory.setProperty("reuse-instance",Boolean.FALSE);
+  }
+ catch (  IllegalArgumentException ex) {
+    log.debug("Unable to set the 'reuse-instance' property for the input chain: " + inputFactory);
+  }
+  inputFactory.setXMLReporter(xmllog);
+  final SolrParams p=SolrParams.toSolrParams(args);
+  this.xsltCacheLifetimeSeconds=p.getInt(XSLT_CACHE_PARAM,XSLT_CACHE_DEFAULT);
+  log.info("xsltCacheLifetimeSeconds=" + xsltCacheLifetimeSeconds);
+}

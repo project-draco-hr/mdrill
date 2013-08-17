@@ -1,0 +1,6 @@
+{
+  String oversize=(String)nst.get("isoversize");
+  this.isoversize="yes".equals(oversize);
+  this.maxUniqSize=(Integer)nst.get("maxUniqSize");
+  this.uniq.addAll((Collection<? extends ArrayList<Integer>>)nst.get("dist"));
+}

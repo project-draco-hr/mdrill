@@ -1,0 +1,7 @@
+{
+  final int len=val.length();
+  if (val.charAt(len - 1) == Z) {
+    return val.substring(0,len - 1);
+  }
+  return toInternal(parseMath(null,val));
+}

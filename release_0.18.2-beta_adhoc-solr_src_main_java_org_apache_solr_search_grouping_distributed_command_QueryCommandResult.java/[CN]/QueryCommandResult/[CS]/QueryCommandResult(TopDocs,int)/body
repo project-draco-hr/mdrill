@@ -1,0 +1,4 @@
+{
+  this.topDocs=topDocs;
+  this.matches=matches;
+}

@@ -1,0 +1,28 @@
+{
+  count+=(Long)stv.get("count");
+  missing+=(Long)stv.get("missing");
+  updateMinMax((T)stv.get("min"),(T)stv.get("max"));
+  updateTypeSpecificStats(stv);
+  NamedList f=(NamedList)stv.get(FACETS);
+  if (f == null) {
+    return;
+  }
+  for (int i=0; i < f.size(); i++) {
+    String field=f.getName(i);
+    NamedList vals=(NamedList)f.getVal(i);
+    Map<String,StatsValues> addTo=facets.get(field);
+    if (addTo == null) {
+      addTo=new HashMap<String,StatsValues>();
+      facets.put(field,addTo);
+    }
+    for (int j=0; j < vals.size(); j++) {
+      String val=vals.getName(j);
+      StatsValues vvals=addTo.get(val);
+      if (vvals == null) {
+        vvals=StatsValuesFactory.createStatsValues(fieldType);
+        addTo.put(val,vvals);
+      }
+      vvals.accumulate((NamedList)vals.getVal(j));
+    }
+  }
+}

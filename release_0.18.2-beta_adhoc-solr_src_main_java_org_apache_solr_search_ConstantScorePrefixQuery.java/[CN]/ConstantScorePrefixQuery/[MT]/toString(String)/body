@@ -1,0 +1,14 @@
+{
+  StringBuilder buffer=new StringBuilder();
+  if (!prefix.field().equals(field)) {
+    buffer.append(prefix.field());
+    buffer.append(":");
+  }
+  buffer.append(prefix.text());
+  buffer.append('*');
+  if (getBoost() != 1.0f) {
+    buffer.append("^");
+    buffer.append(Float.toString(getBoost()));
+  }
+  return buffer.toString();
+}

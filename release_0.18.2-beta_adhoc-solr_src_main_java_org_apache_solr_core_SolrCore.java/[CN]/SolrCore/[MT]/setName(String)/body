@@ -1,0 +1,4 @@
+{
+  this.name=v;
+  this.logid=(v == null) ? "" : ("[" + v + "] ");
+}

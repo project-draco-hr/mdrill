@@ -1,0 +1,9 @@
+{
+  if (cmd.id != null) {
+    updateHandler.delete(cmd);
+  }
+ else {
+    updateHandler.deleteByQuery(cmd);
+  }
+  super.processDelete(cmd);
+}

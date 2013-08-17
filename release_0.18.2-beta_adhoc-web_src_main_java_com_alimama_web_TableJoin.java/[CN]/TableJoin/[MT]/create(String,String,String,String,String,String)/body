@@ -1,0 +1,92 @@
+{
+  HashMap<String,String> tablecount=getUserTablesCount(username,1);
+  JSONObject jsonObj=new JSONObject();
+  if (tablecount != null && tablecount.containsKey("cnt") && Integer.parseInt(tablecount.get("cnt")) >= 50) {
+    jsonObj.put("code","0");
+    jsonObj.put("message","??????????????????" + tablecount.get("cnt") + "???????????????????????????????????????50????????????");
+    if (callback != null && callback.length() > 0) {
+      return callback + "(" + jsonObj.toString()+ ")";
+    }
+ else {
+      return jsonObj.toString();
+    }
+  }
+  SimpleDateFormat fmt=new SimpleDateFormat("yyyyMMdd");
+  String day=fmt.format(new Date());
+  Map stormconf=Utils.readStormConfig();
+  String hdpConf=(String)stormconf.get("hadoop.conf.dir");
+  String connstr=(String)stormconf.get("higo.download.offline.conn");
+  String uname=(String)stormconf.get("higo.download.offline.username");
+  String passwd=(String)stormconf.get("higo.download.offline.passwd");
+  String store=(String)stormconf.get("higo.download.offline.store") + "/" + day+ "/"+ java.util.UUID.randomUUID().toString();
+  MySqlConn m_fpsql=new MySqlConn(connstr,uname,passwd);
+  String tableName=java.util.UUID.randomUUID().toString();
+  Connection conn=m_fpsql.getConn();
+  String strSql="insert into adhoc_joins " + "(tableShowName,tableName,colsShowName,colsName,colsType,splitString,txtStorePath,indexStorePath,status,username,createtime,lastuptime,joins,percent)" + "values"+ "(?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+  PreparedStatement m_fps=conn.prepareStatement(strSql);
+  try {
+    int index=1;
+    m_fps.setString(index++,tableShowName);
+    m_fps.setString(index++,tableName);
+    m_fps.setString(index++,colsShowName);
+    StringBuffer colsName=new StringBuffer();
+    StringBuffer colsType=new StringBuffer();
+    String[] cols=colsShowName.split(",");
+    String join="";
+    HashMap<String,String> colsNames=new HashMap<String,String>();
+    for (int i=0; i < cols.length; i++) {
+      String colname="cols_" + i + "_s";
+      colsName.append(join);
+      colsName.append(colname);
+      colsType.append(join);
+      colsType.append("string");
+      colsNames.put(cols[i],colname);
+      join=",";
+    }
+    m_fps.setString(index++,colsName.toString());
+    m_fps.setString(index++,colsType.toString());
+    m_fps.setString(index++,MakeIndex.parseSplit(splitString));
+    m_fps.setString(index++,store + "/txt");
+    m_fps.setString(index++,store + "/index");
+    m_fps.setString(index++,"init");
+    m_fps.setString(index++,username);
+    long nowtims=System.currentTimeMillis();
+    m_fps.setTimestamp(index++,new java.sql.Timestamp(nowtims));
+    m_fps.setTimestamp(index++,new java.sql.Timestamp(nowtims));
+    StringBuffer joinbuff=new StringBuffer();
+    String joinchar="";
+    for (    String joindesc : joins.split(",")) {
+      String[] arr=joindesc.split(":");
+      joinbuff.append(joinchar);
+      joinbuff.append(arr[0]);
+      joinbuff.append(":");
+      joinbuff.append(arr[1]);
+      joinbuff.append(":");
+      joinbuff.append(colsNames.get(arr[2]));
+      joinchar=",";
+    }
+    m_fps.setString(index++,joinbuff.toString());
+    m_fps.setString(index++,"");
+    m_fps.executeUpdate();
+    jsonObj.put("code","1");
+    JSONObject daa=new JSONObject();
+    daa.put("tableid",tableName);
+    jsonObj.put("data",daa);
+    jsonObj.put("____debug",m_fps.toString());
+  }
+ catch (  Exception e) {
+    jsonObj.put("____debug2",m_fps.toString());
+    jsonObj.put("____debugerror",e.toString());
+    jsonObj.put("code","0");
+  }
+ finally {
+    m_fps.close();
+    m_fpsql.close();
+  }
+  if (callback != null && callback.length() > 0) {
+    return callback + "(" + jsonObj.toString()+ ")";
+  }
+ else {
+    return jsonObj.toString();
+  }
+}

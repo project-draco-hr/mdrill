@@ -1,0 +1,3 @@
+SchemaField sfield
+String val
+float boost

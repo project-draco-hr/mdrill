@@ -1,0 +1,3 @@
+{
+  return setReturnFields(req.getParams().get(CommonParams.FL),res);
+}

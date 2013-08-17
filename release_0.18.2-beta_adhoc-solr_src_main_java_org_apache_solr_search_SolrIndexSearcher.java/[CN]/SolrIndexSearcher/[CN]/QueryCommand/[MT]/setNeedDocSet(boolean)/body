@@ -1,0 +1,3 @@
+{
+  return needDocSet ? setFlags(GET_DOCSET) : clearFlags(GET_DOCSET);
+}

@@ -1,0 +1,3 @@
+{
+  return new SpatialScorer(getSimilarity(searcher),reader,this);
+}

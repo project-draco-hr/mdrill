@@ -1,0 +1,4 @@
+{
+  this.set(TermsParams.TERMS_LIMIT,limit);
+  return this;
+}

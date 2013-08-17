@@ -1,0 +1,14 @@
+String projectName
+String jsoncallback
+String queryStr
+String fl
+String groupby
+String mailto
+String username
+String jobname
+String params
+String leftjoin
+String fq2
+String limit2
+String orderby2
+String desc2

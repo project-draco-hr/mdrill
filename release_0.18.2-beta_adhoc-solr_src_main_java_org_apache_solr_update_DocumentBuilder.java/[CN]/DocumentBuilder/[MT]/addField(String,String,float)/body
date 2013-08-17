@@ -1,0 +1,15 @@
+{
+  SchemaField sfield=schema.getFieldOrNull(name);
+  if (sfield != null) {
+    addField(sfield,val,boost);
+  }
+  final List<CopyField> copyFields=schema.getCopyFieldsList(name);
+  if (copyFields != null) {
+    for (    CopyField cf : copyFields) {
+      addSingleField(cf.getDestination(),cf.getLimitedValue(val),boost);
+    }
+  }
+  if (sfield == null && (copyFields == null || copyFields.size() == 0)) {
+    throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,"ERROR:unknown field '" + name + "'");
+  }
+}

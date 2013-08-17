@@ -1,0 +1,5 @@
+String field
+int mincount
+DocSet dc
+boolean iscross
+boolean isrow

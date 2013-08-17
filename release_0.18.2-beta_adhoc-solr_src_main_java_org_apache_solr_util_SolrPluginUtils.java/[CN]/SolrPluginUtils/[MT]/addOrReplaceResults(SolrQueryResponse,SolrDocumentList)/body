@@ -1,0 +1,12 @@
+{
+  NamedList vals=rsp.getValues();
+  int idx=vals.indexOf("response",0);
+  if (idx >= 0) {
+    log.debug("Replacing DocList with SolrDocumentList " + docs.size());
+    vals.setVal(idx,docs);
+  }
+ else {
+    log.debug("Adding SolrDocumentList response" + docs.size());
+    vals.add("response",docs);
+  }
+}

@@ -1,0 +1,4 @@
+{
+  long bits=Double.doubleToRawLongBits(constant);
+  return (int)(bits ^ (bits >>> 32));
+}

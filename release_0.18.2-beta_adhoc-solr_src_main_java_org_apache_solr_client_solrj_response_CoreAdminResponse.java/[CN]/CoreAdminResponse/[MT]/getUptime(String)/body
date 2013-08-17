@@ -1,0 +1,7 @@
+{
+  NamedList<Object> v=getCoreStatus(core);
+  if (v == null) {
+    return null;
+  }
+  return (Long)v.get("uptime");
+}

@@ -1,0 +1,12 @@
+{
+  if (other == this) {
+    return true;
+  }
+ else   if (other instanceof Pair) {
+    Pair pair=(Pair)other;
+    return output1.equals(pair.output1) && output2.equals(pair.output2);
+  }
+ else {
+    return false;
+  }
+}

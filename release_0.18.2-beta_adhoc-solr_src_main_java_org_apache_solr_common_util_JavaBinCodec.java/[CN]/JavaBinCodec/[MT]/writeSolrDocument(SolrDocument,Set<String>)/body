@@ -1,0 +1,21 @@
+{
+  int count=0;
+  if (fields == null) {
+    count=doc.getFieldNames().size();
+  }
+ else {
+    for (    Map.Entry<String,Object> entry : doc) {
+      if (fields.contains(entry.getKey()))       count++;
+    }
+  }
+  writeTag(SOLRDOC);
+  writeTag(ORDERED_MAP,count);
+  for (  Map.Entry<String,Object> entry : doc) {
+    if (fields == null || fields.contains(entry.getKey())) {
+      String name=entry.getKey();
+      writeExternString(name);
+      Object val=entry.getValue();
+      writeVal(val);
+    }
+  }
+}

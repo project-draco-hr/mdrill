@@ -1,0 +1,10 @@
+{
+  StringBuilder result=new StringBuilder();
+  for (  String str : list) {
+    if (result.length() > 0) {
+      result.append(",");
+    }
+    result.append(str);
+  }
+  return result.toString();
+}

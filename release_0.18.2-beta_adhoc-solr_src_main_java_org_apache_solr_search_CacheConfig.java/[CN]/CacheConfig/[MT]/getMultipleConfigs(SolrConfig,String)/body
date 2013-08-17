@@ -1,0 +1,9 @@
+{
+  NodeList nodes=(NodeList)solrConfig.evaluate(configPath,XPathConstants.NODESET);
+  if (nodes == null || nodes.getLength() == 0)   return null;
+  CacheConfig[] configs=new CacheConfig[nodes.getLength()];
+  for (int i=0; i < nodes.getLength(); i++) {
+    configs[i]=getConfig(solrConfig,nodes.item(i));
+  }
+  return configs;
+}

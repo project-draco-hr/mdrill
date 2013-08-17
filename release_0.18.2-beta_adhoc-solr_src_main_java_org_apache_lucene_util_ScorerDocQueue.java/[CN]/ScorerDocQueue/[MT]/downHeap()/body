@@ -1,0 +1,20 @@
+{
+  int i=1;
+  HeapedScorerDoc node=heap[i];
+  int j=i << 1;
+  int k=j + 1;
+  if ((k <= size) && (heap[k].doc < heap[j].doc)) {
+    j=k;
+  }
+  while ((j <= size) && (heap[j].doc < node.doc)) {
+    heap[i]=heap[j];
+    i=j;
+    j=i << 1;
+    k=j + 1;
+    if (k <= size && (heap[k].doc < heap[j].doc)) {
+      j=k;
+    }
+  }
+  heap[i]=node;
+  topHSD=heap[1];
+}

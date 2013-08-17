@@ -1,0 +1,12 @@
+{
+  if ("NO".equals(yesno)) {
+    return false;
+  }
+ else   if ("YES".equals(yesno)) {
+    return true;
+  }
+ else {
+    die("Test script error!");
+    return false;
+  }
+}

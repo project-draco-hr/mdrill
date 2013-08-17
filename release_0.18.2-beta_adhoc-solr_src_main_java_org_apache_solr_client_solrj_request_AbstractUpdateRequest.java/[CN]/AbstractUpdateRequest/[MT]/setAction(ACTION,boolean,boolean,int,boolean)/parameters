@@ -1,0 +1,5 @@
+ACTION action
+boolean waitFlush
+boolean waitSearcher
+int maxSegments
+boolean expungeDeletes

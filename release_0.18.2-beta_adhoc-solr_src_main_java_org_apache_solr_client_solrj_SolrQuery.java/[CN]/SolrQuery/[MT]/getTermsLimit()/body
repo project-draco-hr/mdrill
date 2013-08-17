@@ -1,0 +1,3 @@
+{
+  return this.getInt(TermsParams.TERMS_LIMIT,10);
+}

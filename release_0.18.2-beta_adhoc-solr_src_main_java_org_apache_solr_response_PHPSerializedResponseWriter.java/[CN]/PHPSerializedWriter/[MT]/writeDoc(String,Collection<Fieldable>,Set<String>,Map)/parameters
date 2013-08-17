@@ -1,0 +1,4 @@
+String name
+Collection<Fieldable> fields
+Set<String> returnFields
+Map pseudoFields

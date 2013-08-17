@@ -1,0 +1,7 @@
+{
+  CoreAdminRequest.MergeIndexes req=new CoreAdminRequest.MergeIndexes();
+  req.setCoreName(name);
+  req.setIndexDirs(Arrays.asList(indexDirs));
+  req.setSrcCores(Arrays.asList(srcCores));
+  return req.process(server);
+}

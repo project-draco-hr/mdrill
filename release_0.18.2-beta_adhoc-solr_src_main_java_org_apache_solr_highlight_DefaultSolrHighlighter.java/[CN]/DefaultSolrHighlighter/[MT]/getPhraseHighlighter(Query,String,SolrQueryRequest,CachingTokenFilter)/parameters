@@ -1,0 +1,4 @@
+Query query
+String fieldName
+SolrQueryRequest request
+CachingTokenFilter tokenStream

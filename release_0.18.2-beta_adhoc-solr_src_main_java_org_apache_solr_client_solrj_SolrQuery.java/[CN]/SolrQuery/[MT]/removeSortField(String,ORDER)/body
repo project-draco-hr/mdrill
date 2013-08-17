@@ -1,0 +1,11 @@
+{
+  String s=this.get(CommonParams.SORT);
+  String removeSort=toSortString(field,order);
+  if (s != null) {
+    String[] sorts=s.split(",");
+    s=join(sorts,", ",removeSort);
+    if (s.length() == 0)     s=null;
+    this.set(CommonParams.SORT,s);
+  }
+  return this;
+}

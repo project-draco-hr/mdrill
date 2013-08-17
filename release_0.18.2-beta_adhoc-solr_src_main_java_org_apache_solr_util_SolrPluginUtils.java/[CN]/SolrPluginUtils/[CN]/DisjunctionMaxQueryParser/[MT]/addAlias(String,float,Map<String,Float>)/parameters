@@ -1,0 +1,3 @@
+String field
+float tiebreaker
+Map<String,Float> fieldBoosts

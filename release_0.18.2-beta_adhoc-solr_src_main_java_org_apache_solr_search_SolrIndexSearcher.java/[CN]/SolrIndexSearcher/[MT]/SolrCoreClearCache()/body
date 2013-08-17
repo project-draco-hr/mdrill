@@ -1,0 +1,4 @@
+{
+  filterCache=Cache.synchronizedCache(new SimpleLRUCache<Query,DocSet>(UniqConfig.fqCacheSize()));
+  queryResultCache=Cache.synchronizedCache(new SimpleLRUCache<QueryResultKey,DocList>(UniqConfig.fqCacheSize()));
+}

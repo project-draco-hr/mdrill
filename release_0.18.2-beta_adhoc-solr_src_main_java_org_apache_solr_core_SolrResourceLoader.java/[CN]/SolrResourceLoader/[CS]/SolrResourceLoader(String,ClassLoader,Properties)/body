@@ -1,0 +1,12 @@
+{
+  if (instanceDir == null) {
+    this.instanceDir=SolrResourceLoader.locateSolrHome();
+  }
+ else {
+    this.instanceDir=normalizeDir(instanceDir);
+  }
+  log.info("Solr home set to '" + this.instanceDir + "'");
+  this.classLoader=createClassLoader(null,parent);
+  addToClassLoader("./lib/",null);
+  this.coreProperties=coreProperties;
+}

@@ -1,0 +1,138 @@
+{
+  if (pattern.charAt(idx) != '[') {
+    internalError();
+  }
+  if ((idx + 1) >= len || pattern.charAt(++idx) == ']') {
+    syntaxError("Empty or unterminated class");
+  }
+  if (idx < len && pattern.charAt(idx) == ':') {
+    idx++;
+    int idxStart=idx;
+    while (idx < len && pattern.charAt(idx) >= 'a' && pattern.charAt(idx) <= 'z') {
+      idx++;
+    }
+    if ((idx + 1) < len && pattern.charAt(idx) == ':' && pattern.charAt(idx + 1) == ']') {
+      String charClass=pattern.substring(idxStart,idx);
+      Character i=(Character)hashPOSIX.get(charClass);
+      if (i != null) {
+        idx+=2;
+        return node(RE.OP_POSIXCLASS,i.charValue());
+      }
+      syntaxError("Invalid POSIX character class '" + charClass + "'");
+    }
+    syntaxError("Invalid POSIX character class syntax");
+  }
+  int ret=node(RE.OP_ANYOF,0);
+  char CHAR_INVALID=Character.MAX_VALUE;
+  char last=CHAR_INVALID;
+  char simpleChar=0;
+  boolean include=true;
+  boolean definingRange=false;
+  int idxFirst=idx;
+  char rangeStart=Character.MIN_VALUE;
+  char rangeEnd;
+  RERange range=new RERange();
+  while (idx < len && pattern.charAt(idx) != ']') {
+    switchOnCharacter: switch (pattern.charAt(idx)) {
+case '^':
+      include=!include;
+    if (idx == idxFirst) {
+      range.include(Character.MIN_VALUE,Character.MAX_VALUE,true);
+    }
+  idx++;
+continue;
+case '\\':
+{
+int c;
+switch (c=escape()) {
+case ESC_COMPLEX:
+case ESC_BACKREF:
+  syntaxError("Bad character class");
+case ESC_CLASS:
+if (definingRange) {
+  syntaxError("Bad character class");
+}
+switch (pattern.charAt(idx - 1)) {
+case RE.E_NSPACE:
+range.include(Character.MIN_VALUE,7,include);
+range.include((char)11,include);
+range.include(14,31,include);
+range.include(33,Character.MAX_VALUE,include);
+break;
+case RE.E_NALNUM:
+range.include(Character.MIN_VALUE,'/',include);
+range.include(':','@',include);
+range.include('[','^',include);
+range.include('`',include);
+range.include('{',Character.MAX_VALUE,include);
+break;
+case RE.E_NDIGIT:
+range.include(Character.MIN_VALUE,'/',include);
+range.include(':',Character.MAX_VALUE,include);
+break;
+case RE.E_SPACE:
+range.include('\t',include);
+range.include('\r',include);
+range.include('\f',include);
+range.include('\n',include);
+range.include('\b',include);
+range.include(' ',include);
+break;
+case RE.E_ALNUM:
+range.include('a','z',include);
+range.include('A','Z',include);
+range.include('_',include);
+case RE.E_DIGIT:
+range.include('0','9',include);
+break;
+}
+last=CHAR_INVALID;
+break;
+default :
+simpleChar=(char)c;
+break switchOnCharacter;
+}
+}
+continue;
+case '-':
+if (definingRange) {
+syntaxError("Bad class range");
+}
+definingRange=true;
+rangeStart=(last == CHAR_INVALID ? 0 : last);
+if ((idx + 1) < len && pattern.charAt(++idx) == ']') {
+simpleChar=Character.MAX_VALUE;
+break;
+}
+continue;
+default :
+simpleChar=pattern.charAt(idx++);
+break;
+}
+if (definingRange) {
+rangeEnd=simpleChar;
+if (rangeStart >= rangeEnd) {
+syntaxError("Bad character class");
+}
+range.include(rangeStart,rangeEnd,include);
+last=CHAR_INVALID;
+definingRange=false;
+}
+ else {
+if (idx >= len || pattern.charAt(idx) != '-') {
+range.include(simpleChar,include);
+}
+last=simpleChar;
+}
+}
+if (idx == len) {
+syntaxError("Unterminated character class");
+}
+idx++;
+instruction[ret + RE.offsetOpdata]=(char)range.num;
+for (int i=0; i < range.num; i++) {
+emit((char)range.minRange[i]);
+emit((char)range.maxRange[i]);
+}
+return ret;
+}

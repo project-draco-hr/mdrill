@@ -1,0 +1,20 @@
+{
+  final File[] files=new File[args.length];
+  for (int i=0; i < args.length; i++) {
+    files[i]=new File(args[i]);
+  }
+  final FindClasses finder=new FindClasses(files);
+  final ClassLoader cl=finder.getClassLoader();
+  final Class TOKENSTREAM=cl.loadClass("org.apache.lucene.analysis.TokenStream");
+  final Class TOKENIZER=cl.loadClass("org.apache.lucene.analysis.Tokenizer");
+  final Class TOKENFILTER=cl.loadClass("org.apache.lucene.analysis.TokenFilter");
+  final Class TOKENIZERFACTORY=cl.loadClass("org.apache.solr.analysis.TokenizerFactory");
+  final Class TOKENFILTERFACTORY=cl.loadClass("org.apache.solr.analysis.TokenFilterFactory");
+  final HashSet<Class> result=new HashSet<Class>(finder.findExtends(TOKENIZER));
+  result.addAll(finder.findExtends(TOKENFILTER));
+  result.removeAll(finder.findMethodReturns(finder.findExtends(TOKENIZERFACTORY),"create",Reader.class).values());
+  result.removeAll(finder.findMethodReturns(finder.findExtends(TOKENFILTERFACTORY),"create",TOKENSTREAM).values());
+  for (  final Class c : result) {
+    System.out.println(c.getName());
+  }
+}

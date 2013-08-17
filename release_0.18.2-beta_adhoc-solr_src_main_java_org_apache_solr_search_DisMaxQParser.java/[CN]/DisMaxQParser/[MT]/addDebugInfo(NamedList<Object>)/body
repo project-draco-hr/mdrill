@@ -1,0 +1,9 @@
+{
+  super.addDebugInfo(debugInfo);
+  debugInfo.add("altquerystring",altUserQuery);
+  if (null != boostQueries) {
+    debugInfo.add("boost_queries",boostParams);
+    debugInfo.add("parsed_boost_queries",QueryParsing.toString(boostQueries,req.getSchema()));
+  }
+  debugInfo.add("boostfuncs",req.getParams().getParams(DisMaxParams.BF));
+}

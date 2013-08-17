@@ -1,0 +1,14 @@
+{
+  if (Method.POST == method || Method.OTHER == method) {
+    return;
+  }
+  final String cc=conf.getHttpCachingConfig().getCacheControlHeader();
+  if (null != cc) {
+    resp.setHeader("Cache-Control",cc);
+  }
+  Long maxAge=conf.getHttpCachingConfig().getMaxAge();
+  if (null != maxAge) {
+    resp.setDateHeader("Expires",System.currentTimeMillis() + (maxAge * 1000L));
+  }
+  return;
+}

@@ -1,0 +1,3 @@
+{
+  return aVals.floatVal(doc) / bVals.floatVal(doc);
+}

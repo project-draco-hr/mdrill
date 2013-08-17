@@ -1,0 +1,8 @@
+{
+  ModifiableSolrParams params=new ModifiableSolrParams();
+  if (query != null) {
+    params.add(AnalysisParams.QUERY,query);
+    params.add(AnalysisParams.SHOW_MATCH,String.valueOf(showMatch));
+  }
+  return params;
+}

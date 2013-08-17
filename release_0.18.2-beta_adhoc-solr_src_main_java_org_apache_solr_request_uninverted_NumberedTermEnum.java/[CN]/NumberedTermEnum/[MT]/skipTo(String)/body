@@ -1,0 +1,3 @@
+{
+  return skipTo(tindex.fterm.createTerm(target));
+}

@@ -1,0 +1,19 @@
+{
+  Class[] valid=awareCompatibility.get(aware);
+  if (valid == null) {
+    throw new SolrException(SolrException.ErrorCode.SERVER_ERROR,"Unknown Aware interface: " + aware);
+  }
+  for (  Class v : valid) {
+    if (v.isInstance(obj)) {
+      return;
+    }
+  }
+  StringBuilder builder=new StringBuilder();
+  builder.append("Invalid 'Aware' object: ").append(obj);
+  builder.append(" -- ").append(aware.getName());
+  builder.append(" must be an instance of: ");
+  for (  Class v : valid) {
+    builder.append("[").append(v.getName()).append("] ");
+  }
+  throw new SolrException(SolrException.ErrorCode.SERVER_ERROR,builder.toString());
+}

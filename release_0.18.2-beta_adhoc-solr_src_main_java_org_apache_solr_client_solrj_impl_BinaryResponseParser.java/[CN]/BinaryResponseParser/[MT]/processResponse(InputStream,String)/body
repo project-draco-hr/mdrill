@@ -1,0 +1,8 @@
+{
+  try {
+    return (NamedList<Object>)new JavaBinCodec().unmarshal(body);
+  }
+ catch (  IOException e) {
+    throw new SolrException(SolrException.ErrorCode.SERVER_ERROR,"parsing error",e);
+  }
+}

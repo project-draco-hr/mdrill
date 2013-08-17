@@ -1,0 +1,13 @@
+{
+  if (shardparams.length > 1) {
+    params.set(CommonParams.PARTION,shardparams[1]);
+  }
+  if (shardparams.length > 2) {
+    params.set("hadoop.merger.hashindex",shardparams[2]);
+  }
+ else {
+    params.remove("hadoop.merger.hashindex");
+  }
+  params.remove(CommonParams.WT);
+  params.remove(CommonParams.VERSION);
+}

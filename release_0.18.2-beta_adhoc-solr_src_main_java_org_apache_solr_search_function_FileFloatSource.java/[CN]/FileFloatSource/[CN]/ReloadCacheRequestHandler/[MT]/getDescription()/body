@@ -1,0 +1,3 @@
+{
+  return "Reload readerCache request handler";
+}

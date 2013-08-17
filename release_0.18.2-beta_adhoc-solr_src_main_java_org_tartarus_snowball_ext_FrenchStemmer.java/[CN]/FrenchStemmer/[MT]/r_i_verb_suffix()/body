@@ -1,0 +1,34 @@
+{
+  int among_var;
+  int v_1;
+  int v_2;
+  v_1=limit - cursor;
+  if (cursor < I_pV) {
+    return false;
+  }
+  cursor=I_pV;
+  v_2=limit_backward;
+  limit_backward=cursor;
+  cursor=limit - v_1;
+  ket=cursor;
+  among_var=find_among_b(a_5,35);
+  if (among_var == 0) {
+    limit_backward=v_2;
+    return false;
+  }
+  bra=cursor;
+switch (among_var) {
+case 0:
+    limit_backward=v_2;
+  return false;
+case 1:
+if (!(out_grouping_b(g_v,97,251))) {
+  limit_backward=v_2;
+  return false;
+}
+slice_del();
+break;
+}
+limit_backward=v_2;
+return true;
+}

@@ -1,0 +1,3 @@
+int smallSetSize
+int maxDoc
+Collector collector

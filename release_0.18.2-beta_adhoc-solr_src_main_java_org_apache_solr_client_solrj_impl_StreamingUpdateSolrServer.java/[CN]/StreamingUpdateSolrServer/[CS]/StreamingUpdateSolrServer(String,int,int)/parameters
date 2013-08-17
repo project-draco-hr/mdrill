@@ -1,0 +1,3 @@
+String solrServerUrl
+int queueSize
+int threadCount

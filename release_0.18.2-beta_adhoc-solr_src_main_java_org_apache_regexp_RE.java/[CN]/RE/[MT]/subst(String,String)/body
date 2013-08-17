@@ -1,0 +1,3 @@
+{
+  return subst(substituteIn,substitution,REPLACE_ALL);
+}

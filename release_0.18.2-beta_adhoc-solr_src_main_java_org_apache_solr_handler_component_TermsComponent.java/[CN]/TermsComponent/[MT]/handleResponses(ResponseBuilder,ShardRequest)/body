@@ -1,0 +1,11 @@
+{
+  if (!rb.doTerms || (sreq.purpose & ShardRequest.PURPOSE_GET_TERMS) == 0) {
+    return;
+  }
+  TermsHelper th=rb._termsHelper;
+  if (th != null) {
+    for (    ShardResponse srsp : sreq.responses) {
+      th.parse((NamedList)srsp.getSolrResponse().getResponse().get("terms"));
+    }
+  }
+}

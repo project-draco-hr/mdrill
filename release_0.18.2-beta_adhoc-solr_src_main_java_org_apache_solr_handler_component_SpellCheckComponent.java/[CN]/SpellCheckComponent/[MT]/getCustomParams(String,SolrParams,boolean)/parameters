@@ -1,0 +1,3 @@
+String dictionary
+SolrParams params
+boolean shardRequest

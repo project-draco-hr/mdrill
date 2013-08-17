@@ -1,0 +1,11 @@
+{
+  getTopology_result result=new getTopology_result();
+  receiveBase(result,"getTopology");
+  if (result.is_set_success()) {
+    return result.success;
+  }
+  if (result.e != null) {
+    throw result.e;
+  }
+  throw new org.apache.thrift7.TApplicationException(org.apache.thrift7.TApplicationException.MISSING_RESULT,"getTopology failed: unknown result");
+}

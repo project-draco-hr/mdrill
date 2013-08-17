@@ -1,0 +1,37 @@
+{
+  StormClusterState stat=GetShards.getCluster();
+  Assignment ass=stat.assignment_info(stormId,null);
+  Map<String,String> nodeHost=(ass == null) ? (new HashMap<String,String>()) : ass.getNodeHost();
+  Map<Integer,Integer> taskStartTimeSecs=(ass == null) ? (new HashMap<Integer,Integer>()) : ass.getTaskStartTimeSecs();
+  Map<Integer,NodePort> taskToNodeport=(ass == null) ? (new HashMap<Integer,NodePort>()) : ass.getTaskToNodeport();
+  List<String> rtn=new ArrayList<String>();
+  List<Integer> taskids=stat.task_ids(stormId);
+  for (  Integer tid : taskids) {
+    TaskInfoContainer con=new TaskInfoContainer();
+    con.setStarttime(taskStartTimeSecs.get(tid));
+    NodePort np=taskToNodeport.get(tid);
+    con.setNp(np);
+    if (np != null) {
+      con.setHostname(nodeHost.get(np.getNode()));
+    }
+ else {
+      con.setHostname("nohost");
+    }
+    con.setTaskId(tid);
+    con.setTaskInfo(stat.task_info(stormId,tid));
+    con.setHb(stat.task_heartbeat(stormId,tid));
+    con.setTaskerrors(stat.task_errors(stormId,tid));
+    StringBuffer buff=new StringBuffer();
+    buff.append("??????:" + String.format("%03d",con.getTaskId()) + "<br>");
+    buff.append("????????????:" + con.getHostname() + "<br>");
+    buff.append("nodeport:" + con.getNp() + "<br>");
+    SimpleDateFormat fmt=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    String yyyymmmddd=fmt.format(new Date(1000l * con.getStarttime()));
+    buff.append("????????????:" + yyyymmmddd + "<br>");
+    buff.append("????????????:" + con.getHb() + "<br>");
+    buff.append("task????????????:" + con.getTaskerrors() + "<br>");
+    rtn.add(buff.toString());
+  }
+  Collections.sort(rtn);
+  return rtn;
+}

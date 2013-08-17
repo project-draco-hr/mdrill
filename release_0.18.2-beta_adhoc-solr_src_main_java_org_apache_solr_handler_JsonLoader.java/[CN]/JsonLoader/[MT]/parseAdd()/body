@@ -1,0 +1,48 @@
+{
+  AddUpdateCommand cmd=new AddUpdateCommand();
+  cmd.commitWithin=commitWithin;
+  cmd.overwriteCommitted=cmd.overwritePending=overwrite;
+  cmd.allowDups=!overwrite;
+  float boost=1.0f;
+  while (true) {
+    int ev=parser.nextEvent();
+    if (ev == JSONParser.STRING) {
+      if (parser.wasKey()) {
+        String key=parser.getString();
+        if ("doc".equals(key)) {
+          if (cmd.solrDoc != null) {
+            throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,"multiple docs in same add command");
+          }
+          ev=assertNextEvent(JSONParser.OBJECT_START);
+          cmd.solrDoc=parseDoc(ev);
+        }
+ else         if (XmlUpdateRequestHandler.OVERWRITE.equals(key)) {
+          cmd.allowDups=!parser.getBoolean();
+          cmd.overwriteCommitted=cmd.overwritePending=!cmd.allowDups;
+        }
+ else         if (XmlUpdateRequestHandler.COMMIT_WITHIN.equals(key)) {
+          cmd.commitWithin=(int)parser.getLong();
+        }
+ else         if ("boost".equals(key)) {
+          boost=Float.parseFloat(parser.getNumberChars().toString());
+        }
+ else {
+          throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,"Unknown key: " + key + " ["+ parser.getPosition()+ "]");
+        }
+      }
+ else {
+        throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,"Should be a key " + " at [" + parser.getPosition() + "]");
+      }
+    }
+ else     if (ev == JSONParser.OBJECT_END) {
+      if (cmd.solrDoc == null) {
+        throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,"missing solr document. " + parser.getPosition());
+      }
+      cmd.solrDoc.setDocumentBoost(boost);
+      return cmd;
+    }
+ else {
+      throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,"Got: " + JSONParser.getEventString(ev) + " at ["+ parser.getPosition()+ "]");
+    }
+  }
+}

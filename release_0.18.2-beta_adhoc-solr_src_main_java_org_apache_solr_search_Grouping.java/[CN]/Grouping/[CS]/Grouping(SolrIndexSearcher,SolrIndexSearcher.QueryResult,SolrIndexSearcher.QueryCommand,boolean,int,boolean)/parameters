@@ -1,0 +1,6 @@
+SolrIndexSearcher searcher
+SolrIndexSearcher.QueryResult qr
+SolrIndexSearcher.QueryCommand cmd
+boolean cacheSecondPassSearch
+int maxDocsPercentageToCache
+boolean main

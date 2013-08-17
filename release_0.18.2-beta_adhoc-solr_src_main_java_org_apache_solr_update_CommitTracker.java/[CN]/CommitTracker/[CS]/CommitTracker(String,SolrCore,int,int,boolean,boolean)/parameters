@@ -1,0 +1,6 @@
+String name
+SolrCore core
+int docsUpperBound
+int timeUpperBound
+boolean waitSearcher
+boolean softCommit

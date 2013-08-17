@@ -1,0 +1,9 @@
+{
+  String s=Float.toString(val);
+  if (val > Float.NEGATIVE_INFINITY && val < Float.POSITIVE_INFINITY) {
+    writeFloat(name,s);
+  }
+ else {
+    writeStr(name,s,false);
+  }
+}

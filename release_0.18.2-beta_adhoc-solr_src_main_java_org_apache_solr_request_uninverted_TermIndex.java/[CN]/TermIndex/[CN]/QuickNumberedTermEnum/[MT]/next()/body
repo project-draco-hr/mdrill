@@ -1,0 +1,18 @@
+{
+  if (termNum >= this.termCount) {
+    return false;
+  }
+  if ((termNum & intervalMask) == 0) {
+    text=this.quicktisInput.readString();
+    this.ti.sizeOfStrings+=text.length() << 1;
+    lst.add(text);
+  }
+  vvvlong=this.quicktisInput.readVVVLong();
+  doccount=this.quicktisInput.readVInt();
+  long pos=this.quicktisInput.readVLong();
+  freqPos=pos + lastfreqPointer;
+  this.lastfreqPointer=freqPos;
+  termNumRtn=termNum;
+  termNum++;
+  return true;
+}

@@ -1,0 +1,5 @@
+{
+  sink.write(buf,0,pos);
+  pos=0;
+  sink.flush();
+}

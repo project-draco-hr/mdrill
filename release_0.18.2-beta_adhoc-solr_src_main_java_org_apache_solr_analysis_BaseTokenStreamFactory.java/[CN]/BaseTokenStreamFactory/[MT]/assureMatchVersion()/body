@@ -1,0 +1,8 @@
+{
+  if (luceneMatchVersion == null) {
+    throw new RuntimeException("Configuration Error: Factory '" + this.getClass().getName() + "' needs a 'luceneMatchVersion' parameter");
+  }
+ else   if (!luceneMatchVersion.onOrAfter(Version.LUCENE_30)) {
+    log.warn(getClass().getSimpleName() + " is using deprecated " + luceneMatchVersion+ " emulation. You should at some point declare and reindex to at least 3.0, because "+ "2.x emulation is deprecated and will be removed in 4.0");
+  }
+}

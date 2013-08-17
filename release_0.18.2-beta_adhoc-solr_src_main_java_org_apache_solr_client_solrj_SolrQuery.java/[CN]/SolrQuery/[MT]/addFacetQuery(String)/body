@@ -1,0 +1,4 @@
+{
+  this.add(FacetParams.FACET_QUERY,f);
+  return this;
+}

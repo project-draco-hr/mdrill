@@ -1,0 +1,56 @@
+{
+  int count=refCount.decrementAndGet();
+  if (count > 0)   return;
+  if (count < 0) {
+    log.error("Too many close [count:{}] on {}. Please report this exception to solr-user@lucene.apache.org",count,this);
+    return;
+  }
+  log.info(logid + " CLOSING SolrCore " + this);
+  if (closeHooks != null) {
+    for (    CloseHook hook : closeHooks) {
+      try {
+        hook.preClose(this);
+      }
+ catch (      Throwable e) {
+        SolrException.log(log,e);
+      }
+    }
+  }
+  try {
+    infoRegistry.clear();
+  }
+ catch (  Exception e) {
+    SolrException.log(log,e);
+  }
+  try {
+    updateHandler.close();
+  }
+ catch (  Exception e) {
+    SolrException.log(log,e);
+  }
+  try {
+    searcherExecutor.shutdown();
+    if (!searcherExecutor.awaitTermination(60,TimeUnit.SECONDS)) {
+      log.error("Timeout waiting for searchExecutor to terminate");
+    }
+  }
+ catch (  Exception e) {
+    SolrException.log(log,e);
+  }
+  try {
+    closeSearcher();
+  }
+ catch (  Exception e) {
+    SolrException.log(log,e);
+  }
+  if (closeHooks != null) {
+    for (    CloseHook hook : closeHooks) {
+      try {
+        hook.postClose(this);
+      }
+ catch (      Throwable e) {
+        SolrException.log(log,e);
+      }
+    }
+  }
+}

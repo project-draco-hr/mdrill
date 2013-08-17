@@ -1,0 +1,4 @@
+StringBuffer log
+String message
+int expected
+int actual

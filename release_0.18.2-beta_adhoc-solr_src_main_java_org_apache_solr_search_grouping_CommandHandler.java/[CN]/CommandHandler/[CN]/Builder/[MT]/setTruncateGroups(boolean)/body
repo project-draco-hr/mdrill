@@ -1,0 +1,4 @@
+{
+  this.truncateGroups=truncateGroups;
+  return this;
+}

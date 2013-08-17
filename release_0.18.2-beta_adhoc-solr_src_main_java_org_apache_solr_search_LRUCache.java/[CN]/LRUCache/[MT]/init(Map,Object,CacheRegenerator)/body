@@ -1,0 +1,32 @@
+{
+  state=State.CREATED;
+  this.regenerator=regenerator;
+  name=(String)args.get("name");
+  String str=(String)args.get("size");
+  final int limit=str == null ? 1024 : Integer.parseInt(str);
+  str=(String)args.get("initialSize");
+  final int initialSize=Math.min(str == null ? 1024 : Integer.parseInt(str),limit);
+  str=(String)args.get("autowarmCount");
+  autowarmCount=str == null ? 0 : Integer.parseInt(str);
+  description="LRU Cache(maxSize=" + limit + ", initialSize="+ initialSize;
+  if (autowarmCount > 0) {
+    description+=", autowarmCount=" + autowarmCount + ", regenerator="+ regenerator;
+  }
+  description+=')';
+  map=new LinkedHashMap<K,V>(initialSize,0.75f,true){
+    @Override protected boolean removeEldestEntry(    Map.Entry eldest){
+      if (size() > limit) {
+        evictions++;
+        stats.evictions.incrementAndGet();
+        return true;
+      }
+      return false;
+    }
+  }
+;
+  if (persistence == null) {
+    persistence=new CumulativeStats();
+  }
+  stats=(CumulativeStats)persistence;
+  return persistence;
+}

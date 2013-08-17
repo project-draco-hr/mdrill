@@ -1,0 +1,6 @@
+{
+  if (e == null || e.getSource() == fieldRE) {
+    updateRE(fieldRE.getText());
+  }
+  updateMatch(fieldMatch.getText());
+}

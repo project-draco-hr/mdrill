@@ -1,0 +1,12 @@
+{
+  NamedList res=new SimpleOrderedMap();
+  String[] facetQs=params.getParams(FacetParams.FACET_QUERY);
+  if (null != facetQs && 0 != facetQs.length) {
+    for (    String q : facetQs) {
+      parseParams(FacetParams.FACET_QUERY,q);
+      Query qobj=QParser.getParser(q,null,req).getQuery();
+      res.add(key,searcher.numDocs(qobj,base));
+    }
+  }
+  return res;
+}

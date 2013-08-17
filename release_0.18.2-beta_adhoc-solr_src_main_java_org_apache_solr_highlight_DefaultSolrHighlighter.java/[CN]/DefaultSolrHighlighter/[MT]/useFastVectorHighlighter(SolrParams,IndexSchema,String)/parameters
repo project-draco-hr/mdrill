@@ -1,0 +1,3 @@
+SolrParams params
+IndexSchema schema
+String fieldName

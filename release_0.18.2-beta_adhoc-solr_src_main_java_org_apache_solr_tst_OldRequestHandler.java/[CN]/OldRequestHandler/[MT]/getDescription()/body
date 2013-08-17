@@ -1,0 +1,3 @@
+{
+  return "The original Hits based request handler";
+}

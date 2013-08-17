@@ -1,0 +1,23 @@
+{
+  final String tag=findNextTest(br);
+  if (!br.ready()) {
+    return null;
+  }
+  final String expr=br.readLine();
+  final String matchAgainst=br.readLine();
+  final boolean badPattern="ERR".equals(matchAgainst);
+  boolean shouldMatch=false;
+  int expectedParenCount=0;
+  String[] expectedParens=null;
+  if (!badPattern) {
+    shouldMatch=getExpectedResult(br.readLine().trim());
+    if (shouldMatch) {
+      expectedParenCount=Integer.parseInt(br.readLine().trim());
+      expectedParens=new String[expectedParenCount];
+      for (int i=0; i < expectedParenCount; i++) {
+        expectedParens[i]=br.readLine();
+      }
+    }
+  }
+  return new RETestCase(this,tag,expr,matchAgainst,badPattern,shouldMatch,expectedParens);
+}

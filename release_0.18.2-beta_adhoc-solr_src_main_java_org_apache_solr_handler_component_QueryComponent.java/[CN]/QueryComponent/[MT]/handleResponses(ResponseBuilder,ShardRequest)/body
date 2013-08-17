@@ -1,0 +1,8 @@
+{
+  if (rb.grouping()) {
+    handleGroupedResponses(rb,sreq);
+  }
+ else {
+    handleRegularResponses(rb,sreq);
+  }
+}

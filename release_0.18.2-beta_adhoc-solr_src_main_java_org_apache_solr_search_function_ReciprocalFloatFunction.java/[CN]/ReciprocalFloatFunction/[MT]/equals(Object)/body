@@ -1,0 +1,5 @@
+{
+  if (ReciprocalFloatFunction.class != o.getClass())   return false;
+  ReciprocalFloatFunction other=(ReciprocalFloatFunction)o;
+  return this.m == other.m && this.a == other.a && this.b == other.b && this.source.equals(other.source);
+}

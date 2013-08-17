@@ -1,0 +1,11 @@
+{
+synchronized (RAMDirectoryFactory.class) {
+    RefCntRamDirectory directory=directories.get(path);
+    if (directory == null || !directory.isOpen()) {
+      return false;
+    }
+ else {
+      return true;
+    }
+  }
+}

@@ -1,0 +1,5 @@
+{
+  cmd.doc=DocumentBuilder.toDocument(cmd.getSolrInputDocument(),req.getSchema());
+  updateHandler.addDoc(cmd);
+  super.processAdd(cmd);
+}

@@ -1,0 +1,13 @@
+{
+  this.query=query;
+  this.sort=sort;
+  this.filters=filters;
+  this.nc_flags=nc_flags;
+  int h=query.hashCode();
+  if (filters != null)   h^=filters.hashCode();
+  sfields=(this.sort != null) ? this.sort.getSort() : defaultSort;
+  for (  SortField sf : sfields) {
+    h=h * 29 + sf.hashCode();
+  }
+  hc=h;
+}

@@ -1,0 +1,3 @@
+{
+  return in.getTermFreqVector(docNumber,field);
+}

@@ -1,0 +1,15 @@
+{
+  if (o == this)   return true;
+  if (!(o instanceof QueryResultKey))   return false;
+  QueryResultKey other=(QueryResultKey)o;
+  if (this.hc != other.hc)   return false;
+  if (this.sfields.length != other.sfields.length)   return false;
+  if (!this.query.equals(other.query))   return false;
+  if (!isEqual(this.filters,other.filters))   return false;
+  for (int i=0; i < sfields.length; i++) {
+    SortField sf1=this.sfields[i];
+    SortField sf2=other.sfields[i];
+    if (!sf1.equals(sf2))     return false;
+  }
+  return true;
+}

@@ -1,0 +1,6 @@
+{
+  if (_ff.getName().equals("facet_queries")) {
+    return _name;
+  }
+  return ClientUtils.escapeQueryChars(_ff._name) + ":" + ClientUtils.escapeQueryChars(_name);
+}

@@ -1,0 +1,8 @@
+{
+  add(FacetParams.FACET_RANGE,field);
+  add(String.format("f.%s.%s",field,FacetParams.FACET_RANGE_START),DateUtil.getThreadLocalDateFormat().format(start));
+  add(String.format("f.%s.%s",field,FacetParams.FACET_RANGE_END),DateUtil.getThreadLocalDateFormat().format(end));
+  add(String.format("f.%s.%s",field,FacetParams.FACET_RANGE_GAP),gap);
+  this.set(FacetParams.FACET,true);
+  return this;
+}

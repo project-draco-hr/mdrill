@@ -1,0 +1,81 @@
+{
+  double[] point=null;
+  try {
+    point=DistanceUtils.parseLatitudeLongitude(options.pointStr);
+  }
+ catch (  InvalidGeoException e) {
+    throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,e);
+  }
+  double latCenter=point[LAT];
+  double lonCenter=point[LONG];
+  point[0]=point[0] * DistanceUtils.DEGREES_TO_RADIANS;
+  point[1]=point[1] * DistanceUtils.DEGREES_TO_RADIANS;
+  double[] tmp=new double[2];
+  double[] north=DistanceUtils.pointOnBearing(point[LAT],point[LONG],options.distance,0,tmp,options.radius);
+  double ur_lat=north[LAT] * DistanceUtils.RADIANS_TO_DEGREES;
+  double[] east=DistanceUtils.pointOnBearing(point[LAT],point[LONG],options.distance,DistanceUtils.DEG_90_AS_RADS,tmp,options.radius);
+  double ur_lon=east[LONG] * DistanceUtils.RADIANS_TO_DEGREES;
+  double[] south=DistanceUtils.pointOnBearing(point[LAT],point[LONG],options.distance,DistanceUtils.DEG_180_AS_RADS,tmp,options.radius);
+  double ll_lat=south[LAT] * DistanceUtils.RADIANS_TO_DEGREES;
+  double[] west=DistanceUtils.pointOnBearing(point[LAT],point[LONG],options.distance,DistanceUtils.DEG_270_AS_RADS,tmp,options.radius);
+  double ll_lon=west[LONG] * DistanceUtils.RADIANS_TO_DEGREES;
+  double angDist=DistanceUtils.angularDistance(options.distance,options.radius);
+  double latMin=-90.0, latMax=90.0, lonMin=-180.0, lonMax=180.0;
+  double lon2Min=-180.0, lon2Max=180.0;
+  if (point[LAT] + angDist > DistanceUtils.DEG_90_AS_RADS) {
+    latMin=Math.min(ll_lat,ur_lat);
+  }
+ else   if (point[LAT] - angDist < -DistanceUtils.DEG_90_AS_RADS) {
+    latMax=Math.max(ll_lat,ur_lat);
+  }
+ else {
+    latMin=ll_lat;
+    latMax=ur_lat;
+    if (ll_lon > ur_lon) {
+      lonMin=-180;
+      lonMax=ur_lon;
+      lon2Min=ll_lon;
+      lon2Max=180;
+    }
+ else {
+      lonMin=ll_lon;
+      lonMax=ur_lon;
+    }
+  }
+  SchemaField latField=subField(options.field,LAT);
+  SchemaField lonField=subField(options.field,LONG);
+  if (options.bbox) {
+    BooleanQuery result=new BooleanQuery();
+    Query latRange=latField.getType().getRangeQuery(parser,latField,String.valueOf(latMin),String.valueOf(latMax),true,true);
+    result.add(latRange,BooleanClause.Occur.MUST);
+    if (lonMin != -180 || lonMax != 180) {
+      Query lonRange=lonField.getType().getRangeQuery(parser,lonField,String.valueOf(lonMin),String.valueOf(lonMax),true,true);
+      if (lon2Min != -180 || lon2Max != 180) {
+        BooleanQuery bothLons=new BooleanQuery();
+        bothLons.add(lonRange,BooleanClause.Occur.SHOULD);
+        lonRange=lonField.getType().getRangeQuery(parser,lonField,String.valueOf(lon2Min),String.valueOf(lon2Max),true,true);
+        bothLons.add(lonRange,BooleanClause.Occur.SHOULD);
+        lonRange=bothLons;
+      }
+      result.add(lonRange,BooleanClause.Occur.MUST);
+    }
+    return result;
+  }
+  SpatialDistanceQuery spatial=new SpatialDistanceQuery();
+  spatial.origField=options.field.getName();
+  spatial.latSource=latField.getType().getValueSource(latField,parser);
+  spatial.lonSource=lonField.getType().getValueSource(lonField,parser);
+  spatial.latMin=latMin;
+  spatial.latMax=latMax;
+  spatial.lonMin=lonMin;
+  spatial.lonMax=lonMax;
+  spatial.lon2Min=lon2Min;
+  spatial.lon2Max=lon2Max;
+  spatial.lon2=lon2Min != -180 || lon2Max != 180;
+  spatial.latCenter=latCenter;
+  spatial.lonCenter=lonCenter;
+  spatial.dist=options.distance;
+  spatial.planetRadius=options.radius;
+  spatial.calcDist=!options.bbox;
+  return spatial;
+}

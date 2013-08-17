@@ -1,0 +1,17 @@
+{
+  String[] boostFuncs=solrParams.getParams(DisMaxParams.BF);
+  if (null != boostFuncs && 0 != boostFuncs.length) {
+    for (    String boostFunc : boostFuncs) {
+      if (null == boostFunc || "".equals(boostFunc))       continue;
+      Map<String,Float> ff=SolrPluginUtils.parseFieldBoosts(boostFunc);
+      for (      String f : ff.keySet()) {
+        Query fq=subQuery(f,FunctionQParserPlugin.NAME).getQuery();
+        Float b=ff.get(f);
+        if (null != b) {
+          fq.setBoost(b);
+        }
+        query.add(fq,BooleanClause.Occur.SHOULD);
+      }
+    }
+  }
+}

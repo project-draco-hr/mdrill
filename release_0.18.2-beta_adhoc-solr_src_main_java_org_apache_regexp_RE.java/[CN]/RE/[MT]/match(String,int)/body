@@ -1,0 +1,3 @@
+{
+  return match(new StringCharacterIterator(search),i);
+}

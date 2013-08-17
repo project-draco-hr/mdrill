@@ -1,0 +1,3 @@
+{
+  in.setNorm(doc,field,value);
+}

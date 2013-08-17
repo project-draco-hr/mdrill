@@ -1,0 +1,12 @@
+{
+  for (  Object f : luceneDoc.getFields()) {
+    Fieldable field=(Fieldable)f;
+    if (field.isStored()) {
+      SchemaField sf=schema.getField(field.name());
+      if (!schema.isCopyFieldTarget(sf)) {
+        doc.addField(field.name(),sf.getType().toObject(field));
+      }
+    }
+  }
+  return doc;
+}

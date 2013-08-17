@@ -1,0 +1,14 @@
+{
+  super.init(args);
+  assureMatchVersion();
+  dictFile=args.get("dictionary");
+  if (args.containsKey("encoding"))   encoding=args.get("encoding");
+  hypFile=args.get("hyphenator");
+  if (null == hypFile) {
+    throw new SolrException(SolrException.ErrorCode.SERVER_ERROR,"Missing required parameter: hyphenator");
+  }
+  minWordSize=getInt("minWordSize",CompoundWordTokenFilterBase.DEFAULT_MIN_WORD_SIZE);
+  minSubwordSize=getInt("minSubwordSize",CompoundWordTokenFilterBase.DEFAULT_MIN_SUBWORD_SIZE);
+  maxSubwordSize=getInt("maxSubwordSize",CompoundWordTokenFilterBase.DEFAULT_MAX_SUBWORD_SIZE);
+  onlyLongestMatch=getBoolean("onlyLongestMatch",false);
+}

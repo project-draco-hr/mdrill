@@ -1,0 +1,35 @@
+{
+  DocSetCollector collector=new DocSetCollector(maxDoc() >> 6,maxDoc());
+  if (filter == null) {
+    if (query instanceof TermQuery) {
+      Term t=((TermQuery)query).getTerm();
+      SolrIndexReader[] readers=reader.getLeafReaders();
+      int[] offsets=reader.getLeafOffsets();
+      int[] arr=new int[256];
+      int[] freq=new int[256];
+      for (int i=0; i < readers.length; i++) {
+        SolrIndexReader sir=readers[i];
+        int offset=offsets[i];
+        collector.setNextReader(sir,offset);
+        TermDocs tdocs=sir.termDocs(t);
+        for (; ; ) {
+          int num=tdocs.read(arr,freq);
+          if (num == 0)           break;
+          for (int j=0; j < num; j++) {
+            collector.collect(arr[j]);
+          }
+        }
+        tdocs.close();
+      }
+    }
+ else {
+      super.search(query,null,collector);
+    }
+    return collector.getDocSet();
+  }
+ else {
+    Filter luceneFilter=filter.getTopFilter();
+    super.search(query,luceneFilter,collector);
+    return collector.getDocSet();
+  }
+}

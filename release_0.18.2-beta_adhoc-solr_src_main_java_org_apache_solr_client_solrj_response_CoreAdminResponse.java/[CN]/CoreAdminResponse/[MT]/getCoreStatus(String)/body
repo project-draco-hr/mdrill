@@ -1,0 +1,3 @@
+{
+  return getCoreStatus().get(core);
+}

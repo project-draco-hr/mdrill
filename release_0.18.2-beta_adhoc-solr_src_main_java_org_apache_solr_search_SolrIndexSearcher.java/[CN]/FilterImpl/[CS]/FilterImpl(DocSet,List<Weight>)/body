@@ -1,0 +1,5 @@
+{
+  this.filter=filter;
+  this.weights=weights;
+  this.topFilter=filter == null ? null : filter.getTopFilter();
+}

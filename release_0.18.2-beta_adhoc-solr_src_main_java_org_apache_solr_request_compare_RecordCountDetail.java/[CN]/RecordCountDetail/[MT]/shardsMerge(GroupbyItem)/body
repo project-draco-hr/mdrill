@@ -1,0 +1,4 @@
+{
+  RecordCountDetail o=(RecordCountDetail)g;
+  count+=o.count;
+}

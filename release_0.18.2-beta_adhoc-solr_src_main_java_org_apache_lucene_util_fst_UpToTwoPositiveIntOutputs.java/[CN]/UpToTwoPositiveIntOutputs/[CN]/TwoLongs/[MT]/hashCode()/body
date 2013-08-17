@@ -1,0 +1,3 @@
+{
+  return (int)((first ^ (first >>> 32)) ^ (second ^ (second >> 32)));
+}

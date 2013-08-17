@@ -1,0 +1,31 @@
+{
+  if (arr != out)   arr.write(out);
+  if ((nstate & HAS_EXPONENT) != 0) {
+    readExpDigits(arr,Integer.MAX_VALUE);
+    return;
+  }
+  if (nstate != 0) {
+    readFrac(arr,Integer.MAX_VALUE);
+    return;
+  }
+  for (; ; ) {
+    int ch=getChar();
+    if (ch >= '0' && ch <= '9') {
+      arr.write(ch);
+    }
+ else     if (ch == '.') {
+      arr.write(ch);
+      readFrac(arr,Integer.MAX_VALUE);
+      return;
+    }
+ else     if (ch == 'e' || ch == 'E') {
+      arr.write(ch);
+      readExp(arr,Integer.MAX_VALUE);
+      return;
+    }
+ else {
+      if (ch != -1)       start--;
+      return;
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  eatws();
+  int slen=s.length();
+  if (val.regionMatches(pos,s,0,slen)) {
+    pos+=slen;
+  }
+ else {
+    throw new ParseException("Expected '" + s + "' at position "+ pos+ " in '"+ val+ "'");
+  }
+}

@@ -1,0 +1,4 @@
+{
+  String temp=CONSECUTIVE_OP_PATTERN.matcher(s).replaceAll(" ");
+  return DANGLING_OP_PATTERN.matcher(temp).replaceAll("");
+}

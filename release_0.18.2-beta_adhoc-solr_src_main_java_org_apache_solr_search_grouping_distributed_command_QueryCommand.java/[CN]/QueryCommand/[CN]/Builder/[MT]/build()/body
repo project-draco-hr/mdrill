@@ -1,0 +1,6 @@
+{
+  if (sort == null || query == null || docSet == null || docsToCollect == null) {
+    throw new IllegalStateException("All fields must be set");
+  }
+  return new QueryCommand(sort,query,docsToCollect,needScores,docSet,queryString);
+}

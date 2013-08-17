@@ -1,0 +1,38 @@
+{
+  SolrDocumentList docs=new SolrDocumentList();
+  for (int i=0; i < parser.getAttributeCount(); i++) {
+    String n=parser.getAttributeLocalName(i);
+    String v=parser.getAttributeValue(i);
+    if ("numFound".equals(n)) {
+      docs.setNumFound(Long.parseLong(v));
+    }
+ else     if ("start".equals(n)) {
+      docs.setStart(Long.parseLong(v));
+    }
+ else     if ("maxScore".equals(n)) {
+      docs.setMaxScore(Float.parseFloat(v));
+    }
+ else     if ("sum".equals(n)) {
+      docs.setSum(Double.parseDouble(v));
+    }
+ else     if ("max".equals(n)) {
+      docs.setMax(Double.parseDouble(v));
+    }
+ else     if ("min".equals(n)) {
+      docs.setMin(Double.parseDouble(v));
+    }
+  }
+  int event;
+  while (true) {
+    event=parser.next();
+    if (XMLStreamConstants.START_ELEMENT == event) {
+      if (!"doc".equals(parser.getLocalName())) {
+        throw new RuntimeException("shoudl be doc! " + parser.getLocalName() + " :: "+ parser.getLocation());
+      }
+      docs.add(readDocument(parser));
+    }
+ else     if (XMLStreamConstants.END_ELEMENT == event) {
+      return docs;
+    }
+  }
+}

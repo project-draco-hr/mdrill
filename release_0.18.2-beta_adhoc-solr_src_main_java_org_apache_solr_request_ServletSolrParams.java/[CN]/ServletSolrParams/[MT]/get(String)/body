@@ -1,0 +1,7 @@
+{
+  String[] arr=map.get(name);
+  if (arr == null)   return null;
+  String s=arr[0];
+  if (s.length() == 0)   return null;
+  return s;
+}

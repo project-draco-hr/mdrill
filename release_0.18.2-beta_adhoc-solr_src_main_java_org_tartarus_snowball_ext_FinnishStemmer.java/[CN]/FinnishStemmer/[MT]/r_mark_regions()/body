@@ -1,0 +1,67 @@
+{
+  int v_1;
+  int v_3;
+  I_p1=limit;
+  I_p2=limit;
+  golab0:   while (true) {
+    v_1=cursor;
+    lab1:     do {
+      if (!(in_grouping(g_V1,97,246))) {
+        break lab1;
+      }
+      cursor=v_1;
+      break golab0;
+    }
+ while (false);
+    cursor=v_1;
+    if (cursor >= limit) {
+      return false;
+    }
+    cursor++;
+  }
+  golab2:   while (true) {
+    lab3:     do {
+      if (!(out_grouping(g_V1,97,246))) {
+        break lab3;
+      }
+      break golab2;
+    }
+ while (false);
+    if (cursor >= limit) {
+      return false;
+    }
+    cursor++;
+  }
+  I_p1=cursor;
+  golab4:   while (true) {
+    v_3=cursor;
+    lab5:     do {
+      if (!(in_grouping(g_V1,97,246))) {
+        break lab5;
+      }
+      cursor=v_3;
+      break golab4;
+    }
+ while (false);
+    cursor=v_3;
+    if (cursor >= limit) {
+      return false;
+    }
+    cursor++;
+  }
+  golab6:   while (true) {
+    lab7:     do {
+      if (!(out_grouping(g_V1,97,246))) {
+        break lab7;
+      }
+      break golab6;
+    }
+ while (false);
+    if (cursor >= limit) {
+      return false;
+    }
+    cursor++;
+  }
+  I_p2=cursor;
+  return true;
+}

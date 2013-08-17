@@ -1,0 +1,3 @@
+{
+  return SolrIndexSearcher.class.getName();
+}

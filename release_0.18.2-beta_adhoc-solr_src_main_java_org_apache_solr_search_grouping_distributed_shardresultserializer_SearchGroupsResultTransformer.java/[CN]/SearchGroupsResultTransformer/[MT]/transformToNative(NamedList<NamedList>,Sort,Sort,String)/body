@@ -1,0 +1,15 @@
+{
+  Map<String,Collection<SearchGroup<String>>> result=new HashMap<String,Collection<SearchGroup<String>>>();
+  for (  Map.Entry<String,NamedList> command : shardResponse) {
+    List<SearchGroup<String>> searchGroups=new ArrayList<SearchGroup<String>>();
+    @SuppressWarnings("unchecked") NamedList<List<Comparable>> rawSearchGroups=command.getValue();
+    for (    Map.Entry<String,List<Comparable>> rawSearchGroup : rawSearchGroups) {
+      SearchGroup<String> searchGroup=new SearchGroup<String>();
+      searchGroup.groupValue=rawSearchGroup.getKey() != null ? rawSearchGroup.getKey() : null;
+      searchGroup.sortValues=rawSearchGroup.getValue().toArray(new Comparable[rawSearchGroup.getValue().size()]);
+      searchGroups.add(searchGroup);
+    }
+    result.put(command.getKey(),searchGroups);
+  }
+  return result;
+}

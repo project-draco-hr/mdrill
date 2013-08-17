@@ -1,0 +1,6 @@
+{
+  if (find_among_b(a_5,7) == 0) {
+    return false;
+  }
+  return true;
+}

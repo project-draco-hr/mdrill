@@ -1,0 +1,7 @@
+{
+  if (newSize != bytes.length) {
+    byte[] newBytes=new byte[newSize];
+    System.arraycopy(bytes,0,newBytes,0,lastBytePos);
+    bytes=newBytes;
+  }
+}

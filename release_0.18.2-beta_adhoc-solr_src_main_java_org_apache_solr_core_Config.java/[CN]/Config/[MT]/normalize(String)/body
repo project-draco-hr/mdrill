@@ -1,0 +1,3 @@
+{
+  return (prefix == null || path.startsWith("/")) ? path : prefix + path;
+}

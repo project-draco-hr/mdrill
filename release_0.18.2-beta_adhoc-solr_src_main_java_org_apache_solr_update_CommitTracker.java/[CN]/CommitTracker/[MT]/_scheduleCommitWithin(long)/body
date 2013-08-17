@@ -1,0 +1,15 @@
+{
+  if (commitMaxTime <= 0)   return;
+synchronized (this) {
+    if (pending != null && pending.getDelay(TimeUnit.MILLISECONDS) <= commitMaxTime) {
+      return;
+    }
+    if (pending != null) {
+      boolean canceled=pending.cancel(false);
+      if (!canceled) {
+        return;
+      }
+    }
+    pending=scheduler.schedule(this,commitMaxTime,TimeUnit.MILLISECONDS);
+  }
+}

@@ -1,0 +1,10 @@
+{
+  boolean isallMatch=true;
+  for (int j=start; j < end; j++) {
+    if (!this.ismatch(buffer[j + offset],search[j],fuzzle)) {
+      isallMatch=false;
+      break;
+    }
+  }
+  return isallMatch;
+}

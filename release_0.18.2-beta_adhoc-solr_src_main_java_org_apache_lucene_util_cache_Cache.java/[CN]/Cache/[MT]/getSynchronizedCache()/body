@@ -1,0 +1,3 @@
+{
+  return new SynchronizedCache<K,V>(this);
+}

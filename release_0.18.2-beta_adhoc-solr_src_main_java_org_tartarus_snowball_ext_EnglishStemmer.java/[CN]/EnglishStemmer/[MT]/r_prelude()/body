@@ -1,0 +1,69 @@
+{
+  int v_1;
+  int v_2;
+  int v_3;
+  int v_4;
+  int v_5;
+  B_Y_found=false;
+  v_1=cursor;
+  lab0:   do {
+    bra=cursor;
+    if (!(eq_s(1,"'"))) {
+      break lab0;
+    }
+    ket=cursor;
+    slice_del();
+  }
+ while (false);
+  cursor=v_1;
+  v_2=cursor;
+  lab1:   do {
+    bra=cursor;
+    if (!(eq_s(1,"y"))) {
+      break lab1;
+    }
+    ket=cursor;
+    slice_from("Y");
+    B_Y_found=true;
+  }
+ while (false);
+  cursor=v_2;
+  v_3=cursor;
+  lab2:   do {
+    replab3:     while (true) {
+      v_4=cursor;
+      lab4:       do {
+        golab5:         while (true) {
+          v_5=cursor;
+          lab6:           do {
+            if (!(in_grouping(g_v,97,121))) {
+              break lab6;
+            }
+            bra=cursor;
+            if (!(eq_s(1,"y"))) {
+              break lab6;
+            }
+            ket=cursor;
+            cursor=v_5;
+            break golab5;
+          }
+ while (false);
+          cursor=v_5;
+          if (cursor >= limit) {
+            break lab4;
+          }
+          cursor++;
+        }
+        slice_from("Y");
+        B_Y_found=true;
+        continue replab3;
+      }
+ while (false);
+      cursor=v_4;
+      break replab3;
+    }
+  }
+ while (false);
+  cursor=v_3;
+  return true;
+}

@@ -1,0 +1,3 @@
+{
+  return initPlugins(registry,type,null);
+}

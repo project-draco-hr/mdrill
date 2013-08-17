@@ -1,0 +1,3 @@
+{
+  return Double.compare(this.docid,o.docid);
+}

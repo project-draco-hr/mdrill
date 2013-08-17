@@ -1,0 +1,17 @@
+{
+  if (core == null)   return null;
+  String partion=this.getParams().get(CommonParams.PARTION,"default");
+  boolean higohb=this.getParams().getBool(CommonParams.HIGOHB,false);
+  if (partion != null && !partion.trim().isEmpty()) {
+    this.decref();
+    searcherHolder=core.getSearcher(partion,false,false,higohb);
+    if (searcherHolder != null) {
+      searcherHolder.partion=core.getName() + "@" + partion;
+      return searcherHolder.get();
+    }
+  }
+  if (searcherHolder == null) {
+    searcherHolder=core.getSearcher("default",true,false,higohb);
+  }
+  return searcherHolder.get();
+}

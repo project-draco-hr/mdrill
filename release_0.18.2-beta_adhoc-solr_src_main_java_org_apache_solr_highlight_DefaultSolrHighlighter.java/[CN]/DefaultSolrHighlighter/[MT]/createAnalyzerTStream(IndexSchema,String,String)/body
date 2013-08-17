@@ -1,0 +1,7 @@
+{
+  TokenStream tstream;
+  TokenStream ts=schema.getAnalyzer().reusableTokenStream(fieldName,new StringReader(docText));
+  ts.reset();
+  tstream=new TokenOrderingFilter(ts,10);
+  return tstream;
+}

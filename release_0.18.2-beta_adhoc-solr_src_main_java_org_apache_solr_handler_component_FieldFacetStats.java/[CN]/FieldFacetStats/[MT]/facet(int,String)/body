@@ -1,0 +1,21 @@
+{
+  int term=termNum[docID];
+  int arrIdx=term - startTermIndex;
+  if (arrIdx >= 0 && arrIdx < nTerms) {
+    String key=ft.indexedToReadable(terms[term]);
+    StatsValues stats=facetStatsValues.get(key);
+    if (stats == null) {
+      stats=StatsValuesFactory.createStatsValues(statFieldType);
+      facetStatsValues.put(key,stats);
+    }
+    if (v != null) {
+      stats.accumulate(v);
+    }
+ else {
+      stats.missing();
+      return false;
+    }
+    return true;
+  }
+  return false;
+}

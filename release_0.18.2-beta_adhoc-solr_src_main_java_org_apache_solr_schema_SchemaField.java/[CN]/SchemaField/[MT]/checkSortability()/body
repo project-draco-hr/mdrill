@@ -1,0 +1,8 @@
+{
+  if (!indexed()) {
+    throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,"can not sort on unindexed field: " + getName());
+  }
+  if (multiValued()) {
+    throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,"can not sort on multivalued field: " + getName());
+  }
+}

@@ -1,0 +1,17 @@
+{
+  BitDocSet docset=new BitDocSet();
+  DocIterator iter=rightDocs.iterator();
+  while (iter.hasNext()) {
+    int doc=iter.nextDoc();
+    JoinPariArr list=join.get(doc);
+    if (list == null) {
+      continue;
+    }
+    for (    JoinPair jp : list.list) {
+      for (      int i : jp.left) {
+        docset.add(i);
+      }
+    }
+  }
+  return leftDocs.intersection(docset);
+}

@@ -1,0 +1,3 @@
+{
+  return new UpdateHandlerInfo(get("updateHandler/@class",null),getInt("updateHandler/autoCommit/maxDocs",-1),getInt("updateHandler/autoCommit/maxTime",-1),getInt("updateHandler/commitIntervalLowerBound",-1));
+}

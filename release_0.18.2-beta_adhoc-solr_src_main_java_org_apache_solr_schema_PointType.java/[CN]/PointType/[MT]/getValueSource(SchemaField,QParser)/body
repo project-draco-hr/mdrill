@@ -1,0 +1,8 @@
+{
+  ArrayList<ValueSource> vs=new ArrayList<ValueSource>(dimension);
+  for (int i=0; i < dimension; i++) {
+    SchemaField sub=subField(field,i);
+    vs.add(sub.getType().getValueSource(sub,parser));
+  }
+  return new PointTypeValueSource(field,vs);
+}

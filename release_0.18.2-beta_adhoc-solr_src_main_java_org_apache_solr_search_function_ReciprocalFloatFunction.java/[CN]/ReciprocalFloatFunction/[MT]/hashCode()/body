@@ -1,0 +1,5 @@
+{
+  int h=Float.floatToIntBits(a) + Float.floatToIntBits(m);
+  h^=(h << 13) | (h >>> 20);
+  return h + (Float.floatToIntBits(b)) + source.hashCode();
+}

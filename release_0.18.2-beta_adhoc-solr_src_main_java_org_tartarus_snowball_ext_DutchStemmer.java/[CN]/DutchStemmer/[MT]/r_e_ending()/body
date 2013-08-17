@@ -1,0 +1,23 @@
+{
+  int v_1;
+  B_e_found=false;
+  ket=cursor;
+  if (!(eq_s_b(1,"e"))) {
+    return false;
+  }
+  bra=cursor;
+  if (!r_R1()) {
+    return false;
+  }
+  v_1=limit - cursor;
+  if (!(out_grouping_b(g_v,97,232))) {
+    return false;
+  }
+  cursor=limit - v_1;
+  slice_del();
+  B_e_found=true;
+  if (!r_undouble()) {
+    return false;
+  }
+  return true;
+}

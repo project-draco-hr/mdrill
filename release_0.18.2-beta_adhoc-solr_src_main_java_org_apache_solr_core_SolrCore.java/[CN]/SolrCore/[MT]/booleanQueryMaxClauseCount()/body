@@ -1,0 +1,11 @@
+{
+synchronized (SolrCore.class) {
+    if (boolean_query_max_clause_count == Integer.MIN_VALUE) {
+      boolean_query_max_clause_count=solrConfig.booleanQueryMaxClauseCount;
+      BooleanQuery.setMaxClauseCount(boolean_query_max_clause_count);
+    }
+ else     if (boolean_query_max_clause_count != solrConfig.booleanQueryMaxClauseCount) {
+      log.debug("BooleanQuery.maxClauseCount= " + boolean_query_max_clause_count + ", ignoring "+ solrConfig.booleanQueryMaxClauseCount);
+    }
+  }
+}

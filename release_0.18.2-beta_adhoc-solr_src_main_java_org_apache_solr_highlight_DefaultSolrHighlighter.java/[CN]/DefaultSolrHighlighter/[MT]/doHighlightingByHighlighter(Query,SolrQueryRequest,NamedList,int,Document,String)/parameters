@@ -1,0 +1,6 @@
+Query query
+SolrQueryRequest req
+NamedList docSummaries
+int docId
+Document doc
+String fieldName

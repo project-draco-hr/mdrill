@@ -1,0 +1,11 @@
+{
+  String name="*" + FieldType.POLY_FIELD_SEPARATOR + type.typeName;
+  Map<String,String> props=new HashMap<String,String>();
+  props.put("indexed","true");
+  props.put("stored","false");
+  props.put("multiValued","false");
+  int p=SchemaField.calcProps(name,type,props);
+  SchemaField proto=SchemaField.create(name,type,p,null);
+  schema.registerDynamicField(proto);
+  return proto;
+}

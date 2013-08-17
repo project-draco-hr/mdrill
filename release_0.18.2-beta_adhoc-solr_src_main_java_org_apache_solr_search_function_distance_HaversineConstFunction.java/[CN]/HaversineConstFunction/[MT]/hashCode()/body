@@ -1,0 +1,9 @@
+{
+  int result=p2.hashCode();
+  long temp;
+  temp=Double.doubleToRawLongBits(latCenter);
+  result=31 * result + (int)(temp ^ (temp >>> 32));
+  temp=Double.doubleToRawLongBits(lonCenter);
+  result=31 * result + (int)(temp ^ (temp >>> 32));
+  return result;
+}

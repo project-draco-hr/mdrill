@@ -1,0 +1,68 @@
+{
+  int v_2;
+  int v_3;
+  int v_4;
+  if (cursor >= limit) {
+    return false;
+  }
+  cursor++;
+  golab0:   while (true) {
+    lab1:     do {
+      bra=cursor;
+      if (!(eq_s(2,"ge"))) {
+        break lab1;
+      }
+      ket=cursor;
+      break golab0;
+    }
+ while (false);
+    if (cursor >= limit) {
+      return false;
+    }
+    cursor++;
+  }
+  v_2=cursor;
+{
+    int c=cursor + 3;
+    if (0 > c || c > limit) {
+      return false;
+    }
+    cursor=c;
+  }
+  cursor=v_2;
+  golab2:   while (true) {
+    v_3=cursor;
+    lab3:     do {
+      if (!(in_grouping(g_v,97,121))) {
+        break lab3;
+      }
+      cursor=v_3;
+      break golab2;
+    }
+ while (false);
+    cursor=v_3;
+    if (cursor >= limit) {
+      return false;
+    }
+    cursor++;
+  }
+  golab4:   while (true) {
+    v_4=cursor;
+    lab5:     do {
+      if (!(out_grouping(g_v,97,121))) {
+        break lab5;
+      }
+      cursor=v_4;
+      break golab4;
+    }
+ while (false);
+    cursor=v_4;
+    if (cursor >= limit) {
+      return false;
+    }
+    cursor++;
+  }
+  B_GE_removed=true;
+  slice_del();
+  return true;
+}

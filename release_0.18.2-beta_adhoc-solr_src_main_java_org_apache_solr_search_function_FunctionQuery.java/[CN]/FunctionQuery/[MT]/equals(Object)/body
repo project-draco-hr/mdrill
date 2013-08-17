@@ -1,0 +1,5 @@
+{
+  if (FunctionQuery.class != o.getClass())   return false;
+  FunctionQuery other=(FunctionQuery)o;
+  return this.getBoost() == other.getBoost() && this.func.equals(other.func);
+}

@@ -1,0 +1,37 @@
+{
+  if (!(other instanceof SortedIntDocSet)) {
+    int icount=0;
+    for (int i=0; i < docs.length; i++) {
+      if (other.exists(docs[i]))       icount++;
+    }
+    return icount;
+  }
+  int[] otherDocs=((SortedIntDocSet)other).docs;
+  final int[] a=docs.length < otherDocs.length ? docs : otherDocs;
+  final int[] b=docs.length < otherDocs.length ? otherDocs : docs;
+  if (a.length == 0)   return 0;
+  if ((b.length >> 3) >= a.length) {
+    return intersectionSize(a,b);
+  }
+  int icount=0;
+  int i=0, j=0;
+  int doca=a[i], docb=b[j];
+  for (; ; ) {
+    if (doca > docb) {
+      if (++j >= b.length)       break;
+      docb=b[j];
+    }
+ else     if (doca < docb) {
+      if (++i >= a.length)       break;
+      doca=a[i];
+    }
+ else {
+      icount++;
+      if (++i >= a.length)       break;
+      doca=a[i];
+      if (++j >= b.length)       break;
+      docb=b[j];
+    }
+  }
+  return icount;
+}

@@ -1,0 +1,21 @@
+{
+  if (which < parenCount) {
+switch (which) {
+case 0:
+      end0=i;
+    break;
+case 1:
+  end1=i;
+break;
+case 2:
+end2=i;
+break;
+default :
+if (endn == null) {
+allocParens();
+}
+endn[which]=i;
+break;
+}
+}
+}

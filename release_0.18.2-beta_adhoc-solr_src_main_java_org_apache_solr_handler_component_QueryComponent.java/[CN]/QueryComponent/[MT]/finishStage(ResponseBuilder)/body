@@ -1,0 +1,11 @@
+{
+  if (rb.stage != ResponseBuilder.STAGE_GET_FIELDS) {
+    return;
+  }
+  if (rb.grouping()) {
+    groupedFinishStage(rb);
+  }
+ else {
+    regularFinishStage(rb);
+  }
+}

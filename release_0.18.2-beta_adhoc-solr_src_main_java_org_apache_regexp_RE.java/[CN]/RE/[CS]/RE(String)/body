@@ -1,0 +1,3 @@
+{
+  this(pattern,MATCH_NORMAL);
+}

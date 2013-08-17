@@ -1,0 +1,3 @@
+{
+  httpClient.getParams().setSoTimeout(timeout);
+}

@@ -1,0 +1,3 @@
+{
+  return "Update handler that efficiently directly updates the on-disk main lucene index";
+}

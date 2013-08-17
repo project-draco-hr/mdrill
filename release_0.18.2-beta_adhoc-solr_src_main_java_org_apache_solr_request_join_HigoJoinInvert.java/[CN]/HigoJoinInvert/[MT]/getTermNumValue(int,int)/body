@@ -1,0 +1,3 @@
+{
+  return tmRigth[i].getTermValue(termNum);
+}

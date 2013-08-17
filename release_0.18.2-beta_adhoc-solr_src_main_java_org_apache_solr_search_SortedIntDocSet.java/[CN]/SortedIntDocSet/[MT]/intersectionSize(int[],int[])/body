@@ -1,0 +1,47 @@
+{
+  final int a[]=smallerSortedList;
+  final int b[]=biggerSortedList;
+  int step=(b.length / a.length) + 1;
+  step=step + step;
+  int icount=0;
+  int low=0;
+  int max=b.length - 1;
+  for (int i=0; i < a.length; i++) {
+    int doca=a[i];
+    int high=max;
+    int probe=low + step;
+    if (probe < high) {
+      if (b[probe] >= doca) {
+        high=probe;
+      }
+ else {
+        low=probe + 1;
+        probe=low + step;
+        if (probe < high) {
+          if (b[probe] >= doca) {
+            high=probe;
+          }
+ else {
+            low=probe + 1;
+          }
+        }
+      }
+    }
+    while (low <= high) {
+      int mid=(low + high) >>> 1;
+      int docb=b[mid];
+      if (docb < doca) {
+        low=mid + 1;
+      }
+ else       if (docb > doca) {
+        high=mid - 1;
+      }
+ else {
+        icount++;
+        low=mid + 1;
+        break;
+      }
+    }
+  }
+  return icount;
+}

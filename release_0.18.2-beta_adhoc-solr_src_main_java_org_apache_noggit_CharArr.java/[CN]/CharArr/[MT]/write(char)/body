@@ -1,0 +1,6 @@
+{
+  if (end >= buf.length) {
+    resize(end + 1);
+  }
+  unsafeWrite(b);
+}

@@ -1,0 +1,56 @@
+{
+  DeleteUpdateCommand deleteCmd=new DeleteUpdateCommand();
+  deleteCmd.fromPending=true;
+  deleteCmd.fromCommitted=true;
+  for (int i=0; i < parser.getAttributeCount(); i++) {
+    String attrName=parser.getAttributeLocalName(i);
+    String attrVal=parser.getAttributeValue(i);
+    if ("fromPending".equals(attrName)) {
+      deleteCmd.fromPending=StrUtils.parseBoolean(attrVal);
+    }
+ else     if ("fromCommitted".equals(attrName)) {
+      deleteCmd.fromCommitted=StrUtils.parseBoolean(attrVal);
+    }
+ else {
+      XmlUpdateRequestHandler.log.warn("unexpected attribute delete/@" + attrName);
+    }
+  }
+  StringBuilder text=new StringBuilder();
+  while (true) {
+    int event=parser.next();
+switch (event) {
+case XMLStreamConstants.START_ELEMENT:
+      String mode=parser.getLocalName();
+    if (!("id".equals(mode) || "query".equals(mode))) {
+      XmlUpdateRequestHandler.log.warn("unexpected XML tag /delete/" + mode);
+      throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,"unexpected XML tag /delete/" + mode);
+    }
+  text.setLength(0);
+break;
+case XMLStreamConstants.END_ELEMENT:
+String currTag=parser.getLocalName();
+if ("id".equals(currTag)) {
+deleteCmd.id=text.toString();
+}
+ else if ("query".equals(currTag)) {
+deleteCmd.query=text.toString();
+}
+ else if ("delete".equals(currTag)) {
+return;
+}
+ else {
+XmlUpdateRequestHandler.log.warn("unexpected XML tag /delete/" + currTag);
+throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,"unexpected XML tag /delete/" + currTag);
+}
+processor.processDelete(deleteCmd);
+deleteCmd.id=null;
+deleteCmd.query=null;
+break;
+case XMLStreamConstants.SPACE:
+case XMLStreamConstants.CDATA:
+case XMLStreamConstants.CHARACTERS:
+text.append(parser.getText());
+break;
+}
+}
+}

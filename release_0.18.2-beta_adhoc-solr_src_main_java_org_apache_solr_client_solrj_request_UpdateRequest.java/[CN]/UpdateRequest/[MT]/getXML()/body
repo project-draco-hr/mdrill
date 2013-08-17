@@ -1,0 +1,7 @@
+{
+  StringWriter writer=new StringWriter();
+  writeXML(writer);
+  writer.flush();
+  String xml=writer.toString();
+  return (xml.length() > 0) ? xml : null;
+}

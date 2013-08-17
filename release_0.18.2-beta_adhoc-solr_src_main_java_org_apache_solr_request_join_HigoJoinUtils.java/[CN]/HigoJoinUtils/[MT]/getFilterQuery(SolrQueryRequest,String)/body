@@ -1,0 +1,15 @@
+{
+  List<Query> filters=new ArrayList<Query>();
+  QParser all=QParser.getParser("*:*",null,req);
+  filters.add(all.getQuery());
+  String[] fqs=req.getParams().getParams(HigoJoinUtils.getFq(tablename));
+  if (fqs != null && fqs.length != 0) {
+    for (    String fq : fqs) {
+      if (fq != null && fq.trim().length() != 0) {
+        QParser fqp=QParser.getParser(fq,null,req);
+        filters.add(fqp.getQuery());
+      }
+    }
+  }
+  return filters;
+}

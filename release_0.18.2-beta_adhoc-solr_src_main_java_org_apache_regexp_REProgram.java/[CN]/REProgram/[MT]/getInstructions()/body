@@ -1,0 +1,8 @@
+{
+  if (lenInstruction != 0) {
+    char[] ret=new char[lenInstruction];
+    System.arraycopy(instruction,0,ret,0,lenInstruction);
+    return ret;
+  }
+  return null;
+}

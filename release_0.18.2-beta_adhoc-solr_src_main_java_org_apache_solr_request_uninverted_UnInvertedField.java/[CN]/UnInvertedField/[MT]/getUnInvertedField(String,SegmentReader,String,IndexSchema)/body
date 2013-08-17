@@ -1,0 +1,16 @@
+{
+  Cache<ILruMemSizeKey,ILruMemSizeCache> cache=GrobalCache.fieldValueCache;
+  ILruMemSizeKey key=new GrobalCache.StringKey(partion + "@@" + field+ "@@"+ LuceneUtils.crcKey(reader)+ "@"+ reader.getSegmentName());
+  UnInvertedField uif=(UnInvertedField)cache.get(key);
+  if (uif == null) {
+synchronized (cache) {
+      uif=(UnInvertedField)cache.get(key);
+      if (uif == null) {
+        uif=new UnInvertedField(field,reader,schema);
+        cache.put(key,uif);
+      }
+    }
+  }
+  uif.refCnt.incrementAndGet();
+  return uif;
+}

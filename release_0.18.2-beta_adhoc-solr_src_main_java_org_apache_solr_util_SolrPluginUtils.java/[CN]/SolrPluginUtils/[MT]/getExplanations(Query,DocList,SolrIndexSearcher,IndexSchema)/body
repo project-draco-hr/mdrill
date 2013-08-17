@@ -1,0 +1,11 @@
+{
+  NamedList<Explanation> explainList=new SimpleOrderedMap<Explanation>();
+  DocIterator iterator=docs.iterator();
+  for (int i=0; i < docs.size(); i++) {
+    int id=iterator.nextDoc();
+    Document doc=searcher.doc(id);
+    String strid=schema.printableUniqueKey(doc);
+    explainList.add(strid,searcher.explain(query,id));
+  }
+  return explainList;
+}

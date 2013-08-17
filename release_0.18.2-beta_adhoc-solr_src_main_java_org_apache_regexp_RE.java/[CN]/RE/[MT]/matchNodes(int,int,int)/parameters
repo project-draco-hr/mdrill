@@ -1,0 +1,3 @@
+int firstNode
+int lastNode
+int idxStart

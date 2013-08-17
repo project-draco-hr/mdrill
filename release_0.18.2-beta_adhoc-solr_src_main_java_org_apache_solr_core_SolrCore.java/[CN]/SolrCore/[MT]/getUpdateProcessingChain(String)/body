@@ -1,0 +1,7 @@
+{
+  UpdateRequestProcessorChain chain=updateProcessorChains.get(name);
+  if (chain == null) {
+    throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,"unknown UpdateRequestProcessorChain: " + name);
+  }
+  return chain;
+}

@@ -1,0 +1,17 @@
+{
+  if (params == null) {
+    params=new MapSolrParams(new HashMap<String,String>());
+  }
+  boolean optimize=params.getBool(UpdateParams.OPTIMIZE,false);
+  boolean commit=params.getBool(UpdateParams.COMMIT,false);
+  if (optimize || commit || force) {
+    CommitUpdateCommand cmd=new CommitUpdateCommand(optimize);
+    cmd.waitFlush=params.getBool(UpdateParams.WAIT_FLUSH,cmd.waitFlush);
+    cmd.waitSearcher=params.getBool(UpdateParams.WAIT_SEARCHER,cmd.waitSearcher);
+    cmd.expungeDeletes=params.getBool(UpdateParams.EXPUNGE_DELETES,cmd.expungeDeletes);
+    cmd.maxOptimizeSegments=params.getInt(UpdateParams.MAX_OPTIMIZE_SEGMENTS,cmd.maxOptimizeSegments);
+    processor.processCommit(cmd);
+    return true;
+  }
+  return false;
+}

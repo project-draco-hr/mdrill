@@ -1,0 +1,3 @@
+{
+  Object prev=((Map)map).put(key,val);
+}
