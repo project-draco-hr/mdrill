@@ -1,0 +1,13 @@
+{
+  int lastNum=inBlock.length - 1;
+  int[] groupNum=new int[inBlock[lastNum] + 1];
+  int start=lastNum - inBlock[lastNum];
+  for (int i=start; i < lastNum; i++) {
+    groupNum[i - start + 1]=inBlock[i];
+  }
+  int[] rtn=new int[start];
+  for (int i=0; i < start; i++) {
+    rtn[i]=groupNum[inBlock[i]];
+  }
+  return rtn;
+}

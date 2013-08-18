@@ -1,0 +1,28 @@
+{
+  RepeatCompressRtn group=groupNumEncode(inBlock,blockSize);
+  RepeatCompressRtn rtn=new RepeatCompressRtn();
+  rtn.bytes=new int[group.index << 2];
+  rtn.index=0;
+  int last=Integer.MIN_VALUE;
+  int cnt=0;
+  for (int i=0; i < group.index; i++) {
+    int val=group.bytes[i];
+    if (last != val) {
+      rtn.bytes[rtn.index++]=val << 1;
+      last=val;
+      cnt=1;
+    }
+ else {
+      cnt++;
+      if (cnt == 2) {
+        rtn.bytes[rtn.index - 1]=(val << 1) + 1;
+        rtn.bytes[rtn.index++]=2;
+      }
+ else {
+        rtn.bytes[rtn.index - 1]++;
+      }
+    }
+  }
+  rtn.bytes[rtn.index++]=group.index;
+  return rtn;
+}
