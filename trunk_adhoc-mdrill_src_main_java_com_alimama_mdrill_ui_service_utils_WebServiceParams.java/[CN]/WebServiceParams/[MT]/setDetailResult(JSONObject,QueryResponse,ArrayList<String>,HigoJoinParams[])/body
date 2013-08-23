@@ -18,6 +18,9 @@
     String[] values=EncodeUtils.decode(groupValues.split(UniqConfig.GroupJoinString()));
     int valuesoffset=2;
     for (int j=0; j < (values.length - valuesoffset) && j < showFields.size(); j++) {
+      if (showFields.get(j).equals("higoempty_groupby_forjoin_l")) {
+        continue;
+      }
       if (values[j + valuesoffset] == null || values[j + valuesoffset].equals("")) {
         jo.put(showFields.get(j)," ");
       }

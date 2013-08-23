@@ -4,5 +4,8 @@
     return "adhoc.csv";
   }
   String tablename=tableInfo.get("tableShowName");
-  return tablename.replaceAll("[\n|\\/|:|\t|\\.|\\\\|\\?|<|>|\\*|\\?|\\|\"]","_") + "_adhoc.csv";
+  if (tablename.isEmpty()) {
+    return "adhoc.csv";
+  }
+  return tablename.replaceAll("[\n|\\/|:|\t|\\.|\\\\|\\?|<|>|\\*|\\?|\\|\"]","_") + ".csv";
 }

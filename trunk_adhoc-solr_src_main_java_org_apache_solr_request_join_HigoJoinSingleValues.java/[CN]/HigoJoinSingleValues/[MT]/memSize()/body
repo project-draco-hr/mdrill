@@ -2,14 +2,13 @@
   if (memsize >= 0) {
     return memsize;
   }
-  memsize=64;
-  for (  Entry<Integer,IntArr> e : join.entrySet()) {
-    memsize+=16;
-    memsize+=e.getValue().memsize();
-  }
-  for (  Entry<Integer,IntArr> e : joinRevert.entrySet()) {
-    memsize+=16;
-    memsize+=e.getValue().memsize();
+  memsize=256;
+  memsize+=join.length * 4;
+  memsize+=joinRevert.length * 8;
+  for (  int[] list : this.join) {
+    if (list != null) {
+      memsize+=list.length * 8;
+    }
   }
   return memsize;
 }

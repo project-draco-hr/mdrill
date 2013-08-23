@@ -30,7 +30,19 @@
       sqlWhere.append(fq);
       join=" and ";
     }
-    p.frQuer="select " + obj.getString("fl") + " from "+ tmptblname+ " "+ sqlWhere.toString();
+    HashSet<String> allfl=new HashSet<String>();
+    for (    String s : obj.getString("fl").split(",")) {
+      allfl.add(s.trim());
+    }
+    allfl.add(p.rightkey);
+    StringBuffer buff=new StringBuffer();
+    String joinchar="";
+    for (    String fl : allfl) {
+      buff.append(joinchar);
+      buff.append(fl);
+      joinchar=",";
+    }
+    p.frQuer="select " + buff.toString() + " from "+ tmptblname+ " "+ sqlWhere.toString();
     rtn[i]=p;
   }
   return rtn;

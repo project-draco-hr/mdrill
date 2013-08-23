@@ -8,7 +8,7 @@
   MySqlConn m_fpsql=new MySqlConn(connstr,uname,passwd);
   Connection conn=m_fpsql.getConn();
   Statement stmt=conn.createStatement();
-  String sql="select tableShowName,tableName,colsShowName,colsName,colsType,splitString,txtStorePath,indexStorePath,status,username,createtime,lastuptime,joins,percent,resultkb,download_uuid,copy_uuid from adhoc_joins where tableName='" + uuid.replaceAll("'","") + "' limit 10";
+  String sql="select tableShowName,tableName,colsShowName,colsName,colsType,splitString,txtStorePath,indexStorePath,status,username,createtime,lastuptime,joins,percent,resultkb,download_uuid,copy_uuid,memo from adhoc_joins where tableName='" + uuid.replaceAll("'","") + "' limit 10";
   ResultSet res=stmt.executeQuery(sql);
   HashMap<String,String> rtn=new HashMap<String,String>();
   rtn.put("_exehql",sql);
@@ -20,6 +20,7 @@
     rtn.put("colsName",res.getString("colsName"));
     rtn.put("colsType",res.getString("colsType"));
     rtn.put("splitString",res.getString("splitString"));
+    rtn.put("memo",String.valueOf(res.getString("memo")));
     rtn.put("txtStorePath",res.getString("txtStorePath"));
     rtn.put("indexStorePath",res.getString("indexStorePath"));
     rtn.put("status",res.getString("status"));

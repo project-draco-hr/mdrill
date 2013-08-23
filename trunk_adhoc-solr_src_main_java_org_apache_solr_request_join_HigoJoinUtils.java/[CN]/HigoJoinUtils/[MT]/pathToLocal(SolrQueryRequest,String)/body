@@ -11,9 +11,7 @@
   File lockPath=new File(lockbase,tablename);
   File completePath=new File(workPath,"complete");
   maybeclear(basedir,lockbase);
-  FileLock flout=null;
-  RandomAccessFile out=null;
-  FileChannel fcout=null;
+  TryLockFile lock=new TryLockFile(lockPath.getAbsolutePath());
   try {
     if (completePath.exists()) {
       return workPath.getAbsolutePath();
@@ -30,9 +28,7 @@
     if (!lockPath.exists()) {
       lockPath.createNewFile();
     }
-    out=new RandomAccessFile(lockPath,"rw");
-    fcout=out.getChannel();
-    flout=fcout.lock();
+    lock.trylock();
     if (!completePath.exists()) {
       Configuration conf=getConf();
       FileSystem fs=FileSystem.get(conf);
@@ -54,20 +50,7 @@
     }
   }
   finally {
-    try {
-      if (flout != null) {
-        flout.release();
-      }
-      if (fcout != null) {
-        fcout.close();
-      }
-      if (out != null) {
-        out.close();
-      }
-      out=null;
-    }
- catch (    Exception e) {
-    }
+    lock.unlock();
     lockPath.delete();
   }
   return workPath.getAbsolutePath();

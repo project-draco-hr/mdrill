@@ -4,13 +4,21 @@ case 1:
 {
       return OperateType.eq;
     }
+case 32:
+{
+    return OperateType.like;
+  }
+case 33:
+{
+  return OperateType.notlike;
+}
 case 2:
 {
-    return OperateType.neq;
-  }
+return OperateType.neq;
+}
 case 3:
 {
-  return OperateType.gt;
+return OperateType.gt;
 }
 case 4:
 {
@@ -21,6 +29,14 @@ case 13:
 return OperateType.gteq;
 }
 case 14:
+{
+return OperateType.lgeq;
+}
+case 30:
+{
+return OperateType.gteq;
+}
+case 31:
 {
 return OperateType.lgeq;
 }

@@ -11,7 +11,10 @@
   HashMap<String,String> result=info.get(uuid);
   if (result != null && result.containsKey("jobname") && result.containsKey("cols")) {
     String tablename=result.get("jobname");
-    return tablename.replaceAll("[\n|\\/|:|\t|\\.|\\\\|\\?|<|>|\\*|\\?|\\|\"]","_") + "_adhoc.csv";
+    if (tablename.isEmpty()) {
+      return "adhoc.csv";
+    }
+    return tablename.replaceAll("[\n|\\/|:|\t|\\.|\\\\|\\?|<|>|\\*|\\?|\\|\"]","_") + ".csv";
   }
   return "adhoc.csv";
 }

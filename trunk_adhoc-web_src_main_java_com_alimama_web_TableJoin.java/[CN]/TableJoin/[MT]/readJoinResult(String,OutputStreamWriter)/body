@@ -15,5 +15,6 @@
   }
   Map stormconf=Utils.readStormConfig();
   Configuration conf=getConf(stormconf);
+  outStream.write(tableInfo.get("colsShowName").replaceAll("\001",",").replaceAll("\t",",") + "\n");
   com.alimama.mdrill.ui.service.AdhocOfflineService.readHiveResult(tableInfo.get("txtStorePath"),outStream,conf);
 }

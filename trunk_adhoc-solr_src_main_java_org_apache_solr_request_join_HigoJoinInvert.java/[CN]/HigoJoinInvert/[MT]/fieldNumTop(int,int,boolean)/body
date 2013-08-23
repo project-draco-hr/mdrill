@@ -1,7 +1,6 @@
 {
   Integer rtn=isdesc ? Integer.MIN_VALUE : Integer.MAX_VALUE;
-  int termNum=this.uifleft.termNum(doc);
-  IntArr doclist=this.join.getRight(doc,termNum);
+  IntArr doclist=this.join.getRight(doc,-1);
   if (doclist == null) {
     return ufsRight.cols[offset].uif.getNullTm();
   }

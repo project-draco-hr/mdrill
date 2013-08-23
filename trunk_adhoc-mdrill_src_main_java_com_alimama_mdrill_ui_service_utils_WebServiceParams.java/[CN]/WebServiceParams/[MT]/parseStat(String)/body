@@ -1,0 +1,41 @@
+{
+  StateField rtn=new StateField();
+  rtn.realField=showfield;
+  rtn.isstat=false;
+  if (showfield.startsWith("count(")) {
+    rtn.realField=showfield.substring(6,showfield.length() - 1);
+    rtn.isstat=true;
+    rtn.type="count";
+  }
+  if (showfield.startsWith("sum(")) {
+    rtn.realField=showfield.substring(4,showfield.length() - 1);
+    rtn.isstat=true;
+    rtn.type="sum";
+  }
+  if (showfield.startsWith("max(")) {
+    rtn.realField=showfield.substring(4,showfield.length() - 1);
+    rtn.isstat=true;
+    rtn.type="max";
+  }
+  if (showfield.startsWith("min(")) {
+    rtn.realField=showfield.substring(4,showfield.length() - 1);
+    rtn.isstat=true;
+    rtn.type="min";
+  }
+  if (showfield.startsWith("average(")) {
+    rtn.realField=showfield.substring(8,showfield.length() - 1);
+    rtn.isstat=true;
+    rtn.type="avg";
+  }
+  if (showfield.startsWith("avg(")) {
+    rtn.realField=showfield.substring(4,showfield.length() - 1);
+    rtn.isstat=true;
+    rtn.type="avg";
+  }
+  if (showfield.startsWith("dist(")) {
+    rtn.realField=showfield.substring(5,showfield.length() - 1);
+    rtn.isstat=true;
+    rtn.type="dist";
+  }
+  return rtn;
+}

@@ -1,0 +1,6 @@
+{
+  IntArr rtn=new IntArr();
+  rtn.list=new int[1];
+  rtn.list[0]=d;
+  return rtn;
+}

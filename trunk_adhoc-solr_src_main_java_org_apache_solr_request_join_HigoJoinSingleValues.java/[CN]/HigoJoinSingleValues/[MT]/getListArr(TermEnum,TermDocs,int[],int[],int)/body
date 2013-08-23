@@ -1,0 +1,28 @@
+{
+  IntArr LeftArr=new IntArr();
+  ArrayList<Integer> jpleft=new ArrayList<Integer>();
+  tdleft.seek(teLeft);
+  int index=0;
+  for (; ; ) {
+    int n=tdleft.read(docs,freqs);
+    if (n <= 0) {
+      break;
+    }
+    for (int i=0; i < n; i++) {
+      if (index < limit) {
+        index++;
+        jpleft.add(docs[i]);
+      }
+ else {
+        break;
+      }
+    }
+  }
+  LeftArr.list=new int[jpleft.size()];
+  index=0;
+  for (  Integer d : jpleft) {
+    LeftArr.list[index]=d;
+    index++;
+  }
+  return LeftArr;
+}

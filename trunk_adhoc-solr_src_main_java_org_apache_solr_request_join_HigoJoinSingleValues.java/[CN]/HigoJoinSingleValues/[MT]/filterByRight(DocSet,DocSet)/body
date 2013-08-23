@@ -3,11 +3,11 @@
   DocIterator iter=rightDocs.iterator();
   while (iter.hasNext()) {
     int doc=iter.nextDoc();
-    IntArr list=join.get(doc);
+    int[] list=join[doc];
     if (list == null) {
       continue;
     }
-    for (    int jp : list.list) {
+    for (    int jp : list) {
       docset.add(jp);
     }
   }

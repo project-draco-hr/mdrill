@@ -1,0 +1,13 @@
+{
+  try {
+    if (cacheDir != null) {
+      if (cacheDir instanceof FSDirectory) {
+        FSDirectory localdir=(FSDirectory)cacheDir;
+        this.lockf=new TryLockFile((new File(localdir.getDirectory(),"mdrill_uni_lock")).getAbsolutePath());
+        this.lockf.trylock();
+      }
+    }
+  }
+ catch (  Throwable e) {
+  }
+}

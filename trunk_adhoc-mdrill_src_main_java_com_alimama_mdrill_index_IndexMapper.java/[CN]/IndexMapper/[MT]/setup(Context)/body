@@ -1,6 +1,10 @@
 {
   super.setup(context);
   String fieldStrs=context.getConfiguration().get("higo.index.fields");
+  this.uniqfield=context.getConfiguration().get("uniq.check.field");
+  if (this.uniqfield != null && this.uniqfield.length() > 0) {
+    this.isuniqcheck=true;
+  }
   split=MakeIndex.parseSplit(context.getConfiguration().get("higo.column.split",split));
   String custfields=context.getConfiguration().get("higo.column.custfields","");
   usedthedate=context.getConfiguration().getBoolean("higo.column.userthedate",usedthedate);

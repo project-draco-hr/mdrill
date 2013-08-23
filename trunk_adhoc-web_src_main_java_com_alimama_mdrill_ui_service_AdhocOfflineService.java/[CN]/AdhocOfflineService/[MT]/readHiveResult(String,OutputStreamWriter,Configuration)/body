@@ -14,8 +14,11 @@
       String line;
       while ((line=bf.readLine()) != null) {
         bytesRead+=line.getBytes().length;
-        outStream.write(line.replaceAll("\001",",").replaceAll("\t",","));
-        outStream.write("\r\n");
+        String towrite=line.replaceAll("\001",",").replaceAll("\t",",");
+        if (!towrite.isEmpty()) {
+          outStream.write(towrite);
+          outStream.write("\r\n");
+        }
         if (bytesRead >= maxsize) {
           bf.close();
           in.close();

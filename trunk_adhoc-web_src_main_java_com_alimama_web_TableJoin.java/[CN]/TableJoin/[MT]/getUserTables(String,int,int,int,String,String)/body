@@ -1,0 +1,85 @@
+{
+  String joins="";
+  if (moduleName != null && moduleName.length() > 0) {
+    joins=" and joins like '%" + moduleName + ":%' ";
+  }
+  SimpleDateFormat fmt=new SimpleDateFormat("yyyyMMdd");
+  Map stormconf=Utils.readStormConfig();
+  String connstr=(String)stormconf.get("higo.download.offline.conn");
+  String uname=(String)stormconf.get("higo.download.offline.username");
+  String passwd=(String)stormconf.get("higo.download.offline.passwd");
+  MySqlConn m_fpsql=new MySqlConn(connstr,uname,passwd);
+  Connection conn=m_fpsql.getConn();
+  Statement stmt=conn.createStatement();
+  String strsqlJoin="select '1' as source " + ",tableShowName as tableShowName" + ",tableName as tableName"+ ",colsShowName as colsShowName"+ ",colsName as colsName"+ ",colsType as colsType"+ ",splitString as splitString"+ ",txtStorePath as txtStorePath"+ ",indexStorePath as indexStorePath"+ ",'0' as extval"+ ",'0' as isfinish"+ ",status as status"+ ",username as username"+ ",createtime as createtime"+ ",lastuptime as lastuptime"+ ",joins as joins"+ ",'2' as stage"+ ",percent as percent"+ ",resultkb as resultkb"+ ",memo as memo"+ " from adhoc_joins where username='" + username.replaceAll("'","") + "' and status<>'DEL'  and (copy_uuid is null or copy_uuid='')  "+ joins+ " ";
+  StringBuffer bufferSql=new StringBuffer();
+  if (type == 0) {
+    String strsqlJoin2="select '3' as source " + ",tableShowName as tableShowName" + ",tableName as tableName"+ ",colsShowName as colsShowName"+ ",colsName as colsName"+ ",colsType as colsType"+ ",splitString as splitString"+ ",txtStorePath as txtStorePath"+ ",indexStorePath as indexStorePath"+ ",'0' as extval"+ ",'0' as isfinish"+ ",status as status"+ ",username as username"+ ",createtime as createtime"+ ",lastuptime as lastuptime"+ ",joins as joins"+ ",'2' as stage"+ ",percent as percent"+ ",resultkb as resultkb"+ ",memo as memo"+ " from adhoc_joins where username='" + username.replaceAll("'","") + "' and status<>'DEL'  and (copy_uuid is not null and copy_uuid<>''  and status='INDEX' )  "+ joins+ " ";
+    String strsqlDownload="select '2' as source " + ",jobname as tableShowName" + ",uuid as tableName"+ ",cols as colsShowName"+ ",'empty' as colsName"+ ",'empty' as colsType"+ ",'default' as splitString"+ ",storedir as txtStorePath"+ ",'empty' as indexStorePath"+ ",extval as extval"+ ",isfinish as isfinish"+ ",'INDEX' as status"+ ",username as username"+ ",starttime as createtime"+ ",endtime as lastuptime"+ ",'' as joins"+ ",stage as stage"+ ",percent as percent"+ ",resultkb as resultkb"+ ",'' as memo"+ " from adhoc_download where username='" + username.replaceAll("'","") + "' and status<>'DEL'  ";
+    bufferSql.append("select source,tableShowName,tableName,colsShowName" + ",colsName,colsType,splitString,txtStorePath,indexStorePath,extval,status,username," + "createtime,lastuptime,joins,stage,percent,resultkb,memo");
+    bufferSql.append(" from (" + strsqlJoin + "  union "+ strsqlDownload+ " union "+ strsqlJoin2+ ") tmp order by tmp.createtime desc limit "+ start+ ","+ rows+ " ");
+  }
+  if (type == 1) {
+    bufferSql.append(strsqlJoin + " and status='INDEX' and resultkb<=512000 order by createtime desc limit " + start+ ","+ rows+ " ");
+  }
+  String sql=bufferSql.toString();
+  TableJoin.LOG.info("getUserTables:" + sql);
+  ResultSet res=stmt.executeQuery(sql);
+  JSONObject jsonObj=new JSONObject();
+  jsonObj.put("code","1");
+  jsonObj.put("_exehql",sql);
+  JSONArray jsonArray=new JSONArray();
+  while (res.next()) {
+    JSONObject item=new JSONObject();
+    item.put("source",res.getString("source"));
+    item.put("tableShowName",res.getString("tableShowName"));
+    item.put("tableName",res.getString("tableName"));
+    item.put("colsShowName",res.getString("colsShowName").replaceAll("\\(","_").replaceAll("\\)","_").replaceAll(" ","").replaceAll("_,",",").replaceAll(",$",""));
+    item.put("colsName",res.getString("colsName"));
+    item.put("colsType",res.getString("colsType"));
+    item.put("splitString",res.getString("splitString"));
+    item.put("txtStorePath",res.getString("txtStorePath"));
+    item.put("indexStorePath",res.getString("indexStorePath"));
+    item.put("extval",res.getString("extval"));
+    item.put("status",res.getString("status"));
+    item.put("username",res.getString("username"));
+    item.put("createtime",res.getString("createtime"));
+    item.put("lastuptime",res.getString("lastuptime"));
+    item.put("joins",res.getString("joins"));
+    item.put("stage",res.getString("stage"));
+    item.put("percent",res.getString("percent"));
+    item.put("resultkb",parseInt(res.getString("resultkb")) > 0 ? res.getString("resultkb") : "<1");
+    item.put("memo",String.valueOf(res.getString("memo")));
+    boolean isoversize=parseInt(res.getString("resultkb")) > 512000;
+    boolean issuccess=res.getString("status").equals("INDEX") && res.getString("extval").equals("0");
+    boolean iserror=res.getString("status").equals("FAIL") || !res.getString("extval").equals("0");
+    double percent=parsePercent(res.getString("stage"),res.getString("percent"),issuccess);
+    if (res.getString("status").equals("DUMP")) {
+      percent=0d;
+    }
+    item.put("proccess",(iserror ? "0" : String.valueOf(percent)) + "%");
+    boolean isallowEdit=!res.getString("status").equals("INDEXING") && res.getString("source").equals("1");
+    item.put("allowCreate",String.valueOf(res.getString("source").equals("2") && issuccess && percent >= 100 && !isoversize));
+    item.put("allowUpload",String.valueOf(isallowEdit && res.getString("status").equals("init")));
+    item.put("allowDownload",String.valueOf(issuccess && percent >= 100));
+    item.put("allowJoin",String.valueOf(res.getString("source").equals("1") && issuccess && percent >= 100 && !isoversize));
+    item.put("allowSend",String.valueOf(issuccess && percent >= 100));
+    item.put("isError",iserror);
+    String uuidshow=iserror ? ("<br>" + res.getString("tableName")) : "";
+    item.put("msg",String.valueOf(iserror ? "???????????????" : isoversize ? "??????????????????500M	" : res.getString("status").equals("DUMP") ? "???????????????????????????????????????" : issuccess && percent >= 100 ? "??????" : res.getString("status").equals("init") ? "??????????????????" : "?????????...") + uuidshow);
+    jsonArray.put(item);
+  }
+  HashMap<String,String> cnt=getUserTablesCount(username,type,moduleName);
+  JSONObject data=new JSONObject();
+  data.put("list",jsonArray);
+  data.put("total",cnt.get("cnt"));
+  jsonObj.put("data",data);
+  jsonObj.put("total_debug",new JSONObject(cnt));
+  m_fpsql.close();
+  if (callback != null && callback.length() > 0) {
+    return callback + "(" + jsonObj.toString()+ ")";
+  }
+ else {
+    return jsonObj.toString();
+  }
+}

@@ -2,7 +2,7 @@
   for (; !foundBoundary && i < readBytes; i++) {
     if (buffer[i] == 13) {
       foundBoundary=true;
-      byte[] newboundary=new byte[m_boundary_length];
+      char[] newboundary=new char[m_boundary_length];
       for (int j=0; j < m_boundary_length; j++) {
         newboundary[j]=m_boundary[j];
       }

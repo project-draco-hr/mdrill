@@ -1,0 +1,10 @@
+{
+  StringBuffer sqlWhere=new StringBuffer();
+  String join=" where ";
+  for (  String fq : fqList) {
+    sqlWhere.append(join);
+    sqlWhere.append(fq);
+    join=" and ";
+  }
+  return sqlWhere;
+}

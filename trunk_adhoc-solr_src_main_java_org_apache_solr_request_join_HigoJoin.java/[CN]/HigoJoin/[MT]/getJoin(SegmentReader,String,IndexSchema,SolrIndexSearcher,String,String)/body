@@ -17,7 +17,7 @@
   GrobalCache.StringKey fvkey=new GrobalCache.StringKey(cachekey);
   HigoJoinInterface uif=(HigoJoinInterface)cache.get(fvkey);
   if (uif == null) {
-synchronized (cache) {
+synchronized (lock) {
       uif=(HigoJoinInterface)cache.get(fvkey);
       if (uif == null) {
         FieldType ftleft=schema.getFieldType(fieldLeft);

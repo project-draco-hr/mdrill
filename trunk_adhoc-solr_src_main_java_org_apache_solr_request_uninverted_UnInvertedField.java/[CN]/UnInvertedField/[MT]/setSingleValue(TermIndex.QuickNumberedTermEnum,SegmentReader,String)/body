@@ -1,5 +1,5 @@
 {
-  UnInvertedField.log.info("setSingleValue " + this.field + " field "+ this.isMultiValued+ "@"+ key);
+  UnInvertedField.log.info("setSingleValue QuickNumberedTermEnum " + this.field + " field "+ this.isMultiValued+ "@"+ key);
   int maxDoc=reader.maxDoc();
   int maxDocOffset=maxDoc + 2;
   this.index=INT_BUFFER.calloc(maxDocOffset,BigReUsedBuffer.INT_CREATE,-1);

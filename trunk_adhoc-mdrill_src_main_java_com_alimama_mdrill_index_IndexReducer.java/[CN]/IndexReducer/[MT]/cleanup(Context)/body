@@ -9,7 +9,7 @@
       fs.rename(new Path(tmpath),new Path(indexHdfsPath));
     }
     if (shardWriter.getNumDocs() > 0 && lastkey != null) {
-      context.write(new LongWritable(lastkey.get()),new Text(indexHdfsPath));
+      context.write(lastkey,new Text(indexHdfsPath));
     }
     FileSystem lfs=FileSystem.getLocal(conf);
     if (lfs.exists(new Path(localtmpath))) {

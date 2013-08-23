@@ -1,5 +1,6 @@
 {
   super.setup(context);
+  context.getCounter("higo","dumpcount").increment(0);
   Configuration conf=context.getConfiguration();
   heartBeater=new HeartBeater(context);
   heartBeater.needHeartBeat();

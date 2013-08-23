@@ -15,24 +15,38 @@ case 1:
       }
       return key + ":" + TdateFormat.transformSolrMetacharactor(value2);
     }
-case 2:
+case 32:
 {
     if (isdate) {
-      return "-" + key + ":"+ TdateFormat.transformSolrMetacharactor(TdateFormat.ensureTdateForSearch(value2));
+      return key + ":*" + TdateFormat.transformSolrMetacharactor(TdateFormat.ensureTdateForSearch(value2))+ "*";
     }
-    return "-" + key + ":"+ TdateFormat.transformSolrMetacharactor(value2);
+    return key + ":*" + TdateFormat.transformSolrMetacharactor(value2)+ "*";
   }
-case 3:
+case 33:
 {
   if (isdate) {
-    return key + ":[" + TdateFormat.ensureTdateForSearch(value2)+ " TO 2098-09-09T00:00:00Z]";
+    return "-" + key + ":*"+ TdateFormat.transformSolrMetacharactor(TdateFormat.ensureTdateForSearch(value2))+ "*";
   }
-  return key + ":[" + value2+ " TO *]";
+  return "-" + key + ":*"+ TdateFormat.transformSolrMetacharactor(value2)+ "*";
+}
+case 2:
+{
+if (isdate) {
+  return "-" + key + ":"+ TdateFormat.transformSolrMetacharactor(TdateFormat.ensureTdateForSearch(value2));
+}
+return "-" + key + ":"+ TdateFormat.transformSolrMetacharactor(value2);
+}
+case 3:
+{
+if (isdate) {
+return key + ":[" + TdateFormat.ensureTdateForSearch(value2)+ " TO 2098-09-09T00:00:00Z]";
+}
+return key + ":[" + value2+ " TO *]";
 }
 case 4:
 {
 if (isdate) {
-  return key + ":[* TO " + TdateFormat.ensureTdateForSearch(value2)+ "]";
+return key + ":[* TO " + TdateFormat.ensureTdateForSearch(value2)+ "]";
 }
 return key + ":[* TO " + value2+ "]";
 }
@@ -44,6 +58,20 @@ return key + ":{" + TdateFormat.ensureTdateForSearch(value2)+ " TO 2098-09-09T00
 return key + ":{" + value2+ " TO *}";
 }
 case 14:
+{
+if (isdate) {
+return key + ":{* TO " + TdateFormat.ensureTdateForSearch(value2)+ "}";
+}
+return key + ":{* TO " + value2+ "}";
+}
+case 30:
+{
+if (isdate) {
+return key + ":{" + TdateFormat.ensureTdateForSearch(value2)+ " TO 2098-09-09T00:00:00Z}";
+}
+return key + ":{" + value2+ " TO *}";
+}
+case 31:
 {
 if (isdate) {
 return key + ":{* TO " + TdateFormat.ensureTdateForSearch(value2)+ "}";

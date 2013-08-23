@@ -3,7 +3,6 @@
   MySqlConn m_fpsql=getConn();
   Connection conn=m_fpsql.getConn();
   String strSql="update adhoc_joins set download_uuid=?,lastuptime=? where tableName=? ";
-  System.out.println(strSql);
   PreparedStatement m_fps=conn.prepareStatement(strSql);
   try {
     int index=1;

@@ -1,6 +1,7 @@
 {
   Cache<ILruMemSizeKey,ILruMemSizeCache> cache=GrobalCache.fieldValueCache;
   StringBuffer key=new StringBuffer();
+  key.append("join");
   key.append(readerleft.getPartionKey());
   key.append("@");
   key.append(fieldLeft);
@@ -16,7 +17,7 @@
   GrobalCache.StringKey fvkey=new GrobalCache.StringKey(cachekey);
   HigoJoinInterface uif=(HigoJoinInterface)cache.get(fvkey);
   if (uif == null) {
-synchronized (cache) {
+synchronized (lock) {
       uif=(HigoJoinInterface)cache.get(fvkey);
       if (uif == null) {
         FieldType ftleft=readerleft.getSchema().getFieldType(fieldLeft);

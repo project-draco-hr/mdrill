@@ -43,6 +43,14 @@ case 14:
 {
 return "(" + part + "<"+ value2+ add+ " )";
 }
+case 30:
+{
+return "(" + part + ">"+ value2+ add+ " )";
+}
+case 31:
+{
+return "(" + part + "<"+ value2+ add+ " )";
+}
 case 5:
 case 6:
 case 7:
@@ -98,6 +106,14 @@ return "" + key + ""+ "="+ value2+ "";
 }
 return "transhigo_udf(" + key + ",'"+ ft+ "')"+ "='"+ value2+ "'";
 }
+case 32:
+{
+return "transhigo_udf(" + key + ",'"+ ft+ "')"+ " like '%"+ value2.replaceAll("\\*","%")+ "%'";
+}
+case 33:
+{
+return "transhigo_udf(" + key + ",'"+ ft+ "')"+ " not like '%"+ value2.replaceAll("\\*","%")+ "%'";
+}
 case 2:
 {
 if (isdate) {
@@ -130,6 +146,20 @@ return "transhigo_udf(" + key + ",'"+ ft+ "')"+ ">'"+ TdateFormat.ensureTdateFor
 return "transhigo_udf(" + key + ",'"+ ft+ "')"+ ">"+ value2;
 }
 case 14:
+{
+if (isdate) {
+return "transhigo_udf(" + key + ",'"+ ft+ "')"+ "<'"+ TdateFormat.ensureTdateForSearch(value2)+ "' and transhigo_udf("+ key+ ",'"+ ft+ "')"+ "<'2098-09-09T00:00:00Z'";
+}
+return "transhigo_udf(" + key + ",'"+ ft+ "')"+ "<"+ value2;
+}
+case 30:
+{
+if (isdate) {
+return "transhigo_udf(" + key + ",'"+ ft+ "')"+ ">'"+ TdateFormat.ensureTdateForSearch(value2)+ "' and transhigo_udf("+ key+ ",'"+ ft+ "')"+ "<'2098-09-09T00:00:00Z'";
+}
+return "transhigo_udf(" + key + ",'"+ ft+ "')"+ ">"+ value2;
+}
+case 31:
 {
 if (isdate) {
 return "transhigo_udf(" + key + ",'"+ ft+ "')"+ "<'"+ TdateFormat.ensureTdateForSearch(value2)+ "' and transhigo_udf("+ key+ ",'"+ ft+ "')"+ "<'2098-09-09T00:00:00Z'";

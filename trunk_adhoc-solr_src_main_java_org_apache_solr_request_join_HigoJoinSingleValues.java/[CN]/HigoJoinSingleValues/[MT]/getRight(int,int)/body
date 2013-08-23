@@ -1,3 +1,8 @@
 {
-  return joinRevert.get(leftDocid);
+  int rtn=joinRevert[leftDocid];
+  if (rtn < 0) {
+    return null;
+  }
+  singleint.list[0]=rtn;
+  return singleint;
 }

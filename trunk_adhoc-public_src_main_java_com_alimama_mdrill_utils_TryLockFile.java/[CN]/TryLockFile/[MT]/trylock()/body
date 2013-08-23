@@ -1,0 +1,14 @@
+{
+  try {
+    File file=new File(localpath);
+    if (!file.exists()) {
+      file.createNewFile();
+    }
+    out=new RandomAccessFile(file,"rw");
+    fcout=out.getChannel();
+    flout=fcout.lock();
+  }
+ catch (  Throwable e) {
+    log.error("trylock",e);
+  }
+}

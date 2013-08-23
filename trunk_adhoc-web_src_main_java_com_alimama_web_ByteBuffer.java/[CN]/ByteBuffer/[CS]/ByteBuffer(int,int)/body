@@ -1,6 +1,6 @@
 {
   super();
   if (initialCapacity < 0)   throw new IllegalArgumentException("Illegal Capacity: " + initialCapacity);
-  this.elementData=new byte[initialCapacity];
+  this.elementData=new char[initialCapacity];
   this.capacityIncrement=capacityIncrement;
 }

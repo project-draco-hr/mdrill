@@ -1,6 +1,9 @@
 {
   String[] values=EncodeUtils.decode(groupValues.split(UniqConfig.GroupJoinString()));
   for (int j=0; j < values.length && j < groupFields.size(); j++) {
+    if (groupFields.get(j).equals("higoempty_groupby_forjoin_l")) {
+      continue;
+    }
     if (values[j] == null || values[j].equals("")) {
       jo.put(groupFields.get(j)," ");
     }

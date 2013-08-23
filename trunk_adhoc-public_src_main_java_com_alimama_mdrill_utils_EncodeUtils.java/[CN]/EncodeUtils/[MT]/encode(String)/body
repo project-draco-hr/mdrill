@@ -1,6 +1,9 @@
 {
+  if (s.indexOf(UniqConfig.GroupJoinString()) < 0 && !s.endsWith(UniqConfig.GroupJoinTagString())) {
+    return s;
+  }
   try {
-    return java.net.URLEncoder.encode(s,"utf8");
+    return java.net.URLEncoder.encode(s,"utf8") + UniqConfig.GroupJoinTagString();
   }
  catch (  UnsupportedEncodingException e) {
     LOG.error("eocode for " + s,e);

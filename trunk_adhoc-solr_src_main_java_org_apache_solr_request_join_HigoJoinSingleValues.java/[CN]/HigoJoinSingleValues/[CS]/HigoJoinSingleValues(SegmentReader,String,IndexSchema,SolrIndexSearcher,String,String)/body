@@ -1,6 +1,5 @@
 {
   this.readerleft=null;
-  this.partion=partion;
   this.schema=schema;
   this.leftreader=reader;
   this.readerright=readerright;

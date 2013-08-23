@@ -4,10 +4,6 @@
     this.ufsRight.free();
     this.ufsRight=null;
   }
-  if (this.uifleft != null) {
-    this.uifleft.free();
-    this.uifleft=null;
-  }
   if (search != null) {
     search.decref();
     search=null;

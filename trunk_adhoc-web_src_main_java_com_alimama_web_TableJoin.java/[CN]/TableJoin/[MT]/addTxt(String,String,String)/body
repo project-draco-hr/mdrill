@@ -66,6 +66,15 @@
         HashSet<String> inputs=new HashSet<String>();
         inputs.add(txtpath.getName());
         TableJoin.updateKb(tableName,HadoopUtil.duSize(fs,txtpath));
+        String strjoins="";
+        if (tableInfo != null && tableInfo.get("joins") != null) {
+          for (          String s : tableInfo.get("joins").split(",")) {
+            String[] cols=s.split(":");
+            if (cols.length >= 3) {
+              strjoins=cols[2];
+            }
+          }
+        }
         String index=(String)stormconf.get("higo.download.offline.store") + "/" + day+ "/tmp_"+ java.util.UUID.randomUUID().toString();
         MakeIndex.make(fs,solrHome,conf,"txt",txtpath.getParent().toString(),inputs,"*",tableInfo.get("indexStorePath"),new Path(index),1,tableInfo.get("splitString"),false,tableInfo.get("colsName"),new updateStatus(){
           @Override public void update(          int statge,          Job job){
@@ -87,8 +96,29 @@
               TableJoin.LOG.error("updatePercent",e);
             }
           }
+          @Override public boolean dump(          Job job){
+            Counters counters;
+            try {
+              counters=job.getCounters();
+              long wsize=counters.findCounter("higo","dumpcount").getValue();
+              if (wsize > 0) {
+                try {
+                  TableJoin.LOG.info("update " + tableName + ",dump");
+                  TableJoin.updatePercent(tableName,"Stage-2 map = 100%,  reduce = 100%","DUMP");
+                }
+ catch (                Exception e) {
+                  TableJoin.LOG.error("updatePercent",e);
+                }
+                return true;
+              }
+            }
+ catch (            IOException e) {
+              e.printStackTrace();
+            }
+            return false;
+          }
         }
-);
+,strjoins);
       }
  catch (      Exception e) {
         TableJoin.LOG.error("make index",e);

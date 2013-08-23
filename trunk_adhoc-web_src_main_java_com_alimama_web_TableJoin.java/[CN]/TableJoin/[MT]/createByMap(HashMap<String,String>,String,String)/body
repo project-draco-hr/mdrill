@@ -11,7 +11,7 @@
   MySqlConn m_fpsql=new MySqlConn(connstr,uname,passwd);
   String tableName=java.util.UUID.randomUUID().toString();
   Connection conn=m_fpsql.getConn();
-  String strSql="insert into adhoc_joins " + "(tableShowName,tableName,colsShowName,colsName,colsType,splitString,txtStorePath,indexStorePath,status,username,createtime,lastuptime,joins,percent,resultkb,download_uuid,copy_uuid)" + "values"+ "(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+  String strSql="insert into adhoc_joins " + "(tableShowName,tableName,colsShowName,colsName,colsType,splitString,txtStorePath,indexStorePath,status,username,createtime,lastuptime,joins,percent,resultkb,download_uuid,copy_uuid,memo)" + "values"+ "(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
   PreparedStatement m_fps=conn.prepareStatement(strSql);
   try {
     int index=1;
@@ -33,6 +33,7 @@
     m_fps.setInt(index++,Integer.parseInt(tableInfo.get("resultkb")));
     m_fps.setString(index++,tableInfo.get("download_uuid"));
     m_fps.setString(index++,copyuuid);
+    m_fps.setString(index++,tableInfo.get("memo"));
     m_fps.executeUpdate();
     jsonObj.put("code","1");
     jsonObj.put("tableid",tableName);

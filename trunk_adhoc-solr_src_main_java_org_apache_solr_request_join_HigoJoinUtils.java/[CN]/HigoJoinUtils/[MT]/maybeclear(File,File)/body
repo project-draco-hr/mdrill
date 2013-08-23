@@ -12,16 +12,9 @@
   if (!lockbase.exists()) {
     lockbase.mkdirs();
   }
-  if (!lockPath.exists()) {
-    lockPath.createNewFile();
-  }
-  FileLock flout=null;
-  RandomAccessFile out=null;
-  FileChannel fcout=null;
+  TryLockFile lck=new TryLockFile((lockPath).getAbsolutePath());
   try {
-    out=new RandomAccessFile(lockPath,"rw");
-    fcout=out.getChannel();
-    flout=fcout.lock();
+    lck.trylock();
     Configuration conf=getConf();
     FileSystem lfs=FileSystem.getLocal(conf);
     Path basepath=new Path(key);
@@ -66,20 +59,7 @@
     }
   }
   finally {
-    try {
-      if (flout != null) {
-        flout.release();
-      }
-      if (fcout != null) {
-        fcout.close();
-      }
-      if (out != null) {
-        out.close();
-      }
-      out=null;
-    }
- catch (    Exception e) {
-    }
+    lck.unlock();
     lockPath.delete();
   }
 }

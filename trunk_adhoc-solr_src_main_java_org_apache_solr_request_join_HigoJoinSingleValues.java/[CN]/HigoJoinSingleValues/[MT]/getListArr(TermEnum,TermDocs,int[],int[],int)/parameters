@@ -1,0 +1,5 @@
+TermEnum teLeft
+TermDocs tdleft
+int[] docs
+int[] freqs
+int limit

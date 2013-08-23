@@ -20,7 +20,7 @@
   String key=LuceneUtils.crcKey(reader);
   this.dataType=UnInvertedFieldUtils.getDataType(this.ft);
   this.ti=new TermIndex(field,prefix);
-  if (reader.isSupportQuick() && !this.isMultiValued) {
+  if (reader.isSupportQuick() && !this.isMultiValued && reader.getpos(this.field) != null && reader.getCount(this.field) != null) {
     TermIndex.QuickNumberedTermEnum te=ti.getEnumerator(reader,reader.getQuickTis(),reader.getpos(this.field),reader.getCount(this.field));
     this.setSingleValue(te,reader,key);
     te.close();

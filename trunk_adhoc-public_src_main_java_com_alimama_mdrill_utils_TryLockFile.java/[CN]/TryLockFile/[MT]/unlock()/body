@@ -1,0 +1,19 @@
+{
+  try {
+    if (flout != null) {
+      flout.release();
+      flout=null;
+    }
+    if (fcout != null) {
+      fcout.close();
+      fcout=null;
+    }
+    if (out != null) {
+      out.close();
+      out=null;
+    }
+  }
+ catch (  Exception e) {
+    log.error("unlock",e);
+  }
+}

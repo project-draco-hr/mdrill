@@ -1,7 +1,14 @@
 {
+  StringBuffer buff=new StringBuffer();
+  buff.append("##getCount##" + field);
   Integer fileNum=this.fieldInfos().fieldNumber(field);
-  HashMap<Integer,Integer> fileCount=core.getTermsReader().fieldCount;
-  int rtn=fileCount.get(fileNum);
-  log.info("##getCount##" + fileNum + "@"+ field+ ","+ rtn);
-  return rtn;
+  buff.append("fileNum#" + String.valueOf(fileNum));
+  if (fileNum != null) {
+    HashMap<Integer,Integer> fileCount=core.getTermsReader().fieldCount;
+    int rtn=fileCount.get(fileNum);
+    buff.append("count#" + rtn);
+    return rtn;
+  }
+  buff.append("count#null");
+  return null;
 }

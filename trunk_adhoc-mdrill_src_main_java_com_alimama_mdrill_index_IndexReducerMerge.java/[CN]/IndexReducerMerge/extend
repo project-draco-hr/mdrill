@@ -1,1 +1,1 @@
-Reducer<LongWritable,Text,LongWritable,Text>
+Reducer<Text,Text,Text,Text>
