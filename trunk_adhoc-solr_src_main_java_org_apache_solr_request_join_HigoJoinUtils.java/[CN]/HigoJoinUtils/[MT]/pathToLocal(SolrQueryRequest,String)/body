@@ -25,9 +25,6 @@
     if (!basedir.exists()) {
       basedir.mkdirs();
     }
-    if (!lockPath.exists()) {
-      lockPath.createNewFile();
-    }
     lock.trylock();
     if (!completePath.exists()) {
       Configuration conf=getConf();

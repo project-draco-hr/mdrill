@@ -1,14 +1,23 @@
 {
+  ensureOpen();
   StringBuffer buff=new StringBuffer();
   buff.append("##getCount##" + field);
-  Integer fileNum=this.fieldInfos().fieldNumber(field);
-  buff.append("fileNum#" + String.valueOf(fileNum));
-  if (fileNum != null) {
-    HashMap<Integer,Integer> fileCount=core.getTermsReader().fieldCount;
-    int rtn=fileCount.get(fileNum);
-    buff.append("count#" + rtn);
-    return rtn;
+  try {
+    Integer fileNum=this.fieldInfos().fieldNumber(field);
+    buff.append("fileNum#" + String.valueOf(fileNum));
+    if (fileNum != null && core != null && core.getTermsReader() != null) {
+      HashMap<Integer,Integer> fileCount=core.getTermsReader().fieldCount;
+      if (fileCount != null) {
+        int rtn=fileCount.get(fileNum);
+        buff.append("count#" + rtn);
+        return rtn;
+      }
+    }
+    buff.append("count#null");
+    log.info(buff.toString());
   }
-  buff.append("count#null");
+ catch (  Throwable e) {
+    log.error(buff.toString(),e);
+  }
   return null;
 }

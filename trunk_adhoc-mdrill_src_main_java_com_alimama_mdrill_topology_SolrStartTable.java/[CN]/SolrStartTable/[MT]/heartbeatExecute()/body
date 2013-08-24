@@ -4,6 +4,9 @@
   while (!exe.isfinish() && !statcollect.isTimeout(900l * 1000)) {
     Thread.sleep(1000l);
   }
+  if (statcollect.isTimeout(900l * 1000)) {
+    statcollect.setLastTime(System.currentTimeMillis());
+  }
   boolean needRestart=exe.isfinish() ? exe.result() : false;
   if (!needRestart) {
     this.checkSolr();
@@ -17,6 +20,9 @@
     EXECUTE.submit(exe);
     while (!statcollect.isTimeout(900l * 1000)) {
       Thread.sleep(1000l);
+    }
+    if (statcollect.isTimeout(900l * 1000)) {
+      statcollect.setLastTime(System.currentTimeMillis());
     }
     this.startService();
   }

@@ -3,6 +3,15 @@
   if (reassignIds.size() <= 0) {
     return new HashMap<Integer,NodePort>();
   }
+  Set<Integer> allTaskIds=StormUtils.listToSet(zkCluster.task_ids(topologyId));
+  TaskJobIds jobids2=new TaskJobIds();
+  jobids2.setSpecialTask(allTaskIds,this);
+  List<Integer> tasks=new ArrayList<Integer>(jobids2.shardTask);
+  Collections.sort(tasks);
+  for (int i=0; i < tasks.size(); i++) {
+    taskId2Index.put(tasks.get(i),i);
+  }
+  LOG.info("taskId2Index " + taskId2Index.toString());
   Set<NodePort> allSlots=MdrillTaskAssignmentBase.AllSlots(supInfos,zkCluster);
   TaskJobIds jobids=new TaskJobIds();
   jobids.setSpecialTask(reassignIds,this);
@@ -11,9 +20,10 @@
   HostSlots[] shardResourceMap=getHostSlots(resources.shard,allSlots,portTypeEnum.shard);
   HostSlots[] msResourceMap=getHostSlots(resources.ms,allSlots,portTypeEnum.mergerserver);
   HostSlots[] realtimeResourceMap=getHostSlots(resources.realtime,allSlots,portTypeEnum.realtime);
-  Map<Integer,NodePort> shardAssign=this.assignment(shardResourceMap,resources.shard,jobids.shardTask,"shard");
-  Map<Integer,NodePort> msAssign=this.assignment(msResourceMap,resources.ms,jobids.msTask,"ms");
-  Map<Integer,NodePort> realtimeAssign=this.assignment(realtimeResourceMap,resources.realtime,jobids.realtimeTask,"realtime");
+  LOG.info("fixassgin:" + this.ShardfixdMap.toString());
+  Map<Integer,NodePort> shardAssign=this.assignment(shardResourceMap,resources.shard,jobids.shardTask,"shard",this.ShardfixdMap);
+  Map<Integer,NodePort> msAssign=this.assignment(msResourceMap,resources.ms,jobids.msTask,"ms",new HashMap<Integer,String>());
+  Map<Integer,NodePort> realtimeAssign=this.assignment(realtimeResourceMap,resources.realtime,jobids.realtimeTask,"realtime",new HashMap<Integer,String>());
   Map<Integer,NodePort> shardAssignRandom=this.randomAssign(resources.shard,jobids.shardTask);
   Map<Integer,NodePort> msAssignRandom=this.randomAssign(resources.ms,jobids.msTask);
   Map<Integer,NodePort> realtimeAssignRandom=this.randomAssign(resources.realtime,jobids.realtimeTask);

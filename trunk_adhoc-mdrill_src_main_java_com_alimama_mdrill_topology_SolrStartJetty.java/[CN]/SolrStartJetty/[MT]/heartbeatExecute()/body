@@ -16,6 +16,9 @@
     while (!exe.isfinish() && !statcollect.isTimeout(600l * 1000)) {
       Thread.sleep(1000l);
     }
+    if (statcollect.isTimeout(600l * 1000)) {
+      statcollect.setLastTime(System.currentTimeMillis());
+    }
     this.startJetty();
   }
   this.statcollect.setLastTime(System.currentTimeMillis());

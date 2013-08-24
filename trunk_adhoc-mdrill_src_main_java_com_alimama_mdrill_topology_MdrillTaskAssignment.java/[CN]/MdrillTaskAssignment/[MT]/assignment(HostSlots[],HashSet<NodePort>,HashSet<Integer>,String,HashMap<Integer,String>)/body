@@ -1,0 +1,79 @@
+{
+  Map<Integer,NodePort> rtn=new HashMap<Integer,NodePort>();
+  if (jobids.size() <= 0) {
+    return rtn;
+  }
+  HashMap<String,HostSlots> hostSlotsMap=new HashMap<String,HostSlots>();
+  for (  HostSlots e : ResourceMap) {
+    hostSlotsMap.put(e.host,e);
+  }
+  for (  Entry<Integer,String> e : fixassgin.entrySet()) {
+    Integer tindex=taskId2Index.get(e.getValue());
+    if (tindex == null) {
+      continue;
+    }
+    HostSlots hs=hostSlotsMap.get(tindex);
+    if (hs != null) {
+      hs.fixd=true;
+    }
+  }
+  int hostsize=ResourceMap.length;
+  if (hostsize > 0) {
+    for (    Integer tid : jobids) {
+      Integer tindex=taskId2Index.get(tid);
+      if (tindex == null || !fixassgin.containsKey(tindex)) {
+        continue;
+      }
+      String host=fixassgin.get(tindex);
+      HostSlots hostslot=hostSlotsMap.get(host);
+      if (hostslot == null) {
+        continue;
+      }
+      hostslot.fixd=true;
+      List<NodePort> list=hostslot.ports;
+      if (hostslot.index < list.size()) {
+        NodePort np=list.get(hostslot.index);
+        rtn.put(tid,np);
+        LOG.info("higolog assign:" + logtype + "@"+ tid+ "==>"+ hostslot.host+ ","+ hostslot.index+ ","+ np.getPort());
+        hostslot.index++;
+      }
+    }
+    ArrayList<HostSlots> hslist=new ArrayList<HostSlots>();
+    for (    HostSlots hs : ResourceMap) {
+      if (hs.fixd) {
+        for (int i=hs.index; i < hs.ports.size(); i++) {
+          resource.remove(hs.ports.get(i));
+        }
+        hs.index=hs.ports.size();
+      }
+ else {
+        hslist.add(hs);
+      }
+    }
+    if (hslist.size() > 0) {
+      for (      Integer tid : jobids) {
+        Integer tindex=taskId2Index.get(tid);
+        if (tindex != null && fixassgin.containsKey(tindex)) {
+          continue;
+        }
+        Integer index=tid % hslist.size();
+        HostSlots hostslot=hslist.get(index);
+        List<NodePort> list=hostslot.ports;
+        if (hostslot.index < list.size()) {
+          NodePort np=list.get(hostslot.index);
+          rtn.put(tid,np);
+          LOG.info("higolog assign:" + logtype + "@"+ tid+ "==>"+ hostslot.host+ ","+ hostslot.index+ ","+ np.getPort());
+          hostslot.index++;
+        }
+      }
+    }
+  }
+ else {
+    LOG.info("higolog assign:" + logtype + " is empty");
+  }
+  for (  Entry<Integer,NodePort> e : rtn.entrySet()) {
+    jobids.remove(e.getKey());
+    resource.remove(e.getValue());
+  }
+  return rtn;
+}
