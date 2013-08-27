@@ -1,5 +1,0 @@
-HostSlots[] ResourceMap
-HashSet<NodePort> resource
-HashSet<Integer> jobids
-String logtype
-HashMap<Integer,String> fixassgin

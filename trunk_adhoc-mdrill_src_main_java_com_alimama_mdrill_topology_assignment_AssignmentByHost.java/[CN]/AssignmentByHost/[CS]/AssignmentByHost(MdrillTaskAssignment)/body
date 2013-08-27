@@ -1,0 +1,6 @@
+{
+  this.params=params;
+  index2host.setup(params.topology_conf,params);
+  this.index2host.taskId2Index(params,params.topologyId);
+  LOG.info("fixassgin:" + this.index2host.shardfixdMap.toString());
+}

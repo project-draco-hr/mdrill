@@ -1,0 +1,9 @@
+{
+  if (t.equals(PortTypeEnum.mergerserver)) {
+    return isMergerPort(p);
+  }
+ else   if (t.equals(PortTypeEnum.realtime)) {
+    return isRealTimePort(p);
+  }
+  return !isRealTimePort(p) && !isMergerPort(p);
+}

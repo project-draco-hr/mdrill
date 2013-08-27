@@ -1,0 +1,11 @@
+{
+  Set<Integer> allTaskIds=StormUtils.listToSet(ass.zkCluster.task_ids(topologyId));
+  TaskNeedAssign jobids2=new TaskNeedAssign();
+  jobids2.setSpecialTask(allTaskIds,ass);
+  List<Integer> tasks=new ArrayList<Integer>(jobids2.shardTask);
+  Collections.sort(tasks);
+  for (int i=0; i < tasks.size(); i++) {
+    taskId2Index.put(tasks.get(i),i);
+  }
+  Utils.LOG.info("taskId2Index " + taskId2Index.toString());
+}

@@ -1,0 +1,6 @@
+{
+  Set<NodePort> allSlots=Utils.AllSlots(params.supInfos,params.zkCluster);
+  this.shard=this.getHostSlots(freeResource.shard,allSlots,PortTypeEnum.shard);
+  this.ms=this.getHostSlots(freeResource.ms,allSlots,PortTypeEnum.mergerserver);
+  this.realtime=this.getHostSlots(freeResource.realtime,allSlots,PortTypeEnum.realtime);
+}

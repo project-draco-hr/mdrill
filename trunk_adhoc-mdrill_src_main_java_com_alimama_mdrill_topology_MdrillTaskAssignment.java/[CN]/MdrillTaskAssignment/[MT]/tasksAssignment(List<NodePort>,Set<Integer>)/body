@@ -1,39 +1,16 @@
 {
-  LOG.info("higolog reassignIds " + reassignIds.toString());
   if (reassignIds.size() <= 0) {
     return new HashMap<Integer,NodePort>();
   }
-  Set<Integer> allTaskIds=StormUtils.listToSet(zkCluster.task_ids(topologyId));
-  TaskJobIds jobids2=new TaskJobIds();
-  jobids2.setSpecialTask(allTaskIds,this);
-  List<Integer> tasks=new ArrayList<Integer>(jobids2.shardTask);
-  Collections.sort(tasks);
-  for (int i=0; i < tasks.size(); i++) {
-    taskId2Index.put(tasks.get(i),i);
-  }
-  LOG.info("taskId2Index " + taskId2Index.toString());
-  Set<NodePort> allSlots=MdrillTaskAssignmentBase.AllSlots(supInfos,zkCluster);
-  TaskJobIds jobids=new TaskJobIds();
-  jobids.setSpecialTask(reassignIds,this);
-  Resources resources=new Resources();
-  resources.setup(reassignSlots,this.porttype);
-  HostSlots[] shardResourceMap=getHostSlots(resources.shard,allSlots,portTypeEnum.shard);
-  HostSlots[] msResourceMap=getHostSlots(resources.ms,allSlots,portTypeEnum.mergerserver);
-  HostSlots[] realtimeResourceMap=getHostSlots(resources.realtime,allSlots,portTypeEnum.realtime);
-  LOG.info("fixassgin:" + this.ShardfixdMap.toString());
-  Map<Integer,NodePort> shardAssign=this.assignment(shardResourceMap,resources.shard,jobids.shardTask,"shard",this.ShardfixdMap);
-  Map<Integer,NodePort> msAssign=this.assignment(msResourceMap,resources.ms,jobids.msTask,"ms",new HashMap<Integer,String>());
-  Map<Integer,NodePort> realtimeAssign=this.assignment(realtimeResourceMap,resources.realtime,jobids.realtimeTask,"realtime",new HashMap<Integer,String>());
-  Map<Integer,NodePort> shardAssignRandom=this.randomAssign(resources.shard,jobids.shardTask);
-  Map<Integer,NodePort> msAssignRandom=this.randomAssign(resources.ms,jobids.msTask);
-  Map<Integer,NodePort> realtimeAssignRandom=this.randomAssign(resources.realtime,jobids.realtimeTask);
+  FreeResources freeResource=new FreeResources();
+  freeResource.setup(reassignSlots,this.porttype);
+  TaskNeedAssign taskNeedassign=new TaskNeedAssign();
+  taskNeedassign.setSpecialTask(reassignIds,this);
   Map<Integer,NodePort> rtn=new HashMap<Integer,NodePort>();
-  rtn.putAll(shardAssign);
-  rtn.putAll(msAssign);
-  rtn.putAll(realtimeAssign);
-  rtn.putAll(shardAssignRandom);
-  rtn.putAll(msAssignRandom);
-  rtn.putAll(realtimeAssignRandom);
+  AssignmentByHost assignByHost=new AssignmentByHost(this);
+  rtn.putAll(assignByHost.assignment(freeResource,taskNeedassign));
+  AssignmentByRandom assignByRandom=new AssignmentByRandom();
+  rtn.putAll(assignByRandom.assign(freeResource,taskNeedassign));
   NodePort tmp=null;
   for (  Entry<Integer,NodePort> e : rtn.entrySet()) {
     tmp=e.getValue();
@@ -42,7 +19,7 @@
   if (tmp == null) {
     tmp=reassignSlots.get(0);
   }
-  for (  Integer tid : jobids.otherTask) {
+  for (  Integer tid : taskNeedassign.otherTask) {
     rtn.put(tid,tmp);
   }
   return rtn;

@@ -1,0 +1,10 @@
+{
+  Map<Integer,NodePort> shardAssignRandom=this.randomAssign(resources.shard,jobids.shardTask);
+  Map<Integer,NodePort> msAssignRandom=this.randomAssign(resources.ms,jobids.msTask);
+  Map<Integer,NodePort> realtimeAssignRandom=this.randomAssign(resources.realtime,jobids.realtimeTask);
+  Map<Integer,NodePort> rtn=new HashMap<Integer,NodePort>();
+  rtn.putAll(shardAssignRandom);
+  rtn.putAll(msAssignRandom);
+  rtn.putAll(realtimeAssignRandom);
+  return rtn;
+}

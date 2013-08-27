@@ -1,0 +1,4 @@
+HostSlots[] hostFreeResource
+HashSet<NodePort> freeResource
+HashSet<Integer> jobids
+HashMap<Integer,String> fixassgin

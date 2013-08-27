@@ -1,6 +1,0 @@
-{
-  HashMap<String,ShardCount> daystat=new HashMap<String,SolrInfo.ShardCount>();
-  daystat.putAll(this.daycount);
-  daystat.putAll(this.biggest);
-  return this.topMap(daystat,true,5);
-}
