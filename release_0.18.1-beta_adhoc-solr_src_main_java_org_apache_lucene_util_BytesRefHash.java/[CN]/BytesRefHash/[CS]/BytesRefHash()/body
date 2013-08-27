@@ -1,3 +1,0 @@
-{
-  this(new ByteBlockPool(new DirectAllocator()));
-}

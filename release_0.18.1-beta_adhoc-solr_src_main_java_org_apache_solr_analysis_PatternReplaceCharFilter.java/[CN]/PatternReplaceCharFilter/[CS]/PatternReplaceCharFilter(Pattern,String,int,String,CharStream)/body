@@ -1,9 +1,0 @@
-{
-  super(in);
-  this.pattern=pattern;
-  this.replacement=replacement;
-  if (maxBlockChars < 1)   throw new IllegalArgumentException("maxBlockChars should be greater than 0, but it is " + maxBlockChars);
-  this.maxBlockChars=maxBlockChars;
-  this.blockDelimiters=blockDelimiters;
-  blockBuffer=new char[maxBlockChars];
-}

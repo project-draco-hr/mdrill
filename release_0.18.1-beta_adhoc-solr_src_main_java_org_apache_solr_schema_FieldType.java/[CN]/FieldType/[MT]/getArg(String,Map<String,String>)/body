@@ -1,7 +1,0 @@
-{
-  String s=args.remove(n);
-  if (s == null) {
-    throw new SolrException(SolrException.ErrorCode.SERVER_ERROR,"Missing parameter '" + n + "' for FieldType="+ typeName+ args);
-  }
-  return s;
-}

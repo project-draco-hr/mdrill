@@ -1,5 +1,0 @@
-{
-  super(clauses,slop,inOrder);
-  fieldName=clauses[0].getField();
-  this.function=function;
-}

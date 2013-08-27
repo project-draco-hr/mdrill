@@ -1,5 +1,0 @@
-TopGroups<T>[] shardGroups
-Sort groupSort
-Sort docSort
-int docOffset
-int docTopN

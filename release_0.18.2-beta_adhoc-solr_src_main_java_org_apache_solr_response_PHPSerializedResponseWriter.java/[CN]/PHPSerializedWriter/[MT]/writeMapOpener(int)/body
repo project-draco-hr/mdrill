@@ -1,6 +1,0 @@
-{
-  if (size < 0) {
-    throw new IllegalArgumentException("Map size must not be negative");
-  }
-  writer.write("a:" + size + ":{");
-}

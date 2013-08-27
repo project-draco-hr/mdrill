@@ -1,5 +1,0 @@
-{
-  ByteArrayOutputStream out=new ByteArrayOutputStream();
-  _kryo.writeClassAndObject(out,obj);
-  return out.toByteArray();
-}

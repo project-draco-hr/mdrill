@@ -1,4 +1,0 @@
-{
-  float boost=getBoost();
-  return (boost != 1.0 ? "(" : "") + func.toString() + (boost == 1.0 ? "" : ")^" + boost);
-}

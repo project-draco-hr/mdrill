@@ -1,8 +1,0 @@
-{
-  int len=text.length();
-  String[] res=new String[len - ng + 1];
-  for (int i=0; i < len - ng + 1; i++) {
-    res[i]=text.substring(i,i + ng);
-  }
-  return res;
-}

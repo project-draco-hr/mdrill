@@ -1,3 +1,0 @@
-{
-  return (int)(d * SCALE_FACTOR);
-}

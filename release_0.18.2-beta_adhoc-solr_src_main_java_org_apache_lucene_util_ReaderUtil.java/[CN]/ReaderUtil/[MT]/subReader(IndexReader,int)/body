@@ -1,6 +1,0 @@
-{
-  List<IndexReader> subReadersList=new ArrayList<IndexReader>();
-  ReaderUtil.gatherSubReaders(subReadersList,reader);
-  IndexReader[] subReaders=subReadersList.toArray(new IndexReader[subReadersList.size()]);
-  return subReaders[subIndex];
-}

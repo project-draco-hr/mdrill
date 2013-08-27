@@ -1,4 +1,0 @@
-{
-  super(weight,postings,similarity,norms);
-  this.slop=slop;
-}

@@ -1,3 +1,0 @@
-{
-  while (pos < end && Character.isWhitespace(val.charAt(pos)))   pos++;
-}

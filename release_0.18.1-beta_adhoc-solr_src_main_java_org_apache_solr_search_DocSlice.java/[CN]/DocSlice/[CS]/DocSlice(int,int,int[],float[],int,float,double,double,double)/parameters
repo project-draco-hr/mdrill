@@ -1,9 +1,0 @@
-int offset
-int len
-int[] docs
-float[] scores
-int matches
-float maxScore
-double sum
-double max
-double min

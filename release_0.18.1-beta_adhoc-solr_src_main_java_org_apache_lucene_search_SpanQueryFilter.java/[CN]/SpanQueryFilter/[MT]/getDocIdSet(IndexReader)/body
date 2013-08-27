@@ -1,4 +1,0 @@
-{
-  SpanFilterResult result=bitSpans(reader);
-  return result.getDocIdSet();
-}

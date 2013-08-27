@@ -1,3 +1,0 @@
-{
-  searcher.getIndexReader().decRef();
-}

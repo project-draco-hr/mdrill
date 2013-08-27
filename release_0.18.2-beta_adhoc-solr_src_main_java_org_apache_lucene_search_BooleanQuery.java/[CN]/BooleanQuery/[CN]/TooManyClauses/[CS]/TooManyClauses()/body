@@ -1,3 +1,0 @@
-{
-  super("maxClauseCount is set to " + maxClauseCount);
-}

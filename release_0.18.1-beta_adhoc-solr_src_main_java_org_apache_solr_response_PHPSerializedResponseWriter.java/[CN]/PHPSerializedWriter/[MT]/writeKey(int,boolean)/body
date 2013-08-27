@@ -1,3 +1,0 @@
-{
-  writeInt(null,String.valueOf(val));
-}

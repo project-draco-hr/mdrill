@@ -1,3 +1,0 @@
-{
-  return (properties & MULTIVALUED) != 0;
-}

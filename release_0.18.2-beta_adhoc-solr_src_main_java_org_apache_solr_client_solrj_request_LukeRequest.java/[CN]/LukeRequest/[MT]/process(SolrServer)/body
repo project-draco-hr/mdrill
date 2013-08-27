@@ -1,7 +1,0 @@
-{
-  long startTime=System.currentTimeMillis();
-  LukeResponse res=new LukeResponse();
-  res.setResponse(server.request(this));
-  res.setElapsedTime(System.currentTimeMillis() - startTime);
-  return res;
-}

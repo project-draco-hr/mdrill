@@ -1,3 +1,0 @@
-TermVectorsWriter termVectorsWriter
-TermVectorsReader matchingVectorsReader
-IndexReader reader

@@ -1,4 +1,0 @@
-{
-  if (jj_scan_token(93))   return true;
-  return false;
-}

@@ -1,6 +1,0 @@
-{
-  size++;
-  heap[size]=element;
-  upHeap();
-  return heap[1];
-}

@@ -1,3 +1,0 @@
-{
-  return getMaskedQuery().hashCode() ^ getField().hashCode() ^ Float.floatToRawIntBits(getBoost());
-}

@@ -1,3 +1,0 @@
-{
-  return results == null ? EMPTY_TOPDOCS : new TopDocs(totalHits,results);
-}

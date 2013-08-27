@@ -1,3 +1,0 @@
-{
-  this(matchVersion,input,hyphenator,(Set<?>)null,minWordSize,minSubwordSize,maxSubwordSize,false);
-}

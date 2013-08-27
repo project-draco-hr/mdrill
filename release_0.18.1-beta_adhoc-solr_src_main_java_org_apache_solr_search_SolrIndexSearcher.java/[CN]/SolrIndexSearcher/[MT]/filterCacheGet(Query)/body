@@ -1,7 +1,0 @@
-{
-  DocSet answer=filterCache.get(q);
-  if (answer != null) {
-    return answer;
-  }
-  return null;
-}

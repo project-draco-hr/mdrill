@@ -1,9 +1,0 @@
-{
-  int bytesOffset=byteOffset;
-  int block=0;
-  while (bytesOffset > 0) {
-    out.writeBytes(buffers[block++],BYTE_BLOCK_SIZE);
-    bytesOffset-=BYTE_BLOCK_SIZE;
-  }
-  out.writeBytes(buffers[block],byteUpto);
-}

@@ -1,5 +1,0 @@
-{
-  if (this.segments.last().fileMessageSet.getSizeInBytes().get() >= this.maxSegmentSize) {
-    this.roll();
-  }
-}

@@ -1,9 +1,0 @@
-{
-  StringWriter str=new StringWriter();
-  try {
-    writeXML(doc,str);
-  }
- catch (  Exception ex) {
-  }
-  return str.toString();
-}

@@ -1,5 +1,0 @@
-Token token
-List<Token> shingle
-int currentPermutationStartOffset
-List<Row> currentPermutationRows
-List<Token> currentPermuationTokens

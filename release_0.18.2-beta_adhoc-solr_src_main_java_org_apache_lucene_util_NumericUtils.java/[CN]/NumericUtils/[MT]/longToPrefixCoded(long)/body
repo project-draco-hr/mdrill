@@ -1,3 +1,0 @@
-{
-  return longToPrefixCoded(val,0);
-}

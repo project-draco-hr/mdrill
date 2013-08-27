@@ -1,7 +1,0 @@
-{
-  this.out_fields=_out_fields;
-  this.thrift_grouping=_thrift_grouping;
-  this.num_tasks=_num_tasks;
-  this.fields=Thrift.groupingType(thrift_grouping);
-  this.grouptype=this.parseGroupType();
-}

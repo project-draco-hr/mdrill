@@ -1,3 +1,0 @@
-{
-  return (fieldNumber >= 0) ? byNumber.get(fieldNumber) : null;
-}

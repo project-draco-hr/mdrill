@@ -1,7 +1,0 @@
-{
-  if (endsWith(text,length,"kah") || endsWith(text,length,"lah") || endsWith(text,length,"pun")) {
-    numSyllables--;
-    return length - 3;
-  }
-  return length;
-}

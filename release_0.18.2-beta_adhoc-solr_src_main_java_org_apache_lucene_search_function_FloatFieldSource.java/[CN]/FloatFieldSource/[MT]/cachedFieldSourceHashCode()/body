@@ -1,3 +1,0 @@
-{
-  return parser == null ? Float.class.hashCode() : parser.getClass().hashCode();
-}

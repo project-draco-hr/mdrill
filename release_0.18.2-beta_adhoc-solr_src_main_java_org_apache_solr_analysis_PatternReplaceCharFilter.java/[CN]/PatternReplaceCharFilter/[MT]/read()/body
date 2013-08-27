@@ -1,6 +1,0 @@
-{
-  while (prepareReplaceBlock()) {
-    return replaceBlockBuffer.charAt(replaceBlockBufferOffset++);
-  }
-  return -1;
-}

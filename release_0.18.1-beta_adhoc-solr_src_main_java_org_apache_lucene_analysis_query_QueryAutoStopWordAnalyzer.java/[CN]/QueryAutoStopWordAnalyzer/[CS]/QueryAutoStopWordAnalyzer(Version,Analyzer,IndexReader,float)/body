@@ -1,3 +1,0 @@
-{
-  this(matchVersion,delegate,indexReader,indexReader.getFieldNames(IndexReader.FieldOption.INDEXED),maxPercentDocs);
-}

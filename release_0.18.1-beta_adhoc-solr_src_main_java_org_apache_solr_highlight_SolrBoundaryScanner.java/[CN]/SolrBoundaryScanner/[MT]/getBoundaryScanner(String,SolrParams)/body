@@ -1,7 +1,0 @@
-{
-  numRequests++;
-  if (defaults != null) {
-    params=new DefaultSolrParams(params,defaults);
-  }
-  return get(fieldName,params);
-}

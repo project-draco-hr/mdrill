@@ -1,4 +1,0 @@
-{
-  ensureOpen();
-  readerFinishedListeners.add(listener);
-}

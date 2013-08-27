@@ -1,3 +1,0 @@
-{
-  return toBase64String(toObject(f));
-}

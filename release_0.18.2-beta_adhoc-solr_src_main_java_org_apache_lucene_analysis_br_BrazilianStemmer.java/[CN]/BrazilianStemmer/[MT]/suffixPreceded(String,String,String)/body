@@ -1,6 +1,0 @@
-{
-  if ((value == null) || (suffix == null) || (preceded == null)|| !suffix(value,suffix)) {
-    return false;
-  }
-  return suffix(removeSuffix(value,suffix),preceded);
-}

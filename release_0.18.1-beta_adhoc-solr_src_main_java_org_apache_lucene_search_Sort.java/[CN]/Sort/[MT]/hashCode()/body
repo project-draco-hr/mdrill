@@ -1,3 +1,0 @@
-{
-  return 0x45aaf665 + Arrays.hashCode(fields);
-}

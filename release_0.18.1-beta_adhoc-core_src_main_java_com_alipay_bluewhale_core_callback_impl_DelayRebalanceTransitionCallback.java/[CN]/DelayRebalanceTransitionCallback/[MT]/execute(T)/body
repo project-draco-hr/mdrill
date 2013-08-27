@@ -1,5 +1,0 @@
-{
-  LOG.info("Delaying event " + oldStatus.getStatusType().getStatus() + " for "+ oldStatus.getDelaySecs()+ " secs for "+ topologyid);
-  data.getScheduExec().schedule(new DelayEventRunnable(data,topologyid,StatusType.do_rebalance),oldStatus.getDelaySecs(),TimeUnit.SECONDS);
-  return null;
-}

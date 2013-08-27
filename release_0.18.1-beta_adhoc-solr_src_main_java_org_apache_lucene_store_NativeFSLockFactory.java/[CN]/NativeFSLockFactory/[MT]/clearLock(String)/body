@@ -1,9 +1,0 @@
-{
-  if (lockDir.exists()) {
-    makeLock(lockName).release();
-    if (lockPrefix != null) {
-      lockName=lockPrefix + "-" + lockName;
-    }
-    new File(lockDir,lockName).delete();
-  }
-}

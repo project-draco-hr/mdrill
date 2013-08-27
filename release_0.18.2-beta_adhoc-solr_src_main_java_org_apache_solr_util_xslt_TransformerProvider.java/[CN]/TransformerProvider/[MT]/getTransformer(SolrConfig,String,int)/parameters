@@ -1,3 +1,0 @@
-SolrConfig solrConfig
-String filename
-int cacheLifetimeSeconds

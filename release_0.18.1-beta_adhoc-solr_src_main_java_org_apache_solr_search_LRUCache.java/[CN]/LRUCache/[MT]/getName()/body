@@ -1,3 +1,0 @@
-{
-  return LRUCache.class.getName();
-}

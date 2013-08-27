@@ -1,3 +1,0 @@
-{
-  return NonUpdateHandler.class.getName();
-}

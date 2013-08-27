@@ -1,4 +1,0 @@
-{
-  this(key);
-  this.arguments=args;
-}

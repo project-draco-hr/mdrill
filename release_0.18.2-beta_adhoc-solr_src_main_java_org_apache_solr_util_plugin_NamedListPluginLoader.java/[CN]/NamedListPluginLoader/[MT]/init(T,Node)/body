@@ -1,3 +1,0 @@
-{
-  plugin.init(DOMUtil.childNodesToNamedList(node));
-}

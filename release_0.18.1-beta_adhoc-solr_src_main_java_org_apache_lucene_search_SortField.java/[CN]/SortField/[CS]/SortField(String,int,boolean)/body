@@ -1,4 +1,0 @@
-{
-  initFieldType(field,type);
-  this.reverse=reverse;
-}

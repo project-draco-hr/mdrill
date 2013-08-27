@@ -1,4 +1,0 @@
-{
-  SchemaField keyField=keyFieldName == null ? schema.getUniqueKeyField() : schema.getField(keyFieldName);
-  return new FileFloatSource(field,keyField,defVal,parser);
-}

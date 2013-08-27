@@ -1,6 +1,0 @@
-{
-  this.main=main;
-  digest=new CRC32();
-  this.directory=directory;
-  this.filename=filename;
-}

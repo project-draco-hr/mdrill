@@ -1,9 +1,0 @@
-{
-  String ret=conf.get(Config.STORM_LOCAL_DIR) + "/nimbus";
-  try {
-    FileUtils.forceMkdir(new File(ret));
-  }
- catch (  IOException e) {
-  }
-  return ret;
-}

@@ -1,3 +1,0 @@
-{
-  return new ConjunctionScorer(weight,disableCoord ? 1.0f : similarity.coord(2,2),new Scorer[]{req1,req2});
-}

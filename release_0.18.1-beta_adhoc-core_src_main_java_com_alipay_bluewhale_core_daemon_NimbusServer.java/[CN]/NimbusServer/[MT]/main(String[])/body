@@ -1,4 +1,0 @@
-{
-  @SuppressWarnings("rawtypes") Map config=Utils.readStormConfig();
-  launch_server(config);
-}

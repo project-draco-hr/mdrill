@@ -1,3 +1,0 @@
-{
-  return directGrouping(componentId,Utils.DEFAULT_STREAM_ID);
-}

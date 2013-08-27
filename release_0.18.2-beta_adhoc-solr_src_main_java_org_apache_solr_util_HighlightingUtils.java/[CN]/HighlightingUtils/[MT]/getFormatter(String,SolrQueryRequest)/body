@@ -1,3 +1,0 @@
-{
-  return HIGHLIGHTER.getFormatterX(fieldName,request);
-}

@@ -1,6 +1,0 @@
-{
-  this.req=req;
-  this.searcher=req.getSearcher();
-  this.docs=docs;
-  this.params=params;
-}

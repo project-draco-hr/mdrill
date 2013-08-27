@@ -1,8 +1,0 @@
-{
-  startn=new int[maxParen];
-  endn=new int[maxParen];
-  for (int i=0; i < maxParen; i++) {
-    startn[i]=-1;
-    endn[i]=-1;
-  }
-}

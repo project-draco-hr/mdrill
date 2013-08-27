@@ -1,7 +1,0 @@
-{
-  toLog.add("rollback","");
-  if (logDebug) {
-    log.debug("rollback");
-  }
-  if (next != null)   next.processRollback(cmd);
-}

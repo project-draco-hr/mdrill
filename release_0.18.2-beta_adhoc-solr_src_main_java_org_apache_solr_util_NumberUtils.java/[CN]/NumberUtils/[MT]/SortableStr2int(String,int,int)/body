@@ -1,7 +1,0 @@
-{
-  int val=sval.charAt(offset++) << 24;
-  val|=sval.charAt(offset++) << 12;
-  val|=sval.charAt(offset++);
-  val-=Integer.MIN_VALUE;
-  return val;
-}

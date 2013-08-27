@@ -1,6 +1,0 @@
-{
-  List<TermPositions> termPositions=new LinkedList<TermPositions>();
-  for (int i=0; i < terms.length; i++)   termPositions.add(indexReader.termPositions(terms[i]));
-  _termPositionsQueue=new TermPositionsQueue(termPositions);
-  _posList=new IntQueue();
-}

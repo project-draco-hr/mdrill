@@ -1,4 +1,0 @@
-JSONObject jsonObj
-QueryResponse qr
-ArrayList<String> showFields
-HigoJoinParams[] joins

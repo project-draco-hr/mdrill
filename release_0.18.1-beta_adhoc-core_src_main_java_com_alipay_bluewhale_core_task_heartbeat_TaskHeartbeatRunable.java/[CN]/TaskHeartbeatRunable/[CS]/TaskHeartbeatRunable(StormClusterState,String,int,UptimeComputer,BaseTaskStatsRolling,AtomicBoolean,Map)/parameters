@@ -1,7 +1,0 @@
-StormClusterState zkCluster
-String _storm_id
-int _task_id
-UptimeComputer _uptime
-BaseTaskStatsRolling _task_stats
-AtomicBoolean _active
-Map _storm_conf

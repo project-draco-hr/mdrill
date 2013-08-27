@@ -1,3 +1,0 @@
-{
-  return parseLatitudeLongitude(null,latLonStr);
-}

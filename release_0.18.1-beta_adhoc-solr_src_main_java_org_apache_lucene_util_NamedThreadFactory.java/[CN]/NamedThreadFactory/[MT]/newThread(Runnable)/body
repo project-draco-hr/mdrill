@@ -1,6 +1,0 @@
-{
-  final Thread t=new Thread(group,r,String.format("%s-%d",this.threadNamePrefix,threadNumber.getAndIncrement()),0);
-  t.setDaemon(false);
-  t.setPriority(Thread.NORM_PRIORITY);
-  return t;
-}

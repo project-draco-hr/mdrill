@@ -1,7 +1,0 @@
-{
-  this.skipInterval=skipInterval;
-  numberOfSkipLevels=df == 0 ? 0 : (int)Math.floor(Math.log(df) / Math.log(skipInterval));
-  if (numberOfSkipLevels > maxSkipLevels) {
-    numberOfSkipLevels=maxSkipLevels;
-  }
-}

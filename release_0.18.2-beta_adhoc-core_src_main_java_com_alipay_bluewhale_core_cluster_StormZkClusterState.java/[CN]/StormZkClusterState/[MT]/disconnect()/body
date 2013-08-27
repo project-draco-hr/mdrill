@@ -1,6 +1,0 @@
-{
-  cluster_state.unregister(state_id);
-  if (solo == true) {
-    cluster_state.close();
-  }
-}

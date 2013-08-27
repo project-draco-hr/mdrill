@@ -1,4 +1,0 @@
-{
-  super(source,input);
-  termAtt.resizeBuffer(bufferSize);
-}

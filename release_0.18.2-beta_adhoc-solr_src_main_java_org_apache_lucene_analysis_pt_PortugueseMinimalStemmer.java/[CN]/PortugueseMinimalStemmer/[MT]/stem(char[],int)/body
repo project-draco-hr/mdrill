@@ -1,3 +1,0 @@
-{
-  return pluralStep.apply(s,len);
-}

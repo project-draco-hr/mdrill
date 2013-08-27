@@ -1,4 +1,0 @@
-{
-  Fieldable f=createField(field,externalVal,boost);
-  return f == null ? new Fieldable[]{} : new Fieldable[]{f};
-}

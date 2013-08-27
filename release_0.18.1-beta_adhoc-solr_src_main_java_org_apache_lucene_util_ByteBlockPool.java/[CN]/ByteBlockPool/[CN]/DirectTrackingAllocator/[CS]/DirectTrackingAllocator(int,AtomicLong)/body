@@ -1,4 +1,0 @@
-{
-  super(blockSize);
-  this.bytesUsed=bytesUsed;
-}

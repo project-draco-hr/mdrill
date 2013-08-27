@@ -1,4 +1,0 @@
-{
-  this.buffer=new int[0];
-  this.pos=0;
-}

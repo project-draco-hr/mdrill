@@ -1,4 +1,0 @@
-{
-  this.consumer=consumer;
-  this.endConsumer=endConsumer;
-}

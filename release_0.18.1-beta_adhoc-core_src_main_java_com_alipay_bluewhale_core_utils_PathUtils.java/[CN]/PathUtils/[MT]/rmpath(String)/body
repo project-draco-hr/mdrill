@@ -1,7 +1,0 @@
-{
-  LOG.debug("Removing path " + path);
-  boolean isdelete=(new File(path)).delete();
-  if (!isdelete) {
-    throw new RuntimeException("Failed to delete " + path);
-  }
-}

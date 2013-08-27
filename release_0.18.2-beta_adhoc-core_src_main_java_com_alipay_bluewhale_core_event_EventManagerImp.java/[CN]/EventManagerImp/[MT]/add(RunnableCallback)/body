@@ -1,7 +1,0 @@
-{
-  if (!this.isRunning()) {
-    throw new RuntimeException("Cannot add events to a shutdown event manager");
-  }
-  added.incrementAndGet();
-  queue.add(event_fn);
-}

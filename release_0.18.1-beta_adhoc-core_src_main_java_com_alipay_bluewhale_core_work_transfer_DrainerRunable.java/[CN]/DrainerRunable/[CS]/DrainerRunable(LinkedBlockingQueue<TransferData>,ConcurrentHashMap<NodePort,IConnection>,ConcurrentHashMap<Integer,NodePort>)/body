@@ -1,5 +1,0 @@
-{
-  this.transferQueue=transfer_queue;
-  this.nodeportSocket=node_port__socket;
-  this.taskNodeport=task__node_port;
-}

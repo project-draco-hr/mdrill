@@ -1,3 +1,0 @@
-{
-  return emitted.hashCode() + transferred.hashCode();
-}

@@ -1,4 +1,0 @@
-{
-  this.set(TermsParams.TERMS_PREFIX_STR,prefix);
-  return this;
-}

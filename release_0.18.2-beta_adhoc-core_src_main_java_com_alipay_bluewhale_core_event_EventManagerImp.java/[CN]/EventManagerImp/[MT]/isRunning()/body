@@ -1,3 +1,0 @@
-{
-  return isrunning.get();
-}

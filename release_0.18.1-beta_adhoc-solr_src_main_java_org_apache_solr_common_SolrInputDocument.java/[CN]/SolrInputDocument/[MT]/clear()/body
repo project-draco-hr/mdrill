@@ -1,5 +1,0 @@
-{
-  if (_fields != null) {
-    _fields.clear();
-  }
-}

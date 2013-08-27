@@ -1,9 +1,0 @@
-{
-  if (pos <= scratch.length) {
-    return new SortedIntDocSet(scratch,pos);
-  }
- else {
-    for (int i=0; i < scratch.length; i++)     bits.fastSet(scratch[i]);
-    return new BitDocSet(bits,pos);
-  }
-}

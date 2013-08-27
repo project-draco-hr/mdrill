@@ -1,8 +1,0 @@
-{
-  if (spans1.doc() == spans2.doc()) {
-    return NearSpansOrdered.docSpansOrdered(spans1,spans2);
-  }
- else {
-    return spans1.doc() < spans2.doc();
-  }
-}

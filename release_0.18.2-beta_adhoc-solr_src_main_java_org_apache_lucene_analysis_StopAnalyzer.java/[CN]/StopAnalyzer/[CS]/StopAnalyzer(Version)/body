@@ -1,3 +1,0 @@
-{
-  this(matchVersion,ENGLISH_STOP_WORDS_SET);
-}

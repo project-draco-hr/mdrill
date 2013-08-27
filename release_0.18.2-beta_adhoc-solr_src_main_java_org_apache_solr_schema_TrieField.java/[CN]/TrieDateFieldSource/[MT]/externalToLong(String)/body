@@ -1,3 +1,0 @@
-{
-  return TrieField.dateField.parseMath(null,extVal).getTime();
-}

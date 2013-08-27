@@ -1,7 +1,0 @@
-{
-  int len=0;
-  for (int i=start; i < a.length && a[i] != 0; i++) {
-    len++;
-  }
-  return len;
-}

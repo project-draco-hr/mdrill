@@ -1,7 +1,0 @@
-{
-  double[] vals1=new double[source1.dimension()];
-  double[] vals2=new double[source1.dimension()];
-  dv1.doubleVal(doc,vals1);
-  dv2.doubleVal(doc,vals2);
-  return DistanceUtils.squaredEuclideanDistance(vals1,vals2);
-}

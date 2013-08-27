@@ -1,3 +1,0 @@
-FieldsWriter fieldsWriter
-IndexReader reader
-FieldsReader matchingFieldsReader

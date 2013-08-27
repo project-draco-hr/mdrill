@@ -1,3 +1,0 @@
-{
-  Arrays.sort(_array,_index,_lastIndex);
-}

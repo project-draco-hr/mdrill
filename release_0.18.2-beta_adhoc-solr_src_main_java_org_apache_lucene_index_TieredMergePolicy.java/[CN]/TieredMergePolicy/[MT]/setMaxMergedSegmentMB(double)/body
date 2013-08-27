@@ -1,4 +1,0 @@
-{
-  maxMergedSegmentBytes=(long)(v * 1024 * 1024);
-  return this;
-}

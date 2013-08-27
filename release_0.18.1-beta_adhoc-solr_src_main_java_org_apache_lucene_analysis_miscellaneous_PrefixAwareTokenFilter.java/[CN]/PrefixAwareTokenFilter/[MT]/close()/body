@@ -1,4 +1,0 @@
-{
-  prefix.close();
-  suffix.close();
-}

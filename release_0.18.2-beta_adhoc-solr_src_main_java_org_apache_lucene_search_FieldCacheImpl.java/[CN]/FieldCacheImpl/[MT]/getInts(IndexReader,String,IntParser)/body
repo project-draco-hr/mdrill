@@ -1,3 +1,0 @@
-{
-  return getInts(reader,field,parser,false);
-}

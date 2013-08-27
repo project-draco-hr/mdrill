@@ -1,3 +1,0 @@
-{
-  return String.format("%.4fms",ns / (double)1000000);
-}

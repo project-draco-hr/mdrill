@@ -1,9 +1,0 @@
-{
-  if (root < size && subScorers[root].docID() == doc) {
-    float sub=subScorers[root].score();
-    scoreSum+=sub;
-    scoreMax=Math.max(scoreMax,sub);
-    scoreAll((root << 1) + 1,size,doc);
-    scoreAll((root << 1) + 2,size,doc);
-  }
-}

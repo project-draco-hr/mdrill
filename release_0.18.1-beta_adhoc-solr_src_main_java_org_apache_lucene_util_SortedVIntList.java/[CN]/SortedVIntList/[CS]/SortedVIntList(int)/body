@@ -1,3 +1,0 @@
-{
-  this(sortedInts,sortedInts.length);
-}

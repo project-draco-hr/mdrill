@@ -1,3 +1,0 @@
-{
-  return (Map<Integer,List<List<Object>>>)RegisteredGlobalState.getState(_id);
-}

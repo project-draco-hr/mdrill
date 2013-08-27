@@ -1,4 +1,0 @@
-int sortIndex
-int offset
-int selfOffset
-String field

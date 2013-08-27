@@ -1,4 +1,0 @@
-{
-  this.typeNum=typeNum;
-  this.typeEnum=typeEnum;
-}

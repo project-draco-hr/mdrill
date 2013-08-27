@@ -1,5 +1,0 @@
-{
-  String value=parseArg();
-  if (argWasQuoted)   throw new ParseException("Expected identifier instead of quoted string:" + value);
-  return value;
-}

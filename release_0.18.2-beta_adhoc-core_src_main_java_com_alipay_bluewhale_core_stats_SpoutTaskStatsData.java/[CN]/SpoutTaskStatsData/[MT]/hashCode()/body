@@ -1,3 +1,0 @@
-{
-  return common.hashCode() + acked.hashCode() + failed.hashCode()+ complete_latencies.hashCode();
-}

@@ -1,3 +1,0 @@
-{
-  return super.isTokenChar(c) || Character.getType(c) == Character.NON_SPACING_MARK;
-}

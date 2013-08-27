@@ -1,4 +1,0 @@
-{
-  this.needMaxScore=needMaxScore;
-  return this;
-}

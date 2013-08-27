@@ -1,3 +1,0 @@
-{
-  defaultNumReturnValues=(num < 0) ? -1 : num;
-}

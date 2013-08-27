@@ -1,8 +1,0 @@
-{
-  Trash t=new Trash(conf);
-  boolean isMoved=t.moveToTrash(path);
-  t.expunge();
-  if (!isMoved) {
-    logger.error("Trash is not enabled or file is already in the trash.");
-  }
-}

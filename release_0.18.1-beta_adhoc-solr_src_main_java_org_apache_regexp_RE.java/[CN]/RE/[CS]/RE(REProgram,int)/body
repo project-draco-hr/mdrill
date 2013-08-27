@@ -1,4 +1,0 @@
-{
-  setProgram(program);
-  setMatchFlags(matchFlags);
-}

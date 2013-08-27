@@ -1,3 +1,0 @@
-{
-  return newShortRange(field,null,lowerVal,upperVal,includeLower,includeUpper);
-}

@@ -1,3 +1,0 @@
-{
-  res.sendError(404,"Can not find: " + req.getRequestURI());
-}

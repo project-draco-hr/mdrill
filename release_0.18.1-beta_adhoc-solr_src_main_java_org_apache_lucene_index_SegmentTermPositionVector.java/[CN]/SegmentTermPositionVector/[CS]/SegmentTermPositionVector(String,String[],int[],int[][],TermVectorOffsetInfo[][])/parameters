@@ -1,5 +1,0 @@
-String field
-String terms[]
-int termFreqs[]
-int[][] positions
-TermVectorOffsetInfo[][] offsets

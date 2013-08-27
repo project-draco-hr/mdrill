@@ -1,4 +1,0 @@
-{
-  this.dir_location=dir_location;
-  this.seconds=inbox_jar_expiration_secs;
-}

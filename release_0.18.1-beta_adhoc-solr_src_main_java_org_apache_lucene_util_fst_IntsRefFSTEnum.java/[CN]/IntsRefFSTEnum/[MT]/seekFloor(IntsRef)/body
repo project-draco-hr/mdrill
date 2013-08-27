@@ -1,6 +1,0 @@
-{
-  this.target=target;
-  targetLength=target.length;
-  super.doSeekFloor();
-  return setResult();
-}

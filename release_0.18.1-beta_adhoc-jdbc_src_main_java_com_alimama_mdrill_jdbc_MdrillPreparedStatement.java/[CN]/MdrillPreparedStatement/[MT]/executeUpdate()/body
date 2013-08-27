@@ -1,4 +1,0 @@
-{
-  executeImmediate(sql);
-  return updateCount;
-}

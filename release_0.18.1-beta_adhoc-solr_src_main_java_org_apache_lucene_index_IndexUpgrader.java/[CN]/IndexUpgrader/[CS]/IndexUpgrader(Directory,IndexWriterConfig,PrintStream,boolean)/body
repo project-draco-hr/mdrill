@@ -1,6 +1,0 @@
-{
-  this.dir=dir;
-  this.iwc=iwc;
-  this.infoStream=infoStream;
-  this.deletePriorCommits=deletePriorCommits;
-}

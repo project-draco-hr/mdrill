@@ -1,3 +1,0 @@
-{
-  return params.getFieldInt(fieldName,HighlightParams.SNIPPETS,1);
-}

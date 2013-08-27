@@ -1,3 +1,0 @@
-ArrayList<String> showFields
-HashSet<String> realFieldMap
-HashSet<String> realDistFieldMap

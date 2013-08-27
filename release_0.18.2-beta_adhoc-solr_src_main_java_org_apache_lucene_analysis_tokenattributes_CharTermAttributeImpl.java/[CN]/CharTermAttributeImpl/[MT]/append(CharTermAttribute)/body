@@ -1,7 +1,0 @@
-{
-  if (ta == null)   return appendNull();
-  final int len=ta.length();
-  System.arraycopy(ta.buffer(),0,resizeBuffer(termLength + len),termLength,len);
-  termLength+=len;
-  return this;
-}

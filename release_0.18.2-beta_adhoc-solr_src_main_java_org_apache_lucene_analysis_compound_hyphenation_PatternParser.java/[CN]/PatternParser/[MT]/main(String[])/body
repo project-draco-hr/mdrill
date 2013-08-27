@@ -1,7 +1,0 @@
-{
-  if (args.length > 0) {
-    PatternParser pp=new PatternParser();
-    pp.setConsumer(pp);
-    pp.parse(args[0]);
-  }
-}

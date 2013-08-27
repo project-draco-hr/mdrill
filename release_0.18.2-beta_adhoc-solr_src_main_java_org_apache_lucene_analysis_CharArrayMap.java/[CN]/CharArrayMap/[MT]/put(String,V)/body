@@ -1,3 +1,0 @@
-{
-  return put(text.toCharArray(),value);
-}

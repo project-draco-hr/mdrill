@@ -1,7 +1,0 @@
-FastVectorHighlighter highlighter
-FieldQuery fieldQuery
-SolrQueryRequest req
-NamedList docSummaries
-int docId
-Document doc
-String fieldName

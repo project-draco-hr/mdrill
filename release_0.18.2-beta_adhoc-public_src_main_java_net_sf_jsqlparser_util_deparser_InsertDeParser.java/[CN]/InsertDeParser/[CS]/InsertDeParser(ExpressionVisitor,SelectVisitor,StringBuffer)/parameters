@@ -1,3 +1,0 @@
-ExpressionVisitor expressionVisitor
-SelectVisitor selectVisitor
-StringBuffer buffer

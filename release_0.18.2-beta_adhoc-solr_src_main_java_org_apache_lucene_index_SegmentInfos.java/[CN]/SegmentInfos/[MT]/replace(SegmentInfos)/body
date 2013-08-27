@@ -1,4 +1,0 @@
-{
-  rollbackSegmentInfos(other.asList());
-  lastGeneration=other.lastGeneration;
-}

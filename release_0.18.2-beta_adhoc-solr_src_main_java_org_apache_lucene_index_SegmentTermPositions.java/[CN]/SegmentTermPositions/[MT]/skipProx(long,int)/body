@@ -1,7 +1,0 @@
-{
-  lazySkipPointer=proxPointer;
-  lazySkipProxCount=0;
-  proxCount=0;
-  this.payloadLength=payloadLength;
-  needToLoadPayload=false;
-}

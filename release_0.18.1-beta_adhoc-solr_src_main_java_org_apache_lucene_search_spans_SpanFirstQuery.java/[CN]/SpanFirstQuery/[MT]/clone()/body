@@ -1,5 +1,0 @@
-{
-  SpanFirstQuery spanFirstQuery=new SpanFirstQuery((SpanQuery)match.clone(),end);
-  spanFirstQuery.setBoost(getBoost());
-  return spanFirstQuery;
-}

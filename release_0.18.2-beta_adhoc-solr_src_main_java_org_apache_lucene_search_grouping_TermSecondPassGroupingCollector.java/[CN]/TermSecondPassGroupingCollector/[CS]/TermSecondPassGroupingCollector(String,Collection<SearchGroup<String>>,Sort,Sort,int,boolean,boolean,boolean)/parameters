@@ -1,8 +1,0 @@
-String groupField
-Collection<SearchGroup<String>> groups
-Sort groupSort
-Sort withinGroupSort
-int maxDocsPerGroup
-boolean getScores
-boolean getMaxScores
-boolean fillSortFields

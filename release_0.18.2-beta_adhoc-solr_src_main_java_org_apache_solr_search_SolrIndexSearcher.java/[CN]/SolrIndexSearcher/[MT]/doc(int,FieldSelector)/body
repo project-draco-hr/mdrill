@@ -1,3 +1,0 @@
-{
-  return getIndexReader().document(n,fieldSelector);
-}

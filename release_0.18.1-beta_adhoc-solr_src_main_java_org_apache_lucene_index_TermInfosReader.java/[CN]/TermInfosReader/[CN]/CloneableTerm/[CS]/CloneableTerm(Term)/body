@@ -1,3 +1,0 @@
-{
-  this.term=new Term(t.field(),t.text());
-}

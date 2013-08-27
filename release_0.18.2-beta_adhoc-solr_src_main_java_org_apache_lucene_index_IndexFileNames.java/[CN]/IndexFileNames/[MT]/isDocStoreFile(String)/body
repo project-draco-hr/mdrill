@@ -1,7 +1,0 @@
-{
-  if (fileName.endsWith(COMPOUND_FILE_STORE_EXTENSION))   return true;
-  for (  String ext : STORE_INDEX_EXTENSIONS) {
-    if (fileName.endsWith(ext))     return true;
-  }
-  return false;
-}

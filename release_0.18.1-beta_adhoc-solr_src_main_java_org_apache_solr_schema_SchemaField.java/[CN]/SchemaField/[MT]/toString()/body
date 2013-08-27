@@ -1,3 +1,0 @@
-{
-  return name + "{type=" + type.getTypeName()+ ((defaultValue == null) ? "" : (",default=" + defaultValue))+ ",properties="+ propertiesToString(properties)+ (required ? ", required=true" : "")+ "}";
-}

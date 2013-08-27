@@ -1,3 +1,0 @@
-{
-  values[index]=(short)(value & 0xFFFF);
-}

@@ -1,3 +1,0 @@
-{
-  return new loader(arg0,arg1);
-}

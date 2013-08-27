@@ -1,6 +1,0 @@
-{
-  if (!(other instanceof BitDocSet)) {
-    return other.intersectionSize(this);
-  }
-  return intersection(other).size();
-}

@@ -1,3 +1,0 @@
-{
-  ReaderUtil.gatherSubReaders(readers,reader);
-}

@@ -1,5 +1,0 @@
-{
-  super(reqScorer.weight);
-  this.reqScorer=reqScorer;
-  this.exclDisi=exclDisi;
-}

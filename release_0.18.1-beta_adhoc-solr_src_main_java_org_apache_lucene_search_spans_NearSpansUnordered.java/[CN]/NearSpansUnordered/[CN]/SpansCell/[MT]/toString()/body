@@ -1,3 +1,0 @@
-{
-  return spans.toString() + "#" + index;
-}

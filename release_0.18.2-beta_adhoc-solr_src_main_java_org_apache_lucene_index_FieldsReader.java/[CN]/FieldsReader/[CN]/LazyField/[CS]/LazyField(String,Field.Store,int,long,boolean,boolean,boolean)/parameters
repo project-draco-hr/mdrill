@@ -1,7 +1,0 @@
-String name
-Field.Store store
-int toRead
-long pointer
-boolean isBinary
-boolean isCompressed
-boolean cacheResult

@@ -1,4 +1,0 @@
-Socket socket
-Integer virtual_port
-byte[] message
-int flags

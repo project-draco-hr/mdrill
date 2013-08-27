@@ -1,6 +1,0 @@
-{
-  LOG.debug("clean id " + id + " @ "+ (System.currentTimeMillis()));
-  idtoSem.remove(id);
-  idtoResult.remove(id);
-  idtoStart.remove(id);
-}

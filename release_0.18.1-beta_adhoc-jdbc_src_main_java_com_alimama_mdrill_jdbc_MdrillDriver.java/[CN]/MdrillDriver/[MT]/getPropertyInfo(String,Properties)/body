@@ -1,6 +1,0 @@
-{
-  DriverPropertyInfo infoProp=new DriverPropertyInfo("url",url);
-  DriverPropertyInfo[] dpi=new DriverPropertyInfo[1];
-  dpi[0]=infoProp;
-  return dpi;
-}

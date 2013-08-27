@@ -1,8 +1,0 @@
-SchemaField field
-Sort groupSort
-Sort sortWithinGroup
-Collection<SearchGroup<String>> firstPhaseGroups
-int maxDocPerGroup
-boolean needScores
-boolean needMaxScore
-boolean needGroupCount

@@ -1,6 +1,0 @@
-{
-  for (  final byte[] thePayload : payLoads) {
-    payloadScore=function.currentScore(doc,fieldName,start,end,payloadsSeen,payloadScore,similarity.scorePayload(doc,fieldName,spans.start(),spans.end(),thePayload,0,thePayload.length));
-    ++payloadsSeen;
-  }
-}

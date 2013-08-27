@@ -1,7 +1,0 @@
-{
-  buffer.setLength(0);
-  buffer.append(termAttribute.buffer(),0,termAttribute.length());
-  buffer.append(SEPARATOR);
-  lastStartOffset=offsetAttribute.startOffset();
-  lastWasCommon=isCommon();
-}

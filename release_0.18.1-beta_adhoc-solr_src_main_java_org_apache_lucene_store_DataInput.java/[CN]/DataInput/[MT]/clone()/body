@@ -1,9 +1,0 @@
-{
-  DataInput clone=null;
-  try {
-    clone=(DataInput)super.clone();
-  }
- catch (  CloneNotSupportedException e) {
-  }
-  return clone;
-}

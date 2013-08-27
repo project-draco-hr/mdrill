@@ -1,6 +1,0 @@
-{
-  if (m_dbmd == null) {
-    m_dbmd=getConn().getMetaData();
-  }
-  return m_dbmd;
-}

@@ -1,7 +1,0 @@
-{
-  long startTime=System.currentTimeMillis();
-  DocumentAnalysisResponse res=new DocumentAnalysisResponse();
-  res.setResponse(server.request(this));
-  res.setElapsedTime(System.currentTimeMillis() - startTime);
-  return res;
-}

@@ -1,3 +1,0 @@
-{
-  type.write(writer,name,val);
-}

@@ -1,3 +1,0 @@
-{
-  return (char)((readUnsignedByte() << 8) | readUnsignedByte());
-}

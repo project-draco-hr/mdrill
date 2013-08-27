@@ -1,3 +1,0 @@
-{
-  return TaskSpecificStats.bolt(new BoltStats(get_acked(),get_fail(),get_process_latencies()));
-}

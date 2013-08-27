@@ -1,7 +1,0 @@
-{
-  CoreAdminRequest req=new CoreAdminRequest();
-  req.setCoreName(coreName);
-  req.setOtherCoreName(newName);
-  req.setAction(CoreAdminAction.ALIAS);
-  return req.process(server);
-}

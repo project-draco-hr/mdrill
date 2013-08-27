@@ -1,4 +1,0 @@
-{
-  this.run();
-  return null;
-}

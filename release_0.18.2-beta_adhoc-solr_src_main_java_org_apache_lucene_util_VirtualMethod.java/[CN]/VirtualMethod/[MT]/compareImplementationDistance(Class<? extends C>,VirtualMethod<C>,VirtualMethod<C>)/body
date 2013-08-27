@@ -1,3 +1,0 @@
-{
-  return Integer.valueOf(m1.getImplementationDistance(clazz)).compareTo(m2.getImplementationDistance(clazz));
-}

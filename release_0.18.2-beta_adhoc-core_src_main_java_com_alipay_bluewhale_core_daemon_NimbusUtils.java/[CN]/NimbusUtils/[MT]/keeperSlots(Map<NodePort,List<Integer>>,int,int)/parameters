@@ -1,3 +1,0 @@
-Map<NodePort,List<Integer>> aliveAssigned
-int numTaskIds
-int numWorkers

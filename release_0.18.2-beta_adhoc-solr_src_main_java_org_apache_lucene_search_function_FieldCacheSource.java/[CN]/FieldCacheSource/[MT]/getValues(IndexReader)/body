@@ -1,3 +1,0 @@
-{
-  return getCachedFieldValues(FieldCache.DEFAULT,field,reader);
-}

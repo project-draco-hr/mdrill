@@ -1,3 +1,0 @@
-{
-  return params.getFieldBool(field,param,def);
-}

@@ -1,3 +1,0 @@
-{
-  updateDocuments(delTerm,docs,analyzer);
-}

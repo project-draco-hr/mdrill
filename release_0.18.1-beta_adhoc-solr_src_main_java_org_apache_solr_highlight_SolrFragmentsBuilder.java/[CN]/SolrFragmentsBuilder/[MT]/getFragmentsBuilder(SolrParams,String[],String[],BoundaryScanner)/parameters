@@ -1,4 +1,0 @@
-SolrParams params
-String[] preTags
-String[] postTags
-BoundaryScanner bs

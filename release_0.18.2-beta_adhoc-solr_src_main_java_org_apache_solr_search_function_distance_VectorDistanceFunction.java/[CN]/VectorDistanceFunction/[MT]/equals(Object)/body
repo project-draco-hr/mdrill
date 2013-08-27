@@ -1,9 +1,0 @@
-{
-  if (this == o)   return true;
-  if (!(o instanceof VectorDistanceFunction))   return false;
-  VectorDistanceFunction that=(VectorDistanceFunction)o;
-  if (Float.compare(that.power,power) != 0)   return false;
-  if (!source1.equals(that.source1))   return false;
-  if (!source2.equals(that.source2))   return false;
-  return true;
-}

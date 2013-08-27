@@ -1,3 +1,0 @@
-{
-  return "SolrInputDocument[" + _fields + "]";
-}

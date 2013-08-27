@@ -1,3 +1,0 @@
-{
-  setBaseline(clock.get());
-}

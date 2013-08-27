@@ -1,4 +1,0 @@
-{
-  GlobalStreamId key=new GlobalStreamId(component,stream);
-  update_task_stat(stats,StormUtils.mk_arr("failed"),key,stats_rate(stats));
-}

@@ -1,3 +1,0 @@
-{
-  return output1.hashCode() + output2.hashCode();
-}

@@ -1,4 +1,0 @@
-{
-  super("prepareCommit() failed on " + obj);
-  initCause(cause);
-}

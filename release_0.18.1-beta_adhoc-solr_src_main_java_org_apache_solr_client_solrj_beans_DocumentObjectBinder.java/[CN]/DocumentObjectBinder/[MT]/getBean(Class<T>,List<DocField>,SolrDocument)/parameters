@@ -1,3 +1,0 @@
-Class<T> clazz
-List<DocField> fields
-SolrDocument solrDoc

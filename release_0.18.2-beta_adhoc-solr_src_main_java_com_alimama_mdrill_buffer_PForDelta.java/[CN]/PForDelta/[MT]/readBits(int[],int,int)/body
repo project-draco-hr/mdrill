@@ -1,9 +1,0 @@
-{
-  final int index=inOffset >>> 5;
-  final int skip=inOffset & 0x1f;
-  int val=in[index] >>> skip;
-  if (32 - skip < bits) {
-    val|=(in[index + 1] << (32 - skip));
-  }
-  return val & (0xffffffff >>> (32 - bits));
-}

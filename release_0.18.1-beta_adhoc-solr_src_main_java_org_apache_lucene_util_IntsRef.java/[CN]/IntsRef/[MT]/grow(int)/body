@@ -1,5 +1,0 @@
-{
-  if (ints.length < newLength) {
-    ints=ArrayUtil.grow(ints,newLength);
-  }
-}

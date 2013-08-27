@@ -1,7 +1,0 @@
-{
-  if (o == this)   return true;
-  if (o == null)   return false;
-  if (o.getClass() != ReverseOrdFieldSource.class)   return false;
-  ReverseOrdFieldSource other=(ReverseOrdFieldSource)o;
-  return this.field.equals(other.field);
-}

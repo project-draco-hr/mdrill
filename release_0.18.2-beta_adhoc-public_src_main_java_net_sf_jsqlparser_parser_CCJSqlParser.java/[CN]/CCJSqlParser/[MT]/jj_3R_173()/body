@@ -1,4 +1,0 @@
-{
-  if (jj_scan_token(K_RIGHT))   return true;
-  return false;
-}

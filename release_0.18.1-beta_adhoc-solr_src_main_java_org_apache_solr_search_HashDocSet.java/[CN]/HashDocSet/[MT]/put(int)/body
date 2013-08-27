@@ -1,7 +1,0 @@
-{
-  int s=doc & mask;
-  while (table[s] != EMPTY) {
-    s=(s + ((doc >> 7) | 1)) & mask;
-  }
-  table[s]=doc;
-}

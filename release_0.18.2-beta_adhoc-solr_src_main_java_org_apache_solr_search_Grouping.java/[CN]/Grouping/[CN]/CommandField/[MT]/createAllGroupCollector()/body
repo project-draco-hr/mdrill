@@ -1,4 +1,0 @@
-{
-  Sort sortWithinGroup=groupSort != null ? groupSort : new Sort();
-  return TermAllGroupHeadsCollector.create(groupBy,sortWithinGroup);
-}

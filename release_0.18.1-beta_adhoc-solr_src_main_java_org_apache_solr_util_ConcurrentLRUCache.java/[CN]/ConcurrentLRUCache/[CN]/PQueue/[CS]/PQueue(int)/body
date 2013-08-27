@@ -1,5 +1,0 @@
-{
-  super.initialize(maxSz);
-  heap=getHeapArray();
-  myMaxSize=maxSz;
-}

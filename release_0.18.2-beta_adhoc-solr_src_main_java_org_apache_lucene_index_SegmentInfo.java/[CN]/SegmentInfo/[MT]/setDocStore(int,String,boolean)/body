@@ -1,6 +1,0 @@
-{
-  docStoreOffset=offset;
-  docStoreSegment=segment;
-  docStoreIsCompoundFile=isCompoundFile;
-  clearFiles();
-}

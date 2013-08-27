@@ -1,9 +1,0 @@
-{
-  if (path[0].equals("emitted")) {
-    return RollingWindowSetStat.value_rolling_window_set(common.emitted);
-  }
-  if (path[0].equals("transferred")) {
-    return RollingWindowSetStat.value_rolling_window_set(common.transferred);
-  }
-  return null;
-}

@@ -1,5 +1,0 @@
-{
-  final char[] buffer=new char[BUF_SIZE_INT];
-  final int len=intToPrefixCoded(val,shift,buffer);
-  return new String(buffer,0,len);
-}

@@ -1,4 +1,0 @@
-{
-  instruction=new char[128];
-  lenInstruction=0;
-}

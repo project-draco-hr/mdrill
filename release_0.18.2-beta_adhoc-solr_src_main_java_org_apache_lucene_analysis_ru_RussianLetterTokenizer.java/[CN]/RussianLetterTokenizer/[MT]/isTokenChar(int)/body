@@ -1,3 +1,0 @@
-{
-  return Character.isLetter(c) || (c >= DIGIT_0 && c <= DIGIT_9);
-}

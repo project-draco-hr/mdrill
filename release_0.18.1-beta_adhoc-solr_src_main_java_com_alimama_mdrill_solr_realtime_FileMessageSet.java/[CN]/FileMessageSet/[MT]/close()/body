@@ -1,9 +1,0 @@
-{
-  if (!this.channel.isOpen()) {
-    return;
-  }
-  if (this.mutable) {
-    this.flush();
-  }
-  this.channel.close();
-}

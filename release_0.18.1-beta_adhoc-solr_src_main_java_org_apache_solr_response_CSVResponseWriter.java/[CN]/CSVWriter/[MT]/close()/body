@@ -1,4 +1,0 @@
-{
-  if (printer != null)   printer.flush();
-  super.close();
-}

@@ -1,3 +1,0 @@
-{
-  return this.checkSolr(tablename,newestPartion,"");
-}

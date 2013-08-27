@@ -1,4 +1,0 @@
-{
-  this.tpc=tpc;
-  this.commitData=commitData;
-}

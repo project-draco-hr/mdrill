@@ -1,5 +1,0 @@
-{
-  this.type=type;
-  this.killTimeSecs=killTimeSecs;
-  this.oldStatus=oldStatus;
-}

@@ -1,6 +1,0 @@
-{
-  String[] records=value.toString().split("[\n]+");
-  for (  String record : records) {
-    this.line(record,context);
-  }
-}

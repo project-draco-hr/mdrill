@@ -1,3 +1,0 @@
-{
-  return getSnowballWordSet(reader,new CharArraySet(matchVersion,INITITAL_CAPACITY,false));
-}

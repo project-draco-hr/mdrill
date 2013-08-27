@@ -1,3 +1,0 @@
-{
-  StormUtils.halt_process(1,"Async loop died!");
-}

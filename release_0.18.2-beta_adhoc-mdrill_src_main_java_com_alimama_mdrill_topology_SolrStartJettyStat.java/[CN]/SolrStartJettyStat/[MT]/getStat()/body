@@ -1,5 +1,0 @@
-{
-synchronized (statlock) {
-    return this.stat;
-  }
-}

@@ -1,9 +1,0 @@
-{
-  if (!r_check_vowel_harmony()) {
-    return false;
-  }
-  if (find_among_b(a_16,2) == 0) {
-    return false;
-  }
-  return true;
-}

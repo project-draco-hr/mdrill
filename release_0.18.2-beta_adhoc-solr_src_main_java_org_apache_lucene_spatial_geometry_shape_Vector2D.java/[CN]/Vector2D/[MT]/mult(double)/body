@@ -1,3 +1,0 @@
-{
-  return new Vector2D(x * d,y * d);
-}

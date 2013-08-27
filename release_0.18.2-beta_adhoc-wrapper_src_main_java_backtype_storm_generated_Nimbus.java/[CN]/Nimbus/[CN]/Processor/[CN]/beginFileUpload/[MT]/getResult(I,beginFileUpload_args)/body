@@ -1,5 +1,0 @@
-{
-  beginFileUpload_result result=new beginFileUpload_result();
-  result.success=iface.beginFileUpload();
-  return result;
-}

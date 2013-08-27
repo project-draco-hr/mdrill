@@ -1,3 +1,0 @@
-{
-  in=new BufferedReader(new InputStreamReader(dictFile));
-}

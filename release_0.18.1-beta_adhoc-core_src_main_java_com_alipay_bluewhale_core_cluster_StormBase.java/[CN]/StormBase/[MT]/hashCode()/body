@@ -1,3 +1,0 @@
-{
-  return this.status.hashCode() + this.lanchTimeSecs + this.stormName.hashCode();
-}

@@ -1,9 +1,0 @@
-{
-  PatternParser pp=new PatternParser(this);
-  ivalues=new TernaryTree();
-  pp.parse(source);
-  trimToSize();
-  vspace.trimToSize();
-  classmap.trimToSize();
-  ivalues=null;
-}

@@ -1,6 +1,0 @@
-{
-  if (replacement.length > 0) {
-    System.arraycopy(replacement,0,s,len - suffix.length,replacement.length);
-  }
-  return len - suffix.length + replacement.length;
-}

@@ -1,3 +1,0 @@
-{
-  return indexOptions == IndexOptions.DOCS_ONLY;
-}

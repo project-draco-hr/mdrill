@@ -1,3 +1,0 @@
-{
-  return "{numFound=" + numFound + ",start="+ start+ (maxScore != null ? "" + maxScore : "")+ ",sum="+ sum+ ",max="+ max+ ",min="+ min+ ",docs="+ super.toString()+ "}";
-}

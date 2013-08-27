@@ -1,6 +1,0 @@
-{
-  if (distanceFilter != null) {
-    distanceFilter.reset();
-  }
-  return filter;
-}

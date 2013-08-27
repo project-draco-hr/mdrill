@@ -1,3 +1,0 @@
-{
-  return func.hashCode() * 31 + Float.floatToIntBits(getBoost());
-}

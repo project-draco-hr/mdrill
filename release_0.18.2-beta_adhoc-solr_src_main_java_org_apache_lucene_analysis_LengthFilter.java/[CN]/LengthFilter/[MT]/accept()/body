@@ -1,4 +1,0 @@
-{
-  final int len=termAtt.length();
-  return (len >= min && len <= max);
-}

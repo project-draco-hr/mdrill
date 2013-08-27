@@ -1,6 +1,0 @@
-{
-  int result=str1.hashCode();
-  result=31 * result + str2.hashCode();
-  result=31 * result + dist.hashCode();
-  return result;
-}

@@ -1,3 +1,0 @@
-{
-  return open(directory,null,null,true,DEFAULT_TERMS_INDEX_DIVISOR);
-}

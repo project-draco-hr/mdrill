@@ -1,5 +1,0 @@
-{
-  FieldCacheSanityChecker sanityChecker=new FieldCacheSanityChecker();
-  sanityChecker.setRamUsageEstimator(new RamUsageEstimator(false));
-  return sanityChecker.check(cacheEntries);
-}

@@ -1,7 +1,0 @@
-{
-  if (pos >= buf.length) {
-    sink.write(buf,0,pos);
-    pos=0;
-  }
-  buf[pos++]=c;
-}

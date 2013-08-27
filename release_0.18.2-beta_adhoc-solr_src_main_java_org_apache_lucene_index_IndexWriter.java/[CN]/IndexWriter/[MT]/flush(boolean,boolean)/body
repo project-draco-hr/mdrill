@@ -1,6 +1,0 @@
-{
-  ensureOpen(false);
-  if (doFlush(applyAllDeletes) && triggerMerge) {
-    maybeMerge();
-  }
-}

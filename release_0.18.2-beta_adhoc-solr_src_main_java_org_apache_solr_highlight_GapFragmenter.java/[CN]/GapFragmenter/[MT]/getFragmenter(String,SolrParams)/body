@@ -1,8 +1,0 @@
-{
-  numRequests++;
-  if (defaults != null) {
-    params=new DefaultSolrParams(params,defaults);
-  }
-  int fragsize=params.getFieldInt(fieldName,HighlightParams.FRAGSIZE,100);
-  return (fragsize <= 0) ? new NullFragmenter() : new LuceneGapFragmenter(fragsize);
-}

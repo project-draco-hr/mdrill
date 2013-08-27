@@ -1,8 +1,0 @@
-{
-  final StringBuilder sb=new StringBuilder("{");
-  for (  Map.Entry<Object,V> entry : entrySet()) {
-    if (sb.length() > 1)     sb.append(", ");
-    sb.append(entry);
-  }
-  return sb.append('}').toString();
-}

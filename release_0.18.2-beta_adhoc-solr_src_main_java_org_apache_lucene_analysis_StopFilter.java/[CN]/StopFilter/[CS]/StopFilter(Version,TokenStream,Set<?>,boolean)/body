@@ -1,3 +1,0 @@
-{
-  this(matchVersion,matchVersion.onOrAfter(Version.LUCENE_29),input,stopWords,ignoreCase);
-}

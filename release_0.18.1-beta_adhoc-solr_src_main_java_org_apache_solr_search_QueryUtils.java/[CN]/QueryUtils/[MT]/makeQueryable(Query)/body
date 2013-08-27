@@ -1,6 +1,0 @@
-{
-  if (q instanceof WrappedQuery) {
-    return makeQueryable(((WrappedQuery)q).getWrappedQuery());
-  }
-  return isNegative(q) ? fixNegativeQuery(q) : q;
-}

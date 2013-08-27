@@ -1,4 +1,0 @@
-{
-  goTo(BOOLEAN);
-  return bool;
-}

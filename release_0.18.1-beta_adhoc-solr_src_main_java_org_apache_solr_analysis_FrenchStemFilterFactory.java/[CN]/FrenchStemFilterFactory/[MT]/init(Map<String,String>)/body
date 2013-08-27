@@ -1,4 +1,0 @@
-{
-  super.init(args);
-  warnDeprecated("use SnowballPorterFilterFactory with 'French' instead");
-}

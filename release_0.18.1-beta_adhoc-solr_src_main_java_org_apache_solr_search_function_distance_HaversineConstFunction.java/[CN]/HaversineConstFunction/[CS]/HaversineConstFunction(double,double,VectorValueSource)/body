@@ -1,8 +1,0 @@
-{
-  this.latCenter=latCenter;
-  this.lonCenter=lonCenter;
-  this.p2=vs;
-  this.latSource=p2.getSources().get(0);
-  this.lonSource=p2.getSources().get(1);
-  this.latCenterRad_cos=Math.cos(latCenter * DistanceUtils.DEGREES_TO_RADIANS);
-}

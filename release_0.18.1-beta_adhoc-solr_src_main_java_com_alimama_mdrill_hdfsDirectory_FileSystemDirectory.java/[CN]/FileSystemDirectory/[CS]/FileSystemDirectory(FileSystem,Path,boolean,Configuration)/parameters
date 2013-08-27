@@ -1,4 +1,0 @@
-FileSystem fs
-Path directory
-boolean create
-Configuration conf

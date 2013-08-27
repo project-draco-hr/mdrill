@@ -1,4 +1,0 @@
-{
-  this.ll=other.ll;
-  this.ur=other.ur;
-}

@@ -1,3 +1,0 @@
-{
-  this(new CharArrayMap<Object>(matchVersion,startSize,ignoreCase));
-}

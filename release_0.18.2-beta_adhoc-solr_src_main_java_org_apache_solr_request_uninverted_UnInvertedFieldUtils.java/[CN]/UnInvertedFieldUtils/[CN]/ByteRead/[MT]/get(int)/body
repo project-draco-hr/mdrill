@@ -1,3 +1,0 @@
-{
-  return (int)this.arr.get(i);
-}

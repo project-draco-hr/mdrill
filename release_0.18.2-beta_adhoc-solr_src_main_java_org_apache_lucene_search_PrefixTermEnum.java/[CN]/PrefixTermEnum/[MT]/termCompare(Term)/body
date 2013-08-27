@@ -1,7 +1,0 @@
-{
-  if (term.field() == prefix.field() && term.text().startsWith(prefix.text())) {
-    return true;
-  }
-  endEnum=true;
-  return false;
-}

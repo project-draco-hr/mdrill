@@ -1,3 +1,0 @@
-UpdateRequestProcessor processor
-XMLInputFactory inputFactory
-Integer xsltCacheLifetimeSeconds

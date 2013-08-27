@@ -1,4 +1,0 @@
-{
-  quantRate=params.getFloat("quantRate",0.01f);
-  minTokenLen=params.getInt("minTokenLen",2);
-}

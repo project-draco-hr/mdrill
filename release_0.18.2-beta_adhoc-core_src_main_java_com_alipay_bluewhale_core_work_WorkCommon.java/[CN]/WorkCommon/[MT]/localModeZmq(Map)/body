@@ -1,9 +1,0 @@
-{
-  String clusterMode=StormConfig.cluster_mode(conf);
-  Boolean isDistribute=clusterMode.equals("distributed");
-  String key=Config.STORM_LOCAL_MODE_ZMQ;
-  if (isDistribute || conf.get(key).equals(Boolean.TRUE)) {
-    return true;
-  }
-  return false;
-}

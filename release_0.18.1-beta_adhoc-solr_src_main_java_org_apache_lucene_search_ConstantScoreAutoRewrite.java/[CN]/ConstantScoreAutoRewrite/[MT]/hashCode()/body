@@ -1,4 +1,0 @@
-{
-  final int prime=1279;
-  return (int)(prime * termCountCutoff + Double.doubleToLongBits(docCountPercent));
-}

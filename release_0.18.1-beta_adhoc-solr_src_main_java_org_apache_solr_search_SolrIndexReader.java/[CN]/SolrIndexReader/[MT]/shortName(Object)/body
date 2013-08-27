@@ -1,3 +1,0 @@
-{
-  return o.getClass().getSimpleName() + "@" + Integer.toHexString(o.hashCode());
-}

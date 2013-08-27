@@ -1,9 +1,0 @@
-{
-  processesEventManager.add(syncProcesses);
-  if (active.get()) {
-    this.result=(Integer)conf.get(Config.SUPERVISOR_MONITOR_FREQUENCY_SECS);
-  }
- else {
-    this.result=-1;
-  }
-}

@@ -1,3 +1,0 @@
-{
-  return frontier[0].inputCount;
-}

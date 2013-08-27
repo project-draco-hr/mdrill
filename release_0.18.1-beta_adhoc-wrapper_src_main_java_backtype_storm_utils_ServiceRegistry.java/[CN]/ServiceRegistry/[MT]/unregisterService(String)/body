@@ -1,5 +1,0 @@
-{
-synchronized (_lock) {
-    _services.remove(id);
-  }
-}

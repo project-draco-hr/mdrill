@@ -1,3 +1,0 @@
-{
-  return getWeightedSpanTerms(query,tokenStream,null);
-}

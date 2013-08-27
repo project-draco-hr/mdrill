@@ -1,8 +1,0 @@
-{
-  CommonStatsRolling common=mk_common_stats(rate);
-  RollingWindowSet acked=keyed_counter_rolling_window_set(NUM_STAT_BUCKETS,STAT_BUCKETS);
-  RollingWindowSet failed=keyed_counter_rolling_window_set(NUM_STAT_BUCKETS,STAT_BUCKETS);
-  RollingWindowSet process_latencies=keyed_avg_rolling_window_set(NUM_STAT_BUCKETS,STAT_BUCKETS);
-  BoltTaskStatsRolling rtn=new BoltTaskStatsRolling(common,acked,failed,process_latencies);
-  return rtn;
-}

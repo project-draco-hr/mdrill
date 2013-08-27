@@ -1,3 +1,0 @@
-{
-  out.write(Integer.toString(number));
-}

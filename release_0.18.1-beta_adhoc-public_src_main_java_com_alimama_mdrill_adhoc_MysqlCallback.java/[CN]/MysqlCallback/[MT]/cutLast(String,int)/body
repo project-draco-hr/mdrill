@@ -1,4 +1,0 @@
-{
-  int cutnum=Math.min(str.length(),num);
-  return str.substring(str.length() - cutnum);
-}

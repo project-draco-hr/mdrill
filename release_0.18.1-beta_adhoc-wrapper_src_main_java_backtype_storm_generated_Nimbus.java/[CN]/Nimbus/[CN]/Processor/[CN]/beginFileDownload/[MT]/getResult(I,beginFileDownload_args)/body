@@ -1,5 +1,0 @@
-{
-  beginFileDownload_result result=new beginFileDownload_result();
-  result.success=iface.beginFileDownload(args.file);
-  return result;
-}

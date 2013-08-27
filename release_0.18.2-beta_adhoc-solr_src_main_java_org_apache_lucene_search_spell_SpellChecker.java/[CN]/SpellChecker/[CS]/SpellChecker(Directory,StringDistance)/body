@@ -1,3 +1,0 @@
-{
-  this(spellIndex,sd,SuggestWordQueue.DEFAULT_COMPARATOR);
-}

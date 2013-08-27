@@ -1,7 +1,0 @@
-{
-synchronized (segmentInfos) {
-    changeCount++;
-    segmentInfos.changed();
-    return "_" + Integer.toString(segmentInfos.counter++,Character.MAX_RADIX);
-  }
-}

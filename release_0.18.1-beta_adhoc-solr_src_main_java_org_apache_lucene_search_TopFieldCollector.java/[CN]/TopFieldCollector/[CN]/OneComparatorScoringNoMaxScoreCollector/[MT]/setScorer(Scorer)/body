@@ -1,4 +1,0 @@
-{
-  this.scorer=scorer;
-  comparator.setScorer(scorer);
-}

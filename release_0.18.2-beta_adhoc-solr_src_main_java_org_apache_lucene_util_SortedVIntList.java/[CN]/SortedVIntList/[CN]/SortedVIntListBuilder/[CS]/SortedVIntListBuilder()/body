@@ -1,4 +1,0 @@
-{
-  initBytes();
-  lastInt=0;
-}

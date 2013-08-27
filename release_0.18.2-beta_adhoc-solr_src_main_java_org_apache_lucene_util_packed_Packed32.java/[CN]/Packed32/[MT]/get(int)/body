@@ -1,7 +1,0 @@
-{
-  final long majorBitPos=(long)index * bitsPerValue;
-  final int elementPos=(int)(majorBitPos >>> BLOCK_BITS);
-  final int bitPos=(int)(majorBitPos & MOD_MASK);
-  final int base=bitPos * FAC_BITPOS;
-  return ((blocks[elementPos] << shifts[base]) >>> shifts[base + 1]) | ((blocks[elementPos + 1] >>> shifts[base + 2]) & readMasks[bitPos]);
-}

@@ -1,4 +1,0 @@
-{
-  this.set(CommonParams.Q,query);
-  return this;
-}

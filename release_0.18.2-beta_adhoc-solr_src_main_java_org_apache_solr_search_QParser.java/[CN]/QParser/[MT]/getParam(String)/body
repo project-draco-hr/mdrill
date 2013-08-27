@@ -1,8 +1,0 @@
-{
-  String val;
-  if (localParams != null) {
-    val=localParams.get(name);
-    if (val != null)     return val;
-  }
-  return params.get(name);
-}

@@ -1,6 +1,0 @@
-{
-  ensureOpen();
-  TermVectorsReader termVectorsReader=getTermVectorsReader();
-  if (termVectorsReader == null)   return;
-  termVectorsReader.get(docNumber,mapper);
-}

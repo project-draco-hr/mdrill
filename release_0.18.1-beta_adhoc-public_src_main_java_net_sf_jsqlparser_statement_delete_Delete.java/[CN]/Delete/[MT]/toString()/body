@@ -1,3 +1,0 @@
-{
-  return "DELETE FROM " + table + ((where != null) ? " WHERE " + where : "");
-}

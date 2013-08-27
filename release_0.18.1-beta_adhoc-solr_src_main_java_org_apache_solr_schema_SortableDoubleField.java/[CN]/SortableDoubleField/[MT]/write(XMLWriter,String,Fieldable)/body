@@ -1,4 +1,0 @@
-{
-  String sval=f.stringValue();
-  xmlWriter.writeDouble(name,NumberUtils.SortableStr2double(sval));
-}

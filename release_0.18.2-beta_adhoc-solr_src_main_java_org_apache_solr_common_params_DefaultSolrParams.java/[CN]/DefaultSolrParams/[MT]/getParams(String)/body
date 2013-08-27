@@ -1,4 +1,0 @@
-{
-  String[] vals=params.getParams(param);
-  return vals != null ? vals : defaults.getParams(param);
-}

@@ -1,4 +1,0 @@
-{
-  count=tp.freq();
-  nextPosition();
-}

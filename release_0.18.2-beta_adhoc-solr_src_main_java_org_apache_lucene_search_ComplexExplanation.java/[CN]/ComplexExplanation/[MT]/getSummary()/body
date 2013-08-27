@@ -1,4 +1,0 @@
-{
-  if (null == getMatch())   return super.getSummary();
-  return getValue() + " = " + (isMatch() ? "(MATCH) " : "(NON-MATCH) ")+ getDescription();
-}

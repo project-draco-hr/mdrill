@@ -1,4 +1,0 @@
-{
-  final byte[][] b=blocks.toArray(new byte[blocks.size()][]);
-  recycleByteBlocks(b,0,b.length);
-}

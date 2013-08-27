@@ -1,3 +1,0 @@
-{
-  return open(commit.getDirectory(),deletionPolicy,commit,readOnly,DEFAULT_TERMS_INDEX_DIVISOR);
-}

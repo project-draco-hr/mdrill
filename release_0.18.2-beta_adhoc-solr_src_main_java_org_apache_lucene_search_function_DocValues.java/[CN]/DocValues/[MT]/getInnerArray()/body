@@ -1,3 +1,0 @@
-{
-  throw new UnsupportedOperationException("this optional method is for test purposes only");
-}

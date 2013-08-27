@@ -1,4 +1,0 @@
-IndexWriter writer
-IndexFileDeleter deleter
-MergePolicy mergePolicy
-SegmentInfos segmentInfos

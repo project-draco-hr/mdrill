@@ -1,9 +1,0 @@
-{
-  if (docFreq == other.docFreq) {
-    if (position == other.position) {
-      return term.compareTo(other.term);
-    }
-    return position - other.position;
-  }
-  return docFreq - other.docFreq;
-}

@@ -1,5 +1,0 @@
-{
-  filePath=path;
-  out=fs.create(path,true,ioFileBufferSize);
-  isOpen=true;
-}

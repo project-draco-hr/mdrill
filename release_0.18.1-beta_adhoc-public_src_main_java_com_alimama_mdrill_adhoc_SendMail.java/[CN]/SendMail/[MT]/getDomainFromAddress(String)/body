@@ -1,6 +1,0 @@
-{
-  StringTokenizer tokenizer=new StringTokenizer(EmailAddress,"@>;");
-  String DomainOnly=tokenizer.nextToken();
-  DomainOnly=tokenizer.nextToken();
-  return DomainOnly;
-}

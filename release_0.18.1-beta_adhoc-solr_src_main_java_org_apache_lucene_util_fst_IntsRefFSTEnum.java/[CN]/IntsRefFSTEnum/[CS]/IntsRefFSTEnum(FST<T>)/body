@@ -1,5 +1,0 @@
-{
-  super(fst);
-  result.input=current;
-  current.offset=1;
-}

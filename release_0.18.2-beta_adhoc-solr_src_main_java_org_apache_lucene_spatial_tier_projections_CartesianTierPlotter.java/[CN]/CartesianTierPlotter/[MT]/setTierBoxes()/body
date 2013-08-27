@@ -1,3 +1,0 @@
-{
-  this.tierBoxes=(int)Math.pow(this.tierLength,2);
-}

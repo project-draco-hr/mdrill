@@ -1,4 +1,0 @@
-{
-  indexStream.writeLong(fieldsStream.getFilePointer());
-  fieldsStream.writeVInt(0);
-}

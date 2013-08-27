@@ -1,4 +1,0 @@
-{
-  currentReaderValues=FieldCache.DEFAULT.getShorts(reader,field,parser,missingValue != null);
-  super.setNextReader(reader,docBase);
-}

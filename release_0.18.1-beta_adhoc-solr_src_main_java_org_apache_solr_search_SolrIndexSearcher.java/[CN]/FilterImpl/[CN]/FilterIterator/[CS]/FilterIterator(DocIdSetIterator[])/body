@@ -1,4 +1,0 @@
-{
-  this.iterators=iterators;
-  this.first=iterators[0];
-}

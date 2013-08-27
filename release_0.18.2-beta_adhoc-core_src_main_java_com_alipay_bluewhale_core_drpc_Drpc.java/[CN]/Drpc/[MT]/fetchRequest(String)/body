@@ -1,9 +1,0 @@
-{
-  ConcurrentLinkedQueue<DRPCRequest> queue=this.acquire_queue(this.requestQueues,functionName);
-  DRPCRequest req=queue.poll();
-  if (req != null) {
-    LOG.debug("Fetched request for " + functionName + " at "+ (System.currentTimeMillis()));
-    return req;
-  }
-  return new DRPCRequest("","");
-}

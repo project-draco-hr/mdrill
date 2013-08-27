@@ -1,8 +1,0 @@
-{
-  reserve(4);
-  buf[pos]=(byte)(v >>> 24);
-  buf[pos + 1]=(byte)(v >>> 16);
-  buf[pos + 2]=(byte)(v >>> 8);
-  buf[pos + 3]=(byte)(v);
-  pos+=4;
-}

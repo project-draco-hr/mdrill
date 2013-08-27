@@ -1,3 +1,0 @@
-{
-  return findAndRemoveEnding(stemmingZone,verbEndings1,verb1Predessors) || findAndRemoveEnding(stemmingZone,verbEndings2);
-}

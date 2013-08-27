@@ -1,3 +1,0 @@
-{
-  set_binary_arg(ByteBuffer.wrap(value));
-}

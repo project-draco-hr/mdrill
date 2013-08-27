@@ -1,7 +1,0 @@
-{
-  String tableName=tableColumn.getTable().getWholeTableName();
-  if (tableName != null) {
-    buffer.append(tableName + ".");
-  }
-  buffer.append(tableColumn.getColumnName());
-}

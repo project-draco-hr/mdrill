@@ -1,4 +1,0 @@
-{
-  RussianStemmer stemmer=new RussianStemmer();
-  return stemmer.stem(theWord);
-}

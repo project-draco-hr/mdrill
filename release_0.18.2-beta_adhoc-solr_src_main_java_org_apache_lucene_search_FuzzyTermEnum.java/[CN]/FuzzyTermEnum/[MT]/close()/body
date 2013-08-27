@@ -1,5 +1,0 @@
-{
-  p=d=null;
-  searchTerm=null;
-  super.close();
-}

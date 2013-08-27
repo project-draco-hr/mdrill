@@ -1,6 +1,0 @@
-{
-  Object readerKey=r.getCoreCacheKey();
-synchronized (readerCache) {
-    readerCache.remove(readerKey);
-  }
-}

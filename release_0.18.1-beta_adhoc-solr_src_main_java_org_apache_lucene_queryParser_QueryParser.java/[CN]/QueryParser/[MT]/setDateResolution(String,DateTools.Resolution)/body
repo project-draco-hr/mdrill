@@ -1,9 +1,0 @@
-{
-  if (fieldName == null) {
-    throw new IllegalArgumentException("Field cannot be null.");
-  }
-  if (fieldToDateResolution == null) {
-    fieldToDateResolution=new HashMap<String,DateTools.Resolution>();
-  }
-  fieldToDateResolution.put(fieldName,dateResolution);
-}

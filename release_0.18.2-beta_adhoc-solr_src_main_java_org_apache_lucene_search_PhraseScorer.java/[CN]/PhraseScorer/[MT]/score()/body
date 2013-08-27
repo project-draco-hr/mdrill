@@ -1,4 +1,0 @@
-{
-  float raw=getSimilarity().tf(freq) * value;
-  return norms == null ? raw : raw * getSimilarity().decodeNormValue(norms[max.doc]);
-}

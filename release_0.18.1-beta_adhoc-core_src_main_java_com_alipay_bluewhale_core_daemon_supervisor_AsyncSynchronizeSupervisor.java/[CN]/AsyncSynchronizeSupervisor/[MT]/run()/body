@@ -1,9 +1,0 @@
-{
-  eventManager.add(synchronizeSupervisor);
-  if (active.get()) {
-    this.result=10;
-  }
- else {
-    this.result=-1;
-  }
-}

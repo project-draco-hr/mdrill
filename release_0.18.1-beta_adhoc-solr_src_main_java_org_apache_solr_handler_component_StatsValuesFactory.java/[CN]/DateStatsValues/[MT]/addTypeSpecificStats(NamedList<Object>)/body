@@ -1,4 +1,0 @@
-{
-  res.add("sum",new Date(sum));
-  res.add("mean",new Date(sum / count));
-}

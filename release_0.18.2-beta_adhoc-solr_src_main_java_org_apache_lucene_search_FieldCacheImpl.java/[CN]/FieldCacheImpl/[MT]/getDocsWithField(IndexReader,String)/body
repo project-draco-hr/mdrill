@@ -1,3 +1,0 @@
-{
-  return (Bits)caches.get(DocsWithFieldCache.class).get(reader,new Entry(field,null),false);
-}

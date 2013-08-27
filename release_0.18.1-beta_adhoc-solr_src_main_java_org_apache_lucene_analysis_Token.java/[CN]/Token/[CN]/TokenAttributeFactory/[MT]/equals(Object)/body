@@ -1,8 +1,0 @@
-{
-  if (this == other)   return true;
-  if (other instanceof TokenAttributeFactory) {
-    final TokenAttributeFactory af=(TokenAttributeFactory)other;
-    return this.delegate.equals(af.delegate);
-  }
-  return false;
-}

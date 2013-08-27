@@ -1,3 +1,0 @@
-{
-  return must == 0 && !isPhrase;
-}

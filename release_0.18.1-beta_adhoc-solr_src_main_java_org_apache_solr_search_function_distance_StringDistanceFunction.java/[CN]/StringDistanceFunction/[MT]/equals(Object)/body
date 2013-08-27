@@ -1,9 +1,0 @@
-{
-  if (this == o)   return true;
-  if (!(o instanceof StringDistanceFunction))   return false;
-  StringDistanceFunction that=(StringDistanceFunction)o;
-  if (!dist.equals(that.dist))   return false;
-  if (!str1.equals(that.str1))   return false;
-  if (!str2.equals(that.str2))   return false;
-  return true;
-}

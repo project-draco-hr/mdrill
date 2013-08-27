@@ -1,4 +1,0 @@
-{
-  initialize(size);
-  comparator=DEFAULT_COMPARATOR;
-}

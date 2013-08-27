@@ -1,4 +1,0 @@
-{
-  omitTermFreqAndPositions=fieldInfo.indexOptions == IndexOptions.DOCS_ONLY;
-  storePayloads=omitTermFreqAndPositions ? false : fieldInfo.storePayloads;
-}

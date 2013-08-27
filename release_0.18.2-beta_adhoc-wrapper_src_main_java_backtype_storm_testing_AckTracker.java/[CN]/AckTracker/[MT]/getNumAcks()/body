@@ -1,3 +1,0 @@
-{
-  return acks.get(_id).intValue();
-}

@@ -1,7 +1,0 @@
-{
-  collector.setNextReader(reader,base);
-  this.docBase=base;
-  if (Long.MIN_VALUE == t0) {
-    setBaseline();
-  }
-}

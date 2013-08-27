@@ -1,8 +1,0 @@
-{
-  String flb=params.getFieldParam(fieldName,HighlightParams.FRAG_LIST_BUILDER);
-  SolrFragListBuilder solrFlb=fragListBuilders.get(flb);
-  if (solrFlb == null) {
-    throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,"Unknown fragListBuilder: " + flb);
-  }
-  return solrFlb.getFragListBuilder(params);
-}

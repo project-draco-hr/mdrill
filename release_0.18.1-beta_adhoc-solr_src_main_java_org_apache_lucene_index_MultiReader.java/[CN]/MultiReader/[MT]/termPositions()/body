@@ -1,9 +1,0 @@
-{
-  ensureOpen();
-  if (subReaders.length == 1) {
-    return subReaders[0].termPositions();
-  }
- else {
-    return new MultiTermPositions(this,subReaders,starts,-1);
-  }
-}

@@ -1,3 +1,0 @@
-{
-  return new NumericRangeFilter<Long>(NumericRangeQuery.newLongRange(field,min,max,minInclusive,maxInclusive));
-}

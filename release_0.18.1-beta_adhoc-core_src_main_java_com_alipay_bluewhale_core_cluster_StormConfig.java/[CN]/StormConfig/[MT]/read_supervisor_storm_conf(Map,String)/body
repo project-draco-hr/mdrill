@@ -1,8 +1,0 @@
-{
-  String stormroot=StormConfig.supervisor_stormdist_root(conf,storm_id);
-  String conf_path=StormConfig.supervisor_sotrmconf_path(stormroot);
-  Map rtn=new HashMap();
-  rtn.putAll(conf);
-  rtn.putAll((Map)Utils.deserialize(FileUtils.readFileToByteArray(new File(conf_path))));
-  return rtn;
-}

@@ -1,3 +1,0 @@
-{
-  update_task_stat(stats,StormUtils.mk_arr("failed"),stream,stats_rate(stats));
-}

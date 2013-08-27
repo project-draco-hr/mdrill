@@ -1,7 +1,0 @@
-{
-  this.active=active;
-  this.conf=conf;
-  this.zkCluster=zkCluster;
-  this.topologyId=topologyId;
-  this.zkActive=zkActive;
-}

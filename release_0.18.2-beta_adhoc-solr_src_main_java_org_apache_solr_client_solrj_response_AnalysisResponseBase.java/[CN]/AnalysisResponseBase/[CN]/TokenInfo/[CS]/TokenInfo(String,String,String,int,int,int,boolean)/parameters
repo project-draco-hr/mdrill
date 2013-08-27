@@ -1,7 +1,0 @@
-String text
-String rawText
-String type
-int start
-int end
-int position
-boolean match

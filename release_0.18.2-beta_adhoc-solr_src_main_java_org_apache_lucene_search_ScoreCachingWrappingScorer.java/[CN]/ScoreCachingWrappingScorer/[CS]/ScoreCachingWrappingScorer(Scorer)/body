@@ -1,4 +1,0 @@
-{
-  super(scorer.getSimilarity(),scorer.weight);
-  this.scorer=scorer;
-}

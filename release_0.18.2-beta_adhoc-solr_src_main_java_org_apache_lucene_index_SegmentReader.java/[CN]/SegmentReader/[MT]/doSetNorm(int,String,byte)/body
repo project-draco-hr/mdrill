@@ -1,8 +1,0 @@
-{
-  SegmentNorms norm=norms.get(field);
-  if (norm == null) {
-    throw new IllegalStateException("Cannot setNorm for field " + field + ": norms were omitted");
-  }
-  normsDirty=true;
-  norm.copyOnWrite()[doc]=value;
-}

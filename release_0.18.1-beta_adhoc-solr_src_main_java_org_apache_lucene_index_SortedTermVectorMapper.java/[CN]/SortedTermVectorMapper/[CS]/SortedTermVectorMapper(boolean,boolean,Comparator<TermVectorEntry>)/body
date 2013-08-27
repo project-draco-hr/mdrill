@@ -1,4 +1,0 @@
-{
-  super(ignoringPositions,ignoringOffsets);
-  currentSet=new TreeSet<TermVectorEntry>(comparator);
-}

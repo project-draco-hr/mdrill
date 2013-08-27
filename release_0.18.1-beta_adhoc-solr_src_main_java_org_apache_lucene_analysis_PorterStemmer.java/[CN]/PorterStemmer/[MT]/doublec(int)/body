@@ -1,5 +1,0 @@
-{
-  if (j < k0 + 1)   return false;
-  if (b[j] != b[j - 1])   return false;
-  return cons(j);
-}

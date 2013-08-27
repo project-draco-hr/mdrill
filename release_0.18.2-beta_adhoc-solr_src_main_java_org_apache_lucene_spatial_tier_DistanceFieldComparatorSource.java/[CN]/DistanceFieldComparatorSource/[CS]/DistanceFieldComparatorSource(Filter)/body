@@ -1,3 +1,0 @@
-{
-  this.distanceFilter=(DistanceFilter)distanceFilter;
-}

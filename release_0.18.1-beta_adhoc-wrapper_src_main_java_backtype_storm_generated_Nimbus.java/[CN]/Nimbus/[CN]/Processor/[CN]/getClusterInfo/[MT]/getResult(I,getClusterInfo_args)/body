@@ -1,5 +1,0 @@
-{
-  getClusterInfo_result result=new getClusterInfo_result();
-  result.success=iface.getClusterInfo();
-  return result;
-}

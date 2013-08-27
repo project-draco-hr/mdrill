@@ -1,5 +1,0 @@
-String field
-Byte lowerVal
-Byte upperVal
-boolean includeLower
-boolean includeUpper

@@ -1,4 +1,0 @@
-{
-  this(matchVersion,name);
-  stopSet=CharArraySet.unmodifiableSet(CharArraySet.copy(matchVersion,stopWords));
-}

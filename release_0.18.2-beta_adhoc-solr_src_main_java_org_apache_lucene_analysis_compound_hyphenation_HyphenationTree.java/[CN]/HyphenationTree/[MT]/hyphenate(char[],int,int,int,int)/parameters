@@ -1,5 +1,0 @@
-char[] w
-int offset
-int len
-int remainCharCount
-int pushCharCount

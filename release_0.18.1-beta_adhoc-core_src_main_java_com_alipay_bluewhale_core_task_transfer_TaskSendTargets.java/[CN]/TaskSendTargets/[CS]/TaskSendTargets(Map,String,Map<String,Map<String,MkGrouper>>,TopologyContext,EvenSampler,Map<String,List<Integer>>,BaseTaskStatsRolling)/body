@@ -1,9 +1,0 @@
-{
-  this.stormConf=_storm_conf;
-  this.taskReadableName=_task_readable_name;
-  this.streamComponentgrouper=_stream_component_grouper;
-  this.topologyContext=_topology_context;
-  this.emitSampler=_emit_sampler;
-  this.componentTasks=_component_tasks;
-  this.taskStats=_task_stats;
-}

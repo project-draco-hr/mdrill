@@ -1,8 +1,0 @@
-{
-  killTopology_result result=new killTopology_result();
-  receiveBase(result,"killTopology");
-  if (result.e != null) {
-    throw result.e;
-  }
-  return;
-}

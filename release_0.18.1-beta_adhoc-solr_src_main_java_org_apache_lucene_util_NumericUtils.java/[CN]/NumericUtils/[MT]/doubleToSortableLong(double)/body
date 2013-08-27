@@ -1,5 +1,0 @@
-{
-  long f=Double.doubleToLongBits(val);
-  if (f < 0)   f^=0x7fffffffffffffffL;
-  return f;
-}

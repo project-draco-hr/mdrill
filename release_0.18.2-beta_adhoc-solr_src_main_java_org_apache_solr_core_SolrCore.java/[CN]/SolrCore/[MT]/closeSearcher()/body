@@ -1,5 +1,0 @@
-{
-  log.info(logid + "Closing main searcher on request.");
-synchronized (searcherLock) {
-  }
-}

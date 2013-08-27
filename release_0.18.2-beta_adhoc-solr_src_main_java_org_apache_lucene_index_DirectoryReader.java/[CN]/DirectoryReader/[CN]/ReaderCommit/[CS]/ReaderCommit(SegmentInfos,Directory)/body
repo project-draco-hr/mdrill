@@ -1,9 +1,0 @@
-{
-  segmentsFileName=infos.getCurrentSegmentFileName();
-  this.dir=dir;
-  userData=infos.getUserData();
-  files=Collections.unmodifiableCollection(infos.files(dir,true));
-  version=infos.getVersion();
-  generation=infos.getGeneration();
-  segmentCount=infos.size();
-}

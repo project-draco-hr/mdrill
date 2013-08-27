@@ -1,3 +1,0 @@
-{
-  this(SortField.FIELD_SCORE);
-}

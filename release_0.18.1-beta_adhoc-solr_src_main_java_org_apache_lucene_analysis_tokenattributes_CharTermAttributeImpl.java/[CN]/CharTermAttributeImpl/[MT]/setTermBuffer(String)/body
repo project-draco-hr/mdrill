@@ -1,6 +1,0 @@
-{
-  int length=buffer.length();
-  growTermBuffer(length);
-  buffer.getChars(0,length,termBuffer,0);
-  termLength=length;
-}

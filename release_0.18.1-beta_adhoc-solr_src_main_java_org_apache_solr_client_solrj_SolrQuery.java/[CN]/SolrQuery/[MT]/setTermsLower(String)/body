@@ -1,4 +1,0 @@
-{
-  this.set(TermsParams.TERMS_LOWER,lower);
-  return this;
-}

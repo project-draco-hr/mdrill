@@ -1,3 +1,0 @@
-{
-  return DirectoryReader.open(directory,deletionPolicy,commit,readOnly,termInfosIndexDivisor);
-}

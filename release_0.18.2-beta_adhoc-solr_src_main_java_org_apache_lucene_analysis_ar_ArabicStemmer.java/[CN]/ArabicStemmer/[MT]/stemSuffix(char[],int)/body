@@ -1,4 +1,0 @@
-{
-  for (int i=0; i < suffixes.length; i++)   if (endsWithCheckLength(s,len,suffixes[i]))   len=deleteN(s,len - suffixes[i].length,len,suffixes[i].length);
-  return len;
-}

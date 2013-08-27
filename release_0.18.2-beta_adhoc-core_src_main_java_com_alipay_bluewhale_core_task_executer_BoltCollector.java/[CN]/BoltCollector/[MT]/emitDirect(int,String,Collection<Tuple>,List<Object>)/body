@@ -1,3 +1,0 @@
-{
-  boltEmit(streamId,anchors,tuple,taskId);
-}

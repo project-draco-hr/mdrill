@@ -1,9 +1,0 @@
-{
-  try {
-    stemdict=WordlistLoader.getStemDict(IOUtils.getDecodingReader(stemdictFile,IOUtils.CHARSET_UTF_8),new CharArrayMap<String>(matchVersion,16,false));
-    setPreviousTokenStream(null);
-  }
- catch (  IOException e) {
-    throw new RuntimeException(e);
-  }
-}

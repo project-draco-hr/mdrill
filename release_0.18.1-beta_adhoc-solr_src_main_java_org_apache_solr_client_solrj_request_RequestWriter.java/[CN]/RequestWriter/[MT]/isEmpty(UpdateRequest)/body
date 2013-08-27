@@ -1,3 +1,0 @@
-{
-  return isNull(updateRequest.getDocuments()) && isNull(updateRequest.getDeleteById()) && isNull(updateRequest.getDeleteQuery())&& updateRequest.getDocIterator() == null;
-}

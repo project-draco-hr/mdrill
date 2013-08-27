@@ -1,8 +1,0 @@
-{
-  totalHitCount++;
-  SearchGroupDocs<GROUP_VALUE_TYPE> group=retrieveGroup(doc);
-  if (group != null) {
-    totalGroupedHitCount++;
-    group.collector.collect(doc);
-  }
-}

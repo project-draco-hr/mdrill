@@ -1,9 +1,0 @@
-{
-  RefCounted<SolrIndexSearcher> holder=new RefCounted<SolrIndexSearcher>(newSearcher){
-    @Override public void close(){
-    }
-  }
-;
-  holder.incref();
-  return holder;
-}

@@ -1,5 +1,0 @@
-{
-  this.buf=arr;
-  this.start=start;
-  this.end=end;
-}

@@ -1,4 +1,0 @@
-{
-  String taskbeatPath=Cluster.taskbeat_storm_root(stormId);
-  cluster_state.mkdirs(taskbeatPath);
-}

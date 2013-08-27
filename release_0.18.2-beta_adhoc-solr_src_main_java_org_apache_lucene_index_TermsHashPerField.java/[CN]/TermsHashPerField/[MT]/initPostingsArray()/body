@@ -1,4 +1,0 @@
-{
-  postingsArray=consumer.createPostingsArray(2);
-  bytesUsed(postingsArray.size * postingsArray.bytesPerPosting());
-}

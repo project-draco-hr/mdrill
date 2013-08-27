@@ -1,4 +1,0 @@
-{
-  this.name=name;
-  fields=Collections.emptyList();
-}

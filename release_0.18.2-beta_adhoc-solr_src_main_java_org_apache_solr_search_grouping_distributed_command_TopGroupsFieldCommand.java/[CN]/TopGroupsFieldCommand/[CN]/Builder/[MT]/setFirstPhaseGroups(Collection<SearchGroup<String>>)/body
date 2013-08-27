@@ -1,4 +1,0 @@
-{
-  this.firstPhaseGroups=firstPhaseGroups;
-  return this;
-}

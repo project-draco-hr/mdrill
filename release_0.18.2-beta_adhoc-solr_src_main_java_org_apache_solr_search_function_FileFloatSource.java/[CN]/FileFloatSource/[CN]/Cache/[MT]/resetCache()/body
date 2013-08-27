@@ -1,5 +1,0 @@
-{
-synchronized (readerCache) {
-    readerCache.clear();
-  }
-}

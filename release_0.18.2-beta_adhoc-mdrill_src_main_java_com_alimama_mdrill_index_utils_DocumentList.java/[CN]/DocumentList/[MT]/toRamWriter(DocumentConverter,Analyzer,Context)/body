@@ -1,7 +1,0 @@
-{
-  ArrayList<Document> list=this.transDodument(documentConverter,context);
-  RamWriter listform=new RamWriter();
-  listform.process(list,analyzer);
-  listform.closeWriter();
-  return listform;
-}

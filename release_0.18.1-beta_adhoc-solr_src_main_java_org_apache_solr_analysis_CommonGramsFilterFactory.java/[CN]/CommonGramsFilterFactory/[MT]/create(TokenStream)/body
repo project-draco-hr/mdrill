@@ -1,4 +1,0 @@
-{
-  CommonGramsFilter commonGrams=new CommonGramsFilter(luceneMatchVersion,input,commonWords,ignoreCase);
-  return commonGrams;
-}

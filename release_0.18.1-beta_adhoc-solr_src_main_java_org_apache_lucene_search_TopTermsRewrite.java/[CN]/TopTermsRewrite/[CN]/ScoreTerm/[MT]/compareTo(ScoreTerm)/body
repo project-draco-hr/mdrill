@@ -1,4 +1,0 @@
-{
-  if (this.boost == other.boost)   return other.term.compareTo(this.term);
- else   return Float.compare(this.boost,other.boost);
-}

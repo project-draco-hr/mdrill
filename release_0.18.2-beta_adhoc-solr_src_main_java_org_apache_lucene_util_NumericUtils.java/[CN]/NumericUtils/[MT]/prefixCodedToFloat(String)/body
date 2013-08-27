@@ -1,3 +1,0 @@
-{
-  return sortableIntToFloat(prefixCodedToInt(val));
-}

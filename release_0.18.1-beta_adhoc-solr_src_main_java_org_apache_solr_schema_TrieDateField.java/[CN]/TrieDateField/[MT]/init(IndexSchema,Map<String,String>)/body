@@ -1,5 +1,0 @@
-{
-  wrappedField.init(schema,args);
-  analyzer=wrappedField.analyzer;
-  queryAnalyzer=wrappedField.queryAnalyzer;
-}

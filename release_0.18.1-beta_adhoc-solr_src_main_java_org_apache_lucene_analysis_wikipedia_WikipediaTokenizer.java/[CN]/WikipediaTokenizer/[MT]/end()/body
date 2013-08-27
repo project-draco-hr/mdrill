@@ -1,4 +1,0 @@
-{
-  final int finalOffset=correctOffset(scanner.yychar() + scanner.yylength());
-  this.offsetAtt.setOffset(finalOffset,finalOffset);
-}

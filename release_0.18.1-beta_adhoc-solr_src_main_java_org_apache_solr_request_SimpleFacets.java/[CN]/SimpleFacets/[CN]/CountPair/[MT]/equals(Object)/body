@@ -1,3 +1,0 @@
-{
-  return (o instanceof CountPair) && (0 == this.compareTo((CountPair<K,V>)o));
-}

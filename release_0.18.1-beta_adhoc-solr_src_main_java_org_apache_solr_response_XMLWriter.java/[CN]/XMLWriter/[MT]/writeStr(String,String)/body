@@ -1,3 +1,0 @@
-{
-  writePrim("str",name,val,true);
-}

@@ -1,3 +1,0 @@
-{
-  return comparators[compIDX].compareBottom(doc);
-}

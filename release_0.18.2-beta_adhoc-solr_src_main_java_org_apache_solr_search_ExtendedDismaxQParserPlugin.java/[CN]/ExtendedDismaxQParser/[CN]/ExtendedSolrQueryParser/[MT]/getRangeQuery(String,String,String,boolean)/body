@@ -1,8 +1,0 @@
-{
-  this.type=QType.RANGE;
-  this.field=field;
-  this.val=a;
-  this.val2=b;
-  this.bool=inclusive;
-  return getAliasedQuery();
-}

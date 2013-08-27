@@ -1,6 +1,0 @@
-String field
-FieldCache.LongParser parser
-Long lowerVal
-Long upperVal
-boolean includeLower
-boolean includeUpper

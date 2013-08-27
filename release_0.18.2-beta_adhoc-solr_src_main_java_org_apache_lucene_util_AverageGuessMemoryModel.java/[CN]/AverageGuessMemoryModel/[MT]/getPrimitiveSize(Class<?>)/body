@@ -1,3 +1,0 @@
-{
-  return sizes.get(clazz).intValue();
-}

@@ -1,4 +1,0 @@
-{
-  if (set == EMPTY_SET)   return EMPTY_SET;
-  return copy(Version.LUCENE_30,set);
-}

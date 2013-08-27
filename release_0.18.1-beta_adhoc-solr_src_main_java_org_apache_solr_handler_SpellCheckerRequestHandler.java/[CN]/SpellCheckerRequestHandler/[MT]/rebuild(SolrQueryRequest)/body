@@ -1,9 +1,0 @@
-{
-  if (null == termSourceField) {
-    throw new SolrException(SolrException.ErrorCode.SERVER_ERROR,"can't rebuild spellchecker index without termSourceField configured");
-  }
-  Dictionary dictionary=getDictionary(req);
-  spellChecker.clearIndex();
-  spellChecker.indexDictionary(dictionary,new IndexWriterConfig(req.getCore().getSolrConfig().luceneMatchVersion,null),false);
-  reopen();
-}

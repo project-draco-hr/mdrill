@@ -1,4 +1,0 @@
-{
-  this.set(HighlightParams.SIMPLE_PRE,f);
-  return this;
-}

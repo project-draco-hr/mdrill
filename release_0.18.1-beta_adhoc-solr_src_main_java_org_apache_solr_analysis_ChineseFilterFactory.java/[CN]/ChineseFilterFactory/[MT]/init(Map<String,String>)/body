@@ -1,4 +1,0 @@
-{
-  super.init(args);
-  warnDeprecated("Use StopFilterFactory instead.");
-}

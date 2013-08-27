@@ -1,4 +1,0 @@
-{
-  this.scorer=scorer;
-  delegate.setScorer(scorer);
-}

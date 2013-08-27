@@ -1,7 +1,0 @@
-{
-  this.topReader=topReader;
-  readers=r;
-  starts=s;
-  readerTermDocs=new TermDocs[r.length];
-  this.buffer=buffer;
-}

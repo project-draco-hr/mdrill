@@ -1,3 +1,0 @@
-{
-  return new EdgeNGramTokenizer(input,side,minGramSize,maxGramSize);
-}

@@ -1,5 +1,0 @@
-{
-  this.es=es;
-  this.warmer=warmer;
-  currentSearcher=new IndexSearcher(IndexReader.open(dir,true),es);
-}

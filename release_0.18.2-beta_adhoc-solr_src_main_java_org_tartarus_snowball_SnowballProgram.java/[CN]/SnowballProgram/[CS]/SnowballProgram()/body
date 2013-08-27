@@ -1,4 +1,0 @@
-{
-  current=new char[8];
-  setCurrent("");
-}

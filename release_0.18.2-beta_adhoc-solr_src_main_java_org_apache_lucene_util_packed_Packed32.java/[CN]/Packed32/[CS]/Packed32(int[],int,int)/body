@@ -1,8 +1,0 @@
-{
-  super(valueCount,bitsPerValue);
-  if (bitsPerValue > 31) {
-    throw new IllegalArgumentException(String.format("This array only supports values of 31 bits or less. The " + "required number of bits was %d. The Packed64 " + "implementation allows values with more than 31 bits",bitsPerValue));
-  }
-  this.blocks=blocks;
-  updateCached();
-}

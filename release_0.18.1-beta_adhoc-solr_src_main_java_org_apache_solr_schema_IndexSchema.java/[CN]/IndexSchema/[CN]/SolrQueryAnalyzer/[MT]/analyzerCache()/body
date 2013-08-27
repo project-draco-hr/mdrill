@@ -1,8 +1,0 @@
-{
-  HashMap<String,Analyzer> cache=new HashMap<String,Analyzer>();
-  for (  SchemaField f : getFields().values()) {
-    Analyzer analyzer=f.getType().getQueryAnalyzer();
-    cache.put(f.getName(),analyzer);
-  }
-  return cache;
-}

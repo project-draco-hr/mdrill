@@ -1,7 +1,0 @@
-{
-  if (o == this)   return true;
-  if (o == null)   return false;
-  if (o.getClass() != OrdFieldSource.class)   return false;
-  OrdFieldSource other=(OrdFieldSource)o;
-  return this.field.equals(other.field);
-}

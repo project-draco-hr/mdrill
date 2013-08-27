@@ -1,4 +1,0 @@
-{
-  updateHandler.rollback(cmd);
-  super.processRollback(cmd);
-}

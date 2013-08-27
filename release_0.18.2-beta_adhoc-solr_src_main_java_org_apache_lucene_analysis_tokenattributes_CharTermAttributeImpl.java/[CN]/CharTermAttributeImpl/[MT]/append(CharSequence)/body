@@ -1,4 +1,0 @@
-{
-  if (csq == null)   return appendNull();
-  return append(csq,0,csq.length());
-}

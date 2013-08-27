@@ -1,3 +1,0 @@
-{
-  return get(readOnly,si.dir,si,BufferedIndexInput.BUFFER_SIZE,true,termInfosIndexDivisor);
-}

@@ -1,3 +1,0 @@
-{
-  this.writeVInt(VNumberic.enVInt(i));
-}

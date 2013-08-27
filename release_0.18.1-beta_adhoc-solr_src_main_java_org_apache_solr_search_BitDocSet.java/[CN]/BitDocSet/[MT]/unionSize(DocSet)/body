@@ -1,8 +1,0 @@
-{
-  if (other instanceof BitDocSet) {
-    return (int)OpenBitSet.unionCount(this.bits,((BitDocSet)other).bits);
-  }
- else {
-    return other.unionSize(this);
-  }
-}

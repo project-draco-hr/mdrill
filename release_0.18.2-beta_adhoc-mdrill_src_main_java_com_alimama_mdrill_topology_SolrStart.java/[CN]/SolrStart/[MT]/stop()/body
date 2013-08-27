@@ -1,6 +1,0 @@
-{
-  jetty.stop();
-  for (  SolrStartTable table : tables) {
-    table.stop();
-  }
-}

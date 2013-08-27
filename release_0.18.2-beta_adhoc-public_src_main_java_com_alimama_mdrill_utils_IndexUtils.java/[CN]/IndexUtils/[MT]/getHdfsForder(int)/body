@@ -1,5 +1,0 @@
-{
-  StringBuilder cmd=new StringBuilder();
-  cmd.append("part-00").append(index > 99 ? "" : "0").append(index > 9 ? index : "0" + index);
-  return cmd.toString();
-}

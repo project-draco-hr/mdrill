@@ -1,5 +1,0 @@
-{
-  byte[] cloneBytes=new byte[bytes.length];
-  System.arraycopy(bytes,0,cloneBytes,0,bytes.length);
-  return cloneBytes;
-}

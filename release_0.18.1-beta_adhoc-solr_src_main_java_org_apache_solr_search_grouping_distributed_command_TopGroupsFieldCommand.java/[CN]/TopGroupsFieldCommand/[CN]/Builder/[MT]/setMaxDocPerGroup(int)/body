@@ -1,4 +1,0 @@
-{
-  this.maxDocPerGroup=maxDocPerGroup;
-  return this;
-}

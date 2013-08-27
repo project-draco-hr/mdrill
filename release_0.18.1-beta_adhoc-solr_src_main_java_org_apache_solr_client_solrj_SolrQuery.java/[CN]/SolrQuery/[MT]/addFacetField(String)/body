@@ -1,5 +1,0 @@
-{
-  add(FacetParams.FACET_FIELD,fields);
-  this.set(FacetParams.FACET,true);
-  return this;
-}

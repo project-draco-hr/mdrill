@@ -1,8 +1,0 @@
-{
-  if (this == o)   return true;
-  if (!(o instanceof TermVectorOffsetInfo))   return false;
-  final TermVectorOffsetInfo termVectorOffsetInfo=(TermVectorOffsetInfo)o;
-  if (endOffset != termVectorOffsetInfo.endOffset)   return false;
-  if (startOffset != termVectorOffsetInfo.startOffset)   return false;
-  return true;
-}

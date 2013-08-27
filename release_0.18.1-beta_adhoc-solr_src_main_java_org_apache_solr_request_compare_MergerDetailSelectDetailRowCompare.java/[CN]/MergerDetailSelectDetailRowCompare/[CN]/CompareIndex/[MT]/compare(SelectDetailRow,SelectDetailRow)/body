@@ -1,3 +1,0 @@
-{
-  return UniqTypeNum.compare(o1.docid,o2.docid);
-}

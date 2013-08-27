@@ -1,3 +1,0 @@
-{
-  return (CharArrayMap<V>)EMPTY_MAP;
-}

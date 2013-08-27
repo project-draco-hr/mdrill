@@ -1,8 +1,0 @@
-{
-  if (stats.getType().equals("bolt")) {
-    emitted_tuple((BoltTaskStatsRolling)stats,stream);
-  }
-  if (stats.getType().equals("spout")) {
-    emitted_tuple((SpoutTaskStatsRolling)stats,stream);
-  }
-}

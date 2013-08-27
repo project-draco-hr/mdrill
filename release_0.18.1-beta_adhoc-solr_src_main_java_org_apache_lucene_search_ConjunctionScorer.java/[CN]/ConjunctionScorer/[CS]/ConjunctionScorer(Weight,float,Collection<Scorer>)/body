@@ -1,3 +1,0 @@
-{
-  this(weight,coord,scorers.toArray(new Scorer[scorers.size()]));
-}

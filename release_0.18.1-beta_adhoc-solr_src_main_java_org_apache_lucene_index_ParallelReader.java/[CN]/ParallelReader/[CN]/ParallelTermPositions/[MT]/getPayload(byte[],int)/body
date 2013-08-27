@@ -1,3 +1,0 @@
-{
-  return ((TermPositions)termDocs).getPayload(data,offset);
-}

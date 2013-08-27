@@ -1,3 +1,0 @@
-{
-  return "DistanceQuery lat: " + lat + " lng: "+ lng+ " miles: "+ miles;
-}

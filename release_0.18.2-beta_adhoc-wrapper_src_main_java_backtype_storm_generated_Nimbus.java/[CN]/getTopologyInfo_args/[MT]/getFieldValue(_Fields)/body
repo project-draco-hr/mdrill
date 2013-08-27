@@ -1,7 +1,0 @@
-{
-switch (field) {
-case ID:
-    return get_id();
-}
-throw new IllegalStateException();
-}

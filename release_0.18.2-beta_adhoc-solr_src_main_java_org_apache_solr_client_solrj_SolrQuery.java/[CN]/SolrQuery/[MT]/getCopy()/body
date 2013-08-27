@@ -1,7 +1,0 @@
-{
-  SolrQuery q=new SolrQuery();
-  for (  String name : this.getParameterNames()) {
-    q.setParam(name,this.getParams(name));
-  }
-  return q;
-}

@@ -1,8 +1,0 @@
-{
-  ensureOpen();
-  pushMaxBufferedDocs();
-  if (infoStream != null) {
-    message("setMaxBufferedDocs " + maxBufferedDocs);
-  }
-  config.setMaxBufferedDocs(maxBufferedDocs);
-}

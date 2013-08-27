@@ -1,5 +1,0 @@
-{
-synchronized (this.getLockObj()) {
-    return isException;
-  }
-}

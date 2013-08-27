@@ -1,9 +1,0 @@
-{
-  String rtn=worker_root(conf,id) + "/pids";
-  try {
-    FileUtils.forceMkdir(new File(rtn));
-  }
- catch (  IOException e) {
-  }
-  return rtn;
-}

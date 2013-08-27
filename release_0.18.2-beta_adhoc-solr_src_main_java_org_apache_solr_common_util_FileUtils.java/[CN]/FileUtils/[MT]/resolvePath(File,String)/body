@@ -1,4 +1,0 @@
-{
-  File r=new File(path);
-  return r.isAbsolute() ? r : new File(base,path);
-}

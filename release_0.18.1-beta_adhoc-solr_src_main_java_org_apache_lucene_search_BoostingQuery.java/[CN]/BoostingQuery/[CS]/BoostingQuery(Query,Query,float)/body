@@ -1,6 +1,0 @@
-{
-  this.match=match;
-  this.context=(Query)context.clone();
-  this.boost=boost;
-  this.context.setBoost(0.0f);
-}

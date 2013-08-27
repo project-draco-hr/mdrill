@@ -1,9 +1,0 @@
-{
-  try {
-    InputSource src=new InputSource(file.toURL().toExternalForm());
-    parse(src);
-  }
- catch (  MalformedURLException e) {
-    throw new HyphenationException("Error converting the File '" + file + "' to a URL: "+ e.getMessage());
-  }
-}

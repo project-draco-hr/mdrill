@@ -1,4 +1,0 @@
-{
-  this(input,DEFAULT_MIN_SHINGLE_SIZE,DEFAULT_MAX_SHINGLE_SIZE);
-  setTokenType(tokenType);
-}

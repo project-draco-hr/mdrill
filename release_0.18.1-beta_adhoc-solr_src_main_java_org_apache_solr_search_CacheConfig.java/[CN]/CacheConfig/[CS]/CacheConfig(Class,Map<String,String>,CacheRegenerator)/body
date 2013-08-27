@@ -1,5 +1,0 @@
-{
-  this.clazz=clazz;
-  this.args=args;
-  this.regenerator=regenerator;
-}

@@ -1,8 +1,0 @@
-{
-  if (pos >= buf.length) {
-    out.write(buf);
-    written+=pos;
-    pos=0;
-  }
-  buf[pos++]=b;
-}

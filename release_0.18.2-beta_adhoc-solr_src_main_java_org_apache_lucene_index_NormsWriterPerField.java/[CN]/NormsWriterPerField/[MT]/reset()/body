@@ -1,5 +1,0 @@
-{
-  docIDs=ArrayUtil.shrink(docIDs,upto);
-  norms=ArrayUtil.shrink(norms,upto);
-  upto=0;
-}

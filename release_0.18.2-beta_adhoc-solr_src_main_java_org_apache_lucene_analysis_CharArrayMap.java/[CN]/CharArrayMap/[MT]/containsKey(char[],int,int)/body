@@ -1,3 +1,0 @@
-{
-  return keys[getSlot(text,off,len)] != null;
-}

@@ -1,7 +1,0 @@
-{
-  T rtn=get(name,0);
-  if (rtn == null) {
-    return def;
-  }
-  return rtn;
-}

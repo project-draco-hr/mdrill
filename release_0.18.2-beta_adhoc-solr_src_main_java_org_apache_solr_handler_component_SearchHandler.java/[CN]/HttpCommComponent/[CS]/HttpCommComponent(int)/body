@@ -1,3 +1,0 @@
-{
-  this.completionService=MergerServerThreads.create(depth);
-}

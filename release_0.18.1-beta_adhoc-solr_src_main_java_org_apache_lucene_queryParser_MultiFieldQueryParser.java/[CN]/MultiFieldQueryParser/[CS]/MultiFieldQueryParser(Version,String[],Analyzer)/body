@@ -1,4 +1,0 @@
-{
-  super(matchVersion,null,analyzer);
-  this.fields=fields;
-}

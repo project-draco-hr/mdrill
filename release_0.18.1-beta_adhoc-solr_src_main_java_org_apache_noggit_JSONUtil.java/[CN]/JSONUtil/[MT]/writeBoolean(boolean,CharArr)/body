@@ -1,3 +1,0 @@
-{
-  out.write(val ? TRUE_CHARS : FALSE_CHARS);
-}

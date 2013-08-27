@@ -1,7 +1,0 @@
-{
-  if (writer == null) {
-    writer=createWriter();
-  }
-  writer.addDocuments(docs,analyzer);
-  numDocs+=docs.size();
-}

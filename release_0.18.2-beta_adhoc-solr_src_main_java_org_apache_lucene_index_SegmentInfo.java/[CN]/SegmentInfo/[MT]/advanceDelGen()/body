@@ -1,9 +1,0 @@
-{
-  if (delGen == NO) {
-    delGen=YES;
-  }
- else {
-    delGen++;
-  }
-  clearFiles();
-}

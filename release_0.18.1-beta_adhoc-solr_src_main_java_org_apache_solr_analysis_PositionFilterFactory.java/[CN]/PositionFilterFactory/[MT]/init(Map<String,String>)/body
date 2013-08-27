@@ -1,4 +1,0 @@
-{
-  super.init(args);
-  positionIncrement=getInt("positionIncrement",0);
-}

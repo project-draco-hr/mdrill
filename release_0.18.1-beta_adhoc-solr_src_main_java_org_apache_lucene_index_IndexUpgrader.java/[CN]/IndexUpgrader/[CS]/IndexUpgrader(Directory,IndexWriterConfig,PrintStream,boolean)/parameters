@@ -1,4 +1,0 @@
-Directory dir
-IndexWriterConfig iwc
-PrintStream infoStream
-boolean deletePriorCommits

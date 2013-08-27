@@ -1,6 +1,0 @@
-{
-  DocSet groupFilt=searcher.getDocSet(query);
-  topCollector=newCollector(groupSort,needScores);
-  collector=new FilterCollector(groupFilt,topCollector);
-  return collector;
-}

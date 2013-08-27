@@ -1,3 +1,0 @@
-{
-  return compareTo(term,termBytesRef,termIndex,(IndexInput)this.tiiInput.clone(),(IndexInput)this.quickTii.clone(),new BytesRef());
-}

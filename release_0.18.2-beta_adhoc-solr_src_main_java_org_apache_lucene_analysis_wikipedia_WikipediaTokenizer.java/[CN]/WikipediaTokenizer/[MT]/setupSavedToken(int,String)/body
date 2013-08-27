@@ -1,5 +1,0 @@
-{
-  setupToken();
-  posIncrAtt.setPositionIncrement(positionInc);
-  typeAtt.setType(type);
-}

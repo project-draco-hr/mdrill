@@ -1,5 +1,0 @@
-{
-  SegmentInfos infos=new SegmentInfos();
-  infos.addAll(segments.subList(first,last));
-  return infos;
-}

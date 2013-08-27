@@ -1,9 +1,0 @@
-{
-  if (input == null) {
-    throw new IllegalArgumentException("input AttributeSource must not be null");
-  }
-  this.attributes=input.attributes;
-  this.attributeImpls=input.attributeImpls;
-  this.currentState=input.currentState;
-  this.factory=input.factory;
-}

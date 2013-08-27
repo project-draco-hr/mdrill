@@ -1,4 +1,0 @@
-{
-  this.set(CommonParams.FQ,fq);
-  return this;
-}

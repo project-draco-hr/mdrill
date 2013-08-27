@@ -1,7 +1,0 @@
-{
-  if (writer != null) {
-    writer.optimize();
-    writer.close();
-    writer=null;
-  }
-}

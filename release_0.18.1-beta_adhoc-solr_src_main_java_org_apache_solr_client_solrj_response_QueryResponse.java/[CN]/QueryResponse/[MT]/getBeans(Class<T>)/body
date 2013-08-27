@@ -1,3 +1,0 @@
-{
-  return solrServer == null ? new DocumentObjectBinder().getBeans(type,_results) : solrServer.getBinder().getBeans(type,_results);
-}

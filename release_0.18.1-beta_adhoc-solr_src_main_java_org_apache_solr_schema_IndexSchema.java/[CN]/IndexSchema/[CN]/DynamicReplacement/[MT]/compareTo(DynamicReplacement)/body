@@ -1,3 +1,0 @@
-{
-  return other.regex.length() - regex.length();
-}

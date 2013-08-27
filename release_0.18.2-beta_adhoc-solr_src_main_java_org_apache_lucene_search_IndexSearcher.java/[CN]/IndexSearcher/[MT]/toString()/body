@@ -1,3 +1,0 @@
-{
-  return "IndexSearcher(" + reader + ")";
-}

@@ -1,3 +1,0 @@
-{
-  return format >= FieldsWriter.FORMAT_LUCENE_3_0_NO_COMPRESSED_FIELDS;
-}

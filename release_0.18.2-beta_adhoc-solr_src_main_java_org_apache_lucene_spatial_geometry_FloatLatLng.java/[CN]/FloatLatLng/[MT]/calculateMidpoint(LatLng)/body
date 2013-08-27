@@ -1,3 +1,0 @@
-{
-  return new FloatLatLng((lat + other.getLat()) / 2.0,(lng + other.getLng()) / 2.0);
-}

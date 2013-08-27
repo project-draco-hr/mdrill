@@ -1,4 +1,0 @@
-{
-  field.checkFieldCacheSource(parser);
-  return new StrFieldSource(field.name);
-}

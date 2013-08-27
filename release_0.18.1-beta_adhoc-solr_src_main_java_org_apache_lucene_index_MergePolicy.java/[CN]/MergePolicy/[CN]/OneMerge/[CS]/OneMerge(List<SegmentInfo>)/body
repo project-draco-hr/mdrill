@@ -1,9 +1,0 @@
-{
-  if (0 == segments.size())   throw new RuntimeException("segments must include at least one segment");
-  this.segments=new ArrayList<SegmentInfo>(segments);
-  int count=0;
-  for (  SegmentInfo info : segments) {
-    count+=info.docCount;
-  }
-  totalDocCount=count;
-}

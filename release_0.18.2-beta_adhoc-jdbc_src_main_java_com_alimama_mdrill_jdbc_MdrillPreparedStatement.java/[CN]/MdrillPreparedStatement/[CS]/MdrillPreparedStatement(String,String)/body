@@ -1,4 +1,0 @@
-{
-  this.httpurl=client;
-  this.sql=sql;
-}

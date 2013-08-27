@@ -1,8 +1,0 @@
-{
-  if (cache.fileExists(name)) {
-    return cache.openInput(name,bufferSize);
-  }
- else {
-    return delegate.openInput(name,bufferSize);
-  }
-}

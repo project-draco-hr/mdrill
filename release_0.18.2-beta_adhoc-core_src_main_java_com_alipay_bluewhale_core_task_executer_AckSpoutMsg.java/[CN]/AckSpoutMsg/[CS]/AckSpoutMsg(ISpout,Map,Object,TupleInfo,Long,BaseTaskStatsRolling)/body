@@ -1,8 +1,0 @@
-{
-  this.spout=_spout;
-  this.storm_conf=_storm_conf;
-  this.msg_id=_msg_id;
-  this.tuple=_tuple;
-  this.time_delta=_time_delta;
-  this.task_stats=_task_stats;
-}

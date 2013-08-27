@@ -1,8 +1,0 @@
-{
-  LinkedBlockingQueue<GroupList> rtn=fieldValueCache.get(size);
-  if (rtn == null) {
-    rtn=new LinkedBlockingQueue<GroupList>();
-    fieldValueCache.put(size,rtn);
-  }
-  return rtn;
-}

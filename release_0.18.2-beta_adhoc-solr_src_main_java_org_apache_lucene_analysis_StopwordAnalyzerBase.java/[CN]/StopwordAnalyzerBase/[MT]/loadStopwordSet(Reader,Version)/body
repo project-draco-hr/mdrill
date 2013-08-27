@@ -1,8 +1,0 @@
-{
-  try {
-    return WordlistLoader.getWordSet(stopwords,matchVersion);
-  }
-  finally {
-    IOUtils.close(stopwords);
-  }
-}

@@ -1,5 +1,0 @@
-{
-  result_result result=new result_result();
-  receiveBase(result,"result");
-  return;
-}

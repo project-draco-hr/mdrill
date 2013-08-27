@@ -1,6 +1,0 @@
-{
-  if (o instanceof SolrIndexReader) {
-    o=((SolrIndexReader)o).in;
-  }
-  return in.equals(o);
-}

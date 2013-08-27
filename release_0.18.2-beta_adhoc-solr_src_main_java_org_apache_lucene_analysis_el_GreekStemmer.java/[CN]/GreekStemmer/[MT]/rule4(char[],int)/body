@@ -1,7 +1,0 @@
-{
-  if (len > 3 && (endsWith(s,len,"??????") || endsWith(s,len,"??????"))) {
-    len-=3;
-    if (exc4.contains(s,0,len))     len++;
-  }
-  return len;
-}

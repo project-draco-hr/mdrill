@@ -1,3 +1,0 @@
-{
-  return new StandardFilter(luceneMatchVersion,input);
-}

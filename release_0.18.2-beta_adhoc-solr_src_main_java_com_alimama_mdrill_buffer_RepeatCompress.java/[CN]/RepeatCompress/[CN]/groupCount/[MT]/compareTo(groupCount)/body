@@ -1,3 +1,0 @@
-{
-  return (this.cnt < o.cnt ? 1 : (this.cnt == o.cnt ? 0 : -1));
-}

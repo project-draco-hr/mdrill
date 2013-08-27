@@ -1,5 +1,0 @@
-{
-  if (clauses.size() == 0)   return new SpanOrQuery(getClauses()).getSpans(reader);
-  if (clauses.size() == 1)   return clauses.get(0).getSpans(reader);
-  return inOrder ? (Spans)new NearSpansOrdered(this,reader,collectPayloads) : (Spans)new NearSpansUnordered(this,reader);
-}

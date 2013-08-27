@@ -1,3 +1,0 @@
-{
-  if (query != null)   query.extractTerms(terms);
-}

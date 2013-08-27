@@ -1,4 +1,0 @@
-String className
-int autoCommmitMaxDocs
-int autoCommmitMaxTime
-int commitIntervalLowerBound

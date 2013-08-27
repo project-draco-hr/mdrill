@@ -1,5 +1,0 @@
-{
-  super();
-  this.path=path;
-  this.vertify=vertify;
-}

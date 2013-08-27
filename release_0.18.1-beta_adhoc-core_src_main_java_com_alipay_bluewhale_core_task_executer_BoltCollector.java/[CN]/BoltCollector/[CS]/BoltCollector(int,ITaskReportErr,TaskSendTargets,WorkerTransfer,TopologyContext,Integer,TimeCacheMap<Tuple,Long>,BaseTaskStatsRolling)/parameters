@@ -1,8 +1,0 @@
-int message_timeout_secs
-ITaskReportErr report_error
-TaskSendTargets _send_fn
-WorkerTransfer _transfer_fn
-TopologyContext _topology_context
-Integer task_id
-TimeCacheMap<Tuple,Long> tuple_start_times
-BaseTaskStatsRolling _task_stats

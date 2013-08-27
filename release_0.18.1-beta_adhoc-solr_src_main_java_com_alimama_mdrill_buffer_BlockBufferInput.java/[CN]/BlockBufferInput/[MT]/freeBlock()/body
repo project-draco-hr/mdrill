@@ -1,5 +1,0 @@
-{
-  this.lastbuff.allowFree.decrementAndGet();
-  this.lastbuff=new blockData(null,0);
-  this.lastBlockIndex=-1l;
-}

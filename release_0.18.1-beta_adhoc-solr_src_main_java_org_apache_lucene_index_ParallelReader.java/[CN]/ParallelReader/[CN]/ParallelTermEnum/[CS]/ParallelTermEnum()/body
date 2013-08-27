@@ -1,9 +1,0 @@
-{
-  try {
-    field=fieldToReader.firstKey();
-  }
- catch (  NoSuchElementException e) {
-    return;
-  }
-  if (field != null)   termEnum=fieldToReader.get(field).terms();
-}

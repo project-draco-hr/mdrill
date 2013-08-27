@@ -1,4 +1,0 @@
-{
-  super(writer,req,rsp);
-  log.warn(TextResponseWriter.class.getName() + " is deprecated. Please use the corresponding class in org.apache.solr.response");
-}

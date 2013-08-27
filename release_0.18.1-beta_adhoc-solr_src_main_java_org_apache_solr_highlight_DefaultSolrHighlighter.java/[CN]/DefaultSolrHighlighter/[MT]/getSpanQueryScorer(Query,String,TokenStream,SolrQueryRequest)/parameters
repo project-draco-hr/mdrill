@@ -1,4 +1,0 @@
-Query query
-String fieldName
-TokenStream tokenStream
-SolrQueryRequest request

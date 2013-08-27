@@ -1,3 +1,0 @@
-{
-  message("\ndir=" + directory + "\n"+ "index="+ segString()+ "\n"+ "version="+ Constants.LUCENE_VERSION+ "\n"+ config.toString());
-}

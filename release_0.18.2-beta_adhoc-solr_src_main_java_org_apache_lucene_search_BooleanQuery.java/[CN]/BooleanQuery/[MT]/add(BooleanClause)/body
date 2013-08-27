@@ -1,4 +1,0 @@
-{
-  if (clauses.size() >= maxClauseCount)   throw new TooManyClauses();
-  clauses.add(clause);
-}

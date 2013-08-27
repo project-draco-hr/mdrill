@@ -1,4 +1,0 @@
-{
-  this.cnt=cnt;
-  this.val=val;
-}

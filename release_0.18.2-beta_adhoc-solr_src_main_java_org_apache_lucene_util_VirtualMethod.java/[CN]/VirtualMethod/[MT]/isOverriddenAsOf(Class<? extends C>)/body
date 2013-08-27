@@ -1,3 +1,0 @@
-{
-  return getImplementationDistance(subclazz) > 0;
-}

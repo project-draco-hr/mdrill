@@ -1,7 +1,0 @@
-{
-  int res[]=new int[len];
-  for (int i=0; i < len; i++) {
-    res[i]=indexOf(termNumbers[start + i]);
-  }
-  return res;
-}

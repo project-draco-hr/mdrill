@@ -1,7 +1,0 @@
-{
-  if (expected != actual) {
-    test.fail(log,message + " (expected \"" + expected+ "\", actual \""+ actual+ "\")");
-    return false;
-  }
-  return true;
-}

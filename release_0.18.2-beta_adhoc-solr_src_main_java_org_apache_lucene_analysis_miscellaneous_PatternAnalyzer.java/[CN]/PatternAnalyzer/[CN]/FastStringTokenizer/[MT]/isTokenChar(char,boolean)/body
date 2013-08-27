@@ -1,3 +1,0 @@
-{
-  return isLetter ? Character.isLetter(c) : !Character.isWhitespace(c);
-}

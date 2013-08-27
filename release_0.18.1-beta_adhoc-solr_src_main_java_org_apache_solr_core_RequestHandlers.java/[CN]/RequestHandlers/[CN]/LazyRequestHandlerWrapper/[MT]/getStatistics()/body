@@ -1,8 +1,0 @@
-{
-  if (_handler != null) {
-    return _handler.getStatistics();
-  }
-  NamedList<String> lst=new SimpleOrderedMap<String>();
-  lst.add("note","not initialized yet");
-  return lst;
-}

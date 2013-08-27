@@ -1,3 +1,0 @@
-{
-  writer.writeStr(name,toExternal(f),false);
-}

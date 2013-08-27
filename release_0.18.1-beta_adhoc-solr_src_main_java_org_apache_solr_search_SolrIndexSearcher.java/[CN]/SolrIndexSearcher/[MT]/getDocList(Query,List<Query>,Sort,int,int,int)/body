@@ -1,7 +1,0 @@
-{
-  QueryCommand qc=new QueryCommand();
-  qc.setQuery(query).setFilterList(filterList).setSort(lsort).setOffset(offset).setLen(len).setFlags(flags);
-  QueryResult qr=new QueryResult();
-  search(qr,qc);
-  return qr.getDocList();
-}

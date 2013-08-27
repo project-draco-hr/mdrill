@@ -1,4 +1,0 @@
-{
-  minValue=outputUnigrams ? 1 : minShingleSize;
-  reset();
-}

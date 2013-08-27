@@ -1,3 +1,0 @@
-{
-  return needToLoadPayload && payloadLength > 0;
-}

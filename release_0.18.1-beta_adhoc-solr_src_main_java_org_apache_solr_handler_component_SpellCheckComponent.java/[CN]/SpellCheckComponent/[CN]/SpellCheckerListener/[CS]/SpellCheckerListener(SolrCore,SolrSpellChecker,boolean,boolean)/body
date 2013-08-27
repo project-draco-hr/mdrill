@@ -1,6 +1,0 @@
-{
-  this.core=core;
-  this.checker=checker;
-  this.buildOnCommit=buildOnCommit;
-  this.buildOnOptimize=buildOnOptimize;
-}

@@ -1,7 +1,0 @@
-{
-  super(other,maxRAMMB,true);
-  cachedScorer=new CachedScorer();
-  cachedScores=new ArrayList<float[]>();
-  curScores=new float[128];
-  cachedScores.add(curScores);
-}

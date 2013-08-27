@@ -1,4 +1,0 @@
-{
-  streams.add(new HttpRequestContentStream(req));
-  return SolrRequestParsers.parseQueryString(req.getQueryString());
-}

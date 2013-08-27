@@ -1,4 +1,0 @@
-{
-  super(smallSetSize,maxDoc);
-  this.collector=collector;
-}

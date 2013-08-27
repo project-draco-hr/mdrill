@@ -1,3 +1,0 @@
-{
-  return new IndonesianStemFilter(input,stemDerivational);
-}

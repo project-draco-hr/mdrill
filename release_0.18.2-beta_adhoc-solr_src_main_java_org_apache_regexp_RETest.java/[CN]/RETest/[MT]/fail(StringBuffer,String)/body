@@ -1,4 +1,0 @@
-{
-  System.out.print(log.toString());
-  fail(s);
-}

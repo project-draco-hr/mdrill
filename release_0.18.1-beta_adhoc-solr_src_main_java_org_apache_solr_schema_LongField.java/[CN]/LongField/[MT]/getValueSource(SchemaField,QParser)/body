@@ -1,4 +1,0 @@
-{
-  field.checkFieldCacheSource(qparser);
-  return new LongFieldSource(field.name);
-}

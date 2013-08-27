@@ -1,9 +1,0 @@
-{
-  if (find_among_b(a_21,8) == 0) {
-    return false;
-  }
-  if (!r_mark_suffix_with_optional_y_consonant()) {
-    return false;
-  }
-  return true;
-}

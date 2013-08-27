@@ -1,3 +1,0 @@
-{
-  return HIGHLIGHTER.getHighlighterX(query,fieldName,request);
-}

@@ -1,4 +1,0 @@
-{
-  if (mergePolicy instanceof LogMergePolicy)   return (LogMergePolicy)mergePolicy;
- else   throw new IllegalArgumentException("this method can only be called when the merge policy is the default LogMergePolicy");
-}

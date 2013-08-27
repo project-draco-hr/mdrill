@@ -1,3 +1,0 @@
-{
-  return (float)(Math.log(numDocs / (double)(docFreq + 1)) + 1.0);
-}

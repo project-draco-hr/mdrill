@@ -1,4 +1,0 @@
-{
-  this.condition=condition;
-  this.conditionPattern=Pattern.compile(pattern);
-}

@@ -1,3 +1,0 @@
-{
-  return addBean(obj,-1);
-}

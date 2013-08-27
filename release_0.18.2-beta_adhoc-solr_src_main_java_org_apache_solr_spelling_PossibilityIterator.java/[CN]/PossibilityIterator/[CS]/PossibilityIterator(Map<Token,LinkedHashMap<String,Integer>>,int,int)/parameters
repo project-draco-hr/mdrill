@@ -1,3 +1,0 @@
-Map<Token,LinkedHashMap<String,Integer>> suggestions
-int maximumRequiredSuggestions
-int maxEvaluations

@@ -1,7 +1,0 @@
-{
-  while (true) {
-    MergePolicy.OneMerge merge=writer.getNextMerge();
-    if (merge == null)     break;
-    writer.merge(merge);
-  }
-}

@@ -1,7 +1,0 @@
-{
-  char c=sb.charAt(index);
-  if (isVowel(c))   return false;
-  if (c < 3)   return false;
-  if (c == 'm' && sb.charAt(index - 2) == 'g' && sb.charAt(index - 1) == 'e')   return false;
-  return true;
-}

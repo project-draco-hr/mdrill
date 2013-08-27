@@ -1,3 +1,0 @@
-{
-  writeLong(name,Long.toString(val));
-}

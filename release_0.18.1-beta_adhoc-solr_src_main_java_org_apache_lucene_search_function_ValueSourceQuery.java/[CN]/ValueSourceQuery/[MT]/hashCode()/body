@@ -1,3 +1,0 @@
-{
-  return (getClass().hashCode() + valSrc.hashCode()) ^ Float.floatToIntBits(getBoost());
-}

@@ -1,4 +1,0 @@
-{
-  sreq.getContext().put("webapp",req.getContextPath());
-  sreq.getCore().execute(handler,sreq,rsp);
-}

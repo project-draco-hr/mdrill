@@ -1,3 +1,0 @@
-{
-  super(directory,sis,deletionPolicy,true,termInfosIndexDivisor,readerFinishedListeners);
-}

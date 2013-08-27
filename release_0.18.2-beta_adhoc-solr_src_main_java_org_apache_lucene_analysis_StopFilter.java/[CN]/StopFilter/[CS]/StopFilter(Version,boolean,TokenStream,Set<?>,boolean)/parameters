@@ -1,5 +1,0 @@
-Version matchVersion
-boolean enablePositionIncrements
-TokenStream input
-Set<?> stopWords
-boolean ignoreCase

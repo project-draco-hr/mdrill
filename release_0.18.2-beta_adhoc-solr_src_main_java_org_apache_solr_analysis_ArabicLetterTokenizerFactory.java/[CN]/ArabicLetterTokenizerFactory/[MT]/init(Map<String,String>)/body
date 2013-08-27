@@ -1,5 +1,0 @@
-{
-  super.init(args);
-  assureMatchVersion();
-  warnDeprecated("Use StandardTokenizerFactory instead.");
-}

@@ -1,4 +1,0 @@
-SolrQueryRequest req
-SolrQueryResponse rsp
-LogUpdateProcessorFactory factory
-UpdateRequestProcessor next

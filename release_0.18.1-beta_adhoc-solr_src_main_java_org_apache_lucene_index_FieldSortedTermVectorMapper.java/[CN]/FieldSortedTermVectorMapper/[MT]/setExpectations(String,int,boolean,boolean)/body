@@ -1,5 +1,0 @@
-{
-  currentSet=new TreeSet<TermVectorEntry>(comparator);
-  currentField=field;
-  fieldToTerms.put(field,currentSet);
-}

@@ -1,8 +1,0 @@
-{
-  this.inputType=inputType;
-  this.outputs=outputs;
-  bytes=new byte[128];
-  NO_OUTPUT=outputs.getNoOutput();
-  writer=new BytesWriter();
-  emptyOutput=null;
-}

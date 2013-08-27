@@ -1,4 +1,0 @@
-{
-  final int finalOffset=inLen;
-  this.offsetAtt.setOffset(finalOffset,finalOffset);
-}

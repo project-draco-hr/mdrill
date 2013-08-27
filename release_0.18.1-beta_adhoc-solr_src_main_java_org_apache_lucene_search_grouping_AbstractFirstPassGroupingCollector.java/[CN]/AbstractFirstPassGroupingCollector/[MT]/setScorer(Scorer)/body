@@ -1,5 +1,0 @@
-{
-  for (  FieldComparator comparator : comparators) {
-    comparator.setScorer(scorer);
-  }
-}

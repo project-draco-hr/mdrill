@@ -1,6 +1,0 @@
-{
-  this.httpClient=httpClient;
-  for (  String s : solrServerUrl) {
-    aliveServers.add(new ServerWrapper(new CommonsHttpSolrServer(s,httpClient,parser)));
-  }
-}

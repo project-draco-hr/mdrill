@@ -1,7 +1,0 @@
-{
-  ArrayList<String> ret=new ArrayList<String>(strings.size());
-  for (  String str : strings) {
-    ret.add(str.toLowerCase(Locale.ENGLISH));
-  }
-  return ret;
-}

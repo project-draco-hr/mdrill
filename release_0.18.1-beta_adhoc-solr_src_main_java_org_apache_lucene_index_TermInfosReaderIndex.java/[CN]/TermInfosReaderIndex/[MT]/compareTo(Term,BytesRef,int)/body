@@ -1,3 +1,0 @@
-{
-  return compareTo(term,termBytesRef,termIndex,(PagedBytesDataInput)dataInput.clone(),new BytesRef());
-}

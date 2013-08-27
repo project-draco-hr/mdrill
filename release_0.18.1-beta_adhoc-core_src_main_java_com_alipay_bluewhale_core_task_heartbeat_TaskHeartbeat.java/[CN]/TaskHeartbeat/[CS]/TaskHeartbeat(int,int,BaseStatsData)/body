@@ -1,5 +1,0 @@
-{
-  this.timeSecs=timeSecs;
-  this.uptimeSecs=uptimeSecs;
-  this.stats=stats;
-}

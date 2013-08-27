@@ -1,4 +1,0 @@
-DocList docs
-SolrIndexSearcher searcher
-Set<String> fields
-Map<SolrDocument,Integer> ids

@@ -1,6 +1,0 @@
-char[] inputArray
-int inputOffset
-int inputLength
-byte[] outputArray
-int outputOffset
-int outputLength

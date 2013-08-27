@@ -1,4 +1,0 @@
-String qs
-String defaultField
-SolrParams params
-IndexSchema schema

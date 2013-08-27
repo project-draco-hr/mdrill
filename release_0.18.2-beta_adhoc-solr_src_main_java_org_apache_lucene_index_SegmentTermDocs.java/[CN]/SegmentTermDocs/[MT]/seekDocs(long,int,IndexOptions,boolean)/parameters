@@ -1,4 +1,0 @@
-long pos
-int docFreq
-IndexOptions indexOptions
-boolean currentFieldStoresPayloads

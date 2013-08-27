@@ -1,3 +1,0 @@
-{
-  out.write(new String(userid + "\n").getBytes());
-}

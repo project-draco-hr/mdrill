@@ -1,3 +1,0 @@
-{
-  this(solrServerUrl,null,queueSize,threadCount);
-}

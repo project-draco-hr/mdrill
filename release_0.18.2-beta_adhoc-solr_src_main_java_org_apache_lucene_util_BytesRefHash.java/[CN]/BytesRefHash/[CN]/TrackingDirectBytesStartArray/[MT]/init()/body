@@ -1,5 +1,0 @@
-{
-  bytesStart=new int[ArrayUtil.oversize(initSize,RamUsageEstimator.NUM_BYTES_INT)];
-  bytesUsed.addAndGet((bytesStart.length) * RamUsageEstimator.NUM_BYTES_INT);
-  return bytesStart;
-}

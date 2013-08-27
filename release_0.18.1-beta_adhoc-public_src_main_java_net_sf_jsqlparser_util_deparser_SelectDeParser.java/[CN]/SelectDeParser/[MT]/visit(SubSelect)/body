@@ -1,5 +1,0 @@
-{
-  buffer.append("(");
-  subSelect.getSelectBody().accept(this);
-  buffer.append(")");
-}

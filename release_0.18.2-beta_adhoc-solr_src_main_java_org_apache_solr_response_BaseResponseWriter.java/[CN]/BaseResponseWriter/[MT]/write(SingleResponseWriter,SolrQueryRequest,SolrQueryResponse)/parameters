@@ -1,3 +1,0 @@
-SingleResponseWriter responseWriter
-SolrQueryRequest request
-SolrQueryResponse response

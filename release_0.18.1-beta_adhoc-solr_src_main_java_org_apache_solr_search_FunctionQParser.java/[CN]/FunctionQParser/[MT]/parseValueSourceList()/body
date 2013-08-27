@@ -1,7 +1,0 @@
-{
-  List<ValueSource> sources=new ArrayList<ValueSource>(3);
-  while (hasMoreArguments()) {
-    sources.add(parseValueSource(true));
-  }
-  return sources;
-}

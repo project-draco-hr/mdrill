@@ -1,6 +1,0 @@
-{
-  last=first=null;
-  while (queue.top() != null) {
-    addToList(queue.pop());
-  }
-}

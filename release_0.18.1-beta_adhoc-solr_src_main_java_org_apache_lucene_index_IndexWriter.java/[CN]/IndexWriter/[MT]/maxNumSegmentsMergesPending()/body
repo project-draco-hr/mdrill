@@ -1,9 +1,0 @@
-{
-  for (  final MergePolicy.OneMerge merge : pendingMerges) {
-    if (merge.maxNumSegments != -1)     return true;
-  }
-  for (  final MergePolicy.OneMerge merge : runningMerges) {
-    if (merge.maxNumSegments != -1)     return true;
-  }
-  return false;
-}

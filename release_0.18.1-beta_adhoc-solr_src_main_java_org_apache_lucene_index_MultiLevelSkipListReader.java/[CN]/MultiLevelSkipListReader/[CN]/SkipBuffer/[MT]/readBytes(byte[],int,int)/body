@@ -1,4 +1,0 @@
-{
-  System.arraycopy(data,pos,b,offset,len);
-  pos+=len;
-}

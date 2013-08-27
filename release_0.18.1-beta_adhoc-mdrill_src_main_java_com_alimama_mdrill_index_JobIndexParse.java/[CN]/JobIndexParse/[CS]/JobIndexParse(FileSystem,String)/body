@@ -1,6 +1,0 @@
-{
-  super();
-  this.fs=fs;
-  this.inputBase=inputBase;
-  this.yyyymmdd=this.getToday();
-}

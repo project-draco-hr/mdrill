@@ -1,3 +1,0 @@
-{
-  return threadSafe ? new AtomicCounter() : new SerialCounter();
-}

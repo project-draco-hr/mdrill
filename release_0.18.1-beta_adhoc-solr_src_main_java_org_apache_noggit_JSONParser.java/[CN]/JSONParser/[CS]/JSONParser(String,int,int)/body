@@ -1,7 +1,0 @@
-{
-  this.in=null;
-  this.start=start;
-  this.end=end;
-  this.buf=new char[end - start];
-  data.getChars(start,end,buf,0);
-}

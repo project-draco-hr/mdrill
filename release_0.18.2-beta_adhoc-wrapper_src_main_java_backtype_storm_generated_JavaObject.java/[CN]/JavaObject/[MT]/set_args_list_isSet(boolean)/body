@@ -1,5 +1,0 @@
-{
-  if (!value) {
-    this.args_list=null;
-  }
-}

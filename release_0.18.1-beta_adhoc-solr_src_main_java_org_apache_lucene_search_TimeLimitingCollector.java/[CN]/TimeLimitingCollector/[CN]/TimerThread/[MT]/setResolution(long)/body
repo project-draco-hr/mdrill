@@ -1,3 +1,0 @@
-{
-  this.resolution=Math.max(resolution,5);
-}

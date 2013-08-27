@@ -1,6 +1,0 @@
-{
-  threadsNeedingHeartBeat++;
-  progress.progress();
-  if (threadsNeedingHeartBeat == 1) {
-  }
-}

@@ -1,9 +1,0 @@
-{
-  if (targetMaxStaleSec < targetMinStaleSec) {
-    throw new IllegalArgumentException("targetMaxScaleSec (= " + targetMaxStaleSec + ") < targetMinStaleSec (="+ targetMinStaleSec+ ")");
-  }
-  this.manager=manager;
-  this.targetMaxStaleNS=(long)(1000000000 * targetMaxStaleSec);
-  this.targetMinStaleNS=(long)(1000000000 * targetMinStaleSec);
-  manager.addWaitingListener(this);
-}

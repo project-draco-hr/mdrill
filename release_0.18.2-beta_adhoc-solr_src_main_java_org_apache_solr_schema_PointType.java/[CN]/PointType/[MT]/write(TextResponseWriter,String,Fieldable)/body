@@ -1,3 +1,0 @@
-{
-  writer.writeStr(name,f.stringValue(),false);
-}

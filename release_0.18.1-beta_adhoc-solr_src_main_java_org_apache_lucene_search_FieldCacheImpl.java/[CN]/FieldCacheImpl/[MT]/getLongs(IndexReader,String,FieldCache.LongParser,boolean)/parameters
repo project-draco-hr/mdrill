@@ -1,4 +1,0 @@
-IndexReader reader
-String field
-FieldCache.LongParser parser
-boolean setDocsWithField

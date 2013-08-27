@@ -1,3 +1,0 @@
-{
-  return "start=" + offset + "&rows="+ num+ (sort == null ? "" : "&sort=" + sort);
-}

@@ -1,4 +1,0 @@
-{
-  if (value == false && !hasNewAPI)   throw new IllegalArgumentException("You must implement the new API: getFieldQuery(String,String,boolean)" + " to use setAutoGeneratePhraseQueries(false)");
-  this.autoGeneratePhraseQueries=value;
-}

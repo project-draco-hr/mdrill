@@ -1,5 +1,0 @@
-{
-  if (that == null)   return false;
-  if (that instanceof BoltStats)   return this.equals((BoltStats)that);
-  return false;
-}

@@ -1,6 +1,0 @@
-Shape shape
-CartesianTierPlotter ctp
-double latX
-double longX
-double latY
-double longY

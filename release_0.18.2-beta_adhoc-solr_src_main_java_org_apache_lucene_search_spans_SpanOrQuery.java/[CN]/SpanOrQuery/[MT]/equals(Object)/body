@@ -1,8 +1,0 @@
-{
-  if (this == o)   return true;
-  if (o == null || getClass() != o.getClass())   return false;
-  final SpanOrQuery that=(SpanOrQuery)o;
-  if (!clauses.equals(that.clauses))   return false;
-  if (!clauses.isEmpty() && !field.equals(that.field))   return false;
-  return getBoost() == that.getBoost();
-}

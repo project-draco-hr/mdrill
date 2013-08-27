@@ -1,3 +1,0 @@
-{
-  return (sink instanceof FastWriter) ? (FastWriter)sink : new FastWriter(sink);
-}

@@ -1,9 +1,0 @@
-{
-  PHPSerializedWriter w=new PHPSerializedWriter(writer,req,rsp);
-  try {
-    w.writeResponse();
-  }
-  finally {
-    w.close();
-  }
-}

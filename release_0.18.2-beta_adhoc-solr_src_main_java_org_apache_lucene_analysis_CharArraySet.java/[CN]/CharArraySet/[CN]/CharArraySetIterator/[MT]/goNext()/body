@@ -1,5 +1,0 @@
-{
-  next=null;
-  pos++;
-  while (pos < map.keys.length && (next=map.keys[pos]) == null)   pos++;
-}

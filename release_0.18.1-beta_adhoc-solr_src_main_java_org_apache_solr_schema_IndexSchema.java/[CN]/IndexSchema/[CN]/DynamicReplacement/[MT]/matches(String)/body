@@ -1,5 +1,0 @@
-{
-  if (type == STARTS_WITH && name.startsWith(str))   return true;
- else   if (type == ENDS_WITH && name.endsWith(str))   return true;
- else   return false;
-}

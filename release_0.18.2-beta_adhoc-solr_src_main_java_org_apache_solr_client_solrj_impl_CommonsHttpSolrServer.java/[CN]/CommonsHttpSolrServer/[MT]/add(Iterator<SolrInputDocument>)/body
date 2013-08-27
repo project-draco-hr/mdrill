@@ -1,3 +1,0 @@
-{
-  return add(docIterator,-1);
-}

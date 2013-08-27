@@ -1,8 +1,0 @@
-{
-  int h=Double.valueOf(distance).hashCode();
-  h^=startingFilter.hashCode();
-  h^=Double.valueOf(lat).hashCode();
-  h^=Double.valueOf(lng).hashCode();
-  h^=geoHashField.hashCode();
-  return h;
-}

@@ -1,5 +1,0 @@
-{
-  this.type=type;
-  this.preRegister=preRegister;
-  this.requireName=requireName;
-}

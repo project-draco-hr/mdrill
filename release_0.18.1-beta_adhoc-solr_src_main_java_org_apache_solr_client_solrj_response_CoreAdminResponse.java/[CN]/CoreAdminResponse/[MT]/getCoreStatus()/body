@@ -1,3 +1,0 @@
-{
-  return (NamedList<NamedList<Object>>)getResponse().get("status");
-}

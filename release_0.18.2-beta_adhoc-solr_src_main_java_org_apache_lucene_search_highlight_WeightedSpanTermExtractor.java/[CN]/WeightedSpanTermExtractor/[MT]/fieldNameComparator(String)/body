@@ -1,4 +1,0 @@
-{
-  boolean rv=fieldName == null || fieldNameToCheck == fieldName || fieldNameToCheck == defaultField;
-  return rv;
-}

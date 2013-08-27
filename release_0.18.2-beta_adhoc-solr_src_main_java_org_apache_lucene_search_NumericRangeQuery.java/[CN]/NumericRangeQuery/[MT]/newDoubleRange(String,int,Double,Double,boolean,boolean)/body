@@ -1,3 +1,0 @@
-{
-  return new NumericRangeQuery<Double>(field,precisionStep,DataType.DOUBLE,min,max,minInclusive,maxInclusive);
-}

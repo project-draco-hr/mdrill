@@ -1,5 +1,0 @@
-{
-  this.markedUpText=markedUpText;
-  this.textStartPos=textStartPos;
-  this.fragNum=fragNum;
-}

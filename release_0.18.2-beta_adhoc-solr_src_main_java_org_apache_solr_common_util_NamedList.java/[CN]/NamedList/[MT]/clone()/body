@@ -1,5 +1,0 @@
-{
-  ArrayList newList=new ArrayList(nvPairs.size());
-  newList.addAll(nvPairs);
-  return new NamedList<T>(newList);
-}

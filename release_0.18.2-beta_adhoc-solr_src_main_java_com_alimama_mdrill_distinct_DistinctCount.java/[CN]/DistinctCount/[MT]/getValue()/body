@@ -1,3 +1,0 @@
-{
-  return (long)this.uniq.size() * currentTimes;
-}

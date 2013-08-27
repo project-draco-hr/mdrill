@@ -1,4 +1,0 @@
-{
-  this.lat=ll.getFixedLat();
-  this.lng=ll.getFixedLng();
-}

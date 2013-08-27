@@ -1,4 +1,0 @@
-{
-  documents.add(doc);
-  return this;
-}

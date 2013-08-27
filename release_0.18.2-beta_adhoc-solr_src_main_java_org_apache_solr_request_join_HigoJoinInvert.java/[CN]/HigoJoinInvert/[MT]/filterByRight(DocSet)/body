@@ -1,3 +1,0 @@
-{
-  return this.join.filterByRight(leftDocs,this.docset);
-}

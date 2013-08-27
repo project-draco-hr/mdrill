@@ -1,6 +1,0 @@
-{
-  if (!frozen) {
-    throw new IllegalStateException("must call freeze() before getDataInput");
-  }
-  return new PagedBytesDataInput();
-}

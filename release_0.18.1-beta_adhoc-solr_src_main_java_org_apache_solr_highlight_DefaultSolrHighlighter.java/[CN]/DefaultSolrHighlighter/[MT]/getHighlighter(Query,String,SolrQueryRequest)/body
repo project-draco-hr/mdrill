@@ -1,6 +1,0 @@
-{
-  SolrParams params=request.getParams();
-  Highlighter highlighter=new Highlighter(getFormatter(fieldName,params),getEncoder(fieldName,params),getQueryScorer(query,fieldName,request));
-  highlighter.setTextFragmenter(getFragmenter(fieldName,params));
-  return highlighter;
-}

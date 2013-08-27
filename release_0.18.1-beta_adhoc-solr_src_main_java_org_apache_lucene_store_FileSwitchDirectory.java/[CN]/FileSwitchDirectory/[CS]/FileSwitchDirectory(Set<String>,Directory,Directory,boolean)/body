@@ -1,7 +1,0 @@
-{
-  this.primaryExtensions=primaryExtensions;
-  this.primaryDir=primaryDir;
-  this.secondaryDir=secondaryDir;
-  this.doClose=doClose;
-  this.lockFactory=primaryDir.getLockFactory();
-}

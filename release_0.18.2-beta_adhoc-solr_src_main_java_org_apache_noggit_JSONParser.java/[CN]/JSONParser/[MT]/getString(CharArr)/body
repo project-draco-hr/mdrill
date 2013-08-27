@@ -1,4 +1,0 @@
-{
-  goTo(STRING);
-  readStringChars2(output,start);
-}

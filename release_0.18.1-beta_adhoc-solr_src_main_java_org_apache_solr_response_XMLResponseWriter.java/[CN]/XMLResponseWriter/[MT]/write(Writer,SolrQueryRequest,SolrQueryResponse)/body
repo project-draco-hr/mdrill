@@ -1,3 +1,0 @@
-{
-  XMLWriter.writeResponse(writer,req,rsp);
-}

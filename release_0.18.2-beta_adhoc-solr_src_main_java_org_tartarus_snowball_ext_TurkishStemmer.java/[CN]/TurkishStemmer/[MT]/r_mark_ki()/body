@@ -1,6 +1,0 @@
-{
-  if (!(eq_s_b(2,"ki"))) {
-    return false;
-  }
-  return true;
-}

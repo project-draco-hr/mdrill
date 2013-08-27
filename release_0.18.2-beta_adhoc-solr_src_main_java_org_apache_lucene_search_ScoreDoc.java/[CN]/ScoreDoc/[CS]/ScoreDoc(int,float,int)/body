@@ -1,5 +1,0 @@
-{
-  this.doc=doc;
-  this.score=score;
-  this.shardIndex=shardIndex;
-}

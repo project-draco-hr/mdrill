@@ -1,3 +1,0 @@
-{
-  return NumberUtils.SortableStr2floatStr(indexedForm);
-}

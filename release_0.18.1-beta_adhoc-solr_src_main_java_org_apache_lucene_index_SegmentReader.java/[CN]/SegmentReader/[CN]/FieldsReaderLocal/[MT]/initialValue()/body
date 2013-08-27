@@ -1,3 +1,0 @@
-{
-  return (FieldsReader)core.getFieldsReaderOrig().clone();
-}

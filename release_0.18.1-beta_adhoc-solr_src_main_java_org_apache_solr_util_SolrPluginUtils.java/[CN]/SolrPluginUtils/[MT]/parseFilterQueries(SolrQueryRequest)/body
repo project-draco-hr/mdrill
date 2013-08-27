@@ -1,3 +1,0 @@
-{
-  return parseQueryStrings(req,req.getParams().getParams(CommonParams.FQ));
-}

@@ -1,3 +1,0 @@
-{
-  return new TermRangeTermEnum(reader,field,lowerTerm,upperTerm,includeLower,includeUpper,collator);
-}

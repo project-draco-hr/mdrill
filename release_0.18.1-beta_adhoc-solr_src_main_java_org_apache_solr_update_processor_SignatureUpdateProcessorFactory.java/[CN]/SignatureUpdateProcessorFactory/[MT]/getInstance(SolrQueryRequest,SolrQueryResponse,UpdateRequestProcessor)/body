@@ -1,3 +1,0 @@
-{
-  return new SignatureUpdateProcessor(req,rsp,this,next);
-}

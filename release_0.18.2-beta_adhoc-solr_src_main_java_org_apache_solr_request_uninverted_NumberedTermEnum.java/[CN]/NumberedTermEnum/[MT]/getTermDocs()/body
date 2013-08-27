@@ -1,5 +1,0 @@
-{
-  if (termDocs == null)   termDocs=reader.termDocs(t,102400);
- else   termDocs.seek(t);
-  return termDocs;
-}

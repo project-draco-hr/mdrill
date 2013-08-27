@@ -1,3 +1,0 @@
-{
-  return run(0,topReader);
-}

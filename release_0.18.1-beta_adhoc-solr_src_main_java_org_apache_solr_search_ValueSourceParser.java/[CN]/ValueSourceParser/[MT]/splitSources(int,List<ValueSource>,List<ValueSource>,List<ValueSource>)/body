@@ -1,8 +1,0 @@
-{
-  for (int i=0; i < dim; i++) {
-    dest1.add(sources.get(i));
-  }
-  for (int i=dim; i < sources.size(); i++) {
-    dest2.add(sources.get(i));
-  }
-}

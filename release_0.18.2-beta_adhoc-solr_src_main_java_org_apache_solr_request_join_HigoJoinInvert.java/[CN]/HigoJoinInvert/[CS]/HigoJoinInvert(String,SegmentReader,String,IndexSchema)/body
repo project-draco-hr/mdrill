@@ -1,8 +1,0 @@
-{
-  super();
-  this.tableName=tableName;
-  this.leftSearcher=null;
-  this.partion=partion;
-  this.schema=schema;
-  this.leftreader=reader;
-}

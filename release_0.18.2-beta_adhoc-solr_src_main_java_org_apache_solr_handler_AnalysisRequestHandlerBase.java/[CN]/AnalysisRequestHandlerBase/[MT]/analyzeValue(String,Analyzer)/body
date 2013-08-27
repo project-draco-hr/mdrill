@@ -1,4 +1,0 @@
-{
-  TokenStream tokenStream=analyzer.tokenStream("",new StringReader(value));
-  return analyzeTokenStream(tokenStream);
-}

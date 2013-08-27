@@ -1,5 +1,0 @@
-{
-  this.outputQuickTii.writeVInt(termBytesLength);
-  this.outputQuickTii.writeBytes(termBytes,0,termBytesLength);
-  this.outputQuickTii.writeVInt(fieldNumber);
-}

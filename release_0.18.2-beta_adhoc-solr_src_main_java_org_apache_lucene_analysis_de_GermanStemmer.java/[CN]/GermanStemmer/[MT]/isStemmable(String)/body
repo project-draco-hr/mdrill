@@ -1,6 +1,0 @@
-{
-  for (int c=0; c < term.length(); c++) {
-    if (!Character.isLetter(term.charAt(c)))     return false;
-  }
-  return true;
-}

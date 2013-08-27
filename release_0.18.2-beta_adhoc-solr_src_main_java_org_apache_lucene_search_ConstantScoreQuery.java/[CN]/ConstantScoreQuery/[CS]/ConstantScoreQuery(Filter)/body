@@ -1,5 +1,0 @@
-{
-  if (filter == null)   throw new NullPointerException("Filter may not be null");
-  this.filter=filter;
-  this.query=null;
-}

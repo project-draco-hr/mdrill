@@ -1,7 +1,0 @@
-{
-  int upto=textOffset;
-  while (text[upto] != 0xffff) {
-    upto++;
-  }
-  return new String(text,textOffset,upto - textOffset);
-}

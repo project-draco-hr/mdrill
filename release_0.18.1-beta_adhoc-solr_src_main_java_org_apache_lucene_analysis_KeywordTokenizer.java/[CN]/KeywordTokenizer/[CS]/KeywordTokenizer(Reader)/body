@@ -1,3 +1,0 @@
-{
-  this(input,DEFAULT_BUFFER_SIZE);
-}

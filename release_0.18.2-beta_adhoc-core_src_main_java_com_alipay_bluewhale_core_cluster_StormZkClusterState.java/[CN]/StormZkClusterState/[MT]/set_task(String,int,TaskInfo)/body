@@ -1,5 +1,0 @@
-{
-  String taskPath=Cluster.task_path(stormId,taskId);
-  byte[] taskData=Utils.serialize(info);
-  cluster_state.set_data(taskPath,taskData);
-}

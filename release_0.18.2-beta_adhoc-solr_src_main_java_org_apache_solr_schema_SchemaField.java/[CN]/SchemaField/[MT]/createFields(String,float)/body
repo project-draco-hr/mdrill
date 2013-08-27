@@ -1,3 +1,0 @@
-{
-  return type.createFields(this,val,boost);
-}

@@ -1,7 +1,0 @@
-{
-  String fields=this.get(CommonParams.FL);
-  if (fields != null && fields.equals("score")) {
-    fields="*, score";
-  }
-  return fields;
-}

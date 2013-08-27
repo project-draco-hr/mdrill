@@ -1,4 +1,0 @@
-{
-  cache=new Entry[Math.max(1,BitUtil.nextHighestPowerOfTwo(tableSize))];
-  this.maxChainLength=Math.max(2,maxChainLength);
-}

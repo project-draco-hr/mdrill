@@ -1,4 +1,0 @@
-{
-  IndexReader reader=fieldToReader.get(field);
-  if (reader != null)   reader.doSetNorm(n,field,value);
-}

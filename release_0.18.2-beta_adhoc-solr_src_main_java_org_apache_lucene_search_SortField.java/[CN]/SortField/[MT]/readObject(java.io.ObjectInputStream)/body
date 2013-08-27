@@ -1,4 +1,0 @@
-{
-  in.defaultReadObject();
-  if (field != null)   field=StringHelper.intern(field);
-}

@@ -1,5 +1,0 @@
-{
-  cluster_state.delete_node(Cluster.storm_task_root(stormId));
-  cluster_state.delete_node(Cluster.assignment_path(stormId));
-  this.remove_storm_base(stormId);
-}

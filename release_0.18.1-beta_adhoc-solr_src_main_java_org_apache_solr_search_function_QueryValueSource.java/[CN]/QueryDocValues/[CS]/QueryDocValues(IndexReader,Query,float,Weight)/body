@@ -1,6 +1,0 @@
-{
-  this.reader=reader;
-  this.q=q;
-  this.defVal=defVal;
-  weight=w != null ? w : new IndexSearcher(reader).createNormalizedWeight(q);
-}

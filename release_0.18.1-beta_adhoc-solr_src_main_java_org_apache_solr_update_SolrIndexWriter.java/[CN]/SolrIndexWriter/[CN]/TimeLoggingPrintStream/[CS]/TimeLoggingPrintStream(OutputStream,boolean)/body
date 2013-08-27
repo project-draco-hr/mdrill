@@ -1,4 +1,0 @@
-{
-  super(underlyingOutputStream,autoFlush);
-  this.dateFormat=DateFormat.getDateTimeInstance();
-}

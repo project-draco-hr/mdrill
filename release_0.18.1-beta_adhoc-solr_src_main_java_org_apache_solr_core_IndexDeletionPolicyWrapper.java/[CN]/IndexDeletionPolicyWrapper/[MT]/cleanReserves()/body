@@ -1,8 +1,0 @@
-{
-  long currentTime=System.currentTimeMillis();
-  for (  Map.Entry<Long,Long> entry : reserves.entrySet()) {
-    if (entry.getValue() < currentTime) {
-      reserves.remove(entry.getKey());
-    }
-  }
-}

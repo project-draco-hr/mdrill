@@ -1,3 +1,0 @@
-IndexReader r
-boolean closeReader
-ExecutorService executor

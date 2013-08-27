@@ -1,8 +1,0 @@
-{
-  activate_result result=new activate_result();
-  receiveBase(result,"activate");
-  if (result.e != null) {
-    throw result.e;
-  }
-  return;
-}

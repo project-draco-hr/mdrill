@@ -1,8 +1,0 @@
-{
-  add(FacetParams.FACET_RANGE,field);
-  add(String.format("f.%s.%s",field,FacetParams.FACET_RANGE_START),start.toString());
-  add(String.format("f.%s.%s",field,FacetParams.FACET_RANGE_END),end.toString());
-  add(String.format("f.%s.%s",field,FacetParams.FACET_RANGE_GAP),gap.toString());
-  this.set(FacetParams.FACET,true);
-  return this;
-}

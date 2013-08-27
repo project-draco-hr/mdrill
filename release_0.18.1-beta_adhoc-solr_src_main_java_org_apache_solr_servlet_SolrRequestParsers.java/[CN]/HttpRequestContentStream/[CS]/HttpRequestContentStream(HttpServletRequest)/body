@@ -1,8 +1,0 @@
-{
-  this.req=req;
-  contentType=req.getContentType();
-  String v=req.getHeader("Content-Length");
-  if (v != null) {
-    size=Long.valueOf(v);
-  }
-}

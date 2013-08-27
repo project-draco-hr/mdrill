@@ -1,4 +1,0 @@
-{
-  this.defaultTotalCount=defaultTotalCount;
-  return this;
-}

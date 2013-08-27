@@ -1,4 +1,0 @@
-{
-  this.set(HighlightParams.SNIPPETS,num);
-  return this;
-}

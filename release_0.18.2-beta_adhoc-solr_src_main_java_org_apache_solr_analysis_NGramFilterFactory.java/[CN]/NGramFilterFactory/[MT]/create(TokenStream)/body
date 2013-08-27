@@ -1,3 +1,0 @@
-{
-  return new NGramTokenFilter(input,minGramSize,maxGramSize);
-}

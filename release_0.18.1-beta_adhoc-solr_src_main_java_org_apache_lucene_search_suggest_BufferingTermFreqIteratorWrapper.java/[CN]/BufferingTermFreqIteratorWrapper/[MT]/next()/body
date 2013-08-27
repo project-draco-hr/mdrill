@@ -1,5 +1,0 @@
-{
-  curEntry=entries.get(curPos);
-  curPos++;
-  return curEntry.word;
-}

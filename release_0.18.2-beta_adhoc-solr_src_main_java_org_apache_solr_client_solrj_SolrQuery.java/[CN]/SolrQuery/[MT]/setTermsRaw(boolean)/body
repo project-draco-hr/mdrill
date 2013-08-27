@@ -1,4 +1,0 @@
-{
-  this.set(TermsParams.TERMS_RAW,b);
-  return this;
-}

@@ -1,3 +1,0 @@
-{
-  return statcollect.getStat().equals(ShardsState.SERVICE);
-}

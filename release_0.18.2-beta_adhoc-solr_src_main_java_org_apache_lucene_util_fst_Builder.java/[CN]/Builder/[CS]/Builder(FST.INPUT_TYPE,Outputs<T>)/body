@@ -1,3 +1,0 @@
-{
-  this(inputType,0,0,true,true,Integer.MAX_VALUE,outputs);
-}

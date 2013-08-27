@@ -1,5 +1,0 @@
-{
-  super();
-  this.parser=parser;
-  this.strurl=strurl;
-}

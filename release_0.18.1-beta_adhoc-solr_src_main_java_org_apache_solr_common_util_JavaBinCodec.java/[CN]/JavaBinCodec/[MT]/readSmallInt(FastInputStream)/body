@@ -1,5 +1,0 @@
-{
-  int v=tagByte & 0x0F;
-  if ((tagByte & 0x10) != 0)   v=(readVInt(dis) << 4) | v;
-  return v;
-}

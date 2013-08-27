@@ -1,9 +1,0 @@
-{
-  if (other == this) {
-    return true;
-  }
-  if (other instanceof PositionIncrementAttributeImpl) {
-    return positionIncrement == ((PositionIncrementAttributeImpl)other).positionIncrement;
-  }
-  return false;
-}

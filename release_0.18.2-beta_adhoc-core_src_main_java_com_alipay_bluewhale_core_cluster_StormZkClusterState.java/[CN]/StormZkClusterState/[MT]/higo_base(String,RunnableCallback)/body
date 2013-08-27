@@ -1,5 +1,0 @@
-{
-  if (callback != null) {
-    higo_base_callback.put(tablename,callback);
-  }
-}

@@ -1,5 +1,0 @@
-{
-  if (getClass() != o.getClass())   return false;
-  BoostedQuery other=(BoostedQuery)o;
-  return this.getBoost() == other.getBoost() && this.q.equals(other.q) && this.boostVal.equals(other.boostVal);
-}

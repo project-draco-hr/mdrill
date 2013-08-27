@@ -1,6 +1,0 @@
-{
-  if (hb instanceof TaskHeartbeat && ((TaskHeartbeat)hb).timeSecs.equals(timeSecs) && ((TaskHeartbeat)hb).uptimeSecs.equals(uptimeSecs)&& ((TaskHeartbeat)hb).stats.equals(stats)) {
-    return true;
-  }
-  return false;
-}

@@ -1,3 +1,0 @@
-IndexReader reader
-MultiTermQuery query
-TermCollector collector

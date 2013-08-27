@@ -1,3 +1,0 @@
-{
-  wrappedField.write(xmlWriter,name,f);
-}

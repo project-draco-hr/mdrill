@@ -1,6 +1,0 @@
-{
-  if (callback != null) {
-    drpcs_callback.set(callback);
-  }
-  return cluster_state.get_children(Cluster.DRPCS_SUBTREE,callback != null);
-}

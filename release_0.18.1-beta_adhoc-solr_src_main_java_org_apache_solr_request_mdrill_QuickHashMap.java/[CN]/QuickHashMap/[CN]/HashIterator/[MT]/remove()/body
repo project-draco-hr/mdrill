@@ -1,8 +1,0 @@
-{
-  if (current == null)   throw new IllegalStateException();
-  if (modCount != expectedModCount)   throw new ConcurrentModificationException();
-  Object k=current.key;
-  current=null;
-  QuickHashMap.this.removeEntryForKey(k);
-  expectedModCount=modCount;
-}

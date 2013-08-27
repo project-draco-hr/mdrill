@@ -1,3 +1,0 @@
-{
-  return joinRevert.get(leftDocid);
-}

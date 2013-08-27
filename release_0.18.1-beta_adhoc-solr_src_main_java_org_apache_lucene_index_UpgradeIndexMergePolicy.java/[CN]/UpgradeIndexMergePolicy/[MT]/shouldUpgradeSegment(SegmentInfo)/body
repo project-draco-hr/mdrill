@@ -1,3 +1,0 @@
-{
-  return !Constants.LUCENE_MAIN_VERSION.equals(si.getVersion());
-}

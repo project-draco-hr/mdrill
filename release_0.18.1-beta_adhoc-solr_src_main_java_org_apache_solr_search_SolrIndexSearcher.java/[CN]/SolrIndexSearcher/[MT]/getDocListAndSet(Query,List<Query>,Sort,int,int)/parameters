@@ -1,5 +1,0 @@
-Query query
-List<Query> filterList
-Sort lsort
-int offset
-int len

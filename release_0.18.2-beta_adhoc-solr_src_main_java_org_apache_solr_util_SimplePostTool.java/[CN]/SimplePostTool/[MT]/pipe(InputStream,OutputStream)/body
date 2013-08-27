@@ -1,8 +1,0 @@
-{
-  byte[] buf=new byte[1024];
-  int read=0;
-  while ((read=source.read(buf)) >= 0) {
-    if (null != dest)     dest.write(buf,0,read);
-  }
-  if (null != dest)   dest.flush();
-}

@@ -1,5 +1,0 @@
-{
-  BytesRef termBytesRef=new BytesRef(term.text);
-  get(term,true,termBytesRef);
-  return (SegmentTermEnum)getThreadResources().termEnum.clone();
-}

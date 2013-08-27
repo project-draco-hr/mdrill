@@ -1,3 +1,0 @@
-{
-  return ((TermPositions)current).getPayloadLength();
-}

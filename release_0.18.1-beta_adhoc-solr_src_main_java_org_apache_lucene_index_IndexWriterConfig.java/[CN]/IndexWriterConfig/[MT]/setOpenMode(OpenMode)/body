@@ -1,4 +1,0 @@
-{
-  this.openMode=openMode;
-  return this;
-}

@@ -1,3 +1,0 @@
-{
-  return new String(current,0,limit);
-}

@@ -1,5 +1,0 @@
-{
-  if (!(o instanceof DoubleConstValueSource))   return false;
-  DoubleConstValueSource other=(DoubleConstValueSource)o;
-  return this.constant == other.constant;
-}

@@ -1,7 +1,0 @@
-{
-  long t2=System.currentTimeMillis();
-  if ((t2 - time) >= 1000l * 600) {
-    this.run();
-    time=System.currentTimeMillis();
-  }
-}

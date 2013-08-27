@@ -1,4 +1,0 @@
-{
-  super(factory);
-  this.input=CharReader.get(input);
-}

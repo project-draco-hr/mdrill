@@ -1,3 +1,0 @@
-{
-  indexPhasesByFieldValue.put(fieldValue,indexPhases);
-}

@@ -1,4 +1,0 @@
-{
-  fieldSelections=new HashMap<String,FieldSelectorResult>(fields.size() * 5 / 3);
-  for (  final String field : fields)   fieldSelections.put(field,FieldSelectorResult.LOAD);
-}

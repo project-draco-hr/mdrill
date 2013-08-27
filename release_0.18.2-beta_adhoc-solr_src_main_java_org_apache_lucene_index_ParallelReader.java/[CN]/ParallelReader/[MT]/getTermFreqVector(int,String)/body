@@ -1,5 +1,0 @@
-{
-  ensureOpen();
-  IndexReader reader=fieldToReader.get(field);
-  return reader == null ? null : reader.getTermFreqVector(n,field);
-}

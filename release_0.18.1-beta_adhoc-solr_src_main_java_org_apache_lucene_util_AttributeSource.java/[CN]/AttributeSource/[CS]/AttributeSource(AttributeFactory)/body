@@ -1,6 +1,0 @@
-{
-  this.attributes=new LinkedHashMap<Class<? extends Attribute>,AttributeImpl>();
-  this.attributeImpls=new LinkedHashMap<Class<? extends AttributeImpl>,AttributeImpl>();
-  this.currentState=new State[1];
-  this.factory=factory;
-}

@@ -1,9 +1,0 @@
-{
-  if (len < suffix.length + 2) {
-    return false;
-  }
- else {
-    for (int i=0; i < suffix.length; i++)     if (s[len - suffix.length + i] != suffix[i])     return false;
-    return true;
-  }
-}

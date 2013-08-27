@@ -1,7 +1,0 @@
-{
-  Map<String,String> snapshots=new HashMap<String,String>();
-  for (  Entry<String,SnapshotInfo> e : idToSnapshot.entrySet()) {
-    snapshots.put(e.getKey(),e.getValue().segmentsFileName);
-  }
-  return snapshots;
-}

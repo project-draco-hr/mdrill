@@ -1,3 +1,0 @@
-{
-  nvPairs=nameValueMapToList(nameValuePairs);
-}

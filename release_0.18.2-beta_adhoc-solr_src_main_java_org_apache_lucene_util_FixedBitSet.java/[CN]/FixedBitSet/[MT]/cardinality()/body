@@ -1,3 +1,0 @@
-{
-  return (int)BitUtil.pop_array(bits,0,bits.length);
-}

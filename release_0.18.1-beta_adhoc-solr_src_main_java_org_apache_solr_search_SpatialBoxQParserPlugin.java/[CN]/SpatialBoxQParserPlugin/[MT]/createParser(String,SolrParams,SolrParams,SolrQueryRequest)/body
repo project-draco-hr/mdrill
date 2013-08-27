@@ -1,3 +1,0 @@
-{
-  return new SpatialFilterQParser(qstr,localParams,params,req,true);
-}

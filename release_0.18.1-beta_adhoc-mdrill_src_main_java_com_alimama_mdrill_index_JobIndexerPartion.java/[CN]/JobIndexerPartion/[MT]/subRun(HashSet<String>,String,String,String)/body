@@ -1,4 +1,0 @@
-{
-  Path smallindex=this.parse.smallIndex(output);
-  return MakeIndex.make(fs,solrHome,getConf(),this.filetype,this.inputBase,inputs,submatch,output,smallindex,shards,split,true,"",null);
-}

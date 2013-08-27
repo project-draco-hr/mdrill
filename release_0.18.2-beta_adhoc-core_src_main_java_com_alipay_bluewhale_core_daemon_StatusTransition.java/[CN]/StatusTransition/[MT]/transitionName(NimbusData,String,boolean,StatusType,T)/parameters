@@ -1,5 +1,0 @@
-NimbusData data
-String topologyName
-boolean errorOnNoTransition
-StatusType transition_status
-T args

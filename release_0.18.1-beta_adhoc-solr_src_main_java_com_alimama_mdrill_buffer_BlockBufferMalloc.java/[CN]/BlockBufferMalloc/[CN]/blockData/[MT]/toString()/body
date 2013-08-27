@@ -1,3 +1,0 @@
-{
-  return "blockData [buff=" + buff.length + ", size="+ size+ ", allowFree="+ allowFree+ ", lasttime="+ lasttime+ "]";
-}

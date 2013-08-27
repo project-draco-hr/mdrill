@@ -1,8 +1,0 @@
-{
-  try {
-    return parseAndAddGap(value,gap);
-  }
- catch (  Exception e) {
-    throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,"Can't add gap " + gap + " to value "+ value+ " for field: "+ field.getName(),e);
-  }
-}

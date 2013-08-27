@@ -1,4 +1,0 @@
-IndexReader reader
-Term term
-float minSimilarity
-int prefixLength

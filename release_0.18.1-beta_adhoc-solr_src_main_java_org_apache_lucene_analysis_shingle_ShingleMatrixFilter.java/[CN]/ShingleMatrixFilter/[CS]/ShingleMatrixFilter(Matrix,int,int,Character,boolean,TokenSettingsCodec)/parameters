@@ -1,6 +1,0 @@
-Matrix matrix
-int minimumShingleSize
-int maximumShingleSize
-Character spacerCharacter
-boolean ignoringSinglePrefixOrSuffixShingle
-TokenSettingsCodec settingsCodec

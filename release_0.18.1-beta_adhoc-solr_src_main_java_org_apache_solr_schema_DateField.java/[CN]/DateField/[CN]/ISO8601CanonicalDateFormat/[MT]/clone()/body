@@ -1,6 +1,0 @@
-{
-  ISO8601CanonicalDateFormat c=(ISO8601CanonicalDateFormat)super.clone();
-  c.millisParser=NumberFormat.getIntegerInstance(CANONICAL_LOCALE);
-  c.millisFormat=new DecimalFormat(".###",new DecimalFormatSymbols(CANONICAL_LOCALE));
-  return c;
-}

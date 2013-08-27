@@ -1,3 +1,0 @@
-{
-  return parseInt(chars,0,chars.length,10);
-}

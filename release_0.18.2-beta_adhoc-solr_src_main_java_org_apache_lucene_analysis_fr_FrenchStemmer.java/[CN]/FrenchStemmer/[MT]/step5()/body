@@ -1,8 +1,0 @@
-{
-  if (R0 != null) {
-    if (R0.endsWith("enn") || R0.endsWith("onn") || R0.endsWith("ett")|| R0.endsWith("ell")|| R0.endsWith("eill")) {
-      sb.delete(sb.length() - 1,sb.length());
-      setStrings();
-    }
-  }
-}

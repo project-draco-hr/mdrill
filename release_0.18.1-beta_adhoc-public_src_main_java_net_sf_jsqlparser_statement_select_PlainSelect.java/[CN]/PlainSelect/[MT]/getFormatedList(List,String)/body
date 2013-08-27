@@ -1,3 +1,0 @@
-{
-  return getFormatedList(list,expression,true,false);
-}

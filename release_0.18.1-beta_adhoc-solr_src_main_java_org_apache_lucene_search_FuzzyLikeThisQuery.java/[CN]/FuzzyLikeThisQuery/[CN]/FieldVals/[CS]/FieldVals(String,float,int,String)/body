@@ -1,6 +1,0 @@
-{
-  fieldName=name;
-  minSimilarity=similarity;
-  prefixLength=length;
-  this.queryString=queryString;
-}

@@ -1,9 +1,0 @@
-{
-  if (--index < start) {
-    index=start;
-    return DONE;
-  }
- else {
-    return current();
-  }
-}

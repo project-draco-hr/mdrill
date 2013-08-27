@@ -1,8 +1,0 @@
-{
-  StringBuilder sb=new StringBuilder();
-  sb.append(name()).append('(').append(power).append(',');
-  sb.append(source1).append(',');
-  sb.append(source2);
-  sb.append(')');
-  return sb.toString();
-}

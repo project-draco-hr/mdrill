@@ -1,5 +1,0 @@
-{
-  int n=ReaderUtil.subIndex(doc,docStarts);
-  int deBasedDoc=doc - docStarts[n];
-  return weight.explain(subReaders[n],deBasedDoc);
-}

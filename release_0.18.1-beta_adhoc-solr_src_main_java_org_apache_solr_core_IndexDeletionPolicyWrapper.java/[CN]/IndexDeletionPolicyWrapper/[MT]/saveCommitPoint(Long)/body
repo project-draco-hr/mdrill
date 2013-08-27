@@ -1,6 +1,0 @@
-{
-  AtomicInteger reserveCount=savedCommits.get(indexCommitVersion);
-  if (reserveCount == null)   reserveCount=new AtomicInteger();
-  reserveCount.incrementAndGet();
-  savedCommits.put(indexCommitVersion,reserveCount);
-}

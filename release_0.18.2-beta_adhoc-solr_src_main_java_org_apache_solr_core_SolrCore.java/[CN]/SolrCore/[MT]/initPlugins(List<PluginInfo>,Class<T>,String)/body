@@ -1,6 +1,0 @@
-{
-  if (pluginInfos.isEmpty())   return Collections.emptyList();
-  List<T> result=new ArrayList<T>();
-  for (  PluginInfo info : pluginInfos)   result.add(createInitInstance(info,type,type.getSimpleName(),defClassName));
-  return result;
-}

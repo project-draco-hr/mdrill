@@ -1,9 +1,0 @@
-{
-  this.params=params;
-  String[] fields=params.getParams(TermsParams.TERMS_FIELD);
-  if (fields != null) {
-    for (    String field : fields) {
-      fieldmap.put(field,new HashMap<String,TermsResponse.Term>(128));
-    }
-  }
-}

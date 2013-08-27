@@ -1,5 +1,0 @@
-{
-  Map configMap=new HashMap();
-  configMap.put(config,value);
-  return addConfigurations(configMap);
-}

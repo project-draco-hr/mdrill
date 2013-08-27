@@ -1,3 +1,0 @@
-{
-  this.writeByteZip(read.getbytes());
-}

@@ -1,8 +1,0 @@
-{
-  long timeToSet=System.currentTimeMillis() + reserveTime;
-  for (; ; ) {
-    Long previousTime=reserves.put(indexVersion,timeToSet);
-    if (previousTime == null || previousTime <= timeToSet)     break;
-    timeToSet=previousTime;
-  }
-}

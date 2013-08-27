@@ -1,3 +1,0 @@
-{
-  return new SwedishLightStemFilter(input);
-}

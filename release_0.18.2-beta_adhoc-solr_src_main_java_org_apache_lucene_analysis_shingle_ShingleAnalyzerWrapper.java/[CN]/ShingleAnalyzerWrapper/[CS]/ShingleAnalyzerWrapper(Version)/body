@@ -1,3 +1,0 @@
-{
-  this(matchVersion,ShingleFilter.DEFAULT_MIN_SHINGLE_SIZE,ShingleFilter.DEFAULT_MAX_SHINGLE_SIZE);
-}

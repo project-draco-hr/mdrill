@@ -1,3 +1,0 @@
-{
-  return new Function(fp.parseValueSource(),fp.parseValueSource());
-}

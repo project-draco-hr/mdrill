@@ -1,9 +1,0 @@
-{
-  this.lock=lock;
-  this.searchable=searchable;
-  this.weight=weight;
-  this.filter=filter;
-  this.after=after;
-  this.nDocs=nDocs;
-  this.hq=hq;
-}

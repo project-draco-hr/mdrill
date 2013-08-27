@@ -1,3 +1,0 @@
-{
-  return (similarity - minimumSimilarity) * scale_factor;
-}

@@ -1,3 +1,0 @@
-{
-  return taskerror_storm_root(storm_id) + "/" + task_id;
-}

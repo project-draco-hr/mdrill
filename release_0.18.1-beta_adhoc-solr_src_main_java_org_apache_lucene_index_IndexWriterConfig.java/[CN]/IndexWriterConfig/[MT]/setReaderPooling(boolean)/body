@@ -1,4 +1,0 @@
-{
-  this.readerPooling=readerPooling;
-  return this;
-}

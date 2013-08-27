@@ -1,3 +1,0 @@
-{
-  if (dir.fileExists(fileName))   files.add(fileName);
-}

@@ -1,4 +1,0 @@
-{
-  super(enablePositionIncrements,input);
-  this.stopWords=stopWords instanceof CharArraySet ? (CharArraySet)stopWords : new CharArraySet(matchVersion,stopWords,ignoreCase);
-}

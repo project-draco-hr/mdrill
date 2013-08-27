@@ -1,3 +1,0 @@
-{
-  subSelect.getSelectBody().accept(selectVisitor);
-}

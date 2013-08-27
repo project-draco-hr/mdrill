@@ -1,5 +1,0 @@
-{
-  A output1=outputs1.read(in);
-  B output2=outputs2.read(in);
-  return get(output1,output2);
-}

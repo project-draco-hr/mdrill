@@ -1,6 +1,0 @@
-{
-  bufferedTokenStream=tstream;
-  bufferedOffsetAtt=bufferedTokenStream.addAttribute(OffsetAttribute.class);
-  startOffset=0;
-  bufferedToken=null;
-}

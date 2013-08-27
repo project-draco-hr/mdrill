@@ -1,4 +1,0 @@
-RunnableCallback afn
-boolean daemon
-int priority
-boolean start

@@ -1,4 +1,0 @@
-IndexReader topReader
-IndexReader[] readers
-int[] starts
-Term t

@@ -1,5 +1,0 @@
-{
-  this.buffer=buffer;
-  this.expressionVisitor=expressionVisitor;
-  this.selectVisitor=selectVisitor;
-}

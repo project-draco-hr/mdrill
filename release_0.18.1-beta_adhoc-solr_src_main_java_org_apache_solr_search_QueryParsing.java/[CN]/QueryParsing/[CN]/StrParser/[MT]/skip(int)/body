@@ -1,3 +1,0 @@
-{
-  pos=Math.max(pos + nChars,end);
-}

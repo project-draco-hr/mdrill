@@ -1,8 +1,0 @@
-{
-  group.reset();
-  for (  int i : ufs.listIndex) {
-    group.list[i]=ufs.cols[i].uif.termNum(doc);
-  }
-  val.set(0,group);
-  return val;
-}

@@ -1,4 +1,0 @@
-Query query
-List<Query> filters
-Sort sort
-int nc_flags

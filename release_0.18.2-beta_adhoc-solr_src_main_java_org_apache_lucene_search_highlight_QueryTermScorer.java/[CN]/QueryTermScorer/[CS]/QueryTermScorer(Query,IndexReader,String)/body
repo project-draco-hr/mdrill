@@ -1,3 +1,0 @@
-{
-  this(QueryTermExtractor.getIdfWeightedTerms(query,reader,fieldName));
-}

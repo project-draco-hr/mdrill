@@ -1,5 +1,0 @@
-{
-  if (this.refCnt.get() == 0) {
-    this.free();
-  }
-}

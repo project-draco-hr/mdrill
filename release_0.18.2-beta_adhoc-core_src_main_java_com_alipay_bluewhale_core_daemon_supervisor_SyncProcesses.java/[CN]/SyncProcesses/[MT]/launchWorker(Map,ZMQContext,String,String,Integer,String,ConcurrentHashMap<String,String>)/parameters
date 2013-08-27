@@ -1,7 +1,0 @@
-Map conf
-ZMQContext sharedcontext
-String stormId
-String supervisorId
-Integer port
-String workerId
-ConcurrentHashMap<String,String> workerThreadPidsAtom

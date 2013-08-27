@@ -1,3 +1,0 @@
-{
-  return hcode + super.hashCode() + defVal;
-}

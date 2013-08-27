@@ -1,3 +1,0 @@
-{
-  return (Date)wrappedField.toObject(f);
-}

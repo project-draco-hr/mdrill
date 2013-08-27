@@ -1,8 +1,0 @@
-{
-  current=text;
-  cursor=0;
-  limit=length;
-  limit_backward=0;
-  bra=cursor;
-  ket=limit;
-}

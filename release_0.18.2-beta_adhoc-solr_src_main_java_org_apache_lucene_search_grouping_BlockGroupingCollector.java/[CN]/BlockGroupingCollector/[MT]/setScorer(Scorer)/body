@@ -1,6 +1,0 @@
-{
-  this.scorer=scorer;
-  for (  FieldComparator comparator : comparators) {
-    comparator.setScorer(scorer);
-  }
-}

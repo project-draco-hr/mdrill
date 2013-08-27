@@ -1,4 +1,0 @@
-{
-  this.sortWithinGroup=sortWithinGroup;
-  return this;
-}

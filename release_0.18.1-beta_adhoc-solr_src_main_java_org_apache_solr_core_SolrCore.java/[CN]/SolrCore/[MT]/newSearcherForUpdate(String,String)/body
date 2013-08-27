@@ -1,3 +1,0 @@
-{
-  return new SolrIndexSearcher(this,schema,name,directoryFactory.open(getIndexDir(partion)),false);
-}

@@ -1,5 +1,0 @@
-{
-  this.stormName=stormName;
-  this.lanchTimeSecs=lanchTimeSecs;
-  this.status=status;
-}

@@ -1,5 +1,0 @@
-FileSystem fs
-String inputBase
-String startPoint
-int dayDelay
-int maxRunDays

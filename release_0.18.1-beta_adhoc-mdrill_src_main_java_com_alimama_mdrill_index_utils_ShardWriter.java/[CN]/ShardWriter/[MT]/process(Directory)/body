@@ -1,6 +1,0 @@
-{
-  Date d1=new Date();
-  writer.addIndexesNoOptimize(new Directory[]{dir});
-  Date d2=new Date();
-  logger.info("process time " + (d2.getTime() - d1.getTime()));
-}

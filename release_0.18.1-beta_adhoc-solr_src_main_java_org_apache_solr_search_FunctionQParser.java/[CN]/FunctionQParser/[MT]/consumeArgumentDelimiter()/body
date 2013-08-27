@@ -1,7 +1,0 @@
-{
-  if (hasMoreArguments()) {
-    sp.expect(",");
-    return true;
-  }
-  return false;
-}

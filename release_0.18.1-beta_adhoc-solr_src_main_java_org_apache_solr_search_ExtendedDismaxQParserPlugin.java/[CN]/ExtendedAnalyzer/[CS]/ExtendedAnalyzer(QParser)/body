@@ -1,4 +1,0 @@
-{
-  this.parser=parser;
-  this.queryAnalyzer=parser.getReq().getSchema().getQueryAnalyzer();
-}

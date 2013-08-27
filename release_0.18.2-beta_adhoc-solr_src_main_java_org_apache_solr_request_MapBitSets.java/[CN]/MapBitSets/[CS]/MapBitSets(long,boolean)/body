@@ -1,9 +1,0 @@
-{
-  this.numBits=_numBits;
-  if (compress) {
-    this.bitset=null;
-  }
- else {
-    this.bitset=null;
-  }
-}

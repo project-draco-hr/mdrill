@@ -1,9 +1,0 @@
-{
-  boolean containsGroupByQuery=rb.getGroupingSpec().getQueries().length > 0;
-  if ((rb.getQueryCommand().getFlags() & SolrIndexSearcher.GET_DOCSET) != 0 || containsGroupByQuery) {
-    return createRequestForAllShards(rb);
-  }
- else {
-    return createRequestForSpecificShards(rb);
-  }
-}

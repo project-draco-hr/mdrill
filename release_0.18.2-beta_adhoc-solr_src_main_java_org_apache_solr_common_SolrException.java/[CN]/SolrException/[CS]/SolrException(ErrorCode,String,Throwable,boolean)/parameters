@@ -1,4 +1,0 @@
-ErrorCode code
-String msg
-Throwable th
-boolean alreadyLogged

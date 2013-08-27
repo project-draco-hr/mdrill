@@ -1,3 +1,0 @@
-{
-  copyBuffer(buffer,offset,length);
-}

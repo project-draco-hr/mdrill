@@ -1,3 +1,0 @@
-{
-  return search(weight,filter,nDocs,sort,true);
-}

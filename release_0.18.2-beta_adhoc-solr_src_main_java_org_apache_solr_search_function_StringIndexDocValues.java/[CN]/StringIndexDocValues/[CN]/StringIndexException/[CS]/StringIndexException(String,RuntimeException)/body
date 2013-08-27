@@ -1,3 +1,0 @@
-{
-  super("Can't initialize StringIndex to generate (function) " + "DocValues for field: " + fieldName,cause);
-}

@@ -1,9 +1,0 @@
-{
-  if (maxValue > 0x3FFFFFFFFFFFFFFFL) {
-    return 63;
-  }
-  if (maxValue > 0x1FFFFFFFFFFFFFFFL) {
-    return 62;
-  }
-  return Math.max(1,(int)Math.ceil(Math.log(1 + maxValue) / Math.log(2.0)));
-}

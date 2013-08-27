@@ -1,3 +1,0 @@
-{
-  return clauses.toArray(new SpanQuery[clauses.size()]);
-}

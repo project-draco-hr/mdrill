@@ -1,3 +1,0 @@
-{
-  return (min().doc() == max.doc()) && ((max.end() - min().start() - totalLength) <= slop);
-}

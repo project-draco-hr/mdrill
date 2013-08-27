@@ -1,4 +1,0 @@
-{
-  String tablePath=Cluster.higo_table(tablename);
-  cluster_state.delete_node(tablePath);
-}

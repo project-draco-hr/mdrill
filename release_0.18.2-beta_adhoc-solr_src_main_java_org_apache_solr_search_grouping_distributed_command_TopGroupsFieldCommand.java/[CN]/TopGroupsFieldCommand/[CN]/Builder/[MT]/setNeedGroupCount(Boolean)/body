@@ -1,4 +1,0 @@
-{
-  this.needGroupCount=needGroupCount;
-  return this;
-}

@@ -1,4 +1,0 @@
-int docId
-String field
-int numPayloadsSeen
-float payloadScore

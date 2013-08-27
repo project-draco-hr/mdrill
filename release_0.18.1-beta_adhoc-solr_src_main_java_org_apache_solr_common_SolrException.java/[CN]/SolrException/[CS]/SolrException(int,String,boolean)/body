@@ -1,5 +1,0 @@
-{
-  super(msg);
-  this.code=code;
-  this.logged=alreadyLogged;
-}

@@ -1,4 +1,0 @@
-{
-  this.min=Math.min(this.min.doubleValue(),min.doubleValue());
-  this.max=Math.max(this.max.doubleValue(),max.doubleValue());
-}

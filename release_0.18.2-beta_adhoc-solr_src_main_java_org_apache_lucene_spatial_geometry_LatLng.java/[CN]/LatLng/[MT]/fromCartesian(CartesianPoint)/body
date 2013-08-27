@@ -1,5 +1,0 @@
-{
-  int lat=pt.getY() - 90 * FixedLatLng.SCALE_FACTOR_INT;
-  int lng=pt.getX() - 180 * FixedLatLng.SCALE_FACTOR_INT;
-  return new FixedLatLng(lat,lng);
-}

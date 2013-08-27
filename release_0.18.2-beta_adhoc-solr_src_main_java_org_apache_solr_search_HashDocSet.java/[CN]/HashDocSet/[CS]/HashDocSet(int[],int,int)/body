@@ -1,3 +1,0 @@
-{
-  this(docs,offset,len,DEFAULT_INVERSE_LOAD_FACTOR);
-}

@@ -1,7 +1,0 @@
-{
-  SearchComponent component=searchComponents.get(name);
-  if (component == null) {
-    throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,"Unknown Search Component: " + name);
-  }
-  return component;
-}

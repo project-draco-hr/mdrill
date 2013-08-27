@@ -1,5 +1,0 @@
-boolean shardRequest
-SpellingResult spellingResult
-String origQuery
-boolean extendedResults
-boolean collate

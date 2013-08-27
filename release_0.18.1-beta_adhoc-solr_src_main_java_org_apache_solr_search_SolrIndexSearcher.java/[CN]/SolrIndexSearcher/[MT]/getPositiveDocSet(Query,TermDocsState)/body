@@ -1,9 +1,0 @@
-{
-  DocSet answer=this.filterCacheGet(q);
-  if (answer != null) {
-    return answer;
-  }
-  answer=getDocSetNC(q,null,tdState);
-  this.filterCachePut(q,answer);
-  return answer;
-}

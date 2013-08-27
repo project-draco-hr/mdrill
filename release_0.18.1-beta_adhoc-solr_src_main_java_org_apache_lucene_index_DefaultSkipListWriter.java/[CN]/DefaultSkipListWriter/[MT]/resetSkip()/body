@@ -1,7 +1,0 @@
-{
-  super.resetSkip();
-  Arrays.fill(lastSkipDoc,0);
-  Arrays.fill(lastSkipPayloadLength,-1);
-  Arrays.fill(lastSkipFreqPointer,freqOutput.getFilePointer());
-  if (proxOutput != null)   Arrays.fill(lastSkipProxPointer,proxOutput.getFilePointer());
-}

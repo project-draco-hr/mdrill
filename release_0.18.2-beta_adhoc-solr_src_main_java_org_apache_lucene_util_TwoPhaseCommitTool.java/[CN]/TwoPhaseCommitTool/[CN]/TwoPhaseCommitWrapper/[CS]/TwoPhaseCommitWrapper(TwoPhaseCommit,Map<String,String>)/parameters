@@ -1,2 +1,0 @@
-TwoPhaseCommit tpc
-Map<String,String> commitData

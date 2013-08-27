@@ -1,4 +1,0 @@
-{
-  String urlstr=solr + "/update/userimport?isdel=false&hdfsfile=" + java.net.URLEncoder.encode(hdfs,"utf8")+ "";
-  this.init(urlstr);
-}

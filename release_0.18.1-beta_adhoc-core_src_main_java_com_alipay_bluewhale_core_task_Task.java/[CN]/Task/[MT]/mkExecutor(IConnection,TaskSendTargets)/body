@@ -1,5 +1,0 @@
-{
-  ITaskReportErr reportError=new TaskReportError(zkCluster,topologyid,taskid);
-  TaskReportErrorAndDie reportErrorDie=new TaskReportErrorAndDie(reportError,workHalt);
-  return TasksCommon.mk_executors(taskObj,workerTransfer,stormConf,puller,sendTargets,stormActive,topologyContext,userContext,taskStats,reportErrorDie);
-}

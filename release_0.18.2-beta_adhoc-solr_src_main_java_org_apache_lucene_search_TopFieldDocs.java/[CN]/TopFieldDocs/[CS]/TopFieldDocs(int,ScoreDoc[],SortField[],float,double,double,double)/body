@@ -1,4 +1,0 @@
-{
-  super(totalHits,scoreDocs,maxScore,sum,max,min);
-  this.fields=fields;
-}

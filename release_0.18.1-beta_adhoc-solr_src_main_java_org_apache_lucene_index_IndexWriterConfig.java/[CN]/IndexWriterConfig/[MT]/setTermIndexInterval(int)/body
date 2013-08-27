@@ -1,4 +1,0 @@
-{
-  this.termIndexInterval=interval;
-  return this;
-}

@@ -1,4 +1,0 @@
-{
-  setLeftExpression(leftExpression);
-  setRightExpression(rightExpression);
-}

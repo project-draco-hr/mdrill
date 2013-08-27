@@ -1,3 +1,0 @@
-{
-  return o instanceof WildcardFilter && ((WildcardFilter)o).term.equals(this.term);
-}

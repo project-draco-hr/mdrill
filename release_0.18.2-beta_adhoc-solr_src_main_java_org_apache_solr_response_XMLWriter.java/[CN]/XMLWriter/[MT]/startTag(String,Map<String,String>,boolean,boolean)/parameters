@@ -1,4 +1,0 @@
-String tag
-Map<String,String> attributes
-boolean closeTag
-boolean escape

@@ -1,3 +1,0 @@
-{
-  return parseLuceneVersionString(getVal(path,true));
-}

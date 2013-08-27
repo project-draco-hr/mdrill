@@ -1,3 +1,0 @@
-{
-  log.warn("XML parse warning in \"" + e.getSystemId() + "\", line "+ e.getLineNumber()+ ", column "+ e.getColumnNumber()+ ": "+ e.getMessage());
-}

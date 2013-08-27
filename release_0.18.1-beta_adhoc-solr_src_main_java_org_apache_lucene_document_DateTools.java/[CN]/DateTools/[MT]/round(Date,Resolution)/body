@@ -1,3 +1,0 @@
-{
-  return new Date(round(date.getTime(),resolution));
-}

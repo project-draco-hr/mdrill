@@ -1,7 +1,0 @@
-{
-  int total=0;
-  for (  SegmentInfo info : segments) {
-    total+=info.docCount;
-  }
-  return total;
-}

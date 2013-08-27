@@ -1,5 +1,0 @@
-{
-  SimpleDateFormat fmt=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-  String yyyymmmddd=fmt.format(new Date(times));
-  return "{cnt:" + cnt + ", times:"+ yyyymmmddd+ "}<br>";
-}

@@ -1,8 +1,0 @@
-{
-  try {
-    return reader.docFreq(term) >= minNumDocs;
-  }
- catch (  IOException e) {
-    throw new RuntimeException(e);
-  }
-}

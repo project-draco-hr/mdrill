@@ -1,5 +1,0 @@
-{
-  this.include=include;
-  this.exclude=exclude;
-  if (!include.getField().equals(exclude.getField()))   throw new IllegalArgumentException("Clauses must have same field.");
-}

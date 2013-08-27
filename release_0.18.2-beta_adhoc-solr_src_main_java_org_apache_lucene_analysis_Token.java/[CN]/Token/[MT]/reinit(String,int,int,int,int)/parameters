@@ -1,5 +1,0 @@
-String newTerm
-int newTermOffset
-int newTermLength
-int newStartOffset
-int newEndOffset

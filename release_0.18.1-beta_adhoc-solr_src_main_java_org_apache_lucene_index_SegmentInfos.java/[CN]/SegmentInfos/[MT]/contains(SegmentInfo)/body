@@ -1,3 +1,0 @@
-{
-  return segmentSet.contains(si);
-}

@@ -1,6 +1,0 @@
-{
-  if (this.length > target.length + targetOffset) {
-    throw new ArrayIndexOutOfBoundsException();
-  }
-  System.arraycopy(this.data,this.offset,target,targetOffset,this.length);
-}

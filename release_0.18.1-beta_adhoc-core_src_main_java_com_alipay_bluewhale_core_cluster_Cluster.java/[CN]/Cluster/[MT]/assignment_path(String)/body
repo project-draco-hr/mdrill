@@ -1,3 +1,0 @@
-{
-  return ASSIGNMENTS_SUBTREE + "/" + id;
-}

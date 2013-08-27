@@ -1,3 +1,0 @@
-{
-  return CoreAdminRequest.createCore(name,instanceDir,server,null,null);
-}

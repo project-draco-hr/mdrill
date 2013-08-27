@@ -1,8 +1,0 @@
-{
-  if (this.isdetail) {
-    return getPairSortedDetail(sort_column_type,crossFs,distFS,fl,type,isdesc,saverecords);
-  }
- else {
-    return getPairSortedGroup(sort_column_type,joinSort,facetFs,crossFs,distFS,fl,type,isdesc,saverecords);
-  }
-}

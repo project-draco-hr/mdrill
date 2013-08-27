@@ -1,4 +1,0 @@
-{
-  this(d,new IndexWriterConfig(Version.LUCENE_31,a).setOpenMode(create ? OpenMode.CREATE : OpenMode.APPEND).setIndexDeletionPolicy(deletionPolicy));
-  setMaxFieldLength(mfl.getLimit());
-}

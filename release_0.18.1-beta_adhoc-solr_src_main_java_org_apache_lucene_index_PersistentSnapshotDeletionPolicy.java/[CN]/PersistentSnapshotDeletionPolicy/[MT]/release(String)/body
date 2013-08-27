@@ -1,4 +1,0 @@
-{
-  super.release(id);
-  persistSnapshotInfos(null,null);
-}

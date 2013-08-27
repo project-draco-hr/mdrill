@@ -1,9 +1,0 @@
-{
-  for (int i=0; i < this.colsAliasNames.length; i++) {
-    if (sort.equals(this.colsAliasNames[i])) {
-      this.sort=this.colsNames[i];
-      return;
-    }
-  }
-  this.sort=sort;
-}

@@ -1,9 +1,0 @@
-{
-  pendingTerms.add(t);
-  docVisitCount+=reader.docFreq(t);
-  if (pendingTerms.size() >= termCountLimit || docVisitCount >= docCountCutoff) {
-    hasCutOff=true;
-    return false;
-  }
-  return true;
-}

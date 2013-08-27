@@ -1,9 +1,0 @@
-{
-  if (input != null) {
-    input=input.trim();
-  }
-  if (tp.toLowerCase().indexOf("date") >= 0) {
-    return ensureTdate(input);
-  }
-  return input;
-}

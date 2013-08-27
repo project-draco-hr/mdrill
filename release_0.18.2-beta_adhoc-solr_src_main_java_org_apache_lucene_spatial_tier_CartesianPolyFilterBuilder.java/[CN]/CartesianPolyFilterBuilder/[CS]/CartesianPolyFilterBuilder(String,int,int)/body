@@ -1,5 +1,0 @@
-{
-  this.tierPrefix=tierPrefix;
-  this.minTier=minTierIndexed;
-  this.maxTier=maxTierIndexed;
-}

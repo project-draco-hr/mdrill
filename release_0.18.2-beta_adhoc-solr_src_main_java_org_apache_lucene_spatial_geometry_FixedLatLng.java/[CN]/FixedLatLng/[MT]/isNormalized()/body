@@ -1,3 +1,0 @@
-{
-  return normalized || ((lng >= -180 * SCALE_FACTOR_INT) && (lng <= 180 * SCALE_FACTOR_INT));
-}

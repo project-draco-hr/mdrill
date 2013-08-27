@@ -1,7 +1,0 @@
-{
-  this.array=array;
-  this.start=start;
-  this.index=start;
-  this.length=length;
-  this.limit=start + length;
-}

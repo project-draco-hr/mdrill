@@ -1,5 +1,0 @@
-{
-  if (stemmer != null) {
-    this.stemmer=stemmer;
-  }
-}

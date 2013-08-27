@@ -1,5 +1,0 @@
-{
-  if (bits.length < numWords) {
-    bits=ArrayUtil.grow(bits,numWords);
-  }
-}

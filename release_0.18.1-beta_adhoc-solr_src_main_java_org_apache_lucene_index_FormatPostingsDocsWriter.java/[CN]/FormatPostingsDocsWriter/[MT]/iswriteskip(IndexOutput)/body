@@ -1,6 +1,0 @@
-{
-  if (buffer.length() >= IndexWriterConfig.getMaxBlockSize()) {
-    return true;
-  }
-  return false;
-}

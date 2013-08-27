@@ -1,3 +1,0 @@
-{
-  return 8 + INT_SIZE * 2;
-}

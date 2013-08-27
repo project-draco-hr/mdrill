@@ -1,4 +1,0 @@
-{
-  super(valueCount,BITS_PER_VALUE);
-  values=new int[valueCount];
-}

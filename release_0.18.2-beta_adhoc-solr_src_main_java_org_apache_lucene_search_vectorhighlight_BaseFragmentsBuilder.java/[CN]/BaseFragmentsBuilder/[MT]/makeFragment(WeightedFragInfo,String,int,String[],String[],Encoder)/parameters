@@ -1,6 +1,0 @@
-WeightedFragInfo fragInfo
-String src
-int s
-String[] preTags
-String[] postTags
-Encoder encoder

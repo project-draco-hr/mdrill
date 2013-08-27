@@ -1,3 +1,0 @@
-{
-  return OldRequestHandler.class.getName();
-}

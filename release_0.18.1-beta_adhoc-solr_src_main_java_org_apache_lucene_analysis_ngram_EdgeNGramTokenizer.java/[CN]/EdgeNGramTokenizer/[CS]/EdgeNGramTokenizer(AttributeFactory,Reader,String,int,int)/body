@@ -1,3 +1,0 @@
-{
-  this(factory,input,Side.getSide(sideLabel),minGram,maxGram);
-}

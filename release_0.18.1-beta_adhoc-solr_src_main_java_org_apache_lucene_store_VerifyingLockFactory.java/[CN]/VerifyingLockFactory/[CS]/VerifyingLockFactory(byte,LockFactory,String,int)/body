@@ -1,6 +1,0 @@
-{
-  this.id=id;
-  this.lf=lf;
-  this.host=host;
-  this.port=port;
-}

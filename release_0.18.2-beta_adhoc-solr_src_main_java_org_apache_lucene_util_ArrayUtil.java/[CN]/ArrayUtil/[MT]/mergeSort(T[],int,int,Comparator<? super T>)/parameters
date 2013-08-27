@@ -1,4 +1,0 @@
-T[] a
-int fromIndex
-int toIndex
-Comparator<? super T> comp

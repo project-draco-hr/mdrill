@@ -1,4 +1,0 @@
-{
-  say("FATAL ERROR: " + s);
-  System.exit(-1);
-}

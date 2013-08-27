@@ -1,9 +1,0 @@
-String name
-Field.Store store
-Field.Index index
-Field.TermVector termVector
-int toRead
-long pointer
-boolean isBinary
-boolean isCompressed
-boolean cacheResult

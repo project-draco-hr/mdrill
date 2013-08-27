@@ -1,5 +1,0 @@
-{
-  utf16Result1=new UnicodeUtil.UTF16Result();
-  utf16Result2=new UnicodeUtil.UTF16Result();
-  return true;
-}

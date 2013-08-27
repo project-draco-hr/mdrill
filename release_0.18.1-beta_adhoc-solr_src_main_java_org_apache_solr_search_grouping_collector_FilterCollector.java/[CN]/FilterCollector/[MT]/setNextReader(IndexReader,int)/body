@@ -1,4 +1,0 @@
-{
-  this.docBase=docBase;
-  delegate.setNextReader(indexReader,docBase);
-}

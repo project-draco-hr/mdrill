@@ -1,3 +1,0 @@
-{
-  return compressString(value,Deflater.BEST_COMPRESSION);
-}

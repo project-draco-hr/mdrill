@@ -1,5 +1,0 @@
-Map topology_conf
-String topologyId
-StormClusterState zkCluster
-Map<NodePort,List<Integer>> keepAssigned
-Map<String,SupervisorInfo> supInfos

@@ -1,7 +1,0 @@
-{
-  super(similarity,weight);
-  this.termDocs=td;
-  this.norms=norms;
-  this.weightValue=weight.getValue();
-  for (int i=0; i < SCORE_CACHE_SIZE; i++)   scoreCache[i]=getSimilarity().tf(i) * weightValue;
-}

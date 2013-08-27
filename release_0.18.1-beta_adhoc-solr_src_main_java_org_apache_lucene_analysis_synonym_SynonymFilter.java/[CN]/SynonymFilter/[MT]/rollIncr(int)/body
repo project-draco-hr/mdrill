@@ -1,9 +1,0 @@
-{
-  count++;
-  if (count == rollBufferSize) {
-    return 0;
-  }
- else {
-    return count;
-  }
-}

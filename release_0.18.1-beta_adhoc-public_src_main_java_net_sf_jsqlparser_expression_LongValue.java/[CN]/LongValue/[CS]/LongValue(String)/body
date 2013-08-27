@@ -1,7 +1,0 @@
-{
-  if (value.charAt(0) == '+') {
-    value=value.substring(1);
-  }
-  this.value=Long.parseLong(value);
-  setStringValue(value);
-}

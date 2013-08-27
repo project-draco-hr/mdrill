@@ -1,3 +1,0 @@
-{
-  return new NormsWriterPerField(docInverterPerField,this,fieldInfo);
-}

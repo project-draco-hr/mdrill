@@ -1,6 +1,0 @@
-{
-  this.reader=reader;
-  this.expandMultiTermQuery=expandMultiTermQuery;
-  this.query=query;
-  this.field=field;
-}

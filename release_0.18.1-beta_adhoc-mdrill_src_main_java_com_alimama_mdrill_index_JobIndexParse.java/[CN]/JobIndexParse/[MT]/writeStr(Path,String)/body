@@ -1,8 +1,0 @@
-{
-  if (fs.exists(file)) {
-    fs.delete(file,true);
-  }
-  FSDataOutputStream write=fs.create(file);
-  write.write(contents.getBytes());
-  write.close();
-}

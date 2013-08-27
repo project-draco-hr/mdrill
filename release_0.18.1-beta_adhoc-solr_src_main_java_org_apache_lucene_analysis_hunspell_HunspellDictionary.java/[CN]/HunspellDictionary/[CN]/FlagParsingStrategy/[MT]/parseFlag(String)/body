@@ -1,3 +1,0 @@
-{
-  return parseFlags(rawFlag)[0];
-}

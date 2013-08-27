@@ -1,4 +1,0 @@
-{
-  termsHashPerField.shrinkHash(maxNumPostings);
-  maxNumPostings=0;
-}

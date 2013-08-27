@@ -1,3 +1,0 @@
-{
-  this.checkDeletes=checkDeletes && reader.hasDeletions();
-}

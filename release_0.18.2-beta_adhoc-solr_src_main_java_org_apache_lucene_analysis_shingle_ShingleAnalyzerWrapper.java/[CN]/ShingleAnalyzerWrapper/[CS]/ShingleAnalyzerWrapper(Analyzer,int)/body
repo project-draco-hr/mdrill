@@ -1,3 +1,0 @@
-{
-  this(defaultAnalyzer,ShingleFilter.DEFAULT_MIN_SHINGLE_SIZE,maxShingleSize);
-}

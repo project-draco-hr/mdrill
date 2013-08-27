@@ -1,6 +1,0 @@
-{
-  if (which < parenCount) {
-    return getParenEnd(which) - getParenStart(which);
-  }
-  return -1;
-}

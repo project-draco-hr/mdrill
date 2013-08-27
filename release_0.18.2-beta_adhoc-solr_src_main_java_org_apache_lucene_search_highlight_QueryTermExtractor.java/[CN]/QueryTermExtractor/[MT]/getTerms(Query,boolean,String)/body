@@ -1,8 +1,0 @@
-{
-  HashSet<WeightedTerm> terms=new HashSet<WeightedTerm>();
-  if (fieldName != null) {
-    fieldName=StringHelper.intern(fieldName);
-  }
-  getTerms(query,terms,prohibited,fieldName);
-  return terms.toArray(new WeightedTerm[0]);
-}

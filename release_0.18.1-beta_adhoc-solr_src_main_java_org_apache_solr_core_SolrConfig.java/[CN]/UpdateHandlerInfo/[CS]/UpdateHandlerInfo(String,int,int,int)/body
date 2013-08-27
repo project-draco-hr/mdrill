@@ -1,6 +1,0 @@
-{
-  this.className=className;
-  this.autoCommmitMaxDocs=autoCommmitMaxDocs;
-  this.autoCommmitMaxTime=autoCommmitMaxTime;
-  this.commitIntervalLowerBound=commitIntervalLowerBound;
-}

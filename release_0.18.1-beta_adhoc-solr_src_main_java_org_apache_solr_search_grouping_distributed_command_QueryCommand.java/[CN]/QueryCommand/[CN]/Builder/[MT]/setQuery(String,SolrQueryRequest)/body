@@ -1,5 +1,0 @@
-{
-  QParser parser=QParser.getParser(groupQueryString,null,request);
-  this.queryString=groupQueryString;
-  return setQuery(parser.getQuery());
-}

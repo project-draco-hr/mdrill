@@ -1,3 +1,0 @@
-{
-  return params.getBool(param,def);
-}

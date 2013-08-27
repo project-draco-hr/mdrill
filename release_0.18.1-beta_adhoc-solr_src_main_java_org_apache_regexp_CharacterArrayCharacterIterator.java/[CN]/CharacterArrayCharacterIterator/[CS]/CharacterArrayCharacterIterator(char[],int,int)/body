@@ -1,5 +1,0 @@
-{
-  this.src=src;
-  this.off=off;
-  this.len=len;
-}

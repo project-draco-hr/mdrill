@@ -1,8 +1,0 @@
-{
-  String stormroot=StormConfig.masterStormdistRoot(conf,stormId);
-  FileUtils.forceMkdir(new File(stormroot));
-  FileUtils.cleanDirectory(new File(stormroot));
-  setupJar(conf,tmpJarLocation,stormroot);
-  FileUtils.writeByteArrayToFile(new File(StormConfig.masterStormcodePath(stormroot)),Utils.serialize(topology));
-  FileUtils.writeByteArrayToFile(new File(StormConfig.masterStormconfPath(stormroot)),Utils.serialize(stormConf));
-}

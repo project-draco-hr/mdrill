@@ -1,4 +1,0 @@
-{
-  this.num_used_workers=num_used_workers;
-  set_num_used_workers_isSet(true);
-}

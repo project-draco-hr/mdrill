@@ -1,3 +1,0 @@
-{
-  return timeSecs.hashCode() + uptimeSecs.hashCode() + hostName.hashCode()+ workPorts.hashCode();
-}

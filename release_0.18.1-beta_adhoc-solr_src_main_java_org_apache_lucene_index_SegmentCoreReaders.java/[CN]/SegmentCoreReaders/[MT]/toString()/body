@@ -1,3 +1,0 @@
-{
-  return "SegmentCoreReader(owner=" + owner + ")";
-}

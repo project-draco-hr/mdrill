@@ -1,4 +1,0 @@
-{
-  this(_in,exclusiontable);
-  stemmer.setStemDictionary(stemdictionary);
-}

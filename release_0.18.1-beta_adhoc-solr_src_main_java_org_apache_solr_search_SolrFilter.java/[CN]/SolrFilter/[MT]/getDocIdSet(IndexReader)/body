@@ -1,3 +1,0 @@
-{
-  return getDocIdSet(null,reader);
-}

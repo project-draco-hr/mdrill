@@ -1,8 +1,0 @@
-{
-  final Token t=new Token(newTermBuffer,newTermOffset,newTermLength,newStartOffset,newEndOffset);
-  t.positionIncrement=positionIncrement;
-  t.flags=flags;
-  t.type=type;
-  if (payload != null)   t.payload=(Payload)payload.clone();
-  return t;
-}

@@ -1,6 +1,0 @@
-{
-  if (assignment instanceof BoltTaskStatsData && ((BoltTaskStatsData)assignment).getCommon().equals(common) && ((BoltTaskStatsData)assignment).getAcked().equals(acked)&& ((BoltTaskStatsData)assignment).getFailed().equals(failed)&& ((BoltTaskStatsData)assignment).getProcess_latencies().equals(process_latencies)) {
-    return true;
-  }
-  return false;
-}

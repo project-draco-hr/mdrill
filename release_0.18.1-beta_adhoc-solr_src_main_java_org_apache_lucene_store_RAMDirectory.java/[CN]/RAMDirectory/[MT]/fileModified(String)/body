@@ -1,8 +1,0 @@
-{
-  ensureOpen();
-  RAMFile file=fileMap.get(name);
-  if (file == null) {
-    throw new FileNotFoundException(name);
-  }
-  return file.getLastModified();
-}

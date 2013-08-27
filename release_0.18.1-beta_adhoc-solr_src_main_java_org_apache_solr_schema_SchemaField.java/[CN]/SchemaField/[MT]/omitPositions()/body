@@ -1,3 +1,0 @@
-{
-  return (properties & OMIT_POSITIONS) != 0;
-}

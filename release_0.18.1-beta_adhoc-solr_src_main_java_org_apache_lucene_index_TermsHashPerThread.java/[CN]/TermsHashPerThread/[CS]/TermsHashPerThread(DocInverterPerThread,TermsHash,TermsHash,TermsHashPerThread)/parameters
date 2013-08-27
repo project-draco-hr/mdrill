@@ -1,4 +1,0 @@
-DocInverterPerThread docInverterPerThread
-TermsHash termsHash
-TermsHash nextTermsHash
-TermsHashPerThread primaryPerThread

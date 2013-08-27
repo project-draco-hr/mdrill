@@ -1,8 +1,0 @@
-{
-  if (!isBinary) {
-    throw new IllegalArgumentException("cannot set a byte[] value on a non-binary field");
-  }
-  fieldsData=value;
-  binaryLength=length;
-  binaryOffset=offset;
-}

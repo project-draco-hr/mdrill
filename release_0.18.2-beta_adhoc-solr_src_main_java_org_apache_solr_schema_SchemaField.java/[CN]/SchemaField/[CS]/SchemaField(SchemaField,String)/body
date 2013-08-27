@@ -1,3 +1,0 @@
-{
-  this(name,prototype.type,prototype.properties,prototype.defaultValue);
-}

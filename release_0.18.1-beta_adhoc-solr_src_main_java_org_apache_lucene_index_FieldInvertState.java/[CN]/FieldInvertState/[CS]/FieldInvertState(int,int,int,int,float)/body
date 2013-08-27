@@ -1,7 +1,0 @@
-{
-  this.position=position;
-  this.length=length;
-  this.numOverlap=numOverlap;
-  this.offset=offset;
-  this.boost=boost;
-}

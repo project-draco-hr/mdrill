@@ -1,6 +1,0 @@
-{
-  this.str=str;
-  this.isLetter=isLetter;
-  this.toLowerCase=toLowerCase;
-  this.stopWords=stopWords;
-}

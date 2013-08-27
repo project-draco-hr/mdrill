@@ -1,9 +1,0 @@
-{
-  buffer_compress[uptopos_compress++]=v;
-  if (uptopos_compress == BLOGK_SIZE_USED_COMPRESS) {
-    this.blockmode_compress=allowblock_compress;
-  }
-  if (uptopos_compress == BLOGK_SIZE_COMPRESS) {
-    flushCompressBlock();
-  }
-}

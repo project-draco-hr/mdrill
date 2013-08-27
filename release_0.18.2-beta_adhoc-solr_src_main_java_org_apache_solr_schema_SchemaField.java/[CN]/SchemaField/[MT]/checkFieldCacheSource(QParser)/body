@@ -1,8 +1,0 @@
-{
-  if (!indexed()) {
-    throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,"can not use FieldCache on unindexed field: " + getName());
-  }
-  if (multiValued()) {
-    throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,"can not use FieldCache on multivalued field: " + getName());
-  }
-}

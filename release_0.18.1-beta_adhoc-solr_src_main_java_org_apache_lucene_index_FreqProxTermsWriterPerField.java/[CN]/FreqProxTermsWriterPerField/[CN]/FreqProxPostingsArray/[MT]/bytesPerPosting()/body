@@ -1,3 +1,0 @@
-{
-  return ParallelPostingsArray.BYTES_PER_POSTING + 4 * RamUsageEstimator.NUM_BYTES_INT;
-}

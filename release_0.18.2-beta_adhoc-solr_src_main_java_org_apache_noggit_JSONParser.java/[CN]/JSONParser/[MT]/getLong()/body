@@ -1,4 +1,0 @@
-{
-  goTo(LONG);
-  return lval;
-}

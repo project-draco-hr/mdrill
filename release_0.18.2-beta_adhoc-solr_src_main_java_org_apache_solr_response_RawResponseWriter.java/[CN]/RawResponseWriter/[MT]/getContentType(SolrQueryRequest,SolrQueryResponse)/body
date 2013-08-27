@@ -1,7 +1,0 @@
-{
-  Object obj=response.getValues().get(CONTENT);
-  if (obj != null && (obj instanceof ContentStream)) {
-    return ((ContentStream)obj).getContentType();
-  }
-  return getBaseWriter(request).getContentType(request,response);
-}

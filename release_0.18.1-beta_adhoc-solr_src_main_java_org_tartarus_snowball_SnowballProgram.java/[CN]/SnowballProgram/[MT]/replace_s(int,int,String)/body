@@ -1,3 +1,0 @@
-{
-  return replace_s(c_bra,c_ket,(CharSequence)s);
-}

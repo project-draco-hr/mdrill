@@ -1,7 +1,0 @@
-{
-  SchemaField[] df=new SchemaField[dynamicFields.length];
-  for (int i=0; i < dynamicFields.length; i++) {
-    df[i]=dynamicFields[i].prototype;
-  }
-  return df;
-}

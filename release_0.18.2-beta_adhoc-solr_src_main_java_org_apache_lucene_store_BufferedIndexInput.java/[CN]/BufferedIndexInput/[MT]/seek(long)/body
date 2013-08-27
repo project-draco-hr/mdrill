@@ -1,9 +1,0 @@
-{
-  if (pos >= bufferStart && pos < (bufferStart + bufferLength))   bufferPosition=(int)(pos - bufferStart);
- else {
-    bufferStart=pos;
-    bufferPosition=0;
-    bufferLength=0;
-    seekInternal(pos);
-  }
-}

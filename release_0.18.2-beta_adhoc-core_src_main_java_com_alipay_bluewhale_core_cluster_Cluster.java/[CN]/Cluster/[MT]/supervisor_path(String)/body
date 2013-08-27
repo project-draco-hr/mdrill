@@ -1,3 +1,0 @@
-{
-  return SUPERVISORS_SUBTREE + "/" + id;
-}

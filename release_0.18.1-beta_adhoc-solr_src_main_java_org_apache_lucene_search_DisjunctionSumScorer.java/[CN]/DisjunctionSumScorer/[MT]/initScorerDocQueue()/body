@@ -1,8 +1,0 @@
-{
-  scorerDocQueue=new ScorerDocQueue(nrScorers);
-  for (  Scorer se : subScorers) {
-    if (se.nextDoc() != NO_MORE_DOCS) {
-      scorerDocQueue.insert(se);
-    }
-  }
-}

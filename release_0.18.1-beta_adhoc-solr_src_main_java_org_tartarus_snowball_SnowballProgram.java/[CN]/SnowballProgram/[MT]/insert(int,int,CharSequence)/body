@@ -1,5 +1,0 @@
-{
-  int adjustment=replace_s(c_bra,c_ket,s);
-  if (c_bra <= bra)   bra+=adjustment;
-  if (c_bra <= ket)   ket+=adjustment;
-}

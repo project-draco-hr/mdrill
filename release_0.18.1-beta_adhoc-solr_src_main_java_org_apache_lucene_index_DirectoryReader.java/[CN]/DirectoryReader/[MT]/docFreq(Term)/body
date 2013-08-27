@@ -1,6 +1,0 @@
-{
-  ensureOpen();
-  int total=0;
-  for (int i=0; i < subReaders.length; i++)   total+=subReaders[i].docFreq(t);
-  return total;
-}

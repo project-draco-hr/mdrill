@@ -1,4 +1,0 @@
-{
-  super(METHOD.POST,path);
-  xml=body;
-}

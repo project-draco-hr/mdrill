@@ -1,8 +1,0 @@
-{
-  try {
-    return getCurrentSegmentGeneration(directory.listAll());
-  }
- catch (  NoSuchDirectoryException nsde) {
-    return -1;
-  }
-}

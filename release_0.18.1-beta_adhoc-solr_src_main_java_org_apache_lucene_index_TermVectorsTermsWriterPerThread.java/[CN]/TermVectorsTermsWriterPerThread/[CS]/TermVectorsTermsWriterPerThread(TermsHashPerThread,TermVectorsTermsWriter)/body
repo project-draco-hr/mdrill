@@ -1,5 +1,0 @@
-{
-  this.termsWriter=termsWriter;
-  this.termsHashPerThread=termsHashPerThread;
-  docState=termsHashPerThread.docState;
-}

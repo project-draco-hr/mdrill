@@ -1,5 +1,0 @@
-{
-  Collection<byte[]> payloads=new ArrayList<byte[]>();
-  queryToSpanQuery(query,payloads);
-  return payloads;
-}

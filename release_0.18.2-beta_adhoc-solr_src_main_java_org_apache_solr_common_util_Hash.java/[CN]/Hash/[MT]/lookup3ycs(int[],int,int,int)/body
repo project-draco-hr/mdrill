@@ -1,3 +1,0 @@
-{
-  return lookup3(k,offset,length,initval - (length << 2));
-}

@@ -1,3 +1,0 @@
-{
-  return getWordSet(reader,comment,new CharArraySet(matchVersion,INITITAL_CAPACITY,false));
-}

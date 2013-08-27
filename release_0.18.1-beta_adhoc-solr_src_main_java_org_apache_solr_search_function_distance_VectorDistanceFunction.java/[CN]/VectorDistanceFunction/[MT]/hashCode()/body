@@ -1,6 +1,0 @@
-{
-  int result=source1.hashCode();
-  result=31 * result + source2.hashCode();
-  result=31 * result + Float.floatToRawIntBits(power);
-  return result;
-}

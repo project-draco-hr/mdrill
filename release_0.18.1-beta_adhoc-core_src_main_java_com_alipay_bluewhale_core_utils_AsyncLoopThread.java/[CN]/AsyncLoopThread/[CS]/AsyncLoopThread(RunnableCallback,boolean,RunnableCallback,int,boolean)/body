@@ -1,3 +1,0 @@
-{
-  this.init(afn,daemon,kill_fn,priority,start);
-}

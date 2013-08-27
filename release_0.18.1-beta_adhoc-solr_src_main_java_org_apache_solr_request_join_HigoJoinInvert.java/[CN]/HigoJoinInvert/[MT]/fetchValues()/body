@@ -1,5 +1,0 @@
-{
-  for (int i=0; i < tmRigth.length; i++) {
-    tmRigth[i].fetchValues();
-  }
-}

@@ -1,5 +1,0 @@
-{
-  this.val=val;
-  this.pos=start;
-  this.end=end;
-}

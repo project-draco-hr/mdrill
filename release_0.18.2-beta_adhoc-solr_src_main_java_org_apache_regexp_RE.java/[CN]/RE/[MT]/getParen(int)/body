@@ -1,7 +1,0 @@
-{
-  int start;
-  if (which < parenCount && (start=getParenStart(which)) >= 0) {
-    return search.substring(start,getParenEnd(which));
-  }
-  return null;
-}

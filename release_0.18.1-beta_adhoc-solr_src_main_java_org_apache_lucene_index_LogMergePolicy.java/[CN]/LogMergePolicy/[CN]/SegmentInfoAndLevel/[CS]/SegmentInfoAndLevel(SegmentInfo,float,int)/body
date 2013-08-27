@@ -1,5 +1,0 @@
-{
-  this.info=info;
-  this.level=level;
-  this.index=index;
-}

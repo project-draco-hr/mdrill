@@ -1,5 +1,0 @@
-{
-  super();
-  this.singleTerm=singleTerm;
-  setEnum(reader.terms(singleTerm));
-}

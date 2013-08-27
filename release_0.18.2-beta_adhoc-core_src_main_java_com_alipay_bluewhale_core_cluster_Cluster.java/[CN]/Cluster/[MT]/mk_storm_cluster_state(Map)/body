@@ -1,3 +1,0 @@
-{
-  return new StormZkClusterState(cluster_state_spec);
-}

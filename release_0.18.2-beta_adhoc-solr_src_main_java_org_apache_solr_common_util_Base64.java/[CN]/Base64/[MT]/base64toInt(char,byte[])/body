@@ -1,5 +1,0 @@
-{
-  int result=alphaToInt[c];
-  if (result < 0)   throw new IllegalArgumentException("Illegal character " + c);
-  return result;
-}

@@ -1,9 +1,0 @@
-{
-  if (uni.indexDatatype.equals(TypeIndex.d_byte)) {
-    return new ByteRead(uni.indexbyte);
-  }
-  if (uni.indexDatatype.equals(TypeIndex.d_short)) {
-    return new ShortRead(uni.indexshort);
-  }
-  return new IntRead(uni.index);
-}

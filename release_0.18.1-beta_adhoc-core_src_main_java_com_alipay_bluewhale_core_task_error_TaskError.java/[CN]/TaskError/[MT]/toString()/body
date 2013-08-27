@@ -1,3 +1,0 @@
-{
-  return "TaskError [error=" + error + ", timSecs="+ timSecs+ "]";
-}

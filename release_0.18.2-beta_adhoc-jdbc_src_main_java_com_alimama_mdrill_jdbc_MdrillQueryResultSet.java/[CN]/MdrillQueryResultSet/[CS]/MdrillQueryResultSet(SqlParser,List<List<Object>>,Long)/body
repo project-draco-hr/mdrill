@@ -1,7 +1,0 @@
-{
-  this.setTotal(total);
-  this.parser=parser;
-  this.fetchedRowsItr=results.iterator();
-  init();
-  row=Arrays.asList(new Object[parser.colsAliasNames.length]);
-}

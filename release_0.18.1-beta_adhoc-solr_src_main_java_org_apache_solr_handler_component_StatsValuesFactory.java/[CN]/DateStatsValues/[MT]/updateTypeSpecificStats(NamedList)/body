@@ -1,3 +1,0 @@
-{
-  sum+=((Date)stv.get("sum")).getTime();
-}

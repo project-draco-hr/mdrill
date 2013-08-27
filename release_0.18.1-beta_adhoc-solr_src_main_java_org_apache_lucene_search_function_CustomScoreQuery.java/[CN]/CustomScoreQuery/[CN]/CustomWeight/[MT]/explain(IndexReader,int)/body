@@ -1,4 +1,0 @@
-{
-  Explanation explain=doExplain(reader,doc);
-  return explain == null ? new Explanation(0.0f,"no matching docs") : explain;
-}

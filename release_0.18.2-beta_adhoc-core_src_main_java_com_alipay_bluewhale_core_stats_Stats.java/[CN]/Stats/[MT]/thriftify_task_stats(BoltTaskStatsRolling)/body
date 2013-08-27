@@ -1,3 +1,0 @@
-{
-  return value_bolt_stats(stats).getTaskStats();
-}

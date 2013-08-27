@@ -1,8 +1,0 @@
-{
-  this.req=arg0;
-  this.process=arg1;
-  Path base=new Path(this.req.getParams().get("hdfsdir"));
-  String filename=this.req.getParams().get("hdfsfile");
-  this.file=new Path(new Path(base,"safedir"),filename).toString();
-  this.istmp=this.req.getParams().getBool("istmp",true);
-}

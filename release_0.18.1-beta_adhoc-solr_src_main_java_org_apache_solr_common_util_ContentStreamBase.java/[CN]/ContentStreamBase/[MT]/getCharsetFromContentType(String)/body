@@ -1,9 +1,0 @@
-{
-  if (contentType != null) {
-    int idx=contentType.toLowerCase(Locale.ENGLISH).indexOf("charset=");
-    if (idx > 0) {
-      return contentType.substring(idx + "charset=".length()).trim();
-    }
-  }
-  return null;
-}

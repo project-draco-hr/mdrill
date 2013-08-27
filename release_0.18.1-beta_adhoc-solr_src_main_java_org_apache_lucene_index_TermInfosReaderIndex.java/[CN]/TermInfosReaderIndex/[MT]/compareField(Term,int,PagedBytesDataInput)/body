@@ -1,4 +1,0 @@
-{
-  input.setPosition(indexToDataOffset.get(termIndex));
-  return term.field.compareTo(fields[input.readVInt()].field);
-}

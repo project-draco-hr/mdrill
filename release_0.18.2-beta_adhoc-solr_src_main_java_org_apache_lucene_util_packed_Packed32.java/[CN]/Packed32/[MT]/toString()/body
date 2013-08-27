@@ -1,3 +1,0 @@
-{
-  return "Packed32(bitsPerValue=" + bitsPerValue + ", maxPos="+ maxPos+ ", elements.length="+ blocks.length+ ")";
-}

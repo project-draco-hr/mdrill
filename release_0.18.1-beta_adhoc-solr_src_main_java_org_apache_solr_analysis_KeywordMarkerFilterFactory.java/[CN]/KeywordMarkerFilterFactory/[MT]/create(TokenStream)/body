@@ -1,3 +1,0 @@
-{
-  return protectedWords == null ? input : new KeywordMarkerFilter(input,protectedWords);
-}

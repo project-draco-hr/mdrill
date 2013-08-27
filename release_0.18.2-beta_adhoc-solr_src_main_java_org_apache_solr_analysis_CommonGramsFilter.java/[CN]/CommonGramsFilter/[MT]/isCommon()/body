@@ -1,3 +1,0 @@
-{
-  return commonWords != null && commonWords.contains(termAttribute.buffer(),0,termAttribute.length());
-}

@@ -1,7 +1,0 @@
-{
-  this.searcher=searcher;
-  this.latContext=latSource.newContext();
-  this.lonContext=lonSource.newContext();
-  latSource.createWeight(latContext,searcher);
-  lonSource.createWeight(lonContext,searcher);
-}

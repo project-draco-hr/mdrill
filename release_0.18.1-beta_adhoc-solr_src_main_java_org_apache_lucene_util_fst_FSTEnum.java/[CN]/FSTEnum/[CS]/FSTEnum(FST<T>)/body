@@ -1,6 +1,0 @@
-{
-  this.fst=fst;
-  NO_OUTPUT=fst.outputs.getNoOutput();
-  fst.getFirstArc(getArc(0));
-  output[0]=NO_OUTPUT;
-}

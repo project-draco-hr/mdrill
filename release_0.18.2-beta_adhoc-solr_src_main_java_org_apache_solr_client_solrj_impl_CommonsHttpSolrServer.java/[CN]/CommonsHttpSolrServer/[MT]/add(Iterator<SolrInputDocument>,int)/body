@@ -1,6 +1,0 @@
-{
-  UpdateRequest req=new UpdateRequest();
-  req.setDocIterator(docIterator);
-  req.setCommitWithin(commitWithinMs);
-  return req.process(this);
-}

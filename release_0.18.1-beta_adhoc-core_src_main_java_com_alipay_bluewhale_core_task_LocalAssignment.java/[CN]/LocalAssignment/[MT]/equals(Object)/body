@@ -1,6 +1,0 @@
-{
-  if (localAssignment instanceof LocalAssignment && ((LocalAssignment)localAssignment).getTopologyId().equals(topologyId) && ((LocalAssignment)localAssignment).getTaskIds().equals(taskIds)) {
-    return true;
-  }
-  return false;
-}

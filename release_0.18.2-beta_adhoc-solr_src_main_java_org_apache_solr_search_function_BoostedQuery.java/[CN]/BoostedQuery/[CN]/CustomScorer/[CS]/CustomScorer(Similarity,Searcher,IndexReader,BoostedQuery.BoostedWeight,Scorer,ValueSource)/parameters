@@ -1,6 +1,0 @@
-Similarity similarity
-Searcher searcher
-IndexReader reader
-BoostedQuery.BoostedWeight w
-Scorer scorer
-ValueSource vs

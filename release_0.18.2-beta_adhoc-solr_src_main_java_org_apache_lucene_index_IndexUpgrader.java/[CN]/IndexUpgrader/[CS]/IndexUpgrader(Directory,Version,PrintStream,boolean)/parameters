@@ -1,4 +1,0 @@
-Directory dir
-Version matchVersion
-PrintStream infoStream
-boolean deletePriorCommits

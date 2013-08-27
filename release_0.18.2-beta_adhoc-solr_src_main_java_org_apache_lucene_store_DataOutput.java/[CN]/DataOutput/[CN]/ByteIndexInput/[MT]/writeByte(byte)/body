@@ -1,4 +1,0 @@
-{
-  byte[] write={arg0};
-  this.writeBytes(write,0,write.length);
-}

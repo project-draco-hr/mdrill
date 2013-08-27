@@ -1,8 +1,0 @@
-{
-  try {
-    consumer.abort();
-  }
-  finally {
-    endConsumer.abort();
-  }
-}

@@ -1,6 +1,0 @@
-{
-  this.value=value;
-  valSize=32;
-  shift=0;
-  return this;
-}

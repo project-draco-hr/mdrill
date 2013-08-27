@@ -1,7 +1,0 @@
-{
-  if (input.incrementToken()) {
-    if (!keywordAtt.isKeyword())     termAtt.setLength(normalizer.normalize(termAtt.buffer(),termAtt.length()));
-    return true;
-  }
-  return false;
-}

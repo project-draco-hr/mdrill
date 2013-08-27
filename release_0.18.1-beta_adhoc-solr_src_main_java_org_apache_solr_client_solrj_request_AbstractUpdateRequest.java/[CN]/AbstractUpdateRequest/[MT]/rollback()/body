@@ -1,5 +1,0 @@
-{
-  if (params == null)   params=new ModifiableSolrParams();
-  params.set(UpdateParams.ROLLBACK,"true");
-  return this;
-}

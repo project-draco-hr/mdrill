@@ -1,3 +1,0 @@
-{
-  this.set(CommonParams.DEBUG_QUERY,String.valueOf(showDebugInfo));
-}

@@ -1,5 +1,0 @@
-{
-  Analyzer analyzer=analyzerMap.get(field.name());
-  if (analyzer == null)   analyzer=defaultAnalyzer;
-  return analyzer.getOffsetGap(field);
-}

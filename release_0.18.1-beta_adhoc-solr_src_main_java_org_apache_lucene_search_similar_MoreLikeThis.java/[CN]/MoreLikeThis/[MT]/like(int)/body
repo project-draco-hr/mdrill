@@ -1,7 +1,0 @@
-{
-  if (fieldNames == null) {
-    Collection<String> fields=ir.getFieldNames(IndexReader.FieldOption.INDEXED);
-    fieldNames=fields.toArray(new String[fields.size()]);
-  }
-  return createQuery(retrieveTerms(docNum));
-}

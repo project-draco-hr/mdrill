@@ -1,3 +1,0 @@
-{
-  throw new UnsupportedOperationException("Query should have been rewritten");
-}

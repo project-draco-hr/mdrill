@@ -1,6 +1,0 @@
-{
-  super.setLastSkipData(level);
-  lastFreqPointer=freqPointer[level];
-  lastProxPointer=proxPointer[level];
-  lastPayloadLength=payloadLength[level];
-}

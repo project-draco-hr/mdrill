@@ -1,7 +1,0 @@
-{
-  BlockBufferInput clone=(BlockBufferInput)super.clone();
-  clone.isClone=true;
-  clone.lastbuff=new blockData(null,0);
-  clone.lastBlockIndex=-1l;
-  return clone;
-}

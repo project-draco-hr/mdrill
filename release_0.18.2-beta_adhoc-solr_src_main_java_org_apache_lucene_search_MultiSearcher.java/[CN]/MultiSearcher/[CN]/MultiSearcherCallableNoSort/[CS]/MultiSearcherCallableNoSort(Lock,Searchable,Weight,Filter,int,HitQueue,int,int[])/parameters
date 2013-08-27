@@ -1,8 +1,0 @@
-Lock lock
-Searchable searchable
-Weight weight
-Filter filter
-int nDocs
-HitQueue hq
-int i
-int[] starts

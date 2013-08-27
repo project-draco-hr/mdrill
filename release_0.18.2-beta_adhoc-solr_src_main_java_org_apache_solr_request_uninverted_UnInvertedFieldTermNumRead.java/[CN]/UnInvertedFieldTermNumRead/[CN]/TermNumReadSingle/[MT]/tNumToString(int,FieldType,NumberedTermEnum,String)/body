@@ -1,3 +1,0 @@
-{
-  return this.inter.tNumToString(tnum,ft,te,def);
-}

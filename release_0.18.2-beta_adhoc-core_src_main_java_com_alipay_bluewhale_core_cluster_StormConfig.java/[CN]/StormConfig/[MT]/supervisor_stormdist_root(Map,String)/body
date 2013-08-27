@@ -1,3 +1,0 @@
-{
-  return supervisor_stormdist_root(conf) + "/" + storm_id;
-}

@@ -1,7 +1,0 @@
-{
-  super.init(args);
-  String maxArg=args.get("maxGramSize");
-  maxGramSize=(maxArg != null ? Integer.parseInt(maxArg) : NGramTokenizer.DEFAULT_MAX_NGRAM_SIZE);
-  String minArg=args.get("minGramSize");
-  minGramSize=(minArg != null ? Integer.parseInt(minArg) : NGramTokenizer.DEFAULT_MIN_NGRAM_SIZE);
-}

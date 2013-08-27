@@ -1,6 +1,0 @@
-{
-  if (rb.req.getParams().getBool(StatsParams.STATS,false)) {
-    rb.setNeedDocSet(true);
-    rb.doStats=true;
-  }
-}

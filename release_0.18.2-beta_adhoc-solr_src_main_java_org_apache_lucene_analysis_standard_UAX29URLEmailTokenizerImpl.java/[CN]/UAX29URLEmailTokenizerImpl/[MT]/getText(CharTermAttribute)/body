@@ -1,3 +1,0 @@
-{
-  t.copyBuffer(zzBuffer,zzStartRead,zzMarkedPos - zzStartRead);
-}

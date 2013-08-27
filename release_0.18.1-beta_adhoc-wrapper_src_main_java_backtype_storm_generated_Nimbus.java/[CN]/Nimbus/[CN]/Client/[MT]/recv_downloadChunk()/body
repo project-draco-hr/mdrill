@@ -1,8 +1,0 @@
-{
-  downloadChunk_result result=new downloadChunk_result();
-  receiveBase(result,"downloadChunk");
-  if (result.is_set_success()) {
-    return result.success;
-  }
-  throw new org.apache.thrift7.TApplicationException(org.apache.thrift7.TApplicationException.MISSING_RESULT,"downloadChunk failed: unknown result");
-}

@@ -1,8 +1,0 @@
-{
-  try {
-    load(clazz);
-    if (!bundles.containsKey(bundleName))     bundles.put(bundleName,clazz);
-  }
- catch (  Throwable e) {
-  }
-}

@@ -1,6 +1,0 @@
-{
-  matches++;
-  if (filter.exists(doc + docBase)) {
-    delegate.collect(doc);
-  }
-}

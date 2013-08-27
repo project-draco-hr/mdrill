@@ -1,4 +1,0 @@
-{
-  this.transferQueue=_transfer_queue;
-  this.serializer=serializer;
-}

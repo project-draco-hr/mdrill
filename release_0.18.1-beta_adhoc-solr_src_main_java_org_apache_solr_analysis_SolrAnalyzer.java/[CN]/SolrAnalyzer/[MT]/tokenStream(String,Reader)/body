@@ -1,3 +1,0 @@
-{
-  return getStream(fieldName,reader).getTokenStream();
-}

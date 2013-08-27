@@ -1,5 +1,0 @@
-{
-  if (allInstances != null) {
-    addMyself();
-  }
-}

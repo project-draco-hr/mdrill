@@ -1,8 +1,0 @@
-{
-  this.perThread=perThread;
-  this.fieldInfo=fieldInfo;
-  docState=perThread.docState;
-  fieldState=perThread.fieldState;
-  this.consumer=perThread.consumer.addField(this,fieldInfo);
-  this.endConsumer=perThread.endConsumer.addField(this,fieldInfo);
-}

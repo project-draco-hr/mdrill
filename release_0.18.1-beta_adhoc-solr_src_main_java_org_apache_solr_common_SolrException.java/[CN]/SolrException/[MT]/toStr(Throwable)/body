@@ -1,7 +1,0 @@
-{
-  CharArrayWriter cw=new CharArrayWriter();
-  PrintWriter pw=new PrintWriter(cw);
-  e.printStackTrace(pw);
-  pw.flush();
-  return cw.toString();
-}

@@ -1,3 +1,0 @@
-{
-  InprocMessaging.sendMessage(_id,tuple);
-}

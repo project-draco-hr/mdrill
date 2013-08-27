@@ -1,3 +1,0 @@
-{
-  super(localParams,FacetParams.FACET_QUERY,facetStr);
-}

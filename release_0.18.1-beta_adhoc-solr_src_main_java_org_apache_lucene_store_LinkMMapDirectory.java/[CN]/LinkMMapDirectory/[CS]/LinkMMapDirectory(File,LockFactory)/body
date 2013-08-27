@@ -1,4 +1,0 @@
-{
-  super(path,lockFactory);
-  setMaxChunkSize(MMapDirectory.DEFAULT_MAX_BUFF);
-}

@@ -1,4 +1,0 @@
-{
-  int val=comparator.compare(wa,wb);
-  return val < 0;
-}

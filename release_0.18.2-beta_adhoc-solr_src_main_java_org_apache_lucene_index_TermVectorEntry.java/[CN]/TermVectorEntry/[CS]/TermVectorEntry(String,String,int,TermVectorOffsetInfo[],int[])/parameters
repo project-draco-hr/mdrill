@@ -1,5 +1,0 @@
-String field
-String term
-int frequency
-TermVectorOffsetInfo[] offsets
-int[] positions

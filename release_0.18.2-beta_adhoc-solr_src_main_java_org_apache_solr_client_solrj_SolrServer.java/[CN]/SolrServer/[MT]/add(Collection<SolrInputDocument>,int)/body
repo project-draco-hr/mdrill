@@ -1,6 +1,0 @@
-{
-  UpdateRequest req=new UpdateRequest();
-  req.add(docs);
-  req.setCommitWithin(commitWithinMs);
-  return req.process(this);
-}

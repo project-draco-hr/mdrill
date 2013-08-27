@@ -1,8 +1,0 @@
-{
-  cleanup_common_stats(stats);
-  CommonStatsData rtn=new CommonStatsData();
-  rtn.setEmitted(get_path_value_stats(stats,StormUtils.mk_arr("emitted")));
-  rtn.setTransferred(get_path_value_stats(stats,StormUtils.mk_arr("transferred")));
-  rtn.setRate(stats.rate);
-  return rtn;
-}

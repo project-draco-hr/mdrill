@@ -1,3 +1,0 @@
-{
-  return new TokenStreamComponents(new WhitespaceTokenizer(matchVersion,reader));
-}

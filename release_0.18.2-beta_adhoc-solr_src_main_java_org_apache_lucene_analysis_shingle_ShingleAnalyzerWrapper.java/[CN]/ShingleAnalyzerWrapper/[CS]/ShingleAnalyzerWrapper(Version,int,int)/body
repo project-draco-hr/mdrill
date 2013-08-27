@@ -1,3 +1,0 @@
-{
-  this(new StandardAnalyzer(matchVersion),minShingleSize,maxShingleSize);
-}

@@ -1,3 +1,0 @@
-{
-  return get_virtual_socket(context,mapping_atom,port,"");
-}

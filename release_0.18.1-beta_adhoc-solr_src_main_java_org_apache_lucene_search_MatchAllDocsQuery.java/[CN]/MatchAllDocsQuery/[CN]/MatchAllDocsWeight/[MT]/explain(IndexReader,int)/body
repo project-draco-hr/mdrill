@@ -1,8 +1,0 @@
-{
-  Explanation queryExpl=new ComplexExplanation(true,getValue(),"MatchAllDocsQuery, product of:");
-  if (getBoost() != 1.0f) {
-    queryExpl.addDetail(new Explanation(getBoost(),"boost"));
-  }
-  queryExpl.addDetail(new Explanation(queryNorm,"queryNorm"));
-  return queryExpl;
-}

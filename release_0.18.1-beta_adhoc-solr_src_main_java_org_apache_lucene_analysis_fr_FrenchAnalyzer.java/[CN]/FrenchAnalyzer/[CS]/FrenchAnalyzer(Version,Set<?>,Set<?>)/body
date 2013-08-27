@@ -1,4 +1,0 @@
-{
-  super(matchVersion,stopwords);
-  this.excltable=CharArraySet.unmodifiableSet(CharArraySet.copy(matchVersion,stemExclutionSet));
-}

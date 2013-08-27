@@ -1,3 +1,0 @@
-{
-  current.grow(upto + 1);
-}

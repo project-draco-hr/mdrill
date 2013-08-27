@@ -1,8 +1,0 @@
-{
-  if (this == o)   return true;
-  if (!(o instanceof SquaredEuclideanFunction))   return false;
-  if (!super.equals(o))   return false;
-  SquaredEuclideanFunction that=(SquaredEuclideanFunction)o;
-  if (!name.equals(that.name))   return false;
-  return true;
-}

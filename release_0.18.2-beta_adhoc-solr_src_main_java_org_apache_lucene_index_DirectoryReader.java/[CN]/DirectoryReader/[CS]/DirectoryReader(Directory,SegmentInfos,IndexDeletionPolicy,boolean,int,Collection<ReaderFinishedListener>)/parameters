@@ -1,6 +1,0 @@
-Directory directory
-SegmentInfos sis
-IndexDeletionPolicy deletionPolicy
-boolean readOnly
-int termInfosIndexDivisor
-Collection<ReaderFinishedListener> readerFinishedListeners

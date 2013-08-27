@@ -1,9 +1,0 @@
-{
-  if (existsExpression.isNot()) {
-    buffer.append(" NOT EXISTS ");
-  }
- else {
-    buffer.append(" EXISTS ");
-  }
-  existsExpression.getRightExpression().accept(this);
-}

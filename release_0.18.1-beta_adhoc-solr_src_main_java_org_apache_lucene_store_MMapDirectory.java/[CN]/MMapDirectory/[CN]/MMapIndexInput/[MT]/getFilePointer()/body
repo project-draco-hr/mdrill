@@ -1,3 +1,0 @@
-{
-  return (((long)curBufIndex) << chunkSizePower) + curBuf.position();
-}

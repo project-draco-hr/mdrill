@@ -1,3 +1,0 @@
-{
-  writeByte(name,Byte.toString(val));
-}

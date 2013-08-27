@@ -1,7 +1,0 @@
-{
-  this.type=QType.FUZZY;
-  this.field=field;
-  this.val=val;
-  this.flt=minSimilarity;
-  return getAliasedQuery();
-}

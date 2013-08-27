@@ -1,6 +1,0 @@
-Analyzer defaultAnalyzer
-int minShingleSize
-int maxShingleSize
-String tokenSeparator
-boolean outputUnigrams
-boolean outputUnigramsIfNoShingles

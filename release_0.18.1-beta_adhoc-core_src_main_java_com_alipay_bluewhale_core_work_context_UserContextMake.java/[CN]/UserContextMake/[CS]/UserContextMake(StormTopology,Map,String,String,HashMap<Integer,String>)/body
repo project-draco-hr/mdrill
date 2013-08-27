@@ -1,7 +1,0 @@
-{
-  this.topology=topology;
-  this.storm_conf=storm_conf;
-  this.topologyId=topologyId;
-  this.worker_id=worker_id;
-  this.tasksToComponent=tasks_component;
-}

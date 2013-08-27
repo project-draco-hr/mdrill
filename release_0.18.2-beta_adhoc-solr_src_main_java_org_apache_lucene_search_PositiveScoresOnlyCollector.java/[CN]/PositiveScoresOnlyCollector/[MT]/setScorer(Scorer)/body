@@ -1,4 +1,0 @@
-{
-  this.scorer=new ScoreCachingWrappingScorer(scorer);
-  c.setScorer(this.scorer);
-}

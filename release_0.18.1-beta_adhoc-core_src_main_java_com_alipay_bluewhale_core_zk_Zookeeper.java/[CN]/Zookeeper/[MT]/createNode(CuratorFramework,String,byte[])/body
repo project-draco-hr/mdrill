@@ -1,3 +1,0 @@
-{
-  return createNode(zk,path,data,org.apache.zookeeper.CreateMode.PERSISTENT);
-}

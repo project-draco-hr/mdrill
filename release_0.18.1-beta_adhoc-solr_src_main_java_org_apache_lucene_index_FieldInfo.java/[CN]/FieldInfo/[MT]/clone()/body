@@ -1,3 +1,0 @@
-{
-  return new FieldInfo(name,isIndexed,number,storeTermVector,storePositionWithTermVector,storeOffsetWithTermVector,omitNorms,storePayloads,indexOptions);
-}

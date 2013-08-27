@@ -1,9 +1,0 @@
-{
-  String stormTaskPath=Cluster.storm_task_root(stromId);
-  List<String> list=cluster_state.get_children(stormTaskPath,false);
-  List<Integer> rtn=new ArrayList<Integer>();
-  for (  String str : list) {
-    rtn.add(Integer.parseInt(str));
-  }
-  return rtn;
-}

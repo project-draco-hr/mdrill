@@ -1,7 +1,0 @@
-{
-  int phint=component_common.get_parallelism_hint();
-  if (!component_common.is_set_parallelism_hint()) {
-    phint=1;
-  }
-  return phint;
-}

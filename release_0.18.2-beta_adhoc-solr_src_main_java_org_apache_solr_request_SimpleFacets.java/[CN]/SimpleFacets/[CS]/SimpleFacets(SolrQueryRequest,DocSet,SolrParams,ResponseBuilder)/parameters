@@ -1,4 +1,0 @@
-SolrQueryRequest req
-DocSet docs
-SolrParams params
-ResponseBuilder rb

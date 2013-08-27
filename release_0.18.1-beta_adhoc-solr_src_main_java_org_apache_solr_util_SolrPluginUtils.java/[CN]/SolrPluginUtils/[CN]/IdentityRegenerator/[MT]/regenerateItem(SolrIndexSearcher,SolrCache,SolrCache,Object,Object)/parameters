@@ -1,5 +1,0 @@
-SolrIndexSearcher newSearcher
-SolrCache newCache
-SolrCache oldCache
-Object oldKey
-Object oldVal

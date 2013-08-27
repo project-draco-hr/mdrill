@@ -1,3 +1,0 @@
-{
-  this((SolrResourceLoader)null,DEFAULT_CONF_FILE,null);
-}

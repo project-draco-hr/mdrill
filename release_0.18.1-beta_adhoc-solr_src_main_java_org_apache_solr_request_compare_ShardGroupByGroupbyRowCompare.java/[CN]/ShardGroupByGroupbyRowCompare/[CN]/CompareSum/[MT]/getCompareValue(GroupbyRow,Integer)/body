@@ -1,3 +1,0 @@
-{
-  return g.getStatVal(field,1);
-}

@@ -1,3 +1,0 @@
-{
-  writeStr(name,val,false);
-}

@@ -1,3 +1,0 @@
-{
-  return name + ((withItemList != null) ? " " + PlainSelect.getStringList(withItemList,true,true) : "") + " AS ("+ selectBody+ ")";
-}

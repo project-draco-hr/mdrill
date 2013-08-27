@@ -1,3 +1,0 @@
-{
-  bytes=ArrayUtil.grow(bytes,newLength);
-}

@@ -1,5 +1,0 @@
-{
-  LatLng p1=new FloatLatLng(x1,y1);
-  LatLng p2=new FloatLatLng(x2,y2);
-  return p1.arcDistance(p2,DistanceUnits.MILES);
-}

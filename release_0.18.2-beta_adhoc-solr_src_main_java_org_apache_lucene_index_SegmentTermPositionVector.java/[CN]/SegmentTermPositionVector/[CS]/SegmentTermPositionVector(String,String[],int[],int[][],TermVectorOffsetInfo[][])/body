@@ -1,5 +1,0 @@
-{
-  super(field,terms,termFreqs);
-  this.offsets=offsets;
-  this.positions=positions;
-}

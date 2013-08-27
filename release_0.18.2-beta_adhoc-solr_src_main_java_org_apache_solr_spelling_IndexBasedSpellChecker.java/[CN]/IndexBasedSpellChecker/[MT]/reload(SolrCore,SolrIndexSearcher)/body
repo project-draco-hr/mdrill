@@ -1,4 +1,0 @@
-{
-  super.reload(core,searcher);
-  initSourceReader();
-}

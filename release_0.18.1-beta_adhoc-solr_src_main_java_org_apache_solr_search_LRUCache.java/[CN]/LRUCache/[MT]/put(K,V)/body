@@ -1,9 +1,0 @@
-{
-synchronized (map) {
-    if (state == State.LIVE) {
-      stats.inserts.incrementAndGet();
-    }
-    inserts++;
-    return map.put(key,value);
-  }
-}

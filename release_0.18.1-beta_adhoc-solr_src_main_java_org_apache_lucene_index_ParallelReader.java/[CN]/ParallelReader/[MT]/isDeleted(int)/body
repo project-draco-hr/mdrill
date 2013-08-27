@@ -1,4 +1,0 @@
-{
-  if (readers.size() > 0)   return readers.get(0).isDeleted(n);
-  return false;
-}

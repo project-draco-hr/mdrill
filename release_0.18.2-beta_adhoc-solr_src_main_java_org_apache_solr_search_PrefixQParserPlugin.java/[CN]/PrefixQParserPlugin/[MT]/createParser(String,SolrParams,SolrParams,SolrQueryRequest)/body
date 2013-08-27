@@ -1,8 +1,0 @@
-{
-  return new QParser(qstr,localParams,params,req){
-    @Override public Query parse() throws ParseException {
-      return new PrefixQuery(new Term(localParams.get(QueryParsing.F),localParams.get(QueryParsing.V)));
-    }
-  }
-;
-}

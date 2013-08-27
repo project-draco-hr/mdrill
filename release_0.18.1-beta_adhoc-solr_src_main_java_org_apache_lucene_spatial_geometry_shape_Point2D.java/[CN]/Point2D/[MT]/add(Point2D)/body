@@ -1,4 +1,0 @@
-{
-  this.x+=a.getX();
-  this.y+=a.getY();
-}

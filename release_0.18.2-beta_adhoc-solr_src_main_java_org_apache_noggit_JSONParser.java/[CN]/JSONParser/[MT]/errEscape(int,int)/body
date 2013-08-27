@@ -1,5 +1,0 @@
-{
-  b=Math.min(b,end);
-  if (a >= b)   return "";
-  return new String(buf,a,b - a).replaceAll("\\s+"," ");
-}

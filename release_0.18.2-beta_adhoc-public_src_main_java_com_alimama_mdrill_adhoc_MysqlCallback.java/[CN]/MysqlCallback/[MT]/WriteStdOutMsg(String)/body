@@ -1,5 +1,0 @@
-{
-synchronized (lock) {
-    this.appendCut(this.stdbuff,line,10000,2);
-  }
-}

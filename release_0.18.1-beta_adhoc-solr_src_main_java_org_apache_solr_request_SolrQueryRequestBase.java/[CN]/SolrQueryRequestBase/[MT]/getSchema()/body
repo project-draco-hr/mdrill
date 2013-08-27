@@ -1,3 +1,0 @@
-{
-  return core == null ? null : core.getSchema();
-}

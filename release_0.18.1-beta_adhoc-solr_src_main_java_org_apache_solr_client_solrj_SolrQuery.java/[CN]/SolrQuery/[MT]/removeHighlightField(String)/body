@@ -1,7 +1,0 @@
-{
-  boolean b=this.remove(HighlightParams.FIELDS,f);
-  if (this.get(HighlightParams.FIELDS) == null) {
-    this.setHighlight(false);
-  }
-  return b;
-}

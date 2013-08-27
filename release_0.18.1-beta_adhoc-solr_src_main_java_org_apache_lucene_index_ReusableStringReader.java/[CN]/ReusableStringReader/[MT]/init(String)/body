@@ -1,5 +1,0 @@
-{
-  this.s=s;
-  left=s.length();
-  this.upto=0;
-}

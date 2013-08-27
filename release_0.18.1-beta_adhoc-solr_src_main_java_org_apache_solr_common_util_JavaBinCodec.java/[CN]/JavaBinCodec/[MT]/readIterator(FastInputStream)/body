@@ -1,9 +1,0 @@
-{
-  ArrayList l=new ArrayList();
-  while (true) {
-    Object o=readVal(fis);
-    if (o == END_OBJ)     break;
-    l.add(o);
-  }
-  return l;
-}

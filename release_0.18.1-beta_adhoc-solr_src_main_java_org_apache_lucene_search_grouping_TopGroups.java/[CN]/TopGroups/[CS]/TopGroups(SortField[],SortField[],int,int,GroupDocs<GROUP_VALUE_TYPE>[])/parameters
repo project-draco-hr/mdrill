@@ -1,5 +1,0 @@
-SortField[] groupSort
-SortField[] withinGroupSort
-int totalHitCount
-int totalGroupedHitCount
-GroupDocs<GROUP_VALUE_TYPE>[] groups

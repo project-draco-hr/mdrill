@@ -1,3 +1,0 @@
-{
-  values[slot]=distanceFilter.getDistance(doc + offset);
-}

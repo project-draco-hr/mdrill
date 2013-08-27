@@ -1,3 +1,0 @@
-{
-  return __isset_bit_vector.get(__ERROR_TIME_SECS_ISSET_ID);
-}

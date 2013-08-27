@@ -1,3 +1,0 @@
-{
-  current.bytes[upto]=(byte)label;
-}

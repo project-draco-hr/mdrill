@@ -1,4 +1,0 @@
-{
-  String userPhraseQuery=userQuery.replace("\"","");
-  return pp.parse("\"" + userPhraseQuery + "\"");
-}

@@ -1,3 +1,0 @@
-{
-  this(filter,CachingWrapperFilter.DeletesMode.RECACHE);
-}

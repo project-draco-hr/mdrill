@@ -1,3 +1,0 @@
-{
-  return Float.floatToIntBits(getBoost()) ^ getSlop() ^ getTerms().hashCode()^ getPositions().hashCode()^ n;
-}

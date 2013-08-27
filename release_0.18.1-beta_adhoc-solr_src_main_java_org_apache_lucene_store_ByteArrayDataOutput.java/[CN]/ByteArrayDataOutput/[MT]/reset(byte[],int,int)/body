@@ -1,5 +1,0 @@
-{
-  this.bytes=bytes;
-  pos=offset;
-  limit=offset + len;
-}

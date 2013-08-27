@@ -1,4 +1,0 @@
-{
-  super(source,input);
-  init(minGram,maxGram);
-}

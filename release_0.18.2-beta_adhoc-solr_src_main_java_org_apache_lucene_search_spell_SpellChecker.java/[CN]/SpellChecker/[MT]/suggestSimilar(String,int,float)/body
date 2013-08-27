@@ -1,3 +1,0 @@
-{
-  return this.suggestSimilar(word,numSug,null,null,SuggestMode.SUGGEST_WHEN_NOT_IN_INDEX,accuracy);
-}

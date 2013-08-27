@@ -1,9 +1,0 @@
-{
-  if (_task_obj instanceof IBolt) {
-    return new BoltExecutors((IBolt)_task_obj,transfer_fn,_storm_conf,_puller,sendTargets,_storm_active_atom,_topology_context,_user_context,_task_stats,_report_error);
-  }
-  if (_task_obj instanceof ISpout) {
-    return new SpoutExecutors((ISpout)_task_obj,transfer_fn,_storm_conf,_puller,sendTargets,_storm_active_atom,_topology_context,_user_context,_task_stats);
-  }
-  return null;
-}

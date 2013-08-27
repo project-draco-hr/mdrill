@@ -1,5 +1,0 @@
-{
-  super(input);
-  this.delimiter=delimiter;
-  this.encoder=encoder;
-}

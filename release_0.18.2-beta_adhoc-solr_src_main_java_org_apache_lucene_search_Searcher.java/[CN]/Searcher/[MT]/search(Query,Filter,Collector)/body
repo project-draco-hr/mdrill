@@ -1,3 +1,0 @@
-{
-  search(createNormalizedWeight(query),filter,results);
-}

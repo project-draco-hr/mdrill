@@ -1,3 +1,0 @@
-{
-  this(fieldName,fieldType,analyzer,Collections.EMPTY_SET);
-}

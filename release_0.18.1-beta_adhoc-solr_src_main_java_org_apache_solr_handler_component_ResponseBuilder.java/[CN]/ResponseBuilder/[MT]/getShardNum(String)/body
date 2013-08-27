@@ -1,6 +1,0 @@
-{
-  for (int i=0; i < shards.length; i++) {
-    if (shards[i] == shard || shards[i].equals(shard))     return i;
-  }
-  return -1;
-}

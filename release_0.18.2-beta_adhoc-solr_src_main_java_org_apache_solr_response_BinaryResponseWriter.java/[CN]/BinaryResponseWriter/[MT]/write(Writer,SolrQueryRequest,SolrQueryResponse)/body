@@ -1,3 +1,0 @@
-{
-  throw new RuntimeException("This is a binary writer , Cannot write to a characterstream");
-}

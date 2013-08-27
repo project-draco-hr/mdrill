@@ -1,3 +1,0 @@
-{
-  this.tokenSeparator=null == tokenSeparator ? "" : tokenSeparator;
-}

@@ -1,4 +1,0 @@
-{
-  this.maxThreadStates=maxThreadStates < 1 ? DEFAULT_MAX_THREAD_STATES : maxThreadStates;
-  return this;
-}

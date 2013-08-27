@@ -1,3 +1,0 @@
-{
-  this(matchVersion,WordlistLoader.getWordSet(stopwords,matchVersion));
-}

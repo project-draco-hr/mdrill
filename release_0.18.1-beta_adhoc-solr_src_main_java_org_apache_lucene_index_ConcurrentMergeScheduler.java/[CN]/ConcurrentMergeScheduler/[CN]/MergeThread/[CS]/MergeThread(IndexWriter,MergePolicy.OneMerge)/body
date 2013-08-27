@@ -1,4 +1,0 @@
-{
-  this.tWriter=writer;
-  this.startMerge=startMerge;
-}

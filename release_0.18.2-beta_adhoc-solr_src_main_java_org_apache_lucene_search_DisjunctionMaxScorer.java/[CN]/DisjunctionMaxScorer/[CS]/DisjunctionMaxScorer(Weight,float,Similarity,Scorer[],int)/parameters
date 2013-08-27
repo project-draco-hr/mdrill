@@ -1,5 +1,0 @@
-Weight weight
-float tieBreakerMultiplier
-Similarity similarity
-Scorer[] subScorers
-int numScorers

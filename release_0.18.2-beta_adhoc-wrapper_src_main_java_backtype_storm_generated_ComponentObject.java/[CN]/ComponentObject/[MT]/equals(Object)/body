@@ -1,8 +1,0 @@
-{
-  if (other instanceof ComponentObject) {
-    return equals((ComponentObject)other);
-  }
- else {
-    return false;
-  }
-}

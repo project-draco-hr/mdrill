@@ -1,4 +1,0 @@
-CommonStatsRolling common
-RollingWindowSet acked
-RollingWindowSet failed
-RollingWindowSet complete_latencies

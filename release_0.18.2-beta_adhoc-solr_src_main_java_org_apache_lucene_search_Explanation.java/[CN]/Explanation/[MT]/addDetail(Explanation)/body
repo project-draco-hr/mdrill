@@ -1,4 +1,0 @@
-{
-  if (details == null)   details=new ArrayList<Explanation>();
-  details.add(detail);
-}

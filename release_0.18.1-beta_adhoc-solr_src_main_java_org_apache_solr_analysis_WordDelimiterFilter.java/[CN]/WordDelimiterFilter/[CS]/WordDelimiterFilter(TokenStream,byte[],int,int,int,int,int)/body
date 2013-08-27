@@ -1,3 +1,0 @@
-{
-  this(in,charTypeTable,generateWordParts,generateNumberParts,catenateWords,catenateNumbers,catenateAll,1,0,1,null);
-}

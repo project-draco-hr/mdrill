@@ -1,5 +1,0 @@
-{
-  this.emitted=null;
-  this.transferred=null;
-  this.specific=null;
-}

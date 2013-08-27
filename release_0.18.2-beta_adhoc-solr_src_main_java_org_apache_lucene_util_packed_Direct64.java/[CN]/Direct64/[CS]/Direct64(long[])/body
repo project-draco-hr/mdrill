@@ -1,4 +1,0 @@
-{
-  super(values.length,BITS_PER_VALUE);
-  this.values=values;
-}

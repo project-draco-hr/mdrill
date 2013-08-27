@@ -1,4 +1,0 @@
-{
-  ensureOpen();
-  return in.getTermFreqVector(docNumber,field);
-}

@@ -1,4 +1,0 @@
-{
-  super(path,lockFactory);
-  setMaxChunkSize(DEFAULT_MAX_BUFF);
-}

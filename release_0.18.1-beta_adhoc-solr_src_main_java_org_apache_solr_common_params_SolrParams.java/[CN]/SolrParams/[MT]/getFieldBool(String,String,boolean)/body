@@ -1,4 +1,0 @@
-{
-  String val=getFieldParam(field,param);
-  return val == null ? def : StrUtils.parseBool(val);
-}

@@ -1,7 +1,0 @@
-Lock lock
-IndexSearcher searchable
-Weight weight
-Filter filter
-ScoreDoc after
-int nDocs
-HitQueue hq

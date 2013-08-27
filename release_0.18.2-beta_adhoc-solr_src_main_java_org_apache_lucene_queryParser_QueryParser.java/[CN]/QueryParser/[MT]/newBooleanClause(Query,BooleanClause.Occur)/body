@@ -1,3 +1,0 @@
-{
-  return new BooleanClause(q,occur);
-}

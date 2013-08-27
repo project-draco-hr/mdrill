@@ -1,8 +1,0 @@
-{
-synchronized (rws) {
-    for (int i=0; i < rws.windows.length; i++) {
-      rws.windows[i]=RollingWindowStat.cleanup_rolling_window(rws.windows[i]);
-    }
-    return rws;
-  }
-}

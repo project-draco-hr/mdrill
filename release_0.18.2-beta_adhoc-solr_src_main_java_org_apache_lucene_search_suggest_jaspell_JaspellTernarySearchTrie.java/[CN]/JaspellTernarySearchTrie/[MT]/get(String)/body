@@ -1,7 +1,0 @@
-{
-  TSTNode node=getNode(key.trim().toLowerCase());
-  if (node == null) {
-    return null;
-  }
-  return node.data;
-}

@@ -1,6 +1,0 @@
-{
-  if (b == 0)   return 0.0f;
-  int bits=(b & 0xff) << (24 - numMantissaBits);
-  bits+=(63 - zeroExp) << 24;
-  return Float.intBitsToFloat(bits);
-}

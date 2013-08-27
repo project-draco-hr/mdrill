@@ -1,3 +1,0 @@
-{
-  regexp=new RE(pattern,this.flags);
-}

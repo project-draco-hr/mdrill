@@ -1,9 +1,0 @@
-{
-  StringBuilder sb=new StringBuilder(commandName);
-  sb.append(':');
-  if (id != null)   sb.append("id=").append(id);
- else   sb.append("query=`").append(query).append('`');
-  sb.append(",fromPending=").append(fromPending);
-  sb.append(",fromCommitted=").append(fromCommitted);
-  return sb.toString();
-}

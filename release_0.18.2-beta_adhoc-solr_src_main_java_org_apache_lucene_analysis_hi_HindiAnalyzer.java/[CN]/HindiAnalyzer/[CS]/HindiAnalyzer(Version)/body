@@ -1,3 +1,0 @@
-{
-  this(version,DefaultSetHolder.DEFAULT_STOP_SET);
-}

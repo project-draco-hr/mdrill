@@ -1,4 +1,0 @@
-int dim
-List<ValueSource> sources
-List<ValueSource> dest1
-List<ValueSource> dest2

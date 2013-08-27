@@ -1,5 +1,0 @@
-{
-  if (!value) {
-    this.complete_ms_avg=null;
-  }
-}

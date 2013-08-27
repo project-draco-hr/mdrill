@@ -1,5 +1,0 @@
-{
-  this.sink=sink;
-  this.buf=tempBuffer;
-  this.pos=start;
-}

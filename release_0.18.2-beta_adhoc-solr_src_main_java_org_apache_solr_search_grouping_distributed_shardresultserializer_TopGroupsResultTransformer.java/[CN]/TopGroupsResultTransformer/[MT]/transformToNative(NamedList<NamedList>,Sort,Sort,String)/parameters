@@ -1,4 +1,0 @@
-NamedList<NamedList> shardResponse
-Sort groupSort
-Sort sortWithinGroup
-String shard

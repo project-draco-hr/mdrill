@@ -1,5 +1,0 @@
-{
-  StopFilter stopFilter=new StopFilter(luceneMatchVersion,input,stopWords,ignoreCase);
-  stopFilter.setEnablePositionIncrements(enablePositionIncrements);
-  return stopFilter;
-}

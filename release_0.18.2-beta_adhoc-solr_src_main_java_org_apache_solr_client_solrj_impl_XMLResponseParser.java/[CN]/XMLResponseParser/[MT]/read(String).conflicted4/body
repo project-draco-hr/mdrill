@@ -1,9 +1,0 @@
-{
-  try {
-    return ClientUtils.parseDate(txt);
-  }
- catch (  Exception ex) {
-    ex.printStackTrace();
-  }
-  return null;
-}

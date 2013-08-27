@@ -1,5 +1,0 @@
-{
-  String topologyroot=StormConfig.supervisor_stormdist_root(conf,topologyid);
-  String topology_path=StormConfig.supervisor_stormcode_path(topologyroot);
-  return (StormTopology)Utils.deserialize(FileUtils.readFileToByteArray(new File(topology_path)));
-}

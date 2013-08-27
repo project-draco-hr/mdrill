@@ -1,3 +1,0 @@
-{
-  return super.bytesPerPosting() + 3 * RamUsageEstimator.NUM_BYTES_INT;
-}

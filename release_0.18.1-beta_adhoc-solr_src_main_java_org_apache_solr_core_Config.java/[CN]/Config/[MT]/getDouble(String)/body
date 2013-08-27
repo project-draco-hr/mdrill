@@ -1,3 +1,0 @@
-{
-  return Double.parseDouble(getVal(path,true));
-}

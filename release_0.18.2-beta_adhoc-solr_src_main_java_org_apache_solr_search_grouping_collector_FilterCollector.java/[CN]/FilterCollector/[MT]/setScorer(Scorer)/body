@@ -1,3 +1,0 @@
-{
-  delegate.setScorer(scorer);
-}

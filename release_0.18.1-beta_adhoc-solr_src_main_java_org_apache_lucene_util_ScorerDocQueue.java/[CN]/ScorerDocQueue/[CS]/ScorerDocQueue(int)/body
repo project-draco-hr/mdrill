@@ -1,7 +1,0 @@
-{
-  size=0;
-  int heapSize=maxSize + 1;
-  heap=new HeapedScorerDoc[heapSize];
-  this.maxSize=maxSize;
-  topHSD=heap[1];
-}

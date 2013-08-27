@@ -1,9 +1,0 @@
-{
-  if (milliseconds == null) {
-    this.remove(CommonParams.TIME_ALLOWED);
-  }
- else {
-    this.set(CommonParams.TIME_ALLOWED,milliseconds);
-  }
-  return this;
-}

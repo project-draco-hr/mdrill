@@ -1,6 +1,0 @@
-{
-  selectExpressionItem.getExpression().accept(expressionVisitor);
-  if (selectExpressionItem.getAlias() != null) {
-    buffer.append(" AS " + selectExpressionItem.getAlias());
-  }
-}

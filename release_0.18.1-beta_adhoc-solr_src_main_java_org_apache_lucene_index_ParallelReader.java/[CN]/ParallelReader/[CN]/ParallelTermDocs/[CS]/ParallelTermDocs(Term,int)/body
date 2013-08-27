@@ -1,5 +1,0 @@
-{
-  this.buffer=buffer;
-  if (term == null)   termDocs=readers.isEmpty() ? null : readers.get(0).termDocs(null,this.buffer);
- else   seek(term);
-}

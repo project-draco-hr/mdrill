@@ -1,6 +1,0 @@
-{
-  DocIterator iter=ids.iterator();
-  for (int i=0; i < docs.length; i++) {
-    docs[i]=doc(iter.nextDoc(),fields);
-  }
-}

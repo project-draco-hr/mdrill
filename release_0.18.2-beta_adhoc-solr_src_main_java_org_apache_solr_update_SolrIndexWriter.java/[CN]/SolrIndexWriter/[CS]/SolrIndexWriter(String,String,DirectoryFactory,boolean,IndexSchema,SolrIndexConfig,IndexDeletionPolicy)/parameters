@@ -1,7 +1,0 @@
-String name
-String path
-DirectoryFactory dirFactory
-boolean create
-IndexSchema schema
-SolrIndexConfig config
-IndexDeletionPolicy delPolicy

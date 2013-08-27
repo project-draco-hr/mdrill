@@ -1,4 +1,0 @@
-SolrQueryRequest solrReq
-HttpServletRequest req
-Method reqMethod
-HttpServletResponse resp

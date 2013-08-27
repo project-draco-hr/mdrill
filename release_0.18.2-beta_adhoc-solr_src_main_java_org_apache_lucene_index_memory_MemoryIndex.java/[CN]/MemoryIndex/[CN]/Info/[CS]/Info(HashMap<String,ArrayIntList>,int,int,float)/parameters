@@ -1,4 +1,0 @@
-HashMap<String,ArrayIntList> terms
-int numTokens
-int numOverlapTokens
-float boost

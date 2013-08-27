@@ -1,5 +1,0 @@
-{
-  String path=StormConfig.supervisor_stormdist_root(conf);
-  List<String> topologyids=PathUtils.read_dir_contents(path);
-  return topologyids;
-}

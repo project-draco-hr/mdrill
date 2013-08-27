@@ -1,4 +1,0 @@
-{
-  this.delPolicy=delPolicy == null ? new KeepOnlyLastCommitDeletionPolicy() : delPolicy;
-  return this;
-}

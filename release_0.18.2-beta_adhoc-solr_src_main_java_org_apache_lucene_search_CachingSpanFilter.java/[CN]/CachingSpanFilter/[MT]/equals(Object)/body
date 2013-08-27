@@ -1,4 +1,0 @@
-{
-  if (!(o instanceof CachingSpanFilter))   return false;
-  return this.filter.equals(((CachingSpanFilter)o).filter);
-}

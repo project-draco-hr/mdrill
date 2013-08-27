@@ -1,4 +1,0 @@
-{
-  Integer index=(((int)(Math.random() * 100000)) % this.ms.size());
-  return this.ms.get(index);
-}

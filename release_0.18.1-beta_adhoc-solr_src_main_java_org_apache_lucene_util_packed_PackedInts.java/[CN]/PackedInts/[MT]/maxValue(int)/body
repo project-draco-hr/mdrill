@@ -1,3 +1,0 @@
-{
-  return bitsPerValue == 64 ? Long.MAX_VALUE : ~(~0L << bitsPerValue);
-}

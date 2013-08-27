@@ -1,3 +1,0 @@
-{
-  return new DefaultSolrParams(request.getParams(),DEFAULTS);
-}

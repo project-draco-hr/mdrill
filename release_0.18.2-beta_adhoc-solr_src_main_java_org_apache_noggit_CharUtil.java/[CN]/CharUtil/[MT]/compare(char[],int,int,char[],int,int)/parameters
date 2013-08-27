@@ -1,6 +1,0 @@
-char[] a
-int a_start
-int a_end
-char[] b
-int b_start
-int b_end

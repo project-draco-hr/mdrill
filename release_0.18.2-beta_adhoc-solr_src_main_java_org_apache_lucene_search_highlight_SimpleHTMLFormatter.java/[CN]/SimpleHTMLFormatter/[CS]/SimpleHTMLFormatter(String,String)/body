@@ -1,4 +1,0 @@
-{
-  this.preTag=preTag;
-  this.postTag=postTag;
-}

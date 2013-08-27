@@ -1,9 +1,0 @@
-{
-  try {
-    setPriority(pri);
-  }
- catch (  NullPointerException npe) {
-  }
-catch (  SecurityException se) {
-  }
-}

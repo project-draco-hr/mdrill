@@ -1,4 +1,0 @@
-SegmentInfo info
-boolean doOpenStores
-int readBufferSize
-int termsIndexDivisor

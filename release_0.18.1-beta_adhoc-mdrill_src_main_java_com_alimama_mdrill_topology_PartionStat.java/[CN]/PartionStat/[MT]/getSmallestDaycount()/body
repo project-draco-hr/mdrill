@@ -1,3 +1,0 @@
-{
-  return this.topMap(this.smallest,false,2);
-}

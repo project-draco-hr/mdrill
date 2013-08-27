@@ -1,8 +1,0 @@
-{
-  StormClusterState stormClusterState=data.getStormClusterState();
-  String topologyId=Common.get_storm_id(stormClusterState,topologyName);
-  if (topologyId == null) {
-    throw new NotAliveException(topologyName);
-  }
-  transition(data,topologyId,errorOnNoTransition,transition_status,args);
-}

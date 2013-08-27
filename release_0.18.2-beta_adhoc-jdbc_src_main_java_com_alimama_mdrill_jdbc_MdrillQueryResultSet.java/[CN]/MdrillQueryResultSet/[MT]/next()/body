@@ -1,7 +1,0 @@
-{
-  if (this.fetchedRowsItr.hasNext()) {
-    this.row=this.fetchedRowsItr.next();
-    return true;
-  }
-  return false;
-}

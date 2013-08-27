@@ -1,3 +1,0 @@
-{
-  return BitUtil.pop_intersect(a.bits,b.bits,0,Math.min(a.wlen,b.wlen));
-}

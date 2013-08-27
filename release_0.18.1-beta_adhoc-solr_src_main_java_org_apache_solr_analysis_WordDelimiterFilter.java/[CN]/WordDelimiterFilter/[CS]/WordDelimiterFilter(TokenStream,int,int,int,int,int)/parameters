@@ -1,6 +1,0 @@
-TokenStream in
-int generateWordParts
-int generateNumberParts
-int catenateWords
-int catenateNumbers
-int catenateAll

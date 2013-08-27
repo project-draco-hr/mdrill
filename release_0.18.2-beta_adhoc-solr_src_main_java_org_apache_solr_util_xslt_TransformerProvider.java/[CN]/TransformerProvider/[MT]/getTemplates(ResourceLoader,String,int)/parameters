@@ -1,3 +1,0 @@
-ResourceLoader loader
-String filename
-int cacheLifetimeSeconds

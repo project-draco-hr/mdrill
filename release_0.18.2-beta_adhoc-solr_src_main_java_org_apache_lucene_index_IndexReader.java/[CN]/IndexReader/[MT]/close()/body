@@ -1,6 +1,0 @@
-{
-  if (!closed) {
-    decRef();
-    closed=true;
-  }
-}

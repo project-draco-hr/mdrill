@@ -1,5 +1,0 @@
-RunnableCallback afn
-boolean daemon
-RunnableCallback kill_fn
-int priority
-boolean start

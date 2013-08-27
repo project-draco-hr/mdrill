@@ -1,4 +1,0 @@
-{
-  LocalState ls=StormConfig.worker_state(conf,workerId);
-  return (WorkerHeartbeat)ls.get(Common.LS_WORKER_HEARTBEAT);
-}

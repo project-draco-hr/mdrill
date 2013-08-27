@@ -1,5 +1,0 @@
-StormTopology topology
-Map storm_conf
-String topologyId
-String worker_id
-HashMap<Integer,String> tasksToComponent

@@ -1,3 +1,0 @@
-{
-  return getSuggestions(options.tokens,options.reader,options.count,options.onlyMorePopular,options.extendedResults);
-}

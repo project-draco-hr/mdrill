@@ -1,5 +1,0 @@
-String field
-Short lowerVal
-Short upperVal
-boolean includeLower
-boolean includeUpper

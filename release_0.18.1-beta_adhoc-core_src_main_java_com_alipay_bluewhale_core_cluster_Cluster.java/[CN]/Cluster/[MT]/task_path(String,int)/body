@@ -1,3 +1,0 @@
-{
-  return storm_task_root(storm_id) + "/" + task_id;
-}

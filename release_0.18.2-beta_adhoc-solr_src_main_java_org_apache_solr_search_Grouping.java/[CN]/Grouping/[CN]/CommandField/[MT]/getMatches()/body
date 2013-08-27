@@ -1,6 +1,0 @@
-{
-  if (result == null && fallBackCollector == null) {
-    return 0;
-  }
-  return result != null ? result.totalHitCount : fallBackCollector.getTotalHits();
-}

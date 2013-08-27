@@ -1,7 +1,0 @@
-{
-  for (; ; ) {
-    doc++;
-    if (doc >= maxDoc)     return false;
-    if (matches(doc))     return true;
-  }
-}

@@ -1,6 +1,0 @@
-{
-  if (base instanceof StormBase && ((StormBase)base).getStormName().equals(stormName) && ((StormBase)base).getLanchTimeSecs() == lanchTimeSecs && ((StormBase)base).getStatus().equals(status)) {
-    return true;
-  }
-  return false;
-}

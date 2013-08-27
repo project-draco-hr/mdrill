@@ -1,3 +1,0 @@
-{
-  return (regexp != null ? regexp.hashCode() : 0);
-}

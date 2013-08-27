@@ -1,7 +1,0 @@
-IndexReader reader
-int docId
-String fieldName
-FieldFragList fieldFragList
-String[] preTags
-String[] postTags
-Encoder encoder

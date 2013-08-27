@@ -1,6 +1,0 @@
-{
-  if (!solrTimeTrans.matcher(dt).matches()) {
-    return dt;
-  }
-  return dt.replaceAll("2099-09-09T00:00:00Z","-").replaceAll("T00:00:00Z","").replaceAll("T"," ").replaceAll("Z","");
-}

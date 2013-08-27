@@ -1,6 +1,0 @@
-{
-  if (ends("y") && vowelinstem()) {
-    b[k]='i';
-    dirty=true;
-  }
-}

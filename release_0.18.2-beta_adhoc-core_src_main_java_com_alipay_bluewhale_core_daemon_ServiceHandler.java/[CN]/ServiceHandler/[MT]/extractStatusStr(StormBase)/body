@@ -1,4 +1,0 @@
-{
-  StatusType t=stormBase.getStatus().getStatusType();
-  return t.getStatus().toUpperCase();
-}

@@ -1,5 +1,0 @@
-{
-  super();
-  this.ms=ms;
-  this.shards=shards;
-}

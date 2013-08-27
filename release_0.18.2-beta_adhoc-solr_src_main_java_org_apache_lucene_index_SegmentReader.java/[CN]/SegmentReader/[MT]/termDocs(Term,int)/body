@@ -1,8 +1,0 @@
-{
-  if (term == null) {
-    return new AllTermDocs(this);
-  }
- else {
-    return super.termDocs(term,buffer);
-  }
-}

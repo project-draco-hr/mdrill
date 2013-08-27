@@ -1,3 +1,0 @@
-{
-  return initPlugins(solrConfig.getPluginInfos(type.getName()),registry,type,defClassName);
-}

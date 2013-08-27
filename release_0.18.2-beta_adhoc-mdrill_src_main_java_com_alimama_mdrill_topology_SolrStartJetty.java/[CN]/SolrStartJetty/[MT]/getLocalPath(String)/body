@@ -1,4 +1,0 @@
-{
-  Path localpath=new Path(new Path(this.singleStorePath,"higo"),tablename + "/" + taskid+ "_"+ this.taskIndex);
-  return new Path(localpath,type);
-}

@@ -1,3 +1,0 @@
-{
-  return this.addDoc(docID,termDocFreq,this.out);
-}

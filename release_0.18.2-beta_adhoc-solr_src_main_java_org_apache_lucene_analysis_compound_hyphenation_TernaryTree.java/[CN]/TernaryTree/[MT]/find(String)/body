@@ -1,7 +1,0 @@
-{
-  int len=key.length();
-  char strkey[]=new char[len + 1];
-  key.getChars(0,len,strkey,0);
-  strkey[len]=0;
-  return find(strkey,0);
-}

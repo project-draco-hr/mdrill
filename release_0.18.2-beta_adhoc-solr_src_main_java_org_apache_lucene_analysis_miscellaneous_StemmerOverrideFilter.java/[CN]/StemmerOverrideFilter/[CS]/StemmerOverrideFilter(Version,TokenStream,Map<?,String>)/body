@@ -1,4 +1,0 @@
-{
-  super(input);
-  this.dictionary=dictionary instanceof CharArrayMap ? (CharArrayMap<String>)dictionary : CharArrayMap.copy(matchVersion,dictionary);
-}

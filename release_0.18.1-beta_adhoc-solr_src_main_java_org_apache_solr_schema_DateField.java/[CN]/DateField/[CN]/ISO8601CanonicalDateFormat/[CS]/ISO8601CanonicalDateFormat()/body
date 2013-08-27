@@ -1,4 +1,0 @@
-{
-  super("yyyy-MM-dd'T'HH:mm:ss",CANONICAL_LOCALE);
-  this.setTimeZone(CANONICAL_TZ);
-}

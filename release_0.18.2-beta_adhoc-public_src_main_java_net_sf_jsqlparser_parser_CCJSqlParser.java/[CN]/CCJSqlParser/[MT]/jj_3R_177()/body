@@ -1,4 +1,0 @@
-{
-  if (jj_scan_token(K_INNER))   return true;
-  return false;
-}

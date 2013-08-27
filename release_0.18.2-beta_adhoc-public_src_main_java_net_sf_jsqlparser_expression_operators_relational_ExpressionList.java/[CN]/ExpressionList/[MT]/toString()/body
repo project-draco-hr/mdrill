@@ -1,3 +1,0 @@
-{
-  return PlainSelect.getStringList(expressions,true,true);
-}

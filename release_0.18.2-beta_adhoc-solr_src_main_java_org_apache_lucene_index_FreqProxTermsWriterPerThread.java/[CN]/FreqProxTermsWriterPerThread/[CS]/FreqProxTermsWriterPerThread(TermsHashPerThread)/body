@@ -1,4 +1,0 @@
-{
-  docState=perThread.docState;
-  termsHashPerThread=perThread;
-}

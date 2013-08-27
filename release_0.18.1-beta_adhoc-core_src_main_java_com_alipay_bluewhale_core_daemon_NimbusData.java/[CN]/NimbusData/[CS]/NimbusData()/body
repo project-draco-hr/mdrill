@@ -1,3 +1,0 @@
-{
-  scheduExec=Executors.newScheduledThreadPool(6);
-}

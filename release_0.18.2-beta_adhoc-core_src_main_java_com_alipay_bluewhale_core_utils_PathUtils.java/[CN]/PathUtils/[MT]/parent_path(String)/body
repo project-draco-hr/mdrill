@@ -1,8 +1,0 @@
-{
-  List<String> toks=tokenize_path(path);
-  int size=toks.size();
-  if (size > 0) {
-    toks.remove(size - 1);
-  }
-  return toks_to_path(toks);
-}

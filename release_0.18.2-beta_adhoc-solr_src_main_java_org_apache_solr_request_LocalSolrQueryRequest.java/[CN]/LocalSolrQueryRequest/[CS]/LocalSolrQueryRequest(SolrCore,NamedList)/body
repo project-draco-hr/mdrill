@@ -1,3 +1,0 @@
-{
-  super(core,SolrParams.toSolrParams(args));
-}

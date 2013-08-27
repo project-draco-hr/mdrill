@@ -1,6 +1,0 @@
-{
-  super.reset();
-  offset=bufferIndex=dataLen=0;
-  preIsTokened=false;
-  tokenType=WORD_TYPE;
-}

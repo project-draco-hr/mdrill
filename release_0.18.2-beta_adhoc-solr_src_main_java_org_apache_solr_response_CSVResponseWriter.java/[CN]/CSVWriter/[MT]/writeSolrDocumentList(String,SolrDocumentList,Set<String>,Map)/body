@@ -1,5 +1,0 @@
-{
-  for (  SolrDocument doc : docs) {
-    writeSolrDocument(name,doc,fields,otherFields);
-  }
-}

@@ -1,3 +1,0 @@
-{
-  while (top() != null)   pop().close();
-}

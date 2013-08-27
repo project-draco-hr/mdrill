@@ -1,9 +1,0 @@
-{
-  out.writeInt(this.maxUniqSize);
-  out.writeInt(this.currentTimes);
-  out.writeInt(this.TimesStep);
-  out.writeInt(this.uniq.size());
-  for (  Integer uin : this.uniq) {
-    out.writeInt(uin);
-  }
-}

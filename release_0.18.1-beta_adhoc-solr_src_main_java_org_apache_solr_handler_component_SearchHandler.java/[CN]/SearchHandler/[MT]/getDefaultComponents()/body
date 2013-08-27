@@ -1,6 +1,0 @@
-{
-  ArrayList<String> names=new ArrayList<String>(6);
-  names.add(QueryComponent.COMPONENT_NAME);
-  names.add(FacetComponent.COMPONENT_NAME);
-  return names;
-}

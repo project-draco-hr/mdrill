@@ -1,3 +1,0 @@
-{
-  this.tokensAtCurrentPosition=this.positionedTokens.iterator();
-}

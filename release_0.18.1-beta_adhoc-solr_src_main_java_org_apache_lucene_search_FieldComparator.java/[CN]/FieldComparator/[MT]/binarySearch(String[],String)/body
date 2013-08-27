@@ -1,3 +1,0 @@
-{
-  return binarySearch(a,key,0,a.length - 1);
-}

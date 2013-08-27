@@ -1,4 +1,0 @@
-{
-  int rtn=name.indexOf(MLOG_EXT_NAME);
-  return Long.parseLong(name.substring(0,rtn));
-}

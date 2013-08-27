@@ -1,5 +1,0 @@
-{
-  currentBlockIndex=(int)(pos >> blockBits);
-  currentBlock=blocks.get(currentBlockIndex);
-  currentBlockUpto=(int)(pos & blockMask);
-}

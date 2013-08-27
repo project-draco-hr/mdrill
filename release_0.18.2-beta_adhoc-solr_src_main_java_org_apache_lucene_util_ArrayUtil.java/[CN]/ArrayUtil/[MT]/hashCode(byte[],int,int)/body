@@ -1,5 +1,0 @@
-{
-  int code=0;
-  for (int i=end - 1; i >= start; i--)   code=code * 31 + array[i];
-  return code;
-}

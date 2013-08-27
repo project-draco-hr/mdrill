@@ -1,8 +1,0 @@
-{
-  try {
-    zkobj.deletereRcursive(zk,path);
-  }
- catch (  Exception e) {
-    LOG.error("delete_node",e);
-  }
-}

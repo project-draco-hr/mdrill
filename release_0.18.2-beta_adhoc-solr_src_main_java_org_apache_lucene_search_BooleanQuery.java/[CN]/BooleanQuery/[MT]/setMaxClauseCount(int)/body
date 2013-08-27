@@ -1,4 +1,0 @@
-{
-  if (maxClauseCount < 1)   throw new IllegalArgumentException("maxClauseCount must be >= 1");
-  BooleanQuery.maxClauseCount=maxClauseCount;
-}

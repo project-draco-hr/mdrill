@@ -1,5 +1,0 @@
-int targetFragChars
-int incrementGapThreshold
-float slop
-int maxAnalyzedChars
-Pattern targetPattern

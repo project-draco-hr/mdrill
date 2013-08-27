@@ -1,4 +1,0 @@
-{
-  super("ByteArrayInputStream");
-  this.bis=bis1;
-}

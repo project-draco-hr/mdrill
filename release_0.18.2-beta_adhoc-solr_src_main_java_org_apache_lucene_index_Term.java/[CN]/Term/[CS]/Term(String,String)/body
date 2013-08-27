@@ -1,4 +1,0 @@
-{
-  field=StringHelper.intern(fld);
-  text=txt;
-}

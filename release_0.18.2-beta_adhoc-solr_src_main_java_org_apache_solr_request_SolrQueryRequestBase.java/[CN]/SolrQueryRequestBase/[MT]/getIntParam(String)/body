@@ -1,7 +1,0 @@
-{
-  String s=getParam(name);
-  if (s == null) {
-    throw new SolrException(SolrException.ErrorCode.SERVER_ERROR,"Missing required parameter '" + name + "' from "+ this);
-  }
-  return Integer.parseInt(s);
-}

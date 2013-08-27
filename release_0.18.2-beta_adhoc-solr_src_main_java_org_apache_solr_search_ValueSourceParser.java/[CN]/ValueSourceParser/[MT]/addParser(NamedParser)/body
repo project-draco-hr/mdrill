@@ -1,3 +1,0 @@
-{
-  return standardValueSourceParsers.put(p.name(),p);
-}

@@ -1,8 +1,0 @@
-{
-  int result=0;
-  final int end=offset + length;
-  for (int i=offset; i < end; i++) {
-    result=HASH_PRIME * result + bytes[i];
-  }
-  return result;
-}

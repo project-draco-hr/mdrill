@@ -1,4 +1,0 @@
-{
-  _id=UUID.randomUUID().toString();
-  acks.put(_id,new AtomicInteger(0));
-}

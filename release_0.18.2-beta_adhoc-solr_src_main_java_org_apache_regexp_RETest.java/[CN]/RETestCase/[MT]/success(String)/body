@@ -1,7 +1,0 @@
-{
-  if (RETest.showSuccesses) {
-    test.say("" + RETest.NEW_LINE + "-----------------------"+ RETest.NEW_LINE+ "");
-    test.say("Expression #" + (number) + " \""+ pattern+ "\" ");
-    test.say("Success: " + s);
-  }
-}

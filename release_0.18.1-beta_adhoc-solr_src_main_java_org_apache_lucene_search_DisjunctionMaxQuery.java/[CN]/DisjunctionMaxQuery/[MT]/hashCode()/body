@@ -1,3 +1,0 @@
-{
-  return Float.floatToIntBits(getBoost()) + Float.floatToIntBits(tieBreakerMultiplier) + disjuncts.hashCode();
-}

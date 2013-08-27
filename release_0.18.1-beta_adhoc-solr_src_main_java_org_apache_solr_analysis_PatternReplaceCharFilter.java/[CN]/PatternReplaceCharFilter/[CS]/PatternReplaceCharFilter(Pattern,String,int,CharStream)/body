@@ -1,3 +1,0 @@
-{
-  this(pattern,replacement,maxBlockChars,null,in);
-}

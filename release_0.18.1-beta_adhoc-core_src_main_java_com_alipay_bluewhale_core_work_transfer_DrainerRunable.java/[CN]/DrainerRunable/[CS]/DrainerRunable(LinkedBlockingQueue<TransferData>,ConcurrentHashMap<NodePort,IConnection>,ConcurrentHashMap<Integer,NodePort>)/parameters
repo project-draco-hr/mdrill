@@ -1,3 +1,0 @@
-LinkedBlockingQueue<TransferData> transfer_queue
-ConcurrentHashMap<NodePort,IConnection> node_port__socket
-ConcurrentHashMap<Integer,NodePort> task__node_port

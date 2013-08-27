@@ -1,5 +1,0 @@
-{
-  if (progress instanceof TaskInputOutputContext) {
-    ((TaskInputOutputContext)progress).setStatus(status);
-  }
-}

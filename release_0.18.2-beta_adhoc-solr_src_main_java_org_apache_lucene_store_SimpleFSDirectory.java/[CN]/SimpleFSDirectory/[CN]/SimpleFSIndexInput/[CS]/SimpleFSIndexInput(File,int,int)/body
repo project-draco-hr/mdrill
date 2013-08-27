@@ -1,3 +1,0 @@
-{
-  this("anonymous SimpleFSIndexInput",path,bufferSize,chunkSize);
-}

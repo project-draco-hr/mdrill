@@ -1,3 +1,0 @@
-{
-  return (bits.getBits().length << 3) + 16;
-}

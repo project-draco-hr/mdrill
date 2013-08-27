@@ -1,4 +1,0 @@
-{
-  String charset=getCharsetFromContentType(contentType);
-  return charset == null ? new FileReader(file) : new InputStreamReader(getStream(),charset);
-}

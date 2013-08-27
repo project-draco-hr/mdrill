@@ -1,3 +1,0 @@
-{
-  filterCache.put(query,docset);
-}

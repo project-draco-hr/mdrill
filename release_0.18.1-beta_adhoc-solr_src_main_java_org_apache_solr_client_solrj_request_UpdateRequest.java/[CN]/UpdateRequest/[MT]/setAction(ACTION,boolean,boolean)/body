@@ -1,3 +1,0 @@
-{
-  return setAction(action,waitFlush,waitSearcher,1);
-}

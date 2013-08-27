@@ -1,4 +1,0 @@
-{
-  super(s,defaultField);
-  setDefaultOperator(QueryParser.Operator.OR);
-}

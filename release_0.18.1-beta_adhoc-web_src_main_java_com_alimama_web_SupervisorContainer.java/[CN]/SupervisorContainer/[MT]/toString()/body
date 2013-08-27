@@ -1,3 +1,0 @@
-{
-  return "SupervisorContainer [name=" + name + ", info="+ info+ "]";
-}

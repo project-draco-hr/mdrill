@@ -1,6 +1,0 @@
-{
-  if (doc != null) {
-    doc.reset();
-    doc.docID=docState.docID;
-  }
-}

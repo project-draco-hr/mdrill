@@ -1,5 +1,0 @@
-{
-  templateAdd.indexedId=null;
-  SolrInputDocument doc=new SolrInputDocument();
-  doAdd(line,vals,doc,templateAdd);
-}

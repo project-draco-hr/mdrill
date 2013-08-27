@@ -1,4 +1,0 @@
-Collection<Token> tokens
-IndexReader reader
-boolean onlyMorePopular
-boolean extendedResults

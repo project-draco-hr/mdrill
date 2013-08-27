@@ -1,8 +1,0 @@
-{
-  this.ti=ti;
-  this.quicktisInput=quicktisInput;
-  this.quicktisInput.seek(pos);
-  this.termCount=cnt;
-  this.termNum=0;
-  this.lst=new ArrayList<String>();
-}

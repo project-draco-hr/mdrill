@@ -1,8 +1,0 @@
-{
-  if (termBuffer.length < newSize) {
-    final char[] newCharBuffer=new char[ArrayUtil.oversize(newSize,RamUsageEstimator.NUM_BYTES_CHAR)];
-    System.arraycopy(termBuffer,0,newCharBuffer,0,termBuffer.length);
-    termBuffer=newCharBuffer;
-  }
-  return termBuffer;
-}

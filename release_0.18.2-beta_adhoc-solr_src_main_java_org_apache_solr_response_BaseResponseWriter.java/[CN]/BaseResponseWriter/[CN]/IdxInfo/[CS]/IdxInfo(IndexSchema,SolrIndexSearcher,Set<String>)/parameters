@@ -1,3 +1,0 @@
-IndexSchema schema
-SolrIndexSearcher searcher
-Set<String> returnFields

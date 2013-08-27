@@ -1,3 +1,0 @@
-{
-  throw new Error("RE internal error: " + s);
-}

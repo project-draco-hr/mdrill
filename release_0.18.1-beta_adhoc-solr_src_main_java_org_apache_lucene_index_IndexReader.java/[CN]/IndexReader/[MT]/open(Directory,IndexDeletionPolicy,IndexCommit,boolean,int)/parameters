@@ -1,5 +1,0 @@
-Directory directory
-IndexDeletionPolicy deletionPolicy
-IndexCommit commit
-boolean readOnly
-int termInfosIndexDivisor

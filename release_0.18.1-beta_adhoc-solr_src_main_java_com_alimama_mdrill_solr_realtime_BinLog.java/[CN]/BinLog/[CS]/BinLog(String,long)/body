@@ -1,5 +1,0 @@
-{
-  FileUtils.forceMkdir(new File(workerpath));
-  this.pos.set(pos);
-  this.worker=new MessageStore(workerpath);
-}

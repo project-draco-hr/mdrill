@@ -1,4 +1,0 @@
-CommonStatsData common
-HashMap<Integer,Object> acked
-HashMap<Integer,Object> failed
-HashMap<Integer,Object> process_latencies

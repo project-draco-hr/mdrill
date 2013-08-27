@@ -1,4 +1,0 @@
-{
-  String npath=PathUtils.normalize_path(path);
-  return zk.setData().forPath(npath,data);
-}

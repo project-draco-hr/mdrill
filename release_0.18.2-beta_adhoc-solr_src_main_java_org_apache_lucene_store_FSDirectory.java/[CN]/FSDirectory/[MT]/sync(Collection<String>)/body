@@ -1,7 +1,0 @@
-{
-  ensureOpen();
-  Set<String> toSync=new HashSet<String>(names);
-  toSync.retainAll(staleFiles);
-  for (  String name : toSync)   fsync(name);
-  staleFiles.removeAll(toSync);
-}

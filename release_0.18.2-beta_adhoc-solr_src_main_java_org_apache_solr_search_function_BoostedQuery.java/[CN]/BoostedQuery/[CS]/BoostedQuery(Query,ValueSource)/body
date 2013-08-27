@@ -1,4 +1,0 @@
-{
-  this.q=subQuery;
-  this.boostVal=boostVal;
-}

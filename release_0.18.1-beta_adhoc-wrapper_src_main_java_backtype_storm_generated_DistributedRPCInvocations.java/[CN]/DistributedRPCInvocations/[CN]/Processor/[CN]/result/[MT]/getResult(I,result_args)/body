@@ -1,5 +1,0 @@
-{
-  result_result result=new result_result();
-  iface.result(args.id,args.result);
-  return result;
-}

@@ -1,6 +1,0 @@
-{
-  if (value instanceof Collection) {
-    return ((Collection)value).size();
-  }
-  return (value == null) ? 0 : 1;
-}

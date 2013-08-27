@@ -1,5 +1,0 @@
-{
-  String month=getMonth(str) + "00";
-  SimpleDateFormat fmt=new SimpleDateFormat("yyyyMMdd");
-  return fmt.parse(month);
-}

@@ -1,3 +1,0 @@
-{
-  return o instanceof SortableFloatFieldSource && super.equals(o) && defVal == ((SortableFloatFieldSource)o).defVal;
-}

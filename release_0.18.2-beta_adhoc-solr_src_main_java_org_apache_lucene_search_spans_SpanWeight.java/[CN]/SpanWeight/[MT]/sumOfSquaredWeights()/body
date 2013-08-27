@@ -1,4 +1,0 @@
-{
-  queryWeight=idf * query.getBoost();
-  return queryWeight * queryWeight;
-}

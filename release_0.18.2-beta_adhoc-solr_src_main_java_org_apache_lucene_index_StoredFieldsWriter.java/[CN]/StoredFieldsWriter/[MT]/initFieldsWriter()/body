@@ -1,6 +1,0 @@
-{
-  if (fieldsWriter == null) {
-    fieldsWriter=new FieldsWriter(docWriter.directory,docWriter.getSegment(),fieldInfos);
-    lastDocID=0;
-  }
-}

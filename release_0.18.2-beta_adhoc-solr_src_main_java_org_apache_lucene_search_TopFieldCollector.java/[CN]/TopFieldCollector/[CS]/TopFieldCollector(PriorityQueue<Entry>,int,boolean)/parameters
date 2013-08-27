@@ -1,3 +1,0 @@
-PriorityQueue<Entry> pq
-int numHits
-boolean fillFields

@@ -1,4 +1,0 @@
-IndexReader reader
-Set<String> fields
-int numTerms
-Set<String> junkWords

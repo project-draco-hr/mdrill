@@ -1,3 +1,0 @@
-{
-  setParam(UpdateParams.WAIT_FLUSH,waitFlush + "");
-}

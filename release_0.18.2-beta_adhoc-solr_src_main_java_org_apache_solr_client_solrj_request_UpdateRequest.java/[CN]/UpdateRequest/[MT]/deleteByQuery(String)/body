@@ -1,7 +1,0 @@
-{
-  if (deleteQuery == null) {
-    deleteQuery=new ArrayList<String>();
-  }
-  deleteQuery.add(q);
-  return this;
-}

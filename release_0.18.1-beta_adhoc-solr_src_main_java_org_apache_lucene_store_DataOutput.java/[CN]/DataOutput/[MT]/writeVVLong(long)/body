@@ -1,3 +1,0 @@
-{
-  this.writeVLong(VNumberic.enVLong(i));
-}

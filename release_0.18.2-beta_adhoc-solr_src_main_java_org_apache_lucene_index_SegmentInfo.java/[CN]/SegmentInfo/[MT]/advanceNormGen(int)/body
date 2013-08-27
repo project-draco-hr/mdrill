@@ -1,9 +1,0 @@
-{
-  if (normGen[fieldIndex] == NO) {
-    normGen[fieldIndex]=YES;
-  }
- else {
-    normGen[fieldIndex]++;
-  }
-  clearFiles();
-}

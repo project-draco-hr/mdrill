@@ -1,5 +1,0 @@
-{
-  fdt.reset();
-  buffer.recycle();
-  numStoredFields=0;
-}

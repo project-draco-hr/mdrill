@@ -1,3 +1,0 @@
-{
-  return input.getFilePointer() < input.length();
-}

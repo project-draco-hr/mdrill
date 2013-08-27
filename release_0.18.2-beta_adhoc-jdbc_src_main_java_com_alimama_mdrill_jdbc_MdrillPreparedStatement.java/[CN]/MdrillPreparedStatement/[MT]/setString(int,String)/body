@@ -1,4 +1,0 @@
-{
-  x=x.replace("'","\\'");
-  this.parameters.put(parameterIndex,"'" + x + "'");
-}

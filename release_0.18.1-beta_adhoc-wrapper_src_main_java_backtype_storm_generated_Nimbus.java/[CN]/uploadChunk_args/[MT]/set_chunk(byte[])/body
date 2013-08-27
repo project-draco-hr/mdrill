@@ -1,3 +1,0 @@
-{
-  set_chunk(chunk == null ? (ByteBuffer)null : ByteBuffer.wrap(chunk));
-}

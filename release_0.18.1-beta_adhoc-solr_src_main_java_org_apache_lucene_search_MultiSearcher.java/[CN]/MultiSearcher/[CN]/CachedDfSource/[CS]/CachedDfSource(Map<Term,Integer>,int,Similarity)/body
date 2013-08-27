@@ -1,5 +1,0 @@
-{
-  this.dfMap=dfMap;
-  this.maxDoc=maxDoc;
-  setSimilarity(similarity);
-}

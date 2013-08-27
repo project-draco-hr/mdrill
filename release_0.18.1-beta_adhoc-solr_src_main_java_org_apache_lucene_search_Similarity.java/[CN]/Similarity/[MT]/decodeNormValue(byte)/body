@@ -1,3 +1,0 @@
-{
-  return NORM_TABLE[b & 0xFF];
-}

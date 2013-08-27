@@ -1,3 +1,0 @@
-{
-  escape(chars,start,length,out,attribute_escapes);
-}

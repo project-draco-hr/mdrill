@@ -1,4 +1,0 @@
-{
-  tierVerticalPosDivider=Double.valueOf(Math.ceil(Math.log10(Integer.valueOf(this.tierLength).doubleValue()))).intValue();
-  tierVerticalPosDivider=(int)Math.pow(10,tierVerticalPosDivider);
-}

@@ -1,4 +1,0 @@
-{
-  this.indexingChain=indexingChain == null ? DocumentsWriter.defaultIndexingChain : indexingChain;
-  return this;
-}

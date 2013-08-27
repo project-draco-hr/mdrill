@@ -1,6 +1,0 @@
-{
-  RunnableCallback updater=new KeyAvgUpdater();
-  RunnableCallback merger=new KeyAvgMerge();
-  RunnableCallback extractor=new KeyAvgExtractor();
-  return RollingWindowSetStat.rolling_window_set(updater,merger,extractor,num_buckets,bucket_sizes);
-}

@@ -1,3 +1,0 @@
-{
-  return Double.compare(key.list.length,o.key.list.length);
-}

@@ -1,3 +1,0 @@
-{
-  return delegee.idf(docFreq,numDocs);
-}

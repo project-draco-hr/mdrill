@@ -1,8 +1,0 @@
-{
-  if (ext.length() > 0) {
-    return new StringBuilder(segmentName.length() + 1 + ext.length()).append(segmentName).append('.').append(ext).toString();
-  }
- else {
-    return segmentName;
-  }
-}

@@ -1,4 +1,0 @@
-{
-  this.useCompoundFile=useCompoundFile;
-  return this;
-}

@@ -1,9 +1,0 @@
-{
-  if (ref.decrementAndGet() == 0) {
-    IOUtils.close(tis,tisNoIndex,freqStream,proxStream,termVectorsReaderOrig,fieldsReaderOrig,cfsReader,storeCFSReader);
-    tis=null;
-    if (owner != null) {
-      owner.notifyReaderFinishedListeners();
-    }
-  }
-}

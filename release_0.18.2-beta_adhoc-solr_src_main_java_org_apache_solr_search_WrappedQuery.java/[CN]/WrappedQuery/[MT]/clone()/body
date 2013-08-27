@@ -1,5 +1,0 @@
-{
-  WrappedQuery newQ=(WrappedQuery)super.clone();
-  newQ.q=(Query)q.clone();
-  return newQ;
-}

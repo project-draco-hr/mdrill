@@ -1,3 +1,0 @@
-{
-  this(httpClient,new BinaryResponseParser(),solrServerUrl);
-}

@@ -1,9 +1,0 @@
-{
-  int groupDocsToCollect=getMax(groupOffset,docsPerGroup,maxDoc);
-  if (sort == null || sort == Sort.RELEVANCE) {
-    return TopScoreDocCollector.create(groupDocsToCollect,true);
-  }
- else {
-    return StatisticFieldCollector.create(searcher.weightSort(sort),groupDocsToCollect,false,needScores,needScores,true);
-  }
-}

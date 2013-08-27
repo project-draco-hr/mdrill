@@ -1,5 +1,0 @@
-{
-synchronized (map) {
-    map.clear();
-  }
-}

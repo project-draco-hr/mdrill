@@ -1,3 +1,0 @@
-{
-  return setDocSet(searcher.getDocSet(query));
-}

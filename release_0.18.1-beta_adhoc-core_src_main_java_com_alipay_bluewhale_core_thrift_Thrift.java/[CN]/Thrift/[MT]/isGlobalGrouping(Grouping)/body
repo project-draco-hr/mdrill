@@ -1,6 +1,0 @@
-{
-  if (GroupingConstants.fields.equals(groupingType(grouping))) {
-    return fieldGrouping(grouping).isEmpty();
-  }
-  return false;
-}

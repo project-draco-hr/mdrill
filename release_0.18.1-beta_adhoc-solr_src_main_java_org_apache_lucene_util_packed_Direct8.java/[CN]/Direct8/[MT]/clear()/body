@@ -1,3 +1,0 @@
-{
-  Arrays.fill(values,(byte)0);
-}

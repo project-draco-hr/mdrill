@@ -1,3 +1,0 @@
-{
-  return NLS.getLocalizedMessage(getKey(),locale,getArguments());
-}

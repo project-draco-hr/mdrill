@@ -1,3 +1,0 @@
-{
-  return "Row{" + "index=" + getIndex() + ", tokens="+ (tokens == null ? null : tokens)+ '}';
-}

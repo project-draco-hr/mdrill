@@ -1,3 +1,0 @@
-{
-  return Float.toString(a) + "/(" + m+ "*float("+ source.description()+ ")"+ "+"+ b+ ')';
-}

@@ -1,8 +1,0 @@
-{
-  if (--ptr < 0) {
-    throw err("Unbalanced container");
-  }
- else {
-    state=stack[ptr];
-  }
-}

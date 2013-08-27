@@ -1,4 +1,0 @@
-{
-  write((byte)(v >>> 8));
-  write((byte)v);
-}

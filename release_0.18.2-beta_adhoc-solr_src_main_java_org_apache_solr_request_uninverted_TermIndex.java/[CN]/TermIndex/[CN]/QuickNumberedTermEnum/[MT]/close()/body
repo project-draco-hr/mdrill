@@ -1,4 +1,0 @@
-{
-  this.ti.nTerms=termNumRtn;
-  this.ti.index=lst != null ? lst.toArray(new String[lst.size()]) : new String[0];
-}

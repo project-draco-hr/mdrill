@@ -1,3 +1,0 @@
-{
-  return new StringBuilder("ConstantScore(").append((query == null) ? filter.toString() : query.toString(field)).append(')').append(ToStringUtils.boost(getBoost())).toString();
-}

@@ -1,4 +1,0 @@
-SolrCore core
-SolrSpellChecker checker
-boolean buildOnCommit
-boolean buildOnOptimize

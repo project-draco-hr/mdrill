@@ -1,4 +1,0 @@
-IntRangeBuilder builder
-int precisionStep
-int minBound
-int maxBound

@@ -1,4 +1,0 @@
-TokenStream tokenStream
-String text
-int maxNumFragments
-String separator

@@ -1,3 +1,0 @@
-{
-  this(maxScan,DEFAULT_BOUNDARY_CHARS);
-}

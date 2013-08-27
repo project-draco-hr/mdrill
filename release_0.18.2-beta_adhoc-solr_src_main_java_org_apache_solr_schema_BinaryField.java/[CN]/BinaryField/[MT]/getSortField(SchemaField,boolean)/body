@@ -1,3 +1,0 @@
-{
-  throw new RuntimeException("Cannot sort on a Binary field");
-}

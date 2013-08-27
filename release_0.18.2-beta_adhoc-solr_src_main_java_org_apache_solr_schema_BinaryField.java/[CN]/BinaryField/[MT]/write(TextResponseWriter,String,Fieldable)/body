@@ -1,3 +1,0 @@
-{
-  writer.writeStr(name,toBase64String(toObject(f)),false);
-}

@@ -1,5 +1,0 @@
-{
-  super.reset();
-  inQueue.clear();
-  outQueue.clear();
-}

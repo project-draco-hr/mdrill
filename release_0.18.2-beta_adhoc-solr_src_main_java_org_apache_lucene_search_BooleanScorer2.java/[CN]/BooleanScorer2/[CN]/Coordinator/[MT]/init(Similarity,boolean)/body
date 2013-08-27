@@ -1,6 +1,0 @@
-{
-  coordFactors=new float[optionalScorers.size() + requiredScorers.size() + 1];
-  for (int i=0; i < coordFactors.length; i++) {
-    coordFactors[i]=disableCoord ? 1.0f : sim.coord(i,maxCoord);
-  }
-}

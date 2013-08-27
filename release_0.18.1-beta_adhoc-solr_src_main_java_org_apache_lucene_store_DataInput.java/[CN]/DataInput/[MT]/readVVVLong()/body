@@ -1,8 +1,0 @@
-{
-  int tp=this.readVInt();
-  long rtn=this.readVLong();
-  if (tp > 0) {
-    rtn*=-1;
-  }
-  return rtn;
-}

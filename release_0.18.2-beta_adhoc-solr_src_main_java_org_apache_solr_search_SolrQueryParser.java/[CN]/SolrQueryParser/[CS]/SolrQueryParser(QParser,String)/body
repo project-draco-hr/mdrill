@@ -1,3 +1,0 @@
-{
-  this(parser,defaultField,parser.getReq().getSchema().getQueryAnalyzer());
-}

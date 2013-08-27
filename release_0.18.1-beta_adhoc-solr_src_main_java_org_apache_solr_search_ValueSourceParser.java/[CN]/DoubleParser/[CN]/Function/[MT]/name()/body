@@ -1,3 +1,0 @@
-{
-  return DoubleParser.this.name();
-}

@@ -1,8 +1,0 @@
-{
-  LOG.info("Starting inprocess zookeeper at port " + port + " and dir "+ localdir);
-  File localfile=new File(localdir);
-  ZooKeeperServer zk=new ZooKeeperServer(localfile,localfile,2000);
-  ServerCnxnFactory factory=NIOServerCnxnFactory.createFactory(new InetSocketAddress(port),60);
-  factory.startup(zk);
-  return factory;
-}

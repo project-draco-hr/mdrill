@@ -1,3 +1,0 @@
-{
-  return "id=" + id + " ,score="+ score+ " ,shard="+ shard+ " ,orderInShard="+ orderInShard+ " ,positionInResponse="+ positionInResponse+ " ,sortFieldValues="+ sortFieldValues;
-}

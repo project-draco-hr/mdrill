@@ -1,3 +1,0 @@
-{
-  return SmallFloat.floatToByte315(f);
-}

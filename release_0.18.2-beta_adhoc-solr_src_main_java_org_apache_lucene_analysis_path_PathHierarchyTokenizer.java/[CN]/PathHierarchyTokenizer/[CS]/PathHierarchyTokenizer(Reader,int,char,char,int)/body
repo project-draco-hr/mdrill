@@ -1,8 +1,0 @@
-{
-  super(input);
-  termAtt.resizeBuffer(bufferSize);
-  this.delimiter=delimiter;
-  this.replacement=replacement;
-  this.skip=skip;
-  resultToken=new StringBuilder(bufferSize);
-}

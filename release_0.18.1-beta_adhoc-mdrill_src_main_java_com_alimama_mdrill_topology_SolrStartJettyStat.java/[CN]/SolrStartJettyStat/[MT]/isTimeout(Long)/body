@@ -1,7 +1,0 @@
-{
-  long nowtime=System.currentTimeMillis();
-  if (nowtime - this.getLastTime() > timespan) {
-    return true;
-  }
-  return false;
-}

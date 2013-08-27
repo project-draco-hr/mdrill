@@ -1,4 +1,0 @@
-ResponseBuilder rb
-SolrIndexSearcher searcher
-DocList docs
-int flags

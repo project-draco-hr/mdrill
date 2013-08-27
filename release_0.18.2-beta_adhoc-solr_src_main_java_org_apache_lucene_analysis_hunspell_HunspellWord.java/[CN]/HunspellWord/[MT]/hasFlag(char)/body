@@ -1,3 +1,0 @@
-{
-  return flags != null && Arrays.binarySearch(flags,flag) >= 0;
-}

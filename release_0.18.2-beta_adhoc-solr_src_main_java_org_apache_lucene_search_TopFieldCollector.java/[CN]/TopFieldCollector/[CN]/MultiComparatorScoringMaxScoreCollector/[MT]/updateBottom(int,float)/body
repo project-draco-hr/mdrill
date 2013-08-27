@@ -1,5 +1,0 @@
-{
-  bottom.doc=docBase + doc;
-  bottom.score=score;
-  bottom=pq.updateTop();
-}

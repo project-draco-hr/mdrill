@@ -1,6 +1,0 @@
-{
-  docFreq=ti.docFreq;
-  freqPointer=ti.freqPointer;
-  proxPointer=ti.proxPointer;
-  skipOffset=ti.skipOffset;
-}

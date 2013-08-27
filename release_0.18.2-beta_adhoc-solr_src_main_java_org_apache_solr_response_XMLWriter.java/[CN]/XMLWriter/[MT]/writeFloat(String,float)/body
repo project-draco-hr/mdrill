@@ -1,3 +1,0 @@
-{
-  writeFloat(name,Float.toString(val));
-}

@@ -1,3 +1,0 @@
-{
-  return o instanceof StrFieldSource && super.equals(o);
-}

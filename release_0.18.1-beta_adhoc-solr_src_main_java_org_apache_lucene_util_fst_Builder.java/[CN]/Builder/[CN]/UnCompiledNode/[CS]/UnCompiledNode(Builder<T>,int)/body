@@ -1,7 +1,0 @@
-{
-  this.owner=owner;
-  arcs=(Arc<T>[])new Arc[1];
-  arcs[0]=new Arc<T>();
-  output=owner.NO_OUTPUT;
-  this.depth=depth;
-}

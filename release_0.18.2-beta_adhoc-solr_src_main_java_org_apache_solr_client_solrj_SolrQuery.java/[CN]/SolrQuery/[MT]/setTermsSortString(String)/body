@@ -1,4 +1,0 @@
-{
-  this.set(TermsParams.TERMS_SORT,type);
-  return this;
-}

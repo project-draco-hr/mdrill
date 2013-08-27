@@ -1,3 +1,0 @@
-{
-  return trie.get(key);
-}

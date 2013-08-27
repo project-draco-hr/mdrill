@@ -1,3 +1,0 @@
-{
-  throw new UnsupportedOperationException("since LUCENE_31 subclasses of CharTokenizer must implement isTokenChar(int)");
-}

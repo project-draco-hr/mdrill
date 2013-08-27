@@ -1,5 +1,0 @@
-{
-  System.out.println("########isusecompress:" + isuse + ","+ maxBlockSize);
-  IndexWriterConfig.isCompressFrq=isuse;
-  IndexWriterConfig.maxBlockSize=maxBlockSize;
-}

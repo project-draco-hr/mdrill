@@ -1,4 +1,0 @@
-{
-  ensureOpen();
-  return new ReaderCommit(segmentInfos,directory);
-}

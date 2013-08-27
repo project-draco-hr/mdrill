@@ -1,8 +1,0 @@
-{
-  if (n != null) {
-    Object base=n.get("base");
-    if (base != null) {
-      _baseWriter=base.toString();
-    }
-  }
-}

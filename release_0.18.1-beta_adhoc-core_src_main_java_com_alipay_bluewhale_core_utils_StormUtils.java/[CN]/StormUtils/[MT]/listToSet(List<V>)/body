@@ -1,8 +1,0 @@
-{
-  if (list == null) {
-    return null;
-  }
-  Set<V> set=new HashSet<V>();
-  set.addAll(list);
-  return set;
-}

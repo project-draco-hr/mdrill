@@ -1,4 +1,0 @@
-{
-  this.stem=stem;
-  this.stemLength=stemLength;
-}

@@ -1,9 +1,0 @@
-{
-  int result;
-  result=geoHash1.hashCode();
-  result=31 * result + geoHash2.hashCode();
-  result=31 * result + name().hashCode();
-  long temp=Double.doubleToRawLongBits(radius);
-  result=31 * result + (int)(temp ^ (temp >>> 32));
-  return result;
-}

@@ -1,9 +1,0 @@
-{
-  if (dt == TypeIndex.d_byte) {
-    return 1;
-  }
-  if (dt == TypeIndex.d_short) {
-    return 2;
-  }
-  return 0;
-}

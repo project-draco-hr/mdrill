@@ -1,4 +1,0 @@
-String name
-SolrDocument doc
-Set<String> returnFields
-boolean includeScore

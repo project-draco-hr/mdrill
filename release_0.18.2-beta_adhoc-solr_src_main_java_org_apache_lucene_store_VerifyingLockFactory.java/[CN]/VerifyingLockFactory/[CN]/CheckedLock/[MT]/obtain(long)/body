@@ -1,5 +1,0 @@
-{
-  boolean obtained=lock.obtain(lockWaitTimeout);
-  if (obtained)   verify((byte)1);
-  return obtained;
-}

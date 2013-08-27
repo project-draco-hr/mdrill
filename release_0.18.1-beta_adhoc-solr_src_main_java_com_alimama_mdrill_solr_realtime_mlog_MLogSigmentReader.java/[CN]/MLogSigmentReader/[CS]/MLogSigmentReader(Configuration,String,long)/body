@@ -1,6 +1,0 @@
-{
-  this.conf=conf;
-  this.fs=FileSystem.get(this.conf);
-  this.reader=this.fs.open(new Path(filepath));
-  this.startoffset=offset;
-}

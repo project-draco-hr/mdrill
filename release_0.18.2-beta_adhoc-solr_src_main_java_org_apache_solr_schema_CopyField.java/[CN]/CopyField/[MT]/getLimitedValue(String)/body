@@ -1,3 +1,0 @@
-{
-  return maxChars == UNLIMITED || val.length() < maxChars ? val : val.substring(0,maxChars);
-}

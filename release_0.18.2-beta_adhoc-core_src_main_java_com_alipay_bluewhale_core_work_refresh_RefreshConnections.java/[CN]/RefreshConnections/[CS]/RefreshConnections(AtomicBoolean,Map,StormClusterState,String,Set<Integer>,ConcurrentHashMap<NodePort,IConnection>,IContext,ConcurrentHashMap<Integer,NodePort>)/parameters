@@ -1,8 +1,0 @@
-AtomicBoolean active
-Map conf
-StormClusterState zkCluster
-String topologyId
-Set<Integer> outbound_tasks
-ConcurrentHashMap<NodePort,IConnection> node_port__socket
-IContext mq_context
-ConcurrentHashMap<Integer,NodePort> task__node_port

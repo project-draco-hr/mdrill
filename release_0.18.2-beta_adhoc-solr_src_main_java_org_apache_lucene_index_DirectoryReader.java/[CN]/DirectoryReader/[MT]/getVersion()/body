@@ -1,4 +1,0 @@
-{
-  ensureOpen();
-  return segmentInfos.getVersion();
-}

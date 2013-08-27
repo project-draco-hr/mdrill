@@ -1,8 +1,0 @@
-{
-  DocumentObjectBinder binder=this.getBinder();
-  ArrayList<SolrInputDocument> docs=new ArrayList<SolrInputDocument>(beans.size());
-  for (  Object bean : beans) {
-    docs.add(binder.toSolrInputDocument(bean));
-  }
-  return add(docs,commitWithinMs);
-}

@@ -1,3 +1,0 @@
-{
-  return leftExpression + " IS " + ((not) ? "NOT " : "")+ "NULL";
-}

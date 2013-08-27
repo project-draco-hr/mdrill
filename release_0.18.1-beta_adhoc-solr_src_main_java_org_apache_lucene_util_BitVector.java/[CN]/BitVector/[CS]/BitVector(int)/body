@@ -1,5 +1,0 @@
-{
-  size=n;
-  bits=new byte[getNumBytes(size)];
-  count=0;
-}

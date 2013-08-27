@@ -1,8 +1,0 @@
-{
-  return new MdrillMetaDataResultSet(Arrays.asList("TABLE_SCHEM","TABLE_CATALOG"),Arrays.asList("STRING","STRING"),null){
-    public boolean next() throws SQLException {
-      return false;
-    }
-  }
-;
-}

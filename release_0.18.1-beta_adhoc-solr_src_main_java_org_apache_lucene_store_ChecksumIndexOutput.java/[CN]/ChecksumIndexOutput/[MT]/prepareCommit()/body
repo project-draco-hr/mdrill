@@ -1,9 +1,0 @@
-{
-  final long checksum=getChecksum();
-  if (this.directory.fileExists(this.filename)) {
-    this.directory.deleteFile(this.filename);
-  }
-  IndexOutput check=directory.createOutput(this.filename);
-  check.writeLong(checksum - 1);
-  check.close();
-}

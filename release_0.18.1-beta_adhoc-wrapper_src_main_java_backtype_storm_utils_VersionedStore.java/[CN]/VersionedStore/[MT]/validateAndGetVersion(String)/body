@@ -1,5 +1,0 @@
-{
-  Long v=parseVersion(path);
-  if (v == null)   throw new RuntimeException(path + " is not a valid version");
-  return v;
-}

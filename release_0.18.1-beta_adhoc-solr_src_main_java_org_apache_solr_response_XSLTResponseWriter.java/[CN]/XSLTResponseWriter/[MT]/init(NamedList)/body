@@ -1,5 +1,0 @@
-{
-  final SolrParams p=SolrParams.toSolrParams(n);
-  xsltCacheLifetimeSeconds=p.getInt(XSLT_CACHE_PARAM,XSLT_CACHE_DEFAULT);
-  log.info("xsltCacheLifetimeSeconds=" + xsltCacheLifetimeSeconds);
-}

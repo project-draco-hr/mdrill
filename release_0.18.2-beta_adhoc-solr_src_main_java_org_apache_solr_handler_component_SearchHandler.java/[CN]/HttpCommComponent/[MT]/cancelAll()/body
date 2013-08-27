@@ -1,5 +1,0 @@
-{
-  for (  Future<ShardResponse> future : pending) {
-    future.cancel(true);
-  }
-}

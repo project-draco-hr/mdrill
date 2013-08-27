@@ -1,7 +1,0 @@
-{
-  B_ending_removed=other.B_ending_removed;
-  S_x=other.S_x;
-  I_p2=other.I_p2;
-  I_p1=other.I_p1;
-  super.copy_from(other);
-}

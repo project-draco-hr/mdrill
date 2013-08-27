@@ -1,6 +1,0 @@
-{
-  char[] outputArray=new char[getEncodedLength(input)];
-  CharBuffer output=CharBuffer.wrap(outputArray);
-  encode(input,output);
-  return output;
-}

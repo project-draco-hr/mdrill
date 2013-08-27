@@ -1,4 +1,0 @@
-{
-  DataOutputStream daos=new DataOutputStream(this);
-  daos.writeUTF(s);
-}

@@ -1,4 +1,0 @@
-String msg
-String[] lines
-int lineNo
-Throwable e

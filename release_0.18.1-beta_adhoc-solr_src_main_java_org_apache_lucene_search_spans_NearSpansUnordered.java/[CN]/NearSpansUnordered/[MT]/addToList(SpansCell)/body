@@ -1,8 +1,0 @@
-{
-  if (last != null) {
-    last.next=cell;
-  }
- else   first=cell;
-  last=cell;
-  cell.next=null;
-}

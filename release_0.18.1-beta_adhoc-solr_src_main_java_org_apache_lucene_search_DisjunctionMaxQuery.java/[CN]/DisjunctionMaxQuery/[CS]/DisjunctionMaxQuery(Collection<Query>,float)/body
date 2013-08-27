@@ -1,4 +1,0 @@
-{
-  this.tieBreakerMultiplier=tieBreakerMultiplier;
-  add(disjuncts);
-}

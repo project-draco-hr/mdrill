@@ -1,7 +1,0 @@
-Collection<SearchGroup<GROUP_VALUE_TYPE>> groups
-Sort groupSort
-Sort withinGroupSort
-int maxDocsPerGroup
-boolean getScores
-boolean getMaxScores
-boolean fillSortFields

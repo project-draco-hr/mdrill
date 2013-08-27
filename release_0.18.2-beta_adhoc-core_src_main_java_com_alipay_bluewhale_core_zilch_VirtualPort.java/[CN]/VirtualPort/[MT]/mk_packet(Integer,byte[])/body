@@ -1,7 +1,0 @@
-{
-  ByteBuffer buff=ByteBuffer.allocate((Integer.SIZE / 8) + message.length);
-  buff.putInt(virtual_port);
-  buff.put(message);
-  byte[] rtn=buff.array();
-  return rtn;
-}

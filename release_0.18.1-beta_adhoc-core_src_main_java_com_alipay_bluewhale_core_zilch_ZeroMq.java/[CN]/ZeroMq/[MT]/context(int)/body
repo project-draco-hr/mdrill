@@ -1,9 +1,0 @@
-{
-  try {
-    return ZMQ.context(threads);
-  }
- catch (  UnsatisfiedLinkError e) {
-    LOG.error("context",e);
-  }
-  return null;
-}

@@ -1,6 +1,0 @@
-{
-  if (set == null)   throw new NullPointerException("Given set is null");
-  if (set == EMPTY_SET)   return EMPTY_SET;
-  if (set.map instanceof CharArrayMap.UnmodifiableCharArrayMap)   return set;
-  return new CharArraySet(CharArrayMap.unmodifiableMap(set.map));
-}

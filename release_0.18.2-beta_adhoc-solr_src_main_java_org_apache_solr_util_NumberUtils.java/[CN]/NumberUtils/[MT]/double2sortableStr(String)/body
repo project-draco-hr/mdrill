@@ -1,3 +1,0 @@
-{
-  return double2sortableStr(Double.parseDouble(val));
-}

@@ -1,3 +1,0 @@
-{
-  return getFragmenter(fieldName,HighlightingUtils.getParams(request));
-}

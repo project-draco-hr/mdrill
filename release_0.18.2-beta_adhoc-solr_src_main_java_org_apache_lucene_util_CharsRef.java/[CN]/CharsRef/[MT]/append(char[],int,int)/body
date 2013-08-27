@@ -1,6 +1,0 @@
-{
-  final int newLength=length + otherLength;
-  grow(this.offset + newLength);
-  System.arraycopy(otherChars,otherOffset,this.chars,this.offset + length,otherLength);
-  this.length+=otherLength;
-}

@@ -1,3 +1,0 @@
-String solrServerUrl
-HttpClient httpClient
-boolean useMultiPartPost

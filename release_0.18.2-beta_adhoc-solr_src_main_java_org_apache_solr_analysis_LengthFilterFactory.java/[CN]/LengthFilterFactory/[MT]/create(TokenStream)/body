@@ -1,3 +1,0 @@
-{
-  return new LengthFilter(enablePositionIncrements,input,min,max);
-}

@@ -1,3 +1,0 @@
-{
-  return "ShardRequest:{params=" + params + ", purpose="+ Integer.toHexString(purpose)+ ", nResponses ="+ responses.size()+ "}";
-}

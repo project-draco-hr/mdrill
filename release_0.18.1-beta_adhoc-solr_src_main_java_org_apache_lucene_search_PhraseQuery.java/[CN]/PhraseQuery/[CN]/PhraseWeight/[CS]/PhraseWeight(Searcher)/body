@@ -1,5 +1,0 @@
-{
-  this.similarity=getSimilarity(searcher);
-  idfExp=similarity.idfExplain(terms,searcher);
-  idf=idfExp.getIdf();
-}

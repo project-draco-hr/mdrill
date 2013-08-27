@@ -1,7 +1,0 @@
-{
-  if (s == null)   return appendNull();
-  final int len=s.length();
-  s.getChars(0,len,resizeBuffer(termLength + len),termLength);
-  termLength+=len;
-  return this;
-}

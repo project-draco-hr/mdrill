@@ -1,3 +1,0 @@
-{
-  return doShare ? singletonShare : singletonNoShare;
-}

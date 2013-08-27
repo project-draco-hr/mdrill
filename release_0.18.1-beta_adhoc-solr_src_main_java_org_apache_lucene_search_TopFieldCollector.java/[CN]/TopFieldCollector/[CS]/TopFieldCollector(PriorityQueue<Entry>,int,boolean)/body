@@ -1,5 +1,0 @@
-{
-  super(pq);
-  this.numHits=numHits;
-  this.fillFields=fillFields;
-}

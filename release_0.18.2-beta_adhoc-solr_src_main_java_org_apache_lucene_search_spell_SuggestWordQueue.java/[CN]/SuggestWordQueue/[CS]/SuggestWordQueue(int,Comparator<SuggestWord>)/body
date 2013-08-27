@@ -1,4 +1,0 @@
-{
-  initialize(size);
-  this.comparator=comparator;
-}

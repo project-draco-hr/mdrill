@@ -1,8 +1,0 @@
-{
-  this.pointStr=pointStr;
-  this.distance=dist;
-  this.field=sf;
-  this.measStr=measStr;
-  this.radius=radius;
-  this.units=units;
-}

@@ -1,3 +1,0 @@
-{
-  return parser == null ? Integer.class.hashCode() : parser.getClass().hashCode();
-}

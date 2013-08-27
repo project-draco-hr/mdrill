@@ -1,4 +1,0 @@
-{
-  SpanFilterResult result=getCachedResult(reader);
-  return result != null ? result.getDocIdSet() : null;
-}

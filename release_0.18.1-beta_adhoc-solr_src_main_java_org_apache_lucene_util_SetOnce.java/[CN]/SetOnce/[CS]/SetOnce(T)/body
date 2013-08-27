@@ -1,4 +1,0 @@
-{
-  this.obj=obj;
-  set=new AtomicBoolean(true);
-}

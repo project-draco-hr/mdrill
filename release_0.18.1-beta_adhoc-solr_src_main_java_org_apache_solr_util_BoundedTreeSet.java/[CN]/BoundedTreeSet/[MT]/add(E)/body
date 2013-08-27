@@ -1,5 +1,0 @@
-{
-  boolean out=super.add(item);
-  adjust();
-  return out;
-}

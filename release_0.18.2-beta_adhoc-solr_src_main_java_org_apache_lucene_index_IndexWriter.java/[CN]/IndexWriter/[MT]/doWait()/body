@@ -1,8 +1,0 @@
-{
-  try {
-    wait(1000);
-  }
- catch (  InterruptedException ie) {
-    throw new ThreadInterruptedException(ie);
-  }
-}

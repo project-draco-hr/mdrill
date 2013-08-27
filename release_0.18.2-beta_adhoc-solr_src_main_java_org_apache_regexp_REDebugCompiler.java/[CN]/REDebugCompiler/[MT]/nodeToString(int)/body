@@ -1,5 +1,0 @@
-{
-  char opcode=instruction[node + RE.offsetOpcode];
-  int opdata=(int)instruction[node + RE.offsetOpdata];
-  return opcodeToString(opcode) + ", opdata = " + opdata;
-}

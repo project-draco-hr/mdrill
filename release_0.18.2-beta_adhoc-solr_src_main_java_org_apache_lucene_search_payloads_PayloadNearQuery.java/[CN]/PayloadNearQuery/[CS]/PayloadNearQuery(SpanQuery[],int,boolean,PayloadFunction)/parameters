@@ -1,4 +1,0 @@
-SpanQuery[] clauses
-int slop
-boolean inOrder
-PayloadFunction function

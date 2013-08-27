@@ -1,8 +1,0 @@
-{
-  Set<String> fieldSet=new HashSet<String>();
-  for (  IndexReader reader : subReaders) {
-    Collection<String> names=reader.getFieldNames(fieldNames);
-    fieldSet.addAll(names);
-  }
-  return fieldSet;
-}

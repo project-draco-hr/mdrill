@@ -1,4 +1,0 @@
-{
-  super(path,null);
-  setMaxChunkSize(MMapDirectory.DEFAULT_MAX_BUFF);
-}

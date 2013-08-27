@@ -1,4 +1,0 @@
-{
-  this.set(FacetParams.FACET_SORT,sort);
-  return this;
-}

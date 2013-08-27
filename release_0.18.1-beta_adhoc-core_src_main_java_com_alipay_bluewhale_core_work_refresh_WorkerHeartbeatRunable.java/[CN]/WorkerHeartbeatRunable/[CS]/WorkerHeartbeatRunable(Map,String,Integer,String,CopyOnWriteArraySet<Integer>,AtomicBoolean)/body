@@ -1,8 +1,0 @@
-{
-  this.conf=conf;
-  this.worker_id=worker_id;
-  this.port=port;
-  this.topologyId=topologyId;
-  this.task_ids=task_ids;
-  this.active=active;
-}

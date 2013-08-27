@@ -1,7 +1,0 @@
-{
-  while (input.incrementToken()) {
-    cache.add(captureState());
-  }
-  input.end();
-  finalState=captureState();
-}

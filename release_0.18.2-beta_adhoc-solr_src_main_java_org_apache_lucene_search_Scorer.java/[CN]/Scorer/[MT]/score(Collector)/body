@@ -1,7 +1,0 @@
-{
-  collector.setScorer(this);
-  int doc;
-  while ((doc=nextDoc()) != NO_MORE_DOCS) {
-    collector.collect(doc);
-  }
-}

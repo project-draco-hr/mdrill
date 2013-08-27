@@ -1,4 +1,0 @@
-{
-  freqStream.close();
-  if (skipListReader != null)   skipListReader.close();
-}

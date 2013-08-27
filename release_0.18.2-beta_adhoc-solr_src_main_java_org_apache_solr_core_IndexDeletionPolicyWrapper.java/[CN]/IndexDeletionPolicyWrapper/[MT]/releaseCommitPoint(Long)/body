@@ -1,7 +1,0 @@
-{
-  AtomicInteger reserveCount=savedCommits.get(indexCommitVersion);
-  if (reserveCount == null)   return;
-  if (reserveCount.decrementAndGet() <= 0) {
-    savedCommits.remove(indexCommitVersion);
-  }
-}

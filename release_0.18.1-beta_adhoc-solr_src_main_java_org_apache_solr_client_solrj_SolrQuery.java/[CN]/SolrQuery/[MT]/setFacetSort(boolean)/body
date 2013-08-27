@@ -1,4 +1,0 @@
-{
-  this.set(FacetParams.FACET_SORT,sort == true ? FacetParams.FACET_SORT_COUNT : FacetParams.FACET_SORT_INDEX);
-  return this;
-}

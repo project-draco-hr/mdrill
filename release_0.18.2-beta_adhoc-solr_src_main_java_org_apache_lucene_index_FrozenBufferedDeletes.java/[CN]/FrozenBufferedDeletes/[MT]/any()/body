@@ -1,3 +1,0 @@
-{
-  return termCount > 0 || queries.length > 0;
-}

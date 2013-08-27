@@ -1,5 +1,0 @@
-{
-  SegmentInfos sis=new SegmentInfos();
-  sis.read(directory);
-  return sis.version;
-}

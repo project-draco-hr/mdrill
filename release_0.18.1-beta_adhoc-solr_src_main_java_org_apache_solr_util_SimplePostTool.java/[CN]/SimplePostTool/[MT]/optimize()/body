@@ -1,3 +1,0 @@
-{
-  doGet(appendParam(solrUrl.toString(),"optimize=true"));
-}

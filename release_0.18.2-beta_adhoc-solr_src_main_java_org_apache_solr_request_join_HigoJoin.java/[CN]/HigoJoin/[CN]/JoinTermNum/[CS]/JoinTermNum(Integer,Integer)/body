@@ -1,5 +1,0 @@
-{
-  super();
-  this.leftId=docId;
-  this.termNum=termNum;
-}

@@ -1,4 +1,0 @@
-{
-  super.reset();
-  offset=bufferIndex=dataLen=0;
-}

@@ -1,6 +1,0 @@
-{
-  jetty.setConfigDir(dir);
-  for (  SolrStartTable table : tables) {
-    table.setConfigDir(dir);
-  }
-}

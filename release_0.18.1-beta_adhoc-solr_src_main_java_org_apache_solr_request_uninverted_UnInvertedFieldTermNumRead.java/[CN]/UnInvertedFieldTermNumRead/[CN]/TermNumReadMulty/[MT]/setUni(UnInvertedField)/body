@@ -1,9 +1,0 @@
-{
-  if (uni.index == null && uni.indexbyte == null && uni.indexshort == null) {
-    this.inter=new TermNumReadNull();
-  }
- else {
-    this.inter=new TermNumReadMultyNotNull();
-  }
-  this.inter.setUni(uni);
-}

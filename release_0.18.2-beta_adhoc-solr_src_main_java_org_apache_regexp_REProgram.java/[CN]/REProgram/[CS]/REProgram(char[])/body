@@ -1,3 +1,0 @@
-{
-  this(instruction,instruction.length);
-}

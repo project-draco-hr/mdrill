@@ -1,3 +1,0 @@
-{
-  return isInit.get() && statcollect.isTimeout(1000l * 60 * 20);
-}

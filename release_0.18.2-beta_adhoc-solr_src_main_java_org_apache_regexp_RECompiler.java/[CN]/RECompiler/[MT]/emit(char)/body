@@ -1,4 +1,0 @@
-{
-  ensure(1);
-  instruction[lenInstruction++]=c;
-}

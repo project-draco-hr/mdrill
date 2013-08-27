@@ -1,7 +1,0 @@
-{
-  boolean b=this.remove(FacetParams.FACET_QUERY,q);
-  if (this.get(FacetParams.FACET_FIELD) == null && this.get(FacetParams.FACET_QUERY) == null) {
-    this.setFacet(false);
-  }
-  return b;
-}

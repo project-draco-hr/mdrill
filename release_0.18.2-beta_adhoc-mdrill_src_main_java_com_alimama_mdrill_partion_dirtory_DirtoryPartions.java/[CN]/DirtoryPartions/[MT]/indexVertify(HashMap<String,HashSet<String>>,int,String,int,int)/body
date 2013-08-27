@@ -1,8 +1,0 @@
-{
-  HashMap<String,String> rtn=new HashMap<String,String>();
-  for (  String key : partions.keySet()) {
-    String partionvertify="partionV" + MdrillPartions.PARTION_VERSION + "@001@"+ key+ "@"+ shards;
-    rtn.put(key,partionvertify);
-  }
-  return rtn;
-}

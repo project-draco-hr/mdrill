@@ -1,3 +1,0 @@
-{
-  zk.delete().forPath(PathUtils.normalize_path(path));
-}

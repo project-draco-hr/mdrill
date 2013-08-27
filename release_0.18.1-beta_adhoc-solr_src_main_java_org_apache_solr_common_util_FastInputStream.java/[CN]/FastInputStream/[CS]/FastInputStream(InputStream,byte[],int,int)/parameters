@@ -1,4 +1,0 @@
-InputStream in
-byte[] tempBuffer
-int start
-int end

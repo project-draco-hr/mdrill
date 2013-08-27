@@ -1,5 +1,0 @@
-Filter startingFilter
-double lat
-double lng
-double miles
-String geoHashField

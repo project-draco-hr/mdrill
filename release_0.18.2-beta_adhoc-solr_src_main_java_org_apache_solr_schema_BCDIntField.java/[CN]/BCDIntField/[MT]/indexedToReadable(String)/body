@@ -1,3 +1,0 @@
-{
-  return BCDUtils.base10kSortableIntToBase10(indexedForm);
-}

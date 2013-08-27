@@ -1,9 +1,0 @@
-{
-  if (ex instanceof Parenthesis) {
-    Expression child=((Parenthesis)ex).getExpression();
-    return getExpressionWithoutParenthesis(child);
-  }
- else {
-    return ex;
-  }
-}

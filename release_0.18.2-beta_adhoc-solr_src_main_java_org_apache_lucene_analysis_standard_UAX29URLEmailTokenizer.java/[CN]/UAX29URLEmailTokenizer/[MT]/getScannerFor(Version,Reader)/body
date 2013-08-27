@@ -1,8 +1,0 @@
-{
-  if (matchVersion.onOrAfter(Version.LUCENE_34)) {
-    return new UAX29URLEmailTokenizerImpl(input);
-  }
- else {
-    return new UAX29URLEmailTokenizerImpl31(input);
-  }
-}

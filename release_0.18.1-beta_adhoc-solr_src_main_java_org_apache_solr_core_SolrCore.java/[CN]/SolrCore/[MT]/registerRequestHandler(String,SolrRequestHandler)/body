@@ -1,3 +1,0 @@
-{
-  return reqHandlers.register(handlerName,handler);
-}

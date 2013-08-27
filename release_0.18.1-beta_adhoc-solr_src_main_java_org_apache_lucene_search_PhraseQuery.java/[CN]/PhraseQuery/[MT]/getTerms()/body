@@ -1,3 +1,0 @@
-{
-  return terms.toArray(new Term[0]);
-}

@@ -1,4 +1,0 @@
-{
-  nvPairs.add(name);
-  nvPairs.add(val);
-}

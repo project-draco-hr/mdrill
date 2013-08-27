@@ -1,3 +1,0 @@
-{
-  super(Version.LUCENE_30,source,in);
-}

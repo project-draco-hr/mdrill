@@ -1,4 +1,0 @@
-{
-  super(queue,numHits,fillFields);
-  maxScore=Float.NEGATIVE_INFINITY;
-}

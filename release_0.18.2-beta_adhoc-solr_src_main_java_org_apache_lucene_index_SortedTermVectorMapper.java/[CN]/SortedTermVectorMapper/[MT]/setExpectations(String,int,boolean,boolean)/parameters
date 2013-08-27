@@ -1,4 +1,0 @@
-String field
-int numTerms
-boolean storeOffsets
-boolean storePositions

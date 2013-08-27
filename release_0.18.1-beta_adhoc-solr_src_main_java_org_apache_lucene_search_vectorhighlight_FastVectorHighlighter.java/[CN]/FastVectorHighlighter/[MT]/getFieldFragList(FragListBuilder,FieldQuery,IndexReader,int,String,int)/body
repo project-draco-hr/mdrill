@@ -1,5 +1,0 @@
-{
-  FieldTermStack fieldTermStack=new FieldTermStack(reader,docId,fieldName,fieldQuery);
-  FieldPhraseList fieldPhraseList=new FieldPhraseList(fieldTermStack,fieldQuery,phraseLimit);
-  return fragListBuilder.createFieldFragList(fieldPhraseList,fragCharSize);
-}

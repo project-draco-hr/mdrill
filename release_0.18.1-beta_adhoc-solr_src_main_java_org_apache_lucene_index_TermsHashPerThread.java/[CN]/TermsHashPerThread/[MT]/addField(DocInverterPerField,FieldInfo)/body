@@ -1,3 +1,0 @@
-{
-  return new TermsHashPerField(docInverterPerField,this,nextPerThread,fieldInfo);
-}

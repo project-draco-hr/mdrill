@@ -1,6 +1,0 @@
-{
-  this.numFound=numFound;
-  size=sz;
-  this.start=start;
-  this.maxScore=maxScore;
-}

@@ -1,5 +1,0 @@
-{
-  uniqueTermsInFragment=new HashSet<String>();
-  currentTextFragment=newFragment;
-  totalScore=0;
-}

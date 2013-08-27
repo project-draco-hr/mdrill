@@ -1,9 +1,0 @@
-{
-  if (infoStream != null) {
-    message("clearFlushPending");
-  }
-  flushPending=false;
-  flushDeletes=false;
-  docCount=0;
-  notifyAll();
-}

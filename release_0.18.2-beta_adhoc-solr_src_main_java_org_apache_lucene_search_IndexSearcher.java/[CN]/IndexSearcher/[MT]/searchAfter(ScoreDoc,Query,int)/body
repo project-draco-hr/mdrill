@@ -1,3 +1,0 @@
-{
-  return searchAfter(after,query,null,n);
-}

@@ -1,6 +1,0 @@
-{
-  if (RV == null)   return;
-  if (suffix(RV,"i") && suffixPreceded(RV,"i","c")) {
-    CT=removeSuffix(CT,"i");
-  }
-}

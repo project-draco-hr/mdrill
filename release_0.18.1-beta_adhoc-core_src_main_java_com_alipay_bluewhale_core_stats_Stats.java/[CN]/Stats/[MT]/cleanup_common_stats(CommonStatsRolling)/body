@@ -1,4 +1,0 @@
-{
-  cleanup_rolling_stat(stats.emitted);
-  cleanup_rolling_stat(stats.transferred);
-}

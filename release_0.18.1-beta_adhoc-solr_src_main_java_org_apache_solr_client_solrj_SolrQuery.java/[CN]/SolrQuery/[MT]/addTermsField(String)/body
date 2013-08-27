@@ -1,4 +1,0 @@
-{
-  this.add(TermsParams.TERMS_FIELD,field);
-  return this;
-}

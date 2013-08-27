@@ -1,4 +1,0 @@
-{
-  if (field == other.field)   return compareChars(text.result,text.length,other.text.result,other.text.length);
- else   return field.compareTo(other.field);
-}

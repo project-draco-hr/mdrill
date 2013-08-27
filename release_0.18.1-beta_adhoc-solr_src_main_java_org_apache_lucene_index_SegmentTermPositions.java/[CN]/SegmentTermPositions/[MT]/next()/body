@@ -1,9 +1,0 @@
-{
-  lazySkipProxCount+=proxCount;
-  if (super.next()) {
-    proxCount=freq;
-    position=0;
-    return true;
-  }
-  return false;
-}

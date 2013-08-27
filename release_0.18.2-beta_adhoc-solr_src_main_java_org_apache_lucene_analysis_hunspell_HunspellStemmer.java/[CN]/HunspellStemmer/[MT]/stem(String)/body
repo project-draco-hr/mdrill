@@ -1,3 +1,0 @@
-{
-  return stem(word.toCharArray(),word.length());
-}

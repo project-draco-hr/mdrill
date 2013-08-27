@@ -1,4 +1,0 @@
-{
-  this(in);
-  this.exclusions=exclusiontable;
-}

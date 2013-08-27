@@ -1,4 +1,0 @@
-{
-  gzip.close();
-  bis.close();
-}

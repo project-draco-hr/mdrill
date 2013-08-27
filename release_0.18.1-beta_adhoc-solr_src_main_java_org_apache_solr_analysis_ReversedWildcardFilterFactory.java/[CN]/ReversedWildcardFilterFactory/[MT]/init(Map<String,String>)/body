@@ -1,8 +1,0 @@
-{
-  super.init(args);
-  withOriginal=getBoolean("withOriginal",true);
-  maxPosAsterisk=getInt("maxPosAsterisk",2);
-  maxPosQuestion=getInt("maxPosQuestion",1);
-  minTrailing=getInt("minTrailing",2);
-  maxFractionAsterisk=getFloat("maxFractionAsterisk",0.0f);
-}

@@ -1,3 +1,0 @@
-{
-  this(targetFragChars,incrementGapThreshold,slop,maxAnalyzedChars,DEFAULT_PATTERN);
-}

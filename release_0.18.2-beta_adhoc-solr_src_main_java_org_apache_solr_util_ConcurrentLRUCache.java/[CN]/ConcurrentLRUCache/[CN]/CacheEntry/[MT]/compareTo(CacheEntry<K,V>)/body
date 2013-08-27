@@ -1,4 +1,0 @@
-{
-  if (this.lastAccessedCopy == that.lastAccessedCopy)   return 0;
-  return this.lastAccessedCopy < that.lastAccessedCopy ? 1 : -1;
-}

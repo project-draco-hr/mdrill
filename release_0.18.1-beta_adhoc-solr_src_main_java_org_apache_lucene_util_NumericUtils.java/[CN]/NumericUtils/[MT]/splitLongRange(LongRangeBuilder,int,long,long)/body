@@ -1,3 +1,0 @@
-{
-  splitRange(builder,64,precisionStep,minBound,maxBound);
-}

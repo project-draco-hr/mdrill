@@ -1,6 +1,0 @@
-{
-  if (o == this)   return true;
-  if (o == null || !(o instanceof FilterClause))   return false;
-  final FilterClause other=(FilterClause)o;
-  return this.filter.equals(other.filter) && this.occur == other.occur;
-}

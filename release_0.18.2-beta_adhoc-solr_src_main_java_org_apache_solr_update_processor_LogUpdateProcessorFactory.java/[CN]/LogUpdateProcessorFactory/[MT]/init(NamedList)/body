@@ -1,6 +1,0 @@
-{
-  if (args != null) {
-    SolrParams params=SolrParams.toSolrParams(args);
-    maxNumToLog=params.getInt("maxNumToLog",maxNumToLog);
-  }
-}

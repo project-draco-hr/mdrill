@@ -1,3 +1,0 @@
-{
-  return groupValue != null ? groupValue.hashCode() : 0;
-}

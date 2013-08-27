@@ -1,3 +1,0 @@
-{
-  deleteNode(getNode(key.trim().toLowerCase()));
-}

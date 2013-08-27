@@ -1,5 +1,0 @@
-{
-  input.reset();
-  replacement=null;
-  exhausted=false;
-}

@@ -1,3 +1,0 @@
-{
-  return recv(socket,0);
-}

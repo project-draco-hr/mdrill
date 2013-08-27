@@ -1,3 +1,0 @@
-{
-  return flag(BIT_FINAL_ARC);
-}

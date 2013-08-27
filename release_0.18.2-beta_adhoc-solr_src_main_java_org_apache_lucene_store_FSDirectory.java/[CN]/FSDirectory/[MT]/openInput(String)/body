@@ -1,4 +1,0 @@
-{
-  ensureOpen();
-  return openInput(name,BufferedIndexInput.BUFFER_SIZE);
-}

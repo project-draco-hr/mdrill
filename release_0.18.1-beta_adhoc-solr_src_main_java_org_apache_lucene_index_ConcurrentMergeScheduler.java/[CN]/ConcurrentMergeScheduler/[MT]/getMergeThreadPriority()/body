@@ -1,4 +1,0 @@
-{
-  initMergeThreadPriority();
-  return mergeThreadPriority;
-}

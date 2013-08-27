@@ -1,9 +1,0 @@
-{
-  this.tokens=tokens;
-  this.reader=reader;
-  this.count=count;
-  this.onlyMorePopular=onlyMorePopular;
-  this.extendedResults=extendedResults;
-  this.accuracy=accuracy;
-  this.customParams=customParams;
-}

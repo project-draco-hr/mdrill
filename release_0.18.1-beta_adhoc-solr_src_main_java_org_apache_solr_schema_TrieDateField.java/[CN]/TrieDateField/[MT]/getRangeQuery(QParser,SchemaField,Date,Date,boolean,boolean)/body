@@ -1,3 +1,0 @@
-{
-  return NumericRangeQuery.newLongRange(sf.getName(),wrappedField.precisionStep,min == null ? null : min.getTime(),max == null ? null : max.getTime(),minInclusive,maxInclusive);
-}

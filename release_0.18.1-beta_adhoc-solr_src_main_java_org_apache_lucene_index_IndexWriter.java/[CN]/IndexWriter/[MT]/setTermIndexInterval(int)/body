@@ -1,4 +1,0 @@
-{
-  ensureOpen();
-  config.setTermIndexInterval(interval);
-}

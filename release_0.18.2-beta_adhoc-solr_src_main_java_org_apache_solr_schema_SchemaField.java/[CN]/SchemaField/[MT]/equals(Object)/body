@@ -1,3 +1,0 @@
-{
-  return (obj instanceof SchemaField) && name.equals(((SchemaField)obj).name);
-}

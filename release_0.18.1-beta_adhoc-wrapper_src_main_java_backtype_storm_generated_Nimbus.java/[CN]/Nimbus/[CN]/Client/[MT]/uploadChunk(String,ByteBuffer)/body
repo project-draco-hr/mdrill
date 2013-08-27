@@ -1,4 +1,0 @@
-{
-  send_uploadChunk(location,chunk);
-  recv_uploadChunk();
-}

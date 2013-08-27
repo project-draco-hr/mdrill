@@ -1,4 +1,0 @@
-{
-  File base=FileUtils.resolvePath(new File(getInstanceDir()),baseDir);
-  this.classLoader=replaceClassLoader(classLoader,base,filter);
-}

@@ -1,7 +1,0 @@
-{
-  if (pos >= end) {
-    refill();
-    if (pos >= end)     throw new EOFException();
-  }
-  return buf[pos++];
-}

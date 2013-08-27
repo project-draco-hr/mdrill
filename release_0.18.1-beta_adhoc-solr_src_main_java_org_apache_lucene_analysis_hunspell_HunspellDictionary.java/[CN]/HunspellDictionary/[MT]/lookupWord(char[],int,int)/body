@@ -1,3 +1,0 @@
-{
-  return words.get(word,offset,length);
-}

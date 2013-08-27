@@ -1,5 +1,0 @@
-{
-  scanner.getText(termAtt);
-  final int start=scanner.yychar();
-  offsetAtt.setOffset(correctOffset(start),correctOffset(start + termAtt.length()));
-}

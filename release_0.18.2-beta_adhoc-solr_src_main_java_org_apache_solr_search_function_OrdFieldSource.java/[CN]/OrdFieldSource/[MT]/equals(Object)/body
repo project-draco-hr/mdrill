@@ -1,3 +1,0 @@
-{
-  return o.getClass() == OrdFieldSource.class && this.field.equals(((OrdFieldSource)o).field);
-}

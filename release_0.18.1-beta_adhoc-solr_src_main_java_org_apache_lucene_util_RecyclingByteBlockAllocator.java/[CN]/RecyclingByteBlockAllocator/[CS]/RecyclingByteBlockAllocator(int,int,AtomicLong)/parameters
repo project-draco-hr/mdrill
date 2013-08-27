@@ -1,3 +1,0 @@
-int blockSize
-int maxBufferedBlocks
-AtomicLong bytesUsed

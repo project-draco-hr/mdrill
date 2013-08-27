@@ -1,5 +1,0 @@
-{
-  output.writeInt(size());
-  output.writeInt(count());
-  output.writeBytes(bits,bits.length);
-}

@@ -1,3 +1,0 @@
-{
-  super(rb,FacetParams.FACET_QUERY,facetStr);
-}

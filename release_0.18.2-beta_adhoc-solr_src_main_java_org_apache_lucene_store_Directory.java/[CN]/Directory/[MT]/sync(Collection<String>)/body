@@ -1,3 +1,0 @@
-{
-  for (  String name : names)   sync(name);
-}

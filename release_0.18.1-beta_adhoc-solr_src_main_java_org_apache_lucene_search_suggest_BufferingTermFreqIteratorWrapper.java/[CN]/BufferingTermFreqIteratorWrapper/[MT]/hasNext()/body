@@ -1,3 +1,0 @@
-{
-  return curPos < entries.size();
-}

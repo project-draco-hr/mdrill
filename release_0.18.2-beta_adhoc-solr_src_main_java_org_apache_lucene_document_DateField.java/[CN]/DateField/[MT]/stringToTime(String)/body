@@ -1,3 +1,0 @@
-{
-  return Long.parseLong(s,Character.MAX_RADIX);
-}

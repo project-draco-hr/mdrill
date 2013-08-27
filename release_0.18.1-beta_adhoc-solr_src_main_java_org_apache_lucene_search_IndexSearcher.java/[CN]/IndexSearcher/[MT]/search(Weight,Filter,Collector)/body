@@ -1,9 +1,0 @@
-{
-  for (int i=0; i < subReaders.length; i++) {
-    collector.setNextReader(subReaders[i],docBase + docStarts[i]);
-    final Scorer scorer=(filter == null) ? weight.scorer(subReaders[i],!collector.acceptsDocsOutOfOrder(),true) : FilteredQuery.getFilteredScorer(subReaders[i],getSimilarity(),weight,weight,filter);
-    if (scorer != null) {
-      scorer.score(collector);
-    }
-  }
-}

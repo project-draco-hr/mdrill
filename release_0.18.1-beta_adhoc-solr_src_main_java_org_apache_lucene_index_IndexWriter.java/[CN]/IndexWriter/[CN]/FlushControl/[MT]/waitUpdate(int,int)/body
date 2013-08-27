@@ -1,3 +1,0 @@
-{
-  return waitUpdate(docInc,delInc,false);
-}

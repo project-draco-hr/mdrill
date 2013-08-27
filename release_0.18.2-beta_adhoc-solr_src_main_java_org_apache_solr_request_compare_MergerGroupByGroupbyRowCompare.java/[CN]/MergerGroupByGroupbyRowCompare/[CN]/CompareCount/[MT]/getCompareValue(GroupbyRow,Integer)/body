@@ -1,7 +1,0 @@
-{
-  double cnt=g.getStatVal(field,4);
-  if (cnt <= 0) {
-    return 0;
-  }
-  return cnt;
-}

@@ -1,6 +1,0 @@
-{
-  NamedList lst=new NamedList();
-  lst.add("requests",numRequests);
-  lst.add("errors",numErrors);
-  return lst;
-}

@@ -1,5 +1,0 @@
-{
-  super.reset();
-  tokens.clear();
-  current=null;
-}

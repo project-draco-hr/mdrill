@@ -1,4 +1,0 @@
-{
-  this.parser=parser;
-  if (parser.lastEvent() == 0)   parser.nextEvent();
-}

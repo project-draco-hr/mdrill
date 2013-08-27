@@ -1,6 +1,0 @@
-{
-  if (ti instanceof TupleInfo && ((TupleInfo)ti).stream.equals(stream) && ((TupleInfo)ti).values.equals(values)) {
-    return true;
-  }
-  return false;
-}

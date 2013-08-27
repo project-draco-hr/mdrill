@@ -1,3 +1,0 @@
-{
-  return parser == null ? Byte.class.hashCode() : parser.getClass().hashCode();
-}

@@ -1,8 +1,0 @@
-{
-  for (  Collector c : collectors) {
-    if (!c.acceptsDocsOutOfOrder()) {
-      return false;
-    }
-  }
-  return true;
-}

@@ -1,9 +1,0 @@
-{
-  try {
-    NimbusUtils.mkAssignments(data,topologyid,true);
-  }
- catch (  Exception e) {
-    LOG.error("do-rebalance error!",e);
-  }
-  return oldStatus.getOldStatus();
-}

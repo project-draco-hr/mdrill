@@ -1,5 +1,0 @@
-{
-  super(term);
-  this.function=function;
-  this.includeSpanScore=includeSpanScore;
-}

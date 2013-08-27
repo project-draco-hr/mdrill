@@ -1,5 +1,0 @@
-{
-  if (isSnapshotted(id)) {
-    throw new IllegalStateException("Snapshot ID " + id + " is already used - must be unique");
-  }
-}

@@ -1,7 +1,0 @@
-{
-  Integer fileNum=this.fieldInfos().fieldNumber(field);
-  HashMap<Integer,Long> filepos=core.getTermsReader().fieldPos;
-  long rtn=filepos.get(fileNum);
-  log.info("##getpos##" + fileNum + "@"+ field+ ","+ rtn);
-  return rtn;
-}

@@ -1,4 +1,0 @@
-{
-  this.groupOffsetDefault=groupOffsetDefault;
-  return this;
-}

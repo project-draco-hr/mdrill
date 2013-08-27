@@ -1,9 +1,0 @@
-{
-  String s=Double.toString(val);
-  if (val > Double.NEGATIVE_INFINITY && val < Double.POSITIVE_INFINITY) {
-    writeDouble(name,s);
-  }
- else {
-    writeStr(name,s,false);
-  }
-}

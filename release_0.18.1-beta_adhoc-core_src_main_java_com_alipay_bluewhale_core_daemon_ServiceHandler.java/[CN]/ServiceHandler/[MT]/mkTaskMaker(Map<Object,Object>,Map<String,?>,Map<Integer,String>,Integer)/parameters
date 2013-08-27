@@ -1,4 +1,0 @@
-Map<Object,Object> stormConf
-Map<String,?> cidSpec
-Map<Integer,String> rtn
-Integer cnt

@@ -1,5 +1,0 @@
-{
-  super(queue,numHits,fillFields);
-  comparator=queue.getComparators()[0];
-  reverseMul=queue.getReverseMul()[0];
-}

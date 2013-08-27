@@ -1,3 +1,0 @@
-{
-  throw new UnsupportedOperationException("ParallelReader does not support this method.");
-}

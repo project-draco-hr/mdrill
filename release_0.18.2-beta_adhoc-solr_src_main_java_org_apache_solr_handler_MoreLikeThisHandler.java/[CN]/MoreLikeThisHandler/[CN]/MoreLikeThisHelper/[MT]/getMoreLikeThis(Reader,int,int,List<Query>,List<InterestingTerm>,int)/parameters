@@ -1,6 +1,0 @@
-Reader reader
-int start
-int rows
-List<Query> filters
-List<InterestingTerm> terms
-int flags

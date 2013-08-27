@@ -1,4 +1,0 @@
-{
-  TypeAttribute t=(TypeAttribute)target;
-  t.setType(type);
-}

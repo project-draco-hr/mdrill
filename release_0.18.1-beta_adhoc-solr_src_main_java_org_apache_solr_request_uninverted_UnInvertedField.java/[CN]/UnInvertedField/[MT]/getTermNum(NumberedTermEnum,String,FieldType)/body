@@ -1,8 +1,0 @@
-{
-  if (te.skipTo(ft.toInternal(text))) {
-    return te.getTermNumber();
-  }
- else {
-    return this.nullTermNum;
-  }
-}

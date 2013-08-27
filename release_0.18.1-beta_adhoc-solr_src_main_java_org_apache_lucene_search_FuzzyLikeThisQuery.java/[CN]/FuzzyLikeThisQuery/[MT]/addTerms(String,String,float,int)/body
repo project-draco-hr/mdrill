@@ -1,3 +1,0 @@
-{
-  fieldVals.add(new FieldVals(fieldName,minSimilarity,prefixLength,queryString));
-}

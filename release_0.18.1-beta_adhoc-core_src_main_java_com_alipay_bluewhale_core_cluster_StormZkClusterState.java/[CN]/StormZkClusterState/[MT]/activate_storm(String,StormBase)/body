@@ -1,5 +1,0 @@
-{
-  String stormPath=Cluster.storm_path(stormId);
-  byte[] stormBaseData=Utils.serialize(stormBase);
-  cluster_state.set_data(stormPath,stormBaseData);
-}

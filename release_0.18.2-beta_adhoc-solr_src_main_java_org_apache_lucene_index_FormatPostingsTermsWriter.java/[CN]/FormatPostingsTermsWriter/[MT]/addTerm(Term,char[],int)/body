@@ -1,9 +1,0 @@
-{
-  currentTerm=text;
-  currentTermStart=start;
-  this.currentTermobj=term;
-  freqStart=docsWriter.out.getFilePointer();
-  if (docsWriter.posWriter.out != null)   proxStart=docsWriter.posWriter.out.getFilePointer();
-  parent.skipListWriter.resetSkip();
-  return docsWriter;
-}

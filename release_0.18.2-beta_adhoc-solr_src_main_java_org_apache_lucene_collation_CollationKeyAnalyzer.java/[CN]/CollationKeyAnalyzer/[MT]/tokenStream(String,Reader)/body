@@ -1,5 +1,0 @@
-{
-  TokenStream result=new KeywordTokenizer(reader);
-  result=new CollationKeyFilter(result,collator);
-  return result;
-}

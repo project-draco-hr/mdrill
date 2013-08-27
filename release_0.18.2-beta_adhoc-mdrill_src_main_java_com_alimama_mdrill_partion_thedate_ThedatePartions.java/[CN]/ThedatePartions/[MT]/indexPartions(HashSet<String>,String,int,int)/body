@@ -1,3 +1,0 @@
-{
-  return ThedatePartionsUtils.parseDays(namelist,this.parttype);
-}

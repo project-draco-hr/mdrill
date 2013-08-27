@@ -1,3 +1,0 @@
-{
-  wrappedField.write(writer,name,f);
-}

@@ -1,8 +1,0 @@
-{
-  String str=params.getFieldParam(fieldName,HighlightParams.ENCODER);
-  SolrEncoder encoder=encoders.get(str);
-  if (encoder == null) {
-    throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,"Unknown encoder: " + str);
-  }
-  return encoder.getEncoder(fieldName,params);
-}

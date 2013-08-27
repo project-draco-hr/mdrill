@@ -1,5 +1,0 @@
-String supervisorId
-Map conf
-LocalState localState
-ConcurrentHashMap<String,String> workerThreadPids
-ZMQContext sharedContext

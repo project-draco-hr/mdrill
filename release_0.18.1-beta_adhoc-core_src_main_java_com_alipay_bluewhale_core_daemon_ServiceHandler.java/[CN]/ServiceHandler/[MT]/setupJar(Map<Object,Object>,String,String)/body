@@ -1,9 +1,0 @@
-{
-  File srcFile=new File(tmpJarLocation);
-  if (!srcFile.exists()) {
-    throw new IllegalArgumentException(tmpJarLocation + " to copy to " + stormroot+ " does not exist!");
-  }
-  String path=StormConfig.masterStormjarPath(stormroot);
-  File destFile=new File(path);
-  FileUtils.copyFile(srcFile,destFile);
-}

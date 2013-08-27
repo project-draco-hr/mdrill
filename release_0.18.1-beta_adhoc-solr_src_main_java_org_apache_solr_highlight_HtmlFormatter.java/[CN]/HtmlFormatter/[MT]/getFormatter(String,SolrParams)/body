@@ -1,7 +1,0 @@
-{
-  numRequests++;
-  if (defaults != null) {
-    params=new DefaultSolrParams(params,defaults);
-  }
-  return new SimpleHTMLFormatter(params.getFieldParam(fieldName,HighlightParams.SIMPLE_PRE,"<em>"),params.getFieldParam(fieldName,HighlightParams.SIMPLE_POST,"</em>"));
-}

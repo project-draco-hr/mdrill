@@ -1,4 +1,0 @@
-{
-  source1.createWeight(context,searcher);
-  source2.createWeight(context,searcher);
-}

@@ -1,5 +1,0 @@
-{
-  TokenizerFactory tokFactory=(TokenizerFactory)loader.newInstance(cname);
-  tokFactory.init(args);
-  return tokFactory;
-}

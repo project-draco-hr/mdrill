@@ -1,4 +1,0 @@
-{
-  reflector.reflect(TokenTrackingAttribute.class,"position",position);
-  reflector.reflect(TokenTrackingAttribute.class,"positionHistory",ArrayUtils.toObject(getPositions()));
-}

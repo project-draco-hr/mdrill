@@ -1,3 +1,0 @@
-{
-  return DirectoryReader.listCommits(dir);
-}

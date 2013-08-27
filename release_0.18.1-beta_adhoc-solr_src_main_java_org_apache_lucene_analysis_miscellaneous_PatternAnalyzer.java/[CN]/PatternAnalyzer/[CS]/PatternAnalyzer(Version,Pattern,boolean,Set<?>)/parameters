@@ -1,4 +1,0 @@
-Version matchVersion
-Pattern pattern
-boolean toLowerCase
-Set<?> stopWords

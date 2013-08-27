@@ -1,3 +1,0 @@
-{
-  return GRAM_TYPE.equals(typeAttribute.type());
-}

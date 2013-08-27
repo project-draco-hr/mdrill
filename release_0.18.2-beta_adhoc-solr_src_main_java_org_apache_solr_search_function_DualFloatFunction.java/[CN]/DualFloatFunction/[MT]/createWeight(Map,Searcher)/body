@@ -1,4 +1,0 @@
-{
-  a.createWeight(context,searcher);
-  b.createWeight(context,searcher);
-}

@@ -1,5 +1,0 @@
-{
-  super(writer,req,rsp);
-  namedListStyle=StringHelper.intern(req.getParams().get(JSON_NL_STYLE,JSON_NL_FLAT));
-  wrapperFunction=req.getParams().get(JSON_WRAPPER_FUNCTION);
-}

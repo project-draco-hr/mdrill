@@ -1,6 +1,0 @@
-String field
-FieldCache.IntParser parser
-Integer lowerVal
-Integer upperVal
-boolean includeLower
-boolean includeUpper

@@ -1,5 +1,0 @@
-Map<Object,Object> conf
-String stormId
-String tmpJarLocation
-Map<Object,Object> stormConf
-StormTopology topology

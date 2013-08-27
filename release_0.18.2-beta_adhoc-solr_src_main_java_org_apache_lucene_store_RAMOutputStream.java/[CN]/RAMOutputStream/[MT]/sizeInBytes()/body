@@ -1,3 +1,0 @@
-{
-  return file.numBuffers() * BUFFER_SIZE;
-}

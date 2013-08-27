@@ -1,6 +1,0 @@
-{
-  if (registry != null) {
-    return registry.put(name,plugin);
-  }
-  return null;
-}

@@ -1,4 +1,0 @@
-{
-  this.doIndent=doIndent;
-  defaultIndent=doIndent;
-}

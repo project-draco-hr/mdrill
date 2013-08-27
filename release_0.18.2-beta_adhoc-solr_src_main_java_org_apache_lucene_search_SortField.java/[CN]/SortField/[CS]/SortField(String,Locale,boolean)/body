@@ -1,5 +1,0 @@
-{
-  initFieldType(field,STRING);
-  this.locale=locale;
-  this.reverse=reverse;
-}

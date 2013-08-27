@@ -1,4 +1,0 @@
-{
-  this.similarity=similarity == null ? Similarity.getDefault() : similarity;
-  return this;
-}

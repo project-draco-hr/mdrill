@@ -1,6 +1,0 @@
-{
-  super(similarity,w);
-  this.termDocs=reader.termDocs(null);
-  score=w.getValue();
-  this.norms=norms;
-}

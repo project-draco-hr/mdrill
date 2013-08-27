@@ -1,8 +1,0 @@
-{
-  if (!skipcommon) {
-    cleanup_common_stats(stats.getCommon());
-  }
-  cleanup_rolling_stat(stats.getAcked());
-  cleanup_rolling_stat(stats.getFailed());
-  cleanup_rolling_stat(stats.getProcess_latencies());
-}

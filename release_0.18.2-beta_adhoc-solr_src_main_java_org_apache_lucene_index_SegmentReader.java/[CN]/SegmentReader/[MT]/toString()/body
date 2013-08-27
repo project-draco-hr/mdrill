@@ -1,8 +1,0 @@
-{
-  final StringBuilder buffer=new StringBuilder();
-  if (hasChanges) {
-    buffer.append('*');
-  }
-  buffer.append(si.toString(core.dir,pendingDeleteCount));
-  return buffer.toString();
-}

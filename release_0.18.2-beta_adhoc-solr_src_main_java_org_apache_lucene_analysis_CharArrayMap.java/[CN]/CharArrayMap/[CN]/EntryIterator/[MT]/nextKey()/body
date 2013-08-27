@@ -1,4 +1,0 @@
-{
-  goNext();
-  return keys[lastPos];
-}

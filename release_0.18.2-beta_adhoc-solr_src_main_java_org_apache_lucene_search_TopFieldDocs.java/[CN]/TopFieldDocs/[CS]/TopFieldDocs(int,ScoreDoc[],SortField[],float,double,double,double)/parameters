@@ -1,7 +1,0 @@
-int totalHits
-ScoreDoc[] scoreDocs
-SortField[] fields
-float maxScore
-double sum
-double max
-double min

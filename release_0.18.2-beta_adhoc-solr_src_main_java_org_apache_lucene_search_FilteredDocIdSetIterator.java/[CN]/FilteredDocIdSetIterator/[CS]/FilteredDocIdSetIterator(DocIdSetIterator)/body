@@ -1,7 +1,0 @@
-{
-  if (innerIter == null) {
-    throw new IllegalArgumentException("null iterator");
-  }
-  _innerIter=innerIter;
-  doc=-1;
-}

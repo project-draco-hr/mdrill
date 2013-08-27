@@ -1,8 +1,0 @@
-{
-  if (this.size() == 0 && offset == this.start || this.size() > 0 && offset >= this.start && offset <= this.start + this.size() - 1) {
-    return true;
-  }
- else {
-    return false;
-  }
-}

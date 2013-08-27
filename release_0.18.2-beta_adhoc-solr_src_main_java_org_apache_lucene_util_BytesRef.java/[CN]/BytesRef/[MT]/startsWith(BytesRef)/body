@@ -1,3 +1,0 @@
-{
-  return sliceEquals(other,0);
-}

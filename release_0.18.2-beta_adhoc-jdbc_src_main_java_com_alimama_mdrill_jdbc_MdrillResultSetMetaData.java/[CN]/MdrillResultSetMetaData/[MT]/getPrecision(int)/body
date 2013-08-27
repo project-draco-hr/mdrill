@@ -1,4 +1,0 @@
-{
-  int columnType=getColumnType(column);
-  return JdbcColumn.columnPrecision(columnType);
-}

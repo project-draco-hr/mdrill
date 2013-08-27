@@ -1,6 +1,0 @@
-{
-  if (endtime != 0) {
-    this.endtime=endtime;
-  }
-  return this.endtime;
-}

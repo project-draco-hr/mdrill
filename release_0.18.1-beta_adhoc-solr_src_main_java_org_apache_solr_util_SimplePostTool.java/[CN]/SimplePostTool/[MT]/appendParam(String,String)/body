@@ -1,3 +1,0 @@
-{
-  return url + (url.indexOf('?') > 0 ? "&" : "?") + param;
-}

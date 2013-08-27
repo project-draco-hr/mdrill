@@ -1,3 +1,0 @@
-{
-  return TimerThreadHolder.THREAD.counter;
-}

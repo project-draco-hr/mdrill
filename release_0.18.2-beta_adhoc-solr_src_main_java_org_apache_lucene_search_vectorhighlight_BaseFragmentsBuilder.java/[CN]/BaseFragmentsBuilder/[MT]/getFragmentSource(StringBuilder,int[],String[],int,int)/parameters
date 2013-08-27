@@ -1,5 +1,0 @@
-StringBuilder buffer
-int[] index
-String[] values
-int startOffset
-int endOffset

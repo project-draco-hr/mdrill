@@ -1,5 +1,0 @@
-{
-  if (pri > Thread.MAX_PRIORITY || pri < Thread.MIN_PRIORITY)   throw new IllegalArgumentException("priority must be in range " + Thread.MIN_PRIORITY + " .. "+ Thread.MAX_PRIORITY+ " inclusive");
-  mergeThreadPriority=pri;
-  updateMergeThreads();
-}

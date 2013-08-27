@@ -1,5 +1,0 @@
-{
-  final TermRangeQuery query=new TermRangeQuery(field,part1,part2,inclusive,inclusive,rangeCollator);
-  query.setRewriteMethod(multiTermRewriteMethod);
-  return query;
-}

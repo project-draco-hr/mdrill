@@ -1,5 +1,0 @@
-{
-  this.field=field;
-  this.contains=contains;
-  this.setEnum(reader.terms(new Term(this.field)));
-}

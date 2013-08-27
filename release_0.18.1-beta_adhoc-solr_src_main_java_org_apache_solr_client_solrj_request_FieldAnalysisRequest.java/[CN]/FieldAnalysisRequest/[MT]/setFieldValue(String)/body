@@ -1,4 +1,0 @@
-{
-  this.fieldValue=fieldValue;
-  return this;
-}

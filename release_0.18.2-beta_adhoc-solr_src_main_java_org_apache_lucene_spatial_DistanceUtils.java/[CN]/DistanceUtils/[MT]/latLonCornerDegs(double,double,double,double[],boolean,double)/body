@@ -1,6 +1,0 @@
-{
-  result=latLonCorner(latCenter * DEGREES_TO_RADIANS,lonCenter * DEGREES_TO_RADIANS,distance,result,upperRight,sphereRadius);
-  result[0]=result[0] * RADIANS_TO_DEGREES;
-  result[1]=result[1] * RADIANS_TO_DEGREES;
-  return result;
-}

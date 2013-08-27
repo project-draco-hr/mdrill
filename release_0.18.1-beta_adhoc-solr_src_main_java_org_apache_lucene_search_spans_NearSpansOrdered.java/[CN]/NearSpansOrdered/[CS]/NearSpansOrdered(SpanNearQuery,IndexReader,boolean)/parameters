@@ -1,3 +1,0 @@
-SpanNearQuery spanNearQuery
-IndexReader reader
-boolean collectPayloads

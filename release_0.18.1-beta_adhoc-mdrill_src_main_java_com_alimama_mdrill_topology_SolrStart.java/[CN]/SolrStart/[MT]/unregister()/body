@@ -1,6 +1,0 @@
-{
-  jetty.unregister();
-  for (  SolrStartTable table : tables) {
-    table.unregister();
-  }
-}

@@ -1,7 +1,0 @@
-{
-  if (o instanceof char[]) {
-    final char[] text=(char[])o;
-    return get(text,0,text.length);
-  }
-  return get(o.toString());
-}

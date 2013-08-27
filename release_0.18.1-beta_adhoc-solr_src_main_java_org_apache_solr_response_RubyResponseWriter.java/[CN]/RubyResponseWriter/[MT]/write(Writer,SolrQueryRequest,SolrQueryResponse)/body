@@ -1,9 +1,0 @@
-{
-  RubyWriter w=new RubyWriter(writer,req,rsp);
-  try {
-    w.writeResponse();
-  }
-  finally {
-    w.close();
-  }
-}

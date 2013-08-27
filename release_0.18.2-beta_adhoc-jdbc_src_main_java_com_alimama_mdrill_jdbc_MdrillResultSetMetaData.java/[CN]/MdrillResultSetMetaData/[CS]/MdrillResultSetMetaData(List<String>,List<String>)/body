@@ -1,4 +1,0 @@
-{
-  this.columnNames=columnNames;
-  this.columnTypes=columnTypes;
-}

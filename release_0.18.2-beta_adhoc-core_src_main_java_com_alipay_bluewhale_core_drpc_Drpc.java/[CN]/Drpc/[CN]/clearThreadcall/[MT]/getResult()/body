@@ -1,3 +1,0 @@
-{
-  return clearThreadcall.TIMEOUT_CHECK_SECS;
-}

@@ -1,3 +1,0 @@
-{
-  return 8 + 8 + list.length * INT_SIZE;
-}

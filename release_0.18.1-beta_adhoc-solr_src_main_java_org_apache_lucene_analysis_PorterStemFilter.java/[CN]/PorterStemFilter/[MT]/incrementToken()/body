@@ -1,5 +1,0 @@
-{
-  if (!input.incrementToken())   return false;
-  if ((!keywordAttr.isKeyword()) && stemmer.stem(termAtt.buffer(),0,termAtt.length()))   termAtt.copyBuffer(stemmer.getResultBuffer(),0,stemmer.getResultLength());
-  return true;
-}

@@ -1,3 +1,0 @@
-{
-  return (left.length + 2) * INT_SIZE + 16;
-}

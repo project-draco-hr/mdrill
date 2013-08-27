@@ -1,6 +1,0 @@
-{
-  if (!deleted) {
-    deleted=true;
-    commitsToDelete.add(this);
-  }
-}

@@ -1,3 +1,0 @@
-{
-  throw new SolrException(SolrException.ErrorCode.SERVER_ERROR,"The AdminHandler should never be called directly");
-}

@@ -1,6 +1,0 @@
-{
-  if (!(I_p2 <= cursor)) {
-    return false;
-  }
-  return true;
-}

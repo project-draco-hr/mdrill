@@ -1,9 +1,0 @@
-{
-  final IndexReader newReader=IndexReader.openIfChanged(this,openReadOnly);
-  if (newReader == null) {
-    return this;
-  }
- else {
-    return newReader;
-  }
-}

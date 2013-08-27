@@ -1,6 +1,0 @@
-{
-  SolrQueryParser qp=new SolrQueryParser(this,defaultField);
-  String operator=getQueryParserDefaultOperator();
-  qp.setDefaultOperator("AND".equals(operator) ? QueryParser.Operator.AND : QueryParser.Operator.OR);
-  return qp;
-}

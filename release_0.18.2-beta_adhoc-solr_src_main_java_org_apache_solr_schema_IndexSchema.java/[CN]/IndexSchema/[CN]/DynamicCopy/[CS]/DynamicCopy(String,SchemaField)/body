@@ -1,3 +1,0 @@
-{
-  this(regex,targetField,CopyField.UNLIMITED);
-}

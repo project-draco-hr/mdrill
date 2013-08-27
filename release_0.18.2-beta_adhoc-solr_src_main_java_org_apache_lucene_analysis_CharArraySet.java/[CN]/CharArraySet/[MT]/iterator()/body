@@ -1,3 +1,0 @@
-{
-  return map.matchVersion.onOrAfter(Version.LUCENE_31) ? map.originalKeySet().iterator() : (Iterator)stringIterator();
-}

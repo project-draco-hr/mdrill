@@ -1,6 +1,0 @@
-{
-  if (arcs[idx] == null) {
-    arcs[idx]=new FST.Arc<T>();
-  }
-  return arcs[idx];
-}

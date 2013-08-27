@@ -1,4 +1,0 @@
-{
-  this.multipart=multi;
-  this.raw=raw;
-}

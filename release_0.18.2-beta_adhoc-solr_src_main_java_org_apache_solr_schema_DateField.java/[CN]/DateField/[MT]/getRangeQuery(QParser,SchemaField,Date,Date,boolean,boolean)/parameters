@@ -1,6 +1,0 @@
-QParser parser
-SchemaField sf
-Date part1
-Date part2
-boolean minInclusive
-boolean maxInclusive

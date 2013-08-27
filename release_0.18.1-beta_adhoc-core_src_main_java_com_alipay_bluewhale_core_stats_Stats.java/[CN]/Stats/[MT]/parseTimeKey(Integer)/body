@@ -1,8 +1,0 @@
-{
-  if (key == 0) {
-    return "all-time";
-  }
- else {
-    return String.valueOf(key);
-  }
-}

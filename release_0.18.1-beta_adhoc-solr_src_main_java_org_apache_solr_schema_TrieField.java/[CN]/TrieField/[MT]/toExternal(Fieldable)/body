@@ -1,3 +1,0 @@
-{
-  return (type == TrieTypes.DATE) ? dateField.toExternal((Date)toObject(f)) : toObject(f).toString();
-}

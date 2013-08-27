@@ -1,3 +1,0 @@
-{
-  writePrim("bool",name,val,false);
-}

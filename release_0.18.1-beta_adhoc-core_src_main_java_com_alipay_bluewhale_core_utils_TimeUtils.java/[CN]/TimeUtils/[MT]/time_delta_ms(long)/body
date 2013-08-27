@@ -1,3 +1,0 @@
-{
-  return System.currentTimeMillis() - time_ms;
-}

@@ -1,3 +1,0 @@
-{
-  return "SpoutTaskStatsData [common=" + common + ", acked="+ acked+ ", failed="+ failed+ ", complete_latencies="+ complete_latencies+ "]";
-}

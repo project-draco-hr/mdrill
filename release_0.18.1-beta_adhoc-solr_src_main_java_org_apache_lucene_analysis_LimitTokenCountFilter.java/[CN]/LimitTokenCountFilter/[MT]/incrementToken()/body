@@ -1,7 +1,0 @@
-{
-  if (tokenCount < maxTokenCount && input.incrementToken()) {
-    tokenCount++;
-    return true;
-  }
-  return false;
-}

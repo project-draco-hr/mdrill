@@ -1,3 +1,0 @@
-IndexInput skipStream
-int maxSkipLevels
-int skipInterval

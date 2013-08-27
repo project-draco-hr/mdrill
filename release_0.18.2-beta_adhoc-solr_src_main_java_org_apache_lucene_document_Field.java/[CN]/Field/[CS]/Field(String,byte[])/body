@@ -1,3 +1,0 @@
-{
-  this(name,value,0,value.length);
-}

@@ -1,3 +1,0 @@
-{
-  this(input,TOKENS_ONLY,Collections.<String>emptySet());
-}

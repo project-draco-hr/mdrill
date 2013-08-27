@@ -1,3 +1,0 @@
-{
-  UnicodeUtil.UTF16toUTF8(text,offset,length,this);
-}

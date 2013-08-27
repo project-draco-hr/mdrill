@@ -1,7 +1,0 @@
-{
-  String[] suffix={"eraIent","erais","erait","erai","eras","erions","eriez","erons","eront","erez","??rent","era","??es","iez","??e","??s","er","ez","??"};
-  deleteFrom(RV,suffix);
-  String[] search={"assions","assiez","assent","asses","asse","aIent","antes","aIent","Aient","ante","??mes","??tes","ants","ant","ait","a??t","ais","Ait","A??t","Ais","??t","as","ai","Ai","a"};
-  deleteButSuffixFrom(RV,search,"e",true);
-  deleteFrom(R2,new String[]{"ions"});
-}

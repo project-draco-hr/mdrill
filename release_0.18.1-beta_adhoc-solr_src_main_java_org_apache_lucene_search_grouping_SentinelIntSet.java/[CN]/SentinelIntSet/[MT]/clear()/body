@@ -1,4 +1,0 @@
-{
-  Arrays.fill(keys,emptyVal);
-  count=0;
-}

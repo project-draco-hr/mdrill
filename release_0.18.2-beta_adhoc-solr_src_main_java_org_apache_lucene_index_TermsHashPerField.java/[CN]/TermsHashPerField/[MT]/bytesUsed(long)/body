@@ -1,5 +1,0 @@
-{
-  if (perThread.termsHash.trackAllocations) {
-    perThread.termsHash.docWriter.bytesUsed(size);
-  }
-}

@@ -1,5 +1,0 @@
-{
-  initFieldType(field,CUSTOM);
-  this.reverse=reverse;
-  this.comparatorSource=comparator;
-}

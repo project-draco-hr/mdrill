@@ -1,4 +1,0 @@
-{
-  super(ignoringPositions,ignoringOffsets);
-  this.comparator=comparator;
-}

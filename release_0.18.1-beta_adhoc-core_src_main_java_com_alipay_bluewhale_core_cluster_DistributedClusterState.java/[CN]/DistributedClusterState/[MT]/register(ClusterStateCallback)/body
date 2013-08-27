@@ -1,5 +1,0 @@
-{
-  UUID id=UUID.randomUUID();
-  this.callbacks.put(id,callback);
-  return id;
-}

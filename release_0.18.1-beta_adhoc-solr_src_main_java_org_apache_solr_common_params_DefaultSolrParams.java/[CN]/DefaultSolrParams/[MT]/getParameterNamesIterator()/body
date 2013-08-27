@@ -1,6 +1,0 @@
-{
-  final IteratorChain<String> c=new IteratorChain<String>();
-  c.addIterator(defaults.getParameterNamesIterator());
-  c.addIterator(params.getParameterNamesIterator());
-  return c;
-}

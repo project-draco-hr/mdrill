@@ -1,9 +1,0 @@
-{
-  String corename=this.getName();
-  if (corename == null) {
-    corename="";
-  }
-  String partionKey=corename + "@" + partion+ "@"+ SolrResourceLoader.getCacheFlushKey();
-  File f=new File(getDataDir(),partion);
-  return getSearcherByPath(partionKey,f.getAbsolutePath(),mdirs,isclearCache,ishb);
-}

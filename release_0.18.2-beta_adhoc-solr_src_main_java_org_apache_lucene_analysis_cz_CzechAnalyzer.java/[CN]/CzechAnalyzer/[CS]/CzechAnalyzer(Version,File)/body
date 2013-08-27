@@ -1,3 +1,0 @@
-{
-  this(matchVersion,(Set<?>)WordlistLoader.getWordSet(IOUtils.getDecodingReader(stopwords,IOUtils.CHARSET_UTF_8),matchVersion));
-}

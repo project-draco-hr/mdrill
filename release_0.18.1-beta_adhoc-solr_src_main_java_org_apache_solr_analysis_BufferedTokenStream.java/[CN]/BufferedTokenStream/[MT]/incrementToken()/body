@@ -1,9 +1,0 @@
-{
-  while (true) {
-    if (!outQueue.isEmpty())     return writeToken(outQueue.removeFirst());
-    Token t=read();
-    if (null == t)     return false;
-    Token out=process(t);
-    if (null != out)     return writeToken(out);
-  }
-}

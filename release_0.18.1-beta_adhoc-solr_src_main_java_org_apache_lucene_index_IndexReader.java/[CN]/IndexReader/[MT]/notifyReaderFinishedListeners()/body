@@ -1,7 +1,0 @@
-{
-  if (readerFinishedListeners != null) {
-    for (    ReaderFinishedListener listener : readerFinishedListeners) {
-      listener.finished(this);
-    }
-  }
-}

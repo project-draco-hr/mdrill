@@ -1,4 +1,0 @@
-{
-  NamedList lst=new SimpleOrderedMap();
-  return lst;
-}

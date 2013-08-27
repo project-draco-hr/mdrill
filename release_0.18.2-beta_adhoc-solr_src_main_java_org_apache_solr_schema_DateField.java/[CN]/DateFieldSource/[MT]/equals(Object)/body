@@ -1,3 +1,0 @@
-{
-  return o instanceof DateFieldSource && super.equals(o);
-}

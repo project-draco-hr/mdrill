@@ -1,3 +1,0 @@
-{
-  return "BoltTaskStatsData [common=" + common + ", acked="+ acked+ ", failed="+ failed+ ", process_latencies="+ process_latencies+ "]";
-}

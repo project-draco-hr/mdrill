@@ -1,6 +1,0 @@
-{
-  SolrConfig solrConfig=new SolrConfig(config);
-  InputSource is=new InputSource(solrConfig.getResourceLoader().openSchema(schema));
-  this.schema=new IndexSchema(solrConfig,"solrconfig",is);
-  TermInfosWriter.setSchema(this.schema);
-}

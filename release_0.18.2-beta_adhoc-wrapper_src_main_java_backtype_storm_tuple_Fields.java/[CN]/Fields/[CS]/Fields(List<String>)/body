@@ -1,4 +1,0 @@
-{
-  _fields=new ArrayList<String>(fields);
-  index();
-}

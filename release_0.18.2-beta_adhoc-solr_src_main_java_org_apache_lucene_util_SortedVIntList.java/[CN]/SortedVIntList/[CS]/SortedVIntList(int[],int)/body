@@ -1,7 +1,0 @@
-{
-  SortedVIntListBuilder builder=new SortedVIntListBuilder();
-  for (int i=0; i < inputSize; i++) {
-    builder.addInt(sortedInts[i]);
-  }
-  builder.done();
-}

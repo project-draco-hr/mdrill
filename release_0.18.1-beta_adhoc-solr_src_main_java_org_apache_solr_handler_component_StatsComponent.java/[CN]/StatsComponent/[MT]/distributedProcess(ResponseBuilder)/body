@@ -1,3 +1,0 @@
-{
-  return ResponseBuilder.STAGE_DONE;
-}

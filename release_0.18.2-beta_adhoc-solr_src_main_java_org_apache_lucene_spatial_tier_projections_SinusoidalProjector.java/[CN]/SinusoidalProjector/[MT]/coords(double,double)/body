@@ -1,7 +1,0 @@
-{
-  double rlat=Math.toRadians(latitude);
-  double rlong=Math.toRadians(longitude);
-  double nlat=rlong * Math.cos(rlat);
-  double r[]={nlat,rlong};
-  return r;
-}

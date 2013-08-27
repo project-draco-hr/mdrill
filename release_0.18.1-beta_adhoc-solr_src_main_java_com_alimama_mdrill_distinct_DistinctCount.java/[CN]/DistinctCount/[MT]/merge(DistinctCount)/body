@@ -1,8 +1,0 @@
-{
-  int newtimes=Math.max(dc.currentTimes,this.currentTimes);
-  this.reFilter(newtimes);
-  dc.reFilter(newtimes);
-  for (  Integer ucrc : dc.uniq) {
-    this.add(ucrc);
-  }
-}

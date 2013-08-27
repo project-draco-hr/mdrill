@@ -1,3 +1,0 @@
-{
-  return indexPhasesByFieldValue.get(fieldValue).size();
-}

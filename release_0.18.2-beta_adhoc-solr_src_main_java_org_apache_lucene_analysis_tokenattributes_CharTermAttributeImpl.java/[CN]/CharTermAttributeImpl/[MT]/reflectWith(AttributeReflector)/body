@@ -1,3 +1,0 @@
-{
-  reflector.reflect(CharTermAttribute.class,"term",toString());
-}

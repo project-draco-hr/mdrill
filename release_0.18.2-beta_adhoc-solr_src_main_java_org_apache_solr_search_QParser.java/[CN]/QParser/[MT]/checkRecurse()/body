@@ -1,5 +1,0 @@
-{
-  if (recurseCount++ >= 100) {
-    throw new ParseException("Infinite Recursion detected parsing query '" + qstr + "'");
-  }
-}

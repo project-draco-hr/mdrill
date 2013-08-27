@@ -1,9 +1,0 @@
-{
-  if (in != null) {
-    gpos+=end;
-    start=0;
-    int num=in.read(buf,0,buf.length);
-    end=num >= 0 ? num : 0;
-  }
-  if (start >= end)   eof=true;
-}

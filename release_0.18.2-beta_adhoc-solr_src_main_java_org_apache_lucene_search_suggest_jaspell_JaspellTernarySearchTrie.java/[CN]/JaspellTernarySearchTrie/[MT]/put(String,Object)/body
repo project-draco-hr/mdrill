@@ -1,3 +1,0 @@
-{
-  getOrCreateNode(key.trim().toLowerCase()).data=value;
-}

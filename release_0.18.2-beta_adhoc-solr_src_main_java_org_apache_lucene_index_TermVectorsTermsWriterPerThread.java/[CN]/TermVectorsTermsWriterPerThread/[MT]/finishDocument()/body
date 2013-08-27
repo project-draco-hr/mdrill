@@ -1,8 +1,0 @@
-{
-  try {
-    return doc;
-  }
-  finally {
-    doc=null;
-  }
-}

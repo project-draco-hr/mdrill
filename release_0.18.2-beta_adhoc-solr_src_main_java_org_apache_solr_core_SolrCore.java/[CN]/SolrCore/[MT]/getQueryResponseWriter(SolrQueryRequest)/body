@@ -1,3 +1,0 @@
-{
-  return getQueryResponseWriter(request.getParams().get(CommonParams.WT));
-}

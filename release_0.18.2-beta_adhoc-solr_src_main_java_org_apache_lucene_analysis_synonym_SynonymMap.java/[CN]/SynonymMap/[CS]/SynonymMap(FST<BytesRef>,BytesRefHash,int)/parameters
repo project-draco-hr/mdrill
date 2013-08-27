@@ -1,3 +1,0 @@
-FST<BytesRef> fst
-BytesRefHash words
-int maxHorizontalContext

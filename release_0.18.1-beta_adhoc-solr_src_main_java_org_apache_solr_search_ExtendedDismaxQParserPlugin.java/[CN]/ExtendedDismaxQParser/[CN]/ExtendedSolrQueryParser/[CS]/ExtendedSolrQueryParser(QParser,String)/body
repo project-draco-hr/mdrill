@@ -1,5 +1,0 @@
-{
-  super(parser,defaultField,new ExtendedAnalyzer(parser));
-  analyzer=(ExtendedAnalyzer)getAnalyzer();
-  setDefaultOperator(QueryParser.Operator.OR);
-}

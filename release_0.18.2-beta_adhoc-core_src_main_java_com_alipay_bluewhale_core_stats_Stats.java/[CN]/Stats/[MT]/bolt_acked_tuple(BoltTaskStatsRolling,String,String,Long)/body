@@ -1,5 +1,0 @@
-{
-  GlobalStreamId key=new GlobalStreamId(component,stream);
-  update_task_stat(stats,StormUtils.mk_arr("acked"),key,stats_rate(stats));
-  update_task_stat(stats,StormUtils.mk_arr("process_latencies"),key,latency_ms);
-}

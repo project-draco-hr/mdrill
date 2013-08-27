@@ -1,3 +1,0 @@
-{
-  set_serialized_java(ByteBuffer.wrap(value));
-}

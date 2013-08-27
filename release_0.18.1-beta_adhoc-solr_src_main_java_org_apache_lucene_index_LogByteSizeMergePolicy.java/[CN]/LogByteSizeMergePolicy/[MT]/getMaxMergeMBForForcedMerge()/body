@@ -1,3 +1,0 @@
-{
-  return ((double)maxMergeSizeForForcedMerge) / 1024 / 1024;
-}

@@ -1,6 +1,0 @@
-{
-  if (b == 0)   return 0.0f;
-  int bits=(b & 0xff) << (24 - 3);
-  bits+=(63 - 15) << 24;
-  return Float.intBitsToFloat(bits);
-}

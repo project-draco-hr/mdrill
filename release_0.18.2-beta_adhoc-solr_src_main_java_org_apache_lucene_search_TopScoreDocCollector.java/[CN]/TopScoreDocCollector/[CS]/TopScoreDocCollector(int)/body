@@ -1,4 +1,0 @@
-{
-  super(new HitQueue(numHits,true));
-  pqTop=pq.top();
-}

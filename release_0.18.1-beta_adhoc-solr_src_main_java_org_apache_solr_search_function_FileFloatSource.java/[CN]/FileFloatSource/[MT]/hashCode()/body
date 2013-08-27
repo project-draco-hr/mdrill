@@ -1,3 +1,0 @@
-{
-  return FileFloatSource.class.hashCode() + field.getName().hashCode();
-}

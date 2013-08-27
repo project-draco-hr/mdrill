@@ -1,5 +1,0 @@
-{
-  if (!findAndRemoveEnding(stemmingZone,adjectiveEndings))   return false;
-  if (!findAndRemoveEnding(stemmingZone,participleEndings1,participle1Predessors))   findAndRemoveEnding(stemmingZone,participleEndings2);
-  return true;
-}

@@ -1,5 +1,0 @@
-{
-  if (!(o instanceof MatchAllDocsQuery))   return false;
-  MatchAllDocsQuery other=(MatchAllDocsQuery)o;
-  return this.getBoost() == other.getBoost();
-}

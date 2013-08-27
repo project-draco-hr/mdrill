@@ -1,5 +1,0 @@
-{
-  deactivate_args args=new deactivate_args();
-  args.set_name(name);
-  sendBase("deactivate",args);
-}

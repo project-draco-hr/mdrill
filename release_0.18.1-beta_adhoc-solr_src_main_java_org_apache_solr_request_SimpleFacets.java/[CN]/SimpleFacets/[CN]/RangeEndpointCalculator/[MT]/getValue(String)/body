@@ -1,8 +1,0 @@
-{
-  try {
-    return parseVal(rawval);
-  }
- catch (  Exception e) {
-    throw new SolrException(SolrException.ErrorCode.BAD_REQUEST,"Can't parse value " + rawval + " for field: "+ field.getName(),e);
-  }
-}

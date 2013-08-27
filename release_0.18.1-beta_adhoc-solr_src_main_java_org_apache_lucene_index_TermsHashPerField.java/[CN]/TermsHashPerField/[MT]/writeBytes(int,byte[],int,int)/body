@@ -1,4 +1,0 @@
-{
-  final int end=offset + len;
-  for (int i=offset; i < end; i++)   writeByte(stream,b[i]);
-}

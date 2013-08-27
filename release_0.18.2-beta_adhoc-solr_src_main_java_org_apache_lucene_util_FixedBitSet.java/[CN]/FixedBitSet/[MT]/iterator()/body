@@ -1,3 +1,0 @@
-{
-  return new OpenBitSetIterator(bits,bits.length);
-}

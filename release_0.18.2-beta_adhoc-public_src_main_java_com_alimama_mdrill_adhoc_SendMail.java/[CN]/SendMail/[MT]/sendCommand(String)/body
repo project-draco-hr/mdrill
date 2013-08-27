@@ -1,6 +1,0 @@
-{
-  if (output == null || command == null || command.length() < 1) {
-    return;
-  }
-  output.print(command);
-}

@@ -1,3 +1,0 @@
-{
-  writeInt(name,Short.toString(val));
-}

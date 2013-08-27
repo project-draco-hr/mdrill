@@ -1,4 +1,0 @@
-{
-  this.reporterror=_reporterror;
-  this.haltfn=_haltfn;
-}

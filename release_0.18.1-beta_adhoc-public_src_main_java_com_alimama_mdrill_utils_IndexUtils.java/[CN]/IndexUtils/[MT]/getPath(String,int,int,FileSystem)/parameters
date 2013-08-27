@@ -1,4 +1,0 @@
-String storePath
-int taskIndex
-int offset
-FileSystem lfs

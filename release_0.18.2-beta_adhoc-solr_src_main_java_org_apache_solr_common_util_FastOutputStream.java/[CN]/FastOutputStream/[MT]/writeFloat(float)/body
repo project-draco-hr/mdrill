@@ -1,3 +1,0 @@
-{
-  writeInt(Float.floatToRawIntBits(v));
-}

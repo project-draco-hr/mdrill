@@ -1,3 +1,0 @@
-{
-  return ClientUtils.toContentStreams(getXML(),ClientUtils.TEXT_XML);
-}

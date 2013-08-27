@@ -1,5 +1,0 @@
-char[] newTermBuffer
-int newTermOffset
-int newTermLength
-int newStartOffset
-int newEndOffset

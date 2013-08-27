@@ -1,4 +1,0 @@
-{
-  super(enablePositionIncrements,in);
-  this.words=words;
-}

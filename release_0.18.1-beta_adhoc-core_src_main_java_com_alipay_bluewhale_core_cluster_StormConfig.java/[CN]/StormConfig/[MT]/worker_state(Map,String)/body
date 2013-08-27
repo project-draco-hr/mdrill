@@ -1,5 +1,0 @@
-{
-  String path=worker_heartbeats_root(conf,id);
-  LocalState rtn=new LocalState(path);
-  return rtn;
-}

@@ -1,3 +1,0 @@
-{
-  this(filter,DeletesMode.IGNORE);
-}

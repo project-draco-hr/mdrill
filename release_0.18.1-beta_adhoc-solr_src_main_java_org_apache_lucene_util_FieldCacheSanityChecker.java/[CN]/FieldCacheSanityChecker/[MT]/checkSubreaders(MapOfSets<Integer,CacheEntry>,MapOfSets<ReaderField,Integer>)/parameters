@@ -1,2 +1,0 @@
-MapOfSets<Integer,CacheEntry> valIdToItems
-MapOfSets<ReaderField,Integer> readerFieldToValIds

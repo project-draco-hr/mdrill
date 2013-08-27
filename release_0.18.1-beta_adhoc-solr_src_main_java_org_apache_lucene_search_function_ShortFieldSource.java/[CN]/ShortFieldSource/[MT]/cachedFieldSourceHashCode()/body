@@ -1,3 +1,0 @@
-{
-  return parser == null ? Short.class.hashCode() : parser.getClass().hashCode();
-}

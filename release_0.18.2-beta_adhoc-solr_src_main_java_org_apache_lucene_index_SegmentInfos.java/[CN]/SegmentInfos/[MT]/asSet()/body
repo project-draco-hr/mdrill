@@ -1,6 +1,0 @@
-{
-  if (cachedUnmodifiableSet == null) {
-    cachedUnmodifiableSet=Collections.unmodifiableSet(segmentSet);
-  }
-  return cachedUnmodifiableSet;
-}

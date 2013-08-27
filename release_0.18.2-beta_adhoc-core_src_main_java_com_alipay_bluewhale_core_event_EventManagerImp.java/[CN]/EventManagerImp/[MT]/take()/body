@@ -1,4 +1,0 @@
-{
-  RunnableCallback event=queue.take();
-  return event;
-}

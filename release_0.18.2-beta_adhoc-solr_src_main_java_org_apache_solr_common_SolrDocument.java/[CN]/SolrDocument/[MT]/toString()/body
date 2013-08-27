@@ -1,3 +1,0 @@
-{
-  return "SolrDocument[" + _fields.toString() + "]";
-}

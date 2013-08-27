@@ -1,5 +1,0 @@
-{
-  if (jj_scan_token(K_ELSE))   return true;
-  if (jj_3R_69())   return true;
-  return false;
-}

@@ -1,3 +1,0 @@
-{
-  return new StreamInfo(fields,true);
-}

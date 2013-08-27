@@ -1,3 +1,0 @@
-{
-  addContentStream(new ContentStreamBase.FileStream(file));
-}

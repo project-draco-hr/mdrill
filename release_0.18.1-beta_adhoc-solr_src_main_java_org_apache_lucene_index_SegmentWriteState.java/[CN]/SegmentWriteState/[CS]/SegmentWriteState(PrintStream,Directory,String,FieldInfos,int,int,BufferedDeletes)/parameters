@@ -1,7 +1,0 @@
-PrintStream infoStream
-Directory directory
-String segmentName
-FieldInfos fieldInfos
-int numDocs
-int termIndexInterval
-BufferedDeletes segDeletes

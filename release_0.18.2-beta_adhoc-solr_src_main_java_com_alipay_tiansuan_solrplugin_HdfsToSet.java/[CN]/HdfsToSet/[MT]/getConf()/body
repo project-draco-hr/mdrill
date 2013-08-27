@@ -1,3 +1,0 @@
-{
-  return HadoopUtil.getConf(Utils.readStormConfig());
-}

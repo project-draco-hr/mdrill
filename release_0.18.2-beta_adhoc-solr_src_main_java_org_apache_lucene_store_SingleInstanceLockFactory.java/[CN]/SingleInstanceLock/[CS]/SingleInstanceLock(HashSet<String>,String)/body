@@ -1,4 +1,0 @@
-{
-  this.locks=locks;
-  this.lockName=lockName;
-}

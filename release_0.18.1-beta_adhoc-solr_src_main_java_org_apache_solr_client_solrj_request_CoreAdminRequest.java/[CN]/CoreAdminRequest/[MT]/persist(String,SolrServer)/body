@@ -1,5 +1,0 @@
-{
-  CoreAdminRequest.Persist req=new CoreAdminRequest.Persist();
-  req.setFileName(fileName);
-  return req.process(server);
-}

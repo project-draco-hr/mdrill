@@ -1,9 +1,0 @@
-{
-  try {
-    return java.net.URLEncoder.encode(s,"utf8");
-  }
- catch (  UnsupportedEncodingException e) {
-    LOG.error("eocode for " + s,e);
-    return s.replaceAll(UniqConfig.GroupJoinString(),"");
-  }
-}

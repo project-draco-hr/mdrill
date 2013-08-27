@@ -1,7 +1,0 @@
-{
-  if (this.active.get()) {
-    String key=Config.WORKER_HEARTBEAT_FREQUENCY_SECS;
-    return StormUtils.parseInt(conf.get(key));
-  }
-  return -1;
-}

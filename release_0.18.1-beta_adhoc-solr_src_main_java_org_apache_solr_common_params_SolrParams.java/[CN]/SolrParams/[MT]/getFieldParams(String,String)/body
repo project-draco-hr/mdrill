@@ -1,4 +1,0 @@
-{
-  String[] val=getParams(fpname(field,param));
-  return val != null ? val : getParams(param);
-}

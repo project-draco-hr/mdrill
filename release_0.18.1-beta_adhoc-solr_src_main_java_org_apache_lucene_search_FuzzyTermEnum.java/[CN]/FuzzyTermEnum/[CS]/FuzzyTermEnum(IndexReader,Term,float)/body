@@ -1,3 +1,0 @@
-{
-  this(reader,term,minSimilarity,FuzzyQuery.defaultPrefixLength);
-}

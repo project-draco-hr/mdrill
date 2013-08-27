@@ -1,3 +1,0 @@
-{
-  return getLocalizedMessage(key,Locale.getDefault(),args);
-}

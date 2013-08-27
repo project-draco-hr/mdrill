@@ -1,5 +1,0 @@
-{
-  UAX29URLEmailTokenizer tokenizer=new UAX29URLEmailTokenizer(luceneMatchVersion,input);
-  tokenizer.setMaxTokenLength(maxTokenLength);
-  return tokenizer;
-}

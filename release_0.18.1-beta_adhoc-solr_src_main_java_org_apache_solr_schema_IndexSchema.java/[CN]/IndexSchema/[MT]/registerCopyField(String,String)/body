@@ -1,3 +1,0 @@
-{
-  registerCopyField(source,dest,CopyField.UNLIMITED);
-}

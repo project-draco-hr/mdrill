@@ -1,9 +1,0 @@
-{
-  try {
-    if (lastVectorFieldName != null)     return lastVectorFieldName.compareTo(fi.name) < 0;
- else     return true;
-  }
-  finally {
-    lastVectorFieldName=fi.name;
-  }
-}

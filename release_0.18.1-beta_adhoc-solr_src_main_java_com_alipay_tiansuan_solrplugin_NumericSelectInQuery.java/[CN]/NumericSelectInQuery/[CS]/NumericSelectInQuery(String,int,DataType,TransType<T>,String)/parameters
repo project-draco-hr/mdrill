@@ -1,5 +1,0 @@
-String field
-int precisionStep
-DataType dataType
-TransType<T> trans
-String file

@@ -1,4 +1,0 @@
-String type
-Map<String,String> attrs
-NamedList initArgs
-List<PluginInfo> children

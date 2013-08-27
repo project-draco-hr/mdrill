@@ -1,6 +1,0 @@
-{
-  RunnableCallback updater=new IncValUpdater();
-  RunnableCallback merger=new IncValMerger();
-  RunnableCallback extractor=new IncValExtractor();
-  return RollingWindowSetStat.rolling_window_set(updater,merger,extractor,num_buckets,bucket_sizes);
-}

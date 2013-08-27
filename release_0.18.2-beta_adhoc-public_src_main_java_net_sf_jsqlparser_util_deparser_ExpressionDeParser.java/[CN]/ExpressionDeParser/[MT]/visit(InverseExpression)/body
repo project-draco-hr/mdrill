@@ -1,4 +1,0 @@
-{
-  buffer.append("-");
-  inverseExpression.getExpression().accept(this);
-}

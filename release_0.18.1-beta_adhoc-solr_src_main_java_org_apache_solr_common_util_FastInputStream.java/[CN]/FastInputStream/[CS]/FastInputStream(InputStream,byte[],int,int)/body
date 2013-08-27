@@ -1,6 +1,0 @@
-{
-  this.in=in;
-  this.buf=tempBuffer;
-  this.pos=start;
-  this.end=end;
-}

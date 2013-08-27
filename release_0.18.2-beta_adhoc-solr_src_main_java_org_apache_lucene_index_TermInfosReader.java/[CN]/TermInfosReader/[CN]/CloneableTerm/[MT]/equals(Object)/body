@@ -1,4 +1,0 @@
-{
-  CloneableTerm other=(CloneableTerm)_other;
-  return term.equals(other.term);
-}

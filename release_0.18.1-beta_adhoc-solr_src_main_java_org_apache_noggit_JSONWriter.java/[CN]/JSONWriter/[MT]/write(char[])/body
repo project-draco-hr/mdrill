@@ -1,3 +1,0 @@
-{
-  JSONUtil.writeString(val,0,val.length,out);
-}

@@ -1,3 +1,0 @@
-{
-  _httpClient.getParams().setConnectionManagerTimeout(timeout);
-}

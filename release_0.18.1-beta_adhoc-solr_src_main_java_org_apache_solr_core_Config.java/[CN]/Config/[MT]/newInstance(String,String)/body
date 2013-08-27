@@ -1,3 +1,0 @@
-{
-  return loader.newInstance(cname,subpackages);
-}

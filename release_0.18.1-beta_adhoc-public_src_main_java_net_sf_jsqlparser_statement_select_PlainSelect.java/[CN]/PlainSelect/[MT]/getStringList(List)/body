@@ -1,3 +1,0 @@
-{
-  return getStringList(list,true,false);
-}

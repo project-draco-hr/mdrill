@@ -1,8 +1,0 @@
-{
-  token=new StringBuilder();
-  parser=createParser();
-  parser.setContentHandler(this);
-  parser.setErrorHandler(this);
-  parser.setEntityResolver(this);
-  hyphenChar='-';
-}

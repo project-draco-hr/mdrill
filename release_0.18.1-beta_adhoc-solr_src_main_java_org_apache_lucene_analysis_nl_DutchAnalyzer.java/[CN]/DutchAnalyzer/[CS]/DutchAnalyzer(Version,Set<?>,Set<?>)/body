@@ -1,5 +1,0 @@
-{
-  stoptable=CharArraySet.unmodifiableSet(CharArraySet.copy(matchVersion,stopwords));
-  excltable=CharArraySet.unmodifiableSet(CharArraySet.copy(matchVersion,stemExclusionTable));
-  this.matchVersion=matchVersion;
-}

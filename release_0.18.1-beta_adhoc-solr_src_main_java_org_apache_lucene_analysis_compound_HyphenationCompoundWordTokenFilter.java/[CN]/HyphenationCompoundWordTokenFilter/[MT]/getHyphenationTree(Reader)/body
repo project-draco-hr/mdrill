@@ -1,5 +1,0 @@
-{
-  final InputSource is=new InputSource(hyphenationReader);
-  is.setSystemId("urn:java:" + HyphenationTree.class.getName());
-  return getHyphenationTree(is);
-}

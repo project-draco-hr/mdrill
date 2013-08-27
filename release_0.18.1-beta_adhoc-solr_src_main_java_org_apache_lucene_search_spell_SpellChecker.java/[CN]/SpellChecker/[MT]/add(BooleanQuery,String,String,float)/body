@@ -1,5 +1,0 @@
-{
-  Query tq=new TermQuery(new Term(name,value));
-  tq.setBoost(boost);
-  q.add(new BooleanClause(tq,BooleanClause.Occur.SHOULD));
-}

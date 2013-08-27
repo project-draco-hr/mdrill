@@ -1,8 +1,0 @@
-{
-  super(input);
-  this.pattern=pattern;
-  this.group=group;
-  str=IOUtils.toString(input);
-  matcher=pattern.matcher(str);
-  index=0;
-}

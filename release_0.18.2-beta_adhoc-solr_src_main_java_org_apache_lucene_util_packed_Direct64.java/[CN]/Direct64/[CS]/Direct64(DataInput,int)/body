@@ -1,8 +1,0 @@
-{
-  super(valueCount,BITS_PER_VALUE);
-  long[] values=new long[valueCount];
-  for (int i=0; i < valueCount; i++) {
-    values[i]=in.readLong();
-  }
-  this.values=values;
-}

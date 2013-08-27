@@ -1,6 +1,0 @@
-Map conf
-String supervisor_id
-String storm_id
-Integer port
-IContext mq_context
-Set<Integer> task_ids

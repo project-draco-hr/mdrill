@@ -1,3 +1,0 @@
-{
-  set_success(success == null ? (ByteBuffer)null : ByteBuffer.wrap(success));
-}

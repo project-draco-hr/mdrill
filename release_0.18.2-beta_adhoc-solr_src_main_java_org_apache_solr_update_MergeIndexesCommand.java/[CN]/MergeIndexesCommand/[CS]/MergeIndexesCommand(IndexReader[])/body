@@ -1,4 +1,0 @@
-{
-  super("mergeIndexes");
-  this.readers=readers;
-}

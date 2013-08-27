@@ -1,5 +1,0 @@
-Context context
-Socket socket
-Map<Integer,Socket> virtual_mapping
-String url
-Set<Integer> valid_ports

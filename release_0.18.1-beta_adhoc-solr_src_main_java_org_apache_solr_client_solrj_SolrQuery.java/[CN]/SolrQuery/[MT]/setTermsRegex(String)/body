@@ -1,4 +1,0 @@
-{
-  this.set(TermsParams.TERMS_REGEXP_STR,regex);
-  return this;
-}

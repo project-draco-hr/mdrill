@@ -1,5 +1,0 @@
-{
-  for (int i=0; i < fields.length; i++) {
-    readTermVector(fields[i],tvfPointers[i],mapper);
-  }
-}

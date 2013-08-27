@@ -1,3 +1,0 @@
-{
-  return new Rectangle(ll.getLng(),ll.getLat(),ur.getLng(),ur.getLat());
-}

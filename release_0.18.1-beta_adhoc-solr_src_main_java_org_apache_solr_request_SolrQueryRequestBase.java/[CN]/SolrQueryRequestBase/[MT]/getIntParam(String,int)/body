@@ -1,4 +1,0 @@
-{
-  String s=getParam(name);
-  return s == null ? defval : Integer.parseInt(s);
-}

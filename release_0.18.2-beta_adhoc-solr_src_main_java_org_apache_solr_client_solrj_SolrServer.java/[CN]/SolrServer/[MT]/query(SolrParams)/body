@@ -1,3 +1,0 @@
-{
-  return new QueryRequest(params).process(this);
-}

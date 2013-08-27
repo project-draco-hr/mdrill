@@ -1,3 +1,0 @@
-{
-  return (not ? "NOT " : "") + getLeftExpression() + " "+ getStringExpression()+ " "+ getRightExpression();
-}

@@ -1,3 +1,0 @@
-{
-  this(in,WordDelimiterIterator.DEFAULT_WORD_DELIM_TABLE,generateWordParts,generateNumberParts,catenateWords,catenateNumbers,catenateAll,1,0,1,null);
-}

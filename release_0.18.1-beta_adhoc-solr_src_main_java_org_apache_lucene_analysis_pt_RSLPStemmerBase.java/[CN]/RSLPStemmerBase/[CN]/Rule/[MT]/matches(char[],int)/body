@@ -1,3 +1,0 @@
-{
-  return (len - suffix.length >= min && endsWith(s,len,suffix));
-}

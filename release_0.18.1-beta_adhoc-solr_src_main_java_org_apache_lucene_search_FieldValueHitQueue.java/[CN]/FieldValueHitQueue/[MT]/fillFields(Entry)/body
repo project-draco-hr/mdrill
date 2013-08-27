@@ -1,8 +1,0 @@
-{
-  final int n=comparators.length;
-  final Object[] fields=new Object[n];
-  for (int i=0; i < n; ++i) {
-    fields[i]=comparators[i].value(entry.slot);
-  }
-  return new FieldDoc(entry.doc,entry.score,fields);
-}

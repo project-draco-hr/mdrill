@@ -1,3 +1,0 @@
-{
-  return "<pair:" + outputs1.outputToString(output.output1) + ","+ outputs2.outputToString(output.output2)+ ">";
-}

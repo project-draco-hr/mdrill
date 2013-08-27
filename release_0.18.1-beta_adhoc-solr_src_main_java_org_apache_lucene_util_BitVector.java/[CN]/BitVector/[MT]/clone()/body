@@ -1,7 +1,0 @@
-{
-  byte[] copyBits=new byte[bits.length];
-  System.arraycopy(bits,0,copyBits,0,bits.length);
-  BitVector clone=new BitVector(copyBits,size);
-  clone.count=count;
-  return clone;
-}

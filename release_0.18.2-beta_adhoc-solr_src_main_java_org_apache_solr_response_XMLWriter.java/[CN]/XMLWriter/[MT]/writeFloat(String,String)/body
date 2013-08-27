@@ -1,3 +1,0 @@
-{
-  writePrim("float",name,val,false);
-}

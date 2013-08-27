@@ -1,8 +1,0 @@
-{
-  final SegmentReader sr=readerMap.get(info);
-  if (sr != null) {
-    sr.hasChanges=false;
-    readerMap.remove(info);
-    sr.close();
-  }
-}

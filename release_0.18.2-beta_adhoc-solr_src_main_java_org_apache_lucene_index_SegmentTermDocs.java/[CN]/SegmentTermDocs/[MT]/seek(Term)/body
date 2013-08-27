@@ -1,4 +1,0 @@
-{
-  TermInfo ti=parent.core.getTermsReader().get(term);
-  seek(ti,term);
-}

@@ -1,9 +1,0 @@
-{
-  this.text=text;
-  this.rawText=rawText;
-  this.type=type;
-  this.start=start;
-  this.end=end;
-  this.position=position;
-  this.match=match;
-}

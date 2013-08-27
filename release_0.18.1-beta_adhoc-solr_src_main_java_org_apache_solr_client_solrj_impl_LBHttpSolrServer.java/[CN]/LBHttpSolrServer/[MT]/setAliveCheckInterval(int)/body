@@ -1,6 +1,0 @@
-{
-  if (interval <= 0) {
-    throw new IllegalArgumentException("Alive check interval must be " + "positive, specified value = " + interval);
-  }
-  this.interval=interval;
-}

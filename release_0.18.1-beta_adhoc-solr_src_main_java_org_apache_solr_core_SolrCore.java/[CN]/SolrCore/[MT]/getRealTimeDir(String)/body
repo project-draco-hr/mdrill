@@ -1,5 +1,0 @@
-{
-synchronized (searcherLock) {
-    return this.getIndexDir(partion) + "/realtime";
-  }
-}

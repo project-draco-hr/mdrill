@@ -1,7 +1,0 @@
-{
-  if (caseIndependent) {
-    c1=Character.toLowerCase(c1);
-    c2=Character.toLowerCase(c2);
-  }
-  return ((int)c1 - (int)c2);
-}

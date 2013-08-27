@@ -1,2 +1,0 @@
-SolrIndexReader other
-HashMap<IndexReader,SolrReaderInfo> map

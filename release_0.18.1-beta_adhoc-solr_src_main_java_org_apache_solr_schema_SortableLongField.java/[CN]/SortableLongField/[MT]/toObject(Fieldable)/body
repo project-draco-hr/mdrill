@@ -1,3 +1,0 @@
-{
-  return NumberUtils.SortableStr2long(f.stringValue(),0,5);
-}
