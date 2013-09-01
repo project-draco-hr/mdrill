@@ -1,0 +1,31 @@
+{
+  boolean found=false;
+  long off=this.length - minDistanceFromEnd;
+  final long stopSearching=Math.max(0L,this.length - maxDistanceFromEnd);
+  if (off >= 0) {
+    for (; off >= stopSearching; off--) {
+      archive.seek(off);
+      int curr=archive.read();
+      if (curr == -1) {
+        break;
+      }
+      if (curr == sig[POS_0]) {
+        curr=archive.read();
+        if (curr == sig[POS_1]) {
+          curr=archive.read();
+          if (curr == sig[POS_2]) {
+            curr=archive.read();
+            if (curr == sig[POS_3]) {
+              found=true;
+              break;
+            }
+          }
+        }
+      }
+    }
+  }
+  if (found) {
+    archive.seek(off);
+  }
+  return found;
+}

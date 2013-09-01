@@ -1,0 +1,6 @@
+{
+  this((java.util.zip.ZipEntry)entry);
+  setInternalAttributes(entry.getInternalAttributes());
+  setExternalAttributes(entry.getExternalAttributes());
+  setExtraFields(entry.getExtraFields(true));
+}

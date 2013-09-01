@@ -1,9 +1,4 @@
 {
   if (!rb.doFacets)   return;
-  if ((sreq.purpose & ShardRequest.PURPOSE_GET_FACETS) != 0) {
-    countFacets(rb,sreq);
-  }
- else   if ((sreq.purpose & ShardRequest.PURPOSE_REFINE_FACETS) != 0) {
-    refineFacets(rb,sreq);
-  }
+  countFacets(rb,sreq);
 }

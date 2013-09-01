@@ -1,0 +1,28 @@
+{
+  long save=raf.getFilePointer();
+  raf.seek(entry.localDataStart);
+  writeOut(ZipLong.getBytes(entry.entry.getCrc()));
+  if (!hasZip64Extra(entry.entry) || !actuallyNeedsZip64) {
+    writeOut(ZipLong.getBytes(entry.entry.getCompressedSize()));
+    writeOut(ZipLong.getBytes(entry.entry.getSize()));
+  }
+ else {
+    writeOut(ZipLong.ZIP64_MAGIC.getBytes());
+    writeOut(ZipLong.ZIP64_MAGIC.getBytes());
+  }
+  if (hasZip64Extra(entry.entry)) {
+    raf.seek(entry.localDataStart + 3 * WORD + 2 * SHORT + getName(entry.entry).limit() + 2 * SHORT);
+    writeOut(ZipEightByteInteger.getBytes(entry.entry.getSize()));
+    writeOut(ZipEightByteInteger.getBytes(entry.entry.getCompressedSize()));
+    if (!actuallyNeedsZip64) {
+      raf.seek(entry.localDataStart - 5 * SHORT);
+      writeOut(ZipShort.getBytes(INITIAL_VERSION));
+      entry.entry.removeExtraField(Zip64ExtendedInformationExtraField.HEADER_ID);
+      entry.entry.setExtra();
+      if (entry.causedUseOfZip64) {
+        hasUsedZip64=false;
+      }
+    }
+  }
+  raf.seek(save);
+}

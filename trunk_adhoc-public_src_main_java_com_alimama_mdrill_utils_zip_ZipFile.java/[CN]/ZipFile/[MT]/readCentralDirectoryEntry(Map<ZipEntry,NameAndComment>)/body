@@ -1,0 +1,53 @@
+{
+  archive.readFully(CFH_BUF);
+  int off=0;
+  OffsetEntry offset=new OffsetEntry();
+  Entry ze=new Entry(offset);
+  int versionMadeBy=ZipShort.getValue(CFH_BUF,off);
+  off+=SHORT;
+  ze.setPlatform((versionMadeBy >> BYTE_SHIFT) & NIBLET_MASK);
+  off+=SHORT;
+  final GeneralPurposeBit gpFlag=GeneralPurposeBit.parse(CFH_BUF,off);
+  final boolean hasUTF8Flag=gpFlag.usesUTF8ForNames();
+  final ZipEncoding entryEncoding=hasUTF8Flag ? ZipEncodingHelper.UTF8_ZIP_ENCODING : zipEncoding;
+  ze.setGeneralPurposeBit(gpFlag);
+  off+=SHORT;
+  ze.setMethod(ZipShort.getValue(CFH_BUF,off));
+  off+=SHORT;
+  long time=ZipUtil.dosToJavaTime(ZipLong.getValue(CFH_BUF,off));
+  ze.setTime(time);
+  off+=WORD;
+  ze.setCrc(ZipLong.getValue(CFH_BUF,off));
+  off+=WORD;
+  ze.setCompressedSize(ZipLong.getValue(CFH_BUF,off));
+  off+=WORD;
+  ze.setSize(ZipLong.getValue(CFH_BUF,off));
+  off+=WORD;
+  int fileNameLen=ZipShort.getValue(CFH_BUF,off);
+  off+=SHORT;
+  int extraLen=ZipShort.getValue(CFH_BUF,off);
+  off+=SHORT;
+  int commentLen=ZipShort.getValue(CFH_BUF,off);
+  off+=SHORT;
+  int diskStart=ZipShort.getValue(CFH_BUF,off);
+  off+=SHORT;
+  ze.setInternalAttributes(ZipShort.getValue(CFH_BUF,off));
+  off+=SHORT;
+  ze.setExternalAttributes(ZipLong.getValue(CFH_BUF,off));
+  off+=WORD;
+  byte[] fileName=new byte[fileNameLen];
+  archive.readFully(fileName);
+  ze.setName(entryEncoding.decode(fileName),fileName);
+  offset.headerOffset=ZipLong.getValue(CFH_BUF,off);
+  entries.add(ze);
+  byte[] cdExtraData=new byte[extraLen];
+  archive.readFully(cdExtraData);
+  ze.setCentralDirectoryExtra(cdExtraData);
+  setSizesAndOffsetFromZip64Extra(ze,offset,diskStart);
+  byte[] comment=new byte[commentLen];
+  archive.readFully(comment);
+  ze.setComment(entryEncoding.decode(comment));
+  if (!hasUTF8Flag && useUnicodeExtraFields) {
+    noUTF8Flag.put(ze,new NameAndComment(fileName,comment));
+  }
+}

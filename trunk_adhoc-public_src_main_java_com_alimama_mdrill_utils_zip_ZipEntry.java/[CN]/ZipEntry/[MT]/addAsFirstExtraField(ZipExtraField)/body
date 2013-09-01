@@ -1,0 +1,15 @@
+{
+  if (ze instanceof UnparseableExtraFieldData) {
+    unparseableExtra=(UnparseableExtraFieldData)ze;
+  }
+ else {
+    LinkedHashMap<ZipShort,ZipExtraField> copy=extraFields;
+    extraFields=new LinkedHashMap<ZipShort,ZipExtraField>();
+    extraFields.put(ze.getHeaderId(),ze);
+    if (copy != null) {
+      copy.remove(ze.getHeaderId());
+      extraFields.putAll(copy);
+    }
+  }
+  setExtra();
+}

@@ -1,0 +1,3 @@
+{
+  return mode == Zip64Mode.Always || entry.getSize() >= ZIP64_MAGIC || entry.getCompressedSize() >= ZIP64_MAGIC || (entry.getSize() == -1 && raf != null && mode != Zip64Mode.Never);
+}

@@ -1,0 +1,4 @@
+boolean hasUncompressedSize
+boolean hasCompressedSize
+boolean hasRelativeHeaderOffset
+boolean hasDiskStart

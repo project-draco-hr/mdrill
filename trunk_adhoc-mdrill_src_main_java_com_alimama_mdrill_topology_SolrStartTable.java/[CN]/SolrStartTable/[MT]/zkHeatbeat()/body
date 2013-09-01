@@ -4,7 +4,7 @@
     Integer bindport=this.getBindPort();
     Long hbtime=statcollect.getLastTime();
     HashMap<String,ShardCount> daystat=this.partstat.getExtaCount();
-    SolrInfo info=new SolrInfo(this.isRealTime,localSolrPath.toString(),hdfsIndexpath.toString(),hdfsforder,bindport,statcollect.getStat(),this.partstat.getPartioncount(),daystat,statcollect.getSetupTime(),hbtime,this.isMergeServer);
+    SolrInfo info=new SolrInfo(this.params.replication,this.params.replicationindex,this.taskIndex,this.isRealTime,localSolrPath.toString(),hdfsIndexpath.toString(),hdfsforder,bindport,statcollect.getStat(),this.partstat.getPartioncount(),daystat,statcollect.getSetupTime(),hbtime,this.isMergeServer);
     LOG.info("higolog zkHeatbeat " + this.tablename + ",info:"+ info.toString());
     Worker.getCluster().higo_heartbeat(this.tablename,this.taskid,info);
   }

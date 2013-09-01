@@ -3,8 +3,10 @@
   Configuration conf=context.getConfiguration();
   FileSystem fs=FileSystem.get(conf);
   String outputdir=conf.get("mapred.output.dir");
+  String uuid=java.util.UUID.randomUUID().toString();
   indexHdfsPath=new Path(outputdir,part_xxxxx).toString();
-  tmpath=new Path(outputdir + "/_tmpindex",part_xxxxx + "_" + java.util.UUID.randomUUID().toString()).toString();
+  tmpath=new Path(outputdir + "/_tmpindex",part_xxxxx + "_" + uuid).toString();
+  tmpathzip=new Path(outputdir + "/_tmpindex",part_xxxxx + "_zip_" + uuid).toString();
   ShardWriter shardWriter=new ShardWriter(fs,tmpath,conf);
   return shardWriter;
 }

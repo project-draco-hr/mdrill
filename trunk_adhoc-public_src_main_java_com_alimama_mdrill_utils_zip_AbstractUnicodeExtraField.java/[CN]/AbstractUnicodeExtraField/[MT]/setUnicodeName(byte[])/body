@@ -1,0 +1,10 @@
+{
+  if (unicodeName != null) {
+    this.unicodeName=new byte[unicodeName.length];
+    System.arraycopy(unicodeName,0,this.unicodeName,0,unicodeName.length);
+  }
+ else {
+    this.unicodeName=null;
+  }
+  data=null;
+}

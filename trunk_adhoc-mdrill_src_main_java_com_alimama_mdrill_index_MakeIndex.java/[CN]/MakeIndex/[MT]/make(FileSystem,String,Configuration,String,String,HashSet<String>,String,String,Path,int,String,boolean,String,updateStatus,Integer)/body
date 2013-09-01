@@ -1,0 +1,3 @@
+{
+  return make(fs,solrHome,jconf,filetype,inputBase,inputs,inputmatch,output,smallindex,shards,split,usedthedate,custFields,update,"",parallel);
+}

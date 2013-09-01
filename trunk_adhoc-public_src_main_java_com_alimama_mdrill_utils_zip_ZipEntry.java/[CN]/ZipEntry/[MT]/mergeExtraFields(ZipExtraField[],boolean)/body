@@ -1,0 +1,30 @@
+{
+  if (extraFields == null) {
+    setExtraFields(f);
+  }
+ else {
+    for (    ZipExtraField element : f) {
+      ZipExtraField existing;
+      if (element instanceof UnparseableExtraFieldData) {
+        existing=unparseableExtra;
+      }
+ else {
+        existing=getExtraField(element.getHeaderId());
+      }
+      if (existing == null) {
+        addExtraField(element);
+      }
+ else {
+        if (local || !(existing instanceof CentralDirectoryParsingZipExtraField)) {
+          byte[] b=element.getLocalFileDataData();
+          existing.parseFromLocalFileData(b,0,b.length);
+        }
+ else {
+          byte[] b=element.getCentralDirectoryData();
+          ((CentralDirectoryParsingZipExtraField)existing).parseFromCentralDirectoryData(b,0,b.length);
+        }
+      }
+    }
+    setExtra();
+  }
+}

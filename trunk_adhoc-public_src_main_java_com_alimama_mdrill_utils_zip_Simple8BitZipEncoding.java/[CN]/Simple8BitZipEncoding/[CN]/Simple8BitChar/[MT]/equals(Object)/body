@@ -1,0 +1,7 @@
+{
+  if (o instanceof Simple8BitChar) {
+    Simple8BitChar other=(Simple8BitChar)o;
+    return unicode == other.unicode && code == other.code;
+  }
+  return false;
+}

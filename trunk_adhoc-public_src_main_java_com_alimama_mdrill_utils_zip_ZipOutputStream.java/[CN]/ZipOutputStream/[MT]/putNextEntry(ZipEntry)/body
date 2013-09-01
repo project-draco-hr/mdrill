@@ -1,0 +1,28 @@
+{
+  if (finished) {
+    throw new IOException("Stream has already been finished");
+  }
+  if (entry != null) {
+    closeEntry();
+  }
+  entry=new CurrentEntry(archiveEntry);
+  entries.add(entry.entry);
+  setDefaults(entry.entry);
+  final Zip64Mode effectiveMode=getEffectiveZip64Mode(entry.entry);
+  validateSizeInformation(effectiveMode);
+  if (shouldAddZip64Extra(entry.entry,effectiveMode)) {
+    Zip64ExtendedInformationExtraField z64=getZip64Extra(entry.entry);
+    ZipEightByteInteger size=ZipEightByteInteger.ZERO;
+    if (entry.entry.getMethod() == STORED && entry.entry.getSize() != -1) {
+      size=new ZipEightByteInteger(entry.entry.getSize());
+    }
+    z64.setSize(size);
+    z64.setCompressedSize(size);
+    entry.entry.setExtra();
+  }
+  if (entry.entry.getMethod() == DEFLATED && hasCompressionLevelChanged) {
+    def.setLevel(level);
+    hasCompressionLevelChanged=false;
+  }
+  writeLocalFileHeader(entry.entry);
+}

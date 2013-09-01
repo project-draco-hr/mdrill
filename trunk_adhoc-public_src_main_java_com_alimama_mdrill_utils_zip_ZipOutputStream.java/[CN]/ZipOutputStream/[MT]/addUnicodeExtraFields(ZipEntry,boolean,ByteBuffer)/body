@@ -1,0 +1,13 @@
+{
+  if (createUnicodeExtraFields == UnicodeExtraFieldPolicy.ALWAYS || !encodable) {
+    ze.addExtraField(new UnicodePathExtraField(ze.getName(),name.array(),name.arrayOffset(),name.limit() - name.position()));
+  }
+  String comm=ze.getComment();
+  if (comm != null && !"".equals(comm)) {
+    boolean commentEncodable=zipEncoding.canEncode(comm);
+    if (createUnicodeExtraFields == UnicodeExtraFieldPolicy.ALWAYS || !commentEncodable) {
+      ByteBuffer commentB=getEntryEncoding(ze).encode(comm);
+      ze.addExtraField(new UnicodeCommentExtraField(comm,commentB.array(),commentB.arrayOffset(),commentB.limit() - commentB.position()));
+    }
+  }
+}

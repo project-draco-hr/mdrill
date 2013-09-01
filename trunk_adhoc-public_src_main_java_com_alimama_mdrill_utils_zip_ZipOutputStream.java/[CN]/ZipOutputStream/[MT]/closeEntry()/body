@@ -1,0 +1,22 @@
+{
+  if (finished) {
+    throw new IOException("Stream has already been finished");
+  }
+  if (entry == null) {
+    throw new IOException("No current entry to close");
+  }
+  if (!entry.hasWritten) {
+    write(EMPTY,0,0);
+  }
+  flushDeflater();
+  final Zip64Mode effectiveMode=getEffectiveZip64Mode(entry.entry);
+  long bytesWritten=written - entry.dataStart;
+  long realCrc=crc.getValue();
+  crc.reset();
+  final boolean actuallyNeedsZip64=handleSizesAndCrc(bytesWritten,realCrc,effectiveMode);
+  if (raf != null) {
+    rewriteSizesAndCrc(actuallyNeedsZip64);
+  }
+  writeDataDescriptor(entry.entry);
+  entry=null;
+}

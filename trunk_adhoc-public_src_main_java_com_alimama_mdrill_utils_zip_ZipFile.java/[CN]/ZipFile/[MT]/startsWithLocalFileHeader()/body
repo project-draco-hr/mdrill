@@ -1,0 +1,5 @@
+{
+  archive.seek(0);
+  archive.readFully(WORD_BUF);
+  return Arrays.equals(WORD_BUF,ZipOutputStream.LFH_SIG);
+}

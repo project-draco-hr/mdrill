@@ -1,0 +1,5 @@
+{
+  skipBytes(CFD_LOCATOR_OFFSET);
+  archive.readFully(WORD_BUF);
+  archive.seek(ZipLong.getValue(WORD_BUF));
+}

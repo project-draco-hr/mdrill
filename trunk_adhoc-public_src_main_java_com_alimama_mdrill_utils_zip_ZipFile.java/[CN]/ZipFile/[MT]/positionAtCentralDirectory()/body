@@ -1,0 +1,19 @@
+{
+  positionAtEndOfCentralDirectoryRecord();
+  boolean found=false;
+  boolean searchedForZip64EOCD=archive.getPos() > ZIP64_EOCDL_LENGTH;
+  if (searchedForZip64EOCD) {
+    archive.seek(archive.getPos() - ZIP64_EOCDL_LENGTH);
+    archive.readFully(WORD_BUF);
+    found=Arrays.equals(ZipOutputStream.ZIP64_EOCD_LOC_SIG,WORD_BUF);
+  }
+  if (!found) {
+    if (searchedForZip64EOCD) {
+      skipBytes(ZIP64_EOCDL_LENGTH - WORD);
+    }
+    positionAtCentralDirectory32();
+  }
+ else {
+    positionAtCentralDirectory64();
+  }
+}

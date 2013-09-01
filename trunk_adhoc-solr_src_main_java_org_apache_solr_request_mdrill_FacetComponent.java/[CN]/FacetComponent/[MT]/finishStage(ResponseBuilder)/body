@@ -1,13 +1,10 @@
 {
-  if (!rb.doFacets || rb.stage != ResponseBuilder.STAGE_GET_FIELDS)   return;
+  if (!rb.doFacets)   return;
   long t1=System.currentTimeMillis();
   FacetInfo fi=rb._facetInfo;
   NamedList facet_counts=new SimpleOrderedMap();
   NamedList facet_queries=new SimpleOrderedMap();
   facet_counts.add("facet_queries",facet_queries);
-  for (  QueryFacet qf : fi.queryFacets.values()) {
-    facet_queries.add(qf.getKey(),qf.count);
-  }
   NamedList facet_fields=new SimpleOrderedMap();
   facet_counts.add("facet_fields",facet_fields);
   for (  DistribFieldFacet dff : fi.facets.values()) {

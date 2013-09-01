@@ -1,0 +1,4 @@
+{
+  localFileData=new byte[length];
+  System.arraycopy(buffer,offset,localFileData,0,length);
+}

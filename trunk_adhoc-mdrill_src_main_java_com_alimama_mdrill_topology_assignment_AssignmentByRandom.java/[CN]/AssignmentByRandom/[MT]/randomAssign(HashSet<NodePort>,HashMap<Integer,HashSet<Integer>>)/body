@@ -1,0 +1,7 @@
+{
+  Map<Integer,NodePort> rtn=new HashMap<Integer,NodePort>();
+  for (  Entry<Integer,HashSet<Integer>> e : jobids.entrySet()) {
+    rtn.putAll(randomAssign(resource,e.getValue()));
+  }
+  return rtn;
+}

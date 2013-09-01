@@ -1,0 +1,3 @@
+{
+  return supportsEncryptionOf(entry) && supportsMethodOf(entry);
+}

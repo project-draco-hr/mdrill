@@ -1,0 +1,8 @@
+{
+  if (entry.getMethod() == -1) {
+    entry.setMethod(method);
+  }
+  if (entry.getTime() == -1) {
+    entry.setTime(System.currentTimeMillis());
+  }
+}

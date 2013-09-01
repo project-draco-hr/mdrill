@@ -1,0 +1,12 @@
+{
+  skipBytes(ZIP64_EOCDL_LOCATOR_OFFSET - WORD);
+  archive.readFully(DWORD_BUF);
+  archive.seek(ZipEightByteInteger.getLongValue(DWORD_BUF));
+  archive.readFully(WORD_BUF);
+  if (!Arrays.equals(WORD_BUF,ZipOutputStream.ZIP64_EOCD_SIG)) {
+    throw new ZipException("archive's ZIP64 end of central " + "directory locator is corrupt.");
+  }
+  skipBytes(ZIP64_EOCD_CFD_LOCATOR_OFFSET - WORD);
+  archive.readFully(DWORD_BUF);
+  archive.seek(ZipEightByteInteger.getLongValue(DWORD_BUF));
+}

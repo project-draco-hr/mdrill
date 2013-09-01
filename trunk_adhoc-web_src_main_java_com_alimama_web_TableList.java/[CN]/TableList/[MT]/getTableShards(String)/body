@@ -28,7 +28,7 @@
             sc=0l;
           }
           sc+=cnt;
-          dayCount.put(e.getKey(),sc);
+          dayCount.put(e.getKey() + "@" + info.replicationindex,sc);
           Long amt=dayAmt.get(e.getKey());
           if (amt == null) {
             amt=0l;
@@ -36,13 +36,13 @@
           if (cnt > 1000) {
             amt+=1;
           }
-          dayAmt.put(e.getKey(),amt);
+          dayAmt.put(e.getKey() + "@" + info.replicationindex,amt);
         }
       }
       StringBuffer buff=new StringBuffer();
       buff.append("<tr style=\"background:#FFFFCC; font:bold\">");
       buff.append("<td>" + info.isMergeServer + "</td>");
-      buff.append("<td>" + info.isRealTime + "</td>");
+      buff.append("<td>" + info.taskIndex + "@"+ info.replicationindex+ "@"+ info.replication+ "</td>");
       buff.append("<td>" + info.hostname + "</td>");
       buff.append("<td>" + info.localip + ":"+ info.port+ "</td>");
       buff.append("<td>" + info.workport + "</td>");
@@ -58,19 +58,19 @@
       buff.append("<tr>");
       buff.append("<td colspan=10>" + "solr????????????:" + yyyymmmdddhb + "&nbsp;&nbsp;&nbsp;&nbsp;"+ "????????????????????????:"+ yyyymmmddd+ "&nbsp;&nbsp;&nbsp;&nbsp;"+ "????????????:"+ yyyymmmdddstart+ "</td>");
       buff.append("</tr>");
-      if (info.recorecount.size() > 0) {
-        buff.append("<tr>");
-        buff.append("<td>???????????????</td>");
-        buff.append("<td colspan=9>" + info.recorecount.toString() + "</td>");
-        buff.append("</tr>");
-      }
-      if (info.daycount.size() > 0) {
-        buff.append("<tr>");
-        buff.append("<td>???????????????</td>");
-        buff.append("<td colspan=9>" + info.daycount.toString() + "</td>");
-        buff.append("</tr>");
-      }
-      if (!info.isMergeServer && !info.isRealTime) {
+      if (!info.isMergeServer) {
+        if (info.recorecount.size() > 0) {
+          buff.append("<tr>");
+          buff.append("<td>???????????????</td>");
+          buff.append("<td colspan=9>" + info.recorecount.toString() + "</td>");
+          buff.append("</tr>");
+        }
+        if (info.daycount.size() > 0) {
+          buff.append("<tr>");
+          buff.append("<td>???????????????</td>");
+          buff.append("<td colspan=9>" + info.daycount.toString() + "</td>");
+          buff.append("</tr>");
+        }
         buff.append("<tr>");
         buff.append("<td>?????????????????????</td>");
         buff.append("<td colspan=9>" + info.localpath + "</td>");
@@ -86,7 +86,7 @@
   StringBuffer buff=new StringBuffer();
   buff.append("<tr>");
   buff.append("<td>merger server</td>");
-  buff.append("<td>????????????</td>");
+  buff.append("<td>replication</td>");
   buff.append("<td>??????</td>");
   buff.append("<td>solr??????</td>");
   buff.append("<td>????????????</td>");
@@ -103,14 +103,14 @@
   }
   Collections.sort(tmp);
   listrtntotal.addAll(tmp);
-  listrtntotal.add("??????7??????????????????" + "<br>");
+  listrtntotal.add("??????????????????????????????" + "<br>");
   tmp=new ArrayList<String>();
   for (  Entry<String,Long> e : dayCount.entrySet()) {
     tmp.add(" day:" + e.getKey() + "="+ e.getValue()+ "<br>");
   }
   Collections.sort(tmp);
   listrtntotal.addAll(tmp);
-  listrtntotal.add("??????7???????????????shard??????" + "<br>");
+  listrtntotal.add("????????????????????????shard??????" + "<br>");
   tmp=new ArrayList<String>();
   for (  Entry<String,Long> e : dayAmt.entrySet()) {
     tmp.add(e.getKey() + "=" + e.getValue()+ "<br>");

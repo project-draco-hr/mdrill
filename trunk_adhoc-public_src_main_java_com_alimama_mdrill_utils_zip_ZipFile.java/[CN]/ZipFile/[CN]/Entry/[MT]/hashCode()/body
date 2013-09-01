@@ -1,0 +1,3 @@
+{
+  return 3 * super.hashCode() + (int)(offsetEntry.headerOffset % Integer.MAX_VALUE);
+}

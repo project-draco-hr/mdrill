@@ -1,0 +1,8 @@
+{
+  if (!supportsEncryptionOf(ze)) {
+    throw new UnsupportedZipFeatureException(UnsupportedZipFeatureException.Feature.ENCRYPTION,ze);
+  }
+  if (!supportsMethodOf(ze)) {
+    throw new UnsupportedZipFeatureException(UnsupportedZipFeatureException.Feature.METHOD,ze);
+  }
+}

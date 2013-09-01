@@ -1,0 +1,27 @@
+{
+  if (zip64Mode == Zip64Mode.Never) {
+    return;
+  }
+  if (!hasUsedZip64 && (cdOffset >= ZIP64_MAGIC || cdLength >= ZIP64_MAGIC || entries.size() >= ZIP64_MAGIC_SHORT)) {
+    hasUsedZip64=true;
+  }
+  if (!hasUsedZip64) {
+    return;
+  }
+  long offset=written;
+  writeOut(ZIP64_EOCD_SIG);
+  writeOut(ZipEightByteInteger.getBytes(SHORT + SHORT + WORD+ WORD+ DWORD+ DWORD+ DWORD+ DWORD));
+  writeOut(ZipShort.getBytes(ZIP64_MIN_VERSION));
+  writeOut(ZipShort.getBytes(ZIP64_MIN_VERSION));
+  writeOut(LZERO);
+  writeOut(LZERO);
+  byte[] num=ZipEightByteInteger.getBytes(entries.size());
+  writeOut(num);
+  writeOut(num);
+  writeOut(ZipEightByteInteger.getBytes(cdLength));
+  writeOut(ZipEightByteInteger.getBytes(cdOffset));
+  writeOut(ZIP64_EOCD_LOC_SIG);
+  writeOut(LZERO);
+  writeOut(ZipEightByteInteger.getBytes(offset));
+  writeOut(ONE);
+}

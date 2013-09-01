@@ -1,0 +1,12 @@
+{
+  if (entry != null) {
+    entry.causedUseOfZip64=!hasUsedZip64;
+  }
+  hasUsedZip64=true;
+  Zip64ExtendedInformationExtraField z64=(Zip64ExtendedInformationExtraField)ze.getExtraField(Zip64ExtendedInformationExtraField.HEADER_ID);
+  if (z64 == null) {
+    z64=new Zip64ExtendedInformationExtraField();
+  }
+  ze.addAsFirstExtraField(z64);
+  return z64;
+}

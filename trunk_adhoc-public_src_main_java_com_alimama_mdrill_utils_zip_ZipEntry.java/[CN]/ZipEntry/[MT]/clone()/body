@@ -1,0 +1,7 @@
+{
+  ZipEntry e=(ZipEntry)super.clone();
+  e.setInternalAttributes(getInternalAttributes());
+  e.setExternalAttributes(getExternalAttributes());
+  e.setExtraFields(getExtraFields(true));
+  return e;
+}

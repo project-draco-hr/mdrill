@@ -1,0 +1,2 @@
+HashSet<NodePort> resource
+HashMap<Integer,HashSet<Integer>> jobids

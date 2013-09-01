@@ -1,0 +1,4 @@
+{
+  List<ZipEntry> entriesOfThatName=nameMap.get(name);
+  return entriesOfThatName != null ? entriesOfThatName : Collections.<ZipEntry>emptyList();
+}

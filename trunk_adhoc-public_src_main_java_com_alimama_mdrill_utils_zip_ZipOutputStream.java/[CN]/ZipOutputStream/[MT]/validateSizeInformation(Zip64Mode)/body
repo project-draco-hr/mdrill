@@ -1,0 +1,14 @@
+{
+  if (entry.entry.getMethod() == STORED && raf == null) {
+    if (entry.entry.getSize() == -1) {
+      throw new ZipException("uncompressed size is required for" + " STORED method when not writing to a" + " file");
+    }
+    if (entry.entry.getCrc() == -1) {
+      throw new ZipException("crc checksum is required for STORED" + " method when not writing to a file");
+    }
+    entry.entry.setCompressedSize(entry.entry.getSize());
+  }
+  if ((entry.entry.getSize() >= ZIP64_MAGIC || entry.entry.getCompressedSize() >= ZIP64_MAGIC) && effectiveMode == Zip64Mode.Never) {
+    throw new Zip64RequiredException(Zip64RequiredException.getEntryTooBigMessage(entry.entry));
+  }
+}

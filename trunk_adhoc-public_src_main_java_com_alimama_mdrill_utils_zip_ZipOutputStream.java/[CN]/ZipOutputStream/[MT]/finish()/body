@@ -1,0 +1,19 @@
+{
+  if (finished) {
+    throw new IOException("This archive has already been finished");
+  }
+  if (entry != null) {
+    closeEntry();
+  }
+  cdOffset=written;
+  for (  ZipEntry ze : entries) {
+    writeCentralFileHeader(ze);
+  }
+  cdLength=written - cdOffset;
+  writeZip64CentralDirectory();
+  writeCentralDirectoryEnd();
+  offsets.clear();
+  entries.clear();
+  def.end();
+  finished=true;
+}

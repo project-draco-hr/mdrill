@@ -1,0 +1,9 @@
+{
+  if (extraFields == null) {
+    throw new java.util.NoSuchElementException();
+  }
+  if (extraFields.remove(type) == null) {
+    throw new java.util.NoSuchElementException();
+  }
+  setExtra();
+}

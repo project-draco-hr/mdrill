@@ -1,0 +1,3 @@
+long bytesWritten
+long crc
+Zip64Mode effectiveMode

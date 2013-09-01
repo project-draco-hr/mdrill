@@ -1,0 +1,36 @@
+{
+  FSDataInputStream in=fs.open(new Path(zipFilePath));
+  long length=fs.getFileStatus(new Path(zipFilePath)).getLen();
+  ZipFile zipFile=new ZipFile(in,length,CHINESE_CHARSET,true);
+  Enumeration<?> emu=zipFile.getEntries();
+  BufferedInputStream bis;
+  FSDataOutputStream fos;
+  BufferedOutputStream bos;
+  Path file, parentFile;
+  ZipEntry entry;
+  byte[] cache=new byte[CACHE_SIZE];
+  while (emu.hasMoreElements()) {
+    entry=(ZipEntry)emu.nextElement();
+    if (entry.isDirectory()) {
+      fs2.mkdirs(new Path(destDir + entry.getName()));
+      continue;
+    }
+    bis=new BufferedInputStream(zipFile.getInputStream(entry));
+    file=new Path(destDir + entry.getName());
+    parentFile=file.getParent();
+    if (parentFile != null && (!fs2.exists(parentFile))) {
+      fs2.mkdirs(parentFile);
+    }
+    fos=fs2.create(file,true);
+    bos=new BufferedOutputStream(fos,CACHE_SIZE);
+    int nRead=0;
+    while ((nRead=bis.read(cache,0,CACHE_SIZE)) != -1) {
+      fos.write(cache,0,nRead);
+    }
+    bos.flush();
+    bos.close();
+    fos.close();
+    bis.close();
+  }
+  zipFile.close();
+}

@@ -1,0 +1,7 @@
+{
+  this.encoding=encoding;
+  this.zipEncoding=ZipEncodingHelper.getZipEncoding(encoding);
+  if (useUTF8Flag && !ZipEncodingHelper.isUTF8(encoding)) {
+    useUTF8Flag=false;
+  }
+}

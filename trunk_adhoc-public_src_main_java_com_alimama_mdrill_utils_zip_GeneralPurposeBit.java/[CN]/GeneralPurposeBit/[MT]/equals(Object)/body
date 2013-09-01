@@ -1,0 +1,7 @@
+{
+  if (!(o instanceof GeneralPurposeBit)) {
+    return false;
+  }
+  GeneralPurposeBit g=(GeneralPurposeBit)o;
+  return g.encryptionFlag == encryptionFlag && g.strongEncryptionFlag == strongEncryptionFlag && g.languageEncodingFlag == languageEncodingFlag && g.dataDescriptorFlag == dataDescriptorFlag;
+}

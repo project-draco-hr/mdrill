@@ -1,0 +1,12 @@
+{
+  this.params=params;
+  this.hadoopConfPath=hadoopConfPath;
+  this.solrhome=solrhome;
+  this.storePath=storePath;
+  this.portbase=portbase;
+  this.tablename=tablename;
+  this.shards=shards;
+  this.partions=partions;
+  this.topologyName=topologyName;
+  this.isRealTime=isRealTime;
+}

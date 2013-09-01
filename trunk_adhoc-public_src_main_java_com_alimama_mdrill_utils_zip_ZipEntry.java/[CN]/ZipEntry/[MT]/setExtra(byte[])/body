@@ -1,0 +1,9 @@
+{
+  try {
+    ZipExtraField[] local=ExtraFieldUtils.parse(extra,true,ExtraFieldUtils.UnparseableExtraField.READ);
+    mergeExtraFields(local,true);
+  }
+ catch (  ZipException e) {
+    throw new RuntimeException("Error parsing extra fields for entry: " + getName() + " - "+ e.getMessage(),e);
+  }
+}

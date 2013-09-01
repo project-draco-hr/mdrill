@@ -1,0 +1,6 @@
+{
+  if (extraFields != null) {
+    return extraFields.get(type);
+  }
+  return null;
+}

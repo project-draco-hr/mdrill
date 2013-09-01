@@ -1,0 +1,6 @@
+{
+  strongEncryptionFlag=b;
+  if (b) {
+    useEncryption(true);
+  }
+}

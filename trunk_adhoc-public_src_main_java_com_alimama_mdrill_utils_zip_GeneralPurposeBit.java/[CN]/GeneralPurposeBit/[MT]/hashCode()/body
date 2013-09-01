@@ -1,0 +1,3 @@
+{
+  return 3 * (7 * (13 * (17 * (encryptionFlag ? 1 : 0) + (strongEncryptionFlag ? 1 : 0)) + (languageEncodingFlag ? 1 : 0)) + (dataDescriptorFlag ? 1 : 0));
+}

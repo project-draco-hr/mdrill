@@ -1,0 +1,49 @@
+{
+  boolean encodable=zipEncoding.canEncode(ze.getName());
+  ByteBuffer name=getName(ze);
+  if (createUnicodeExtraFields != UnicodeExtraFieldPolicy.NEVER) {
+    addUnicodeExtraFields(ze,encodable,name);
+  }
+  offsets.put(ze,Long.valueOf(written));
+  writeOut(LFH_SIG);
+  written+=WORD;
+  final int zipMethod=ze.getMethod();
+  writeVersionNeededToExtractAndGeneralPurposeBits(zipMethod,!encodable && fallbackToUTF8,hasZip64Extra(ze));
+  written+=WORD;
+  writeOut(ZipShort.getBytes(zipMethod));
+  written+=SHORT;
+  writeOut(ZipUtil.toDosTime(ze.getTime()));
+  written+=WORD;
+  entry.localDataStart=written;
+  if (zipMethod == DEFLATED || raf != null) {
+    writeOut(LZERO);
+    if (hasZip64Extra(entry.entry)) {
+      writeOut(ZipLong.ZIP64_MAGIC.getBytes());
+      writeOut(ZipLong.ZIP64_MAGIC.getBytes());
+    }
+ else {
+      writeOut(LZERO);
+      writeOut(LZERO);
+    }
+  }
+ else {
+    writeOut(ZipLong.getBytes(ze.getCrc()));
+    byte[] size=ZipLong.ZIP64_MAGIC.getBytes();
+    if (!hasZip64Extra(ze)) {
+      size=ZipLong.getBytes(ze.getSize());
+    }
+    writeOut(size);
+    writeOut(size);
+  }
+  written+=12;
+  writeOut(ZipShort.getBytes(name.limit()));
+  written+=SHORT;
+  byte[] extra=ze.getLocalFileDataExtra();
+  writeOut(ZipShort.getBytes(extra.length));
+  written+=SHORT;
+  writeOut(name.array(),name.arrayOffset(),name.limit() - name.position());
+  written+=name.limit();
+  writeOut(extra);
+  written+=extra.length;
+  entry.dataStart=written;
+}

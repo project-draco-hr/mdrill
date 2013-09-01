@@ -1,0 +1,4 @@
+{
+  LinkedList<ZipEntry> entriesOfThatName=nameMap.get(name);
+  return entriesOfThatName != null ? entriesOfThatName.getFirst() : null;
+}

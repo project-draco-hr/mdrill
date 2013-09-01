@@ -1,8 +1,6 @@
 {
-  if (rb.grouping()) {
-    return groupedDistributedProcess(rb);
-  }
- else {
-    return regularDistributedProcess(rb);
-  }
+  ShardRequest sreq=new ShardRequest();
+  sreq.params=new ModifiableSolrParams(rb.req.getParams());
+  rb.addRequest(this,sreq);
+  return ResponseBuilder.STAGE_DONE;
 }

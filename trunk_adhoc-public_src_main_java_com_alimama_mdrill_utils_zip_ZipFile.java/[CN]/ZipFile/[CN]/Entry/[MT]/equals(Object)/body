@@ -1,0 +1,7 @@
+{
+  if (super.equals(other)) {
+    Entry otherEntry=(Entry)other;
+    return offsetEntry.headerOffset == otherEntry.offsetEntry.headerOffset && offsetEntry.dataOffset == otherEntry.offsetEntry.dataOffset;
+  }
+  return false;
+}

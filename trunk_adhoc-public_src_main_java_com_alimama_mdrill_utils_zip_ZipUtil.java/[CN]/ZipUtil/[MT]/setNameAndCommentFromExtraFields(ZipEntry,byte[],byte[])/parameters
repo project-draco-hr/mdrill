@@ -1,0 +1,3 @@
+ZipEntry ze
+byte[] originalNameBytes
+byte[] commentBytes

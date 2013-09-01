@@ -1,0 +1,5 @@
+{
+  if (length != 0) {
+    throw new ZipException("JarMarker doesn't expect any data");
+  }
+}

@@ -1,0 +1,8 @@
+{
+  ZipEntry[] entriesOfThatName=new ZipEntry[0];
+  if (nameMap.containsKey(name)) {
+    entriesOfThatName=nameMap.get(name).toArray(entriesOfThatName);
+    Arrays.sort(entriesOfThatName,OFFSET_COMPARATOR);
+  }
+  return Arrays.asList(entriesOfThatName);
+}

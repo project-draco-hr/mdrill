@@ -1,0 +1,4 @@
+{
+  this.dirFlag=dirFlag;
+  mode=getMode(mode);
+}

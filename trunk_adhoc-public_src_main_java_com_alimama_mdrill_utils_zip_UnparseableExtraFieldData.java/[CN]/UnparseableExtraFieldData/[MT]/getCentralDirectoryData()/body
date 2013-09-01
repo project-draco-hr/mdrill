@@ -1,0 +1,3 @@
+{
+  return centralDirectoryData == null ? getLocalFileDataData() : ZipUtil.copy(centralDirectoryData);
+}

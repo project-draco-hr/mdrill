@@ -1,0 +1,5 @@
+{
+  super("unsupported feature " + reason + " used in entry "+ entry.getName());
+  this.reason=reason;
+  this.entry=entry;
+}

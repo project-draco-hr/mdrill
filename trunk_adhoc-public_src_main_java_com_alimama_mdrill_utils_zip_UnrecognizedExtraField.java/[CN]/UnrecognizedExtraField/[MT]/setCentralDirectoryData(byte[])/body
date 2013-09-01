@@ -1,0 +1,3 @@
+{
+  centralData=ZipUtil.copy(data);
+}

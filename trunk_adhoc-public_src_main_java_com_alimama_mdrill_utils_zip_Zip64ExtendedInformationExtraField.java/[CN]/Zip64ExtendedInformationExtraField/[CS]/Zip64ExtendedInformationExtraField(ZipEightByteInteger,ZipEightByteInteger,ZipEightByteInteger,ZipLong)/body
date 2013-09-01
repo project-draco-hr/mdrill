@@ -1,0 +1,6 @@
+{
+  this.size=size;
+  this.compressedSize=compressedSize;
+  this.relativeHeaderOffset=relativeHeaderOffset;
+  this.diskStart=diskStart;
+}

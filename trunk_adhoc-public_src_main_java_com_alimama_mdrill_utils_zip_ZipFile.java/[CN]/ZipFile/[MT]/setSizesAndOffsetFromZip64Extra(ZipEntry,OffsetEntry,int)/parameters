@@ -1,0 +1,3 @@
+ZipEntry ze
+OffsetEntry offset
+int diskStart

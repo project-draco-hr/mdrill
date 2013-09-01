@@ -1,0 +1,3 @@
+{
+  return new ZipShort((size != null ? DWORD : 0) + (compressedSize != null ? DWORD : 0) + (relativeHeaderOffset != null ? DWORD : 0)+ (diskStart != null ? WORD : 0));
+}

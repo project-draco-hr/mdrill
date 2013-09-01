@@ -1,0 +1,3 @@
+{
+  return entry.getMethod() == ZipEntry.STORED || entry.getMethod() == ZipEntry.DEFLATED;
+}

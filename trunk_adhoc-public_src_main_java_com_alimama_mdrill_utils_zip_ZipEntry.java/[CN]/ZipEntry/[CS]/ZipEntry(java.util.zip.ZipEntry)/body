@@ -1,0 +1,13 @@
+{
+  super(entry);
+  setName(entry.getName());
+  byte[] extra=entry.getExtra();
+  if (extra != null) {
+    setExtraFields(ExtraFieldUtils.parse(extra,true,ExtraFieldUtils.UnparseableExtraField.READ));
+  }
+ else {
+    setExtra();
+  }
+  setMethod(entry.getMethod());
+  this.size=entry.getSize();
+}

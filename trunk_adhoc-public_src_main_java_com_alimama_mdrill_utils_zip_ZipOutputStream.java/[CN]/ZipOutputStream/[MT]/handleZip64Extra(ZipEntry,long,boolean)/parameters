@@ -1,0 +1,3 @@
+ZipEntry ze
+long lfhOffset
+boolean needsZip64Extra

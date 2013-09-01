@@ -1,0 +1,3 @@
+ZipEntry ze
+boolean encodable
+ByteBuffer name

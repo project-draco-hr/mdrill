@@ -19,7 +19,7 @@
     if (!partionvertify.equals(parse.readFirstLineStr(otherveritify))) {
       int ret=0;
       if (days.size() > 0) {
-        ret=this.subRun(days,tmpindexOtherPath.toString(),args[0],args[1]);
+        ret=this.subRun(days,tmpindexOtherPath.toString(),args[0],args[1],Integer.parseInt(args[2]));
         parse.writeStr(new Path(tmpindexOtherPath,"vertify"),partionvertify);
         copy.add(partion);
       }

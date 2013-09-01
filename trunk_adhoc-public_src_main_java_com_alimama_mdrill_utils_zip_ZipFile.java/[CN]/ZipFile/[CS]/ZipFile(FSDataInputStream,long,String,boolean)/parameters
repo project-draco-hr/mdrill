@@ -1,0 +1,4 @@
+FSDataInputStream f
+long len
+String encoding
+boolean useUnicodeExtraFields

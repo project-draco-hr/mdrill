@@ -1,0 +1,7 @@
+{
+  this(inputFile.isDirectory() && !entryName.endsWith("/") ? entryName + "/" : entryName);
+  if (inputFile.isFile()) {
+    setSize(inputFile.length());
+  }
+  setTime(inputFile.lastModified());
+}

@@ -1,0 +1,8 @@
+{
+  byte[] b=null;
+  if (unicodeName != null) {
+    b=new byte[unicodeName.length];
+    System.arraycopy(unicodeName,0,b,0,b.length);
+  }
+  return b;
+}

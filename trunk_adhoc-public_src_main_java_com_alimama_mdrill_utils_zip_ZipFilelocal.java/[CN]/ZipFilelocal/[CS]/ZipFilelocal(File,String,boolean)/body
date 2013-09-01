@@ -1,0 +1,23 @@
+{
+  this.archiveName=f.getAbsolutePath();
+  this.encoding=encoding;
+  this.zipEncoding=ZipEncodingHelper.getZipEncoding(encoding);
+  this.useUnicodeExtraFields=useUnicodeExtraFields;
+  archive=new RandomAccessFile(f,"r");
+  boolean success=false;
+  try {
+    Map<ZipEntry,NameAndComment> entriesWithoutUTF8Flag=populateFromCentralDirectory();
+    resolveLocalFileHeaderData(entriesWithoutUTF8Flag);
+    success=true;
+  }
+  finally {
+    if (!success) {
+      try {
+        closed=true;
+        archive.close();
+      }
+ catch (      IOException e2) {
+      }
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  if (encoding == null) {
+    encoding=System.getProperty("file.encoding");
+  }
+  return UTF8.equalsIgnoreCase(encoding) || UTF_DASH_8.equalsIgnoreCase(encoding);
+}

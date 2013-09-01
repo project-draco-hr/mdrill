@@ -1,0 +1,4 @@
+String text
+byte[] bytes
+int off
+int len

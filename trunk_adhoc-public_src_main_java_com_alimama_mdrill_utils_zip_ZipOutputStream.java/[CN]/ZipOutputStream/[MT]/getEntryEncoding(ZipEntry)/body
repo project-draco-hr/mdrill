@@ -1,0 +1,4 @@
+{
+  boolean encodable=zipEncoding.canEncode(ze.getName());
+  return !encodable && fallbackToUTF8 ? ZipEncodingHelper.UTF8_ZIP_ENCODING : zipEncoding;
+}

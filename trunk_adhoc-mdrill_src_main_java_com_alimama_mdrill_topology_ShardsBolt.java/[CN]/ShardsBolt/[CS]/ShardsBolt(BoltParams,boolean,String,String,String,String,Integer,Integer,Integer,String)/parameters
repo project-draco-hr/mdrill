@@ -1,0 +1,10 @@
+BoltParams params
+boolean isRealTime
+String hadoopConfPath
+String solrhome
+String tablename
+String storePath
+Integer portbase
+Integer shards
+Integer partions
+String topologyName

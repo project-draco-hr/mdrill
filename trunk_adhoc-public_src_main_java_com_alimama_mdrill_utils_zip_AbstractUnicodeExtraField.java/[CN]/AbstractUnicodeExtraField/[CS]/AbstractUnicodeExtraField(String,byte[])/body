@@ -1,0 +1,3 @@
+{
+  this(text,bytes,0,bytes.length);
+}

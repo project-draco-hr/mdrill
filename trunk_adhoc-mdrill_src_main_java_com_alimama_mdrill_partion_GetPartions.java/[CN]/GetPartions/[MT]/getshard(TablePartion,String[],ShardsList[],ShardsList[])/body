@@ -1,0 +1,43 @@
+{
+  String projectName=pname.name;
+  Shards rtn=new Shards();
+  Random rdm=new Random();
+  ShardsList[] ms=null;
+  if (tmp != null && tmp.length > 0) {
+    int mslen=Math.max(tmp.length,10);
+    ms=new ShardsList[mslen];
+    for (int i=0; i < mslen; i++) {
+      Integer index=i % tmp.length;
+      ms[i]=tmp[index];
+    }
+  }
+  if (ms == null || ms.length <= 0) {
+    ms=cores;
+  }
+  if (cores != null && cores.length > 0) {
+    int count=0;
+    for (int i=0; i < cores.length; i++) {
+      ShardsList c=cores[i];
+      for (      String part : partions) {
+        rtn.urlShards+=c.randomGet() + "/solr/" + projectName+ "@"+ part+ "@"+ i+ ",";
+      }
+      count++;
+    }
+  }
+  if (ms != null && ms.length > 0) {
+    int count=0;
+    int r=rdm.nextInt(ms.length);
+    int r2=rdm.nextInt(cores.length);
+    for (    ShardsList c : ms) {
+      if (count == r2) {
+        rtn.randomShard=c.randomGet() + "/solr/" + projectName;
+      }
+      if (count == r) {
+        rtn.urlMain="http://" + c.randomGet() + "/solr/"+ projectName;
+      }
+      rtn.urlMSs+=c.randomGet() + "/solr/" + projectName+ ",";
+      count++;
+    }
+  }
+  return rtn;
+}

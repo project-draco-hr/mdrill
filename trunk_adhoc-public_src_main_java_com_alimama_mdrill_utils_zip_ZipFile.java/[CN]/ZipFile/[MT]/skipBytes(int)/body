@@ -1,0 +1,10 @@
+{
+  int totalSkipped=0;
+  while (totalSkipped < count) {
+    int skippedNow=archive.skipBytes(count - totalSkipped);
+    if (skippedNow <= 0) {
+      throw new EOFException();
+    }
+    totalSkipped+=skippedNow;
+  }
+}

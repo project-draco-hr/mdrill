@@ -1,0 +1,3 @@
+{
+  return new ZipShort(localFileData == null ? 0 : localFileData.length);
+}

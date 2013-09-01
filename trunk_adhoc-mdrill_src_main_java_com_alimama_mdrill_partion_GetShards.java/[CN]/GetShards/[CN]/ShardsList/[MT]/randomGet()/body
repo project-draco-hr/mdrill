@@ -1,0 +1,5 @@
+{
+  int index=random % list.size();
+  random++;
+  return list.get(index);
+}

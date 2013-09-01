@@ -1,0 +1,33 @@
+{
+  FileStatus[] files=new FileStatus[0];
+  if (parentFile.isDir()) {
+    files=fs.listStatus(parentFile.getPath());
+  }
+ else {
+    files=new FileStatus[1];
+    files[0]=parentFile;
+  }
+  String pathName;
+  InputStream is;
+  BufferedInputStream bis;
+  byte[] cache=new byte[CACHE_SIZE];
+  for (  FileStatus file : files) {
+    if (file.isDir()) {
+      pathName=file.getPath().toString().substring(basePath.toString().length() + 1) + "/";
+      zos.putNextEntry(new ZipEntry(pathName));
+      zipFile(fs,file,basePath,zos);
+    }
+ else {
+      pathName=file.getPath().toString().substring(basePath.toString().length() + 1);
+      is=fs.open(file.getPath());
+      bis=new BufferedInputStream(is);
+      zos.putNextEntry(new ZipEntry(pathName));
+      int nRead=0;
+      while ((nRead=bis.read(cache,0,CACHE_SIZE)) != -1) {
+        zos.write(cache,0,nRead);
+      }
+      bis.close();
+      is.close();
+    }
+  }
+}

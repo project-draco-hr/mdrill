@@ -1,0 +1,14 @@
+int replication
+int replicationindex
+int taskIndex
+boolean isRealTime
+String localpath
+String hdfsPath
+String hdfsfolder
+Integer port
+ShardsState stat
+HashMap<String,ShardCount> count
+HashMap<String,ShardCount> daycount
+Long starttimes
+Long solrhbTimes
+Boolean isMergeServer

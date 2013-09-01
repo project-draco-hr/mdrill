@@ -1,0 +1,23 @@
+{
+  if (length == 0) {
+    return;
+  }
+  if (length < 2 * DWORD) {
+    throw new ZipException(LFH_MUST_HAVE_BOTH_SIZES_MSG);
+  }
+  size=new ZipEightByteInteger(buffer,offset);
+  offset+=DWORD;
+  compressedSize=new ZipEightByteInteger(buffer,offset);
+  offset+=DWORD;
+  int remaining=length - 2 * DWORD;
+  if (remaining >= DWORD) {
+    relativeHeaderOffset=new ZipEightByteInteger(buffer,offset);
+    offset+=DWORD;
+    remaining-=DWORD;
+  }
+  if (remaining >= WORD) {
+    diskStart=new ZipLong(buffer,offset);
+    offset+=WORD;
+    remaining-=WORD;
+  }
+}

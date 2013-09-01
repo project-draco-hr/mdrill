@@ -1,0 +1,20 @@
+{
+  super(null);
+  RandomAccessFile _raf=null;
+  try {
+    _raf=new RandomAccessFile(file,"rw");
+    _raf.setLength(0);
+  }
+ catch (  IOException e) {
+    if (_raf != null) {
+      try {
+        _raf.close();
+      }
+ catch (      IOException inner) {
+      }
+      _raf=null;
+    }
+    out=new FileOutputStream(file);
+  }
+  raf=_raf;
+}

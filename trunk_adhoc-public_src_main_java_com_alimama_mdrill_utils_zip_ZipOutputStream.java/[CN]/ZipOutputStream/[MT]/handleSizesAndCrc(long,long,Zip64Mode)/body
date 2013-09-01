@@ -1,0 +1,26 @@
+{
+  if (entry.entry.getMethod() == DEFLATED) {
+    entry.entry.setSize(entry.bytesRead);
+    entry.entry.setCompressedSize(bytesWritten);
+    entry.entry.setCrc(crc);
+    def.reset();
+  }
+ else   if (raf == null) {
+    if (entry.entry.getCrc() != crc) {
+      throw new ZipException("bad CRC checksum for entry " + entry.entry.getName() + ": "+ Long.toHexString(entry.entry.getCrc())+ " instead of "+ Long.toHexString(crc));
+    }
+    if (entry.entry.getSize() != bytesWritten) {
+      throw new ZipException("bad size for entry " + entry.entry.getName() + ": "+ entry.entry.getSize()+ " instead of "+ bytesWritten);
+    }
+  }
+ else {
+    entry.entry.setSize(bytesWritten);
+    entry.entry.setCompressedSize(bytesWritten);
+    entry.entry.setCrc(crc);
+  }
+  final boolean actuallyNeedsZip64=effectiveMode == Zip64Mode.Always || entry.entry.getSize() >= ZIP64_MAGIC || entry.entry.getCompressedSize() >= ZIP64_MAGIC;
+  if (actuallyNeedsZip64 && effectiveMode == Zip64Mode.Never) {
+    throw new Zip64RequiredException(Zip64RequiredException.getEntryTooBigMessage(entry.entry));
+  }
+  return actuallyNeedsZip64;
+}

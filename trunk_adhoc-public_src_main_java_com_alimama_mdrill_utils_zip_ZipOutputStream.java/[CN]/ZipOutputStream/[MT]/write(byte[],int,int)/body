@@ -1,0 +1,12 @@
+{
+  ZipUtil.checkRequestedFeatures(entry.entry);
+  entry.hasWritten=true;
+  if (entry.entry.getMethod() == DEFLATED) {
+    writeDeflated(b,offset,length);
+  }
+ else {
+    writeOut(b,offset,length);
+    written+=length;
+  }
+  crc.update(b,offset,length);
+}

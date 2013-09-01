@@ -5,8 +5,9 @@
     shardWriter.close();
     Configuration conf=context.getConfiguration();
     FileSystem fs=FileSystem.get(conf);
+    ZipUtils.zip(fs,tmpath,fs,tmpathzip);
     if (!fs.exists(new Path(indexHdfsPath))) {
-      fs.rename(new Path(tmpath),new Path(indexHdfsPath));
+      fs.rename(new Path(tmpathzip),new Path(indexHdfsPath));
     }
   }
  catch (  Exception e) {

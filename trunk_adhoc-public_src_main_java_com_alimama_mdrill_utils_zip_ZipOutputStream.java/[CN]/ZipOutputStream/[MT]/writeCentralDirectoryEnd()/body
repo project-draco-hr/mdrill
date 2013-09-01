@@ -1,0 +1,20 @@
+{
+  writeOut(EOCD_SIG);
+  writeOut(ZERO);
+  writeOut(ZERO);
+  int numberOfEntries=entries.size();
+  if (numberOfEntries > ZIP64_MAGIC_SHORT && zip64Mode == Zip64Mode.Never) {
+    throw new Zip64RequiredException(Zip64RequiredException.TOO_MANY_ENTRIES_MESSAGE);
+  }
+  if (cdOffset > ZIP64_MAGIC && zip64Mode == Zip64Mode.Never) {
+    throw new Zip64RequiredException(Zip64RequiredException.ARCHIVE_TOO_BIG_MESSAGE);
+  }
+  byte[] num=ZipShort.getBytes(Math.min(numberOfEntries,ZIP64_MAGIC_SHORT));
+  writeOut(num);
+  writeOut(num);
+  writeOut(ZipLong.getBytes(Math.min(cdLength,ZIP64_MAGIC)));
+  writeOut(ZipLong.getBytes(Math.min(cdOffset,ZIP64_MAGIC)));
+  ByteBuffer data=this.zipEncoding.encode(comment);
+  writeOut(ZipShort.getBytes(data.limit()));
+  writeOut(data.array(),data.arrayOffset(),data.limit() - data.position());
+}

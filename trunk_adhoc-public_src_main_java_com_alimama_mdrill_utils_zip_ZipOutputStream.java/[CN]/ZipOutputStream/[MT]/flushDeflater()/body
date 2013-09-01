@@ -1,0 +1,8 @@
+{
+  if (entry.entry.getMethod() == DEFLATED) {
+    def.finish();
+    while (!def.finished()) {
+      deflate();
+    }
+  }
+}

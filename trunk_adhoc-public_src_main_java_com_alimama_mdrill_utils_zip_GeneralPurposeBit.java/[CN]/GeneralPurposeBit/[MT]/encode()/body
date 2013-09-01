@@ -1,0 +1,3 @@
+{
+  return ZipShort.getBytes((dataDescriptorFlag ? DATA_DESCRIPTOR_FLAG : 0) | (languageEncodingFlag ? UFT8_NAMES_FLAG : 0) | (encryptionFlag ? ENCRYPTION_FLAG : 0)| (strongEncryptionFlag ? STRONG_ENCRYPTION_FLAG : 0));
+}

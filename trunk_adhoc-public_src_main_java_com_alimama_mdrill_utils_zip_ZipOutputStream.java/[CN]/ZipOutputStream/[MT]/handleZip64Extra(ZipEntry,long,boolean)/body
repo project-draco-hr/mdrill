@@ -1,0 +1,17 @@
+{
+  if (needsZip64Extra) {
+    Zip64ExtendedInformationExtraField z64=getZip64Extra(ze);
+    if (ze.getCompressedSize() >= ZIP64_MAGIC || ze.getSize() >= ZIP64_MAGIC) {
+      z64.setCompressedSize(new ZipEightByteInteger(ze.getCompressedSize()));
+      z64.setSize(new ZipEightByteInteger(ze.getSize()));
+    }
+ else {
+      z64.setCompressedSize(null);
+      z64.setSize(null);
+    }
+    if (lfhOffset >= ZIP64_MAGIC) {
+      z64.setRelativeHeaderOffset(new ZipEightByteInteger(lfhOffset));
+    }
+    ze.setExtra();
+  }
+}

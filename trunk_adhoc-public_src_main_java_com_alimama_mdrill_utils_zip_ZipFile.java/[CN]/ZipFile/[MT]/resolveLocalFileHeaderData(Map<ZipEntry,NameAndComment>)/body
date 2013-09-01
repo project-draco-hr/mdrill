@@ -1,0 +1,35 @@
+{
+  for (Iterator<ZipEntry> it=entries.iterator(); it.hasNext(); ) {
+    Entry ze=(Entry)it.next();
+    OffsetEntry offsetEntry=ze.getOffsetEntry();
+    long offset=offsetEntry.headerOffset;
+    archive.seek(offset + LFH_OFFSET_FOR_FILENAME_LENGTH);
+    archive.readFully(SHORT_BUF);
+    int fileNameLen=ZipShort.getValue(SHORT_BUF);
+    archive.readFully(SHORT_BUF);
+    int extraFieldLen=ZipShort.getValue(SHORT_BUF);
+    int lenToSkip=fileNameLen;
+    while (lenToSkip > 0) {
+      int skipped=archive.skipBytes(lenToSkip);
+      if (skipped <= 0) {
+        throw new IOException("failed to skip file name in" + " local file header");
+      }
+      lenToSkip-=skipped;
+    }
+    byte[] localExtraData=new byte[extraFieldLen];
+    archive.readFully(localExtraData);
+    ze.setExtra(localExtraData);
+    offsetEntry.dataOffset=offset + LFH_OFFSET_FOR_FILENAME_LENGTH + SHORT+ SHORT+ fileNameLen+ extraFieldLen;
+    if (entriesWithoutUTF8Flag.containsKey(ze)) {
+      NameAndComment nc=entriesWithoutUTF8Flag.get(ze);
+      ZipUtil.setNameAndCommentFromExtraFields(ze,nc.name,nc.comment);
+    }
+    String name=ze.getName();
+    LinkedList<ZipEntry> entriesOfThatName=nameMap.get(name);
+    if (entriesOfThatName == null) {
+      entriesOfThatName=new LinkedList<ZipEntry>();
+      nameMap.put(name,entriesOfThatName);
+    }
+    entriesOfThatName.addLast(ze);
+  }
+}

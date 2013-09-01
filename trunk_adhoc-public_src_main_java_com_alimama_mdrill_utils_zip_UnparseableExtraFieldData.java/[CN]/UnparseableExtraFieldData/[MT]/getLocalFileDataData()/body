@@ -1,0 +1,3 @@
+{
+  return ZipUtil.copy(localFileData);
+}

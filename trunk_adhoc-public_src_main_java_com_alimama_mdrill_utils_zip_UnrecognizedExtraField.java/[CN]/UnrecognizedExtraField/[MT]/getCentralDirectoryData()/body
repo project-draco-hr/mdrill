@@ -1,0 +1,6 @@
+{
+  if (centralData != null) {
+    return ZipUtil.copy(centralData);
+  }
+  return getLocalFileDataData();
+}

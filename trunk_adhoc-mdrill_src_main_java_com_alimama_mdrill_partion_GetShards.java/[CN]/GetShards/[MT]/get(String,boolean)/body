@@ -1,0 +1,27 @@
+{
+  SolrInfoList infolist=getSolrInfoList(tableName);
+  long nowtime=System.currentTimeMillis();
+  HashMap<Integer,ShardsList> replication=new HashMap<Integer,ShardsList>();
+  for (  SolrInfo info : infolist.getlist()) {
+    if (info != null && info.isMergeServer == isMs) {
+      if (isMs && !info.stat.equals(ShardsState.SERVICE)) {
+        continue;
+      }
+      if ((info.times + 1000l * 600) < nowtime) {
+        continue;
+      }
+      ShardsList solrlist=replication.get(info.taskIndex);
+      if (solrlist == null) {
+        solrlist=new ShardsList();
+        replication.put(info.taskIndex,solrlist);
+      }
+      solrlist.list.add(new String(info.localip + ":" + info.port));
+    }
+  }
+  ShardsList[] rtn=new ShardsList[replication.size()];
+  int index=0;
+  for (  ShardsList s : replication.values()) {
+    rtn[index++]=s;
+  }
+  return rtn;
+}

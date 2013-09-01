@@ -1,0 +1,8 @@
+{
+  if (raf != null) {
+    raf.write(data,offset,length);
+  }
+ else {
+    out.write(data,offset,length);
+  }
+}

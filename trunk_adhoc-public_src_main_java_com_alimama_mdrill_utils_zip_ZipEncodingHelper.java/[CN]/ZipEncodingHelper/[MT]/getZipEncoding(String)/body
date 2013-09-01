@@ -1,0 +1,19 @@
+{
+  if (isUTF8(name)) {
+    return UTF8_ZIP_ENCODING;
+  }
+  if (name == null) {
+    return new FallbackZipEncoding();
+  }
+  SimpleEncodingHolder h=simpleEncodings.get(name);
+  if (h != null) {
+    return h.getEncoding();
+  }
+  try {
+    Charset cs=Charset.forName(name);
+    return new NioZipEncoding(cs);
+  }
+ catch (  UnsupportedCharsetException e) {
+    return new FallbackZipEncoding(name);
+  }
+}

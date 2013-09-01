@@ -1,0 +1,6 @@
+{
+  if (centralData != null) {
+    return new ZipShort(centralData.length);
+  }
+  return getLocalFileDataLength();
+}

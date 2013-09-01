@@ -1,0 +1,15 @@
+{
+  HashMap<ZipEntry,NameAndComment> noUTF8Flag=new HashMap<ZipEntry,NameAndComment>();
+  positionAtCentralDirectory();
+  archive.readFully(WORD_BUF);
+  long sig=ZipLong.getValue(WORD_BUF);
+  if (sig != CFH_SIG && startsWithLocalFileHeader()) {
+    throw new IOException("central directory is empty, can't expand" + " corrupt archive.");
+  }
+  while (sig == CFH_SIG) {
+    readCentralDirectoryEntry(noUTF8Flag);
+    archive.readFully(WORD_BUF);
+    sig=ZipLong.getValue(WORD_BUF);
+  }
+  return noUTF8Flag;
+}

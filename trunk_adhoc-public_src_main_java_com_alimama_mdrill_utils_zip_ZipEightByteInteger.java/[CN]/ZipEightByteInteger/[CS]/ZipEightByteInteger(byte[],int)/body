@@ -1,0 +1,3 @@
+{
+  value=ZipEightByteInteger.getValue(bytes,offset);
+}

@@ -1,0 +1,6 @@
+{
+  if (zip64Mode != Zip64Mode.AsNeeded || raf != null || ze.getMethod() != DEFLATED || ze.getSize() != -1) {
+    return zip64Mode;
+  }
+  return Zip64Mode.Never;
+}

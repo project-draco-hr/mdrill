@@ -2,10 +2,10 @@
   if (!params.getBool(FacetParams.FACET,true))   return null;
   facetResponse=new SimpleOrderedMap();
   try {
-    facetResponse.add("facet_queries",getFacetQueryCounts());
+    facetResponse.add("facet_queries",new SimpleOrderedMap());
     facetResponse.add("facet_fields",getFacetFieldCounts());
-    facetResponse.add("facet_dates",getFacetDateCounts());
-    facetResponse.add("facet_ranges",getFacetRangeCounts());
+    facetResponse.add("facet_dates",new SimpleOrderedMap());
+    facetResponse.add("facet_ranges",new SimpleOrderedMap());
   }
  catch (  Throwable e) {
     LOG.error("getFacetCounts",e);

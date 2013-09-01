@@ -1,0 +1,18 @@
+{
+  if (ze.getMethod() != DEFLATED || raf != null) {
+    return;
+  }
+  writeOut(DD_SIG);
+  writeOut(ZipLong.getBytes(ze.getCrc()));
+  int sizeFieldSize=WORD;
+  if (!hasZip64Extra(ze)) {
+    writeOut(ZipLong.getBytes(ze.getCompressedSize()));
+    writeOut(ZipLong.getBytes(ze.getSize()));
+  }
+ else {
+    sizeFieldSize=DWORD;
+    writeOut(ZipEightByteInteger.getBytes(ze.getCompressedSize()));
+    writeOut(ZipEightByteInteger.getBytes(ze.getSize()));
+  }
+  written+=2 * WORD + 2 * sizeFieldSize;
+}

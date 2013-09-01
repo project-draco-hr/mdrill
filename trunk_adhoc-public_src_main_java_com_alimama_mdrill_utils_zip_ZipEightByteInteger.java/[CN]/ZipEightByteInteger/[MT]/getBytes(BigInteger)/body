@@ -1,0 +1,16 @@
+{
+  byte[] result=new byte[8];
+  long val=value.longValue();
+  result[0]=(byte)((val & BYTE_MASK));
+  result[BYTE_1]=(byte)((val & BYTE_1_MASK) >> BYTE_1_SHIFT);
+  result[BYTE_2]=(byte)((val & BYTE_2_MASK) >> BYTE_2_SHIFT);
+  result[BYTE_3]=(byte)((val & BYTE_3_MASK) >> BYTE_3_SHIFT);
+  result[BYTE_4]=(byte)((val & BYTE_4_MASK) >> BYTE_4_SHIFT);
+  result[BYTE_5]=(byte)((val & BYTE_5_MASK) >> BYTE_5_SHIFT);
+  result[BYTE_6]=(byte)((val & BYTE_6_MASK) >> BYTE_6_SHIFT);
+  result[BYTE_7]=(byte)((val & BYTE_7_MASK) >> BYTE_7_SHIFT);
+  if (value.testBit(LEFTMOST_BIT_SHIFT)) {
+    result[BYTE_7]|=LEFTMOST_BIT;
+  }
+  return result;
+}

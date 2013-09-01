@@ -1,0 +1,7 @@
+{
+  centralDirectoryData=new byte[length];
+  System.arraycopy(buffer,offset,centralDirectoryData,0,length);
+  if (localFileData == null) {
+    parseFromLocalFileData(buffer,offset,length);
+  }
+}

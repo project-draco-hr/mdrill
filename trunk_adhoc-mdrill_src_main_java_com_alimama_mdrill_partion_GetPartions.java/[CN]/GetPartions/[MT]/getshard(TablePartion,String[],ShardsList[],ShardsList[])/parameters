@@ -1,0 +1,4 @@
+TablePartion pname
+String[] partions
+ShardsList[] cores
+ShardsList[] tmp

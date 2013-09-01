@@ -1,0 +1,17 @@
+{
+  rawCentralDirectoryData=new byte[length];
+  System.arraycopy(buffer,offset,rawCentralDirectoryData,0,length);
+  if (length >= 3 * DWORD + WORD) {
+    parseFromLocalFileData(buffer,offset,length);
+  }
+ else   if (length == 3 * DWORD) {
+    size=new ZipEightByteInteger(buffer,offset);
+    offset+=DWORD;
+    compressedSize=new ZipEightByteInteger(buffer,offset);
+    offset+=DWORD;
+    relativeHeaderOffset=new ZipEightByteInteger(buffer,offset);
+  }
+ else   if (length % DWORD == WORD) {
+    diskStart=new ZipLong(buffer,offset + length - WORD);
+  }
+}

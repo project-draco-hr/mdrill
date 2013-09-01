@@ -18,14 +18,18 @@
     WebServiceParams.setCrossStatMap(showFields,commonStatMap,distStatFieldMap);
     HashMap<String,String> fieldColumntypeMap=readFieldsFromSchemaXml(part.name);
     SortParam sortType=WebServiceParams.sort(sort,order,fieldColumntypeMap);
-    String[] cores=GetShards.get(part.name,false,10000);
-    String[] ms=GetShards.get(part.name,true,10000);
+    ShardsList[] cores=GetShards.get(part.name,false);
+    Map stormconf=Utils.readStormConfig();
+    if (cores.length != StormUtils.parseInt(stormconf.get("higo.shards.count"))) {
+      throw new Exception("core.size=" + cores.length);
+    }
+    ShardsList[] ms=GetShards.get(part.name,true);
     MdrillPartionsInterface drillpart=MdrillPartions.INSTANCE(part.parttype);
     String[] partionsAll=drillpart.SqlPartions(queryStr);
     queryStr=drillpart.SqlFilter(queryStr);
     Arrays.sort(partionsAll);
     LOG.info("partionsAll:" + Arrays.toString(partionsAll));
-    GetPartions.Shards shard=GetPartions.getshard(part,partionsAll,cores,ms,10000,0);
+    GetPartions.Shards shard=GetPartions.getshard(part,partionsAll,cores,ms);
     HigoJoinParams[] joins=WebServiceParams.parseJoins(leftjoin,shard);
     ArrayList<String> fqList=WebServiceParams.fqList(queryStr,shard,fieldColumntypeMap);
     String rtn=result(part,callback,fqList,shard,start,rows,sortType,groupbyFields,showFields,commonStatMap,distStatFieldMap,joins);

@@ -1,6 +1,6 @@
 {
-  jetty.heartbeat();
-  for (  SolrStartTable table : tables) {
+  this.jetty.heartbeat();
+  for (  final SolrStartTable table : tables) {
     table.heartbeat();
   }
 }

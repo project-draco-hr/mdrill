@@ -1,0 +1,11 @@
+{
+  if (data == null) {
+    this.assembleData();
+  }
+  byte[] b=null;
+  if (data != null) {
+    b=new byte[data.length];
+    System.arraycopy(data,0,b,0,b.length);
+  }
+  return b;
+}

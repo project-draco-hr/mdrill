@@ -4,6 +4,7 @@
   this.ms_name=String.valueOf(topology_conf.get(MS_NAME));
   this.shard_name=String.valueOf(topology_conf.get(SHARD_NAME));
   this.realtime_name=String.valueOf(topology_conf.get(REALTIME_NAME));
+  this.replication=StormUtils.parseInt(topology_conf.containsKey(SHARD_REPLICATION) ? topology_conf.get(SHARD_REPLICATION) : 1);
   this.supInfos=supInfos;
   this.topologyId=topologyId;
   this.zkCluster=zkCluster;

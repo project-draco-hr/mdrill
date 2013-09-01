@@ -1,0 +1,3 @@
+long minDistanceFromEnd
+long maxDistanceFromEnd
+byte[] sig

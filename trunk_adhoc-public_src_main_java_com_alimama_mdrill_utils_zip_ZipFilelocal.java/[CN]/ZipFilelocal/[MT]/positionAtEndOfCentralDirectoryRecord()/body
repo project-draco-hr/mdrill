@@ -1,0 +1,6 @@
+{
+  boolean found=tryToLocateSignature(MIN_EOCD_SIZE,MAX_EOCD_SIZE,ZipOutputStream.EOCD_SIG);
+  if (!found) {
+    throw new ZipException("archive is not a ZIP archive");
+  }
+}

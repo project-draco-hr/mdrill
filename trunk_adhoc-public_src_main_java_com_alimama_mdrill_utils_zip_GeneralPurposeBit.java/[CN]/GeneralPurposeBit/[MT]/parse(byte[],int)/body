@@ -1,0 +1,9 @@
+{
+  final int generalPurposeFlag=ZipShort.getValue(data,offset);
+  GeneralPurposeBit b=new GeneralPurposeBit();
+  b.useDataDescriptor((generalPurposeFlag & DATA_DESCRIPTOR_FLAG) != 0);
+  b.useUTF8ForNames((generalPurposeFlag & UFT8_NAMES_FLAG) != 0);
+  b.useStrongEncryption((generalPurposeFlag & STRONG_ENCRYPTION_FLAG) != 0);
+  b.useEncryption((generalPurposeFlag & ENCRYPTION_FLAG) != 0);
+  return b;
+}

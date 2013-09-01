@@ -1,0 +1,12 @@
+{
+  int off=0;
+  if (size != null) {
+    System.arraycopy(size.getBytes(),0,data,0,DWORD);
+    off+=DWORD;
+  }
+  if (compressedSize != null) {
+    System.arraycopy(compressedSize.getBytes(),0,data,off,DWORD);
+    off+=DWORD;
+  }
+  return off;
+}

@@ -1,0 +1,3 @@
+{
+  return new ZipShort(WORD + 2 + WORD+ 2+ 2+ getLinkedFile().getBytes().length);
+}

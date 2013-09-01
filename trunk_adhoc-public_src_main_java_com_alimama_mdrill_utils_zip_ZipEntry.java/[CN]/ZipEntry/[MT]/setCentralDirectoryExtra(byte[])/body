@@ -1,0 +1,9 @@
+{
+  try {
+    ZipExtraField[] central=ExtraFieldUtils.parse(b,false,ExtraFieldUtils.UnparseableExtraField.READ);
+    mergeExtraFields(central,false);
+  }
+ catch (  ZipException e) {
+    throw new RuntimeException(e.getMessage(),e);
+  }
+}

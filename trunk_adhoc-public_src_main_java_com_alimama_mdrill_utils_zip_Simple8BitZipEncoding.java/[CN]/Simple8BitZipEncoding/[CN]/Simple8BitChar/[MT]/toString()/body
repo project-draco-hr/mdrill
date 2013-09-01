@@ -1,0 +1,3 @@
+{
+  return "0x" + Integer.toHexString(0xffff & unicode) + "->0x"+ Integer.toHexString(0xff & code);
+}

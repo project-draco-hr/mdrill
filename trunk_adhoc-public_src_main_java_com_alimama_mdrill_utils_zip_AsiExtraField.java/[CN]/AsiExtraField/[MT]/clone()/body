@@ -1,0 +1,10 @@
+{
+  try {
+    AsiExtraField cloned=(AsiExtraField)super.clone();
+    cloned.crc=new CRC32();
+    return cloned;
+  }
+ catch (  CloneNotSupportedException cnfe) {
+    throw new RuntimeException(cnfe);
+  }
+}

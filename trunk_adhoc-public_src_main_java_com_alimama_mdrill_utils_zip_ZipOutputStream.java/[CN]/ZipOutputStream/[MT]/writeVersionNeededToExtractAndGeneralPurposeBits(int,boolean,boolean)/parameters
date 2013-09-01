@@ -1,0 +1,3 @@
+int zipMethod
+boolean utfFallback
+boolean zip64

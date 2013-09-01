@@ -1,0 +1,6 @@
+{
+  if (b >= 0) {
+    return (char)b;
+  }
+  return this.highChars[128 + b];
+}

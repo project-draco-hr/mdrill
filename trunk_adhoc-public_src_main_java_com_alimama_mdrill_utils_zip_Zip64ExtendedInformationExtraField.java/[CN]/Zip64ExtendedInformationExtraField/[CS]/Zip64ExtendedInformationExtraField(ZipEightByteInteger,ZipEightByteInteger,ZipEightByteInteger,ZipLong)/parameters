@@ -1,0 +1,4 @@
+ZipEightByteInteger size
+ZipEightByteInteger compressedSize
+ZipEightByteInteger relativeHeaderOffset
+ZipLong diskStart

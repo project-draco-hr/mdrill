@@ -1,0 +1,7 @@
+{
+  if (unparseableExtra == null) {
+    throw new java.util.NoSuchElementException();
+  }
+  unparseableExtra=null;
+  setExtra();
+}

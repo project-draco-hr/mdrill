@@ -1,0 +1,3 @@
+{
+  return ze.getExtraField(Zip64ExtendedInformationExtraField.HEADER_ID) != null;
+}

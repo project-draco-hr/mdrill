@@ -2,7 +2,7 @@
   System.setProperty("org.mortbay.jetty.Request.maxFormContentSize","9000000");
   this.context=context;
   server=new Server();
-  QueuedThreadPool threads=new QueuedThreadPool(256);
+  QueuedThreadPool threads=new QueuedThreadPool(512);
   threads.setDaemon(true);
   SelectChannelConnector conn=new SelectChannelConnector();
   conn.setPort(port);

@@ -1,10 +1,2 @@
 {
-  outgoing.add(sreq);
-  if ((sreq.purpose & ShardRequest.PURPOSE_PRIVATE) == 0) {
-    for (    SearchComponent component : components) {
-      if (component != me) {
-        component.modifyRequest(this,me,sreq);
-      }
-    }
-  }
 }

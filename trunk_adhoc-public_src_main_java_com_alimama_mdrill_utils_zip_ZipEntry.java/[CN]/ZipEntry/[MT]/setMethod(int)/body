@@ -1,0 +1,6 @@
+{
+  if (method < 0) {
+    throw new IllegalArgumentException("ZIP compression method can not be negative: " + method);
+  }
+  this.method=method;
+}

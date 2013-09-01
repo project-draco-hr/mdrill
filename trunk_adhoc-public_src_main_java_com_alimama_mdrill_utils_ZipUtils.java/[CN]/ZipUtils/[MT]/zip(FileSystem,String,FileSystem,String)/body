@@ -1,0 +1,20 @@
+{
+  OutputStream out=fs2.create(new Path(zipFilePath2),true);
+  BufferedOutputStream bos=new BufferedOutputStream(out);
+  ZipOutputStream zos=new ZipOutputStream(bos);
+  zos.setEncoding(CHINESE_CHARSET);
+  Path basePath=null;
+  Path src=new Path(sourceFolder1);
+  FileStatus f=fs.getFileStatus(src);
+  if (f.isDir()) {
+    basePath=f.getPath();
+  }
+ else {
+    basePath=f.getPath().getParent();
+  }
+  zipFile(fs,f,basePath,zos);
+  zos.closeEntry();
+  zos.close();
+  bos.close();
+  out.close();
+}

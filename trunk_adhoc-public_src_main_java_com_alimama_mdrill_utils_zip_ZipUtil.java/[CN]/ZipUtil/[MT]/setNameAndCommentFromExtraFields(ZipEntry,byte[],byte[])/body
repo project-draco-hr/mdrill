@@ -1,0 +1,15 @@
+{
+  UnicodePathExtraField name=(UnicodePathExtraField)ze.getExtraField(UnicodePathExtraField.UPATH_ID);
+  String originalName=ze.getName();
+  String newName=getUnicodeStringIfOriginalMatches(name,originalNameBytes);
+  if (newName != null && !originalName.equals(newName)) {
+    ze.setName(newName);
+  }
+  if (commentBytes != null && commentBytes.length > 0) {
+    UnicodeCommentExtraField cmt=(UnicodeCommentExtraField)ze.getExtraField(UnicodeCommentExtraField.UCOM_ID);
+    String newComment=getUnicodeStringIfOriginalMatches(cmt,commentBytes);
+    if (newComment != null) {
+      ze.setComment(newComment);
+    }
+  }
+}

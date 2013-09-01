@@ -19,7 +19,11 @@
   Integer shards=StormUtils.parseInt(stormconf.get("higo.shards.count"));
   String hdfsSolrDir=(String)stormconf.get("higo.table.path");
   Configuration conf=getConf(stormconf);
-  String[] jobValues=new String[]{split,submatch};
+  Integer parallel=StormUtils.parseInt(stormconf.get("higo.index.parallel"));
+  if (stormconf.containsKey("higo.index.parallel." + tablename)) {
+    parallel=StormUtils.parseInt(String.valueOf(stormconf.get("higo.index.parallel." + tablename)));
+  }
+  String[] jobValues=new String[]{split,submatch,String.valueOf(parallel)};
   String type=(String)stormconf.get("higo.partion.type");
   String tabletype=(String)stormconf.get("higo.partion.type." + tablename);
   if (tabletype != null && !tabletype.isEmpty()) {

@@ -1,0 +1,24 @@
+{
+  Zip64ExtendedInformationExtraField z64=(Zip64ExtendedInformationExtraField)ze.getExtraField(Zip64ExtendedInformationExtraField.HEADER_ID);
+  if (z64 != null) {
+    boolean hasUncompressedSize=ze.getSize() == ZIP64_MAGIC;
+    boolean hasCompressedSize=ze.getCompressedSize() == ZIP64_MAGIC;
+    boolean hasRelativeHeaderOffset=offset.headerOffset == ZIP64_MAGIC;
+    z64.reparseCentralDirectoryData(hasUncompressedSize,hasCompressedSize,hasRelativeHeaderOffset,diskStart == ZIP64_MAGIC_SHORT);
+    if (hasUncompressedSize) {
+      ze.setSize(z64.getSize().getLongValue());
+    }
+ else     if (hasCompressedSize) {
+      z64.setSize(new ZipEightByteInteger(ze.getSize()));
+    }
+    if (hasCompressedSize) {
+      ze.setCompressedSize(z64.getCompressedSize().getLongValue());
+    }
+ else     if (hasUncompressedSize) {
+      z64.setCompressedSize(new ZipEightByteInteger(ze.getCompressedSize()));
+    }
+    if (hasRelativeHeaderOffset) {
+      offset.headerOffset=z64.getRelativeHeaderOffset().getLongValue();
+    }
+  }
+}

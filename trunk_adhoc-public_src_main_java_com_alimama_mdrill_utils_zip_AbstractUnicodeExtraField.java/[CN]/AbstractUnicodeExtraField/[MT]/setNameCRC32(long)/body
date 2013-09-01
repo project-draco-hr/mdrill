@@ -1,0 +1,4 @@
+{
+  this.nameCRC32=nameCRC32;
+  data=null;
+}

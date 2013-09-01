@@ -1,0 +1,3 @@
+{
+  return centralDirectoryData == null ? getLocalFileDataLength() : new ZipShort(centralDirectoryData.length);
+}

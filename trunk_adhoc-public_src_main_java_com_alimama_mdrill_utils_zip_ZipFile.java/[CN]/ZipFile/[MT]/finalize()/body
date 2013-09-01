@@ -1,0 +1,11 @@
+{
+  try {
+    if (!closed) {
+      System.err.println("Cleaning up unclosed ZipFile for archive ");
+      close();
+    }
+  }
+  finally {
+    super.finalize();
+  }
+}

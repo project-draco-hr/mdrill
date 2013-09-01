@@ -1,0 +1,9 @@
+{
+  Class<?> c=implementations.get(headerId);
+  if (c != null) {
+    return (ZipExtraField)c.newInstance();
+  }
+  UnrecognizedExtraField u=new UnrecognizedExtraField();
+  u.setHeaderId(headerId);
+  return u;
+}

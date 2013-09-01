@@ -1,0 +1,4 @@
+FileSystem fs
+FileStatus parentFile
+Path basePath
+ZipOutputStream zos

@@ -1,0 +1,14 @@
+{
+  int versionNeededToExtract=INITIAL_VERSION;
+  GeneralPurposeBit b=new GeneralPurposeBit();
+  b.useUTF8ForNames(useUTF8Flag || utfFallback);
+  if (zipMethod == DEFLATED && raf == null) {
+    versionNeededToExtract=DATA_DESCRIPTOR_MIN_VERSION;
+    b.useDataDescriptor(true);
+  }
+  if (zip64) {
+    versionNeededToExtract=ZIP64_MIN_VERSION;
+  }
+  writeOut(ZipShort.getBytes(versionNeededToExtract));
+  writeOut(b.encode());
+}

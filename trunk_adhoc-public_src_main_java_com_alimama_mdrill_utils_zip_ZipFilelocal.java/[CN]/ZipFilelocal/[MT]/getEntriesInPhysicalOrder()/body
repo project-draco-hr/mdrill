@@ -1,0 +1,5 @@
+{
+  ZipEntry[] allEntries=entries.toArray(new ZipEntry[0]);
+  Arrays.sort(allEntries,OFFSET_COMPARATOR);
+  return Collections.enumeration(Arrays.asList(allEntries));
+}
