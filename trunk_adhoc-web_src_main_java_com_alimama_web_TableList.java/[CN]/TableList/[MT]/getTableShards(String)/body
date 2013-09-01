@@ -22,14 +22,14 @@
           partionCount.put(e.getKey(),sc);
         }
         for (        Entry<String,ShardCount> e : info.daycount.entrySet()) {
-          Long sc=dayCount.get(e.getKey());
+          Long sc=dayCount.get(e.getKey() + "@" + info.replicationindex);
           long cnt=e.getValue().cnt;
           if (sc == null) {
             sc=0l;
           }
           sc+=cnt;
           dayCount.put(e.getKey() + "@" + info.replicationindex,sc);
-          Long amt=dayAmt.get(e.getKey());
+          Long amt=dayAmt.get(e.getKey() + "@" + info.replicationindex);
           if (amt == null) {
             amt=0l;
           }
