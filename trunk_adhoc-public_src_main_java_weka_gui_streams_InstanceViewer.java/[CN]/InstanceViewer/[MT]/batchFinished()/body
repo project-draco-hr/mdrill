@@ -1,0 +1,6 @@
+{
+  updateOutput();
+  if (m_Debug) {
+    System.err.println("InstanceViewer::batchFinished()");
+  }
+}

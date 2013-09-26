@@ -1,0 +1,19 @@
+{
+  try {
+    conf=YamlUtils.getConfigFromYamlFile("adhoc-metric.yaml");
+  }
+ catch (  IOException e) {
+    System.err.println("[" + sdf.format(new Date(System.currentTimeMillis())) + "] "+ "Error when open YAML File");
+    e.printStackTrace();
+  }
+  metricServer=new MetricService();
+  if (queryFrom.equals("hive")) {
+    queryServer=new HiveQueryService(conf);
+  }
+ else   if (queryFrom.equals("higo")) {
+    queryServer=new HigoQueryService(conf);
+  }
+ else {
+    System.out.println("UpdateService: unknown query type " + queryFrom);
+  }
+}

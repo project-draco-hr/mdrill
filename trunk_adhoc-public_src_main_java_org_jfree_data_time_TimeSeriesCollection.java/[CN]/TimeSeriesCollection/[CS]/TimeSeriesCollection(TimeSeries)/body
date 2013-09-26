@@ -1,0 +1,3 @@
+{
+  this(series,TimeZone.getDefault());
+}

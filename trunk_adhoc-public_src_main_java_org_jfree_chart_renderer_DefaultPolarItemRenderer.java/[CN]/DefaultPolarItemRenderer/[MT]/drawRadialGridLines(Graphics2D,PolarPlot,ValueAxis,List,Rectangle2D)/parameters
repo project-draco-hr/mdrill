@@ -1,0 +1,5 @@
+Graphics2D g2
+PolarPlot plot
+ValueAxis radialAxis
+List ticks
+Rectangle2D dataArea

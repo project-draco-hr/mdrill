@@ -1,0 +1,5 @@
+{
+  super();
+  this.partion=partion;
+  this.tablename=tablename;
+}

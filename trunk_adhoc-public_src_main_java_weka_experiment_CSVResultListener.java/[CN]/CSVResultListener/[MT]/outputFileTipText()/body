@@ -1,0 +1,3 @@
+{
+  return "File to save to. Use '-' to write to standard out.";
+}

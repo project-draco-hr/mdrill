@@ -1,0 +1,17 @@
+{
+  int visibleRow=state.getVisibleSeriesIndex(row);
+  if (visibleRow < 0) {
+    return;
+  }
+  if (!(data instanceof StatisticalCategoryDataset)) {
+    throw new IllegalArgumentException("Requires StatisticalCategoryDataset.");
+  }
+  StatisticalCategoryDataset statData=(StatisticalCategoryDataset)data;
+  PlotOrientation orientation=plot.getOrientation();
+  if (orientation == PlotOrientation.HORIZONTAL) {
+    drawHorizontalItem(g2,state,dataArea,plot,domainAxis,rangeAxis,statData,visibleRow,row,column);
+  }
+ else   if (orientation == PlotOrientation.VERTICAL) {
+    drawVerticalItem(g2,state,dataArea,plot,domainAxis,rangeAxis,statData,visibleRow,row,column);
+  }
+}

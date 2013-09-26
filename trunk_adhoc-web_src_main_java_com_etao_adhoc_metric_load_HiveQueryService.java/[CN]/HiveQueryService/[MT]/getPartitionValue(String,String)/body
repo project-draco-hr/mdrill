@@ -1,0 +1,9 @@
+{
+  if (DT_SET.contains(tablename)) {
+    return "dt=" + thedate;
+  }
+ else   if (PT_SET.contains(tablename)) {
+    return "pt=" + thedate + "000000";
+  }
+  return null;
+}

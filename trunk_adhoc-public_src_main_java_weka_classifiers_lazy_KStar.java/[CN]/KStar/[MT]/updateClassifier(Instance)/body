@@ -1,0 +1,7 @@
+{
+  String debug="(KStar.updateClassifier) ";
+  if (m_Train.equalHeaders(instance.dataset()) == false)   throw new Exception("Incompatible instance types\n" + m_Train.equalHeadersMsg(instance.dataset()));
+  if (instance.classIsMissing())   return;
+  m_Train.add(instance);
+  update_m_Attributes();
+}

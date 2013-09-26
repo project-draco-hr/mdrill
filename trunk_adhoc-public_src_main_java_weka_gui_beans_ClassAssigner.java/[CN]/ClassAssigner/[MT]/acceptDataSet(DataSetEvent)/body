@@ -1,0 +1,9 @@
+{
+  Instances dataSet=e.getDataSet();
+  assignClass(dataSet);
+  notifyDataListeners(e);
+  if (e.isStructureOnly()) {
+    m_connectedFormat=e.getDataSet();
+    notifyDataFormatListeners();
+  }
+}

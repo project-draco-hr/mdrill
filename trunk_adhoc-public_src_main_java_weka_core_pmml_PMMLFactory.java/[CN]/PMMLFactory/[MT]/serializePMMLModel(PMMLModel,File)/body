@@ -1,0 +1,3 @@
+{
+  serializePMMLModel(model,new BufferedOutputStream(new FileOutputStream(file)));
+}

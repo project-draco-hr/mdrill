@@ -1,0 +1,7 @@
+{
+  this.seriesVisibleList.setBoolean(series,visible);
+  if (notify) {
+    RendererChangeEvent e=new RendererChangeEvent(this,true);
+    notifyListeners(e);
+  }
+}

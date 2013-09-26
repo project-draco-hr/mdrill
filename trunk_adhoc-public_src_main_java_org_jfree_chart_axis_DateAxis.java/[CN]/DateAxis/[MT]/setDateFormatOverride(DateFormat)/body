@@ -1,0 +1,4 @@
+{
+  this.dateFormatOverride=formatter;
+  notifyListeners(new AxisChangeEvent(this));
+}

@@ -1,0 +1,4 @@
+{
+  this.xOffset=xOffset;
+  fireChangeEvent();
+}

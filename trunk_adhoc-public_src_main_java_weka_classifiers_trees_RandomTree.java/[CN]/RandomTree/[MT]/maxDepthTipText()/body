@@ -1,0 +1,3 @@
+{
+  return "The maximum depth of the tree, 0 for unlimited.";
+}

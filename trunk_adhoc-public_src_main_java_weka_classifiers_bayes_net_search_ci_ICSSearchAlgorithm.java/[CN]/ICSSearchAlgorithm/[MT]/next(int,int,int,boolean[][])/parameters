@@ -1,0 +1,4 @@
+int x
+int iNode1
+int iNode2
+boolean[][] edges

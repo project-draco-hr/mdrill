@@ -1,0 +1,19 @@
+{
+  if (obj == this) {
+    return true;
+  }
+  if (!(obj instanceof StandardXYURLGenerator)) {
+    return false;
+  }
+  StandardXYURLGenerator that=(StandardXYURLGenerator)obj;
+  if (!ObjectUtilities.equal(that.prefix,this.prefix)) {
+    return false;
+  }
+  if (!ObjectUtilities.equal(that.seriesParameterName,this.seriesParameterName)) {
+    return false;
+  }
+  if (!ObjectUtilities.equal(that.itemParameterName,this.itemParameterName)) {
+    return false;
+  }
+  return true;
+}

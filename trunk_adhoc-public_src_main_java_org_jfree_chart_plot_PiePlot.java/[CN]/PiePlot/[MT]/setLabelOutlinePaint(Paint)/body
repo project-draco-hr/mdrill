@@ -1,0 +1,4 @@
+{
+  this.labelOutlinePaint=paint;
+  fireChangeEvent();
+}

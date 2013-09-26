@@ -1,0 +1,7 @@
+{
+  final int idx=file.lastIndexOf(".");
+  if (idx < 1) {
+    return "";
+  }
+  return file.substring(idx);
+}

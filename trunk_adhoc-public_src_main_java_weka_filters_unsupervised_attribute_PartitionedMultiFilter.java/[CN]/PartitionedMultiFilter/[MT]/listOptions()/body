@@ -1,0 +1,9 @@
+{
+  Vector result=new Vector();
+  Enumeration enm=super.listOptions();
+  while (enm.hasMoreElements())   result.add(enm.nextElement());
+  result.addElement(new Option("\tA filter to apply (can be specified multiple times).","F",1,"-F <classname [options]>"));
+  result.addElement(new Option("\tAn attribute range (can be specified multiple times).\n" + "\tFor each filter a range must be supplied. 'first' and 'last'\n" + "\tare valid indices. 'inv(...)' around the range denotes an\n"+ "\tinverted range.","R",1,"-R <range>"));
+  result.addElement(new Option("\tFlag for leaving unused attributes out of the output, by default\n" + "\tthese are included in the filter output.","U",0,"-U"));
+  return result.elements();
+}

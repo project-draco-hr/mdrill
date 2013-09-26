@@ -1,0 +1,7 @@
+{
+  super(source);
+  m_trainingSet=trainSet;
+  if (m_trainingSet != null && m_trainingSet.numInstances() == 0) {
+    m_structureOnly=true;
+  }
+}

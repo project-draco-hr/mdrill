@@ -1,0 +1,5 @@
+{
+  List bins=getBins(series);
+  HistogramBin bin=(HistogramBin)bins.get(item);
+  return new Double(bin.getStartBoundary());
+}

@@ -1,0 +1,15 @@
+{
+  ufs.free();
+  crossufs.free();
+  distufs.free();
+  for (  GroupListCache.GroupList g : preSet) {
+    this.groupListCache.add(g);
+  }
+  for (  GroupListCache.GroupList g : groups.keySet()) {
+    this.groupListCache.add(g);
+  }
+  GroupListCache.cleanFieldValueCache(groupbySize);
+  for (int i=0; i < this.parse.joinList.length; i++) {
+    this.joinInvert[i].close();
+  }
+}

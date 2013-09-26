@@ -1,0 +1,3 @@
+{
+  super("Copy","Copy Nodes","copy","ctrl C");
+}

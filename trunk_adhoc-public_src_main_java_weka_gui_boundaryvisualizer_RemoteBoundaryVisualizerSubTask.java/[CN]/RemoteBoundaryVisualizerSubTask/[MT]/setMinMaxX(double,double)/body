@@ -1,0 +1,4 @@
+{
+  m_minX=minx;
+  m_maxX=maxx;
+}

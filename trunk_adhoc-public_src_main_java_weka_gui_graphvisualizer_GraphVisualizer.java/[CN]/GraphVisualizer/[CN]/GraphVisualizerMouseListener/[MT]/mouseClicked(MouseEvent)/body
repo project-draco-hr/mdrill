@@ -1,0 +1,120 @@
+{
+  GraphNode n;
+  Dimension d=m_gp.getPreferredSize();
+  x=y=nx=ny=0;
+  if (d.width < m_gp.getWidth())   nx=(int)((nx + m_gp.getWidth() / 2 - d.width / 2) / scale);
+  if (d.height < m_gp.getHeight())   ny=(int)((ny + m_gp.getHeight() / 2 - d.height / 2) / scale);
+  r=new Rectangle(0,0,(int)(paddedNodeWidth * scale),(int)(nodeHeight * scale));
+  x+=me.getX();
+  y+=me.getY();
+  int i;
+  for (i=0; i < m_nodes.size(); i++) {
+    n=(GraphNode)m_nodes.elementAt(i);
+    r.x=(int)((nx + n.x) * scale);
+    r.y=(int)((ny + n.y) * scale);
+    if (r.contains(x,y)) {
+      if (n.probs == null)       return;
+      int noOfPrntsOutcomes=1;
+      if (n.prnts != null) {
+        for (int j=0; j < n.prnts.length; j++) {
+          GraphNode n2=(GraphNode)m_nodes.elementAt(n.prnts[j]);
+          noOfPrntsOutcomes*=n2.outcomes.length;
+        }
+        if (noOfPrntsOutcomes > 511) {
+          System.err.println("Too many outcomes of parents (" + noOfPrntsOutcomes + ") can't display probabilities");
+          return;
+        }
+      }
+      GraphVisualizerTableModel tm=new GraphVisualizerTableModel(n.probs,n.outcomes);
+      JTable jTblProbs=new JTable(tm);
+      JScrollPane js=new JScrollPane(jTblProbs);
+      if (n.prnts != null) {
+        GridBagConstraints gbc=new GridBagConstraints();
+        JPanel jPlRowHeader=new JPanel(new GridBagLayout());
+        int[] idx=new int[n.prnts.length];
+        int[] lengths=new int[n.prnts.length];
+        gbc.anchor=gbc.NORTHWEST;
+        gbc.fill=gbc.HORIZONTAL;
+        gbc.insets=new Insets(0,1,0,0);
+        int addNum=0, temp=0;
+        boolean dark=false;
+        while (true) {
+          GraphNode n2;
+          gbc.gridwidth=1;
+          for (int k=0; k < n.prnts.length; k++) {
+            n2=(GraphNode)m_nodes.elementAt(n.prnts[k]);
+            JLabel lb=new JLabel(n2.outcomes[idx[k]]);
+            lb.setFont(new Font("Dialog",Font.PLAIN,12));
+            lb.setOpaque(true);
+            lb.setBorder(BorderFactory.createEmptyBorder(1,2,1,1));
+            lb.setHorizontalAlignment(JLabel.CENTER);
+            if (dark) {
+              lb.setBackground(lb.getBackground().darker());
+              lb.setForeground(Color.white);
+            }
+ else             lb.setForeground(Color.black);
+            temp=lb.getPreferredSize().width;
+            lb.setPreferredSize(new Dimension(temp,jTblProbs.getRowHeight()));
+            if (lengths[k] < temp)             lengths[k]=temp;
+            temp=0;
+            if (k == n.prnts.length - 1) {
+              gbc.gridwidth=gbc.REMAINDER;
+              dark=(dark == true) ? false : true;
+            }
+            jPlRowHeader.add(lb,gbc);
+            addNum++;
+          }
+          for (int k=n.prnts.length - 1; k >= 0; k--) {
+            n2=(GraphNode)m_nodes.elementAt(n.prnts[k]);
+            if (idx[k] == n2.outcomes.length - 1 && k != 0) {
+              idx[k]=0;
+              continue;
+            }
+ else {
+              idx[k]++;
+              break;
+            }
+          }
+          n2=(GraphNode)m_nodes.elementAt(n.prnts[0]);
+          if (idx[0] == n2.outcomes.length) {
+            JLabel lb=(JLabel)jPlRowHeader.getComponent(addNum - 1);
+            jPlRowHeader.remove(addNum - 1);
+            lb.setPreferredSize(new Dimension(lb.getPreferredSize().width,jTblProbs.getRowHeight()));
+            gbc.gridwidth=gbc.REMAINDER;
+            gbc.weighty=1;
+            jPlRowHeader.add(lb,gbc);
+            gbc.weighty=0;
+            break;
+          }
+        }
+        gbc.gridwidth=1;
+        JPanel jPlRowNames=new JPanel(new GridBagLayout());
+        for (int j=0; j < n.prnts.length; j++) {
+          JLabel lb2;
+          JLabel lb1=new JLabel(((GraphNode)m_nodes.elementAt(n.prnts[j])).lbl);
+          lb1.setBorder(BorderFactory.createEmptyBorder(1,2,1,1));
+          Dimension tempd=lb1.getPreferredSize();
+          if (tempd.width < lengths[j]) {
+            lb1.setPreferredSize(new Dimension(lengths[j],tempd.height));
+            lb1.setHorizontalAlignment(JLabel.CENTER);
+            lb1.setMinimumSize(new Dimension(lengths[j],tempd.height));
+          }
+ else           if (tempd.width > lengths[j]) {
+            lb2=(JLabel)jPlRowHeader.getComponent(j);
+            lb2.setPreferredSize(new Dimension(tempd.width,lb2.getPreferredSize().height));
+          }
+          jPlRowNames.add(lb1,gbc);
+        }
+        js.setRowHeaderView(jPlRowHeader);
+        js.setCorner(JScrollPane.UPPER_LEFT_CORNER,jPlRowNames);
+      }
+      JDialog jd=new JDialog((Frame)GraphVisualizer.this.getTopLevelAncestor(),"Probability Distribution Table For " + n.lbl,true);
+      jd.setSize(500,400);
+      jd.setLocation(GraphVisualizer.this.getLocation().x + GraphVisualizer.this.getWidth() / 2 - 250,GraphVisualizer.this.getLocation().y + GraphVisualizer.this.getHeight() / 2 - 200);
+      jd.getContentPane().setLayout(new BorderLayout());
+      jd.getContentPane().add(js,BorderLayout.CENTER);
+      jd.setVisible(true);
+      return;
+    }
+  }
+}

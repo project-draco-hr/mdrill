@@ -1,0 +1,3 @@
+{
+  return "Whether to store the filename in an additional attribute.";
+}

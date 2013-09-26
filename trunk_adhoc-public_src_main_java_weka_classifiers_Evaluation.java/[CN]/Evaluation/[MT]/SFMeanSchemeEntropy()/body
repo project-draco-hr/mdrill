@@ -1,0 +1,4 @@
+{
+  if (!m_ComplexityStatisticsAvailable)   return Double.NaN;
+  return m_SumSchemeEntropy / (m_WithClass - m_Unclassified);
+}

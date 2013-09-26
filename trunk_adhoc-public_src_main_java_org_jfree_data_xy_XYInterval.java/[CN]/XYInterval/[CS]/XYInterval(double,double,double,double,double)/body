@@ -1,0 +1,7 @@
+{
+  this.xLow=xLow;
+  this.xHigh=xHigh;
+  this.y=y;
+  this.yLow=yLow;
+  this.yHigh=yHigh;
+}

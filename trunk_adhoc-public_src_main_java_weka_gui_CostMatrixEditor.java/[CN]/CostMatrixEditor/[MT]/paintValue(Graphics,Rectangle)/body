@@ -1,0 +1,3 @@
+{
+  gfx.drawString(m_matrix.size() + " x " + m_matrix.size()+ " cost matrix",box.x,box.y + box.height);
+}

@@ -1,0 +1,6 @@
+int nSymbols
+double w1
+double w2
+DiscreteEstimatorBayes EmptyDist
+DiscreteEstimatorBayes ClassDist
+double fPrior

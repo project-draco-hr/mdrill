@@ -1,0 +1,14 @@
+{
+  if (layoutCompleteListeners != null) {
+    LayoutCompleteEventListener l;
+    for (int i=0; i < layoutCompleteListeners.size(); i++) {
+      l=(LayoutCompleteEventListener)layoutCompleteListeners.elementAt(i);
+      if (l == e) {
+        layoutCompleteListeners.removeElementAt(i);
+        return;
+      }
+    }
+    System.err.println("layoutCompleteListener to be remove not present");
+  }
+ else   System.err.println("layoutCompleteListener to be remove not present");
+}

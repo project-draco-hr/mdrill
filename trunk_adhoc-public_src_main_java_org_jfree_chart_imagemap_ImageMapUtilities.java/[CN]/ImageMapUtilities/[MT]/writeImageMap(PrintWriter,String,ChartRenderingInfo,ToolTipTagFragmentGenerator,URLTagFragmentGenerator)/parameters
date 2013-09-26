@@ -1,0 +1,5 @@
+PrintWriter writer
+String name
+ChartRenderingInfo info
+ToolTipTagFragmentGenerator toolTipTagFragmentGenerator
+URLTagFragmentGenerator urlTagFragmentGenerator

@@ -1,0 +1,4 @@
+{
+  super.nextBytes(bytes);
+  println("nextBytes=" + Utils.arrayToString(bytes));
+}

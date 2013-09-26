@@ -1,0 +1,3 @@
+int index
+double expFPRate
+boolean checkErr

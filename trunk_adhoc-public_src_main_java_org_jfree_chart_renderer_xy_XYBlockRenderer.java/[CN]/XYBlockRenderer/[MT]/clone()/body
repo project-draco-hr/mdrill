@@ -1,0 +1,8 @@
+{
+  XYBlockRenderer clone=(XYBlockRenderer)super.clone();
+  if (this.paintScale instanceof PublicCloneable) {
+    PublicCloneable pc=(PublicCloneable)this.paintScale;
+    clone.paintScale=(PaintScale)pc.clone();
+  }
+  return clone;
+}

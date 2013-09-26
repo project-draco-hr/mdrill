@@ -1,0 +1,12 @@
+{
+  if (category == null) {
+    throw new IllegalArgumentException("Null 'category' argument.");
+  }
+  if (font == null) {
+    this.tickLabelFontMap.remove(category);
+  }
+ else {
+    this.tickLabelFontMap.put(category,font);
+  }
+  notifyListeners(new AxisChangeEvent(this));
+}

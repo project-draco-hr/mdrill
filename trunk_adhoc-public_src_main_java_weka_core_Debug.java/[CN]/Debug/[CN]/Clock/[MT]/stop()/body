@@ -1,0 +1,4 @@
+{
+  m_Stop=getCurrentTime();
+  m_Running=false;
+}

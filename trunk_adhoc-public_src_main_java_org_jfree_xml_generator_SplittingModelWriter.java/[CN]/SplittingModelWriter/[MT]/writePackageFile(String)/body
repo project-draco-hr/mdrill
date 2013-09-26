@@ -1,0 +1,29 @@
+{
+  final Iterator values=this.classDescriptionByPackage.getAll(includeFileName);
+  final Iterator manualMappings=this.manualMappingByPackage.getAll(includeFileName);
+  final Iterator multiplexMappings=this.multiplexMappingByPackage.getAll(includeFileName);
+  if (!values.hasNext() && !manualMappings.hasNext() && !multiplexMappings.hasNext()) {
+    return;
+  }
+  Log.debug("Writing included file: " + includeFileName);
+  this.sources.remove(includeFileName);
+  final BufferedWriter writer=new BufferedWriter(new OutputStreamWriter(new FileOutputStream(new File(this.targetFile.getParentFile(),includeFileName)),"UTF-8"));
+  writeXMLHeader(writer);
+  writeStandardComment(writer,getModel().getModelComments());
+  getWriterSupport().writeTag(writer,ClassModelTags.OBJECTS_TAG);
+  while (values.hasNext()) {
+    final ClassDescription cd=(ClassDescription)values.next();
+    writeClassDescription(writer,cd);
+  }
+  while (manualMappings.hasNext()) {
+    final ManualMappingInfo mi=(ManualMappingInfo)manualMappings.next();
+    writeManualMapping(writer,mi);
+  }
+  while (multiplexMappings.hasNext()) {
+    final MultiplexMappingInfo mi=(MultiplexMappingInfo)multiplexMappings.next();
+    writeMultiplexMapping(writer,mi);
+  }
+  writeCloseComment(writer,getModel().getModelComments());
+  getWriterSupport().writeCloseTag(writer,ClassModelTags.OBJECTS_TAG);
+  writer.close();
+}

@@ -1,0 +1,31 @@
+{
+  if (iNode >= nNodes.length) {
+    if (bSubstract) {
+      nCounts[iOffset]-=m_nCount;
+    }
+ else {
+      nCounts[iOffset]+=m_nCount;
+    }
+    return;
+  }
+ else {
+    if (m_VaryNodes != null) {
+      m_VaryNodes[nNodes[iNode] - m_nStartNode].getCounts(nCounts,nNodes,nOffsets,iNode,iOffset,this,bSubstract);
+    }
+ else {
+      for (int iInstance=0; iInstance < m_Instances.length; iInstance++) {
+        int iOffset2=iOffset;
+        Instance instance=m_Instances[iInstance];
+        for (int iNode2=iNode; iNode2 < nNodes.length; iNode2++) {
+          iOffset2=iOffset2 + nOffsets[iNode2] * (int)instance.value(nNodes[iNode2]);
+        }
+        if (bSubstract) {
+          nCounts[iOffset2]--;
+        }
+ else {
+          nCounts[iOffset2]++;
+        }
+      }
+    }
+  }
+}

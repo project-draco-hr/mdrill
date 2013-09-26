@@ -1,0 +1,27 @@
+{
+  double sumValues=0, sumConds=0;
+  for (int i=0; i < m_Values.size(); i++) {
+    sumValues+=((Double)m_Values.elementAt(i)).doubleValue() * ((Double)m_Weights.elementAt(i)).doubleValue();
+    sumConds+=((Double)m_CondValues.elementAt(i)).doubleValue() * ((Double)m_Weights.elementAt(i)).doubleValue();
+  }
+  m_ValueMean=sumValues / m_SumOfWeights;
+  m_CondMean=sumConds / m_SumOfWeights;
+  double c00=0, c01=0, c10=0, c11=0;
+  for (int i=0; i < m_Values.size(); i++) {
+    double x=((Double)m_Values.elementAt(i)).doubleValue();
+    double y=((Double)m_CondValues.elementAt(i)).doubleValue();
+    double weight=((Double)m_Weights.elementAt(i)).doubleValue();
+    c00+=(x - m_ValueMean) * (x - m_ValueMean) * weight;
+    c01+=(x - m_ValueMean) * (y - m_CondMean) * weight;
+    c11+=(y - m_CondMean) * (y - m_CondMean) * weight;
+  }
+  c00/=(m_SumOfWeights - 1.0);
+  c01/=(m_SumOfWeights - 1.0);
+  c10=c01;
+  c11/=(m_SumOfWeights - 1.0);
+  m_Covariance=new Matrix(2,2);
+  m_Covariance.set(0,0,c00);
+  m_Covariance.set(0,1,c01);
+  m_Covariance.set(1,0,c10);
+  m_Covariance.set(1,1,c11);
+}

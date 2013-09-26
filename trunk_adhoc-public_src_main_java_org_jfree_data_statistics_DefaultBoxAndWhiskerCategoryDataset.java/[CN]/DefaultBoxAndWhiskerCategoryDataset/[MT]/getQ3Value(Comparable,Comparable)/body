@@ -1,0 +1,8 @@
+{
+  Number result=null;
+  BoxAndWhiskerItem item=(BoxAndWhiskerItem)this.data.getObject(rowKey,columnKey);
+  if (item != null) {
+    result=item.getQ3();
+  }
+  return result;
+}

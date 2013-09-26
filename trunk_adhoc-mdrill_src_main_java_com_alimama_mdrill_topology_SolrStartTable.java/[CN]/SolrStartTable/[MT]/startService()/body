@@ -1,6 +1,6 @@
 {
   LOG.info("higolog startService");
-  SolrResourceLoader.SetCacheFlushKey(System.currentTimeMillis());
+  SolrResourceLoader.SetCacheFlushKey(null,System.currentTimeMillis());
   statcollect.setStat(ShardsState.SERVICE);
   this.checkSolr();
   this.zkHeatbeat();

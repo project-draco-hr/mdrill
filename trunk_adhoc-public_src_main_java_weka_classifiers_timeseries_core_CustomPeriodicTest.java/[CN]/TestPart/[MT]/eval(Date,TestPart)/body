@@ -1,0 +1,206 @@
+{
+  c.setTime(d);
+  boolean result=true;
+  if (m_year != -100) {
+    result=(result && m_boundOperator.evaluate(c.get(Calendar.YEAR),m_year));
+  }
+  if (m_month != -100) {
+    int monthBound=m_month;
+    int val=c.get(Calendar.MONTH);
+    if (m_isUpper && other != null && other.m_boundOperator != Operator.EQUALS && other.m_month != -100) {
+      monthBound-=other.m_month;
+      if (monthBound < 0) {
+        monthBound+=12;
+      }
+      val-=other.m_month;
+      if (val < 0) {
+        val+=12;
+      }
+    }
+    if (!m_isUpper && m_boundOperator != Operator.EQUALS && other != null && other.m_month != -100) {
+      monthBound=0;
+      val-=m_month;
+      if (val < 0) {
+        val+=12;
+      }
+    }
+    result=(result && m_boundOperator.evaluate(val,monthBound));
+  }
+  if (m_week_of_yr != -100) {
+    int weekBound=m_week_of_yr;
+    int val=c.get(Calendar.WEEK_OF_YEAR);
+    if (m_isUpper && other != null && other.m_boundOperator != Operator.EQUALS && other.m_week_of_yr != -100) {
+      weekBound-=other.m_week_of_yr;
+      if (weekBound < 0) {
+        weekBound+=52;
+      }
+      val-=other.m_week_of_yr;
+      if (val < 0) {
+        val+=52;
+      }
+    }
+    if (!m_isUpper && m_boundOperator != Operator.EQUALS && other != null && other.m_week_of_yr != -100) {
+      weekBound=0;
+      val-=m_week_of_yr;
+      if (val < 0) {
+        val+=52;
+      }
+    }
+    result=(result && m_boundOperator.evaluate(val,weekBound));
+  }
+  if (m_week_of_month != -100) {
+    int weekBound=m_week_of_month;
+    int val=c.get(Calendar.WEEK_OF_MONTH);
+    if (m_isUpper && other != null && other.m_boundOperator != Operator.EQUALS && other.m_week_of_month != -100) {
+      weekBound-=other.m_week_of_month;
+      if (weekBound < 0) {
+        weekBound+=6;
+      }
+      val-=other.m_week_of_month;
+      if (val < 0) {
+        val+=6;
+      }
+    }
+    if (!m_isUpper && m_boundOperator != Operator.EQUALS && other != null && other.m_week_of_month != -100) {
+      weekBound=0;
+      val-=m_week_of_month;
+      if (val < 0) {
+        val+=6;
+      }
+    }
+    result=(result && m_boundOperator.evaluate(val,weekBound));
+  }
+  if (m_day_of_yr != -100) {
+    int dayBound=m_day_of_yr;
+    int val=c.get(Calendar.DAY_OF_YEAR);
+    if (m_isUpper && other != null && other.m_boundOperator != Operator.EQUALS && other.m_day_of_yr != -100) {
+      dayBound-=other.m_day_of_yr;
+      if (dayBound < 0) {
+        dayBound+=365;
+      }
+      val-=other.m_day_of_yr;
+      if (val < 0) {
+        val+=365;
+      }
+    }
+    if (!m_isUpper && m_boundOperator != Operator.EQUALS && other != null && other.m_day_of_yr != -100) {
+      dayBound=0;
+      val-=m_day_of_yr;
+      if (val < 0) {
+        val+=365;
+      }
+    }
+    result=(result && m_boundOperator.evaluate(val,dayBound));
+  }
+  if (m_day_of_month != -100) {
+    int dayBound=m_day_of_month;
+    int val=c.get(Calendar.DAY_OF_MONTH);
+    if (m_isUpper && other != null && other.m_boundOperator != Operator.EQUALS && other.m_day_of_month != -100) {
+      dayBound-=other.m_day_of_month;
+      if (dayBound < 0) {
+        dayBound+=31;
+      }
+      val-=other.m_day_of_month;
+      if (val < 0) {
+        val+=31;
+      }
+    }
+    if (!m_isUpper && m_boundOperator != Operator.EQUALS && other != null && other.m_day_of_month != -100) {
+      dayBound=0;
+      val-=m_day_of_month;
+      if (val < 0) {
+        val+=31;
+      }
+    }
+    result=(result && m_boundOperator.evaluate(val,dayBound));
+  }
+  if (m_day_of_week != -100) {
+    int dayBound=m_day_of_week;
+    int val=c.get(Calendar.DAY_OF_WEEK);
+    if (m_isUpper && other != null && other.m_boundOperator != Operator.EQUALS && other.m_day_of_week != -100) {
+      dayBound-=other.m_day_of_week;
+      if (dayBound < 0) {
+        dayBound+=7;
+      }
+      val-=other.m_day_of_week;
+      if (val < 0) {
+        val+=7;
+      }
+    }
+    if (!m_isUpper && m_boundOperator != Operator.EQUALS && other != null && other.m_day_of_week != -100) {
+      dayBound=0;
+      val-=m_day_of_week;
+      if (val < 0) {
+        val+=7;
+      }
+    }
+    result=(result && m_boundOperator.evaluate(val,dayBound));
+  }
+  if (m_hour_of_day != -100) {
+    int hourBound=m_hour_of_day;
+    int val=c.get(Calendar.HOUR_OF_DAY);
+    if (m_isUpper && other != null && other.m_boundOperator != Operator.EQUALS && other.m_hour_of_day != -100) {
+      hourBound-=other.m_hour_of_day;
+      if (hourBound < 0) {
+        hourBound+=24;
+      }
+      val-=other.m_hour_of_day;
+      if (val < 0) {
+        val+=24;
+      }
+    }
+    if (!m_isUpper && m_boundOperator != Operator.EQUALS && other != null && other.m_hour_of_day != -100) {
+      hourBound=0;
+      val-=m_hour_of_day;
+      if (val < 0) {
+        val+=24;
+      }
+    }
+    result=(result && m_boundOperator.evaluate(val,hourBound));
+  }
+  if (m_min_of_hour != -100) {
+    int minBound=m_min_of_hour;
+    int val=c.get(Calendar.MINUTE);
+    if (m_isUpper && other != null && other.m_boundOperator != Operator.EQUALS && other.m_min_of_hour != -100) {
+      minBound-=other.m_min_of_hour;
+      if (minBound < 0) {
+        minBound+=60;
+      }
+      val-=other.m_min_of_hour;
+      if (val < 0) {
+        val+=60;
+      }
+    }
+    if (!m_isUpper && m_boundOperator != Operator.EQUALS && other != null && other.m_min_of_hour != -100) {
+      minBound=0;
+      val-=m_min_of_hour;
+      if (val < 0) {
+        val+=60;
+      }
+    }
+    result=(result && m_boundOperator.evaluate(val,minBound));
+  }
+  if (m_second != -100) {
+    int secBound=m_second;
+    int val=c.get(Calendar.SECOND);
+    if (m_isUpper && other != null && other.m_boundOperator != Operator.EQUALS && other.m_second != -100) {
+      secBound-=other.m_second;
+      if (secBound < 0) {
+        secBound+=60;
+      }
+      val-=other.m_second;
+      if (val < 0) {
+        val+=60;
+      }
+    }
+    if (!m_isUpper && m_boundOperator != Operator.EQUALS && other != null && other.m_second != -100) {
+      secBound=0;
+      val-=m_second;
+      if (val < 0) {
+        val+=60;
+      }
+    }
+    result=(result && m_boundOperator.evaluate(val,secBound));
+  }
+  return result;
+}

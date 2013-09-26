@@ -1,0 +1,4 @@
+{
+  this.mean=mean;
+  this.standardDeviation=standardDeviation;
+}

@@ -1,0 +1,4 @@
+{
+  int row=dataset.getRowIndex(rowKey);
+  return createPieDatasetForRow(dataset,row);
+}

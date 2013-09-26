@@ -1,0 +1,36 @@
+{
+  List<Object> loaded=new ArrayList<Object>();
+  try {
+    if (!isEmpty(filename) && !filename.equals("-NONE-")) {
+      if (m_env == null) {
+        m_env=Environment.getSystemWide();
+      }
+      String filenameN=filename;
+      try {
+        filenameN=m_env.substitute(filename);
+      }
+ catch (      Exception e) {
+      }
+      InputStream is=new FileInputStream(filenameN);
+      if (filenameN.toLowerCase().endsWith(".gz")) {
+        is=new GZIPInputStream(is);
+      }
+      ObjectInputStream ois=new ObjectInputStream(new BufferedInputStream(is));
+      WekaForecaster forecaster=(WekaForecaster)ois.readObject();
+      Instances header=(Instances)ois.readObject();
+      is.close();
+      loaded.add(forecaster);
+      loaded.add(header);
+      return loaded;
+    }
+ else {
+      logMessage("Model is null or no filename specified to load from!");
+      return null;
+    }
+  }
+ catch (  Exception ex) {
+    ex.printStackTrace();
+    logMessage(ex.getMessage());
+    return null;
+  }
+}

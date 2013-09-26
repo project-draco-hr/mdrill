@@ -1,0 +1,3 @@
+{
+  m_textListeners.remove(cl);
+}

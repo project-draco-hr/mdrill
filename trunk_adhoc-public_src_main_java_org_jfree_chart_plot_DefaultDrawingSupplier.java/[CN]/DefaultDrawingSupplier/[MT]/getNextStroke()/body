@@ -1,0 +1,5 @@
+{
+  Stroke result=this.strokeSequence[this.strokeIndex % this.strokeSequence.length];
+  this.strokeIndex++;
+  return result;
+}

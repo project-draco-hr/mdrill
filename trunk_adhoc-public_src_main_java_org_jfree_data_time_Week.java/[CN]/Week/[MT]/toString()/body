@@ -1,0 +1,3 @@
+{
+  return "Week " + this.week + ", "+ this.year;
+}

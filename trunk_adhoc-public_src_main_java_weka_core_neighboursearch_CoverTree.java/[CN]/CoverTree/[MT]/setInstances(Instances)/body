@@ -1,0 +1,4 @@
+{
+  super.setInstances(instances);
+  buildCoverTree(instances);
+}

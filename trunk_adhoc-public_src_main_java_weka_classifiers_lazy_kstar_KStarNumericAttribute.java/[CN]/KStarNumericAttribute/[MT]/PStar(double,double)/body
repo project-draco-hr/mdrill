@@ -1,0 +1,3 @@
+{
+  return scale * Math.exp(-2.0 * x * scale);
+}

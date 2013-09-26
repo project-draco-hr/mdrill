@@ -1,0 +1,5 @@
+Writer w
+String name
+String attributeName
+String attributeValue
+boolean close

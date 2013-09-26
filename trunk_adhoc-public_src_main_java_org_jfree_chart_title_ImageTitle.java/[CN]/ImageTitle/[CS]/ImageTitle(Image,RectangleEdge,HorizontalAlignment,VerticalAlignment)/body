@@ -1,0 +1,3 @@
+{
+  this(image,image.getHeight(null),image.getWidth(null),position,horizontalAlignment,verticalAlignment,Title.DEFAULT_PADDING);
+}

@@ -1,0 +1,3 @@
+byte[] pixels
+int startPos
+int width

@@ -1,0 +1,34 @@
+{
+  final PropertyDescriptor[] props=beanInfo.getPropertyDescriptors();
+  final ArrayList properties=new ArrayList();
+  for (int i=0; i < props.length; i++) {
+    final PropertyDescriptor propertyDescriptor=props[i];
+    PropertyInfo pi;
+    if (parent != null) {
+      pi=parent.getProperty(propertyDescriptor.getName());
+      if (pi != null) {
+        properties.add(pi);
+        continue;
+      }
+    }
+    if (props[i] instanceof IndexedPropertyDescriptor) {
+    }
+ else {
+      pi=createSimplePropertyInfo(props[i]);
+      if (pi != null) {
+        properties.add(pi);
+      }
+    }
+  }
+  final PropertyInfo[] propArray=(PropertyInfo[])properties.toArray(new PropertyInfo[properties.size()]);
+  final ClassDescription cd;
+  if (parent != null) {
+    cd=parent;
+  }
+ else {
+    cd=new ClassDescription(beanInfo.getBeanDescriptor().getBeanClass());
+    cd.setDescription(beanInfo.getBeanDescriptor().getShortDescription());
+  }
+  cd.setProperties(propArray);
+  return cd;
+}

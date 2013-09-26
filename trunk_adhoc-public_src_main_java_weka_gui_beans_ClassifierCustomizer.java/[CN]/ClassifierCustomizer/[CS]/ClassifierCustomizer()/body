@@ -1,0 +1,86 @@
+{
+  m_ClassifierEditor.setBorder(BorderFactory.createTitledBorder("Classifier options"));
+  m_updateIncrementalClassifier.setToolTipText("Train the classifier on " + "each individual incoming streamed instance.");
+  m_updateIncrementalClassifier.addActionListener(new ActionListener(){
+    public void actionPerformed(    ActionEvent e){
+      if (m_dsClassifier != null) {
+        m_dsClassifier.setUpdateIncrementalClassifier(m_updateIncrementalClassifier.isSelected());
+      }
+    }
+  }
+);
+  m_incrementalPanel.add(m_updateIncrementalClassifier);
+  m_executionSlotsText.addActionListener(new ActionListener(){
+    public void actionPerformed(    ActionEvent e){
+      if (m_dsClassifier != null && m_executionSlotsText.getText().length() > 0) {
+        int newSlots=Integer.parseInt(m_executionSlotsText.getText());
+        m_dsClassifier.setExecutionSlots(newSlots);
+      }
+    }
+  }
+);
+  m_executionSlotsText.addFocusListener(new FocusListener(){
+    public void focusGained(    FocusEvent e){
+    }
+    public void focusLost(    FocusEvent e){
+      if (m_dsClassifier != null && m_executionSlotsText.getText().length() > 0) {
+        int newSlots=Integer.parseInt(m_executionSlotsText.getText());
+        m_dsClassifier.setExecutionSlots(newSlots);
+      }
+    }
+  }
+);
+  m_blockOnLastFold.addActionListener(new ActionListener(){
+    public void actionPerformed(    ActionEvent e){
+      if (m_dsClassifier != null) {
+        m_dsClassifier.setBlockOnLastFold(m_blockOnLastFold.isSelected());
+      }
+    }
+  }
+);
+  JPanel executionSlotsPanel=new JPanel();
+  executionSlotsPanel.setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
+  JLabel executionSlotsLabel=new JLabel("Execution slots");
+  executionSlotsPanel.setLayout(new BorderLayout());
+  executionSlotsPanel.add(executionSlotsLabel,BorderLayout.WEST);
+  executionSlotsPanel.add(m_executionSlotsText,BorderLayout.CENTER);
+  m_holderPanel.setBorder(BorderFactory.createTitledBorder("More options"));
+  m_holderPanel.setLayout(new BorderLayout());
+  m_holderPanel.add(executionSlotsPanel,BorderLayout.NORTH);
+  m_holderPanel.add(m_blockOnLastFold,BorderLayout.SOUTH);
+  JPanel holder2=new JPanel();
+  holder2.setLayout(new BorderLayout());
+  holder2.add(m_holderPanel,BorderLayout.NORTH);
+  JButton OKBut=new JButton("OK");
+  JButton CancelBut=new JButton("Cancel");
+  OKBut.addActionListener(new ActionListener(){
+    public void actionPerformed(    ActionEvent e){
+      m_dsClassifier.setClassifierTemplate(m_dsClassifier.getClassifierTemplate());
+      if (m_modifyListener != null) {
+        m_modifyListener.setModifiedStatus(ClassifierCustomizer.this,true);
+      }
+      m_parentWindow.dispose();
+    }
+  }
+);
+  CancelBut.addActionListener(new ActionListener(){
+    public void actionPerformed(    ActionEvent e){
+      if (m_backup != null) {
+        m_dsClassifier.setClassifierTemplate(m_backup);
+      }
+      if (m_modifyListener != null) {
+        m_modifyListener.setModifiedStatus(ClassifierCustomizer.this,false);
+      }
+      m_parentWindow.dispose();
+    }
+  }
+);
+  JPanel butHolder=new JPanel();
+  butHolder.setLayout(new GridLayout(1,2));
+  butHolder.add(OKBut);
+  butHolder.add(CancelBut);
+  holder2.add(butHolder,BorderLayout.SOUTH);
+  setLayout(new BorderLayout());
+  add(m_ClassifierEditor,BorderLayout.CENTER);
+  add(holder2,BorderLayout.SOUTH);
+}

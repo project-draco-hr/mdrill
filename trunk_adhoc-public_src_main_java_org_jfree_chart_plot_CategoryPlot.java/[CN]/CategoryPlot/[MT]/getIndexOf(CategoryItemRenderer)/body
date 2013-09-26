@@ -1,0 +1,3 @@
+{
+  return this.renderers.indexOf(renderer);
+}

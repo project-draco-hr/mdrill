@@ -1,0 +1,6 @@
+{
+  if (dateFormat == null) {
+    throw new NullPointerException();
+  }
+  m_DateFormat=dateFormat;
+}

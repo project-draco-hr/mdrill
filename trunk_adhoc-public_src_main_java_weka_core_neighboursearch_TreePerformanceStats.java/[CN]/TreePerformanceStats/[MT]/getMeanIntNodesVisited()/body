@@ -1,0 +1,3 @@
+{
+  return m_SumIntNodes / (double)m_NumQueries;
+}

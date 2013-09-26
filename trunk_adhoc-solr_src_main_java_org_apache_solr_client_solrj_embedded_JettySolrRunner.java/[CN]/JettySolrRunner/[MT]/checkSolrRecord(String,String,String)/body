@@ -22,6 +22,7 @@
         query.addFilterQuery("thedate:" + day);
       }
       query.setParam(CommonParams.HIGOHB,true);
+      query.setParam("mlogtime",fmt.format(new Date()));
       query.setParam("rows","0");
       query.setQuery("*:*");
       QueryResponse qr3=server.query(query);

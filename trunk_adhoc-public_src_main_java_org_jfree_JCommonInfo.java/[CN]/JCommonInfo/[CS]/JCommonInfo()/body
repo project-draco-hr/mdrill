@@ -1,0 +1,13 @@
+{
+  final String baseResourceClass="org.jfree.resources.JCommonResources";
+  final ResourceBundle resources=ResourceBundleWrapper.getBundle(baseResourceClass);
+  setName(resources.getString("project.name"));
+  setVersion(resources.getString("project.version"));
+  setInfo(resources.getString("project.info"));
+  setCopyright(resources.getString("project.copyright"));
+  setLicenceName("LGPL");
+  setLicenceText(Licences.getInstance().getLGPL());
+  setContributors(Arrays.asList(new Contributor[]{new Contributor("Anthony Boulestreau","-"),new Contributor("Jeremy Bowman","-"),new Contributor("J. David Eisenberg","-"),new Contributor("Paul English","-"),new Contributor("David Gilbert","david.gilbert@object-refinery.com"),new Contributor("Hans-Jurgen Greiner","-"),new Contributor("Arik Levin","-"),new Contributor("Achilleus Mantzios","-"),new Contributor("Thomas Meier","-"),new Contributor("Aaron Metzger","-"),new Contributor("Thomas Morgner","-"),new Contributor("Krzysztof Paz","-"),new Contributor("Nabuo Tamemasa","-"),new Contributor("Mark Watson","-"),new Contributor("Matthew Wright","-"),new Contributor("Hari","-"),new Contributor("Sam (oldman)","-")}));
+  addOptionalLibrary(new Library("JUnit","3.8","IBM Public Licence","http://www.junit.org/"));
+  setBootClass(BaseBoot.class.getName());
+}

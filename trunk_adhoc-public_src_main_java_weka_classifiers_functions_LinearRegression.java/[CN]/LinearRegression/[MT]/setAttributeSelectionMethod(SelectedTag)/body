@@ -1,0 +1,5 @@
+{
+  if (method.getTags() == TAGS_SELECTION) {
+    m_AttributeSelection=method.getSelectedTag().getID();
+  }
+}

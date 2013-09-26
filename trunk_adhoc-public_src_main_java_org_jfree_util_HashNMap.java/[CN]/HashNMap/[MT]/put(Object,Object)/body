@@ -1,0 +1,13 @@
+{
+  final List v=(List)this.table.get(key);
+  if (v == null) {
+    final List newList=createList();
+    newList.add(val);
+    this.table.put(key,newList);
+    return true;
+  }
+ else {
+    v.clear();
+    return v.add(val);
+  }
+}

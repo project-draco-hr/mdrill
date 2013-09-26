@@ -1,0 +1,11 @@
+{
+  float x=anchorX;
+  final float yOffset=calculateBaselineOffset(g2,anchor);
+  final Iterator iterator=this.fragments.iterator();
+  while (iterator.hasNext()) {
+    final TextFragment fragment=(TextFragment)iterator.next();
+    final Size2D d=fragment.calculateDimensions(g2);
+    fragment.draw(g2,x,anchorY + yOffset,TextAnchor.BASELINE_LEFT,rotateX,rotateY,angle);
+    x=x + (float)d.getWidth();
+  }
+}

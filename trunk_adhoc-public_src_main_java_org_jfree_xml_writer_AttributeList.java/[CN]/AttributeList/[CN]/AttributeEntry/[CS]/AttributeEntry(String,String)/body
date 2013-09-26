@@ -1,0 +1,10 @@
+{
+  if (name == null) {
+    throw new NullPointerException("Name must not be null. [" + name + ", "+ value+ "]");
+  }
+  if (value == null) {
+    throw new NullPointerException("Value must not be null. [" + name + ", "+ value+ "]");
+  }
+  this.name=name;
+  this.value=value;
+}

@@ -1,0 +1,6 @@
+{
+  if (this.autoWidthMethod != autoWidthMethod) {
+    this.autoWidthMethod=autoWidthMethod;
+    fireChangeEvent();
+  }
+}

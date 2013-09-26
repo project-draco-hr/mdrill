@@ -1,0 +1,6 @@
+{
+  if (num_instances <= num_params) {
+    return 10.0;
+  }
+  return ((double)(num_instances + m_pruningMultiplier * num_params) / (double)(num_instances - num_params));
+}

@@ -1,0 +1,18 @@
+{
+  writer.writeTag(tagName,mPlexAttribute,mPlexValue,XMLWriterSupport.OPEN);
+  writer.allowLineBreak();
+  final RenderingHints hints=(RenderingHints)object;
+  final Iterator it=hints.keySet().iterator();
+  while (it.hasNext()) {
+    final RenderingHints.Key key=(RenderingHints.Key)it.next();
+    final String keyname=hintFieldToString(key);
+    final String value=hintFieldToString(hints.get(key));
+    final AttributeList attribs=new AttributeList();
+    attribs.setAttribute("key",keyname);
+    attribs.setAttribute("value",value);
+    writer.writeTag("entry",attribs,XMLWriterSupport.CLOSE);
+    writer.allowLineBreak();
+  }
+  writer.writeCloseTag(tagName);
+  writer.allowLineBreak();
+}

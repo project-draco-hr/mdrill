@@ -1,0 +1,8 @@
+{
+  final StringTokenizer tokenizer=new StringTokenizer(string,",");
+  final float[] retVal=new float[tokenizer.countTokens()];
+  for (int i=0; i < retVal.length; i++) {
+    retVal[i]=Float.parseFloat(tokenizer.nextToken());
+  }
+  return retVal;
+}

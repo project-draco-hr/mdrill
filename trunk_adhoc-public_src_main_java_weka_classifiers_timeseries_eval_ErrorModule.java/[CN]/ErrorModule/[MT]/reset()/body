@@ -1,0 +1,10 @@
+{
+  if (m_targetFieldNames != null) {
+    m_predictions=new ArrayList<List<NumericPrediction>>();
+    m_counts=new double[m_targetFieldNames.size()];
+    for (int i=0; i < m_targetFieldNames.size(); i++) {
+      ArrayList<NumericPrediction> predsForTarget=new ArrayList<NumericPrediction>();
+      m_predictions.add(predsForTarget);
+    }
+  }
+}

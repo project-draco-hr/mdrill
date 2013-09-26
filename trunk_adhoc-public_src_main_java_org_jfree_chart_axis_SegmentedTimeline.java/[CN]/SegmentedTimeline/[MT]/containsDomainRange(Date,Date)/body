@@ -1,0 +1,3 @@
+{
+  return containsDomainRange(getTime(dateDomainValueStart),getTime(dateDomainValueEnd));
+}

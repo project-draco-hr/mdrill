@@ -1,0 +1,33 @@
+{
+  double[] returnedDist=null;
+  if (m_Attribute > -1) {
+    if (instance.isMissing(m_Attribute)) {
+      returnedDist=new double[m_Info.numClasses()];
+      for (int i=0; i < m_Successors.length; i++) {
+        double[] help=m_Successors[i].distributionForInstance(instance);
+        if (help != null) {
+          for (int j=0; j < help.length; j++) {
+            returnedDist[j]+=m_Prop[i] * help[j];
+          }
+        }
+      }
+    }
+ else     if (m_Info.attribute(m_Attribute).isNominal()) {
+      returnedDist=m_Successors[(int)instance.value(m_Attribute)].distributionForInstance(instance);
+    }
+ else {
+      if (instance.value(m_Attribute) < m_SplitPoint) {
+        returnedDist=m_Successors[0].distributionForInstance(instance);
+      }
+ else {
+        returnedDist=m_Successors[1].distributionForInstance(instance);
+      }
+    }
+  }
+  if ((m_Attribute == -1) || (returnedDist == null)) {
+    return m_ClassProbs;
+  }
+ else {
+    return returnedDist;
+  }
+}

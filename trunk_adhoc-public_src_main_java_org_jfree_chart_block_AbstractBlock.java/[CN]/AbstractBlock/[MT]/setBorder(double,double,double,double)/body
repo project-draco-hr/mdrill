@@ -1,0 +1,3 @@
+{
+  setFrame(new BlockBorder(top,left,bottom,right));
+}

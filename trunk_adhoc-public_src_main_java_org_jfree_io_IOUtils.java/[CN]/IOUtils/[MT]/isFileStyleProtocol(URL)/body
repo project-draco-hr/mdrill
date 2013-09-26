@@ -1,0 +1,18 @@
+{
+  if (url.getProtocol().equals("http")) {
+    return true;
+  }
+  if (url.getProtocol().equals("https")) {
+    return true;
+  }
+  if (url.getProtocol().equals("ftp")) {
+    return true;
+  }
+  if (url.getProtocol().equals("file")) {
+    return true;
+  }
+  if (url.getProtocol().equals("jar")) {
+    return true;
+  }
+  return false;
+}

@@ -1,0 +1,9 @@
+{
+  if (chosenDateButtonColor == null) {
+    throw new NullPointerException("UIColor must not be null.");
+  }
+  final Color oldValue=this.chosenDateButtonColor;
+  this.chosenDateButtonColor=chosenDateButtonColor;
+  refreshButtons();
+  firePropertyChange("chosenDateButtonColor",oldValue,chosenDateButtonColor);
+}

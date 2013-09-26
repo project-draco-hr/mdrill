@@ -1,0 +1,4 @@
+{
+  if (!(obj instanceof CheckBoxListItem))   super.setElementAt(new CheckBoxListItem(obj),index);
+ else   super.setElementAt(obj,index);
+}

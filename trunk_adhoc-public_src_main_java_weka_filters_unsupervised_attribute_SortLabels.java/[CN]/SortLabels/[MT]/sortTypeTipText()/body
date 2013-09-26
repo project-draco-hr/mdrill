@@ -1,0 +1,3 @@
+{
+  return "The type of sorting to use.";
+}

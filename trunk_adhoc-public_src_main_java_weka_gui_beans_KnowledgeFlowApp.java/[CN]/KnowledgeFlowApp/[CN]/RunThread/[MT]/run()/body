@@ -1,0 +1,32 @@
+{
+  m_flowIndex=m_mainKFPerspective.getCurrentTabIndex();
+  m_mainKFPerspective.setExecuting(true);
+  m_mainKFPerspective.getLogPanel(m_flowIndex).clearStatus();
+  m_mainKFPerspective.getLogPanel(m_flowIndex).statusMessage("[KnowledgeFlow]|Executing...");
+  FlowRunner runner=new FlowRunner(false,false);
+  runner.setStartSequentially(m_sequential);
+  runner.setEnvironment(m_flowEnvironment);
+  runner.setLog(m_logPanel);
+  Vector comps=BeanInstance.getBeanInstances(m_flowIndex);
+  runner.setFlows(comps);
+  try {
+    runner.run();
+    runner.waitUntilFinished();
+  }
+ catch (  InterruptedException ie) {
+  }
+catch (  Exception ex) {
+    m_logPanel.logMessage("An error occurred while running the flow: " + ex.getMessage());
+  }
+ finally {
+    m_mainKFPerspective.setExecuting(m_flowIndex,false);
+    m_mainKFPerspective.setExecutionThread(m_flowIndex,null);
+    if (m_wasUserStopped) {
+      KFLogPanel lp=m_mainKFPerspective.getLogPanel(m_flowIndex);
+      lp.setMessageOnAll(false,"Stopped.");
+    }
+ else {
+      m_mainKFPerspective.getLogPanel(m_flowIndex).statusMessage("[KnowledgeFlow]|OK.");
+    }
+  }
+}

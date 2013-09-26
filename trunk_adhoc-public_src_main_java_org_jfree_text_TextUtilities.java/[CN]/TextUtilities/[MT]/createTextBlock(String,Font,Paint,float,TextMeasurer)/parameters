@@ -1,0 +1,5 @@
+String text
+Font font
+Paint paint
+float maxWidth
+TextMeasurer measurer

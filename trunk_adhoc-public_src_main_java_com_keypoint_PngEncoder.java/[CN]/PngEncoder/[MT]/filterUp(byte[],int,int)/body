@@ -1,0 +1,8 @@
+{
+  final int nBytes=width * this.bytesPerPixel;
+  for (int i=0; i < nBytes; i++) {
+    final byte currentByte=pixels[startPos + i];
+    pixels[startPos + i]=(byte)((pixels[startPos + i] - this.priorRow[i]) % 256);
+    this.priorRow[i]=currentByte;
+  }
+}

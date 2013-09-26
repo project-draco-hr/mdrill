@@ -1,0 +1,22 @@
+{
+  if (tempModules != null) {
+    final ModuleInfo[] mods=(ModuleInfo[])tempModules.toArray(new ModuleInfo[tempModules.size()]);
+    for (int i=0; i < mods.length; i++) {
+      if (mods[i].getModuleClass().equals(module.getModuleClass())) {
+        return RETURN_MODULE_LOADED;
+      }
+    }
+  }
+  final PackageState[] packageStates=(PackageState[])this.modules.toArray(new PackageState[this.modules.size()]);
+  for (int i=0; i < packageStates.length; i++) {
+    if (packageStates[i].getModule().getModuleClass().equals(module.getModuleClass())) {
+      if (packageStates[i].getState() == PackageState.STATE_ERROR) {
+        return RETURN_MODULE_ERROR;
+      }
+ else {
+        return RETURN_MODULE_LOADED;
+      }
+    }
+  }
+  return RETURN_MODULE_UNKNOWN;
+}

@@ -1,0 +1,3 @@
+{
+  this.configuration=new Properties();
+}

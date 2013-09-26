@@ -1,0 +1,6 @@
+{
+  if (capacity() == 0)   setCapacity(10);
+  if (size() == capacity())   setCapacity(2 * capacity());
+  V[size()]=x;
+  setSize(size() + 1);
+}

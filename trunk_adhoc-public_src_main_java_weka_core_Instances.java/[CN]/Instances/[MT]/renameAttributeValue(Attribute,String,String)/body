@@ -1,0 +1,5 @@
+{
+  int v=att.indexOfValue(val);
+  if (v == -1)   throw new IllegalArgumentException(val + " not found");
+  renameAttributeValue(att.index(),v,name);
+}

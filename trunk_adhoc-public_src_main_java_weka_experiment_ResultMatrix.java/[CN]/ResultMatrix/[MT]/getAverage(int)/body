@@ -1,0 +1,19 @@
+{
+  int i;
+  double avg;
+  int count;
+  if ((col >= 0) && (col < getColCount())) {
+    avg=0;
+    count=0;
+    for (i=0; i < getRowCount(); i++) {
+      if (!Double.isNaN(getMean(col,i))) {
+        avg+=getMean(col,i);
+        count++;
+      }
+    }
+    return avg / (double)count;
+  }
+ else {
+    return 0;
+  }
+}

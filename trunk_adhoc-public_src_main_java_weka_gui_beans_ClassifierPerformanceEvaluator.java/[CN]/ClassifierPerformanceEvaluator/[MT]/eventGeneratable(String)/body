@@ -1,0 +1,11 @@
+{
+  if (m_listenee == null) {
+    return false;
+  }
+  if (m_listenee instanceof EventConstraints) {
+    if (!((EventConstraints)m_listenee).eventGeneratable("batchClassifier")) {
+      return false;
+    }
+  }
+  return true;
+}

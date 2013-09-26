@@ -1,0 +1,6 @@
+{
+  if (f == null) {
+    throw new IllegalArgumentException("Null 'f' argument.");
+  }
+  factory=f;
+}

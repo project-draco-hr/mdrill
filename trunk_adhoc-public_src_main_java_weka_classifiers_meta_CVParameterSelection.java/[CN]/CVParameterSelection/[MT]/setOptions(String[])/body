@@ -1,0 +1,19 @@
+{
+  String foldsString=Utils.getOption('X',options);
+  if (foldsString.length() != 0) {
+    setNumFolds(Integer.parseInt(foldsString));
+  }
+ else {
+    setNumFolds(10);
+  }
+  String cvParam;
+  m_CVParams=new FastVector();
+  do {
+    cvParam=Utils.getOption('P',options);
+    if (cvParam.length() != 0) {
+      addCVParameter(cvParam);
+    }
+  }
+ while (cvParam.length() != 0);
+  super.setOptions(options);
+}

@@ -1,0 +1,10 @@
+{
+  try {
+    BIFReader br=new BIFReader();
+    br.processFile(args[0]);
+    System.out.println(br.toString());
+  }
+ catch (  Throwable t) {
+    t.printStackTrace();
+  }
+}

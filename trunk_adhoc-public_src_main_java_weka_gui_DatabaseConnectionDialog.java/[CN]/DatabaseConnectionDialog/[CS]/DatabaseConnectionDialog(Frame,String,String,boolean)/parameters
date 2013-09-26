@@ -1,0 +1,4 @@
+Frame parentFrame
+String url
+String uname
+boolean debug

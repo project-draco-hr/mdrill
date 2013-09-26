@@ -1,0 +1,11 @@
+{
+  int offset=TimeZone.getDefault().getRawOffset();
+  TimeZone z=new SimpleTimeZone(offset,"UTC-" + offset);
+  Calendar cal=new GregorianCalendar(z);
+  cal.set(1900,0,1,0,0,0);
+  cal.set(Calendar.MILLISECOND,0);
+  while (cal.get(Calendar.DAY_OF_WEEK) != Calendar.MONDAY) {
+    cal.add(Calendar.DATE,1);
+  }
+  return cal.getTime().getTime();
+}

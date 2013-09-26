@@ -1,0 +1,3 @@
+{
+  return ((ArffSortedTableModel)m_TableArff.getModel()).isUndoEnabled();
+}

@@ -1,0 +1,28 @@
+{
+  Metric metric=null;
+  String sql=String.format(sqlFormat,getColumnsQuery(tablename),TABLE_NAME_MAP.get(tablename),getPartitionValue(tablename,thedate));
+  System.out.println("Hive SQL: " + sql);
+  ResultSet rs;
+  try {
+    rs=stmt.executeQuery(sql);
+    if (rs.next()) {
+      metric=new Metric();
+      metric.setThedate(thedate);
+      metric.setType(0);
+      metric.setTablename(tablename);
+      metric.setLineCnt(rs.getLong(2));
+      metric.setImpression(rs.getLong(3));
+      metric.setFinClick(rs.getLong(4));
+      metric.setFinPrice(rs.getFloat(5));
+      metric.setAlipayDirectNum(rs.getLong(6));
+      metric.setAlipayDirectAmt(rs.getFloat(7));
+      metric.setAlipayIndirectNum(rs.getLong(8));
+      metric.setAlipayIndirectAmt(rs.getFloat(9));
+    }
+  }
+ catch (  SQLException e) {
+    System.err.println("[" + sdf.format(new Date(System.currentTimeMillis())) + "] "+ "Error when execute HIVE SQL: "+ sql);
+    e.printStackTrace();
+  }
+  return metric;
+}

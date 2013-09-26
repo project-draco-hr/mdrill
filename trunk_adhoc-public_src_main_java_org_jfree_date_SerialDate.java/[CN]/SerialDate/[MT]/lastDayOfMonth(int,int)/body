@@ -1,0 +1,12 @@
+{
+  final int result=LAST_DAY_OF_MONTH[month];
+  if (month != FEBRUARY) {
+    return result;
+  }
+ else   if (isLeapYear(yyyy)) {
+    return result + 1;
+  }
+ else {
+    return result;
+  }
+}

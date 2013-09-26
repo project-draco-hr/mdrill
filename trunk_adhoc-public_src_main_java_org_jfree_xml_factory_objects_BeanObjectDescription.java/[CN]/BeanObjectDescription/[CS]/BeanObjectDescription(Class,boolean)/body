@@ -1,0 +1,5 @@
+{
+  super(className);
+  this.ignoredParameters=new TreeSet();
+  readBeanDescription(className,init);
+}

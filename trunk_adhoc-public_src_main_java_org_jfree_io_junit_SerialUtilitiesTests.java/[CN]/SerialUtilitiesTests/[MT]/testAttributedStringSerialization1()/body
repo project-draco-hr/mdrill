@@ -1,0 +1,18 @@
+{
+  AttributedString s1=new AttributedString("");
+  AttributedString s2=null;
+  try {
+    ByteArrayOutputStream buffer=new ByteArrayOutputStream();
+    ObjectOutputStream out=new ObjectOutputStream(buffer);
+    SerialUtilities.writeAttributedString(s1,out);
+    out.close();
+    ByteArrayInputStream bais=new ByteArrayInputStream(buffer.toByteArray());
+    ObjectInputStream in=new ObjectInputStream(bais);
+    s2=SerialUtilities.readAttributedString(in);
+    in.close();
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
+  assertTrue(AttributedStringUtilities.equal(s1,s2));
+}

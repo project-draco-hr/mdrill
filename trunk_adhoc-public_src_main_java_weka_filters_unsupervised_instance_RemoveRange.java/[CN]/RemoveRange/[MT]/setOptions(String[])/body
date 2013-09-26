@@ -1,0 +1,13 @@
+{
+  String str=Utils.getOption('R',options);
+  if (str.length() != 0) {
+    setInstancesIndices(str);
+  }
+ else {
+    setInstancesIndices("first-last");
+  }
+  setInvertSelection(Utils.getFlag('V',options));
+  if (getInputFormat() != null) {
+    setInputFormat(getInputFormat());
+  }
+}

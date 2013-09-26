@@ -1,0 +1,20 @@
+{
+  for (int i=0; i < m_targetFieldNames.size(); i++) {
+    double actualValue=getTargetValue(m_targetFieldNames.get(i),inst);
+    if (m_relativeRAE != null) {
+      m_previousActual=m_relativeRAE.getPreviousActual();
+    }
+    if (m_relativeRAE == null && Utils.isMissingValue(m_previousActual[i])) {
+      m_previousActual[i]=actualValue;
+    }
+ else {
+      if (!Utils.isMissingValue(actualValue) && !Utils.isMissingValue(m_previousActual[i])) {
+        evaluatePredictionForTargetForInstance(i,forecasts.get(i),actualValue);
+        m_sumOfAbsE[i]+=Math.abs(m_previousActual[i] - actualValue);
+      }
+      if (m_relativeRAE == null) {
+        m_previousActual[i]=actualValue;
+      }
+    }
+  }
+}

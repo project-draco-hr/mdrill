@@ -1,0 +1,4 @@
+{
+  if (total < 0)   m_Total=numAllConditions(m_Data);
+ else   m_Total=total;
+}

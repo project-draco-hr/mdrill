@@ -1,0 +1,3 @@
+{
+  this(image,encodeAlpha,whichFilter,0);
+}

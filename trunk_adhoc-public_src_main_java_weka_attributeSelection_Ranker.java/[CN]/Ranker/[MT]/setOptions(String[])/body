@@ -1,0 +1,18 @@
+{
+  String optionString;
+  resetOptions();
+  optionString=Utils.getOption('P',options);
+  if (optionString.length() != 0) {
+    setStartSet(optionString);
+  }
+  optionString=Utils.getOption('T',options);
+  if (optionString.length() != 0) {
+    Double temp;
+    temp=Double.valueOf(optionString);
+    setThreshold(temp.doubleValue());
+  }
+  optionString=Utils.getOption('N',options);
+  if (optionString.length() != 0) {
+    setNumToSelect(Integer.parseInt(optionString));
+  }
+}

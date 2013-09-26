@@ -1,0 +1,4 @@
+{
+  if (sd <= 0.0)   throw new IllegalArgumentException("standard deviation <= 0.0");
+  return -Math.log(sd) + dnormLog((x - mean) / sd);
+}

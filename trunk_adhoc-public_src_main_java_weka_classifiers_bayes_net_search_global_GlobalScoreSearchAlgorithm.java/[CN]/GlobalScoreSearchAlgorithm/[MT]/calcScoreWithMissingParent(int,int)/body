@@ -1,0 +1,11 @@
+{
+  ParentSet oParentSet=m_BayesNet.getParentSet(nNode);
+  Instances instances=m_BayesNet.m_Instances;
+  if (!oParentSet.contains(nCandidateParent)) {
+    return -1e100;
+  }
+  int iParent=oParentSet.deleteParent(nCandidateParent,instances);
+  double fAccuracy=calcScore(m_BayesNet);
+  oParentSet.addParent(nCandidateParent,iParent,instances);
+  return fAccuracy;
+}

@@ -1,0 +1,9 @@
+{
+  super.reset();
+  m_previousActual=new double[m_targetFieldNames.size()];
+  m_sumOfAbsE=new double[m_targetFieldNames.size()];
+  for (int i=0; i < m_targetFieldNames.size(); i++) {
+    m_previousActual[i]=Utils.missingValue();
+    m_sumOfAbsE[i]=0;
+  }
+}

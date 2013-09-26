@@ -1,0 +1,86 @@
+{
+  final int temp=m_nodes.size(), temp2=graphMatrix[0].length;
+  int tempCnt=1;
+  for (int n=0; n < temp; n++) {
+    for (int i=0; i < temp2; i++) {
+      if (graphMatrix[n][i] > 0)       if (nodesLevel[i] > nodesLevel[n] + 1) {
+        int tempLevel=nodesLevel[n];
+        boolean tempNodePresent=false;
+        int k=temp;
+        int tempnode=n;
+        while (tempLevel < nodesLevel[i] - 1) {
+          tempNodePresent=false;
+          for (; k < graphMatrix.length; k++) {
+            if (graphMatrix[tempnode][k] > 0) {
+              tempNodePresent=true;
+              break;
+            }
+          }
+          if (tempNodePresent) {
+            tempnode=k;
+            k=k + 1;
+            tempLevel++;
+          }
+ else {
+            if (tempnode != n)             tempnode=k - 1;
+            break;
+          }
+        }
+        if (((GraphNode)m_nodes.elementAt(tempnode)).nodeType == SINGULAR_DUMMY)         ((GraphNode)m_nodes.elementAt(tempnode)).nodeType=PLURAL_DUMMY;
+        if (tempNodePresent) {
+          graphMatrix[tempnode][i]=graphMatrix[n][i];
+          graphMatrix[i][tempnode]=-graphMatrix[n][i];
+          graphMatrix[n][i]=0;
+          graphMatrix[i][n]=0;
+          continue;
+        }
+        int len=graphMatrix.length;
+        int tempMatrix[][]=new int[graphMatrix.length + (nodesLevel[i] - nodesLevel[tempnode] - 1)][graphMatrix.length + (nodesLevel[i] - nodesLevel[tempnode] - 1)];
+        int level=nodesLevel[tempnode] + 1;
+        copyMatrix(graphMatrix,tempMatrix);
+        String s1=new String("S" + tempCnt++);
+        m_nodes.addElement(new GraphNode(s1,s1,SINGULAR_DUMMY));
+        int temp3[]=new int[nodeLevels[level].length + 1];
+        System.arraycopy(nodeLevels[level],0,temp3,0,nodeLevels[level].length);
+        temp3[temp3.length - 1]=m_nodes.size() - 1;
+        nodeLevels[level]=temp3;
+        temp3=new int[m_nodes.size() + 1];
+        System.arraycopy(nodesLevel,0,temp3,0,nodesLevel.length);
+        temp3[m_nodes.size() - 1]=level;
+        nodesLevel=temp3;
+        level++;
+        int m;
+        for (m=len; m < len + nodesLevel[i] - nodesLevel[tempnode] - 1 - 1; m++) {
+          String s2=new String("S" + tempCnt++);
+          m_nodes.addElement(new GraphNode(s2,s2,SINGULAR_DUMMY));
+          temp3=new int[nodeLevels[level].length + 1];
+          System.arraycopy(nodeLevels[level],0,temp3,0,nodeLevels[level].length);
+          temp3[temp3.length - 1]=m_nodes.size() - 1;
+          nodeLevels[level]=temp3;
+          temp3=new int[m_nodes.size() + 1];
+          System.arraycopy(nodesLevel,0,temp3,0,nodesLevel.length);
+          temp3[m_nodes.size() - 1]=level;
+          nodesLevel=temp3;
+          level++;
+          tempMatrix[m][m + 1]=tempMatrix[n][i];
+          if (m > len) {
+            tempMatrix[m][m - 1]=-1 * tempMatrix[n][i];
+          }
+        }
+        tempMatrix[m][i]=tempMatrix[n][i];
+        tempMatrix[tempnode][len]=tempMatrix[n][i];
+        tempMatrix[len][tempnode]=-1 * tempMatrix[n][i];
+        tempMatrix[i][m]=-1 * tempMatrix[n][i];
+        if (m > len) {
+          tempMatrix[m][m - 1]=-1 * tempMatrix[n][i];
+        }
+        tempMatrix[n][i]=0;
+        tempMatrix[i][n]=0;
+        graphMatrix=tempMatrix;
+      }
+ else {
+        graphMatrix[i][n]=-1 * graphMatrix[n][i];
+      }
+    }
+  }
+}

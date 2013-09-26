@@ -1,0 +1,5 @@
+{
+  Vector newVector=new Vector(1);
+  newVector.addElement(new Option("\tInitial count (alpha)\n","A",1,"-A <alpha>"));
+  return newVector.elements();
+}

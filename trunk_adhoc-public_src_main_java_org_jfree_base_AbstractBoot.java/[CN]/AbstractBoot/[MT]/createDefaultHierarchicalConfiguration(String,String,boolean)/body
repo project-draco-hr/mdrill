@@ -1,0 +1,3 @@
+{
+  return createDefaultHierarchicalConfiguration(staticConfig,userConfig,addSysProps,PropertyFileConfiguration.class);
+}

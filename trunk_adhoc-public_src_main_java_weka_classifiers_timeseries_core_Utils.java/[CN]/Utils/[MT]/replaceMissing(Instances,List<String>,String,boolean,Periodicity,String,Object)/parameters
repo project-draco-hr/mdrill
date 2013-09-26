@@ -1,0 +1,7 @@
+Instances toReplace
+List<String> targets
+String timeStampName
+boolean dateOnly
+Periodicity userHint
+String skipEntries
+Object missingReport

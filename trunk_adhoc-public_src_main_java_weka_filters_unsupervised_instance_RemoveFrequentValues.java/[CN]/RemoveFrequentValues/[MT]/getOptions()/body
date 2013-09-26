@@ -1,0 +1,21 @@
+{
+  String[] options=new String[7];
+  int current=0;
+  options[current++]="-C";
+  options[current++]="" + (getAttributeIndex());
+  options[current++]="-N";
+  options[current++]="" + (getNumValues());
+  if (getUseLeastValues()) {
+    options[current++]="-H";
+  }
+  if (getModifyHeader()) {
+    options[current++]="-H";
+  }
+  if (getInvertSelection()) {
+    options[current++]="-V";
+  }
+  while (current < options.length) {
+    options[current++]="";
+  }
+  return options;
+}

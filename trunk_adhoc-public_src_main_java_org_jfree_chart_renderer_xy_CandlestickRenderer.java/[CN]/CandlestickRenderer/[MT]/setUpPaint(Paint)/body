@@ -1,0 +1,4 @@
+{
+  this.upPaint=paint;
+  fireChangeEvent();
+}

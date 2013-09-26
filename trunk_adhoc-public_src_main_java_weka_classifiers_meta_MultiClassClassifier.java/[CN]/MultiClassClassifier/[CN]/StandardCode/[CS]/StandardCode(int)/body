@@ -1,0 +1,6 @@
+{
+  m_Codebits=new boolean[numClasses][numClasses];
+  for (int i=0; i < numClasses; i++) {
+    m_Codebits[i][i]=true;
+  }
+}

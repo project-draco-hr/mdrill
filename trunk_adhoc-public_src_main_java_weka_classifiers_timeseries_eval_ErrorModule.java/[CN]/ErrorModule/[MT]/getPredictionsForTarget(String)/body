@@ -1,0 +1,8 @@
+{
+  for (int i=0; i < m_targetFieldNames.size(); i++) {
+    if (m_targetFieldNames.get(i).equals(targetName)) {
+      return m_predictions.get(i);
+    }
+  }
+  throw new IllegalArgumentException("Unknown target: " + targetName);
+}

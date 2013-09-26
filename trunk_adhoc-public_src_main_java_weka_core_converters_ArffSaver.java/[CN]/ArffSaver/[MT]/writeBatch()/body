@@ -1,0 +1,25 @@
+{
+  if (getInstances() == null)   throw new IOException("No instances to save");
+  if (getRetrieval() == INCREMENTAL)   throw new IOException("Batch and incremental saving cannot be mixed.");
+  setRetrieval(BATCH);
+  setWriteMode(WRITE);
+  if (retrieveFile() == null && getWriter() == null) {
+    System.out.println((getInstances()).toString());
+    setWriteMode(WAIT);
+    return;
+  }
+  PrintWriter outW=new PrintWriter(getWriter());
+  Instances data=getInstances();
+  Instances header=new Instances(data,0);
+  outW.print(header.toString());
+  for (int i=0; i < data.numInstances(); i++) {
+    if (i % 1000 == 0)     outW.flush();
+    outW.println(data.instance(i));
+  }
+  outW.flush();
+  outW.close();
+  setWriteMode(WAIT);
+  outW=null;
+  resetWriter();
+  setWriteMode(CANCEL);
+}

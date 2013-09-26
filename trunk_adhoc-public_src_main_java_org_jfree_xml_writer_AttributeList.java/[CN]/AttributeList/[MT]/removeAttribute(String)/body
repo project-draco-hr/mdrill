@@ -1,0 +1,9 @@
+{
+  for (int i=0; i < this.entryList.size(); i++) {
+    final AttributeEntry ae=(AttributeEntry)this.entryList.get(i);
+    if (ae.getName().equals(name)) {
+      this.entryList.remove(ae);
+      return;
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  Vector result;
+  result=new Vector();
+  result.add("-L");
+  result.add("" + getEpsilonParameter());
+  result.add("-W");
+  result.add("" + getSeed());
+  return (String[])result.toArray(new String[result.size()]);
+}

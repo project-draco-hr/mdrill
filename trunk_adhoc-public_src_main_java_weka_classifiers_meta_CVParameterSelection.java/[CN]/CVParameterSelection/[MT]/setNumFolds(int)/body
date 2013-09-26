@@ -1,0 +1,6 @@
+{
+  if (numFolds < 0) {
+    throw new IllegalArgumentException("Stacking: Number of cross-validation " + "folds must be positive.");
+  }
+  m_NumFolds=numFolds;
+}

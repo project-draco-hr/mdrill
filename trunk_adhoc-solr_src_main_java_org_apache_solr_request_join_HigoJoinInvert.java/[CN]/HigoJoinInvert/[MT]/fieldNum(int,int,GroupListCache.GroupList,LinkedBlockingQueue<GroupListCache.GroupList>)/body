@@ -1,0 +1,15 @@
+{
+  Integer doclist=this.join.getRight(doc,-1);
+  if (doclist == null) {
+    return false;
+  }
+  if (!this.docset.exists(doclist)) {
+    return false;
+  }
+  int rightdocid=doclist;
+  for (  int j : ufsRight.listIndex) {
+    UnvertFile uf=ufsRight.cols[j];
+    base.list[j + offset]=uf.uif.termNum(rightdocid);
+  }
+  return true;
+}

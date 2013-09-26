@@ -1,0 +1,3 @@
+{
+  return removeRangeMarker(index,marker,layer,true);
+}

@@ -1,0 +1,19 @@
+{
+  Container result;
+  Iterator iter;
+  Container current;
+  boolean found;
+  result=null;
+  iter=getWindowList();
+  while (iter.hasNext()) {
+    current=(Container)iter.next();
+    found=false;
+    if (current instanceof ChildFrameMDI)     found=((ChildFrameMDI)current).getTitle().equals(title);
+ else     if (current instanceof ChildFrameSDI)     found=((ChildFrameSDI)current).getTitle().equals(title);
+    if (found) {
+      result=current;
+      break;
+    }
+  }
+  return result;
+}

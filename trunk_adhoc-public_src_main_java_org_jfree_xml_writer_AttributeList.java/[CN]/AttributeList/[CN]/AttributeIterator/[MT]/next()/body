@@ -1,0 +1,7 @@
+{
+  final AttributeEntry entry=(AttributeEntry)this.backend.next();
+  if (entry != null) {
+    return entry.getName();
+  }
+  return entry;
+}

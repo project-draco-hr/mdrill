@@ -1,0 +1,12 @@
+{
+  String seedString=Utils.getOption('S',options);
+  if (seedString.length() != 0) {
+    setRandomSeed(Integer.parseInt(seedString));
+  }
+ else {
+    setRandomSeed(42);
+  }
+  if (getInputFormat() != null) {
+    setInputFormat(getInputFormat());
+  }
+}

@@ -1,0 +1,48 @@
+{
+  if (m_IOThread == null) {
+    m_IOThread=new Thread(){
+      public void run(){
+        try {
+          final DataGeneratorPanel generatorPanel=new DataGeneratorPanel();
+          final JDialog dialog=new JDialog();
+          final JButton generateButton=new JButton("Generate");
+          final JCheckBox showOutputCheckBox=new JCheckBox("Show generated data as text, incl. comments");
+          showOutputCheckBox.setMnemonic('S');
+          generatorPanel.setLog(m_Log);
+          generatorPanel.setGenerator(m_DataGenerator);
+          generatorPanel.setPreferredSize(new Dimension(300,(int)generatorPanel.getPreferredSize().getHeight()));
+          generateButton.setMnemonic('G');
+          generateButton.setToolTipText("Generates the dataset according the settings.");
+          generateButton.addActionListener(new ActionListener(){
+            public void actionPerformed(            ActionEvent evt){
+              generatorPanel.execute();
+              boolean generated=(generatorPanel.getInstances() != null);
+              if (generated)               setInstances(generatorPanel.getInstances());
+              dialog.dispose();
+              m_DataGenerator=generatorPanel.getGenerator();
+              if ((generated) && (showOutputCheckBox.isSelected()))               showGeneratedInstances(generatorPanel.getOutput());
+            }
+          }
+);
+          dialog.setTitle("DataGenerator");
+          dialog.getContentPane().add(generatorPanel,BorderLayout.CENTER);
+          dialog.getContentPane().add(generateButton,BorderLayout.EAST);
+          dialog.getContentPane().add(showOutputCheckBox,BorderLayout.SOUTH);
+          dialog.pack();
+          dialog.setVisible(true);
+        }
+ catch (        Exception ex) {
+          ex.printStackTrace();
+          m_Log.logMessage(ex.getMessage());
+        }
+        m_IOThread=null;
+      }
+    }
+;
+    m_IOThread.setPriority(Thread.MIN_PRIORITY);
+    m_IOThread.start();
+  }
+ else {
+    JOptionPane.showMessageDialog(this,"Can't generate data at this time,\n" + "currently busy with other IO","Generate Data",JOptionPane.WARNING_MESSAGE);
+  }
+}

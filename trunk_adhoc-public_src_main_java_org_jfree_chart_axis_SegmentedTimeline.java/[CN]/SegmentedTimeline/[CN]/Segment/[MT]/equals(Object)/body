@@ -1,0 +1,9 @@
+{
+  if (object instanceof Segment) {
+    Segment other=(Segment)object;
+    return (this.segmentNumber == other.getSegmentNumber() && this.segmentStart == other.getSegmentStart() && this.segmentEnd == other.getSegmentEnd() && this.millisecond == other.getMillisecond());
+  }
+ else {
+    return false;
+  }
+}

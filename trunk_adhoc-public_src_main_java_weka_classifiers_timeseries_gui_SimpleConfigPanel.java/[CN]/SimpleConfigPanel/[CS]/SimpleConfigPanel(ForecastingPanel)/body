@@ -1,0 +1,113 @@
+{
+  m_parentPanel=parent;
+  setLayout(new BorderLayout());
+  JPanel colSelect=new JPanel();
+  colSelect.setLayout(new BorderLayout());
+  colSelect.setBorder(BorderFactory.createTitledBorder("Target Selection"));
+  JPanel tempHolder1=new JPanel();
+  tempHolder1.setLayout(new BorderLayout());
+  tempHolder1.add(m_targetPanel,BorderLayout.NORTH);
+  colSelect.add(tempHolder1,BorderLayout.NORTH);
+  m_targetPanel.setPreferredScrollableViewportSize(new Dimension(250,80));
+  SpinnerNumberModel snm=new SpinnerNumberModel();
+  snm.setValue(1);
+  snm.setMinimum(1);
+  m_horizonSpinner=new JSpinner(snm);
+  Dimension spinD=m_horizonSpinner.getPreferredSize();
+  spinD=new Dimension((int)(spinD.getWidth() * 1.5),(int)spinD.getHeight());
+  m_horizonSpinner.setPreferredSize(spinD);
+  JPanel spinnerHolder=new JPanel();
+  spinnerHolder.setBorder(BorderFactory.createEmptyBorder(0,0,1,0));
+  spinnerHolder.setLayout(new BorderLayout());
+  spinnerHolder.add(m_horizonSpinner,BorderLayout.EAST);
+  spinnerHolder.add(new JLabel("Number of time units to forecast ",JLabel.LEFT),BorderLayout.CENTER);
+  add(colSelect,BorderLayout.CENTER);
+  Box comboHolder=new Box(BoxLayout.PAGE_AXIS);
+  comboHolder.add(spinnerHolder);
+  JPanel timeHolder=new JPanel();
+  timeHolder.setBorder(BorderFactory.createEmptyBorder(1,0,1,0));
+  timeHolder.setLayout(new BorderLayout());
+  timeHolder.add(new JLabel("Time stamp ",JLabel.RIGHT),BorderLayout.WEST);
+  timeHolder.add(m_timeStampCombo,BorderLayout.EAST);
+  comboHolder.add(timeHolder);
+  JPanel periodicityHolder=new JPanel();
+  periodicityHolder.setBorder(BorderFactory.createEmptyBorder(1,0,1,0));
+  periodicityHolder.setLayout(new BorderLayout());
+  periodicityHolder.add(new JLabel("Periodicity",JLabel.RIGHT),BorderLayout.WEST);
+  periodicityHolder.add(m_periodicityCombo,BorderLayout.EAST);
+  comboHolder.add(periodicityHolder);
+  m_periodicityCombo.addActionListener(new ActionListener(){
+    public void actionPerformed(    ActionEvent e){
+      checkSkipEnabledStatus();
+      checkPeriodicity(null);
+    }
+  }
+);
+  JPanel skipPanel=new JPanel();
+  skipPanel.setLayout(new BorderLayout());
+  skipPanel.setBorder(BorderFactory.createEmptyBorder(1,0,1,0));
+  String skipTipText="<html>Set date time stamp values that should be 'skipped'<br>" + "i.e. times that shouldn't count as a time step increment.<br><br>" + "E.g. financial trading does not occur on the weekend, so the <br>"+ "difference between Friday and the following Monday is actually one<br>"+ "time step (not three).<br><br>Examples:<br><br>"+ "\"sat,weekend,aug,2011-01-11@yyyy-MM-dd\"</html>";
+  JLabel skipLab=new JLabel("Skip list",JLabel.RIGHT);
+  skipLab.setToolTipText(skipTipText);
+  skipPanel.add(skipLab,BorderLayout.WEST);
+  skipPanel.add(m_skipText,BorderLayout.EAST);
+  m_skipText.setToolTipText(skipTipText);
+  comboHolder.add(skipPanel);
+  m_computeConfidence.setHorizontalTextPosition(SwingConstants.LEFT);
+  JPanel confHolder=new JPanel();
+  confHolder.setLayout(new BorderLayout());
+  confHolder.add(new JLabel("Confidence intervals",JLabel.RIGHT),BorderLayout.WEST);
+  confHolder.add(m_computeConfidence,BorderLayout.EAST);
+  comboHolder.add(confHolder);
+  JPanel confLevHolder=new JPanel();
+  confLevHolder.setBorder(BorderFactory.createEmptyBorder(1,0,1,0));
+  confLevHolder.setLayout(new BorderLayout());
+  final JLabel levelLab=new JLabel("Level (%) ",JLabel.RIGHT);
+  levelLab.setEnabled(false);
+  snm=new SpinnerNumberModel();
+  snm.setValue(95);
+  snm.setMinimum(1);
+  snm.setMaximum(99);
+  m_confidenceLevelSpinner=new JSpinner(snm);
+  m_confidenceLevelSpinner.setEnabled(false);
+  confLevHolder.add(m_confidenceLevelSpinner,BorderLayout.EAST);
+  confLevHolder.add(levelLab,BorderLayout.CENTER);
+  comboHolder.add(confLevHolder);
+  m_computeConfidence.addActionListener(new ActionListener(){
+    public void actionPerformed(    ActionEvent e){
+      boolean enable=m_computeConfidence.isSelected();
+      levelLab.setEnabled(enable);
+      m_confidenceLevelSpinner.setEnabled(enable);
+    }
+  }
+);
+  JPanel evalHolder=new JPanel();
+  evalHolder.setLayout(new BorderLayout());
+  evalHolder.add(new JLabel("Perform evaluation",JLabel.RIGHT),BorderLayout.WEST);
+  m_performEvaluation.setHorizontalAlignment(SwingConstants.LEFT);
+  evalHolder.add(m_performEvaluation,BorderLayout.EAST);
+  comboHolder.add(evalHolder);
+  m_performEvaluation.addActionListener(new ActionListener(){
+    public void actionPerformed(    ActionEvent e){
+      m_advancedConfig.m_trainingCheckBox.setSelected(m_performEvaluation.isSelected());
+      if (!m_performEvaluation.isSelected()) {
+        m_advancedConfig.m_holdoutCheckBox.setSelected(false);
+      }
+    }
+  }
+);
+  JPanel temp=new JPanel();
+  temp.setLayout(new BorderLayout());
+  temp.setBorder(BorderFactory.createTitledBorder("Parameters"));
+  temp.add(comboHolder,BorderLayout.NORTH);
+  add(temp,BorderLayout.EAST);
+  m_timeStampCombo.addActionListener(new ActionListener(){
+    public void actionPerformed(    ActionEvent e){
+      if (m_advancedConfig != null) {
+        m_advancedConfig.updateDateDerivedPanel();
+        checkSkipEnabledStatus();
+      }
+    }
+  }
+);
+}

@@ -1,0 +1,3 @@
+{
+  return height + calculateTopOutset(height) + calculateBottomOutset(height);
+}

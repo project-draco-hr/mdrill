@@ -1,0 +1,3 @@
+{
+  return "Kernel estimator with bandwidth " + m_Width + " and total weight "+ m_SumOfWeights+ " based on\n"+ m_TM.toString();
+}

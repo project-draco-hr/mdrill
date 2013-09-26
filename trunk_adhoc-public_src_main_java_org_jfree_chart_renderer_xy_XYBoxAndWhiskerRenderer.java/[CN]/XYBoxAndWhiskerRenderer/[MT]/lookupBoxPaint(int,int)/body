@@ -1,0 +1,9 @@
+{
+  Paint p=getBoxPaint();
+  if (p != null) {
+    return p;
+  }
+ else {
+    return getItemPaint(series,item);
+  }
+}

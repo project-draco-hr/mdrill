@@ -1,0 +1,8 @@
+{
+  if (m_Instances.classAttribute().isNominal()) {
+    return findSplitNominalNominal(index);
+  }
+ else {
+    return findSplitNominalNumeric(index);
+  }
+}

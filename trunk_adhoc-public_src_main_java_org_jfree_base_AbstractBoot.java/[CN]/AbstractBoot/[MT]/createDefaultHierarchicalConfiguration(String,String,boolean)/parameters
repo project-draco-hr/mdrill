@@ -1,0 +1,3 @@
+String staticConfig
+String userConfig
+boolean addSysProps

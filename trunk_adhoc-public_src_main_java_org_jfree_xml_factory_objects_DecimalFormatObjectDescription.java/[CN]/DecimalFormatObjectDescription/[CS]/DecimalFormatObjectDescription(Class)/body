@@ -1,0 +1,21 @@
+{
+  super(className,false);
+  setParameterDefinition("localizedPattern",String.class);
+  setParameterDefinition("pattern",String.class);
+  setParameterDefinition("decimalFormatSymbols",DecimalFormatSymbols.class);
+  setParameterDefinition("decimalSeparatorAlwaysShown",Boolean.TYPE);
+  setParameterDefinition("groupingSize",Integer.TYPE);
+  setParameterDefinition("groupingUsed",Boolean.TYPE);
+  setParameterDefinition("maximumFractionDigits",Integer.TYPE);
+  setParameterDefinition("maximumIntegerDigits",Integer.TYPE);
+  setParameterDefinition("minimumFractionDigits",Integer.TYPE);
+  setParameterDefinition("minimumIntegerDigits",Integer.TYPE);
+  setParameterDefinition("multiplier",Integer.TYPE);
+  setParameterDefinition("negativePrefix",String.class);
+  setParameterDefinition("negativeSuffix",String.class);
+  setParameterDefinition("parseIntegerOnly",Boolean.TYPE);
+  setParameterDefinition("positivePrefix",String.class);
+  setParameterDefinition("positiveSuffix",String.class);
+  ignoreParameter("localizedPattern");
+  ignoreParameter("pattern");
+}

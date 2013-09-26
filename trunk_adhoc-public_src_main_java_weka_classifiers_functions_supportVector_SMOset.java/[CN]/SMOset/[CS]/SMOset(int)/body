@@ -1,0 +1,7 @@
+{
+  m_indicators=new boolean[size];
+  m_next=new int[size];
+  m_previous=new int[size];
+  m_number=0;
+  m_first=-1;
+}

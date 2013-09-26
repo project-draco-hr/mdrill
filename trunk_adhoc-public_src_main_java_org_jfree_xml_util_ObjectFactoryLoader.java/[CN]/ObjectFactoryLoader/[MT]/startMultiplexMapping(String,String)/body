@@ -1,0 +1,5 @@
+{
+  this.baseClass=className;
+  this.attributeName=typeAttr;
+  this.multiplexEntries=new ArrayList();
+}

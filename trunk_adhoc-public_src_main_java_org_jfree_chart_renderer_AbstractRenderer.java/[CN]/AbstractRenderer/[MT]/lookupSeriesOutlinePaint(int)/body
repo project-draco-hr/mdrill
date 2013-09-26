@@ -1,0 +1,17 @@
+{
+  if (this.outlinePaint != null) {
+    return this.outlinePaint;
+  }
+  Paint seriesOutlinePaint=getSeriesOutlinePaint(series);
+  if (seriesOutlinePaint == null && this.autoPopulateSeriesOutlinePaint) {
+    DrawingSupplier supplier=getDrawingSupplier();
+    if (supplier != null) {
+      seriesOutlinePaint=supplier.getNextOutlinePaint();
+      setSeriesOutlinePaint(series,seriesOutlinePaint,false);
+    }
+  }
+  if (seriesOutlinePaint == null) {
+    seriesOutlinePaint=this.baseOutlinePaint;
+  }
+  return seriesOutlinePaint;
+}

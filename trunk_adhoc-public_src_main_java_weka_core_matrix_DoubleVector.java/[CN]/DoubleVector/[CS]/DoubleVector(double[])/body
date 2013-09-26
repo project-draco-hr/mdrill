@@ -1,0 +1,10 @@
+{
+  if (v == null) {
+    V=new double[0];
+    setSize(0);
+  }
+ else {
+    V=v;
+    setSize(v.length);
+  }
+}

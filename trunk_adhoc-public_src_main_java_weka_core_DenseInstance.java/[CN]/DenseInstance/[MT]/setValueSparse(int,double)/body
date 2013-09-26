@@ -1,0 +1,4 @@
+{
+  freshAttributeVector();
+  m_AttValues[indexOfIndex]=value;
+}

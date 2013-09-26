@@ -1,0 +1,4 @@
+{
+  this();
+  this.parentConfiguration=parentConfiguration;
+}

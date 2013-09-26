@@ -1,0 +1,3 @@
+{
+  return "ModuleInfo [queryDay=" + queryDay + ", moduleName="+ moduleName+ ", queryCnt="+ queryCnt+ ", uv="+ uv+ "]";
+}

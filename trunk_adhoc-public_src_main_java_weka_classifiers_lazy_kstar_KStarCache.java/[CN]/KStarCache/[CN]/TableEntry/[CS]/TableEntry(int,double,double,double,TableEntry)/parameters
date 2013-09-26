@@ -1,0 +1,5 @@
+int hash
+double key
+double value
+double pmiss
+TableEntry next

@@ -1,0 +1,7 @@
+EntityCollection entities
+Shape hotspot
+CategoryDataset dataset
+int row
+int column
+double entityX
+double entityY

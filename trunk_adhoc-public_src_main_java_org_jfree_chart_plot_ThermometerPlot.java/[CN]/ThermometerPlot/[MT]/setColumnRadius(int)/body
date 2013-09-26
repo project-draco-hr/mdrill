@@ -1,0 +1,4 @@
+{
+  this.columnRadius=r;
+  fireChangeEvent();
+}

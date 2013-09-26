@@ -1,0 +1,3 @@
+{
+  this.listenerList.remove(TitleChangeListener.class,listener);
+}

@@ -1,0 +1,4 @@
+{
+  this.requiredModules=new ModuleInfo[requiredModules.length];
+  System.arraycopy(requiredModules,0,this.requiredModules,0,requiredModules.length);
+}

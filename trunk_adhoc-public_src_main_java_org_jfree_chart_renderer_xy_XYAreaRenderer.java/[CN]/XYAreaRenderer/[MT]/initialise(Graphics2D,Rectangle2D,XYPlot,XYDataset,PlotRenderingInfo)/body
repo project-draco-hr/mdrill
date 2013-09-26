@@ -1,0 +1,5 @@
+{
+  XYAreaRendererState state=new XYAreaRendererState(info);
+  state.setProcessVisibleItemsOnly(false);
+  return state;
+}

@@ -1,0 +1,30 @@
+{
+  File file;
+  ObjectInputStream ois;
+  if (m_ActualClassifier == null) {
+    try {
+      file=getSerializedClassifierFile();
+      if (!file.isDirectory()) {
+        ois=new ObjectInputStream(new FileInputStream(file));
+        m_ActualClassifier=(Classifier)ois.readObject();
+        m_SerializedHeader=null;
+        try {
+          m_SerializedHeader=(Instances)ois.readObject();
+        }
+ catch (        Exception e) {
+          m_SerializedHeader=null;
+        }
+        ois.close();
+      }
+ else {
+        m_ActualClassifier=AbstractClassifier.makeCopy(m_Classifier);
+      }
+    }
+ catch (    Exception e) {
+      m_ActualClassifier=null;
+      System.err.println("Failed to instantiate classifier:");
+      e.printStackTrace();
+    }
+  }
+  return m_ActualClassifier;
+}

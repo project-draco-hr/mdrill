@@ -1,0 +1,3 @@
+TimeSeries source
+String name
+int pointCount

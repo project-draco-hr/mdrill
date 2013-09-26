@@ -1,0 +1,8 @@
+{
+  if (connectionAllowed(eventName)) {
+    m_listenees.put(eventName,source);
+    if (m_Filter instanceof ConnectionNotificationConsumer) {
+      ((ConnectionNotificationConsumer)m_Filter).connectionNotification(eventName,source);
+    }
+  }
+}

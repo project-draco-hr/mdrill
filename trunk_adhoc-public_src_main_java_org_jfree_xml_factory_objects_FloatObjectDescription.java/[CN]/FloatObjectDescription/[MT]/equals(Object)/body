@@ -1,0 +1,16 @@
+{
+  if (this == o) {
+    return true;
+  }
+  if (!(o instanceof AbstractObjectDescription)) {
+    return false;
+  }
+  final AbstractObjectDescription abstractObjectDescription=(AbstractObjectDescription)o;
+  if (Float.TYPE.equals(abstractObjectDescription.getObjectClass())) {
+    return true;
+  }
+  if (Float.class.equals(abstractObjectDescription.getObjectClass())) {
+    return true;
+  }
+  return false;
+}

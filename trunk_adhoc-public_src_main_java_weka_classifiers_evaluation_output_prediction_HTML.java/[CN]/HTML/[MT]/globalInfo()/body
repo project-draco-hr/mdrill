@@ -1,0 +1,3 @@
+{
+  return "Outputs the predictions in HTML.";
+}

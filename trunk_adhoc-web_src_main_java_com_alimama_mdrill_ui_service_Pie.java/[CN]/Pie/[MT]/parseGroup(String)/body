@@ -1,0 +1,11 @@
+{
+  ArrayList<String> groupbyFields=new ArrayList<String>();
+  ArrayList<String> showFields=WebServiceParams.showFields(fl);
+  for (  String showfield : showFields) {
+    StateField showfielda=WebServiceParams.parseStat(showfield);
+    if (!showfielda.isstat) {
+      groupbyFields.add(showfield);
+    }
+  }
+  return groupbyFields;
+}

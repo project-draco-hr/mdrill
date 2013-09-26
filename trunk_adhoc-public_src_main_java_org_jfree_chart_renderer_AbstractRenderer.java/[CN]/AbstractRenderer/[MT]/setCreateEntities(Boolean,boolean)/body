@@ -1,0 +1,6 @@
+{
+  this.createEntities=create;
+  if (notify) {
+    fireChangeEvent();
+  }
+}

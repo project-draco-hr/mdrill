@@ -1,0 +1,14 @@
+{
+  int result=193;
+  long temp=Double.doubleToLongBits(this.lowerBound);
+  result=37 * result + (int)(temp ^ (temp >>> 32));
+  temp=Double.doubleToLongBits(this.upperBound);
+  result=37 * result + (int)(temp ^ (temp >>> 32));
+  temp=Double.doubleToLongBits(this.startAngle);
+  result=37 * result + (int)(temp ^ (temp >>> 32));
+  temp=Double.doubleToLongBits(this.extent);
+  result=37 * result + (int)(temp ^ (temp >>> 32));
+  temp=Double.doubleToLongBits(this.tickRadius);
+  result=37 * result + (int)(temp ^ (temp >>> 32));
+  return result;
+}

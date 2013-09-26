@@ -1,0 +1,20 @@
+{
+  m_Monitoring=true;
+  while (m_Monitoring) {
+    try {
+      Thread.sleep(m_Interval);
+      if (m_Monitoring) {
+        Runnable doUpdate=new Runnable(){
+          public void run(){
+            update();
+          }
+        }
+;
+        SwingUtilities.invokeLater(doUpdate);
+      }
+    }
+ catch (    InterruptedException ex) {
+      ex.printStackTrace();
+    }
+  }
+}

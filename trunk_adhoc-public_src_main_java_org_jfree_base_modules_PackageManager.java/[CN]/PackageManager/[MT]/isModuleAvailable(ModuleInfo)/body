@@ -1,0 +1,10 @@
+{
+  final PackageState[] packageStates=(PackageState[])this.modules.toArray(new PackageState[this.modules.size()]);
+  for (int i=0; i < packageStates.length; i++) {
+    final PackageState state=packageStates[i];
+    if (state.getModule().getModuleClass().equals(moduleDescription.getModuleClass())) {
+      return (state.getState() == PackageState.STATE_INITIALIZED);
+    }
+  }
+  return false;
+}

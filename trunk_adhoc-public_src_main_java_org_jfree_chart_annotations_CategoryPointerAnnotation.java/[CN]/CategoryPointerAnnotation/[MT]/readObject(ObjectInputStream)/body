@@ -1,0 +1,5 @@
+{
+  stream.defaultReadObject();
+  this.arrowPaint=SerialUtilities.readPaint(stream);
+  this.arrowStroke=SerialUtilities.readStroke(stream);
+}

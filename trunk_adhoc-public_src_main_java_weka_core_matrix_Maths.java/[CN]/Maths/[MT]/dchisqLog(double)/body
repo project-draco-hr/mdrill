@@ -1,0 +1,5 @@
+{
+  if (x == 0.0)   return Double.POSITIVE_INFINITY;
+  double xh=Math.sqrt(x);
+  return dnormLog(xh) - Math.log(xh);
+}

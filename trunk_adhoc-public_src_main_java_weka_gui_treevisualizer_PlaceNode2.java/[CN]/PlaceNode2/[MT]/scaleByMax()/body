@@ -1,0 +1,27 @@
+{
+  double l_x=5000, h_x=-5000;
+  for (int noa=0; noa < m_groupNum; noa++) {
+    if (l_x > m_groups[noa].m_left) {
+      l_x=m_groups[noa].m_left;
+    }
+    if (h_x < m_groups[noa].m_right) {
+      h_x=m_groups[noa].m_right;
+    }
+  }
+  Edge e;
+  Node r, s;
+  double m_scale=h_x - l_x + 1;
+  if (m_groupNum > 0) {
+    r=m_groups[0].m_p;
+    r.setCenter((r.getCenter() - l_x) / m_scale);
+    for (int noa=0; noa < m_groupNum; noa++) {
+      r=m_groups[noa].m_p;
+      for (int nob=0; (e=r.getChild(nob)) != null; nob++) {
+        s=e.getTarget();
+        if (s.getParent(0) == e) {
+          s.setCenter((s.getCenter() - l_x) / m_scale);
+        }
+      }
+    }
+  }
+}

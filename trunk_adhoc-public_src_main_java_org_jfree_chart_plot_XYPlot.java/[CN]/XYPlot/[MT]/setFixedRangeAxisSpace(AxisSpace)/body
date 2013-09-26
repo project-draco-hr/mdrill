@@ -1,0 +1,3 @@
+{
+  setFixedRangeAxisSpace(space,true);
+}

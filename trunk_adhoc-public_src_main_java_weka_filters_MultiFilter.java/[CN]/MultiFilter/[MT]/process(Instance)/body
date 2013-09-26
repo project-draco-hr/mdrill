@@ -1,0 +1,10 @@
+{
+  Instance result;
+  int i;
+  result=(Instance)instance.copy();
+  for (i=0; i < getFilters().length; i++) {
+    getFilter(i).input(result);
+    result=getFilter(i).output();
+  }
+  return result;
+}

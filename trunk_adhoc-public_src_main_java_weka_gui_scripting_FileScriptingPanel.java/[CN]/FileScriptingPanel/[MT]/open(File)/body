@@ -1,0 +1,3 @@
+{
+  m_Script.open(file);
+}

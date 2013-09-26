@@ -1,0 +1,4 @@
+{
+  determineNumberOfClusters();
+  return m_numberOfClusters;
+}

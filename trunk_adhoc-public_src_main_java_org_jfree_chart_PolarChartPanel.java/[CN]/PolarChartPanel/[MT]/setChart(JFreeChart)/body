@@ -1,0 +1,4 @@
+{
+  checkChart(chart);
+  super.setChart(chart);
+}

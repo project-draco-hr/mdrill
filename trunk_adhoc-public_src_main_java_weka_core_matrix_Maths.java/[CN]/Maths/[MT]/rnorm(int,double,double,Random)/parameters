@@ -1,0 +1,4 @@
+int n
+double mean
+double sd
+Random random

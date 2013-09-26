@@ -1,0 +1,5 @@
+{
+  super();
+  m_Value=value;
+  m_Index=index;
+}

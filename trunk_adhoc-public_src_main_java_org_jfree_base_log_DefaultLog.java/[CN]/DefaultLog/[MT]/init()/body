@@ -1,0 +1,16 @@
+{
+  removeTarget(DEFAULT_LOG_TARGET);
+  final String logLevel=LogConfiguration.getLogLevel();
+  if (logLevel.equalsIgnoreCase("error")) {
+    setDebuglevel(LogTarget.ERROR);
+  }
+ else   if (logLevel.equalsIgnoreCase("warn")) {
+    setDebuglevel(LogTarget.WARN);
+  }
+ else   if (logLevel.equalsIgnoreCase("info")) {
+    setDebuglevel(LogTarget.INFO);
+  }
+ else   if (logLevel.equalsIgnoreCase("debug")) {
+    setDebuglevel(LogTarget.DEBUG);
+  }
+}

@@ -1,0 +1,8 @@
+{
+  ClassDiscovery.clearClassCache();
+  GenericPropertiesCreator.regenerateGlobalOutputProperties();
+  GenericObjectEditor.determineClasses();
+  ConverterUtils.initialize();
+  KnowledgeFlowApp.disposeSingleton();
+  KnowledgeFlowApp.reInitialize();
+}

@@ -1,0 +1,85 @@
+{
+  GroupListCache.GroupList group=GroupListCache.GroupList.INSTANCE(container.groupListCache,container.groupbySize);
+  QuickHashMap<GroupListCache.GroupList,RefRow> groups=new QuickHashMap<GroupListCache.GroupList,RefRow>(this.parse.limit_offset_maxgroups + 1);
+  if (container.groupNonEmptySize == 0) {
+    group.reset();
+    RefRow cnt=this.makeOrGetGroup(groups,group);
+    if (container.countOnly()) {
+      cnt.val+=container.baseDocs.size();
+    }
+ else {
+      DocIterator iter=container.baseDocs.iterator();
+      if (container.noDist()) {
+        while (iter.hasNext()) {
+          int doc=iter.nextDoc();
+          cnt.val++;
+          container.updateStat(cnt,doc);
+        }
+      }
+ else       if (container.noStat()) {
+        while (iter.hasNext()) {
+          int doc=iter.nextDoc();
+          cnt.val++;
+          container.updateDist(cnt,doc);
+        }
+      }
+ else {
+        while (iter.hasNext()) {
+          int doc=iter.nextDoc();
+          cnt.val++;
+          container.updateStat(cnt,doc);
+          container.updateDist(cnt,doc);
+        }
+      }
+    }
+  }
+ else {
+    DocIterator iter=container.baseDocs.iterator();
+    if (container.countOnly()) {
+      while (iter.hasNext()) {
+        int doc=iter.nextDoc();
+        if (container.toGroupsByJoin(doc,group) && container.pre.contains(group)) {
+          RefRow cnt=this.makeOrGetGroup(groups,group);
+          cnt.val++;
+          this.delayPut(groups,cnt,group);
+        }
+      }
+    }
+ else     if (container.noDist()) {
+      while (iter.hasNext()) {
+        int doc=iter.nextDoc();
+        if (container.toGroupsByJoin(doc,group) && container.pre.contains(group)) {
+          RefRow cnt=this.makeOrGetGroup(groups,group);
+          cnt.val++;
+          container.updateStat(cnt,doc);
+          this.delayPut(groups,cnt,group);
+        }
+      }
+    }
+ else     if (container.noStat()) {
+      while (iter.hasNext()) {
+        int doc=iter.nextDoc();
+        if (container.toGroupsByJoin(doc,group) && container.pre.contains(group)) {
+          RefRow cnt=this.makeOrGetGroup(groups,group);
+          cnt.val++;
+          container.updateDist(cnt,doc);
+          this.delayPut(groups,cnt,group);
+        }
+      }
+    }
+ else {
+      while (iter.hasNext()) {
+        int doc=iter.nextDoc();
+        if (container.toGroupsByJoin(doc,group) && container.pre.contains(group)) {
+          RefRow cnt=this.makeOrGetGroup(groups,group);
+          cnt.val++;
+          container.updateStat(cnt,doc);
+          container.updateDist(cnt,doc);
+          this.delayPut(groups,cnt,group);
+        }
+      }
+    }
+  }
+  TopMaps(groups);
+  return groups;
+}

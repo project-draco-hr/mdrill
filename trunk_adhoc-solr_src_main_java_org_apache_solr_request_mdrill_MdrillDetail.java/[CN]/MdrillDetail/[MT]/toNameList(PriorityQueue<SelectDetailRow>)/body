@@ -1,12 +1,12 @@
 {
   java.util.ArrayList<SelectDetailRow> recommendations=new ArrayList<SelectDetailRow>(topItems.size());
   recommendations.addAll(topItems);
-  Collections.sort(recommendations,this.cmpresult);
+  Collections.sort(recommendations,this.container.cmpresult);
   Integer index=0;
   NamedList res=new NamedList();
   res.add(recordCount.getKey(),recordCount.toNamedList());
   for (  SelectDetailRow kv : recommendations) {
-    if (index >= this.offset) {
+    if (index >= this.parse.offset) {
       res.add(kv.getKey(),kv.toNamedList());
     }
     index++;

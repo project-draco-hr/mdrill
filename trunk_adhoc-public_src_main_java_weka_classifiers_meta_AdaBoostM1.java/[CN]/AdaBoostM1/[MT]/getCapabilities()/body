@@ -1,0 +1,8 @@
+{
+  Capabilities result=super.getCapabilities();
+  result.disableAllClasses();
+  result.disableAllClassDependencies();
+  if (super.getCapabilities().handles(Capability.NOMINAL_CLASS))   result.enable(Capability.NOMINAL_CLASS);
+  if (super.getCapabilities().handles(Capability.BINARY_CLASS))   result.enable(Capability.BINARY_CLASS);
+  return result;
+}

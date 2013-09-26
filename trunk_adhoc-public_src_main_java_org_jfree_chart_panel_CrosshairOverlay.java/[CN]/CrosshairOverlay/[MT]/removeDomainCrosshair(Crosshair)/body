@@ -1,0 +1,9 @@
+{
+  if (crosshair == null) {
+    throw new IllegalArgumentException("Null 'crosshair' argument.");
+  }
+  if (this.xCrosshairs.remove(crosshair)) {
+    crosshair.removePropertyChangeListener(this);
+    fireOverlayChanged();
+  }
+}

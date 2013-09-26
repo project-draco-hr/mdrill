@@ -1,0 +1,10 @@
+{
+  if (this.renderer != null) {
+    this.renderer.removeChangeListener(this);
+  }
+  this.renderer=renderer;
+  if (renderer != null) {
+    renderer.setPlot(this);
+  }
+  fireChangeEvent();
+}

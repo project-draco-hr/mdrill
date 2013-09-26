@@ -1,0 +1,3 @@
+{
+  deleteAttributeAt(columnIndex,true);
+}

@@ -1,0 +1,5 @@
+{
+  m_undoStack=new FastVector();
+  m_nCurrentEditAction=-1;
+  m_nSavedPointer=-1;
+}

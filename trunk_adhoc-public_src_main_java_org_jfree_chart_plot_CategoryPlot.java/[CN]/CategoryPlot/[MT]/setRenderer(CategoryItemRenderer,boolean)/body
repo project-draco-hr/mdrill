@@ -1,0 +1,3 @@
+{
+  setRenderer(0,renderer,notify);
+}

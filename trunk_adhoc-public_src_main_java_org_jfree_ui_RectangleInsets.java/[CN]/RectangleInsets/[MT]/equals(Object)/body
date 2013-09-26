@@ -1,0 +1,25 @@
+{
+  if (obj == this) {
+    return true;
+  }
+  if (!(obj instanceof RectangleInsets)) {
+    return false;
+  }
+  final RectangleInsets that=(RectangleInsets)obj;
+  if (that.unitType != this.unitType) {
+    return false;
+  }
+  if (this.left != that.left) {
+    return false;
+  }
+  if (this.right != that.right) {
+    return false;
+  }
+  if (this.top != that.top) {
+    return false;
+  }
+  if (this.bottom != that.bottom) {
+    return false;
+  }
+  return true;
+}

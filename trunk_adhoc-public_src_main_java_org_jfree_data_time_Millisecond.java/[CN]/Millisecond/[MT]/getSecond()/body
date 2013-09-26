@@ -1,0 +1,3 @@
+{
+  return new Second(this.second,this.minute,this.hour,this.day.getDayOfMonth(),this.day.getMonth(),this.day.getYear());
+}

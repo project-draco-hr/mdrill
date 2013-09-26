@@ -1,0 +1,7 @@
+{
+  Object result;
+  if (title == null)   title="Input...";
+  result=JOptionPane.showInputDialog(parent,msg,title,JOptionPane.QUESTION_MESSAGE,getImageIcon("question.gif"),null,initialValue);
+  if (result != null)   return result.toString();
+ else   return null;
+}

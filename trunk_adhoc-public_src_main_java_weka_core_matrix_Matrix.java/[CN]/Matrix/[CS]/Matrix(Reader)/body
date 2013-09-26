@@ -1,0 +1,30 @@
+{
+  LineNumberReader lnr=new LineNumberReader(r);
+  String line;
+  int currentRow=-1;
+  while ((line=lnr.readLine()) != null) {
+    if (line.startsWith("%"))     continue;
+    StringTokenizer st=new StringTokenizer(line);
+    if (!st.hasMoreTokens())     continue;
+    if (currentRow < 0) {
+      int rows=Integer.parseInt(st.nextToken());
+      if (!st.hasMoreTokens())       throw new Exception("Line " + lnr.getLineNumber() + ": expected number of columns");
+      int cols=Integer.parseInt(st.nextToken());
+      A=new double[rows][cols];
+      m=rows;
+      n=cols;
+      currentRow++;
+      continue;
+    }
+ else {
+      if (currentRow == getRowDimension())       throw new Exception("Line " + lnr.getLineNumber() + ": too many rows provided");
+      for (int i=0; i < getColumnDimension(); i++) {
+        if (!st.hasMoreTokens())         throw new Exception("Line " + lnr.getLineNumber() + ": too few matrix elements provided");
+        set(currentRow,i,Double.valueOf(st.nextToken()).doubleValue());
+      }
+      currentRow++;
+    }
+  }
+  if (currentRow == -1)   throw new Exception("Line " + lnr.getLineNumber() + ": expected number of rows");
+ else   if (currentRow != getRowDimension())   throw new Exception("Line " + lnr.getLineNumber() + ": too few rows provided");
+}

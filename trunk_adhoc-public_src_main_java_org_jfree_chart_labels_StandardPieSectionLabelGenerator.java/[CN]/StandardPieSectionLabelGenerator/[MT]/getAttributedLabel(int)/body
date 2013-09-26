@@ -1,0 +1,3 @@
+{
+  return (AttributedString)this.attributedLabels.get(section);
+}

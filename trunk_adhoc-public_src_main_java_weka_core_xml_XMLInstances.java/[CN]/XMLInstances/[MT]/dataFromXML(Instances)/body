@@ -1,0 +1,11 @@
+{
+  Instances result;
+  Element node;
+  Vector list;
+  list=getChildTags(m_Document.getDocumentElement(),TAG_BODY);
+  node=(Element)list.get(0);
+  list=getChildTags(node,TAG_INSTANCES);
+  node=(Element)list.get(0);
+  result=createInstances(header,node);
+  return result;
+}

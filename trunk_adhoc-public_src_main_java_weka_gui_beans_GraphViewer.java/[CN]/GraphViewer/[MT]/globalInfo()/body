@@ -1,0 +1,3 @@
+{
+  return "Graphically visualize trees or graphs produced by classifiers/clusterers.";
+}

@@ -1,0 +1,13 @@
+{
+  if (exp == null) {
+    System.err.println("Null experiment!!!");
+  }
+ else {
+    System.err.println("Running experiment: " + exp.toString());
+  }
+  System.err.println("Writing experiment copy");
+  SerializedObject so=new SerializedObject(exp);
+  System.err.println("Reading experiment copy");
+  m_ExpCopy=(Experiment)so.getObject();
+  System.err.println("Made experiment copy");
+}

@@ -1,0 +1,7 @@
+{
+  if (padding == null) {
+    throw new IllegalArgumentException("Null 'padding' argument.");
+  }
+  this.legendItemGraphicPadding=padding;
+  notifyListeners(new TitleChangeEvent(this));
+}

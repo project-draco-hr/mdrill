@@ -1,0 +1,11 @@
+{
+  String[] options=new String[1];
+  int current=0;
+  if (!getMissingMerge()) {
+    options[current++]="-M";
+  }
+  while (current < options.length) {
+    options[current++]="";
+  }
+  return options;
+}

@@ -1,0 +1,6 @@
+{
+  final TextLine line1=new TextLine("Test");
+  final TextLine line2=new TextLine("Test");
+  assertTrue(line1.equals(line2));
+  assertTrue(line2.equals(line1));
+}

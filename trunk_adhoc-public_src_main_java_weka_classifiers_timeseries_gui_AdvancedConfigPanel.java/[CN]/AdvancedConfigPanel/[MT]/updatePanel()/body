@@ -1,0 +1,6 @@
+{
+  updateDateDerivedPanel();
+  updatePrimaryPeriodic();
+  updateOutputPanel();
+  updateOverlayPanel();
+}

@@ -1,0 +1,10 @@
+{
+  double actual=test.classValue();
+  double[] dist=classifier.distributionForInstance(test);
+  if (test.classAttribute().isNominal()) {
+    return new NominalPrediction(actual,dist,test.weight());
+  }
+ else {
+    return new NumericPrediction(actual,dist[0],test.weight());
+  }
+}

@@ -1,0 +1,17 @@
+{
+  if (ignore) {
+    return false;
+  }
+  this.target=loadClass(className);
+  if (this.target == null) {
+    Log.warn(new Log.SimpleMessage("Failed to load class ",className));
+    return false;
+  }
+  this.registerName=register;
+  this.propertyDefinition=new ArrayList();
+  this.attributeDefinition=new ArrayList();
+  this.constructorDefinition=new ArrayList();
+  this.lookupDefinitions=new ArrayList();
+  this.orderedNames=new ArrayList();
+  return true;
+}

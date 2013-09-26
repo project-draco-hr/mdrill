@@ -1,0 +1,8 @@
+{
+  if (c.isNominal()) {
+    return Integer.toString(Utils.maxIndex(dist));
+  }
+ else {
+    return Double.toString(dist[0]);
+  }
+}

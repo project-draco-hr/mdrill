@@ -1,0 +1,8 @@
+{
+  if (from <= this.segmentStart && this.segmentEnd <= to) {
+    return this;
+  }
+ else {
+    return null;
+  }
+}

@@ -1,0 +1,11 @@
+{
+  QueueNode newNode=new QueueNode(item);
+  if (m_Head == null) {
+    m_Head=m_Tail=newNode;
+  }
+ else {
+    m_Tail=m_Tail.next(newNode);
+  }
+  m_Size++;
+  return item;
+}

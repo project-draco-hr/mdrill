@@ -1,0 +1,5 @@
+{
+  stream.defaultWriteObject();
+  SerialUtilities.writePaint(this.advanceLinePaint,stream);
+  SerialUtilities.writeStroke(this.advanceLineStroke,stream);
+}

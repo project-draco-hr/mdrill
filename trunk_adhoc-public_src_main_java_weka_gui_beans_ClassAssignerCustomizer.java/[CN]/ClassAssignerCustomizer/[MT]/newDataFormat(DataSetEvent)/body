@@ -1,0 +1,8 @@
+{
+  if (dse.getDataSet() != null) {
+    setUpColumnSelection(m_classAssigner.getConnectedFormat());
+  }
+ else {
+    setUpStandardSelection();
+  }
+}

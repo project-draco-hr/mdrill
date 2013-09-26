@@ -1,0 +1,6 @@
+FrequentItemSets largeItemSets
+DefaultAssociationRule.METRIC_TYPE metricToUse
+double metricThreshold
+int upperBoundMinSuppAsInstances
+int lowerBoundMinSuppAsInstances
+int totalTransactions

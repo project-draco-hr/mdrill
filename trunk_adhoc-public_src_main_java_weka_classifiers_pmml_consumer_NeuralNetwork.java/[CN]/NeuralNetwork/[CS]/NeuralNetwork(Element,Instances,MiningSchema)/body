@@ -1,0 +1,63 @@
+{
+  super(dataDictionary,miningSchema);
+  String fn=model.getAttribute("functionName");
+  if (fn.equals("regression")) {
+    m_functionType=MiningFunction.REGRESSION;
+  }
+  String act=model.getAttribute("activationFunction");
+  if (act == null || act.length() == 0) {
+    throw new Exception("[NeuralNetwork] no activation functon defined");
+  }
+  for (  ActivationFunction a : ActivationFunction.values()) {
+    if (a.toString().equals(act)) {
+      m_activationFunction=a;
+      break;
+    }
+  }
+  String norm=model.getAttribute("normalizationMethod");
+  if (norm != null && norm.length() > 0) {
+    for (    Normalization n : Normalization.values()) {
+      if (n.toString().equals(norm)) {
+        m_normalizationMethod=n;
+        break;
+      }
+    }
+  }
+  String thresh=model.getAttribute("threshold");
+  if (thresh != null && thresh.length() > 0) {
+    m_threshold=Double.parseDouble(thresh);
+  }
+  String width=model.getAttribute("width");
+  if (width != null && width.length() > 0) {
+    m_width=Double.parseDouble(width);
+  }
+  String alt=model.getAttribute("altitude");
+  if (alt != null && alt.length() > 0) {
+    m_altitude=Double.parseDouble(alt);
+  }
+  NodeList inputL=model.getElementsByTagName("NeuralInput");
+  m_numberOfInputs=inputL.getLength();
+  m_inputs=new NeuralInput[m_numberOfInputs];
+  for (int i=0; i < m_numberOfInputs; i++) {
+    Node inputN=inputL.item(i);
+    if (inputN.getNodeType() == Node.ELEMENT_NODE) {
+      NeuralInput nI=new NeuralInput((Element)inputN,m_miningSchema);
+      m_inputs[i]=nI;
+    }
+  }
+  NodeList layerL=model.getElementsByTagName("NeuralLayer");
+  m_numberOfLayers=layerL.getLength();
+  m_layers=new NeuralLayer[m_numberOfLayers];
+  for (int i=0; i < m_numberOfLayers; i++) {
+    Node layerN=layerL.item(i);
+    if (layerN.getNodeType() == Node.ELEMENT_NODE) {
+      NeuralLayer nL=new NeuralLayer((Element)layerN);
+      m_layers[i]=nL;
+    }
+  }
+  NodeList outputL=model.getElementsByTagName("NeuralOutputs");
+  if (outputL.getLength() != 1) {
+    throw new Exception("[NeuralNetwork] Should be just one NeuralOutputs element defined!");
+  }
+  m_outputs=new NeuralOutputs((Element)outputL.item(0),m_miningSchema);
+}

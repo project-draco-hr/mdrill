@@ -1,0 +1,6 @@
+{
+  super();
+  setNumAttributes(defaultNumAttributes());
+  setNumClasses(defaultNumClasses());
+  setNumCentroids(defaultNumCentroids());
+}

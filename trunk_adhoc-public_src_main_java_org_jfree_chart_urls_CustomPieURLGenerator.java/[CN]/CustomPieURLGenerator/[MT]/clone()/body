@@ -1,0 +1,17 @@
+{
+  CustomPieURLGenerator urlGen=new CustomPieURLGenerator();
+  Map map;
+  Map newMap;
+  String key;
+  for (Iterator i=this.urls.iterator(); i.hasNext(); ) {
+    map=(Map)i.next();
+    newMap=new HashMap();
+    for (Iterator j=map.keySet().iterator(); j.hasNext(); ) {
+      key=(String)j.next();
+      newMap.put(key,map.get(key));
+    }
+    urlGen.addURLs(newMap);
+    newMap=null;
+  }
+  return urlGen;
+}

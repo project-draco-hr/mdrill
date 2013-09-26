@@ -1,0 +1,6 @@
+{
+  super(source);
+  m_classifier=scheme;
+  m_currentInstance=currentI;
+  m_status=status;
+}

@@ -1,0 +1,8 @@
+{
+  double[] functionIncoming=new double[m_arguments.size()];
+  for (int i=0; i < m_arguments.size(); i++) {
+    functionIncoming[i]=m_arguments.get(i).getResult(incoming);
+  }
+  double result=m_function.getResult(functionIncoming);
+  return result;
+}

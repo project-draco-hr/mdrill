@@ -1,0 +1,6 @@
+{
+  for (int i=start; i <= end; i++) {
+    this.data.remove(start);
+  }
+  fireSeriesChanged();
+}

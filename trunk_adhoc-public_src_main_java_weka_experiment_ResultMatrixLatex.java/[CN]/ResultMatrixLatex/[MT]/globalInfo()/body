@@ -1,0 +1,3 @@
+{
+  return "Generates the matrix output in LaTeX-syntax.";
+}

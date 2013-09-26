@@ -1,0 +1,3 @@
+{
+  return drawImage(img,x,y,Color.WHITE,observer);
+}

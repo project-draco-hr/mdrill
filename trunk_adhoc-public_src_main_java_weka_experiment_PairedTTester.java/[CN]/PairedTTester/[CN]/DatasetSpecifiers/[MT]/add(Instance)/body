@@ -1,0 +1,15 @@
+{
+  for (int i=0; i < m_Specifiers.size(); i++) {
+    Instance specifier=(Instance)m_Specifiers.elementAt(i);
+    boolean found=true;
+    for (int j=0; j < m_DatasetKeyColumns.length; j++) {
+      if (inst.value(m_DatasetKeyColumns[j]) != specifier.value(m_DatasetKeyColumns[j])) {
+        found=false;
+      }
+    }
+    if (found) {
+      return;
+    }
+  }
+  m_Specifiers.addElement(inst);
+}

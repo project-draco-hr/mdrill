@@ -1,0 +1,22 @@
+{
+  Node r;
+  Edge e;
+  if (m_groupNum > 0) {
+    m_groups[0].m_p.setCenter(0);
+    for (int noa=start; noa < m_groupNum; noa++) {
+      int nob, alter=0;
+      double c=m_groups[noa].m_gap;
+      r=m_groups[noa].m_p;
+      for (nob=0; (e=r.getChild(nob)) != null; nob++) {
+        if (e.getTarget().getParent(0) == e) {
+          e.getTarget().setCenter(nob * c);
+        }
+ else {
+          alter++;
+        }
+      }
+      m_groups[noa].m_size=(nob - 1 - alter) * c;
+      xShift(noa);
+    }
+  }
+}

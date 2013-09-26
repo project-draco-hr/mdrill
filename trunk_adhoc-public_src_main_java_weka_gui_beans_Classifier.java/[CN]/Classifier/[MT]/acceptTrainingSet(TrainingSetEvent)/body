@@ -1,0 +1,47 @@
+{
+  if (e.isStructureOnly()) {
+    BatchClassifierEvent ce=new BatchClassifierEvent(this,m_Classifier,new DataSetEvent(this,e.getTrainingSet()),new DataSetEvent(this,e.getTrainingSet()),e.getSetNumber(),e.getMaxSetNumber());
+    notifyBatchClassifierListeners(ce);
+    return;
+  }
+  if (m_reject) {
+    if (m_log != null) {
+      m_log.statusMessage(statusMessagePrefix() + "BUSY. Can't accept data " + "at this time.");
+      m_log.logMessage("[Classifier] " + statusMessagePrefix() + " BUSY. Can't accept data at this time.");
+    }
+    return;
+  }
+  if (e.getRunNumber() == 1 && e.getSetNumber() == 1) {
+    m_trainingSet=new Instances(e.getTrainingSet(),0);
+    m_state=BUILDING_MODEL;
+    String msg="[Classifier] " + statusMessagePrefix() + " starting executor pool ("+ getExecutionSlots()+ " slots)...";
+    if (m_log != null) {
+      m_log.logMessage(msg);
+    }
+ else {
+      System.err.println(msg);
+    }
+    if (m_executorPool == null) {
+      startExecutorPool();
+    }
+    msg="[Classifier] " + statusMessagePrefix() + " setup output queues.";
+    if (m_log != null) {
+      m_log.logMessage(msg);
+    }
+ else {
+      System.err.println(msg);
+    }
+    m_outputQueues=new BatchClassifierEvent[e.getMaxRunNumber()][e.getMaxSetNumber()];
+    m_completedSets=new boolean[e.getMaxRunNumber()][e.getMaxSetNumber()];
+    m_currentBatchIdentifier=new Date();
+  }
+  TrainingTask newTask=new TrainingTask(e.getRunNumber(),e.getMaxRunNumber(),e.getSetNumber(),e.getMaxSetNumber(),e.getTrainingSet());
+  String msg="[Classifier] " + statusMessagePrefix() + " scheduling run "+ e.getRunNumber()+ " fold "+ e.getSetNumber()+ " for execution...";
+  if (m_log != null) {
+    m_log.logMessage(msg);
+  }
+ else {
+    System.err.println(msg);
+  }
+  m_executorPool.execute(newTask);
+}

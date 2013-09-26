@@ -1,0 +1,17 @@
+{
+  Enumeration enm;
+  Class c;
+  boolean result;
+  HashSet list;
+  result=true;
+  enm=allowed();
+  while (enm.hasMoreElements()) {
+    c=(Class)enm.nextElement();
+    if (c.isInstance(o)) {
+      list=(HashSet)m_Allowed.get(c);
+      result=list.contains(displayName);
+      break;
+    }
+  }
+  return result;
+}

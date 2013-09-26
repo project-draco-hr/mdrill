@@ -36,7 +36,7 @@
       this.termValueLong.set(termNum,Long.parseLong(ft.indexedToReadable(t.text())));
     }
  else     if (dataType == Datatype.d_double) {
-      this.termValueDouble.set(termNum,MdrillPorcessUtils.ParseDouble(ft.indexedToReadable(t.text())));
+      this.termValueDouble.set(termNum,MdrillUtils.ParseDouble(ft.indexedToReadable(t.text())));
     }
  else     if (dataType == Datatype.d_string) {
       CRC32 crc32=new CRC32();

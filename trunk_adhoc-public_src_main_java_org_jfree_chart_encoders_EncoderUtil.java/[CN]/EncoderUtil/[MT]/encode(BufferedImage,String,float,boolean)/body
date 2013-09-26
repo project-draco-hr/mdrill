@@ -1,0 +1,4 @@
+{
+  ImageEncoder imageEncoder=ImageEncoderFactory.newInstance(format,quality,encodeAlpha);
+  return imageEncoder.encode(image);
+}

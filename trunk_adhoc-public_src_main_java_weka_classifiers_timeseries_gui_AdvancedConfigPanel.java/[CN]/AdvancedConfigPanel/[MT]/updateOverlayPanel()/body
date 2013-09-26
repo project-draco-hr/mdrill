@@ -1,0 +1,17 @@
+{
+  Instances newI=createAvailableOverlayList();
+  if (newI == null) {
+    m_useOverlayData.setSelected(false);
+    m_useOverlayData.setEnabled(false);
+    m_overlaySelector.clearTableModel();
+  }
+ else {
+    m_useOverlayData.setEnabled(true);
+    if (m_useOverlayData.isSelected()) {
+      if (m_overlayHeader == null || !newI.equalHeaders(m_overlayHeader)) {
+        m_overlayHeader=newI;
+        m_overlaySelector.setInstances(newI);
+      }
+    }
+  }
+}

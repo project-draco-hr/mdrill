@@ -1,0 +1,10 @@
+{
+  if (rootHandler == null) {
+    throw new NullPointerException("Root handler must not be null");
+  }
+  if (tagName == null) {
+    throw new NullPointerException("Tag name must not be null");
+  }
+  this.rootHandler=rootHandler;
+  this.tagName=tagName;
+}

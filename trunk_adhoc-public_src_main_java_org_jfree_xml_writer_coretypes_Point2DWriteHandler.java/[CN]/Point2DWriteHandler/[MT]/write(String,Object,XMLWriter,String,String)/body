@@ -1,0 +1,12 @@
+{
+  final Point2D point=(Point2D)object;
+  final double x=point.getX();
+  final double y=point.getY();
+  final AttributeList attribs=new AttributeList();
+  if (mPlexAttribute != null) {
+    attribs.setAttribute(mPlexAttribute,mPlexValue);
+  }
+  attribs.setAttribute("x",String.valueOf(x));
+  attribs.setAttribute("y",String.valueOf(y));
+  writer.writeTag(tagName,attribs,true);
+}

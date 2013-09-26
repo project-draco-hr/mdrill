@@ -1,0 +1,3 @@
+{
+  this(Locale.getDefault(),ResourceBundleWrapper.getBundle(baseName),baseName);
+}

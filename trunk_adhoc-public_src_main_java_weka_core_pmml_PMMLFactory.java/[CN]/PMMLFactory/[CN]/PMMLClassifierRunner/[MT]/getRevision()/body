@@ -1,0 +1,3 @@
+{
+  return weka.core.RevisionUtils.extract("$Revision: 6467 $");
+}

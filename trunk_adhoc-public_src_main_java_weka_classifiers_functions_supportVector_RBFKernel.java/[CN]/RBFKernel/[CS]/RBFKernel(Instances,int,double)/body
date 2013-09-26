@@ -1,0 +1,6 @@
+{
+  super();
+  setCacheSize(cacheSize);
+  setGamma(gamma);
+  buildKernel(data);
+}

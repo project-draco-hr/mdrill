@@ -1,0 +1,4 @@
+{
+  this(TickType.MAJOR,value,label,textAnchor,rotationAnchor,angle);
+  this.value=value;
+}

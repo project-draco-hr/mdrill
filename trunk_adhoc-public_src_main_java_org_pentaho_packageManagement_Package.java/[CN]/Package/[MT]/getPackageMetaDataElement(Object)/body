@@ -1,0 +1,6 @@
+{
+  if (m_packageMetaData == null) {
+    return null;
+  }
+  return m_packageMetaData.get(key);
+}

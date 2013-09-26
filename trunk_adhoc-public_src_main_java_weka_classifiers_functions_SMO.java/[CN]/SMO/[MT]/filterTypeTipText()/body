@@ -1,0 +1,3 @@
+{
+  return "Determines how/if the data will be transformed.";
+}

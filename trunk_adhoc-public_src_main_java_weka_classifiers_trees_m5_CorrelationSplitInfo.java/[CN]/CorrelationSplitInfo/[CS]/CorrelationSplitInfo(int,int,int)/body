@@ -1,0 +1,3 @@
+{
+  initialize(low,high,attr);
+}

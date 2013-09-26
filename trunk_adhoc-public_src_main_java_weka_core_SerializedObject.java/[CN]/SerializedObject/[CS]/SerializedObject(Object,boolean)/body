@@ -1,0 +1,13 @@
+{
+  ByteArrayOutputStream ostream=new ByteArrayOutputStream();
+  OutputStream os=ostream;
+  ObjectOutputStream p;
+  if (!compress)   p=new ObjectOutputStream(new BufferedOutputStream(os));
+ else   p=new ObjectOutputStream(new BufferedOutputStream(new GZIPOutputStream(os)));
+  p.writeObject(toStore);
+  p.flush();
+  p.close();
+  m_storedObjectArray=ostream.toByteArray();
+  m_isCompressed=compress;
+  m_isJython=(toStore instanceof JythonSerializableObject);
+}

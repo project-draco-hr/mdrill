@@ -1,0 +1,4 @@
+{
+  URL packageURL=getPackageURL();
+  m_packageManager.installPackageFromURL(packageURL);
+}

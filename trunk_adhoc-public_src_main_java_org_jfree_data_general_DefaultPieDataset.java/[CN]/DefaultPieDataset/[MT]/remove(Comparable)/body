@@ -1,0 +1,4 @@
+{
+  this.data.removeValue(key);
+  fireDatasetChanged();
+}

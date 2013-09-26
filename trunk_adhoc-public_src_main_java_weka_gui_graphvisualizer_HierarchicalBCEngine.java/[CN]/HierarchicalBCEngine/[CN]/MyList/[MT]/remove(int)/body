@@ -1,0 +1,13 @@
+{
+  MyListNode temp=first;
+  while (temp != null && temp.n != i)   temp=temp.next;
+  if (temp == null) {
+    System.err.println("element " + i + "not present in the list");
+    return;
+  }
+  if (temp.previous != null)   temp.previous.next=temp.next;
+  if (temp.next != null)   temp.next.previous=temp.previous;
+  if (last == temp)   last=temp.previous;
+  if (first == temp)   first=temp.next;
+  size--;
+}

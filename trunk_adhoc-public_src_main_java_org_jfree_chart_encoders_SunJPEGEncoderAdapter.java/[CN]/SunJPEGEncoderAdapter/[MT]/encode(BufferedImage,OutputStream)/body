@@ -1,0 +1,19 @@
+{
+  if (bufferedImage == null) {
+    throw new IllegalArgumentException("Null 'image' argument.");
+  }
+  if (outputStream == null) {
+    throw new IllegalArgumentException("Null 'outputStream' argument.");
+  }
+  Iterator iterator=ImageIO.getImageWritersByFormatName("jpeg");
+  ImageWriter writer=(ImageWriter)iterator.next();
+  ImageWriteParam p=writer.getDefaultWriteParam();
+  p.setCompressionMode(ImageWriteParam.MODE_EXPLICIT);
+  p.setCompressionQuality(this.quality);
+  ImageOutputStream ios=ImageIO.createImageOutputStream(outputStream);
+  writer.setOutput(ios);
+  writer.write(null,new IIOImage(bufferedImage,null,null),p);
+  ios.flush();
+  writer.dispose();
+  ios.close();
+}

@@ -1,0 +1,16 @@
+{
+  double[] classCounts=new double[m_NumClasses];
+  double classCountSum=0;
+  for (int i=0; i < m_NumClasses; i++) {
+    for (int j=0; j < m_NumClasses; j++) {
+      classCounts[i]+=m_ConfusionMatrix[i][j];
+    }
+    classCountSum+=classCounts[i];
+  }
+  double trueNegTotal=0;
+  for (int i=0; i < m_NumClasses; i++) {
+    double temp=trueNegativeRate(i);
+    trueNegTotal+=(temp * classCounts[i]);
+  }
+  return trueNegTotal / classCountSum;
+}

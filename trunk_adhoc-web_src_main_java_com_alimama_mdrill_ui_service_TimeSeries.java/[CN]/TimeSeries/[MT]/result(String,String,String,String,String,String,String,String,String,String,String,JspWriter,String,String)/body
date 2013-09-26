@@ -1,0 +1,47 @@
+{
+  MdrillService.HeartBeat hb=new MdrillService.HeartBeat(out);
+  new Thread(hb).start();
+  boolean isSingleY=false;
+  if (singleY != null && singleY.toUpperCase().equals("Y")) {
+    isSingleY=true;
+  }
+  HashMap<String,Object> rtna=new HashMap<String,Object>();
+  if (groupby == null || !groupby.equals("thedate")) {
+    rtna.put("code",0);
+    rtna.put("msg","???????????????????????????????????????????????????????????????");
+    hb.stop();
+    return new JSONObject(rtna).toString();
+  }
+  String rtn=MdrillService.result(projectName,null,"0","100",queryStr,dist,fl,groupby,"thedate","asc",leftjoin,null);
+  JSONObject jsonObj=new JSONObject(rtn);
+  if (!jsonObj.getString("code").equals("1")) {
+    rtna.put("code",0);
+    rtna.put("msg","?????????????????????????????????");
+    hb.stop();
+    return new JSONObject(rtna).toString();
+  }
+  JSONArray list=jsonObj.getJSONObject("data").getJSONArray("docs");
+  int presize=(list.length() / 3) + 1;
+  if (list.length() < 2) {
+    rtna.put("code",0);
+    rtna.put("msg","???????????????2????????????");
+    hb.stop();
+    return new JSONObject(rtna).toString();
+  }
+  String[] fields=getAllFields(list);
+  HashMap<String,String> field2dimvalue=fieldToShowName(fl,dimvalue);
+  StringBuilder numberfield=new StringBuilder();
+  HashMap<String,HashMap<String,Object>> lines=setUpLines(numberfield,fields,isSingleY,field2dimvalue);
+  int len=list.length();
+  minMaxX minmax=new minMaxX();
+  for (int i=10; i < len; i++) {
+    makePre(lines,false,i,1,minmax,fields,list,numberfield);
+  }
+  makePre(lines,true,len,presize,minmax,fields,list,numberfield);
+  hb.stop();
+  rtna.put("code",1);
+  rtna.put("data",lines);
+  rtna.put("min",minmax.min);
+  rtna.put("max",minmax.max);
+  return new JSONObject(rtna).toString();
+}

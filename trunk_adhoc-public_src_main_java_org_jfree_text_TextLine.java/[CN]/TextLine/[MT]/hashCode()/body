@@ -1,0 +1,3 @@
+{
+  return (this.fragments != null ? this.fragments.hashCode() : 0);
+}

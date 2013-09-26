@@ -1,0 +1,4 @@
+{
+  this.maximumCategoryLabelWidthRatio=ratio;
+  notifyListeners(new AxisChangeEvent(this));
+}

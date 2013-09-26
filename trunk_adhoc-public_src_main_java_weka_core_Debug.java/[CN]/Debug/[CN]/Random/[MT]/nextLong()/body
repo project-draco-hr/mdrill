@@ -1,0 +1,5 @@
+{
+  long result=super.nextLong();
+  println("nextLong=" + result);
+  return result;
+}

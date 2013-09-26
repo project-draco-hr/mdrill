@@ -1,0 +1,4 @@
+{
+  if (DRIVERS_ERRORS == null)   DRIVERS_ERRORS=new Vector();
+  initialize(props);
+}

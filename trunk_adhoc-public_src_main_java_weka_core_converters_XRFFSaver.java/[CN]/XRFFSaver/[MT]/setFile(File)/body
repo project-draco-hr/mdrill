@@ -1,0 +1,4 @@
+{
+  if (outputFile.getAbsolutePath().endsWith(XRFFLoader.FILE_EXTENSION_COMPRESSED))   setCompressOutput(true);
+  super.setFile(outputFile);
+}

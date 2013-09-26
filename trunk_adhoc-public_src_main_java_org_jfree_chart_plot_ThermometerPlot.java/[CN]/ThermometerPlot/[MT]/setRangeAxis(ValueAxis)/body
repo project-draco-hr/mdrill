@@ -1,0 +1,10 @@
+{
+  if (axis == null) {
+    throw new IllegalArgumentException("Null 'axis' argument.");
+  }
+  this.rangeAxis.removeChangeListener(this);
+  axis.setPlot(this);
+  axis.addChangeListener(this);
+  this.rangeAxis=axis;
+  fireChangeEvent();
+}

@@ -1,0 +1,3 @@
+{
+  m_pcSupport.removePropertyChangeListener(pcl);
+}

@@ -1,0 +1,12 @@
+{
+  for (int e=0; e < m_epochs; e++) {
+    for (int i=0; i < data.numInstances(); i++) {
+      if (e == 0) {
+        updateClassifier(data.instance(i),true);
+      }
+ else {
+        updateClassifier(data.instance(i),false);
+      }
+    }
+  }
+}

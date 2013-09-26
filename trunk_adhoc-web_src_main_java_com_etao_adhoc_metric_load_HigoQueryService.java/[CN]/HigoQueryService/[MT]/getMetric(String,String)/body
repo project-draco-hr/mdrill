@@ -1,0 +1,34 @@
+{
+  Metric metric=null;
+  String sql=String.format(sqlFormat,getColumnsQuery(tablename),TABLE_NAME_MAP.get(tablename),thedate,thedate);
+  System.out.println("Higo SQL:" + sql);
+  MdrillQueryResultSet rs;
+  try {
+    rs=(MdrillQueryResultSet)stmt.executeQuery(sql);
+    if (rs.next()) {
+      metric=new Metric();
+      metric.setThedate(thedate);
+      metric.setType(1);
+      metric.setTablename(tablename);
+      metric.setLineCnt((long)Float.parseFloat(rs.getString(2)));
+      metric.setImpression((long)Float.parseFloat(rs.getString(3)));
+      metric.setFinClick((long)Float.parseFloat(rs.getString(4)));
+      metric.setFinPrice(Float.parseFloat(rs.getString(5)));
+      metric.setAlipayDirectNum((long)Float.parseFloat(rs.getString(6)));
+      metric.setAlipayDirectAmt(Float.parseFloat(rs.getString(7)));
+      if (tablename.equals("b2bad")) {
+        metric.setAlipayIndirectNum(0L);
+        metric.setAlipayIndirectAmt(0.0F);
+      }
+ else {
+        metric.setAlipayIndirectNum((long)Float.parseFloat(rs.getString(8)));
+        metric.setAlipayIndirectAmt(Float.parseFloat(rs.getString(9)));
+      }
+    }
+  }
+ catch (  SQLException e) {
+    System.err.println("[" + sdf.format(new Date(System.currentTimeMillis())) + "] "+ "Error when execute Higo SQL: "+ sql);
+    e.printStackTrace();
+  }
+  return metric;
+}

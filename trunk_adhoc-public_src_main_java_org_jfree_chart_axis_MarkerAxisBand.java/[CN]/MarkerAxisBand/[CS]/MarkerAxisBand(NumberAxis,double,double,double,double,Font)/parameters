@@ -1,0 +1,6 @@
+NumberAxis axis
+double topOuterGap
+double topInnerGap
+double bottomOuterGap
+double bottomInnerGap
+Font font

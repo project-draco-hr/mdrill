@@ -1,0 +1,24 @@
+{
+  if (anItem == null) {
+    this.selectedItemIndex=-1;
+    this.selectedItemValue=null;
+  }
+ else {
+    final int newSelectedItem=findElementIndex(anItem);
+    if (newSelectedItem == -1) {
+      if (isAllowOtherValue()) {
+        this.selectedItemIndex=-1;
+        this.selectedItemValue=anItem;
+      }
+ else {
+        this.selectedItemIndex=-1;
+        this.selectedItemValue=null;
+      }
+    }
+ else {
+      this.selectedItemIndex=newSelectedItem;
+      this.selectedItemValue=getElementAt(this.selectedItemIndex);
+    }
+  }
+  fireListDataEvent(new ListDataEvent(this,ListDataEvent.CONTENTS_CHANGED,-1,-1));
+}

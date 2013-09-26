@@ -1,0 +1,5 @@
+double top
+double left
+double bottom
+double right
+Paint paint

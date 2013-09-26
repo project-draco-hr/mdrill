@@ -1,0 +1,10 @@
+{
+  int offset=m_RootElement.getElement(line).getEndOffset();
+  int endDelimiter=-1;
+  if (getMultiLineComment())   endDelimiter=indexOf(content,getMultiLineCommentEnd(),offset);
+  if (endDelimiter < 0)   return;
+  int startDelimiter=lastIndexOf(content,getMultiLineCommentStart(),endDelimiter);
+  if (startDelimiter < 0 || startDelimiter <= offset) {
+    m_Self.setCharacterAttributes(offset,endDelimiter - offset + 1,DEFAULT_COMMENT,false);
+  }
+}

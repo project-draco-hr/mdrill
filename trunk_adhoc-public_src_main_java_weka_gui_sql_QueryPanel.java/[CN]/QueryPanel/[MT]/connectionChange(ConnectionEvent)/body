@@ -1,0 +1,5 @@
+{
+  m_Connected=evt.isConnected();
+  m_DbUtils=evt.getDbUtils();
+  setButtons();
+}

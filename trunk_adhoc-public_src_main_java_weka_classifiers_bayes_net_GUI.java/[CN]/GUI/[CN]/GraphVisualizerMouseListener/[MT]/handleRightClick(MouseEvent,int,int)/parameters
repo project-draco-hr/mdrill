@@ -1,0 +1,3 @@
+MouseEvent me
+int nPosX
+int nPosY

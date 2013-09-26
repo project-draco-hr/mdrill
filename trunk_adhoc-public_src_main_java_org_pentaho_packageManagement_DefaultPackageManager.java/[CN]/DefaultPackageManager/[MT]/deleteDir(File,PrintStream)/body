@@ -1,0 +1,26 @@
+{
+  File[] contents=dir.listFiles();
+  if (contents.length != 0) {
+    for (    File f : contents) {
+      if (f.isDirectory()) {
+        deleteDir(f);
+      }
+ else {
+        for (int i=0; i < progress.length; i++) {
+          progress[i].println("[DefaultPackageManager] removing: " + f.toString());
+        }
+        if (!f.delete()) {
+          System.err.println("[DefaultPackageManager] can't delete file " + f.toString());
+          f.deleteOnExit();
+        }
+      }
+    }
+  }
+  if (!dir.delete()) {
+    System.err.println("[DefaultPackageManager] can't delete directory " + dir.toString());
+    dir.deleteOnExit();
+  }
+  for (int i=0; i < progress.length; i++) {
+    progress[i].println("[DefaultPackageManager] removing: " + dir.toString());
+  }
+}

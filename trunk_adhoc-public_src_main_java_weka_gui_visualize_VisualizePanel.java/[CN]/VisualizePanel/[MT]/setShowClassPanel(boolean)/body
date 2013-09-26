@@ -1,0 +1,10 @@
+{
+  if (!scp && m_showClassPanel) {
+    remove(m_classSurround);
+  }
+ else   if (scp && !m_showClassPanel) {
+    add(m_classSurround,BorderLayout.SOUTH);
+  }
+  m_showClassPanel=scp;
+  repaint();
+}

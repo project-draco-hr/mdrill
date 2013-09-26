@@ -1,0 +1,40 @@
+{
+  String baseSystemName=m_packageManager.getBaseSystemName();
+  String systemVersion=m_packageManager.getBaseSystemVersion().toString();
+  String dependencies=getPackageMetaDataElement("Depends").toString();
+  if (dependencies == null) {
+    return true;
+  }
+  boolean ok=true;
+  StringTokenizer tok=new StringTokenizer(dependencies,",");
+  while (tok.hasMoreTokens()) {
+    String nextT=tok.nextToken().trim();
+    String[] split=splitNameVersion(nextT);
+    if (split[0].startsWith(baseSystemName.toLowerCase())) {
+      if (split[1] != null) {
+        if (split.length == 3) {
+          VersionPackageConstraint.VersionComparison constraint=VersionPackageConstraint.getVersionComparison(split[1]);
+          if (!VersionPackageConstraint.checkConstraint(systemVersion,constraint,split[2])) {
+            ok=false;
+            break;
+          }
+        }
+ else {
+          Map<String,String> baseMap=new HashMap<String,String>();
+          baseMap.put("PackageName","weka");
+          baseMap.put("Version",systemVersion);
+          Package basePackage=new DefaultPackage(null,m_packageManager,baseMap);
+          VersionRangePackageConstraint versionRConstraint=new VersionRangePackageConstraint(basePackage);
+          VersionPackageConstraint.VersionComparison comp1=VersionPackageConstraint.getVersionComparison(split[1]);
+          VersionPackageConstraint.VersionComparison comp2=VersionPackageConstraint.getVersionComparison(split[3]);
+          versionRConstraint.setRangeConstraint(split[2],comp1,split[4],comp2);
+          if (!versionRConstraint.checkConstraint(basePackage)) {
+            ok=false;
+            break;
+          }
+        }
+      }
+    }
+  }
+  return ok;
+}

@@ -1,0 +1,3 @@
+{
+  if ((index >= 0) && (index < getRowCount()))   m_RowHidden[index]=hidden;
+}

@@ -1,0 +1,7 @@
+{
+  Paint result=getLegendTextPaint(series);
+  if (result == null) {
+    result=this.baseLegendTextPaint;
+  }
+  return result;
+}

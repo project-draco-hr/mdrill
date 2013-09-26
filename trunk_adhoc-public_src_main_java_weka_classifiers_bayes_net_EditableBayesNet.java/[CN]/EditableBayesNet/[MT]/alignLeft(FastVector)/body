@@ -1,0 +1,16 @@
+{
+  if (m_bNeedsUndoAction) {
+    addUndoAction(new alignLeftAction(nodes));
+  }
+  int nMinX=-1;
+  for (int iNode=0; iNode < nodes.size(); iNode++) {
+    int nX=getPositionX((Integer)nodes.elementAt(iNode));
+    if (nX < nMinX || iNode == 0) {
+      nMinX=nX;
+    }
+  }
+  for (int iNode=0; iNode < nodes.size(); iNode++) {
+    int nNode=(Integer)nodes.elementAt(iNode);
+    m_nPositionX.setElementAt(nMinX,nNode);
+  }
+}

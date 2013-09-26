@@ -1,0 +1,6 @@
+{
+  TimeSeriesChartDemo1 demo=new TimeSeriesChartDemo1("Time Series Chart Demo 1");
+  demo.pack();
+  RefineryUtilities.centerFrameOnScreen(demo);
+  demo.setVisible(true);
+}

@@ -1,0 +1,16 @@
+{
+  if (locale == null) {
+    throw new NullPointerException("Locale must not be null");
+  }
+  if (resourceBundle == null) {
+    throw new NullPointerException("Resources must not be null");
+  }
+  if (baseName == null) {
+    throw new NullPointerException("BaseName must not be null");
+  }
+  this.locale=locale;
+  this.resources=resourceBundle;
+  this.resourceBase=baseName;
+  this.cache=new TreeMap();
+  this.lookupPath=new TreeSet();
+}

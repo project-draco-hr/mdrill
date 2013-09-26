@@ -1,0 +1,3 @@
+{
+  addValue(key,new Double(value));
+}

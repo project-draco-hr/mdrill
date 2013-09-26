@@ -1,0 +1,5 @@
+{
+  final ArrayList l=new ArrayList();
+  l.add(Object[].class);
+  return l.iterator();
+}

@@ -1,0 +1,6 @@
+{
+  Vector result=new Vector();
+  result.addElement("measureKernelEvaluations");
+  result.addElement("measureCacheHits");
+  return result.elements();
+}

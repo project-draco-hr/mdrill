@@ -1,0 +1,3 @@
+{
+  m_visual.loadIcons(BeanVisual.ICON_PATH + "DefaultDataVisualizer.gif",BeanVisual.ICON_PATH + "DefaultDataVisualizer_animated.gif");
+}

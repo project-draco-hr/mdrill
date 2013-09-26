@@ -1,0 +1,4 @@
+String bound1
+VersionPackageConstraint.VersionComparison comp1
+String bound2
+VersionPackageConstraint.VersionComparison comp2

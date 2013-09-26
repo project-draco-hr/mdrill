@@ -1,0 +1,8 @@
+{
+  if (n < m_lines.size()) {
+    return (String)m_lines.elementAt(n);
+  }
+ else {
+    return null;
+  }
+}

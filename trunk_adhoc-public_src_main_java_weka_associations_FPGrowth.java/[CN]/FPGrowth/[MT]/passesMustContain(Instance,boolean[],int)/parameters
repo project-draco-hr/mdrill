@@ -1,0 +1,3 @@
+Instance inst
+boolean[] transactionsMustContainIndexes
+int numInTransactionsMustContainList

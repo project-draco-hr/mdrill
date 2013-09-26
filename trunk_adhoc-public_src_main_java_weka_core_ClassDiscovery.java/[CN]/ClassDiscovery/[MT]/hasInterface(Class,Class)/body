@@ -1,0 +1,23 @@
+{
+  Class[] intfs;
+  int i;
+  boolean result;
+  Class currentclass;
+  result=false;
+  currentclass=cls;
+  do {
+    intfs=currentclass.getInterfaces();
+    for (i=0; i < intfs.length; i++) {
+      if (intfs[i].equals(intf)) {
+        result=true;
+        break;
+      }
+    }
+    if (!result) {
+      currentclass=currentclass.getSuperclass();
+      if ((currentclass == null) || (currentclass.equals(Object.class)))       break;
+    }
+  }
+ while (!result);
+  return result;
+}

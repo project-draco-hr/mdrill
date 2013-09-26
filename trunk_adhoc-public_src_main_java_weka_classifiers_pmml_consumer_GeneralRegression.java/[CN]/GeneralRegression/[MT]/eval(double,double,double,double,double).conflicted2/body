@@ -1,0 +1,3 @@
+{
+  return (1.0 - Math.exp(value + offset)) * trials;
+}

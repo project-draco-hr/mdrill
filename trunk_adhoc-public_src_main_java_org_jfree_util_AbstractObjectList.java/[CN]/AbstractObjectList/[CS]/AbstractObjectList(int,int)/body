@@ -1,0 +1,4 @@
+{
+  this.objects=new Object[initialCapacity];
+  this.increment=increment;
+}

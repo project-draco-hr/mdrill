@@ -1,0 +1,5 @@
+{
+  stream.defaultReadObject();
+  this.gridBandPaint=SerialUtilities.readPaint(stream);
+  this.gridBandAlternatePaint=SerialUtilities.readPaint(stream);
+}

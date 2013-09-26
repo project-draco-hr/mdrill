@@ -1,0 +1,6 @@
+{
+  if (classIndex() < 0) {
+    throw new UnassignedClassException("Class is not set!");
+  }
+  setMissing(classIndex());
+}

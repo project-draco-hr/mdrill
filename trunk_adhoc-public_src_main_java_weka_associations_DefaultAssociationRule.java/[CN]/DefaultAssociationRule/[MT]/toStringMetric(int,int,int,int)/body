@@ -1,0 +1,3 @@
+{
+  return m_stringVal + ":(" + Utils.doubleToString(compute(premiseSupport,consequenceSupport,totalSupport,totalTransactions),2)+ ")";
+}

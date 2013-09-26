@@ -1,0 +1,15 @@
+{
+  if (reader.hasNext() == false) {
+    return false;
+  }
+  final String firstLine=reader.next();
+  if (firstLine == null) {
+    return false;
+  }
+  if (parseKey(firstLine) != null) {
+    reader.pushBack(firstLine);
+    return false;
+  }
+  reader.pushBack(firstLine);
+  return true;
+}

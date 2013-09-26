@@ -1,0 +1,19 @@
+{
+  Enumeration en=m_listenees.keys();
+  while (en.hasMoreElements()) {
+    Object tempO=m_listenees.get(en.nextElement());
+    if (tempO instanceof BeanCommon) {
+      ((BeanCommon)tempO).stop();
+    }
+  }
+  if (m_executorPool != null) {
+    m_executorPool.shutdownNow();
+    m_executorPool.purge();
+    m_executorPool=null;
+  }
+  m_reject=false;
+  block(false);
+  m_visual.setStatic();
+  if (m_oldText.length() > 0) {
+  }
+}

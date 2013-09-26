@@ -1,0 +1,5 @@
+{
+  m_WeightedSum+=value * weight;
+  m_WeightedSumSquared+=value * value * weight;
+  m_SumOfWeights+=weight;
+}

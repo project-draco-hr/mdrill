@@ -1,0 +1,4 @@
+{
+  if (value)   m_Delimiter="\t";
+ else   m_Delimiter=",";
+}

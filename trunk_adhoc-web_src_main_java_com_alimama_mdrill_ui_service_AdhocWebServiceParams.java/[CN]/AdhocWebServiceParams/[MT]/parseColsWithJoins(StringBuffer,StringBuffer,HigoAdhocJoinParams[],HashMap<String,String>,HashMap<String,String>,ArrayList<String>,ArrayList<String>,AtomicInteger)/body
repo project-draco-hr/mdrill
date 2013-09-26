@@ -48,6 +48,17 @@
     cols.append(" as " + alias);
     join=",";
   }
+  for (  String field : showFields) {
+    StateField showfield=WebServiceParams.parseStat(field);
+    if (!groupFields.contains(showfield.realField)) {
+      if (!showfield.isstat) {
+        cols.append(join);
+        cols.append("jl1.");
+        cols.append(colMap.get(showfield.realField));
+        join=",";
+      }
+    }
+  }
   for (int i=0; i < joins.length; i++) {
     HigoAdhocJoinParams jp=joins[i];
     for (    String field : jp.fl) {
@@ -62,8 +73,8 @@
   for (  String field : showFields) {
     StateField showfield=WebServiceParams.parseStat(field);
     if (!groupFields.contains(showfield.realField)) {
-      cols.append(join);
       if (showfield.isstat) {
+        cols.append(join);
         cols.append(showfield.type);
         cols.append("(");
         cols.append("jl1.");
@@ -72,12 +83,8 @@
         String alias="tmp_" + nameindex.incrementAndGet();
         cols.append(" as " + alias);
         colMapforStatFilter.put(field,alias);
+        join=",";
       }
- else {
-        cols.append("jl1.");
-        cols.append(colMap.get(showfield.realField));
-      }
-      join=",";
     }
   }
 }

@@ -16,6 +16,9 @@
   if (projectName.equals("r_rpt_tanx_adzone_total")) {
     hpart="ds";
   }
+  if (projectName.equals("r_rpt_nz_adhoc_member")) {
+    hpart="ds";
+  }
   queryStr=WebServiceParams.query(queryStr);
   TablePartion part=GetPartions.partion(projectName);
   ShardsList[] cores=GetShards.get(part.name,false);
@@ -23,7 +26,7 @@
   String[] partionsAll=AdhocHivePartions.get(queryStr,part.parttype);
   GetPartions.Shards shard=GetPartions.getshard(part,partionsAll,cores,ms);
   HashMap<String,String> filetypeMap=MdrillService.readFieldsFromSchemaXml(part.name);
-  ArrayList<String> fqList=WebServiceParams.fqListHive(hpart,queryStr,shard,isPartionByPt,filetypeMap,null,null,null);
+  ArrayList<String> fqList=WebServiceParams.fqListHive(false,hpart,queryStr,shard,isPartionByPt,filetypeMap,null,null,null);
   StringBuffer sqlWhere=AdhocWebServiceParams.makeWhere(fqList);
   ArrayList<String> groupFields=WebServiceParams.groupFields(groupby);
   ArrayList<String> showFields=WebServiceParams.showHiveFields(fl);
@@ -57,7 +60,7 @@
     buffer.append(" (select " + cols_inner.toString() + "  from "+ projectName+ " "+ sqlWhere.toString()+ " ) jl1 ");
     for (int i=0; i < joins.length; i++) {
       HigoAdhocJoinParams jp=joins[i];
-      buffer.append(" join (" + jp.frQuer + ") jr"+ i+ " on jl1."+ colMap.get(jp.leftkey)+ "==jr"+ i+ "."+ jp.rightkey+ " ");
+      buffer.append(" join (" + jp.frQuer + ") jr"+ i+ " on (jl1."+ colMap.get(jp.leftkey)+ " is not null and trim(jl1."+ colMap.get(jp.leftkey)+ ")==trim(jr"+ i+ "."+ jp.rightkey+ ")) ");
     }
     hql=buffer.toString();
     StringBuffer sqlGroup=new StringBuffer();
@@ -78,7 +81,7 @@
     }
     hql+=" " + sqlGroup.toString();
   }
-  ArrayList<String> fq2list=WebServiceParams.fqListHive(hpart,fq2,shard,isPartionByPt,filetypeMap,colMap,colMapforStatFilter,"fq2");
+  ArrayList<String> fq2list=WebServiceParams.fqListHive(true,hpart,fq2,shard,isPartionByPt,filetypeMap,colMap,colMapforStatFilter,"fq2");
   if (fq2list.size() > 0) {
     StringBuffer buffer=new StringBuffer();
     buffer.append("select * from ");

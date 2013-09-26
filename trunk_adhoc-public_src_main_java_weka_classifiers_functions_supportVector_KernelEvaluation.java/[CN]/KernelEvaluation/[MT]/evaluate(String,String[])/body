@@ -1,0 +1,10 @@
+{
+  Kernel kernel;
+  try {
+    kernel=(Kernel)Class.forName(kernelString).newInstance();
+  }
+ catch (  Exception e) {
+    throw new Exception("Can't find class with name " + kernelString + '.');
+  }
+  return evaluate(kernel,options);
+}

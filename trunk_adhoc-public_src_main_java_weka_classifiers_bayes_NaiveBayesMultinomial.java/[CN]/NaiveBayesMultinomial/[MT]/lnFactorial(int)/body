@@ -1,0 +1,10 @@
+{
+  if (n < 0)   return weka.core.SpecialFunctions.lnFactorial(n);
+  if (m_lnFactorialCache.length <= n) {
+    double[] tmp=new double[n + 1];
+    System.arraycopy(m_lnFactorialCache,0,tmp,0,m_lnFactorialCache.length);
+    for (int i=m_lnFactorialCache.length; i < tmp.length; i++)     tmp[i]=tmp[i - 1] + Math.log(i);
+    m_lnFactorialCache=tmp;
+  }
+  return m_lnFactorialCache[n];
+}

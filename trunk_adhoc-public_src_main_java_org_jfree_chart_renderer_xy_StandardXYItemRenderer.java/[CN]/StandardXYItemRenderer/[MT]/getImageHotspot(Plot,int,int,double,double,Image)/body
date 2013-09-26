@@ -1,0 +1,5 @@
+{
+  int height=image.getHeight(null);
+  int width=image.getWidth(null);
+  return new Point(width / 2,height / 2);
+}

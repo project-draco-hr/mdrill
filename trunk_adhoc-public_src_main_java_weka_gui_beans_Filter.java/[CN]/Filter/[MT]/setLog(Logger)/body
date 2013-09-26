@@ -1,0 +1,6 @@
+{
+  m_log=logger;
+  if (m_Filter != null && m_Filter instanceof LogWriter) {
+    ((LogWriter)m_Filter).setLog(m_log);
+  }
+}

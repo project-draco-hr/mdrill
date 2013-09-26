@@ -1,0 +1,4 @@
+{
+  this.rangeBase=val;
+  fireChangeEvent();
+}

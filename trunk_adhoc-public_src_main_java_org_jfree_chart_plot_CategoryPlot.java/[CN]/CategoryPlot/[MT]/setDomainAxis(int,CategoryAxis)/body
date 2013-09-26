@@ -1,0 +1,3 @@
+{
+  setDomainAxis(index,axis,true);
+}

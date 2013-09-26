@@ -1,0 +1,18 @@
+{
+  for (int j=0; j < instance.numAttributes(); j++) {
+    if (Double.isNaN(m_Min[j])) {
+      m_Min[j]=instance.value(j);
+      m_Max[j]=instance.value(j);
+    }
+ else {
+      if (instance.value(j) < m_Min[j]) {
+        m_Min[j]=instance.value(j);
+      }
+ else {
+        if (instance.value(j) > m_Max[j]) {
+          m_Max[j]=instance.value(j);
+        }
+      }
+    }
+  }
+}

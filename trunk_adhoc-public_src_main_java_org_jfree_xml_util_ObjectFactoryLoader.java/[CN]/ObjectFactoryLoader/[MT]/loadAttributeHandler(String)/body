@@ -1,0 +1,9 @@
+{
+  final Class c=loadClass(attribute);
+  try {
+    return (AttributeHandler)c.newInstance();
+  }
+ catch (  Exception e) {
+    throw new ObjectDescriptionException("Invalid attribute handler specified: " + attribute);
+  }
+}

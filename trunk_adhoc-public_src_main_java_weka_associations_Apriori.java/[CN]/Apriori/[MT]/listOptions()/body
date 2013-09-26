@@ -1,0 +1,18 @@
+{
+  String string1="\tThe required number of rules. (default = " + m_numRules + ")", string2="\tThe minimum confidence of a rule. (default = " + m_minMetric + ")", string3="\tThe delta by which the minimum support is decreased in\n", string4="\teach iteration. (default = " + m_delta + ")", string5="\tThe lower bound for the minimum support. (default = " + m_lowerBoundMinSupport + ")", string6="\tIf used, rules are tested for significance at\n", string7="\tthe given level. Slower. (default = no significance testing)", string8="\tIf set the itemsets found are also output. (default = no)", string9="\tIf set class association rules are mined. (default = no)", string10="\tThe class index. (default = last)", stringType="\tThe metric type by which to rank rules. (default = " + "confidence)", stringZeroAsMissing="\tTreat zero (i.e. first value of nominal attributes) as " + "missing";
+  FastVector newVector=new FastVector(11);
+  newVector.addElement(new Option(string1,"N",1,"-N <required number of rules output>"));
+  newVector.addElement(new Option(stringType,"T",1,"-T <0=confidence | 1=lift | " + "2=leverage | 3=Conviction>"));
+  newVector.addElement(new Option(string2,"C",1,"-C <minimum metric score of a rule>"));
+  newVector.addElement(new Option(string3 + string4,"D",1,"-D <delta for minimum support>"));
+  newVector.addElement(new Option("\tUpper bound for minimum support. " + "(default = 1.0)","U",1,"-U <upper bound for minimum support>"));
+  newVector.addElement(new Option(string5,"M",1,"-M <lower bound for minimum support>"));
+  newVector.addElement(new Option(string6 + string7,"S",1,"-S <significance level>"));
+  newVector.addElement(new Option(string8,"I",0,"-I"));
+  newVector.addElement(new Option("\tRemove columns that contain " + "all missing values (default = no)","R",0,"-R"));
+  newVector.addElement(new Option("\tReport progress iteratively. (default " + "= no)","V",0,"-V"));
+  newVector.addElement(new Option(string9,"A",0,"-A"));
+  newVector.addElement(new Option(stringZeroAsMissing,"Z",0,"-Z"));
+  newVector.addElement(new Option(string10,"c",1,"-c <the class index>"));
+  return newVector.elements();
+}

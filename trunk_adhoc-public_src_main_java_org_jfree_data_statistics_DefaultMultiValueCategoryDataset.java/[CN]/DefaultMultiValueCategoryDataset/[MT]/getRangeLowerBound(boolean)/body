@@ -1,0 +1,7 @@
+{
+  double result=Double.NaN;
+  if (this.minimumRangeValue != null) {
+    result=this.minimumRangeValue.doubleValue();
+  }
+  return result;
+}

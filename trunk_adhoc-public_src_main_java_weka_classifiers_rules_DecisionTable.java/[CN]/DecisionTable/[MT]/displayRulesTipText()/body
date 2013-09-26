@@ -1,0 +1,3 @@
+{
+  return "Sets whether rules are to be printed.";
+}

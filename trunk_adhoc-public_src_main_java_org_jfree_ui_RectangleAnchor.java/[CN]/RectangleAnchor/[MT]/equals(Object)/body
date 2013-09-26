@@ -1,0 +1,13 @@
+{
+  if (this == obj) {
+    return true;
+  }
+  if (!(obj instanceof RectangleAnchor)) {
+    return false;
+  }
+  final RectangleAnchor order=(RectangleAnchor)obj;
+  if (!this.name.equals(order.name)) {
+    return false;
+  }
+  return true;
+}

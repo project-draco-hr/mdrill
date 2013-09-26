@@ -1,0 +1,39 @@
+{
+  String coeff=predictorTerm.getAttribute("coefficient");
+  if (coeff != null && coeff.length() > 0) {
+    try {
+      m_coefficient=Double.parseDouble(coeff);
+    }
+ catch (    IllegalArgumentException ex) {
+      throw new Exception("[PredictorTerm] unable to parse coefficient");
+    }
+  }
+  NodeList fields=predictorTerm.getElementsByTagName("FieldRef");
+  if (fields.getLength() > 0) {
+    m_indexes=new int[fields.getLength()];
+    m_fieldNames=new String[fields.getLength()];
+    for (int i=0; i < fields.getLength(); i++) {
+      Node fieldRef=fields.item(i);
+      if (fieldRef.getNodeType() == Node.ELEMENT_NODE) {
+        String fieldName=((Element)fieldRef).getAttribute("field");
+        if (fieldName != null && fieldName.length() > 0) {
+          boolean found=false;
+          for (int j=0; j < miningSchema.numAttributes(); j++) {
+            if (miningSchema.attribute(j).name().equals(fieldName)) {
+              if (!miningSchema.attribute(j).isNumeric()) {
+                throw new Exception("[PredictorTerm] field is not continuous: " + fieldName);
+              }
+              found=true;
+              m_indexes[i]=j;
+              m_fieldNames[i]=fieldName;
+              break;
+            }
+          }
+          if (!found) {
+            throw new Exception("[PredictorTerm] Unable to find field " + fieldName + " in mining schema!");
+          }
+        }
+      }
+    }
+  }
+}

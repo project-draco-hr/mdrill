@@ -1,0 +1,3 @@
+{
+  return m_nCurrentEditAction < m_undoStack.size() - 1;
+}

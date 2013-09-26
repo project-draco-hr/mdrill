@@ -1,0 +1,16 @@
+{
+  String[] options=new String[6];
+  int current=0;
+  if (!(getStartSet().equals(""))) {
+    options[current++]="-P";
+    options[current++]="" + startSetToString();
+  }
+  options[current++]="-D";
+  options[current++]="" + m_searchDirection;
+  options[current++]="-N";
+  options[current++]="" + m_maxStale;
+  while (current < options.length) {
+    options[current++]="";
+  }
+  return options;
+}

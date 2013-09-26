@@ -1,0 +1,13 @@
+{
+  File[] files;
+  files=dir.listFiles(new ClassFileFilter());
+  for (  File file : files) {
+    if (prefix == null)     add(file.getName());
+ else     add(prefix + "." + file.getName());
+  }
+  files=dir.listFiles(new DirectoryFilter());
+  for (  File file : files) {
+    if (prefix == null)     initFromDir(file.getName(),file);
+ else     initFromDir(prefix + "." + file.getName(),file);
+  }
+}

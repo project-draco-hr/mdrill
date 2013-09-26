@@ -1,0 +1,56 @@
+{
+  if (insts.numInstances() < (numPrime + numSteps)) {
+    throw new Exception("We need at least " + (numPrime + numSteps) + " instances in order to calculate confidence limits!");
+  }
+  if (confidenceLevel < 0 || confidenceLevel > 1) {
+    throw new Exception("Confidence level must lie between 0 and 1");
+  }
+  m_targetFields=AbstractForecaster.stringToList(forecaster.getFieldsToForecast());
+  m_confidenceLevel=confidenceLevel;
+  List<ErrorModule> confidenceCalculators=new ArrayList<ErrorModule>();
+  for (int i=0; i < numSteps; i++) {
+    ErrorModule m=new ErrorModule();
+    m.setTargetFields(m_targetFields);
+    confidenceCalculators.add(m);
+  }
+  Instances primeInsts=new Instances(insts,0,numPrime);
+  primeInsts.compactify();
+  if (forecaster instanceof TSLagUser && artificialTimeStartValue >= 0) {
+    ((TSLagUser)forecaster).getTSLagMaker().setArtificialTimeStartValue(artificialTimeStartValue - 1 + numPrime);
+  }
+  for (int i=numPrime; i < insts.numInstances(); i++) {
+    forecaster.primeForecaster(primeInsts);
+    if (i % 10 == 0) {
+      for (      PrintStream p : progress) {
+        p.println("Computing confidence intervals: processed " + i + " instances...");
+      }
+    }
+    List<List<NumericPrediction>> forecastForSteps=null;
+    if (forecaster instanceof OverlayForecaster && ((OverlayForecaster)forecaster).isUsingOverlayData()) {
+      Instances overlay=createOverlayForecastData(forecaster,insts,i,numSteps);
+      forecastForSteps=((OverlayForecaster)forecaster).forecast(numSteps,overlay);
+    }
+ else {
+      forecastForSteps=forecaster.forecast(numSteps);
+    }
+    for (int j=0; j < numSteps && (i + j < insts.numInstances()); j++) {
+      Instance toPredict=insts.instance(i + j);
+      List<NumericPrediction> predsForTargets=forecastForSteps.get(j);
+      confidenceCalculators.get(j).evaluateForInstance(predsForTargets,toPredict);
+    }
+    primeInsts.delete(0);
+    primeInsts.add(insts.instance(i));
+    primeInsts.compactify();
+  }
+  m_confidenceLimitsForTargets=new ArrayList<List<double[]>>();
+  for (int j=0; j < m_targetFields.size(); j++) {
+    ArrayList<double[]> limitsForSingleTarget=new ArrayList<double[]>();
+    for (int i=0; i < numSteps; i++) {
+      List<List<NumericPrediction>> predsForStepI=confidenceCalculators.get(i).getPredictionsForAllTargets();
+      List<double[]> confOffsetsForStepI=getConfidenceOffsets(confidenceLevel,predsForStepI);
+      double[] limitsAtStepI=confOffsetsForStepI.get(j);
+      limitsForSingleTarget.add(limitsAtStepI);
+    }
+    m_confidenceLimitsForTargets.add(limitsForSingleTarget);
+  }
+}

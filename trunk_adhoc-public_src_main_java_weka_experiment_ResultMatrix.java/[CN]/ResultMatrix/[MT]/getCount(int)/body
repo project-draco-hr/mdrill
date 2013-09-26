@@ -1,0 +1,4 @@
+{
+  if ((index >= 0) && (index < getRowCount()))   return m_Counts[index];
+ else   return 0;
+}

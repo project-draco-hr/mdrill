@@ -1,0 +1,21 @@
+{
+  double distPrior, instPrior, distAfter=0, sum, instAfter=0;
+  double before, after;
+  int numClassesTotal;
+  numClassesTotal=0;
+  for (int i=0; i < priorCounts.length; i++) {
+    if (priorCounts[i] > 0) {
+      numClassesTotal++;
+    }
+  }
+  distPrior=SpecialFunctions.log2Binomial(numInstances + numClassesTotal - 1,numClassesTotal - 1);
+  instPrior=SpecialFunctions.log2Multinomial(numInstances,priorCounts);
+  before=instPrior + distPrior;
+  for (int i=0; i < bestCounts.length; i++) {
+    sum=Utils.sum(bestCounts[i]);
+    distAfter+=SpecialFunctions.log2Binomial(sum + numClassesTotal - 1,numClassesTotal - 1);
+    instAfter+=SpecialFunctions.log2Multinomial(sum,bestCounts[i]);
+  }
+  after=Utils.log2(numCutPoints) + distAfter + instAfter;
+  return (before > after);
+}

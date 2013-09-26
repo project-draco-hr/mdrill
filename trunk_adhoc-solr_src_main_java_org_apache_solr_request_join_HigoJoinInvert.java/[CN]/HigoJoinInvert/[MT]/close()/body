@@ -1,5 +1,5 @@
 {
-  MdrillPorcessUtils.cleanFieldValueCache(this.fieldCount());
+  GroupListCache.cleanFieldValueCache(this.fieldCount());
   if (this.ufsRight != null) {
     this.ufsRight.free();
     this.ufsRight=null;

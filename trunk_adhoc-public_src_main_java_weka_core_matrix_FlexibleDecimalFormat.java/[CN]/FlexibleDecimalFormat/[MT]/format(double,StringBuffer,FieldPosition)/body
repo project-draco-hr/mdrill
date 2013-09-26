@@ -1,0 +1,9 @@
+{
+  if (grouping) {
+    if (nf == null) {
+      setFormat();
+    }
+  }
+ else   setFormat(number);
+  return toAppendTo.append(nf.format(number));
+}

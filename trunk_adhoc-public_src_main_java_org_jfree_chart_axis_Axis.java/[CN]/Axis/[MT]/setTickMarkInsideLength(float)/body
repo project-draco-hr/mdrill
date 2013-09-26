@@ -1,0 +1,4 @@
+{
+  this.tickMarkInsideLength=length;
+  fireChangeEvent();
+}

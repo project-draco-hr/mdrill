@@ -1,0 +1,11 @@
+{
+  if (m_attribute == null) {
+    return m_intercept;
+  }
+ else {
+    if (inst.isMissing(m_attribute.index())) {
+      throw new Exception("SimpleLinearRegression: No missing values!");
+    }
+    return m_intercept + m_slope * inst.value(m_attribute.index());
+  }
+}

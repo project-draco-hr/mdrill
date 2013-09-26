@@ -1,0 +1,10 @@
+{
+  if (m_MainSingleton == null)   m_MainSingleton=new Main();
+  try {
+    m_MainSingleton.setOptions(args);
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
+  for (int i=0; i < m_StartupListeners.size(); i++)   ((StartUpListener)m_StartupListeners.elementAt(i)).startUpComplete();
+}

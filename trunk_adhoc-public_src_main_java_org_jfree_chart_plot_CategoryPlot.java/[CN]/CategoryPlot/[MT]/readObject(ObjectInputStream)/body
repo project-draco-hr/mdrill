@@ -1,0 +1,43 @@
+{
+  stream.defaultReadObject();
+  this.domainGridlineStroke=SerialUtilities.readStroke(stream);
+  this.domainGridlinePaint=SerialUtilities.readPaint(stream);
+  this.rangeGridlineStroke=SerialUtilities.readStroke(stream);
+  this.rangeGridlinePaint=SerialUtilities.readPaint(stream);
+  this.rangeCrosshairStroke=SerialUtilities.readStroke(stream);
+  this.rangeCrosshairPaint=SerialUtilities.readPaint(stream);
+  this.domainCrosshairStroke=SerialUtilities.readStroke(stream);
+  this.domainCrosshairPaint=SerialUtilities.readPaint(stream);
+  this.rangeMinorGridlineStroke=SerialUtilities.readStroke(stream);
+  this.rangeMinorGridlinePaint=SerialUtilities.readPaint(stream);
+  this.rangeZeroBaselineStroke=SerialUtilities.readStroke(stream);
+  this.rangeZeroBaselinePaint=SerialUtilities.readPaint(stream);
+  for (int i=0; i < this.domainAxes.size(); i++) {
+    CategoryAxis xAxis=(CategoryAxis)this.domainAxes.get(i);
+    if (xAxis != null) {
+      xAxis.setPlot(this);
+      xAxis.addChangeListener(this);
+    }
+  }
+  for (int i=0; i < this.rangeAxes.size(); i++) {
+    ValueAxis yAxis=(ValueAxis)this.rangeAxes.get(i);
+    if (yAxis != null) {
+      yAxis.setPlot(this);
+      yAxis.addChangeListener(this);
+    }
+  }
+  int datasetCount=this.datasets.size();
+  for (int i=0; i < datasetCount; i++) {
+    Dataset dataset=(Dataset)this.datasets.get(i);
+    if (dataset != null) {
+      dataset.addChangeListener(this);
+    }
+  }
+  int rendererCount=this.renderers.size();
+  for (int i=0; i < rendererCount; i++) {
+    CategoryItemRenderer renderer=(CategoryItemRenderer)this.renderers.get(i);
+    if (renderer != null) {
+      renderer.addChangeListener(this);
+    }
+  }
+}

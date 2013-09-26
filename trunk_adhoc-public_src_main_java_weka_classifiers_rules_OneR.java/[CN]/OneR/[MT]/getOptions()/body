@@ -1,0 +1,10 @@
+{
+  String[] options=new String[2];
+  int current=0;
+  options[current++]="-B";
+  options[current++]="" + m_minBucketSize;
+  while (current < options.length) {
+    options[current++]="";
+  }
+  return options;
+}

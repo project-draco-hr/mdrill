@@ -1,0 +1,2 @@
+Package target
+Map<String,List<Dependency>> conflicts

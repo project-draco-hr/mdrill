@@ -1,0 +1,4 @@
+{
+  int nTargetNode=getNode(sName);
+  deleteNode(nTargetNode);
+}

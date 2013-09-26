@@ -1,0 +1,16 @@
+{
+  String[] superOptions=super.getOptions();
+  String[] options=new String[7 + superOptions.length];
+  int current=0;
+  options[current++]="-L";
+  options[current++]="" + getTabuList();
+  options[current++]="-U";
+  options[current++]="" + getRuns();
+  for (int iOption=0; iOption < superOptions.length; iOption++) {
+    options[current++]=superOptions[iOption];
+  }
+  while (current < options.length) {
+    options[current++]="";
+  }
+  return options;
+}

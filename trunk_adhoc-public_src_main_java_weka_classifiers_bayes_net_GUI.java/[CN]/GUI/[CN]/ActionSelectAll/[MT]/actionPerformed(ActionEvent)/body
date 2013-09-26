@@ -1,0 +1,4 @@
+{
+  m_Selection.selectAll();
+  repaint();
+}

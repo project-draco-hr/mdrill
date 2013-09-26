@@ -1,0 +1,17 @@
+{
+  if (this.stroke != null) {
+    return this.stroke;
+  }
+  Stroke result=getSeriesStroke(series);
+  if (result == null && this.autoPopulateSeriesStroke) {
+    DrawingSupplier supplier=getDrawingSupplier();
+    if (supplier != null) {
+      result=supplier.getNextStroke();
+      setSeriesStroke(series,result,false);
+    }
+  }
+  if (result == null) {
+    result=this.baseStroke;
+  }
+  return result;
+}

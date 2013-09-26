@@ -1,0 +1,3 @@
+{
+  this.rangeAxis.resizeRange(factor);
+}

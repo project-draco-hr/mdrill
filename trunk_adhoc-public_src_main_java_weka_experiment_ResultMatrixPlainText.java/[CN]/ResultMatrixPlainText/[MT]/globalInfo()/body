@@ -1,0 +1,3 @@
+{
+  return "Generates the output as plain text (for fixed width fonts).";
+}

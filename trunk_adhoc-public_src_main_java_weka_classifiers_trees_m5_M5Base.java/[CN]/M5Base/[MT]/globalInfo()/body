@@ -1,0 +1,3 @@
+{
+  return "M5Base. Implements base routines for generating M5 Model trees and " + "rules\n" + "The original algorithm M5 was invented by R. Quinlan and Yong Wang "+ "made improvements.\n\n"+ "For more information see:\n\n"+ getTechnicalInformation().toString();
+}

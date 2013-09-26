@@ -1,0 +1,34 @@
+{
+  if (comp1 == VersionPackageConstraint.VersionComparison.EQUAL || comp2 == VersionPackageConstraint.VersionComparison.EQUAL) {
+    throw new Exception("[VersionRangePackageConstraint] malformed version " + "range constraint (= not allowed)!");
+  }
+  if (comp1.compatibleWith(comp2)) {
+    throw new Exception("[VersionRangePackageConstraint] malformed " + "version range constraint!");
+  }
+  VersionPackageConstraint.VersionComparison boundsComp=VersionPackageConstraint.compare(bound1,bound2);
+  if (boundsComp == VersionPackageConstraint.VersionComparison.EQUAL) {
+    throw new Exception("[VersionRangePackageConstraint] malformed version" + " range - both bounds are equal!");
+  }
+  if (comp1 == VersionPackageConstraint.VersionComparison.GREATERTHAN || comp1 == VersionPackageConstraint.VersionComparison.GREATERTHANOREQUAL) {
+    if (boundsComp == VersionPackageConstraint.VersionComparison.GREATERTHAN) {
+      m_boundOr=true;
+    }
+  }
+ else {
+    if (boundsComp == VersionPackageConstraint.VersionComparison.LESSTHAN) {
+      m_boundOr=true;
+    }
+  }
+  if (boundsComp == VersionPackageConstraint.VersionComparison.LESSTHAN) {
+    m_lowerBound=bound1;
+    m_lowerConstraint=comp1;
+    m_upperBound=bound2;
+    m_upperConstraint=comp2;
+  }
+ else {
+    m_lowerBound=bound2;
+    m_lowerConstraint=comp2;
+    m_upperBound=bound1;
+    m_upperConstraint=comp1;
+  }
+}

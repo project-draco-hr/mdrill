@@ -1,0 +1,6 @@
+{
+  if (flag != this.minorTickMarksVisible) {
+    this.minorTickMarksVisible=flag;
+    fireChangeEvent();
+  }
+}

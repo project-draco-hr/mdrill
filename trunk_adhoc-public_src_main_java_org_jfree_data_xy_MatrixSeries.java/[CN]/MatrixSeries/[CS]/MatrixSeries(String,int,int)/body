@@ -1,0 +1,5 @@
+{
+  super(name);
+  this.data=new double[rows][columns];
+  zeroAll();
+}

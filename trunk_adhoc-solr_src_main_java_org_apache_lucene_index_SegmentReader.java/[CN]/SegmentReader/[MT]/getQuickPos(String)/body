@@ -1,0 +1,24 @@
+{
+  ensureOpen();
+  StringBuffer buff=new StringBuffer();
+  buff.append("##getpos##" + field);
+  try {
+    Integer fileNum=this.fieldInfos().fieldNumber(field);
+    buff.append("#fileNum#" + String.valueOf(fileNum));
+    if (fileNum != null && fileNum >= 0 && core != null && core.getTermsReader() != null) {
+      ConcurrentHashMap<Integer,Long> filepos=core.getTermsReader().fieldPos;
+      if (filepos != null) {
+        Long rtn=filepos.get(fileNum);
+        buff.append("#pos#" + String.valueOf(rtn));
+        log.info(buff.toString());
+        return rtn;
+      }
+    }
+    buff.append("#pos#null");
+    log.info(buff.toString());
+  }
+ catch (  Throwable e) {
+    log.error(buff.toString(),e);
+  }
+  return null;
+}

@@ -1,0 +1,21 @@
+{
+  final Composite c1=AlphaComposite.getInstance(2,0.345f);
+  Composite c2=null;
+  try {
+    final ByteArrayOutputStream buffer=new ByteArrayOutputStream();
+    final ObjectOutputStream out=new ObjectOutputStream(buffer);
+    SerialUtilities.writeComposite(c1,out);
+    out.close();
+    final ByteArrayInputStream bias=new ByteArrayInputStream(buffer.toByteArray());
+    final ObjectInputStream in=new ObjectInputStream(bias);
+    c2=SerialUtilities.readComposite(in);
+    in.close();
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
+  final AlphaComposite ac1=(AlphaComposite)c1;
+  final AlphaComposite ac2=(AlphaComposite)c2;
+  assertEquals(ac1.getRule(),ac2.getRule());
+  assertEquals(ac1.getAlpha(),ac2.getAlpha(),0.001f);
+}

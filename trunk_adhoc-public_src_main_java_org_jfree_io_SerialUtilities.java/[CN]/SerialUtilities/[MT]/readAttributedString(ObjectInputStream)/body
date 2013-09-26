@@ -1,0 +1,21 @@
+{
+  if (stream == null) {
+    throw new IllegalArgumentException("Null 'stream' argument.");
+  }
+  AttributedString result=null;
+  final boolean isNull=stream.readBoolean();
+  if (!isNull) {
+    String plainStr=(String)stream.readObject();
+    result=new AttributedString(plainStr);
+    char c=stream.readChar();
+    int start=0;
+    while (c != CharacterIterator.DONE) {
+      int limit=stream.readInt();
+      Map atts=(Map)stream.readObject();
+      result.addAttributes(atts,start,limit);
+      start=limit;
+      c=stream.readChar();
+    }
+  }
+  return result;
+}

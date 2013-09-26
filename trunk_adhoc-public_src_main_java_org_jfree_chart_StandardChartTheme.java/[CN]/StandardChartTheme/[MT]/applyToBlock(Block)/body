@@ -1,0 +1,10 @@
+{
+  if (b instanceof Title) {
+    applyToTitle((Title)b);
+  }
+ else   if (b instanceof LabelBlock) {
+    LabelBlock lb=(LabelBlock)b;
+    lb.setFont(this.regularFont);
+    lb.setPaint(this.legendItemPaint);
+  }
+}

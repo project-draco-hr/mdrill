@@ -1,0 +1,10 @@
+{
+  Font result=this.itemLabelFont;
+  if (result == null) {
+    result=getSeriesItemLabelFont(row);
+    if (result == null) {
+      result=this.baseItemLabelFont;
+    }
+  }
+  return result;
+}

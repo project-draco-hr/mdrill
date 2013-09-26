@@ -1,0 +1,12 @@
+{
+  Boolean flag=this.linesVisible;
+  if (flag == null) {
+    flag=getSeriesLinesVisible(series);
+  }
+  if (flag != null) {
+    return flag.booleanValue();
+  }
+ else {
+    return this.baseLinesVisible;
+  }
+}

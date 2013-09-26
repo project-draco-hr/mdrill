@@ -1,0 +1,3 @@
+{
+  this(DataUtilities.createNumberArray2D(starts),DataUtilities.createNumberArray2D(ends));
+}

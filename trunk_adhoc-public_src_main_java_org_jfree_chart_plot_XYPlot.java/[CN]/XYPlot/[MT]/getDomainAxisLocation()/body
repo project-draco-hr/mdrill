@@ -1,0 +1,3 @@
+{
+  return (AxisLocation)this.domainAxisLocations.get(0);
+}

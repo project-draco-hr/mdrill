@@ -1,0 +1,13 @@
+{
+  if (LogConfiguration.isDisableLogging()) {
+    return;
+  }
+  if (LogConfiguration.getLogTarget().equals(PrintStreamLogTarget.class.getName())) {
+    DefaultLog.installDefaultLog();
+    Log.getInstance().addTarget(new PrintStreamLogTarget());
+    if ("true".equals(subSystem.getGlobalConfig().getConfigProperty("org.jfree.base.LogAutoInit"))) {
+      Log.getInstance().init();
+    }
+    Log.info("Default log target started ... previous log messages " + "could have been ignored.");
+  }
+}

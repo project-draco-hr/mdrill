@@ -1,0 +1,15 @@
+{
+  int numClusters;
+  FastVector hv;
+  Attribute predictedCluster;
+  FastVector clustVals;
+  int i;
+  numClusters=m_Evaluation.getNumClusters();
+  hv=new FastVector();
+  clustVals=new FastVector();
+  for (i=0; i < numClusters; i++)   clustVals.addElement("cluster" + i);
+  predictedCluster=new Attribute("Cluster",clustVals);
+  for (i=0; i < m_Instances.numAttributes(); i++)   hv.addElement(m_Instances.attribute(i).copy());
+  hv.addElement(predictedCluster);
+  m_PlotInstances=new Instances(m_Instances.relationName() + "_clustered",hv,m_Instances.numInstances());
+}

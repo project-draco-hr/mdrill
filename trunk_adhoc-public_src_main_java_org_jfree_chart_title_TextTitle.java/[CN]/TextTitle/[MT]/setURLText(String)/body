@@ -1,0 +1,4 @@
+{
+  this.urlText=text;
+  notifyListeners(new TitleChangeEvent(this));
+}

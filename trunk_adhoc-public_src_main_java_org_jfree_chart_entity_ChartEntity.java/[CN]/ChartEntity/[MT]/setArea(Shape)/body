@@ -1,0 +1,6 @@
+{
+  if (area == null) {
+    throw new IllegalArgumentException("Null 'area' argument.");
+  }
+  this.area=area;
+}

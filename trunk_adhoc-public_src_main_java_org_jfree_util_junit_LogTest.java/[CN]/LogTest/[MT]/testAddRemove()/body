@@ -1,0 +1,15 @@
+{
+  final LogTarget a=new LogTargetImpl();
+  final LogTarget b=new LogTargetImpl();
+  Log.getInstance().removeTarget(a);
+  Log.getInstance().removeTarget(b);
+  Log.getInstance().addTarget(a);
+  Log.getInstance().addTarget(b);
+  Log.getInstance().removeTarget(a);
+  Log.getInstance().removeTarget(b);
+  Log.getInstance().addTarget(a);
+  Log.getInstance().addTarget(b);
+  Log.getInstance().removeTarget(b);
+  Log.getInstance().removeTarget(a);
+  Log.getInstance().getTargets();
+}

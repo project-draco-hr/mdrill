@@ -1,0 +1,24 @@
+{
+  try {
+    final Object o=getObjectClass().newInstance();
+    final Iterator it=getParameterNames();
+    while (it.hasNext()) {
+      final String name=(String)it.next();
+      if (isParameterIgnored(name)) {
+        continue;
+      }
+      final Method method=findSetMethod(name);
+      final Object parameterValue=getParameter(name);
+      if (parameterValue == null) {
+      }
+ else {
+        method.invoke(o,new Object[]{parameterValue});
+      }
+    }
+    return o;
+  }
+ catch (  Exception e) {
+    Log.error("Unable to invoke bean method",e);
+  }
+  return null;
+}

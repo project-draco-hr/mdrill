@@ -1,0 +1,4 @@
+{
+  System.out.println("Usage: weka.core.WekaPackageManager [option]");
+  System.out.println("Options:\n" + "\t-list-packages <all | installed | available>\n" + "\t-package-info <repository | installed | archive> "+ "<packageName | packageZip>\n\t-install-package <packageName | packageZip | URL> [version]\n"+ "\t-uninstall-package packageName\n"+ "\t-refresh-cache");
+}

@@ -1,0 +1,28 @@
+{
+  boolean enable=(m_trainingCheckBox.isSelected() || m_holdoutCheckBox.isSelected() || m_separateTestSetCheckBox.isSelected());
+  m_outputPredsCheckBox.setEnabled(enable);
+  m_graphPredsAtStepCheckBox.setEnabled(enable);
+  m_graphTargetForStepsCheckBox.setEnabled(enable);
+  if (!enable) {
+    m_outputPredsCheckBox.setSelected(false);
+    m_graphPredsAtStepCheckBox.setSelected(false);
+    m_graphTargetForStepsCheckBox.setSelected(false);
+  }
+  boolean enabled=m_graphTargetForStepsCheckBox.isSelected();
+  m_stepLab.setEnabled(enabled);
+  m_stepRange.setEnabled(enabled);
+  m_targetComboLabel.setEnabled(enabled);
+  m_graphTargetAtStepsCombo.setEnabled(enabled);
+  m_graphPredsAtStepSpinner.setEnabled(enabled);
+  enabled=m_outputPredsCheckBox.isSelected();
+  m_outputStepLabel.setEnabled(enabled);
+  m_outputPredsCombo.setEnabled(enabled);
+  m_outputPredsComboLabel.setEnabled(enable);
+  m_outputStepSpinner.setEnabled(enabled);
+  m_testSetBut.setEnabled(!m_holdoutCheckBox.isSelected());
+  m_separateTestSetCheckBox.setEnabled(!m_holdoutCheckBox.isSelected());
+  m_holdoutSize.setEnabled(m_holdoutCheckBox.isSelected());
+  if (m_holdoutCheckBox.isSelected()) {
+    m_separateTestSetCheckBox.setSelected(false);
+  }
+}

@@ -1,0 +1,11 @@
+{
+  boolean isCover=true;
+  if (!inst.isMissing(att)) {
+    if ((int)value == 0) {
+      if (inst.value(att) > splitPoint)       isCover=false;
+    }
+ else     if (inst.value(att) < splitPoint)     isCover=false;
+  }
+ else   isCover=false;
+  return isCover;
+}

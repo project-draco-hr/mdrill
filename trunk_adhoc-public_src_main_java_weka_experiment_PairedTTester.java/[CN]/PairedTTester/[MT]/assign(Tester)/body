@@ -1,0 +1,12 @@
+{
+  setInstances(tester.getInstances());
+  setResultMatrix(tester.getResultMatrix());
+  setShowStdDevs(tester.getShowStdDevs());
+  setResultsetKeyColumns(tester.getResultsetKeyColumns());
+  setDisplayedResultsets(tester.getDisplayedResultsets());
+  setSignificanceLevel(tester.getSignificanceLevel());
+  setDatasetKeyColumns(tester.getDatasetKeyColumns());
+  setRunColumn(tester.getRunColumn());
+  setFoldColumn(tester.getFoldColumn());
+  setSortColumn(tester.getSortColumn());
+}

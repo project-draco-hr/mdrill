@@ -1,0 +1,12 @@
+{
+  if (handler == null) {
+    throw new NullPointerException("handler must not be null.");
+  }
+  if (classToWrite == null) {
+    throw new NullPointerException("classToWrite must not be null.");
+  }
+  if (!XmlWriteHandler.class.isAssignableFrom(handler)) {
+    throw new IllegalArgumentException("The given handler is no XmlWriteHandler.");
+  }
+  this.classToHandlerMapping.addManualMapping(new ManualMappingDefinition(classToWrite,null,handler.getName()));
+}

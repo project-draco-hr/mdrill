@@ -1,0 +1,7 @@
+{
+  if (category == null) {
+    throw new IllegalArgumentException("Null 'category' argument.");
+  }
+  this.categoryLabelToolTips.remove(category);
+  notifyListeners(new AxisChangeEvent(this));
+}

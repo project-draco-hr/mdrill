@@ -7,11 +7,18 @@
   if (ft.equals("tdate") || ft.equals("date")) {
     isdate=true;
   }
+  boolean isnull=false;
+  if (value2.toLowerCase().trim().equals("null")) {
+    isnull=true;
+  }
 switch (operate) {
 case 1:
 {
       if (isdate) {
         return key + ":" + TdateFormat.transformSolrMetacharactor(TdateFormat.ensureTdateForSearch(value2));
+      }
+      if (isnull) {
+        return "-" + key + ":['' TO *]";
       }
       return key + ":" + TdateFormat.transformSolrMetacharactor(value2);
     }
@@ -33,6 +40,9 @@ case 2:
 {
 if (isdate) {
   return "-" + key + ":"+ TdateFormat.transformSolrMetacharactor(TdateFormat.ensureTdateForSearch(value2));
+}
+if (isnull) {
+  return key + ":['' TO *]";
 }
 return "-" + key + ":"+ TdateFormat.transformSolrMetacharactor(value2);
 }

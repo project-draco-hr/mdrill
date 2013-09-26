@@ -1,0 +1,47 @@
+{
+  final Module module=smodule.getState().getModule();
+  int position=0;
+  ModuleInfo[] modInfo=module.getOptionalModules();
+  for (int modPos=0; modPos < modInfo.length; modPos++) {
+    final String moduleName=modInfo[modPos].getModuleClass();
+    final SortModule reqMod=(SortModule)moduleMap.get(moduleName);
+    if (reqMod == null) {
+      continue;
+    }
+    if (reqMod.getPosition() >= position) {
+      position=reqMod.getPosition() + 1;
+    }
+  }
+  modInfo=module.getRequiredModules();
+  for (int modPos=0; modPos < modInfo.length; modPos++) {
+    final String moduleName=modInfo[modPos].getModuleClass();
+    final SortModule reqMod=(SortModule)moduleMap.get(moduleName);
+    if (reqMod == null) {
+      Log.warn("Invalid state: Required dependency of '" + moduleName + "' had an error.");
+      continue;
+    }
+    if (reqMod.getPosition() >= position) {
+      position=reqMod.getPosition() + 1;
+    }
+  }
+  final String subSystem=module.getSubSystem();
+  final Iterator it=moduleMap.values().iterator();
+  while (it.hasNext()) {
+    final SortModule mod=(SortModule)it.next();
+    if (mod.getState().getModule() == module) {
+      continue;
+    }
+    final Module subSysMod=mod.getState().getModule();
+    if (subSystem.equals(subSysMod.getSubSystem())) {
+      continue;
+    }
+    if (smodule.getDependSubsystems().contains(subSysMod.getSubSystem())) {
+      if (isBaseModule(subSysMod,module) == false) {
+        if (mod.getPosition() >= position) {
+          position=mod.getPosition() + 1;
+        }
+      }
+    }
+  }
+  return position;
+}

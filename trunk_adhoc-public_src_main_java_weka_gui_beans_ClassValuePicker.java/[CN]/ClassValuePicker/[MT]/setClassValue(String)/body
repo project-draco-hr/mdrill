@@ -1,0 +1,6 @@
+{
+  m_classValue=value;
+  if (m_connectedFormat != null) {
+    notifyDataFormatListeners();
+  }
+}

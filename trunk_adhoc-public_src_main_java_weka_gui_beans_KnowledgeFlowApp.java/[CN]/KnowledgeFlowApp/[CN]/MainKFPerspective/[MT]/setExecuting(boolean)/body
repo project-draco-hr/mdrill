@@ -1,0 +1,5 @@
+{
+  if (getNumTabs() > 0) {
+    setExecuting(getCurrentTabIndex(),executing);
+  }
+}

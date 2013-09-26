@@ -1,0 +1,7 @@
+{
+  m_ActiveTasks--;
+  if (m_ActiveTasks < 0) {
+    m_ActiveTasks=0;
+  }
+  updateMonitor();
+}

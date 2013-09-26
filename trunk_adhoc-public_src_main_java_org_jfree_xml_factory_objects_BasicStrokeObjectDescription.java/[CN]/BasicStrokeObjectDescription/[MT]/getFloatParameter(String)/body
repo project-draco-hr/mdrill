@@ -1,0 +1,12 @@
+{
+  final String p=(String)getParameter(param);
+  if (p == null) {
+    return 0;
+  }
+  try {
+    return Float.parseFloat(p);
+  }
+ catch (  Exception e) {
+    return 0;
+  }
+}

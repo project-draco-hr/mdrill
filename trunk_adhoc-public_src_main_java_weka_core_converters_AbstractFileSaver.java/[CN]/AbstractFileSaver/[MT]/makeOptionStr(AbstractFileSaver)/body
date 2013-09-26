@@ -1,0 +1,15 @@
+{
+  StringBuffer result;
+  Option option;
+  result=new StringBuffer();
+  result.append("\n");
+  result.append(saver.getClass().getName().replaceAll(".*\\.",""));
+  result.append(" options:\n\n");
+  Enumeration enm=saver.listOptions();
+  while (enm.hasMoreElements()) {
+    option=(Option)enm.nextElement();
+    result.append(option.synopsis() + "\n");
+    result.append(option.description() + "\n");
+  }
+  return result.toString();
+}

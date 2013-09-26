@@ -1,0 +1,3 @@
+{
+  return "The width of the standard deviation (0 = optimal).";
+}

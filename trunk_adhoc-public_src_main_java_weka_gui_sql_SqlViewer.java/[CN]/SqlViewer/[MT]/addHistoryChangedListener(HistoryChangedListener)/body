@@ -1,0 +1,4 @@
+{
+  m_ConnectionPanel.addHistoryChangedListener(l);
+  m_QueryPanel.addHistoryChangedListener(l);
+}

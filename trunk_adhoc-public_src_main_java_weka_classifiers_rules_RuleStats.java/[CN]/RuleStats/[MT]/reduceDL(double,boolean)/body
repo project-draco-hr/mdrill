@@ -1,0 +1,30 @@
+{
+  boolean needUpdate=false;
+  double[] rulesetStat=new double[6];
+  for (int j=0; j < m_SimpleStats.size(); j++) {
+    rulesetStat[0]+=((double[])m_SimpleStats.elementAt(j))[0];
+    rulesetStat[2]+=((double[])m_SimpleStats.elementAt(j))[2];
+    rulesetStat[4]+=((double[])m_SimpleStats.elementAt(j))[4];
+    if (j == m_SimpleStats.size() - 1) {
+      rulesetStat[1]=((double[])m_SimpleStats.elementAt(j))[1];
+      rulesetStat[3]=((double[])m_SimpleStats.elementAt(j))[3];
+      rulesetStat[5]=((double[])m_SimpleStats.elementAt(j))[5];
+    }
+  }
+  for (int k=m_SimpleStats.size() - 1; k >= 0; k--) {
+    double[] ruleStat=(double[])m_SimpleStats.elementAt(k);
+    double ifDeleted=potential(k,expFPRate,rulesetStat,ruleStat,checkErr);
+    if (!Double.isNaN(ifDeleted)) {
+      if (k == (m_SimpleStats.size() - 1))       removeLast();
+ else {
+        m_Ruleset.removeElementAt(k);
+        needUpdate=true;
+      }
+    }
+  }
+  if (needUpdate) {
+    m_Filtered=null;
+    m_SimpleStats=null;
+    countData();
+  }
+}

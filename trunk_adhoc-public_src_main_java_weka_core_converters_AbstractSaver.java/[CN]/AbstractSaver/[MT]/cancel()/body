@@ -1,0 +1,3 @@
+{
+  if (m_writeMode == CANCEL)   resetOptions();
+}

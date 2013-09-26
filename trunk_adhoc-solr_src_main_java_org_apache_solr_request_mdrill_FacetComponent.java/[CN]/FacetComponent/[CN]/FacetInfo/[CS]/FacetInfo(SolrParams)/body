@@ -1,0 +1,3 @@
+{
+  this.cross=new DistribFieldFacet(params,"solrCorssFields_s");
+}

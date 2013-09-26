@@ -1,0 +1,3 @@
+{
+  return (LogTarget[])this.logTargets.clone();
+}

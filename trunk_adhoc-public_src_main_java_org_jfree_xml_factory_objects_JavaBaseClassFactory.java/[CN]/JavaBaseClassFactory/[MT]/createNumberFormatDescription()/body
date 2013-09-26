@@ -1,0 +1,10 @@
+{
+  final BeanObjectDescription nfDesc=new BeanObjectDescription(NumberFormat.class,false);
+  nfDesc.setParameterDefinition("groupingUsed",Boolean.TYPE);
+  nfDesc.setParameterDefinition("maximumFractionDigits",Integer.TYPE);
+  nfDesc.setParameterDefinition("minimumFractionDigits",Integer.TYPE);
+  nfDesc.setParameterDefinition("maximumIntegerDigits",Integer.TYPE);
+  nfDesc.setParameterDefinition("minimumIntegerDigits",Integer.TYPE);
+  nfDesc.setParameterDefinition("parseIntegerOnly",Boolean.TYPE);
+  return nfDesc;
+}

@@ -1,0 +1,9 @@
+{
+  m_stopPlotting=true;
+  try {
+    m_plotThread.join(100);
+  }
+ catch (  Exception e) {
+  }
+  ;
+}

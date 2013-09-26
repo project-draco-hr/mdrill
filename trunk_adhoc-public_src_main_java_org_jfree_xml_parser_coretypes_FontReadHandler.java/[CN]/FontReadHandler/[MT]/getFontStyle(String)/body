@@ -1,0 +1,12 @@
+{
+  if ("bold-italic".equals(style)) {
+    return Font.BOLD | Font.ITALIC;
+  }
+  if ("bold".equals(style)) {
+    return Font.BOLD;
+  }
+  if ("italic".equals(style)) {
+    return Font.ITALIC;
+  }
+  return Font.PLAIN;
+}

@@ -1,0 +1,17 @@
+{
+  if ((text == null) || (text.equals(""))) {
+    return;
+  }
+  final AffineTransform saved=g2.getTransform();
+  final AffineTransform rotate=AffineTransform.getRotateInstance(angle,rotateX,rotateY);
+  g2.transform(rotate);
+  if (useDrawRotatedStringWorkaround) {
+    final TextLayout tl=new TextLayout(text,g2.getFont(),g2.getFontRenderContext());
+    tl.draw(g2,textX,textY);
+  }
+ else {
+    AttributedString as=new AttributedString(text,g2.getFont().getAttributes());
+    g2.drawString(as.getIterator(),textX,textY);
+  }
+  g2.setTransform(saved);
+}

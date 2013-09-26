@@ -1,0 +1,16 @@
+{
+  final Container parent=dialog.getParent();
+  if (parent == null) {
+    centerFrameOnScreen(dialog);
+    return;
+  }
+  final Dimension d=dialog.getSize();
+  final Dimension p=parent.getSize();
+  final int baseX=parent.getX();
+  final int baseY=parent.getY();
+  final int x=baseX + (int)(horizontalPercent * p.width);
+  final int y=baseY + (int)(verticalPercent * p.height);
+  final Rectangle s=parent.getGraphicsConfiguration().getBounds();
+  final Rectangle r=new Rectangle(x,y,d.width,d.height);
+  dialog.setBounds(r.intersection(s));
+}

@@ -1,0 +1,6 @@
+{
+  Metric metric=new Metric();
+  MetricService service=new MetricService();
+  List<String> days=service.getRecentDays("adhoc_metric","thedate",5);
+  for (  String day : days)   System.out.println(day);
+}

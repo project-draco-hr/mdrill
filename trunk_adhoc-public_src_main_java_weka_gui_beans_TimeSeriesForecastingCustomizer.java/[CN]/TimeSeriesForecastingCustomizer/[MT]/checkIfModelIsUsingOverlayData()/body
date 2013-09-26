@@ -1,0 +1,13 @@
+{
+  if (m_forecastingModel != null) {
+    if (m_forecastingModel.isUsingOverlayData()) {
+      m_numStepsToForecast.setEnabled(false);
+      m_numStepsLab.setEnabled(false);
+      m_numStepsToForecast.setText("");
+    }
+ else {
+      m_numStepsToForecast.setEnabled(true);
+      m_numStepsLab.setEnabled(true);
+    }
+  }
+}

@@ -1,0 +1,6 @@
+String toCheck
+VersionPackageConstraint.VersionComparison comp1
+String bound1
+VersionPackageConstraint.VersionComparison comp2
+String bound2
+boolean boundOr

@@ -1,0 +1,6 @@
+{
+  super(true,false);
+  this.xOffset=DEFAULT_X_OFFSET;
+  this.yOffset=DEFAULT_Y_OFFSET;
+  this.wallPaint=DEFAULT_WALL_PAINT;
+}

@@ -1,0 +1,8 @@
+{
+  this.image=image;
+  this.encodeAlpha=encodeAlpha;
+  setFilter(whichFilter);
+  if (compLevel >= 0 && compLevel <= 9) {
+    this.compressionLevel=compLevel;
+  }
+}

@@ -1,0 +1,5 @@
+{
+  m_classIndex=ci;
+  if (m_colorAttrib != null)   m_colorAttrib.setSelectedIndex(ci + 1);
+ else   setAttribute(m_attribIndex);
+}

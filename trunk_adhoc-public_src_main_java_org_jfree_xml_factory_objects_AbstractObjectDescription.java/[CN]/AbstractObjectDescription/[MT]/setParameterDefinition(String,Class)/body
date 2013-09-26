@@ -1,0 +1,8 @@
+{
+  if (obj == null) {
+    this.parameterDefs.remove(name);
+  }
+ else {
+    this.parameterDefs.put(name,obj);
+  }
+}

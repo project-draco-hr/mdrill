@@ -1,0 +1,5 @@
+String classifierString
+Instances data
+int numFolds
+String[] options
+Random random

@@ -1,0 +1,29 @@
+{
+  TermNumToString[] tm=new TermNumToString[this.ufs.length];
+  for (int i=0; i < this.ufs.length; i++) {
+    tm[i]=new TermNumToString(this.ufs,i);
+  }
+  for (  Entry<GroupListCache.GroupList,RefRow> e : groups.entrySet()) {
+    int[] group=e.getKey().list;
+    for (int i=0; i < this.ufs.length; i++) {
+      if (this.ufs.cols[i] != null) {
+        tm[i].addTermNum(group[i]);
+      }
+    }
+    int joinoffset=this.ufs.length;
+    for (    HigoJoinInvert inv : this.joinInvert) {
+      int fc=inv.fieldCount();
+      for (int i=0; i < fc; i++) {
+        inv.addTermNum(group[joinoffset + i],i);
+      }
+      joinoffset+=fc;
+    }
+  }
+  for (int i=0; i < this.ufs.length; i++) {
+    tm[i].fetchValues();
+  }
+  for (  HigoJoinInvert inv : this.joinInvert) {
+    inv.fetchValues();
+  }
+  return tm;
+}

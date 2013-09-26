@@ -1,0 +1,6 @@
+{
+  this.previousButton.setEnabled(this.step > 0);
+  this.nextButton.setEnabled(canDoNextPanel());
+  this.finishButton.setEnabled(canFinish());
+  this.helpButton.setEnabled(false);
+}

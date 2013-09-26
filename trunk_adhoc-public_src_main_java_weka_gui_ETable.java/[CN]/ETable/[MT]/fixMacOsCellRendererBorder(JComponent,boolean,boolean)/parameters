@@ -1,0 +1,3 @@
+JComponent renderer
+boolean selected
+boolean focused

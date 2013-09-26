@@ -1,0 +1,6 @@
+{
+  if (v == VersionComparison.GREATERTHAN || v == VersionComparison.GREATERTHANOREQUAL) {
+    return false;
+  }
+  return true;
+}

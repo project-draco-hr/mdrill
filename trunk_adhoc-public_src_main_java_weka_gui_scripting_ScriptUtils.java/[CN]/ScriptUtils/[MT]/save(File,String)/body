@@ -1,0 +1,25 @@
+{
+  boolean result;
+  BufferedWriter writer;
+  writer=null;
+  try {
+    writer=new BufferedWriter(new FileWriter(file));
+    writer.write(content);
+    writer.flush();
+    result=true;
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+    result=false;
+  }
+ finally {
+    if (writer != null) {
+      try {
+        writer.close();
+      }
+ catch (      Exception e) {
+      }
+    }
+  }
+  return result;
+}

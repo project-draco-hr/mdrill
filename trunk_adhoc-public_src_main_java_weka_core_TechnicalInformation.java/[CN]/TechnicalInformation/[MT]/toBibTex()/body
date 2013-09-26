@@ -1,0 +1,25 @@
+{
+  String result;
+  Field field;
+  Vector<Field> list;
+  int i;
+  String value;
+  result="@" + getType() + "{"+ getID()+ "";
+  list=new Vector<Field>();
+  Enumeration<Field> enm=fields();
+  while (enm.hasMoreElements())   list.add(enm.nextElement());
+  Collections.sort(list);
+  for (i=0; i < list.size(); i++) {
+    field=(Field)list.get(i);
+    if (!exists(field))     continue;
+    value=getValue(field);
+    value=value.replaceAll("\\~","\\\\~");
+    result+=",\n   " + field + " = {"+ value+ "}";
+  }
+  result+="\n}";
+  Enumeration<TechnicalInformation> enm2=additional();
+  while (enm2.hasMoreElements()) {
+    result+="\n\n" + ((TechnicalInformation)enm2.nextElement()).toBibTex();
+  }
+  return result;
+}

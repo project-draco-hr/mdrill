@@ -1,0 +1,17 @@
+{
+  if (paint == null) {
+    if (this.backgroundPaint != null) {
+      this.backgroundPaint=null;
+      fireChangeEvent();
+    }
+  }
+ else {
+    if (this.backgroundPaint != null) {
+      if (this.backgroundPaint.equals(paint)) {
+        return;
+      }
+    }
+    this.backgroundPaint=paint;
+    fireChangeEvent();
+  }
+}

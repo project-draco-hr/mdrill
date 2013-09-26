@@ -1,0 +1,6 @@
+{
+  m_bean=bean;
+  m_x=x;
+  m_y=y;
+  addBean(container,tab);
+}

@@ -1,0 +1,16 @@
+{
+  final InputStream in=ObjectUtilities.getResourceRelativeAsStream("configuration.properties",getClass());
+  if (in == null) {
+    return;
+  }
+  try {
+    subSystem.getPackageManager().getPackageConfiguration().load(in);
+  }
+  finally {
+    try {
+      in.close();
+    }
+ catch (    IOException e) {
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  if (this.plotLines != draw) {
+    this.plotLines=draw;
+    fireChangeEvent();
+  }
+}

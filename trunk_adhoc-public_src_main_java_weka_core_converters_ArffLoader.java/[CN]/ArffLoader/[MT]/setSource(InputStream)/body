@@ -1,0 +1,5 @@
+{
+  m_File=(new File(System.getProperty("user.dir"))).getAbsolutePath();
+  m_URL="http://";
+  m_sourceReader=new BufferedReader(new InputStreamReader(in));
+}

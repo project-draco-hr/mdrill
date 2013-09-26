@@ -1,0 +1,18 @@
+{
+  if (m_listenee instanceof BeanCommon) {
+    ((BeanCommon)m_listenee).stop();
+  }
+  if (m_tasks != null) {
+    for (    EvaluationTask t : m_tasks) {
+      t.setStopped();
+    }
+  }
+  m_tasks=null;
+  m_visual.setStatic();
+  m_setsComplete=0;
+  if (m_executorPool != null) {
+    m_executorPool.shutdownNow();
+    m_executorPool.purge();
+    m_executorPool=null;
+  }
+}

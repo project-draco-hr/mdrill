@@ -1,0 +1,5 @@
+{
+  super(id);
+  m_link=0;
+  m_input=true;
+}

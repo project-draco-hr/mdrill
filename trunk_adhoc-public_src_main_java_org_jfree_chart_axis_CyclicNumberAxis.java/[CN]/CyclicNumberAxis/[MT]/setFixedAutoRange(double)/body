@@ -1,0 +1,4 @@
+{
+  this.period=length;
+  super.setFixedAutoRange(length);
+}

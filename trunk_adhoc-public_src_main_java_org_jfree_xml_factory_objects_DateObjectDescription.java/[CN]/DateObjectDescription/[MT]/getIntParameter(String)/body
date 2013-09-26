@@ -1,0 +1,7 @@
+{
+  final Integer p=(Integer)getParameter(param);
+  if (p == null) {
+    return 0;
+  }
+  return p.intValue();
+}

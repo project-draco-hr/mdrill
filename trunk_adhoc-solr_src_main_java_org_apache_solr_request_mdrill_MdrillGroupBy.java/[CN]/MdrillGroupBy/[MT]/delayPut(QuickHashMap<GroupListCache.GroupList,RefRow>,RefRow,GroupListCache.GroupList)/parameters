@@ -1,0 +1,3 @@
+QuickHashMap<GroupListCache.GroupList,RefRow> groups
+RefRow cnt
+GroupListCache.GroupList group

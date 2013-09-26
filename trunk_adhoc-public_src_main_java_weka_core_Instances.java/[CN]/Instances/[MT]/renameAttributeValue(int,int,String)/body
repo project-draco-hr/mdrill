@@ -1,0 +1,14 @@
+{
+  Attribute newAtt=(Attribute)attribute(att).copy();
+  ArrayList<Attribute> newVec=new ArrayList<Attribute>(numAttributes());
+  newAtt.setValue(val,name);
+  for (int i=0; i < numAttributes(); i++) {
+    if (i == att) {
+      newVec.add(newAtt);
+    }
+ else {
+      newVec.add(attribute(i));
+    }
+  }
+  m_Attributes=newVec;
+}

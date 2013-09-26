@@ -1,0 +1,11 @@
+{
+  double perc;
+  Dimension size;
+  perc=(double)m_Memory.getCurrent() / (double)m_Memory.getMax();
+  perc=Math.round(perc * 1000) / 10;
+  setToolTipText("" + perc + "% used");
+  m_History.insertElementAt(perc,0);
+  size=getSize();
+  while (m_History.size() > size.getWidth())   m_History.remove(m_History.size() - 1);
+  repaint();
+}

@@ -1,0 +1,25 @@
+{
+  String[] options=new String[11];
+  int current=0;
+  options[current++]="-I";
+  options[current++]="" + getNumBoostingIterations();
+  if (!getUseCrossValidation()) {
+    options[current++]="-S";
+  }
+  if (getErrorOnProbabilities()) {
+    options[current++]="-P";
+  }
+  options[current++]="-M";
+  options[current++]="" + getMaxBoostingIterations();
+  options[current++]="-H";
+  options[current++]="" + getHeuristicStop();
+  options[current++]="-W";
+  options[current++]="" + getWeightTrimBeta();
+  if (getUseAIC()) {
+    options[current++]="-A";
+  }
+  while (current < options.length) {
+    options[current++]="";
+  }
+  return options;
+}

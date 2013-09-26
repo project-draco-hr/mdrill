@@ -1,0 +1,8 @@
+{
+  for (int iNode=0; iNode < m_nNodes.length; iNode++) {
+    if (m_nNodes[iNode] == nNode) {
+      return true;
+    }
+  }
+  return false;
+}

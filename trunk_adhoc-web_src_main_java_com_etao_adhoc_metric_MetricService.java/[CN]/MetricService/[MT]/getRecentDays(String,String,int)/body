@@ -1,0 +1,18 @@
+{
+  List<String> days=null;
+  String sql="SELECT DISTINCT %s" + " FROM %s" + " ORDER BY %s"+ " DESC LIMIT %d";
+  Statement stmt;
+  try {
+    stmt=conn.createStatement();
+    ResultSet rs=stmt.executeQuery(String.format(sql,fieldName,tableName,fieldName,n));
+    days=new ArrayList<String>();
+    while (rs.next()) {
+      days.add(rs.getString(1));
+    }
+  }
+ catch (  SQLException e) {
+    System.err.println("[" + sdf.format(new Date(System.currentTimeMillis())) + "] "+ "Error when get recent days");
+    e.printStackTrace();
+  }
+  return days;
+}

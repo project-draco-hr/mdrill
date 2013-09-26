@@ -1,0 +1,9 @@
+{
+  StringBuffer result=new StringBuffer();
+  double[] measures=calculateMeasure();
+  for (int i=0; i < m_targetFieldNames.size(); i++) {
+    result.append(getDescription() + " (" + m_targetFieldNames.get(i)+ "): "+ Utils.doubleToString(measures[i],4)+ " (n = "+ m_counts[i]+ ")");
+    result.append("\n");
+  }
+  return result.toString();
+}

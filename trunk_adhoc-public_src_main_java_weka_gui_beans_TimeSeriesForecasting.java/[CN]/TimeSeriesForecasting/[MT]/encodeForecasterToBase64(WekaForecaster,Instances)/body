@@ -1,0 +1,17 @@
+{
+  if (model != null && header != null) {
+    List<Object> modelAndHeader=new ArrayList<Object>();
+    modelAndHeader.add(model);
+    modelAndHeader.add(header);
+    ByteArrayOutputStream bao=new ByteArrayOutputStream();
+    BufferedOutputStream bos=new BufferedOutputStream(bao);
+    ObjectOutputStream oo=new ObjectOutputStream(bos);
+    oo.writeObject(modelAndHeader);
+    oo.flush();
+    byte[] modelBytes=bao.toByteArray();
+    return encodeToBase64(modelBytes);
+  }
+ else {
+    throw new Exception("[TimeSeriesForecasting] unable to encode model!");
+  }
+}

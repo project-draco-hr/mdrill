@@ -1,0 +1,11 @@
+{
+  if (this.nonJoins) {
+    return true;
+  }
+  for (  HigoJoinInvert inv : this.joinInvert) {
+    if (!inv.contains(doc)) {
+      return false;
+    }
+  }
+  return true;
+}

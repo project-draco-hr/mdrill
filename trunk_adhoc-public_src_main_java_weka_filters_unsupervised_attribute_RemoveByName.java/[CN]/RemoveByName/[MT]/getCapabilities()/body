@@ -1,0 +1,6 @@
+{
+  Capabilities result;
+  result=new Remove().getCapabilities();
+  result.setOwner(this);
+  return result;
+}

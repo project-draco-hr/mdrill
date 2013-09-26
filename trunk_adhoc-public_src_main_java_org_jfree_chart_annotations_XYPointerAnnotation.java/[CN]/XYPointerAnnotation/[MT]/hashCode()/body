@@ -1,0 +1,18 @@
+{
+  int result=super.hashCode();
+  long temp=Double.doubleToLongBits(this.angle);
+  result=37 * result + (int)(temp ^ (temp >>> 32));
+  temp=Double.doubleToLongBits(this.tipRadius);
+  result=37 * result + (int)(temp ^ (temp >>> 32));
+  temp=Double.doubleToLongBits(this.baseRadius);
+  result=37 * result + (int)(temp ^ (temp >>> 32));
+  temp=Double.doubleToLongBits(this.arrowLength);
+  result=37 * result + (int)(temp ^ (temp >>> 32));
+  temp=Double.doubleToLongBits(this.arrowWidth);
+  result=37 * result + (int)(temp ^ (temp >>> 32));
+  result=result * 37 + HashUtilities.hashCodeForPaint(this.arrowPaint);
+  result=result * 37 + this.arrowStroke.hashCode();
+  temp=Double.doubleToLongBits(this.labelOffset);
+  result=37 * result + (int)(temp ^ (temp >>> 32));
+  return super.hashCode();
+}

@@ -1,0 +1,5 @@
+{
+  if (index < getNumTabs() && index >= 0) {
+    m_undoBufferList.set(index,buffer);
+  }
+}

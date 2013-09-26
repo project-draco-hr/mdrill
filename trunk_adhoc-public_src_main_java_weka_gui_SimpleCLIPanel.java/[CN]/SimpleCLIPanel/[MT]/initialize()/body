@@ -1,0 +1,6 @@
+{
+  super.initialize();
+  m_CommandHistory=new Vector();
+  m_HistoryPos=0;
+  m_Completion=new CommandlineCompletion();
+}

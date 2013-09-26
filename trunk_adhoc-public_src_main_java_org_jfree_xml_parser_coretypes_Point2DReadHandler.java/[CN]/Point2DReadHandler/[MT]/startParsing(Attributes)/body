@@ -1,0 +1,5 @@
+{
+  final String x=attrs.getValue("x");
+  final String y=attrs.getValue("y");
+  this.point=new Point2D.Double(Double.parseDouble(x),Double.parseDouble(y));
+}

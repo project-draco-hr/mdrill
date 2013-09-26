@@ -1,0 +1,5 @@
+{
+  ErrorModule preds=m_predictionsForTestData.get(graphStepNum - 1);
+  JPanel result=driver.getGraphPanelTargets(forecaster,preds,graphTargets,graphStepNum,primeWindowSize,getTestData());
+  return result;
+}

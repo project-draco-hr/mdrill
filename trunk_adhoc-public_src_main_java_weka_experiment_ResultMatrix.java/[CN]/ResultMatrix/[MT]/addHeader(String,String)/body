@@ -1,0 +1,11 @@
+{
+  int pos;
+  pos=m_HeaderKeys.indexOf(key);
+  if (pos > -1) {
+    m_HeaderValues.set(pos,value);
+  }
+ else {
+    m_HeaderKeys.add(key);
+    m_HeaderValues.add(value);
+  }
+}

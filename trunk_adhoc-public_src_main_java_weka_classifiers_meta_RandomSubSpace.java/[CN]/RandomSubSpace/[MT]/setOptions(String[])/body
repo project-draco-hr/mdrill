@@ -1,0 +1,7 @@
+{
+  String tmpStr;
+  tmpStr=Utils.getOption('P',options);
+  if (tmpStr.length() != 0)   setSubSpaceSize(Double.parseDouble(tmpStr));
+ else   setSubSpaceSize(0.5);
+  super.setOptions(options);
+}

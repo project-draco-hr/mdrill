@@ -1,0 +1,3 @@
+{
+  setCrosshairDatasetIndex(index,true);
+}

@@ -1,0 +1,4 @@
+{
+  this.stagger=shouldStagger;
+  fireChangeEvent();
+}

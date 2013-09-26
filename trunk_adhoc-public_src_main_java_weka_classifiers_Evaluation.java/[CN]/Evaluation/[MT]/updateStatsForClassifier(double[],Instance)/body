@@ -1,0 +1,61 @@
+{
+  int actualClass=(int)instance.classValue();
+  if (!instance.classIsMissing()) {
+    updateMargins(predictedDistribution,actualClass,instance.weight());
+    int predictedClass=-1;
+    double bestProb=0.0;
+    for (int i=0; i < m_NumClasses; i++) {
+      if (predictedDistribution[i] > bestProb) {
+        predictedClass=i;
+        bestProb=predictedDistribution[i];
+      }
+    }
+    m_WithClass+=instance.weight();
+    if (m_CostMatrix != null) {
+      if (predictedClass < 0) {
+        m_TotalCost+=instance.weight() * m_CostMatrix.getMaxCost(actualClass,instance);
+      }
+ else {
+        m_TotalCost+=instance.weight() * m_CostMatrix.getElement(actualClass,predictedClass,instance);
+      }
+    }
+    if (predictedClass < 0) {
+      m_Unclassified+=instance.weight();
+      return;
+    }
+    double predictedProb=Math.max(MIN_SF_PROB,predictedDistribution[actualClass]);
+    double priorProb=Math.max(MIN_SF_PROB,m_ClassPriors[actualClass] / m_ClassPriorsSum);
+    if (predictedProb >= priorProb) {
+      m_SumKBInfo+=(Utils.log2(predictedProb) - Utils.log2(priorProb)) * instance.weight();
+    }
+ else {
+      m_SumKBInfo-=(Utils.log2(1.0 - predictedProb) - Utils.log2(1.0 - priorProb)) * instance.weight();
+    }
+    m_SumSchemeEntropy-=Utils.log2(predictedProb) * instance.weight();
+    m_SumPriorEntropy-=Utils.log2(priorProb) * instance.weight();
+    updateNumericScores(predictedDistribution,makeDistribution(instance.classValue()),instance.weight());
+    int[] indices=Utils.sort(predictedDistribution);
+    double sum=0, sizeOfRegions=0;
+    for (int i=predictedDistribution.length - 1; i >= 0; i--) {
+      if (sum >= m_ConfLevel) {
+        break;
+      }
+      sum+=predictedDistribution[indices[i]];
+      sizeOfRegions++;
+      if (actualClass == indices[i]) {
+        m_TotalCoverage+=instance.weight();
+      }
+    }
+    m_TotalSizeOfRegions+=sizeOfRegions / (m_MaxTarget - m_MinTarget);
+    m_ConfusionMatrix[actualClass][predictedClass]+=instance.weight();
+    if (predictedClass != actualClass) {
+      m_Incorrect+=instance.weight();
+    }
+ else {
+      m_Correct+=instance.weight();
+    }
+  }
+ else {
+    m_MissingClass+=instance.weight();
+  }
+}

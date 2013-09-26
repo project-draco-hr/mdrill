@@ -1,0 +1,5 @@
+{
+  if (source instanceof BeanCustomizer && modified) {
+    m_mainKFPerspective.setEditedStatus(modified);
+  }
+}

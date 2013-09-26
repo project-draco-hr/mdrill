@@ -1,0 +1,7 @@
+{
+  toSelectModeL=toSelectLocModel;
+  CF=cf;
+  reducedErrorPruning=false;
+  unpruned=false;
+  minNumObj=minNum;
+}

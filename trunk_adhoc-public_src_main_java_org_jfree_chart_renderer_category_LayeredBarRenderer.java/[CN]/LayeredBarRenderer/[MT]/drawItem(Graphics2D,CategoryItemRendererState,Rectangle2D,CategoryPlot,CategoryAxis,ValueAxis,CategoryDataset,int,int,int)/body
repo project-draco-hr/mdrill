@@ -1,0 +1,9 @@
+{
+  PlotOrientation orientation=plot.getOrientation();
+  if (orientation == PlotOrientation.HORIZONTAL) {
+    drawHorizontalItem(g2,state,dataArea,plot,domainAxis,rangeAxis,data,row,column);
+  }
+ else   if (orientation == PlotOrientation.VERTICAL) {
+    drawVerticalItem(g2,state,dataArea,plot,domainAxis,rangeAxis,data,row,column);
+  }
+}

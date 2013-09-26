@@ -1,0 +1,4 @@
+{
+  this.activeFactories.clear();
+  pushFactory(getInitialFactory());
+}

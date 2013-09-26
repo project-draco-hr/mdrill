@@ -1,0 +1,3 @@
+{
+  this(new ArffTableModel(data));
+}

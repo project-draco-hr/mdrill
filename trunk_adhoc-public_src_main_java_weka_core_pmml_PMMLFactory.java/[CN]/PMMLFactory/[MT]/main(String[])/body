@@ -1,0 +1,18 @@
+{
+  try {
+    String[] optionsTmp=new String[args.length];
+    for (int i=0; i < args.length; i++) {
+      optionsTmp[i]=args[i];
+    }
+    String pmmlFile=Utils.getOption('l',optionsTmp);
+    if (pmmlFile.length() == 0) {
+      throw new Exception("[PMMLFactory] must specify a PMML file using the -l option.");
+    }
+    getPMMLModel(pmmlFile,null);
+    PMMLClassifierRunner pcr=new PMMLClassifierRunner();
+    pcr.evaluatePMMLClassifier(args);
+  }
+ catch (  Exception ex) {
+    ex.printStackTrace();
+  }
+}

@@ -1,0 +1,5 @@
+{
+  m_Runtime=Runtime.getRuntime();
+  m_Total=m_Runtime.totalMemory();
+  return m_Total;
+}

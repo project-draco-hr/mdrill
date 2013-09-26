@@ -1,0 +1,6 @@
+{
+  java.awt.GraphicsEnvironment ge=java.awt.GraphicsEnvironment.getLocalGraphicsEnvironment();
+  if (!ge.isHeadless()) {
+    appearanceFinal();
+  }
+}

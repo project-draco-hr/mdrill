@@ -1,0 +1,3 @@
+{
+  return ((OHLCDataset)this.parent).getClose(this.map[series],item);
+}

@@ -1,0 +1,16 @@
+{
+  Range r=new Range(lagRange);
+  try {
+    r.setUpper(m_maxLag);
+  }
+ catch (  IllegalArgumentException e) {
+    throw new Exception("The lag selection range '" + lagRange + "' is"+ "illegal with respect to the specified min and max"+ "lags.");
+  }
+  int[] selectedIndexes=r.getSelection();
+  int max=selectedIndexes[Utils.maxIndex(selectedIndexes)] + 1;
+  int min=selectedIndexes[Utils.minIndex(selectedIndexes)] + 1;
+  if (max < m_minLag || min > m_maxLag) {
+    throw new Exception("The lag selection range '" + lagRange + "' is"+ "illegal with respect to the specified min and max"+ "lags.");
+  }
+  return r;
+}

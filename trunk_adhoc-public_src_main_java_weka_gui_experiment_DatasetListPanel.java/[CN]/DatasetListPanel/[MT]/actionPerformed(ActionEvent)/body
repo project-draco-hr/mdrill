@@ -1,0 +1,124 @@
+{
+  boolean useRelativePaths=m_relativeCheck.isSelected();
+  if (e.getSource() == m_AddBut) {
+    int returnVal=m_FileChooser.showOpenDialog(this);
+    if (returnVal == JFileChooser.APPROVE_OPTION) {
+      if (m_FileChooser.isMultiSelectionEnabled()) {
+        File[] selected=m_FileChooser.getSelectedFiles();
+        for (int i=0; i < selected.length; i++) {
+          if (selected[i].isDirectory()) {
+            Vector files=new Vector();
+            getFilesRecursively(selected[i],files);
+            Collections.sort(files,new StringCompare());
+            for (int j=0; j < files.size(); j++) {
+              File temp=(File)files.elementAt(j);
+              if (useRelativePaths) {
+                try {
+                  temp=Utils.convertToRelativePath(temp);
+                }
+ catch (                Exception ex) {
+                  ex.printStackTrace();
+                }
+              }
+              m_Exp.getDatasets().addElement(temp);
+            }
+          }
+ else {
+            File temp=selected[i];
+            if (useRelativePaths) {
+              try {
+                temp=Utils.convertToRelativePath(temp);
+              }
+ catch (              Exception ex) {
+                ex.printStackTrace();
+              }
+            }
+            m_Exp.getDatasets().addElement(temp);
+          }
+        }
+        setButtons(null);
+      }
+ else {
+        if (m_FileChooser.getSelectedFile().isDirectory()) {
+          Vector files=new Vector();
+          getFilesRecursively(m_FileChooser.getSelectedFile(),files);
+          Collections.sort(files,new StringCompare());
+          for (int j=0; j < files.size(); j++) {
+            File temp=(File)files.elementAt(j);
+            if (useRelativePaths) {
+              try {
+                temp=Utils.convertToRelativePath(temp);
+              }
+ catch (              Exception ex) {
+                ex.printStackTrace();
+              }
+            }
+            m_Exp.getDatasets().addElement(temp);
+          }
+        }
+ else {
+          File temp=m_FileChooser.getSelectedFile();
+          if (useRelativePaths) {
+            try {
+              temp=Utils.convertToRelativePath(temp);
+            }
+ catch (            Exception ex) {
+              ex.printStackTrace();
+            }
+          }
+          m_Exp.getDatasets().addElement(temp);
+        }
+        setButtons(null);
+      }
+    }
+  }
+ else   if (e.getSource() == m_DeleteBut) {
+    int[] selected=m_List.getSelectedIndices();
+    if (selected != null) {
+      for (int i=selected.length - 1; i >= 0; i--) {
+        int current=selected[i];
+        m_Exp.getDatasets().removeElementAt(current);
+        if (m_Exp.getDatasets().size() > current) {
+          m_List.setSelectedIndex(current);
+        }
+ else {
+          m_List.setSelectedIndex(current - 1);
+        }
+      }
+    }
+    setButtons(null);
+  }
+ else   if (e.getSource() == m_EditBut) {
+    int selected=m_List.getSelectedIndex();
+    if (selected != -1) {
+      ViewerDialog dialog=new ViewerDialog(null);
+      String filename=m_List.getSelectedValue().toString();
+      int result;
+      try {
+        DataSource source=new DataSource(filename);
+        result=dialog.showDialog(source.getDataSet());
+        source=null;
+        System.gc();
+        if ((result == ViewerDialog.APPROVE_OPTION) && (dialog.isChanged())) {
+          result=JOptionPane.showConfirmDialog(this,"File was modified - save changes?");
+          if (result == JOptionPane.YES_OPTION) {
+            Saver saver=ConverterUtils.getSaverForFile(filename);
+            saver.setFile(new File(filename));
+            saver.setInstances(dialog.getInstances());
+            saver.writeBatch();
+          }
+        }
+      }
+ catch (      Exception ex) {
+        JOptionPane.showMessageDialog(this,"Error loading file '" + filename + "':\n"+ ex.toString(),"Error loading file",JOptionPane.INFORMATION_MESSAGE);
+      }
+    }
+    setButtons(null);
+  }
+ else   if (e.getSource() == m_UpBut) {
+    JListHelper.moveUp(m_List);
+  }
+ else   if (e.getSource() == m_DownBut) {
+    JListHelper.moveDown(m_List);
+  }
+}

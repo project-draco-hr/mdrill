@@ -1,0 +1,4 @@
+{
+  Comparable columnKey=getColumnKey(columnIndex);
+  removeColumn(columnKey);
+}

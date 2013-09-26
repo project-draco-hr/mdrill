@@ -1,12 +1,10 @@
 {
-  IntArr doclist=this.join.getRight(doc,-1);
+  Integer doclist=this.join.getRight(doc,-1);
   if (doclist == null) {
     return false;
   }
-  for (  Integer docr : doclist.list) {
-    if (this.docset.exists(docr)) {
-      return true;
-    }
+  if (this.docset.exists(doclist)) {
+    return true;
   }
   return false;
 }

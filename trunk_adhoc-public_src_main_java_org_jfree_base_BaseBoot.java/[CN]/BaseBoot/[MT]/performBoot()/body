@@ -1,0 +1,6 @@
+{
+  ObjectUtilities.setClassLoaderSource(getConfiguration().getConfigProperty("org.jfree.ClassLoader"));
+  getPackageManager().addModule(DefaultLogModule.class.getName());
+  getPackageManager().load("org.jfree.jcommon.modules.");
+  getPackageManager().initializeModules();
+}

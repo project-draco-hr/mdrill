@@ -1,0 +1,7 @@
+{
+  Vector newVector=new Vector(0);
+  if (m_executorPool != null && (m_executorPool.getQueue().size() > 0 || m_executorPool.getActiveCount() > 0)) {
+    newVector.addElement("Stop");
+  }
+  return newVector.elements();
+}

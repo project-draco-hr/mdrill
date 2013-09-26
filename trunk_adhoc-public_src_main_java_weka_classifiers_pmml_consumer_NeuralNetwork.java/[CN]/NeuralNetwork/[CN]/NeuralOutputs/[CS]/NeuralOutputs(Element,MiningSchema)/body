@@ -1,0 +1,43 @@
+{
+  m_classAttribute=miningSchema.getMiningSchemaAsInstances().classAttribute();
+  int vals=(m_classAttribute.isNumeric()) ? 1 : m_classAttribute.numValues();
+  m_outputNeurons=new String[vals];
+  m_categoricalIndexes=new int[vals];
+  NodeList outputL=outputs.getElementsByTagName("NeuralOutput");
+  if (outputL.getLength() != m_outputNeurons.length) {
+    throw new Exception("[NeuralOutputs] the number of neural outputs does not match " + "the number expected!");
+  }
+  for (int i=0; i < outputL.getLength(); i++) {
+    Node outputN=outputL.item(i);
+    if (outputN.getNodeType() == Node.ELEMENT_NODE) {
+      Element outputE=(Element)outputN;
+      m_outputNeurons[i]=outputE.getAttribute("outputNeuron");
+      if (m_classAttribute.isNumeric()) {
+        NodeList contL=outputE.getElementsByTagName("NormContinuous");
+        if (contL.getLength() != 1) {
+          throw new Exception("[NeuralOutputs] Should be exactly one norm continuous element " + "for numeric class!");
+        }
+        Node normContNode=contL.item(0);
+        String attName=((Element)normContNode).getAttribute("field");
+        Attribute dummyTargetDef=new Attribute(attName);
+        ArrayList<Attribute> dummyFieldDefs=new ArrayList<Attribute>();
+        dummyFieldDefs.add(dummyTargetDef);
+        m_regressionMapping=new NormContinuous((Element)normContNode,FieldMetaInfo.Optype.CONTINUOUS,dummyFieldDefs);
+        break;
+      }
+ else {
+        NodeList discL=outputE.getElementsByTagName("NormDiscrete");
+        if (discL.getLength() != 1) {
+          throw new Exception("[NeuralOutputs] Should be only one norm discrete element " + "per derived field/neural output for a nominal class!");
+        }
+        Node normDiscNode=discL.item(0);
+        String attValue=((Element)normDiscNode).getAttribute("value");
+        int index=m_classAttribute.indexOfValue(attValue);
+        if (index < 0) {
+          throw new Exception("[NeuralOutputs] Can't find specified target value " + attValue + " in class attribute "+ m_classAttribute.name());
+        }
+        m_categoricalIndexes[i]=index;
+      }
+    }
+  }
+}

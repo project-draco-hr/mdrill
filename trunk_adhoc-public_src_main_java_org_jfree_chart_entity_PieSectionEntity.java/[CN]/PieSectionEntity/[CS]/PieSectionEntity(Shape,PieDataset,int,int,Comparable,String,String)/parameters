@@ -1,0 +1,7 @@
+Shape area
+PieDataset dataset
+int pieIndex
+int sectionIndex
+Comparable sectionKey
+String toolTipText
+String urlText

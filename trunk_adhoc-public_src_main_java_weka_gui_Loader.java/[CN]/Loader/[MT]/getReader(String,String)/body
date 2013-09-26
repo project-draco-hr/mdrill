@@ -1,0 +1,5 @@
+{
+  Loader loader;
+  loader=new Loader(dir);
+  return loader.getReader(filename);
+}

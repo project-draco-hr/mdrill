@@ -1,0 +1,24 @@
+{
+  addWindowListener(new WindowAdapter(){
+    public void windowClosing(    WindowEvent e){
+      e.getWindow().dispose();
+    }
+  }
+);
+  getContentPane().setLayout(new BorderLayout());
+  m_Editor=pe;
+  m_EditorComponent=pe.getCustomEditor();
+  getContentPane().add(m_EditorComponent,BorderLayout.CENTER);
+  pack();
+  int screenWidth=getGraphicsConfiguration().getBounds().width;
+  int screenHeight=getGraphicsConfiguration().getBounds().height;
+  if (getHeight() > (double)screenHeight * 0.95)   setSize(getWidth(),(int)((double)screenHeight * 0.95));
+  if ((x == -1) && (y == -1)) {
+    setLocationRelativeTo(null);
+  }
+ else {
+    if (x + getWidth() > screenWidth)     x=screenWidth - getWidth();
+    if (y + getHeight() > screenHeight)     y=screenHeight - getHeight();
+    setLocation(x,y);
+  }
+}

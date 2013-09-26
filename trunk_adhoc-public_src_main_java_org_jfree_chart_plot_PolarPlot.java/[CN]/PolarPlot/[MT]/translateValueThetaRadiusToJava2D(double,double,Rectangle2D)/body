@@ -1,0 +1,23 @@
+{
+  double radians=Math.toRadians(angleDegrees - 90.0);
+  double minx=dataArea.getMinX() + MARGIN;
+  double maxx=dataArea.getMaxX() - MARGIN;
+  double miny=dataArea.getMinY() + MARGIN;
+  double maxy=dataArea.getMaxY() - MARGIN;
+  double lengthX=maxx - minx;
+  double lengthY=maxy - miny;
+  double length=Math.min(lengthX,lengthY);
+  double midX=minx + lengthX / 2.0;
+  double midY=miny + lengthY / 2.0;
+  double axisMin=this.axis.getLowerBound();
+  double axisMax=getMaxRadius();
+  double adjustedRadius=Math.max(radius,axisMin);
+  double xv=length / 2.0 * Math.cos(radians);
+  double yv=length / 2.0 * Math.sin(radians);
+  float x=(float)(midX + (xv * (adjustedRadius - axisMin) / (axisMax - axisMin)));
+  float y=(float)(midY + (yv * (adjustedRadius - axisMin) / (axisMax - axisMin)));
+  int ix=Math.round(x);
+  int iy=Math.round(y);
+  Point p=new Point(ix,iy);
+  return p;
+}

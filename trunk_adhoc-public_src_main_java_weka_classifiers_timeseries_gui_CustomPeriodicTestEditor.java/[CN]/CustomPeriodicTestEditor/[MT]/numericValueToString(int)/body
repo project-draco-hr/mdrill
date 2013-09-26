@@ -1,0 +1,6 @@
+{
+  if (val == -100) {
+    return "*";
+  }
+  return "" + val;
+}

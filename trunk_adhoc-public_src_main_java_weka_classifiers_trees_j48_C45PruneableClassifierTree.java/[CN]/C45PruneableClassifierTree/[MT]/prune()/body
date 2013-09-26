@@ -1,0 +1,34 @@
+{
+  double errorsLargestBranch;
+  double errorsLeaf;
+  double errorsTree;
+  int indexOfLargestBranch;
+  C45PruneableClassifierTree largestBranch;
+  int i;
+  if (!m_isLeaf) {
+    for (i=0; i < m_sons.length; i++)     son(i).prune();
+    indexOfLargestBranch=localModel().distribution().maxBag();
+    if (m_subtreeRaising) {
+      errorsLargestBranch=son(indexOfLargestBranch).getEstimatedErrorsForBranch((Instances)m_train);
+    }
+ else {
+      errorsLargestBranch=Double.MAX_VALUE;
+    }
+    errorsLeaf=getEstimatedErrorsForDistribution(localModel().distribution());
+    errorsTree=getEstimatedErrors();
+    if (Utils.smOrEq(errorsLeaf,errorsTree + 0.1) && Utils.smOrEq(errorsLeaf,errorsLargestBranch + 0.1)) {
+      m_sons=null;
+      m_isLeaf=true;
+      m_localModel=new NoSplit(localModel().distribution());
+      return;
+    }
+    if (Utils.smOrEq(errorsLargestBranch,errorsTree + 0.1)) {
+      largestBranch=son(indexOfLargestBranch);
+      m_sons=largestBranch.m_sons;
+      m_localModel=largestBranch.localModel();
+      m_isLeaf=largestBranch.m_isLeaf;
+      newDistribution(m_train);
+      prune();
+    }
+  }
+}

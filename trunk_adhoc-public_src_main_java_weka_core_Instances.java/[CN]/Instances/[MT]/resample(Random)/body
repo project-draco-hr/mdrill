@@ -1,0 +1,7 @@
+{
+  Instances newData=new Instances(this,numInstances());
+  while (newData.numInstances() < numInstances()) {
+    newData.add(instance(random.nextInt(numInstances())));
+  }
+  return newData;
+}

@@ -1,0 +1,17 @@
+{
+  BeanInfo bi=Introspector.getBeanInfo(classifier.getClass());
+  MethodDescriptor[] methods;
+  methods=bi.getMethodDescriptors();
+  Object[] args={};
+  String result="\nSynopsis for " + classifier.getClass().getName() + ":\n\n";
+  for (int i=0; i < methods.length; i++) {
+    String name=methods[i].getDisplayName();
+    Method meth=methods[i].getMethod();
+    if (name.equals("globalInfo")) {
+      String globalInfo=(String)(meth.invoke(classifier,args));
+      result+=globalInfo;
+      break;
+    }
+  }
+  return result;
+}

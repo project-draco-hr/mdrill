@@ -1,0 +1,4 @@
+{
+  this.colorPalette.setMaxZ(value);
+  this.axis.setUpperBound(value);
+}

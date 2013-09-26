@@ -1,0 +1,25 @@
+{
+  boolean ok=true;
+  List<Dependency> deps=toCheck.getPackage().getDependencies();
+  for (  Dependency p : deps) {
+    String depName=p.getTarget().getPackage().getPackageMetaDataElement("PackageName").toString();
+    if (!lookup.containsKey(depName)) {
+      lookup.put(depName,p);
+      ok=checkDependencies(p.getTarget(),lookup,conflicts);
+    }
+ else {
+      Dependency checkAgainst=lookup.get(depName);
+      PackageConstraint result=checkAgainst.getTarget().checkConstraint(p.getTarget());
+      if (result != null) {
+        checkAgainst.setTarget(result);
+        lookup.put(depName,checkAgainst);
+      }
+ else {
+        List<Dependency> conflictList=conflicts.get(depName);
+        conflictList.add(p);
+        ok=false;
+      }
+    }
+  }
+  return ok;
+}

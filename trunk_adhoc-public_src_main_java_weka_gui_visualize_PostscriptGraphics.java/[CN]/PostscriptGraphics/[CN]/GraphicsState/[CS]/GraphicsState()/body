@@ -1,0 +1,9 @@
+{
+  m_currentColor=Color.white;
+  m_currentFont=new Font("Courier",Font.PLAIN,11);
+  m_currentStroke=new BasicStroke();
+  m_xOffset=0;
+  m_yOffset=0;
+  m_xScale=1.0;
+  m_yScale=1.0;
+}

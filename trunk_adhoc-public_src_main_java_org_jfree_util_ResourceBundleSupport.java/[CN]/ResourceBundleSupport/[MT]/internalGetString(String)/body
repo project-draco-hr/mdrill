@@ -1,0 +1,31 @@
+{
+  if (this.lookupPath.contains(key)) {
+    throw new MissingResourceException("InfiniteLoop in resource lookup",getResourceBase(),this.lookupPath.toString());
+  }
+  final String fromResBundle=this.resources.getString(key);
+  if (fromResBundle.startsWith("@@")) {
+    final int idx=fromResBundle.indexOf('@',2);
+    if (idx == -1) {
+      throw new MissingResourceException("Invalid format for global lookup key.",getResourceBase(),key);
+    }
+    try {
+      final ResourceBundle res=ResourceBundleWrapper.getBundle(fromResBundle.substring(2,idx));
+      return res.getString(fromResBundle.substring(idx + 1));
+    }
+ catch (    Exception e) {
+      Log.error("Error during global lookup",e);
+      throw new MissingResourceException("Error during global lookup",getResourceBase(),key);
+    }
+  }
+ else   if (fromResBundle.startsWith("@")) {
+    final String newKey=fromResBundle.substring(1);
+    this.lookupPath.add(key);
+    final String retval=internalGetString(newKey);
+    this.cache.put(key,retval);
+    return retval;
+  }
+ else {
+    this.cache.put(key,fromResBundle);
+    return fromResBundle;
+  }
+}

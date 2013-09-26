@@ -1,0 +1,10 @@
+{
+  try {
+    this.chart=(JFreeChart)chart.clone();
+  }
+ catch (  CloneNotSupportedException e) {
+    this.chart=chart;
+  }
+  this.width=width;
+  this.height=height;
+}

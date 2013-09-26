@@ -1,0 +1,25 @@
+{
+  if (!TimeSeriesForecasting.isEmpty(m_filenameField.getText())) {
+    try {
+      String filename=m_filenameField.getText();
+      try {
+        if (m_env == null) {
+          m_env=Environment.getSystemWide();
+        }
+        filename=m_env.substitute(filename);
+      }
+ catch (      Exception ex) {
+      }
+      File theFile=new File(filename);
+      if (theFile.isFile()) {
+        ObjectInputStream is=new ObjectInputStream(new BufferedInputStream(new FileInputStream(filename)));
+        m_forecastingModel=(WekaForecaster)is.readObject();
+        m_header=(Instances)is.readObject();
+        is.close();
+      }
+    }
+ catch (    Exception ex) {
+      ex.printStackTrace();
+    }
+  }
+}

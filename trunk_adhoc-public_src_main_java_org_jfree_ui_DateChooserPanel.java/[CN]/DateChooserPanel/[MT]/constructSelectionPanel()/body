@@ -1,0 +1,16 @@
+{
+  final JPanel p=new JPanel();
+  final int minMonth=this.chosenDate.getMinimum(Calendar.MONTH);
+  final int maxMonth=this.chosenDate.getMaximum(Calendar.MONTH);
+  final String[] months=new String[maxMonth - minMonth + 1];
+  System.arraycopy(SerialDate.getMonths(),minMonth,months,0,months.length);
+  this.monthSelector=new JComboBox(months);
+  this.monthSelector.addActionListener(this);
+  this.monthSelector.setActionCommand("monthSelectionChanged");
+  p.add(this.monthSelector);
+  this.yearSelector=new JComboBox(getYears(0));
+  this.yearSelector.addActionListener(this);
+  this.yearSelector.setActionCommand("yearSelectionChanged");
+  p.add(this.yearSelector);
+  return p;
+}

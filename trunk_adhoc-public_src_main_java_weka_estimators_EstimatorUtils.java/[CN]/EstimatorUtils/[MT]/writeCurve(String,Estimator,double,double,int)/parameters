@@ -1,0 +1,5 @@
+String f
+Estimator est
+double min
+double max
+int numPoints

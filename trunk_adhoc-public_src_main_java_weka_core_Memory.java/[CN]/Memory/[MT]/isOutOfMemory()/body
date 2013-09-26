@@ -1,0 +1,4 @@
+{
+  if (isEnabled())   return ((getMax() - getCurrent()) < (getInitial() + 200000));
+ else   return false;
+}

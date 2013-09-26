@@ -1,0 +1,6 @@
+{
+  if (m_otherBayesNet != null) {
+    return m_otherBayesNet.extraArcs(this);
+  }
+  return 0;
+}

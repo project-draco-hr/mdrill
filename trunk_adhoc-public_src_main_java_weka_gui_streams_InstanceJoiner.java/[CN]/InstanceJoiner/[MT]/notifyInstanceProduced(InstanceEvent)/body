@@ -1,0 +1,22 @@
+{
+  if (listeners.size() > 0) {
+    if (b_Debug) {
+      System.err.println(this.getClass().getName() + "::notifyInstanceProduced()");
+    }
+    Vector l;
+synchronized (this) {
+      l=(Vector)listeners.clone();
+    }
+    for (int i=0; i < l.size(); i++) {
+      ((InstanceListener)l.elementAt(i)).instanceProduced(e);
+    }
+    try {
+      if (e.getID() == InstanceEvent.INSTANCE_AVAILABLE) {
+        m_OutputInstance=null;
+      }
+    }
+ catch (    Exception ex) {
+      System.err.println("Problem: notifyInstanceProduced() was\n" + "called with INSTANCE_AVAILABLE, but output()\n" + "threw an exception: "+ ex.getMessage());
+    }
+  }
+}

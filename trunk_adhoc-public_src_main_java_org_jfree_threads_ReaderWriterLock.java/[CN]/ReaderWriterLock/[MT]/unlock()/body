@@ -1,0 +1,14 @@
+{
+  final ReaderWriterNode node;
+  final Thread me=Thread.currentThread();
+  final int index=getIndex(me);
+  if (index > firstWriter()) {
+    throw new IllegalArgumentException("Lock not held");
+  }
+  node=(ReaderWriterNode)this.waiters.get(index);
+  node.nAcquires--;
+  if (node.nAcquires == 0) {
+    this.waiters.remove(index);
+  }
+  notifyAll();
+}

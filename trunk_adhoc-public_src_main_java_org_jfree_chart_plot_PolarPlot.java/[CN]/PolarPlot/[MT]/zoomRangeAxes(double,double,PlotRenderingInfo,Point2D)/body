@@ -1,0 +1,3 @@
+{
+  zoom((upperPercent + lowerPercent) / 2.0);
+}

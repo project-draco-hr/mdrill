@@ -1,0 +1,7 @@
+CategoryPlot plot
+PlotOrientation orientation
+Rectangle2D dataArea
+CategoryAxis domainAxis
+CategoryItemRendererState state
+int row
+int column

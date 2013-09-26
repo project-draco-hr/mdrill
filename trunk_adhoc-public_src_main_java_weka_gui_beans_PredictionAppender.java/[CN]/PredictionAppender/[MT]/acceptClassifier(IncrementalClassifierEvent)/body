@@ -1,0 +1,69 @@
+{
+  weka.classifiers.Classifier classifier=e.getClassifier();
+  Instance currentI=e.getCurrentInstance();
+  int status=e.getStatus();
+  int oldNumAtts=0;
+  if (status == IncrementalClassifierEvent.NEW_BATCH) {
+    oldNumAtts=e.getStructure().numAttributes();
+  }
+ else {
+    oldNumAtts=currentI.dataset().numAttributes();
+  }
+  if (status == IncrementalClassifierEvent.NEW_BATCH) {
+    m_instanceEvent=new InstanceEvent(this,null,0);
+    Instances oldStructure=new Instances(e.getStructure(),0);
+    String relationNameModifier="_with predictions";
+    if (!m_appendProbabilities || oldStructure.classAttribute().isNumeric()) {
+      try {
+        m_format=makeDataSetClass(oldStructure,oldStructure,classifier,relationNameModifier);
+      }
+ catch (      Exception ex) {
+        ex.printStackTrace();
+        return;
+      }
+    }
+ else     if (m_appendProbabilities) {
+      try {
+        m_format=makeDataSetProbabilities(oldStructure,oldStructure,classifier,relationNameModifier);
+      }
+ catch (      Exception ex) {
+        ex.printStackTrace();
+        return;
+      }
+    }
+    m_instanceEvent.setStructure(m_format);
+    notifyInstanceAvailable(m_instanceEvent);
+    return;
+  }
+  double[] instanceVals=new double[m_format.numAttributes()];
+  Instance newInst=null;
+  try {
+    for (int i=0; i < oldNumAtts; i++) {
+      instanceVals[i]=currentI.value(i);
+    }
+    if (!m_appendProbabilities || currentI.dataset().classAttribute().isNumeric()) {
+      double predClass=classifier.classifyInstance(currentI);
+      instanceVals[instanceVals.length - 1]=predClass;
+    }
+ else     if (m_appendProbabilities) {
+      double[] preds=classifier.distributionForInstance(currentI);
+      for (int i=oldNumAtts; i < instanceVals.length; i++) {
+        instanceVals[i]=preds[i - oldNumAtts];
+      }
+    }
+  }
+ catch (  Exception ex) {
+    ex.printStackTrace();
+    return;
+  }
+ finally {
+    newInst=new DenseInstance(currentI.weight(),instanceVals);
+    newInst.setDataset(m_format);
+    m_instanceEvent.setInstance(newInst);
+    m_instanceEvent.setStatus(status);
+    notifyInstanceAvailable(m_instanceEvent);
+  }
+  if (status == IncrementalClassifierEvent.BATCH_FINISHED) {
+    m_instanceEvent=null;
+  }
+}

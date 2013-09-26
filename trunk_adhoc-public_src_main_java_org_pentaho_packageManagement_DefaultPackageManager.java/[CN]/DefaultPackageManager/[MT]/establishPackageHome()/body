@@ -1,0 +1,12 @@
+{
+  if (m_packageHome == null) {
+    return false;
+  }
+  if (!m_packageHome.exists()) {
+    if (!m_packageHome.mkdir()) {
+      System.err.println("Unable to create packages directory (" + m_packageHome.getAbsolutePath() + ")");
+      return false;
+    }
+  }
+  return true;
+}

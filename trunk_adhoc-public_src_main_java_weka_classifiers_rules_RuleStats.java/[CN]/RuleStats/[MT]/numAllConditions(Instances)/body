@@ -1,0 +1,10 @@
+{
+  double total=0;
+  Enumeration attEnum=data.enumerateAttributes();
+  while (attEnum.hasMoreElements()) {
+    Attribute att=(Attribute)attEnum.nextElement();
+    if (att.isNominal())     total+=(double)att.numValues();
+ else     total+=2.0 * (double)data.numDistinctValues(att);
+  }
+  return total;
+}

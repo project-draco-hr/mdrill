@@ -1,0 +1,4 @@
+Graphics gx
+double x
+double y
+int size

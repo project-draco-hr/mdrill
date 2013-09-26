@@ -1,0 +1,3 @@
+{
+  return this.axis.draw(g2,dataArea.getMinY(),plotArea,dataArea,RectangleEdge.TOP,null);
+}

@@ -1,0 +1,24 @@
+{
+  try {
+    String[] tmpOptions=(String[])options.clone();
+    if (Utils.getFlag('h',tmpOptions)) {
+      System.err.println("\nHelp requested\n" + makeOptionStr(saver));
+      return;
+    }
+  }
+ catch (  Exception e) {
+  }
+  try {
+    try {
+      saver.setOptions(options);
+    }
+ catch (    Exception ex) {
+      System.err.println(makeOptionStr(saver));
+      System.exit(1);
+    }
+    saver.writeBatch();
+  }
+ catch (  Exception ex) {
+    ex.printStackTrace();
+  }
+}

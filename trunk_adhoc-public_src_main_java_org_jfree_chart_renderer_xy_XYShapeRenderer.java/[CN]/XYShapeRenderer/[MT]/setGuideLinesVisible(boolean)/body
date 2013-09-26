@@ -1,0 +1,4 @@
+{
+  this.guideLinesVisible=visible;
+  fireChangeEvent();
+}

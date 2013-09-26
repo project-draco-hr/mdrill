@@ -1,0 +1,6 @@
+{
+  if (this.propertyChangeHandler == null) {
+    this.propertyChangeHandler=new ActionEnablePropertyChangeHandler();
+  }
+  return this.propertyChangeHandler;
+}

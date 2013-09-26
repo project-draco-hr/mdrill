@@ -1,0 +1,4 @@
+{
+  filename=processFilename(filename);
+  return Loader.class.getResourceAsStream(filename);
+}

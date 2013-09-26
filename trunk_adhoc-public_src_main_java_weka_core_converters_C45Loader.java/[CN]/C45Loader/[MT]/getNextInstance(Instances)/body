@@ -1,0 +1,27 @@
+{
+  if (m_sourceFile == null) {
+    throw new IOException("No source has been specified");
+  }
+  if (getRetrieval() == BATCH) {
+    throw new IOException("Cannot mix getting Instances in both incremental and batch modes");
+  }
+  setRetrieval(INCREMENTAL);
+  if (m_structure == null) {
+    getStructure();
+  }
+  StreamTokenizer st=new StreamTokenizer(m_dataReader);
+  initTokenizer(st);
+  Instance nextI=getInstance(st);
+  if (nextI != null) {
+    nextI.setDataset(m_structure);
+  }
+ else {
+    try {
+      m_dataReader.close();
+    }
+ catch (    Exception ex) {
+      ex.printStackTrace();
+    }
+  }
+  return nextI;
+}

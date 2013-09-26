@@ -1,0 +1,10 @@
+{
+  final PropertyDescriptor pdesc=getPropertyDescriptor(propertyName);
+  if (pdesc == null) {
+    throw new ObjectDescriptionException("Unknown property " + propertyName);
+  }
+  if (!isAssignableOrPrimitive(pdesc.getPropertyType(),value.getClass())) {
+    throw new ObjectDescriptionException("Invalid value: " + pdesc.getPropertyType() + " vs. "+ value.getClass());
+  }
+  this.propertyValues.put(propertyName,value);
+}

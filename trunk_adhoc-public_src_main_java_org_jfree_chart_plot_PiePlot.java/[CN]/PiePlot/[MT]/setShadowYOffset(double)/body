@@ -1,0 +1,4 @@
+{
+  this.shadowYOffset=offset;
+  fireChangeEvent();
+}

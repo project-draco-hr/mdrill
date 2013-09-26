@@ -1,0 +1,3 @@
+{
+  setSeriesShapesFilled(series,BooleanUtilities.valueOf(flag));
+}

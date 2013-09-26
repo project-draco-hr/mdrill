@@ -1,0 +1,12 @@
+{
+  super(eval.m_Header,eval.m_CostMatrix);
+  m_NoPriors=eval.m_NoPriors;
+  m_NumTrainClassVals=eval.m_NumTrainClassVals;
+  m_TrainClassVals=eval.m_TrainClassVals;
+  m_TrainClassWeights=eval.m_TrainClassWeights;
+  m_PriorEstimator=eval.m_PriorEstimator;
+  m_MinTarget=eval.m_MinTarget;
+  m_MaxTarget=eval.m_MaxTarget;
+  m_ClassPriorsSum=eval.m_ClassPriorsSum;
+  m_ClassPriors=eval.m_ClassPriors;
+}

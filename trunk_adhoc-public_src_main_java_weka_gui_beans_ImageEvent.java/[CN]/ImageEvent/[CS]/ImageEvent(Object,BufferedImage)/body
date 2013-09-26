@@ -1,0 +1,4 @@
+{
+  super(source);
+  m_image=image;
+}

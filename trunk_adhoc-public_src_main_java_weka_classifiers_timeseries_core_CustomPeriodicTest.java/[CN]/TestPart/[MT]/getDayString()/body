@@ -1,0 +1,24 @@
+{
+  if (m_day_of_week == Calendar.SUNDAY) {
+    return "sun";
+  }
+  if (m_day_of_week == Calendar.MONDAY) {
+    return "mon";
+  }
+  if (m_day_of_week == Calendar.TUESDAY) {
+    return "tue";
+  }
+  if (m_day_of_week == Calendar.WEDNESDAY) {
+    return "wed";
+  }
+  if (m_day_of_week == Calendar.THURSDAY) {
+    return "thu";
+  }
+  if (m_day_of_week == Calendar.FRIDAY) {
+    return "fri";
+  }
+  if (m_day_of_week == Calendar.SATURDAY) {
+    return "sat";
+  }
+  return "*";
+}

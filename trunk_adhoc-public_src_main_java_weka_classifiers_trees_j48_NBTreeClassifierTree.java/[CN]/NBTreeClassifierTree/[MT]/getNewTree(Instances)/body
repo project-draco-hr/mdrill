@@ -1,0 +1,5 @@
+{
+  ClassifierTree newTree=new NBTreeClassifierTree(m_toSelectModel);
+  newTree.buildTree(data,false);
+  return newTree;
+}

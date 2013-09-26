@@ -1,0 +1,14 @@
+{
+  long t1=System.currentTimeMillis();
+  this.container=this.parse.createContainer(fields,baseDocs,this.reader,this.searcher,this.req);
+  long t2=System.currentTimeMillis();
+  QuickHashMap<GroupListCache.GroupList,RefRow> groups=this.makeTopGroups(fields);
+  long t3=System.currentTimeMillis();
+  this.transGroupValue(groups);
+  long t4=System.currentTimeMillis();
+  NamedList rtn=this.toNameList();
+  container.free(groups);
+  long t5=System.currentTimeMillis();
+  LOG.info("##FacetCross## time taken " + ",total:" + (t5 - t1) + ",init:"+ (t2 - t1)+ ",makeGroups:"+ (t3 - t2)+ ",transGroupValue:"+ (t4 - t3)+ ",groups.size:"+ groups.size());
+  return rtn;
+}

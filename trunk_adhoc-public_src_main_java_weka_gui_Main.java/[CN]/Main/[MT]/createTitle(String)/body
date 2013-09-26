@@ -1,0 +1,6 @@
+{
+  String newTitle;
+  newTitle="Weka " + new Version();
+  if (title.length() != 0)   newTitle+=" - " + title;
+  setTitle(newTitle);
+}

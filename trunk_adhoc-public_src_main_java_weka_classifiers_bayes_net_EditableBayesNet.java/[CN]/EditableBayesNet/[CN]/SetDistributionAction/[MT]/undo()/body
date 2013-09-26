@@ -1,0 +1,9 @@
+{
+  try {
+    SerializedObject so=new SerializedObject(m_CPT);
+    m_Distributions[m_nTargetNode]=(Estimator[])so.getObject();
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
+}

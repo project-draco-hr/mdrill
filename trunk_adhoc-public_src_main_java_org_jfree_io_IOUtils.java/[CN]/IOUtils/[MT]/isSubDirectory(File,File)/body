@@ -1,0 +1,12 @@
+{
+  base=base.getCanonicalFile();
+  child=child.getCanonicalFile();
+  File parentFile=child;
+  while (parentFile != null) {
+    if (base.equals(parentFile)) {
+      return true;
+    }
+    parentFile=parentFile.getParentFile();
+  }
+  return false;
+}

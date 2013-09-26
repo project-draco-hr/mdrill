@@ -1,0 +1,5 @@
+{
+  m_displayConnectors=dc;
+  m_connectorColor=Color.blue;
+  repaint();
+}

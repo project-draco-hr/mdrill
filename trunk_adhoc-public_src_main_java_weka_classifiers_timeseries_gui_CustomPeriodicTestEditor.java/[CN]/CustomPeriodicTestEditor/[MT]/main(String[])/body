@@ -1,0 +1,23 @@
+{
+  try {
+    CustomPeriodicTestEditor ed=new CustomPeriodicTestEditor(false);
+    final CustomPeriodicTest test=new CustomPeriodicTest(">1965:aug:*:*:*:28:*:*:*:*");
+    ed.setTestToEdit(test);
+    final javax.swing.JFrame jf=new javax.swing.JFrame("Periodic test editor");
+    jf.getContentPane().setLayout(new BorderLayout());
+    jf.getContentPane().add(ed,BorderLayout.CENTER);
+    jf.addWindowListener(new java.awt.event.WindowAdapter(){
+      public void windowClosing(      java.awt.event.WindowEvent e){
+        System.out.println(test.toString());
+        jf.dispose();
+        System.exit(0);
+      }
+    }
+);
+    jf.pack();
+    jf.setVisible(true);
+  }
+ catch (  Exception ex) {
+    ex.printStackTrace();
+  }
+}

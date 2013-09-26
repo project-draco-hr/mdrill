@@ -1,0 +1,13 @@
+{
+  XYDataset existing=this.dataset;
+  if (existing != null) {
+    existing.removeChangeListener(this);
+  }
+  this.dataset=dataset;
+  if (this.dataset != null) {
+    setDatasetGroup(this.dataset.getGroup());
+    this.dataset.addChangeListener(this);
+  }
+  DatasetChangeEvent event=new DatasetChangeEvent(this,this.dataset);
+  datasetChanged(event);
+}

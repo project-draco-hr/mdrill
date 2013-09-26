@@ -1,0 +1,104 @@
+{
+  try {
+    m_visual.setAnimated();
+    boolean instanceGeneration=true;
+    if (m_dataSetEventTargets > 0) {
+      instanceGeneration=false;
+      m_state=BATCH_LOADING;
+    }
+    if (m_Loader instanceof EnvironmentHandler && m_env != null) {
+      ((EnvironmentHandler)m_Loader).setEnvironment(m_env);
+    }
+    String msg=statusMessagePrefix();
+    if (m_Loader instanceof FileSourcedConverter) {
+      msg+="Loading " + ((FileSourcedConverter)m_Loader).retrieveFile().getName();
+    }
+ else {
+      msg+="Loading...";
+    }
+    if (m_log != null) {
+      m_log.statusMessage(msg);
+    }
+    if (instanceGeneration) {
+      m_state=INCREMENTAL_LOADING;
+      Instance nextInstance=null;
+      Instances structure=null;
+      try {
+        m_Loader.reset();
+        m_Loader.setRetrieval(weka.core.converters.Loader.INCREMENTAL);
+        structure=m_Loader.getStructure();
+        notifyStructureAvailable(structure);
+      }
+ catch (      IOException e) {
+        if (m_log != null) {
+          m_log.statusMessage(statusMessagePrefix() + "ERROR (See log for details");
+          m_log.logMessage("[Loader] " + statusMessagePrefix() + " "+ e.getMessage());
+        }
+        e.printStackTrace();
+      }
+      try {
+        nextInstance=m_Loader.getNextInstance(structure);
+      }
+ catch (      IOException e) {
+        if (m_log != null) {
+          m_log.statusMessage(statusMessagePrefix() + "ERROR (See log for details");
+          m_log.logMessage("[Loader] " + statusMessagePrefix() + " "+ e.getMessage());
+        }
+        e.printStackTrace();
+      }
+      int z=0;
+      while (nextInstance != null) {
+        if (m_stopped) {
+          break;
+        }
+        nextInstance.setDataset(structure);
+        m_ie.setStatus(InstanceEvent.INSTANCE_AVAILABLE);
+        m_ie.setInstance(nextInstance);
+        nextInstance=m_Loader.getNextInstance(structure);
+        if (nextInstance == null) {
+          m_ie.setStatus(InstanceEvent.BATCH_FINISHED);
+        }
+        notifyInstanceLoaded(m_ie);
+        z++;
+        if (z % 10000 == 0) {
+          if (m_log != null) {
+            m_log.statusMessage(statusMessagePrefix() + "Loaded " + z+ " instances");
+          }
+        }
+      }
+      m_visual.setStatic();
+    }
+ else {
+      m_Loader.reset();
+      m_Loader.setRetrieval(weka.core.converters.Loader.BATCH);
+      m_dataSet=m_Loader.getDataSet();
+      m_visual.setStatic();
+      if (m_log != null) {
+        m_log.logMessage("[Loader] " + statusMessagePrefix() + " loaded "+ m_dataSet.relationName());
+      }
+      notifyDataSetLoaded(new DataSetEvent(m_DP,m_dataSet));
+    }
+  }
+ catch (  Exception ex) {
+    if (m_log != null) {
+      m_log.statusMessage(statusMessagePrefix() + "ERROR (See log for details");
+      m_log.logMessage("[Loader] " + statusMessagePrefix() + " "+ ex.getMessage());
+    }
+    ex.printStackTrace();
+  }
+ finally {
+    if (Thread.currentThread().isInterrupted()) {
+      if (m_log != null) {
+        m_log.logMessage("[Loader] " + statusMessagePrefix() + " loading interrupted!");
+      }
+    }
+    m_ioThread=null;
+    m_visual.setStatic();
+    m_state=IDLE;
+    m_stopped=false;
+    if (m_log != null) {
+      m_log.statusMessage(statusMessagePrefix() + "Finished.");
+    }
+    block(false);
+  }
+}

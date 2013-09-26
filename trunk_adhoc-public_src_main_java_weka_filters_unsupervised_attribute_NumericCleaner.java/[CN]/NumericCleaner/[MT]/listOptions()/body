@@ -1,0 +1,19 @@
+{
+  Vector result;
+  Enumeration enm;
+  result=new Vector();
+  enm=super.listOptions();
+  while (enm.hasMoreElements())   result.addElement(enm.nextElement());
+  result.addElement(new Option("\tThe minimum threshold. (default -Double.MAX_VALUE)","min",1,"-min <double>"));
+  result.addElement(new Option("\tThe replacement for values smaller than the minimum threshold.\n" + "\t(default -Double.MAX_VALUE)","min-default",1,"-min-default <double>"));
+  result.addElement(new Option("\tThe maximum threshold. (default Double.MAX_VALUE)","max",1,"-max <double>"));
+  result.addElement(new Option("\tThe replacement for values larger than the maximum threshold.\n" + "\t(default Double.MAX_VALUE)","max-default",1,"-max-default <double>"));
+  result.addElement(new Option("\tThe number values are checked for closeness. (default 0)","closeto",1,"-closeto <double>"));
+  result.addElement(new Option("\tThe replacement for values that are close to '-closeto'.\n" + "\t(default 0)","closeto-default",1,"-closeto-default <double>"));
+  result.addElement(new Option("\tThe tolerance below which numbers are considered being close to \n" + "\tto each other. (default 1E-6)","closeto-tolerance",1,"-closeto-tolerance <double>"));
+  result.addElement(new Option("\tThe number of decimals to round to, -1 means no rounding at all.\n" + "\t(default -1)","decimals",1,"-decimals <int>"));
+  result.addElement(new Option("\tThe list of columns to cleanse, e.g., first-last or first-3,5-last.\n" + "\t(default first-last)","R",1,"-R <col1,col2,...>"));
+  result.addElement(new Option("\tInverts the matching sense.","V",0,"-V"));
+  result.addElement(new Option("\tWhether to include the class in the cleansing.\n" + "\tThe class column will always be skipped, if this flag is not\n" + "\tpresent. (default no)","include-class",0,"-include-class"));
+  return result.elements();
+}

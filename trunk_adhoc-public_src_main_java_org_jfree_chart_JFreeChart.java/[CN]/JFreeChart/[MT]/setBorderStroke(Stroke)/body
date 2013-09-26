@@ -1,0 +1,4 @@
+{
+  this.borderStroke=stroke;
+  fireChartChanged();
+}

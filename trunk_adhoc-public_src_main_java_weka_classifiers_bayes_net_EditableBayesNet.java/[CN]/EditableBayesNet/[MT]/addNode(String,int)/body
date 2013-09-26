@@ -1,0 +1,3 @@
+{
+  addNode(sName,nCardinality,100 + getNrOfNodes() * 10,100 + getNrOfNodes() * 10);
+}

@@ -1,0 +1,6 @@
+{
+  CheckGOE check=new CheckGOE();
+  runCheck(check,args);
+  if (check.getSuccess())   System.exit(0);
+ else   System.exit(1);
+}

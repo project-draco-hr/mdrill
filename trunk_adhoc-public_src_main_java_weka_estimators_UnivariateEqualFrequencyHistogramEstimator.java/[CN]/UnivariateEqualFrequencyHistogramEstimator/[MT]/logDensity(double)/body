@@ -1,0 +1,33 @@
+{
+  updateBoundariesAndOrWeights();
+  if (m_Boundaries == null) {
+    return Math.log(Double.MIN_VALUE);
+  }
+  int index=Arrays.binarySearch(m_Boundaries,value);
+  if ((index == -1) || (index == -m_Boundaries.length - 1)) {
+    double val=0;
+    if (index == -1) {
+      val=m_TM.firstKey() - value;
+    }
+ else {
+      val=value - m_TM.lastKey();
+    }
+    return (CONST - Math.log(m_Width) - 0.5 * (val * val / (m_Width * m_Width))) - Math.log(m_SumOfWeights + 2);
+  }
+  if (index == m_Boundaries.length - 1) {
+    index--;
+  }
+ else {
+    if (index < 0) {
+      index=-index - 2;
+    }
+  }
+  double width=m_Boundaries[index + 1] - m_Boundaries[index];
+  double densSmearedOut=1.0 / ((m_SumOfWeights + 2) * (m_Boundaries[m_Boundaries.length - 1] - m_Boundaries[0]));
+  if (m_Weights[index] <= 0) {
+    return Math.log(densSmearedOut);
+  }
+ else {
+    return Math.log(densSmearedOut + m_Weights[index] / ((m_SumOfWeights + 2) * width));
+  }
+}

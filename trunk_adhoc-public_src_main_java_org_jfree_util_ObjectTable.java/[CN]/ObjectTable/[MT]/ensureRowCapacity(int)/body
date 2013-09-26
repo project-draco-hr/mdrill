@@ -1,0 +1,7 @@
+{
+  if (row >= this.data.length) {
+    final Object[][] enlarged=new Object[row + this.rowIncrement][];
+    System.arraycopy(this.data,0,enlarged,0,this.data.length);
+    this.data=enlarged;
+  }
+}

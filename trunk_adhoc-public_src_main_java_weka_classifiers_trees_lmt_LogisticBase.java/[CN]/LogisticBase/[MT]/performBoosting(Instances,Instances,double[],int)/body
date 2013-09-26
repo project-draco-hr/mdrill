@@ -1,0 +1,32 @@
+{
+  Instances numericTrain=getNumericData(train);
+  double[][] trainYs=getYs(train);
+  double[][] trainFs=getFs(numericTrain);
+  double[][] probs=getProbs(trainFs);
+  int iteration=0;
+  int noMin=0;
+  double lastMin=Double.MAX_VALUE;
+  if (m_errorOnProbabilities)   error[0]+=getMeanAbsoluteError(test);
+ else   error[0]+=getErrorRate(test);
+  while (iteration < maxIterations) {
+    boolean foundAttribute=performIteration(iteration,trainYs,trainFs,probs,numericTrain);
+    if (foundAttribute) {
+      iteration++;
+      m_numRegressions=iteration;
+    }
+ else {
+      break;
+    }
+    if (m_errorOnProbabilities)     error[iteration]+=getMeanAbsoluteError(test);
+ else     error[iteration]+=getErrorRate(test);
+    if (noMin > m_heuristicStop)     break;
+    if (error[iteration] < lastMin) {
+      lastMin=error[iteration];
+      noMin=0;
+    }
+ else {
+      noMin++;
+    }
+  }
+  return iteration;
+}

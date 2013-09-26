@@ -3,12 +3,12 @@
   InvertResult rtn=new InvertResult();
   rtn.setParams(schema,params);
   if (params.isdetail) {
-    MdrillDetail detail=new MdrillDetail(params._searcher,this,params._params,params.req);
-    rtn.setNamelist(detail.getDetail(params.fields,params.base));
+    MdrillDetail detail=new MdrillDetail(params.searcher,this,params.params,params.req);
+    rtn.setNamelist(detail.get(params.fields,params.base));
   }
  else {
-    MdrillGroupBy groupby=new MdrillGroupBy(params._searcher,this,params._params,params.req);
-    rtn.setNamelist(groupby.getCross(params.fields,params.base));
+    MdrillGroupBy groupby=new MdrillGroupBy(params.searcher,this,params.params,params.req);
+    rtn.setNamelist(groupby.get(params.fields,params.base));
   }
   return rtn;
 }

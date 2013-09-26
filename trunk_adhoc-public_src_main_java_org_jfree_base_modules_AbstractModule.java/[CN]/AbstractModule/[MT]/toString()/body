@@ -1,0 +1,23 @@
+{
+  final StringBuffer buffer=new StringBuffer();
+  buffer.append("Module : ");
+  buffer.append(getName());
+  buffer.append("\n");
+  buffer.append("ModuleClass : ");
+  buffer.append(getModuleClass());
+  buffer.append("\n");
+  buffer.append("Version: ");
+  buffer.append(getMajorVersion());
+  buffer.append(".");
+  buffer.append(getMinorVersion());
+  buffer.append(".");
+  buffer.append(getPatchLevel());
+  buffer.append("\n");
+  buffer.append("Producer: ");
+  buffer.append(getProducer());
+  buffer.append("\n");
+  buffer.append("Description: ");
+  buffer.append(getDescription());
+  buffer.append("\n");
+  return buffer.toString();
+}

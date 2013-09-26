@@ -1,0 +1,4 @@
+XYDataset dataset
+int series
+double xLow
+double xHigh

@@ -1,0 +1,5 @@
+String title
+String timeAxisLabel
+String valueAxisLabel
+BoxAndWhiskerXYDataset dataset
+boolean legend

@@ -1,0 +1,9 @@
+{
+switch (m_Type) {
+case DATE:
+    long time=m_DateFormat.parse(string).getTime();
+  return (double)time;
+default :
+throw new IllegalArgumentException("Can only parse date values for date" + " attributes!");
+}
+}

@@ -1,0 +1,4 @@
+{
+  m_beanContext=bc;
+  m_design=m_beanContext.isDesignTime();
+}

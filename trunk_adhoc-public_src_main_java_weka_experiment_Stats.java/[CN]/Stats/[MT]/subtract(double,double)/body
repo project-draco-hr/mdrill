@@ -1,0 +1,5 @@
+{
+  sum-=value * n;
+  sumSq-=value * value * n;
+  count-=n;
+}

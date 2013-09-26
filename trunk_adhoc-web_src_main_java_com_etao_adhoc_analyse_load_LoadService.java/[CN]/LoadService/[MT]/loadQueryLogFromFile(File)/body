@@ -1,0 +1,33 @@
+{
+  if (file.isDirectory()) {
+    File[] files=file.listFiles();
+    for (    File f : files) {
+      loadQueryLogFromFile(f);
+    }
+  }
+ else   if (file.isFile()) {
+    BufferedReader br=new BufferedReader(new FileReader(file));
+    String line=null;
+    while ((line=br.readLine()) != null) {
+      String[] fields=line.split(CTRL_A);
+      Date date=null;
+      try {
+        date=sdf.parse(fields[0]);
+      }
+ catch (      ParseException e) {
+        e.printStackTrace();
+        continue;
+      }
+      System.out.println(sdf.format(date));
+      QueryLog queryLog=new QueryLog();
+      queryLog.setDate(date);
+      queryLog.setNick(fields[1]);
+      queryLog.setEmail(fields[2]);
+      queryLog.setSetName(fields[3]);
+      queryLog.setDimvalue(fields[4]);
+      queryLog.setFilter(fields[5]);
+      queryLog.setBizdate(fields[6]);
+      server.insertQueryLog(queryLog);
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  if ((index < 0) || (index >= getSubtitleCount())) {
+    throw new IllegalArgumentException("Index out of range.");
+  }
+  return (Title)this.subtitles.get(index);
+}

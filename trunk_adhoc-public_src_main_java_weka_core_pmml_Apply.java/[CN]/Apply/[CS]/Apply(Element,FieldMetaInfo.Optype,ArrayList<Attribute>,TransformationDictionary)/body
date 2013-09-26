@@ -1,0 +1,27 @@
+{
+  super(opType,fieldDefs);
+  String functionName=apply.getAttribute("function");
+  if (functionName == null || functionName.length() == 0) {
+    functionName=apply.getAttribute("name");
+  }
+  if (functionName == null || functionName.length() == 0) {
+    throw new Exception("[Apply] No function name specified!!");
+  }
+  m_function=Function.getFunction(functionName,transDict);
+  NodeList children=apply.getChildNodes();
+  for (int i=0; i < children.getLength(); i++) {
+    Node child=children.item(i);
+    if (child.getNodeType() == Node.ELEMENT_NODE) {
+      String tagName=((Element)child).getTagName();
+      if (!tagName.equals("Extension")) {
+        Expression tempExpression=Expression.getExpression(tagName,child,m_opType,m_fieldDefs,transDict);
+        if (tempExpression != null) {
+          m_arguments.add(tempExpression);
+        }
+      }
+    }
+  }
+  if (fieldDefs != null) {
+    updateDefsForArgumentsAndFunction();
+  }
+}

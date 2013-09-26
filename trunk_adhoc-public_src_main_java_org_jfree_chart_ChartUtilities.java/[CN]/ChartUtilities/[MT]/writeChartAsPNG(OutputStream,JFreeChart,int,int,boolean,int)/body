@@ -1,0 +1,3 @@
+{
+  ChartUtilities.writeChartAsPNG(out,chart,width,height,null,encodeAlpha,compression);
+}

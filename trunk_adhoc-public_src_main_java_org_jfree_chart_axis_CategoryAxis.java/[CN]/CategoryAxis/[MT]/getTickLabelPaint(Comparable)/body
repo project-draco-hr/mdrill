@@ -1,0 +1,10 @@
+{
+  if (category == null) {
+    throw new IllegalArgumentException("Null 'category' argument.");
+  }
+  Paint result=(Paint)this.tickLabelPaintMap.get(category);
+  if (result == null) {
+    result=getTickLabelPaint();
+  }
+  return result;
+}

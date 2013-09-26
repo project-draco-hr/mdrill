@@ -1,0 +1,13 @@
+{
+  if (orientation == null) {
+    throw new IllegalArgumentException("Null 'orientation' argument.");
+  }
+  if (crosshairState != null) {
+    if (this.plot.isRangeCrosshairLockedOnData()) {
+      crosshairState.updateCrosshairPoint(rowKey,columnKey,value,datasetIndex,transX,transY,orientation);
+    }
+ else {
+      crosshairState.updateCrosshairX(rowKey,columnKey,datasetIndex,transX,orientation);
+    }
+  }
+}

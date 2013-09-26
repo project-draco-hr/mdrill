@@ -1,0 +1,39 @@
+{
+  m_forecaster=forecaster;
+  if (m_instances != null) {
+    if (!m_forecaster.getTSLagMaker().getAdjustForTrends()) {
+      m_timeStampCombo.setSelectedItem("<None>");
+      m_periodicityCombo.setSelectedIndex(0);
+    }
+ else {
+      if (m_forecaster.getTSLagMaker().isUsingAnArtificialTimeIndex()) {
+        m_timeStampCombo.setSelectedItem("<Use an artificial time index>");
+      }
+ else       if (m_forecaster.getTSLagMaker().getTimeStampField() != null && m_forecaster.getTSLagMaker().getTimeStampField().length() > 0) {
+        m_timeStampCombo.setSelectedItem(m_forecaster.getTSLagMaker().getTimeStampField());
+      }
+    }
+    int maxLag=m_forecaster.getTSLagMaker().getMaxLag();
+    if (maxLag == 24) {
+      m_periodicityCombo.setSelectedItem("Hourly");
+    }
+    if (maxLag == 7) {
+      m_periodicityCombo.setSelectedItem("Daily");
+    }
+    if (maxLag == 5) {
+      m_periodicityCombo.setSelectedItem("Weekly");
+    }
+    if (maxLag == 12) {
+      m_periodicityCombo.setSelectedItem("Monthly");
+    }
+    if (maxLag == 4) {
+      m_periodicityCombo.setSelectedItem("Quarterly");
+    }
+    if (maxLag == 5) {
+      m_periodicityCombo.setSelectedItem("Yearly");
+    }
+ else {
+      m_periodicityCombo.setSelectedItem("<Unknown>");
+    }
+  }
+}

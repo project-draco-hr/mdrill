@@ -1,0 +1,4 @@
+{
+  m_URL=url;
+  setSource(new URL(url));
+}

@@ -1,0 +1,3 @@
+double xOffset
+double yOffset
+boolean renderAsPercentages

@@ -1,0 +1,3 @@
+{
+  this.chart.addSubtitle(subtitle);
+}

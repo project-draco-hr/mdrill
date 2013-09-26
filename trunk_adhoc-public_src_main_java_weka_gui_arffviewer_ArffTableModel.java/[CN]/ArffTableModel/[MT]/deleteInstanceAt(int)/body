@@ -1,0 +1,3 @@
+{
+  deleteInstanceAt(rowIndex,true);
+}

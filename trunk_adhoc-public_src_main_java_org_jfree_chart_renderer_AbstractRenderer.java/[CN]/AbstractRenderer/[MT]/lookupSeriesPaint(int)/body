@@ -1,0 +1,17 @@
+{
+  if (this.paint != null) {
+    return this.paint;
+  }
+  Paint seriesPaint=getSeriesPaint(series);
+  if (seriesPaint == null && this.autoPopulateSeriesPaint) {
+    DrawingSupplier supplier=getDrawingSupplier();
+    if (supplier != null) {
+      seriesPaint=supplier.getNextPaint();
+      setSeriesPaint(series,seriesPaint,false);
+    }
+  }
+  if (seriesPaint == null) {
+    seriesPaint=this.basePaint;
+  }
+  return seriesPaint;
+}

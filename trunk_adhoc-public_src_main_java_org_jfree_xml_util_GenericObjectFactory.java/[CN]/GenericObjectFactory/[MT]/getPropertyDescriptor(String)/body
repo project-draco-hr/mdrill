@@ -1,0 +1,3 @@
+{
+  return (PropertyDescriptor)this.propertyInfos.get(propertyName);
+}

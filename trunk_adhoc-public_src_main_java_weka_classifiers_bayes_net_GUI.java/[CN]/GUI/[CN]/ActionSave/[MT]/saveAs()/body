@@ -1,0 +1,16 @@
+{
+  JFileChooser fc=new JFileChooser(System.getProperty("user.dir"));
+  fc.addChoosableFileFilter(ef1);
+  fc.setDialogTitle("Save Graph As");
+  if (!m_sFileName.equals("")) {
+    fc.setSelectedFile(new File(m_sFileName));
+  }
+  int rval=fc.showSaveDialog(GUI.this);
+  if (rval == JFileChooser.APPROVE_OPTION) {
+    String sFileName=fc.getSelectedFile().toString();
+    if (!sFileName.endsWith(".xml"))     sFileName=sFileName.concat(".xml");
+    saveFile(sFileName);
+    return true;
+  }
+  return false;
+}

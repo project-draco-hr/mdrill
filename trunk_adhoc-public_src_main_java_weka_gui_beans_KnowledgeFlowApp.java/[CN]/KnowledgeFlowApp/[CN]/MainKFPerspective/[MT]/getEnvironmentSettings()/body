@@ -1,0 +1,6 @@
+{
+  if (getNumTabs() > 0) {
+    return getEnvironmentSettings(getCurrentTabIndex());
+  }
+  return null;
+}

@@ -1,0 +1,4 @@
+{
+  this.lines=new java.util.ArrayList();
+  this.lineAlignment=HorizontalAlignment.CENTER;
+}

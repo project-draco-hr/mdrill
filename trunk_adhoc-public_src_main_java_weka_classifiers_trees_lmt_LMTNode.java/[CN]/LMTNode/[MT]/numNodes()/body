@@ -1,0 +1,6 @@
+{
+  if (m_isLeaf)   return 1;
+  int numNodes=1;
+  for (int i=0; i < m_sons.length; i++)   numNodes+=m_sons[i].numNodes();
+  return numNodes;
+}

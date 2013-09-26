@@ -1,0 +1,25 @@
+{
+  final GeneralPath result=new GeneralPath();
+  final float x1=(float)line.getX1();
+  final float x2=(float)line.getX2();
+  final float y1=(float)line.getY1();
+  final float y2=(float)line.getY2();
+  if ((x2 - x1) != 0.0) {
+    final double theta=Math.atan((y2 - y1) / (x2 - x1));
+    final float dx=(float)Math.sin(theta) * width;
+    final float dy=(float)Math.cos(theta) * width;
+    result.moveTo(x1 - dx,y1 + dy);
+    result.lineTo(x1 + dx,y1 - dy);
+    result.lineTo(x2 + dx,y2 - dy);
+    result.lineTo(x2 - dx,y2 + dy);
+    result.closePath();
+  }
+ else {
+    result.moveTo(x1 - width / 2.0f,y1);
+    result.lineTo(x1 + width / 2.0f,y1);
+    result.lineTo(x2 + width / 2.0f,y2);
+    result.lineTo(x2 - width / 2.0f,y2);
+    result.closePath();
+  }
+  return result;
+}

@@ -1,0 +1,7 @@
+{
+  double result=Double.NaN;
+  if (this.mean != null) {
+    result=this.mean.doubleValue();
+  }
+  return result;
+}

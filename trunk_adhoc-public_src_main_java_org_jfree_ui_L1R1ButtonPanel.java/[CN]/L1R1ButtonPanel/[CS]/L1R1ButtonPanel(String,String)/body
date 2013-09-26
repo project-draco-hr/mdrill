@@ -1,0 +1,7 @@
+{
+  setLayout(new BorderLayout());
+  this.left=new JButton(leftLabel);
+  this.right=new JButton(rightLabel);
+  add(this.left,BorderLayout.WEST);
+  add(this.right,BorderLayout.EAST);
+}

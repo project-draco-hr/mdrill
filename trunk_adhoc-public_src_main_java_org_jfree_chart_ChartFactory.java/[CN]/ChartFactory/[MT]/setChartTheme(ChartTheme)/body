@@ -1,0 +1,17 @@
+{
+  if (theme == null) {
+    throw new IllegalArgumentException("Null 'theme' argument.");
+  }
+  currentTheme=theme;
+  if (theme instanceof StandardChartTheme) {
+    StandardChartTheme sct=(StandardChartTheme)theme;
+    if (sct.getName().equals("Legacy")) {
+      BarRenderer.setDefaultBarPainter(new StandardBarPainter());
+      XYBarRenderer.setDefaultBarPainter(new StandardXYBarPainter());
+    }
+ else {
+      BarRenderer.setDefaultBarPainter(new GradientBarPainter());
+      XYBarRenderer.setDefaultBarPainter(new GradientXYBarPainter());
+    }
+  }
+}

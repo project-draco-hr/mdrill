@@ -1,0 +1,10 @@
+{
+  if (this.itemLabelGenerator != null) {
+    return this.itemLabelGenerator;
+  }
+  XYItemLabelGenerator generator=(XYItemLabelGenerator)this.itemLabelGeneratorList.get(series);
+  if (generator == null) {
+    generator=this.baseItemLabelGenerator;
+  }
+  return generator;
+}

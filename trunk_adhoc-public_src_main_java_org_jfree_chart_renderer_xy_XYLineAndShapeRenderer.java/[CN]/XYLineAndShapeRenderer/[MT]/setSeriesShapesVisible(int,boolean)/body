@@ -1,0 +1,3 @@
+{
+  setSeriesShapesVisible(series,BooleanUtilities.valueOf(visible));
+}

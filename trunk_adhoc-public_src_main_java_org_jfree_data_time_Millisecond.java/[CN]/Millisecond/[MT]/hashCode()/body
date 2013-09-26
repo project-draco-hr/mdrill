@@ -1,0 +1,6 @@
+{
+  int result=17;
+  result=37 * result + this.millisecond;
+  result=37 * result + getSecond().hashCode();
+  return result;
+}

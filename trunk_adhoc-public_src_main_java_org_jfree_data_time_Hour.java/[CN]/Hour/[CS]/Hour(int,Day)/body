@@ -1,0 +1,8 @@
+{
+  if (day == null) {
+    throw new IllegalArgumentException("Null 'day' argument.");
+  }
+  this.hour=(byte)hour;
+  this.day=day;
+  peg(Calendar.getInstance());
+}

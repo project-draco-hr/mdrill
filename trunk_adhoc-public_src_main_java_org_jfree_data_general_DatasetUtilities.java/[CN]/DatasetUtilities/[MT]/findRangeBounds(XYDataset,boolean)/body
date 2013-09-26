@@ -1,0 +1,14 @@
+{
+  if (dataset == null) {
+    throw new IllegalArgumentException("Null 'dataset' argument.");
+  }
+  Range result=null;
+  if (dataset instanceof RangeInfo) {
+    RangeInfo info=(RangeInfo)dataset;
+    result=info.getRangeBounds(includeInterval);
+  }
+ else {
+    result=iterateRangeBounds(dataset,includeInterval);
+  }
+  return result;
+}

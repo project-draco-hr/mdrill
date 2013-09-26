@@ -1,0 +1,17 @@
+{
+  if (this.fileChooser == null) {
+    this.fileChooser=createFileChooser();
+  }
+  this.fileChooser.setSelectedFile(selectedFile);
+  this.fileChooser.setDialogType(dialogType);
+  final int option=this.fileChooser.showDialog(this.parent,null);
+  if (option == JFileChooser.APPROVE_OPTION) {
+    final File selFile=this.fileChooser.getSelectedFile();
+    String selFileName=selFile.getAbsolutePath();
+    if (StringUtils.endsWithIgnoreCase(selFileName,getFileExtension()) == false) {
+      selFileName=selFileName + getFileExtension();
+    }
+    return new File(selFileName);
+  }
+  return null;
+}

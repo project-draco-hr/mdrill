@@ -1,0 +1,3 @@
+{
+  m_visual.loadIcons(BeanVisual.ICON_PATH + "DefaultGraph.gif",BeanVisual.ICON_PATH + "DefaultGraph_animated.gif");
+}

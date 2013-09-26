@@ -1,0 +1,4 @@
+Vector<TempNode> anchors
+int numAnchors
+int startIdx
+int endIdx

@@ -1,0 +1,10 @@
+{
+  Capabilities result=super.getCapabilities();
+  result.disableAll();
+  result.enableAllAttributes();
+  result.enable(Capability.MISSING_VALUES);
+  result.enableAllClasses();
+  result.enable(Capability.MISSING_CLASS_VALUES);
+  if (!getMakeBinary())   result.enable(Capability.NO_CLASS);
+  return result;
+}

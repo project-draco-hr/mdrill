@@ -1,0 +1,5 @@
+{
+  XYItemRendererState state=super.initialise(g2,dataArea,plot,data,info);
+  state.setProcessVisibleItemsOnly(false);
+  return state;
+}

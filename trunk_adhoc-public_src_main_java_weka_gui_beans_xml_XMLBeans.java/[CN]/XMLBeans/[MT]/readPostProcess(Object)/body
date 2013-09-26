@@ -1,0 +1,15 @@
+{
+  Enumeration enm;
+  Vector deserialized;
+  Object key;
+  deserialized=(Vector)super.readPostProcess(o);
+  rebuildBeanConnections(deserialized,REGULAR_CONNECTION);
+  enm=m_BeanConnectionRelation.keys();
+  while (enm.hasMoreElements()) {
+    key=enm.nextElement();
+    if (!(key instanceof MetaBean))     continue;
+    rebuildBeanConnections(deserialized,key);
+  }
+  if (getDataType() == DATATYPE_USERCOMPONENTS)   removeUserToolBarBeans(deserialized);
+  return deserialized;
+}

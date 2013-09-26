@@ -1,0 +1,13 @@
+{
+  if (index >= this.data.size()) {
+    return null;
+  }
+  if (index < 0) {
+    return null;
+  }
+  final ComboBoxItemPair datacon=(ComboBoxItemPair)this.data.get(index);
+  if (datacon == null) {
+    return null;
+  }
+  return datacon.getKey();
+}

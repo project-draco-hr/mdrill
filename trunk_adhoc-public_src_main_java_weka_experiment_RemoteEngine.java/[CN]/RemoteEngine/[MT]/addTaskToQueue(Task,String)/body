@@ -1,0 +1,14 @@
+{
+  TaskStatusInfo newTask=t.getTaskStatus();
+  if (newTask == null) {
+    newTask=new TaskStatusInfo();
+  }
+  m_TaskQueue.push(t);
+  m_TaskIdQueue.push(taskId);
+  newTask.setStatusMessage("RemoteEngine (" + m_HostName + ") : task "+ taskId+ " queued at postion: "+ m_TaskQueue.size());
+  m_TaskStatus.put(taskId,newTask);
+  System.err.println("Task id : " + taskId + " Queued.");
+  if (m_TaskRunning == false) {
+    startTask();
+  }
+}

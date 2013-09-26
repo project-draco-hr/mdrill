@@ -1,0 +1,7 @@
+{
+  String[] result;
+  String tabs;
+  tabs=get("Tabs","weka.gui.explorer.ClassifierPanel,weka.gui.explorer.ClustererPanel,weka.gui.explorer.AssociationsPanel,weka.gui.explorer.AttributeSelectionPanel,weka.gui.explorer.VisualizePanel");
+  result=tabs.split(",");
+  return result;
+}

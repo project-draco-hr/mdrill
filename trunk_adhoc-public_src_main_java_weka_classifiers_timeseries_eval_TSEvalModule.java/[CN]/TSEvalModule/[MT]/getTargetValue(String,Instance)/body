@@ -1,0 +1,7 @@
+{
+  if (inst == null) {
+    return Utils.missingValue();
+  }
+  int targetIndex=inst.dataset().attribute(targetName).index();
+  return inst.value(targetIndex);
+}

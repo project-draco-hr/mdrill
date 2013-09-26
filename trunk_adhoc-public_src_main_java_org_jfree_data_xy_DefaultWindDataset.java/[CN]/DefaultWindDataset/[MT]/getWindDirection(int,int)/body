@@ -1,0 +1,5 @@
+{
+  List oneSeriesData=(List)this.allSeriesData.get(series);
+  WindDataItem windItem=(WindDataItem)oneSeriesData.get(item);
+  return windItem.getWindDirection();
+}

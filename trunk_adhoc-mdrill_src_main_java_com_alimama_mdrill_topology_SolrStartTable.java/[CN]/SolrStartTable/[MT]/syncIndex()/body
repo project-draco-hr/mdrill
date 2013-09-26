@@ -16,7 +16,7 @@
     Vertify localValue=localVertify.remove(partion);
     if (localValue == null || !localValue.getVertify().equals(hdfsValue.getVertify())) {
       this.syncPartion(partion,hdfsValue.getPath());
-      SolrResourceLoader.SetCacheFlushKey(System.currentTimeMillis());
+      SolrResourceLoader.SetCacheFlushKey(new PartionKey(this.tablename,partion),System.currentTimeMillis());
     }
   }
   this.partstat.syncClearStat();
@@ -28,7 +28,9 @@
       continue;
     }
     this.dropPartion(e.getValue().getPath());
-    SolrResourceLoader.SetCacheFlushKey(System.currentTimeMillis());
+    PartionKey p=new PartionKey(this.tablename,e.getKey());
+    SolrResourceLoader.SetCacheFlushKey(p,System.currentTimeMillis());
+    SolrResourceLoader.DropCacheFlushKey(p);
   }
   LOG.info("higolog loadIndex finish:" + this.tablename + ",ischange"+ ischange);
   return false;

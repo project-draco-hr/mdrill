@@ -1,0 +1,10 @@
+{
+  Vector newVector=new Vector(2);
+  newVector.addElement(new Option("\tSize of each bag, as a percentage of the\n" + "\ttraining set size. (default 100)","P",1,"-P"));
+  newVector.addElement(new Option("\tCalculate the out of bag error.","O",0,"-O"));
+  Enumeration enu=super.listOptions();
+  while (enu.hasMoreElements()) {
+    newVector.addElement(enu.nextElement());
+  }
+  return newVector.elements();
+}

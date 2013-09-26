@@ -1,0 +1,8 @@
+{
+  ObjectOutputStream oos;
+  if (!(stream instanceof BufferedOutputStream))   stream=new BufferedOutputStream(stream);
+  oos=new ObjectOutputStream(stream);
+  oos.writeObject(o);
+  oos.flush();
+  oos.close();
+}

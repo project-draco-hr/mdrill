@@ -1,0 +1,4 @@
+{
+  this.fieldDelimiter=fieldDelimiter;
+  this.textDelimiter=textDelimiter;
+}

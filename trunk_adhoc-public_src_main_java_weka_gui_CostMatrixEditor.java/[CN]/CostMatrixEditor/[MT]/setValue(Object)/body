@@ -1,0 +1,4 @@
+{
+  m_matrix=(CostMatrix)value;
+  m_customEditor.matrixChanged();
+}

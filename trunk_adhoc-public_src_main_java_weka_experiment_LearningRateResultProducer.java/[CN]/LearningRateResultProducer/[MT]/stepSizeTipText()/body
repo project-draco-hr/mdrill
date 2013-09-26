@@ -1,0 +1,3 @@
+{
+  return "Set the number of instances to add at each step.";
+}

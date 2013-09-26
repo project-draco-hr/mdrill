@@ -1,0 +1,3 @@
+{
+  return "Number of instances to sample. Default (-1) indicates that all " + "instances will be used for attribute estimation.";
+}

@@ -1,0 +1,7 @@
+{
+  if (m_log == null) {
+    System.err.println("Log is null");
+  }
+  m_incrementalEvent=e;
+  handleIncrementalEvent();
+}

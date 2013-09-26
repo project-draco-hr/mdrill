@@ -1,0 +1,4 @@
+{
+  this.wallPaint=paint;
+  fireChangeEvent();
+}

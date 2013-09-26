@@ -1,0 +1,5 @@
+{
+  String url=getPackageMetaDataElement("PackageURL").toString();
+  URL packageURL=new URL(url);
+  return packageURL;
+}

@@ -1,0 +1,4 @@
+double[][] props
+double[][][] dists
+int att
+Instances data

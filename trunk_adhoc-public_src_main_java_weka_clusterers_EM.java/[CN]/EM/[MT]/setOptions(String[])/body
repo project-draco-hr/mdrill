@@ -1,0 +1,18 @@
+{
+  resetOptions();
+  setDebug(Utils.getFlag('V',options));
+  String optionString=Utils.getOption('I',options);
+  if (optionString.length() != 0) {
+    setMaxIterations(Integer.parseInt(optionString));
+  }
+  optionString=Utils.getOption('N',options);
+  if (optionString.length() != 0) {
+    setNumClusters(Integer.parseInt(optionString));
+  }
+  optionString=Utils.getOption('M',options);
+  if (optionString.length() != 0) {
+    setMinStdDev((new Double(optionString)).doubleValue());
+  }
+  setDisplayModelInOldFormat(Utils.getFlag('O',options));
+  super.setOptions(options);
+}

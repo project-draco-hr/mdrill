@@ -1,0 +1,6 @@
+RectangleAnchor categoryAnchor
+TextBlockAnchor labelAnchor
+TextAnchor rotationAnchor
+double angle
+CategoryLabelWidthType widthType
+float widthRatio

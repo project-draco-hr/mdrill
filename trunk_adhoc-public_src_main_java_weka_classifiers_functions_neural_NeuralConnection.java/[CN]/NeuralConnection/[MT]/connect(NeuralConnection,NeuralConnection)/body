@@ -1,0 +1,40 @@
+{
+  if (s == null || t == null) {
+    return false;
+  }
+  disconnect(s,t);
+  if (s == t) {
+    return false;
+  }
+  if ((t.getType() & PURE_INPUT) == PURE_INPUT) {
+    return false;
+  }
+  if ((s.getType() & PURE_OUTPUT) == PURE_OUTPUT) {
+    return false;
+  }
+  if ((s.getType() & PURE_INPUT) == PURE_INPUT && (t.getType() & PURE_OUTPUT) == PURE_OUTPUT) {
+    return false;
+  }
+  if ((t.getType() & PURE_OUTPUT) == PURE_OUTPUT && t.getNumInputs() > 0) {
+    return false;
+  }
+  if ((t.getType() & PURE_OUTPUT) == PURE_OUTPUT && (s.getType() & OUTPUT) == OUTPUT) {
+    return false;
+  }
+  if (!s.connectOutput(t,t.getNumInputs())) {
+    return false;
+  }
+  if (!t.connectInput(s,s.getNumOutputs() - 1)) {
+    s.disconnectOutput(t,t.getNumInputs());
+    return false;
+  }
+  if ((s.getType() & PURE_INPUT) == PURE_INPUT) {
+    t.setType(t.getType() | INPUT);
+  }
+ else   if ((t.getType() & PURE_OUTPUT) == PURE_OUTPUT) {
+    s.setType(s.getType() | OUTPUT);
+  }
+  t.setType(t.getType() | CONNECTED);
+  s.setType(s.getType() | CONNECTED);
+  return true;
+}

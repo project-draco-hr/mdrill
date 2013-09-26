@@ -1,0 +1,3 @@
+{
+  return generateLabelString(dataset,series,item);
+}

@@ -1,0 +1,43 @@
+{
+  Stack<Double> operands=new Stack<Double>();
+  for (int i=0; i < m_postFixExpVector.size(); i++) {
+    Object nextob=m_postFixExpVector.elementAt(i);
+    if (nextob instanceof NumericOperand) {
+      operands.push(new Double(((NumericOperand)nextob).m_numericConst));
+    }
+ else     if (nextob instanceof AttributeOperand) {
+      double value=vals[((AttributeOperand)nextob).m_attributeIndex];
+      if (((AttributeOperand)nextob).m_negative) {
+        value=-value;
+      }
+      operands.push(new Double(value));
+    }
+ else     if (nextob instanceof Operator) {
+      char op=((Operator)nextob).m_operator;
+      if (isUnaryFunction(op)) {
+        double operand=((Double)operands.pop()).doubleValue();
+        double result=((Operator)nextob).applyFunction(operand);
+        operands.push(new Double(result));
+      }
+ else {
+        double second=((Double)operands.pop()).doubleValue();
+        double first=((Double)operands.pop()).doubleValue();
+        double result=((Operator)nextob).applyOperator(first,second);
+        operands.push(new Double(result));
+      }
+    }
+ else {
+      throw new Exception("Unknown object in postfix vector!");
+    }
+  }
+  if (operands.size() != 1) {
+    throw new Exception("Problem applying function");
+  }
+  Double result=((Double)operands.pop());
+  if (result.isNaN() || result.isInfinite()) {
+    vals[vals.length - 1]=Utils.missingValue();
+  }
+ else {
+    vals[vals.length - 1]=result.doubleValue();
+  }
+}

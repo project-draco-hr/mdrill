@@ -1,0 +1,3 @@
+{
+  if (newSortColumn >= -1)   m_SortColumn=newSortColumn;
+}

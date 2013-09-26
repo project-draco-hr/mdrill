@@ -1,0 +1,6 @@
+{
+  if (this.useYInterval != use) {
+    this.useYInterval=use;
+    fireChangeEvent();
+  }
+}

@@ -22,6 +22,7 @@
       WebServiceParams.setGroupByQuery(query,fqList,groupbyFields,minstart,maxEend,distStatFieldMap,commonStatMap,sortType,joins,null);
       LOG.info("queryinfo:" + shard.urlMain + "/select/?"+ query.toString());
       QueryResponse qr=server.query(query,SolrRequest.METHOD.POST);
+      jsonObj.put("__timedebug",qr.getTimetaken().toString());
       LinkedHashMap<String,Count> groupValueCache=WebServiceParams.setGroupByResult(jsonObj,qr,groupbyFields,showFields,joins,null);
       if (jsonObj.getLong("total") > (UniqConfig.defaultCrossMaxLimit() - 10) && groupValueCache.size() <= UniqConfig.defaultCrossMaxLimit() && jsonObj.getString("code").equals("1")) {
         try {
@@ -29,6 +30,7 @@
           WebServiceParams.setGroupByQuery(query,fqList,groupbyFields,0,Math.min(groupValueCache.size() * 10,UniqConfig.defaultCrossMaxLimit()),distStatFieldMap,commonStatMap,sortType,joins,groupValueCache);
           LOG.info("queryinfo_pre:" + shard.urlMain + "/select/?"+ query.toString());
           QueryResponse qr2=server.query(query,SolrRequest.METHOD.POST);
+          jsonObj.put("__timedebug_qr2",qr2.getTimetaken().toString());
           WebServiceParams.setGroupByResult(jsonObj,qr2,groupbyFields,showFields,joins,groupValueCache);
         }
  catch (        Exception e2) {
@@ -78,12 +80,14 @@
       WebServiceParams.setGroupByQuery(query,fqList,groupFieldsEmpty,start,rows,distStatFieldMap,commonStatMap,sortType,joins,null);
       LOG.info("queryinfo:" + shard.urlMain + "/select/?"+ query.toString());
       QueryResponse qr=server.query(query,SolrRequest.METHOD.POST);
+      jsonObj.put("__timedebug",qr.getTimetaken().toString());
       WebServiceParams.setGroupByResult(jsonObj,qr,groupbyFields,showFields,joins,null);
     }
  else {
       WebServiceParams.setDetailByQuery(query,fqList,showFields,start,rows,sortType,joins);
       LOG.info("queryinfo:" + shard.urlMain + "/select/?"+ query.toString());
       QueryResponse qr=server.query(query,SolrRequest.METHOD.POST);
+      jsonObj.put("__timedebug",qr.getTimetaken().toString());
       WebServiceParams.setDetailResult(jsonObj,qr,showFields,joins);
     }
   }

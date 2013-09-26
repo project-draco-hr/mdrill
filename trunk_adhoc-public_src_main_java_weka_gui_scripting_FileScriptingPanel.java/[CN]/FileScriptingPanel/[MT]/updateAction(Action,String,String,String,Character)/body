@@ -1,0 +1,13 @@
+{
+  Action result;
+  if (action == null) {
+    result=m_Actions.get(name);
+    return result;
+  }
+  result=action;
+  if ((name != null) && (name.length() > 0))   result.putValue(Action.NAME,name);
+  if ((icon != null) && (icon.length() > 0))   result.putValue(Action.SMALL_ICON,ComponentHelper.getImageIcon(icon));
+  if ((accel != null) && (accel.length() > 0))   result.putValue(Action.ACCELERATOR_KEY,KeyStroke.getKeyStroke(accel));
+  if (mnemonic != null)   result.putValue(Action.MNEMONIC_KEY,new Integer(mnemonic.charValue()));
+  return result;
+}

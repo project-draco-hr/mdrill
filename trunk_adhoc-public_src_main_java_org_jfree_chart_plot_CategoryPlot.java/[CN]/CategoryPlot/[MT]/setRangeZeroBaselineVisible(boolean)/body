@@ -1,0 +1,4 @@
+{
+  this.rangeZeroBaselineVisible=visible;
+  fireChangeEvent();
+}

@@ -1,0 +1,8 @@
+{
+  reset();
+  if (dir == null) {
+    throw new IOException("Source directory object is null!");
+  }
+  m_sourceFile=dir;
+  if (!dir.exists() || !dir.isDirectory())   throw new IOException("Directory '" + dir + "' not found");
+}

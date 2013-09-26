@@ -1,0 +1,9 @@
+{
+  Vector vi=(Vector)getObject();
+  if (vi != null) {
+    return vi.getY();
+  }
+ else {
+    return Double.NaN;
+  }
+}

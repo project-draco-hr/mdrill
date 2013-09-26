@@ -1,0 +1,14 @@
+{
+  Vector l;
+synchronized (this) {
+    l=(Vector)m_testListeners.clone();
+  }
+  if (l.size() > 0) {
+    for (int i=0; i < l.size(); i++) {
+      if (m_foldThread == null) {
+        break;
+      }
+      ((TestSetListener)l.elementAt(i)).acceptTestSet(tse);
+    }
+  }
+}

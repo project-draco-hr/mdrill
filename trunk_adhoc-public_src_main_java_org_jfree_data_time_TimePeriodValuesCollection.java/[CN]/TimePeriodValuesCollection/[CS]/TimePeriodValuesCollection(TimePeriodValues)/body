@@ -1,0 +1,9 @@
+{
+  this.data=new java.util.ArrayList();
+  this.xPosition=TimePeriodAnchor.MIDDLE;
+  this.domainIsPointsInTime=false;
+  if (series != null) {
+    this.data.add(series);
+    series.addChangeListener(this);
+  }
+}

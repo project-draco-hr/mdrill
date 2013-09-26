@@ -1,0 +1,4 @@
+{
+  this.useOutlinePaint=use;
+  fireChangeEvent();
+}

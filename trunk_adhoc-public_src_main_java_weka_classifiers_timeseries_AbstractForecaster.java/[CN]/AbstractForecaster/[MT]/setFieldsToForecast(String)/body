@@ -1,0 +1,3 @@
+{
+  m_fieldsToForecast=stringToList(targets);
+}

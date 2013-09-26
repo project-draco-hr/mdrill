@@ -1,0 +1,6 @@
+{
+  if (n instanceof GraphNode && ((GraphNode)n).ID.equalsIgnoreCase(this.ID)) {
+    return true;
+  }
+ else   return false;
+}

@@ -1,0 +1,3 @@
+{
+  BaseBoot.getConfiguration().setConfigProperty(LOGLEVEL,level);
+}

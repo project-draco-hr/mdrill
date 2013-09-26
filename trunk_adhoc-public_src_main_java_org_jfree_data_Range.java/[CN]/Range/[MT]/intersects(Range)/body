@@ -1,0 +1,3 @@
+{
+  return intersects(range.getLowerBound(),range.getUpperBound());
+}

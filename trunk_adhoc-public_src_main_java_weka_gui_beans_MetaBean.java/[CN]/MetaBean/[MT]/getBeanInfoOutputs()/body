@@ -1,0 +1,3 @@
+{
+  return getBeanInfos(m_outputs,2);
+}

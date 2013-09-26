@@ -1,0 +1,3 @@
+{
+  return "Turns on the output of debugging information.";
+}

@@ -1,0 +1,7 @@
+{
+  String selected=m_timeStampCombo.getSelectedItem().toString();
+  if (!selected.equals("<None>") && !selected.equals("<Use an artificial time index>")) {
+    return true;
+  }
+  return false;
+}

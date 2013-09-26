@@ -1,0 +1,36 @@
+{
+  nextToken("error occurred in node_id");
+  if (m_st.ttype == '}') {
+    if (t == 0) {
+      m_nodes.addElement(new InfoObject(s));
+    }
+    m_st.pushBack();
+  }
+ else   if (m_st.ttype == '-') {
+    nextToken("error occurred checking for an edge");
+    if (m_st.ttype == '>') {
+      edgeStmt(s);
+    }
+ else {
+      System.out.println("error occurred checking for an edge");
+    }
+  }
+ else   if (m_st.ttype == '[') {
+    if (t == 0) {
+      m_nodes.addElement(new InfoObject(s));
+      attrList((InfoObject)m_nodes.lastElement());
+    }
+ else {
+      attrList((InfoObject)m_edges.lastElement());
+    }
+  }
+ else   if (m_st.sval != null) {
+    if (t == 0) {
+      m_nodes.addElement(new InfoObject(s));
+    }
+    m_st.pushBack();
+  }
+ else {
+    System.out.println("error occurred in node_id");
+  }
+}

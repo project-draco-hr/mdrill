@@ -1,0 +1,6 @@
+{
+  double temp=(yval - m_minY) / m_rangeY;
+  temp=temp * (double)m_panelHeight;
+  temp=m_panelHeight - temp;
+  return (int)temp;
+}

@@ -1,0 +1,4 @@
+{
+  this.data=new DefaultKeyedValue(key,value);
+  notifyListeners(new DatasetChangeEvent(this,this));
+}

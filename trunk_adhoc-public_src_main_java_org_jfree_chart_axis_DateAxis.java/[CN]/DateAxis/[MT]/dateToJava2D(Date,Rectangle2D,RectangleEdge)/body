@@ -1,0 +1,4 @@
+{
+  double value=date.getTime();
+  return valueToJava2D(value,area,edge);
+}

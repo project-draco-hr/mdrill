@@ -1,0 +1,4 @@
+{
+  m_distribution=new Distribution(distribution);
+  m_numSubsets=1;
+}

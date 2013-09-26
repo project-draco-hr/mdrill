@@ -1,0 +1,10 @@
+{
+  if (dataset != null) {
+    Range r=DatasetUtilities.findRangeBounds(dataset,false);
+    double offset=0;
+    return new Range(r.getLowerBound() + offset,r.getUpperBound() + offset);
+  }
+ else {
+    return null;
+  }
+}

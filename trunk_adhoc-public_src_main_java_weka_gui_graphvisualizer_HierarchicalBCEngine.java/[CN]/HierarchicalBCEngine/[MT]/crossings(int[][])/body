@@ -1,0 +1,104 @@
+{
+  int sum=0;
+  for (int i=0; i < levels.length - 1; i++) {
+    MyList upper=new MyList(), lower=new MyList();
+    MyListNode lastOcrnce[]=new MyListNode[m_nodes.size()];
+    int edgeOcrnce[]=new int[m_nodes.size()];
+    for (int j=0, uidx=0, lidx=0; j < (levels[i].length + levels[i + 1].length); j++) {
+      if ((j % 2 == 0 && uidx < levels[i].length) || lidx >= levels[i + 1].length) {
+        int k1=0, k2=0, k3=0;
+        GraphNode n=(GraphNode)m_nodes.elementAt(levels[i][uidx]);
+        if (lastOcrnce[levels[i][uidx]] != null) {
+          MyListNode temp=new MyListNode(-1);
+          temp.next=upper.first;
+          try {
+            do {
+              temp=temp.next;
+              if (levels[i][uidx] == temp.n) {
+                k1=k1 + 1;
+                k3=k3 + k2;
+                upper.remove(temp);
+              }
+ else               k2=k2 + 1;
+            }
+ while (temp != lastOcrnce[levels[i][uidx]]);
+          }
+ catch (          NullPointerException ex) {
+            System.out.println("levels[i][uidx]: " + levels[i][uidx] + " which is: "+ ((GraphNode)m_nodes.elementAt(levels[i][uidx])).ID+ " temp: "+ temp+ " upper.first: "+ upper.first);
+            ex.printStackTrace();
+            System.exit(-1);
+          }
+          lastOcrnce[levels[i][uidx]]=null;
+          sum=sum + k1 * lower.size() + k3;
+        }
+        for (int k=0; k < n.edges.length; k++) {
+          if (n.edges[k][1] > 0)           try {
+            if (indexOfElementInLevel(n.edges[k][0],levels[i + 1]) >= uidx) {
+              edgeOcrnce[n.edges[k][0]]=1;
+            }
+          }
+ catch (          Exception ex) {
+            ex.printStackTrace();
+          }
+        }
+        for (int k=0; k < levels[i + 1].length; k++) {
+          if (edgeOcrnce[levels[i + 1][k]] == 1) {
+            MyListNode temp=new MyListNode(levels[i + 1][k]);
+            lower.add(temp);
+            lastOcrnce[levels[i + 1][k]]=temp;
+            edgeOcrnce[levels[i + 1][k]]=0;
+          }
+        }
+        uidx++;
+      }
+ else {
+        int k1=0, k2=0, k3=0;
+        GraphNode n=(GraphNode)m_nodes.elementAt(levels[i + 1][lidx]);
+        if (lastOcrnce[levels[i + 1][lidx]] != null) {
+          MyListNode temp=new MyListNode(-1);
+          temp.next=lower.first;
+          try {
+            do {
+              temp=temp.next;
+              if (levels[i + 1][lidx] == temp.n) {
+                k1=k1 + 1;
+                k3=k3 + k2;
+                lower.remove(temp);
+              }
+ else               k2=k2 + 1;
+            }
+ while (temp != lastOcrnce[levels[i + 1][lidx]]);
+          }
+ catch (          NullPointerException ex) {
+            System.out.print("levels[i+1][lidx]: " + levels[i + 1][lidx] + " which is: "+ ((GraphNode)m_nodes.elementAt(levels[i + 1][lidx])).ID+ " temp: "+ temp);
+            System.out.println(" lower.first: " + lower.first);
+            ex.printStackTrace();
+            System.exit(-1);
+          }
+          lastOcrnce[levels[i + 1][lidx]]=null;
+          sum=sum + k1 * upper.size() + k3;
+        }
+        for (int k=0; k < n.edges.length; k++) {
+          if (n.edges[k][1] < 0)           try {
+            if (indexOfElementInLevel(n.edges[k][0],levels[i]) > lidx) {
+              edgeOcrnce[n.edges[k][0]]=1;
+            }
+          }
+ catch (          Exception ex) {
+            ex.printStackTrace();
+          }
+        }
+        for (int k=0; k < levels[i].length; k++) {
+          if (edgeOcrnce[levels[i][k]] == 1) {
+            MyListNode temp=new MyListNode(levels[i][k]);
+            upper.add(temp);
+            lastOcrnce[levels[i][k]]=temp;
+            edgeOcrnce[levels[i][k]]=0;
+          }
+        }
+        lidx++;
+      }
+    }
+  }
+  return sum;
+}

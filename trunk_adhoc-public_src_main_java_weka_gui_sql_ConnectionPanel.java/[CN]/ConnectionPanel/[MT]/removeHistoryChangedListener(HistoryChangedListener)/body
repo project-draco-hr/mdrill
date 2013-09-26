@@ -1,0 +1,3 @@
+{
+  m_HistoryChangedListeners.remove(l);
+}

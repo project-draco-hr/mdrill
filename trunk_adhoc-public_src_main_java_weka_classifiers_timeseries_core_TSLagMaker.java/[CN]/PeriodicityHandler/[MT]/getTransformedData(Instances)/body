@@ -1,0 +1,56 @@
+{
+  m_originalHeader=new Instances(insts,0);
+  Instances result=insts;
+  m_lastHistoricInstance=result.instance(result.numInstances() - 1);
+  setupPeriodicMaps(result);
+  result=removeExtraneousAttributes(insts);
+  m_lastTimeValue=-1;
+  if (m_adjustForTrends && (m_timeStampName == null || m_timeStampName.length() == 0 || insts.attribute(m_timeStampName) == null)) {
+    m_artificialTimeMaker=new AddID();
+    m_artificialTimeMaker.setAttributeName("ArtificialTimeIndex");
+    m_artificialTimeMaker.setIDIndex("last");
+    m_artificialTimeMaker.setInputFormat(result);
+    result=Filter.useFilter(result,m_artificialTimeMaker);
+    m_useArtificialTimeIndex=true;
+    m_timeStampName="ArtificialTimeIndex";
+  }
+ else {
+    m_useArtificialTimeIndex=false;
+  }
+  if (m_adjustForTrends) {
+    int timeStampIndex=result.attribute(m_timeStampName).index();
+    m_lastTimeValue=result.instance(result.numInstances() - 1).value(timeStampIndex);
+    Instance last=result.instance(result.numInstances() - 1);
+    Instance secondToLast=result.instance(result.numInstances() - 2);
+    result=setupDerivedPeriodics(result);
+    result=createDateTimestampRemap(result);
+  }
+  result=createVarianceAdjusters(result);
+  result=createLags(result);
+  result=createAveragedLags(result);
+  result=createTimeIndexes(result);
+  if (m_includeTimeLagCrossProducts) {
+    result=createTimeLagCrossProducts(result);
+  }
+  if (m_deleteMissingFromStartOfSeries) {
+    int start=0;
+    for (int i=0; i <= m_maxLag; i++) {
+      boolean ok=true;
+      for (int j=0; j < result.numAttributes(); j++) {
+        if (result.instance(i).isMissing(j)) {
+          ok=false;
+          break;
+        }
+      }
+      if (!ok) {
+        start++;
+      }
+ else {
+        break;
+      }
+    }
+    System.err.println("******** Discarding " + start + " instances from the start.");
+    result=new Instances(result,start,result.numInstances() - start);
+  }
+  return result;
+}

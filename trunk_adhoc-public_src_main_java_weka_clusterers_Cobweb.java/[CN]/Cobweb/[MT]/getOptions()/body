@@ -1,0 +1,13 @@
+{
+  int i;
+  Vector<String> result;
+  String[] options;
+  result=new Vector<String>();
+  result.add("-A");
+  result.add("" + m_acuity);
+  result.add("-C");
+  result.add("" + m_cutoff);
+  options=super.getOptions();
+  for (i=0; i < options.length; i++)   result.add(options[i]);
+  return result.toArray(new String[result.size()]);
+}

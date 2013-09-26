@@ -1,0 +1,6 @@
+{
+  if (m_testData == null || m_testData.numInstances() == 0) {
+    throw new Exception("Can't forecast beyond the end of the" + " test instances because no test instances have been " + "supplied!");
+  }
+  return printFutureForecast(forecaster,m_testFuture,m_testData);
+}

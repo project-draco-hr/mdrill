@@ -1,0 +1,4 @@
+{
+  this(name,version,licenceName,info);
+  setCopyright(copyright);
+}

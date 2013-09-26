@@ -1,0 +1,7 @@
+{
+  if (m_RecalcHashCode) {
+    m_HashCode=toString().hashCode();
+    m_RecalcHashCode=false;
+  }
+  return m_HashCode;
+}

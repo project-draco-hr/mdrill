@@ -1,0 +1,24 @@
+{
+  if (y.getColumnDimension() > 1)   throw new IllegalArgumentException("Only one dependent variable allowed");
+  int nc=a.getColumnDimension();
+  m_Coefficients=new double[nc];
+  Matrix xt=a.transpose();
+  Matrix solution;
+  boolean success=true;
+  do {
+    Matrix ss=xt.times(a);
+    for (int i=0; i < nc; i++)     ss.set(i,i,ss.get(i,i) + ridge);
+    Matrix bb=xt.times(y);
+    for (int i=0; i < nc; i++)     m_Coefficients[i]=bb.get(i,0);
+    try {
+      solution=ss.solve(new Matrix(m_Coefficients,m_Coefficients.length));
+      for (int i=0; i < nc; i++)       m_Coefficients[i]=solution.get(i,0);
+      success=true;
+    }
+ catch (    Exception ex) {
+      ridge*=10;
+      success=false;
+    }
+  }
+ while (!success);
+}

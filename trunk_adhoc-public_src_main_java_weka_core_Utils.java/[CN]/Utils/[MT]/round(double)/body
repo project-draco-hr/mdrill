@@ -1,0 +1,4 @@
+{
+  int roundedValue=value > 0 ? (int)(value + 0.5) : -(int)(Math.abs(value) + 0.5);
+  return roundedValue;
+}

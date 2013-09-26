@@ -1,0 +1,3 @@
+{
+  return "Class for constructing a forest of random trees.\n\n" + "For more information see: \n\n" + getTechnicalInformation().toString();
+}

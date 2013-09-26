@@ -1,0 +1,3 @@
+{
+  if (value.getTags() == FUNCTION_TAGS)   m_Function=value.getSelectedTag().getID();
+}

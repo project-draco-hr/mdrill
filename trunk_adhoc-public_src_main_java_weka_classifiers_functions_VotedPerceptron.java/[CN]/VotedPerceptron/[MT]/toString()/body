@@ -1,0 +1,3 @@
+{
+  return "VotedPerceptron: Number of perceptrons=" + m_K;
+}

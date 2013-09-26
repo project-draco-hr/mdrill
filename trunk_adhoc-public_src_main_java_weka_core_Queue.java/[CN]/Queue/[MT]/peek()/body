@@ -1,0 +1,6 @@
+{
+  if (m_Head == null) {
+    throw new RuntimeException("Queue is empty");
+  }
+  return m_Head.contents();
+}

@@ -1,0 +1,5 @@
+{
+  super(Point2D.class);
+  setParameterDefinition("x",Float.class);
+  setParameterDefinition("y",Float.class);
+}

@@ -1,8 +1,8 @@
 {
-  this.isSchemaReaderType=true;
   this.reader=reader;
   this.req=req;
   this.searcher=_searcher;
-  this.params=_params;
-  this.init();
+  this.parse=new MdrillParseDetail(_params);
+  this.recordCount=new RecordCountDetail();
+  this.recordCount.setFinalResult(false);
 }

@@ -1,0 +1,16 @@
+{
+  m_Data=structure;
+  if (m_Data.numAttributes() == 0) {
+    errorMessage("no header information available");
+  }
+  getFirstToken();
+  if (m_Tokenizer.ttype == StreamTokenizer.TT_EOF) {
+    return null;
+  }
+  if (m_Tokenizer.ttype == '{') {
+    return getInstanceSparse(flag);
+  }
+ else {
+    return getInstanceFull(flag);
+  }
+}

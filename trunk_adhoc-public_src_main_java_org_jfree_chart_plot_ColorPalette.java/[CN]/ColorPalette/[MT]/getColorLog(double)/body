@@ -1,0 +1,26 @@
+{
+  int izV=0;
+  double minZtmp=this.minZ;
+  double maxZtmp=this.maxZ;
+  if (this.minZ <= 0.0) {
+    this.maxZ=maxZtmp - minZtmp + 1;
+    this.minZ=1;
+    value=value - minZtmp + 1;
+  }
+  double minZlog=Math.log(this.minZ) / log10;
+  double maxZlog=Math.log(this.maxZ) / log10;
+  value=Math.log(value) / log10;
+  if (this.stepped) {
+    int numSteps=this.tickValues.length;
+    int steps=256 / (numSteps - 1);
+    izV=steps * (int)(numSteps * (value - minZlog) / (maxZlog - minZlog)) + 2;
+  }
+ else {
+    izV=(int)(253 * (value - minZlog) / (maxZlog - minZlog)) + 2;
+  }
+  izV=Math.min(izV,255);
+  izV=Math.max(izV,2);
+  this.minZ=minZtmp;
+  this.maxZ=maxZtmp;
+  return getColor(izV);
+}

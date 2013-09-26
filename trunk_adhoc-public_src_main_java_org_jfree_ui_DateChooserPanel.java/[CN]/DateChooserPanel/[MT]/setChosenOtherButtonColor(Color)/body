@@ -1,0 +1,9 @@
+{
+  if (chosenOtherButtonColor == null) {
+    throw new NullPointerException("UIColor must not be null.");
+  }
+  final Color oldValue=this.chosenOtherButtonColor;
+  this.chosenOtherButtonColor=chosenOtherButtonColor;
+  refreshButtons();
+  firePropertyChange("chosenOtherButtonColor",oldValue,chosenOtherButtonColor);
+}

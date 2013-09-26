@@ -1,0 +1,3 @@
+{
+  return "Determines the method of selecting a population. When set to true, tournament " + "selection is used (pick two at random and the highest is allowed to continue). " + "When set to false, the top scoring network structures are selected.";
+}

@@ -1,0 +1,11 @@
+AttrTypes attrTypes
+int numAtts
+int attrIndex
+int classType
+int missingLevel
+boolean attributeMissing
+boolean classMissing
+int numTrain
+int numTest
+int numClasses
+FastVector accepts

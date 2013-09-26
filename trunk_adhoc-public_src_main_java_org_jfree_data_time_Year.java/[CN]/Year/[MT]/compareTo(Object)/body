@@ -1,0 +1,14 @@
+{
+  int result;
+  if (o1 instanceof Year) {
+    Year y=(Year)o1;
+    result=this.year - y.getYear();
+  }
+ else   if (o1 instanceof RegularTimePeriod) {
+    result=0;
+  }
+ else {
+    result=1;
+  }
+  return result;
+}

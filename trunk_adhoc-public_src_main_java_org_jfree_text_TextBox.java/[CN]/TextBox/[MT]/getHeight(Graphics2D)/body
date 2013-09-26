@@ -1,0 +1,4 @@
+{
+  final Size2D d=this.textBlock.calculateDimensions(g2);
+  return this.interiorGap.extendHeight(d.getHeight());
+}

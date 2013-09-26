@@ -1,0 +1,4 @@
+{
+  this.firstItemIndex=firstItem;
+  this.lastItemIndex=lastItem;
+}

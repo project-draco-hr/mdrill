@@ -1,0 +1,3 @@
+{
+  JTableHelper.setOptimalColumnWidth(getTable());
+}

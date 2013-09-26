@@ -1,0 +1,10 @@
+{
+  String debug="(KStar.generateRandomClassColomns)";
+  Random generator=new Random(42);
+  m_RandClassCols=new int[NUM_RAND_COLS + 1][];
+  int[] classvals=classValues();
+  for (int i=0; i < NUM_RAND_COLS; i++) {
+    m_RandClassCols[i]=randomize(classvals,generator);
+  }
+  m_RandClassCols[NUM_RAND_COLS]=classvals;
+}

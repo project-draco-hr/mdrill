@@ -1,0 +1,34 @@
+{
+  if (e.getActionCommand().equals("monthSelectionChanged")) {
+    final JComboBox c=(JComboBox)e.getSource();
+    int dayOfMonth=this.chosenDate.get(Calendar.DAY_OF_MONTH);
+    this.chosenDate.set(Calendar.DAY_OF_MONTH,1);
+    this.chosenDate.set(Calendar.MONTH,c.getSelectedIndex());
+    int maxDayOfMonth=this.chosenDate.getActualMaximum(Calendar.DAY_OF_MONTH);
+    this.chosenDate.set(Calendar.DAY_OF_MONTH,Math.min(dayOfMonth,maxDayOfMonth));
+    refreshButtons();
+  }
+ else   if (e.getActionCommand().equals("yearSelectionChanged")) {
+    if (!this.refreshing) {
+      final JComboBox c=(JComboBox)e.getSource();
+      final Integer y=(Integer)c.getSelectedItem();
+      int dayOfMonth=this.chosenDate.get(Calendar.DAY_OF_MONTH);
+      this.chosenDate.set(Calendar.DAY_OF_MONTH,1);
+      this.chosenDate.set(Calendar.YEAR,y.intValue());
+      int maxDayOfMonth=this.chosenDate.getActualMaximum(Calendar.DAY_OF_MONTH);
+      this.chosenDate.set(Calendar.DAY_OF_MONTH,Math.min(dayOfMonth,maxDayOfMonth));
+      refreshYearSelector();
+      refreshButtons();
+    }
+  }
+ else   if (e.getActionCommand().equals("todayButtonClicked")) {
+    setDate(new Date());
+  }
+ else   if (e.getActionCommand().equals("dateButtonClicked")) {
+    final JButton b=(JButton)e.getSource();
+    final int i=Integer.parseInt(b.getName());
+    final Calendar cal=getFirstVisibleDate();
+    cal.add(Calendar.DATE,i);
+    setDate(cal.getTime());
+  }
+}

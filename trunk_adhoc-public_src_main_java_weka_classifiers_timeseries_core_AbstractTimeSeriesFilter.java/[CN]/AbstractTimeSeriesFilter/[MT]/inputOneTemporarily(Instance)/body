@@ -1,0 +1,12 @@
+{
+  if (getInputFormat() == null) {
+    throw new NullPointerException("No input instance format defined");
+  }
+  if (m_NewBatch) {
+    resetQueue();
+    m_NewBatch=false;
+    resetHistory();
+  }
+  Instance newInstance=historyInput(instance,true);
+  return newInstance;
+}

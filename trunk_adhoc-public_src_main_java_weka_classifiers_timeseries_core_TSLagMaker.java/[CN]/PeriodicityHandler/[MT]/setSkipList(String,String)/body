@@ -1,0 +1,120 @@
+{
+  if (aList != null && aList.length() > 0) {
+    m_skipList=new ArrayList<Object>();
+    m_trainingRemapSkipAdjust=0;
+    String[] parts=aList.split(",");
+    for (    String p : parts) {
+      p=p.trim();
+      if (m_handlerPeriodicity == Periodicity.UNKNOWN || m_handlerPeriodicity == Periodicity.HOURLY || m_handlerPeriodicity == Periodicity.DAILY || m_handlerPeriodicity == Periodicity.MONTHLY) {
+        if (p.equalsIgnoreCase("mon") || p.equalsIgnoreCase("monday")) {
+          if (m_handlerPeriodicity != Periodicity.MONTHLY)           m_skipList.add("mon");
+          continue;
+        }
+ else         if (p.equalsIgnoreCase("tue") || p.equalsIgnoreCase("tuesday")) {
+          if (m_handlerPeriodicity != Periodicity.MONTHLY)           m_skipList.add("tue");
+          continue;
+        }
+ else         if (p.equalsIgnoreCase("wed") || p.equalsIgnoreCase("wednesday")) {
+          if (m_handlerPeriodicity != Periodicity.MONTHLY)           m_skipList.add("wed");
+          continue;
+        }
+ else         if (p.equalsIgnoreCase("thu") || p.equalsIgnoreCase("thursday")) {
+          if (m_handlerPeriodicity != Periodicity.MONTHLY)           m_skipList.add("thu");
+          continue;
+        }
+ else         if (p.equalsIgnoreCase("fri") || p.equalsIgnoreCase("friday")) {
+          if (m_handlerPeriodicity != Periodicity.MONTHLY)           m_skipList.add("fri");
+          continue;
+        }
+ else         if (p.equalsIgnoreCase("sat") || p.equalsIgnoreCase("saturday")) {
+          if (m_handlerPeriodicity != Periodicity.MONTHLY)           m_skipList.add("sat");
+          continue;
+        }
+ else         if (p.equalsIgnoreCase("sun") || p.equalsIgnoreCase("sunday")) {
+          if (m_handlerPeriodicity != Periodicity.MONTHLY)           m_skipList.add("sun");
+          continue;
+        }
+ else         if (p.equalsIgnoreCase("weekend")) {
+          if (m_handlerPeriodicity != Periodicity.MONTHLY) {
+            m_skipList.add("sat");
+            m_skipList.add("sun");
+            continue;
+          }
+        }
+ else         if (p.equalsIgnoreCase("jan") || p.equalsIgnoreCase("january")) {
+          m_skipList.add("jan");
+          continue;
+        }
+ else         if (p.equalsIgnoreCase("feb") || p.equalsIgnoreCase("february")) {
+          m_skipList.add("feb");
+          continue;
+        }
+ else         if (p.equalsIgnoreCase("mar") || p.equalsIgnoreCase("march")) {
+          m_skipList.add("mar");
+          continue;
+        }
+ else         if (p.equalsIgnoreCase("apr") || p.equalsIgnoreCase("april")) {
+          m_skipList.add("apr");
+          continue;
+        }
+ else         if (p.equalsIgnoreCase("may")) {
+          m_skipList.add("may");
+          continue;
+        }
+ else         if (p.equalsIgnoreCase("jun") || p.equalsIgnoreCase("june")) {
+          m_skipList.add("jun");
+          continue;
+        }
+ else         if (p.equalsIgnoreCase("jul") || p.equalsIgnoreCase("july")) {
+          m_skipList.add("jul");
+          continue;
+        }
+ else         if (p.equalsIgnoreCase("aug") || p.equalsIgnoreCase("august")) {
+          m_skipList.add("aug");
+          continue;
+        }
+ else         if (p.equalsIgnoreCase("sep") || p.equalsIgnoreCase("september")) {
+          m_skipList.add("sep");
+          continue;
+        }
+ else         if (p.equalsIgnoreCase("oct") || p.equalsIgnoreCase("october")) {
+          m_skipList.add("oct");
+          continue;
+        }
+ else         if (p.equalsIgnoreCase("nov") || p.equalsIgnoreCase("november")) {
+          m_skipList.add("nov");
+          continue;
+        }
+ else         if (p.equalsIgnoreCase("dec") || p.equalsIgnoreCase("december")) {
+          m_skipList.add("dec");
+          continue;
+        }
+      }
+      try {
+        int num=Integer.parseInt(p);
+        m_skipList.add(new Integer(p));
+        continue;
+      }
+ catch (      NumberFormatException n) {
+      }
+      if (dateFormat != null && dateFormat.length() > 0) {
+        String datePart=p;
+        if (p.indexOf('@') > 0) {
+          String[] dateParts=p.split("@");
+          datePart=dateParts[0];
+          dateFormat=dateParts[1];
+        }
+        SimpleDateFormat sdf=new SimpleDateFormat();
+        sdf.applyPattern(dateFormat);
+        try {
+          Date d=sdf.parse(datePart);
+          m_skipList.add(d);
+          continue;
+        }
+ catch (        ParseException e) {
+        }
+      }
+      throw new Exception("Unrecognized skip entry string : " + p);
+    }
+  }
+}

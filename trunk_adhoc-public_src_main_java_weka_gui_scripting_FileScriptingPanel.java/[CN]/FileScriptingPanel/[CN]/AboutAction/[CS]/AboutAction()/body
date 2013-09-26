@@ -1,0 +1,4 @@
+{
+  super("About...","","F1",'A');
+  setEnabled(true);
+}

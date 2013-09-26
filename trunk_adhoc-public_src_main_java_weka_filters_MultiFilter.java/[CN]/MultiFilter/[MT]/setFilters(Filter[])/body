@@ -1,0 +1,4 @@
+{
+  m_Filters=filters;
+  reset();
+}

@@ -1,0 +1,3 @@
+{
+  return "Radial kernel: K(x,y) = exp(-" + m_gamma + " * ||x - y||^2)";
+}

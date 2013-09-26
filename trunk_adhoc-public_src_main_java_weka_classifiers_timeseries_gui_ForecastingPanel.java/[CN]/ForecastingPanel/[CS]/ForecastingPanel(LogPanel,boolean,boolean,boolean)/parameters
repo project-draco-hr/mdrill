@@ -1,0 +1,4 @@
+LogPanel log
+boolean displayLogWelcome
+boolean allowSeparateTestSet
+boolean kfPerspective

@@ -1,0 +1,3 @@
+{
+  ((CheckBoxListModel)getModel()).setChecked(index,checked);
+}

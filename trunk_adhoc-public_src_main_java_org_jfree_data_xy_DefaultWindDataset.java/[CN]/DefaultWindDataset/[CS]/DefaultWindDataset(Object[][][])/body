@@ -1,0 +1,3 @@
+{
+  this(seriesNameListFromDataArray(data),data);
+}

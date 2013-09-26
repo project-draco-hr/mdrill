@@ -1,0 +1,13 @@
+{
+  if (s != null) {
+    m_localGraphicsState.setStroke(s);
+    if (s.equals(m_psGraphicsState.getStroke())) {
+      return;
+    }
+    m_psGraphicsState.setStroke(s);
+  }
+ else {
+    m_localGraphicsState.setStroke(new BasicStroke());
+    m_psGraphicsState.setStroke(getStroke());
+  }
+}

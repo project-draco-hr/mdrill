@@ -1,0 +1,43 @@
+{
+  Instances result;
+  FastVector atts;
+  int i;
+  int numAtts;
+  Vector<Integer> indices;
+  Vector<Integer> subset;
+  Random rand;
+  int index;
+  numAtts=inputFormat.numAttributes();
+  if (inputFormat.classIndex() > -1)   numAtts--;
+  if (m_NumAttributes < 1) {
+    numAtts=(int)Math.round((double)numAtts * m_NumAttributes);
+  }
+ else {
+    if (m_NumAttributes < numAtts)     numAtts=(int)m_NumAttributes;
+  }
+  if (getDebug())   System.out.println("# of atts: " + numAtts);
+  indices=new Vector<Integer>();
+  for (i=0; i < inputFormat.numAttributes(); i++) {
+    if (i == inputFormat.classIndex())     continue;
+    indices.add(i);
+  }
+  subset=new Vector<Integer>();
+  rand=new Random(m_Seed);
+  for (i=0; i < numAtts; i++) {
+    index=rand.nextInt(indices.size());
+    subset.add(indices.get(index));
+    indices.remove(index);
+  }
+  Collections.sort(subset);
+  if (inputFormat.classIndex() > -1)   subset.add(inputFormat.classIndex());
+  if (getDebug())   System.out.println("indices: " + subset);
+  atts=new FastVector();
+  m_Indices=new int[subset.size()];
+  for (i=0; i < subset.size(); i++) {
+    atts.addElement(inputFormat.attribute(subset.get(i)));
+    m_Indices[i]=subset.get(i);
+  }
+  result=new Instances(inputFormat.relationName(),atts,0);
+  if (inputFormat.classIndex() > -1)   result.setClassIndex(result.numAttributes() - 1);
+  return result;
+}

@@ -1,0 +1,11 @@
+{
+  final JCommonInfo info=JCommonInfo.getInstance();
+  setName("JCommon-XML");
+  setVersion(info.getVersion());
+  setInfo(info.getInfo());
+  setCopyright(info.getCopyright());
+  setLicenceName(info.getLicenceName());
+  setLicenceText(info.getLicenceText());
+  setContributors(Arrays.asList(new Contributor[]{new Contributor("David Gilbert","david.gilbert@object-refinery.com"),new Contributor("Thomas Morgner","taqua@users.sourceforge.net"),new Contributor("Peter Becker","-")}));
+  addLibrary(info);
+}

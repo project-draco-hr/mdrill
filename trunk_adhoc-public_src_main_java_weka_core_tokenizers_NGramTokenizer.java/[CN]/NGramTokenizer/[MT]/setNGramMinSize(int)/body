@@ -1,0 +1,4 @@
+{
+  if (value < 1)   m_NMin=1;
+ else   m_NMin=value;
+}

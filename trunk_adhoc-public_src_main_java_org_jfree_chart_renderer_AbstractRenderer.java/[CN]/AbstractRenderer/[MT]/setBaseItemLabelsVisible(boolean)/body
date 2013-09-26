@@ -1,0 +1,3 @@
+{
+  setBaseItemLabelsVisible(BooleanUtilities.valueOf(visible));
+}

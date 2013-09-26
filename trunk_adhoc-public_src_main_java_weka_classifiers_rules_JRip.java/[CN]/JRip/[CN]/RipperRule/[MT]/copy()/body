@@ -1,0 +1,6 @@
+{
+  RipperRule copy=new RipperRule();
+  copy.setConsequent(getConsequent());
+  copy.m_Antds=(FastVector)this.m_Antds.copyElements();
+  return copy;
+}

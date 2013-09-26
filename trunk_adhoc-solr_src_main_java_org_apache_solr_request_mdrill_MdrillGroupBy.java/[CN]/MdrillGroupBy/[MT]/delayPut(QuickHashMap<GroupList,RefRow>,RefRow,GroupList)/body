@@ -1,8 +1,0 @@
-{
-  if (cnt.delayPut) {
-    if (this.cmpTermNum.compare(smallestShardGroup,new ShardGroupByTermNum(group,cnt)) > 0) {
-      cnt.delayPut=false;
-      groups.put(group.copy(this.groupListCache),cnt);
-    }
-  }
-}

@@ -1,0 +1,4 @@
+{
+  this.sectionPaint=paint;
+  fireChangeEvent();
+}

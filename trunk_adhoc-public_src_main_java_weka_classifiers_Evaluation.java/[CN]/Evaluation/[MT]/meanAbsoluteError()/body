@@ -1,0 +1,3 @@
+{
+  return m_SumAbsErr / (m_WithClass - m_Unclassified);
+}

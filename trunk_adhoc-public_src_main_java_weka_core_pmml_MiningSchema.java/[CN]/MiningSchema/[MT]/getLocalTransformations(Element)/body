@@ -1,0 +1,14 @@
+{
+  NodeList temp=model.getElementsByTagName("LocalTransformations");
+  if (temp.getLength() > 0) {
+    Element localT=(Element)temp.item(0);
+    NodeList localDerivedL=localT.getElementsByTagName("DerivedField");
+    for (int i=0; i < localDerivedL.getLength(); i++) {
+      Node localDerived=localDerivedL.item(i);
+      if (localDerived.getNodeType() == Node.ELEMENT_NODE) {
+        DerivedFieldMetaInfo d=new DerivedFieldMetaInfo((Element)localDerived,null,m_transformationDictionary);
+        m_derivedMeta.add(d);
+      }
+    }
+  }
+}

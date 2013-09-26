@@ -1,0 +1,8 @@
+{
+  Capabilities result;
+  if (getFilter() == null)   result=super.getCapabilities();
+ else   result=getFilter().getCapabilities();
+  result.disable(Capability.NO_CLASS);
+  for (  Capability cap : Capability.values())   result.enableDependency(cap);
+  return result;
+}

@@ -1,0 +1,4 @@
+{
+  final String o=(String)getParameter("value");
+  return Float.valueOf(o);
+}

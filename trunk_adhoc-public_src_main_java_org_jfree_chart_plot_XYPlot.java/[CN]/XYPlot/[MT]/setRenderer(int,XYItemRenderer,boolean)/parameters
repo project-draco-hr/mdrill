@@ -1,0 +1,3 @@
+int index
+XYItemRenderer renderer
+boolean notify

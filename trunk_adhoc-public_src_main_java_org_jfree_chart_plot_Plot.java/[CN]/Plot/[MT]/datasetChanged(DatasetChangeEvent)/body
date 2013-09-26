@@ -1,0 +1,5 @@
+{
+  PlotChangeEvent newEvent=new PlotChangeEvent(this);
+  newEvent.setType(ChartChangeEventType.DATASET_UPDATED);
+  notifyListeners(newEvent);
+}

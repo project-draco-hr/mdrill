@@ -1,0 +1,11 @@
+{
+  if (m_Upper == -1) {
+    throw new RuntimeException("No upper limit has been specified for range");
+  }
+  if (m_Invert) {
+    return !m_SelectFlags[index];
+  }
+ else {
+    return m_SelectFlags[index];
+  }
+}

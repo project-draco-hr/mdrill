@@ -1,0 +1,10 @@
+{
+  m_ReadMethods.clear();
+  m_WriteMethods.clear();
+  try {
+    addMethods();
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
+}

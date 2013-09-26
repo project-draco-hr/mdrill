@@ -1,0 +1,18 @@
+{
+  if (domainValueEnd < domainValueStart) {
+    throw new IllegalArgumentException("domainValueEnd (" + domainValueEnd + ") < domainValueStart ("+ domainValueStart+ ")");
+  }
+  Segment segment=getSegment(domainValueStart);
+  boolean contains=true;
+  do {
+    contains=(segment.inIncludeSegments());
+    if (segment.contains(domainValueEnd)) {
+      break;
+    }
+ else {
+      segment.inc();
+    }
+  }
+ while (contains);
+  return (contains);
+}

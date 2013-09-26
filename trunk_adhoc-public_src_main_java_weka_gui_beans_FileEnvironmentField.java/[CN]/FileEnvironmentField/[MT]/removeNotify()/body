@@ -1,0 +1,7 @@
+{
+  super.removeNotify();
+  if (m_fileEditorDialog != null) {
+    m_fileEditorDialog.dispose();
+    m_fileEditorDialog=null;
+  }
+}

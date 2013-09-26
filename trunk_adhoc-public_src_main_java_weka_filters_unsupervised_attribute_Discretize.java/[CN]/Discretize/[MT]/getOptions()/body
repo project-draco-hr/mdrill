@@ -1,0 +1,21 @@
+{
+  Vector result;
+  String[] options;
+  int i;
+  result=new Vector();
+  options=super.getOptions();
+  for (i=0; i < options.length; i++)   result.add(options[i]);
+  if (getMakeBinary())   result.add("-D");
+  if (getUseEqualFrequency())   result.add("-F");
+  if (getFindNumBins())   result.add("-O");
+  if (getInvertSelection())   result.add("-V");
+  result.add("-B");
+  result.add("" + getBins());
+  result.add("-M");
+  result.add("" + getDesiredWeightOfInstancesPerInterval());
+  if (!getAttributeIndices().equals("")) {
+    result.add("-R");
+    result.add(getAttributeIndices());
+  }
+  return (String[])result.toArray(new String[result.size()]);
+}

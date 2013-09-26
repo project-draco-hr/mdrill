@@ -1,0 +1,5 @@
+{
+  Vector<Option> newVector=new Vector<Option>();
+  newVector.addElement(new Option("\tBall splitting algorithm to use.","S",1,"-S <classname and options>"));
+  return newVector.elements();
+}

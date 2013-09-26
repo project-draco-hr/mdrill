@@ -1,0 +1,17 @@
+{
+  String[] options=new String[8];
+  int current=0;
+  options[current++]="-S";
+  options[current++]="" + getSeed();
+  if (getInvertSelection()) {
+    options[current++]="-V";
+  }
+  options[current++]="-N";
+  options[current++]="" + getNumFolds();
+  options[current++]="-F";
+  options[current++]="" + getFold();
+  while (current < options.length) {
+    options[current++]="";
+  }
+  return options;
+}

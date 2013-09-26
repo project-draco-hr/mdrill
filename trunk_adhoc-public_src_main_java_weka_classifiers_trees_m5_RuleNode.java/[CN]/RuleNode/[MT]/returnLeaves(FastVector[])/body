@@ -1,0 +1,13 @@
+{
+  if (m_isLeaf) {
+    v[0].addElement(this);
+  }
+ else {
+    if (m_left != null) {
+      m_left.returnLeaves(v);
+    }
+    if (m_right != null) {
+      m_right.returnLeaves(v);
+    }
+  }
+}

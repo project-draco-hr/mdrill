@@ -1,0 +1,3 @@
+{
+  return getPMMLModel(new BufferedInputStream(new FileInputStream(file)),log);
+}

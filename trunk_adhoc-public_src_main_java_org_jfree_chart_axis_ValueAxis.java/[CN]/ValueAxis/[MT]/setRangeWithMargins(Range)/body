@@ -1,0 +1,3 @@
+{
+  setRangeWithMargins(range,true,true);
+}

@@ -1,0 +1,5 @@
+{
+  super(null,producer);
+  m_filter=filter;
+  m_wrappedRules=rules;
+}

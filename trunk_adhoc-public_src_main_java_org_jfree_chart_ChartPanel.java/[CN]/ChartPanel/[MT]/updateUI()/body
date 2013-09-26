@@ -1,0 +1,6 @@
+{
+  if (this.popup != null) {
+    SwingUtilities.updateComponentTreeUI(this.popup);
+  }
+  super.updateUI();
+}

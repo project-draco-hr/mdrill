@@ -1,0 +1,7 @@
+double start
+double end
+Paint paint
+Stroke stroke
+Paint outlinePaint
+Stroke outlineStroke
+float alpha

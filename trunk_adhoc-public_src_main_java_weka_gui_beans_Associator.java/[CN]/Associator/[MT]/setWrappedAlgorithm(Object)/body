@@ -1,0 +1,6 @@
+{
+  if (!(algorithm instanceof weka.associations.Associator)) {
+    throw new IllegalArgumentException(algorithm.getClass() + " : incorrect " + "type of algorithm (Associator)");
+  }
+  setAssociator((weka.associations.Associator)algorithm);
+}

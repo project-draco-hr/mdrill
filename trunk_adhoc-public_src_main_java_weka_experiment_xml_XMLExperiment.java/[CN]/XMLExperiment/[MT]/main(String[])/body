@@ -1,0 +1,18 @@
+{
+  if (args.length > 0) {
+    if (args[0].toLowerCase().endsWith(".xml")) {
+      System.out.println(new XMLExperiment().read(args[0]).toString());
+    }
+ else {
+      FileInputStream fi=new FileInputStream(args[0]);
+      ObjectInputStream oi=new ObjectInputStream(new BufferedInputStream(fi));
+      Object o=oi.readObject();
+      oi.close();
+      new XMLExperiment().write(new BufferedOutputStream(new FileOutputStream(args[0] + ".xml")),o);
+      FileOutputStream fo=new FileOutputStream(args[0] + ".exp");
+      ObjectOutputStream oo=new ObjectOutputStream(new BufferedOutputStream(fo));
+      oo.writeObject(o);
+      oo.close();
+    }
+  }
+}

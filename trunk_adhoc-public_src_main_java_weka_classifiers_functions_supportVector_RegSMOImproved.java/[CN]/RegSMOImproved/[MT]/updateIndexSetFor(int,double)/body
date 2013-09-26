@@ -1,0 +1,30 @@
+{
+  if (m_alpha[i] == 0 && m_alphaStar[i] == 0) {
+    m_iSet[i]=I1;
+    m_I0.delete(i);
+  }
+ else   if (m_alpha[i] > 0) {
+    if (m_alpha[i] < C) {
+      if ((m_iSet[i] & I0) == 0) {
+        m_I0.insert(i);
+      }
+      m_iSet[i]=I0a;
+    }
+ else {
+      m_iSet[i]=I3;
+      m_I0.delete(i);
+    }
+  }
+ else {
+    if (m_alphaStar[i] < C) {
+      if ((m_iSet[i] & I0) == 0) {
+        m_I0.insert(i);
+      }
+      m_iSet[i]=I0b;
+    }
+ else {
+      m_iSet[i]=I2;
+      m_I0.delete(i);
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  final String localClassLoaderSource;
+synchronized (ObjectUtilities.class) {
+    if (classLoader != null) {
+      return classLoader;
+    }
+    localClassLoaderSource=classLoaderSource;
+  }
+  if ("ThreadContext".equals(localClassLoaderSource)) {
+    final ClassLoader threadLoader=Thread.currentThread().getContextClassLoader();
+    if (threadLoader != null) {
+      return threadLoader;
+    }
+  }
+  final ClassLoader applicationCL=c.getClassLoader();
+  if (applicationCL == null) {
+    return ClassLoader.getSystemClassLoader();
+  }
+ else {
+    return applicationCL;
+  }
+}

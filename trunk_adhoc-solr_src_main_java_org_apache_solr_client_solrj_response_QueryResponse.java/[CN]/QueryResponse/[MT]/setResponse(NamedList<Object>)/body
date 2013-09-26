@@ -14,6 +14,9 @@
  else     if ("facet_counts".equals(n)) {
       _facetInfo=(NamedList<Object>)res.getVal(i);
     }
+ else     if ("mdrill_shard_time".equals(n)) {
+      timetaken=(Map<String,String>)res.getVal(i);
+    }
  else     if ("debug".equals(n)) {
       _debugInfo=(NamedList<Object>)res.getVal(i);
       extractDebugInfo(_debugInfo);

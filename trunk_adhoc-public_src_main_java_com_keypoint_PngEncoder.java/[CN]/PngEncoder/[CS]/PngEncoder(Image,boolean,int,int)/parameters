@@ -1,0 +1,4 @@
+Image image
+boolean encodeAlpha
+int whichFilter
+int compLevel

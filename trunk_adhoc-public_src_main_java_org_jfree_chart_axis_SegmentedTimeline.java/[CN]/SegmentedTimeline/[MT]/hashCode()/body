@@ -1,0 +1,6 @@
+{
+  int result=19;
+  result=37 * result + (int)(this.segmentSize ^ (this.segmentSize >>> 32));
+  result=37 * result + (int)(this.startTime ^ (this.startTime >>> 32));
+  return result;
+}

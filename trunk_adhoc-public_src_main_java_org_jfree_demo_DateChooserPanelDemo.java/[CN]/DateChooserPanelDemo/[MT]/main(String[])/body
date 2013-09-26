@@ -1,0 +1,6 @@
+{
+  DateChooserPanelDemo demo=new DateChooserPanelDemo("DateChooserPanel Demo");
+  demo.pack();
+  RefineryUtilities.centerFrameOnScreen(demo);
+  demo.setVisible(true);
+}

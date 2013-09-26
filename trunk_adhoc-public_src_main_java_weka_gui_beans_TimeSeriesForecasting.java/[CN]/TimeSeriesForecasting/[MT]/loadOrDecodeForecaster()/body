@@ -1,0 +1,33 @@
+{
+  if (!isEmpty(m_fileName) && !m_fileName.equals("-NONE-")) {
+    List<Object> loaded=loadModel(m_fileName);
+    if (loaded == null) {
+      statusError();
+      logError("problem loading forecasting model.",null);
+      stop();
+      return;
+    }
+ else {
+      m_forecaster=(WekaForecaster)loaded.get(0);
+      m_header=(Instances)loaded.get(1);
+    }
+  }
+ else   if (m_encodedForecaster != null && m_encodedForecaster.length() > 0 && !m_encodedForecaster.equals("-NONE-")) {
+    try {
+      getForecaster();
+    }
+ catch (    Exception ex) {
+      ex.printStackTrace();
+      statusError();
+      logError("a problem occurred while decoding the model. See the " + "log for details.",ex);
+      stop();
+      return;
+    }
+  }
+ else {
+    statusError();
+    logError("unable to obtain a forecasting model to use.",null);
+    stop();
+    return;
+  }
+}

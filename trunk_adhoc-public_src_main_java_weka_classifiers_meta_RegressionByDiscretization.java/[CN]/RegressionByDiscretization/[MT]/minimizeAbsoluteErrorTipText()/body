@@ -1,0 +1,3 @@
+{
+  return "Whether to minimize absolute error.";
+}

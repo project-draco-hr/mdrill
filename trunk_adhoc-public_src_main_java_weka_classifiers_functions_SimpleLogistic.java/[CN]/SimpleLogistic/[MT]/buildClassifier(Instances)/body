@@ -1,0 +1,17 @@
+{
+  getCapabilities().testWithFail(data);
+  data=new Instances(data);
+  data.deleteWithMissingClass();
+  m_ReplaceMissingValues=new ReplaceMissingValues();
+  m_ReplaceMissingValues.setInputFormat(data);
+  data=Filter.useFilter(data,m_ReplaceMissingValues);
+  m_NominalToBinary=new NominalToBinary();
+  m_NominalToBinary.setInputFormat(data);
+  data=Filter.useFilter(data,m_NominalToBinary);
+  m_boostedModel=new LogisticBase(m_numBoostingIterations,m_useCrossValidation,m_errorOnProbabilities);
+  m_boostedModel.setMaxIterations(m_maxBoostingIterations);
+  m_boostedModel.setHeuristicStop(m_heuristicStop);
+  m_boostedModel.setWeightTrimBeta(m_weightTrimBeta);
+  m_boostedModel.setUseAIC(m_useAIC);
+  m_boostedModel.buildClassifier(data);
+}

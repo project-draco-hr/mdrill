@@ -1,0 +1,3 @@
+{
+  return "Weight threshold for weight pruning.";
+}

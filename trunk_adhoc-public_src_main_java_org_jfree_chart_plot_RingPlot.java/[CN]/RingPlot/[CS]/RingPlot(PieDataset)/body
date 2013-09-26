@@ -1,0 +1,9 @@
+{
+  super(dataset);
+  this.separatorsVisible=true;
+  this.separatorStroke=new BasicStroke(0.5f);
+  this.separatorPaint=Color.gray;
+  this.innerSeparatorExtension=0.20;
+  this.outerSeparatorExtension=0.20;
+  this.sectionDepth=0.20;
+}

@@ -1,0 +1,8 @@
+{
+  if (request.compareTo("Stop") == 0) {
+    stop();
+  }
+ else {
+    throw new IllegalArgumentException(request + " not supported (TrainTestSplitMaker)");
+  }
+}

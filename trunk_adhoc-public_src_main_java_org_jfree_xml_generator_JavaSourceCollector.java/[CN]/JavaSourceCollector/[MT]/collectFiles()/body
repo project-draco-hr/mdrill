@@ -1,0 +1,3 @@
+{
+  collectFiles(this.startDirectory,this.initialPackageName);
+}

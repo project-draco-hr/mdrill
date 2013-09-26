@@ -1,0 +1,8 @@
+{
+  Paint p=this.paint;
+  if (p instanceof GradientPaint) {
+    p=this.gradientPaintTransformer.transform((GradientPaint)p,view);
+  }
+  g2.setPaint(p);
+  g2.fill(view);
+}

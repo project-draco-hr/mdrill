@@ -1,0 +1,4 @@
+{
+  if (m_ClassAttribute.isNominal())   return m_ClassCounts;
+ else   return null;
+}

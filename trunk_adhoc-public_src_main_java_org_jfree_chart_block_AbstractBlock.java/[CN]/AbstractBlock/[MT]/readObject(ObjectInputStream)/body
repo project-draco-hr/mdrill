@@ -1,0 +1,4 @@
+{
+  stream.defaultReadObject();
+  this.bounds=(Rectangle2D)SerialUtilities.readShape(stream);
+}

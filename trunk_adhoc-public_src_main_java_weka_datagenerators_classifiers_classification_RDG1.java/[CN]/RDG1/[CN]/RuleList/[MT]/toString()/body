@@ -1,0 +1,14 @@
+{
+  StringBuffer str=new StringBuffer();
+  str=str.append("  c" + (int)m_ClassValue + " := ");
+  Enumeration e=m_RuleList.elements();
+  if (e.hasMoreElements()) {
+    Test test=(Test)e.nextElement();
+    str=str.append(test.toPrologString());
+  }
+  while (e.hasMoreElements()) {
+    Test test=(Test)e.nextElement();
+    str=str.append(", " + test.toPrologString());
+  }
+  return str.toString();
+}

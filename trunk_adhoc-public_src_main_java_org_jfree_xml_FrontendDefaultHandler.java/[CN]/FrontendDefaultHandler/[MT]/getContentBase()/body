@@ -1,0 +1,12 @@
+{
+  final String contentBase=getConfigProperty(Parser.CONTENTBASE_KEY);
+  if (contentBase == null) {
+    return null;
+  }
+  try {
+    return new URL(contentBase);
+  }
+ catch (  MalformedURLException mfe) {
+    throw new IllegalStateException("Content Base is illegal." + contentBase);
+  }
+}

@@ -1,0 +1,15 @@
+{
+  Iterator iter;
+  Container frame;
+  iter=getWindowList();
+  while (iter.hasNext()) {
+    frame=(Container)iter.next();
+    try {
+      if (frame instanceof ChildFrameMDI)       ((ChildFrameMDI)frame).setIcon(false);
+ else       if (frame instanceof ChildFrameSDI)       ((ChildFrameSDI)frame).setExtendedState(JFrame.NORMAL);
+    }
+ catch (    Exception e) {
+      e.printStackTrace();
+    }
+  }
+}

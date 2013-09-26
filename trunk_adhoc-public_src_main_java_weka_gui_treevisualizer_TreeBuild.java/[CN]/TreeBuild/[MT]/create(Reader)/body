@@ -1,0 +1,13 @@
+{
+  m_nodes=new Vector(50,50);
+  m_edges=new Vector(50,50);
+  m_grObj=new InfoObject("graph");
+  m_noObj=new InfoObject("node");
+  m_edObj=new InfoObject("edge");
+  m_digraph=false;
+  m_st=new StreamTokenizer(new BufferedReader(t));
+  setSyntax();
+  graph();
+  Node top=generateStructures();
+  return top;
+}

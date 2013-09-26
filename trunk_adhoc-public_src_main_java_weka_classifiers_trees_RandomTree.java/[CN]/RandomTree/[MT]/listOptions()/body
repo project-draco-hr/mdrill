@@ -1,0 +1,14 @@
+{
+  Vector newVector=new Vector();
+  newVector.addElement(new Option("\tNumber of attributes to randomly investigate\n" + "\t(<0 = int(log_2(#attributes)+1)).","K",1,"-K <number of attributes>"));
+  newVector.addElement(new Option("\tSet minimum number of instances per leaf.","M",1,"-M <minimum number of instances>"));
+  newVector.addElement(new Option("\tSeed for random number generator.\n" + "\t(default 1)","S",1,"-S <num>"));
+  newVector.addElement(new Option("\tThe maximum depth of the tree, 0 for unlimited.\n" + "\t(default 0)","depth",1,"-depth <num>"));
+  newVector.addElement(new Option("\tNumber of folds for backfitting " + "(default 0, no backfitting).","N",1,"-N <num>"));
+  newVector.addElement(new Option("\tAllow unclassified instances.","U",0,"-U"));
+  Enumeration enu=super.listOptions();
+  while (enu.hasMoreElements()) {
+    newVector.addElement(enu.nextElement());
+  }
+  return newVector.elements();
+}

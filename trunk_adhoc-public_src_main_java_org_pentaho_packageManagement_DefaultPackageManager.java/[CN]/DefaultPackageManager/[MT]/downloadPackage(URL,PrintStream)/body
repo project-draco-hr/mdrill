@@ -1,0 +1,40 @@
+{
+  String packageArchiveName=packageURL.toString();
+  packageArchiveName=packageArchiveName.substring(0,packageArchiveName.lastIndexOf(".zip") + 3);
+  packageArchiveName=packageArchiveName.substring(0,packageArchiveName.lastIndexOf('.'));
+  packageArchiveName=packageArchiveName.substring(packageArchiveName.lastIndexOf('/'),packageArchiveName.length());
+  File tmpDownload=File.createTempFile(packageArchiveName,".zip");
+  for (int i=0; i < progress.length; i++) {
+    progress[i].println(packageURL.toString());
+    progress[i].println("[DefaultPackageManager] Tmp file: " + tmpDownload.toString());
+  }
+  URLConnection conn=null;
+  if (setProxyAuthentication()) {
+    conn=packageURL.openConnection(m_httpProxy);
+  }
+ else {
+    conn=packageURL.openConnection();
+  }
+  BufferedInputStream bi=new BufferedInputStream(conn.getInputStream());
+  BufferedOutputStream bo=new BufferedOutputStream(new FileOutputStream(tmpDownload));
+  int totalBytesRead=0;
+  while (true) {
+synchronized (m_buffer) {
+      int amountRead=bi.read(m_buffer);
+      if (amountRead == -1) {
+        for (int i=0; i < progress.length; i++) {
+          progress[i].println("[DefaultPackageManager] downloaded " + (totalBytesRead / 1000) + " KB");
+        }
+        break;
+      }
+      bo.write(m_buffer,0,amountRead);
+      totalBytesRead+=amountRead;
+      for (int i=0; i < progress.length; i++) {
+        progress[i].println("%%[DefaultPackageManager] downloaded " + (totalBytesRead / 1000) + " KB");
+      }
+    }
+  }
+  bi.close();
+  bo.close();
+  return tmpDownload;
+}

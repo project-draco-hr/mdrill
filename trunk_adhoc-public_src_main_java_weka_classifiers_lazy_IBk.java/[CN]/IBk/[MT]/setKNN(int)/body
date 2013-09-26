@@ -1,0 +1,5 @@
+{
+  m_kNN=k;
+  m_kNNUpper=k;
+  m_kNNValid=false;
+}

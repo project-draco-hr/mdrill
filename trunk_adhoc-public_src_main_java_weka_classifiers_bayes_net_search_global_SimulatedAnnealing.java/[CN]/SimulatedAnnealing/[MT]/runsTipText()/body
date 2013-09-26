@@ -1,0 +1,3 @@
+{
+  return "Sets the number of iterations to be performed by the simulated annealing search.";
+}

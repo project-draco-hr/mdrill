@@ -1,0 +1,14 @@
+{
+  Size2D s1=new Size2D(1.0,2.0);
+  Size2D s2=null;
+  try {
+    s2=(Size2D)s1.clone();
+  }
+ catch (  CloneNotSupportedException e) {
+    e.printStackTrace();
+    System.err.println("Failed to clone.");
+  }
+  assertTrue(s1 != s2);
+  assertTrue(s1.getClass() == s2.getClass());
+  assertTrue(s1.equals(s2));
+}

@@ -1,0 +1,31 @@
+{
+  String[] superOptions=super.getOptions();
+  String[] options=new String[3 + superOptions.length];
+  int current=0;
+  if (getMarkovBlanketClassifier())   options[current++]="-mbc";
+  options[current++]="-S";
+switch (m_nScoreType) {
+case (Scoreable.BAYES):
+    options[current++]="BAYES";
+  break;
+case (Scoreable.BDeu):
+options[current++]="BDeu";
+break;
+case (Scoreable.MDL):
+options[current++]="MDL";
+break;
+case (Scoreable.ENTROPY):
+options[current++]="ENTROPY";
+break;
+case (Scoreable.AIC):
+options[current++]="AIC";
+break;
+}
+for (int iOption=0; iOption < superOptions.length; iOption++) {
+options[current++]=superOptions[iOption];
+}
+while (current < options.length) {
+options[current++]="";
+}
+return options;
+}

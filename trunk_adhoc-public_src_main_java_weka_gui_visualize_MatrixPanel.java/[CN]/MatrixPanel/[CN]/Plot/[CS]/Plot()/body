@@ -1,0 +1,7 @@
+{
+  super();
+  this.setToolTipText("blah");
+  this.addMouseMotionListener(this);
+  this.addMouseListener(this);
+  initialize();
+}

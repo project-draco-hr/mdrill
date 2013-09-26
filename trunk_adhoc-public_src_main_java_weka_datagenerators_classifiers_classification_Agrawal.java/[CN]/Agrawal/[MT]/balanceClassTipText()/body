@@ -1,0 +1,3 @@
+{
+  return "Whether to balance the class.";
+}

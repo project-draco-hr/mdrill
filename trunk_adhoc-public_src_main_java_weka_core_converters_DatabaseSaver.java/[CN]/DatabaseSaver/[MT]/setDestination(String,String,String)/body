@@ -1,0 +1,12 @@
+{
+  try {
+    checkEnv();
+    m_DataBaseConnection=newDatabaseConnection();
+    setUrl(url);
+    setUser(userName);
+    setPassword(password);
+  }
+ catch (  Exception ex) {
+    printException(ex);
+  }
+}

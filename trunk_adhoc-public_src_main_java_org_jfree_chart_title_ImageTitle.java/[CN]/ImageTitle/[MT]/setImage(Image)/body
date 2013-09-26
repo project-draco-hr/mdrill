@@ -1,0 +1,7 @@
+{
+  if (image == null) {
+    throw new NullPointerException("Null 'image' argument.");
+  }
+  this.image=image;
+  notifyListeners(new TitleChangeEvent(this));
+}

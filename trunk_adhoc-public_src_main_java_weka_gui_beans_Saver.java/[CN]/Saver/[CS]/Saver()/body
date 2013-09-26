@@ -1,0 +1,7 @@
+{
+  super();
+  setSaverTemplate(m_Saver);
+  m_fileName="";
+  m_dataSet=null;
+  m_count=0;
+}

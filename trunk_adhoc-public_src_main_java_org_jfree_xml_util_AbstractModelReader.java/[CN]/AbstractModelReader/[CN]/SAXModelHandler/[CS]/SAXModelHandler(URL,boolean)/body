@@ -1,0 +1,8 @@
+{
+  if (resource == null) {
+    throw new NullPointerException();
+  }
+  this.resource=resource;
+  this.openComments=new Stack();
+  this.isInclude=isInclude;
+}

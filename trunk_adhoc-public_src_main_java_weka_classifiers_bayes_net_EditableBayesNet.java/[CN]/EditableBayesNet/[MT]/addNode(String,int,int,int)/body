@@ -1,0 +1,37 @@
+{
+  if (getNode2(sName) >= 0) {
+    addNode(sName + "x",nCardinality);
+    return;
+  }
+  FastVector values=new FastVector(nCardinality);
+  for (int iValue=0; iValue < nCardinality; iValue++) {
+    values.addElement("Value" + (iValue + 1));
+  }
+  Attribute att=new Attribute(sName,values);
+  m_Instances.insertAttributeAt(att,m_Instances.numAttributes());
+  int nAtts=m_Instances.numAttributes();
+  ParentSet[] parentSets=new ParentSet[nAtts];
+  for (int iParentSet=0; iParentSet < nAtts - 1; iParentSet++) {
+    parentSets[iParentSet]=m_ParentSets[iParentSet];
+  }
+  parentSets[nAtts - 1]=new ParentSet();
+  m_ParentSets=parentSets;
+  Estimator[][] distributions=new Estimator[nAtts][];
+  for (int iNode=0; iNode < nAtts - 1; iNode++) {
+    distributions[iNode]=m_Distributions[iNode];
+  }
+  distributions[nAtts - 1]=new Estimator[1];
+  distributions[nAtts - 1][0]=new DiscreteEstimatorBayes(nCardinality,0.5);
+  m_Distributions=distributions;
+  m_nPositionX.addElement(nPosX);
+  m_nPositionY.addElement(nPosY);
+  m_nEvidence.addElement(-1);
+  double[] fMarginP=new double[nCardinality];
+  for (int iValue=0; iValue < nCardinality; iValue++) {
+    fMarginP[iValue]=1.0 / nCardinality;
+  }
+  m_fMarginP.addElement(fMarginP);
+  if (m_bNeedsUndoAction) {
+    addUndoAction(new AddNodeAction(sName,nCardinality,nPosX,nPosY));
+  }
+}

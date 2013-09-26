@@ -1,0 +1,3 @@
+{
+  return getPropertyDescriptor(src,new Path(path));
+}

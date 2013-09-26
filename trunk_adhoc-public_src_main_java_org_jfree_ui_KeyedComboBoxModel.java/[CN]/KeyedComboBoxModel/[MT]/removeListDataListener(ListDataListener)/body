@@ -1,0 +1,4 @@
+{
+  this.listdatalistener.remove(l);
+  this.tempListeners=null;
+}

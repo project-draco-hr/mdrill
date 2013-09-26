@@ -1,0 +1,4 @@
+{
+  m_simplePanel.addPropertyChangeListener(l);
+  m_advancedPanel.addPropertyChangeListener(l);
+}

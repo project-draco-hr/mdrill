@@ -1,0 +1,29 @@
+{
+  String[] superOptions=super.getOptions();
+  String[] options=new String[11 + superOptions.length];
+  int current=0;
+  options[current++]="-L";
+  options[current++]="" + getPopulationSize();
+  options[current++]="-A";
+  options[current++]="" + getDescendantPopulationSize();
+  options[current++]="-U";
+  options[current++]="" + getRuns();
+  options[current++]="-R";
+  options[current++]="" + getSeed();
+  if (getUseMutation()) {
+    options[current++]="-M";
+  }
+  if (getUseCrossOver()) {
+    options[current++]="-C";
+  }
+  if (getUseTournamentSelection()) {
+    options[current++]="-O";
+  }
+  for (int iOption=0; iOption < superOptions.length; iOption++) {
+    options[current++]=superOptions[iOption];
+  }
+  while (current < options.length) {
+    options[current++]="";
+  }
+  return options;
+}

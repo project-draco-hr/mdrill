@@ -1,0 +1,64 @@
+{
+  if (this.object != null) {
+    return this.object;
+  }
+  final RootXmlReadHandler rootHandler=getRootHandler();
+  try {
+    for (int i=0; i < this.objectRefHandlers.size(); i++) {
+      final ObjectRefHandler handler=(ObjectRefHandler)this.objectRefHandlers.get(i);
+      this.objectFactory.setProperty(handler.getPropertyName(),handler.getObject());
+    }
+    final ArrayList lookups=new ArrayList();
+    final LookupDefinition[] lookupDefs=this.objectFactory.getLookupDefinitions();
+    for (int i=0; i < lookupDefs.length; i++) {
+      final LookupDefinition ldef=lookupDefs[i];
+      lookups.add(ldef.getPropertyName());
+      Log.debug("lookup object: " + ldef.getPropertyName());
+      final Object value=rootHandler.getHelperObject(ldef.getRegistryKey());
+      if (value == null) {
+        Log.warn("Failed to lookup object: " + value);
+      }
+ else {
+        this.objectFactory.setProperty(ldef.getPropertyName(),value);
+      }
+    }
+    final ConstructorDefinition[] conDefs=this.objectFactory.getConstructorDefinitions();
+    for (int i=0; i < conDefs.length; i++) {
+      final ConstructorDefinition cDef=conDefs[i];
+      if (lookups.contains(cDef.getPropertyName())) {
+        continue;
+      }
+      if (this.objectFactory.isPropertyDefinition(cDef.getPropertyName())) {
+        final PropertyDefinition pd=this.objectFactory.getPropertyDefinitionByPropertyName(cDef.getPropertyName());
+        final XmlReadHandler handler=(XmlReadHandler)this.createdHandler.get(pd.getElementName());
+        if (handler != null) {
+          this.objectFactory.setProperty(pd.getPropertyName(),handler.getObject());
+        }
+      }
+    }
+    this.object=this.objectFactory.createObject();
+    Object oldValue=null;
+    if (this.objectFactory.getRegisterName() != null) {
+      oldValue=rootHandler.getHelperObject(this.objectFactory.getRegisterName());
+      rootHandler.setHelperObject(this.objectFactory.getRegisterName(),this.object);
+    }
+    final PropertyDefinition[] propertyDefs=this.objectFactory.getPropertyDefinitions();
+    for (int i=0; i < propertyDefs.length; i++) {
+      final PropertyDefinition pdef=propertyDefs[i];
+      final XmlReadHandler handler=(XmlReadHandler)this.createdHandler.get(pdef.getElementName());
+      if (handler == null) {
+        continue;
+      }
+      this.objectFactory.setProperty(pdef.getPropertyName(),handler.getObject());
+    }
+    this.objectFactory.writeObjectProperties(this.object);
+    if (this.objectFactory.getRegisterName() != null) {
+      rootHandler.setHelperObject(this.objectFactory.getRegisterName(),oldValue);
+    }
+  }
+ catch (  ObjectDescriptionException ode) {
+    Log.error("Unable to create object.",ode);
+    throw new XmlReaderException("Unable to create object.",ode);
+  }
+  return this.object;
+}

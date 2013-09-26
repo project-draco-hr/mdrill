@@ -1,0 +1,4 @@
+{
+  this.labelGap=gap;
+  fireChangeEvent();
+}

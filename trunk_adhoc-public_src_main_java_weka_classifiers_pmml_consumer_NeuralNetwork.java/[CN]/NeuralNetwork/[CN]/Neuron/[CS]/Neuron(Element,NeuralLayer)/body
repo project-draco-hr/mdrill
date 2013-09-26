@@ -1,0 +1,28 @@
+{
+  m_layer=layer;
+  m_ID=neuronE.getAttribute("id");
+  String bias=neuronE.getAttribute("bias");
+  if (bias != null && bias.length() > 0) {
+    m_bias=Double.parseDouble(bias);
+  }
+  String width=neuronE.getAttribute("width");
+  if (width != null && width.length() > 0) {
+    m_neuronWidth=Double.parseDouble(width);
+  }
+  String altitude=neuronE.getAttribute("altitude");
+  if (altitude != null && altitude.length() > 0) {
+    m_neuronAltitude=Double.parseDouble(altitude);
+  }
+  NodeList conL=neuronE.getElementsByTagName("Con");
+  m_connectionIDs=new String[conL.getLength()];
+  m_weights=new double[conL.getLength()];
+  for (int i=0; i < conL.getLength(); i++) {
+    Node conN=conL.item(i);
+    if (conN.getNodeType() == Node.ELEMENT_NODE) {
+      Element conE=(Element)conN;
+      m_connectionIDs[i]=conE.getAttribute("from");
+      String weight=conE.getAttribute("weight");
+      m_weights[i]=Double.parseDouble(weight);
+    }
+  }
+}

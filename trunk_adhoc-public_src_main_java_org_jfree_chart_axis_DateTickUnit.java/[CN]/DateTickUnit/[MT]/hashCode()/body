@@ -1,0 +1,7 @@
+{
+  int result=19;
+  result=37 * result + this.unitType.hashCode();
+  result=37 * result + this.count;
+  result=37 * result + this.formatter.hashCode();
+  return result;
+}

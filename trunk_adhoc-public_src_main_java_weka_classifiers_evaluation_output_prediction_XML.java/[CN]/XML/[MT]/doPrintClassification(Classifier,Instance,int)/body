@@ -1,0 +1,55 @@
+{
+  int prec=m_NumDecimals;
+  Instance withMissing=(Instance)inst.copy();
+  withMissing.setDataset(inst.dataset());
+  inst=preProcessInstance(inst,withMissing,classifier);
+  double predValue=classifier.classifyInstance(withMissing);
+  append("  <" + TAG_PREDICTION + " "+ ATT_INDEX+ "=\""+ (index + 1)+ "\">\n");
+  if (inst.dataset().classAttribute().isNumeric()) {
+    append("    <" + TAG_ACTUAL_VALUE + ">");
+    if (inst.classIsMissing())     append("?");
+ else     append(Utils.doubleToString(inst.classValue(),prec));
+    append("</" + TAG_ACTUAL_VALUE + ">\n");
+    append("    <" + TAG_PREDICTED_VALUE + ">");
+    if (inst.classIsMissing())     append("?");
+ else     append(Utils.doubleToString(predValue,prec));
+    append("</" + TAG_PREDICTED_VALUE + ">\n");
+    append("    <" + TAG_ERROR + ">");
+    if (Utils.isMissingValue(predValue) || inst.classIsMissing())     append("?");
+ else     append(Utils.doubleToString(predValue - inst.classValue(),prec));
+    append("</" + TAG_ERROR + ">\n");
+  }
+ else {
+    append("    <" + TAG_ACTUAL_LABEL + " "+ ATT_INDEX+ "=\""+ ((int)inst.classValue() + 1)+ "\""+ ">");
+    append(sanitize(inst.toString(inst.classIndex())));
+    append("</" + TAG_ACTUAL_LABEL + ">\n");
+    append("    <" + TAG_PREDICTED_LABEL + " "+ ATT_INDEX+ "=\""+ ((int)predValue + 1)+ "\""+ ">");
+    if (Utils.isMissingValue(predValue))     append("?");
+ else     append(sanitize(inst.dataset().classAttribute().value((int)predValue)));
+    append("</" + TAG_PREDICTED_LABEL + ">\n");
+    append("    <" + TAG_ERROR + ">");
+    if (!Utils.isMissingValue(predValue) && !inst.classIsMissing() && ((int)predValue + 1 != (int)inst.classValue() + 1))     append(VAL_YES);
+ else     append(VAL_NO);
+    append("</" + TAG_ERROR + ">\n");
+    if (m_OutputDistribution) {
+      append("    <" + TAG_DISTRIBUTION + ">\n");
+      double[] dist=classifier.distributionForInstance(withMissing);
+      for (int n=0; n < dist.length; n++) {
+        append("      <" + TAG_CLASS_LABEL + " "+ ATT_INDEX+ "=\""+ (n + 1)+ "\"");
+        if (!Utils.isMissingValue(predValue) && (n == (int)predValue))         append(" " + ATT_PREDICTED + "=\""+ VAL_YES+ "\"");
+        append(">");
+        append(Utils.doubleToString(dist[n],prec));
+        append("</" + TAG_CLASS_LABEL + ">\n");
+      }
+      append("    </" + TAG_DISTRIBUTION + ">\n");
+    }
+ else {
+      append("    <" + TAG_PREDICTION + ">");
+      if (Utils.isMissingValue(predValue))       append("?");
+ else       append(Utils.doubleToString(classifier.distributionForInstance(withMissing)[(int)predValue],prec));
+      append("</" + TAG_PREDICTION + ">\n");
+    }
+  }
+  if (m_Attributes != null)   append(attributeValuesString(withMissing));
+  append("  </" + TAG_PREDICTION + ">\n");
+}

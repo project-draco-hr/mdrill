@@ -1,0 +1,6 @@
+{
+  if (this.baseShapesVisible != flag) {
+    this.baseShapesVisible=flag;
+    fireChangeEvent();
+  }
+}

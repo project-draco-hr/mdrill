@@ -1,0 +1,6 @@
+{
+  String dir;
+  dir=get("InitialDatasetsDirectory","");
+  if (dir.equals(""))   dir=System.getProperty("user.dir");
+  return new File(dir);
+}

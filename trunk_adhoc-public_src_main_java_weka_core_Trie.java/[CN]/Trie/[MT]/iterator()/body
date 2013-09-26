@@ -1,0 +1,3 @@
+{
+  return new TrieIterator(m_Root);
+}

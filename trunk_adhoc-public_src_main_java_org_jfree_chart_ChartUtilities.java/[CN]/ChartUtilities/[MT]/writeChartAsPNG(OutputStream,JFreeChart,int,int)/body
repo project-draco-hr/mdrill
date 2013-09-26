@@ -1,0 +1,3 @@
+{
+  writeChartAsPNG(out,chart,width,height,null);
+}

@@ -1,0 +1,26 @@
+{
+  if (o == null) {
+    throw new NullPointerException("Given object is null");
+  }
+  final Class c=getObjectClass();
+  if (!c.isInstance(o)) {
+    throw new ObjectFactoryException("Object is no instance of " + c + "(is "+ o.getClass()+ ")");
+  }
+  final Iterator it=getParameterNames();
+  while (it.hasNext()) {
+    final String propertyName=(String)it.next();
+    if (isParameterIgnored(propertyName)) {
+      continue;
+    }
+    try {
+      final Method method=findGetMethod(propertyName);
+      final Object retval=method.invoke(o,(Object[])null);
+      if (retval != null) {
+        setParameter(propertyName,retval);
+      }
+    }
+ catch (    Exception e) {
+      Log.info("Exception on method invokation.",e);
+    }
+  }
+}

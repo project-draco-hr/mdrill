@@ -1,0 +1,22 @@
+{
+  String str="";
+  if (numericPredictor)   str+="numeric";
+  if (nominalPredictor) {
+    if (str.length() > 0)     str+=" & ";
+    str+="nominal";
+  }
+  if (stringPredictor) {
+    if (str.length() > 0)     str+=" & ";
+    str+="string";
+  }
+  if (datePredictor) {
+    if (str.length() > 0)     str+=" & ";
+    str+="date";
+  }
+  if (relationalPredictor) {
+    if (str.length() > 0)     str+=" & ";
+    str+="relational";
+  }
+  str=" (" + str + " predictors)";
+  print(str);
+}

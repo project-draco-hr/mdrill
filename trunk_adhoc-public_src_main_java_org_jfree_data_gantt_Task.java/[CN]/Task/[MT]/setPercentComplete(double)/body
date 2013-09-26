@@ -1,0 +1,3 @@
+{
+  setPercentComplete(new Double(percent));
+}

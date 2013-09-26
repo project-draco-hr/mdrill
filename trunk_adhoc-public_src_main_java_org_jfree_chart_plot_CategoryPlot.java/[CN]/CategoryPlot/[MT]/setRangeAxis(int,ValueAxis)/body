@@ -1,0 +1,3 @@
+{
+  setRangeAxis(index,axis,true);
+}

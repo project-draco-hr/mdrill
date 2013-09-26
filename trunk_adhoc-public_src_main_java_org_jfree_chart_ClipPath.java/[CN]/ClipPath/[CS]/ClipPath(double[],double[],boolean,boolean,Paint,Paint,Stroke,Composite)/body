@@ -1,0 +1,10 @@
+{
+  this.xValue=xValue;
+  this.yValue=yValue;
+  this.fillPath=fillPath;
+  this.drawPath=drawPath;
+  this.fillPaint=fillPaint;
+  this.drawPaint=drawPaint;
+  this.drawStroke=drawStroke;
+  this.composite=composite;
+}

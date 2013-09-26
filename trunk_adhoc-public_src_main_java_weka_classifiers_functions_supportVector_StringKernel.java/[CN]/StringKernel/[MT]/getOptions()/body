@@ -1,0 +1,22 @@
+{
+  int i;
+  Vector result;
+  String[] options;
+  result=new Vector();
+  options=super.getOptions();
+  for (i=0; i < options.length; i++)   result.add(options[i]);
+  result.add("-P");
+  result.add("" + m_PruningMethod);
+  result.add("-C");
+  result.add("" + getCacheSize());
+  result.add("-IC");
+  result.add("" + getInternalCacheSize());
+  result.add("-L");
+  result.add("" + getLambda());
+  result.add("-ssl");
+  result.add("" + getSubsequenceLength());
+  result.add("-ssl-max");
+  result.add("" + getMaxSubsequenceLength());
+  if (getUseNormalization())   result.add("-L");
+  return (String[])result.toArray(new String[result.size()]);
+}

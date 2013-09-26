@@ -1,0 +1,10 @@
+{
+  if (seriesKeys == null) {
+    throw new IllegalArgumentException("Null 'seriesKeys' argument.");
+  }
+  if (seriesKeys.length != getSeriesCount()) {
+    throw new IllegalArgumentException("The number of series keys does not match the data.");
+  }
+  this.seriesKeys=seriesKeys;
+  fireDatasetChanged();
+}

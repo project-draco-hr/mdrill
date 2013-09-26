@@ -1,0 +1,5 @@
+{
+  ErrorModule predsForStep=getPredictionsForTestData(stepAhead);
+  List<NumericPrediction> preds=predsForStep.getPredictionsForTarget(targetName);
+  return printPredictions(title,preds,stepAhead,instanceNumberOffset);
+}

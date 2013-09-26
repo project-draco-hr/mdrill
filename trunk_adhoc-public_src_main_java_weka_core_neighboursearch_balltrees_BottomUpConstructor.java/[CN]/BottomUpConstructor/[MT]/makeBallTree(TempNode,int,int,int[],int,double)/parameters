@@ -1,0 +1,6 @@
+TempNode node
+int startidx
+int endidx
+int[] instList
+int depth
+double rootRadius

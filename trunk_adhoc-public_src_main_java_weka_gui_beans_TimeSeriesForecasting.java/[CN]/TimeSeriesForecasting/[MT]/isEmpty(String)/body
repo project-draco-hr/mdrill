@@ -1,0 +1,6 @@
+{
+  if (aString == null || aString.length() == 0) {
+    return true;
+  }
+  return false;
+}

@@ -1,0 +1,20 @@
+{
+  super(position,horizontalAlignment,verticalAlignment,padding);
+  if (text == null) {
+    throw new NullPointerException("Null 'text' argument.");
+  }
+  if (font == null) {
+    throw new NullPointerException("Null 'font' argument.");
+  }
+  if (paint == null) {
+    throw new NullPointerException("Null 'paint' argument.");
+  }
+  this.text=text;
+  this.font=font;
+  this.paint=paint;
+  this.textAlignment=horizontalAlignment;
+  this.backgroundPaint=null;
+  this.content=null;
+  this.toolTipText=null;
+  this.urlText=null;
+}

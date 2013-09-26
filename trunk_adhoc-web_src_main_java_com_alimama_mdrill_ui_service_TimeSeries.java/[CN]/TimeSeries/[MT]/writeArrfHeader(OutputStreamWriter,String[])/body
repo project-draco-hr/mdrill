@@ -1,0 +1,21 @@
+{
+  ramwriter.append("% Sales of Australian wine (thousands of litres)\r\n");
+  ramwriter.append("% from Jan 1980 - 1980-07-01 1995. Data is sorted in\r\n");
+  ramwriter.append("% time\r\n");
+  ramwriter.append("@relation mdrill\r\n");
+  ramwriter.append("\r\n");
+  for (int i=0; i < fields.length; i++) {
+    String f=fields[i];
+    if (f.indexOf("(") >= 0 && f.indexOf(")") >= 0) {
+      ramwriter.append("@attribute " + f + " numeric\r\n");
+    }
+ else     if (f.equals("thedate")) {
+      ramwriter.append("@attribute " + f + " date 'yyyyMMdd'\r\n");
+    }
+ else {
+      ramwriter.append("@attribute " + f + " string\r\n");
+    }
+  }
+  ramwriter.append("\r\n");
+  ramwriter.append("@data\r\n");
+}

@@ -1,0 +1,4 @@
+{
+  m_Model.addElement(name);
+  m_Results.put(name,result);
+}

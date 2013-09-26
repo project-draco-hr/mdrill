@@ -1,0 +1,6 @@
+{
+  RelativeDateFormat clone=(RelativeDateFormat)super.clone();
+  clone.dayFormatter=(NumberFormat)this.dayFormatter.clone();
+  clone.secondFormatter=(NumberFormat)this.secondFormatter.clone();
+  return clone;
+}

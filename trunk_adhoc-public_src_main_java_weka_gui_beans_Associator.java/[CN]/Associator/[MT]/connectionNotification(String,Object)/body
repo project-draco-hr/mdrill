@@ -1,0 +1,5 @@
+{
+  if (connectionAllowed(eventName)) {
+    m_listenees.put(eventName,source);
+  }
+}

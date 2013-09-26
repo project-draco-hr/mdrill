@@ -1,0 +1,3 @@
+{
+  setSeriesPositiveItemLabelPosition(series,position,true);
+}

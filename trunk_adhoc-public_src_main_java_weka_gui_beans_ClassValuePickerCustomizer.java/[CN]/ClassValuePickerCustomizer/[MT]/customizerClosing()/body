@@ -1,0 +1,3 @@
+{
+  m_classValuePicker.setClassValue(m_backup);
+}

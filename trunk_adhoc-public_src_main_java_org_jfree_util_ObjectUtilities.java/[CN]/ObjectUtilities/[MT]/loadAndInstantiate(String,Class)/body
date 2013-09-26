@@ -1,0 +1,10 @@
+{
+  try {
+    final ClassLoader loader=getClassLoader(source);
+    final Class c=loader.loadClass(className);
+    return c.newInstance();
+  }
+ catch (  Exception e) {
+    return null;
+  }
+}

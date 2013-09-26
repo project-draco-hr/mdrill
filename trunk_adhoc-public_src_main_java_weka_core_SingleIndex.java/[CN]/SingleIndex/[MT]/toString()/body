@@ -1,0 +1,9 @@
+{
+  if (m_IndexString.equals("")) {
+    return "No index set";
+  }
+  if (m_Upper == -1) {
+    throw new RuntimeException("Upper limit has not been specified");
+  }
+  return m_IndexString;
+}

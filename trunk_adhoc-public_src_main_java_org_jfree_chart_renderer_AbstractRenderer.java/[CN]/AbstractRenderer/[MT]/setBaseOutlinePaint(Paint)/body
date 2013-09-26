@@ -1,0 +1,3 @@
+{
+  setBaseOutlinePaint(paint,true);
+}

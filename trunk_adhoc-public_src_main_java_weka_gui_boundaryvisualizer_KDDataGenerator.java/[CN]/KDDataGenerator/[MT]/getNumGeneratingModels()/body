@@ -1,0 +1,6 @@
+{
+  if (m_instances != null) {
+    return m_instances.numInstances();
+  }
+  return 0;
+}

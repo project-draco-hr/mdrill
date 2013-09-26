@@ -1,0 +1,5 @@
+{
+  this.logContexts=new HashMap();
+  this.logTargets=new LogTarget[0];
+  this.debuglevel=100;
+}

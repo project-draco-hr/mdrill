@@ -1,0 +1,10 @@
+{
+  m_Vector=vector;
+  m_SpecialElement=special;
+  if (special == 0) {
+    m_Counter=1;
+  }
+ else {
+    m_Counter=0;
+  }
+}

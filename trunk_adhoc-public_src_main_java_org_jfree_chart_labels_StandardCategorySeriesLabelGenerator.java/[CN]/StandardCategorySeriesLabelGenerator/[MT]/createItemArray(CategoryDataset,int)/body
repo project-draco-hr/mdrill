@@ -1,0 +1,5 @@
+{
+  Object[] result=new Object[1];
+  result[0]=dataset.getRowKey(series).toString();
+  return result;
+}

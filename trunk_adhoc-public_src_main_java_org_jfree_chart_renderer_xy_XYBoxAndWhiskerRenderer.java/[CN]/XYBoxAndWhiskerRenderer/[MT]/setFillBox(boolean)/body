@@ -1,0 +1,4 @@
+{
+  this.fillBox=flag;
+  fireChangeEvent();
+}

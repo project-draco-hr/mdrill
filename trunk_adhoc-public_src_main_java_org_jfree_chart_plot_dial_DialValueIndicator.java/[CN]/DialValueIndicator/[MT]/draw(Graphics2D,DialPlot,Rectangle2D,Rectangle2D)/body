@@ -1,0 +1,21 @@
+{
+  Rectangle2D f=DialPlot.rectangleByRadius(frame,this.radius,this.radius);
+  Arc2D arc=new Arc2D.Double(f,this.angle,0.0,Arc2D.OPEN);
+  Point2D pt=arc.getStartPoint();
+  FontMetrics fm=g2.getFontMetrics(this.font);
+  String s=this.formatter.format(this.templateValue);
+  Rectangle2D tb=TextUtilities.getTextBounds(s,g2,fm);
+  Rectangle2D bounds=RectangleAnchor.createRectangle(new Size2D(tb.getWidth(),tb.getHeight()),pt.getX(),pt.getY(),this.frameAnchor);
+  Rectangle2D fb=this.insets.createOutsetRectangle(bounds);
+  g2.setPaint(this.backgroundPaint);
+  g2.fill(fb);
+  g2.setStroke(this.outlineStroke);
+  g2.setPaint(this.outlinePaint);
+  g2.draw(fb);
+  double value=plot.getValue(this.datasetIndex);
+  String valueStr=this.formatter.format(value);
+  Point2D pt2=RectangleAnchor.coordinates(bounds,this.valueAnchor);
+  g2.setPaint(this.paint);
+  g2.setFont(this.font);
+  TextUtilities.drawAlignedString(valueStr,g2,(float)pt2.getX(),(float)pt2.getY(),this.textAnchor);
+}

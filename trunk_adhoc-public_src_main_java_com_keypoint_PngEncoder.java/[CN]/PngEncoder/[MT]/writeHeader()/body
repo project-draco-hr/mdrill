@@ -1,0 +1,17 @@
+{
+  int startPos=this.bytePos=writeInt4(13,this.bytePos);
+  this.bytePos=writeBytes(IHDR,this.bytePos);
+  this.width=this.image.getWidth(null);
+  this.height=this.image.getHeight(null);
+  this.bytePos=writeInt4(this.width,this.bytePos);
+  this.bytePos=writeInt4(this.height,this.bytePos);
+  this.bytePos=writeByte(8,this.bytePos);
+  this.bytePos=writeByte((this.encodeAlpha) ? 6 : 2,this.bytePos);
+  this.bytePos=writeByte(0,this.bytePos);
+  this.bytePos=writeByte(0,this.bytePos);
+  this.bytePos=writeByte(0,this.bytePos);
+  this.crc.reset();
+  this.crc.update(this.pngBytes,startPos,this.bytePos - startPos);
+  this.crcValue=this.crc.getValue();
+  this.bytePos=writeInt4((int)this.crcValue,this.bytePos);
+}

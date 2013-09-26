@@ -1,0 +1,3 @@
+{
+  return "Whether to remove the old class attribute.";
+}

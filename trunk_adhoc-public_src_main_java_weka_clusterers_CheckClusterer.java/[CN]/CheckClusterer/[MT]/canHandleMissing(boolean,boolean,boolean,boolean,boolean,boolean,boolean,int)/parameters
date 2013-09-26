@@ -1,0 +1,8 @@
+boolean nominalPredictor
+boolean numericPredictor
+boolean stringPredictor
+boolean datePredictor
+boolean relationalPredictor
+boolean multiInstance
+boolean predictorMissing
+int missingLevel

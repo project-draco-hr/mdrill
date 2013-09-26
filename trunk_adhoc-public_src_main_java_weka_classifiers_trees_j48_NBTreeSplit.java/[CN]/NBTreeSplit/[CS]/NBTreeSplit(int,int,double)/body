@@ -1,0 +1,5 @@
+{
+  m_attIndex=attIndex;
+  m_minNoObj=minNoObj;
+  m_sumOfWeights=sumOfWeights;
+}

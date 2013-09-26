@@ -1,0 +1,4 @@
+{
+  this.errorIndicatorStroke=stroke;
+  fireChangeEvent();
+}

@@ -1,0 +1,11 @@
+{
+  String cName=Utils.getOption('W',options);
+  if (cName.length() == 0) {
+    throw new Exception("A classifier must be specified with" + " the -W option.");
+  }
+  setClassifier(AbstractClassifier.forName(cName,null));
+  if (getClassifier() instanceof OptionHandler) {
+    ((OptionHandler)getClassifier()).setOptions(Utils.partitionOptions(options));
+    updateOptions();
+  }
+}

@@ -1,0 +1,5 @@
+DateTickUnitType unitType
+int multiple
+DateTickUnitType rollUnitType
+int rollMultiple
+DateFormat formatter

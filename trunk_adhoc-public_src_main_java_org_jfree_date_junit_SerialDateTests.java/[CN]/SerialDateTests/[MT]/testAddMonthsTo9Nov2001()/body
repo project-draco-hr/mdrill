@@ -1,0 +1,5 @@
+{
+  final SerialDate jan9Y2002=SerialDate.addMonths(2,this.nov9Y2001);
+  final SerialDate answer=SerialDate.createInstance(9,1,2002);
+  assertEquals(answer,jan9Y2002);
+}

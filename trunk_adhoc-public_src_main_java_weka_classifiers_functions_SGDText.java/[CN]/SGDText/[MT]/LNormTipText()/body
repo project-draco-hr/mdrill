@@ -1,0 +1,3 @@
+{
+  return "The LNorm to use for document length normalization.";
+}

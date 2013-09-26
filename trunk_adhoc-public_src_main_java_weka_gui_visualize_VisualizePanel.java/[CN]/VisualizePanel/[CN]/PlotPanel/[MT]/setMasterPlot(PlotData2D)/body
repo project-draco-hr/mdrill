@@ -1,0 +1,4 @@
+{
+  m_plot2D.removeAllPlots();
+  this.addPlot(newPlot);
+}

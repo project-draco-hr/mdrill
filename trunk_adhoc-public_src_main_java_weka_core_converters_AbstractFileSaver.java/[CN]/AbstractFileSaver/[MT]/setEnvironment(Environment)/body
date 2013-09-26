@@ -1,0 +1,10 @@
+{
+  m_env=env;
+  if (m_outputFile != null) {
+    try {
+      setFile(m_outputFile);
+    }
+ catch (    IOException ex) {
+    }
+  }
+}

@@ -1,0 +1,3 @@
+{
+  return "An instance filter that changes a percentage of a given" + " attributes values. The attribute must be nominal." + " Missing value can be treated as value itself.";
+}

@@ -1,0 +1,14 @@
+{
+  if (this.factory == null) {
+    this.factory=SAXParserFactory.newInstance();
+    if (isValidateDTD()) {
+      try {
+        this.factory.setValidating(true);
+      }
+ catch (      Exception ex) {
+        Log.debug("The parser will not validate the xml document.",ex);
+      }
+    }
+  }
+  return this.factory.newSAXParser();
+}

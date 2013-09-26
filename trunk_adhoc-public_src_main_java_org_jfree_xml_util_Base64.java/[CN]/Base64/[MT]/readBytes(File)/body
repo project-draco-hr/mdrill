@@ -1,0 +1,19 @@
+{
+  final ByteArrayOutputStream baos=new ByteArrayOutputStream();
+  try {
+    final InputStream fis=new FileInputStream(file);
+    final InputStream is=new BufferedInputStream(fis);
+    int count;
+    final byte[] buf=new byte[16384];
+    while ((count=is.read(buf)) != -1) {
+      if (count > 0) {
+        baos.write(buf,0,count);
+      }
+    }
+    is.close();
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
+  return baos.toByteArray();
+}

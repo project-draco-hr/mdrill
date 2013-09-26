@@ -1,0 +1,4 @@
+{
+  this.width=fd.width;
+  this.height=fd.height;
+}

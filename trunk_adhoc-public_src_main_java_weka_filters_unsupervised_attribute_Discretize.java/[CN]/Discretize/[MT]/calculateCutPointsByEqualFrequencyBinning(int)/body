@@ -1,0 +1,68 @@
+{
+  Instances data=new Instances(getInputFormat());
+  data.sort(index);
+  double sumOfWeights=0;
+  for (int i=0; i < data.numInstances(); i++) {
+    if (data.instance(i).isMissing(index)) {
+      break;
+    }
+ else {
+      sumOfWeights+=data.instance(i).weight();
+    }
+  }
+  double freq;
+  double[] cutPoints=new double[m_NumBins - 1];
+  if (getDesiredWeightOfInstancesPerInterval() > 0) {
+    freq=getDesiredWeightOfInstancesPerInterval();
+    cutPoints=new double[(int)(sumOfWeights / freq)];
+  }
+ else {
+    freq=sumOfWeights / m_NumBins;
+    cutPoints=new double[m_NumBins - 1];
+  }
+  double counter=0, last=0;
+  int cpindex=0, lastIndex=-1;
+  for (int i=0; i < data.numInstances() - 1; i++) {
+    if (data.instance(i).isMissing(index)) {
+      break;
+    }
+    counter+=data.instance(i).weight();
+    sumOfWeights-=data.instance(i).weight();
+    if (data.instance(i).value(index) < data.instance(i + 1).value(index)) {
+      if (counter >= freq) {
+        if (((freq - last) < (counter - freq)) && (lastIndex != -1)) {
+          cutPoints[cpindex]=(data.instance(lastIndex).value(index) + data.instance(lastIndex + 1).value(index)) / 2;
+          counter-=last;
+          last=counter;
+          lastIndex=i;
+        }
+ else {
+          cutPoints[cpindex]=(data.instance(i).value(index) + data.instance(i + 1).value(index)) / 2;
+          counter=0;
+          last=0;
+          lastIndex=-1;
+        }
+        cpindex++;
+        freq=(sumOfWeights + counter) / ((cutPoints.length + 1) - cpindex);
+      }
+ else {
+        lastIndex=i;
+        last=counter;
+      }
+    }
+  }
+  if ((cpindex < cutPoints.length) && (lastIndex != -1)) {
+    cutPoints[cpindex]=(data.instance(lastIndex).value(index) + data.instance(lastIndex + 1).value(index)) / 2;
+    cpindex++;
+  }
+  if (cpindex == 0) {
+    m_CutPoints[index]=null;
+  }
+ else {
+    double[] cp=new double[cpindex];
+    for (int i=0; i < cpindex; i++) {
+      cp[i]=cutPoints[i];
+    }
+    m_CutPoints[index]=cp;
+  }
+}

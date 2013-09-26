@@ -1,0 +1,10 @@
+{
+  double result=0.0;
+  if (RectangleEdge.isLeftOrRight(edge)) {
+    result=plotArea.getWidth() * this.colorBarThicknessPercent;
+  }
+ else {
+    result=plotArea.getHeight() * this.colorBarThicknessPercent;
+  }
+  return result;
+}

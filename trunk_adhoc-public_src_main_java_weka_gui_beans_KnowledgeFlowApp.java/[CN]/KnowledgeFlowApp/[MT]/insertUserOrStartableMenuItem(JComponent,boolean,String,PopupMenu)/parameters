@@ -1,0 +1,4 @@
+JComponent bc
+boolean startable
+String tempS
+PopupMenu beanContextMenu

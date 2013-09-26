@@ -1,0 +1,5 @@
+{
+  Vector newVector=new Vector(1);
+  newVector.addElement(new Option("\tThe filename where output will be stored. Use - for stdout.\n" + "\t(default temp file)","O",1,"-O <file name>"));
+  return newVector.elements();
+}

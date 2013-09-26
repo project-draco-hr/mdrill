@@ -1,0 +1,15 @@
+{
+  FastVector attributes=new FastVector();
+  for (int i=0; i < m_numAttribs; i++) {
+    String att=m_trainInstances.attribute(i).name();
+    attributes.addElement(new Attribute(att));
+  }
+  if (m_hasClass) {
+    attributes.addElement(m_trainHeader.classAttribute().copy());
+  }
+  Instances outputFormat=new Instances(m_trainHeader.relationName() + "->PC->original space",attributes,0);
+  if (m_hasClass) {
+    outputFormat.setClassIndex(outputFormat.numAttributes() - 1);
+  }
+  return outputFormat;
+}

@@ -1,0 +1,3 @@
+{
+  return getPackageArchiveInfo(packageArchive.getAbsolutePath());
+}

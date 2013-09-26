@@ -1,0 +1,18 @@
+{
+  String debug="(KStarNominalAttribute.PStar) ";
+  double pstar;
+  int numvalues=0;
+  try {
+    numvalues=test.attribute(col).numValues();
+  }
+ catch (  Exception ex) {
+    ex.printStackTrace();
+  }
+  if ((int)test.value(col) == (int)train.value(col)) {
+    pstar=stop + (1 - stop) / numvalues;
+  }
+ else {
+    pstar=(1 - stop) / numvalues;
+  }
+  return pstar;
+}

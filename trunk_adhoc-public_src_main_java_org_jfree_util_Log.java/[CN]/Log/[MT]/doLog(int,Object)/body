@@ -1,0 +1,11 @@
+{
+  if (level > 3) {
+    level=3;
+  }
+  if (level <= this.debuglevel) {
+    for (int i=0; i < this.logTargets.length; i++) {
+      final LogTarget t=this.logTargets[i];
+      t.log(level,message);
+    }
+  }
+}

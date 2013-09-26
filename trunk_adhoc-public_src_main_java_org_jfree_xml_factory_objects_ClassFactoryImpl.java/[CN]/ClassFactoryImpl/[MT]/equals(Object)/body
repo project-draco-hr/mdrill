@@ -1,0 +1,13 @@
+{
+  if (this == o) {
+    return true;
+  }
+  if (!(o instanceof ClassFactoryImpl)) {
+    return false;
+  }
+  final ClassFactoryImpl classFactory=(ClassFactoryImpl)o;
+  if (!this.classes.equals(classFactory.classes)) {
+    return false;
+  }
+  return true;
+}

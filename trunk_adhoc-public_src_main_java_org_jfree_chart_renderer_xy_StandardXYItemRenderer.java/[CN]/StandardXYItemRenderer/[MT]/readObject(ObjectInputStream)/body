@@ -1,0 +1,4 @@
+{
+  stream.defaultReadObject();
+  this.legendLine=SerialUtilities.readShape(stream);
+}

@@ -1,0 +1,3 @@
+{
+  return getBeans(m_inputs,1);
+}

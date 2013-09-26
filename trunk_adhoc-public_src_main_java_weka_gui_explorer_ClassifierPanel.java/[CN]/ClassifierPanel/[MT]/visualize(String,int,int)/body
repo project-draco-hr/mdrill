@@ -1,0 +1,412 @@
+{
+  final String selectedName=name;
+  JPopupMenu resultListMenu=new JPopupMenu();
+  JMenuItem visMainBuffer=new JMenuItem("View in main window");
+  if (selectedName != null) {
+    visMainBuffer.addActionListener(new ActionListener(){
+      public void actionPerformed(      ActionEvent e){
+        m_History.setSingle(selectedName);
+      }
+    }
+);
+  }
+ else {
+    visMainBuffer.setEnabled(false);
+  }
+  resultListMenu.add(visMainBuffer);
+  JMenuItem visSepBuffer=new JMenuItem("View in separate window");
+  if (selectedName != null) {
+    visSepBuffer.addActionListener(new ActionListener(){
+      public void actionPerformed(      ActionEvent e){
+        m_History.openFrame(selectedName);
+      }
+    }
+);
+  }
+ else {
+    visSepBuffer.setEnabled(false);
+  }
+  resultListMenu.add(visSepBuffer);
+  JMenuItem saveOutput=new JMenuItem("Save result buffer");
+  if (selectedName != null) {
+    saveOutput.addActionListener(new ActionListener(){
+      public void actionPerformed(      ActionEvent e){
+        saveBuffer(selectedName);
+      }
+    }
+);
+  }
+ else {
+    saveOutput.setEnabled(false);
+  }
+  resultListMenu.add(saveOutput);
+  JMenuItem deleteOutput=new JMenuItem("Delete result buffer");
+  if (selectedName != null) {
+    deleteOutput.addActionListener(new ActionListener(){
+      public void actionPerformed(      ActionEvent e){
+        m_History.removeResult(selectedName);
+      }
+    }
+);
+  }
+ else {
+    deleteOutput.setEnabled(false);
+  }
+  resultListMenu.add(deleteOutput);
+  resultListMenu.addSeparator();
+  JMenuItem loadModel=new JMenuItem("Load model");
+  loadModel.addActionListener(new ActionListener(){
+    public void actionPerformed(    ActionEvent e){
+      loadClassifier();
+    }
+  }
+);
+  resultListMenu.add(loadModel);
+  FastVector o=null;
+  if (selectedName != null) {
+    o=(FastVector)m_History.getNamedObject(selectedName);
+  }
+  VisualizePanel temp_vp=null;
+  String temp_grph=null;
+  FastVector temp_preds=null;
+  Attribute temp_classAtt=null;
+  Classifier temp_classifier=null;
+  Instances temp_trainHeader=null;
+  if (o != null) {
+    for (int i=0; i < o.size(); i++) {
+      Object temp=o.elementAt(i);
+      if (temp instanceof Classifier) {
+        temp_classifier=(Classifier)temp;
+      }
+ else       if (temp instanceof Instances) {
+        temp_trainHeader=(Instances)temp;
+      }
+ else       if (temp instanceof VisualizePanel) {
+        temp_vp=(VisualizePanel)temp;
+      }
+ else       if (temp instanceof String) {
+        temp_grph=(String)temp;
+      }
+ else       if (temp instanceof FastVector) {
+        temp_preds=(FastVector)temp;
+      }
+ else       if (temp instanceof Attribute) {
+        temp_classAtt=(Attribute)temp;
+      }
+    }
+  }
+  final VisualizePanel vp=temp_vp;
+  final String grph=temp_grph;
+  final FastVector preds=temp_preds;
+  final Attribute classAtt=temp_classAtt;
+  final Classifier classifier=temp_classifier;
+  final Instances trainHeader=temp_trainHeader;
+  JMenuItem saveModel=new JMenuItem("Save model");
+  if (classifier != null) {
+    saveModel.addActionListener(new ActionListener(){
+      public void actionPerformed(      ActionEvent e){
+        saveClassifier(selectedName,classifier,trainHeader);
+      }
+    }
+);
+  }
+ else {
+    saveModel.setEnabled(false);
+  }
+  resultListMenu.add(saveModel);
+  JMenuItem reEvaluate=new JMenuItem("Re-evaluate model on current test set");
+  if (classifier != null && m_TestLoader != null) {
+    reEvaluate.addActionListener(new ActionListener(){
+      public void actionPerformed(      ActionEvent e){
+        reevaluateModel(selectedName,classifier,trainHeader);
+      }
+    }
+);
+  }
+ else {
+    reEvaluate.setEnabled(false);
+  }
+  resultListMenu.add(reEvaluate);
+  resultListMenu.addSeparator();
+  JMenuItem visErrors=new JMenuItem("Visualize classifier errors");
+  if (vp != null) {
+    if ((vp.getXIndex() == 0) && (vp.getYIndex() == 1)) {
+      try {
+        vp.setXIndex(vp.getInstances().classIndex());
+        vp.setYIndex(vp.getInstances().classIndex() - 1);
+      }
+ catch (      Exception e) {
+      }
+    }
+    visErrors.addActionListener(new ActionListener(){
+      public void actionPerformed(      ActionEvent e){
+        visualizeClassifierErrors(vp);
+      }
+    }
+);
+  }
+ else {
+    visErrors.setEnabled(false);
+  }
+  resultListMenu.add(visErrors);
+  JMenuItem visGrph=new JMenuItem("Visualize tree");
+  if (grph != null) {
+    if (((Drawable)temp_classifier).graphType() == Drawable.TREE) {
+      visGrph.addActionListener(new ActionListener(){
+        public void actionPerformed(        ActionEvent e){
+          String title;
+          if (vp != null)           title=vp.getName();
+ else           title=selectedName;
+          visualizeTree(grph,title);
+        }
+      }
+);
+    }
+ else     if (((Drawable)temp_classifier).graphType() == Drawable.BayesNet) {
+      visGrph.setText("Visualize graph");
+      visGrph.addActionListener(new ActionListener(){
+        public void actionPerformed(        ActionEvent e){
+          Thread th=new Thread(){
+            public void run(){
+              visualizeBayesNet(grph,selectedName);
+            }
+          }
+;
+          th.start();
+        }
+      }
+);
+    }
+ else     visGrph.setEnabled(false);
+  }
+ else {
+    visGrph.setEnabled(false);
+  }
+  resultListMenu.add(visGrph);
+  JMenuItem visMargin=new JMenuItem("Visualize margin curve");
+  if ((preds != null) && (classAtt != null) && (classAtt.isNominal())) {
+    visMargin.addActionListener(new ActionListener(){
+      public void actionPerformed(      ActionEvent e){
+        try {
+          MarginCurve tc=new MarginCurve();
+          Instances result=tc.getCurve(preds);
+          VisualizePanel vmc=new VisualizePanel();
+          vmc.setName(result.relationName());
+          vmc.setLog(m_Log);
+          PlotData2D tempd=new PlotData2D(result);
+          tempd.setPlotName(result.relationName());
+          tempd.addInstanceNumberAttribute();
+          vmc.addPlot(tempd);
+          visualizeClassifierErrors(vmc);
+        }
+ catch (        Exception ex) {
+          ex.printStackTrace();
+        }
+      }
+    }
+);
+  }
+ else {
+    visMargin.setEnabled(false);
+  }
+  resultListMenu.add(visMargin);
+  JMenu visThreshold=new JMenu("Visualize threshold curve");
+  if ((preds != null) && (classAtt != null) && (classAtt.isNominal())) {
+    for (int i=0; i < classAtt.numValues(); i++) {
+      JMenuItem clv=new JMenuItem(classAtt.value(i));
+      final int classValue=i;
+      clv.addActionListener(new ActionListener(){
+        public void actionPerformed(        ActionEvent e){
+          try {
+            ThresholdCurve tc=new ThresholdCurve();
+            Instances result=tc.getCurve(preds,classValue);
+            ThresholdVisualizePanel vmc=new ThresholdVisualizePanel();
+            vmc.setROCString("(Area under ROC = " + Utils.doubleToString(ThresholdCurve.getROCArea(result),4) + ")");
+            vmc.setLog(m_Log);
+            vmc.setName(result.relationName() + ". (Class value " + classAtt.value(classValue)+ ")");
+            PlotData2D tempd=new PlotData2D(result);
+            tempd.setPlotName(result.relationName());
+            tempd.addInstanceNumberAttribute();
+            boolean[] cp=new boolean[result.numInstances()];
+            for (int n=1; n < cp.length; n++)             cp[n]=true;
+            tempd.setConnectPoints(cp);
+            vmc.addPlot(tempd);
+            visualizeClassifierErrors(vmc);
+          }
+ catch (          Exception ex) {
+            ex.printStackTrace();
+          }
+        }
+      }
+);
+      visThreshold.add(clv);
+    }
+  }
+ else {
+    visThreshold.setEnabled(false);
+  }
+  resultListMenu.add(visThreshold);
+  JMenu visCostBenefit=new JMenu("Cost/Benefit analysis");
+  if ((preds != null) && (classAtt != null) && (classAtt.isNominal())) {
+    for (int i=0; i < classAtt.numValues(); i++) {
+      JMenuItem clv=new JMenuItem(classAtt.value(i));
+      final int classValue=i;
+      clv.addActionListener(new ActionListener(){
+        public void actionPerformed(        ActionEvent e){
+          try {
+            ThresholdCurve tc=new ThresholdCurve();
+            Instances result=tc.getCurve(preds,classValue);
+            Attribute classAttToUse=classAtt;
+            if (classValue != 0) {
+              FastVector newNames=new FastVector();
+              newNames.addElement(classAtt.value(classValue));
+              for (int k=0; k < classAtt.numValues(); k++) {
+                if (k != classValue) {
+                  newNames.addElement(classAtt.value(k));
+                }
+              }
+              classAttToUse=new Attribute(classAtt.name(),newNames);
+            }
+            CostBenefitAnalysis cbAnalysis=new CostBenefitAnalysis();
+            PlotData2D tempd=new PlotData2D(result);
+            tempd.setPlotName(result.relationName());
+            tempd.m_alwaysDisplayPointsOfThisSize=10;
+            boolean[] cp=new boolean[result.numInstances()];
+            for (int n=1; n < cp.length; n++)             cp[n]=true;
+            tempd.setConnectPoints(cp);
+            String windowTitle="";
+            if (classifier != null) {
+              String cname=classifier.getClass().getName();
+              if (cname.startsWith("weka.classifiers.")) {
+                windowTitle="" + cname.substring("weka.classifiers.".length()) + " ";
+              }
+            }
+            windowTitle+=" (class = " + classAttToUse.value(0) + ")";
+            cbAnalysis.setCurveData(tempd,classAttToUse);
+            visualizeCostBenefitAnalysis(cbAnalysis,windowTitle);
+          }
+ catch (          Exception ex) {
+            ex.printStackTrace();
+          }
+        }
+      }
+);
+      visCostBenefit.add(clv);
+    }
+  }
+ else {
+    visCostBenefit.setEnabled(false);
+  }
+  resultListMenu.add(visCostBenefit);
+  JMenu visCost=new JMenu("Visualize cost curve");
+  if ((preds != null) && (classAtt != null) && (classAtt.isNominal())) {
+    for (int i=0; i < classAtt.numValues(); i++) {
+      JMenuItem clv=new JMenuItem(classAtt.value(i));
+      final int classValue=i;
+      clv.addActionListener(new ActionListener(){
+        public void actionPerformed(        ActionEvent e){
+          try {
+            CostCurve cc=new CostCurve();
+            Instances result=cc.getCurve(preds,classValue);
+            VisualizePanel vmc=new VisualizePanel();
+            vmc.setLog(m_Log);
+            vmc.setName(result.relationName() + ". (Class value " + classAtt.value(classValue)+ ")");
+            PlotData2D tempd=new PlotData2D(result);
+            tempd.m_displayAllPoints=true;
+            tempd.setPlotName(result.relationName());
+            boolean[] connectPoints=new boolean[result.numInstances()];
+            for (int jj=1; jj < connectPoints.length; jj+=2) {
+              connectPoints[jj]=true;
+            }
+            tempd.setConnectPoints(connectPoints);
+            vmc.addPlot(tempd);
+            visualizeClassifierErrors(vmc);
+          }
+ catch (          Exception ex) {
+            ex.printStackTrace();
+          }
+        }
+      }
+);
+      visCost.add(clv);
+    }
+  }
+ else {
+    visCost.setEnabled(false);
+  }
+  resultListMenu.add(visCost);
+  JMenu visPlugins=new JMenu("Plugins");
+  boolean availablePlugins=false;
+  Vector pluginsVector=GenericObjectEditor.getClassnames(VisualizePlugin.class.getName());
+  for (int i=0; i < pluginsVector.size(); i++) {
+    String className=(String)(pluginsVector.elementAt(i));
+    try {
+      VisualizePlugin plugin=(VisualizePlugin)Class.forName(className).newInstance();
+      if (plugin == null)       continue;
+      availablePlugins=true;
+      JMenuItem pluginMenuItem=plugin.getVisualizeMenuItem(preds,classAtt);
+      Version version=new Version();
+      if (pluginMenuItem != null) {
+        visPlugins.add(pluginMenuItem);
+      }
+    }
+ catch (    Exception e) {
+    }
+  }
+  pluginsVector=GenericObjectEditor.getClassnames(ErrorVisualizePlugin.class.getName());
+  for (int i=0; i < pluginsVector.size(); i++) {
+    String className=(String)(pluginsVector.elementAt(i));
+    try {
+      ErrorVisualizePlugin plugin=(ErrorVisualizePlugin)Class.forName(className).newInstance();
+      if (plugin == null)       continue;
+      availablePlugins=true;
+      JMenuItem pluginMenuItem=plugin.getVisualizeMenuItem(vp.getInstances());
+      Version version=new Version();
+      if (pluginMenuItem != null) {
+        visPlugins.add(pluginMenuItem);
+      }
+    }
+ catch (    Exception e) {
+    }
+  }
+  if (grph != null) {
+    if (((Drawable)temp_classifier).graphType() == Drawable.TREE) {
+      pluginsVector=GenericObjectEditor.getClassnames(TreeVisualizePlugin.class.getName());
+      for (int i=0; i < pluginsVector.size(); i++) {
+        String className=(String)(pluginsVector.elementAt(i));
+        try {
+          TreeVisualizePlugin plugin=(TreeVisualizePlugin)Class.forName(className).newInstance();
+          if (plugin == null)           continue;
+          availablePlugins=true;
+          JMenuItem pluginMenuItem=plugin.getVisualizeMenuItem(grph,selectedName);
+          Version version=new Version();
+          if (pluginMenuItem != null) {
+            visPlugins.add(pluginMenuItem);
+          }
+        }
+ catch (        Exception e) {
+        }
+      }
+    }
+ else {
+      pluginsVector=GenericObjectEditor.getClassnames(GraphVisualizePlugin.class.getName());
+      for (int i=0; i < pluginsVector.size(); i++) {
+        String className=(String)(pluginsVector.elementAt(i));
+        try {
+          GraphVisualizePlugin plugin=(GraphVisualizePlugin)Class.forName(className).newInstance();
+          if (plugin == null)           continue;
+          availablePlugins=true;
+          JMenuItem pluginMenuItem=plugin.getVisualizeMenuItem(grph,selectedName);
+          Version version=new Version();
+          if (pluginMenuItem != null) {
+            visPlugins.add(pluginMenuItem);
+          }
+        }
+ catch (        Exception e) {
+        }
+      }
+    }
+  }
+  if (availablePlugins)   resultListMenu.add(visPlugins);
+  resultListMenu.show(m_History.getList(),x,y);
+}

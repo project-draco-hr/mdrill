@@ -1,0 +1,5 @@
+{
+  SimpleHistogramDataset clone=(SimpleHistogramDataset)super.clone();
+  clone.bins=(List)ObjectUtilities.deepClone(this.bins);
+  return clone;
+}

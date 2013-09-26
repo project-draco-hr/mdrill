@@ -1,0 +1,13 @@
+{
+  this.ensureCapacity(newRow,getColumnCount());
+  final Object[] oldRowStorage=this.data[oldRow];
+  if (oldRowStorage == null) {
+    final Object[] newRowStorage=this.data[newRow];
+    if (newRowStorage != null) {
+      Arrays.fill(newRowStorage,null);
+    }
+  }
+ else {
+    this.data[newRow]=(Object[])oldRowStorage.clone();
+  }
+}

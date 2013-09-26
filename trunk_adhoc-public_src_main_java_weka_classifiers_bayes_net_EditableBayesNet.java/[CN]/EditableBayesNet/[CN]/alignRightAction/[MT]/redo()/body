@@ -1,0 +1,8 @@
+{
+  try {
+    alignRight(m_nodes);
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
+}

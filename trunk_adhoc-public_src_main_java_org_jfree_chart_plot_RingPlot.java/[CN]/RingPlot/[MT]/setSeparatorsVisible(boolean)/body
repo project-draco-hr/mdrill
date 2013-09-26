@@ -1,0 +1,4 @@
+{
+  this.separatorsVisible=visible;
+  fireChangeEvent();
+}

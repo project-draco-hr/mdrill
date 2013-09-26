@@ -1,0 +1,22 @@
+{
+  ViewerDialog dialog;
+  int result;
+  Instances copy;
+  Instances newInstances;
+  final int classIndex=m_AttVisualizePanel.getColoringIndex();
+  copy=new Instances(m_Instances);
+  copy.setClassIndex(classIndex);
+  dialog=new ViewerDialog(null);
+  result=dialog.showDialog(copy);
+  if (result == ViewerDialog.APPROVE_OPTION) {
+    try {
+      addUndoPoint();
+    }
+ catch (    Exception e) {
+      e.printStackTrace();
+    }
+    newInstances=dialog.getInstances();
+    if (m_Instances.classIndex() < 0)     newInstances.setClassIndex(-1);
+    setInstances(newInstances);
+  }
+}

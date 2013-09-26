@@ -1,0 +1,4 @@
+{
+  Tick clone=(Tick)super.clone();
+  return clone;
+}

@@ -1,7 +1,0 @@
-{
-  int result=1;
-  for (  int element : this.list) {
-    result=31 * result + element;
-  }
-  return result;
-}

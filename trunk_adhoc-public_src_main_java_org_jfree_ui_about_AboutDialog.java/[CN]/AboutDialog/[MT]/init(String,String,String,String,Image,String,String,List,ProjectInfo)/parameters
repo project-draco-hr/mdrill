@@ -1,0 +1,9 @@
+String title
+String application
+String version
+String info
+Image logo
+String copyright
+String licence
+List contributors
+ProjectInfo libraries

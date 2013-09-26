@@ -1,0 +1,120 @@
+{
+  try {
+    Attribute length=new Attribute("length");
+    Attribute weight=new Attribute("weight");
+    ArrayList<String> my_nominal_values=new ArrayList<String>(3);
+    my_nominal_values.add("first");
+    my_nominal_values.add("second");
+    my_nominal_values.add("third");
+    Attribute position=new Attribute("position",my_nominal_values);
+    ArrayList<Attribute> attributes=new ArrayList<Attribute>(3);
+    attributes.add(length);
+    attributes.add(weight);
+    attributes.add(position);
+    Instances race=new Instances("race",attributes,0);
+    race.setClassIndex(position.index());
+    SparseInstance inst=new SparseInstance(3);
+    inst.setValue(length,5.3);
+    inst.setValue(weight,300);
+    inst.setValue(position,"first");
+    inst.setDataset(race);
+    System.out.println("The instance: " + inst);
+    System.out.println("First attribute: " + inst.attribute(0));
+    System.out.println("Class attribute: " + inst.classAttribute());
+    System.out.println("Class index: " + inst.classIndex());
+    System.out.println("Class is missing: " + inst.classIsMissing());
+    System.out.println("Class value (internal format): " + inst.classValue());
+    SparseInstance copy=(SparseInstance)inst.copy();
+    System.out.println("Shallow copy: " + copy);
+    copy.setDataset(inst.dataset());
+    System.out.println("Shallow copy with dataset set: " + copy);
+    System.out.print("All stored values in internal format: ");
+    for (int i=0; i < inst.numValues(); i++) {
+      if (i > 0) {
+        System.out.print(",");
+      }
+      System.out.print(inst.valueSparse(i));
+    }
+    System.out.println();
+    System.out.print("All values set to zero: ");
+    while (inst.numValues() > 0) {
+      inst.setValueSparse(0,0);
+    }
+    for (int i=0; i < inst.numValues(); i++) {
+      if (i > 0) {
+        System.out.print(",");
+      }
+      System.out.print(inst.valueSparse(i));
+    }
+    System.out.println();
+    System.out.print("All values set to one: ");
+    for (int i=0; i < inst.numAttributes(); i++) {
+      inst.setValue(i,1);
+    }
+    for (int i=0; i < inst.numValues(); i++) {
+      if (i > 0) {
+        System.out.print(",");
+      }
+      System.out.print(inst.valueSparse(i));
+    }
+    System.out.println();
+    copy.setDataset(null);
+    copy.deleteAttributeAt(0);
+    copy.insertAttributeAt(0);
+    copy.setDataset(inst.dataset());
+    System.out.println("Copy with first attribute deleted and inserted: " + copy);
+    copy.setDataset(null);
+    copy.deleteAttributeAt(1);
+    copy.insertAttributeAt(1);
+    copy.setDataset(inst.dataset());
+    System.out.println("Copy with second attribute deleted and inserted: " + copy);
+    copy.setDataset(null);
+    copy.deleteAttributeAt(2);
+    copy.insertAttributeAt(2);
+    copy.setDataset(inst.dataset());
+    System.out.println("Copy with third attribute deleted and inserted: " + copy);
+    System.out.println("Enumerating attributes (leaving out class):");
+    Enumeration enu=inst.enumerateAttributes();
+    while (enu.hasMoreElements()) {
+      Attribute att=(Attribute)enu.nextElement();
+      System.out.println(att);
+    }
+    System.out.println("Header of original and copy equivalent: " + inst.equalHeaders(copy));
+    System.out.println("Length of copy missing: " + copy.isMissing(length));
+    System.out.println("Weight of copy missing: " + copy.isMissing(weight.index()));
+    System.out.println("Length of copy missing: " + Utils.isMissingValue(copy.value(length)));
+    System.out.println("Number of attributes: " + copy.numAttributes());
+    System.out.println("Number of classes: " + copy.numClasses());
+    double[] meansAndModes={2,3,0};
+    copy.replaceMissingValues(meansAndModes);
+    System.out.println("Copy with missing value replaced: " + copy);
+    copy.setClassMissing();
+    System.out.println("Copy with missing class: " + copy);
+    copy.setClassValue(0);
+    System.out.println("Copy with class value set to first value: " + copy);
+    copy.setClassValue("third");
+    System.out.println("Copy with class value set to \"third\": " + copy);
+    copy.setMissing(1);
+    System.out.println("Copy with second attribute set to be missing: " + copy);
+    copy.setMissing(length);
+    System.out.println("Copy with length set to be missing: " + copy);
+    copy.setValue(0,0);
+    System.out.println("Copy with first attribute set to 0: " + copy);
+    copy.setValue(weight,1);
+    System.out.println("Copy with weight attribute set to 1: " + copy);
+    copy.setValue(position,"second");
+    System.out.println("Copy with position set to \"second\": " + copy);
+    copy.setValue(2,"first");
+    System.out.println("Copy with last attribute set to \"first\": " + copy);
+    System.out.println("Current weight of instance copy: " + copy.weight());
+    copy.setWeight(2);
+    System.out.println("Current weight of instance copy (set to 2): " + copy.weight());
+    System.out.println("Last value of copy: " + copy.toString(2));
+    System.out.println("Value of position for copy: " + copy.toString(position));
+    System.out.println("Last value of copy (internal format): " + copy.value(2));
+    System.out.println("Value of position for copy (internal format): " + copy.value(position));
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
+}

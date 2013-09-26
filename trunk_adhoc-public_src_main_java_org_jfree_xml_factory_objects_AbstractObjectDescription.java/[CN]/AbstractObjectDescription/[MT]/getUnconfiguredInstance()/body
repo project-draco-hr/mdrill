@@ -1,0 +1,12 @@
+{
+  try {
+    final AbstractObjectDescription c=(AbstractObjectDescription)super.clone();
+    c.parameters=(HashMap)this.parameters.clone();
+    c.config=null;
+    return c;
+  }
+ catch (  Exception e) {
+    Log.error("Should not happen: Clone Error: ",e);
+    return null;
+  }
+}

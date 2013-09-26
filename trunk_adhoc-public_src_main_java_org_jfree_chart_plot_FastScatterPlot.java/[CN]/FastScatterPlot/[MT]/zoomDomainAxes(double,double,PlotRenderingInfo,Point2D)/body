@@ -1,0 +1,3 @@
+{
+  this.domainAxis.zoomRange(lowerPercent,upperPercent);
+}

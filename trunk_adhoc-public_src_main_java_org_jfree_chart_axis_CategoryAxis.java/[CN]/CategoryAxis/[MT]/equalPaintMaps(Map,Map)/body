@@ -1,0 +1,16 @@
+{
+  if (map1.size() != map2.size()) {
+    return false;
+  }
+  Set entries=map1.entrySet();
+  Iterator iterator=entries.iterator();
+  while (iterator.hasNext()) {
+    Map.Entry entry=(Map.Entry)iterator.next();
+    Paint p1=(Paint)entry.getValue();
+    Paint p2=(Paint)map2.get(entry.getKey());
+    if (!PaintUtilities.equal(p1,p2)) {
+      return false;
+    }
+  }
+  return true;
+}

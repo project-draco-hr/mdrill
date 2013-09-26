@@ -1,0 +1,29 @@
+{
+  if (m_updateHandler == null) {
+    m_updateHandler=new Thread(){
+      private double[] dataPoint;
+      public void run(){
+        while (true) {
+          if (m_outputFrame != null) {
+synchronized (m_dataList) {
+              while (m_dataList.isEmpty()) {
+                try {
+                  m_dataList.wait();
+                }
+ catch (                InterruptedException ex) {
+                  return;
+                }
+              }
+              dataPoint=(double[])m_dataList.remove(0);
+            }
+            if (m_outputFrame != null) {
+              StripChart.this.updateChart(dataPoint);
+            }
+          }
+        }
+      }
+    }
+;
+    m_updateHandler.start();
+  }
+}

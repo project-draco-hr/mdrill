@@ -1,0 +1,7 @@
+{
+  if (thresholdType == null) {
+    throw new IllegalArgumentException("Null 'thresholdType' argument.");
+  }
+  this.gapThresholdType=thresholdType;
+  fireChangeEvent();
+}

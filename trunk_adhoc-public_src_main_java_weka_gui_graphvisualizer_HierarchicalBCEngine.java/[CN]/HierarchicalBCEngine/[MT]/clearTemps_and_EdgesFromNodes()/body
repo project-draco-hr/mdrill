@@ -1,0 +1,6 @@
+{
+  int curSize=m_nodes.size();
+  for (int i=origNodesSize; i < curSize; i++)   m_nodes.removeElementAt(origNodesSize);
+  for (int j=0; j < m_nodes.size(); j++)   ((GraphNode)m_nodes.elementAt(j)).edges=null;
+  nodeLevels=null;
+}

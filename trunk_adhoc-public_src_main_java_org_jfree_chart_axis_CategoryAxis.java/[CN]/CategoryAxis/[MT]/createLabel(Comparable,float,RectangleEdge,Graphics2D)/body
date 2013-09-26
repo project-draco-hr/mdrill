@@ -1,0 +1,4 @@
+{
+  TextBlock label=TextUtilities.createTextBlock(category.toString(),getTickLabelFont(category),getTickLabelPaint(category),width,this.maximumCategoryLabelLines,new G2TextMeasurer(g2));
+  return label;
+}

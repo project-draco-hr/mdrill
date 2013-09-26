@@ -1,12 +1,7 @@
 {
   SolrCore.log.info("####UnInverted#### SegmentReader begin");
   this.field=field;
-  if (this.field.indexOf("higoempty_") >= 0) {
-    this.isNullField=true;
-  }
-  if (this.isNullField) {
-    this.tnr=new TermNumReadNull();
-    this.tnr.setUni(this);
+  if (this.checkEmpty()) {
     return;
   }
   long startTime=System.currentTimeMillis();
@@ -15,24 +10,35 @@
   SchemaField sf=schema.getField(field);
   this.ft=sf.getType();
   this.isMultiValued=ft.isMultiValued();
+  if (this.isMultiValued) {
+    throw new IOException("unsupport MultiValued");
+  }
   this.dataType=UnInvertedFieldUtils.getDataType(this.ft);
-  this.tnr=UnInvertedFieldUtils.getReadInterface(this.isMultiValued);
+  this.tnr=new TermNumReadSingle();
   String key=LuceneUtils.crcKey(reader);
   this.dataType=UnInvertedFieldUtils.getDataType(this.ft);
   this.ti=new TermIndex(field,prefix);
-  if (reader.isSupportQuick() && !this.isMultiValued && reader.getpos(this.field) != null && reader.getCount(this.field) != null) {
-    TermIndex.QuickNumberedTermEnum te=ti.getEnumerator(reader,reader.getQuickTis(),reader.getpos(this.field),reader.getCount(this.field));
-    this.setSingleValue(te,reader,key);
-    te.close();
+  boolean isbyQuick=false;
+  try {
+    if (reader.isSupportQuick()) {
+      Long pos=reader.getQuickPos(this.field);
+      Integer cnt=reader.getQuickCount(this.field);
+      if (pos != null && cnt != null) {
+        TermIndex.QuickNumberedTermEnum te=ti.getEnumerator(reader,reader.getQuickTis(),pos,cnt);
+        this.setSingleValue(te,reader,key);
+        numTermsInField=te.getTermNumber();
+        te.close();
+        isbyQuick=true;
+      }
+    }
   }
- else {
+ catch (  Throwable e) {
+    log.error("readFail",e);
+  }
+  if (!isbyQuick) {
+    log.info("#####isbyQuick false");
     NumberedTermEnum te=ti.getEnumerator(reader);
-    if (!this.isMultiValued) {
-      this.setSingleValue(te,reader,key);
-    }
- else {
-      this.setMultyValue(te,reader,key);
-    }
+    this.setSingleValue(te,reader,key);
     numTermsInField=te.getTermNumber();
     te.close();
   }

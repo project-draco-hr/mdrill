@@ -1,0 +1,3 @@
+{
+  this(new Integer(paintLimit),new Integer(paintIndexMethod));
+}

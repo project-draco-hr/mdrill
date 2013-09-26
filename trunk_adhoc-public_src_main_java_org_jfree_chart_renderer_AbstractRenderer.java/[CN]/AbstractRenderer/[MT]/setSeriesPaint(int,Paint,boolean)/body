@@ -1,0 +1,6 @@
+{
+  this.paintList.setPaint(series,paint);
+  if (notify) {
+    fireChangeEvent();
+  }
+}

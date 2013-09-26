@@ -1,0 +1,5 @@
+{
+  HierarchicalConfiguration config=(HierarchicalConfiguration)super.clone();
+  config.configuration=(Properties)this.configuration.clone();
+  return config;
+}

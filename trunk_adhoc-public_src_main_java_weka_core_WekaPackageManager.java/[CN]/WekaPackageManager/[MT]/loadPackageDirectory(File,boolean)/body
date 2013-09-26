@@ -1,0 +1,29 @@
+{
+  File[] contents=directory.listFiles();
+  for (int i=0; i < contents.length; i++) {
+    if (contents[i].isFile() && contents[i].getPath().endsWith(".jar")) {
+      if (verbose) {
+        System.out.println("[Weka] loading " + contents[i].getPath());
+      }
+      ClassloaderUtil.addFile(contents[i].getPath());
+    }
+ else     if (contents[i].isDirectory() && contents[i].getName().equalsIgnoreCase("lib")) {
+      loadPackageDirectory(contents[i],verbose);
+    }
+  }
+  for (int i=0; i < contents.length; i++) {
+    if (contents[i].isFile() && contents[i].getPath().endsWith("Beans.props")) {
+      KnowledgeFlowApp.addToPluginBeanProps(contents[i]);
+      KnowledgeFlowApp.disposeSingleton();
+    }
+ else     if (contents[i].isFile() && contents[i].getPath().endsWith("Explorer.props")) {
+      processExplorerProps(contents[i]);
+    }
+ else     if (contents[i].isFile() && contents[i].getPath().endsWith("GUIEditors.props")) {
+      processGUIEditorsProps(contents[i]);
+    }
+ else     if (contents[i].isFile() && contents[i].getPath().endsWith("GenericPropertiesCreator.props")) {
+      processGenericPropertiesCreatorProps(contents[i]);
+    }
+  }
+}

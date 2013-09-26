@@ -1,0 +1,9 @@
+{
+  for (int i=0; i < this.propertyDefinitions.length; i++) {
+    final PropertyDefinition pdef=this.propertyDefinitions[i];
+    if (pdef.getElementName().equals(tagName)) {
+      return pdef;
+    }
+  }
+  throw new ObjectDescriptionException("This tag is not defined for this kind of object. : " + tagName);
+}

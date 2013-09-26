@@ -1,0 +1,4 @@
+{
+  m_sText=sText;
+  a_pastenode.setEnabled(true);
+}

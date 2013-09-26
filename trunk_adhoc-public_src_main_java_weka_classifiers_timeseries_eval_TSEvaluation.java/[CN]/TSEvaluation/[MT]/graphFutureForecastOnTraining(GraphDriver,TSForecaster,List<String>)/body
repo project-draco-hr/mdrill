@@ -1,0 +1,9 @@
+{
+  if (m_trainingData == null || m_trainingData.numInstances() == 0) {
+    throw new Exception("Can't forecast beyond the end of the" + " training instances because no training instances have been " + "supplied!");
+  }
+  if (m_trainingFuture != null) {
+    return graphFutureForecast(driver,forecaster,targetNames,m_trainingFuture,m_trainingData);
+  }
+  throw new Exception("[TSEvaluation] can't graph future forecast for training " + " because there are no future predicitons.");
+}

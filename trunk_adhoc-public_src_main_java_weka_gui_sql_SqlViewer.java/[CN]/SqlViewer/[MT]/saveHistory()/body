@@ -1,0 +1,10 @@
+{
+  BufferedOutputStream str;
+  try {
+    str=new BufferedOutputStream(new FileOutputStream(getHistoryFilename()));
+    m_History.store(str,"SQL-Viewer-History");
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
+}

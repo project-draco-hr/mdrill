@@ -1,0 +1,35 @@
+{
+  while (reader.hasNext()) {
+    final String lastLineRead=reader.next();
+    if (Character.isWhitespace(lastLineRead.charAt(0)) == false) {
+      reader.pushBack(lastLineRead);
+      return;
+    }
+    final String line=lastLineRead.trim();
+    final String key=parseKey(line);
+    if (key != null) {
+      final String b=readValue(reader,parseValue(line.trim()));
+      if ("name".equals(key)) {
+        setName(b);
+      }
+ else       if ("producer".equals(key)) {
+        setProducer(b);
+      }
+ else       if ("description".equals(key)) {
+        setDescription(b);
+      }
+ else       if ("subsystem".equals(key)) {
+        setSubSystem(b);
+      }
+ else       if ("version.major".equals(key)) {
+        setMajorVersion(b);
+      }
+ else       if ("version.minor".equals(key)) {
+        setMinorVersion(b);
+      }
+ else       if ("version.patchlevel".equals(key)) {
+        setPatchLevel(b);
+      }
+    }
+  }
+}

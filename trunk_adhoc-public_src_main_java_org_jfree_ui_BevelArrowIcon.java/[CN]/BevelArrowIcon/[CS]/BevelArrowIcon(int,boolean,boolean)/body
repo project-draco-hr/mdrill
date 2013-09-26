@@ -1,0 +1,18 @@
+{
+  if (isRaisedView) {
+    if (isPressedView) {
+      init(UIManager.getColor("controlLtHighlight"),UIManager.getColor("controlDkShadow"),UIManager.getColor("controlShadow"),DEFAULT_SIZE,direction);
+    }
+ else {
+      init(UIManager.getColor("controlHighlight"),UIManager.getColor("controlShadow"),UIManager.getColor("control"),DEFAULT_SIZE,direction);
+    }
+  }
+ else {
+    if (isPressedView) {
+      init(UIManager.getColor("controlDkShadow"),UIManager.getColor("controlLtHighlight"),UIManager.getColor("controlShadow"),DEFAULT_SIZE,direction);
+    }
+ else {
+      init(UIManager.getColor("controlShadow"),UIManager.getColor("controlHighlight"),UIManager.getColor("control"),DEFAULT_SIZE,direction);
+    }
+  }
+}

@@ -1,0 +1,22 @@
+{
+  StringBuffer temp=new StringBuffer();
+  length=length - source.length();
+  if (length > 0) {
+    if (leftPad) {
+      for (int i=0; i < length; i++) {
+        temp.append(padChar);
+      }
+      temp.append(source);
+    }
+ else {
+      temp.append(source);
+      for (int i=0; i < length; i++) {
+        temp.append(padChar);
+      }
+    }
+  }
+ else {
+    temp.append(source);
+  }
+  return temp.toString();
+}

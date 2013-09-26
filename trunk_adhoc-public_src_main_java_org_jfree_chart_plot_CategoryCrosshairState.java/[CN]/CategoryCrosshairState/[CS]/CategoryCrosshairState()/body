@@ -1,0 +1,4 @@
+{
+  this.rowKey=null;
+  this.columnKey=null;
+}

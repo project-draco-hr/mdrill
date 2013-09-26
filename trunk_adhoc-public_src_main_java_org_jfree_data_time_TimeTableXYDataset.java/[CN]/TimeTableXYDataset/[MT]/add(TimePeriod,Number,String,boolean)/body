@@ -1,0 +1,6 @@
+{
+  this.values.addValue(y,period,seriesName);
+  if (notify) {
+    fireDatasetChanged();
+  }
+}

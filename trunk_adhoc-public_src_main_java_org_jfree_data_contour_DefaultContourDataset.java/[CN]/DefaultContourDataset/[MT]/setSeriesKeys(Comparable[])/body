@@ -1,0 +1,7 @@
+{
+  if (seriesKeys.length > 1) {
+    throw new IllegalArgumentException("Contours only support one series");
+  }
+  this.seriesKey=seriesKeys[0];
+  fireDatasetChanged();
+}

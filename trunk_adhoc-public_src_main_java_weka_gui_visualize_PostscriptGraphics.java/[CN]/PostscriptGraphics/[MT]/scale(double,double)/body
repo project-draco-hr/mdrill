@@ -1,0 +1,5 @@
+{
+  m_localGraphicsState.setXScale(d1);
+  m_localGraphicsState.setYScale(d2);
+  if (DEBUG)   System.err.println("d1 = " + d1 + ", d2 = "+ d2);
+}

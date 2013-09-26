@@ -1,0 +1,68 @@
+{
+  removeAll();
+  JTabbedPane tabHolder=new JTabbedPane();
+  JPanel modelFilePanel=new JPanel();
+  modelFilePanel.setLayout(new BorderLayout());
+  JPanel tempP1=new JPanel();
+  tempP1.setLayout(new GridLayout(5,2));
+  JLabel fileLab=new JLabel("Load/import forecaster",SwingConstants.RIGHT);
+  tempP1.add(fileLab);
+  tempP1.add(m_filenameField);
+  m_numStepsLab=new JLabel("Number of steps to forecast",SwingConstants.RIGHT);
+  tempP1.add(m_numStepsLab);
+  tempP1.add(m_numStepsToForecast);
+  m_artificialLab=new JLabel("Number of historical instances " + "beyond end of training data",SwingConstants.RIGHT);
+  tempP1.add(m_artificialLab);
+  tempP1.add(m_artificialOffset);
+  JLabel rebuildLab=new JLabel("Rebuild/reestimate on incoming data",SwingConstants.RIGHT);
+  tempP1.add(rebuildLab);
+  tempP1.add(m_rebuildForecasterCheck);
+  m_saveLab=new JLabel("Save forecaster",SwingConstants.RIGHT);
+  tempP1.add(m_saveLab);
+  tempP1.add(m_saveFilenameField);
+  modelFilePanel.add(tempP1,BorderLayout.NORTH);
+  tabHolder.addTab("Model file",modelFilePanel);
+  add(tabHolder,BorderLayout.CENTER);
+  JPanel modelPanel=new JPanel();
+  modelPanel.setLayout(new BorderLayout());
+  m_modelDisplay.setEditable(false);
+  m_modelDisplay.setFont(new Font("Monospaced",Font.PLAIN,12));
+  m_modelDisplay.setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
+  JScrollPane scrollPane=new JScrollPane(m_modelDisplay);
+  modelPanel.add(scrollPane,BorderLayout.CENTER);
+  tabHolder.addTab("Model",modelPanel);
+  JButton okBut=new JButton("OK");
+  JButton cancelBut=new JButton("Cancel");
+  JPanel butHolder1=new JPanel();
+  butHolder1.setLayout(new GridLayout(1,2));
+  butHolder1.add(okBut);
+  butHolder1.add(cancelBut);
+  JPanel butHolder2=new JPanel();
+  butHolder2.setLayout(new GridLayout(1,3));
+  butHolder2.add(new JPanel());
+  butHolder2.add(butHolder1);
+  butHolder2.add(new JPanel());
+  add(butHolder2,BorderLayout.SOUTH);
+  cancelBut.addActionListener(new ActionListener(){
+    public void actionPerformed(    ActionEvent e){
+      m_parentWindow.dispose();
+    }
+  }
+);
+  okBut.addActionListener(new ActionListener(){
+    public void actionPerformed(    ActionEvent e){
+      customizerClosing();
+      m_parentWindow.dispose();
+    }
+  }
+);
+  m_saveLab.setEnabled(false);
+  m_saveFilenameField.setEnabled(false);
+  m_rebuildForecasterCheck.addActionListener(new ActionListener(){
+    public void actionPerformed(    ActionEvent e){
+      m_saveFilenameField.setEnabled(m_rebuildForecasterCheck.isSelected());
+      m_saveLab.setEnabled(m_rebuildForecasterCheck.isSelected());
+    }
+  }
+);
+}

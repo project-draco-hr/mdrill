@@ -1,0 +1,8 @@
+{
+  Vector<Option> result=new Vector<Option>();
+  Enumeration en=super.listOptions();
+  while (en.hasMoreElements())   result.addElement((Option)en.nextElement());
+  result.addElement(new Option("\tSkipped properties.\n" + "\t(default: capabilities,options)","ignored",1,"-ignored <comma-separated list of properties>"));
+  result.addElement(new Option("\tFull name of the class analysed.\n" + "\teg: weka.classifiers.rules.ZeroR\n" + "\t(default weka.classifiers.rules.ZeroR)","W",1,"-W"));
+  return result.elements();
+}

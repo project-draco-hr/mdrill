@@ -1,0 +1,3 @@
+{
+  return ((XYDataset)this.parent).getY(this.map[series],item);
+}

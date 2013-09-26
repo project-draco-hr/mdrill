@@ -1,0 +1,6 @@
+{
+  log.info("higolog DropCacheFlushKey " + String.valueOf(p));
+  if (p != null) {
+    cacheFlushKeyMap.remove(p);
+  }
+}

@@ -1,0 +1,3 @@
+{
+  return "Contains informations about a certain cluster of a cluster generator.";
+}

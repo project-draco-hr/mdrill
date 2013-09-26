@@ -1,0 +1,7 @@
+{
+  Vector result;
+  result=new Vector();
+  result.addElement(new Option("\tEnables debugging output (if available) to be printed.\n" + "\t(default: off)","D",0,"-D"));
+  result.addElement(new Option("\tTurns off all checks - use with caution!\n" + "\t(default: checks on)","no-checks",0,"-no-checks"));
+  return result.elements();
+}

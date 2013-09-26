@@ -1,0 +1,10 @@
+{
+  Instance newInstance;
+  if (m_AttributeSelection == null) {
+    newInstance=instance;
+  }
+ else {
+    newInstance=m_AttributeSelection.reduceDimensionality(instance);
+  }
+  return m_Classifier.distributionForInstance(newInstance);
+}

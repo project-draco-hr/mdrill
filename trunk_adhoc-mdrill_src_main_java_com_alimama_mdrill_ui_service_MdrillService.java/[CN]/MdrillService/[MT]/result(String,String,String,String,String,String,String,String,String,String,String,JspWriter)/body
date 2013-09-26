@@ -20,8 +20,20 @@
     SortParam sortType=WebServiceParams.sort(sort,order,fieldColumntypeMap);
     ShardsList[] cores=GetShards.get(part.name,false);
     Map stormconf=Utils.readStormConfig();
-    if (cores.length != StormUtils.parseInt(stormconf.get("higo.shards.count"))) {
-      throw new Exception("core.size=" + cores.length);
+    for (int i=0; i < 10; i++) {
+      if (cores.length != StormUtils.parseInt(stormconf.get("higo.shards.count"))) {
+        if (i > 5) {
+          throw new Exception("core.size=" + cores.length);
+        }
+        SolrInfoList infolist=GetShards.getSolrInfoList(part.name);
+        infolist.run();
+        cores=GetShards.get(part.name,false);
+        LOG.info("core.size=" + cores.length);
+        Thread.sleep(1000);
+      }
+ else {
+        break;
+      }
     }
     ShardsList[] ms=GetShards.get(part.name,true);
     MdrillPartionsInterface drillpart=MdrillPartions.INSTANCE(part.parttype);
@@ -34,7 +46,11 @@
     ArrayList<String> fqList=WebServiceParams.fqList(queryStr,shard,fieldColumntypeMap);
     String rtn=result(part,callback,fqList,shard,start,rows,sortType,groupbyFields,showFields,commonStatMap,distStatFieldMap,joins);
     long t2=System.currentTimeMillis();
-    LOG.info("timetaken:" + (t2 - t1) + ",logParams2:"+ logParams2);
+    long timetaken=t2 - t1;
+    LOG.info("timetaken:" + (timetaken) + ",logParams2:"+ logParams2);
+    if (timetaken > 1000l * 100) {
+      LOG.info("longrequest:" + (timetaken) + ",logParams2:"+ logParams2+ "@"+ rtn);
+    }
     hb.setIsstop(true);
     while (!hb.isstop()) {
       try {

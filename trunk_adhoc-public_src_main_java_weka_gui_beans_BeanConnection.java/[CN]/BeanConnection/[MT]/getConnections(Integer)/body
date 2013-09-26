@@ -1,0 +1,11 @@
+{
+  Vector returnV=null;
+  int index=0;
+  if (tab.length > 0) {
+    index=tab[0].intValue();
+  }
+  if (TABBED_CONNECTIONS.size() > 0) {
+    returnV=TABBED_CONNECTIONS.get(index);
+  }
+  return returnV;
+}

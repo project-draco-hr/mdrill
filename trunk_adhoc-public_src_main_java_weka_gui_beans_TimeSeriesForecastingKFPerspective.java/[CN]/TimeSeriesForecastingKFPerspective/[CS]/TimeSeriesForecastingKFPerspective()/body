@@ -1,0 +1,5 @@
+{
+  setLayout(new BorderLayout());
+  m_forecastingPanel=new ForecastingPanel(null,false,false,true);
+  add(m_forecastingPanel,BorderLayout.CENTER);
+}

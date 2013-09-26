@@ -1,0 +1,3 @@
+{
+  return new SelectedTag(m_CombinationRule,TAGS_RULES);
+}

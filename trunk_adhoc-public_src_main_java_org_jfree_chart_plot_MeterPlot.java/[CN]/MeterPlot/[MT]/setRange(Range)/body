@@ -1,0 +1,10 @@
+{
+  if (range == null) {
+    throw new IllegalArgumentException("Null 'range' argument.");
+  }
+  if (!(range.getLength() > 0.0)) {
+    throw new IllegalArgumentException("Range length must be positive.");
+  }
+  this.range=range;
+  fireChangeEvent();
+}

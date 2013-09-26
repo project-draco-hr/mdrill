@@ -1,0 +1,3 @@
+{
+  return beanSetContains(m_inputs,toCheck);
+}

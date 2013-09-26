@@ -1,0 +1,47 @@
+{
+  int result;
+  int major;
+  int minor;
+  int revision;
+  int[] maj=new int[1];
+  int[] min=new int[1];
+  int[] rev=new int[1];
+  if (o instanceof String) {
+    parseVersion((String)o,maj,min,rev);
+    major=maj[0];
+    minor=min[0];
+    revision=rev[0];
+  }
+ else {
+    System.out.println(this.getClass().getName() + ": no version-string for comparTo povided!");
+    major=-1;
+    minor=-1;
+    revision=-1;
+  }
+  if (MAJOR < major) {
+    result=-1;
+  }
+ else   if (MAJOR == major) {
+    if (MINOR < minor) {
+      result=-1;
+    }
+ else     if (MINOR == minor) {
+      if (REVISION < revision) {
+        result=-1;
+      }
+ else       if (REVISION == revision) {
+        result=0;
+      }
+ else {
+        result=1;
+      }
+    }
+ else {
+      result=1;
+    }
+  }
+ else {
+    result=1;
+  }
+  return result;
+}

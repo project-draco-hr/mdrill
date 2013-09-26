@@ -1,0 +1,15 @@
+{
+  int i;
+  Vector result;
+  String[] options;
+  result=new Vector();
+  options=super.getOptions();
+  for (i=0; i < options.length; i++)   result.add(options[i]);
+  result.add("-R");
+  result.add("" + getCombinationRule());
+  for (i=0; i < m_classifiersToLoad.size(); i++) {
+    result.add("-P");
+    result.add(m_classifiersToLoad.get(i));
+  }
+  return (String[])result.toArray(new String[result.size()]);
+}

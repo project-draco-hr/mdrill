@@ -1,0 +1,30 @@
+{
+  String sql="SELECT query_cnt,uv FROM module_info" + " WHERE queryday=? " + " and module_name=? ";
+  PreparedStatement pstmt=null;
+  ModuleInfo moduleInfo=null;
+  try {
+    Connection conn=DriverManager.getConnection(url,username,password);
+    pstmt=conn.prepareStatement(sql);
+    pstmt.setString(1,queryDay);
+    pstmt.setString(2,moduleName);
+    ResultSet rs=pstmt.executeQuery();
+    if (rs.next()) {
+      moduleInfo=new ModuleInfo();
+      moduleInfo.setQueryDay(queryDay);
+      moduleInfo.setModuleName(moduleName);
+      moduleInfo.setQueryCnt(rs.getInt(1));
+      moduleInfo.setUv(rs.getInt(2));
+    }
+    LOG.info(pstmt.toString());
+    pstmt.close();
+    conn.close();
+  }
+ catch (  SQLException e) {
+    String debugsql="";
+    if (pstmt != null) {
+      debugsql=pstmt.toString();
+    }
+    LOG.error(debugsql,e);
+  }
+  return moduleInfo;
+}

@@ -1,0 +1,5 @@
+{
+  m_X=nX;
+  m_Y=nY;
+  addNode();
+}

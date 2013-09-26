@@ -1,0 +1,28 @@
+{
+  m_layerOutput.clear();
+  double normSum=0;
+  for (int i=0; i < m_layerNeurons.length; i++) {
+    double neuronOut=m_layerNeurons[i].getValue(incoming);
+    String neuronID=m_layerNeurons[i].getID();
+    if (m_layerNormalization == Normalization.SOFTMAX) {
+      normSum+=Math.exp(neuronOut);
+    }
+ else     if (m_layerNormalization == Normalization.SIMPLEMAX) {
+      normSum+=neuronOut;
+    }
+    m_layerOutput.put(neuronID,neuronOut);
+  }
+  if (m_layerNormalization != Normalization.NONE) {
+    for (int i=0; i < m_layerNeurons.length; i++) {
+      double val=m_layerOutput.get(m_layerNeurons[i].getID());
+      if (m_layerNormalization == Normalization.SOFTMAX) {
+        val=Math.exp(val) / normSum;
+      }
+ else {
+        val=(val / normSum);
+      }
+      m_layerOutput.put(m_layerNeurons[i].getID(),val);
+    }
+  }
+  return m_layerOutput;
+}

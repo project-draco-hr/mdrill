@@ -1,0 +1,50 @@
+{
+  if (m_fieldsToLag == null || m_fieldsToLag.get(0).length() == 0) {
+    throw new Exception("Field to forecast is not specified!");
+  }
+  m_lagMakers=new ArrayList<Filter>();
+  Range r=null;
+  int[] rangeIndexes=null;
+  if (m_lagFineTune.length() > 0) {
+    r=getLagRangeSelection(m_lagFineTune);
+    rangeIndexes=r.getSelection();
+  }
+  for (int j=0; j < m_fieldsToLag.size(); j++) {
+    int classIndex=insts.attribute(m_fieldsToLag.get(j)).index();
+    if (classIndex < 0) {
+      throw new Exception("Can't find field '" + m_fieldsToLag.get(j) + "'!");
+    }
+    for (int i=m_minLag; i <= m_maxLag; i++) {
+      if (rangeIndexes != null) {
+        boolean ok=false;
+        for (int z=0; z < rangeIndexes.length; z++) {
+          if (rangeIndexes[z] + 1 == i) {
+            ok=true;
+            break;
+          }
+        }
+        if (!ok) {
+          continue;
+        }
+      }
+      Copy c=new Copy();
+      c.setAttributeIndices("" + (classIndex + 1));
+      c.setInputFormat(insts);
+      insts=Filter.useFilter(insts,c);
+      m_lagMakers.add(c);
+      RenameAttribute rename=new RenameAttribute();
+      rename.setAttributeIndices("last");
+      rename.setReplace("Lag_" + m_fieldsToLag.get(j));
+      rename.setInputFormat(insts);
+      insts=Filter.useFilter(insts,rename);
+      m_lagMakers.add(rename);
+      TimeSeriesTranslate timeS=new TimeSeriesTranslate();
+      timeS.setAttributeIndices("last");
+      timeS.setInstanceRange(-i);
+      timeS.setInputFormat(insts);
+      insts=Filter.useFilter(insts,timeS);
+      m_lagMakers.add(timeS);
+    }
+  }
+  return insts;
+}

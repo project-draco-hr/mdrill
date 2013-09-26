@@ -1,0 +1,4 @@
+{
+  this.axisOffset=offset;
+  notifyListeners(new TitleChangeEvent(this));
+}

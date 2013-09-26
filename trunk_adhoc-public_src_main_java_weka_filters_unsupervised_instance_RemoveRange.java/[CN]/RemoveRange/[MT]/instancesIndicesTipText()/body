@@ -1,0 +1,3 @@
+{
+  return "The range of instances to select. First and last are valid indexes.";
+}

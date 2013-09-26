@@ -1,35 +1,19 @@
 {
-  ArrayList<SortGroupVal> tmp=new ArrayList<SortGroupVal>(1);
-  ArrayList<SortGroupVal> newgroup=new ArrayList<SortGroupVal>(1);
-  newgroup.add(buff);
-  for (  HigoJoinInvert inv : joinInvert) {
+  for (  HigoJoinInvert inv : this.container.joinInvert) {
     int fc=inv.fieldCount();
-    LinkedBlockingQueue<GroupList> groupListCache=inv.getGroupListCache();
-    GroupList base=GroupList.INSTANCE(groupListCache,fc);
+    LinkedBlockingQueue<GroupListCache.GroupList> groupListCache=inv.getGroupListCache();
+    GroupListCache.GroupList base=GroupListCache.GroupList.INSTANCE(groupListCache,fc);
     base.reset();
-    GroupList[] groups=inv.fieldNum(doc,base);
-    groupListCache.add(base);
-    for (    SortGroupVal gbuff : newgroup) {
-      for (      GroupList group : groups) {
-        SortGroupVal tmpb=new SortGroupVal();
-        tmpb.sortString=gbuff.sortString;
-        tmpb.groupbuff.append(gbuff.groupbuff);
-        for (int i=0; i < fc; i++) {
-          tmpb.groupbuff.append(UniqConfig.GroupJoinString());
-          tmpb.groupbuff.append(EncodeUtils.encode(inv.getTermNumValue(group.list[i],i)));
-          if (this.SelectDetailSort != null && (offset + i) == this.SelectDetailSort.offset) {
-            tmpb.sortString=inv.getTermNumValue(group.list[this.SelectDetailSort.selfOffset],i);
-          }
+    if (inv.fieldNum(doc,base)) {
+      for (int i=0; i < fc; i++) {
+        buff.groupbuff.append(UniqConfig.GroupJoinString());
+        buff.groupbuff.append(EncodeUtils.encode(inv.getTermNumValue(base.list[i],i)));
+        if (this.container.SelectDetailSort != null && (offset + i) == this.container.SelectDetailSort.offset) {
+          buff.sortString=inv.getTermNumValue(base.list[this.container.SelectDetailSort.selfOffset],i);
         }
-        tmp.add(tmpb);
       }
     }
-    for (    GroupList group : groups) {
-      groupListCache.add(group);
-    }
-    newgroup=tmp;
-    tmp=new ArrayList<SortGroupVal>();
+    groupListCache.add(base);
     offset+=fc;
   }
-  return newgroup;
 }

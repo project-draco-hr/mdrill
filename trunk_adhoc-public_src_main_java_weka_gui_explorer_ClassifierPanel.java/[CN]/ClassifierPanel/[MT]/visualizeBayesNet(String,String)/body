@@ -1,0 +1,22 @@
+{
+  final javax.swing.JFrame jf=new javax.swing.JFrame("Weka Classifier Graph Visualizer: " + graphName);
+  jf.setSize(500,400);
+  jf.getContentPane().setLayout(new BorderLayout());
+  GraphVisualizer gv=new GraphVisualizer();
+  try {
+    gv.readBIF(XMLBIF);
+  }
+ catch (  BIFFormatException be) {
+    System.err.println("unable to visualize BayesNet");
+    be.printStackTrace();
+  }
+  gv.layoutGraph();
+  jf.getContentPane().add(gv,BorderLayout.CENTER);
+  jf.addWindowListener(new java.awt.event.WindowAdapter(){
+    public void windowClosing(    java.awt.event.WindowEvent e){
+      jf.dispose();
+    }
+  }
+);
+  jf.setVisible(true);
+}

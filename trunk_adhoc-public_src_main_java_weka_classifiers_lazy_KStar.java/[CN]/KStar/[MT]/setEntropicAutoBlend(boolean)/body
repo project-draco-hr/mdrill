@@ -1,0 +1,8 @@
+{
+  if (e) {
+    m_BlendMethod=B_ENTROPY;
+  }
+ else {
+    m_BlendMethod=B_SPHERE;
+  }
+}

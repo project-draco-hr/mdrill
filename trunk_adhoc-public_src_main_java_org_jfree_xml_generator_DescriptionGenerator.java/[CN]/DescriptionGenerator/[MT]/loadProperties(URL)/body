@@ -1,0 +1,12 @@
+{
+  final Properties p=new Properties();
+  try {
+    final InputStream in=new BufferedInputStream(propertyURL.openStream());
+    p.load(in);
+    in.close();
+  }
+ catch (  Exception e) {
+    System.err.println("Unable to load properties from " + propertyURL);
+  }
+  return p;
+}

@@ -1,0 +1,4 @@
+{
+  m_selected.removeAllElements();
+  updateGUI();
+}

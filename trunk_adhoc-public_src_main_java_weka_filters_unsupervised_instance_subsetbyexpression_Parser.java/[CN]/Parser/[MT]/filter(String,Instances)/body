@@ -1,0 +1,22 @@
+{
+  Instances output=new Instances(input,0);
+  Hashtable<String,Integer> attTypes=new Hashtable<String,Integer>();
+  for (int i=0; i < input.numAttributes(); i++)   attTypes.put("ATT" + (i + 1),input.attribute(i).type());
+  if (input.classIndex() > -1)   attTypes.put("CLASS",input.classAttribute().type());
+  SymbolFactory sf=new DefaultSymbolFactory();
+  HashMap symbols=new HashMap();
+  ByteArrayInputStream parserInput=new ByteArrayInputStream(expression.getBytes());
+  for (int i=0; i < input.numInstances(); i++) {
+    Instance instance=input.instance(i);
+    for (int n=0; n < instance.numAttributes(); n++) {
+      if (n == instance.classIndex())       symbols.put("CLASS",getValue(instance,n));
+      symbols.put("ATT" + (n + 1),getValue(instance,n));
+    }
+    parserInput.reset();
+    Parser parser=new Parser(new Scanner(parserInput,sf),sf);
+    parser.setSymbols(symbols);
+    parser.parse();
+    if (parser.getResult())     output.add((Instance)instance.copy());
+  }
+  return output;
+}

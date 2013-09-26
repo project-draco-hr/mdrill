@@ -1,0 +1,3 @@
+{
+  return this.parse.isNeedSort && this.sortufs.listIndex.length > 0;
+}

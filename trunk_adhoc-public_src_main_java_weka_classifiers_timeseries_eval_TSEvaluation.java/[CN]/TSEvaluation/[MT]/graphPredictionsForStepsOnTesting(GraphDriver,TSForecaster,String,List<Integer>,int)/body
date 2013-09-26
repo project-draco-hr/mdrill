@@ -1,0 +1,4 @@
+{
+  JPanel result=driver.getGraphPanelSteps(forecaster,m_predictionsForTestData,targetName,stepsToPlot,instanceNumberOffset,getTestData());
+  return result;
+}

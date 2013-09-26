@@ -1,0 +1,3 @@
+{
+  setSeriesVisible(series,visible,true);
+}

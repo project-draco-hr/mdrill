@@ -1,0 +1,9 @@
+{
+  m_dsAssociator=(weka.gui.beans.Associator)object;
+  try {
+    m_backup=(weka.associations.Associator)GenericObjectEditor.makeCopy(m_dsAssociator.getAssociator());
+  }
+ catch (  Exception ex) {
+  }
+  m_AssociatorEditor.setTarget(m_dsAssociator.getAssociator());
+}

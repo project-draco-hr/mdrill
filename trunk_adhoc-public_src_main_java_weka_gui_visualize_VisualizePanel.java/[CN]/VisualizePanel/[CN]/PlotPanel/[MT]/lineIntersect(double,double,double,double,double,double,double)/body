@@ -1,0 +1,36 @@
+{
+  double xval;
+  double yval;
+  double xn=-100, yn=-100;
+  double change;
+  if (x == 0) {
+    if ((x1 <= offset && offset < x2) || (x1 >= offset && offset > x2)) {
+      xval=x1 - x2;
+      change=(offset - x2) / xval;
+      yn=(y1 - y2) * change + y2;
+      if (0 <= yn && yn <= y) {
+        xn=offset;
+      }
+ else {
+        xn=-100;
+      }
+    }
+  }
+ else   if (y == 0) {
+    if ((y1 <= offset && offset < y2) || (y1 >= offset && offset > y2)) {
+      yval=(y1 - y2);
+      change=(offset - y2) / yval;
+      xn=(x1 - x2) * change + x2;
+      if (0 <= xn && xn <= x) {
+        yn=offset;
+      }
+ else {
+        xn=-100;
+      }
+    }
+  }
+  double[] ret=new double[2];
+  ret[0]=xn;
+  ret[1]=yn;
+  return ret;
+}

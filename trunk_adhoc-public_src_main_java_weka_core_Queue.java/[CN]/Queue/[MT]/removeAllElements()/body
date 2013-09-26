@@ -1,0 +1,5 @@
+{
+  m_Size=0;
+  m_Head=null;
+  m_Tail=null;
+}

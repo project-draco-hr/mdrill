@@ -1,0 +1,5 @@
+{
+  super(renderer);
+  this.renderer=renderer;
+  this.seriesVisibilityChanged=seriesVisibilityChanged;
+}

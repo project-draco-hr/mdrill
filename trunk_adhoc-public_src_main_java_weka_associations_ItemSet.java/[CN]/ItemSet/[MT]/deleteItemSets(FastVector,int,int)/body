@@ -1,0 +1,8 @@
+{
+  FastVector newVector=new FastVector(itemSets.size());
+  for (int i=0; i < itemSets.size(); i++) {
+    ItemSet current=(ItemSet)itemSets.elementAt(i);
+    if ((current.m_counter >= minSupport) && (current.m_counter <= maxSupport))     newVector.addElement(current);
+  }
+  return newVector;
+}

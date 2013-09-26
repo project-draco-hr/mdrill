@@ -1,0 +1,3 @@
+Set clique
+BayesNet bayesNet
+boolean[] bDone

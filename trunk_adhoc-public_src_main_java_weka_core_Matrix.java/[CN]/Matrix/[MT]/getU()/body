@@ -1,0 +1,12 @@
+{
+  int nr=numRows();
+  int nc=numColumns();
+  double[][] ud=new double[nr][nc];
+  for (int i=0; i < nr; i++) {
+    for (int j=i; j < nc; j++) {
+      ud[i][j]=getElement(i,j);
+    }
+  }
+  Matrix u=new Matrix(ud);
+  return u;
+}

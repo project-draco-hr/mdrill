@@ -1,0 +1,17 @@
+{
+  Paint p1=Color.red;
+  Paint p2=Color.blue;
+  Paint p3=new Color(1,2,3,4);
+  Paint p4=new Color(1,2,3,4);
+  Paint p5=new GradientPaint(1.0f,2.0f,Color.red,3.0f,4.0f,Color.yellow);
+  Paint p6=new GradientPaint(1.0f,2.0f,Color.red,3.0f,4.0f,Color.yellow);
+  Paint p7=new GradientPaint(1.0f,2.0f,Color.red,3.0f,4.0f,Color.blue);
+  assertTrue(PaintUtilities.equal(null,null));
+  assertFalse(PaintUtilities.equal(p1,null));
+  assertFalse(PaintUtilities.equal(null,p1));
+  assertFalse(PaintUtilities.equal(p1,p2));
+  assertTrue(PaintUtilities.equal(p3,p3));
+  assertTrue(PaintUtilities.equal(p3,p4));
+  assertTrue(PaintUtilities.equal(p5,p6));
+  assertFalse(PaintUtilities.equal(p5,p7));
+}

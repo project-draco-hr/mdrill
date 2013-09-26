@@ -1,0 +1,33 @@
+{
+  try {
+    final SAXParser parser=getParser();
+    final XMLReader reader=parser.getXMLReader();
+    try {
+      reader.setFeature("http://xml.org/sax/features/validation",isValidateDTD());
+    }
+ catch (    SAXException se) {
+      Log.debug("The XMLReader will not validate the xml document.",se);
+    }
+    final FrontendDefaultHandler handler=createDefaultHandler(contentBase);
+    configureReader(reader,handler);
+    try {
+      reader.setContentHandler(handler);
+      reader.setDTDHandler(handler);
+      if (getEntityResolver() != null) {
+        reader.setEntityResolver(getEntityResolver());
+      }
+      reader.setErrorHandler(handler);
+      reader.parse(input);
+      return handler.getResult();
+    }
+ catch (    IOException e) {
+      throw new ElementDefinitionException(e);
+    }
+  }
+ catch (  ParserConfigurationException e) {
+    throw new ElementDefinitionException(e);
+  }
+catch (  SAXException e) {
+    throw new ElementDefinitionException(e);
+  }
+}

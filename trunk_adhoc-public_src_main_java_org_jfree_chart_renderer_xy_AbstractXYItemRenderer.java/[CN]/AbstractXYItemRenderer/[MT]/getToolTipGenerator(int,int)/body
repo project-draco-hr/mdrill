@@ -1,0 +1,10 @@
+{
+  if (this.toolTipGenerator != null) {
+    return this.toolTipGenerator;
+  }
+  XYToolTipGenerator generator=(XYToolTipGenerator)this.toolTipGeneratorList.get(series);
+  if (generator == null) {
+    generator=this.baseToolTipGenerator;
+  }
+  return generator;
+}

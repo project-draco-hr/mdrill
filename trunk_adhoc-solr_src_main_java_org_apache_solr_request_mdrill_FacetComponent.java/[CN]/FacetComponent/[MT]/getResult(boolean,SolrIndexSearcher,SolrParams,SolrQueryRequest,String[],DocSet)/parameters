@@ -1,0 +1,6 @@
+boolean isdetail
+SolrIndexSearcher searcher
+SolrParams params
+SolrQueryRequest req
+String[] fields
+DocSet base

@@ -1,0 +1,7 @@
+{
+  Vector newVector=new Vector(0);
+  if (m_foldThread != null) {
+    newVector.addElement("Stop");
+  }
+  return newVector.elements();
+}

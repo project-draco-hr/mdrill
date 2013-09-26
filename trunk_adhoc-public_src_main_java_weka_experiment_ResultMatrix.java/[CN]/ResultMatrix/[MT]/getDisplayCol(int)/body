@@ -1,0 +1,9 @@
+{
+  if ((index >= 0) && (index < getColCount())) {
+    if (getColOrder() == null)     return index;
+ else     return getColOrder()[index];
+  }
+ else {
+    return -1;
+  }
+}

@@ -1,0 +1,4 @@
+{
+  revalidate();
+  m_beanLayout.repaint();
+}

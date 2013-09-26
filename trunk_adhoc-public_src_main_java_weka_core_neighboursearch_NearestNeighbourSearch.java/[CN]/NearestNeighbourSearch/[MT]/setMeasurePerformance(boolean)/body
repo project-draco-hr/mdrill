@@ -1,0 +1,7 @@
+{
+  m_MeasurePerformance=measurePerformance;
+  if (m_MeasurePerformance) {
+    if (m_Stats == null)     m_Stats=new PerformanceStats();
+  }
+ else   m_Stats=null;
+}

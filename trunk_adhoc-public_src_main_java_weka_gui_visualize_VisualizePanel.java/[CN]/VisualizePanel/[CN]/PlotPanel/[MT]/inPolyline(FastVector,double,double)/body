@@ -1,0 +1,66 @@
+{
+  int countx=0;
+  double vecx, vecy;
+  double change;
+  double x1, y1, x2, y2;
+  for (int noa=1; noa < ob.size() - 4; noa+=2) {
+    y1=((Double)ob.elementAt(noa + 1)).doubleValue();
+    y2=((Double)ob.elementAt(noa + 3)).doubleValue();
+    x1=((Double)ob.elementAt(noa)).doubleValue();
+    x2=((Double)ob.elementAt(noa + 2)).doubleValue();
+    vecy=y2 - y1;
+    vecx=x2 - x1;
+    if (noa == 1 && noa == ob.size() - 6) {
+      if (vecy != 0) {
+        change=(y - y1) / vecy;
+        if (vecx * change + x1 >= x) {
+          countx++;
+        }
+      }
+    }
+ else     if (noa == 1) {
+      if ((y < y2 && vecy > 0) || (y > y2 && vecy < 0)) {
+        change=(y - y1) / vecy;
+        if (vecx * change + x1 >= x) {
+          countx++;
+        }
+      }
+    }
+ else     if (noa == ob.size() - 6) {
+      if ((y <= y1 && vecy < 0) || (y >= y1 && vecy > 0)) {
+        change=(y - y1) / vecy;
+        if (vecx * change + x1 >= x) {
+          countx++;
+        }
+      }
+    }
+ else     if ((y1 <= y && y < y2) || (y2 < y && y <= y1)) {
+      if (vecy == 0) {
+      }
+ else {
+        change=(y - y1) / vecy;
+        if (vecx * change + x1 >= x) {
+          countx++;
+        }
+      }
+    }
+  }
+  y1=((Double)ob.elementAt(ob.size() - 2)).doubleValue();
+  y2=((Double)ob.elementAt(ob.size() - 1)).doubleValue();
+  if (y1 > y2) {
+    if (y1 >= y && y > y2) {
+      countx++;
+    }
+  }
+ else {
+    if (y1 >= y || y > y2) {
+      countx++;
+    }
+  }
+  if ((countx % 2) == 1) {
+    return true;
+  }
+ else {
+    return false;
+  }
+}

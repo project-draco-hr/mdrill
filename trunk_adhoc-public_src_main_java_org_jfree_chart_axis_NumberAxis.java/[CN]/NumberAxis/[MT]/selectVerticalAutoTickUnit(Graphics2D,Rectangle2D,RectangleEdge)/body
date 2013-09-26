@@ -1,0 +1,14 @@
+{
+  double tickLabelHeight=estimateMaximumTickLabelHeight(g2);
+  TickUnitSource tickUnits=getStandardTickUnits();
+  TickUnit unit1=tickUnits.getCeilingTickUnit(getTickUnit());
+  double unitHeight=lengthToJava2D(unit1.getSize(),dataArea,edge);
+  double guess=(tickLabelHeight / unitHeight) * unit1.getSize();
+  NumberTickUnit unit2=(NumberTickUnit)tickUnits.getCeilingTickUnit(guess);
+  double unit2Height=lengthToJava2D(unit2.getSize(),dataArea,edge);
+  tickLabelHeight=estimateMaximumTickLabelHeight(g2);
+  if (tickLabelHeight > unit2Height) {
+    unit2=(NumberTickUnit)tickUnits.getLargerTickUnit(unit2);
+  }
+  setTickUnit(unit2,false,false);
+}

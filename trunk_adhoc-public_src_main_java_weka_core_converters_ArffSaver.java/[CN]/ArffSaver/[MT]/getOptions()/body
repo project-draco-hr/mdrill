@@ -1,0 +1,10 @@
+{
+  int i;
+  Vector<String> result;
+  String[] options;
+  result=new Vector<String>();
+  if (getCompressOutput())   result.add("-compress");
+  options=super.getOptions();
+  for (i=0; i < options.length; i++)   result.add(options[i]);
+  return (String[])result.toArray(new String[result.size()]);
+}

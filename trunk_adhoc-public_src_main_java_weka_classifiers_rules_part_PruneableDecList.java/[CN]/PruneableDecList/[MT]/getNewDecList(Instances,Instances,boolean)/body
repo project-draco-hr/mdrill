@@ -1,0 +1,5 @@
+{
+  PruneableDecList newDecList=new PruneableDecList(m_toSelectModel,m_minNumObj);
+  newDecList.buildDecList((Instances)train,test,leaf);
+  return newDecList;
+}

@@ -1,0 +1,3 @@
+{
+  return meanOrMode(att.index());
+}

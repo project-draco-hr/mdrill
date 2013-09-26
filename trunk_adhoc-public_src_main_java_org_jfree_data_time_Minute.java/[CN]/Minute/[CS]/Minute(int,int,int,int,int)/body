@@ -1,0 +1,3 @@
+{
+  this(minute,new Hour(hour,new Day(day,month,year)));
+}

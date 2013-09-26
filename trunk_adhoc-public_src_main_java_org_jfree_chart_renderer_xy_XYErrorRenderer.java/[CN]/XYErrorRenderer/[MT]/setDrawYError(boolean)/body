@@ -1,0 +1,6 @@
+{
+  if (this.drawYError != draw) {
+    this.drawYError=draw;
+    fireChangeEvent();
+  }
+}

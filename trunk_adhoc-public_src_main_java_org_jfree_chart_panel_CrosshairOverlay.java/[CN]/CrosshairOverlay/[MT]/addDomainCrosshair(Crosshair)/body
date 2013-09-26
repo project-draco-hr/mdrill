@@ -1,0 +1,7 @@
+{
+  if (crosshair == null) {
+    throw new IllegalArgumentException("Null 'crosshair' argument.");
+  }
+  this.xCrosshairs.add(crosshair);
+  crosshair.addPropertyChangeListener(this);
+}

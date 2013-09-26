@@ -1,0 +1,20 @@
+{
+  Class c=URLEncoder.class;
+  String result=null;
+  try {
+    Method m=c.getDeclaredMethod("encode",STRING_ARGS_2);
+    try {
+      result=(String)m.invoke(null,new Object[]{s,encoding});
+    }
+ catch (    InvocationTargetException e) {
+      e.printStackTrace();
+    }
+catch (    IllegalAccessException e) {
+      e.printStackTrace();
+    }
+  }
+ catch (  NoSuchMethodException e) {
+    result=URLEncoder.encode(s);
+  }
+  return result;
+}

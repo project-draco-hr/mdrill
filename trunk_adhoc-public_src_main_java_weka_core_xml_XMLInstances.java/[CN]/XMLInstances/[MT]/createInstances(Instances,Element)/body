@@ -1,0 +1,9 @@
+{
+  Instances result;
+  Vector list;
+  int i;
+  result=new Instances(header,0);
+  list=getChildTags(parent,TAG_INSTANCE);
+  for (i=0; i < list.size(); i++)   result.add(createInstance(result,(Element)list.get(i)));
+  return result;
+}

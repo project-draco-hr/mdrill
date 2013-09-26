@@ -1,0 +1,19 @@
+{
+  File tempFile;
+  ObjectOutputStream oos;
+  if (!isUndoEnabled())   return;
+  if (getInstances() != null) {
+    try {
+      tempFile=File.createTempFile("arffviewer",null);
+      tempFile.deleteOnExit();
+      oos=new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(tempFile)));
+      oos.writeObject(getInstances());
+      oos.flush();
+      oos.close();
+      m_UndoList.add(tempFile);
+    }
+ catch (    Exception e) {
+      e.printStackTrace();
+    }
+  }
+}

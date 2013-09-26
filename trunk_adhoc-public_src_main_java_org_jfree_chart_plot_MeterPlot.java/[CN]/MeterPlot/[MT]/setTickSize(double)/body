@@ -1,0 +1,7 @@
+{
+  if (size <= 0) {
+    throw new IllegalArgumentException("Requires 'size' > 0.");
+  }
+  this.tickSize=size;
+  fireChangeEvent();
+}

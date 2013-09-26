@@ -1,0 +1,3 @@
+{
+  return SegmentedTimeline.this.getDate(this.millisecond);
+}

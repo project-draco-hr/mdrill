@@ -1,0 +1,9 @@
+{
+  super();
+  m_BatchBuffer=null;
+  m_Loader=loader;
+  m_File=null;
+  m_URL=null;
+  m_Incremental=(m_Loader instanceof IncrementalConverter);
+  initBatchBuffer();
+}

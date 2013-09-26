@@ -1,0 +1,7 @@
+{
+  MultiplePiePlot clone=(MultiplePiePlot)super.clone();
+  clone.pieChart=(JFreeChart)this.pieChart.clone();
+  clone.sectionPaints=new HashMap(this.sectionPaints);
+  clone.legendItemShape=ShapeUtilities.clone(this.legendItemShape);
+  return clone;
+}

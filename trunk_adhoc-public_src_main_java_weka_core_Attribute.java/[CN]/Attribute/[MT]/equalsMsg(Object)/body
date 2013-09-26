@@ -1,0 +1,16 @@
+{
+  if (other == null)   return "Comparing with null object";
+  if (!(other.getClass().equals(this.getClass())))   return "Object has wrong class";
+  Attribute att=(Attribute)other;
+  if (!m_Name.equals(att.m_Name))   return "Names differ: " + m_Name + " != "+ att.m_Name;
+  if (isNominal() && att.isNominal()) {
+    if (m_Values.size() != att.m_Values.size())     return "Different number of labels: " + m_Values.size() + " != "+ att.m_Values.size();
+    for (int i=0; i < m_Values.size(); i++) {
+      if (!m_Values.get(i).equals(att.m_Values.get(i)))       return "Labels differ at position " + (i + 1) + ": "+ m_Values.get(i)+ " != "+ att.m_Values.get(i);
+    }
+    return null;
+  }
+  if (isRelationValued() && att.isRelationValued())   return m_Header.equalHeadersMsg(att.m_Header);
+  if ((type() != att.type()))   return "Types differ: " + typeToString(this) + " != "+ typeToString(att);
+  return null;
+}

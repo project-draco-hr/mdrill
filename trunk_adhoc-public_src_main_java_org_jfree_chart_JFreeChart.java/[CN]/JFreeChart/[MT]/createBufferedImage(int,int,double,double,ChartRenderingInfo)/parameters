@@ -1,0 +1,5 @@
+int imageWidth
+int imageHeight
+double drawWidth
+double drawHeight
+ChartRenderingInfo info

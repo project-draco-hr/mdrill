@@ -1,0 +1,5 @@
+JFreeChart chart
+int width
+int height
+ChartRenderingInfo info
+HttpSession session

@@ -1,0 +1,3 @@
+{
+  return getRangeAxisEdge(0);
+}

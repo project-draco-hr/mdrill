@@ -1,0 +1,24 @@
+{
+  weka.core.logging.Logger.log(weka.core.logging.Logger.Level.INFO,"Logging started");
+  JFrame jf=new JFrame("Graph Visualizer");
+  GraphVisualizer g=new GraphVisualizer();
+  try {
+    if (args[0].endsWith(".xml")) {
+      g.readBIF(new FileInputStream(args[0]));
+    }
+ else {
+      g.readDOT(new FileReader(args[0]));
+    }
+  }
+ catch (  IOException ex) {
+    ex.printStackTrace();
+  }
+catch (  BIFFormatException bf) {
+    bf.printStackTrace();
+    System.exit(-1);
+  }
+  jf.getContentPane().add(g);
+  jf.setDefaultCloseOperation(jf.EXIT_ON_CLOSE);
+  jf.setSize(800,600);
+  jf.setVisible(true);
+}

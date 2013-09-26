@@ -1,0 +1,39 @@
+{
+  Instance newInstance=null;
+  if (getInputFormat() == null) {
+    throw new IllegalStateException("No input instance format defined");
+  }
+  if (m_NewBatch) {
+    resetQueue();
+    m_NewBatch=false;
+  }
+  boolean replaceDone=false;
+  if (m_replaceMissing != null) {
+    if (m_replaceMissing.input(instance)) {
+      if (m_OutputFormatDefined == false)       setOutputFormat();
+      newInstance=m_replaceMissing.output();
+      replaceDone=true;
+    }
+ else     return false;
+    ;
+  }
+  if (m_ntob != null) {
+    if (replaceDone == false)     newInstance=instance;
+    if (m_ntob.input(newInstance)) {
+      if (m_OutputFormatDefined == false)       setOutputFormat();
+      newInstance=m_ntob.output();
+      newInstance=convertInstance(newInstance);
+      push(newInstance);
+      return true;
+    }
+ else {
+      return false;
+    }
+  }
+ else {
+    if (replaceDone == false)     newInstance=instance;
+    newInstance=convertInstance(newInstance);
+    push(newInstance);
+    return true;
+  }
+}

@@ -1,0 +1,6 @@
+{
+  if (!Double.isNaN(m_unitValue) && Double.isNaN(m_unitError) && calculate) {
+    m_unitError=m_methods.errorValue(this);
+  }
+  return m_unitError;
+}

@@ -1,0 +1,3 @@
+{
+  return -Math.log(1.0 - super.nextDouble());
+}

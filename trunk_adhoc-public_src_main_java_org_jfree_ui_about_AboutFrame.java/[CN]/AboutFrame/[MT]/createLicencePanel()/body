@@ -1,0 +1,10 @@
+{
+  final JPanel licencePanel=new JPanel(new BorderLayout());
+  final JTextArea area=new JTextArea(this.licence);
+  area.setLineWrap(true);
+  area.setWrapStyleWord(true);
+  area.setCaretPosition(0);
+  area.setEditable(false);
+  licencePanel.add(new JScrollPane(area));
+  return licencePanel;
+}

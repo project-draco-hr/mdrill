@@ -1,0 +1,3 @@
+{
+  return calcHeaderWidth(getJTable(),col);
+}

@@ -1,0 +1,15 @@
+{
+  if (this == obj)   return true;
+  if (obj == null)   return false;
+  if (getClass() != obj.getClass())   return false;
+  PartionKey other=(PartionKey)obj;
+  if (partion == null) {
+    if (other.partion != null)     return false;
+  }
+ else   if (!partion.equals(other.partion))   return false;
+  if (tablename == null) {
+    if (other.tablename != null)     return false;
+  }
+ else   if (!tablename.equals(other.tablename))   return false;
+  return true;
+}

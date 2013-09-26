@@ -1,0 +1,4 @@
+{
+  this.rootHandler=handler;
+  this.rootHandlerInitialized=false;
+}

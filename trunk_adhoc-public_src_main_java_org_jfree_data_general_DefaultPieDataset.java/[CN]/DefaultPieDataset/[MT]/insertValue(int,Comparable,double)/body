@@ -1,0 +1,3 @@
+{
+  insertValue(position,key,new Double(value));
+}

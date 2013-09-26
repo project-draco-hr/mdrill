@@ -1,0 +1,3 @@
+{
+  super(period,new OHLC(open,high,low,close));
+}

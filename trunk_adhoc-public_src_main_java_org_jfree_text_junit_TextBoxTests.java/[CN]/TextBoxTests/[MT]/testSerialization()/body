@@ -1,0 +1,17 @@
+{
+  final TextBox b1=new TextBox("Hello");
+  TextBox b2=null;
+  try {
+    final ByteArrayOutputStream buffer=new ByteArrayOutputStream();
+    final ObjectOutput out=new ObjectOutputStream(buffer);
+    out.writeObject(b1);
+    out.close();
+    final ObjectInput in=new ObjectInputStream(new ByteArrayInputStream(buffer.toByteArray()));
+    b2=(TextBox)in.readObject();
+    in.close();
+  }
+ catch (  Exception e) {
+    System.out.println(e.toString());
+  }
+  assertEquals(b1,b2);
+}

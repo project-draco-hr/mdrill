@@ -1,0 +1,12 @@
+{
+  final Color color=(Color)object;
+  final AttributeList attribs=new AttributeList();
+  if (mPlexAttribute != null) {
+    attribs.setAttribute(mPlexAttribute,mPlexValue);
+  }
+  attribs.setAttribute("value",encodeColor(color));
+  if (color.getAlpha() != 255) {
+    attribs.setAttribute("alpha",String.valueOf(color.getAlpha()));
+  }
+  writer.writeTag(tagName,attribs,true);
+}

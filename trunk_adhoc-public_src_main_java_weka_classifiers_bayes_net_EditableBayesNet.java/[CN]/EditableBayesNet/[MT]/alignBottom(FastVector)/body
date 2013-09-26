@@ -1,0 +1,16 @@
+{
+  if (m_bNeedsUndoAction) {
+    addUndoAction(new alignBottomAction(nodes));
+  }
+  int nMaxY=-1;
+  for (int iNode=0; iNode < nodes.size(); iNode++) {
+    int nY=getPositionY((Integer)nodes.elementAt(iNode));
+    if (nY > nMaxY || iNode == 0) {
+      nMaxY=nY;
+    }
+  }
+  for (int iNode=0; iNode < nodes.size(); iNode++) {
+    int nNode=(Integer)nodes.elementAt(iNode);
+    m_nPositionY.setElementAt(nMaxY,nNode);
+  }
+}

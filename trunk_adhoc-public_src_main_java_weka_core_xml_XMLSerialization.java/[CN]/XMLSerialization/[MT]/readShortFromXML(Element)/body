@@ -1,0 +1,5 @@
+{
+  if (DEBUG)   trace(new Throwable(),node.getAttribute(ATT_NAME));
+  m_CurrentNode=node;
+  return ((Short)getPrimitive(node)).shortValue();
+}

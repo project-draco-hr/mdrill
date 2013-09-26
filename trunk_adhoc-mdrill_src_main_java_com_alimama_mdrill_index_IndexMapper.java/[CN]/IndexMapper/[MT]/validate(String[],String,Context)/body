@@ -1,11 +1,18 @@
 {
-  if (values.length < 2) {
-    if (debuglines < 100) {
-      debuglines++;
-      System.out.println("miss columns values2: " + record.replaceAll(split,"#") + "");
+  if (usedthedate) {
+    if (values.length < 2) {
+      if (debuglines < 100) {
+        debuglines++;
+        System.out.println("miss columns values2: " + record.replaceAll(split,"#") + "");
+      }
+      context.getCounter("higo","skiprecords").increment(1);
+      return false;
     }
-    context.getCounter("higo","skiprecords").increment(1);
-    return false;
+  }
+ else {
+    if (parseDefault(record) == null) {
+      return false;
+    }
   }
   return true;
 }

@@ -1,0 +1,3 @@
+{
+  return Math.round(this.yDpi * INCH_IN_METER_UNIT);
+}

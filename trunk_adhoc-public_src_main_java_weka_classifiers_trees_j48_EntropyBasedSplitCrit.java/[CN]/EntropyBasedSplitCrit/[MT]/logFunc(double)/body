@@ -1,0 +1,4 @@
+{
+  if (num < 1e-6)   return 0;
+ else   return num * Math.log(num) / log2;
+}

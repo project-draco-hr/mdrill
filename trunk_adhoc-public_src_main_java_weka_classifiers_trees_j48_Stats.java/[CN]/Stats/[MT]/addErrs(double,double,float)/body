@@ -1,0 +1,20 @@
+{
+  if (CF > 0.5) {
+    System.err.println("WARNING: confidence value for pruning " + " too high. Error estimate not modified.");
+    return 0;
+  }
+  if (e < 1) {
+    double base=N * (1 - Math.pow(CF,1 / N));
+    if (e == 0) {
+      return base;
+    }
+    return base + e * (addErrs(N,1,CF) - base);
+  }
+  if (e + 0.5 >= N) {
+    return Math.max(N - e,0);
+  }
+  double z=Statistics.normalInverse(1 - CF);
+  double f=(e + 0.5) / N;
+  double r=(f + (z * z) / (2 * N) + z * Math.sqrt((f / N) - (f * f / N) + (z * z / (4 * N * N)))) / (1 + (z * z) / N);
+  return (r * N) - e;
+}

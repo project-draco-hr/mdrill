@@ -1,0 +1,3 @@
+PackageConstraint toCheck
+Map<String,Dependency> lookup
+Map<String,List<Dependency>> conflicts

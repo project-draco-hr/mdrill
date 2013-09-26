@@ -1,0 +1,8 @@
+{
+  if (shortened) {
+    return DATE_FORMAT_SYMBOLS.getShortMonths();
+  }
+ else {
+    return DATE_FORMAT_SYMBOLS.getMonths();
+  }
+}

@@ -1,0 +1,6 @@
+{
+  this.values.removeValue((Comparable)x,seriesName);
+  if (notify) {
+    fireDatasetChanged();
+  }
+}

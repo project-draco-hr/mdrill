@@ -1,0 +1,5 @@
+{
+  super();
+  m_Ignored=new Hashtable<Object,HashSet<String>>();
+  m_Allowed=new Hashtable<Object,HashSet<String>>();
+}

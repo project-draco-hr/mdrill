@@ -1,0 +1,6 @@
+{
+  final TextBlockDemo demo=new TextBlockDemo("TextBlock Demo");
+  demo.pack();
+  RefineryUtilities.centerFrameOnScreen(demo);
+  demo.setVisible(true);
+}

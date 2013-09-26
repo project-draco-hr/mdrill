@@ -1,0 +1,14 @@
+{
+  int i;
+  Instances inst;
+  if (getInputFormat() == null)   throw new IllegalStateException("No input instance format defined");
+  inst=new Instances(getInputFormat());
+  flushInput();
+  if (!hasImmediateOutputFormat())   preprocess(inst);
+  inst=process(inst);
+  if (!hasImmediateOutputFormat() && !isFirstBatchDone())   setOutputFormat(inst);
+  for (i=0; i < inst.numInstances(); i++)   push(inst.instance(i));
+  m_NewBatch=true;
+  m_FirstBatchDone=true;
+  return (numPendingOutput() != 0);
+}

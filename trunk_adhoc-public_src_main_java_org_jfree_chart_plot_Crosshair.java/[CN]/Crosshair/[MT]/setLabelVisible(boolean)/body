@@ -1,0 +1,5 @@
+{
+  boolean old=this.labelVisible;
+  this.labelVisible=visible;
+  this.pcs.firePropertyChange("labelVisible",old,visible);
+}

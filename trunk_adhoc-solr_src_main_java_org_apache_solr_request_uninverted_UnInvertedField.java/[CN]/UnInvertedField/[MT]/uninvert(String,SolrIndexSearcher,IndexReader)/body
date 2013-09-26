@@ -1,12 +1,7 @@
 {
   SolrCore.log.info("####UnInverted#### begin");
   this.field=field;
-  if (this.field.indexOf("higoempty_") >= 0) {
-    this.isNullField=true;
-  }
-  if (this.isNullField) {
-    this.tnr=new TermNumReadNull();
-    this.tnr.setUni(this);
+  if (this.checkEmpty()) {
     return;
   }
   long startTime=System.currentTimeMillis();
@@ -16,8 +11,11 @@
   SchemaField sf=searcher.getSchema().getField(field);
   this.ft=sf.getType();
   this.isMultiValued=ft.isMultiValued();
+  if (this.isMultiValued) {
+    throw new IOException("unsupport MultiValued");
+  }
   this.dataType=UnInvertedFieldUtils.getDataType(this.ft);
-  this.tnr=UnInvertedFieldUtils.getReadInterface(this.isMultiValued);
+  this.tnr=new TermNumReadSingle();
   String key=LuceneUtils.crcKey(reader);
   boolean isUsedCache=!LinkFSDirectory.isRealTime() && searcher.getFieldcacheDir() != null;
   if (isUsedCache) {
@@ -34,12 +32,7 @@
   }
   this.dataType=UnInvertedFieldUtils.getDataType(this.ft);
   NumberedTermEnum te=ti.getEnumerator(reader);
-  if (!this.isMultiValued) {
-    this.setSingleValue(te,reader,key);
-  }
- else {
-    this.setMultyValue(te,reader,key);
-  }
+  this.setSingleValue(te,reader,key);
   numTermsInField=te.getTermNumber();
   te.close();
   if (isUsedCache) {

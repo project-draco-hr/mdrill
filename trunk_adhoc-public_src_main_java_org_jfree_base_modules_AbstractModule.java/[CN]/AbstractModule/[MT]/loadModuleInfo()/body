@@ -1,0 +1,7 @@
+{
+  final InputStream in=ObjectUtilities.getResourceRelativeAsStream("module.properties",getClass());
+  if (in == null) {
+    throw new ModuleInitializeException("File 'module.properties' not found in module package.");
+  }
+  loadModuleInfo(in);
+}

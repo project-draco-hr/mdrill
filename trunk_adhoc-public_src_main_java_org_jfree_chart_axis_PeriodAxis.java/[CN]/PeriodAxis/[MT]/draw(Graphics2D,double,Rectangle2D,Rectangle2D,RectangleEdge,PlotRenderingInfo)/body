@@ -1,0 +1,16 @@
+{
+  AxisState axisState=new AxisState(cursor);
+  if (isAxisLineVisible()) {
+    drawAxisLine(g2,cursor,dataArea,edge);
+  }
+  if (isTickMarksVisible()) {
+    drawTickMarks(g2,axisState,dataArea,edge);
+  }
+  if (isTickLabelsVisible()) {
+    for (int band=0; band < this.labelInfo.length; band++) {
+      axisState=drawTickLabels(band,g2,axisState,dataArea,edge);
+    }
+  }
+  axisState=drawLabel(getLabel(),g2,plotArea,dataArea,edge,axisState);
+  return axisState;
+}

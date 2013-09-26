@@ -1,0 +1,3 @@
+{
+  return "The minimum total weight of the instances in a rule.";
+}

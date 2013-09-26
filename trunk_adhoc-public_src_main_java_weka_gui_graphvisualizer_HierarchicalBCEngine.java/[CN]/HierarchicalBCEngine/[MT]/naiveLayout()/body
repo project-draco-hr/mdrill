@@ -1,0 +1,11 @@
+{
+  if (nodeLevels == null)   makeProperHierarchy();
+  for (int i=0, temp=0; i < nodeLevels.length; i++) {
+    for (int j=0; j < nodeLevels[i].length; j++) {
+      temp=nodeLevels[i][j];
+      GraphNode n=(GraphNode)m_nodes.elementAt(temp);
+      n.x=j * m_nodeWidth;
+      n.y=i * 3 * m_nodeHeight;
+    }
+  }
+}

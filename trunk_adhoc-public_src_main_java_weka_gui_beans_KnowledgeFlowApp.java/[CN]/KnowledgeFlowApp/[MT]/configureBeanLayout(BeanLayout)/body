@@ -1,0 +1,202 @@
+{
+  layout.setLayout(null);
+  layout.addMouseListener(new MouseAdapter(){
+    public void mousePressed(    MouseEvent me){
+      if (m_toolBarBean == null) {
+        if (((me.getModifiers() & InputEvent.BUTTON1_MASK) == InputEvent.BUTTON1_MASK) && m_mode == NONE) {
+          BeanInstance bi=BeanInstance.findInstance(me.getPoint(),m_mainKFPerspective.getCurrentTabIndex());
+          JComponent bc=null;
+          if (bi != null) {
+            bc=(JComponent)(bi.getBean());
+          }
+          if (bc != null) {
+            m_editElement=bi;
+            m_oldX=me.getX();
+            m_oldY=me.getY();
+            m_mode=MOVING;
+          }
+          if (m_mode != MOVING) {
+            m_mode=SELECTING;
+            m_oldX=me.getX();
+            m_oldY=me.getY();
+            m_startX=m_oldX;
+            m_startY=m_oldY;
+            Graphics2D gx=(Graphics2D)layout.getGraphics();
+            gx.setXORMode(java.awt.Color.white);
+            gx.dispose();
+            m_mode=SELECTING;
+          }
+        }
+      }
+    }
+    public void mouseReleased(    MouseEvent me){
+      if (m_editElement != null && m_mode == MOVING) {
+        if (m_snapToGridB.isSelected()) {
+          int x=snapToGrid(m_editElement.getX());
+          int y=snapToGrid(m_editElement.getY());
+          m_editElement.setXY(x,y);
+          snapSelectedToGrid();
+        }
+        m_editElement=null;
+        revalidate();
+        layout.repaint();
+        m_mode=NONE;
+      }
+      if (m_mode == SELECTING) {
+        revalidate();
+        layout.repaint();
+        m_mode=NONE;
+        highlightSubFlow(m_startX,m_startY,me.getX(),me.getY());
+      }
+    }
+    public void mouseClicked(    MouseEvent me){
+      BeanInstance bi=BeanInstance.findInstance(me.getPoint(),m_mainKFPerspective.getCurrentTabIndex());
+      if (m_mode == ADDING || m_mode == NONE) {
+        if (bi != null) {
+          JComponent bc=(JComponent)bi.getBean();
+          if (me.getClickCount() == 2 && !(bc instanceof MetaBean)) {
+            try {
+              Class custClass=Introspector.getBeanInfo(bc.getClass()).getBeanDescriptor().getCustomizerClass();
+              if (custClass != null) {
+                if (bc instanceof BeanCommon) {
+                  if (!((BeanCommon)bc).isBusy() && !m_mainKFPerspective.getExecuting()) {
+                    popupCustomizer(custClass,bc);
+                  }
+                }
+ else {
+                  popupCustomizer(custClass,bc);
+                }
+              }
+            }
+ catch (            IntrospectionException ex) {
+              ex.printStackTrace();
+            }
+          }
+ else           if (((me.getModifiers() & InputEvent.BUTTON1_MASK) != InputEvent.BUTTON1_MASK) || me.isAltDown()) {
+            doPopup(me.getPoint(),bi,me.getX(),me.getY());
+            return;
+          }
+ else {
+            Vector v=m_mainKFPerspective.getSelectedBeans();
+            if (me.isShiftDown()) {
+            }
+ else {
+              v=new Vector();
+            }
+            v.add(bi);
+            m_mainKFPerspective.setSelectedBeans(v);
+            return;
+          }
+        }
+ else {
+          if (((me.getModifiers() & InputEvent.BUTTON1_MASK) != InputEvent.BUTTON1_MASK) || me.isAltDown()) {
+            if (!m_mainKFPerspective.getExecuting()) {
+              rightClickCanvasPopup(me.getX(),me.getY());
+            }
+            return;
+          }
+ else           if (m_toolBarBean != null) {
+            int x=me.getX();
+            int y=me.getY();
+            if (m_snapToGridB.isSelected()) {
+              x=snapToGrid(me.getX());
+              y=snapToGrid(me.getY());
+            }
+            addUndoPoint();
+            if (m_toolBarBean instanceof StringBuffer) {
+              pasteFromClipboard(x,y,(StringBuffer)m_toolBarBean,false);
+              m_mode=NONE;
+              KnowledgeFlowApp.this.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+              m_toolBarBean=null;
+            }
+ else {
+              addComponent(x,y);
+            }
+            m_componentTree.clearSelection();
+            m_mainKFPerspective.setEditedStatus(true);
+          }
+        }
+      }
+      if (m_mode == PASTING && m_pasteBuffer.length() > 0) {
+        pasteFromClipboard(me.getX(),me.getY(),m_pasteBuffer,true);
+        m_mode=NONE;
+        KnowledgeFlowApp.this.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+        return;
+      }
+      if (m_mode == CONNECTING) {
+        layout.repaint();
+        Vector beanInstances=BeanInstance.getBeanInstances(m_mainKFPerspective.getCurrentTabIndex());
+        for (int i=0; i < beanInstances.size(); i++) {
+          JComponent bean=(JComponent)((BeanInstance)beanInstances.elementAt(i)).getBean();
+          if (bean instanceof Visible) {
+            ((Visible)bean).getVisual().setDisplayConnectors(false);
+          }
+        }
+        if (bi != null) {
+          boolean doConnection=false;
+          if (!(bi.getBean() instanceof BeanCommon)) {
+            doConnection=true;
+          }
+ else {
+            if (((BeanCommon)bi.getBean()).connectionAllowed(m_sourceEventSetDescriptor)) {
+              doConnection=true;
+            }
+          }
+          if (doConnection) {
+            addUndoPoint();
+            if (bi.getBean() instanceof MetaBean) {
+              BeanConnection.doMetaConnection(m_editElement,bi,m_sourceEventSetDescriptor,layout,m_mainKFPerspective.getCurrentTabIndex());
+            }
+ else {
+              BeanConnection bc=new BeanConnection(m_editElement,bi,m_sourceEventSetDescriptor,m_mainKFPerspective.getCurrentTabIndex());
+            }
+            m_mainKFPerspective.setEditedStatus(true);
+          }
+          layout.repaint();
+        }
+        m_mode=NONE;
+        m_editElement=null;
+        m_sourceEventSetDescriptor=null;
+      }
+      if (m_mainKFPerspective.getSelectedBeans().size() > 0) {
+        m_mainKFPerspective.setSelectedBeans(new Vector());
+      }
+    }
+  }
+);
+  layout.addMouseMotionListener(new MouseMotionAdapter(){
+    public void mouseDragged(    MouseEvent me){
+      if (m_editElement != null && m_mode == MOVING) {
+        int deltaX=me.getX() - m_oldX;
+        int deltaY=me.getY() - m_oldY;
+        m_editElement.setXY(m_editElement.getX() + deltaX,m_editElement.getY() + deltaY);
+        if (m_mainKFPerspective.getSelectedBeans().size() > 0) {
+          Vector v=m_mainKFPerspective.getSelectedBeans();
+          for (int i=0; i < v.size(); i++) {
+            BeanInstance b=(BeanInstance)v.get(i);
+            if (b != m_editElement) {
+              b.setXY(b.getX() + deltaX,b.getY() + deltaY);
+            }
+          }
+        }
+        layout.repaint();
+        m_oldX=me.getX();
+        m_oldY=me.getY();
+        m_mainKFPerspective.setEditedStatus(true);
+      }
+      if (m_mode == SELECTING) {
+        layout.repaint();
+        m_oldX=me.getX();
+        m_oldY=me.getY();
+      }
+    }
+    public void mouseMoved(    MouseEvent e){
+      if (m_mode == CONNECTING) {
+        layout.repaint();
+        m_oldX=e.getX();
+        m_oldY=e.getY();
+      }
+    }
+  }
+);
+}

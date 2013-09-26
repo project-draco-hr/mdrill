@@ -1,0 +1,19 @@
+{
+  if (this.renderer == null) {
+    return;
+  }
+  if (isAngleGridlinesVisible()) {
+    Stroke gridStroke=getAngleGridlineStroke();
+    Paint gridPaint=getAngleGridlinePaint();
+    if ((gridStroke != null) && (gridPaint != null)) {
+      this.renderer.drawAngularGridLines(g2,this,angularTicks,dataArea);
+    }
+  }
+  if (isRadiusGridlinesVisible()) {
+    Stroke gridStroke=getRadiusGridlineStroke();
+    Paint gridPaint=getRadiusGridlinePaint();
+    if ((gridStroke != null) && (gridPaint != null)) {
+      this.renderer.drawRadialGridLines(g2,this,this.axis,radialTicks,dataArea);
+    }
+  }
+}

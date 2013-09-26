@@ -1,0 +1,14 @@
+{
+  if (weight <= 0) {
+    String msg="The 'weight' must be positive.";
+    throw new IllegalArgumentException(msg);
+  }
+  subplot.setParent(this);
+  subplot.setWeight(weight);
+  subplot.setInsets(new RectangleInsets(0.0,0.0,0.0,0.0));
+  subplot.setRangeAxis(null);
+  subplot.addChangeListener(this);
+  this.subplots.add(subplot);
+  configureRangeAxes();
+  fireChangeEvent();
+}

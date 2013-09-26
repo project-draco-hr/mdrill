@@ -1,0 +1,6 @@
+{
+  if (UNARY_FUNCTIONS.indexOf(tok) == -1) {
+    return false;
+  }
+  return true;
+}

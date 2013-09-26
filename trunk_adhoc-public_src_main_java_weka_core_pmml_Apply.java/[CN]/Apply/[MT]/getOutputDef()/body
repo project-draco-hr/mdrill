@@ -1,0 +1,6 @@
+{
+  if (m_outputStructure == null) {
+    return (m_opType == FieldMetaInfo.Optype.CATEGORICAL || m_opType == FieldMetaInfo.Optype.ORDINAL) ? new Attribute("Placeholder",new ArrayList<String>()) : new Attribute("Placeholder");
+  }
+  return m_outputStructure;
+}

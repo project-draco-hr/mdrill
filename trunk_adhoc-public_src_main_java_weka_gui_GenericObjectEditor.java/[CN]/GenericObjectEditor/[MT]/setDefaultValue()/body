@@ -1,0 +1,24 @@
+{
+  if (m_ClassType == null) {
+    System.err.println("No ClassType set up for GenericObjectEditor!!");
+    return;
+  }
+  Hashtable hpps=getClassesFromProperties();
+  HierarchyPropertyParser hpp=null;
+  Enumeration enm=hpps.elements();
+  try {
+    while (enm.hasMoreElements()) {
+      hpp=(HierarchyPropertyParser)enm.nextElement();
+      if (hpp.depth() > 0) {
+        hpp.goToRoot();
+        while (!hpp.isLeafReached())         hpp.goToChild(0);
+        String defaultValue=hpp.fullValue();
+        setValue(Class.forName(defaultValue).newInstance());
+      }
+    }
+  }
+ catch (  Exception ex) {
+    System.err.println("Problem loading the first class: " + hpp.fullValue());
+    ex.printStackTrace();
+  }
+}

@@ -1,0 +1,34 @@
+{
+  if (in == null) {
+    throw new NullPointerException("Given InputStream is null.");
+  }
+  try {
+    final ArrayList optionalModules=new ArrayList();
+    final ArrayList dependendModules=new ArrayList();
+    final ReaderHelper rh=new ReaderHelper(new BufferedReader(new InputStreamReader(in,"ISO-8859-1")));
+    try {
+      while (rh.hasNext()) {
+        final String lastLineRead=rh.next();
+        if (lastLineRead.startsWith("module-info:")) {
+          readModuleInfo(rh);
+        }
+ else         if (lastLineRead.startsWith("depends:")) {
+          dependendModules.add(readExternalModule(rh));
+        }
+ else         if (lastLineRead.startsWith("optional:")) {
+          optionalModules.add(readExternalModule(rh));
+        }
+ else {
+        }
+      }
+    }
+  finally {
+      rh.close();
+    }
+    this.optionalModules=(ModuleInfo[])optionalModules.toArray(new ModuleInfo[optionalModules.size()]);
+    this.requiredModules=(ModuleInfo[])dependendModules.toArray(new ModuleInfo[dependendModules.size()]);
+  }
+ catch (  IOException ioe) {
+    throw new ModuleInitializeException("Failed to load properties",ioe);
+  }
+}

@@ -1,0 +1,6 @@
+{
+  setLayout(new BorderLayout());
+  this.model=new ContributorsTableModel(contributors);
+  this.table=new JTable(this.model);
+  add(new JScrollPane(this.table));
+}

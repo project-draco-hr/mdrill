@@ -1,0 +1,5 @@
+String title
+String categoryAxisLabel
+String valueAxisLabel
+BoxAndWhiskerCategoryDataset dataset
+boolean legend

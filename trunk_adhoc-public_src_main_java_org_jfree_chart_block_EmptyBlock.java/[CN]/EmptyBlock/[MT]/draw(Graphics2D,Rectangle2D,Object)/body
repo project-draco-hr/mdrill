@@ -1,0 +1,5 @@
+{
+  area=trimMargin(area);
+  drawBorder(g2,area);
+  return null;
+}

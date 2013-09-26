@@ -1,0 +1,7 @@
+{
+  if (x == null) {
+    throw new IllegalArgumentException("Null 'x' argument.");
+  }
+  this.x=x;
+  this.y=y;
+}

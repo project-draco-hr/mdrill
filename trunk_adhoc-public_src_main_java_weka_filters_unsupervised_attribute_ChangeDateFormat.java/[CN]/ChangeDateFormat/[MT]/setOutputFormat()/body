@@ -1,0 +1,16 @@
+{
+  FastVector newAtts=new FastVector(getInputFormat().numAttributes());
+  for (int j=0; j < getInputFormat().numAttributes(); j++) {
+    Attribute att=getInputFormat().attribute(j);
+    if (j == m_AttIndex.getIndex()) {
+      newAtts.addElement(new Attribute(att.name(),getDateFormat().toPattern()));
+    }
+ else {
+      newAtts.addElement(att.copy());
+    }
+  }
+  Instances newData=new Instances(getInputFormat().relationName(),newAtts,0);
+  newData.setClassIndex(getInputFormat().classIndex());
+  m_OutputAttribute=newData.attribute(m_AttIndex.getIndex());
+  setOutputFormat(newData);
+}

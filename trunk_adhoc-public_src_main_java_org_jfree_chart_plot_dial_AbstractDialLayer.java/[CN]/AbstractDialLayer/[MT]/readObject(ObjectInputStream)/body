@@ -1,0 +1,4 @@
+{
+  stream.defaultReadObject();
+  this.listenerList=new EventListenerList();
+}

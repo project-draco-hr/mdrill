@@ -1,0 +1,6 @@
+boolean mapToLastCycle
+Number number
+String label
+TextAnchor textAnchor
+TextAnchor rotationAnchor
+double angle

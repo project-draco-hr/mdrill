@@ -1,0 +1,73 @@
+{
+  Instances miningSchemaI=m_miningSchema.getFieldsAsInstances();
+  NodeList matrixL=model.getElementsByTagName("PPMatrix");
+  if (matrixL.getLength() == 1) {
+    m_ppMatrix=new PPCell[m_parameterList.size()][miningSchemaI.numAttributes()];
+    Node ppM=matrixL.item(0);
+    if (ppM.getNodeType() == Node.ELEMENT_NODE) {
+      NodeList cellL=((Element)ppM).getElementsByTagName("PPCell");
+      for (int i=0; i < cellL.getLength(); i++) {
+        Node cell=cellL.item(i);
+        if (cell.getNodeType() == Node.ELEMENT_NODE) {
+          String predictorName=((Element)cell).getAttribute("predictorName");
+          String parameterName=((Element)cell).getAttribute("parameterName");
+          String value=((Element)cell).getAttribute("value");
+          double expOrIndex=-1;
+          int predictorIndex=-1;
+          int parameterIndex=-1;
+          for (int j=0; j < m_parameterList.size(); j++) {
+            if (m_parameterList.get(j).m_name.equals(parameterName)) {
+              parameterIndex=j;
+              break;
+            }
+          }
+          if (parameterIndex == -1) {
+            throw new Exception("[GeneralRegression] unable to find parameter name " + parameterName + " in parameter list");
+          }
+          Predictor p=getCovariate(predictorName);
+          if (p != null) {
+            try {
+              expOrIndex=Double.parseDouble(value);
+              predictorIndex=p.m_miningSchemaIndex;
+            }
+ catch (            IllegalArgumentException ex) {
+              throw new Exception("[GeneralRegression] unable to parse PPCell value: " + value);
+            }
+          }
+ else {
+            p=getFactor(predictorName);
+            if (p != null) {
+              if (miningSchemaI.attribute(p.m_miningSchemaIndex).isNumeric()) {
+                try {
+                  expOrIndex=Double.parseDouble(value);
+                }
+ catch (                IllegalArgumentException ex) {
+                  throw new Exception("[GeneralRegresion] unable to parse PPCell value: " + value);
+                }
+              }
+ else {
+                Attribute att=miningSchemaI.attribute(p.m_miningSchemaIndex);
+                expOrIndex=att.indexOfValue(value);
+                if (expOrIndex == -1) {
+                  throw new Exception("[GeneralRegression] unable to find PPCell value " + value + " in mining schema attribute "+ att.name());
+                }
+              }
+            }
+ else {
+              throw new Exception("[GeneralRegression] cant find predictor " + predictorName + "in either the factors list "+ "or the covariates list");
+            }
+            predictorIndex=p.m_miningSchemaIndex;
+          }
+          PPCell ppc=new PPCell();
+          ppc.m_predictorName=predictorName;
+          ppc.m_parameterName=parameterName;
+          ppc.m_value=expOrIndex;
+          m_ppMatrix[parameterIndex][predictorIndex]=ppc;
+        }
+      }
+    }
+  }
+ else {
+    throw new Exception("[GeneralRegression] more than one PPMatrix!");
+  }
+}

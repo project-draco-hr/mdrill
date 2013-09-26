@@ -1,0 +1,9 @@
+{
+  if (this.equals(SortOrder.ASCENDING)) {
+    return SortOrder.ASCENDING;
+  }
+ else   if (this.equals(SortOrder.DESCENDING)) {
+    return SortOrder.DESCENDING;
+  }
+  return null;
+}

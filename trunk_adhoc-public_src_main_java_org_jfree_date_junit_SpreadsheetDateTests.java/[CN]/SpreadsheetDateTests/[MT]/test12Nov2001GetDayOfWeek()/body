@@ -1,0 +1,5 @@
+{
+  SerialDate nov12Y2001=new SpreadsheetDate(12,MonthConstants.NOVEMBER,2001);
+  int dayOfWeek=nov12Y2001.getDayOfWeek();
+  assertEquals(SerialDate.MONDAY,dayOfWeek);
+}

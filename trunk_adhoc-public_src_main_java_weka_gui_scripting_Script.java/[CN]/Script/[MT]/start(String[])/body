@@ -1,0 +1,5 @@
+{
+  if (args == null)   args=new String[0];
+  preCheck(args);
+  execute(args);
+}

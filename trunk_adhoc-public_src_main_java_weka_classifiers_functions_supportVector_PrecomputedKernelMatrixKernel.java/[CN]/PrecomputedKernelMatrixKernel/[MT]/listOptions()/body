@@ -1,0 +1,8 @@
+{
+  Vector result;
+  result=new Vector();
+  Enumeration en=super.listOptions();
+  while (en.hasMoreElements())   result.addElement(en.nextElement());
+  result.addElement(new Option("\tThe file name of the file that holds the kernel matrix.\n" + "\t(default: kernelMatrix.matrix)","M",1,"-M <file name>"));
+  return result.elements();
+}

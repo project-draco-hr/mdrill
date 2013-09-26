@@ -1,0 +1,14 @@
+{
+  try {
+    peekFactory().startElement(qName,attributes);
+  }
+ catch (  ParseException pe) {
+    throw pe;
+  }
+catch (  Exception e) {
+    throw new ParseException(e,getLocator());
+  }
+ finally {
+    getCommentHandler().clearComments();
+  }
+}

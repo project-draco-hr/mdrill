@@ -1,0 +1,9 @@
+{
+  Vector newVector=new Vector(1);
+  newVector.addElement(new Option("\tUse cross validation for model selection using the\n" + "\tgiven number of folds. (default 0, is to\n" + "\tuse training error)","X",1,"-X <number of folds>"));
+  Enumeration enu=super.listOptions();
+  while (enu.hasMoreElements()) {
+    newVector.addElement(enu.nextElement());
+  }
+  return newVector.elements();
+}

@@ -1,0 +1,3 @@
+{
+  bayesNet.m_Distributions=new Estimator[bayesNet.m_Instances.numAttributes()][2];
+}

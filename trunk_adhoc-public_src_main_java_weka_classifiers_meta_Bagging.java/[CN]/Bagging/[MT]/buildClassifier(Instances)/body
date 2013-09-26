@@ -1,0 +1,70 @@
+{
+  getCapabilities().testWithFail(data);
+  m_data=new Instances(data);
+  m_data.deleteWithMissingClass();
+  super.buildClassifier(m_data);
+  if (m_CalcOutOfBag && (m_BagSizePercent != 100)) {
+    throw new IllegalArgumentException("Bag size needs to be 100% if " + "out-of-bag error is to be calculated!");
+  }
+  int bagSize=m_data.numInstances() * m_BagSizePercent / 100;
+  m_random=new Random(m_Seed);
+  m_inBag=null;
+  if (m_CalcOutOfBag)   m_inBag=new boolean[m_Classifiers.length][];
+  for (int j=0; j < m_Classifiers.length; j++) {
+    if (m_Classifier instanceof Randomizable) {
+      ((Randomizable)m_Classifiers[j]).setSeed(m_random.nextInt());
+    }
+  }
+  buildClassifiers();
+  if (getCalcOutOfBag()) {
+    double outOfBagCount=0.0;
+    double errorSum=0.0;
+    boolean numeric=m_data.classAttribute().isNumeric();
+    for (int i=0; i < m_data.numInstances(); i++) {
+      double vote;
+      double[] votes;
+      if (numeric)       votes=new double[1];
+ else       votes=new double[m_data.numClasses()];
+      int voteCount=0;
+      for (int j=0; j < m_Classifiers.length; j++) {
+        if (m_inBag[j][i])         continue;
+        voteCount++;
+        if (numeric) {
+          votes[0]+=m_Classifiers[j].classifyInstance(m_data.instance(i));
+        }
+ else {
+          double[] newProbs=m_Classifiers[j].distributionForInstance(m_data.instance(i));
+          for (int k=0; k < newProbs.length; k++) {
+            votes[k]+=newProbs[k];
+          }
+        }
+      }
+      if (numeric) {
+        vote=votes[0];
+        if (voteCount > 0) {
+          vote/=voteCount;
+        }
+      }
+ else {
+        if (Utils.eq(Utils.sum(votes),0)) {
+        }
+ else {
+          Utils.normalize(votes);
+        }
+        vote=Utils.maxIndex(votes);
+      }
+      outOfBagCount+=m_data.instance(i).weight();
+      if (numeric) {
+        errorSum+=StrictMath.abs(vote - m_data.instance(i).classValue()) * m_data.instance(i).weight();
+      }
+ else {
+        if (vote != m_data.instance(i).classValue())         errorSum+=m_data.instance(i).weight();
+      }
+    }
+    m_OutOfBagError=errorSum / outOfBagCount;
+  }
+ else {
+    m_OutOfBagError=0;
+  }
+  m_data=null;
+}

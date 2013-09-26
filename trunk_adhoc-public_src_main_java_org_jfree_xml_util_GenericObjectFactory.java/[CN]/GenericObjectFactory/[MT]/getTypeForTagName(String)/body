@@ -1,0 +1,8 @@
+{
+  final PropertyDefinition pdef=getPropertyDefinitionByTagName(tagName);
+  final PropertyDescriptor pdescr=getPropertyDescriptor(pdef.getPropertyName());
+  if (pdescr == null) {
+    throw new ObjectDescriptionException("Invalid Definition: " + pdef.getPropertyName());
+  }
+  return pdescr.getPropertyType();
+}

@@ -1,0 +1,5 @@
+{
+  JFreeChart chart=getFutureForecastChart(forecaster,preds,targetNames,history);
+  ChartPanel result=new ChartPanel(chart,false,true,true,true,false);
+  return result;
+}

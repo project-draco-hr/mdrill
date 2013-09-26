@@ -1,0 +1,5 @@
+{
+  m_KeyFieldName=newKeyFieldName;
+  m_CountFieldName="Num_" + m_KeyFieldName;
+  findKeyIndex();
+}

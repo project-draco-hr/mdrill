@@ -1,0 +1,25 @@
+{
+  if (m_Filter.numPendingOutput() > 0) {
+    throw new Exception("Filter output queue not empty!");
+  }
+  if (!m_Filter.input(instance)) {
+    if (!m_Filter.mayRemoveInstanceAfterFirstBatchDone()) {
+      throw new Exception("Filter didn't make the test instance" + " immediately available!");
+    }
+ else {
+      double[] unclassified=null;
+      if (instance.classAttribute().isNumeric()) {
+        unclassified=new double[1];
+        unclassified[0]=Utils.missingValue();
+      }
+ else {
+        unclassified=new double[instance.classAttribute().numValues()];
+      }
+      m_Filter.batchFinished();
+      return unclassified;
+    }
+  }
+  m_Filter.batchFinished();
+  Instance newInstance=m_Filter.output();
+  return m_Classifier.distributionForInstance(newInstance);
+}

@@ -1,0 +1,4 @@
+{
+  m_Model.clear();
+  setButtons(null);
+}

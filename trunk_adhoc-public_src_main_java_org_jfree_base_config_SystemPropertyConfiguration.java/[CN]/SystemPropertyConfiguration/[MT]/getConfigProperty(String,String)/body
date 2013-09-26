@@ -1,0 +1,11 @@
+{
+  try {
+    final String value=System.getProperty(key);
+    if (value != null) {
+      return value;
+    }
+  }
+ catch (  SecurityException se) {
+  }
+  return super.getConfigProperty(key,defaultValue);
+}

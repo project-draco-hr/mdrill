@@ -1,0 +1,9 @@
+{
+  Vector newVector=new Vector(7);
+  newVector.addElement(new Option("\tSpecifies list of columns to Discretize. First" + " and last are valid indexes.\n" + "\t(default none)","R",1,"-R <col1,col2-col4,...>"));
+  newVector.addElement(new Option("\tInvert matching sense of column indexes.","V",0,"-V"));
+  newVector.addElement(new Option("\tOutput binary attributes for discretized attributes.","D",0,"-D"));
+  newVector.addElement(new Option("\tUse better encoding of split point for MDL.","E",0,"-E"));
+  newVector.addElement(new Option("\tUse Kononenko's MDL criterion.","K",0,"-K"));
+  return newVector.elements();
+}

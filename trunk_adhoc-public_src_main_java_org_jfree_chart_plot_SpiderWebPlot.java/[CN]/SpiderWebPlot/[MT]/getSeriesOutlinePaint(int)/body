@@ -1,0 +1,10 @@
+{
+  if (this.seriesOutlinePaint != null) {
+    return this.seriesOutlinePaint;
+  }
+  Paint result=this.seriesOutlinePaintList.getPaint(series);
+  if (result == null) {
+    result=this.baseSeriesOutlinePaint;
+  }
+  return result;
+}

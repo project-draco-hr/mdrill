@@ -1,0 +1,4 @@
+{
+  CoverTreeNode new_leaf=new CoverTreeNode(idx,0.0,0.0,null,0,100);
+  return new_leaf;
+}

@@ -1,0 +1,15 @@
+{
+  ParentSet oParentSetX=m_BayesNet.getParentSet(iAttributeX);
+  while (oParentSetX.getNrOfParents() > 0) {
+    oParentSetX.deleteLastParent(m_instances);
+  }
+  for (int iAttributeZ=0; iAttributeZ < nAttributesZ; iAttributeZ++) {
+    oParentSetX.addParent(iAttributesZ[iAttributeZ],m_instances);
+  }
+  double fScoreZ=calcNodeScore(iAttributeX);
+  double fScoreZY=calcScoreWithExtraParent(iAttributeX,iAttributeY);
+  if (fScoreZY <= fScoreZ) {
+    return true;
+  }
+  return false;
+}

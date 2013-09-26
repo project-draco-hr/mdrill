@@ -1,0 +1,8 @@
+{
+  m_env=env;
+  try {
+    reset();
+  }
+ catch (  IOException ex) {
+  }
+}

@@ -1,0 +1,4 @@
+{
+  this.lowerMargin=margin;
+  notifyListeners(new AxisChangeEvent(this));
+}

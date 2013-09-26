@@ -1,0 +1,13 @@
+{
+  String[] options=new String[8];
+  int current=0;
+  if (getInvertSelection()) {
+    options[current++]="-V";
+  }
+  options[current++]="-R";
+  options[current++]=getInstancesIndices();
+  while (current < options.length) {
+    options[current++]="";
+  }
+  return options;
+}

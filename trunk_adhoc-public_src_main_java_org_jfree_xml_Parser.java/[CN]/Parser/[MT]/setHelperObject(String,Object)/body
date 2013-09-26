@@ -1,0 +1,8 @@
+{
+  if (value == null) {
+    this.parserHelperObjects.remove(key);
+  }
+ else {
+    this.parserHelperObjects.put(key,value);
+  }
+}

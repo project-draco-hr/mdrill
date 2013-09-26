@@ -1,2 +1,2 @@
-SolrParams localParams
+SolrParams params
 String facetStr

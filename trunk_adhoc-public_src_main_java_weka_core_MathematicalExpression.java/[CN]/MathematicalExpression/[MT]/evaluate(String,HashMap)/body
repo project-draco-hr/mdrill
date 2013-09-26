@@ -1,0 +1,11 @@
+{
+  SymbolFactory sf;
+  ByteArrayInputStream parserInput;
+  Parser parser;
+  sf=new DefaultSymbolFactory();
+  parserInput=new ByteArrayInputStream(expr.getBytes());
+  parser=new Parser(new Scanner(parserInput,sf),sf);
+  parser.setSymbols(symbols);
+  parser.parse();
+  return parser.getResult();
+}

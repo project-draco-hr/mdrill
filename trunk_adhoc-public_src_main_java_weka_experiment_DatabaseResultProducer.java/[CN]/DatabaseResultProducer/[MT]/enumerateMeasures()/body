@@ -1,0 +1,11 @@
+{
+  Vector newVector=new Vector();
+  if (m_ResultProducer instanceof AdditionalMeasureProducer) {
+    Enumeration en=((AdditionalMeasureProducer)m_ResultProducer).enumerateMeasures();
+    while (en.hasMoreElements()) {
+      String mname=(String)en.nextElement();
+      newVector.addElement(mname);
+    }
+  }
+  return newVector.elements();
+}

@@ -1,0 +1,3 @@
+{
+  return (AbstractFileLoader)getConverterForExtension(extension,m_FileLoaders);
+}

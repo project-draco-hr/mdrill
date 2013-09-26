@@ -1,0 +1,4 @@
+{
+  this.toolTipGenerator=generator;
+  fireChangeEvent();
+}

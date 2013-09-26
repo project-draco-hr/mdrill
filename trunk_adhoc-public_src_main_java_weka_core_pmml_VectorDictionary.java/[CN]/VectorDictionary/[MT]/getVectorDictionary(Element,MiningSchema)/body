@@ -1,0 +1,11 @@
+{
+  VectorDictionary vectDict=null;
+  NodeList vecL=container.getElementsByTagName("VectorDictionary");
+  if (vecL.getLength() > 0) {
+    Node vecNode=vecL.item(0);
+    if (vecNode.getNodeType() == Node.ELEMENT_NODE) {
+      vectDict=new VectorDictionary((Element)vecNode,ms);
+    }
+  }
+  return vectDict;
+}

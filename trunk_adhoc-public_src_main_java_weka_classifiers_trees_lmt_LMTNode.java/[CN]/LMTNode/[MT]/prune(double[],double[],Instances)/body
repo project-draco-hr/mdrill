@@ -1,0 +1,34 @@
+{
+  Vector nodeList;
+  CompareNode comparator=new CompareNode();
+  modelErrors();
+  treeErrors();
+  calculateAlphas();
+  nodeList=getNodes();
+  boolean prune=(nodeList.size() > 0);
+  alphas[0]=0;
+  Evaluation eval;
+  if (errors != null) {
+    eval=new Evaluation(test);
+    eval.evaluateModel(this,test);
+    errors[0]=eval.errorRate();
+  }
+  int iteration=0;
+  while (prune) {
+    iteration++;
+    LMTNode nodeToPrune=(LMTNode)Collections.min(nodeList,comparator);
+    nodeToPrune.m_isLeaf=true;
+    alphas[iteration]=nodeToPrune.m_alpha;
+    if (errors != null) {
+      eval=new Evaluation(test);
+      eval.evaluateModel(this,test);
+      errors[iteration]=eval.errorRate();
+    }
+    treeErrors();
+    calculateAlphas();
+    nodeList=getNodes();
+    prune=(nodeList.size() > 0);
+  }
+  alphas[iteration + 1]=1.0;
+  return iteration;
+}

@@ -1,0 +1,53 @@
+{
+  Instances newData;
+  FastVector newAtts, newVals;
+  boolean firstEndsWithPrime=false, secondEndsWithPrime=false;
+  StringBuffer text=new StringBuffer();
+  newAtts=new FastVector(getInputFormat().numAttributes());
+  for (int j=0; j < getInputFormat().numAttributes(); j++) {
+    Attribute att=getInputFormat().attribute(j);
+    if (j != m_AttIndex.getIndex()) {
+      newAtts.addElement(att.copy());
+    }
+ else {
+      if (att.value(m_FirstIndex.getIndex()).endsWith("'")) {
+        firstEndsWithPrime=true;
+      }
+      if (att.value(m_SecondIndex.getIndex()).endsWith("'")) {
+        secondEndsWithPrime=true;
+      }
+      if (firstEndsWithPrime || secondEndsWithPrime) {
+        text.append("'");
+      }
+      if (firstEndsWithPrime) {
+        text.append(((String)att.value(m_FirstIndex.getIndex())).substring(1,((String)att.value(m_FirstIndex.getIndex())).length() - 1));
+      }
+ else {
+        text.append((String)att.value(m_FirstIndex.getIndex()));
+      }
+      text.append('_');
+      if (secondEndsWithPrime) {
+        text.append(((String)att.value(m_SecondIndex.getIndex())).substring(1,((String)att.value(m_SecondIndex.getIndex())).length() - 1));
+      }
+ else {
+        text.append((String)att.value(m_SecondIndex.getIndex()));
+      }
+      if (firstEndsWithPrime || secondEndsWithPrime) {
+        text.append("'");
+      }
+      newVals=new FastVector(att.numValues() - 1);
+      for (int i=0; i < att.numValues(); i++) {
+        if (i == m_FirstIndex.getIndex()) {
+          newVals.addElement(text.toString());
+        }
+ else         if (i != m_SecondIndex.getIndex()) {
+          newVals.addElement(att.value(i));
+        }
+      }
+      newAtts.addElement(new Attribute(att.name(),newVals));
+    }
+  }
+  newData=new Instances(getInputFormat().relationName(),newAtts,0);
+  newData.setClassIndex(getInputFormat().classIndex());
+  setOutputFormat(newData);
+}

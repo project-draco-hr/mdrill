@@ -1,0 +1,9 @@
+{
+  super();
+  setNumAttributes(defaultNumAttributes());
+  setNumClasses(defaultNumClasses());
+  setMaxRuleSize(defaultMaxRuleSize());
+  setMinRuleSize(defaultMinRuleSize());
+  setNumIrrelevant(defaultNumIrrelevant());
+  setNumNumeric(defaultNumNumeric());
+}

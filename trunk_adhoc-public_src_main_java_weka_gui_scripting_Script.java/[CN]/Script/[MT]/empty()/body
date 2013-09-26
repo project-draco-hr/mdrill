@@ -1,0 +1,11 @@
+{
+  if (m_Document != null) {
+    try {
+      m_Document.remove(0,m_Document.getLength());
+    }
+ catch (    Exception e) {
+    }
+  }
+  m_Modified=false;
+  m_Filename=null;
+}

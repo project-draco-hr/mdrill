@@ -1,0 +1,6 @@
+{
+  if (connection == null) {
+    throw new NullPointerException("A connection must be supplied.");
+  }
+  this.connection=connection;
+}

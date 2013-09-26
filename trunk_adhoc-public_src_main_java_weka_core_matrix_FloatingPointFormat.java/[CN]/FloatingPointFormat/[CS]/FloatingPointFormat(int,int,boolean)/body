@@ -1,0 +1,4 @@
+{
+  this(w,d);
+  this.trailing=trailingZeros;
+}

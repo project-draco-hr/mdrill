@@ -1,0 +1,15 @@
+{
+  theTest=theTest.trim();
+  if (theTest.indexOf(' ') > 0) {
+    String[] parts=theTest.split(" ");
+    m_lowerTest=parseTest(parts[0]);
+    m_upperTest=parseTest(parts[1]);
+    m_upperTest.setIsUpper(true);
+    if (m_upperTest.m_boundOperator == m_lowerTest.m_boundOperator) {
+      throw new IllegalArgumentException("Doesn't make sense to define " + "an upper and lower test that uses the same operator");
+    }
+  }
+ else {
+    m_lowerTest=parseTest(theTest);
+  }
+}

@@ -1,0 +1,4 @@
+{
+  super("Print...","print.gif","ctrl P",'P');
+  setEnabled(true);
+}

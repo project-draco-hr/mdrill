@@ -1,0 +1,212 @@
+{
+  m_predictionsForTrainingData=null;
+  m_predictionsForTestData=null;
+  m_trainingFuture=null;
+  m_testFuture=null;
+  if (m_trainingData != null && buildModel) {
+    for (    PrintStream p : progress) {
+      p.println("Building forecaster...");
+    }
+    forecaster.buildForecaster(m_trainingData);
+  }
+  if (forecaster instanceof TSLagUser) {
+    TSLagMaker lagMaker=((TSLagUser)forecaster).getTSLagMaker();
+    Instances trainMod=new Instances(m_trainingData);
+    trainMod=weka.classifiers.timeseries.core.Utils.replaceMissing(trainMod,lagMaker.getFieldsToLag(),lagMaker.getTimeStampField(),false,lagMaker.getPeriodicity(),lagMaker.getSkipEntries());
+    if (trainMod.numInstances() != m_trainingData.numInstances()) {
+      m_trainingData=trainMod;
+    }
+    if (m_evaluateTestData) {
+      m_missingTimeStampTestSetRows=new ArrayList<String>();
+      m_missingTargetListTestSet=new ArrayList<Integer>();
+      m_missingTimeStampListTestSet=new ArrayList<Integer>();
+      Instances testMod=new Instances(m_testData);
+      testMod=weka.classifiers.timeseries.core.Utils.replaceMissing(testMod,lagMaker.getFieldsToLag(),lagMaker.getTimeStampField(),false,lagMaker.getPeriodicity(),lagMaker.getSkipEntries(),m_missingTargetListTestSet,m_missingTimeStampListTestSet,m_missingTimeStampTestSetRows);
+      if (testMod.numInstances() != m_testData.numInstances()) {
+        m_testData=testMod;
+      }
+    }
+  }
+  if (m_evaluateTrainingData) {
+    for (    PrintStream p : progress) {
+      p.println("Evaluating on training set...");
+    }
+    m_predictionsForTrainingData=new ArrayList<ErrorModule>();
+    m_metricsForTrainingData=new HashMap<String,List<TSEvalModule>>();
+    setupEvalModules(m_predictionsForTrainingData,m_metricsForTrainingData,AbstractForecaster.stringToList(forecaster.getFieldsToForecast()));
+    Instances primeData=new Instances(m_trainingData,0);
+    if (forecaster instanceof TSLagUser) {
+      if (((TSLagUser)forecaster).getTSLagMaker().isUsingAnArtificialTimeIndex()) {
+        ((TSLagUser)forecaster).getTSLagMaker().setArtificialTimeStartValue(m_primeWindowSize);
+      }
+    }
+    for (int i=0; i < m_trainingData.numInstances(); i++) {
+      Instance current=m_trainingData.instance(i);
+      if (i < m_primeWindowSize) {
+        primeData.add(current);
+      }
+ else {
+        if (i % 10 == 0) {
+          for (          PrintStream p : progress) {
+            p.println("Evaluating on training set: processed " + i + " instances...");
+          }
+        }
+        forecaster.primeForecaster(primeData);
+        List<List<NumericPrediction>> forecast=null;
+        if (forecaster instanceof OverlayForecaster && ((OverlayForecaster)forecaster).isUsingOverlayData()) {
+          if (current != null) {
+            Instances overlay=createOverlayForecastData(forecaster,m_trainingData,i,m_horizon);
+            forecast=((OverlayForecaster)forecaster).forecast(m_horizon,overlay,progress);
+          }
+        }
+ else {
+          forecast=forecaster.forecast(m_horizon,progress);
+        }
+        updateEvalModules(m_predictionsForTrainingData,m_metricsForTrainingData,forecast,i,m_trainingData);
+        if (m_primeWindowSize > 0 && current != null) {
+          primeData.remove(0);
+          primeData.add(current);
+          primeData.compactify();
+        }
+      }
+    }
+  }
+  if (m_trainingData != null && m_forecastFuture) {
+    for (    PrintStream p : progress) {
+      p.println("Generating future forecast for training data...");
+    }
+    Instances primeData=new Instances(m_trainingData,m_trainingData.numInstances() - m_primeWindowSize,m_primeWindowSize);
+    forecaster.primeForecaster(primeData);
+    if (forecaster instanceof OverlayForecaster && ((OverlayForecaster)forecaster).isUsingOverlayData()) {
+      if (m_testData != null) {
+        Instances overlay=createOverlayForecastData(forecaster,m_testData,0,m_horizon);
+        m_trainingFuture=((OverlayForecaster)forecaster).forecast(m_horizon,overlay,progress);
+      }
+ else {
+        for (        PrintStream p : progress) {
+          p.println("WARNING: Unable to generate a future forecast beyond the end " + "of the training data because there is no future overlay " + "data available.");
+        }
+      }
+    }
+ else {
+      m_trainingFuture=forecaster.forecast(m_horizon);
+    }
+  }
+  if (m_evaluateTestData) {
+    for (    PrintStream p : progress) {
+      p.println("Evaluating on test set...");
+    }
+    m_predictionsForTestData=new ArrayList<ErrorModule>();
+    m_metricsForTestData=new HashMap<String,List<TSEvalModule>>();
+    setupEvalModules(m_predictionsForTestData,m_metricsForTestData,AbstractForecaster.stringToList(forecaster.getFieldsToForecast()));
+    Instances primeData=null;
+    Instances rebuildData=null;
+    if (m_trainingData != null) {
+      primeData=new Instances(m_trainingData,0);
+      if (forecaster instanceof TSLagUser) {
+        if (((TSLagUser)forecaster).getTSLagMaker().isUsingAnArtificialTimeIndex()) {
+          ((TSLagUser)forecaster).getTSLagMaker().setArtificialTimeStartValue(m_trainingData.numInstances());
+        }
+      }
+      if (m_rebuildModelAfterEachTestForecastStep) {
+        rebuildData=new Instances(m_trainingData);
+      }
+    }
+ else {
+      primeData=new Instances(m_testData,0);
+    }
+    int predictionOffsetForTestData=0;
+    if (m_trainingData == null || m_primeForTestDataWithTestData) {
+      if (m_primeWindowSize >= m_testData.numInstances()) {
+        throw new Exception("The test data needs to have at least as many " + "instances as the the priming window size!");
+      }
+      predictionOffsetForTestData=m_primeWindowSize;
+      if (predictionOffsetForTestData >= m_testData.numInstances()) {
+        throw new Exception("Priming using test data requires more instances " + "than are available in the test data!");
+      }
+      primeData=new Instances(m_testData,0,m_primeWindowSize);
+      if (forecaster instanceof TSLagUser) {
+        if (((TSLagUser)forecaster).getTSLagMaker().isUsingAnArtificialTimeIndex()) {
+          double artificialTimeStampStart=0;
+          if (m_primeForTestDataWithTestData) {
+            if (m_trainingData == null) {
+              artificialTimeStampStart=((TSLagUser)forecaster).getTSLagMaker().getArtificialTimeStartValue();
+              artificialTimeStampStart+=m_primeWindowSize;
+              ((TSLagUser)forecaster).getTSLagMaker().setArtificialTimeStartValue(artificialTimeStampStart);
+            }
+ else {
+              ((TSLagUser)forecaster).getTSLagMaker().setArtificialTimeStartValue(m_trainingData.numInstances() + m_primeWindowSize);
+            }
+          }
+        }
+      }
+    }
+ else {
+      predictionOffsetForTestData=0;
+      primeData=new Instances(m_trainingData,(m_trainingData.numInstances() - m_primeWindowSize),m_primeWindowSize);
+    }
+    for (int i=predictionOffsetForTestData; i < m_testData.numInstances(); i++) {
+      Instance current=m_testData.instance(i);
+      if (m_primeWindowSize > 0) {
+        forecaster.primeForecaster(primeData);
+      }
+      if (i % 10 == 0) {
+        for (        PrintStream p : progress) {
+          p.println("Evaluating on test set: processed " + i + " instances...");
+        }
+      }
+      List<List<NumericPrediction>> forecast=null;
+      if (forecaster instanceof OverlayForecaster && ((OverlayForecaster)forecaster).isUsingOverlayData()) {
+        if (current != null) {
+          Instances overlay=createOverlayForecastData(forecaster,m_testData,i,m_horizon);
+          forecast=((OverlayForecaster)forecaster).forecast(m_horizon,overlay,progress);
+        }
+      }
+ else {
+        forecast=forecaster.forecast(m_horizon,progress);
+      }
+      updateEvalModules(m_predictionsForTestData,m_metricsForTestData,forecast,i,m_testData);
+      if (m_primeWindowSize > 0 && current != null) {
+        primeData.remove(0);
+        primeData.add(current);
+        primeData.compactify();
+      }
+      if (m_rebuildModelAfterEachTestForecastStep && rebuildData != null) {
+        rebuildData.add(current);
+        forecaster.buildForecaster(rebuildData);
+      }
+    }
+  }
+  if (m_testData != null && m_forecastFuture) {
+    for (    PrintStream p : progress) {
+      p.println("Generating future forecast for test data...");
+    }
+    Instances primeData=null;
+    if (m_primeWindowSize > m_testData.numInstances()) {
+      int difference=m_primeWindowSize - m_testData.numInstances();
+      if (m_trainingData != null) {
+        if (difference > m_trainingData.numInstances()) {
+          primeData=new Instances(m_trainingData);
+        }
+ else {
+          primeData=new Instances(m_trainingData,m_trainingData.numInstances() - difference,difference);
+        }
+      }
+      for (int z=0; z < m_testData.numInstances(); z++) {
+        primeData.add(m_testData.instance(z));
+      }
+    }
+ else {
+      primeData=new Instances(m_testData,m_testData.numInstances() - m_primeWindowSize,m_primeWindowSize);
+    }
+    forecaster.primeForecaster(primeData);
+    if (forecaster instanceof OverlayForecaster && ((OverlayForecaster)forecaster).isUsingOverlayData()) {
+      for (      PrintStream p : progress) {
+        p.println("WARNING: Unable to generate a future forecast beyond the end " + "of the test data because there is no future overlay " + "data available.");
+      }
+    }
+ else {
+      m_testFuture=forecaster.forecast(m_horizon,progress);
+    }
+  }
+}

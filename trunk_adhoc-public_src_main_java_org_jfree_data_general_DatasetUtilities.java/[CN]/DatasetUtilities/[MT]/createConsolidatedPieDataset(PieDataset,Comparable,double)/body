@@ -1,0 +1,3 @@
+{
+  return DatasetUtilities.createConsolidatedPieDataset(source,key,minimumPercent,2);
+}

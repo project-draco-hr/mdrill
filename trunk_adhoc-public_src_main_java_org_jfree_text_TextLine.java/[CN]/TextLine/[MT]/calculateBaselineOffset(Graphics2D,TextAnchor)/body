@@ -1,0 +1,9 @@
+{
+  float result=0.0f;
+  Iterator iterator=this.fragments.iterator();
+  while (iterator.hasNext()) {
+    TextFragment fragment=(TextFragment)iterator.next();
+    result=Math.max(result,fragment.calculateBaselineOffset(g2,anchor));
+  }
+  return result;
+}

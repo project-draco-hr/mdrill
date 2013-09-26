@@ -1,0 +1,3 @@
+FastVector itemSets
+int minSupport
+int maxSupport

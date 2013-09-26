@@ -1,0 +1,30 @@
+{
+  for (int i=0; i < m_horizon; i++) {
+    if (i < predsForSteps.size()) {
+      List<NumericPrediction> predsForStepI=predsForSteps.get(i);
+      if (currentInstanceNum + i < toPredict.numInstances()) {
+        predHolders.get(i).evaluateForInstance(predsForStepI,toPredict.instance(currentInstanceNum + i));
+      }
+ else {
+        predHolders.get(i).evaluateForInstance(predsForStepI,null);
+      }
+    }
+  }
+  for (  TSEvalModule m : m_evalModules) {
+    if (!(m.getEvalName().equals("Error"))) {
+      String key=m.getEvalName();
+      List<TSEvalModule> evalForSteps=evalHolders.get(key);
+      for (int i=0; i < m_horizon; i++) {
+        if (i < predsForSteps.size()) {
+          List<NumericPrediction> predsForStepI=predsForSteps.get(i);
+          if (currentInstanceNum + i < toPredict.numInstances()) {
+            evalForSteps.get(i).evaluateForInstance(predsForStepI,toPredict.instance(currentInstanceNum + i));
+          }
+ else {
+            evalForSteps.get(i).evaluateForInstance(predsForStepI,null);
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  FastVector cNames=new FastVector();
+  updateResultsTableName(rp);
+  DatabaseMetaData dbmd=m_Connection.getMetaData();
+  ResultSet rs;
+  if (m_checkForUpperCaseNames) {
+    rs=dbmd.getColumns(null,null,m_ResultsTableName.toUpperCase(),null);
+  }
+ else {
+    rs=dbmd.getColumns(null,null,m_ResultsTableName,null);
+  }
+  boolean tableExists=false;
+  int numColumns=0;
+  while (rs.next()) {
+    tableExists=true;
+    String name=rs.getString(4);
+    if (name.toLowerCase().startsWith("measure")) {
+      numColumns++;
+      cNames.addElement(name);
+    }
+  }
+  if (!tableExists) {
+    return null;
+  }
+  String[] columnNames=new String[numColumns];
+  for (int i=0; i < numColumns; i++) {
+    columnNames[i]=(String)(cNames.elementAt(i));
+  }
+  return columnNames;
+}

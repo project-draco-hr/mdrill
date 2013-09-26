@@ -1,0 +1,13 @@
+{
+  if (args.length != 1) {
+    System.err.println("No dataset supplied!");
+    System.exit(1);
+  }
+  Instances data=DataSource.read(args[0]);
+  JSONNode json=toJSON(data);
+  StringBuffer buffer=new StringBuffer();
+  json.toString(buffer);
+  System.out.println(buffer.toString());
+  Instances inst=toInstances(json);
+  System.out.println(inst);
+}

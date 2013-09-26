@@ -1,5 +1,8 @@
 {
   boolean success=false;
+  fieldPos=new ConcurrentHashMap<Integer,Long>();
+  fieldCount=new ConcurrentHashMap<Integer,Integer>();
+  supportquick.set(false);
   if (indexDivisor < 1 && indexDivisor != -1) {
     throw new IllegalArgumentException("indexDivisor must be -1 (don't load terms index) or greater than 0: got " + indexDivisor);
   }
@@ -14,7 +17,6 @@
       IndexInput sizebuff=directory.openInput(tisFileSize,readBufferSize);
       tisfilesize=sizebuff.readLong();
       if (directory.fileExists(quickTis)) {
-        supportquick=true;
         if (directory instanceof FSDirectory) {
           FSDirectory dddir=(FSDirectory)directory;
           String absPath=dddir.getDirectory().getAbsolutePath();
@@ -31,6 +33,7 @@
         for (int i=0; i < size; i++) {
           fieldCount.put(sizebuff.readInt(),sizebuff.readInt());
         }
+        supportquick.set(true);
       }
       sizebuff.close();
     }
@@ -49,7 +52,7 @@
     }
     if (directory.fileExists(indexFileNamequick)) {
       tiiInputquick=directory.openInput(indexFileNamequick,readBufferSize);
-      this.isQuickMode=true;
+      this.isQuickMode.set(true);
     }
     origEnum=new SegmentTermEnum(tisInput,fieldInfos,false,tisfilesize);
     size=origEnum.size;
@@ -64,7 +67,7 @@
       totalIndexInterval=origEnum.indexInterval * indexDivisor;
       SegmentTermEnum indexEnum=null;
       try {
-        if (this.isQuickMode) {
+        if (this.isQuickMode.get()) {
           index=new TermInfosReaderIndexQuick(tiiInput,tiiInputquick,fieldInfos,tiifilesize,indexDivisor,dir.fileLength(indexFileName),totalIndexInterval);
         }
  else {

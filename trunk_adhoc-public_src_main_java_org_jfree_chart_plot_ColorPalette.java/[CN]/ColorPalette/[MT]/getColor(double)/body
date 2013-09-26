@@ -1,0 +1,4 @@
+{
+  int izV=(int)(253 * (value - this.minZ) / (this.maxZ - this.minZ)) + 2;
+  return new Color(this.r[izV],this.g[izV],this.b[izV]);
+}

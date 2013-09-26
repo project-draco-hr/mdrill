@@ -1,0 +1,4 @@
+{
+  m_visual.loadIcons(BeanVisual.ICON_PATH + "ClustererPerformanceEvaluator.gif",BeanVisual.ICON_PATH + "ClustererPerformanceEvaluator_animated.gif");
+  m_visual.setText("ClustererPerformanceEvaluator");
+}

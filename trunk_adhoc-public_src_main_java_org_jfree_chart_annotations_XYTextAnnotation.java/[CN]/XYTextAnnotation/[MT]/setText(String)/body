@@ -1,0 +1,6 @@
+{
+  if (text == null) {
+    throw new IllegalArgumentException("Null 'text' argument.");
+  }
+  this.text=text;
+}

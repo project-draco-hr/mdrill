@@ -25,7 +25,7 @@
     }
     ArrayList<String> matchlist=new ArrayList<String>();
     for (    Entry<String,Long> e : dayAmt.entrySet()) {
-      if (e.getValue() >= maxamt) {
+{
         matchlist.add(e.getKey());
       }
     }

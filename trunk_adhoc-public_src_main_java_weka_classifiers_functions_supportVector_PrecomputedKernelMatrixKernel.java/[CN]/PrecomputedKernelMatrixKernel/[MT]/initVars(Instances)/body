@@ -1,0 +1,12 @@
+{
+  super.initVars(data);
+  try {
+    if (m_KernelMatrix == null) {
+      m_KernelMatrix=new Matrix(new FileReader(m_KernelMatrixFile));
+    }
+  }
+ catch (  Exception e) {
+    System.err.println("Problem reading matrix from " + m_KernelMatrixFile);
+  }
+  m_Counter++;
+}

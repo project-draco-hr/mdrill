@@ -1,0 +1,6 @@
+{
+  if (m_lagMaker.getOverlayFields() != null && m_lagMaker.getOverlayFields().size() > 0) {
+    return true;
+  }
+  return false;
+}

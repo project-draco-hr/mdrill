@@ -1,0 +1,3 @@
+{
+  return readAll(new FileInputStream(filename));
+}

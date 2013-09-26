@@ -1,0 +1,3 @@
+{
+  return "Sets the desired weight of instances per interval for " + "equal-frequency binning.";
+}

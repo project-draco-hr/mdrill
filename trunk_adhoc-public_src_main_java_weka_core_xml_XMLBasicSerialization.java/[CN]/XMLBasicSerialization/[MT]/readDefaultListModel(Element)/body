@@ -1,0 +1,24 @@
+{
+  DefaultListModel model;
+  Vector children;
+  Element child;
+  int i;
+  int index;
+  int currIndex;
+  if (DEBUG)   trace(new Throwable(),node.getAttribute(ATT_NAME));
+  m_CurrentNode=node;
+  children=XMLDocument.getChildTags(node);
+  model=new DefaultListModel();
+  index=children.size() - 1;
+  for (i=0; i < children.size(); i++) {
+    child=(Element)children.get(i);
+    currIndex=Integer.parseInt(child.getAttribute(ATT_NAME));
+    if (currIndex > index)     index=currIndex;
+  }
+  model.setSize(index + 1);
+  for (i=0; i < children.size(); i++) {
+    child=(Element)children.get(i);
+    model.set(Integer.parseInt(child.getAttribute(ATT_NAME)),invokeReadFromXML(child));
+  }
+  return model;
+}

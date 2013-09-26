@@ -1,0 +1,10 @@
+{
+  int result=193;
+  result=37 * result + this.shape.hashCode();
+  if (this.stroke != null) {
+    result=37 * result + this.stroke.hashCode();
+  }
+  result=37 * result + HashUtilities.hashCodeForPaint(this.outlinePaint);
+  result=37 * result + HashUtilities.hashCodeForPaint(this.fillPaint);
+  return result;
+}

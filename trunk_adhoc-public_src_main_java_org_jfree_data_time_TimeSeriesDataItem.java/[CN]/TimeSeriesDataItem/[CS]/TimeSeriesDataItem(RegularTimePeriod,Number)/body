@@ -1,0 +1,7 @@
+{
+  if (period == null) {
+    throw new IllegalArgumentException("Null 'period' argument.");
+  }
+  this.period=period;
+  this.value=value;
+}

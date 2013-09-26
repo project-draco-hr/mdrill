@@ -1,0 +1,4 @@
+{
+  DatasetInfo di=getDatasetInfo(series);
+  return ((OHLCDataset)di.data).getLow(di.series,item);
+}

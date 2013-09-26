@@ -1,0 +1,25 @@
+{
+  if (space == null) {
+    space=new AxisSpace();
+  }
+  if (this.fixedRangeAxisSpace != null) {
+    if (this.orientation == PlotOrientation.HORIZONTAL) {
+      space.ensureAtLeast(this.fixedRangeAxisSpace.getTop(),RectangleEdge.TOP);
+      space.ensureAtLeast(this.fixedRangeAxisSpace.getBottom(),RectangleEdge.BOTTOM);
+    }
+ else     if (this.orientation == PlotOrientation.VERTICAL) {
+      space.ensureAtLeast(this.fixedRangeAxisSpace.getLeft(),RectangleEdge.LEFT);
+      space.ensureAtLeast(this.fixedRangeAxisSpace.getRight(),RectangleEdge.RIGHT);
+    }
+  }
+ else {
+    for (int i=0; i < this.rangeAxes.size(); i++) {
+      Axis axis=(Axis)this.rangeAxes.get(i);
+      if (axis != null) {
+        RectangleEdge edge=getRangeAxisEdge(i);
+        space=axis.reserveSpace(g2,this,plotArea,edge,space);
+      }
+    }
+  }
+  return space;
+}

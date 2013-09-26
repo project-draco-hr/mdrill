@@ -1,0 +1,26 @@
+{
+  String[] options=new String[11];
+  int current=0;
+  options[current++]="-K";
+  options[current++]="" + getKNN();
+  options[current++]="-W";
+  options[current++]="" + m_WindowSize;
+  if (getCrossValidate()) {
+    options[current++]="-X";
+  }
+  if (getMeanSquared()) {
+    options[current++]="-E";
+  }
+  if (m_DistanceWeighting == WEIGHT_INVERSE) {
+    options[current++]="-I";
+  }
+ else   if (m_DistanceWeighting == WEIGHT_SIMILARITY) {
+    options[current++]="-F";
+  }
+  options[current++]="-A";
+  options[current++]=m_NNSearch.getClass().getName() + " " + Utils.joinOptions(m_NNSearch.getOptions());
+  while (current < options.length) {
+    options[current++]="";
+  }
+  return options;
+}

@@ -1,0 +1,4 @@
+{
+  this.drawSharedDomainAxis=draw;
+  fireChangeEvent();
+}

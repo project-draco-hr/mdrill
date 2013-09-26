@@ -1,0 +1,4 @@
+{
+  this.seriesPaint=paint;
+  fireChangeEvent();
+}

@@ -1,0 +1,9 @@
+{
+  super(margin);
+  this.renderAsPercentages=false;
+  ItemLabelPosition p=new ItemLabelPosition(ItemLabelAnchor.CENTER,TextAnchor.CENTER);
+  setBasePositiveItemLabelPosition(p);
+  setBaseNegativeItemLabelPosition(p);
+  setPositiveItemLabelPositionFallback(null);
+  setNegativeItemLabelPositionFallback(null);
+}

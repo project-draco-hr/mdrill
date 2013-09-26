@@ -1,0 +1,16 @@
+{
+  CustomPeriodicEditor ed=new CustomPeriodicEditor(testList);
+  if (fieldName != null && fieldName.length() > 0) {
+    ed.setFieldName(fieldName);
+  }
+  int result=JOptionPane.showConfirmDialog(this,ed,"Add/Edit custom periodic field",JOptionPane.OK_CANCEL_OPTION);
+  if (result == JOptionPane.OK_OPTION) {
+    if (testList.size() == 0) {
+      return "";
+    }
+    return ed.getFieldName();
+  }
+ else {
+    return "";
+  }
+}

@@ -1,0 +1,10 @@
+{
+  try {
+    URL url=new URL(args[0]);
+    DefaultPackageManager pm=new DefaultPackageManager();
+    pm.downloadPackage(url,System.out);
+  }
+ catch (  Exception ex) {
+    ex.printStackTrace();
+  }
+}

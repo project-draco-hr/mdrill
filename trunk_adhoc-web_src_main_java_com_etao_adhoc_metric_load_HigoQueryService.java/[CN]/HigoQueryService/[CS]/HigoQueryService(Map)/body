@@ -1,0 +1,16 @@
+{
+  String url=(String)conf.get("higo.conn.str");
+  try {
+    Class.forName("com.alimama.mdrill.jdbc.MdrillDriver");
+    conn=DriverManager.getConnection(url,"","");
+    stmt=conn.createStatement();
+  }
+ catch (  ClassNotFoundException e) {
+    System.err.println("[" + sdf.format(new Date(System.currentTimeMillis())) + "] "+ "Can not find class: com.alipay.higo.jdbc.HigoDriver");
+    e.printStackTrace();
+  }
+catch (  SQLException e) {
+    System.err.println("[" + sdf.format(new Date(System.currentTimeMillis())) + "] "+ "Error when building Higo Connection");
+    e.printStackTrace();
+  }
+}

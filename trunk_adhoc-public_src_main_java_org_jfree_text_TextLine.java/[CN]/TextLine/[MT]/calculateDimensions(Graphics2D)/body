@@ -1,0 +1,12 @@
+{
+  double width=0.0;
+  double height=0.0;
+  final Iterator iterator=this.fragments.iterator();
+  while (iterator.hasNext()) {
+    final TextFragment fragment=(TextFragment)iterator.next();
+    final Size2D dimension=fragment.calculateDimensions(g2);
+    width=width + dimension.getWidth();
+    height=Math.max(height,dimension.getHeight());
+  }
+  return new Size2D(width,height);
+}

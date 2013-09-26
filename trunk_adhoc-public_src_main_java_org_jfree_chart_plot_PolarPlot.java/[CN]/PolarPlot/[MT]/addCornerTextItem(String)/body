@@ -1,0 +1,7 @@
+{
+  if (text == null) {
+    throw new IllegalArgumentException("Null 'text' argument.");
+  }
+  this.cornerTextItems.add(text);
+  fireChangeEvent();
+}

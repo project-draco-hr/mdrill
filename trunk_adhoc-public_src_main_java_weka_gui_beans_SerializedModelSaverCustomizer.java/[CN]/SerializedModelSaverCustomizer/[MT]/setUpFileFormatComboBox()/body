@@ -1,0 +1,14 @@
+{
+  m_fileFormatBox=new JComboBox();
+  for (int i=0; i < SerializedModelSaver.s_fileFormatsAvailable.size(); i++) {
+    Tag temp=SerializedModelSaver.s_fileFormatsAvailable.get(i);
+    m_fileFormatBox.addItem(temp);
+  }
+  Tag result=m_smSaver.validateFileFormat(m_smSaver.getFileFormat());
+  if (result == null) {
+    m_fileFormatBox.setSelectedIndex(0);
+  }
+ else {
+    m_fileFormatBox.setSelectedItem(result);
+  }
+}

@@ -1,0 +1,5 @@
+{
+  this.isNull=(propertyName == null);
+  this.propertyName=propertyName;
+  this.type=type;
+}

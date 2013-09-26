@@ -1,0 +1,22 @@
+{
+  m_Instances=other.m_Instances;
+  m_ParentSets=other.getParentSets();
+  m_Distributions=other.getDistributions();
+  int nNodes=getNrOfNodes();
+  m_nPositionX=new FastVector(nNodes);
+  m_nPositionY=new FastVector(nNodes);
+  for (int i=0; i < nNodes; i++) {
+    m_nPositionX.addElement(other.m_nPositionX[i]);
+    m_nPositionY.addElement(other.m_nPositionY[i]);
+  }
+  m_nEvidence=new FastVector(nNodes);
+  for (int i=0; i < nNodes; i++) {
+    m_nEvidence.addElement(-1);
+  }
+  m_fMarginP=new FastVector(nNodes);
+  for (int i=0; i < nNodes; i++) {
+    double[] P=new double[getCardinality(i)];
+    m_fMarginP.addElement(P);
+  }
+  clearUndoStack();
+}

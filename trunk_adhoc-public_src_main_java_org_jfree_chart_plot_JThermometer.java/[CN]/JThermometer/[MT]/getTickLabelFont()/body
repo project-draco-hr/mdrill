@@ -1,0 +1,4 @@
+{
+  ValueAxis axis=this.plot.getRangeAxis();
+  return axis.getTickLabelFont();
+}

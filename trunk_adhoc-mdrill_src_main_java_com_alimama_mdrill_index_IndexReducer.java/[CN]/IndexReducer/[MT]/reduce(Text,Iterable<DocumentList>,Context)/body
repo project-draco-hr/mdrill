@@ -9,6 +9,10 @@
     if (dumps > 1) {
       context.getCounter("higo","dumpcount").increment(1);
       ;
+      if (debuglines < 100) {
+        debuglines++;
+        System.out.println("dumpcount: " + key.toString() + "");
+      }
     }
     return;
   }

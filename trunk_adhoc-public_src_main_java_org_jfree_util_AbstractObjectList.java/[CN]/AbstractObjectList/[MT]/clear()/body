@@ -1,0 +1,4 @@
+{
+  Arrays.fill(this.objects,null);
+  this.size=0;
+}

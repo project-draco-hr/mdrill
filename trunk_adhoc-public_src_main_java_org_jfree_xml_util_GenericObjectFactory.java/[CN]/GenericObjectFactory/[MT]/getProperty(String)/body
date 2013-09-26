@@ -1,0 +1,3 @@
+{
+  return this.propertyValues.get(name);
+}

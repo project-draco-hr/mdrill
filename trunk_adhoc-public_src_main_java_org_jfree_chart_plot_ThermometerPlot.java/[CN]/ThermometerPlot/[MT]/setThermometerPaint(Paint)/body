@@ -1,0 +1,6 @@
+{
+  if (paint != null) {
+    this.thermometerPaint=paint;
+    fireChangeEvent();
+  }
+}

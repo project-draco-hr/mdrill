@@ -1,0 +1,5 @@
+{
+  super();
+  setInsets(insets);
+  setEnabled(false);
+}

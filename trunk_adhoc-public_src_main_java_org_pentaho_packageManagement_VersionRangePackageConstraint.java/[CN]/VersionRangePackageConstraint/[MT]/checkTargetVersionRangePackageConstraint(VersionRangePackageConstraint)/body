@@ -1,0 +1,128 @@
+{
+  String targetLowerBound=target.getLowerBound();
+  String targetUpperBound=target.getUpperBound();
+  VersionPackageConstraint.VersionComparison targetLowerComp=target.getLowerComparison();
+  VersionPackageConstraint.VersionComparison targetUpperComp=target.getUpperComparison();
+  if (!m_boundOr) {
+    if (target.isBoundOR()) {
+      Package p=(Package)target.getPackage().clone();
+      p.setPackageMetaDataElement(VersionPackageConstraint.VERSION_KEY,target.getLowerBound());
+      VersionPackageConstraint lowerC=new VersionPackageConstraint(p);
+      lowerC.setVersionConstraint(target.getLowerComparison());
+      p=(Package)p.clone();
+      p.setPackageMetaDataElement(VersionPackageConstraint.VERSION_KEY,target.getUpperBound());
+      VersionPackageConstraint upperC=new VersionPackageConstraint(p);
+      upperC.setVersionConstraint(target.getUpperComparison());
+      PackageConstraint coveringLower=checkTargetVersionPackageConstraint(lowerC);
+      if (coveringLower != null) {
+        return coveringLower;
+      }
+      PackageConstraint coveringUpper=checkTargetVersionPackageConstraint(upperC);
+      return coveringUpper;
+    }
+ else {
+      String resultLowerBound=null;
+      String resultUpperBound=null;
+      VersionPackageConstraint.VersionComparison resultLowerComp=null;
+      VersionPackageConstraint.VersionComparison resultUpperComp=null;
+      VersionPackageConstraint.VersionComparison lowerComp=VersionPackageConstraint.compare(m_lowerBound,targetLowerBound);
+      if (lowerComp == VersionPackageConstraint.VersionComparison.EQUAL) {
+        resultLowerBound=m_lowerBound;
+        resultLowerComp=VersionPackageConstraint.VersionComparison.GREATERTHANOREQUAL;
+        if (targetLowerComp == VersionPackageConstraint.VersionComparison.GREATERTHAN || m_lowerConstraint == VersionPackageConstraint.VersionComparison.GREATERTHAN) {
+          resultLowerComp=VersionPackageConstraint.VersionComparison.GREATERTHAN;
+        }
+      }
+ else       if (lowerComp == VersionPackageConstraint.VersionComparison.GREATERTHAN) {
+        resultLowerBound=m_lowerBound;
+        resultLowerComp=m_lowerConstraint;
+      }
+ else {
+        resultLowerBound=targetLowerBound;
+        resultLowerComp=targetLowerComp;
+      }
+      VersionPackageConstraint.VersionComparison upperComp=VersionPackageConstraint.compare(m_upperBound,targetUpperBound);
+      if (upperComp == VersionPackageConstraint.VersionComparison.EQUAL) {
+        resultUpperBound=m_upperBound;
+        resultUpperComp=VersionPackageConstraint.VersionComparison.LESSTHANOREQUAL;
+        if (targetUpperComp == VersionPackageConstraint.VersionComparison.LESSTHAN || m_upperConstraint == VersionPackageConstraint.VersionComparison.LESSTHAN) {
+          resultUpperComp=VersionPackageConstraint.VersionComparison.LESSTHAN;
+        }
+      }
+ else       if (upperComp == VersionPackageConstraint.VersionComparison.LESSTHAN) {
+        resultUpperBound=m_upperBound;
+        resultUpperComp=m_upperConstraint;
+      }
+ else {
+        resultUpperBound=targetUpperBound;
+        resultUpperComp=targetUpperComp;
+      }
+      VersionPackageConstraint.VersionComparison disjointCheck=VersionPackageConstraint.compare(resultUpperBound,resultLowerBound);
+      if (disjointCheck == VersionPackageConstraint.VersionComparison.LESSTHAN || disjointCheck == VersionPackageConstraint.VersionComparison.EQUAL) {
+        return null;
+      }
+      VersionRangePackageConstraint result=new VersionRangePackageConstraint(getPackage());
+      result.setRangeConstraint(resultLowerBound,resultLowerComp,resultUpperBound,resultUpperComp);
+      return result;
+    }
+  }
+ else {
+    if (!target.isBoundOR()) {
+      Package p=(Package)getPackage().clone();
+      p.setPackageMetaDataElement(VersionPackageConstraint.VERSION_KEY,m_lowerBound);
+      VersionPackageConstraint lowerC=new VersionPackageConstraint(p);
+      lowerC.setVersionConstraint(m_lowerConstraint);
+      p=(Package)p.clone();
+      p.setPackageMetaDataElement(VersionPackageConstraint.VERSION_KEY,m_upperBound);
+      VersionPackageConstraint upperC=new VersionPackageConstraint(p);
+      upperC.setVersionConstraint(m_upperConstraint);
+      PackageConstraint coveringLower=target.checkTargetVersionPackageConstraint(lowerC);
+      if (coveringLower != null) {
+        return coveringLower;
+      }
+      PackageConstraint coveringUpper=checkTargetVersionPackageConstraint(upperC);
+      return coveringUpper;
+    }
+ else {
+      String resultLowerBound=null;
+      String resultUpperBound=null;
+      VersionPackageConstraint.VersionComparison resultLowerComp=null;
+      VersionPackageConstraint.VersionComparison resultUpperComp=null;
+      VersionPackageConstraint.VersionComparison lowerComp=VersionPackageConstraint.compare(m_lowerBound,targetLowerBound);
+      if (lowerComp == VersionPackageConstraint.VersionComparison.EQUAL) {
+        resultLowerBound=m_lowerBound;
+        resultLowerComp=VersionPackageConstraint.VersionComparison.LESSTHANOREQUAL;
+        if (targetLowerComp == VersionPackageConstraint.VersionComparison.LESSTHAN || m_lowerConstraint == VersionPackageConstraint.VersionComparison.LESSTHAN) {
+          resultLowerComp=VersionPackageConstraint.VersionComparison.LESSTHAN;
+        }
+      }
+ else       if (lowerComp == VersionPackageConstraint.VersionComparison.LESSTHAN) {
+        resultLowerBound=m_lowerBound;
+        resultLowerComp=m_lowerConstraint;
+      }
+ else {
+        resultLowerBound=targetLowerBound;
+        resultLowerComp=targetLowerComp;
+      }
+      VersionPackageConstraint.VersionComparison upperComp=VersionPackageConstraint.compare(m_upperBound,targetUpperBound);
+      if (upperComp == VersionPackageConstraint.VersionComparison.EQUAL) {
+        resultUpperBound=m_upperBound;
+        resultUpperComp=VersionPackageConstraint.VersionComparison.GREATERTHANOREQUAL;
+        if (targetUpperComp == VersionPackageConstraint.VersionComparison.GREATERTHAN || m_upperConstraint == VersionPackageConstraint.VersionComparison.GREATERTHAN) {
+          resultUpperComp=VersionPackageConstraint.VersionComparison.GREATERTHAN;
+        }
+      }
+ else       if (upperComp == VersionPackageConstraint.VersionComparison.GREATERTHAN) {
+        resultUpperBound=m_upperBound;
+        resultUpperComp=m_upperConstraint;
+      }
+ else {
+        resultUpperBound=targetUpperBound;
+        resultUpperComp=targetUpperComp;
+      }
+      VersionRangePackageConstraint result=new VersionRangePackageConstraint(getPackage());
+      result.setRangeConstraint(resultLowerBound,resultLowerComp,resultUpperBound,resultUpperComp);
+      return result;
+    }
+  }
+}

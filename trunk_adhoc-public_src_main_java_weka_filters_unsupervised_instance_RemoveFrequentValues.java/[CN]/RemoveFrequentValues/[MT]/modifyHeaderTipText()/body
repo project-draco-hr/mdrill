@@ -1,0 +1,3 @@
+{
+  return "When selecting on nominal attributes, removes header references to " + "excluded values.";
+}

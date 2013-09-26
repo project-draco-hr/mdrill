@@ -1,0 +1,9 @@
+{
+  String pkgname;
+  HashSet<String> names;
+  classname=cleanUp(classname);
+  pkgname=extractPackage(classname);
+  if (!m_Cache.containsKey(pkgname))   m_Cache.put(pkgname,new HashSet<String>());
+  names=m_Cache.get(pkgname);
+  return names.add(classname);
+}

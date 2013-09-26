@@ -1,0 +1,4 @@
+double actual
+double predicted
+double weight
+double[][] predInt

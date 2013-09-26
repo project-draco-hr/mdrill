@@ -1,0 +1,4 @@
+TSForecaster forecaster
+List<List<NumericPrediction>> preds
+List<String> targetNames
+Instances history

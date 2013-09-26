@@ -1,0 +1,8 @@
+{
+  if (!tagName.equals("entry")) {
+    throw new SAXException("Expected 'entry' tag.");
+  }
+  final XmlReadHandler handler=new RenderingHintValueReadHandler();
+  this.handlers.add(handler);
+  return handler;
+}

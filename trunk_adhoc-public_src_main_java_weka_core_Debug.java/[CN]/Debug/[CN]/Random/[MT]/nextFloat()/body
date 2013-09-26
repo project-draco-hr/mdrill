@@ -1,0 +1,5 @@
+{
+  float result=super.nextFloat();
+  println("nextFloat=" + result);
+  return result;
+}

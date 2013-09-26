@@ -1,0 +1,11 @@
+{
+  Vector result=new Vector();
+  result.addElement(new Option("\tnumber of clusters. If omitted or -1 specified, then \n" + "\tcross validation is used to select the number of clusters.","N",1,"-N <num>"));
+  result.addElement(new Option("\tmax iterations." + "\n(default 100)","I",1,"-I <num>"));
+  result.addElement(new Option("\tverbose.","V",0,"-V"));
+  result.addElement(new Option("\tminimum allowable standard deviation for normal density\n" + "\tcomputation\n" + "\t(default 1e-6)","M",1,"-M <num>"));
+  result.addElement(new Option("\tDisplay model in old format (good when there are " + "many clusters)\n","O",0,"-O"));
+  Enumeration en=super.listOptions();
+  while (en.hasMoreElements())   result.addElement(en.nextElement());
+  return result.elements();
+}

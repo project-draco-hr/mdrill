@@ -1,0 +1,3 @@
+{
+  super("Generate Data","Generate Random Instances from Network","generate.data","ctrl D");
+}

@@ -1,0 +1,3 @@
+{
+  addException(new SegmentRange(fromDomainValue,toDomainValue));
+}

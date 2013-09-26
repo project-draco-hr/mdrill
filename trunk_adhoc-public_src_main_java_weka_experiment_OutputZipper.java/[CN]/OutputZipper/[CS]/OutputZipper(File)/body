@@ -1,0 +1,7 @@
+{
+  m_destination=destination;
+  if (!m_destination.isDirectory()) {
+    m_zs=new ZipOutputStream(new FileOutputStream(m_destination));
+    m_zipOut=new DataOutputStream(m_zs);
+  }
+}

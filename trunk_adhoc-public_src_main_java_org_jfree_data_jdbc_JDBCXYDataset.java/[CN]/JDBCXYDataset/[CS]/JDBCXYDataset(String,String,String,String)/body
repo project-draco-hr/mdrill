@@ -1,0 +1,5 @@
+{
+  this();
+  Class.forName(driverName);
+  this.connection=DriverManager.getConnection(url,user,password);
+}

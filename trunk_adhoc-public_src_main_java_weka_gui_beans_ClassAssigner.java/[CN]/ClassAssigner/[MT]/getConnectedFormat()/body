@@ -1,0 +1,6 @@
+{
+  if (m_connectedFormat == null) {
+    m_connectedFormat=getUpstreamStructure();
+  }
+  return m_connectedFormat;
+}

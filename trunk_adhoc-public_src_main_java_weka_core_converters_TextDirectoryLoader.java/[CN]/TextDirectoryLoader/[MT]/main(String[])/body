@@ -1,0 +1,31 @@
+{
+  if (args.length > 0) {
+    try {
+      TextDirectoryLoader loader=new TextDirectoryLoader();
+      loader.setOptions(args);
+      Instances structure=loader.getStructure();
+      System.out.println(structure);
+      Instance temp;
+      do {
+        temp=loader.getNextInstance(structure);
+        if (temp != null) {
+          System.out.println(temp);
+        }
+      }
+ while (temp != null);
+    }
+ catch (    Exception e) {
+      e.printStackTrace();
+    }
+  }
+ else {
+    System.err.println("\nUsage:\n" + "\tTextDirectoryLoader [options]\n" + "\n"+ "Options:\n");
+    Enumeration enm=((OptionHandler)new TextDirectoryLoader()).listOptions();
+    while (enm.hasMoreElements()) {
+      Option option=(Option)enm.nextElement();
+      System.err.println(option.synopsis());
+      System.err.println(option.description());
+    }
+    System.err.println();
+  }
+}

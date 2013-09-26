@@ -1,0 +1,10 @@
+{
+  stream.defaultReadObject();
+  this.paint=SerialUtilities.readPaint(stream);
+  this.stroke=SerialUtilities.readStroke(stream);
+  this.labelPaint=SerialUtilities.readPaint(stream);
+  this.labelBackgroundPaint=SerialUtilities.readPaint(stream);
+  this.labelOutlineStroke=SerialUtilities.readStroke(stream);
+  this.labelOutlinePaint=SerialUtilities.readPaint(stream);
+  this.pcs=new PropertyChangeSupport(this);
+}

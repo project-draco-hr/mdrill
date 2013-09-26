@@ -1,0 +1,10 @@
+{
+  if (bufferedImage == null) {
+    throw new IllegalArgumentException("Null 'image' argument.");
+  }
+  if (outputStream == null) {
+    throw new IllegalArgumentException("Null 'outputStream' argument.");
+  }
+  PngEncoder encoder=new PngEncoder(bufferedImage,this.encodingAlpha,0,this.quality);
+  outputStream.write(encoder.pngEncode());
+}

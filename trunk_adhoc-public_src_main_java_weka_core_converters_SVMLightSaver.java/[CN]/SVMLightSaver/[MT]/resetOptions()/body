@@ -1,0 +1,4 @@
+{
+  super.resetOptions();
+  setFileExtension(SVMLightLoader.FILE_EXTENSION);
+}

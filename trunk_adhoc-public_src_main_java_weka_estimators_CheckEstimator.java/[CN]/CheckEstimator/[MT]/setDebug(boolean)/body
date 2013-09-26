@@ -1,0 +1,4 @@
+{
+  m_Debug=debug;
+  if (getDebug())   setSilent(false);
+}

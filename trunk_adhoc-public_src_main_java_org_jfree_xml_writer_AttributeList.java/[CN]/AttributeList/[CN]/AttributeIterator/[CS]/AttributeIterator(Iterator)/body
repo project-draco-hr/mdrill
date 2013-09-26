@@ -1,0 +1,6 @@
+{
+  if (backend == null) {
+    throw new NullPointerException();
+  }
+  this.backend=backend;
+}

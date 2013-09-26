@@ -1,0 +1,4 @@
+{
+  V=new int[n];
+  setSize(n);
+}

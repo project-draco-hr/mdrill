@@ -1,0 +1,3 @@
+{
+  return "new " + m_Object.getClass().getName() + "()";
+}

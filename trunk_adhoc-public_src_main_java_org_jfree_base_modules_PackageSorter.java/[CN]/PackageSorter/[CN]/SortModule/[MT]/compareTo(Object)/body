@@ -1,0 +1,10 @@
+{
+  final SortModule otherModule=(SortModule)o;
+  if (this.position > otherModule.position) {
+    return +1;
+  }
+  if (this.position < otherModule.position) {
+    return -1;
+  }
+  return 0;
+}

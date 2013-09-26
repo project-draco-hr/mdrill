@@ -1,0 +1,6 @@
+{
+  int result=127;
+  result=HashUtilities.hashCode(result,this.dateFormatter);
+  result=HashUtilities.hashCode(result,this.numberFormatter);
+  return result;
+}

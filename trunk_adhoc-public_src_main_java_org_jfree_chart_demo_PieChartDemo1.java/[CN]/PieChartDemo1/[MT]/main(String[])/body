@@ -1,0 +1,6 @@
+{
+  PieChartDemo1 demo=new PieChartDemo1("Pie Chart Demo 1");
+  demo.pack();
+  RefineryUtilities.centerFrameOnScreen(demo);
+  demo.setVisible(true);
+}

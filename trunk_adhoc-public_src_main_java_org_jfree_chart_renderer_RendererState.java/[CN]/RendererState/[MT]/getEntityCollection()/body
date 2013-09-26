@@ -1,0 +1,10 @@
+{
+  EntityCollection result=null;
+  if (this.info != null) {
+    ChartRenderingInfo owner=this.info.getOwner();
+    if (owner != null) {
+      result=owner.getEntityCollection();
+    }
+  }
+  return result;
+}

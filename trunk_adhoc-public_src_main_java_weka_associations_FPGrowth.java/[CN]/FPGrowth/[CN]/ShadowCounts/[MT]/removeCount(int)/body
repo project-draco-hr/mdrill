@@ -1,0 +1,5 @@
+{
+  if (recursionLevel < m_counts.size()) {
+    m_counts.remove(recursionLevel);
+  }
+}

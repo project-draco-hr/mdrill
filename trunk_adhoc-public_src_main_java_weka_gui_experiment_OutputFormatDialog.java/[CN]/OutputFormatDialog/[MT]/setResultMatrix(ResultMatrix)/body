@@ -1,0 +1,4 @@
+{
+  m_ResultMatrix=matrix;
+  setData();
+}

@@ -1,0 +1,295 @@
+{
+  int zzInput;
+  int zzAction;
+  int zzCurrentPosL;
+  int zzMarkedPosL;
+  int zzEndReadL=zzEndRead;
+  char[] zzBufferL=zzBuffer;
+  char[] zzCMapL=ZZ_CMAP;
+  int[] zzTransL=ZZ_TRANS;
+  int[] zzRowMapL=ZZ_ROWMAP;
+  int[] zzAttrL=ZZ_ATTRIBUTE;
+  while (true) {
+    zzMarkedPosL=zzMarkedPos;
+    yychar+=zzMarkedPosL - zzStartRead;
+    zzAction=-1;
+    zzCurrentPosL=zzCurrentPos=zzStartRead=zzMarkedPosL;
+    zzState=ZZ_LEXSTATE[zzLexicalState];
+    zzForAction: {
+      while (true) {
+        if (zzCurrentPosL < zzEndReadL)         zzInput=zzBufferL[zzCurrentPosL++];
+ else         if (zzAtEOF) {
+          zzInput=YYEOF;
+          break zzForAction;
+        }
+ else {
+          zzCurrentPos=zzCurrentPosL;
+          zzMarkedPos=zzMarkedPosL;
+          boolean eof=zzRefill();
+          zzCurrentPosL=zzCurrentPos;
+          zzMarkedPosL=zzMarkedPos;
+          zzBufferL=zzBuffer;
+          zzEndReadL=zzEndRead;
+          if (eof) {
+            zzInput=YYEOF;
+            break zzForAction;
+          }
+ else {
+            zzInput=zzBufferL[zzCurrentPosL++];
+          }
+        }
+        int zzNext=zzTransL[zzRowMapL[zzState] + zzCMapL[zzInput]];
+        if (zzNext == -1)         break zzForAction;
+        zzState=zzNext;
+        int zzAttributes=zzAttrL[zzState];
+        if ((zzAttributes & 1) == 1) {
+          zzAction=zzState;
+          zzMarkedPosL=zzCurrentPosL;
+          if ((zzAttributes & 8) == 8)           break zzForAction;
+        }
+      }
+    }
+    zzMarkedPos=zzMarkedPosL;
+switch (zzAction < 0 ? zzAction : ZZ_ACTION[zzAction]) {
+case 9:
+{
+        yybegin(STRING);
+        m_String.setLength(0);
+      }
+case 39:
+    break;
+case 25:
+{
+    return m_SymFactory.newSymbol("Abs",sym.ABS);
+  }
+case 40:
+break;
+case 1:
+{
+System.err.println("Illegal character: " + yytext());
+}
+case 41:
+break;
+case 15:
+{
+m_String.append(yytext());
+}
+case 42:
+break;
+case 21:
+{
+return m_SymFactory.newSymbol("Sin",sym.SIN);
+}
+case 43:
+break;
+case 14:
+{
+return m_SymFactory.newSymbol("Right Bracket",sym.RPAREN);
+}
+case 44:
+break;
+case 11:
+{
+}
+case 45:
+break;
+case 17:
+{
+return m_SymFactory.newSymbol("Less or equal than",sym.LE);
+}
+case 46:
+break;
+case 28:
+{
+return m_SymFactory.newSymbol("Pow",sym.POW);
+}
+case 47:
+break;
+case 8:
+{
+return m_SymFactory.newSymbol("Greater than",sym.GT);
+}
+case 48:
+break;
+case 16:
+{
+yybegin(YYINITIAL);
+return m_SymFactory.newSymbol("String",sym.STRING,new String(m_String.toString()));
+}
+case 49:
+break;
+case 23:
+{
+return m_SymFactory.newSymbol("Tan",sym.TAN);
+}
+case 50:
+break;
+case 12:
+{
+return m_SymFactory.newSymbol("Comma",sym.COMMA);
+}
+case 51:
+break;
+case 19:
+{
+return m_SymFactory.newSymbol("Is",sym.IS);
+}
+case 52:
+break;
+case 13:
+{
+return m_SymFactory.newSymbol("Left Bracket",sym.LPAREN);
+}
+case 53:
+break;
+case 29:
+{
+return m_SymFactory.newSymbol("Cos",sym.COS);
+}
+case 54:
+break;
+case 33:
+{
+return m_SymFactory.newSymbol("Ceil",sym.CEIL);
+}
+case 55:
+break;
+case 6:
+{
+return m_SymFactory.newSymbol("Less than",sym.LT);
+}
+case 56:
+break;
+case 4:
+{
+return m_SymFactory.newSymbol("Times",sym.TIMES);
+}
+case 57:
+break;
+case 37:
+{
+return m_SymFactory.newSymbol("Class",sym.ATTRIBUTE,new String(yytext()));
+}
+case 58:
+break;
+case 36:
+{
+return m_SymFactory.newSymbol("Floor",sym.FLOOR);
+}
+case 59:
+break;
+case 27:
+{
+return m_SymFactory.newSymbol("Log",sym.LOG);
+}
+case 60:
+break;
+case 35:
+{
+return m_SymFactory.newSymbol("False",sym.FALSE);
+}
+case 61:
+break;
+case 31:
+{
+return m_SymFactory.newSymbol("True",sym.TRUE);
+}
+case 62:
+break;
+case 7:
+{
+return m_SymFactory.newSymbol("Equals",sym.EQ);
+}
+case 63:
+break;
+case 18:
+{
+return m_SymFactory.newSymbol("Greater or equal than",sym.GE);
+}
+case 64:
+break;
+case 26:
+{
+return m_SymFactory.newSymbol("Exp",sym.EXP);
+}
+case 65:
+break;
+case 20:
+{
+return m_SymFactory.newSymbol("Or",sym.OR);
+}
+case 66:
+break;
+case 34:
+{
+return m_SymFactory.newSymbol("Attribute",sym.ATTRIBUTE,new String(yytext()));
+}
+case 67:
+break;
+case 30:
+{
+return m_SymFactory.newSymbol("Sqrt",sym.SQRT);
+}
+case 68:
+break;
+case 5:
+{
+return m_SymFactory.newSymbol("Division",sym.DIVISION);
+}
+case 69:
+break;
+case 22:
+{
+return m_SymFactory.newSymbol("Not",sym.NOT);
+}
+case 70:
+break;
+case 10:
+{
+return m_SymFactory.newSymbol("Number",sym.NUMBER,new Double(yytext()));
+}
+case 71:
+break;
+case 3:
+{
+return m_SymFactory.newSymbol("Plus",sym.PLUS);
+}
+case 72:
+break;
+case 38:
+{
+return m_SymFactory.newSymbol("Missing",sym.ISMISSING);
+}
+case 73:
+break;
+case 32:
+{
+return m_SymFactory.newSymbol("Rint",sym.RINT);
+}
+case 74:
+break;
+case 24:
+{
+return m_SymFactory.newSymbol("And",sym.AND);
+}
+case 75:
+break;
+case 2:
+{
+return m_SymFactory.newSymbol("Minus",sym.MINUS);
+}
+case 76:
+break;
+default :
+if (zzInput == YYEOF && zzStartRead == zzCurrentPos) {
+zzAtEOF=true;
+{
+return m_SymFactory.newSymbol("EOF",sym.EOF);
+}
+}
+ else {
+zzScanError(ZZ_NO_MATCH);
+}
+}
+}
+}

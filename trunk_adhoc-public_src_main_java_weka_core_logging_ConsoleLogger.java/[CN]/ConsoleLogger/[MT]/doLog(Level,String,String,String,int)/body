@@ -1,0 +1,3 @@
+{
+  System.err.println(m_DateFormat.format(new Date()) + " " + cls+ " "+ method+ "\n"+ level+ ": "+ msg);
+}

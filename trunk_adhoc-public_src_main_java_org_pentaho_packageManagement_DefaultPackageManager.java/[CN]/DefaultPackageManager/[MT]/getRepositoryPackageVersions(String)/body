@@ -1,0 +1,22 @@
+{
+  if (getPackageRepositoryURL() == null) {
+    throw new Exception("[DefaultPackageManager] No package repository set!!");
+  }
+  String versionsS=m_packageRepository.toString() + "/" + packageName+ "/"+ "versions.txt";
+  URL packageURL=new URL(versionsS);
+  URLConnection conn=null;
+  if (setProxyAuthentication()) {
+    conn=packageURL.openConnection(m_httpProxy);
+  }
+ else {
+    conn=packageURL.openConnection();
+  }
+  BufferedReader bi=new BufferedReader(new InputStreamReader(conn.getInputStream()));
+  ArrayList<Object> versions=new ArrayList<Object>();
+  String versionNumber;
+  while ((versionNumber=bi.readLine()) != null) {
+    versions.add(versionNumber.trim());
+  }
+  bi.close();
+  return versions;
+}

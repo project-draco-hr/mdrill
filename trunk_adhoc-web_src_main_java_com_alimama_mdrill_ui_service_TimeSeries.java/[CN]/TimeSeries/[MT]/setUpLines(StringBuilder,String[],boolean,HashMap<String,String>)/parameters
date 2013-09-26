@@ -1,0 +1,4 @@
+StringBuilder numberfield
+String[] fields
+boolean isSingleY
+HashMap<String,String> field2dimvalue

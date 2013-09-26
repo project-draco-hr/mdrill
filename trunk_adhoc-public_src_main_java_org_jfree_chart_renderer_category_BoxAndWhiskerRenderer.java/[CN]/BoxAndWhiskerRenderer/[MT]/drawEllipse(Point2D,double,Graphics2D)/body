@@ -1,0 +1,4 @@
+{
+  Ellipse2D dot=new Ellipse2D.Double(point.getX() + oRadius / 2,point.getY(),oRadius,oRadius);
+  g2.draw(dot);
+}

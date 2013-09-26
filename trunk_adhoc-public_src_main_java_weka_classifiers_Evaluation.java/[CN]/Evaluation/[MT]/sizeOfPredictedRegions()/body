@@ -1,0 +1,4 @@
+{
+  if (m_NoPriors || !m_CoverageStatisticsAvailable)   return Double.NaN;
+  return 100 * m_TotalSizeOfRegions / m_WithClass;
+}

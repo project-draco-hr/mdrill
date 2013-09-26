@@ -1,0 +1,13 @@
+{
+  if (obj == this) {
+    return true;
+  }
+  if (!(obj instanceof StandardGradientPaintTransformer)) {
+    return false;
+  }
+  StandardGradientPaintTransformer that=(StandardGradientPaintTransformer)obj;
+  if (this.type != that.type) {
+    return false;
+  }
+  return true;
+}

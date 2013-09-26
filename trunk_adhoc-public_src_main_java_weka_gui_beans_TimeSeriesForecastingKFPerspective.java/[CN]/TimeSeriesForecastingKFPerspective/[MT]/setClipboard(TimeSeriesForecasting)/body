@@ -1,0 +1,11 @@
+{
+  BeanInstance beanI=new BeanInstance(null,component,50,50);
+  beanI.removeBean(null);
+  Vector beans=new Vector();
+  beans.add(beanI);
+  KnowledgeFlowApp singleton=KnowledgeFlowApp.getSingleton();
+  StringBuffer serialized=singleton.copyToBuffer(beans);
+  singleton.m_pasteBuffer=serialized;
+  singleton.setActivePerspective(0);
+  singleton.m_mainKFPerspective.setActiveTab(singleton.m_mainKFPerspective.getCurrentTabIndex());
+}

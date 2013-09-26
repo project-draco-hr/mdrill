@@ -1,0 +1,34 @@
+{
+  Object result;
+  Hashtable descriptors;
+  PropertyDescriptor descriptor;
+  String methodName;
+  Method method;
+  Object[] methodArgs;
+  Object tmpResult;
+  Class paramClass;
+  result=o;
+  descriptors=getDescriptors(result);
+  methodName=child.getAttribute(ATT_NAME);
+  if (m_Properties.isIgnored(getPath(child)))   return result;
+  if (m_Properties.isIgnored(result,getPath(child)))   return result;
+  if (!m_Properties.isAllowed(result,methodName))   return result;
+  descriptor=(PropertyDescriptor)descriptors.get(methodName);
+  if (descriptor == null) {
+    if (!m_CustomMethods.read().contains(methodName))     System.out.println("WARNING: unknown property '" + name + "."+ methodName+ "'!");
+    return result;
+  }
+  method=descriptor.getWriteMethod();
+  methodArgs=new Object[1];
+  tmpResult=invokeReadFromXML(child);
+  paramClass=method.getParameterTypes()[0];
+  if (paramClass.isArray()) {
+    if (Array.getLength(tmpResult) == 0)     return result;
+    methodArgs[0]=(Object[])tmpResult;
+  }
+ else {
+    methodArgs[0]=tmpResult;
+  }
+  method.invoke(result,methodArgs);
+  return result;
+}

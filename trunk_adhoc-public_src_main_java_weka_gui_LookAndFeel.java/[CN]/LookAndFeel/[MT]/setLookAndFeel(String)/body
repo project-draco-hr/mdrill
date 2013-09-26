@@ -1,0 +1,12 @@
+{
+  boolean result;
+  try {
+    UIManager.setLookAndFeel(classname);
+    result=true;
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+    result=false;
+  }
+  return result;
+}

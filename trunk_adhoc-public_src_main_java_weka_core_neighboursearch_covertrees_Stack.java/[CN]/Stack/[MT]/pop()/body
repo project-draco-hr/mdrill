@@ -1,0 +1,4 @@
+{
+  length--;
+  return elements.remove(length);
+}

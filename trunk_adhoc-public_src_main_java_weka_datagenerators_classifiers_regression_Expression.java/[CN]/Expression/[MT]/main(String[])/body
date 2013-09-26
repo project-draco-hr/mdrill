@@ -1,0 +1,3 @@
+{
+  runDataGenerator(new Expression(),args);
+}

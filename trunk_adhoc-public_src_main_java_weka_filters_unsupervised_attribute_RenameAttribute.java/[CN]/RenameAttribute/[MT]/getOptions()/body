@@ -1,0 +1,18 @@
+{
+  Vector<String> result;
+  result=new Vector<String>(Arrays.asList(super.getOptions()));
+  result.add("-find");
+  result.add(getFind());
+  if (getReplace().length() > 0) {
+    result.add("-replace");
+    result.add(getReplace());
+  }
+ else {
+    result.add("-remove");
+  }
+  if (getReplaceAll())   result.add("-all");
+  result.add("-R");
+  result.add(getAttributeIndices());
+  if (getInvertSelection())   result.add("-V");
+  return result.toArray(new String[result.size()]);
+}

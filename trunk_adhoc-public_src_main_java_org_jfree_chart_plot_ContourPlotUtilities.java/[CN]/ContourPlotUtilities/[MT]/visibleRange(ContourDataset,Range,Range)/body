@@ -1,0 +1,5 @@
+{
+  Range range=null;
+  range=((DefaultContourDataset)data).getZValueRange(x,y);
+  return range;
+}

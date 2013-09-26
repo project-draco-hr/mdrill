@@ -1,0 +1,22 @@
+{
+  if (attribute(attIndex).isNumeric()) {
+    double[] attVals=attributeToDoubleArray(attIndex);
+    int[] sorted=Utils.sort(attVals);
+    double prev=0;
+    int counter=0;
+    for (int i=0; i < sorted.length; i++) {
+      Instance current=instance(sorted[i]);
+      if (current.isMissing(attIndex)) {
+        break;
+      }
+      if ((i == 0) || (current.value(attIndex) > prev)) {
+        prev=current.value(attIndex);
+        counter++;
+      }
+    }
+    return counter;
+  }
+ else {
+    return attribute(attIndex).numValues();
+  }
+}

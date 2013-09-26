@@ -1,0 +1,4 @@
+{
+  this.startAngle=angle;
+  fireChangeEvent();
+}

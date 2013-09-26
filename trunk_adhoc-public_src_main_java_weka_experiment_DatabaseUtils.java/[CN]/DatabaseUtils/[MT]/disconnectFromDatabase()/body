@@ -1,0 +1,9 @@
+{
+  if (m_Debug) {
+    System.err.println("Disconnecting from " + m_DatabaseURL);
+  }
+  if (m_Connection != null) {
+    m_Connection.close();
+    m_Connection=null;
+  }
+}

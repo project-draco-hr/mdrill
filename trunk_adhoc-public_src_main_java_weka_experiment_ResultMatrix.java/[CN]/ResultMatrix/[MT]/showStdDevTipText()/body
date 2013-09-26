@@ -1,0 +1,3 @@
+{
+  return "Whether to display the standard deviation column.";
+}

@@ -1,0 +1,10 @@
+{
+  if (module == null) {
+    throw new NullPointerException("Module must not be null.");
+  }
+  if (state != STATE_CONFIGURED && state != STATE_ERROR && state != STATE_INITIALIZED && state != STATE_NEW) {
+    throw new IllegalArgumentException("State is not valid");
+  }
+  this.module=module;
+  this.state=state;
+}

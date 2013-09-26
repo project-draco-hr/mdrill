@@ -1,0 +1,6 @@
+{
+  if (!isUsingAnArtificialTimeIndex()) {
+    throw new Exception("Not using an artificial time index!");
+  }
+  return m_lastTimeValue;
+}

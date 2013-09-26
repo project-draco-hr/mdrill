@@ -1,0 +1,15 @@
+{
+  group.reset();
+  for (  int i : ufs.listIndex) {
+    group.list[i]=ufs.cols[i].uif.termNum(doc);
+  }
+  int joinoffset=ufs.length;
+  for (  HigoJoinInvert inv : joinInvert) {
+    boolean rtn=inv.fieldNum(doc,joinoffset,group,groupListCache);
+    if (!rtn) {
+      return false;
+    }
+    joinoffset+=inv.fieldCount();
+  }
+  return true;
+}

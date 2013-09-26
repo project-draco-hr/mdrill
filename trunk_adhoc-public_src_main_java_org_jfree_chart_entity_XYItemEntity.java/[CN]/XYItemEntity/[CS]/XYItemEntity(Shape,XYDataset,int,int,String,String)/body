@@ -1,0 +1,6 @@
+{
+  super(area,toolTipText,urlText);
+  this.dataset=dataset;
+  this.series=series;
+  this.item=item;
+}

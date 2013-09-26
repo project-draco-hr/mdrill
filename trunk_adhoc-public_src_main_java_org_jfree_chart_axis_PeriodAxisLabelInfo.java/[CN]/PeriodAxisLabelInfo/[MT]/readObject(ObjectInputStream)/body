@@ -1,0 +1,6 @@
+{
+  stream.defaultReadObject();
+  this.labelPaint=SerialUtilities.readPaint(stream);
+  this.dividerStroke=SerialUtilities.readStroke(stream);
+  this.dividerPaint=SerialUtilities.readPaint(stream);
+}

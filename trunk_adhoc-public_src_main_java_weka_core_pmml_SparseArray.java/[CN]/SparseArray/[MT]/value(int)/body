@@ -1,0 +1,9 @@
+{
+  int index=locateIndex(arrIndex);
+  if (index >= 0 && (m_indices.get(index) == arrIndex)) {
+    return m_values.get(index);
+  }
+ else {
+    return "0";
+  }
+}

@@ -1,0 +1,7 @@
+{
+  final int prime=31;
+  int result=1;
+  result=prime * result + ((partion == null) ? 0 : partion.hashCode());
+  result=prime * result + ((tablename == null) ? 0 : tablename.hashCode());
+  return result;
+}

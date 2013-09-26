@@ -1,0 +1,8 @@
+{
+  double d=Math.abs(candidateX - this.anchorX);
+  if (d < this.distance) {
+    this.crosshairX=candidateX;
+    this.domainAxisIndex=domainAxisIndex;
+    this.distance=d;
+  }
+}

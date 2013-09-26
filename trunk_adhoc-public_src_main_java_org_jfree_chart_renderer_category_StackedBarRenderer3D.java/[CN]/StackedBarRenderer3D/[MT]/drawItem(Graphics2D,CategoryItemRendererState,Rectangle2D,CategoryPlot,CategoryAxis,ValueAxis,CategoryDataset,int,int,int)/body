@@ -1,0 +1,15 @@
+{
+  if (row < dataset.getRowCount() - 1) {
+    return;
+  }
+  Comparable category=dataset.getColumnKey(column);
+  List values=createStackedValueList(dataset,dataset.getColumnKey(column),state.getVisibleSeriesArray(),getBase(),this.renderAsPercentages);
+  Rectangle2D adjusted=new Rectangle2D.Double(dataArea.getX(),dataArea.getY() + getYOffset(),dataArea.getWidth() - getXOffset(),dataArea.getHeight() - getYOffset());
+  PlotOrientation orientation=plot.getOrientation();
+  if (orientation == PlotOrientation.HORIZONTAL) {
+    drawStackHorizontal(values,category,g2,state,adjusted,plot,domainAxis,rangeAxis,dataset);
+  }
+ else {
+    drawStackVertical(values,category,g2,state,adjusted,plot,domainAxis,rangeAxis,dataset);
+  }
+}

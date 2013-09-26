@@ -1,0 +1,6 @@
+{
+  int result;
+  result=this.seriesKeys.hashCode();
+  result=29 * result + this.seriesList.hashCode();
+  return result;
+}

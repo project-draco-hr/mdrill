@@ -1,0 +1,6 @@
+{
+  String result=null;
+  Object[] items=createItemArray(dataset,series,item);
+  result=MessageFormat.format(this.formatString,items);
+  return result;
+}

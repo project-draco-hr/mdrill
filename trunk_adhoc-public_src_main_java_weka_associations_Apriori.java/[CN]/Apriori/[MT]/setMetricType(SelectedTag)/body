@@ -1,0 +1,17 @@
+{
+  if (d.getTags() == TAGS_SELECTION) {
+    m_metricType=d.getSelectedTag().getID();
+  }
+  if (m_significanceLevel != -1 && m_metricType != CONFIDENCE) {
+    m_metricType=CONFIDENCE;
+  }
+  if (m_metricType == CONFIDENCE) {
+    setMinMetric(0.9);
+  }
+  if (m_metricType == LIFT || m_metricType == CONVICTION) {
+    setMinMetric(1.1);
+  }
+  if (m_metricType == LEVERAGE) {
+    setMinMetric(0.1);
+  }
+}

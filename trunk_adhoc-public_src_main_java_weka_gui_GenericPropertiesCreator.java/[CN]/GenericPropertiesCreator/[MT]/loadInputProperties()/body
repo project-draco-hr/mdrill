@@ -1,0 +1,32 @@
+{
+  if (VERBOSE)   System.out.println("Loading '" + getInputFilename() + "'...");
+  m_InputProperties=new Properties();
+  try {
+    File f=new File(getInputFilename());
+    if (getExplicitPropsFile() && f.exists())     m_InputProperties.load(new FileInputStream(getInputFilename()));
+ else     m_InputProperties=Utils.readProperties(getInputFilename());
+    m_Excludes.clear();
+    Properties p=Utils.readProperties(EXCLUDE_FILE);
+    Enumeration enm=p.propertyNames();
+    while (enm.hasMoreElements()) {
+      String name=enm.nextElement().toString();
+      Hashtable t=new Hashtable();
+      m_Excludes.put(name,t);
+      t.put(EXCLUDE_INTERFACE,new Vector());
+      t.put(EXCLUDE_CLASS,new Vector());
+      t.put(EXCLUDE_SUPERCLASS,new Vector());
+      StringTokenizer tok=new StringTokenizer(p.getProperty(name),",");
+      while (tok.hasMoreTokens()) {
+        String item=tok.nextToken();
+        Vector list=new Vector();
+        if (item.startsWith(EXCLUDE_INTERFACE + ":"))         list=(Vector)t.get(EXCLUDE_INTERFACE);
+ else         if (item.startsWith(EXCLUDE_CLASS + ":"))         list=(Vector)t.get(EXCLUDE_CLASS);
+ else         if (item.startsWith(EXCLUDE_SUPERCLASS))         list=(Vector)t.get(EXCLUDE_SUPERCLASS);
+        list.add(item.substring(item.indexOf(":") + 1));
+      }
+    }
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
+}

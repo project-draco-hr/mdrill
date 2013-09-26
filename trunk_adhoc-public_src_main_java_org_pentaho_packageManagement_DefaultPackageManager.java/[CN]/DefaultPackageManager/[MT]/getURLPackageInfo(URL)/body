@@ -1,0 +1,4 @@
+{
+  File downloaded=downloadPackage(packageURL);
+  return getPackageArchiveInfo(downloaded);
+}

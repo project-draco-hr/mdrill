@@ -1,0 +1,6 @@
+{
+  if (BasicTypeSupport.isBasicDataType(baseType)) {
+    return true;
+  }
+  return baseType.isAssignableFrom(valueType);
+}

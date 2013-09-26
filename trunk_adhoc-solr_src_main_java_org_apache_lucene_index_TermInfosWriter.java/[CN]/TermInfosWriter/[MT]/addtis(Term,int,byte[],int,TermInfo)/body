@@ -16,7 +16,7 @@
     this.outputQuickTis.writeVVVLong(val);
   }
  else   if (dataType == Datatype.d_double) {
-    Double val=MdrillPorcessUtils.ParseDouble(ft.indexedToReadable(term.text()));
+    Double val=MdrillUtils.ParseDouble(ft.indexedToReadable(term.text()));
     this.outputQuickTis.writeVVVLong(Double.doubleToLongBits(val));
   }
  else {

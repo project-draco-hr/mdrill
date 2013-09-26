@@ -1,0 +1,4 @@
+{
+  if (getTestEvaluator())   return getEvaluator();
+ else   return getSearch();
+}

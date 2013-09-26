@@ -1,0 +1,3 @@
+{
+  this.chartMouseListeners.remove(ChartMouseListener.class,listener);
+}

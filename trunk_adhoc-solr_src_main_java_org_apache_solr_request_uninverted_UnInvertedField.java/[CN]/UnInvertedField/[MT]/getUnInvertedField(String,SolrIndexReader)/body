@@ -4,12 +4,17 @@
   ILruMemSizeKey key=new GrobalCache.StringKey(searcher.getPartionKey() + "@@" + field+ "@@"+ LuceneUtils.crcKey(reader));
   UnInvertedField uif=(UnInvertedField)cache.get(key);
   if (uif == null) {
-synchronized (lock) {
+    TryLock lock=new TryLock(searcher.getFieldcacheDir());
+    try {
+      lock.tryLock();
       uif=(UnInvertedField)cache.get(key);
       if (uif == null) {
         uif=new UnInvertedField(field,searcher,searcher.getReader());
         cache.put(key,uif);
       }
+    }
+  finally {
+      lock.unlock();
     }
   }
   uif.refCnt.incrementAndGet();

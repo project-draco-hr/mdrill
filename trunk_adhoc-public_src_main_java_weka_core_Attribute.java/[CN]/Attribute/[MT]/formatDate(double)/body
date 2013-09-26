@@ -1,0 +1,8 @@
+{
+switch (m_Type) {
+case DATE:
+    return m_DateFormat.format(new Date((long)date));
+default :
+  throw new IllegalArgumentException("Can only format date values for date" + " attributes!");
+}
+}

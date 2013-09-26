@@ -1,0 +1,4 @@
+{
+  super("Open...","open.gif","ctrl O",'O');
+  setEnabled(true);
+}

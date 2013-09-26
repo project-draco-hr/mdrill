@@ -1,0 +1,13 @@
+{
+  boolean result;
+  Iterator iter;
+  Object o;
+  result=false;
+  iter=iterator();
+  while (iter.hasNext()) {
+    o=iter.next();
+    if (!c.contains(o))     result=remove(o) || result;
+  }
+  m_RecalcHashCode=result;
+  return result;
+}

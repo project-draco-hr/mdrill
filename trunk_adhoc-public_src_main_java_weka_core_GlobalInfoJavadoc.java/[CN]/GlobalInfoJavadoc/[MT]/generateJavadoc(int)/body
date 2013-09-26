@@ -1,0 +1,18 @@
+{
+  String result;
+  Method method;
+  result="";
+  if (index == 0) {
+    if (!canInstantiateClass())     return result;
+    try {
+      method=getInstance().getClass().getMethod(GLOBALINFO_METHOD,(Class[])null);
+    }
+ catch (    Exception e) {
+      return result;
+    }
+    result=toHTML((String)method.invoke(getInstance(),(Object[])null));
+    result=result.trim() + "\n<p/>\n";
+    if (getUseStars())     result=indent(result,1,"* ");
+  }
+  return result;
+}

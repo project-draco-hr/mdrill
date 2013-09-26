@@ -1,0 +1,4 @@
+XYDataset source
+String suffix
+long period
+long skip

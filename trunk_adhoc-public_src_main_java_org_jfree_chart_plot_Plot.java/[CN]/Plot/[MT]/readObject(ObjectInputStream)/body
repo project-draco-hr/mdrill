@@ -1,0 +1,8 @@
+{
+  stream.defaultReadObject();
+  this.noDataMessagePaint=SerialUtilities.readPaint(stream);
+  this.outlineStroke=SerialUtilities.readStroke(stream);
+  this.outlinePaint=SerialUtilities.readPaint(stream);
+  this.backgroundPaint=SerialUtilities.readPaint(stream);
+  this.listenerList=new EventListenerList();
+}

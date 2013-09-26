@@ -1,0 +1,4 @@
+{
+  int i;
+  for (i=0; i < jtable.getColumnModel().getColumnCount(); i++)   setOptimalColumnWidth(jtable,i);
+}

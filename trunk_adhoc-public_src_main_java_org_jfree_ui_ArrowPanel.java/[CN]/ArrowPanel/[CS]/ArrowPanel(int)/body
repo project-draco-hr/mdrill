@@ -1,0 +1,4 @@
+{
+  this.type=type;
+  setPreferredSize(new Dimension(14,9));
+}

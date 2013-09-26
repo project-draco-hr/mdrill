@@ -1,0 +1,7 @@
+{
+  if (subCategory == null) {
+    throw new IllegalArgumentException("Null 'subcategory' axis.");
+  }
+  this.subCategories.add(subCategory);
+  notifyListeners(new AxisChangeEvent(this));
+}

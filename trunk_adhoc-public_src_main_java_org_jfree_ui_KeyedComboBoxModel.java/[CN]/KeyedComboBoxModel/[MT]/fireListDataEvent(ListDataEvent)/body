@@ -1,0 +1,10 @@
+{
+  if (this.tempListeners == null) {
+    this.tempListeners=(ListDataListener[])this.listdatalistener.toArray(new ListDataListener[this.listdatalistener.size()]);
+  }
+  final ListDataListener[] listeners=this.tempListeners;
+  for (int i=0; i < listeners.length; i++) {
+    final ListDataListener l=listeners[i];
+    l.contentsChanged(evt);
+  }
+}

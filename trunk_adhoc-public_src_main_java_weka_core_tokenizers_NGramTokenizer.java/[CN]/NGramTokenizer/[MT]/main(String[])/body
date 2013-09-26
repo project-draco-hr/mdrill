@@ -1,0 +1,3 @@
+{
+  runTokenizer(new NGramTokenizer(),args);
+}

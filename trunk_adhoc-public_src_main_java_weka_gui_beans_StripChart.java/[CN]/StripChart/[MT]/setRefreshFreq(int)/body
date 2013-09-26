@@ -1,0 +1,4 @@
+{
+  m_refreshFrequency=freq;
+  if (getGraphics() != null)   setRefreshWidth();
+}

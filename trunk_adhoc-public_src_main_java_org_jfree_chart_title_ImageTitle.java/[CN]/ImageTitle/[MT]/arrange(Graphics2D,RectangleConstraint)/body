@@ -1,0 +1,4 @@
+{
+  Size2D s=new Size2D(this.image.getWidth(null),this.image.getHeight(null));
+  return new Size2D(calculateTotalWidth(s.getWidth()),calculateTotalHeight(s.getHeight()));
+}

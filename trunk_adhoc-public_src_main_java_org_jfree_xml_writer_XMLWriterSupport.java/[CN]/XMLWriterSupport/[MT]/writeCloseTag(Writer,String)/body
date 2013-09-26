@@ -1,0 +1,18 @@
+{
+  if (this.newLineOk || getSafeTags().isSafeForOpen(tag)) {
+    if (this.newLineOk) {
+      w.write(getLineSeparator());
+    }
+    indent(w,CLOSE_TAG_DECREASE);
+  }
+ else {
+    decreaseIndent();
+  }
+  w.write("</");
+  w.write(tag);
+  w.write(">");
+  if (getSafeTags().isSafeForClose(tag)) {
+    w.write(getLineSeparator());
+  }
+  this.newLineOk=false;
+}

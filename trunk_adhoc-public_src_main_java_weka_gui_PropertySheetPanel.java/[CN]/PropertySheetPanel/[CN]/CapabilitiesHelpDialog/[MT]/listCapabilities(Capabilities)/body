@@ -1,0 +1,11 @@
+{
+  String result;
+  Iterator iter;
+  result="";
+  iter=c.capabilities();
+  while (iter.hasNext()) {
+    if (result.length() != 0)     result+=", ";
+    result+=iter.next().toString();
+  }
+  return result;
+}

@@ -1,0 +1,8 @@
+{
+  assertTrue(UnitType.ABSOLUTE.equals(UnitType.ABSOLUTE));
+  assertTrue(UnitType.RELATIVE.equals(UnitType.RELATIVE));
+  assertFalse(UnitType.ABSOLUTE.equals(UnitType.RELATIVE));
+  assertFalse(UnitType.RELATIVE.equals(UnitType.ABSOLUTE));
+  assertFalse(UnitType.ABSOLUTE.equals(null));
+  assertFalse(UnitType.RELATIVE.equals(null));
+}

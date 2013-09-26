@@ -1,0 +1,6 @@
+{
+  this.date=date;
+  this.monthSelector.setSelectedIndex(date.getMonth() - 1);
+  refreshYearSelector();
+  refreshButtons();
+}

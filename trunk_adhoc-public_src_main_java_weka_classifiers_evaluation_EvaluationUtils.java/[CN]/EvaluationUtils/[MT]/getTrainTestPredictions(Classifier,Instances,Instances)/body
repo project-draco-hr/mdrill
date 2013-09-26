@@ -1,0 +1,4 @@
+{
+  classifier.buildClassifier(train);
+  return getTestPredictions(classifier,test);
+}

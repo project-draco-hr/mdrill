@@ -1,0 +1,3 @@
+{
+  return this.crossufs.listIndex.length == 0;
+}

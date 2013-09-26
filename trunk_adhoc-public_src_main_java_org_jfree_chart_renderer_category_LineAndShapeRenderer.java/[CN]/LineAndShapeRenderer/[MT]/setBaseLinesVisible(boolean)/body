@@ -1,0 +1,4 @@
+{
+  this.baseLinesVisible=flag;
+  fireChangeEvent();
+}

@@ -1,0 +1,6 @@
+{
+  if (record == null) {
+    throw new IllegalArgumentException("Null 'record' argument.");
+  }
+  this.labels.add(record);
+}

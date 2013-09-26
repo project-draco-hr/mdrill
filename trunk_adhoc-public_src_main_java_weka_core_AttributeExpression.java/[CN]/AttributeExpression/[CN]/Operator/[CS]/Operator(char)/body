@@ -1,0 +1,6 @@
+{
+  if (!isOperator(opp)) {
+    throw new IllegalArgumentException("Unrecognized operator:" + opp);
+  }
+  m_operator=opp;
+}

@@ -1,0 +1,6 @@
+{
+  this.data=new KeyedObjects2D();
+  this.minimumRangeValue=null;
+  this.maximumRangeValue=null;
+  this.rangeBounds=new Range(0.0,0.0);
+}

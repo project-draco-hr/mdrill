@@ -1,0 +1,6 @@
+{
+  Log.debug("Writing multiple files ...");
+  final SplittingModelWriter writer=new SplittingModelWriter();
+  writer.setModel(model);
+  writer.write(target);
+}

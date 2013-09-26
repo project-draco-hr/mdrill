@@ -1,0 +1,7 @@
+{
+  super.cleanUp();
+  m_Classifier=null;
+  m_PlotShapes=null;
+  m_PlotSizes=null;
+  m_Evaluation=null;
+}

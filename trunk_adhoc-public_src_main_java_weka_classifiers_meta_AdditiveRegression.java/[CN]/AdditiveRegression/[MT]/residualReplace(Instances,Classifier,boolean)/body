@@ -1,0 +1,13 @@
+{
+  double pred, residual;
+  Instances newInst=new Instances(data);
+  for (int i=0; i < newInst.numInstances(); i++) {
+    pred=c.classifyInstance(newInst.instance(i));
+    if (useShrinkage) {
+      pred*=getShrinkage();
+    }
+    residual=newInst.instance(i).classValue() - pred;
+    newInst.instance(i).setClassValue(residual);
+  }
+  return newInst;
+}

@@ -1,0 +1,4 @@
+{
+  if (m_DatasetFormat != null)   return new Instances(m_DatasetFormat,0);
+ else   return null;
+}

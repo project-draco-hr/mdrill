@@ -1,0 +1,7 @@
+{
+  String tmpStr;
+  super.setOptions(options);
+  tmpStr=Utils.getOption("C",options);
+  if (tmpStr.length() != 0)   setClassIndex(tmpStr);
+ else   setClassIndex("last");
+}

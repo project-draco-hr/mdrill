@@ -1,0 +1,7 @@
+{
+  StringBuffer helpText=new StringBuffer();
+  if (m_Target instanceof CapabilitiesHandler)   helpText.append(addCapabilities("CAPABILITIES",((CapabilitiesHandler)m_Target).getCapabilities()));
+  if (m_Target instanceof MultiInstanceCapabilitiesHandler)   helpText.append(addCapabilities("MI CAPABILITIES",((MultiInstanceCapabilitiesHandler)m_Target).getMultiInstanceCapabilities()));
+  m_CapabilitiesText.setText(helpText.toString());
+  m_CapabilitiesText.setCaretPosition(0);
+}

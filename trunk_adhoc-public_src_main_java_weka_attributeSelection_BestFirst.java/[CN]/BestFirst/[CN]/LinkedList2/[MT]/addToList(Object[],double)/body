@@ -1,0 +1,41 @@
+{
+  Link2 newL=new Link2(data,mer);
+  if (size() == 0) {
+    addElement(newL);
+  }
+ else {
+    if (mer > ((Link2)(firstElement())).m_merit) {
+      if (size() == m_MaxSize) {
+        removeLinkAt(m_MaxSize - 1);
+      }
+      insertElementAt(newL,0);
+    }
+ else {
+      int i=0;
+      int size=size();
+      boolean done=false;
+      if ((size == m_MaxSize) && (mer <= ((Link2)(lastElement())).m_merit)) {
+      }
+ else {
+        while ((!done) && (i < size)) {
+          if (mer > ((Link2)(elementAt(i))).m_merit) {
+            if (size == m_MaxSize) {
+              removeLinkAt(m_MaxSize - 1);
+            }
+            insertElementAt(newL,i);
+            done=true;
+          }
+ else {
+            if (i == size - 1) {
+              addElement(newL);
+              done=true;
+            }
+ else {
+              i++;
+            }
+          }
+        }
+      }
+    }
+  }
+}

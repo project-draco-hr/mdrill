@@ -1,0 +1,14 @@
+{
+  weka.filters.unsupervised.attribute.Add addF=new weka.filters.unsupervised.attribute.Add();
+  addF.setAttributeIndex("last");
+  String clustererName=clusterer.getClass().getName();
+  clustererName=clustererName.substring(clustererName.lastIndexOf('.') + 1,clustererName.length());
+  addF.setAttributeName("assigned_cluster: " + clustererName);
+  String clusterLabels="0";
+  for (int i=1; i <= clusterer.numberOfClusters() - 1; i++)   clusterLabels+="," + i;
+  addF.setNominalLabels(clusterLabels);
+  addF.setInputFormat(format);
+  Instances newInstances=weka.filters.Filter.useFilter(format,addF);
+  newInstances.setRelationName(format.relationName() + relationNameModifier);
+  return newInstances;
+}

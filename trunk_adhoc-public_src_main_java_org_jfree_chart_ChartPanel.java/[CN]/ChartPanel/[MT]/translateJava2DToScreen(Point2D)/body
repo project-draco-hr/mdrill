@@ -1,0 +1,6 @@
+{
+  Insets insets=getInsets();
+  int x=(int)(java2DPoint.getX() * this.scaleX + insets.left);
+  int y=(int)(java2DPoint.getY() * this.scaleY + insets.top);
+  return new Point(x,y);
+}

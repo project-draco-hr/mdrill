@@ -1,0 +1,7 @@
+{
+  Capabilities result;
+  if (getEvaluator() == null)   result=super.getCapabilities();
+ else   result=getEvaluator().getCapabilities();
+  for (  Capability cap : Capability.values())   result.enableDependency(cap);
+  return result;
+}

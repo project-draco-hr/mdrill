@@ -1,0 +1,3 @@
+{
+  return "Determines how missing attribute values are treated.";
+}

@@ -1,0 +1,9 @@
+{
+  final Dimension dim=new Dimension(0,0);
+  setSizes(parent);
+  final Insets insets=parent.getInsets();
+  dim.width=this.preferredWidth + insets.left + insets.right;
+  dim.height=this.preferredHeight + insets.top + insets.bottom;
+  this.sizeUnknown=false;
+  return dim;
+}

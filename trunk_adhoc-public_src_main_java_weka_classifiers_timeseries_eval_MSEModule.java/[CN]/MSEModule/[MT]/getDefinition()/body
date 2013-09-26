@@ -1,0 +1,3 @@
+{
+  return "sum((predicted - actual)^2) / N";
+}

@@ -1,0 +1,32 @@
+{
+  if (e.getSource() == m_ConfigureBut) {
+    selectProperty();
+  }
+ else   if (e.getSource() == m_StatusBox) {
+    for (int i=0; i < m_Listeners.size(); i++) {
+      ActionListener temp=((ActionListener)m_Listeners.elementAt(i));
+      temp.actionPerformed(new ActionEvent(this,ActionEvent.ACTION_PERFORMED,"Editor status change"));
+    }
+    if (m_StatusBox.getSelectedIndex() == 0) {
+      m_Exp.setUsePropertyIterator(false);
+      m_ConfigureBut.setEnabled(false);
+      m_ArrayEditor.setEnabled(false);
+      m_ArrayEditor.setValue(null);
+      validate();
+    }
+ else {
+      if (m_Exp.getPropertyArray() == null) {
+        selectProperty();
+      }
+      if (m_Exp.getPropertyArray() == null) {
+        m_StatusBox.setSelectedIndex(0);
+      }
+ else {
+        m_Exp.setUsePropertyIterator(true);
+        m_ConfigureBut.setEnabled(true);
+        m_ArrayEditor.setEnabled(true);
+      }
+      validate();
+    }
+  }
+}

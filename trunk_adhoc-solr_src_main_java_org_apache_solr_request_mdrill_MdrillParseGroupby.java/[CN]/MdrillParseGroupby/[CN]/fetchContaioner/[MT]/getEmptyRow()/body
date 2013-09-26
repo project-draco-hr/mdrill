@@ -1,0 +1,6 @@
+{
+  if (emptyrow == null) {
+    emptyrow=this.createRow();
+  }
+  return emptyrow;
+}

@@ -1,0 +1,3 @@
+{
+  return "Using kernel matrix from file with name: " + getKernelMatrixFile();
+}

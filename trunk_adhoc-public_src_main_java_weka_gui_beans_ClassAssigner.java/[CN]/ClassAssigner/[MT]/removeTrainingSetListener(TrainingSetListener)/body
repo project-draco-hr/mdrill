@@ -1,0 +1,3 @@
+{
+  m_trainingListeners.removeElement(tsl);
+}

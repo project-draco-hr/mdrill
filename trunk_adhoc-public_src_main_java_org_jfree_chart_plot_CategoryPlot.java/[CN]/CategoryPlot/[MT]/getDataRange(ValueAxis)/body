@@ -1,0 +1,20 @@
+{
+  Range result=null;
+  List mappedDatasets=new ArrayList();
+  int rangeIndex=this.rangeAxes.indexOf(axis);
+  if (rangeIndex >= 0) {
+    mappedDatasets.addAll(datasetsMappedToRangeAxis(rangeIndex));
+  }
+ else   if (axis == getRangeAxis()) {
+    mappedDatasets.addAll(datasetsMappedToRangeAxis(0));
+  }
+  Iterator iterator=mappedDatasets.iterator();
+  while (iterator.hasNext()) {
+    CategoryDataset d=(CategoryDataset)iterator.next();
+    CategoryItemRenderer r=getRendererForDataset(d);
+    if (r != null) {
+      result=Range.combine(result,r.findRangeBounds(d));
+    }
+  }
+  return result;
+}

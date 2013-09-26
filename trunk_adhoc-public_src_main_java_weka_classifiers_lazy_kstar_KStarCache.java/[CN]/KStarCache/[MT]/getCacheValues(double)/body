@@ -1,0 +1,6 @@
+{
+  if (m_Cache.containsKey(key)) {
+    return m_Cache.getEntry(key);
+  }
+  return null;
+}

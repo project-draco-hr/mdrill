@@ -1,0 +1,3 @@
+{
+  super("Load","Load Graph","open","ctrl O");
+}

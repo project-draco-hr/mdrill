@@ -1,0 +1,25 @@
+{
+  final int mLength=Math.max(modVer.length(),depModVer.length());
+  final char[] modVerArray;
+  final char[] depVerArray;
+  if (modVer.length() > depModVer.length()) {
+    modVerArray=modVer.toCharArray();
+    depVerArray=new char[mLength];
+    final int delta=modVer.length() - depModVer.length();
+    Arrays.fill(depVerArray,0,delta,' ');
+    System.arraycopy(depVerArray,delta,depModVer.toCharArray(),0,depModVer.length());
+  }
+ else   if (modVer.length() < depModVer.length()) {
+    depVerArray=depModVer.toCharArray();
+    modVerArray=new char[mLength];
+    final char[] b1=new char[mLength];
+    final int delta=depModVer.length() - modVer.length();
+    Arrays.fill(b1,0,delta,' ');
+    System.arraycopy(b1,delta,modVer.toCharArray(),0,modVer.length());
+  }
+ else {
+    depVerArray=depModVer.toCharArray();
+    modVerArray=modVer.toCharArray();
+  }
+  return new String(modVerArray).compareTo(new String(depVerArray));
+}

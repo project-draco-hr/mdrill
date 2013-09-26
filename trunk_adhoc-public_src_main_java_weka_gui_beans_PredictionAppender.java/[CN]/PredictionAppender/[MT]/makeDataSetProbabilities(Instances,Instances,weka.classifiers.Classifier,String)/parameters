@@ -1,0 +1,4 @@
+Instances insts
+Instances format
+weka.classifiers.Classifier classifier
+String relationNameModifier

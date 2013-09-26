@@ -1,0 +1,3 @@
+{
+  return this.distFS != null && this.distFS.length > 0;
+}

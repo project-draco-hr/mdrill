@@ -1,0 +1,4 @@
+{
+  final Character in=(Character)o;
+  return in.toString();
+}

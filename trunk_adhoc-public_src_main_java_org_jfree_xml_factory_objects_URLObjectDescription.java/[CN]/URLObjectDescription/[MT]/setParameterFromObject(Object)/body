@@ -1,0 +1,15 @@
+{
+  if (!(o instanceof URL)) {
+    throw new ObjectFactoryException("Is no instance of java.net.URL");
+  }
+  final URL comp=(URL)o;
+  final String baseURL=getConfig().getConfigProperty(Parser.CONTENTBASE_KEY);
+  try {
+    final URL bURL=new URL(baseURL);
+    setParameter("value",IOUtils.getInstance().createRelativeURL(comp,bURL));
+  }
+ catch (  Exception e) {
+    Log.warn("BaseURL is invalid: ",e);
+  }
+  setParameter("value",comp.toExternalForm());
+}

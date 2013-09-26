@@ -1,0 +1,6 @@
+{
+  Instances newData;
+  newData=new Instances(data,0);
+  newData.setClassIndex(-1);
+  return super.getCapabilities(newData);
+}

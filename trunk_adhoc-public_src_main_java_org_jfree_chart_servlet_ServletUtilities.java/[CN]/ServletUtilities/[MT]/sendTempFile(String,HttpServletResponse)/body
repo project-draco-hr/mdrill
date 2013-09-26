@@ -1,0 +1,4 @@
+{
+  File file=new File(System.getProperty("java.io.tmpdir"),filename);
+  ServletUtilities.sendTempFile(file,response);
+}

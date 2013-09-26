@@ -1,0 +1,16 @@
+{
+  if (obj == this) {
+    return true;
+  }
+  if (!(obj instanceof GridArrangement)) {
+    return false;
+  }
+  GridArrangement that=(GridArrangement)obj;
+  if (this.columns != that.columns) {
+    return false;
+  }
+  if (this.rows != that.rows) {
+    return false;
+  }
+  return true;
+}

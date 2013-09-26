@@ -1,0 +1,20 @@
+{
+  final PaintList l1=new PaintList();
+  l1.setPaint(0,Color.red);
+  l1.setPaint(1,Color.blue);
+  l1.setPaint(2,null);
+  PaintList l2=null;
+  try {
+    final ByteArrayOutputStream buffer=new ByteArrayOutputStream();
+    final ObjectOutput out=new ObjectOutputStream(buffer);
+    out.writeObject(l1);
+    out.close();
+    final ObjectInput in=new ObjectInputStream(new ByteArrayInputStream(buffer.toByteArray()));
+    l2=(PaintList)in.readObject();
+    in.close();
+  }
+ catch (  Exception e) {
+    System.out.println(e.toString());
+  }
+  assertEquals(l1,l2);
+}

@@ -1,0 +1,14 @@
+{
+  if (!SerialDate.isValidWeekdayCode(targetDOW)) {
+    throw new IllegalArgumentException("Invalid day-of-the-week code.");
+  }
+  final int baseDOW=base.getDayOfWeek();
+  int adjust=-Math.abs(targetDOW - baseDOW);
+  if (adjust >= 4) {
+    adjust=7 - adjust;
+  }
+  if (adjust <= -4) {
+    adjust=7 + adjust;
+  }
+  return SerialDate.addDays(adjust,base);
+}

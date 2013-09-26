@@ -1,0 +1,21 @@
+{
+  super.configureEnclosingScrollPane();
+  if (System.getProperty("os.name").contains("Mac") == false) {
+    return;
+  }
+  Container p=getParent();
+  if (p instanceof JViewport) {
+    Container gp=p.getParent();
+    if (gp instanceof JScrollPane) {
+      JScrollPane scrollPane=(JScrollPane)gp;
+      JViewport viewport=scrollPane.getViewport();
+      if (viewport == null || viewport.getView() != this) {
+        return;
+      }
+      final Component renderer=new JTableHeader().getDefaultRenderer().getTableCellRendererComponent(null,"",false,false,-1,0);
+      JPanel panel=new JPanel(new BorderLayout());
+      panel.add(renderer,BorderLayout.CENTER);
+      scrollPane.setCorner(JScrollPane.UPPER_RIGHT_CORNER,panel);
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{
+  double classValue=-1.0;
+  for (Enumeration e=m_DecisionList.elements(); e.hasMoreElements() && classValue < 0.0; ) {
+    RuleList rl=(RuleList)e.nextElement();
+    classValue=rl.classifyInstance(example);
+  }
+  if (classValue >= 0.0) {
+    example.setClassValue(classValue);
+    return true;
+  }
+ else {
+    return false;
+  }
+}

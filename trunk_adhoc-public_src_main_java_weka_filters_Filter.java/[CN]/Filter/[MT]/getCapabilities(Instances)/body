@@ -1,0 +1,23 @@
+{
+  Capabilities result;
+  Capabilities classes;
+  Iterator iter;
+  Capability cap;
+  result=getCapabilities();
+  if (data.classIndex() == -1) {
+    classes=result.getClassCapabilities();
+    iter=classes.capabilities();
+    while (iter.hasNext()) {
+      cap=(Capability)iter.next();
+      if (cap != Capability.NO_CLASS) {
+        result.disable(cap);
+        result.disableDependency(cap);
+      }
+    }
+  }
+ else {
+    result.disable(Capability.NO_CLASS);
+    result.disableDependency(Capability.NO_CLASS);
+  }
+  return result;
+}

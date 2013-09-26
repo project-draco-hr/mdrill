@@ -1,0 +1,95 @@
+{
+  Instances newInsts;
+  getCapabilities().testWithFail(insts);
+  boolean zeroTrainingInstances=insts.numInstances() == 0;
+  insts=new Instances(insts);
+  insts.deleteWithMissingClass();
+  if (m_Classifier == null) {
+    throw new Exception("No base classifier has been set!");
+  }
+  m_ZeroR=new ZeroR();
+  m_ZeroR.buildClassifier(insts);
+  m_TwoClassDataset=null;
+  int numClassifiers=insts.numClasses();
+  if (numClassifiers <= 2) {
+    m_Classifiers=AbstractClassifier.makeCopies(m_Classifier,1);
+    m_Classifiers[0].buildClassifier(insts);
+    m_ClassFilters=null;
+  }
+ else   if (m_Method == METHOD_1_AGAINST_1) {
+    FastVector pairs=new FastVector();
+    for (int i=0; i < insts.numClasses(); i++) {
+      for (int j=0; j < insts.numClasses(); j++) {
+        if (j <= i)         continue;
+        int[] pair=new int[2];
+        pair[0]=i;
+        pair[1]=j;
+        pairs.addElement(pair);
+      }
+    }
+    numClassifiers=pairs.size();
+    m_Classifiers=AbstractClassifier.makeCopies(m_Classifier,numClassifiers);
+    m_ClassFilters=new Filter[numClassifiers];
+    m_SumOfWeights=new double[numClassifiers];
+    for (int i=0; i < numClassifiers; i++) {
+      RemoveWithValues classFilter=new RemoveWithValues();
+      classFilter.setAttributeIndex("" + (insts.classIndex() + 1));
+      classFilter.setModifyHeader(true);
+      classFilter.setInvertSelection(true);
+      classFilter.setNominalIndicesArr((int[])pairs.elementAt(i));
+      Instances tempInstances=new Instances(insts,0);
+      tempInstances.setClassIndex(-1);
+      classFilter.setInputFormat(tempInstances);
+      newInsts=Filter.useFilter(insts,classFilter);
+      if (newInsts.numInstances() > 0 || zeroTrainingInstances) {
+        newInsts.setClassIndex(insts.classIndex());
+        m_Classifiers[i].buildClassifier(newInsts);
+        m_ClassFilters[i]=classFilter;
+        m_SumOfWeights[i]=newInsts.sumOfWeights();
+      }
+ else {
+        m_Classifiers[i]=null;
+        m_ClassFilters[i]=null;
+      }
+    }
+    m_TwoClassDataset=new Instances(insts,0);
+    int classIndex=m_TwoClassDataset.classIndex();
+    m_TwoClassDataset.setClassIndex(-1);
+    m_TwoClassDataset.deleteAttributeAt(classIndex);
+    FastVector classLabels=new FastVector();
+    classLabels.addElement("class0");
+    classLabels.addElement("class1");
+    m_TwoClassDataset.insertAttributeAt(new Attribute("class",classLabels),classIndex);
+    m_TwoClassDataset.setClassIndex(classIndex);
+  }
+ else {
+    Code code=null;
+switch (m_Method) {
+case METHOD_ERROR_EXHAUSTIVE:
+      code=new ExhaustiveCode(numClassifiers);
+    break;
+case METHOD_ERROR_RANDOM:
+  code=new RandomCode(numClassifiers,(int)(numClassifiers * m_RandomWidthFactor),insts);
+break;
+case METHOD_1_AGAINST_ALL:
+code=new StandardCode(numClassifiers);
+break;
+default :
+throw new Exception("Unrecognized correction code type");
+}
+numClassifiers=code.size();
+m_Classifiers=AbstractClassifier.makeCopies(m_Classifier,numClassifiers);
+m_ClassFilters=new MakeIndicator[numClassifiers];
+for (int i=0; i < m_Classifiers.length; i++) {
+m_ClassFilters[i]=new MakeIndicator();
+MakeIndicator classFilter=(MakeIndicator)m_ClassFilters[i];
+classFilter.setAttributeIndex("" + (insts.classIndex() + 1));
+classFilter.setValueIndices(code.getIndices(i));
+classFilter.setNumeric(false);
+classFilter.setInputFormat(insts);
+newInsts=Filter.useFilter(insts,m_ClassFilters[i]);
+m_Classifiers[i].buildClassifier(newInsts);
+}
+}
+m_ClassAttribute=insts.classAttribute();
+}

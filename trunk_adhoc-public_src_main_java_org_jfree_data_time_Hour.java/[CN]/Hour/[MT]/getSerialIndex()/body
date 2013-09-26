@@ -1,0 +1,3 @@
+{
+  return this.day.getSerialIndex() * 24L + this.hour;
+}

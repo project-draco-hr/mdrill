@@ -1,0 +1,5 @@
+{
+  PlotData2D tempPlot=new PlotData2D(inst);
+  tempPlot.setPlotName("master plot");
+  setMasterPlot(tempPlot);
+}

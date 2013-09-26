@@ -1,0 +1,4 @@
+{
+  this.labelLinksVisible=visible;
+  fireChangeEvent();
+}

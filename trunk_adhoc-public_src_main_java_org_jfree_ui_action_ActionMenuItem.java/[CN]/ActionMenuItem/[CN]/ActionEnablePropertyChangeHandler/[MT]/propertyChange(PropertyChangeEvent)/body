@@ -1,0 +1,39 @@
+{
+  try {
+    if (event.getPropertyName().equals("enabled")) {
+      setEnabled(getAction().isEnabled());
+    }
+ else     if (event.getPropertyName().equals(Action.SMALL_ICON)) {
+      setIcon((Icon)getAction().getValue(Action.SMALL_ICON));
+    }
+ else     if (event.getPropertyName().equals(Action.NAME)) {
+      setText((String)getAction().getValue(Action.NAME));
+    }
+ else     if (event.getPropertyName().equals(Action.SHORT_DESCRIPTION)) {
+      ActionMenuItem.this.setToolTipText((String)getAction().getValue(Action.SHORT_DESCRIPTION));
+    }
+    final Action ac=getAction();
+    if (event.getPropertyName().equals(ActionDowngrade.ACCELERATOR_KEY)) {
+      setAccelerator((KeyStroke)ac.getValue(ActionDowngrade.ACCELERATOR_KEY));
+    }
+ else     if (event.getPropertyName().equals(ActionDowngrade.MNEMONIC_KEY)) {
+      final Object o=ac.getValue(ActionDowngrade.MNEMONIC_KEY);
+      if (o != null) {
+        if (o instanceof Character) {
+          final Character c=(Character)o;
+          setMnemonic(c.charValue());
+        }
+ else         if (o instanceof Integer) {
+          final Integer c=(Integer)o;
+          setMnemonic(c.intValue());
+        }
+      }
+ else {
+        setMnemonic(KeyEvent.VK_UNDEFINED);
+      }
+    }
+  }
+ catch (  Exception e) {
+    Log.warn("Error on PropertyChange in ActionButton: ",e);
+  }
+}

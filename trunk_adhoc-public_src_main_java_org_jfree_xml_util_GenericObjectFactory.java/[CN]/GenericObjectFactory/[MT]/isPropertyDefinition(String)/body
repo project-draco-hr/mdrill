@@ -1,0 +1,9 @@
+{
+  for (int i=0; i < this.propertyDefinitions.length; i++) {
+    final PropertyDefinition pdef=this.propertyDefinitions[i];
+    if (pdef.getPropertyName().equals(propertyName)) {
+      return true;
+    }
+  }
+  return false;
+}

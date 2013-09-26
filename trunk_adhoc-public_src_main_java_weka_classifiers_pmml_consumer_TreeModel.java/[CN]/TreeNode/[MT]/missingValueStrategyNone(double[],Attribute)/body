@@ -1,0 +1,14 @@
+{
+  double[] preds=null;
+  for (  TreeNode c : m_childNodes) {
+    if (c.getPredicate().evaluate(instance) == Predicate.Eval.TRUE) {
+      preds=c.score(instance,classAtt);
+      break;
+    }
+  }
+  if (preds == null) {
+    preds=new double[classAtt.numValues()];
+    doNoTrueChild(classAtt,preds);
+  }
+  return preds;
+}

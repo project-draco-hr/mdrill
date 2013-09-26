@@ -1,0 +1,16 @@
+{
+  try {
+    m_nParent=nParent;
+    m_children=new FastVector();
+    m_CPT=new Estimator[children.size()][];
+    for (int iChild=0; iChild < children.size(); iChild++) {
+      int nChild=(Integer)children.elementAt(iChild);
+      m_children.addElement(nChild);
+      SerializedObject so=new SerializedObject(m_Distributions[nChild]);
+      m_CPT[iChild]=(Estimator[])so.getObject();
+    }
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
+}

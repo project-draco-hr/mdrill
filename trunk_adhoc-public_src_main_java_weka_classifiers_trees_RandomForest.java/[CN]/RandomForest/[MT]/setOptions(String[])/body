@@ -1,0 +1,40 @@
+{
+  String tmpStr;
+  tmpStr=Utils.getOption('I',options);
+  if (tmpStr.length() != 0) {
+    m_numTrees=Integer.parseInt(tmpStr);
+  }
+ else {
+    m_numTrees=10;
+  }
+  tmpStr=Utils.getOption('K',options);
+  if (tmpStr.length() != 0) {
+    m_numFeatures=Integer.parseInt(tmpStr);
+  }
+ else {
+    m_numFeatures=0;
+  }
+  tmpStr=Utils.getOption('S',options);
+  if (tmpStr.length() != 0) {
+    setSeed(Integer.parseInt(tmpStr));
+  }
+ else {
+    setSeed(1);
+  }
+  tmpStr=Utils.getOption("depth",options);
+  if (tmpStr.length() != 0) {
+    setMaxDepth(Integer.parseInt(tmpStr));
+  }
+ else {
+    setMaxDepth(0);
+  }
+  tmpStr=Utils.getOption("num-slots",options);
+  if (tmpStr.length() > 0) {
+    setNumExecutionSlots(Integer.parseInt(tmpStr));
+  }
+ else {
+    setNumExecutionSlots(1);
+  }
+  super.setOptions(options);
+  Utils.checkForRemainingOptions(options);
+}

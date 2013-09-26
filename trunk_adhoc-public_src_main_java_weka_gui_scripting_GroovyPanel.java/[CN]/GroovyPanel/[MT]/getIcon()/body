@@ -1,0 +1,3 @@
+{
+  return ComponentHelper.getImageIcon(IMAGES_DIR + "/groovy_small.png");
+}

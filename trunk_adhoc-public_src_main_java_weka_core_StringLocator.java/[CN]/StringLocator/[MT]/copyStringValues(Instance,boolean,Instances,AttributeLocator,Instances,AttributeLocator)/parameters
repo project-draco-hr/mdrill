@@ -1,0 +1,6 @@
+Instance instance
+boolean instSrcCompat
+Instances srcDataset
+AttributeLocator srcLoc
+Instances destDataset
+AttributeLocator destLoc

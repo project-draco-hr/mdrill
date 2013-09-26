@@ -1,0 +1,4 @@
+int low
+int high
+int attribute
+Instances inst

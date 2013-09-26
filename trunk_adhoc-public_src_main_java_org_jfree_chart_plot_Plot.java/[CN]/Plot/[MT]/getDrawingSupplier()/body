@@ -1,0 +1,11 @@
+{
+  DrawingSupplier result=null;
+  Plot p=getParent();
+  if (p != null) {
+    result=p.getDrawingSupplier();
+  }
+ else {
+    result=this.drawingSupplier;
+  }
+  return result;
+}

@@ -1,0 +1,11 @@
+{
+  if (additionalMeasureName.compareToIgnoreCase("measureTreeSize") == 0) {
+    return measureTreeSize();
+  }
+ else   if (additionalMeasureName.compareToIgnoreCase("measureNumLeaves") == 0) {
+    return measureNumLeaves();
+  }
+ else {
+    throw new IllegalArgumentException(additionalMeasureName + " not supported (LMT)");
+  }
+}

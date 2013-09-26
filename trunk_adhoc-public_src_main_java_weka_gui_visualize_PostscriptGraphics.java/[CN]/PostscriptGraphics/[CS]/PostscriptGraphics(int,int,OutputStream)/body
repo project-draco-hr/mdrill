@@ -1,0 +1,7 @@
+{
+  m_extent=new Rectangle(0,0,height,width);
+  m_printstream=new PrintStream(os);
+  m_localGraphicsState=new GraphicsState();
+  m_psGraphicsState=new GraphicsState();
+  Header();
+}

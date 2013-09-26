@@ -1,0 +1,4 @@
+{
+  RelationalLocator.copyRelationalValues(instance,instSrcCompat,srcDataset,m_InputRelAtts,destDataset,m_OutputRelAtts);
+  StringLocator.copyStringValues(instance,instSrcCompat,srcDataset,m_InputStringAtts,getOutputFormat(),m_OutputStringAtts);
+}

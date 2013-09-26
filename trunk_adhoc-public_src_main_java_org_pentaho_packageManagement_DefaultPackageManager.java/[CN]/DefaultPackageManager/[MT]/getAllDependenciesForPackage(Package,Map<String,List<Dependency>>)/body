@@ -1,0 +1,27 @@
+{
+  List<Dependency> initialList=target.getDependencies();
+  Map<String,Dependency> lookup=new HashMap<String,Dependency>();
+  for (  Dependency d : initialList) {
+    lookup.put(d.getTarget().getPackage().getPackageMetaDataElement("PackageName").toString(),d);
+    ArrayList<Dependency> deps=new ArrayList<Dependency>();
+    deps.add(d);
+    conflicts.put(d.getTarget().getPackage().getPackageMetaDataElement("PackageName").toString(),deps);
+  }
+  for (  Dependency d : initialList) {
+    checkDependencies(d.getTarget(),lookup,conflicts);
+  }
+  List<Dependency> fullList=new ArrayList<Dependency>(lookup.values());
+  ArrayList<String> removeList=new ArrayList<String>();
+  Iterator<String> keyIt=conflicts.keySet().iterator();
+  while (keyIt.hasNext()) {
+    String key=keyIt.next();
+    List<Dependency> tempD=conflicts.get(key);
+    if (tempD.size() == 1) {
+      removeList.add(key);
+    }
+  }
+  for (  String s : removeList) {
+    conflicts.remove(s);
+  }
+  return fullList;
+}

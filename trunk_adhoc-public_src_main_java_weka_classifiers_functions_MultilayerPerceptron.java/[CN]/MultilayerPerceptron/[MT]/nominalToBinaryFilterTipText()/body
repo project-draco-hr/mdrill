@@ -1,0 +1,3 @@
+{
+  return "This will preprocess the instances with the filter." + " This could help improve performance if there are nominal attributes" + " in the data.";
+}

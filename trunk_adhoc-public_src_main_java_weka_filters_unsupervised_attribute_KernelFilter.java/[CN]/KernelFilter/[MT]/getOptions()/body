@@ -1,0 +1,25 @@
+{
+  int i;
+  Vector result;
+  String[] options;
+  String tmpStr;
+  result=new Vector();
+  options=super.getOptions();
+  for (i=0; i < options.length; i++)   result.add(options[i]);
+  if (getChecksTurnedOff())   result.add("-no-checks");
+  if ((getInitFile() != null) && getInitFile().isFile()) {
+    result.add("-F");
+    result.add("" + getInitFile().getAbsolutePath());
+    result.add("-C");
+    result.add("" + getInitFileClassIndex());
+  }
+  result.add("-K");
+  result.add("" + getKernel().getClass().getName() + " "+ Utils.joinOptions(getKernel().getOptions()));
+  result.add("-kernel-factor");
+  result.add("" + getKernelFactorExpression());
+  result.add("-P");
+  tmpStr=getPreprocessing().getClass().getName();
+  if (getPreprocessing() instanceof OptionHandler)   tmpStr+=" " + Utils.joinOptions(((OptionHandler)getPreprocessing()).getOptions());
+  result.add("" + tmpStr);
+  return (String[])result.toArray(new String[result.size()]);
+}

@@ -1,0 +1,6 @@
+{
+  removeAll();
+  add(m_SaverEditor,BorderLayout.CENTER);
+  validate();
+  repaint();
+}

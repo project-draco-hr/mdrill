@@ -1,0 +1,3 @@
+{
+  getInstance().doLog(level,message,e);
+}

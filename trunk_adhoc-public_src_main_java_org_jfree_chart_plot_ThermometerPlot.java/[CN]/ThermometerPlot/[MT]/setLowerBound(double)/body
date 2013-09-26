@@ -1,0 +1,4 @@
+{
+  this.lowerBound=lower;
+  setAxisRange();
+}

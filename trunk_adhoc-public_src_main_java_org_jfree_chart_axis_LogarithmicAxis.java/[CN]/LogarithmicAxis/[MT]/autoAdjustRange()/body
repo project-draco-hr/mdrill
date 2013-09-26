@@ -1,0 +1,68 @@
+{
+  Plot plot=getPlot();
+  if (plot == null) {
+    return;
+  }
+  if (plot instanceof ValueAxisPlot) {
+    ValueAxisPlot vap=(ValueAxisPlot)plot;
+    double lower;
+    Range r=vap.getDataRange(this);
+    if (r == null) {
+      r=getDefaultAutoRange();
+      lower=r.getLowerBound();
+    }
+ else {
+      lower=r.getLowerBound();
+      if (this.strictValuesFlag && !this.allowNegativesFlag && lower <= 0.0) {
+        throw new RuntimeException("Values less than or equal to " + "zero not allowed with logarithmic axis");
+      }
+    }
+    final double lowerMargin;
+    if (lower > 0.0 && (lowerMargin=getLowerMargin()) > 0.0) {
+      final double logLower=(Math.log(lower) / LOG10_VALUE);
+      double logAbs;
+      if ((logAbs=Math.abs(logLower)) < 1.0) {
+        logAbs=1.0;
+      }
+      lower=Math.pow(10,(logLower - (logAbs * lowerMargin)));
+    }
+    if (this.autoRangeNextLogFlag) {
+      lower=computeLogFloor(lower);
+    }
+    if (!this.allowNegativesFlag && lower >= 0.0 && lower < SMALL_LOG_VALUE) {
+      lower=r.getLowerBound();
+    }
+    double upper=r.getUpperBound();
+    final double upperMargin;
+    if (upper > 0.0 && (upperMargin=getUpperMargin()) > 0.0) {
+      final double logUpper=(Math.log(upper) / LOG10_VALUE);
+      double logAbs;
+      if ((logAbs=Math.abs(logUpper)) < 1.0) {
+        logAbs=1.0;
+      }
+      upper=Math.pow(10,(logUpper + (logAbs * upperMargin)));
+    }
+    if (!this.allowNegativesFlag && upper < 1.0 && upper > 0.0 && lower > 0.0) {
+      double expVal=Math.log(upper) / LOG10_VALUE;
+      expVal=Math.ceil(-expVal + 0.001);
+      expVal=Math.pow(10,expVal);
+      upper=(expVal > 0.0) ? Math.ceil(upper * expVal) / expVal : Math.ceil(upper);
+    }
+ else {
+      upper=(this.autoRangeNextLogFlag) ? computeLogCeil(upper) : Math.ceil(upper);
+    }
+    double minRange=getAutoRangeMinimumSize();
+    if (upper - lower < minRange) {
+      upper=(upper + lower + minRange) / 2;
+      lower=(upper + lower - minRange) / 2;
+      if (upper - lower < minRange) {
+        double absUpper=Math.abs(upper);
+        double adjVal=(absUpper > SMALL_LOG_VALUE) ? absUpper / 100.0 : 0.01;
+        upper=(upper + lower + adjVal) / 2;
+        lower=(upper + lower - adjVal) / 2;
+      }
+    }
+    setRange(new Range(lower,upper),false,false);
+    setupSmallLogFlag();
+  }
+}

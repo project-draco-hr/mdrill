@@ -1,0 +1,9 @@
+{
+  double numerator;
+  double denumerator;
+  numerator=oldEnt(bags) - newEnt(bags);
+  if (Utils.eq(numerator,0))   return Double.MAX_VALUE;
+  denumerator=splitEnt(bags);
+  if (Utils.eq(denumerator,0))   return Double.MAX_VALUE;
+  return denumerator / numerator;
+}

@@ -1,0 +1,13 @@
+{
+  if (isSorting) {
+    if (isAscending) {
+      return this.ascendingButton;
+    }
+ else {
+      return this.descendingButton;
+    }
+  }
+ else {
+    return this.normalButton;
+  }
+}

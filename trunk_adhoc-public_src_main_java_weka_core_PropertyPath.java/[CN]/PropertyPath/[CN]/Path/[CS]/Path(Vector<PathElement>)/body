@@ -1,0 +1,4 @@
+{
+  this();
+  for (int i=0; i < elements.size(); i++)   m_Elements.add((PathElement)elements.get(i).clone());
+}

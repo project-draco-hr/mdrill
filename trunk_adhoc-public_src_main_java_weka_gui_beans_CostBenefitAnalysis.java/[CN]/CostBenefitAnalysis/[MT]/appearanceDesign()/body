@@ -1,0 +1,6 @@
+{
+  removeAll();
+  useDefaultVisual();
+  setLayout(new BorderLayout());
+  add(m_visual,BorderLayout.CENTER);
+}

@@ -1,0 +1,12 @@
+{
+  for (int i=0; i < m_subFlow.size(); i++) {
+    BeanInstance temp=(BeanInstance)m_subFlow.elementAt(i);
+    Point p=(Point)m_originalCoords.elementAt(i);
+    JComponent c=(JComponent)temp.getBean();
+    Dimension d=c.getPreferredSize();
+    int dx=(int)(d.getWidth() / 2);
+    int dy=(int)(d.getHeight() / 2);
+    temp.setX(x + (int)p.getX());
+    temp.setY(y + (int)p.getY());
+  }
+}

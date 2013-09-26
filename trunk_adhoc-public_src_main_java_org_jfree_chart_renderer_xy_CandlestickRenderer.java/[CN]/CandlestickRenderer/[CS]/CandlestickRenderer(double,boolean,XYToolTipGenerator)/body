@@ -1,0 +1,10 @@
+{
+  super();
+  setBaseToolTipGenerator(toolTipGenerator);
+  this.candleWidth=candleWidth;
+  this.drawVolume=drawVolume;
+  this.volumePaint=Color.gray;
+  this.upPaint=Color.green;
+  this.downPaint=Color.red;
+  this.useOutlinePaint=false;
+}

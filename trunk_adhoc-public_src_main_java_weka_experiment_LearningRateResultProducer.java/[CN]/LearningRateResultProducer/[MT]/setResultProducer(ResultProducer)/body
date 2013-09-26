@@ -1,0 +1,4 @@
+{
+  m_ResultProducer=newResultProducer;
+  m_ResultProducer.setResultListener(this);
+}

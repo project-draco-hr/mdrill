@@ -1,0 +1,5 @@
+{
+  super(source);
+  m_instance=instance;
+  m_status=status;
+}

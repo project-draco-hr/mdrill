@@ -1,0 +1,7 @@
+{
+  int origSize=getInputFormat().numInstances();
+  int sampleSize=(int)(origSize * m_SampleSizePercent / 100);
+  Random random=new Random(m_RandomSeed);
+  if (getNoReplacement())   createSubsampleWithoutReplacement(random,origSize,sampleSize);
+ else   createSubsampleWithReplacement(random,origSize,sampleSize);
+}

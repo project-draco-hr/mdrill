@@ -1,0 +1,4 @@
+{
+  m_Instances=instances;
+  m_Selected=new boolean[m_Instances.numAttributes()];
+}

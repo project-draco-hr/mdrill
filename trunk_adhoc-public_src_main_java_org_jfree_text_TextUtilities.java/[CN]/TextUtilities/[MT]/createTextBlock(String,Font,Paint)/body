@@ -1,0 +1,35 @@
+{
+  if (text == null) {
+    throw new IllegalArgumentException("Null 'text' argument.");
+  }
+  final TextBlock result=new TextBlock();
+  String input=text;
+  boolean moreInputToProcess=(text.length() > 0);
+  final int start=0;
+  while (moreInputToProcess) {
+    final int index=input.indexOf("\n");
+    if (index > start) {
+      final String line=input.substring(start,index);
+      if (index < input.length() - 1) {
+        result.addLine(line,font,paint);
+        input=input.substring(index + 1);
+      }
+ else {
+        moreInputToProcess=false;
+      }
+    }
+ else     if (index == start) {
+      if (index < input.length() - 1) {
+        input=input.substring(index + 1);
+      }
+ else {
+        moreInputToProcess=false;
+      }
+    }
+ else {
+      result.addLine(input,font,paint);
+      moreInputToProcess=false;
+    }
+  }
+  return result;
+}

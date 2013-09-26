@@ -1,0 +1,12 @@
+{
+  if (o == null) {
+    return false;
+  }
+  if (o == this) {
+    return true;
+  }
+  if (o instanceof StrokeList) {
+    return super.equals(o);
+  }
+  return false;
+}

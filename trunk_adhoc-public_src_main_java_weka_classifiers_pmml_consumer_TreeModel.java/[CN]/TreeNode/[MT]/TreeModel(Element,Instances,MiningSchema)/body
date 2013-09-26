@@ -1,0 +1,47 @@
+{
+  super(dataDictionary,miningSchema);
+  if (!getPMMLVersion().equals("3.2")) {
+  }
+  String fn=model.getAttribute("functionName");
+  if (fn.equals("regression")) {
+    m_functionType=MiningFunction.REGRESSION;
+  }
+  String missingVS=model.getAttribute("missingValueStrategy");
+  if (missingVS != null && missingVS.length() > 0) {
+    for (    MissingValueStrategy m : MissingValueStrategy.values()) {
+      if (m.toString().equals(missingVS)) {
+        m_missingValueStrategy=m;
+        break;
+      }
+    }
+  }
+  String missingP=model.getAttribute("missingValuePenalty");
+  if (missingP != null && missingP.length() > 0) {
+    try {
+      m_missingValuePenalty=Double.parseDouble(missingP);
+    }
+ catch (    NumberFormatException ex) {
+      System.err.println("[TreeModel] WARNING: " + "couldn't parse supplied missingValuePenalty as a number");
+    }
+  }
+  String splitC=model.getAttribute("splitCharacteristic");
+  if (splitC != null && splitC.length() > 0) {
+    for (    SplitCharacteristic s : SplitCharacteristic.values()) {
+      if (s.toString().equals(splitC)) {
+        m_splitCharacteristic=s;
+        break;
+      }
+    }
+  }
+  NodeList children=model.getChildNodes();
+  for (int i=0; i < children.getLength(); i++) {
+    Node child=children.item(i);
+    if (child.getNodeType() == Node.ELEMENT_NODE) {
+      String tagName=((Element)child).getTagName();
+      if (tagName.equals("Node")) {
+        m_root=new TreeNode((Element)child,miningSchema);
+        break;
+      }
+    }
+  }
+}

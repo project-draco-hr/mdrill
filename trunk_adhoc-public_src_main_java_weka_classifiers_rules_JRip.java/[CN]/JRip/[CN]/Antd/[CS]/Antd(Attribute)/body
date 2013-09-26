@@ -1,0 +1,8 @@
+{
+  att=a;
+  value=Double.NaN;
+  maxInfoGain=0;
+  accuRate=Double.NaN;
+  cover=Double.NaN;
+  accu=Double.NaN;
+}

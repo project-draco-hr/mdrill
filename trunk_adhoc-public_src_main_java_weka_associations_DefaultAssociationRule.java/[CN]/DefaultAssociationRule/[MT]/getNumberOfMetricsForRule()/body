@@ -1,0 +1,3 @@
+{
+  return METRIC_TYPE.values().length;
+}

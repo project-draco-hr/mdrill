@@ -1,0 +1,7 @@
+{
+  for (  int i : this.crossufs.listIndex) {
+    UnvertFile uf=this.crossufs.cols[i];
+    double value=uf.uif.quickToDouble(doc,uf.filetype,uf.ti);
+    cnt.stat[i].update(value);
+  }
+}

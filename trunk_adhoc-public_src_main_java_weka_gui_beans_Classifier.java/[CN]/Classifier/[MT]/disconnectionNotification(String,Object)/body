@@ -1,0 +1,6 @@
+{
+  m_listenees.remove(eventName);
+  if (eventName.compareTo("instance") == 0) {
+    stop();
+  }
+}

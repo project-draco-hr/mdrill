@@ -1,0 +1,8 @@
+{
+  if (RectangleEdge.isTopOrBottom(edge)) {
+    drawTickMarksHorizontal(g2,state,dataArea,edge);
+  }
+ else   if (RectangleEdge.isLeftOrRight(edge)) {
+    drawTickMarksVertical(g2,state,dataArea,edge);
+  }
+}

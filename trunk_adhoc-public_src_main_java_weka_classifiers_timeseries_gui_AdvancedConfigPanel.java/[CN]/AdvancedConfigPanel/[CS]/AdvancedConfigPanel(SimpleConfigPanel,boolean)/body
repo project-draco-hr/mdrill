@@ -1,0 +1,12 @@
+{
+  m_allowSeparateTestSet=allowSeparateTestSet;
+  m_simpleConfig=s;
+  setLayout(new BorderLayout());
+  layoutLearnerPanel();
+  layoutLagPanel();
+  layoutDateDerivedPeriodicPanel();
+  layoutOverlayPanel();
+  layoutEvaluationPanel();
+  layoutOutputPanel();
+  add(m_configHolder,BorderLayout.CENTER);
+}

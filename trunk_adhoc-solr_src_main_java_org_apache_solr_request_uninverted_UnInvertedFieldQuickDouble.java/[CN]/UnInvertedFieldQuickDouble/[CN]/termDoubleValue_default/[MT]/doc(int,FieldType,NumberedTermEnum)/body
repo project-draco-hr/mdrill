@@ -5,7 +5,7 @@
   }
   String termText=this.uni.getTermText(te,termNum);
   if (termText != null) {
-    return MdrillPorcessUtils.ParseDouble(ft.indexedToReadable(termText));
+    return MdrillUtils.ParseDouble(ft.indexedToReadable(termText));
   }
   return 0d;
 }

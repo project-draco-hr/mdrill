@@ -1,0 +1,19 @@
+{
+  double result=0.0;
+  Number n;
+  double total=0.0;
+  if (this.renderAsPercentages) {
+    total=DataUtilities.calculateColumnTotal(dataset,category);
+  }
+  for (int i=0; i < series; i++) {
+    n=dataset.getValue(i,category);
+    if (n != null) {
+      double v=n.doubleValue();
+      if (this.renderAsPercentages) {
+        v=v / total;
+      }
+      result+=v;
+    }
+  }
+  return result;
+}

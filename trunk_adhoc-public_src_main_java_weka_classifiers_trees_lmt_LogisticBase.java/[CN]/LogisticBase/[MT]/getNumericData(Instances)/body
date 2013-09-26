@@ -1,0 +1,9 @@
+{
+  Instances numericData=new Instances(data);
+  int classIndex=numericData.classIndex();
+  numericData.setClassIndex(-1);
+  numericData.deleteAttributeAt(classIndex);
+  numericData.insertAttributeAt(new Attribute("'pseudo class'"),classIndex);
+  numericData.setClassIndex(classIndex);
+  return numericData;
+}

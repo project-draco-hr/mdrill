@@ -1,0 +1,7 @@
+{
+  final GenericObjectFactory factory=(GenericObjectFactory)this.objectMappings.get(c);
+  if (factory == null) {
+    return null;
+  }
+  return factory.getInstance();
+}

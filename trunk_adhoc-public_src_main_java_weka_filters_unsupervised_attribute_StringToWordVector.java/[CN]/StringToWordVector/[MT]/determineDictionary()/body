@@ -1,0 +1,142 @@
+{
+  Stopwords stopwords=new Stopwords();
+  if (getUseStoplist()) {
+    try {
+      if (getStopwords().exists() && !getStopwords().isDirectory())       stopwords.read(getStopwords());
+    }
+ catch (    Exception e) {
+      e.printStackTrace();
+    }
+  }
+  int classInd=getInputFormat().classIndex();
+  int values=1;
+  if (!m_doNotOperateOnPerClassBasis && (classInd != -1)) {
+    values=getInputFormat().attribute(classInd).numValues();
+  }
+  TreeMap[] dictionaryArr=new TreeMap[values];
+  for (int i=0; i < values; i++) {
+    dictionaryArr[i]=new TreeMap();
+  }
+  determineSelectedRange();
+  long pruneRate=Math.round((m_PeriodicPruningRate / 100.0) * getInputFormat().numInstances());
+  for (int i=0; i < getInputFormat().numInstances(); i++) {
+    Instance instance=getInputFormat().instance(i);
+    int vInd=0;
+    if (!m_doNotOperateOnPerClassBasis && (classInd != -1)) {
+      vInd=(int)instance.classValue();
+    }
+    Hashtable h=new Hashtable();
+    for (int j=0; j < instance.numAttributes(); j++) {
+      if (m_SelectedRange.isInRange(j) && (instance.isMissing(j) == false)) {
+        m_Tokenizer.tokenize(instance.stringValue(j));
+        while (m_Tokenizer.hasMoreElements()) {
+          String word=((String)m_Tokenizer.nextElement()).intern();
+          if (this.m_lowerCaseTokens == true)           word=word.toLowerCase();
+          word=m_Stemmer.stem(word);
+          if (this.m_useStoplist == true)           if (stopwords.is(word))           continue;
+          if (!(h.contains(word)))           h.put(word,new Integer(0));
+          Count count=(Count)dictionaryArr[vInd].get(word);
+          if (count == null) {
+            dictionaryArr[vInd].put(word,new Count(1));
+          }
+ else {
+            count.count++;
+          }
+        }
+      }
+    }
+    Enumeration e=h.keys();
+    while (e.hasMoreElements()) {
+      String word=(String)e.nextElement();
+      Count c=(Count)dictionaryArr[vInd].get(word);
+      if (c != null) {
+        c.docCount++;
+      }
+ else       System.err.println("Warning: A word should definitely be in the " + "dictionary.Please check the code");
+    }
+    if (pruneRate > 0) {
+      if (i % pruneRate == 0 && i > 0) {
+        for (int z=0; z < values; z++) {
+          Vector d=new Vector(1000);
+          Iterator it=dictionaryArr[z].keySet().iterator();
+          while (it.hasNext()) {
+            String word=(String)it.next();
+            Count count=(Count)dictionaryArr[z].get(word);
+            if (count.count <= 1) {
+              d.add(word);
+            }
+          }
+          Iterator iter=d.iterator();
+          while (iter.hasNext()) {
+            String word=(String)iter.next();
+            dictionaryArr[z].remove(word);
+          }
+        }
+      }
+    }
+  }
+  int totalsize=0;
+  int prune[]=new int[values];
+  for (int z=0; z < values; z++) {
+    totalsize+=dictionaryArr[z].size();
+    int array[]=new int[dictionaryArr[z].size()];
+    int pos=0;
+    Iterator it=dictionaryArr[z].keySet().iterator();
+    while (it.hasNext()) {
+      String word=(String)it.next();
+      Count count=(Count)dictionaryArr[z].get(word);
+      array[pos]=count.count;
+      pos++;
+    }
+    sortArray(array);
+    if (array.length < m_WordsToKeep) {
+      prune[z]=m_minTermFreq;
+    }
+ else {
+      prune[z]=Math.max(m_minTermFreq,array[array.length - m_WordsToKeep]);
+    }
+  }
+  FastVector attributes=new FastVector(totalsize + getInputFormat().numAttributes());
+  int classIndex=-1;
+  for (int i=0; i < getInputFormat().numAttributes(); i++) {
+    if (!m_SelectedRange.isInRange(i)) {
+      if (getInputFormat().classIndex() == i) {
+        classIndex=attributes.size();
+      }
+      attributes.addElement(getInputFormat().attribute(i).copy());
+    }
+  }
+  TreeMap newDictionary=new TreeMap();
+  int index=attributes.size();
+  for (int z=0; z < values; z++) {
+    Iterator it=dictionaryArr[z].keySet().iterator();
+    while (it.hasNext()) {
+      String word=(String)it.next();
+      Count count=(Count)dictionaryArr[z].get(word);
+      if (count.count >= prune[z]) {
+        if (newDictionary.get(word) == null) {
+          newDictionary.put(word,new Integer(index++));
+          attributes.addElement(new Attribute(m_Prefix + word));
+        }
+      }
+    }
+  }
+  m_DocsCounts=new int[attributes.size()];
+  Iterator it=newDictionary.keySet().iterator();
+  while (it.hasNext()) {
+    String word=(String)it.next();
+    int idx=((Integer)newDictionary.get(word)).intValue();
+    int docsCount=0;
+    for (int j=0; j < values; j++) {
+      Count c=(Count)dictionaryArr[j].get(word);
+      if (c != null)       docsCount+=c.docCount;
+    }
+    m_DocsCounts[idx]=docsCount;
+  }
+  attributes.trimToSize();
+  m_Dictionary=newDictionary;
+  m_NumInstances=getInputFormat().numInstances();
+  Instances outputFormat=new Instances(getInputFormat().relationName(),attributes,0);
+  outputFormat.setClassIndex(classIndex);
+  setOutputFormat(outputFormat);
+}

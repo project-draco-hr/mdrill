@@ -1,0 +1,12 @@
+{
+  if (object == null) {
+    return false;
+  }
+  if (object == this) {
+    return true;
+  }
+  if (object instanceof DefaultTimeline) {
+    return true;
+  }
+  return false;
+}

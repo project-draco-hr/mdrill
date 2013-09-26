@@ -1,0 +1,4 @@
+{
+  this.colorBarLocation=edge;
+  fireChangeEvent();
+}

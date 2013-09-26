@@ -1,0 +1,7 @@
+{
+  this.edge1=edge1;
+  this.edge2=edge2;
+  this.fill=fill;
+  this.size=size;
+  this.direction=direction;
+}

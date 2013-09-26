@@ -1,0 +1,7 @@
+{
+  if ((series < 0) || (series >= getSeriesCount())) {
+    throw new IllegalArgumentException("Series index out of bounds");
+  }
+  double[][] seriesArray=(double[][])this.seriesList.get(series);
+  return seriesArray[0].length;
+}

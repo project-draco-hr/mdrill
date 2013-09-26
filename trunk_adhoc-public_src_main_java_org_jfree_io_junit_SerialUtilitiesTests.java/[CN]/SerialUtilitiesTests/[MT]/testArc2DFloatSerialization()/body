@@ -1,0 +1,18 @@
+{
+  Arc2D a1=new Arc2D.Float(1.0f,2.0f,3.0f,4.0f,5.0f,6.0f,Arc2D.PIE);
+  Arc2D a2=null;
+  try {
+    ByteArrayOutputStream buffer=new ByteArrayOutputStream();
+    ObjectOutputStream out=new ObjectOutputStream(buffer);
+    SerialUtilities.writeShape(a1,out);
+    out.close();
+    ByteArrayInputStream bais=new ByteArrayInputStream(buffer.toByteArray());
+    ObjectInputStream in=new ObjectInputStream(bais);
+    a2=(Arc2D)SerialUtilities.readShape(in);
+    in.close();
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
+  assertTrue(ShapeUtilities.equal(a1,a2));
+}

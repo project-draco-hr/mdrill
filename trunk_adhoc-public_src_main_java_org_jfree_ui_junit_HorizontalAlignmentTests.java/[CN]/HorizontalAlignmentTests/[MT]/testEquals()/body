@@ -1,0 +1,5 @@
+{
+  assertTrue(HorizontalAlignment.LEFT.equals(HorizontalAlignment.LEFT));
+  assertTrue(HorizontalAlignment.RIGHT.equals(HorizontalAlignment.RIGHT));
+  assertTrue(HorizontalAlignment.CENTER.equals(HorizontalAlignment.CENTER));
+}

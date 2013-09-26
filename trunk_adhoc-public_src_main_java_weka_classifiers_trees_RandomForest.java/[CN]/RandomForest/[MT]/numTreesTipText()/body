@@ -1,0 +1,3 @@
+{
+  return "The number of trees to be generated.";
+}

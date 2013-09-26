@@ -1,0 +1,3 @@
+{
+  return mapValueToFixedRange(this.displayStart + (getDisplayLength() / 2));
+}

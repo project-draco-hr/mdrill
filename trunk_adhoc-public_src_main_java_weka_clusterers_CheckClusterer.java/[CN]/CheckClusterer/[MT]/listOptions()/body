@@ -1,0 +1,12 @@
+{
+  Vector result=new Vector();
+  Enumeration en=super.listOptions();
+  while (en.hasMoreElements())   result.addElement(en.nextElement());
+  result.addElement(new Option("\tFull name of the clusterer analyzed.\n" + "\teg: weka.clusterers.SimpleKMeans\n" + "\t(default weka.clusterers.SimpleKMeans)","W",1,"-W"));
+  if ((m_Clusterer != null) && (m_Clusterer instanceof OptionHandler)) {
+    result.addElement(new Option("","",0,"\nOptions specific to clusterer " + m_Clusterer.getClass().getName() + ":"));
+    Enumeration enu=((OptionHandler)m_Clusterer).listOptions();
+    while (enu.hasMoreElements())     result.addElement(enu.nextElement());
+  }
+  return result.elements();
+}

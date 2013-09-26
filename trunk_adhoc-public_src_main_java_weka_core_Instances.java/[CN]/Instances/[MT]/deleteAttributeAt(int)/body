@@ -1,0 +1,22 @@
+{
+  if ((position < 0) || (position >= m_Attributes.size())) {
+    throw new IllegalArgumentException("Index out of range");
+  }
+  if (position == m_ClassIndex) {
+    throw new IllegalArgumentException("Can't delete class attribute");
+  }
+  freshAttributeInfo();
+  if (m_ClassIndex > position) {
+    m_ClassIndex--;
+  }
+  m_Attributes.remove(position);
+  for (int i=position; i < m_Attributes.size(); i++) {
+    Attribute current=(Attribute)m_Attributes.get(i);
+    current.setIndex(current.index() - 1);
+  }
+  for (int i=0; i < numInstances(); i++) {
+    instance(i).setDataset(null);
+    instance(i).deleteAttributeAt(position);
+    instance(i).setDataset(this);
+  }
+}

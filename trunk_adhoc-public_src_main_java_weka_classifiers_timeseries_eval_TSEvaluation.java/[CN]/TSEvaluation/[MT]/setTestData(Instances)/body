@@ -1,0 +1,15 @@
+{
+  if (testData == null || testData.numInstances() > 0) {
+    m_testData=testData;
+    if (m_testData == null) {
+      m_evaluateTestData=false;
+    }
+ else {
+      m_evaluateTestData=true;
+    }
+  }
+ else {
+    m_dataStructure=testData;
+    m_evaluateTestData=false;
+  }
+}

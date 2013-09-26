@@ -1,0 +1,4 @@
+{
+  this.useFillPaint=flag;
+  fireChangeEvent();
+}

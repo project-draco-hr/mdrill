@@ -1,0 +1,4 @@
+{
+  this.toolTipText=null;
+  this.url=null;
+}

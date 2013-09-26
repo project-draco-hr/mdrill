@@ -1,0 +1,3 @@
+{
+  super.setObject(row,column,object);
+}

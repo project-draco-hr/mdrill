@@ -1,0 +1,15 @@
+{
+  int i;
+  Vector<String> result;
+  String[] options;
+  result=new Vector<String>();
+  options=super.getOptions();
+  for (i=0; i < options.length; i++)   result.addElement(options[i]);
+  result.addElement("-L");
+  result.addElement("" + getNoise());
+  result.addElement("-N");
+  result.addElement("" + m_filterType);
+  result.addElement("-K");
+  result.addElement("" + m_kernel.getClass().getName() + " "+ Utils.joinOptions(m_kernel.getOptions()));
+  return (String[])result.toArray(new String[result.size()]);
+}

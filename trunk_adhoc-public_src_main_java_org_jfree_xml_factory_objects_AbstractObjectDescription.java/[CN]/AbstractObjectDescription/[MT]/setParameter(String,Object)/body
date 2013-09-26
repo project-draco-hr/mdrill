@@ -1,0 +1,10 @@
+{
+  if (getParameterDefinition(name) == null) {
+    throw new IllegalArgumentException("No such Parameter defined: " + name + " in class "+ getObjectClass());
+  }
+  final Class parameterClass=convertPrimitiveClass(getParameterDefinition(name));
+  if (!parameterClass.isAssignableFrom(value.getClass())) {
+    throw new ClassCastException("In Object " + getObjectClass() + ": Value is not assignable: "+ value.getClass()+ " is not assignable from "+ parameterClass);
+  }
+  this.parameters.put(name,value);
+}

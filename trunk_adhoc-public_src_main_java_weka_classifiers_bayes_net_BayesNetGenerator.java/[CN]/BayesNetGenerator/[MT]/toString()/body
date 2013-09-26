@@ -1,0 +1,6 @@
+{
+  if (m_bGenerateNet) {
+    return toXMLBIF03();
+  }
+  return m_Instances.toString();
+}

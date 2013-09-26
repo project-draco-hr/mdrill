@@ -1,0 +1,4 @@
+{
+  super(Object.class);
+  setParameterDefinition("class",String.class);
+}

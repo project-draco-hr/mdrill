@@ -1,0 +1,4 @@
+int[] instList
+Instances insts
+Instance pivot
+DistanceFunction distanceFunction

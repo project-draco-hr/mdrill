@@ -1,0 +1,4 @@
+{
+  this.rangeCrosshairPaint=paint;
+  fireChangeEvent();
+}

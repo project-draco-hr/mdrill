@@ -1,0 +1,4 @@
+{
+  this.value=value;
+  notifyListeners(new MarkerChangeEvent(this));
+}

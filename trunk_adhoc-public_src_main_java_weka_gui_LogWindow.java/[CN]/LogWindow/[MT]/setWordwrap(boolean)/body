@@ -1,0 +1,26 @@
+{
+  Container parent;
+  JTextPane outputOld;
+  m_UseWordwrap=wrap;
+  if (m_CheckBoxWordwrap.isSelected() != m_UseWordwrap)   m_CheckBoxWordwrap.setSelected(m_UseWordwrap);
+  parent=m_Output.getParent();
+  outputOld=m_Output;
+  if (m_UseWordwrap)   m_Output=new JTextPane();
+ else   m_Output=new JTextPane(){
+    private static final long serialVersionUID=-8275856175921425981L;
+    public void setSize(    Dimension d){
+      if (d.width < getGraphicsConfiguration().getBounds().width)       d.width=getGraphicsConfiguration().getBounds().width;
+      super.setSize(d);
+    }
+    public boolean getScrollableTracksViewportWidth(){
+      return false;
+    }
+  }
+;
+  m_Output.setEditable(false);
+  m_Output.addCaretListener(this);
+  m_Output.setDocument(outputOld.getDocument());
+  m_Output.setCaretPosition(m_Output.getDocument().getLength());
+  parent.add(m_Output);
+  parent.remove(outputOld);
+}

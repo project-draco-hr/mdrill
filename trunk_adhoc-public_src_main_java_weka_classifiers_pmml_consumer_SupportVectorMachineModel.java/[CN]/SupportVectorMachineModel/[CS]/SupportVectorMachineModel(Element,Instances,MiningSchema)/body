@@ -1,0 +1,60 @@
+{
+  super(dataDictionary,miningSchema);
+  if (!getPMMLVersion().equals("3.2")) {
+  }
+  String fn=model.getAttribute("functionName");
+  if (fn.equals("regression")) {
+    m_functionType=MiningFunction.REGRESSION;
+  }
+  String modelName=model.getAttribute("modelName");
+  if (modelName != null && modelName.length() > 0) {
+    m_modelName=modelName;
+  }
+  String algoName=model.getAttribute("algorithmName");
+  if (algoName != null && algoName.length() > 0) {
+    m_algorithmName=algoName;
+  }
+  String svmRep=model.getAttribute("svmRepresentation");
+  if (svmRep != null && svmRep.length() > 0) {
+    if (svmRep.equals("Coefficients")) {
+      m_svmRepresentation=SVM_representation.COEFFICIENTS;
+    }
+  }
+  String altTargetCat=model.getAttribute("alternateBinaryTargetCategory");
+  if (altTargetCat != null && altTargetCat.length() > 0) {
+    int altTargetInd=m_miningSchema.getFieldsAsInstances().classAttribute().indexOfValue(altTargetCat);
+    if (altTargetInd < 0) {
+      throw new Exception("[SupportVectorMachineModel] can't find alternate " + "target value " + altTargetCat);
+    }
+    m_alternateBinaryTargetCategory=altTargetInd;
+  }
+  String thresholdS=model.getAttribute("threshold");
+  if (thresholdS != null && thresholdS.length() > 0) {
+    m_threshold=Double.parseDouble(thresholdS);
+  }
+  if (getPMMLVersion().startsWith("4.")) {
+    m_classificationMethod=classificationMethod.ONE_AGAINST_ALL;
+  }
+  String classificationMethodS=model.getAttribute("classificationMethod");
+  if (classificationMethodS != null && classificationMethodS.length() > 0) {
+    if (classificationMethodS.equals("OneAgainstOne")) {
+      m_classificationMethod=classificationMethod.ONE_AGAINST_ONE;
+    }
+  }
+  if (m_svmRepresentation == SVM_representation.SUPPORT_VECTORS) {
+    m_vectorDictionary=VectorDictionary.getVectorDictionary(model,miningSchema);
+  }
+  m_kernel=Kernel.getKernel(model,m_log);
+  if (m_svmRepresentation == SVM_representation.COEFFICIENTS && !(m_kernel instanceof LinearKernel)) {
+    throw new Exception("[SupportVectorMachineModel] representation is " + "coefficients, but kernel is not linear!");
+  }
+  NodeList machineL=model.getElementsByTagName("SupportVectorMachine");
+  if (machineL.getLength() == 0) {
+    throw new Exception("[SupportVectorMachineModel] No binary SVMs" + " defined in model file!");
+  }
+  for (int i=0; i < machineL.getLength(); i++) {
+    Node machine=machineL.item(i);
+    SupportVectorMachine newMach=new SupportVectorMachine((Element)machine,m_miningSchema,m_vectorDictionary,m_svmRepresentation,m_alternateBinaryTargetCategory,m_log);
+    m_machines.add(newMach);
+  }
+}

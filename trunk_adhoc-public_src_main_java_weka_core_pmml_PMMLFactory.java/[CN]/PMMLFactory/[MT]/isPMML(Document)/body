@@ -1,0 +1,7 @@
+{
+  NodeList tempL=doc.getElementsByTagName("PMML");
+  if (tempL.getLength() == 0) {
+    return false;
+  }
+  return true;
+}

@@ -1,0 +1,6 @@
+{
+  if (check.doubleValue() < this.minValue.doubleValue()) {
+    return true;
+  }
+  return false;
+}

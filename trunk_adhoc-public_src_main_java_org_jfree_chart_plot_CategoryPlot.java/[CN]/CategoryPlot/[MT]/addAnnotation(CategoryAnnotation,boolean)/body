@@ -1,0 +1,9 @@
+{
+  if (annotation == null) {
+    throw new IllegalArgumentException("Null 'annotation' argument.");
+  }
+  this.annotations.add(annotation);
+  if (notify) {
+    fireChangeEvent();
+  }
+}

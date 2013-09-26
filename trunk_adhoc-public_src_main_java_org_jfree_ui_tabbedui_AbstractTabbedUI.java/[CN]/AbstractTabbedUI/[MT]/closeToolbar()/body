@@ -1,0 +1,12 @@
+{
+  if (this.currentToolbar != null) {
+    if (this.currentToolbar.getParent() != this.toolbarContainer) {
+      final Window w=SwingUtilities.windowForComponent(this.currentToolbar);
+      if (w != null) {
+        w.setVisible(false);
+        w.dispose();
+      }
+    }
+    this.currentToolbar.setVisible(false);
+  }
+}

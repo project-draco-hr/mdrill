@@ -1,0 +1,30 @@
+{
+  int count=0;
+  double vecx, vecy;
+  double change;
+  double x1, y1, x2, y2;
+  for (int noa=1; noa < ob.size() - 2; noa+=2) {
+    y1=((Double)ob.elementAt(noa + 1)).doubleValue();
+    y2=((Double)ob.elementAt(noa + 3)).doubleValue();
+    if ((y1 <= y && y < y2) || (y2 < y && y <= y1)) {
+      vecy=y2 - y1;
+      if (vecy == 0) {
+      }
+ else {
+        x1=((Double)ob.elementAt(noa)).doubleValue();
+        x2=((Double)ob.elementAt(noa + 2)).doubleValue();
+        vecx=x2 - x1;
+        change=(y - y1) / vecy;
+        if (vecx * change + x1 >= x) {
+          count++;
+        }
+      }
+    }
+  }
+  if ((count % 2) == 1) {
+    return true;
+  }
+ else {
+    return false;
+  }
+}

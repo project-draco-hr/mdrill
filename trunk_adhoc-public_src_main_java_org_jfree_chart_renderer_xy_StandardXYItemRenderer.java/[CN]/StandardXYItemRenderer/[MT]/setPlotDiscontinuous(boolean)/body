@@ -1,0 +1,6 @@
+{
+  if (this.plotDiscontinuous != flag) {
+    this.plotDiscontinuous=flag;
+    fireChangeEvent();
+  }
+}

@@ -1,0 +1,9 @@
+{
+  if (BasicTypeSupport.isBasicDataType(c)) {
+    final String handler=BasicTypeSupport.getHandlerClass(c);
+    if (handler != null) {
+      return handler;
+    }
+  }
+  return this.handlerMapping.getProperty(c.getName());
+}

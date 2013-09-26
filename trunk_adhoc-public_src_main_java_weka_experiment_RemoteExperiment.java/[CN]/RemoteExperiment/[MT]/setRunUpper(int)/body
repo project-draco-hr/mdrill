@@ -1,0 +1,4 @@
+{
+  super.setRunUpper(newRunUpper);
+  m_baseExperiment.setRunUpper(newRunUpper);
+}

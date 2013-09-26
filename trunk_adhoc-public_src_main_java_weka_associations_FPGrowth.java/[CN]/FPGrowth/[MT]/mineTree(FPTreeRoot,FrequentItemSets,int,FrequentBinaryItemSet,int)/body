@@ -1,0 +1,43 @@
+{
+  if (!tree.isEmpty(recursionLevel)) {
+    if (m_maxItems > 0 && recursionLevel >= m_maxItems) {
+      return;
+    }
+    Map<BinaryItem,FPTreeRoot.Header> headerTable=tree.getHeaderTable();
+    Set<BinaryItem> keys=headerTable.keySet();
+    Iterator<BinaryItem> i=keys.iterator();
+    while (i.hasNext()) {
+      BinaryItem item=i.next();
+      FPTreeRoot.Header itemHeader=headerTable.get(item);
+      int support=itemHeader.getProjectedCounts().getCount(recursionLevel);
+      if (support >= minSupport) {
+        for (        FPTreeNode n : itemHeader.getHeaderList()) {
+          int currentCount=n.getProjectedCount(recursionLevel);
+          if (currentCount > 0) {
+            FPTreeNode temp=n.getParent();
+            while (temp != tree) {
+              temp.increaseProjectedCount(recursionLevel + 1,currentCount);
+              headerTable.get(temp.getItem()).getProjectedCounts().increaseCount(recursionLevel + 1,currentCount);
+              temp=temp.getParent();
+            }
+          }
+        }
+        FrequentBinaryItemSet newConditional=(FrequentBinaryItemSet)conditionalItems.clone();
+        newConditional.addItem(item);
+        newConditional.setSupport(support);
+        largeItemSets.addItemSet(newConditional);
+        mineTree(tree,largeItemSets,recursionLevel + 1,newConditional,minSupport);
+        for (        FPTreeNode n : itemHeader.getHeaderList()) {
+          FPTreeNode temp=n.getParent();
+          while (temp != tree) {
+            temp.removeProjectedCount(recursionLevel + 1);
+            temp=temp.getParent();
+          }
+        }
+        for (        FPTreeRoot.Header h : headerTable.values()) {
+          h.getProjectedCounts().removeCount(recursionLevel + 1);
+        }
+      }
+    }
+  }
+}

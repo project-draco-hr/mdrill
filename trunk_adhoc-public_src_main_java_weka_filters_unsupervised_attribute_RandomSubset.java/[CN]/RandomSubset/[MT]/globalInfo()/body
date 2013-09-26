@@ -1,0 +1,3 @@
+{
+  return "Chooses a random subset of attributes, either an absolute number " + "or a percentage. The class is always included in the output (" + "as the last attribute).";
+}

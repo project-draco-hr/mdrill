@@ -1,0 +1,5 @@
+{
+  super(stream);
+  m_Parent=parent;
+  m_Style=style;
+}

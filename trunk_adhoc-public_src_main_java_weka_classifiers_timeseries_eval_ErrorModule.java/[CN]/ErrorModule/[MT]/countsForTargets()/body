@@ -1,0 +1,6 @@
+{
+  if (m_predictions == null || m_predictions.get(0).size() == 0) {
+    throw new Exception("No predictions have been seen yet!");
+  }
+  return m_counts;
+}

@@ -1,0 +1,6 @@
+{
+  if (this.inverted != flag) {
+    this.inverted=flag;
+    notifyListeners(new AxisChangeEvent(this));
+  }
+}

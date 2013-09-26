@@ -1,0 +1,9 @@
+{
+  if (!(chart instanceof ChartPanel)) {
+    throw new Exception("Chart is not a JFreeChart!");
+  }
+  if (filename.toLowerCase().lastIndexOf(".png") < 0) {
+    filename=filename + ".png";
+  }
+  ChartUtilities.saveChartAsPNG(new File(filename),((ChartPanel)chart).getChart(),width,height);
+}

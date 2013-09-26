@@ -1,0 +1,5 @@
+{
+  final Paint p1=new Color(0xFF,0xEE,0xDD);
+  final Paint p2=new Color(0xFF,0xEE,0xDD);
+  assertEquals(p1,p2);
+}

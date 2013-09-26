@@ -1,0 +1,44 @@
+{
+  Exception problem=null;
+  if (CACHE_URL == null) {
+    return null;
+  }
+  PACKAGE_MANAGER.setPackageRepositoryURL(REP_URL);
+  String cacheDir=WEKA_HOME.toString() + File.separator + "repCache";
+  try {
+    for (    PrintStream p : progress) {
+      p.println("Refresh in progress. Please wait...");
+    }
+    byte[] zip=PACKAGE_MANAGER.getRepositoryPackageMetaDataOnlyAsZip(progress);
+    ZipInputStream zis=new ZipInputStream(new ByteArrayInputStream(zip));
+    ZipEntry ze;
+    final byte[] buff=new byte[1024];
+    while ((ze=zis.getNextEntry()) != null) {
+      if (ze.isDirectory()) {
+        new File(cacheDir,ze.getName()).mkdir();
+        continue;
+      }
+      BufferedOutputStream bo=new BufferedOutputStream(new FileOutputStream(new File(cacheDir,ze.getName())));
+      while (true) {
+        int amountRead=zis.read(buff);
+        if (amountRead == -1) {
+          break;
+        }
+        bo.write(buff,0,amountRead);
+      }
+      bo.close();
+    }
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+    CACHE_URL=null;
+    try {
+      DefaultPackageManager.deleteDir(new File(cacheDir),System.out);
+    }
+ catch (    Exception e1) {
+      e1.printStackTrace();
+    }
+    return e;
+  }
+  return problem;
+}

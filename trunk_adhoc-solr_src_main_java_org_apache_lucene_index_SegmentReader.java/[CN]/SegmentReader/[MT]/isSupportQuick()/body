@@ -1,4 +1,4 @@
 {
   ensureOpen();
-  return core.getTermsReader().supportquick;
+  return core.getTermsReader().supportquick.get();
 }

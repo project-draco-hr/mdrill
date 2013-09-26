@@ -1,0 +1,12 @@
+{
+  loadIcons(iconPath,animatedIconPath);
+  m_visualName=visualName;
+  m_visualLabel=new JLabel(m_icon);
+  setLayout(new BorderLayout());
+  add(m_visualLabel,BorderLayout.CENTER);
+  Dimension d=m_visualLabel.getPreferredSize();
+  Dimension d2=new Dimension((int)d.getWidth() + 10,(int)d.getHeight() + 10);
+  setMinimumSize(d2);
+  setPreferredSize(d2);
+  setMaximumSize(d2);
+}

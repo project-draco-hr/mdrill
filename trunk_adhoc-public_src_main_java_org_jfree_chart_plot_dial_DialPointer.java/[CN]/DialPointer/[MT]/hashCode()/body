@@ -1,0 +1,5 @@
+{
+  int result=23;
+  result=HashUtilities.hashCode(result,this.radius);
+  return result;
+}

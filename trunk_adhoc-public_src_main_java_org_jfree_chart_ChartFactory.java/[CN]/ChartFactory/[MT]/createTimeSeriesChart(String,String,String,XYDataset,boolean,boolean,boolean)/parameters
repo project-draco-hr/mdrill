@@ -1,0 +1,7 @@
+String title
+String timeAxisLabel
+String valueAxisLabel
+XYDataset dataset
+boolean legend
+boolean tooltips
+boolean urls

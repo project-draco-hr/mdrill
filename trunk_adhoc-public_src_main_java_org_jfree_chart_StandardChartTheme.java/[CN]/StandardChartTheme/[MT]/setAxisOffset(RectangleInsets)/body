@@ -1,0 +1,6 @@
+{
+  if (offset == null) {
+    throw new IllegalArgumentException("Null 'offset' argument.");
+  }
+  this.axisOffset=offset;
+}

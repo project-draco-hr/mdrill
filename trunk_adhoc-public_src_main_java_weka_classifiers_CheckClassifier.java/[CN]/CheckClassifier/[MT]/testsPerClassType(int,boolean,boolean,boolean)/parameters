@@ -1,0 +1,4 @@
+int classType
+boolean updateable
+boolean weighted
+boolean multiInstance

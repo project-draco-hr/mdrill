@@ -1,0 +1,4 @@
+{
+  this.message=message;
+  this.param=new Object[]{param1,param2,param3};
+}

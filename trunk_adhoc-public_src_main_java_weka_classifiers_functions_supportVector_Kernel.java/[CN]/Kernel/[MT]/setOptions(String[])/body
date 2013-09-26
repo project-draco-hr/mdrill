@@ -1,0 +1,5 @@
+{
+  setDebug(Utils.getFlag('D',options));
+  setChecksTurnedOff(Utils.getFlag("no-checks",options));
+  Utils.checkForRemainingOptions(options);
+}

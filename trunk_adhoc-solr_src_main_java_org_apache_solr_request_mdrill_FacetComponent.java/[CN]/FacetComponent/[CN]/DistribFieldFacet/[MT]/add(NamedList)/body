@@ -1,0 +1,35 @@
+{
+  long t1=System.currentTimeMillis();
+  int sz=shardCounts == null ? 0 : shardCounts.size();
+  for (int i=0; i < sz; i++) {
+    String name=shardCounts.getName(i);
+    Object obj=shardCounts.getVal(i);
+    GroupbyAgent p=new GroupbyAgent(name,(NamedList)obj);
+    p.setCross(this.crossFs,this.distFS);
+    p.setFinalResult(this.isFinalResult);
+    if (p.isrecordcount()) {
+      if (recordcount == null) {
+        recordcount=p;
+      }
+ else {
+        recordcount.shardsMerge(p);
+      }
+    }
+ else {
+      if (this.isdetail) {
+        countsDetail.add((SelectDetailRow)p.getRaw());
+      }
+ else {
+        GroupbyRow sfc=counts.get(name);
+        if (sfc == null) {
+          counts.put(name,(GroupbyRow)p.getRaw());
+        }
+ else {
+          sfc.shardsMerge((GroupbyRow)p.getRaw());
+        }
+      }
+    }
+  }
+  long t2=System.currentTimeMillis();
+  return t2 - t1;
+}

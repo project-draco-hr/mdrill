@@ -1,0 +1,6 @@
+{
+  this.sectionOutlineStrokeMap.clear();
+  if (notify) {
+    fireChangeEvent();
+  }
+}

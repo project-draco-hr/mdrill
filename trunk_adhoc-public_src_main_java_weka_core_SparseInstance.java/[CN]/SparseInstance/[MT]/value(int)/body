@@ -1,0 +1,9 @@
+{
+  int index=locateIndex(attIndex);
+  if ((index >= 0) && (m_Indices[index] == attIndex)) {
+    return m_AttValues[index];
+  }
+ else {
+    return 0.0;
+  }
+}

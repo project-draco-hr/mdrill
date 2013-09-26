@@ -1,0 +1,6 @@
+{
+  if (projectInfo == null) {
+    throw new NullPointerException();
+  }
+  addLibrary(projectInfo);
+}

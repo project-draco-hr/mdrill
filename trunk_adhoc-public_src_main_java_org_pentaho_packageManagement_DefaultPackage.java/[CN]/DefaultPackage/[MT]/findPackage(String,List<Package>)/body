@@ -1,0 +1,13 @@
+{
+  boolean found=false;
+  Iterator<Package> i=packageList.iterator();
+  while (i.hasNext()) {
+    Package p=i.next();
+    String pName=p.getPackageMetaDataElement("PackageName").toString();
+    if (packageName.equals(pName)) {
+      found=true;
+      break;
+    }
+  }
+  return found;
+}

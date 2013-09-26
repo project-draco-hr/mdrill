@@ -1,0 +1,6 @@
+{
+  double minZ=plot.getDataset().getMinZValue();
+  double maxZ=plot.getDataset().getMaxZValue();
+  setMinimumValue(minZ);
+  setMaximumValue(maxZ);
+}

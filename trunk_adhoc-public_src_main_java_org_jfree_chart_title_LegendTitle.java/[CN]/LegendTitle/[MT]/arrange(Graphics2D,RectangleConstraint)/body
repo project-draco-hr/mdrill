@@ -1,0 +1,16 @@
+{
+  Size2D result=new Size2D();
+  fetchLegendItems();
+  if (this.items.isEmpty()) {
+    return result;
+  }
+  BlockContainer container=this.wrapper;
+  if (container == null) {
+    container=this.items;
+  }
+  RectangleConstraint c=toContentConstraint(constraint);
+  Size2D size=container.arrange(g2,c);
+  result.height=calculateTotalHeight(size.height);
+  result.width=calculateTotalWidth(size.width);
+  return result;
+}

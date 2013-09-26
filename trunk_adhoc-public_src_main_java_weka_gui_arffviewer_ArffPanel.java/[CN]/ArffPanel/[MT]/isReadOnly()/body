@@ -1,0 +1,4 @@
+{
+  if (m_TableArff == null)   return true;
+ else   return ((ArffSortedTableModel)m_TableArff.getModel()).isReadOnly();
+}

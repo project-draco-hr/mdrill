@@ -1,0 +1,8 @@
+{
+  for (int iTabu=0; iTabu < m_nTabuList; iTabu++) {
+    if (oOperation.equals(m_oTabuList[iTabu])) {
+      return false;
+    }
+  }
+  return true;
+}

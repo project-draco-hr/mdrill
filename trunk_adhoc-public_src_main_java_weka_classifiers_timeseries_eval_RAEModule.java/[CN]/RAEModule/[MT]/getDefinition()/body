@@ -1,0 +1,3 @@
+{
+  return "sum(abs(predicted - actual)) / " + "sum(abs(previous_target - actual))";
+}

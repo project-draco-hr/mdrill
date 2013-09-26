@@ -1,0 +1,5 @@
+{
+  Range range=null;
+  range=data.getZValueRange(x,y);
+  return range;
+}

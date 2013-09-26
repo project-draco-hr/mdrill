@@ -1,0 +1,3 @@
+{
+  return this.underlying.getValue(row,column + this.firstCategoryIndex);
+}

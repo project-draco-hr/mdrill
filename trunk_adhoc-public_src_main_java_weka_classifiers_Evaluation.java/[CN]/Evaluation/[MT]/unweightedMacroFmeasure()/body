@@ -1,0 +1,10 @@
+{
+  weka.experiment.Stats rr=new weka.experiment.Stats();
+  for (int c=0; c < m_NumClasses; c++) {
+    if (numTruePositives(c) + numFalseNegatives(c) > 0) {
+      rr.add(fMeasure(c));
+    }
+  }
+  rr.calculateDerived();
+  return rr.mean;
+}

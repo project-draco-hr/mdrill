@@ -1,0 +1,13 @@
+{
+  final TreeSet collector=new TreeSet();
+  final Enumeration enum1=keys();
+  while (enum1.hasMoreElements()) {
+    final String key=(String)enum1.nextElement();
+    if (key.startsWith(prefix)) {
+      if (collector.contains(key) == false) {
+        collector.add(key);
+      }
+    }
+  }
+  return Collections.unmodifiableSet(collector).iterator();
+}

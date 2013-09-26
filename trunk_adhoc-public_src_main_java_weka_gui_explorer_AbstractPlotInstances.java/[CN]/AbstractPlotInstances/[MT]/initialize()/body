@@ -1,0 +1,5 @@
+{
+  m_Instances=null;
+  m_PlotInstances=null;
+  m_FinishUpCalled=false;
+}

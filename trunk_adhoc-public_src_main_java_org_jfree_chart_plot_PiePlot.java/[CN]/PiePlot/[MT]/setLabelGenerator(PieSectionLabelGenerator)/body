@@ -1,0 +1,4 @@
+{
+  this.labelGenerator=generator;
+  fireChangeEvent();
+}

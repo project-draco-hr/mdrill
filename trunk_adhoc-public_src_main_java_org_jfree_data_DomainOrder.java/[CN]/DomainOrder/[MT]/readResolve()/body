@@ -1,0 +1,12 @@
+{
+  if (this.equals(DomainOrder.ASCENDING)) {
+    return DomainOrder.ASCENDING;
+  }
+ else   if (this.equals(DomainOrder.DESCENDING)) {
+    return DomainOrder.DESCENDING;
+  }
+ else   if (this.equals(DomainOrder.NONE)) {
+    return DomainOrder.NONE;
+  }
+  return null;
+}

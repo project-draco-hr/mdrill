@@ -1,0 +1,5 @@
+{
+  super.buildClassifier(data);
+  cleanup(new Instances(data,0));
+  assignIDs(-1);
+}

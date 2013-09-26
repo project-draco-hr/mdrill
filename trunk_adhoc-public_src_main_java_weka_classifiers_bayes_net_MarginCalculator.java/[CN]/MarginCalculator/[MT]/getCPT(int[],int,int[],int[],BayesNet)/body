@@ -1,0 +1,9 @@
+{
+  int iCPTnew=0;
+  for (int iNode=0; iNode < nNodes; iNode++) {
+    int nNode=nodeSet[iNode];
+    iCPTnew=iCPTnew * bayesNet.getCardinality(nNode);
+    iCPTnew+=values[order[nNode]];
+  }
+  return iCPTnew;
+}

@@ -1,0 +1,3 @@
+{
+  m_probabilities=new double[rowLength][0];
+}

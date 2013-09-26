@@ -1,0 +1,6 @@
+{
+  if (m_isLeaf) {
+    return -localModel().distribution().total();
+  }
+ else   return son(indeX).getSizeOfBranch();
+}

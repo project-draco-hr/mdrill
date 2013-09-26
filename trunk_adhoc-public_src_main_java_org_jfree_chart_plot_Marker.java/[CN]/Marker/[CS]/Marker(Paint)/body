@@ -1,0 +1,3 @@
+{
+  this(paint,new BasicStroke(0.5f),Color.gray,new BasicStroke(0.5f),0.80f);
+}

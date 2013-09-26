@@ -1,0 +1,6 @@
+{
+  this(name,"",icon);
+  m_metaBean=serializedMeta;
+  m_isMeta=true;
+  m_toolTipText="Hold down shift and click to remove";
+}

@@ -1,0 +1,21 @@
+{
+  String tmpStr;
+  Vector list;
+  super.setOptions(options);
+  list=new Vector();
+  list.add("-N");
+  list.add("" + getNumAttributes());
+  list.add("-M");
+  list.add("" + getNumExamples());
+  list.add("-S");
+  list.add("" + getSeed());
+  list.add("-A");
+  tmpStr=Utils.getOption('A',options);
+  if (tmpStr.length() != 0)   list.add(tmpStr);
+ else   list.add("" + defaultNumArcs());
+  list.add("-C");
+  tmpStr=Utils.getOption('C',options);
+  if (tmpStr.length() != 0)   list.add(tmpStr);
+ else   list.add("" + defaultCardinality());
+  setGeneratorOptions(list);
+}

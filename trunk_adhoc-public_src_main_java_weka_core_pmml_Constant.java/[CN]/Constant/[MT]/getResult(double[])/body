@@ -1,0 +1,6 @@
+{
+  if (m_opType == FieldMetaInfo.Optype.CONTINUOUS) {
+    return m_continuousConst;
+  }
+  return 0;
+}

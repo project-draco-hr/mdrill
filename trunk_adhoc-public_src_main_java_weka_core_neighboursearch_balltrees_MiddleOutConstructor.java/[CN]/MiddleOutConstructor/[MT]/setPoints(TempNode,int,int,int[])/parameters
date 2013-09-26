@@ -1,0 +1,4 @@
+TempNode node
+int startIdx
+int endIdx
+int[] indices

@@ -1,0 +1,4 @@
+String text
+TextAnchor textAnchor
+TextAnchor rotationAnchor
+double angle

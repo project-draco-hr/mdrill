@@ -1,0 +1,15 @@
+{
+  if (!getItemVisible(row,column)) {
+    return;
+  }
+  if (!(dataset instanceof BoxAndWhiskerCategoryDataset)) {
+    throw new IllegalArgumentException("BoxAndWhiskerRenderer.drawItem() : the data should be " + "of type BoxAndWhiskerCategoryDataset only.");
+  }
+  PlotOrientation orientation=plot.getOrientation();
+  if (orientation == PlotOrientation.HORIZONTAL) {
+    drawHorizontalItem(g2,state,dataArea,plot,domainAxis,rangeAxis,dataset,row,column);
+  }
+ else   if (orientation == PlotOrientation.VERTICAL) {
+    drawVerticalItem(g2,state,dataArea,plot,domainAxis,rangeAxis,dataset,row,column);
+  }
+}

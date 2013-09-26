@@ -1,0 +1,19 @@
+{
+  Vector result;
+  Enumeration en;
+  String desc;
+  int i;
+  SelectedTag tag;
+  result=new Vector();
+  en=super.listOptions();
+  while (en.hasMoreElements())   result.addElement(en.nextElement());
+  result.addElement(new Option("\tSpecify list of string attributes to convert to words.\n" + "\t(default: select all relational attributes)","R",1,"-R <index1,index2-index4,...>"));
+  result.addElement(new Option("\tInverts the matching sense of the selection.","V",0,"-V"));
+  desc="";
+  for (i=0; i < TAGS_SORTTYPE.length; i++) {
+    tag=new SelectedTag(TAGS_SORTTYPE[i].getID(),TAGS_SORTTYPE);
+    desc+="\t" + tag.getSelectedTag().getIDStr() + " = "+ tag.getSelectedTag().getReadable()+ "\n";
+  }
+  result.addElement(new Option("\tDetermines the type of sorting:\n" + desc + "\t(default: "+ new SelectedTag(SORT_CASESENSITIVE,TAGS_SORTTYPE)+ ")","S",1,"-S " + Tag.toOptionList(TAGS_SORTTYPE)));
+  return result.elements();
+}

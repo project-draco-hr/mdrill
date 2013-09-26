@@ -1,0 +1,8 @@
+{
+  ArffPanel panel;
+  panel=getPanel(index);
+  if (panel != null) {
+    panel.setFilename(filename);
+    setTabTitle(panel);
+  }
+}

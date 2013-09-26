@@ -1,0 +1,6 @@
+{
+  double side=aRadius * 2;
+  g2.draw(new Line2D.Double(xx - side,m - side,xx + side,m - side));
+  g2.draw(new Line2D.Double(xx - side,m - side,xx,m));
+  g2.draw(new Line2D.Double(xx + side,m - side,xx,m));
+}

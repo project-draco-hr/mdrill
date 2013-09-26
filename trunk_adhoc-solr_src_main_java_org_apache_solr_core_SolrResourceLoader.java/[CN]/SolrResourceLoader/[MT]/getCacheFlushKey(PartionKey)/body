@@ -1,0 +1,9 @@
+{
+  if (p != null) {
+    Long rtn=cacheFlushKeyMap.get(p);
+    if (rtn != null) {
+      return rtn;
+    }
+  }
+  return SolrResourceLoader.cacheFlushKey.get();
+}

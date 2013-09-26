@@ -1,0 +1,13 @@
+{
+  Vector newVector=new Vector();
+  newVector.addElement(new Option("\tNumber of trees to build.","I",1,"-I <number of trees>"));
+  newVector.addElement(new Option("\tNumber of features to consider (<1=int(logM+1)).","K",1,"-K <number of features>"));
+  newVector.addElement(new Option("\tSeed for random number generator.\n" + "\t(default 1)","S",1,"-S"));
+  newVector.addElement(new Option("\tThe maximum depth of the trees, 0 for unlimited.\n" + "\t(default 0)","depth",1,"-depth <num>"));
+  newVector.addElement(new Option("\tNumber of execution slots.\n" + "\t(default 1 - i.e. no parallelism)","num-slots",1,"-num-slots <num>"));
+  Enumeration enu=super.listOptions();
+  while (enu.hasMoreElements()) {
+    newVector.addElement(enu.nextElement());
+  }
+  return newVector.elements();
+}

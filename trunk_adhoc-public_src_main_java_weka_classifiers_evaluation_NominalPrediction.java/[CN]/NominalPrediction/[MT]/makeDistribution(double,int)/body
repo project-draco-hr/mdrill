@@ -1,0 +1,8 @@
+{
+  double[] dist=new double[numClasses];
+  if (predictedClass == MISSING_VALUE) {
+    return dist;
+  }
+  dist[(int)predictedClass]=1.0;
+  return dist;
+}

@@ -1,0 +1,3 @@
+double[][] train
+double[][] test
+double numClasses

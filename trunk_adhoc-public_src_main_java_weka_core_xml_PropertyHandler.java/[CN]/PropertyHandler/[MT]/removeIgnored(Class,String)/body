@@ -1,0 +1,6 @@
+{
+  HashSet list;
+  if (m_Ignored.contains(c))   list=(HashSet)m_Ignored.get(c);
+ else   list=new HashSet();
+  return list.remove(displayName);
+}

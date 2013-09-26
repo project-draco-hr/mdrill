@@ -1,0 +1,5 @@
+{
+  stream.defaultWriteObject();
+  SerialUtilities.writePaint(this.backgroundPaint,stream);
+  SerialUtilities.writePaint(this.itemPaint,stream);
+}

@@ -1,0 +1,8 @@
+{
+  if (area == null) {
+    throw new IllegalArgumentException("Null 'area' argument.");
+  }
+  this.area=area;
+  this.toolTipText=toolTipText;
+  this.urlText=urlText;
+}

@@ -1,0 +1,10 @@
+{
+  ParentSet oParentSet=m_BayesNet.getParentSet(nNode);
+  if (oParentSet.contains(nCandidateParent)) {
+    return -1e100;
+  }
+  oParentSet.addParent(nCandidateParent,m_BayesNet.m_Instances);
+  double logScore=calcNodeScore(nNode);
+  oParentSet.deleteLastParent(m_BayesNet.m_Instances);
+  return logScore;
+}

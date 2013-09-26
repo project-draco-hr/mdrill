@@ -1,0 +1,3 @@
+{
+  return this.message + "Free: " + Runtime.getRuntime().freeMemory()+ "; "+ "Total: "+ Runtime.getRuntime().totalMemory();
+}

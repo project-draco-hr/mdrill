@@ -1,0 +1,10 @@
+{
+switch (method) {
+case POSITION_INDEX:
+    return true;
+case VALUE_INDEX:
+  return true;
+default :
+return false;
+}
+}

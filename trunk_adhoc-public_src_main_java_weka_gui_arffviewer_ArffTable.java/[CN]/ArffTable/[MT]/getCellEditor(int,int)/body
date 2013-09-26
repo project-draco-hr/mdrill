@@ -1,0 +1,6 @@
+{
+  TableCellEditor result;
+  if ((getModel() instanceof ArffSortedTableModel) && (((ArffSortedTableModel)getModel()).getType(column) == Attribute.RELATIONAL))   result=new RelationalCellEditor(row,column);
+ else   result=super.getCellEditor(row,column);
+  return result;
+}

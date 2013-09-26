@@ -1,0 +1,3 @@
+{
+  this(key,paint,stroke,paint,stroke,1.0f);
+}

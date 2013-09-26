@@ -1,0 +1,8 @@
+{
+  if (object == null) {
+    throw new NullPointerException();
+  }
+  this.object=object;
+  setConfirmed(false);
+  fillObject();
+}

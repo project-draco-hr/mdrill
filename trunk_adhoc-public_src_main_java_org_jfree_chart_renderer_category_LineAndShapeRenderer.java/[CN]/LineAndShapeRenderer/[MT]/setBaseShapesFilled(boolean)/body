@@ -1,0 +1,4 @@
+{
+  this.baseShapesFilled=flag;
+  fireChangeEvent();
+}

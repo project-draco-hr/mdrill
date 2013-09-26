@@ -1,0 +1,40 @@
+{
+  boolean makeInteger=cl.isInteger();
+  int num=-1;
+  Instance example=null;
+  int numAtts=m_NumAttributes;
+  if (getClassFlag())   numAtts++;
+  example=new DenseInstance(numAtts);
+  example.setDataset(format);
+  boolean[] attributes=cl.getAttributes();
+  double[] minValue=cl.getMinValue();
+  double[] maxValue=cl.getMaxValue();
+  double value;
+  int clusterI=-1;
+  for (int i=0; i < m_NumAttributes; i++) {
+    if (attributes[i]) {
+      clusterI++;
+      num++;
+      if (isBoolean(i) || isNominal(i)) {
+        if (minValue[clusterI] == maxValue[clusterI]) {
+          value=minValue[clusterI];
+        }
+ else {
+          int numValues=(int)(maxValue[clusterI] - minValue[clusterI] + 1.0);
+          value=randomG.nextInt(numValues);
+          value+=minValue[clusterI];
+        }
+      }
+ else {
+        value=randomG.nextDouble() * (maxValue[num] - minValue[num]) + minValue[num];
+        if (makeInteger)         value=Math.round(value);
+      }
+      example.setValue(i,value);
+    }
+ else {
+      example.setMissing(i);
+    }
+  }
+  if (getClassFlag())   example.setClassValue(cName);
+  return example;
+}

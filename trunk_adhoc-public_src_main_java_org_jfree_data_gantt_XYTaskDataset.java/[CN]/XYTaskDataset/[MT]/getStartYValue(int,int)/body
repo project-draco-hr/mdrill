@@ -1,0 +1,8 @@
+{
+  if (!this.transposed) {
+    return getItemStartValue(series,item);
+  }
+ else {
+    return getSeriesStartValue(series);
+  }
+}

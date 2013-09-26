@@ -1,0 +1,5 @@
+{
+  calendar.set(this.year,Calendar.DECEMBER,31,23,59,59);
+  calendar.set(Calendar.MILLISECOND,999);
+  return calendar.getTime().getTime();
+}

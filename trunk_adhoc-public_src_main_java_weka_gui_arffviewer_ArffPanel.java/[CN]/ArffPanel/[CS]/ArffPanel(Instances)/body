@@ -1,0 +1,5 @@
+{
+  this();
+  m_Filename="";
+  setInstances(data);
+}

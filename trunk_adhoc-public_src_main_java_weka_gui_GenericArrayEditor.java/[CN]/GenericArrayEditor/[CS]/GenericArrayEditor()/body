@@ -1,0 +1,16 @@
+{
+  setLayout(new BorderLayout());
+  add(m_Label,BorderLayout.CENTER);
+  m_DeleteBut.addActionListener(m_InnerActionListener);
+  m_EditBut.addActionListener(m_InnerActionListener);
+  m_UpBut.addActionListener(m_InnerActionListener);
+  m_DownBut.addActionListener(m_InnerActionListener);
+  m_AddBut.addActionListener(m_InnerActionListener);
+  m_ElementList.addListSelectionListener(m_InnerSelectionListener);
+  m_ElementList.addMouseListener(m_InnerMouseListener);
+  m_AddBut.setToolTipText("Add the current item to the list");
+  m_DeleteBut.setToolTipText("Delete the selected list item");
+  m_EditBut.setToolTipText("Edit the selected list item");
+  m_UpBut.setToolTipText("Move the selected item(s) one up");
+  m_DownBut.setToolTipText("Move the selected item(s) one down");
+}

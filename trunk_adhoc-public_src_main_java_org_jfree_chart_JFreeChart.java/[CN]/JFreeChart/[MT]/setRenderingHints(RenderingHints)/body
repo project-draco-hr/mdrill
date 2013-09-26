@@ -1,0 +1,7 @@
+{
+  if (renderingHints == null) {
+    throw new NullPointerException("RenderingHints given are null");
+  }
+  this.renderingHints=renderingHints;
+  fireChartChanged();
+}

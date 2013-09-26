@@ -1,0 +1,7 @@
+{
+  int last=m_Ruleset.size() - 1;
+  m_Ruleset.removeElementAt(last);
+  m_Filtered.removeElementAt(last);
+  m_SimpleStats.removeElementAt(last);
+  if (m_Distributions != null)   m_Distributions.removeElementAt(last);
+}

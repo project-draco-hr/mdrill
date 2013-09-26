@@ -1,0 +1,5 @@
+{
+  XYSeries series=sampleFunction2DToSeries(f,start,end,samples,seriesKey);
+  XYSeriesCollection collection=new XYSeriesCollection(series);
+  return collection;
+}

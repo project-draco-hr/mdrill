@@ -1,0 +1,6 @@
+MdrillParseGroupby parse
+String[] fields
+DocSet baseDocs
+SegmentReader reader
+SolrIndexSearcher searcher
+SolrQueryRequest req

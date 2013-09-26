@@ -1,0 +1,13 @@
+{
+  Instances newData;
+  FastVector newAtts;
+  newAtts=new FastVector(getInputFormat().numAttributes());
+  for (int j=0; j < getInputFormat().numAttributes(); j++) {
+    Attribute att=getInputFormat().attribute(j);
+    if (!att.isNominal() || !m_AttIndex.isInRange(j))     newAtts.addElement(att);
+ else     newAtts.addElement(new Attribute(att.name(),(FastVector)null));
+  }
+  newData=new Instances(getInputFormat().relationName(),newAtts,0);
+  newData.setClassIndex(getInputFormat().classIndex());
+  setOutputFormat(newData);
+}

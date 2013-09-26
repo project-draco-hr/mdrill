@@ -1,0 +1,3 @@
+{
+  return "Number of rules: " + m_root.numRules() + "\n";
+}

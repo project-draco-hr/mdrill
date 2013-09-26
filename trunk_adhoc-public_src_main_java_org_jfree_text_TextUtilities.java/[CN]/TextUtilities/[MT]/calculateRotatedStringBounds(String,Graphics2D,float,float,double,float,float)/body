@@ -1,0 +1,12 @@
+{
+  if ((text == null) || (text.equals(""))) {
+    return null;
+  }
+  final FontMetrics fm=g2.getFontMetrics();
+  final Rectangle2D bounds=TextUtilities.getTextBounds(text,g2,fm);
+  final AffineTransform translate=AffineTransform.getTranslateInstance(textX,textY);
+  final Shape translatedBounds=translate.createTransformedShape(bounds);
+  final AffineTransform rotate=AffineTransform.getRotateInstance(angle,rotateX,rotateY);
+  final Shape result=rotate.createTransformedShape(translatedBounds);
+  return result;
+}

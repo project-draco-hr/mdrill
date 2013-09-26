@@ -1,0 +1,3 @@
+{
+  return this.parse.distFS == null || distufs.listIndex.length == 0;
+}

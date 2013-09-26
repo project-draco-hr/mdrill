@@ -1,0 +1,4 @@
+{
+  m_xValFreq=freq;
+  if (getGraphics() != null)   setRefreshWidth();
+}

@@ -1,0 +1,3 @@
+String packageName
+Object version
+PrintStream progress

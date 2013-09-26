@@ -1,0 +1,4 @@
+{
+  this.tickMarkOutsideLength=length;
+  fireChangeEvent();
+}

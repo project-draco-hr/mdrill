@@ -1,0 +1,12 @@
+{
+  super(className,false);
+  setParameterDefinition("2DigitYearStart",Date.class);
+  setParameterDefinition("calendar",Calendar.class);
+  setParameterDefinition("dateFormatSymbols",DateFormatSymbols.class);
+  setParameterDefinition("lenient",Boolean.TYPE);
+  setParameterDefinition("numberFormat",NumberFormat.class);
+  setParameterDefinition("localizedPattern",String.class);
+  setParameterDefinition("pattern",String.class);
+  ignoreParameter("localizedPattern");
+  ignoreParameter("pattern");
+}

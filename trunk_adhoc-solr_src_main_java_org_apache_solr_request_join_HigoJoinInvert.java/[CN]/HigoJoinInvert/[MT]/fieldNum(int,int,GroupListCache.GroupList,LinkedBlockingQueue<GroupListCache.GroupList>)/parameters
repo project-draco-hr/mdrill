@@ -1,0 +1,4 @@
+int doc
+int offset
+GroupListCache.GroupList base
+LinkedBlockingQueue<GroupListCache.GroupList> cache

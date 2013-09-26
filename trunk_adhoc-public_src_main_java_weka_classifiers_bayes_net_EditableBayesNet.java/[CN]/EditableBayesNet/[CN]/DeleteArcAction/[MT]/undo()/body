@@ -1,0 +1,14 @@
+{
+  try {
+    SerializedObject so=new SerializedObject(m_CPT);
+    m_Distributions[m_nChild]=(Estimator[])so.getObject();
+    ParentSet parentSet=new ParentSet();
+    for (int iParent=0; iParent < m_nParents.length; iParent++) {
+      parentSet.addParent(m_nParents[iParent],m_Instances);
+    }
+    m_ParentSets[m_nChild]=parentSet;
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
+}

@@ -1,0 +1,3 @@
+{
+  return PRINTED_NODES++;
+}

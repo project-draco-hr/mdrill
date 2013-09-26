@@ -1,0 +1,8 @@
+{
+  this.bytePos=writeInt4(0,this.bytePos);
+  this.bytePos=writeBytes(IEND,this.bytePos);
+  this.crc.reset();
+  this.crc.update(IEND);
+  this.crcValue=this.crc.getValue();
+  this.bytePos=writeInt4((int)this.crcValue,this.bytePos);
+}

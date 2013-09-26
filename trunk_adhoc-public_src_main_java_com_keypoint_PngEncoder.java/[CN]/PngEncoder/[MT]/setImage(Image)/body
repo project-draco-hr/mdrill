@@ -1,0 +1,4 @@
+{
+  this.image=image;
+  this.pngBytes=null;
+}

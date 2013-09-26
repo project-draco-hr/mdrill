@@ -1,0 +1,8 @@
+{
+  inst=filterInstance(inst);
+  Matrix k=new Matrix(m_NumTrain,1);
+  for (int i=0; i < m_NumTrain; i++) {
+    k.set(i,0,m_kernel.eval(-1,i,inst));
+  }
+  return computeStdDev(inst,k) / m_Alin;
+}

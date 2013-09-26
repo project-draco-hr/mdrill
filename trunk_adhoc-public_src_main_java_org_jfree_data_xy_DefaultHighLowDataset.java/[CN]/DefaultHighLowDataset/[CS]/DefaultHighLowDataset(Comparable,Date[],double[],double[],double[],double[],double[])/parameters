@@ -1,0 +1,7 @@
+Comparable seriesKey
+Date[] date
+double[] high
+double[] low
+double[] open
+double[] close
+double[] volume

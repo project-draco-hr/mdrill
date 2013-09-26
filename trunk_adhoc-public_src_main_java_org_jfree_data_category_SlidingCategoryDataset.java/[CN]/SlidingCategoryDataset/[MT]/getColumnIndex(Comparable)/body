@@ -1,0 +1,7 @@
+{
+  int index=this.underlying.getColumnIndex(key);
+  if (index >= this.firstCategoryIndex && index <= lastCategoryIndex()) {
+    return index - this.firstCategoryIndex;
+  }
+  return -1;
+}

@@ -1,0 +1,5 @@
+{
+  XYSeries s=(XYSeries)this.data.get(series);
+  XYDataItem dataItem=s.getDataItem(item);
+  return dataItem.getX();
+}

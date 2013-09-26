@@ -1,0 +1,3 @@
+{
+  crossValidateModel(AbstractClassifier.forName(classifierString,options),data,numFolds,random);
+}

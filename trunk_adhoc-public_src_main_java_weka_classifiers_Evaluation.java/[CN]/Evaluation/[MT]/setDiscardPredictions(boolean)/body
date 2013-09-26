@@ -1,0 +1,4 @@
+{
+  m_DiscardPredictions=value;
+  if (m_DiscardPredictions)   m_Predictions=null;
+}

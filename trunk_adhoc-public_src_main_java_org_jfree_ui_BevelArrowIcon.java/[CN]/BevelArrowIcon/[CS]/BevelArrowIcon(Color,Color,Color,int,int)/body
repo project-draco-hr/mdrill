@@ -1,0 +1,3 @@
+{
+  init(edge1,edge2,fill,size,direction);
+}

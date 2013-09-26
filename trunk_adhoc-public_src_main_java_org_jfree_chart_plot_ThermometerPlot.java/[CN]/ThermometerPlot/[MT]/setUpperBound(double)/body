@@ -1,0 +1,4 @@
+{
+  this.upperBound=upper;
+  setAxisRange();
+}

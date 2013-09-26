@@ -1,0 +1,3 @@
+{
+  this.progressListeners.remove(ChartProgressListener.class,listener);
+}

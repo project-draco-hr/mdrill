@@ -1,0 +1,3 @@
+{
+  setPositiveItemLabelPosition(position,true);
+}

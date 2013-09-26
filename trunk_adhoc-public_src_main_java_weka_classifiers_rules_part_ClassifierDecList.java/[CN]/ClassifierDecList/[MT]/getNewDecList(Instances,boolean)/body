@@ -1,0 +1,5 @@
+{
+  ClassifierDecList newDecList=new ClassifierDecList(m_toSelectModel,m_minNumObj);
+  newDecList.buildDecList(train,leaf);
+  return newDecList;
+}

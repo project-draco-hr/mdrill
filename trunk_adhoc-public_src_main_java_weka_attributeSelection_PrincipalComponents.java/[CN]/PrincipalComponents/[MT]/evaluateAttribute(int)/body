@@ -1,0 +1,13 @@
+{
+  if (m_eigenvalues == null) {
+    throw new Exception("Principal components hasn't been built yet!");
+  }
+  if (m_transBackToOriginal) {
+    return 1.0;
+  }
+  double cumulative=0.0;
+  for (int i=m_numAttribs - 1; i >= m_numAttribs - att - 1; i--) {
+    cumulative+=m_eigenvalues[m_sortedEigens[i]];
+  }
+  return 1.0 - cumulative / m_sumOfEigenValues;
+}

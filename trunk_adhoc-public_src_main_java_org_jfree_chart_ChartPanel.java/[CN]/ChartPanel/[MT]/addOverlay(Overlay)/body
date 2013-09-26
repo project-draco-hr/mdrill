@@ -1,0 +1,8 @@
+{
+  if (overlay == null) {
+    throw new IllegalArgumentException("Null 'overlay' argument.");
+  }
+  this.overlays.add(overlay);
+  overlay.addChangeListener(this);
+  repaint();
+}

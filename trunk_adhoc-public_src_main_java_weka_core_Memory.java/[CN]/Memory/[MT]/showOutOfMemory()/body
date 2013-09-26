@@ -1,0 +1,7 @@
+{
+  if (!isEnabled())   return;
+  System.gc();
+  String msg="Not enough memory. Please load a smaller " + "dataset or use larger heap size.\n" + "- initial JVM size:   " + Utils.doubleToString(toMegaByte(m_Initial),1) + "MB\n"+ "- total memory used:  "+ Utils.doubleToString(toMegaByte(m_Total),1)+ "MB\n"+ "- max. memory avail.: "+ Utils.doubleToString(toMegaByte(m_Max),1)+ "MB\n"+ "\n"+ "Note:\n"+ "The Java heap size can be specified with the -Xmx option.\n"+ "E.g., to use 128MB as heap size, the command line looks like this:\n"+ "   java -Xmx128m -classpath ...\n"+ "This does NOT work in the SimpleCLI, the java command refers\n"+ "to the one with which Weka is started.";
+  System.err.println(msg);
+  if (getUseGUI())   JOptionPane.showMessageDialog(null,msg,"OutOfMemory",JOptionPane.WARNING_MESSAGE);
+}

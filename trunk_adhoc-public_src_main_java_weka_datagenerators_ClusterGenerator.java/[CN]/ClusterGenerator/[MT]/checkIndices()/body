@@ -1,0 +1,9 @@
+{
+  for (int i=1; i < getNumAttributes() + 1; i++) {
+    m_booleanCols.isInRange(i);
+    if (m_booleanCols.isInRange(i) && m_nominalCols.isInRange(i)) {
+      return "Error in attribute type: Attribute " + i + " is set boolean and nominal.";
+    }
+  }
+  return "";
+}

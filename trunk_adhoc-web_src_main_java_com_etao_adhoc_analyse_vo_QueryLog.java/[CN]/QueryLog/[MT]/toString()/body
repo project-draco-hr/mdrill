@@ -1,0 +1,3 @@
+{
+  return "QueryLog [date=" + date + ", nick="+ nick+ ", email="+ email+ ", setName="+ setName+ ", dimvalue="+ dimvalue+ ", filter="+ filter+ ", bizdate="+ bizdate+ "]";
+}

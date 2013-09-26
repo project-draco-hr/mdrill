@@ -1,0 +1,3 @@
+{
+  drawRotatedString(text,g2,x,y,angle,x,y);
+}

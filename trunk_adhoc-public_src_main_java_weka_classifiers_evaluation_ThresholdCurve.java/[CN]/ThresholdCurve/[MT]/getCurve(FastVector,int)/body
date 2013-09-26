@@ -1,0 +1,61 @@
+{
+  if ((predictions.size() == 0) || (((NominalPrediction)predictions.elementAt(0)).distribution().length <= classIndex)) {
+    return null;
+  }
+  double totPos=0, totNeg=0;
+  double[] probs=getProbabilities(predictions,classIndex);
+  for (int i=0; i < probs.length; i++) {
+    NominalPrediction pred=(NominalPrediction)predictions.elementAt(i);
+    if (pred.actual() == Prediction.MISSING_VALUE) {
+      System.err.println(getClass().getName() + " Skipping prediction with missing class value");
+      continue;
+    }
+    if (pred.weight() < 0) {
+      System.err.println(getClass().getName() + " Skipping prediction with negative weight");
+      continue;
+    }
+    if (pred.actual() == classIndex) {
+      totPos+=pred.weight();
+    }
+ else {
+      totNeg+=pred.weight();
+    }
+  }
+  Instances insts=makeHeader();
+  int[] sorted=Utils.sort(probs);
+  TwoClassStats tc=new TwoClassStats(totPos,totNeg,0,0);
+  double threshold=0;
+  double cumulativePos=0;
+  double cumulativeNeg=0;
+  for (int i=0; i < sorted.length; i++) {
+    if ((i == 0) || (probs[sorted[i]] > threshold)) {
+      tc.setTruePositive(tc.getTruePositive() - cumulativePos);
+      tc.setFalseNegative(tc.getFalseNegative() + cumulativePos);
+      tc.setFalsePositive(tc.getFalsePositive() - cumulativeNeg);
+      tc.setTrueNegative(tc.getTrueNegative() + cumulativeNeg);
+      threshold=probs[sorted[i]];
+      insts.add(makeInstance(tc,threshold));
+      cumulativePos=0;
+      cumulativeNeg=0;
+      if (i == sorted.length - 1) {
+        break;
+      }
+    }
+    NominalPrediction pred=(NominalPrediction)predictions.elementAt(sorted[i]);
+    if (pred.actual() == Prediction.MISSING_VALUE) {
+      System.err.println(getClass().getName() + " Skipping prediction with missing class value");
+      continue;
+    }
+    if (pred.weight() < 0) {
+      System.err.println(getClass().getName() + " Skipping prediction with negative weight");
+      continue;
+    }
+    if (pred.actual() == classIndex) {
+      cumulativePos+=pred.weight();
+    }
+ else {
+      cumulativeNeg+=pred.weight();
+    }
+  }
+  return insts;
+}

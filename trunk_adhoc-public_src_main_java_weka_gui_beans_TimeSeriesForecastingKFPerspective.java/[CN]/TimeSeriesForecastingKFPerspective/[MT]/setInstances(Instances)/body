@@ -1,0 +1,10 @@
+{
+  if (m_forecastingPanel != null) {
+    try {
+      m_forecastingPanel.setInstances(inst);
+    }
+ catch (    Exception ex) {
+      ex.printStackTrace();
+    }
+  }
+}

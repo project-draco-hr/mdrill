@@ -1,0 +1,6 @@
+{
+  if (v == VersionComparison.EQUAL) {
+    return true;
+  }
+  return false;
+}

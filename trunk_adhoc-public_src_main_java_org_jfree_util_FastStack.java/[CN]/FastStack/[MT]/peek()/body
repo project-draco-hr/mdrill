@@ -1,0 +1,6 @@
+{
+  if (this.size == 0) {
+    throw new EmptyStackException();
+  }
+  return this.contents[this.size - 1];
+}

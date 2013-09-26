@@ -1,0 +1,18 @@
+{
+  if (this.zoomRectangle != null) {
+    if (xor) {
+      g2.setXORMode(Color.gray);
+    }
+    if (this.fillZoomRectangle) {
+      g2.setPaint(this.zoomFillPaint);
+      g2.fill(this.zoomRectangle);
+    }
+ else {
+      g2.setPaint(this.zoomOutlinePaint);
+      g2.draw(this.zoomRectangle);
+    }
+    if (xor) {
+      g2.setPaintMode();
+    }
+  }
+}

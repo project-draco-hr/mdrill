@@ -1,0 +1,8 @@
+{
+  this.maxPos=Math.max(this.maxPos,offset + nBytes);
+  if (nBytes + offset > this.pngBytes.length) {
+    this.pngBytes=resizeByteArray(this.pngBytes,this.pngBytes.length + Math.max(1000,nBytes));
+  }
+  System.arraycopy(data,0,this.pngBytes,offset,nBytes);
+  return offset + nBytes;
+}

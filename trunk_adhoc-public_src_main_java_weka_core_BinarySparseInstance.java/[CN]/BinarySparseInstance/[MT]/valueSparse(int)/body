@@ -1,0 +1,4 @@
+{
+  int index=m_Indices[indexOfIndex];
+  return 1;
+}

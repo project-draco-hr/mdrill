@@ -1,0 +1,5 @@
+{
+  final AttributeHandler handler=loadAttributeHandler(handlerClass);
+  this.orderedNames.add(name);
+  this.attributeDefinition.add(new AttributeDefinition(name,attribName,handler));
+}

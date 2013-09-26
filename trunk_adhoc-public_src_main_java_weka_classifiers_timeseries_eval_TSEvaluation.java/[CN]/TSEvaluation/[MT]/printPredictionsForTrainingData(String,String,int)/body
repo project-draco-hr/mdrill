@@ -1,0 +1,3 @@
+{
+  return printPredictionsForTrainingData(title,targetName,stepAhead,0);
+}

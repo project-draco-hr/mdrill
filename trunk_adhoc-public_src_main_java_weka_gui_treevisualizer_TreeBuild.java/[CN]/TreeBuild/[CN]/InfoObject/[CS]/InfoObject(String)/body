@@ -1,0 +1,12 @@
+{
+  m_id=i;
+  m_color=null;
+  m_fontColor=null;
+  m_fontSize=null;
+  m_label=null;
+  m_shape=null;
+  m_style=null;
+  m_source=null;
+  m_target=null;
+  m_data=null;
+}

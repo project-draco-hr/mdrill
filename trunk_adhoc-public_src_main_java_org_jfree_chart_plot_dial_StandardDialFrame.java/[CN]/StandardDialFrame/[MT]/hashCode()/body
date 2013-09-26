@@ -1,0 +1,9 @@
+{
+  int result=193;
+  long temp=Double.doubleToLongBits(this.radius);
+  result=37 * result + (int)(temp ^ (temp >>> 32));
+  result=37 * result + HashUtilities.hashCodeForPaint(this.backgroundPaint);
+  result=37 * result + HashUtilities.hashCodeForPaint(this.foregroundPaint);
+  result=37 * result + this.stroke.hashCode();
+  return result;
+}

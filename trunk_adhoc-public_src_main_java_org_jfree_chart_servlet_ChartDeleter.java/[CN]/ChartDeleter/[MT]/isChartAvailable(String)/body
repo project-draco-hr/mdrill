@@ -1,0 +1,3 @@
+{
+  return (this.chartNames.contains(filename));
+}

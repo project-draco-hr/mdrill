@@ -1,0 +1,18 @@
+{
+  super(log);
+  String gammaString=radialElement.getAttribute("gamma");
+  if (gammaString != null && gammaString.length() > 0) {
+    try {
+      m_gamma=Double.parseDouble(gammaString);
+    }
+ catch (    NumberFormatException e) {
+      String message="[RadialBasisKernel] : WARNING, can't parse " + "gamma attribute. Using default value of 1.";
+      if (m_log == null) {
+        System.err.println(message);
+      }
+ else {
+        m_log.logMessage(message);
+      }
+    }
+  }
+}

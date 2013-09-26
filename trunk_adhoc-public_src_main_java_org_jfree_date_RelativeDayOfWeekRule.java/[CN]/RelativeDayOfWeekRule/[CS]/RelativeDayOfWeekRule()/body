@@ -1,0 +1,3 @@
+{
+  this(new DayAndMonthRule(),SerialDate.MONDAY,SerialDate.FOLLOWING);
+}

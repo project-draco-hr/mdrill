@@ -1,0 +1,67 @@
+{
+  if (current == null) {
+    throw new Exception("current shouldn't be null in checkStructure");
+  }
+  if (m_FirstCheck) {
+    m_NominalAttributes.setUpper(current.size() - 1);
+    m_StringAttributes.setUpper(current.size() - 1);
+    m_dateAttributes.setUpper(current.size() - 1);
+    m_FirstCheck=false;
+  }
+  for (int i=0; i < current.size(); i++) {
+    Object ob=current.get(i);
+    if ((ob instanceof String) || (m_NominalAttributes.isInRange(i)) || (m_StringAttributes.isInRange(i))|| m_dateAttributes.isInRange(i)) {
+      if (ob.toString().compareTo(m_MissingValue) == 0) {
+      }
+ else {
+        boolean notDate=true;
+        if (m_dateAttributes.isInRange(i)) {
+          if (m_formatter == null) {
+            m_formatter=new SimpleDateFormat(m_dateFormat);
+          }
+          try {
+            long time=m_formatter.parse(ob.toString()).getTime();
+            Double timeL=new Double(time);
+            current.set(i,timeL);
+            notDate=false;
+          }
+ catch (          ParseException e) {
+            notDate=true;
+          }
+        }
+        if (notDate) {
+          Hashtable<Object,Integer> tempHash=m_cumulativeStructure.get(i);
+          if (!tempHash.containsKey(ob)) {
+            if (tempHash.size() == 0) {
+              for (int j=0; j < m_cumulativeInstances.size(); j++) {
+                ArrayList tempUpdate=((ArrayList)m_cumulativeInstances.get(j));
+                Object tempO=tempUpdate.get(i);
+                if (tempO instanceof String) {
+                }
+ else {
+                  if (!tempHash.containsKey(tempO)) {
+                    tempHash.put(new Double(((Double)tempO).doubleValue()),new Integer(tempHash.size()));
+                  }
+                }
+              }
+            }
+            int newIndex=tempHash.size();
+            tempHash.put(ob,new Integer(newIndex));
+          }
+        }
+      }
+    }
+ else     if (ob instanceof Double) {
+      Hashtable<Object,Integer> tempHash=m_cumulativeStructure.get(i);
+      if (tempHash.size() != 0) {
+        if (!tempHash.containsKey(ob)) {
+          int newIndex=tempHash.size();
+          tempHash.put(new Double(((Double)ob).doubleValue()),new Integer(newIndex));
+        }
+      }
+    }
+ else {
+      throw new Exception("Wrong object type in checkStructure!");
+    }
+  }
+}

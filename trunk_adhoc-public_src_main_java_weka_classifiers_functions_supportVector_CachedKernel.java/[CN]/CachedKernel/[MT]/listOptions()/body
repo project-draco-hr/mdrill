@@ -1,0 +1,9 @@
+{
+  Vector result;
+  Enumeration en;
+  result=new Vector();
+  en=super.listOptions();
+  while (en.hasMoreElements())   result.addElement(en.nextElement());
+  result.addElement(new Option("\tThe size of the cache (a prime number), 0 for full cache and \n" + "\t-1 to turn it off.\n" + "\t(default: 250007)","C",1,"-C <num>"));
+  return result.elements();
+}

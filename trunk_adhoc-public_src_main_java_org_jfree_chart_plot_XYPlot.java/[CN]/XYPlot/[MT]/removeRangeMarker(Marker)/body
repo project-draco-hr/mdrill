@@ -1,0 +1,3 @@
+{
+  return removeRangeMarker(marker,Layer.FOREGROUND);
+}

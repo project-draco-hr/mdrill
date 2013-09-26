@@ -1,0 +1,15 @@
+{
+  if ((o1 instanceof SystemProperty) && (o2 instanceof SystemProperty)) {
+    final SystemProperty sp1=(SystemProperty)o1;
+    final SystemProperty sp2=(SystemProperty)o2;
+    if (this.ascending) {
+      return sp1.getName().compareTo(sp2.getName());
+    }
+ else {
+      return sp2.getName().compareTo(sp1.getName());
+    }
+  }
+ else {
+    return 0;
+  }
+}

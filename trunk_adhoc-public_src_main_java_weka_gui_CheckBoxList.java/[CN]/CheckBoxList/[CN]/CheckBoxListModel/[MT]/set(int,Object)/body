@@ -1,0 +1,4 @@
+{
+  if (!(element instanceof CheckBoxListItem))   return ((CheckBoxListItem)super.set(index,new CheckBoxListItem(element))).getContent();
+ else   return ((CheckBoxListItem)super.set(index,element)).getContent();
+}

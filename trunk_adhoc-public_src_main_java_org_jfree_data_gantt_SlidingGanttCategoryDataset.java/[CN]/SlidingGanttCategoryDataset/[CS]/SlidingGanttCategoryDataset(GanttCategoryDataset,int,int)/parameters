@@ -1,0 +1,3 @@
+GanttCategoryDataset underlying
+int firstColumn
+int maxColumns

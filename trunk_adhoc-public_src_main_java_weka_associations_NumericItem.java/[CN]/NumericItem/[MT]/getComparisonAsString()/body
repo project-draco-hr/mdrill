@@ -1,0 +1,15 @@
+{
+  String result=null;
+switch (m_comparison) {
+case EQUAL:
+    result="=";
+  break;
+case LESS_THAN_OR_EQUAL_TO:
+result="<=";
+break;
+case GREATER_THAN:
+result=">";
+break;
+}
+return result;
+}

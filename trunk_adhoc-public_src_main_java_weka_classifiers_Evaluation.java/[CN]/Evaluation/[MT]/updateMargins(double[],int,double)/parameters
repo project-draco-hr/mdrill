@@ -1,0 +1,3 @@
+double[] predictedDistribution
+int actualClass
+double weight

@@ -1,0 +1,5 @@
+{
+  for (int i=0; i < data.numInstances(); i++) {
+    insertHoldOutInstance(data.instance(i),data.instance(i).weight(),this);
+  }
+}

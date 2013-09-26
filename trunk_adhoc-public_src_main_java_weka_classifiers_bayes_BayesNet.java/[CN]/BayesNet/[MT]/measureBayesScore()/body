@@ -1,0 +1,4 @@
+{
+  LocalScoreSearchAlgorithm s=new LocalScoreSearchAlgorithm(this,m_Instances);
+  return s.logScore(Scoreable.BAYES);
+}

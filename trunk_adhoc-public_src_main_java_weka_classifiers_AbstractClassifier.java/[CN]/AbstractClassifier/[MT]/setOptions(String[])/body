@@ -1,0 +1,3 @@
+{
+  setDebug(Utils.getFlag('D',options));
+}

@@ -1,0 +1,4 @@
+{
+  RegularTimePeriod last=getTimePeriod(getItemCount() - 1);
+  return last.next();
+}

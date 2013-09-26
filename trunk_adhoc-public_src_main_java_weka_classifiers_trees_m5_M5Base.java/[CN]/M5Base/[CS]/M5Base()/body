@@ -1,0 +1,6 @@
+{
+  m_generateRules=false;
+  m_unsmoothedPredictions=false;
+  m_useUnpruned=false;
+  m_minNumInstances=4;
+}

@@ -1,0 +1,9 @@
+{
+  final Rectangle2D rect=new Rectangle2D.Float();
+  final float w=getFloatParameter("width");
+  final float h=getFloatParameter("height");
+  final float x=getFloatParameter("x");
+  final float y=getFloatParameter("y");
+  rect.setRect(x,y,w,h);
+  return rect;
+}

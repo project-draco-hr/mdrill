@@ -1,0 +1,7 @@
+{
+  int result=0;
+  if (object != null) {
+    result=object.hashCode();
+  }
+  return result;
+}

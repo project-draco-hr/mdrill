@@ -1,0 +1,5 @@
+{
+  if (!trailing)   throw new RuntimeException("flexible width");
+  if (sign)   return 1 + digits + 2+ exp;
+ else   return digits + 2 + exp;
+}

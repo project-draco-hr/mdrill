@@ -1,0 +1,27 @@
+{
+  if (!m_center) {
+    fillCorrelation();
+    return;
+  }
+  double[] att=new double[m_TrainInstances.numInstances()];
+  m_centerFilter=new Center();
+  m_centerFilter.setInputFormat(m_TrainInstances);
+  m_TrainInstances=Filter.useFilter(m_TrainInstances,m_centerFilter);
+  m_Correlation=new double[m_NumAttribs][m_NumAttribs];
+  for (int i=0; i < m_NumAttribs; i++) {
+    for (int j=0; j < m_NumAttribs; j++) {
+      double cov=0;
+      for (int k=0; k < m_NumInstances; k++) {
+        if (i == j) {
+          cov+=(m_TrainInstances.instance(k).value(i) * m_TrainInstances.instance(k).value(i));
+        }
+ else {
+          cov+=(m_TrainInstances.instance(k).value(i) * m_TrainInstances.instance(k).value(j));
+        }
+      }
+      cov/=(double)(m_TrainInstances.numInstances() - 1);
+      m_Correlation[i][j]=cov;
+      m_Correlation[j][i]=cov;
+    }
+  }
+}

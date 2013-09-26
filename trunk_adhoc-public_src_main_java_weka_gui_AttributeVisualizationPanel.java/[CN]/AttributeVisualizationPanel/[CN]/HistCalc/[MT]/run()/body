@@ -1,0 +1,111 @@
+{
+synchronized (m_locker) {
+    if ((m_classIndex >= 0) && (m_data.attribute(m_classIndex).isNominal())) {
+      int intervals;
+      double intervalWidth=0.0;
+      intervalWidth=3.49 * m_as.numericStats.stdDev * Math.pow(m_data.numInstances(),-1 / 3D);
+      intervals=Math.max(1,(int)Math.round((m_as.numericStats.max - m_as.numericStats.min) / intervalWidth));
+      if (intervals > AttributeVisualizationPanel.this.getWidth()) {
+        intervals=AttributeVisualizationPanel.this.getWidth() - 6;
+        if (intervals < 1)         intervals=1;
+      }
+      double histClassCounts[][]=new double[intervals][m_data.attribute(m_classIndex).numValues() + 1];
+      double barRange=(m_as.numericStats.max - m_as.numericStats.min) / (double)histClassCounts.length;
+      m_maxValue=0;
+      if (m_colorList.size() == 0)       m_colorList.addElement(Color.black);
+      for (int i=m_colorList.size(); i < m_data.attribute(m_classIndex).numValues() + 1; i++) {
+        Color pc=m_defaultColors[(i - 1) % 10];
+        int ija=(i - 1) / 10;
+        ija*=2;
+        for (int j=0; j < ija; j++) {
+          pc=pc.darker();
+        }
+        m_colorList.addElement(pc);
+      }
+      for (int k=0; k < m_data.numInstances(); k++) {
+        int t=0;
+        try {
+          if (!m_data.instance(k).isMissing(m_attribIndex)) {
+            t=(int)Math.ceil((float)((m_data.instance(k).value(m_attribIndex) - m_as.numericStats.min) / barRange));
+            if (t == 0) {
+              if (m_data.instance(k).isMissing(m_classIndex))               histClassCounts[t][0]+=m_data.instance(k).weight();
+ else               histClassCounts[t][(int)m_data.instance(k).value(m_classIndex) + 1]+=m_data.instance(k).weight();
+            }
+ else {
+              if (m_data.instance(k).isMissing(m_classIndex))               histClassCounts[t - 1][0]+=m_data.instance(k).weight();
+ else               histClassCounts[t - 1][(int)m_data.instance(k).value(m_classIndex) + 1]+=m_data.instance(k).weight();
+            }
+          }
+        }
+ catch (        ArrayIndexOutOfBoundsException ae) {
+          System.out.println("t:" + (t) + " barRange:"+ barRange+ " histLength:"+ histClassCounts.length+ " value:"+ m_data.instance(k).value(m_attribIndex)+ " min:"+ m_as.numericStats.min+ " sumResult:"+ (m_data.instance(k).value(m_attribIndex) - m_as.numericStats.min)+ " divideResult:"+ (float)((m_data.instance(k).value(m_attribIndex) - m_as.numericStats.min) / barRange)+ " finalResult:"+ Math.ceil((float)((m_data.instance(k).value(m_attribIndex) - m_as.numericStats.min) / barRange)));
+        }
+      }
+      for (int i=0; i < histClassCounts.length; i++) {
+        double sum=0;
+        for (int j=0; j < histClassCounts[i].length; j++)         sum=sum + histClassCounts[i][j];
+        if (m_maxValue < sum)         m_maxValue=sum;
+      }
+      SparseInstance[] histClassCountsSparse=new SparseInstance[histClassCounts.length];
+      for (int i=0; i < histClassCounts.length; i++) {
+        int numSparseValues=0;
+        for (int j=0; j < histClassCounts[i].length; j++) {
+          if (histClassCounts[i][j] > 0) {
+            numSparseValues++;
+          }
+        }
+        double[] sparseValues=new double[numSparseValues];
+        int[] sparseIndices=new int[numSparseValues];
+        int count=0;
+        for (int j=0; j < histClassCounts[i].length; j++) {
+          if (histClassCounts[i][j] > 0) {
+            sparseValues[count]=histClassCounts[i][j];
+            sparseIndices[count++]=j;
+          }
+        }
+        SparseInstance tempS=new SparseInstance(1.0,sparseValues,sparseIndices,histClassCounts[i].length);
+        histClassCountsSparse[i]=tempS;
+      }
+      m_histBarClassCounts=histClassCountsSparse;
+      m_barRange=barRange;
+    }
+ else {
+      int intervals;
+      double intervalWidth;
+      intervalWidth=3.49 * m_as.numericStats.stdDev * Math.pow(m_data.numInstances(),-1 / 3D);
+      intervals=Math.max(1,(int)Math.round((m_as.numericStats.max - m_as.numericStats.min) / intervalWidth));
+      if (intervals > AttributeVisualizationPanel.this.getWidth()) {
+        intervals=AttributeVisualizationPanel.this.getWidth() - 6;
+        if (intervals < 1)         intervals=1;
+      }
+      double[] histCounts=new double[intervals];
+      double barRange=(m_as.numericStats.max - m_as.numericStats.min) / (double)histCounts.length;
+      m_maxValue=0;
+      for (int k=0; k < m_data.numInstances(); k++) {
+        int t=0;
+        if (m_data.instance(k).isMissing(m_attribIndex))         continue;
+        try {
+          t=(int)Math.ceil(((m_data.instance(k).value(m_attribIndex) - m_as.numericStats.min) / barRange));
+          if (t == 0) {
+            histCounts[t]+=m_data.instance(k).weight();
+            if (histCounts[t] > m_maxValue)             m_maxValue=histCounts[t];
+          }
+ else {
+            histCounts[t - 1]+=m_data.instance(k).weight();
+            if (histCounts[t - 1] > m_maxValue)             m_maxValue=histCounts[t - 1];
+          }
+        }
+ catch (        ArrayIndexOutOfBoundsException ae) {
+          ae.printStackTrace();
+          System.out.println("t:" + (t) + " barRange:"+ barRange+ " histLength:"+ histCounts.length+ " value:"+ m_data.instance(k).value(m_attribIndex)+ " min:"+ m_as.numericStats.min+ " sumResult:"+ (m_data.instance(k).value(m_attribIndex) - m_as.numericStats.min)+ " divideResult:"+ (float)((m_data.instance(k).value(m_attribIndex) - m_as.numericStats.min) / barRange)+ " finalResult:"+ Math.ceil((float)((m_data.instance(k).value(m_attribIndex) - m_as.numericStats.min) / barRange)));
+        }
+      }
+      m_histBarCounts=histCounts;
+      m_barRange=barRange;
+    }
+    m_threadRun=false;
+    m_displayCurrentAttribute=true;
+    m_doneCurrentAttribute=true;
+    AttributeVisualizationPanel.this.repaint();
+  }
+}

@@ -1,0 +1,4 @@
+{
+  this.gradientPaintTransformer=transformer;
+  notifyListeners(new MarkerChangeEvent(this));
+}

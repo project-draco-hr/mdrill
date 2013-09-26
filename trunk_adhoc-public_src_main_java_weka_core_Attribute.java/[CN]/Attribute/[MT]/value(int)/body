@@ -1,0 +1,12 @@
+{
+  if (!isNominal() && !isString()) {
+    return "";
+  }
+ else {
+    Object val=m_Values.get(valIndex);
+    if (val instanceof SerializedObject) {
+      val=((SerializedObject)val).getObject();
+    }
+    return (String)val;
+  }
+}

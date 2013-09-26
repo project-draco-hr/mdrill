@@ -1,0 +1,11 @@
+{
+  Integer doclist=this.join.getRight(doc,-1);
+  if (doclist == null) {
+    return ufsRight.cols[offset].uif.getNullTm();
+  }
+  if (!this.docset.exists(doclist)) {
+    return ufsRight.cols[offset].uif.getNullTm();
+  }
+  UnvertFile uf=ufsRight.cols[offset];
+  return uf.uif.termNum(doclist);
+}

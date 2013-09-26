@@ -1,0 +1,14 @@
+{
+  String classname;
+  if (m_Singleton == null) {
+    classname=m_Properties.getProperty("Logger",ConsoleLogger.class.getName());
+    try {
+      m_Singleton=(Logger)Class.forName(classname).newInstance();
+    }
+ catch (    Exception e) {
+      e.printStackTrace();
+    }
+    m_DateFormat=new SimpleDateFormat(m_Properties.getProperty("DateFormat","yyyy-MM-dd HH:mm:ss"));
+  }
+  return m_Singleton;
+}

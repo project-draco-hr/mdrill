@@ -1,0 +1,8 @@
+{
+  StringBuffer text=new StringBuffer();
+  text.append("digraph FPTree {\n");
+  text.append("N0 [label=\"ROOT\"]\n");
+  tree.graphFPTree(text);
+  text.append("}\n");
+  return text.toString();
+}

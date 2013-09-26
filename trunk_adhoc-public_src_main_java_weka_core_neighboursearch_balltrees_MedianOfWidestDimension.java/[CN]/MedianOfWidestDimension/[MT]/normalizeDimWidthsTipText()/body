@@ -1,0 +1,3 @@
+{
+  return "Whether to normalize the widths(ranges) of the dimensions " + "(attributes) before selecting the widest one.";
+}

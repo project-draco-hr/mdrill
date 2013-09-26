@@ -1,0 +1,6 @@
+{
+  if (m_isLeaf)   return 1;
+  int numLeaves=0;
+  for (int i=0; i < m_sons.length; i++)   numLeaves+=m_sons[i].numLeaves();
+  return numLeaves;
+}

@@ -1,0 +1,46 @@
+{
+  Attribute classAtt=miningSchema.getFieldsAsInstances().classAttribute();
+  String id=nodeE.getAttribute("id");
+  if (id != null && id.length() > 0) {
+    m_ID=id;
+  }
+  String scoreS=nodeE.getAttribute("score");
+  if (scoreS != null && scoreS.length() > 0) {
+    m_scoreString=scoreS;
+    if (classAtt.isNumeric()) {
+      try {
+        m_scoreNumeric=Double.parseDouble(scoreS);
+      }
+ catch (      NumberFormatException ex) {
+        throw new Exception("[TreeNode] class is numeric but unable to parse score " + m_scoreString + " as a number!");
+      }
+    }
+ else {
+      m_scoreIndex=classAtt.indexOfValue(m_scoreString);
+      if (m_scoreIndex < 0) {
+        throw new Exception("[TreeNode] can't find match for predicted value " + m_scoreString + " in class attribute!");
+      }
+    }
+  }
+  String recordC=nodeE.getAttribute("recordCount");
+  if (recordC != null && recordC.length() > 0) {
+    m_recordCount=Double.parseDouble(recordC);
+  }
+  String defaultC=nodeE.getAttribute("defaultChild");
+  if (defaultC != null && defaultC.length() > 0) {
+    m_defaultChildID=defaultC;
+  }
+  if (m_functionType == MiningFunction.CLASSIFICATION) {
+    getScoreDistributions(nodeE,miningSchema);
+  }
+  m_predicate=Predicate.getPredicate(nodeE,miningSchema);
+  getChildNodes(nodeE,miningSchema);
+  if (m_defaultChildID != null) {
+    for (    TreeNode t : m_childNodes) {
+      if (t.getID().equals(m_defaultChildID)) {
+        m_defaultChild=t;
+        break;
+      }
+    }
+  }
+}

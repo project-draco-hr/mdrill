@@ -1,0 +1,3 @@
+{
+  parseXmlDocument(resource,false);
+}

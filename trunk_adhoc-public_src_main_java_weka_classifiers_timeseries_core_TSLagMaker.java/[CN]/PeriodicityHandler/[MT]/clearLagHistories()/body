@@ -1,0 +1,23 @@
+{
+  if (m_artificialTimeMaker != null) {
+    m_artificialTimeMaker.batchFinished();
+  }
+  for (  Filter f : m_lagMakers) {
+    f.batchFinished();
+  }
+  if (m_averagedLagMakers != null) {
+    for (    Filter f : m_averagedLagMakers) {
+      f.batchFinished();
+    }
+  }
+  if (m_timeIndexMakers != null) {
+    for (    Filter f : m_timeIndexMakers) {
+      f.batchFinished();
+    }
+  }
+  if (m_includeTimeLagCrossProducts && m_timeLagCrossProductMakers != null) {
+    for (    Filter f : m_timeLagCrossProductMakers) {
+      f.batchFinished();
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  super(Rectangle2D.class);
+  setParameterDefinition("width",Float.class);
+  setParameterDefinition("height",Float.class);
+  setParameterDefinition("x",Float.class);
+  setParameterDefinition("y",Float.class);
+}

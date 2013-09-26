@@ -1,0 +1,3 @@
+{
+  return (m_Radius / Math.pow(2.0,0.5));
+}

@@ -3,12 +3,17 @@
   ILruMemSizeKey key=new GrobalCache.StringKey("seg@" + partion + "@"+ field+ "@"+ reader.getStringCacheKey()+ "@"+ LuceneUtils.crcKey(reader)+ "@"+ reader.getSegmentName());
   UnInvertedField uif=(UnInvertedField)cache.get(key);
   if (uif == null) {
-synchronized (lock) {
+    TryLock lock=new TryLock(reader.directory());
+    try {
+      lock.tryLock();
       uif=(UnInvertedField)cache.get(key);
       if (uif == null) {
         uif=new UnInvertedField(field,reader,schema);
         cache.put(key,uif);
       }
+    }
+  finally {
+      lock.unlock();
     }
   }
   uif.refCnt.incrementAndGet();

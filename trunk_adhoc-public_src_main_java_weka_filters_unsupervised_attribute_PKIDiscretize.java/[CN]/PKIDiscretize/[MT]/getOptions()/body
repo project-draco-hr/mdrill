@@ -1,0 +1,11 @@
+{
+  Vector result;
+  result=new Vector();
+  if (getMakeBinary())   result.add("-D");
+  if (getInvertSelection())   result.add("-V");
+  if (!getAttributeIndices().equals("")) {
+    result.add("-R");
+    result.add(getAttributeIndices());
+  }
+  return (String[])result.toArray(new String[result.size()]);
+}

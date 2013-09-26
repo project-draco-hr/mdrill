@@ -1,0 +1,48 @@
+{
+  String[] options=new String[14];
+  int current=0;
+  options[current++]="-N";
+  options[current++]="" + getNumClusters();
+  options[current++]="-L";
+switch (m_nLinkType) {
+case (SINGLE):
+    options[current++]="SINGLE";
+  break;
+case (COMPLETE):
+options[current++]="COMPLETE";
+break;
+case (AVERAGE):
+options[current++]="AVERAGE";
+break;
+case (MEAN):
+options[current++]="MEAN";
+break;
+case (CENTROID):
+options[current++]="CENTROID";
+break;
+case (WARD):
+options[current++]="WARD";
+break;
+case (ADJCOMLPETE):
+options[current++]="ADJCOMLPETE";
+break;
+case (NEIGHBOR_JOINING):
+options[current++]="NEIGHBOR_JOINING";
+break;
+}
+if (m_bPrintNewick) {
+options[current++]="-P";
+}
+if (getDebug()) {
+options[current++]="-D";
+}
+if (getDistanceIsBranchLength()) {
+options[current++]="-B";
+}
+options[current++]="-A";
+options[current++]=(m_DistanceFunction.getClass().getName() + " " + Utils.joinOptions(m_DistanceFunction.getOptions())).trim();
+while (current < options.length) {
+options[current++]="";
+}
+return options;
+}

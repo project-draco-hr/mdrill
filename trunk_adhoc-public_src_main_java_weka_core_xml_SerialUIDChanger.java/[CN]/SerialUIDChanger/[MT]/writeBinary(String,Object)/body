@@ -1,0 +1,8 @@
+{
+  FileOutputStream fo;
+  ObjectOutputStream oo;
+  fo=new FileOutputStream(binary);
+  oo=new ObjectOutputStream(new BufferedOutputStream(fo));
+  oo.writeObject(o);
+  oo.close();
+}

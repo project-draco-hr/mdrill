@@ -1,0 +1,65 @@
+{
+  try {
+    this.clearPartion();
+  }
+ catch (  IOException e1) {
+    e1.printStackTrace();
+  }
+  this.initSearchCache();
+  try {
+    RefCounted<SolrIndexSearcher> rtn=searchCache.get(partionKey);
+    if (rtn == null) {
+      rtn=searchCacheForHb.get(partionKey);
+    }
+    if (isclearCache && rtn != null) {
+      this.DropSearch(rtn);
+      SolrResourceLoader.SetCacheFlushKey(p,System.currentTimeMillis());
+      rtn=null;
+      searchCache.remove(partionKey);
+      searchCacheForHb.remove(partionKey);
+    }
+    if (rtn != null) {
+      rtn.incref();
+      return rtn;
+    }
+ else {
+      File f=new File(path);
+      log.info("getSearcher:" + partionKey + ":"+ f.getAbsolutePath());
+      if (!f.exists() && mdirs) {
+        f.mkdirs();
+      }
+      if (!f.exists()) {
+        return null;
+      }
+      Directory dir=getDirectoryFactory().open(f.getAbsolutePath());
+      IndexReader reader=getIndexReaderFactory().newReader(dir,true);
+      File cachedir=null;
+      if (dir instanceof FSDirectory) {
+        FSDirectory d=(FSDirectory)dir;
+        cachedir=new File(d.getDirectory(),"cacheField");
+      }
+ else {
+        cachedir=new File(f,"cacheField");
+      }
+      cachedir.mkdirs();
+      Directory fieldcacheDir=FSDirectory.open(cachedir);
+      SolrIndexSearcher newSearcher=new SolrIndexSearcher(this,schema,"partion_" + partionKey,reader,true);
+      newSearcher.setPartionCacheKey(p);
+      newSearcher.setFieldcacheDir(fieldcacheDir);
+      newSearcher.setPartionKey(partionKey);
+      rtn=newHolderPartion(newSearcher);
+      if (ishb) {
+        searchCacheForHb.put(partionKey,rtn);
+      }
+ else {
+        searchCache.put(partionKey,rtn);
+      }
+      return rtn;
+    }
+  }
+ catch (  IOException e) {
+    SolrCore.log.info(e.toString());
+    SolrException.log(log,null,e);
+    return null;
+  }
+}

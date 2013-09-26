@@ -1,0 +1,22 @@
+{
+  Iterator<BinaryItem> i=itemSet.iterator();
+  if (i.hasNext()) {
+    BinaryItem first=i.next();
+    FPTreeNode aChild;
+    if (!m_children.containsKey(first)) {
+      aChild=new FPTreeNode(this,first);
+      m_children.put(first,aChild);
+      if (!headerTable.containsKey(first)) {
+        headerTable.put(first,new FPTreeRoot.Header());
+      }
+      headerTable.get(first).addToList(aChild);
+    }
+ else {
+      aChild=m_children.get(first);
+    }
+    headerTable.get(first).getProjectedCounts().increaseCount(0,incr);
+    aChild.increaseProjectedCount(0,incr);
+    itemSet.remove(first);
+    aChild.addItemSet(itemSet,headerTable,incr);
+  }
+}

@@ -1,0 +1,5 @@
+{
+  resetOptions();
+  setMissingMerge(!(Utils.getFlag('M',options)));
+  setBinarizeNumericAttributes(Utils.getFlag('B',options));
+}

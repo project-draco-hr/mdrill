@@ -1,0 +1,8 @@
+{
+  super();
+  setAmplitude(defaultAmplitude());
+  setMinRange(defaultMinRange());
+  setMaxRange(defaultMaxRange());
+  setNoiseRate(defaultNoiseRate());
+  setNoiseVariance(defaultNoiseVariance());
+}

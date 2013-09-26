@@ -1,0 +1,44 @@
+{
+  Reader reader;
+  StringBuffer input;
+  Writer output;
+  String tmpStr;
+  boolean lowerCase;
+  if (Utils.getFlag('h',options)) {
+    System.out.println(makeOptionsString(stemmer));
+    return;
+  }
+  tmpStr=Utils.getOption('i',options);
+  if (tmpStr.length() == 0)   throw new IllegalArgumentException("No input file defined!" + makeOptionsString(stemmer));
+ else   reader=new BufferedReader(new InputStreamReader(new FileInputStream(tmpStr)));
+  input=new StringBuffer();
+  tmpStr=Utils.getOption('o',options);
+  if (tmpStr.length() == 0)   output=new BufferedWriter(new OutputStreamWriter(System.out));
+ else   output=new BufferedWriter(new OutputStreamWriter(new FileOutputStream(tmpStr)));
+  lowerCase=Utils.getFlag('l',options);
+  if (stemmer instanceof OptionHandler)   ((OptionHandler)stemmer).setOptions(options);
+  try {
+    Utils.checkForRemainingOptions(options);
+  }
+ catch (  Exception e) {
+    System.out.println(e.getMessage());
+    System.out.println(makeOptionsString(stemmer));
+    return;
+  }
+  int character;
+  while ((character=reader.read()) != -1) {
+    char ch=(char)character;
+    if (Character.isWhitespace((char)ch)) {
+      if (input.length() > 0) {
+        output.write(stemmer.stem(input.toString()));
+        input=new StringBuffer();
+      }
+      output.write(ch);
+    }
+ else {
+      if (lowerCase)       input.append(Character.toLowerCase(ch));
+ else       input.append(ch);
+    }
+  }
+  output.flush();
+}

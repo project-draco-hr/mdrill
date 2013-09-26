@@ -1,0 +1,3 @@
+{
+  return (x >= rect.getMinX() && x <= rect.getMaxX() && y >= rect.getMinY() && y <= rect.getMaxY());
+}

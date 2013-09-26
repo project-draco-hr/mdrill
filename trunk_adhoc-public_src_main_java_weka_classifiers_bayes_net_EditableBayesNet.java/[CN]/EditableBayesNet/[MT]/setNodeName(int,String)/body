@@ -1,0 +1,12 @@
+{
+  if (m_bNeedsUndoAction) {
+    addUndoAction(new RenameAction(nTargetNode,getNodeName(nTargetNode),sName));
+  }
+  Attribute att=m_Instances.attribute(nTargetNode);
+  int nCardinality=att.numValues();
+  FastVector values=new FastVector(nCardinality);
+  for (int iValue=0; iValue < nCardinality; iValue++) {
+    values.addElement(att.value(iValue));
+  }
+  replaceAtt(nTargetNode,sName,values);
+}

@@ -1,0 +1,13 @@
+{
+  Vector<String> result;
+  Enumeration<String> enm;
+  String converter;
+  result=new Vector<String>();
+  enm=ht.elements();
+  while (enm.hasMoreElements()) {
+    converter=enm.nextElement();
+    if (!result.contains(converter))     result.add(converter);
+  }
+  Collections.sort(result);
+  return result;
+}

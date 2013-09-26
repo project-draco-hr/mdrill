@@ -1,0 +1,6 @@
+{
+  super();
+  m_Root=node;
+  m_CurrentLeaf=(TrieNode)m_Root.getFirstLeaf();
+  m_LastLeaf=(TrieNode)m_Root.getLastLeaf();
+}

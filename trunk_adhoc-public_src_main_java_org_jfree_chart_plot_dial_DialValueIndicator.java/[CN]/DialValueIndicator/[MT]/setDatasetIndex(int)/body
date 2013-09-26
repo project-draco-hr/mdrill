@@ -1,0 +1,4 @@
+{
+  this.datasetIndex=index;
+  notifyListeners(new DialLayerChangeEvent(this));
+}

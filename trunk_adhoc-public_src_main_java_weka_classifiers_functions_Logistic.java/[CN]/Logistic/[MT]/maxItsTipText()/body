@@ -1,0 +1,3 @@
+{
+  return "Maximum number of iterations to perform.";
+}

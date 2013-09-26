@@ -1,0 +1,4 @@
+{
+  this.tickLabelsVisible=visible;
+  notifyListeners(new DialLayerChangeEvent(this));
+}

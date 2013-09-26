@@ -1,0 +1,26 @@
+{
+  Instances format=getDatasetFormat();
+  Instance example=null;
+  if (format == null)   throw new Exception("Dataset format not defined.");
+  for (int cNum=0; cNum < getClusters().length; cNum++) {
+    SubspaceClusterDefinition cl=(SubspaceClusterDefinition)getClusters()[cNum];
+    int instNum=cl.getNumInstances();
+    String cName="c" + cNum;
+switch (cl.getClusterType().getSelectedTag().getID()) {
+case (UNIFORM_RANDOM):
+      for (int i=0; i < instNum; i++) {
+        example=generateExample(format,getRandom(),cl,cName);
+        if (example != null)         format.add(example);
+      }
+    break;
+case (TOTAL_UNIFORM):
+  if (!cl.isInteger())   generateUniformExamples(format,instNum,cl,cName);
+ else   generateUniformIntegerExamples(format,instNum,cl,cName);
+break;
+case (GAUSSIAN):
+generateGaussianExamples(format,instNum,getRandom(),cl,cName);
+break;
+}
+}
+return format;
+}

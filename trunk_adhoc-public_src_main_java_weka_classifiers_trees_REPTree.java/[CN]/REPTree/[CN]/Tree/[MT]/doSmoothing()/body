@@ -1,0 +1,9 @@
+{
+  double val=m_InitialCount;
+  if (m_SpreadInitialCount) {
+    val/=(double)m_ClassProbs.length;
+  }
+  for (int i=0; i < m_ClassProbs.length; i++) {
+    m_ClassProbs[i]+=val;
+  }
+}

@@ -1,0 +1,3 @@
+{
+  return "Insert a dummy value before the first declared value " + "for all nominal attributes. Useful when converting market " + "basket data that has been encoded for Apriori to sparse format. "+ "Typically used in conjuction with treat missing values as zero.";
+}

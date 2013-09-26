@@ -1,0 +1,34 @@
+{
+  JPanel panel;
+  JPanel panel2;
+  m_Self=this;
+  m_CheckBoxOptions=new JCheckBox("Invoke options dialog");
+  m_CheckBoxOptions.setMnemonic('I');
+  m_LabelOptions=new JLabel("<html><br>Note:<br><br>Some file formats offer additional<br>options which can be customized<br>when invoking the options dialog.</html>");
+  panel=new JPanel(new BorderLayout());
+  panel.add(m_CheckBoxOptions,BorderLayout.NORTH);
+  panel2=new JPanel(new BorderLayout());
+  panel2.add(m_LabelOptions,BorderLayout.NORTH);
+  panel2.setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
+  panel.add(panel2,BorderLayout.CENTER);
+  setAccessory(panel);
+  m_Editor=new GenericObjectEditor(false);
+  ((GenericObjectEditor.GOEPanel)m_Editor.getCustomEditor()).addOkListener(new ActionListener(){
+    public void actionPerformed(    ActionEvent e){
+      m_EditorResult=JFileChooser.APPROVE_OPTION;
+      m_CurrentConverter=m_Editor.getValue();
+      try {
+        ((FileSourcedConverter)m_CurrentConverter).setFile(((FileSourcedConverter)m_CurrentConverter).retrieveFile());
+      }
+ catch (      Exception ex) {
+      }
+    }
+  }
+);
+  ((GenericObjectEditor.GOEPanel)m_Editor.getCustomEditor()).addCancelListener(new ActionListener(){
+    public void actionPerformed(    ActionEvent e){
+      m_EditorResult=JFileChooser.CANCEL_OPTION;
+    }
+  }
+);
+}

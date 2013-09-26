@@ -1,0 +1,7 @@
+{
+  stream.defaultReadObject();
+  ValueAxis rangeAxis=getRangeAxis();
+  if (rangeAxis != null) {
+    rangeAxis.configure();
+  }
+}

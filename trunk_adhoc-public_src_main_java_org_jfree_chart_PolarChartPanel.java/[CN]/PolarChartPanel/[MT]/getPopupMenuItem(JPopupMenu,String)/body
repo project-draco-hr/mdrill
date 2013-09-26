@@ -1,0 +1,13 @@
+{
+  int index=-1;
+  for (int i=0; (index == -1) && (i < menu.getComponentCount()); i++) {
+    Component comp=menu.getComponent(i);
+    if (comp instanceof JMenuItem) {
+      JMenuItem item=(JMenuItem)comp;
+      if (text.equals(item.getText())) {
+        index=i;
+      }
+    }
+  }
+  return index;
+}

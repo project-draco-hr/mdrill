@@ -1,0 +1,9 @@
+{
+  Year result=null;
+  try {
+    result=Year.parseYear(s);
+  }
+ catch (  TimePeriodFormatException e) {
+  }
+  return result;
+}

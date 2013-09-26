@@ -1,0 +1,10 @@
+{
+  StandardGradientPaintTransformer t1=new StandardGradientPaintTransformer();
+  StandardGradientPaintTransformer t2=new StandardGradientPaintTransformer();
+  assertTrue(t1.equals(t2));
+  assertTrue(t2.equals(t1));
+  t1=new StandardGradientPaintTransformer(GradientPaintTransformType.CENTER_VERTICAL);
+  assertFalse(t1.equals(t2));
+  t2=new StandardGradientPaintTransformer(GradientPaintTransformType.CENTER_VERTICAL);
+  assertTrue(t1.equals(t2));
+}

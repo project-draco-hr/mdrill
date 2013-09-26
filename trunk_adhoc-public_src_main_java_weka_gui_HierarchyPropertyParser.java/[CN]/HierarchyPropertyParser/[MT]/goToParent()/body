@@ -1,0 +1,3 @@
+{
+  if (m_Current.parent != null)   m_Current=m_Current.parent;
+}

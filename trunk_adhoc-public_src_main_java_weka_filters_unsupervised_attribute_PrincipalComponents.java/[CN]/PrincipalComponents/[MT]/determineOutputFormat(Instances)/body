@@ -1,0 +1,45 @@
+{
+  double cumulative;
+  FastVector attributes;
+  int i;
+  int j;
+  StringBuffer attName;
+  double[] coeff_mags;
+  int num_attrs;
+  int[] coeff_inds;
+  double coeff_value;
+  int numAttsLowerBound;
+  if (m_Eigenvalues == null)   return inputFormat;
+  if (m_MaxAttributes > 0)   numAttsLowerBound=m_NumAttribs - m_MaxAttributes;
+ else   numAttsLowerBound=0;
+  if (numAttsLowerBound < 0)   numAttsLowerBound=0;
+  cumulative=0.0;
+  attributes=new FastVector();
+  for (i=m_NumAttribs - 1; i >= numAttsLowerBound; i--) {
+    attName=new StringBuffer();
+    coeff_mags=new double[m_NumAttribs];
+    for (j=0; j < m_NumAttribs; j++)     coeff_mags[j]=-Math.abs(m_Eigenvectors[j][m_SortedEigens[i]]);
+    num_attrs=(m_MaxAttrsInName > 0) ? Math.min(m_NumAttribs,m_MaxAttrsInName) : m_NumAttribs;
+    if (m_NumAttribs > 0) {
+      coeff_inds=Utils.sort(coeff_mags);
+    }
+ else {
+      coeff_inds=new int[m_NumAttribs];
+      for (j=0; j < m_NumAttribs; j++)       coeff_inds[j]=j;
+    }
+    for (j=0; j < num_attrs; j++) {
+      coeff_value=m_Eigenvectors[coeff_inds[j]][m_SortedEigens[i]];
+      if (j > 0 && coeff_value >= 0)       attName.append("+");
+      attName.append(Utils.doubleToString(coeff_value,5,3) + inputFormat.attribute(coeff_inds[j]).name());
+    }
+    if (num_attrs < m_NumAttribs)     attName.append("...");
+    attributes.addElement(new Attribute(attName.toString()));
+    cumulative+=m_Eigenvalues[m_SortedEigens[i]];
+    if ((cumulative / m_SumOfEigenValues) >= m_CoverVariance)     break;
+  }
+  if (m_HasClass)   attributes.addElement(m_TrainCopy.classAttribute().copy());
+  Instances outputFormat=new Instances(m_TrainCopy.relationName() + "_principal components",attributes,0);
+  if (m_HasClass)   outputFormat.setClassIndex(outputFormat.numAttributes() - 1);
+  m_OutputNumAtts=outputFormat.numAttributes();
+  return outputFormat;
+}

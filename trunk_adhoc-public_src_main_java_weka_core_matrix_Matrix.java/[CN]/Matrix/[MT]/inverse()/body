@@ -1,0 +1,3 @@
+{
+  return solve(identity(m,m));
+}

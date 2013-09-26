@@ -1,0 +1,11 @@
+{
+  int i;
+  m_Attributes=new Vector<Boolean>();
+  m_Locators=new Vector<AttributeLocator>();
+  for (i=0; i < m_AllowedIndices.length; i++) {
+    if (m_Data.attribute(m_AllowedIndices[i]).type() == Attribute.RELATIONAL)     m_Locators.add(new AttributeLocator(m_Data.attribute(m_AllowedIndices[i]).relation(),getType()));
+ else     m_Locators.add(null);
+    if (m_Data.attribute(m_AllowedIndices[i]).type() == getType())     m_Attributes.add(new Boolean(true));
+ else     m_Attributes.add(new Boolean(false));
+  }
+}

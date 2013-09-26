@@ -1,0 +1,3 @@
+{
+  return ((XYDataset)this.parent).getItemCount(this.map[series]);
+}

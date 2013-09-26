@@ -1,0 +1,39 @@
+{
+  try {
+    this.factory.readProperties(object);
+    final AttributeList attributes=new AttributeList();
+    if (mPlexAttribute != null) {
+      attributes.setAttribute(mPlexAttribute,mPlexValue);
+    }
+    final AttributeDefinition[] attribDefs=this.factory.getAttributeDefinitions();
+    final ArrayList properties=new ArrayList();
+    for (int i=0; i < attribDefs.length; i++) {
+      final AttributeDefinition adef=attribDefs[i];
+      final String pName=adef.getAttributeName();
+      final Object propValue=this.factory.getProperty(adef.getPropertyName());
+      if (propValue != null) {
+        Log.debug("Here: " + this.factory.getBaseClass() + " -> "+ adef.getPropertyName());
+        final String value=adef.getHandler().toAttributeValue(propValue);
+        if (value != null) {
+          attributes.setAttribute(pName,value);
+        }
+      }
+      properties.add(adef.getPropertyName());
+    }
+    writer.writeTag(tagName,attributes,false);
+    writer.startBlock();
+    final PropertyDefinition[] propertyDefs=this.factory.getPropertyDefinitions();
+    final RootXmlWriteHandler rootHandler=getRootHandler();
+    for (int i=0; i < propertyDefs.length; i++) {
+      final PropertyDefinition pDef=propertyDefs[i];
+      final String elementName=pDef.getElementName();
+      rootHandler.write(elementName,this.factory.getProperty(pDef.getPropertyName()),this.factory.getTypeForTagName(elementName),writer);
+    }
+    writer.endBlock();
+    writer.writeCloseTag(tagName);
+  }
+ catch (  ObjectDescriptionException ode) {
+    Log.warn("Unable to write element",ode);
+    throw new IOException(ode.getMessage());
+  }
+}

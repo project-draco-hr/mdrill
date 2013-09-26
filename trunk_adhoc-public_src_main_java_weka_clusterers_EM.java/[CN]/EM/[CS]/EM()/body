@@ -1,0 +1,5 @@
+{
+  super();
+  m_SeedDefault=100;
+  resetOptions();
+}

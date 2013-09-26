@@ -1,0 +1,10 @@
+{
+  List<Package> allP=getAllPackages();
+  List<Package> available=new ArrayList<Package>();
+  for (int i=0; i < allP.size(); i++) {
+    if (!allP.get(i).isInstalled()) {
+      available.add(allP.get(i));
+    }
+  }
+  return available;
+}

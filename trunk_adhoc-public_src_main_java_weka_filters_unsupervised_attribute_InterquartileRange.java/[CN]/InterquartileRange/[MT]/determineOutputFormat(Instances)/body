@@ -1,0 +1,48 @@
+{
+  FastVector atts;
+  FastVector values;
+  Instances result;
+  int i;
+  m_Attributes.setUpper(inputFormat.numAttributes() - 1);
+  m_AttributeIndices=m_Attributes.getSelection();
+  for (i=0; i < m_AttributeIndices.length; i++) {
+    if (m_AttributeIndices[i] == inputFormat.classIndex()) {
+      m_AttributeIndices[i]=NON_NUMERIC;
+      continue;
+    }
+    if (!inputFormat.attribute(m_AttributeIndices[i]).isNumeric())     m_AttributeIndices[i]=NON_NUMERIC;
+  }
+  atts=new FastVector();
+  for (i=0; i < inputFormat.numAttributes(); i++)   atts.addElement(inputFormat.attribute(i));
+  if (!getDetectionPerAttribute()) {
+    m_OutlierAttributePosition=new int[1];
+    m_OutlierAttributePosition[0]=atts.size();
+    values=new FastVector();
+    values.addElement("no");
+    values.addElement("yes");
+    atts.addElement(new Attribute("Outlier",values));
+    values=new FastVector();
+    values.addElement("no");
+    values.addElement("yes");
+    atts.addElement(new Attribute("ExtremeValue",values));
+  }
+ else {
+    m_OutlierAttributePosition=new int[m_AttributeIndices.length];
+    for (i=0; i < m_AttributeIndices.length; i++) {
+      if (m_AttributeIndices[i] == NON_NUMERIC)       continue;
+      m_OutlierAttributePosition[i]=atts.size();
+      values=new FastVector();
+      values.addElement("no");
+      values.addElement("yes");
+      atts.addElement(new Attribute(inputFormat.attribute(m_AttributeIndices[i]).name() + "_Outlier",values));
+      values=new FastVector();
+      values.addElement("no");
+      values.addElement("yes");
+      atts.addElement(new Attribute(inputFormat.attribute(m_AttributeIndices[i]).name() + "_ExtremeValue",values));
+      if (getOutputOffsetMultiplier())       atts.addElement(new Attribute(inputFormat.attribute(m_AttributeIndices[i]).name() + "_Offset"));
+    }
+  }
+  result=new Instances(inputFormat.relationName(),atts,0);
+  result.setClassIndex(inputFormat.classIndex());
+  return result;
+}

@@ -1,0 +1,12 @@
+{
+  try {
+    m_NumInstances=m_Train.numInstances();
+    m_NumClasses=m_Train.numClasses();
+    m_NumAttributes=m_Train.numAttributes();
+    m_ClassType=m_Train.classAttribute().type();
+    m_InitFlag=ON;
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
+}

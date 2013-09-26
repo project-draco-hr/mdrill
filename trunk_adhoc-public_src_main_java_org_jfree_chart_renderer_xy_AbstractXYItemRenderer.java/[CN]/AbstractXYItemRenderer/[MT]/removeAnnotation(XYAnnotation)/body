@@ -1,0 +1,6 @@
+{
+  boolean removed=this.foregroundAnnotations.remove(annotation);
+  removed=removed & this.backgroundAnnotations.remove(annotation);
+  fireChangeEvent();
+  return removed;
+}

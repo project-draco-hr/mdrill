@@ -1,0 +1,5 @@
+{
+  DataSink sink;
+  sink=new DataSink(filename);
+  sink.write(data);
+}

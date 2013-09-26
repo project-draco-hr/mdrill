@@ -1,0 +1,35 @@
+{
+switch (m_instances.attribute(index).type()) {
+case Attribute.NOMINAL:
+    if (Utils.isMissingValue(val1) || Utils.isMissingValue(val2) || ((int)val1 != (int)val2)) {
+      return 1;
+    }
+ else {
+      return 0;
+    }
+case Attribute.NUMERIC:
+  if (Utils.isMissingValue(val1) || Utils.isMissingValue(val2)) {
+    if (Utils.isMissingValue(val1) && Utils.isMissingValue(val2)) {
+      return 1;
+    }
+ else {
+      double diff;
+      if (Utils.isMissingValue(val2)) {
+        diff=norm(val1,index);
+      }
+ else {
+        diff=norm(val2,index);
+      }
+      if (diff < 0.5) {
+        diff=1.0 - diff;
+      }
+      return diff;
+    }
+  }
+ else {
+    return norm(val1,index) - norm(val2,index);
+  }
+default :
+return 0;
+}
+}

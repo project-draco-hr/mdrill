@@ -1,0 +1,6 @@
+{
+  for (int i=0; i < sampleSize; i++) {
+    int index=random.nextInt(origSize);
+    push((Instance)getInputFormat().instance(index).copy());
+  }
+}

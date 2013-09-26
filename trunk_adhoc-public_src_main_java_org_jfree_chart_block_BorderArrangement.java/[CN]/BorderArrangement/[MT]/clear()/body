@@ -1,0 +1,7 @@
+{
+  this.centerBlock=null;
+  this.topBlock=null;
+  this.bottomBlock=null;
+  this.leftBlock=null;
+  this.rightBlock=null;
+}

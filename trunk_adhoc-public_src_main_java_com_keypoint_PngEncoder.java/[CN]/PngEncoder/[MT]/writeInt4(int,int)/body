@@ -1,0 +1,4 @@
+{
+  byte[] temp={(byte)((n >> 24) & 0xff),(byte)((n >> 16) & 0xff),(byte)((n >> 8) & 0xff),(byte)(n & 0xff)};
+  return writeBytes(temp,offset);
+}

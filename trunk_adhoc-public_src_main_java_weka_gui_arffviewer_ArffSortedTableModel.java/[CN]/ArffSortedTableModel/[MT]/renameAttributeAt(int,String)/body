@@ -1,0 +1,3 @@
+{
+  ((ArffTableModel)getModel()).renameAttributeAt(columnIndex,newName);
+}

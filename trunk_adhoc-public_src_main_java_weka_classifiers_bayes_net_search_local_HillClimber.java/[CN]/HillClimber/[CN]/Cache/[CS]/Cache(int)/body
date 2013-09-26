@@ -1,0 +1,4 @@
+{
+  m_fDeltaScoreAdd=new double[nNrOfNodes][nNrOfNodes];
+  m_fDeltaScoreDel=new double[nNrOfNodes][nNrOfNodes];
+}

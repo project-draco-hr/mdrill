@@ -1,0 +1,7 @@
+{
+  if (bufferedImage == null) {
+    throw new IllegalArgumentException("Null 'image' argument.");
+  }
+  PngEncoder encoder=new PngEncoder(bufferedImage,this.encodingAlpha,0,this.quality);
+  return encoder.pngEncode();
+}

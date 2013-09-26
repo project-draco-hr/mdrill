@@ -1,0 +1,12 @@
+{
+  if (this.rootHandlerInitialized == false) {
+    this.rootHandler.init(this,qName);
+    this.rootHandlerInitialized=true;
+  }
+  try {
+    getCurrentHandler().startElement(qName,attributes);
+  }
+ catch (  XmlReaderException xre) {
+    throw new ParseException(xre,getLocator());
+  }
+}

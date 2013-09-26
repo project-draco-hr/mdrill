@@ -1,7 +1,0 @@
-String sort_column_type
-String[] crossFs
-String[] distFS
-String fl
-String type
-boolean isdesc
-int saverecords

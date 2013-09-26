@@ -1,0 +1,3 @@
+{
+  return Predicate.booleanToEval(false,!Utils.isMissingValue(input[fieldIndex]));
+}

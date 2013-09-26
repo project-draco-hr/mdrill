@@ -1,0 +1,18 @@
+{
+  if (this.firstCall) {
+    if (!this.tagName.equals(tagName)) {
+      throw new SAXException("Expected <" + this.tagName + ">, found <"+ tagName+ ">");
+    }
+    this.firstCall=false;
+    startParsing(attrs);
+  }
+ else {
+    final XmlReadHandler childHandler=getHandlerForChild(tagName,attrs);
+    if (childHandler == null) {
+      Log.warn("Unknown tag <" + tagName + ">");
+      return;
+    }
+    childHandler.init(getRootHandler(),tagName);
+    this.rootHandler.recurse(childHandler,tagName,attrs);
+  }
+}

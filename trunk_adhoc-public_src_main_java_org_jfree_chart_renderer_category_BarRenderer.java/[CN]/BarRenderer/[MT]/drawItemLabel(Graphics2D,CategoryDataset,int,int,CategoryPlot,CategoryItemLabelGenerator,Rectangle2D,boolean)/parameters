@@ -1,0 +1,8 @@
+Graphics2D g2
+CategoryDataset data
+int row
+int column
+CategoryPlot plot
+CategoryItemLabelGenerator generator
+Rectangle2D bar
+boolean negative

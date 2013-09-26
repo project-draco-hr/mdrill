@@ -1,0 +1,54 @@
+{
+  m_LowerBound=Double.NEGATIVE_INFINITY;
+  m_LowerBoundIsOpen=false;
+  m_UpperBound=Double.POSITIVE_INFINITY;
+  m_UpperBoundIsOpen=false;
+  if (rangeString == null)   return;
+  StreamTokenizer tokenizer=new StreamTokenizer(new StringReader(rangeString));
+  tokenizer.resetSyntax();
+  tokenizer.whitespaceChars(0,' ');
+  tokenizer.wordChars(' ' + 1,'\u00FF');
+  tokenizer.ordinaryChar('[');
+  tokenizer.ordinaryChar('(');
+  tokenizer.ordinaryChar(',');
+  tokenizer.ordinaryChar(']');
+  tokenizer.ordinaryChar(')');
+  try {
+    tokenizer.nextToken();
+    if (tokenizer.ttype == '[')     m_LowerBoundIsOpen=false;
+ else     if (tokenizer.ttype == '(')     m_LowerBoundIsOpen=true;
+ else     throw new IllegalArgumentException("Expected opening brace on range," + " found: " + tokenizer.toString());
+    tokenizer.nextToken();
+    if (tokenizer.ttype != tokenizer.TT_WORD)     throw new IllegalArgumentException("Expected lower bound in range," + " found: " + tokenizer.toString());
+    if (tokenizer.sval.compareToIgnoreCase("-inf") == 0)     m_LowerBound=Double.NEGATIVE_INFINITY;
+ else     if (tokenizer.sval.compareToIgnoreCase("+inf") == 0)     m_LowerBound=Double.POSITIVE_INFINITY;
+ else     if (tokenizer.sval.compareToIgnoreCase("inf") == 0)     m_LowerBound=Double.NEGATIVE_INFINITY;
+ else     try {
+      m_LowerBound=Double.valueOf(tokenizer.sval).doubleValue();
+    }
+ catch (    NumberFormatException e) {
+      throw new IllegalArgumentException("Expected lower bound in range," + " found: '" + tokenizer.sval + "'");
+    }
+    if (tokenizer.nextToken() != ',')     throw new IllegalArgumentException("Expected comma in range," + " found: " + tokenizer.toString());
+    tokenizer.nextToken();
+    if (tokenizer.ttype != tokenizer.TT_WORD)     throw new IllegalArgumentException("Expected upper bound in range," + " found: " + tokenizer.toString());
+    if (tokenizer.sval.compareToIgnoreCase("-inf") == 0)     m_UpperBound=Double.NEGATIVE_INFINITY;
+ else     if (tokenizer.sval.compareToIgnoreCase("+inf") == 0)     m_UpperBound=Double.POSITIVE_INFINITY;
+ else     if (tokenizer.sval.compareToIgnoreCase("inf") == 0)     m_UpperBound=Double.POSITIVE_INFINITY;
+ else     try {
+      m_UpperBound=Double.valueOf(tokenizer.sval).doubleValue();
+    }
+ catch (    NumberFormatException e) {
+      throw new IllegalArgumentException("Expected upper bound in range," + " found: '" + tokenizer.sval + "'");
+    }
+    tokenizer.nextToken();
+    if (tokenizer.ttype == ']')     m_UpperBoundIsOpen=false;
+ else     if (tokenizer.ttype == ')')     m_UpperBoundIsOpen=true;
+ else     throw new IllegalArgumentException("Expected closing brace on range," + " found: " + tokenizer.toString());
+    if (tokenizer.nextToken() != tokenizer.TT_EOF)     throw new IllegalArgumentException("Expected end of range string," + " found: " + tokenizer.toString());
+  }
+ catch (  IOException e) {
+    throw new IllegalArgumentException("IOException reading attribute range" + " string: " + e.getMessage());
+  }
+  if (m_UpperBound < m_LowerBound)   throw new IllegalArgumentException("Upper bound (" + m_UpperBound + ") on numeric range is"+ " less than lower bound ("+ m_LowerBound+ ")!");
+}

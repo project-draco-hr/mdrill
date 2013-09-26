@@ -1,0 +1,14 @@
+{
+  for (  BinaryItem item : m_headerTable.keySet()) {
+    Header h=m_headerTable.get(item);
+    List<FPTreeNode> headerList=h.getHeaderList();
+    if (headerList.size() > 1) {
+      text.append("N" + maxID + " [label=\""+ headerList.get(0).getItem().toString()+ " ("+ h.getProjectedCounts().getCount(0)+ ")"+ "\" shape=plaintext]\n");
+      text.append("N" + maxID + "->"+ "N"+ headerList.get(1).m_ID+ "\n");
+      for (int i=1; i < headerList.size() - 1; i++) {
+        text.append("N" + headerList.get(i).m_ID + "->"+ "N"+ headerList.get(i + 1).m_ID+ "\n");
+      }
+      maxID++;
+    }
+  }
+}

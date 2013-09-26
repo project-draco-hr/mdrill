@@ -1,0 +1,5 @@
+{
+  super(source);
+  this.chart=chart;
+  this.type=type;
+}

@@ -1,0 +1,16 @@
+{
+  setFont(null);
+  if (value != null) {
+    setText(this.formatter.format(value));
+  }
+ else {
+    setText("");
+  }
+  if (isSelected) {
+    setBackground(table.getSelectionBackground());
+  }
+ else {
+    setBackground(null);
+  }
+  return this;
+}

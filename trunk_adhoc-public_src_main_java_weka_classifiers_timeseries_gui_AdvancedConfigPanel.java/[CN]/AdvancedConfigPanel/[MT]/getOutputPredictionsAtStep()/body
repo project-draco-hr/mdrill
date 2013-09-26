@@ -1,0 +1,6 @@
+{
+  if (!m_outputPredsCheckBox.isSelected()) {
+    return 0;
+  }
+  return ((SpinnerNumberModel)m_outputStepSpinner.getModel()).getNumber().intValue();
+}

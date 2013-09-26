@@ -1,0 +1,13 @@
+{
+  super.addDataSourceListener(dsl);
+  m_dataSetEventTargets++;
+  try {
+    if ((m_Loader instanceof DatabaseLoader && m_dbSet && m_dataFormat == null) || (!(m_Loader instanceof DatabaseLoader) && m_dataFormat == null)) {
+      m_dataFormat=m_Loader.getStructure();
+      m_dbSet=false;
+    }
+  }
+ catch (  Exception ex) {
+  }
+  notifyStructureAvailable(m_dataFormat);
+}

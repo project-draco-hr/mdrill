@@ -1,0 +1,24 @@
+{
+  String result;
+  String[] authors;
+  String[] parts;
+  result=m_ID;
+  if (result.length() == 0) {
+    if (exists(Field.AUTHOR) && exists(Field.YEAR)) {
+      authors=getAuthors();
+      if (authors[0].indexOf(",") > -1) {
+        parts=authors[0].split(",");
+        result=parts[0];
+      }
+ else {
+        parts=authors[0].split(" ");
+        if (parts.length == 1)         result=parts[0];
+ else         result=parts[parts.length - 1];
+      }
+      result+=getValue(Field.YEAR);
+      result=result.replaceAll(" ","");
+    }
+  }
+  if (result.length() == 0)   result=MISSING_ID;
+  return result;
+}

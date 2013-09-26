@@ -1,0 +1,5 @@
+{
+  super();
+  this.formatter=formatter;
+  setHorizontalAlignment(SwingConstants.CENTER);
+}

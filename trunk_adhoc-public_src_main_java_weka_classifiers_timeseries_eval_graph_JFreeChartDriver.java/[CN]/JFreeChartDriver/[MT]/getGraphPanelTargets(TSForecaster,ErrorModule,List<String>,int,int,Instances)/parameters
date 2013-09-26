@@ -1,0 +1,6 @@
+TSForecaster forecaster
+ErrorModule preds
+List<String> targetNames
+int stepNumber
+int instanceNumOffset
+Instances data

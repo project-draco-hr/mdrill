@@ -1,0 +1,8 @@
+{
+  if (m_ignoreAttributesRange == null) {
+    return "";
+  }
+ else {
+    return m_ignoreAttributesRange.getRanges();
+  }
+}

@@ -1,0 +1,9 @@
+{
+  double answer=0;
+  double freqOfWordInDoc;
+  for (int i=0; i < inst.numValues(); i++)   if (inst.index(i) != inst.classIndex()) {
+    freqOfWordInDoc=inst.valueSparse(i);
+    answer+=(freqOfWordInDoc * m_probOfWordGivenClass[classIndex][inst.index(i)]);
+  }
+  return answer;
+}

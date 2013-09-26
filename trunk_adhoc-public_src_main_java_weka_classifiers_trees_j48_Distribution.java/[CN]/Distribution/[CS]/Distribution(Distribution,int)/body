@@ -1,0 +1,14 @@
+{
+  int i;
+  totaL=toMerge.totaL;
+  m_perClass=new double[toMerge.numClasses()];
+  System.arraycopy(toMerge.m_perClass,0,m_perClass,0,toMerge.numClasses());
+  m_perClassPerBag=new double[2][0];
+  m_perClassPerBag[0]=new double[toMerge.numClasses()];
+  System.arraycopy(toMerge.m_perClassPerBag[index],0,m_perClassPerBag[0],0,toMerge.numClasses());
+  m_perClassPerBag[1]=new double[toMerge.numClasses()];
+  for (i=0; i < toMerge.numClasses(); i++)   m_perClassPerBag[1][i]=toMerge.m_perClass[i] - m_perClassPerBag[0][i];
+  m_perBag=new double[2];
+  m_perBag[0]=toMerge.m_perBag[index];
+  m_perBag[1]=totaL - m_perBag[0];
+}

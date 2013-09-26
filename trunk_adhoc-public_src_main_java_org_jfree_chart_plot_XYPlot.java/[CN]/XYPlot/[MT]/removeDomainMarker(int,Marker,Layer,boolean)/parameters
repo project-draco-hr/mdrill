@@ -1,0 +1,4 @@
+int index
+Marker marker
+Layer layer
+boolean notify

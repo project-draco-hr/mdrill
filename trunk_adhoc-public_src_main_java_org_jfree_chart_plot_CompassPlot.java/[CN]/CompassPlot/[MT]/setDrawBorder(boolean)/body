@@ -1,0 +1,4 @@
+{
+  this.drawBorder=status;
+  fireChangeEvent();
+}

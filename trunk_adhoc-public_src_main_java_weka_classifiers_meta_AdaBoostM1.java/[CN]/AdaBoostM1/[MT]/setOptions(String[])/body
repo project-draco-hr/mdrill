@@ -1,0 +1,11 @@
+{
+  String thresholdString=Utils.getOption('P',options);
+  if (thresholdString.length() != 0) {
+    setWeightThreshold(Integer.parseInt(thresholdString));
+  }
+ else {
+    setWeightThreshold(100);
+  }
+  setUseResampling(Utils.getFlag('Q',options));
+  super.setOptions(options);
+}

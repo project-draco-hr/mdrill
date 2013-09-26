@@ -1,0 +1,39 @@
+{
+  m_P=new double[m_nCardinality];
+  for (int iPos=0; iPos < m_nCardinality; iPos++) {
+    m_P[iPos]=m_fi[iPos];
+  }
+  int[] values=new int[m_nNodes.length];
+  int[] order=new int[m_bayesNet.getNrOfNodes()];
+  for (int iNode=0; iNode < m_nNodes.length; iNode++) {
+    order[m_nNodes[iNode]]=iNode;
+  }
+  for (Iterator child=m_children.iterator(); child.hasNext(); ) {
+    JunctionTreeNode childNode=(JunctionTreeNode)child.next();
+    JunctionTreeSeparator separator=childNode.m_parentSeparator;
+    for (int iPos=0; iPos < m_nCardinality; iPos++) {
+      int iSepCPT=getCPT(separator.m_nNodes,separator.m_nNodes.length,values,order,m_bayesNet);
+      int iNodeCPT=getCPT(m_nNodes,m_nNodes.length,values,order,m_bayesNet);
+      m_P[iNodeCPT]*=separator.m_fiChild[iSepCPT];
+      int i=0;
+      values[i]++;
+      while (i < m_nNodes.length && values[i] == m_bayesNet.getCardinality(m_nNodes[i])) {
+        values[i]=0;
+        i++;
+        if (i < m_nNodes.length) {
+          values[i]++;
+        }
+      }
+    }
+  }
+  double sum=0;
+  for (int iPos=0; iPos < m_nCardinality; iPos++) {
+    sum+=m_P[iPos];
+  }
+  for (int iPos=0; iPos < m_nCardinality; iPos++) {
+    m_P[iPos]/=sum;
+  }
+  if (m_parentSeparator != null) {
+    m_parentSeparator.updateFromChild();
+  }
+}

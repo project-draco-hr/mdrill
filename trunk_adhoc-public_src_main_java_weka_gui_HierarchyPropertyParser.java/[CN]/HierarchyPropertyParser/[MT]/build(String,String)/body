@@ -1,0 +1,9 @@
+{
+  StringTokenizer st=new StringTokenizer(p,delim);
+  while (st.hasMoreTokens()) {
+    String property=st.nextToken().trim();
+    if (!isHierachic(property))     throw new Exception("The given property is not in" + "hierachy structure with seperators!");
+    add(property);
+  }
+  goToRoot();
+}

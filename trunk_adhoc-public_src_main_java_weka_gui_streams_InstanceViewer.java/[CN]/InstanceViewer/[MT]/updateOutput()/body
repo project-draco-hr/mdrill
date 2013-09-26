@@ -1,0 +1,4 @@
+{
+  m_OutputTex.append(m_UpdateString);
+  m_UpdateString="";
+}

@@ -1,0 +1,8 @@
+{
+  if (value == null) {
+    remove(key);
+  }
+ else {
+    setProperty(key,value);
+  }
+}

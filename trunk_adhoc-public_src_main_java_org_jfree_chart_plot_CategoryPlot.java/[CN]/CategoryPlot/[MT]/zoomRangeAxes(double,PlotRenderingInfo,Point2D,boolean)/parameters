@@ -1,0 +1,4 @@
+double factor
+PlotRenderingInfo info
+Point2D source
+boolean useAnchor

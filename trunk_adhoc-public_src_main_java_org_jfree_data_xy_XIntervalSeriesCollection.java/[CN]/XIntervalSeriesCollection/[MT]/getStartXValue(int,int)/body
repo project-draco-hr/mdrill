@@ -1,0 +1,4 @@
+{
+  XIntervalSeries s=(XIntervalSeries)this.data.get(series);
+  return s.getXLowValue(item);
+}

@@ -1,0 +1,5 @@
+{
+  if (this.axis == event.getAxis()) {
+    notifyListeners(new TitleChangeEvent(this));
+  }
+}

@@ -1,0 +1,6 @@
+String title
+CategoryDataset dataset
+TableOrder order
+boolean legend
+boolean tooltips
+boolean urls

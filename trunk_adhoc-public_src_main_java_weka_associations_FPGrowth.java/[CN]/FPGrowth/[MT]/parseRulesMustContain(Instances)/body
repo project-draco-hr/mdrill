@@ -1,0 +1,22 @@
+{
+  ArrayList<Item> result=new ArrayList<Item>();
+  String[] split=m_rulesMustContain.trim().split(",");
+  for (int i=0; i < split.length; i++) {
+    String attName=split[i].trim();
+    Attribute att=data.attribute(attName);
+    if (att == null) {
+      System.err.println("[FPGrowth] : WARNING - can't find attribute " + attName + " in the data.");
+    }
+ else {
+      BinaryItem tempI=null;
+      try {
+        tempI=new BinaryItem(att,m_positiveIndex - 1);
+      }
+ catch (      Exception e) {
+        e.printStackTrace();
+      }
+      result.add(tempI);
+    }
+  }
+  return result;
+}

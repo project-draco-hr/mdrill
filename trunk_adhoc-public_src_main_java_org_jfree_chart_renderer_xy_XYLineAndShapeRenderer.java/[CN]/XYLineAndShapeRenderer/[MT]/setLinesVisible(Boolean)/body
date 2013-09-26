@@ -1,0 +1,4 @@
+{
+  this.linesVisible=visible;
+  fireChangeEvent();
+}

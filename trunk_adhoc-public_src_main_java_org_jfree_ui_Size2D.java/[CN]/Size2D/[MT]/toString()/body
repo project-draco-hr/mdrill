@@ -1,0 +1,3 @@
+{
+  return "Size2D[width=" + this.width + ", height="+ this.height+ "]";
+}

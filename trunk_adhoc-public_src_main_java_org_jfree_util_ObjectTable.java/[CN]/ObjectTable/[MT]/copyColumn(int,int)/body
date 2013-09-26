@@ -1,0 +1,5 @@
+{
+  for (int i=0; i < getRowCount(); i++) {
+    setObject(i,newColumn,getObject(i,oldColumn));
+  }
+}

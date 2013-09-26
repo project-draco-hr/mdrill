@@ -1,0 +1,34 @@
+{
+  this.parse=parse;
+  ufs=new UnvertFields(fields,reader,searcher.getPartionKey(),searcher.getSchema());
+  sortufs=new UnvertFields(new String[]{parse.sort_fl},reader,searcher.getPartionKey(),searcher.getSchema());
+  this.joinInvert=new HigoJoinInvert[parse.joinList.length];
+  HigoJoinSort[] joinSort=new HigoJoinSort[this.parse.joinList.length];
+  for (int i=0; i < this.parse.joinList.length; i++) {
+    joinSort[i]=new HigoJoinSort(this.parse.joinList[i],req);
+    this.joinInvert[i]=new HigoJoinInvert(this.parse.joinList[i],reader,searcher.getPartionKey(),searcher.getSchema());
+    this.joinInvert[i].open(req);
+    baseDocs=this.joinInvert[i].filterByRight(baseDocs);
+  }
+  this.SelectDetailSort=UniqTypeNum.parseSelectDetailType(fields,joinSort);
+  this.cmpTermNum=new ShardDetailSelectDetailRowCompare(this.parse.isdesc);
+  if (this.SelectDetailSort != null) {
+    this.parse.isNeedSort=true;
+    this.cmpresult=new ShardDetailSelectDetailRowStringCompare("string",this.parse.isdesc);
+    this.invforSortOffset=this.SelectDetailSort.selfOffset;
+    this.invforSortValue=this.joinInvert[this.SelectDetailSort.sortIndex];
+  }
+ else {
+    this.cmpresult=new ShardDetailSelectDetailRowStringCompare(this.parse.sort_column_type,this.parse.isdesc);
+    if (this.isColumnSort()) {
+      UnvertFile uf=this.sortufs.cols[0];
+      this.columnSortcif=uf.uif;
+    }
+  }
+  res=new PriorityQueue<SelectDetailRow>(this.parse.limit_offset,Collections.reverseOrder(cmpTermNum));
+  this.groupbySize=ufs.length;
+  for (  HigoJoinInvert inv : joinInvert) {
+    this.groupbySize+=inv.fieldCount();
+  }
+  this.nonJoins=this.joinInvert.length <= 0;
+}

@@ -1,0 +1,12 @@
+{
+  double max=0.0f;
+  for (int s=0; s < getSeriesCount(); s++) {
+    for (int i=0; i < this.historyCount; i++) {
+      double tmp=getYValue(s,i);
+      if (tmp > max) {
+        max=tmp;
+      }
+    }
+  }
+  return max;
+}

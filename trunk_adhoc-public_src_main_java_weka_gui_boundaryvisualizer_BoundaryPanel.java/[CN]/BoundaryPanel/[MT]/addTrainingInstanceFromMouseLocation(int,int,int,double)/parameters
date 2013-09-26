@@ -1,0 +1,4 @@
+int mouseX
+int mouseY
+int classAttIndex
+double classValue

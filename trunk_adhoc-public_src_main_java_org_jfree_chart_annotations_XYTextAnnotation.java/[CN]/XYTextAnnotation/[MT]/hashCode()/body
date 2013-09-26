@@ -1,0 +1,15 @@
+{
+  int result=193;
+  result=37 * this.text.hashCode();
+  result=37 * this.font.hashCode();
+  result=37 * result + HashUtilities.hashCodeForPaint(this.paint);
+  long temp=Double.doubleToLongBits(this.x);
+  result=37 * result + (int)(temp ^ (temp >>> 32));
+  temp=Double.doubleToLongBits(this.y);
+  result=37 * result + (int)(temp ^ (temp >>> 32));
+  result=37 * result + this.textAnchor.hashCode();
+  result=37 * result + this.rotationAnchor.hashCode();
+  temp=Double.doubleToLongBits(this.rotationAngle);
+  result=37 * result + (int)(temp ^ (temp >>> 32));
+  return result;
+}

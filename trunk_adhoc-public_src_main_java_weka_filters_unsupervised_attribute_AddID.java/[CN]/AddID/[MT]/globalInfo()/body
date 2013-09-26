@@ -1,0 +1,3 @@
+{
+  return "An instance filter that adds an ID attribute to the dataset. " + "The new attribute contains a unique ID for each instance.\n" + "Note: The ID is not reset for the second batch of files (using -b "+ "and -r and -s).";
+}

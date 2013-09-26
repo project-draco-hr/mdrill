@@ -1,0 +1,3 @@
+{
+  getCapabilities(instanceInfo).testWithFail(instanceInfo);
+}

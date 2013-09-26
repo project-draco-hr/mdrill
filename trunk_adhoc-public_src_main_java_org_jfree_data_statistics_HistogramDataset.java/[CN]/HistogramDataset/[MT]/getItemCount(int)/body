@@ -1,0 +1,3 @@
+{
+  return getBins(series).size();
+}

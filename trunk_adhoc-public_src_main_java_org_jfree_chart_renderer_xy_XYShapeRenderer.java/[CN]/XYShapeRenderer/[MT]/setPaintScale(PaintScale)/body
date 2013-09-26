@@ -1,0 +1,7 @@
+{
+  if (scale == null) {
+    throw new IllegalArgumentException("Null 'scale' argument.");
+  }
+  this.paintScale=scale;
+  notifyListeners(new RendererChangeEvent(this));
+}

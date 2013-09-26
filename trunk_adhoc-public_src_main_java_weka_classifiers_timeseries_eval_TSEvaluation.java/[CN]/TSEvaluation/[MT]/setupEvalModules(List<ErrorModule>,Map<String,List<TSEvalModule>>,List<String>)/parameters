@@ -1,0 +1,3 @@
+List<ErrorModule> predHolders
+Map<String,List<TSEvalModule>> evalHolders
+List<String> fieldsToForecast

@@ -1,0 +1,5 @@
+{
+  if ((DEBUG) && (t.getStackTrace().length > 0)) {
+    System.out.println("trace: " + t.getStackTrace()[0] + ": "+ msg);
+  }
+}

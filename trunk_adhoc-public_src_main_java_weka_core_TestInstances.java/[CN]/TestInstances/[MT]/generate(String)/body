@@ -1,0 +1,62 @@
+{
+  if (getMultiInstance()) {
+    TestInstances bag=(TestInstances)this.clone();
+    bag.setMultiInstance(false);
+    bag.setNumInstances(0);
+    bag.setSeed(m_Random.nextInt());
+    Instances bagFormat=bag.generate("bagAtt_");
+    bagFormat.setClassIndex(-1);
+    bagFormat.deleteAttributeAt(bagFormat.numAttributes() - 1);
+    TestInstances structure=new TestInstances();
+    structure.setSeed(m_Random.nextInt());
+    structure.setNumNominal(1);
+    structure.setNumRelational(1);
+    structure.setRelationalFormat(0,bagFormat);
+    structure.setClassType(getClassType());
+    structure.setNumClasses(getNumClasses());
+    structure.setRelationalClassFormat(getRelationalClassFormat());
+    structure.setNumInstances(getNumInstances());
+    m_Data=structure.generate();
+    bag.setNumInstances(getNumInstancesRelational());
+    for (int i=0; i < getNumInstances(); i++) {
+      bag.setSeed(m_Random.nextInt());
+      Instances bagData=new Instances(bag.generate("bagAtt_"));
+      bagData.setClassIndex(-1);
+      bagData.deleteAttributeAt(bagData.numAttributes() - 1);
+      double val=m_Data.attribute(1).addRelation(bagData);
+      m_Data.instance(i).setValue(1,val);
+    }
+  }
+ else {
+    int clsIndex=m_ClassIndex;
+    if (clsIndex == CLASS_IS_LAST)     clsIndex=getNumAttributes() - 1;
+    ArrayList<Attribute> attributes=new ArrayList<Attribute>(getNumAttributes());
+    for (int i=0; i < getNumNominal(); i++)     attributes.add(generateAttribute(i,Attribute.NOMINAL,namePrefix));
+    for (int i=0; i < getNumNumeric(); i++)     attributes.add(generateAttribute(i,Attribute.NUMERIC,namePrefix));
+    for (int i=0; i < getNumString(); i++)     attributes.add(generateAttribute(i,Attribute.STRING,namePrefix));
+    for (int i=0; i < getNumDate(); i++)     attributes.add(generateAttribute(i,Attribute.DATE,namePrefix));
+    for (int i=0; i < getNumRelational(); i++)     attributes.add(generateAttribute(i,Attribute.RELATIONAL,namePrefix));
+    if (clsIndex != NO_CLASS)     attributes.add(clsIndex,generateAttribute(CLASS_IS_LAST,getClassType(),namePrefix));
+    m_Data=new Instances(getRelation(),attributes,getNumInstances());
+    m_Data.setClassIndex(clsIndex);
+    for (int i=0; i < getNumInstances(); i++) {
+      Instance current=new DenseInstance(getNumAttributes());
+      current.setDataset(m_Data);
+      double classVal;
+      if (clsIndex != NO_CLASS) {
+        classVal=generateClassValue(m_Data);
+        current.setClassValue(classVal);
+      }
+ else {
+        classVal=m_Random.nextFloat();
+      }
+      for (int n=0; n < getNumAttributes(); n++) {
+        if (clsIndex == n)         continue;
+        current.setValue(n,generateAttributeValue(m_Data,n,classVal));
+      }
+      m_Data.add(current);
+    }
+  }
+  if (m_Data.classIndex() == NO_CLASS)   m_Data.setClassIndex(-1);
+  return getData();
+}

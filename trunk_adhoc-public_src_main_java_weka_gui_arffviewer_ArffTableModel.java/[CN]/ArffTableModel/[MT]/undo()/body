@@ -1,0 +1,21 @@
+{
+  File tempFile;
+  Instances inst;
+  ObjectInputStream ooi;
+  if (canUndo()) {
+    tempFile=(File)m_UndoList.get(m_UndoList.size() - 1);
+    try {
+      ooi=new ObjectInputStream(new BufferedInputStream(new FileInputStream(tempFile)));
+      inst=(Instances)ooi.readObject();
+      ooi.close();
+      setInstances(inst);
+      notifyListener(new TableModelEvent(this,TableModelEvent.HEADER_ROW));
+      notifyListener(new TableModelEvent(this));
+    }
+ catch (    Exception e) {
+      e.printStackTrace();
+    }
+    tempFile.delete();
+    m_UndoList.remove(m_UndoList.size() - 1);
+  }
+}

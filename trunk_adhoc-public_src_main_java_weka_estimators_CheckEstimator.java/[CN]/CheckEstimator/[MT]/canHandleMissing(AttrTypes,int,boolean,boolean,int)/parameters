@@ -1,0 +1,5 @@
+AttrTypes attrTypes
+int classType
+boolean attributeMissing
+boolean classMissing
+int missingLevel

@@ -1,0 +1,18 @@
+{
+  final Field[] fields=RenderingHints.class.getFields();
+  for (int i=0; i < fields.length; i++) {
+    final Field f=fields[i];
+    if (Modifier.isFinal(f.getModifiers()) && Modifier.isPublic(f.getModifiers()) && Modifier.isStatic(f.getModifiers())) {
+      try {
+        final Object value=f.get(null);
+        if (o.equals(value)) {
+          return f.getName();
+        }
+      }
+ catch (      Exception e) {
+        Log.info("Unable to write RenderingHint",e);
+      }
+    }
+  }
+  throw new IllegalArgumentException("Invalid value given");
+}

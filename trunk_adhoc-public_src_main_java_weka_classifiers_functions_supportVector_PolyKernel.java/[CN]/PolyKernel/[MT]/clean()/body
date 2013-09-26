@@ -1,0 +1,6 @@
+{
+  if (getExponent() == 1.0) {
+    m_data=null;
+  }
+  super.clean();
+}

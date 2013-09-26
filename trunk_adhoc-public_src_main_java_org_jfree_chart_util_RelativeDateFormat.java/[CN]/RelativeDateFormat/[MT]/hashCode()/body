@@ -1,0 +1,11 @@
+{
+  int result=193;
+  result=37 * result + (int)(this.baseMillis ^ (this.baseMillis >>> 32));
+  result=37 * result + this.positivePrefix.hashCode();
+  result=37 * result + this.daySuffix.hashCode();
+  result=37 * result + this.hourSuffix.hashCode();
+  result=37 * result + this.minuteSuffix.hashCode();
+  result=37 * result + this.secondSuffix.hashCode();
+  result=37 * result + this.secondFormatter.hashCode();
+  return result;
+}

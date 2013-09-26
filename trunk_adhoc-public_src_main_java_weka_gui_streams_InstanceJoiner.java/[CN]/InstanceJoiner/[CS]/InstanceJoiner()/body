@@ -1,0 +1,8 @@
+{
+  listeners=new Vector();
+  m_InputFormat=null;
+  m_OutputInstance=null;
+  b_Debug=false;
+  b_FirstInputFinished=false;
+  b_SecondInputFinished=false;
+}

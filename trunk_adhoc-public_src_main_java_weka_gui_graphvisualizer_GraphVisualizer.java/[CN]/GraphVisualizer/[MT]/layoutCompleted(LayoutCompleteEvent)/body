@@ -1,0 +1,7 @@
+{
+  setAppropriateSize();
+  m_gp.invalidate();
+  m_js.revalidate();
+  m_gp.repaint();
+  jBtLayout.setEnabled(true);
+}

@@ -1,0 +1,14 @@
+{
+  getCapabilities().testWithFail(data);
+  double[] minMax=new double[2];
+  try {
+    EstimatorUtils.getMinMax(data,attrIndex,minMax);
+  }
+ catch (  Exception ex) {
+    ex.printStackTrace();
+    System.out.println(ex.getMessage());
+  }
+  double min=minMax[0];
+  double max=minMax[1];
+  addValues(data,attrIndex,min,max,1.0);
+}

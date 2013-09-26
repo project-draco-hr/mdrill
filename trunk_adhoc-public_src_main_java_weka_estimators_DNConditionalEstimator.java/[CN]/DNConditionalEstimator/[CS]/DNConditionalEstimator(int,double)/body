@@ -1,0 +1,7 @@
+{
+  m_Estimators=new NormalEstimator[numSymbols];
+  for (int i=0; i < numSymbols; i++) {
+    m_Estimators[i]=new NormalEstimator(precision);
+  }
+  m_Weights=new DiscreteEstimator(numSymbols,true);
+}

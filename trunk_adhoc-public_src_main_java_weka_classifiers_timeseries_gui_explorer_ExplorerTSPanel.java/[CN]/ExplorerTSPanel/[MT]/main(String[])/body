@@ -1,0 +1,22 @@
+{
+  try {
+    Instances insts=new Instances(new BufferedReader(new FileReader(args[0])));
+    final ExplorerTSPanel pan=new ExplorerTSPanel();
+    pan.setInstances(insts);
+    pan.setLog(new LogPanel(new WekaTaskMonitor()));
+    final JFrame frame=new JFrame("Forecasting");
+    frame.addWindowListener(new java.awt.event.WindowAdapter(){
+      public void windowClosing(      java.awt.event.WindowEvent e){
+        frame.dispose();
+        System.exit(1);
+      }
+    }
+);
+    frame.setSize(800,600);
+    frame.setContentPane(pan);
+    frame.setVisible(true);
+  }
+ catch (  Exception ex) {
+    ex.printStackTrace();
+  }
+}

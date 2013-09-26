@@ -1,0 +1,4 @@
+{
+  fixHyphens();
+  return m_XMLDocument;
+}

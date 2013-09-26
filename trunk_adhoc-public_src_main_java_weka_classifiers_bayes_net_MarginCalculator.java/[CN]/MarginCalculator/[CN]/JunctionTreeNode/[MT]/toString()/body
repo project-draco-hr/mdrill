@@ -1,0 +1,16 @@
+{
+  StringBuffer buf=new StringBuffer();
+  for (int iNode=0; iNode < m_nNodes.length; iNode++) {
+    buf.append(m_bayesNet.getNodeName(m_nNodes[iNode]) + ": ");
+    for (int iValue=0; iValue < m_MarginalP[iNode].length; iValue++) {
+      buf.append(m_MarginalP[iNode][iValue] + " ");
+    }
+    buf.append('\n');
+  }
+  for (Iterator child=m_children.iterator(); child.hasNext(); ) {
+    JunctionTreeNode childNode=(JunctionTreeNode)child.next();
+    buf.append("----------------\n");
+    buf.append(childNode.toString());
+  }
+  return buf.toString();
+}

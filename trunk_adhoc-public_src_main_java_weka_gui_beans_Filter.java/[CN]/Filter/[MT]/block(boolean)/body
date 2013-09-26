@@ -1,0 +1,14 @@
+{
+  if (tf) {
+    try {
+      if (m_filterThread.isAlive() && m_state != IDLE) {
+        wait();
+      }
+    }
+ catch (    InterruptedException ex) {
+    }
+  }
+ else {
+    notifyAll();
+  }
+}

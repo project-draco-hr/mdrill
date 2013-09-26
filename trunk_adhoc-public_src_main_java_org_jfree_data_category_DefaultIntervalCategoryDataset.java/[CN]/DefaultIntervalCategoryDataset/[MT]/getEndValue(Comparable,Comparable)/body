@@ -1,0 +1,11 @@
+{
+  int seriesIndex=getSeriesIndex(series);
+  if (seriesIndex < 0) {
+    throw new UnknownKeyException("Unknown 'series' key.");
+  }
+  int itemIndex=getColumnIndex(category);
+  if (itemIndex < 0) {
+    throw new UnknownKeyException("Unknown 'category' key.");
+  }
+  return getEndValue(seriesIndex,itemIndex);
+}

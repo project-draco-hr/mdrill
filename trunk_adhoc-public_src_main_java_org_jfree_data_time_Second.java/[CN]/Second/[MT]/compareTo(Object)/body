@@ -1,0 +1,22 @@
+{
+  int result;
+  if (o1 instanceof Second) {
+    Second s=(Second)o1;
+    if (this.firstMillisecond < s.firstMillisecond) {
+      return -1;
+    }
+ else     if (this.firstMillisecond > s.firstMillisecond) {
+      return 1;
+    }
+ else {
+      return 0;
+    }
+  }
+ else   if (o1 instanceof RegularTimePeriod) {
+    result=0;
+  }
+ else {
+    result=1;
+  }
+  return result;
+}

@@ -1,0 +1,5 @@
+{
+  if (isRangeZeroBaselineVisible()) {
+    getRenderer().drawRangeLine(g2,this,getRangeAxis(),area,0.0,this.rangeZeroBaselinePaint,this.rangeZeroBaselineStroke);
+  }
+}

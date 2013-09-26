@@ -1,0 +1,18 @@
+{
+  if (m_IgnoreChanges)   return;
+  try {
+    if (!m_ResultMatrix.getClass().equals(m_OutputFormatClasses.get(m_OutputFormatComboBox.getSelectedIndex()))) {
+      if (m_OutputFormatClasses.get(m_OutputFormatComboBox.getSelectedIndex()).equals(ExperimenterDefaults.getOutputFormat().getClass()))       m_ResultMatrix=ExperimenterDefaults.getOutputFormat();
+ else       m_ResultMatrix=(ResultMatrix)((Class)m_OutputFormatClasses.get(m_OutputFormatComboBox.getSelectedIndex())).newInstance();
+    }
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+    m_ResultMatrix=new ResultMatrixPlainText();
+  }
+  m_ResultMatrix.setMeanPrec(Integer.parseInt(m_MeanPrecSpinner.getValue().toString()));
+  m_ResultMatrix.setStdDevPrec(Integer.parseInt(m_StdDevPrecSpinner.getValue().toString()));
+  m_ResultMatrix.setShowAverage(m_ShowAverageCheckBox.isSelected());
+  m_ResultMatrix.setRemoveFilterName(m_RemoveFilterNameCheckBox.isSelected());
+  m_ResultMatrixEditor.setValue(m_ResultMatrix);
+}

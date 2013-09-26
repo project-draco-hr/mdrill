@@ -1,0 +1,13 @@
+{
+  final JPanel panel=new JPanel(new BorderLayout());
+  final JTable table=new JTable(model);
+  for (int columnIndex=0; columnIndex < model.getColumnCount(); columnIndex++) {
+    final TableColumn column=table.getColumnModel().getColumn(columnIndex);
+    final Class c=model.getColumnClass(columnIndex);
+    if (c.equals(Number.class)) {
+      column.setCellRenderer(new NumberCellRenderer());
+    }
+  }
+  panel.add(new JScrollPane(table));
+  return panel;
+}

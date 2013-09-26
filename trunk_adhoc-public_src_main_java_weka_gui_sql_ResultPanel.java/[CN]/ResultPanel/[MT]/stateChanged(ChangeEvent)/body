@@ -1,0 +1,4 @@
+{
+  setButtons();
+  if (getCurrentTable() != null)   notifyListeners(getCurrentTable().getURL(),getCurrentTable().getUser(),getCurrentTable().getPassword(),getCurrentTable().getQuery());
+}

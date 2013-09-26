@@ -1,0 +1,9 @@
+{
+  if (this.autoRangeStickyZero != flag) {
+    this.autoRangeStickyZero=flag;
+    if (isAutoRange()) {
+      autoAdjustRange();
+    }
+    notifyListeners(new AxisChangeEvent(this));
+  }
+}

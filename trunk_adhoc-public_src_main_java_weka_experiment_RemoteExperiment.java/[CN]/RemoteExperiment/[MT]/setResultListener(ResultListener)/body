@@ -1,0 +1,4 @@
+{
+  super.setResultListener(newResultListener);
+  m_baseExperiment.setResultListener(newResultListener);
+}

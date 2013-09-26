@@ -1,0 +1,38 @@
+{
+  this.classToHandlerMapping=new SimpleObjectFactory();
+  final MultiplexMappingEntry[] paintEntries=new MultiplexMappingEntry[2];
+  paintEntries[0]=new MultiplexMappingEntry("color",Color.class.getName());
+  paintEntries[1]=new MultiplexMappingEntry("gradientPaint",GradientPaint.class.getName());
+  addMultiplexMapping(Paint.class,"type",paintEntries);
+  addManualMapping(GradientPaint.class,GradientPaintWriteHandler.class);
+  addManualMapping(Color.class,ColorWriteHandler.class);
+  final MultiplexMappingEntry[] point2DEntries=new MultiplexMappingEntry[2];
+  point2DEntries[0]=new MultiplexMappingEntry("float",Point2D.Float.class.getName());
+  point2DEntries[1]=new MultiplexMappingEntry("double",Point2D.Double.class.getName());
+  addMultiplexMapping(Point2D.class,"type",point2DEntries);
+  addManualMapping(Point2D.Float.class,Point2DWriteHandler.class);
+  addManualMapping(Point2D.Double.class,Point2DWriteHandler.class);
+  final MultiplexMappingEntry[] strokeEntries=new MultiplexMappingEntry[1];
+  strokeEntries[0]=new MultiplexMappingEntry("basic",BasicStroke.class.getName());
+  addMultiplexMapping(Stroke.class,"type",strokeEntries);
+  addManualMapping(BasicStroke.class,BasicStrokeWriteHandler.class);
+  final MultiplexMappingEntry[] rectangle2DEntries=new MultiplexMappingEntry[2];
+  rectangle2DEntries[0]=new MultiplexMappingEntry("float",Rectangle2D.Float.class.getName());
+  rectangle2DEntries[1]=new MultiplexMappingEntry("double",Rectangle2D.Double.class.getName());
+  addMultiplexMapping(Rectangle2D.class,"type",rectangle2DEntries);
+  addManualMapping(Rectangle2D.Float.class,Rectangle2DWriteHandler.class);
+  addManualMapping(Rectangle2D.Double.class,Rectangle2DWriteHandler.class);
+  final MultiplexMappingEntry[] listEntries=new MultiplexMappingEntry[4];
+  listEntries[0]=new MultiplexMappingEntry("array-list",ArrayList.class.getName());
+  listEntries[1]=new MultiplexMappingEntry("linked-list",LinkedList.class.getName());
+  listEntries[2]=new MultiplexMappingEntry("vector",Vector.class.getName());
+  listEntries[3]=new MultiplexMappingEntry("stack",Stack.class.getName());
+  addMultiplexMapping(List.class,"type",listEntries);
+  addManualMapping(LinkedList.class,ListWriteHandler.class);
+  addManualMapping(Vector.class,ListWriteHandler.class);
+  addManualMapping(ArrayList.class,ListWriteHandler.class);
+  addManualMapping(Stack.class,ListWriteHandler.class);
+  addManualMapping(RenderingHints.class,RenderingHintsWriteHandler.class);
+  addManualMapping(Insets.class,InsetsWriteHandler.class);
+  addManualMapping(Font.class,FontWriteHandler.class);
+}

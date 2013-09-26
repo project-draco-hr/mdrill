@@ -1,0 +1,43 @@
+{
+  if (m_useDefaultModel) {
+    return m_ZeroR.distributionForInstance(i);
+  }
+  if (m_useNomToBin) {
+    m_nominalToBinaryFilter.input(i);
+    m_currentInstance=m_nominalToBinaryFilter.output();
+  }
+ else {
+    m_currentInstance=i;
+  }
+  if (m_normalizeAttributes) {
+    for (int noa=0; noa < m_instances.numAttributes(); noa++) {
+      if (noa != m_instances.classIndex()) {
+        if (m_attributeRanges[noa] != 0) {
+          m_currentInstance.setValue(noa,(m_currentInstance.value(noa) - m_attributeBases[noa]) / m_attributeRanges[noa]);
+        }
+ else {
+          m_currentInstance.setValue(noa,m_currentInstance.value(noa) - m_attributeBases[noa]);
+        }
+      }
+    }
+  }
+  resetNetwork();
+  double[] theArray=new double[m_numClasses];
+  for (int noa=0; noa < m_numClasses; noa++) {
+    theArray[noa]=m_outputs[noa].outputValue(true);
+  }
+  if (m_instances.classAttribute().isNumeric()) {
+    return theArray;
+  }
+  double count=0;
+  for (int noa=0; noa < m_numClasses; noa++) {
+    count+=theArray[noa];
+  }
+  if (count <= 0) {
+    return m_ZeroR.distributionForInstance(i);
+  }
+  for (int noa=0; noa < m_numClasses; noa++) {
+    theArray[noa]/=count;
+  }
+  return theArray;
+}

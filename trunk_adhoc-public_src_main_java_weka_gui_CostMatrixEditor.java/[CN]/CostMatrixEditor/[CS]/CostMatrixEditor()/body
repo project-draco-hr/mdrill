@@ -1,0 +1,5 @@
+{
+  m_matrix=new CostMatrix(2);
+  m_propSupport=new PropertyChangeSupport(this);
+  m_customEditor=new CustomEditor();
+}

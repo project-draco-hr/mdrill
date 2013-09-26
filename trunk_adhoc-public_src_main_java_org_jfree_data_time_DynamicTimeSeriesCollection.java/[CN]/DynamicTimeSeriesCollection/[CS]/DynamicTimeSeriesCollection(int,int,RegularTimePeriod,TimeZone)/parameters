@@ -1,0 +1,4 @@
+int nSeries
+int nMoments
+RegularTimePeriod timeSample
+TimeZone zone

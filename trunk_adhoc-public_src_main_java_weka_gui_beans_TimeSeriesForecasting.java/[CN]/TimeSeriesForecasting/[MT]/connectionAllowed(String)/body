@@ -1,0 +1,6 @@
+{
+  if (m_listenee != null) {
+    return false;
+  }
+  return true;
+}

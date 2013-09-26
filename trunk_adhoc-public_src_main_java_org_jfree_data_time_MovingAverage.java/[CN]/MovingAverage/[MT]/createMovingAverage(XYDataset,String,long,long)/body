@@ -1,0 +1,3 @@
+{
+  return createMovingAverage(source,suffix,(double)period,(double)skip);
+}

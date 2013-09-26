@@ -1,0 +1,4 @@
+{
+  this.angle=angle;
+  notifyListeners(new DialLayerChangeEvent(this));
+}

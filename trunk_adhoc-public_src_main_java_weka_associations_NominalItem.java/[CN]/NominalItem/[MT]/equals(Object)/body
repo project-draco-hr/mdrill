@@ -1,0 +1,10 @@
+{
+  if (!(compareTo instanceof NominalItem)) {
+    return false;
+  }
+  NominalItem b=(NominalItem)compareTo;
+  if (m_attribute.equals(b.getAttribute()) && m_valueIndex == b.getValueIndex()) {
+    return true;
+  }
+  return false;
+}

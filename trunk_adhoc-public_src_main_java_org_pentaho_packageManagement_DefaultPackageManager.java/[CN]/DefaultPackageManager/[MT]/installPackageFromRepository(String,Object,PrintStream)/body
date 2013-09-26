@@ -1,0 +1,6 @@
+{
+  Package toInstall=getRepositoryPackageInfo(packageName,version);
+  String urlString=toInstall.getPackageMetaDataElement("PackageURL").toString();
+  URL packageURL=new URL(urlString);
+  installPackageFromURL(packageURL,progress);
+}

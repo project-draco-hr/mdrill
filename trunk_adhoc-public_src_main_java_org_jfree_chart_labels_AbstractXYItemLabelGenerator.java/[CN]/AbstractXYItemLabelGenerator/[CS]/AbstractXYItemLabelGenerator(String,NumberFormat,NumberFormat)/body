@@ -1,0 +1,14 @@
+{
+  if (formatString == null) {
+    throw new IllegalArgumentException("Null 'formatString' argument.");
+  }
+  if (xFormat == null) {
+    throw new IllegalArgumentException("Null 'xFormat' argument.");
+  }
+  if (yFormat == null) {
+    throw new IllegalArgumentException("Null 'yFormat' argument.");
+  }
+  this.formatString=formatString;
+  this.xFormat=xFormat;
+  this.yFormat=yFormat;
+}

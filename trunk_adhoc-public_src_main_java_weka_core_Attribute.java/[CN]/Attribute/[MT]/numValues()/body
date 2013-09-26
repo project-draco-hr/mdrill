@@ -1,0 +1,8 @@
+{
+  if (!isNominal() && !isString() && !isRelationValued()) {
+    return 0;
+  }
+ else {
+    return m_Values.size();
+  }
+}

@@ -1,0 +1,124 @@
+{
+  Random r=new Random();
+  UnivariateEqualFrequencyHistogramEstimator e=new UnivariateEqualFrequencyHistogramEstimator();
+  System.out.println(e);
+  double sum=0;
+  for (int i=0; i < 1000; i++) {
+    sum+=Math.exp(e.logDensity(r.nextDouble() * 10.0 - 5.0));
+  }
+  System.out.println("Approximate integral: " + 10.0 * sum / 1000);
+  for (int i=0; i < 1000; i++) {
+    e.addValue(0.1 * r.nextGaussian() - 3,1);
+    e.addValue(r.nextGaussian() * 0.25,3);
+  }
+  sum=0;
+  int points=10000000;
+  for (int i=0; i < points; i++) {
+    double value=r.nextDouble() * 20.0 - 10.0;
+    sum+=Math.exp(e.logDensity(value));
+  }
+  System.out.println(e);
+  System.out.println("Approximate integral: " + 20.0 * sum / points);
+  double[][] Intervals=e.predictIntervals(0.9);
+  System.out.println("Printing histogram intervals ---------------------");
+  for (int k=0; k < Intervals.length; k++) {
+    System.out.println("Left: " + Intervals[k][0] + "\t Right: "+ Intervals[k][1]);
+  }
+  System.out.println("Finished histogram printing intervals ---------------------");
+  double Covered=0;
+  for (int i=0; i < 1000; i++) {
+    double val=-1;
+    if (r.nextDouble() < 0.25) {
+      val=0.1 * r.nextGaussian() - 3.0;
+    }
+ else {
+      val=r.nextGaussian() * 0.25;
+    }
+    for (int k=0; k < Intervals.length; k++) {
+      if (val >= Intervals[k][0] && val <= Intervals[k][1]) {
+        Covered++;
+        break;
+      }
+    }
+  }
+  System.out.println("Coverage at 0.9 level for histogram intervals: " + Covered / 1000);
+  for (int j=1; j < 5; j++) {
+    double numTrain=Math.pow(10,j);
+    System.out.println("Number of training cases: " + numTrain);
+    UnivariateEqualFrequencyHistogramEstimator eHistogram=new UnivariateEqualFrequencyHistogramEstimator();
+    UnivariateNormalEstimator eNormal=new UnivariateNormalEstimator();
+    for (int i=0; i < numTrain; i++) {
+      double val=r.nextGaussian() * 1.5 + 0.5;
+      eHistogram.addValue(val,1);
+      eNormal.addValue(val,1);
+    }
+    sum=0;
+    points=10000000;
+    for (int i=0; i < points; i++) {
+      double value=r.nextDouble() * 20.0 - 10.0;
+      sum+=Math.exp(eHistogram.logDensity(value));
+    }
+    System.out.println(eHistogram);
+    System.out.println("Approximate integral for histogram estimator: " + 20.0 * sum / points);
+    double loglikelihoodHistogram=0, loglikelihoodNormal=0;
+    for (int i=0; i < 1000; i++) {
+      double val=r.nextGaussian() * 1.5 + 0.5;
+      loglikelihoodHistogram+=eHistogram.logDensity(val);
+      loglikelihoodNormal+=eNormal.logDensity(val);
+    }
+    System.out.println("Loglikelihood for histogram estimator: " + loglikelihoodHistogram / 1000);
+    System.out.println("Loglikelihood for normal estimator: " + loglikelihoodNormal / 1000);
+    double[][] histogramIntervals=eHistogram.predictIntervals(0.95);
+    double[][] normalIntervals=eNormal.predictIntervals(0.95);
+    System.out.println("Printing histogram intervals ---------------------");
+    for (int k=0; k < histogramIntervals.length; k++) {
+      System.out.println("Left: " + histogramIntervals[k][0] + "\t Right: "+ histogramIntervals[k][1]);
+    }
+    System.out.println("Finished histogram printing intervals ---------------------");
+    System.out.println("Printing normal intervals ---------------------");
+    for (int k=0; k < normalIntervals.length; k++) {
+      System.out.println("Left: " + normalIntervals[k][0] + "\t Right: "+ normalIntervals[k][1]);
+    }
+    System.out.println("Finished normal printing intervals ---------------------");
+    double histogramCovered=0;
+    double normalCovered=0;
+    for (int i=0; i < 1000; i++) {
+      double val=r.nextGaussian() * 1.5 + 0.5;
+      for (int k=0; k < histogramIntervals.length; k++) {
+        if (val >= histogramIntervals[k][0] && val <= histogramIntervals[k][1]) {
+          histogramCovered++;
+          break;
+        }
+      }
+      for (int k=0; k < normalIntervals.length; k++) {
+        if (val >= normalIntervals[k][0] && val <= normalIntervals[k][1]) {
+          normalCovered++;
+          break;
+        }
+      }
+    }
+    System.out.println("Coverage at 0.95 level for histogram intervals: " + histogramCovered / 1000);
+    System.out.println("Coverage at 0.95 level for normal intervals: " + normalCovered / 1000);
+    histogramIntervals=eHistogram.predictIntervals(0.8);
+    normalIntervals=eNormal.predictIntervals(0.8);
+    histogramCovered=0;
+    normalCovered=0;
+    for (int i=0; i < 1000; i++) {
+      double val=r.nextGaussian() * 1.5 + 0.5;
+      for (int k=0; k < histogramIntervals.length; k++) {
+        if (val >= histogramIntervals[k][0] && val <= histogramIntervals[k][1]) {
+          histogramCovered++;
+          break;
+        }
+      }
+      for (int k=0; k < normalIntervals.length; k++) {
+        if (val >= normalIntervals[k][0] && val <= normalIntervals[k][1]) {
+          normalCovered++;
+          break;
+        }
+      }
+    }
+    System.out.println("Coverage at 0.8 level for histogram intervals: " + histogramCovered / 1000);
+    System.out.println("Coverage at 0.8 level for normal intervals: " + normalCovered / 1000);
+  }
+}

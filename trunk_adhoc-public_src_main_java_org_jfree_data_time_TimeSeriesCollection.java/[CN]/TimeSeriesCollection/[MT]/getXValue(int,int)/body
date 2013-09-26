@@ -1,0 +1,6 @@
+{
+  TimeSeries s=(TimeSeries)this.data.get(series);
+  TimeSeriesDataItem i=s.getDataItem(item);
+  RegularTimePeriod period=i.getPeriod();
+  return getX(period);
+}

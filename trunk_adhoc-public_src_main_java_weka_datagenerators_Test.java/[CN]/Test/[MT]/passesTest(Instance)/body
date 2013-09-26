@@ -1,0 +1,18 @@
+{
+  if (inst.isMissing(m_AttIndex))   return false;
+  boolean isNominal=inst.attribute(m_AttIndex).isNominal();
+  double attribVal=inst.value(m_AttIndex);
+  if (!m_Not) {
+    if (isNominal) {
+      if (((int)attribVal) != ((int)m_Split))       return false;
+    }
+ else     if (attribVal >= m_Split)     return false;
+  }
+ else {
+    if (isNominal) {
+      if (((int)attribVal) == ((int)m_Split))       return false;
+    }
+ else     if (attribVal < m_Split)     return false;
+  }
+  return true;
+}

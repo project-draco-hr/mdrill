@@ -1,0 +1,12 @@
+{
+  boolean[] attributes=new boolean[m_numericDataHeader.numAttributes()];
+  double[][] coefficients=getCoefficients();
+  for (int j=0; j < m_numClasses; j++) {
+    for (int i=1; i < m_numericDataHeader.numAttributes() + 1; i++) {
+      if (!Utils.eq(coefficients[j][i],0))       attributes[i - 1]=true;
+    }
+  }
+  double count=0;
+  for (int i=0; i < attributes.length; i++)   if (attributes[i])   count++;
+  return count / (double)(m_numericDataHeader.numAttributes() - 1) * 100.0;
+}

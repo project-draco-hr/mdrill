@@ -1,0 +1,10 @@
+{
+  Vector result;
+  result=new Vector();
+  result.add("-C");
+  result.add("" + getAttributeIndex());
+  result.add("-L");
+  result.add("" + getLabels());
+  if (getSort())   result.add("-S");
+  return (String[])result.toArray(new String[result.size()]);
+}

@@ -1,0 +1,3 @@
+{
+  return "Linear kernel: K(x,y) = <x,y>";
+}

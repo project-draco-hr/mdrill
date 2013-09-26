@@ -1,0 +1,16 @@
+{
+  if (!isString()) {
+    return -1;
+  }
+  Object store=src.m_Values.get(index);
+  Integer oldIndex=(Integer)m_Hashtable.get(store);
+  if (oldIndex != null) {
+    return oldIndex.intValue();
+  }
+ else {
+    int intIndex=m_Values.size();
+    m_Values.add(store);
+    m_Hashtable.put(store,new Integer(intIndex));
+    return intIndex;
+  }
+}

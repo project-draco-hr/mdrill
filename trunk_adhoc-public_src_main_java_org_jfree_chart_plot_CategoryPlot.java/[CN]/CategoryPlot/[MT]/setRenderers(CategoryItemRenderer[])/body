@@ -1,0 +1,6 @@
+{
+  for (int i=0; i < renderers.length; i++) {
+    setRenderer(i,renderers[i],false);
+  }
+  fireChangeEvent();
+}

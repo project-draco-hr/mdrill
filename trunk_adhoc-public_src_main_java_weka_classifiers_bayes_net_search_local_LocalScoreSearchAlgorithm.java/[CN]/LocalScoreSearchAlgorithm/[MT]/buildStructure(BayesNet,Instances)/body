@@ -1,0 +1,4 @@
+{
+  m_BayesNet=bayesNet;
+  super.buildStructure(bayesNet,instances);
+}

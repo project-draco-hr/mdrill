@@ -1,0 +1,34 @@
+{
+  String sql="SELECT linecnt,impression,finclick,finprice," + "alipay_direct_num,alipay_direct_amt," + "alipay_indirect_num,alipay_indirect_amt "+ " FROM adhoc_metric"+ " WHERE thedate=?"+ " AND type=?"+ " AND tablename=?";
+  PreparedStatement pstmt;
+  Metric metric=null;
+  try {
+    pstmt=conn.prepareStatement(sql);
+    pstmt.setString(1,thedate);
+    pstmt.setInt(2,type);
+    pstmt.setString(3,tablename);
+    ResultSet rs=pstmt.executeQuery();
+    metric=new Metric();
+    if (rs.next()) {
+      metric.setThedate(thedate);
+      metric.setType(type);
+      metric.setTablename(tablename);
+      metric.setLineCnt(rs.getLong(1));
+      metric.setImpression(rs.getLong(2));
+      metric.setFinClick(rs.getLong(3));
+      metric.setFinPrice(rs.getFloat(4));
+      metric.setAlipayDirectNum(rs.getLong(5));
+      metric.setAlipayDirectAmt(rs.getFloat(6));
+      metric.setAlipayIndirectNum(rs.getLong(7));
+      metric.setAlipayIndirectAmt(rs.getFloat(8));
+    }
+ else {
+      return null;
+    }
+  }
+ catch (  SQLException e) {
+    System.err.println("[" + sdf.format(new Date(System.currentTimeMillis())) + "] "+ "Error when get Metric"+ "thedate: "+ thedate+ "type: "+ type+ "tablename: "+ tablename);
+    e.printStackTrace();
+  }
+  return metric;
+}

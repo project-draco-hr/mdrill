@@ -1,0 +1,4 @@
+{
+  this.labelOutlineStroke=stroke;
+  fireChangeEvent();
+}

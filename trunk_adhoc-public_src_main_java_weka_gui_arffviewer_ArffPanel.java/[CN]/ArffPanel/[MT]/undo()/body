@@ -1,0 +1,6 @@
+{
+  if (canUndo()) {
+    ((ArffSortedTableModel)m_TableArff.getModel()).undo();
+    notifyListener();
+  }
+}

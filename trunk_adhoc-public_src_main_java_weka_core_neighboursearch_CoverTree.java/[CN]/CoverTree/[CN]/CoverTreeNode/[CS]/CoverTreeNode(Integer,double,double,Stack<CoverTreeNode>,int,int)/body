@@ -1,0 +1,8 @@
+{
+  idx=i;
+  max_dist=md;
+  parent_dist=pd;
+  children=childs;
+  num_children=numchilds;
+  scale=s;
+}

@@ -1,0 +1,4 @@
+{
+  this.maxItemWidth=percent;
+  fireChangeEvent();
+}

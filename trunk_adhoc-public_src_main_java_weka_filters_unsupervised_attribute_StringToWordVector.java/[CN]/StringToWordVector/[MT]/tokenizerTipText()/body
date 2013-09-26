@@ -1,0 +1,3 @@
+{
+  return "The tokenizing algorithm to use on the strings.";
+}

@@ -1,0 +1,3 @@
+{
+  return "The data format to use.";
+}

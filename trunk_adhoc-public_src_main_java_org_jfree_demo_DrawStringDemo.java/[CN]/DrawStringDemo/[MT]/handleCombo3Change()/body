@@ -1,0 +1,6 @@
+{
+  final String text=this.combo3.getSelectedItem().toString();
+  this.drawStringPanel2.setRotationAnchor(convertStringToAnchor(text));
+  this.drawStringPanel2.invalidate();
+  this.drawStringPanel2.repaint();
+}

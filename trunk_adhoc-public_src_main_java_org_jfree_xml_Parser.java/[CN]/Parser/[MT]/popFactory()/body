@@ -1,0 +1,4 @@
+{
+  this.activeFactories.pop();
+  return peekFactory();
+}

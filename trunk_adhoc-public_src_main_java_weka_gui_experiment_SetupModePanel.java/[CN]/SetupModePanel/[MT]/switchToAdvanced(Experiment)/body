@@ -1,0 +1,14 @@
+{
+  if (exp == null) {
+    exp=m_simplePanel.getExperiment();
+  }
+  if (exp != null) {
+    m_AdvancedSetupRBut.setSelected(true);
+    m_advancedPanel.setExperiment(exp);
+  }
+  remove(m_simplePanel);
+  m_simplePanel.removeNotesFrame();
+  add(m_advancedPanel,BorderLayout.CENTER);
+  validate();
+  repaint();
+}

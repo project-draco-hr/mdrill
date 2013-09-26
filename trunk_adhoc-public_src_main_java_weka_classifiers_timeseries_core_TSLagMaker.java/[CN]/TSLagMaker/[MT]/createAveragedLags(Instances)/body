@@ -1,0 +1,85 @@
+{
+  if (!m_averageConsecutiveLongLags) {
+    m_averagedLagMakers=null;
+    return insts;
+  }
+  if (m_numConsecutiveToAverage > getMaxLag() - getAverageLagsAfter()) {
+    if (getMaxLag() - getAverageLagsAfter() > 1) {
+      m_numConsecutiveToAverage=getMaxLag() - getAverageLagsAfter();
+    }
+ else {
+      m_averagedLagMakers=null;
+      return insts;
+    }
+  }
+  m_averagedLagMakers=new ArrayList<Filter>();
+  int numAtts=insts.numAttributes();
+  String removeLongLagIndexes="";
+  for (int z=0; z < m_fieldsToLag.size(); z++) {
+    int firstLagIndex=-1;
+    for (int i=0; i < insts.numAttributes(); i++) {
+      if (insts.attribute(i).name().startsWith("Lag_" + m_fieldsToLag.get(z))) {
+        firstLagIndex=i;
+        break;
+      }
+    }
+    if (firstLagIndex < 0) {
+      throw new Exception("Can't find the first lag attribute for " + m_fieldsToLag.get(z) + "!");
+    }
+    for (int i=firstLagIndex; i < numAtts; ) {
+      if (!insts.attribute(i).name().startsWith("Lag_" + m_fieldsToLag.get(z))) {
+        break;
+      }
+      String lagNumS=insts.attribute(i).name().replace("Lag_" + m_fieldsToLag.get(z) + "-","");
+      int lagNum=Integer.parseInt(lagNumS);
+      int lastLagNum=lagNum;
+      if (lagNum > m_averageLagsAfter) {
+        int attNumber=i + 1;
+        removeLongLagIndexes+=(i + 1) + ",";
+        String avExpression="(a" + attNumber;
+        String avAttName="Avg(" + insts.attribute(i).name();
+        int denom=1;
+        for (int j=1; j < m_numConsecutiveToAverage; j++) {
+          if ((i + j) < insts.numAttributes() && insts.attribute(i + j).name().startsWith("Lag_" + m_fieldsToLag.get(z))) {
+            String currNumS=insts.attribute(i + j).name().replace("Lag_" + m_fieldsToLag.get(z) + "-","");
+            int currentLagNum=Integer.parseInt(currNumS);
+            if (currentLagNum - lastLagNum == 1) {
+              avExpression+=" + a" + (attNumber + j);
+              avAttName+="," + insts.attribute(i + j).name();
+              denom++;
+              removeLongLagIndexes+=(i + j + 1) + ",";
+              lastLagNum=currentLagNum;
+            }
+ else {
+              break;
+            }
+          }
+ else {
+            break;
+          }
+        }
+        avExpression+=")/" + denom;
+        avAttName+=")";
+        AddExpression addE=new AddExpression();
+        addE.setName(avAttName);
+        addE.setExpression(avExpression);
+        addE.setInputFormat(insts);
+        insts=Filter.useFilter(insts,addE);
+        m_averagedLagMakers.add(addE);
+        i+=denom;
+      }
+ else {
+        i++;
+      }
+    }
+  }
+  if (removeLongLagIndexes.length() > 0) {
+    removeLongLagIndexes=removeLongLagIndexes.substring(0,removeLongLagIndexes.lastIndexOf(','));
+    Remove r=new Remove();
+    r.setAttributeIndices(removeLongLagIndexes);
+    r.setInputFormat(insts);
+    insts=Filter.useFilter(insts,r);
+    m_averagedLagMakers.add(r);
+  }
+  return insts;
+}

@@ -1,0 +1,4 @@
+{
+  File downloaded=downloadPackage(packageURL,progress);
+  return installPackageFromArchive(downloaded.getAbsolutePath(),progress);
+}

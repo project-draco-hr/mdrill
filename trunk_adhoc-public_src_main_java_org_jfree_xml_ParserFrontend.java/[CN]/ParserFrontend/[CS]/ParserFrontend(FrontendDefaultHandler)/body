@@ -1,0 +1,6 @@
+{
+  if (parser == null) {
+    throw new NullPointerException();
+  }
+  this.defaulthandler=parser;
+}

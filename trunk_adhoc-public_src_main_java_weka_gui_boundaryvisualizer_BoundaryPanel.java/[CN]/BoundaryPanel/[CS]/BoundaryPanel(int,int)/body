@@ -1,0 +1,18 @@
+{
+  ToolTipManager.sharedInstance().setDismissDelay(Integer.MAX_VALUE);
+  m_panelWidth=panelWidth;
+  m_panelHeight=panelHeight;
+  setLayout(new BorderLayout());
+  m_plotPanel.setMinimumSize(new Dimension(m_panelWidth,m_panelHeight));
+  m_plotPanel.setPreferredSize(new Dimension(m_panelWidth,m_panelHeight));
+  m_plotPanel.setMaximumSize(new Dimension(m_panelWidth,m_panelHeight));
+  add(m_plotPanel,BorderLayout.CENTER);
+  setPreferredSize(m_plotPanel.getPreferredSize());
+  setMaximumSize(m_plotPanel.getMaximumSize());
+  setMinimumSize(m_plotPanel.getMinimumSize());
+  m_random=new Random(1);
+  for (int i=0; i < DEFAULT_COLORS.length; i++) {
+    m_Colors.addElement(new Color(DEFAULT_COLORS[i].getRed(),DEFAULT_COLORS[i].getGreen(),DEFAULT_COLORS[i].getBlue()));
+  }
+  m_probabilityCache=new double[m_panelHeight][m_panelWidth][];
+}

@@ -1,0 +1,4 @@
+{
+  m_result.setStatusMessage("Not running.");
+  m_result.setExecutionStatus(TaskStatusInfo.TO_BE_RUN);
+}

@@ -1,0 +1,9 @@
+{
+  if (bufferedImage == null) {
+    throw new IllegalArgumentException("Null 'image' argument.");
+  }
+  if (outputStream == null) {
+    throw new IllegalArgumentException("Null 'outputStream' argument.");
+  }
+  ImageIO.write(bufferedImage,ImageFormat.PNG,outputStream);
+}

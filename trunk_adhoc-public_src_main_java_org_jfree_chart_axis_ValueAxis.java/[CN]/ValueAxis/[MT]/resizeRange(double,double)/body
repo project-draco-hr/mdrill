@@ -1,0 +1,10 @@
+{
+  if (percent > 0.0) {
+    double halfLength=this.range.getLength() * percent / 2;
+    Range adjusted=new Range(anchorValue - halfLength,anchorValue + halfLength);
+    setRange(adjusted);
+  }
+ else {
+    setAutoRange(true);
+  }
+}

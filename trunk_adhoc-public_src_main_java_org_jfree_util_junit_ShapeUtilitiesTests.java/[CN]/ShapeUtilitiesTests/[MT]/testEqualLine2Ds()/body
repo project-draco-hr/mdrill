@@ -1,0 +1,12 @@
+{
+  assertTrue(ShapeUtilities.equal((Line2D)null,(Line2D)null));
+  Line2D l1=new Line2D.Float(1.0f,2.0f,3.0f,4.0f);
+  Line2D l2=new Line2D.Float(1.0f,2.0f,3.0f,4.0f);
+  assertTrue(ShapeUtilities.equal(l1,l2));
+  l1=new Line2D.Float(4.0f,3.0f,2.0f,1.0f);
+  assertFalse(ShapeUtilities.equal(l1,l2));
+  l2=new Line2D.Float(4.0f,3.0f,2.0f,1.0f);
+  assertTrue(ShapeUtilities.equal(l1,l2));
+  l1=new Line2D.Double(4.0f,3.0f,2.0f,1.0f);
+  assertTrue(ShapeUtilities.equal(l1,l2));
+}

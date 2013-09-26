@@ -1,0 +1,7 @@
+{
+  m_colorTable=new Hashtable();
+  Colors ab=new Colors();
+  for (int noa=0; noa < ab.m_cols.length; noa++) {
+    m_colorTable.put(ab.m_cols[noa].m_name,ab.m_cols[noa].m_col);
+  }
+}

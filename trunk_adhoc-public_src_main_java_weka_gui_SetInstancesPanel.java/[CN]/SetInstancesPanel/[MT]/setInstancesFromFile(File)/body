@@ -1,0 +1,20 @@
+{
+  boolean incremental=m_readIncrementally;
+  try {
+    m_Loader=ConverterUtils.getLoaderForFile(f);
+    if (m_Loader == null)     throw new Exception("No suitable FileSourcedConverter found for file!\n" + f);
+    if (!(m_Loader instanceof IncrementalConverter))     incremental=false;
+    ((FileSourcedConverter)m_Loader).setFile(f);
+    if (incremental) {
+      m_Summary.setShowZeroInstancesAsUnknown(m_showZeroInstancesAsUnknown);
+      setInstances(m_Loader.getStructure());
+    }
+ else {
+      m_Summary.setShowZeroInstancesAsUnknown(false);
+      setInstances(m_Loader.getDataSet());
+    }
+  }
+ catch (  Exception ex) {
+    JOptionPane.showMessageDialog(this,"Couldn't read from file:\n" + f.getName(),"Load Instances",JOptionPane.ERROR_MESSAGE);
+  }
+}

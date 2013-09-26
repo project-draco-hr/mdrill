@@ -1,0 +1,7 @@
+{
+  if (m_Streams.contains(p))   remove(p);
+  if (prefix == null)   prefix="";
+  m_Streams.add(p);
+  m_Timestamps.add(new Boolean(timestamp));
+  m_Prefixes.add(prefix);
+}

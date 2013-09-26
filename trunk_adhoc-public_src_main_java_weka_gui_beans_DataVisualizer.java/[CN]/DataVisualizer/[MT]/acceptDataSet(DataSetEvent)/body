@@ -1,0 +1,25 @@
+{
+  if (e.isStructureOnly()) {
+    return;
+  }
+  m_visualizeDataSet=new Instances(e.getDataSet());
+  if (m_visualizeDataSet.classIndex() < 0) {
+    m_visualizeDataSet.setClassIndex(m_visualizeDataSet.numAttributes() - 1);
+  }
+  if (!m_design) {
+    try {
+      setInstances(m_visualizeDataSet);
+    }
+ catch (    Exception ex) {
+      ex.printStackTrace();
+    }
+  }
+ else {
+    if (m_headlessEvents != null) {
+      m_headlessEvents=new ArrayList<EventObject>();
+      m_headlessEvents.add(e);
+    }
+  }
+  notifyDataSetListeners(e);
+  renderOffscreenImage(e);
+}

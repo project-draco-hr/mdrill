@@ -1,0 +1,5 @@
+{
+  final GregorianCalendar calendar=new GregorianCalendar();
+  calendar.setTime(date);
+  return new SpreadsheetDate(calendar.get(Calendar.DATE),calendar.get(Calendar.MONTH) + 1,calendar.get(Calendar.YEAR));
+}

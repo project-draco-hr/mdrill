@@ -1,0 +1,5 @@
+{
+  super.setInputFormat(instanceInfo);
+  m_removeAttributes=null;
+  return false;
+}

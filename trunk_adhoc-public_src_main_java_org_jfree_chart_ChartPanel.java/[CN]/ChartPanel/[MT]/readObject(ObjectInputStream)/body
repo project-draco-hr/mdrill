@@ -1,0 +1,9 @@
+{
+  stream.defaultReadObject();
+  this.zoomFillPaint=SerialUtilities.readPaint(stream);
+  this.zoomOutlinePaint=SerialUtilities.readPaint(stream);
+  this.chartMouseListeners=new EventListenerList();
+  if (this.chart != null) {
+    this.chart.addChangeListener(this);
+  }
+}

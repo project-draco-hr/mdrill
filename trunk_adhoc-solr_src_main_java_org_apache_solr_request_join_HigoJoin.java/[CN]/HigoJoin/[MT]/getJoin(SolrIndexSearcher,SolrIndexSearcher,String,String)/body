@@ -23,7 +23,7 @@ synchronized (lock) {
         FieldType ftleft=readerleft.getSchema().getFieldType(fieldLeft);
         FieldType ftright=readerright.getSchema().getFieldType(fieldRigth);
         if (ftleft.isMultiValued() || ftright.isMultiValued()) {
-          uif=new HigoJoinMultyValues(readerleft,readerright,fieldLeft,fieldRigth);
+          throw new IOException("multi value");
         }
  else {
           uif=new HigoJoinSingleValues(readerleft,readerright,fieldLeft,fieldRigth);

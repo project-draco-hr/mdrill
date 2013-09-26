@@ -1,0 +1,4 @@
+{
+  m_deltaTime=deltaTime;
+  m_handlerPeriodicity.setDeltaTime(m_deltaTime);
+}

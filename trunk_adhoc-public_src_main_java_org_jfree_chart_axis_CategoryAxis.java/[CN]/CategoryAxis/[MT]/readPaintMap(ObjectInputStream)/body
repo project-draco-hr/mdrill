@@ -1,0 +1,14 @@
+{
+  boolean isNull=in.readBoolean();
+  if (isNull) {
+    return null;
+  }
+  Map result=new HashMap();
+  int count=in.readInt();
+  for (int i=0; i < count; i++) {
+    Comparable category=(Comparable)in.readObject();
+    Paint paint=SerialUtilities.readPaint(in);
+    result.put(category,paint);
+  }
+  return result;
+}

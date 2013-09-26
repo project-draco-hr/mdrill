@@ -1,0 +1,3 @@
+{
+  return "Number of folds to use in cross validation.";
+}

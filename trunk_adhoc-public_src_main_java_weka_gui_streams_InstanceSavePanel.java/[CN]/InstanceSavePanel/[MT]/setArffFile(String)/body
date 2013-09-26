@@ -1,0 +1,3 @@
+{
+  arffFile_Tex.setText(newArffFile);
+}

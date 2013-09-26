@@ -1,0 +1,7 @@
+{
+  m_nTargetNode=nTargetNode;
+  m_nX2=nX;
+  m_nY2=nY;
+  m_nX=getPositionX(nTargetNode);
+  m_nY=getPositionY(nTargetNode);
+}

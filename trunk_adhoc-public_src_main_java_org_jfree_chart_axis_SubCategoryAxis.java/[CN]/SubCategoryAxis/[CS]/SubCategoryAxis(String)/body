@@ -1,0 +1,4 @@
+{
+  super(label);
+  this.subCategories=new java.util.ArrayList();
+}

@@ -1,0 +1,13 @@
+{
+  inst=filterInstance(inst);
+  Matrix k=new Matrix(m_NumTrain,1);
+  for (int i=0; i < m_NumTrain; i++) {
+    k.set(i,0,m_kernel.eval(-1,i,inst));
+  }
+  double estimate=k.transpose().times(m_t).get(0,0) + m_avg_target;
+  double sigma=computeStdDev(inst,k);
+  value=value * m_Alin + m_Blin;
+  value=value - estimate;
+  double z=-Math.log(sigma * Math.sqrt(2 * Math.PI)) - value * value / (2.0 * sigma * sigma);
+  return z + Math.log(m_Alin);
+}

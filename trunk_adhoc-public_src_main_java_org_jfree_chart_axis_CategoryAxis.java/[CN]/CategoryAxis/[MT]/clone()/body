@@ -1,0 +1,7 @@
+{
+  CategoryAxis clone=(CategoryAxis)super.clone();
+  clone.tickLabelFontMap=new HashMap(this.tickLabelFontMap);
+  clone.tickLabelPaintMap=new HashMap(this.tickLabelPaintMap);
+  clone.categoryLabelToolTips=new HashMap(this.categoryLabelToolTips);
+  return clone;
+}

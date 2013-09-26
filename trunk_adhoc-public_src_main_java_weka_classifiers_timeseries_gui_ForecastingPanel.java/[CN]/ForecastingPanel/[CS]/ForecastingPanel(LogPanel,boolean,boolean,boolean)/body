@@ -1,0 +1,116 @@
+{
+  m_isRunningAsPerspective=kfPerspective;
+  m_simpleConfigPanel=new SimpleConfigPanel(this);
+  m_advancedConfigPanel=new AdvancedConfigPanel(m_simpleConfigPanel,allowSeparateTestSet);
+  setLayout(new BorderLayout());
+  m_log=log;
+  if (m_log != null) {
+    if (displayLogWelcome) {
+      String date=(new SimpleDateFormat("EEEE, d MMMM yyyy")).format(new Date());
+      m_log.logMessage("Weka Forecaster");
+      m_log.logMessage("Started on " + date);
+      m_log.statusMessage("Welcome to the Weka Forecaster");
+    }
+  }
+  m_simpleConfigPanel.setAdvancedConfig(m_advancedConfigPanel);
+  m_configPane.addTab(m_simpleConfigPanel.getTabTitle(),null,m_simpleConfigPanel,m_simpleConfigPanel.getTabTitleToolTip());
+  m_configPane.addTab(m_advancedConfigPanel.getTabTitle(),null,m_advancedConfigPanel,m_advancedConfigPanel.getTabTitleToolTip());
+  m_outText.setEditable(false);
+  m_outText.setFont(new Font("Monospaced",Font.PLAIN,12));
+  m_outText.setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
+  final JScrollPane js=new JScrollPane(m_outText);
+  js.getViewport().addChangeListener(new ChangeListener(){
+    private int lastHeight;
+    public void stateChanged(    ChangeEvent e){
+      JViewport vp=(JViewport)e.getSource();
+      int h=vp.getViewSize().height;
+      if (h != lastHeight) {
+        lastHeight=h;
+        int x=h - vp.getExtentSize().height;
+        vp.setViewPosition(new Point(0,x));
+      }
+    }
+  }
+);
+  m_outputPane.setBorder(BorderFactory.createTitledBorder("Output/Visualization"));
+  m_outputPane.addTab("Output",null,js,"Forecaster output");
+  m_history.setBorder(BorderFactory.createTitledBorder("Result list"));
+  m_history.getList().getSelectionModel().addListSelectionListener(new ListSelectionListener(){
+    public void valueChanged(    ListSelectionEvent e){
+synchronized (ForecastingPanel.this) {
+        if (!e.getValueIsAdjusting()) {
+          ListSelectionModel lm=(ListSelectionModel)e.getSource();
+          for (int j=e.getFirstIndex(); j <= e.getLastIndex(); j++) {
+            if (lm.isSelectedIndex(j)) {
+              String name=m_history.getSelectedName();
+              updateMainTabs(name);
+            }
+          }
+        }
+      }
+    }
+  }
+);
+  m_history.getList().addMouseListener(new MouseAdapter(){
+    public void mouseClicked(    MouseEvent e){
+      if (((e.getModifiers() & InputEvent.BUTTON1_MASK) != InputEvent.BUTTON1_MASK) || e.isAltDown()) {
+        int index=m_history.getList().locationToIndex(e.getPoint());
+        if (index != -1) {
+          String name=m_history.getNameAtIndex(index);
+          resultPopup(name,e.getX(),e.getY());
+        }
+ else {
+          resultPopup(null,e.getX(),e.getY());
+        }
+      }
+    }
+  }
+);
+  m_history.setHandleRightClicks(false);
+  JPanel lowerPanel=new JPanel();
+  lowerPanel.setLayout(new BorderLayout());
+  JPanel butAndHistHolder=new JPanel();
+  butAndHistHolder.setLayout(new BorderLayout());
+  butAndHistHolder.add(m_history,BorderLayout.CENTER);
+  JPanel butHolder=new JPanel();
+  butHolder.setLayout(new GridLayout(1,3));
+  butHolder.add(m_startBut);
+  butHolder.add(m_stopBut);
+  butHolder.add(m_helpBut);
+  m_startBut.setToolTipText("Start the forecasting process");
+  m_stopBut.setToolTipText("Stop the running forecasting process");
+  butAndHistHolder.add(butHolder,BorderLayout.NORTH);
+  m_startBut.setEnabled(false);
+  m_stopBut.setEnabled(false);
+  m_stopBut.addActionListener(new ActionListener(){
+    public void actionPerformed(    ActionEvent e){
+      stopForecaster();
+    }
+  }
+);
+  m_helpBut.addActionListener(new ActionListener(){
+    public void actionPerformed(    ActionEvent e){
+      BrowserHelper.openURL(ForecastingPanel.this,"http://wiki.pentaho.com/display/DATAMINING/" + "Time+Series+Analysis+and+Forecasting+with+Weka");
+    }
+  }
+);
+  m_helpBut.setToolTipText("Visit documentation for the time series " + "environment in your browser");
+  lowerPanel.add(butAndHistHolder,BorderLayout.WEST);
+  lowerPanel.add(m_outputPane,BorderLayout.CENTER);
+  m_splitP=new JSplitPane(JSplitPane.VERTICAL_SPLIT,m_configPane,lowerPanel);
+  m_splitP.setOneTouchExpandable(true);
+  add(m_splitP,BorderLayout.CENTER);
+  if (m_log != null && m_log instanceof JComponent) {
+    add((JComponent)m_log,BorderLayout.SOUTH);
+  }
+  double width=m_history.getPreferredSize().width;
+  int height=m_history.getPreferredSize().height;
+  width*=0.75;
+  m_history.setPreferredSize(new Dimension((int)width,height));
+  m_startBut.addActionListener(new ActionListener(){
+    public void actionPerformed(    ActionEvent e){
+      startForecaster(m_forecaster);
+    }
+  }
+);
+}

@@ -1,0 +1,7 @@
+{
+  Path path=new Path("hello.world[2].nothing");
+  System.out.println("Path: " + path);
+  System.out.println(" -size: " + path.size());
+  System.out.println(" -elements:");
+  for (int i=0; i < path.size(); i++)   System.out.println("  " + i + ". "+ path.get(i).getName()+ " -> "+ path.get(i).getIndex());
+}

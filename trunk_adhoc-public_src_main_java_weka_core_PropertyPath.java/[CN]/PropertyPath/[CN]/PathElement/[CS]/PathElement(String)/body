@@ -1,0 +1,11 @@
+{
+  super();
+  if (property.indexOf("[") > -1) {
+    m_Name=property.replaceAll("\\[.*$","");
+    m_Index=Integer.parseInt(property.replaceAll(".*\\[","").replaceAll("\\].*",""));
+  }
+ else {
+    m_Name=property;
+    m_Index=-1;
+  }
+}

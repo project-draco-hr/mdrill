@@ -1,0 +1,3 @@
+{
+  setItemLabelFont(font,true);
+}

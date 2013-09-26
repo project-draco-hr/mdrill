@@ -1,0 +1,6 @@
+{
+  m_backward=back;
+  if (m_backward) {
+    setGenerateRanking(false);
+  }
+}

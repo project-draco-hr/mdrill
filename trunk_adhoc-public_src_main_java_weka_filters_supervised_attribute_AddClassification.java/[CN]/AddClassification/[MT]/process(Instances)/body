@@ -1,0 +1,55 @@
+{
+  Instances result;
+  double[] newValues;
+  double[] oldValues;
+  int i;
+  int start;
+  int n;
+  Instance newInstance;
+  Instance oldInstance;
+  double[] distribution;
+  if (!isFirstBatchDone()) {
+    getActualClassifier();
+    if (!getSerializedClassifierFile().isDirectory()) {
+      if ((m_SerializedHeader != null) && (!m_SerializedHeader.equalHeaders(instances)))       throw new WekaException("Training header of classifier and filter dataset don't match:\n" + m_SerializedHeader.equalHeadersMsg(instances));
+    }
+ else {
+      m_ActualClassifier.buildClassifier(instances);
+    }
+  }
+  result=getOutputFormat();
+  for (i=0; i < instances.numInstances(); i++) {
+    oldInstance=instances.instance(i);
+    oldValues=oldInstance.toDoubleArray();
+    newValues=new double[result.numAttributes()];
+    start=oldValues.length;
+    if (getRemoveOldClass())     start--;
+    System.arraycopy(oldValues,0,newValues,0,start);
+    if (getOutputClassification()) {
+      newValues[start]=m_ActualClassifier.classifyInstance(oldInstance);
+      start++;
+    }
+    if (getOutputDistribution()) {
+      distribution=m_ActualClassifier.distributionForInstance(oldInstance);
+      for (n=0; n < distribution.length; n++) {
+        newValues[start]=distribution[n];
+        start++;
+      }
+    }
+    if (getOutputErrorFlag()) {
+      if (result.classAttribute().isNominal()) {
+        if (oldInstance.classValue() == m_ActualClassifier.classifyInstance(oldInstance))         newValues[start]=0;
+ else         newValues[start]=1;
+      }
+ else {
+        newValues[start]=m_ActualClassifier.classifyInstance(oldInstance) - oldInstance.classValue();
+      }
+      start++;
+    }
+    if (oldInstance instanceof SparseInstance)     newInstance=new SparseInstance(oldInstance.weight(),newValues);
+ else     newInstance=new DenseInstance(oldInstance.weight(),newValues);
+    copyValues(newInstance,false,oldInstance.dataset(),getOutputFormat());
+    result.add(newInstance);
+  }
+  return result;
+}

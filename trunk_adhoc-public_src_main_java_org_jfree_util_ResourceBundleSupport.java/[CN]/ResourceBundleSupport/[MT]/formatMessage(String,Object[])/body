@@ -1,0 +1,5 @@
+{
+  final MessageFormat format=new MessageFormat(getString(key));
+  format.setLocale(getLocale());
+  return format.format(parameters);
+}

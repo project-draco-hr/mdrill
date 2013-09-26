@@ -1,0 +1,15 @@
+{
+  Enumeration en=m_listenees.keys();
+  while (en.hasMoreElements()) {
+    Object tempO=m_listenees.get(en.nextElement());
+    if (tempO instanceof BeanCommon) {
+      ((BeanCommon)tempO).stop();
+    }
+  }
+  if (m_buildThread != null) {
+    m_buildThread.interrupt();
+    m_buildThread.stop();
+    m_buildThread=null;
+    m_visual.setStatic();
+  }
+}

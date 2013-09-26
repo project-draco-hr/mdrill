@@ -1,0 +1,4 @@
+{
+  initializeAttributeIndices();
+  initializeRanges();
+}

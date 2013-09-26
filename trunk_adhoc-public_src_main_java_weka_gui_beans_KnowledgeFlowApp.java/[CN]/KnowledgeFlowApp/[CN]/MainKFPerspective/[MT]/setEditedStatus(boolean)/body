@@ -1,0 +1,6 @@
+{
+  if (getNumTabs() > 0) {
+    int current=getCurrentTabIndex();
+    setEditedStatus(current,status);
+  }
+}

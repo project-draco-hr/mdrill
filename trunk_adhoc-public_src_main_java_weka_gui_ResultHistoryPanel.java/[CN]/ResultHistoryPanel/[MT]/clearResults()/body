@@ -1,0 +1,6 @@
+{
+  m_Results.clear();
+  m_Model.clear();
+  m_Objs.clear();
+  System.gc();
+}

@@ -1,0 +1,7 @@
+{
+  Capabilities result;
+  if (m_unpruned)   result=new MakeDecList(null,m_minNumObj).getCapabilities();
+ else   if (m_reducedErrorPruning)   result=new MakeDecList(null,m_numFolds,m_minNumObj,m_Seed).getCapabilities();
+ else   result=new MakeDecList(null,m_CF,m_minNumObj).getCapabilities();
+  return result;
+}

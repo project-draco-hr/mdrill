@@ -1,0 +1,3 @@
+{
+  return ((OHLCDataset)this.parent).getLow(this.map[series],item);
+}

@@ -1,0 +1,4 @@
+{
+  super(number.doubleValue(),label,textAnchor,rotationAnchor,angle);
+  this.number=number;
+}

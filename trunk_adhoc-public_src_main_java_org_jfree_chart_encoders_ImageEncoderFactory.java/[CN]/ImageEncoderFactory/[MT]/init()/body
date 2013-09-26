@@ -1,0 +1,13 @@
+{
+  encoders=new Hashtable();
+  encoders.put("jpeg","org.jfree.chart.encoders.SunJPEGEncoderAdapter");
+  try {
+    Class.forName("javax.imageio.ImageIO");
+    Class.forName("org.jfree.chart.encoders.SunPNGEncoderAdapter");
+    encoders.put("png","org.jfree.chart.encoders.SunPNGEncoderAdapter");
+    encoders.put("jpeg","org.jfree.chart.encoders.SunJPEGEncoderAdapter");
+  }
+ catch (  ClassNotFoundException e) {
+    encoders.put("png","org.jfree.chart.encoders.KeypointPNGEncoderAdapter");
+  }
+}

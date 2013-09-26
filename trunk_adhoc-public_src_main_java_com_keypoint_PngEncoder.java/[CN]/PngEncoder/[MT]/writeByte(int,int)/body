@@ -1,0 +1,4 @@
+{
+  byte[] temp={(byte)b};
+  return writeBytes(temp,offset);
+}

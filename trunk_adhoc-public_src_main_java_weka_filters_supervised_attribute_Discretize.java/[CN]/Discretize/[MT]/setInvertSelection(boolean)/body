@@ -1,0 +1,3 @@
+{
+  m_DiscretizeCols.setInvert(invert);
+}

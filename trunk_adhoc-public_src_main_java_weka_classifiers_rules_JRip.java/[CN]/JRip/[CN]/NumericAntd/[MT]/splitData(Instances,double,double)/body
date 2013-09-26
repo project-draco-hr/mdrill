@@ -1,0 +1,74 @@
+{
+  Instances data=insts;
+  int total=data.numInstances();
+  int split=1;
+  int prev=0;
+  int finalSplit=split;
+  maxInfoGain=0;
+  value=0;
+  double fstCover=0, sndCover=0, fstAccu=0, sndAccu=0;
+  data.sort(att);
+  for (int x=0; x < data.numInstances(); x++) {
+    Instance inst=data.instance(x);
+    if (inst.isMissing(att)) {
+      total=x;
+      break;
+    }
+    sndCover+=inst.weight();
+    if (Utils.eq(inst.classValue(),cl))     sndAccu+=inst.weight();
+  }
+  if (total == 0)   return null;
+  splitPoint=data.instance(total - 1).value(att);
+  for (; split <= total; split++) {
+    if ((split == total) || (data.instance(split).value(att) > data.instance(prev).value(att))) {
+      for (int y=prev; y < split; y++) {
+        Instance inst=data.instance(y);
+        fstCover+=inst.weight();
+        if (Utils.eq(data.instance(y).classValue(),cl)) {
+          fstAccu+=inst.weight();
+        }
+      }
+      double fstAccuRate=(fstAccu + 1.0) / (fstCover + 1.0), sndAccuRate=(sndAccu + 1.0) / (sndCover + 1.0);
+      boolean isFirst;
+      double fstInfoGain, sndInfoGain;
+      double accRate, infoGain, coverage, accurate;
+      fstInfoGain=fstAccu * (Utils.log2(fstAccuRate) - Utils.log2(defAcRt));
+      sndInfoGain=sndAccu * (Utils.log2(sndAccuRate) - Utils.log2(defAcRt));
+      if (fstInfoGain > sndInfoGain) {
+        isFirst=true;
+        infoGain=fstInfoGain;
+        accRate=fstAccuRate;
+        accurate=fstAccu;
+        coverage=fstCover;
+      }
+ else {
+        isFirst=false;
+        infoGain=sndInfoGain;
+        accRate=sndAccuRate;
+        accurate=sndAccu;
+        coverage=sndCover;
+      }
+      if (infoGain > maxInfoGain) {
+        splitPoint=data.instance(prev).value(att);
+        value=(isFirst) ? 0 : 1;
+        accuRate=accRate;
+        accu=accurate;
+        cover=coverage;
+        maxInfoGain=infoGain;
+        finalSplit=(isFirst) ? split : prev;
+      }
+      for (int y=prev; y < split; y++) {
+        Instance inst=data.instance(y);
+        sndCover-=inst.weight();
+        if (Utils.eq(data.instance(y).classValue(),cl)) {
+          sndAccu-=inst.weight();
+        }
+      }
+      prev=split;
+    }
+  }
+  Instances[] splitData=new Instances[2];
+  splitData[0]=new Instances(data,0,finalSplit);
+  splitData[1]=new Instances(data,finalSplit,total - finalSplit);
+  return splitData;
+}

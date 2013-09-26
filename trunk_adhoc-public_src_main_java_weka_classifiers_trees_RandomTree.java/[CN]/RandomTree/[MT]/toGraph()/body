@@ -1,0 +1,11 @@
+{
+  try {
+    StringBuffer resultBuff=new StringBuffer();
+    toGraph(resultBuff,0);
+    String result="digraph Tree {\n" + "edge [style=bold]\n" + resultBuff.toString() + "\n}\n";
+    return result;
+  }
+ catch (  Exception e) {
+    return null;
+  }
+}

@@ -1,0 +1,54 @@
+{
+  m_Self=this;
+  setLayout(new BorderLayout());
+  JPanel panel=new JPanel(new FlowLayout(FlowLayout.RIGHT));
+  add(panel,BorderLayout.SOUTH);
+  if (ClassDiscovery.hasInterface(CapabilitiesHandler.class,m_ClassType)) {
+    m_FilterButton.setMnemonic('F');
+    m_FilterButton.addActionListener(new ActionListener(){
+      public void actionPerformed(      ActionEvent e){
+        if (e.getSource() == m_FilterButton) {
+          CapabilitiesFilterDialog dialog=new CapabilitiesFilterDialog();
+          dialog.setCapabilities(m_CapabilitiesFilter);
+          dialog.setPopup(m_Self);
+          dialog.setVisible(true);
+          m_Support.firePropertyChange("",null,null);
+          repaint();
+        }
+      }
+    }
+);
+    panel.add(m_FilterButton);
+    m_RemoveFilterButton.setMnemonic('R');
+    m_RemoveFilterButton.addActionListener(new ActionListener(){
+      public void actionPerformed(      ActionEvent e){
+        if (e.getSource() == m_RemoveFilterButton) {
+          m_CapabilitiesFilter=null;
+          m_Support.firePropertyChange("",null,null);
+          repaint();
+        }
+      }
+    }
+);
+    panel.add(m_RemoveFilterButton);
+  }
+  m_CloseButton.setMnemonic('C');
+  m_CloseButton.addActionListener(new ActionListener(){
+    public void actionPerformed(    ActionEvent e){
+      if (e.getSource() == m_CloseButton) {
+        m_Self.setVisible(false);
+      }
+    }
+  }
+);
+  panel.add(m_CloseButton);
+  m_tree=tree;
+  JPanel treeView=new JPanel();
+  treeView.setLayout(new BorderLayout());
+  treeView.add(m_tree,BorderLayout.NORTH);
+  treeView.setBackground(m_tree.getBackground());
+  m_scroller=new JScrollPane(treeView);
+  m_scroller.setPreferredSize(new Dimension(300,400));
+  m_scroller.getVerticalScrollBar().setUnitIncrement(20);
+  add(m_scroller);
+}

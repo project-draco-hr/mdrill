@@ -1,0 +1,6 @@
+{
+  m_AttIndex=i;
+  m_Split=s;
+  m_Dataset=dataset;
+  m_Not=false;
+}

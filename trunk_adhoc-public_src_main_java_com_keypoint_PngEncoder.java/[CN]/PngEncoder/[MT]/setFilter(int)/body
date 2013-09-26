@@ -1,0 +1,6 @@
+{
+  this.filter=FILTER_NONE;
+  if (whichFilter <= FILTER_LAST) {
+    this.filter=whichFilter;
+  }
+}

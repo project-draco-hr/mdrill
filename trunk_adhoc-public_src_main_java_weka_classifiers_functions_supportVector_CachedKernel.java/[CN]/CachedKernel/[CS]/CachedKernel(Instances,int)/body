@@ -1,0 +1,5 @@
+{
+  super();
+  setCacheSize(cacheSize);
+  buildKernel(data);
+}

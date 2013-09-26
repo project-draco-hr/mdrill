@@ -1,0 +1,9 @@
+{
+  for (int iNode=0; iNode < m_selected.size(); iNode++) {
+    if (nNode == (Integer)m_selected.elementAt(iNode)) {
+      return;
+    }
+  }
+  m_selected.addElement(nNode);
+  updateGUI();
+}

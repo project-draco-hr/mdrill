@@ -1,4 +1,0 @@
-{
-  log.info("higolog SetCacheFlushKey " + key);
-  SolrResourceLoader.cacheFlushKey.set(key);
-}

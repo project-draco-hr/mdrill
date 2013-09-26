@@ -1,0 +1,6 @@
+Comparable rowKey
+Comparable columnKey
+CategoryDataset dataset
+CategoryAxis axis
+Rectangle2D area
+RectangleEdge edge

@@ -1,0 +1,4 @@
+WekaTaskMonitor tm
+boolean logHidden
+boolean statusHidden
+boolean titledBorder

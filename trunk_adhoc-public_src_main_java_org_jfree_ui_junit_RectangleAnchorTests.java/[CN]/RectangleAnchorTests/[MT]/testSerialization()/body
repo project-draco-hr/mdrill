@@ -1,0 +1,17 @@
+{
+  final RectangleAnchor a1=RectangleAnchor.RIGHT;
+  RectangleAnchor a2=null;
+  try {
+    final ByteArrayOutputStream buffer=new ByteArrayOutputStream();
+    final ObjectOutput out=new ObjectOutputStream(buffer);
+    out.writeObject(a1);
+    out.close();
+    final ObjectInput in=new ObjectInputStream(new ByteArrayInputStream(buffer.toByteArray()));
+    a2=(RectangleAnchor)in.readObject();
+    in.close();
+  }
+ catch (  Exception e) {
+    System.out.println(e.toString());
+  }
+  assertTrue(a1 == a2);
+}

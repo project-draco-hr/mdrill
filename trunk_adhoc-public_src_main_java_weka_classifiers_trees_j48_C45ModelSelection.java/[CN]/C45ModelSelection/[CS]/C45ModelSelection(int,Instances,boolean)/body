@@ -1,0 +1,5 @@
+{
+  m_minNoObj=minNoObj;
+  m_allData=allData;
+  m_useMDLcorrection=useMDLcorrection;
+}

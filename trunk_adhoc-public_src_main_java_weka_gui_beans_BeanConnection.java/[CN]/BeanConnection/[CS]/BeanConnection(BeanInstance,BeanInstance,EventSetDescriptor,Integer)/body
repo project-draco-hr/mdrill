@@ -1,0 +1,31 @@
+{
+  int tabIndex=0;
+  if (tab.length > 0) {
+    tabIndex=tab[0].intValue();
+  }
+  Vector connections=TABBED_CONNECTIONS.get(tabIndex);
+  m_source=source;
+  m_target=target;
+  m_eventName=esd.getName();
+  Method registrationMethod=esd.getAddListenerMethod();
+  Object targetBean=m_target.getBean();
+  Object[] args=new Object[1];
+  args[0]=targetBean;
+  Class listenerClass=esd.getListenerType();
+  if (listenerClass.isInstance(targetBean)) {
+    try {
+      registrationMethod.invoke(m_source.getBean(),args);
+      if (targetBean instanceof BeanCommon) {
+        ((BeanCommon)targetBean).connectionNotification(esd.getName(),m_source.getBean());
+      }
+      connections.addElement(this);
+    }
+ catch (    Exception ex) {
+      System.err.println("[BeanConnection] Unable to connect beans");
+      ex.printStackTrace();
+    }
+  }
+ else {
+    System.err.println("[BeanConnection] Unable to connect beans");
+  }
+}

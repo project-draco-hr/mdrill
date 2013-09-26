@@ -1,0 +1,5 @@
+{
+  assertTrue(VerticalAlignment.TOP.equals(VerticalAlignment.TOP));
+  assertTrue(VerticalAlignment.BOTTOM.equals(VerticalAlignment.BOTTOM));
+  assertTrue(VerticalAlignment.CENTER.equals(VerticalAlignment.CENTER));
+}

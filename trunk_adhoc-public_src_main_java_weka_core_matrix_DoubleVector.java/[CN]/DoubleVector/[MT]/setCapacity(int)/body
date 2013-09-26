@@ -1,0 +1,8 @@
+{
+  if (n == capacity())   return;
+  double[] oldV=V;
+  int m=Math.min(n,size());
+  V=new double[n];
+  setSize(m);
+  set(0,m - 1,oldV,0);
+}

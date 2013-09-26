@@ -1,0 +1,34 @@
+{
+  try {
+    int result=Integer.parseInt(day);
+    return result;
+  }
+ catch (  NumberFormatException e) {
+  }
+  day=day.toLowerCase();
+  if (day.equals("sunday") || day.equals("sun")) {
+    return Calendar.SUNDAY;
+  }
+  if (day.equals("monday") || day.equals("mon")) {
+    return Calendar.MONDAY;
+  }
+  if (day.equals("tuesday") || day.equals("tue")) {
+    return Calendar.TUESDAY;
+  }
+  if (day.equals("wednesday") || day.equals("wed")) {
+    return Calendar.WEDNESDAY;
+  }
+  if (day.equals("thursday") || day.equals("thu")) {
+    return Calendar.THURSDAY;
+  }
+  if (day.equals("friday") || day.equals("fri")) {
+    return Calendar.FRIDAY;
+  }
+  if (day.equals("saturday") || day.equals("sat")) {
+    return Calendar.SATURDAY;
+  }
+  if (day.equals("*")) {
+    return -100;
+  }
+  throw new IllegalArgumentException("Can't parse month!");
+}

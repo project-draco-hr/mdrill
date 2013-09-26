@@ -1,0 +1,6 @@
+{
+  super.setInputFormat(instanceInfo);
+  setOutputFormat(instanceInfo);
+  m_MinArray=m_MaxArray=null;
+  return true;
+}

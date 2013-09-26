@@ -1,0 +1,3 @@
+{
+  return this.sectionOutlineStrokeMap.getStroke(key);
+}

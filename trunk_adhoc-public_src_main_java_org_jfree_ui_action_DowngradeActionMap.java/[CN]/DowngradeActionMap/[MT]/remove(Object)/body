@@ -1,0 +1,4 @@
+{
+  this.actionMap.remove(key);
+  this.actionList.remove(key);
+}

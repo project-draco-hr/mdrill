@@ -1,0 +1,9 @@
+{
+  if (percent > 0.0) {
+    double halfLength=getDisplayLength() * percent / 2;
+    setDisplayRange(anchorValue - halfLength,anchorValue + halfLength);
+  }
+ else {
+    setAutoRange(true);
+  }
+}

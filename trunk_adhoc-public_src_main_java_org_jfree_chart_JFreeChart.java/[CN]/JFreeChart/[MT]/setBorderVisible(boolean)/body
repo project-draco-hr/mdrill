@@ -1,0 +1,4 @@
+{
+  this.borderVisible=visible;
+  fireChartChanged();
+}

@@ -1,0 +1,3 @@
+{
+  return "The random number seed to be used.";
+}

@@ -1,0 +1,5 @@
+String url
+String user
+String pw
+String query
+ResultSetTableModel model

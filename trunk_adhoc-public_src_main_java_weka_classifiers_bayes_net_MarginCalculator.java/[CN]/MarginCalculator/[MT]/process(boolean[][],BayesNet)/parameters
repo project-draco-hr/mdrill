@@ -1,0 +1,2 @@
+boolean[][] bAdjacencyMatrix
+BayesNet bayesNet

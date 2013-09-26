@@ -1,0 +1,4 @@
+{
+  m_offscreenRendererName=rendererName;
+  m_offscreenRenderer=null;
+}

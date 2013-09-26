@@ -1,0 +1,6 @@
+{
+  if (Utils.isMissingValue(value(attIndex))) {
+    return true;
+  }
+  return false;
+}

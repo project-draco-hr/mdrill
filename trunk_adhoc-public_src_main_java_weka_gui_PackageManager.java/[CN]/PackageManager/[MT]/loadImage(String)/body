@@ -1,0 +1,10 @@
+{
+  Image pic=null;
+  URL imageURL=this.getClass().getClassLoader().getResource(path);
+  if (imageURL == null) {
+  }
+ else {
+    pic=Toolkit.getDefaultToolkit().getImage(imageURL);
+  }
+  return pic;
+}

@@ -1,0 +1,9 @@
+{
+  super();
+  m_StartTag=new String[2];
+  m_EndTag=new String[2];
+  m_StartTag[0]=PLAINTEXT_STARTTAG;
+  m_EndTag[0]=PLAINTEXT_ENDTAG;
+  m_StartTag[1]=BIBTEX_STARTTAG;
+  m_EndTag[1]=BIBTEX_ENDTAG;
+}

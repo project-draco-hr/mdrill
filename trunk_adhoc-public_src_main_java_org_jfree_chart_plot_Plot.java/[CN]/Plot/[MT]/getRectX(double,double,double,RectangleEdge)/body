@@ -1,0 +1,10 @@
+{
+  double result=x;
+  if (edge == RectangleEdge.LEFT) {
+    result=result + w1;
+  }
+ else   if (edge == RectangleEdge.RIGHT) {
+    result=result + w2;
+  }
+  return result;
+}

@@ -1,0 +1,17 @@
+{
+  Vector<Integer> indices;
+  int[] attributes;
+  int i;
+  indices=new Vector<Integer>();
+  for (i=0; i < inputFormat.numAttributes(); i++) {
+    if (i == inputFormat.classIndex())     continue;
+    if (inputFormat.attribute(i).name().matches(m_Expression))     indices.add(i);
+  }
+  attributes=new int[indices.size()];
+  for (i=0; i < indices.size(); i++)   attributes[i]=indices.get(i);
+  m_Remove=new Remove();
+  m_Remove.setAttributeIndicesArray(attributes);
+  m_Remove.setInvertSelection(getInvertSelection());
+  m_Remove.setInputFormat(inputFormat);
+  return m_Remove.getOutputFormat();
+}

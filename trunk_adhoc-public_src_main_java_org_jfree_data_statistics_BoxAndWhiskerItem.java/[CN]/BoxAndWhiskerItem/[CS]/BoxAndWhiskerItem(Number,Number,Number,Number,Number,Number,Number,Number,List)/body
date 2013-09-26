@@ -1,0 +1,11 @@
+{
+  this.mean=mean;
+  this.median=median;
+  this.q1=q1;
+  this.q3=q3;
+  this.minRegularValue=minRegularValue;
+  this.maxRegularValue=maxRegularValue;
+  this.minOutlier=minOutlier;
+  this.maxOutlier=maxOutlier;
+  this.outliers=outliers;
+}

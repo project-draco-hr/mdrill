@@ -1,0 +1,24 @@
+{
+  if (stream == null) {
+    throw new IllegalArgumentException("Null 'stream' argument.");
+  }
+  Paint result=null;
+  final boolean isNull=stream.readBoolean();
+  if (!isNull) {
+    final Class c=(Class)stream.readObject();
+    if (isSerializable(c)) {
+      result=(Paint)stream.readObject();
+    }
+ else     if (c.equals(GradientPaint.class)) {
+      final float x1=stream.readFloat();
+      final float y1=stream.readFloat();
+      final Color c1=(Color)stream.readObject();
+      final float x2=stream.readFloat();
+      final float y2=stream.readFloat();
+      final Color c2=(Color)stream.readObject();
+      final boolean isCyclic=stream.readBoolean();
+      result=new GradientPaint(x1,y1,c1,x2,y2,c2,isCyclic);
+    }
+  }
+  return result;
+}

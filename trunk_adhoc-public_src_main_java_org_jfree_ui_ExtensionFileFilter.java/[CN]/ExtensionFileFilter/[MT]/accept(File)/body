@@ -1,0 +1,12 @@
+{
+  if (file.isDirectory()) {
+    return true;
+  }
+  final String name=file.getName().toLowerCase();
+  if (name.endsWith(this.extension)) {
+    return true;
+  }
+ else {
+    return false;
+  }
+}

@@ -1,0 +1,6 @@
+{
+  if (m_numToSelect >= 0) {
+    m_calculatedNumToSelect=m_numToSelect;
+  }
+  return m_calculatedNumToSelect;
+}

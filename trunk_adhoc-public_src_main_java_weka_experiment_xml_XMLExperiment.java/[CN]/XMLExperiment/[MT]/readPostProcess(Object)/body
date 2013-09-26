@@ -1,0 +1,16 @@
+{
+  Element node;
+  Experiment exp;
+  int i;
+  Vector children;
+  exp=(Experiment)o;
+  children=XMLDocument.getChildTags(m_Document.getDocument().getDocumentElement());
+  for (i=0; i < children.size(); i++) {
+    node=(Element)children.get(i);
+    if (node.getAttribute(ATT_NAME).equals(NAME_CLASSFIRST)) {
+      exp.classFirst(new Boolean(XMLDocument.getContent(node)).booleanValue());
+      break;
+    }
+  }
+  return o;
+}

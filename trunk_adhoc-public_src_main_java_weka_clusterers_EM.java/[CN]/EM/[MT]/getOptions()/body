@@ -1,0 +1,18 @@
+{
+  int i;
+  Vector result;
+  String[] options;
+  result=new Vector();
+  result.add("-I");
+  result.add("" + m_max_iterations);
+  result.add("-N");
+  result.add("" + getNumClusters());
+  result.add("-M");
+  result.add("" + getMinStdDev());
+  if (m_displayModelInOldFormat) {
+    result.add("-O");
+  }
+  options=super.getOptions();
+  for (i=0; i < options.length; i++)   result.add(options[i]);
+  return (String[])result.toArray(new String[result.size()]);
+}

@@ -1,0 +1,6 @@
+{
+  if (m_env == null) {
+    m_env=Environment.getSystemWide();
+  }
+  m_modelPath=modelPath;
+}

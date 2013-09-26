@@ -1,0 +1,9 @@
+{
+  if (this.equals(DatasetRenderingOrder.FORWARD)) {
+    return DatasetRenderingOrder.FORWARD;
+  }
+ else   if (this.equals(DatasetRenderingOrder.REVERSE)) {
+    return DatasetRenderingOrder.REVERSE;
+  }
+  return null;
+}

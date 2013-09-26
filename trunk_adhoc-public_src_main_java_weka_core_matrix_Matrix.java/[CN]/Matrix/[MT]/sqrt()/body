@@ -1,0 +1,25 @@
+{
+  EigenvalueDecomposition evd;
+  Matrix s;
+  Matrix v;
+  Matrix d;
+  Matrix result;
+  Matrix a;
+  Matrix b;
+  int i;
+  int n;
+  result=null;
+  evd=this.eig();
+  v=evd.getV();
+  d=evd.getD();
+  s=new Matrix(d.getRowDimension(),d.getColumnDimension());
+  for (i=0; i < s.getRowDimension(); i++)   for (n=0; n < s.getColumnDimension(); n++)   s.set(i,n,StrictMath.sqrt(d.get(i,n)));
+  a=v.inverse();
+  b=v.times(s).inverse();
+  v=null;
+  d=null;
+  evd=null;
+  s=null;
+  result=a.solve(b).inverse();
+  return result;
+}

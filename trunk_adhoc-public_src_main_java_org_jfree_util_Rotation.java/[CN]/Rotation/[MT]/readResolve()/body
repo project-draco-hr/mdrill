@@ -1,0 +1,9 @@
+{
+  if (this.equals(Rotation.CLOCKWISE)) {
+    return Rotation.CLOCKWISE;
+  }
+ else   if (this.equals(Rotation.ANTICLOCKWISE)) {
+    return Rotation.ANTICLOCKWISE;
+  }
+  return null;
+}

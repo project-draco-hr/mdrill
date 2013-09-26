@@ -1,0 +1,5 @@
+{
+  ExtendedCategoryAxis clone=(ExtendedCategoryAxis)super.clone();
+  clone.sublabels=new HashMap(this.sublabels);
+  return clone;
+}

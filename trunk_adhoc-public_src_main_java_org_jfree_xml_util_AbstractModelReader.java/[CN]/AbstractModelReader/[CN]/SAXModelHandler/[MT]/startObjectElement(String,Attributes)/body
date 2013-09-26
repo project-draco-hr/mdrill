@@ -1,0 +1,25 @@
+{
+  if (qName.equals(ClassModelTags.CONSTRUCTOR_TAG)) {
+    setState(CONSTRUCTOR_STATE);
+  }
+ else   if (qName.equals(ClassModelTags.LOOKUP_PROPERTY_TAG)) {
+    final String name=attributes.getValue(ClassModelTags.NAME_ATTR);
+    final String lookupKey=attributes.getValue(ClassModelTags.LOOKUP_ATTR);
+    handleLookupDefinition(name,lookupKey);
+  }
+ else   if (qName.equals(ClassModelTags.IGNORED_PROPERTY_TAG)) {
+    final String name=attributes.getValue(ClassModelTags.NAME_ATTR);
+    handleIgnoredProperty(name);
+  }
+ else   if (qName.equals(ClassModelTags.ELEMENT_PROPERTY_TAG)) {
+    final String elementAtt=attributes.getValue(ClassModelTags.ELEMENT_ATTR);
+    final String name=attributes.getValue(ClassModelTags.NAME_ATTR);
+    handleElementDefinition(name,elementAtt);
+  }
+ else   if (qName.equals(ClassModelTags.ATTRIBUTE_PROPERTY_TAG)) {
+    final String name=attributes.getValue(ClassModelTags.NAME_ATTR);
+    final String attribName=attributes.getValue(ClassModelTags.ATTRIBUTE_ATTR);
+    final String handler=attributes.getValue(ClassModelTags.ATTRIBUTE_HANDLER_ATTR);
+    handleAttributeDefinition(name,attribName,handler);
+  }
+}

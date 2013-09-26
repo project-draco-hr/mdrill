@@ -1,0 +1,6 @@
+{
+  final int yy=(12 * base.getYYYY() + base.getMonth() + months - 1) / 12;
+  final int mm=(12 * base.getYYYY() + base.getMonth() + months - 1) % 12 + 1;
+  final int dd=Math.min(base.getDayOfMonth(),SerialDate.lastDayOfMonth(mm,yy));
+  return SerialDate.createInstance(dd,mm,yy);
+}

@@ -1,0 +1,8 @@
+{
+  Random random=getRandom();
+  Instances format=getDatasetFormat();
+  if (format == null)   throw new Exception("Dataset format not defined.");
+  if (getVoteFlag())   throw new Exception("Examples cannot be generated one by one.");
+  format=generateExamples(1,random,format);
+  return format.lastInstance();
+}

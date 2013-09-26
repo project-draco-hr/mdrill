@@ -1,0 +1,11 @@
+{
+  int hashcode=tablename.hashCode();
+  hashcode=hashcode < 0 ? hashcode * -1 : hashcode;
+  int len=HigoJoinUtils.localStoreBase.length;
+  String choosepase=HigoJoinUtils.localStoreBase[hashcode % len];
+  File lockbase=new File(choosepase,"higojoin_lock_pathForLock");
+  if (!lockbase.exists()) {
+    lockbase.mkdirs();
+  }
+  return lockbase.getAbsolutePath();
+}

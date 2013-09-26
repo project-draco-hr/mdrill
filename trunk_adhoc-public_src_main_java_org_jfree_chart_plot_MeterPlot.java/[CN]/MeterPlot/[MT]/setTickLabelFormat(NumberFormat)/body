@@ -1,0 +1,7 @@
+{
+  if (format == null) {
+    throw new IllegalArgumentException("Null 'format' argument.");
+  }
+  this.tickLabelFormat=format;
+  fireChangeEvent();
+}

@@ -1,0 +1,8 @@
+{
+  if (this.isdetail) {
+    return getPairSortedDetail(saverecords);
+  }
+ else {
+    return getPairSortedGroup(saverecords);
+  }
+}

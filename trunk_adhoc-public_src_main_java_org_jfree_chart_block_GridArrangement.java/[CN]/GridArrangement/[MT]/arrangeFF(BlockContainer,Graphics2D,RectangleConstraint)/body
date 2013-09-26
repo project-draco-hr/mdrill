@@ -1,0 +1,18 @@
+{
+  double width=constraint.getWidth() / this.columns;
+  double height=constraint.getHeight() / this.rows;
+  List blocks=container.getBlocks();
+  for (int c=0; c < this.columns; c++) {
+    for (int r=0; r < this.rows; r++) {
+      int index=r * this.columns + c;
+      if (index >= blocks.size()) {
+        break;
+      }
+      Block b=(Block)blocks.get(index);
+      if (b != null) {
+        b.setBounds(new Rectangle2D.Double(c * width,r * height,width,height));
+      }
+    }
+  }
+  return new Size2D(this.columns * width,this.rows * height);
+}

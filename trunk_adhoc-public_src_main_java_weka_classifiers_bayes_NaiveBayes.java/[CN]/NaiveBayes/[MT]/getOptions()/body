@@ -1,0 +1,17 @@
+{
+  String[] options=new String[3];
+  int current=0;
+  if (m_UseKernelEstimator) {
+    options[current++]="-K";
+  }
+  if (m_UseDiscretization) {
+    options[current++]="-D";
+  }
+  if (m_displayModelInOldFormat) {
+    options[current++]="-O";
+  }
+  while (current < options.length) {
+    options[current++]="";
+  }
+  return options;
+}

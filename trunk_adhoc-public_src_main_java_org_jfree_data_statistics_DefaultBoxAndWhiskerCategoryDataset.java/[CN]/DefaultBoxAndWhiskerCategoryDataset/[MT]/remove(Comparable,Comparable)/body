@@ -1,0 +1,9 @@
+{
+  int r=getRowIndex(rowKey);
+  int c=getColumnIndex(columnKey);
+  this.data.removeObject(rowKey,columnKey);
+  if ((this.maximumRangeValueRow == r && this.maximumRangeValueColumn == c) || (this.minimumRangeValueRow == r && this.minimumRangeValueColumn == c)) {
+    updateBounds();
+  }
+  fireDatasetChanged();
+}

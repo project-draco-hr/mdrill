@@ -1,0 +1,3 @@
+{
+  return "Class for performing a Bias-Variance decomposition on any classifier " + "using the method specified in:\n\n" + getTechnicalInformation().toString();
+}

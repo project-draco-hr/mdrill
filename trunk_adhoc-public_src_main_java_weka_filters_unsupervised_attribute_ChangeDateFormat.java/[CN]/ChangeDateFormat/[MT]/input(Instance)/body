@@ -1,0 +1,23 @@
+{
+  if (getInputFormat() == null) {
+    throw new IllegalStateException("No input instance format defined");
+  }
+  if (m_NewBatch) {
+    resetQueue();
+    m_NewBatch=false;
+  }
+  Instance newInstance=(Instance)instance.copy();
+  int index=m_AttIndex.getIndex();
+  if (!newInstance.isMissing(index)) {
+    double value=instance.value(index);
+    try {
+      value=m_OutputAttribute.parseDate(m_OutputAttribute.formatDate(value));
+    }
+ catch (    ParseException pe) {
+      throw new RuntimeException("Output date format couldn't parse its own output!!");
+    }
+    newInstance.setValue(index,value);
+  }
+  push(newInstance);
+  return true;
+}

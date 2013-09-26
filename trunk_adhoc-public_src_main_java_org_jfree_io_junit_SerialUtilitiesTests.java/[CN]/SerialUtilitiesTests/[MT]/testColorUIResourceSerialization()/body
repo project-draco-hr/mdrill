@@ -1,0 +1,18 @@
+{
+  Paint p1=UIManager.getColor("Panel.background");
+  Paint p2=null;
+  try {
+    ByteArrayOutputStream buffer=new ByteArrayOutputStream();
+    ObjectOutputStream out=new ObjectOutputStream(buffer);
+    SerialUtilities.writePaint(p1,out);
+    out.close();
+    ByteArrayInputStream bias=new ByteArrayInputStream(buffer.toByteArray());
+    ObjectInputStream in=new ObjectInputStream(bias);
+    p2=SerialUtilities.readPaint(in);
+    in.close();
+  }
+ catch (  Exception e) {
+    fail(e.toString());
+  }
+  assertEquals(p1,p2);
+}

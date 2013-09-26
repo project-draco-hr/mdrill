@@ -1,0 +1,3 @@
+{
+  setSeriesStroke(series,stroke,true);
+}

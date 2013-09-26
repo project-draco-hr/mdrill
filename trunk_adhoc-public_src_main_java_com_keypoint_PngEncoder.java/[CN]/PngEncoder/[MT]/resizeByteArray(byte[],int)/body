@@ -1,0 +1,6 @@
+{
+  byte[] newArray=new byte[newLength];
+  int oldLength=array.length;
+  System.arraycopy(array,0,newArray,0,Math.min(oldLength,newLength));
+  return newArray;
+}

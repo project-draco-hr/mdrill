@@ -1,0 +1,13 @@
+{
+  if (this.xDpi > 0 && this.yDpi > 0) {
+    final int startPos=this.bytePos=writeInt4(9,this.bytePos);
+    this.bytePos=writeBytes(PHYS,this.bytePos);
+    this.bytePos=writeInt4(this.xDpi,this.bytePos);
+    this.bytePos=writeInt4(this.yDpi,this.bytePos);
+    this.bytePos=writeByte(1,this.bytePos);
+    this.crc.reset();
+    this.crc.update(this.pngBytes,startPos,this.bytePos - startPos);
+    this.crcValue=this.crc.getValue();
+    this.bytePos=writeInt4((int)this.crcValue,this.bytePos);
+  }
+}

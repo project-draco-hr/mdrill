@@ -1,0 +1,3 @@
+{
+  return localizationResources.getString("Category_Plot");
+}

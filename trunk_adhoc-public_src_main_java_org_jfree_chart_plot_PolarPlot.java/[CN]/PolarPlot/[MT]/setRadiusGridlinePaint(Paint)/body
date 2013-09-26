@@ -1,0 +1,4 @@
+{
+  this.radiusGridlinePaint=paint;
+  fireChangeEvent();
+}

@@ -1,7 +1,7 @@
 {
   TermNumToString[] tm=this.prefetchValues(ufs,res,sortufs);
-  PriorityQueue<SelectDetailRow> topItems=new PriorityQueue<SelectDetailRow>(this.limit_offset,Collections.reverseOrder(this.cmpresult));
-  boolean usedsort=isNeedSort && this.SelectDetailSort == null;
+  PriorityQueue<SelectDetailRow> topItems=new PriorityQueue<SelectDetailRow>(this.parse.limit_offset,Collections.reverseOrder(this.container.cmpresult));
+  boolean usedsort=this.container.isOnlyColumnSort();
   for (  SelectDetailRow row : res) {
     int doc=row.docid;
     String sortString=null;
@@ -24,13 +24,11 @@
       }
     }
     buff.sortString=sortString;
-    ArrayList<SortGroupVal> newgroup=this.setGroupJoin(buff,ufs.length,doc);
-    for (    SortGroupVal g : newgroup) {
-      SelectDetailRow newrow=SelectDetailRow.INSTANCE(doc,row.getCompareValue());
-      newrow.setKey(g.groupbuff.toString());
-      newrow.colVal=g.sortString;
-      MdrillPorcessUtils.put2QueueDetail(newrow,topItems,this.limit_offset,this.cmpresult);
-    }
+    this.setGroupJoin(buff,ufs.length,doc);
+    SelectDetailRow newrow=SelectDetailRow.INSTANCE(doc,row.getCompareValue());
+    newrow.setKey(buff.groupbuff.toString());
+    newrow.colVal=buff.sortString;
+    QueuePutUtils.put2QueueDetail(newrow,topItems,this.parse.limit_offset,this.container.cmpresult);
   }
   return topItems;
 }

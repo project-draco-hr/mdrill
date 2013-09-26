@@ -1,0 +1,51 @@
+{
+  if (getPackageRepositoryURL() == null) {
+    throw new Exception("[DefaultPackageManager] No package repository set!!");
+  }
+  String packageList=m_packageRepository.toString() + "/packageList.txt";
+  URLConnection conn=null;
+  conn=getConnection(packageList);
+  BufferedReader bi=new BufferedReader(new InputStreamReader(conn.getInputStream()));
+  ByteArrayOutputStream bos=new ByteArrayOutputStream();
+  ZipOutputStream zos=new ZipOutputStream(bos);
+  String packageName;
+  while ((packageName=bi.readLine()) != null) {
+    for (    PrintStream p : progress) {
+      p.println("Fetching meta data for " + packageName);
+    }
+    writeZipEntryForPackage(packageName,zos);
+  }
+  bi.close();
+  conn=getConnection(packageList);
+  ZipEntry z=new ZipEntry("packageList.txt");
+  BufferedInputStream bi2=new BufferedInputStream(conn.getInputStream());
+  ByteArrayOutputStream bos2=new ByteArrayOutputStream();
+  transToBAOS(bi2,bos2);
+  zos.putNextEntry(z);
+  zos.write(bos2.toByteArray());
+  bi2.close();
+  String imageList=m_packageRepository.toString() + "/images.txt";
+  conn=getConnection(imageList);
+  bi=new BufferedReader(new InputStreamReader(conn.getInputStream()));
+  String imageName;
+  while ((imageName=bi.readLine()) != null) {
+    z=new ZipEntry(imageName);
+    URLConnection conn2=getConnection(m_packageRepository.toString() + "/" + imageName);
+    bi2=new BufferedInputStream(conn2.getInputStream());
+    bos2=new ByteArrayOutputStream();
+    transToBAOS(bi2,bos2);
+    zos.putNextEntry(z);
+    zos.write(bos2.toByteArray());
+    bi2.close();
+  }
+  conn=getConnection(imageList);
+  z=new ZipEntry("images.txt");
+  bi2=new BufferedInputStream(conn.getInputStream());
+  bos2=new ByteArrayOutputStream();
+  transToBAOS(bi2,bos2);
+  zos.putNextEntry(z);
+  zos.write(bos2.toByteArray());
+  bi2.close();
+  zos.close();
+  return bos.toByteArray();
+}

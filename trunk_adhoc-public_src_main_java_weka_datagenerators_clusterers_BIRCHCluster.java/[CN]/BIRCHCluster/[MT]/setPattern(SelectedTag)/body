@@ -1,0 +1,3 @@
+{
+  if (value.getTags() == TAGS_PATTERN)   m_Pattern=value.getSelectedTag().getID();
+}

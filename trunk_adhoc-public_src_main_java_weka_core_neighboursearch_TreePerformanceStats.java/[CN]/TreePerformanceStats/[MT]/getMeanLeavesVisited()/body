@@ -1,0 +1,3 @@
+{
+  return m_SumLeaves / (double)m_NumQueries;
+}

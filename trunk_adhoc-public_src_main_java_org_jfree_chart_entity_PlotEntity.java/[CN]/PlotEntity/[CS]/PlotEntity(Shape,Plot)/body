@@ -1,0 +1,3 @@
+{
+  this(area,plot,null);
+}

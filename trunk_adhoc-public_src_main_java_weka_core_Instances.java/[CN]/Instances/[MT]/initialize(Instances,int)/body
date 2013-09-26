@@ -1,0 +1,7 @@
+{
+  if (capacity < 0)   capacity=0;
+  m_ClassIndex=dataset.m_ClassIndex;
+  m_RelationName=dataset.m_RelationName;
+  m_Attributes=dataset.m_Attributes;
+  m_Instances=new ArrayList<Instance>(capacity);
+}

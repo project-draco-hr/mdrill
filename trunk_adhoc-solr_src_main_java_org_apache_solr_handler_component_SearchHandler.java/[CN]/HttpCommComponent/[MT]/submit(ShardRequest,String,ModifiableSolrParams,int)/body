@@ -1,4 +1,5 @@
 {
+  final long begintime=System.currentTimeMillis();
   Callable<ShardResponse> task=new Callable<ShardResponse>(){
     public ShardResponse call() throws Exception {
       ShardResponse srsp=new ShardResponse();
@@ -18,16 +19,24 @@
         req.setMethod(SolrRequest.METHOD.POST);
         ssr.nl=server.request(req);
         cli.getHttpConnectionManager().closeIdleConnections(0);
+        Map<String,String> timetaken=(Map<String,String>)ssr.nl.get("mdrill_shard_time");
+        if (timetaken == null) {
+          timetaken=new LinkedHashMap<String,String>();
+          ssr.nl.add("mdrill_shard_time",timetaken);
+        }
         long t2=System.currentTimeMillis();
-        SearchHandler.log.info("##HttpClient## timetaken=" + (t2 - startTime));
+        long timetake=t2 - startTime;
+        long waittime=startTime - begintime;
+        timetaken.put(String.valueOf(depth) + "@" + shard,String.valueOf(timetake) + "@" + waittime);
+        SearchHandler.log.info("##HttpClient## timetaken=" + (timetake) + "@"+ waittime+ ",shard:"+ shard);
       }
  catch (      RuntimeException th) {
-        SearchHandler.log.error(params.toString(),th);
+        SearchHandler.log.error(shard + "@" + params.toString(),th);
         srsp.setException(new Exception(shard,th));
         srsp.setResponseCode(-1);
       }
 catch (      Throwable th) {
-        SearchHandler.log.error(params.toString(),th);
+        SearchHandler.log.error(shard + "@" + params.toString(),th);
         srsp.setException(new Exception(shard,th));
         if (th instanceof SolrException) {
           srsp.setResponseCode(((SolrException)th).code());

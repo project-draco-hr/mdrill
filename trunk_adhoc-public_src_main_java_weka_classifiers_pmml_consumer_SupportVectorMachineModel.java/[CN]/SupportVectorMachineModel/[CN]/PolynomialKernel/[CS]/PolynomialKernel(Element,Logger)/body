@@ -1,0 +1,48 @@
+{
+  super(log);
+  String gammaString=polyNode.getAttribute("gamma");
+  if (gammaString != null && gammaString.length() > 0) {
+    try {
+      m_gamma=Double.parseDouble(gammaString);
+    }
+ catch (    NumberFormatException e) {
+      String message="[PolynomialKernel] : WARNING, can't parse " + "gamma attribute. Using default value of 1.";
+      if (m_log == null) {
+        System.err.println(message);
+      }
+ else {
+        m_log.logMessage(message);
+      }
+    }
+  }
+  String coefString=polyNode.getAttribute("coef0");
+  if (coefString != null && coefString.length() > 0) {
+    try {
+      m_coef0=Double.parseDouble(coefString);
+    }
+ catch (    NumberFormatException e) {
+      String message="[PolynomialKernel] : WARNING, can't parse " + "coef0 attribute. Using default value of 1.";
+      if (m_log == null) {
+        System.err.println(message);
+      }
+ else {
+        m_log.logMessage(message);
+      }
+    }
+  }
+  String degreeString=polyNode.getAttribute("degree");
+  if (degreeString != null && degreeString.length() > 0) {
+    try {
+      m_degree=Double.parseDouble(degreeString);
+    }
+ catch (    NumberFormatException e) {
+      String message="[PolynomialKernel] : WARNING, can't parse " + "degree attribute. Using default value of 1.";
+      if (m_log == null) {
+        System.err.println(message);
+      }
+ else {
+        m_log.logMessage(message);
+      }
+    }
+  }
+}

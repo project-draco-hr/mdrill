@@ -1,0 +1,7 @@
+{
+  try {
+    new FontChooserDialog(new Frame(),"Title",false,new Font("Serif",Font.PLAIN,10));
+  }
+ catch (  UnsupportedOperationException use) {
+  }
+}

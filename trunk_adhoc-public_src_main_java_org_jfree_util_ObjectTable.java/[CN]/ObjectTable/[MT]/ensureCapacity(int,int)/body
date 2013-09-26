@@ -1,0 +1,19 @@
+{
+  if (row < 0) {
+    throw new IndexOutOfBoundsException("Row is invalid. " + row);
+  }
+  if (column < 0) {
+    throw new IndexOutOfBoundsException("Column is invalid. " + column);
+  }
+  ensureRowCapacity(row);
+  final Object[] current=this.data[row];
+  if (current == null) {
+    final Object[] enlarged=new Object[Math.max(column + 1,this.columnIncrement)];
+    this.data[row]=enlarged;
+  }
+ else   if (column >= current.length) {
+    final Object[] enlarged=new Object[column + this.columnIncrement];
+    System.arraycopy(current,0,enlarged,0,current.length);
+    this.data[row]=enlarged;
+  }
+}

@@ -1,0 +1,4 @@
+{
+  if (!KOML.isPresent())   throw new Exception("KOML is not present!");
+ else   return true;
+}

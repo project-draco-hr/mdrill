@@ -1,0 +1,9 @@
+{
+  try {
+    final String o=(String)getParameter("class");
+    return ObjectUtilities.getClassLoader(getClass()).loadClass(o).newInstance();
+  }
+ catch (  Exception e) {
+    return null;
+  }
+}

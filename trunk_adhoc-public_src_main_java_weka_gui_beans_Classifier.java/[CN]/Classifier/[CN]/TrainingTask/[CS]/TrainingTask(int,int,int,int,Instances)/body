@@ -1,0 +1,8 @@
+{
+  m_runNum=runNum;
+  m_maxRunNum=maxRunNum;
+  m_setNum=setNum;
+  m_maxSetNum=maxSetNum;
+  m_train=train;
+  m_taskInfo.setExecutionStatus(TaskStatusInfo.TO_BE_RUN);
+}

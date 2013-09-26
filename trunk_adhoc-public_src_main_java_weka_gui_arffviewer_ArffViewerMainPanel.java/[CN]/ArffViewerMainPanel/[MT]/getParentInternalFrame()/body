@@ -1,0 +1,4 @@
+{
+  if (parent instanceof JInternalFrame)   return (JInternalFrame)parent;
+ else   return null;
+}

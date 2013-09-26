@@ -1,0 +1,3 @@
+{
+  super("Cut","Cut Nodes","cut","ctrl X");
+}

@@ -1,0 +1,27 @@
+{
+  boolean[] attList_Irr;
+  int[] attList_Num;
+  FastVector attributes=new FastVector();
+  Attribute attribute;
+  FastVector nominalValues=new FastVector(2);
+  nominalValues.addElement("false");
+  nominalValues.addElement("true");
+  FastVector classValues=new FastVector(getNumClasses());
+  Instances dataset;
+  attList_Irr=defineIrrelevant(random);
+  setAttList_Irr(attList_Irr);
+  attList_Num=defineNumeric(random);
+  for (int i=0; i < getNumAttributes(); i++) {
+    if (attList_Num[i] == Attribute.NUMERIC)     attribute=new Attribute("a" + i);
+ else     attribute=new Attribute("a" + i,nominalValues);
+    attributes.addElement(attribute);
+  }
+  for (int i=0; i < getNumClasses(); i++)   classValues.addElement("c" + i);
+  attribute=new Attribute("class",classValues);
+  attributes.addElement(attribute);
+  dataset=new Instances(getRelationNameToUse(),attributes,getNumExamplesAct());
+  dataset.setClassIndex(getNumAttributes());
+  Instances format=new Instances(dataset,0);
+  setDatasetFormat(format);
+  return dataset;
+}

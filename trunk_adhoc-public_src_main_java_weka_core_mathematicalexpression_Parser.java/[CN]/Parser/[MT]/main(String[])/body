@@ -1,0 +1,41 @@
+{
+  HashMap symbols=new HashMap();
+  if (args.length > 0) {
+    if (args[0].equals("-symbols")) {
+      String[] pairs=args[1].replaceAll(" ","").split(";");
+      for (int i=0; i < pairs.length; i++) {
+        String[] parts=pairs[i].split("=");
+        symbols.put(parts[0],new Double(parts[1]));
+      }
+      System.out.println("\nSymbols provided:");
+      Iterator iter=symbols.keySet().iterator();
+      while (iter.hasNext()) {
+        String key=(String)iter.next();
+        System.out.println(key + "=" + symbols.get(key));
+      }
+      String[] argsNew=new String[args.length - 2];
+      System.arraycopy(args,2,argsNew,0,argsNew.length);
+      args=argsNew;
+    }
+  }
+  int index=-1;
+  if (args.length == 1)   index=0;
+  BufferedReader input=null;
+  if (index == -1) {
+    System.out.println("\nPlease type in expressions (and press <Enter>), exit with <Ctrl+D>:");
+    input=new BufferedReader(new InputStreamReader(System.in));
+  }
+ else {
+    System.out.println("\nReading expressions from file '" + args[index] + "':");
+    input=new BufferedReader(new FileReader(args[index]));
+  }
+  SymbolFactory sf=new DefaultSymbolFactory();
+  String line;
+  while ((line=input.readLine()) != null) {
+    ByteArrayInputStream parserInput=new ByteArrayInputStream(line.getBytes());
+    Parser parser=new Parser(new Scanner(parserInput,sf),sf);
+    parser.setSymbols(symbols);
+    parser.parse();
+    System.out.println(line + " = " + parser.getResult());
+  }
+}

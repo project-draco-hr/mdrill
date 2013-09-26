@@ -1,0 +1,3 @@
+{
+  return "Whether to ouput the class distribution as well (only nominal class attributes).";
+}

@@ -3,7 +3,7 @@
   facetResponse=new SimpleOrderedMap();
   try {
     facetResponse.add("facet_queries",new SimpleOrderedMap());
-    facetResponse.add("facet_fields",getFacetFieldCounts());
+    facetResponse.add("facet_fields",new SimpleOrderedMap());
     facetResponse.add("facet_dates",new SimpleOrderedMap());
     facetResponse.add("facet_ranges",new SimpleOrderedMap());
   }

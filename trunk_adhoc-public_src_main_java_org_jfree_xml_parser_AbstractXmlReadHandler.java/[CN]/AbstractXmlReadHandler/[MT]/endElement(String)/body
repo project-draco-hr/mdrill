@@ -1,0 +1,11 @@
+{
+  if (this.tagName.equals(tagName)) {
+    try {
+      doneParsing();
+      this.rootHandler.unwind(tagName);
+    }
+ catch (    XmlReaderException xre) {
+      throw new SAXException(xre);
+    }
+  }
+}

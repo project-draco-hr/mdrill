@@ -1,0 +1,20 @@
+{
+  super(new FlowLayout(FlowLayout.LEFT,0,0));
+  m_enclosingPane=pane;
+  setOpaque(false);
+  setBorder(BorderFactory.createEmptyBorder(2,0,0,0));
+  m_tabLabel=new JLabel(){
+    public String getText(){
+      int index=m_enclosingPane.indexOfTabComponent(CloseableTabTitle.this);
+      if (index >= 0) {
+        return m_enclosingPane.getTitleAt(index);
+      }
+      return null;
+    }
+  }
+;
+  add(m_tabLabel);
+  m_tabLabel.setBorder(BorderFactory.createEmptyBorder(0,0,0,5));
+  m_tabButton=new TabButton();
+  add(m_tabButton);
+}

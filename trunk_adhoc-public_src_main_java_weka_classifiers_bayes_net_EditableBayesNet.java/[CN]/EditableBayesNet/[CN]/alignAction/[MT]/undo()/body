@@ -1,0 +1,11 @@
+{
+  try {
+    for (int iNode=0; iNode < m_nodes.size(); iNode++) {
+      int nNode=(Integer)m_nodes.elementAt(iNode);
+      setPosition(nNode,(Integer)m_posX.elementAt(iNode),(Integer)m_posY.elementAt(iNode));
+    }
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
+}

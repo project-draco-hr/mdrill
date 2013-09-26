@@ -1,0 +1,5 @@
+{
+  int i;
+  m_Indentation="";
+  for (i=0; i < value; i++)   m_Indentation+=" ";
+}

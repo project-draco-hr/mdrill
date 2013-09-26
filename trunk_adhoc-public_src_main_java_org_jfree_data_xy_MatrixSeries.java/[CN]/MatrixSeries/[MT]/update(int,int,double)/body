@@ -1,0 +1,4 @@
+{
+  this.data[i][j]=mij;
+  fireSeriesChanged();
+}

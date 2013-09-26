@@ -1,0 +1,44 @@
+{
+  Hashtable roots;
+  Hashtable result;
+  Enumeration enm;
+  int i;
+  StringTokenizer tok;
+  String clsname;
+  Vector list;
+  HierarchyPropertyParser hpp;
+  String separator;
+  String root;
+  String tmpStr;
+  if (classes == null)   return null;
+  roots=new Hashtable();
+  hpp=new HierarchyPropertyParser();
+  separator=hpp.getSeperator();
+  tok=new StringTokenizer(classes,", ");
+  while (tok.hasMoreElements()) {
+    clsname=tok.nextToken();
+    root=getRootFromClass(clsname,separator);
+    if (root == null)     continue;
+    if (!roots.containsKey(root)) {
+      list=new Vector();
+      roots.put(root,list);
+    }
+ else {
+      list=(Vector)roots.get(root);
+    }
+    list.add(clsname);
+  }
+  result=new Hashtable();
+  enm=roots.keys();
+  while (enm.hasMoreElements()) {
+    root=(String)enm.nextElement();
+    list=(Vector)roots.get(root);
+    tmpStr="";
+    for (i=0; i < list.size(); i++) {
+      if (i > 0)       tmpStr+=",";
+      tmpStr+=(String)list.get(i);
+    }
+    result.put(root,tmpStr);
+  }
+  return result;
+}

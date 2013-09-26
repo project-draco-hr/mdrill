@@ -1,0 +1,4 @@
+double cellValue
+double max
+double scaleFactor
+int precision

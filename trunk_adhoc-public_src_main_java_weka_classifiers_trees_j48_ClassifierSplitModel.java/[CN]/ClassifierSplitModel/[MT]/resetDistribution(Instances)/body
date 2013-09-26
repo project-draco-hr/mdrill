@@ -1,0 +1,3 @@
+{
+  m_distribution=new Distribution(data,this);
+}

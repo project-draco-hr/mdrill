@@ -1,0 +1,3 @@
+{
+  return "PartionKey [partion=" + partion + ", tablename="+ tablename+ "]";
+}

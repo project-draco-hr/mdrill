@@ -1,0 +1,12 @@
+{
+  double start=this.range.getLowerBound();
+  double length=this.range.getLength();
+  Range adjusted=null;
+  if (isInverted()) {
+    adjusted=new Range(start + (length * (1 - upperPercent)),start + (length * (1 - lowerPercent)));
+  }
+ else {
+    adjusted=new Range(start + length * lowerPercent,start + length * upperPercent);
+  }
+  setRange(adjusted);
+}

@@ -1,0 +1,3 @@
+{
+  return getClose(series,item);
+}

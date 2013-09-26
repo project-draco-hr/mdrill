@@ -1,0 +1,4 @@
+{
+  if (m_SimpleSetupRBut.isSelected())   return m_simplePanel.getExperiment();
+ else   return m_advancedPanel.getExperiment();
+}

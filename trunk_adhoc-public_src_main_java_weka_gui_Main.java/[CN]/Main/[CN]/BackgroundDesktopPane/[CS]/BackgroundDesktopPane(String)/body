@@ -1,0 +1,9 @@
+{
+  super();
+  try {
+    m_Background=Toolkit.getDefaultToolkit().getImage(ClassLoader.getSystemResource(image));
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
+}

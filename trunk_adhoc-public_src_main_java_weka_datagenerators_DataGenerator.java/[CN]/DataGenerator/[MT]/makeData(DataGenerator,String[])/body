@@ -1,0 +1,67 @@
+{
+  boolean printhelp;
+  Vector unknown;
+  int i;
+  printhelp=(Utils.getFlag('h',options));
+  if (!printhelp) {
+    try {
+      options=generator.removeBlacklist(options);
+      generator.setOptions(options);
+      unknown=new Vector();
+      for (i=0; i < options.length; i++) {
+        if (options[i].length() != 0)         unknown.add(options[i]);
+      }
+      if (unknown.size() > 0) {
+        System.out.print("Unknown options:");
+        for (i=0; i < unknown.size(); i++)         System.out.print(" " + unknown.get(i));
+        System.out.println();
+      }
+    }
+ catch (    Exception e) {
+      e.printStackTrace();
+      printhelp=true;
+    }
+  }
+  if (printhelp) {
+    System.out.println(makeOptionString(generator));
+    return;
+  }
+  generator.setDatasetFormat(generator.defineDataFormat());
+  PrintWriter output=generator.getOutput();
+  output.println("%");
+  output.println("% Commandline");
+  output.println("%");
+  output.println("% " + generator.getClass().getName() + " "+ Utils.joinOptions(generator.getOptions()));
+  output.println("%");
+  String commentAtStart=generator.generateStart();
+  if (commentAtStart.length() > 0) {
+    output.println("%");
+    output.println("% Prologue");
+    output.println("%");
+    output.println(commentAtStart.trim());
+    output.println("%");
+  }
+  boolean singleMode=generator.getSingleModeFlag();
+  if (singleMode) {
+    output.println(generator.toStringFormat());
+    for (i=0; i < generator.getNumExamplesAct(); i++) {
+      Instance inst=generator.generateExample();
+      output.println(inst);
+    }
+  }
+ else {
+    Instances dataset=generator.generateExamples();
+    output.println(dataset);
+  }
+  String commentAtEnd=generator.generateFinished();
+  if (commentAtEnd.length() > 0) {
+    output.println("%");
+    output.println("% Epilogue");
+    output.println("%");
+    output.println(commentAtEnd.trim());
+    output.println("%");
+  }
+  output.flush();
+  output.close();
+  if (generator.defaultOutput() != null)   System.out.println(generator.defaultOutput().toString());
+}

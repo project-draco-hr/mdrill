@@ -1,0 +1,3 @@
+{
+  return "Visualize incremental classifier performance as a scrolling plot.";
+}

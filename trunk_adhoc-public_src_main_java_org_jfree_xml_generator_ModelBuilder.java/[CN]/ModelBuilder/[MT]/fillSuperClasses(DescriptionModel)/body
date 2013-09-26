@@ -1,0 +1,13 @@
+{
+  for (int i=0; i < model.size(); i++) {
+    final ClassDescription cd=model.get(i);
+    final Class parent=cd.getObjectClass().getSuperclass();
+    if (parent == null) {
+      continue;
+    }
+    final ClassDescription superCD=model.get(parent);
+    if (superCD != null) {
+      cd.setSuperClass(superCD.getObjectClass());
+    }
+  }
+}

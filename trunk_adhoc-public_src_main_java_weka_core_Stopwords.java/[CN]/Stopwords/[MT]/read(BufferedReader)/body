@@ -1,0 +1,10 @@
+{
+  String line;
+  clear();
+  while ((line=reader.readLine()) != null) {
+    line=line.trim();
+    if (line.startsWith("#"))     continue;
+    add(line);
+  }
+  reader.close();
+}

@@ -1,0 +1,6 @@
+{
+  if (this.buffer == null) {
+    this.buffer=readLine();
+  }
+  return this.buffer != null;
+}

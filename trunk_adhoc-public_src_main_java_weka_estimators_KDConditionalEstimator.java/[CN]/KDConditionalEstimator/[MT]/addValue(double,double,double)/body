@@ -1,0 +1,3 @@
+{
+  m_Estimators[(int)given].addValue(data,weight);
+}

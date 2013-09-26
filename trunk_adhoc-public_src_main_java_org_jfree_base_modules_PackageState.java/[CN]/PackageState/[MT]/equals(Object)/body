@@ -1,0 +1,13 @@
+{
+  if (this == o) {
+    return true;
+  }
+  if (!(o instanceof PackageState)) {
+    return false;
+  }
+  final PackageState packageState=(PackageState)o;
+  if (!this.module.getModuleClass().equals(packageState.module.getModuleClass())) {
+    return false;
+  }
+  return true;
+}

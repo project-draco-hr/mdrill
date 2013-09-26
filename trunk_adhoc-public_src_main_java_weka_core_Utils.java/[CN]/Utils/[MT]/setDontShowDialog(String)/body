@@ -1,0 +1,14 @@
+{
+  File wekaHome=WekaPackageManager.WEKA_HOME;
+  if (!wekaHome.exists()) {
+    return;
+  }
+  File dialogSubDir=new File(wekaHome.toString() + File.separator + "systemDialogs");
+  if (!dialogSubDir.exists()) {
+    if (!dialogSubDir.mkdir()) {
+      return;
+    }
+  }
+  File dialogFile=new File(dialogSubDir.toString() + File.separator + dialogName);
+  dialogFile.createNewFile();
+}

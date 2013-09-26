@@ -1,0 +1,6 @@
+{
+  if (this.packageManager == null) {
+    this.packageManager=PackageManager.createInstance(this);
+  }
+  return this.packageManager;
+}

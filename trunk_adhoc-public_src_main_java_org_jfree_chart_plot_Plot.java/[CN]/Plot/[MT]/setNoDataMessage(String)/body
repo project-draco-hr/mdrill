@@ -1,0 +1,4 @@
+{
+  this.noDataMessage=message;
+  fireChangeEvent();
+}

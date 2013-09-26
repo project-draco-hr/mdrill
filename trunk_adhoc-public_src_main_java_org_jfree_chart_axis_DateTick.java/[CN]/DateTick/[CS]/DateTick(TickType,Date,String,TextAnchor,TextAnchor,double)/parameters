@@ -1,0 +1,6 @@
+TickType tickType
+Date date
+String label
+TextAnchor textAnchor
+TextAnchor rotationAnchor
+double angle

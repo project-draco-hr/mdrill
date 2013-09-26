@@ -1,0 +1,11 @@
+{
+  if (m_trainingData != null) {
+    m_trainingData.delete();
+    try {
+      initialize();
+    }
+ catch (    Exception e) {
+    }
+    ;
+  }
+}

@@ -1,0 +1,7 @@
+{
+  m_dataSourceListeners.addElement(dsl);
+  if (m_format != null) {
+    DataSetEvent e=new DataSetEvent(this,m_format);
+    dsl.acceptDataSet(e);
+  }
+}

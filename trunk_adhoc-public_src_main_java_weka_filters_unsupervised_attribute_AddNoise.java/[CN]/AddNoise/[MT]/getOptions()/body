@@ -1,0 +1,17 @@
+{
+  String[] options=new String[7];
+  int current=0;
+  options[current++]="-C";
+  options[current++]="" + getAttributeIndex();
+  if (getUseMissing()) {
+    options[current++]="-M";
+  }
+  options[current++]="-P";
+  options[current++]="" + getPercent();
+  options[current++]="-S";
+  options[current++]="" + getRandomSeed();
+  while (current < options.length) {
+    options[current++]="";
+  }
+  return options;
+}

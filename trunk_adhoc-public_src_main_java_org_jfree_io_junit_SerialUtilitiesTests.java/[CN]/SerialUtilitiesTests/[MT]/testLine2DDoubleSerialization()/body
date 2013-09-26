@@ -1,0 +1,18 @@
+{
+  Line2D l1=new Line2D.Double(1.0,2.0,3.0,4.0);
+  Line2D l2=null;
+  try {
+    ByteArrayOutputStream buffer=new ByteArrayOutputStream();
+    ObjectOutputStream out=new ObjectOutputStream(buffer);
+    SerialUtilities.writeShape(l1,out);
+    out.close();
+    ByteArrayInputStream bais=new ByteArrayInputStream(buffer.toByteArray());
+    ObjectInputStream in=new ObjectInputStream(bais);
+    l2=(Line2D)SerialUtilities.readShape(in);
+    in.close();
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
+  assertTrue(ShapeUtilities.equal(l1,l2));
+}

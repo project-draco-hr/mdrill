@@ -1,0 +1,4 @@
+{
+  this.expandToFitSpace=expand;
+  notifyListeners(new TitleChangeEvent(this));
+}

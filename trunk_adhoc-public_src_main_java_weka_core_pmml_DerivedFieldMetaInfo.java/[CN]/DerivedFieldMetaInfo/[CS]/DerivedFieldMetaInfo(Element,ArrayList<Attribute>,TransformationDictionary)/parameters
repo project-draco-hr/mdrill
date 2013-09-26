@@ -1,0 +1,3 @@
+Element derivedField
+ArrayList<Attribute> fieldDefs
+TransformationDictionary transDict

@@ -1,0 +1,4 @@
+{
+  if (m_MaxInstNum > m_MinInstNum)   m_numInstances=(int)(r.nextDouble() * (m_MaxInstNum - m_MinInstNum) + m_MinInstNum);
+ else   m_numInstances=m_MinInstNum;
+}

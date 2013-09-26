@@ -1,0 +1,4 @@
+Graphics2D g2
+Rectangle2D plotArea
+Point2D rotate
+double angle

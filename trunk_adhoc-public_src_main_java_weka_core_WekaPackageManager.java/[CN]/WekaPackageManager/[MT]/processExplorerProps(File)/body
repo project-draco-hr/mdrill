@@ -1,0 +1,46 @@
+{
+  try {
+    Properties expProps=new Properties();
+    BufferedInputStream bi=new BufferedInputStream(new FileInputStream(propsFile));
+    expProps.load(bi);
+    bi.close();
+    bi=null;
+    Set keys=expProps.keySet();
+    Iterator keysI=keys.iterator();
+    while (keysI.hasNext()) {
+      String key=(String)keysI.next();
+      if (!key.endsWith("Policy")) {
+        String existingVal=ExplorerDefaults.get(key,"");
+        if (existingVal.length() > 0) {
+          String replacePolicy=expProps.getProperty(key + "Policy");
+          if (replacePolicy != null && replacePolicy.length() > 0) {
+            if (replacePolicy.equalsIgnoreCase("replace")) {
+              String newVal=expProps.getProperty(key);
+              ExplorerDefaults.set(key,newVal);
+            }
+ else {
+              String newVal=expProps.getProperty(key);
+              if (existingVal.indexOf(newVal) < 0) {
+                newVal=existingVal + "," + newVal;
+                ExplorerDefaults.set(key,newVal);
+              }
+            }
+          }
+ else {
+            String newVal=expProps.getProperty(key);
+            if (existingVal.indexOf(newVal) < 0) {
+              newVal=existingVal + "," + newVal;
+              ExplorerDefaults.set(key,newVal);
+            }
+          }
+        }
+ else {
+          String newVal=expProps.getProperty(key);
+          ExplorerDefaults.set(key,newVal);
+        }
+      }
+    }
+  }
+ catch (  Exception ex) {
+  }
+}

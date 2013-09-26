@@ -1,0 +1,4 @@
+int digits
+int exp
+boolean sign
+boolean trailing

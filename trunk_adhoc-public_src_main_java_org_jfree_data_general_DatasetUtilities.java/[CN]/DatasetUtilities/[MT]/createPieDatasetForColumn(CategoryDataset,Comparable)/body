@@ -1,0 +1,4 @@
+{
+  int column=dataset.getColumnIndex(columnKey);
+  return createPieDatasetForColumn(dataset,column);
+}

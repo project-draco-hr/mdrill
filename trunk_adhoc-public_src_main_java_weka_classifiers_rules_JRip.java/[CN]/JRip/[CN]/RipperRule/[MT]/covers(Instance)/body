@@ -1,0 +1,11 @@
+{
+  boolean isCover=true;
+  for (int i=0; i < m_Antds.size(); i++) {
+    Antd antd=(Antd)m_Antds.elementAt(i);
+    if (!antd.covers(datum)) {
+      isCover=false;
+      break;
+    }
+  }
+  return isCover;
+}

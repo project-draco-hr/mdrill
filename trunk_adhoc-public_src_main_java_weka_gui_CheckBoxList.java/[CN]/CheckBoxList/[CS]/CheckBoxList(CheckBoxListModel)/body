@@ -1,0 +1,27 @@
+{
+  super();
+  if (model == null)   model=this.new CheckBoxListModel();
+  setModel(model);
+  setCellRenderer(new CheckBoxListRenderer());
+  addMouseListener(new MouseAdapter(){
+    public void mousePressed(    MouseEvent e){
+      int index=locationToIndex(e.getPoint());
+      if (index != -1) {
+        setChecked(index,!getChecked(index));
+        repaint();
+      }
+    }
+  }
+);
+  addKeyListener(new KeyAdapter(){
+    public void keyTyped(    KeyEvent e){
+      if ((e.getKeyChar() == ' ') && (e.getModifiers() == 0)) {
+        int index=getSelectedIndex();
+        setChecked(index,!getChecked(index));
+        e.consume();
+        repaint();
+      }
+    }
+  }
+);
+}

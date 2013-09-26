@@ -1,0 +1,5 @@
+Instances data
+int level
+boolean attributeMissing
+boolean classMissing
+int attrIndex

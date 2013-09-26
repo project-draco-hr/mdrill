@@ -1,0 +1,8 @@
+{
+  if (queryServer != null) {
+    queryServer.close();
+  }
+  if (metricServer != null) {
+    metricServer.close();
+  }
+}

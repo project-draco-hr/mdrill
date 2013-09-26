@@ -1,0 +1,12 @@
+{
+  Operation oBestOperation=new Operation();
+  oBestOperation=findBestArcToAdd(bayesNet,instances,oBestOperation);
+  oBestOperation=findBestArcToDelete(bayesNet,instances,oBestOperation);
+  if (getUseArcReversal()) {
+    oBestOperation=findBestArcToReverse(bayesNet,instances,oBestOperation);
+  }
+  if (oBestOperation.m_fScore == -1E100) {
+    return null;
+  }
+  return oBestOperation;
+}

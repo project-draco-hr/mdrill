@@ -1,0 +1,14 @@
+{
+  try {
+    Instances insts=new Instances(new BufferedReader(new FileReader(args[0])));
+    final TimeSeriesForecastingKFPerspective p=new TimeSeriesForecastingKFPerspective();
+    p.setInstances(insts);
+    final JFrame frame=new JFrame("Time series forecasting");
+    frame.setSize(800,600);
+    frame.setContentPane(p);
+    frame.setVisible(true);
+  }
+ catch (  Exception ex) {
+    ex.printStackTrace();
+  }
+}

@@ -1,0 +1,4 @@
+{
+  m_visual.loadIcons(BeanVisual.ICON_PATH + "IncrementalClassifierEvaluator.gif",BeanVisual.ICON_PATH + "IncrementalClassifierEvaluator_animated.gif");
+  m_visual.setText("IncrementalClassifierEvaluator");
+}

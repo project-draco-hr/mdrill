@@ -1,0 +1,9 @@
+{
+  String message=statusMessagePrefix() + "ERROR: see log for details";
+  if (m_log != null) {
+    m_log.statusMessage(message);
+  }
+ else {
+    System.err.println(message);
+  }
+}

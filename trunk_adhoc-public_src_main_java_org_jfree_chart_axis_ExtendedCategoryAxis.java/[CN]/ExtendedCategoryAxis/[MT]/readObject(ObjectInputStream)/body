@@ -1,0 +1,4 @@
+{
+  stream.defaultReadObject();
+  this.sublabelPaint=SerialUtilities.readPaint(stream);
+}

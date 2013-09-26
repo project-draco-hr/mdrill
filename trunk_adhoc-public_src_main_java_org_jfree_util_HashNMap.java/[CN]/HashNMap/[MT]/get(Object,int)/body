@@ -1,0 +1,7 @@
+{
+  final List v=(List)this.table.get(key);
+  if (v == null) {
+    return null;
+  }
+  return v.get(n);
+}

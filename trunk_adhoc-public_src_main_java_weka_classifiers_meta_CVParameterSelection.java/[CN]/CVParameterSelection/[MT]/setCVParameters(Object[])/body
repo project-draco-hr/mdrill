@@ -1,0 +1,13 @@
+{
+  FastVector backup=m_CVParams;
+  m_CVParams=new FastVector();
+  for (int i=0; i < params.length; i++) {
+    try {
+      addCVParameter((String)params[i]);
+    }
+ catch (    Exception ex) {
+      m_CVParams=backup;
+      throw ex;
+    }
+  }
+}

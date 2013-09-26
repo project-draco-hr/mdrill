@@ -1,0 +1,3 @@
+{
+  runCheck(new CheckAssociator(),args);
+}

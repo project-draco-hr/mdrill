@@ -1,0 +1,3 @@
+{
+  this(area,title,toolTipText,null);
+}

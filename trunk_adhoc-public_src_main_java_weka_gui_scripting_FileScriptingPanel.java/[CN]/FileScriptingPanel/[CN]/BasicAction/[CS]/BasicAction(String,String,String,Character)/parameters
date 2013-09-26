@@ -1,0 +1,4 @@
+String name
+String icon
+String accel
+Character mnemonic

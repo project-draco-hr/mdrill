@@ -1,0 +1,4 @@
+{
+  if (layoutCompleteListeners == null)   layoutCompleteListeners=new FastVector();
+  layoutCompleteListeners.addElement(l);
+}

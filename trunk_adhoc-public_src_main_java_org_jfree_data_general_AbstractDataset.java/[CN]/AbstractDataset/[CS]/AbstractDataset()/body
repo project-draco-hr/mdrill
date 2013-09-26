@@ -1,0 +1,4 @@
+{
+  this.group=new DatasetGroup();
+  this.listenerList=new EventListenerList();
+}

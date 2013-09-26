@@ -1,0 +1,6 @@
+{
+  Vector result;
+  result=new Vector();
+  if (getIgnoreClass())   result.add("-unset-class-temporarily");
+  return (String[])result.toArray(new String[result.size()]);
+}

@@ -1,9 +1,10 @@
 {
-  if (!rb.doFacets)   return;
+  if (!rb.doFacets) {
+    return;
+  }
   FacetInfo fi=rb._facetInfo;
   if (fi == null) {
-    rb._facetInfo=fi=new FacetInfo();
-    fi.parse(rb.req.getParams(),rb);
+    rb._facetInfo=fi=new FacetInfo(rb.req.getParams());
   }
   sreq.params.remove(FacetParams.FACET_MINCOUNT);
   sreq.params.remove(FacetParams.FACET_OFFSET);

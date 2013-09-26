@@ -1,0 +1,3 @@
+String name
+ArrayList<Attribute> attInfo
+int capacity

@@ -1,0 +1,9 @@
+{
+  if (base == null) {
+    throw new IllegalArgumentException("Null 'base' argument.");
+  }
+  if (factor < 0) {
+    throw new IllegalArgumentException("Negative 'factor' argument.");
+  }
+  return new Range(base.getLowerBound() * factor,base.getUpperBound() * factor);
+}

@@ -1,0 +1,11 @@
+{
+  if (m_listenee instanceof BeanCommon) {
+    ((BeanCommon)m_listenee).stop();
+  }
+  if (m_splitThread != null) {
+    Thread temp=m_splitThread;
+    m_splitThread=null;
+    temp.interrupt();
+    temp.stop();
+  }
+}

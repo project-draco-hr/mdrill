@@ -1,0 +1,4 @@
+{
+  if (dimension >= m_Center.length)   throw new Exception("Current system has only " + m_Center.length + " dimensions.");
+  return m_Center[dimension];
+}

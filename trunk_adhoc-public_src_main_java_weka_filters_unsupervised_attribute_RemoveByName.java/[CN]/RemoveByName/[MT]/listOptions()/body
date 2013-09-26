@@ -1,0 +1,10 @@
+{
+  Vector result;
+  Enumeration enm;
+  result=new Vector();
+  enm=super.listOptions();
+  while (enm.hasMoreElements())   result.addElement(enm.nextElement());
+  result.addElement(new Option("\tThe regular expression to match the attribute names against.\n" + "\t(default: " + DEFAULT_EXPRESSION + ")","E",1,"-E <regular expression>"));
+  result.addElement(new Option("\tFlag for inverting the matching sense. If set, attributes are kept\n" + "\tinstead of deleted.\n" + "\t(default: off)","V",0,"-V"));
+  return result.elements();
+}

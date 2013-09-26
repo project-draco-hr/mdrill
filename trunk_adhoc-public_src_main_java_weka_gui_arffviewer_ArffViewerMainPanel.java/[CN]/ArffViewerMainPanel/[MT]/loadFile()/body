@@ -1,0 +1,13 @@
+{
+  int retVal;
+  int i;
+  String filename;
+  retVal=fileChooser.showOpenDialog(this);
+  if (retVal != ConverterFileChooser.APPROVE_OPTION)   return;
+  setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+  for (i=0; i < fileChooser.getSelectedFiles().length; i++) {
+    filename=fileChooser.getSelectedFiles()[i].getAbsolutePath();
+    loadFile(filename);
+  }
+  setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+}

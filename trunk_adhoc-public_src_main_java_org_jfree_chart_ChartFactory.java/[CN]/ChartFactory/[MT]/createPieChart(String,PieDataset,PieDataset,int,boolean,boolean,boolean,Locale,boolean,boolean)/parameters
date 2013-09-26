@@ -1,0 +1,10 @@
+String title
+PieDataset dataset
+PieDataset previousDataset
+int percentDiffForMaxScale
+boolean greenForIncrease
+boolean legend
+boolean tooltips
+Locale locale
+boolean subTitle
+boolean showDifference

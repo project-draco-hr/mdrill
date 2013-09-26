@@ -1,0 +1,9 @@
+{
+  String s="";
+  for (int jj=0; jj < m_numAttributes; jj++) {
+    if (sub.get(jj)) {
+      s+=" " + (jj + 1);
+    }
+  }
+  return s;
+}

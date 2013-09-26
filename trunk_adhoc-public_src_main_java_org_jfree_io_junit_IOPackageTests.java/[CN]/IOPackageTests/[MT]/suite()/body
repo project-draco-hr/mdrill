@@ -1,0 +1,6 @@
+{
+  final TestSuite suite=new TestSuite("org.jfree.io");
+  suite.addTestSuite(SerialUtilitiesTests.class);
+  suite.addTestSuite(IOUtilsTests.class);
+  return suite;
+}

@@ -1,0 +1,4 @@
+{
+  super.setSeed(seed);
+  println("setSeed(" + seed + ")");
+}

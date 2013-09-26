@@ -1,0 +1,4 @@
+{
+  if (m_RuleList == null)   m_RuleList=new FastVector();
+  m_RuleList.addElement(newTest);
+}

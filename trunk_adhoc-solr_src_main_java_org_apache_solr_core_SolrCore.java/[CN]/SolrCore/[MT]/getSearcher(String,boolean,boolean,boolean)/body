@@ -3,7 +3,8 @@
   if (corename == null) {
     corename="";
   }
-  String partionKey=corename + "@" + partion+ "@"+ SolrResourceLoader.getCacheFlushKey();
+  PartionKey p=new PartionKey(corename,partion);
+  String partionKey=corename + "@" + partion+ "@"+ SolrResourceLoader.getCacheFlushKey(p);
   File f=new File(getDataDir(),partion);
-  return getSearcherByPath(partionKey,f.getAbsolutePath(),mdirs,isclearCache,ishb);
+  return getSearcherByPath(p,partionKey,f.getAbsolutePath(),mdirs,isclearCache,ishb);
 }

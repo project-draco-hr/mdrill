@@ -1,0 +1,10 @@
+{
+  String result;
+  int currentPrec;
+  int i;
+  result=Utils.doubleToString(d,prec);
+  if (result.indexOf(".") == -1)   result+=".";
+  currentPrec=result.length() - result.indexOf(".") - 1;
+  for (i=currentPrec; i < prec; i++)   result+="0";
+  return result;
+}

@@ -1,0 +1,7 @@
+{
+  LineAndShapeRenderer clone=(LineAndShapeRenderer)super.clone();
+  clone.seriesLinesVisible=(BooleanList)this.seriesLinesVisible.clone();
+  clone.seriesShapesVisible=(BooleanList)this.seriesShapesVisible.clone();
+  clone.seriesShapesFilled=(BooleanList)this.seriesShapesFilled.clone();
+  return clone;
+}

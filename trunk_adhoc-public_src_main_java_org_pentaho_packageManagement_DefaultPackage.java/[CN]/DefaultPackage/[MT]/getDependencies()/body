@@ -1,0 +1,35 @@
+{
+  List<Dependency> dependencies=new ArrayList<Dependency>();
+  String dependenciesS=getPackageMetaDataElement("Depends").toString();
+  if (dependenciesS != null) {
+    StringTokenizer tok=new StringTokenizer(dependenciesS,",");
+    while (tok.hasMoreTokens()) {
+      String nextT=tok.nextToken().trim();
+      String[] split=splitNameVersion(nextT);
+      Package toAdd=null;
+      if (!(split[0].equalsIgnoreCase(m_packageManager.getBaseSystemName()))) {
+        toAdd=m_packageManager.getRepositoryPackageInfo(split[0],split[2]);
+        if (split.length == 3) {
+          VersionPackageConstraint versionConstraint=new VersionPackageConstraint(toAdd);
+          if (split[2] == null) {
+            versionConstraint.setVersionConstraint(VersionPackageConstraint.VersionComparison.LESSTHANOREQUAL);
+          }
+ else {
+            versionConstraint.setVersionConstraint(split[1]);
+          }
+          Dependency dep=new Dependency(this,versionConstraint);
+          dependencies.add(dep);
+        }
+ else {
+          VersionRangePackageConstraint versionConstraint=new VersionRangePackageConstraint(toAdd);
+          VersionPackageConstraint.VersionComparison comp1=VersionPackageConstraint.getVersionComparison(split[1]);
+          VersionPackageConstraint.VersionComparison comp2=VersionPackageConstraint.getVersionComparison(split[3]);
+          versionConstraint.setRangeConstraint(split[2],comp1,split[4],comp2);
+          Dependency dep=new Dependency(this,versionConstraint);
+          dependencies.add(dep);
+        }
+      }
+    }
+  }
+  return dependencies;
+}

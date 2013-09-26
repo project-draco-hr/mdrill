@@ -1,0 +1,3 @@
+{
+  return "Sets the length of the tabu list.";
+}

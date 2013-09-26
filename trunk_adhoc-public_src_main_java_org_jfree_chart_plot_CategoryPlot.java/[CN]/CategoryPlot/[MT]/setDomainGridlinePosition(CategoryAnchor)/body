@@ -1,0 +1,7 @@
+{
+  if (position == null) {
+    throw new IllegalArgumentException("Null 'position' argument.");
+  }
+  this.domainGridlinePosition=position;
+  fireChangeEvent();
+}

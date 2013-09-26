@@ -1,0 +1,10 @@
+{
+  if (this.oldestAt == 0) {
+    return toFetch;
+  }
+  int newIndex=toFetch + this.oldestAt;
+  if (newIndex >= this.historyCount) {
+    newIndex-=this.historyCount;
+  }
+  return newIndex;
+}

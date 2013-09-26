@@ -1,0 +1,5 @@
+{
+  Capabilities result=super.getCapabilities();
+  result.setMinimumNumberInstances(m_NumFolds);
+  return result;
+}

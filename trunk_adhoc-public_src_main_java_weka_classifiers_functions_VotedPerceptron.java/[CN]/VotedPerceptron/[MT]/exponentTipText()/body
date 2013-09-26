@@ -1,0 +1,3 @@
+{
+  return "Exponent for the polynomial kernel.";
+}

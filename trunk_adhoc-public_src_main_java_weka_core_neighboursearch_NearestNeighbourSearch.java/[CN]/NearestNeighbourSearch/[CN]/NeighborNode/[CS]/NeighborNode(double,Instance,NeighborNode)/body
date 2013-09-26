@@ -1,0 +1,5 @@
+{
+  m_Distance=distance;
+  m_Instance=instance;
+  m_Next=next;
+}

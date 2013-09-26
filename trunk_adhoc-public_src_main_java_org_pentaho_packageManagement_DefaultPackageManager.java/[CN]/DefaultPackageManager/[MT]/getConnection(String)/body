@@ -1,0 +1,12 @@
+{
+  URL connURL=new URL(urlString);
+  URLConnection conn=null;
+  if (setProxyAuthentication()) {
+    conn=connURL.openConnection(m_httpProxy);
+  }
+ else {
+    conn=connURL.openConnection();
+  }
+  conn.setConnectTimeout(60000);
+  return conn;
+}

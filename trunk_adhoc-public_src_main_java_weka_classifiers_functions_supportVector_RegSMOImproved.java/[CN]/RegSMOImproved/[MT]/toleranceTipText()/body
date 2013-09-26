@@ -1,0 +1,3 @@
+{
+  return "tolerance parameter used for checking stopping criterion b.up < b.low + 2 tol";
+}

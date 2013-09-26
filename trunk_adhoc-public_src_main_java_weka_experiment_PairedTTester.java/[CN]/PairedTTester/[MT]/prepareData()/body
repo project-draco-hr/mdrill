@@ -1,0 +1,61 @@
+{
+  if (m_Instances == null) {
+    throw new Exception("No instances have been set");
+  }
+  if (m_RunColumnSet == -1) {
+    m_RunColumn=m_Instances.numAttributes() - 1;
+  }
+ else {
+    m_RunColumn=m_RunColumnSet;
+  }
+  if (m_ResultsetKeyColumnsRange == null) {
+    throw new Exception("No result specifier columns have been set");
+  }
+  m_ResultsetKeyColumnsRange.setUpper(m_Instances.numAttributes() - 1);
+  m_ResultsetKeyColumns=m_ResultsetKeyColumnsRange.getSelection();
+  if (m_DatasetKeyColumnsRange == null) {
+    throw new Exception("No dataset specifier columns have been set");
+  }
+  m_DatasetKeyColumnsRange.setUpper(m_Instances.numAttributes() - 1);
+  m_DatasetKeyColumns=m_DatasetKeyColumnsRange.getSelection();
+  m_Resultsets.removeAllElements();
+  m_DatasetSpecifiers.removeAllSpecifiers();
+  for (int i=0; i < m_Instances.numInstances(); i++) {
+    Instance current=m_Instances.instance(i);
+    if (current.isMissing(m_RunColumn)) {
+      throw new Exception("Instance has missing value in run " + "column!\n" + current);
+    }
+    for (int j=0; j < m_ResultsetKeyColumns.length; j++) {
+      if (current.isMissing(m_ResultsetKeyColumns[j])) {
+        throw new Exception("Instance has missing value in resultset key " + "column " + (m_ResultsetKeyColumns[j] + 1) + "!\n"+ current);
+      }
+    }
+    for (int j=0; j < m_DatasetKeyColumns.length; j++) {
+      if (current.isMissing(m_DatasetKeyColumns[j])) {
+        throw new Exception("Instance has missing value in dataset key " + "column " + (m_DatasetKeyColumns[j] + 1) + "!\n"+ current);
+      }
+    }
+    boolean found=false;
+    for (int j=0; j < m_Resultsets.size(); j++) {
+      Resultset resultset=(Resultset)m_Resultsets.elementAt(j);
+      if (resultset.matchesTemplate(current)) {
+        resultset.add(current);
+        found=true;
+        break;
+      }
+    }
+    if (!found) {
+      Resultset resultset=new Resultset(current);
+      m_Resultsets.addElement(resultset);
+    }
+    m_DatasetSpecifiers.add(current);
+  }
+  for (int j=0; j < m_Resultsets.size(); j++) {
+    Resultset resultset=(Resultset)m_Resultsets.elementAt(j);
+    if (m_FoldColumn >= 0) {
+      resultset.sort(m_FoldColumn);
+    }
+    resultset.sort(m_RunColumn);
+  }
+  m_ResultsetsValid=true;
+}

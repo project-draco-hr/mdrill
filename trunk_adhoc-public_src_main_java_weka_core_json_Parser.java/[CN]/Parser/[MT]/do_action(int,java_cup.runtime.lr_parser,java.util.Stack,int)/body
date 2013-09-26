@@ -1,0 +1,3 @@
+{
+  return action_obj.CUP$Parser$do_action(act_num,parser,stack,top);
+}

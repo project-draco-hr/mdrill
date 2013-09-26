@@ -1,0 +1,4 @@
+{
+  this.sectionOutlinesVisible=visible;
+  fireChangeEvent();
+}

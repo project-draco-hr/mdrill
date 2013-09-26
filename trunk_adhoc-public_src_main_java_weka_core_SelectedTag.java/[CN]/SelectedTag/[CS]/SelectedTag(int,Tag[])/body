@@ -1,0 +1,18 @@
+{
+  HashSet<Integer> ID=new HashSet<Integer>();
+  HashSet<String> IDStr=new HashSet<String>();
+  for (int i=0; i < tags.length; i++) {
+    ID.add(new Integer(tags[i].getID()));
+    IDStr.add(tags[i].getIDStr());
+  }
+  if (ID.size() != tags.length)   throw new IllegalArgumentException("The IDs are not unique!");
+  if (IDStr.size() != tags.length)   throw new IllegalArgumentException("The ID strings are not unique!");
+  for (int i=0; i < tags.length; i++) {
+    if (tags[i].getID() == tagID) {
+      m_Selected=i;
+      m_Tags=tags;
+      return;
+    }
+  }
+  throw new IllegalArgumentException("Selected tag is not valid");
+}

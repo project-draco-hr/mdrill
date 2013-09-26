@@ -1,0 +1,25 @@
+{
+  int i;
+  Vector result;
+  String[] options;
+  result=new Vector();
+  options=super.getOptions();
+  for (i=0; i < options.length; i++)   result.add(options[i]);
+  if (getChecksTurnedOff())   result.add("-no-checks");
+  result.add("-C");
+  result.add("" + getC());
+  result.add("-L");
+  result.add("" + getToleranceParameter());
+  result.add("-P");
+  result.add("" + getEpsilon());
+  result.add("-N");
+  result.add("" + m_filterType);
+  if (getBuildLogisticModels())   result.add("-M");
+  result.add("-V");
+  result.add("" + getNumFolds());
+  result.add("-W");
+  result.add("" + getRandomSeed());
+  result.add("-K");
+  result.add("" + getKernel().getClass().getName() + " "+ Utils.joinOptions(getKernel().getOptions()));
+  return (String[])result.toArray(new String[result.size()]);
+}

@@ -1,0 +1,8 @@
+{
+  super(label);
+  this.period=period;
+  this.offset=offset;
+  setFixedAutoRange(period);
+  this.advanceLineVisible=true;
+  this.advanceLinePaint=DEFAULT_ADVANCE_LINE_PAINT;
+}

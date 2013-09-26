@@ -1,0 +1,5 @@
+{
+  if (newMethod.getTags() == TAGS_EVALUATION) {
+    m_evaluationMeasure=newMethod.getSelectedTag().getID();
+  }
+}

@@ -1,0 +1,8 @@
+{
+  try {
+    m_otherBayesNet=new BIFReader().processFile(sBIFFile);
+  }
+ catch (  Throwable t) {
+    m_otherBayesNet=null;
+  }
+}

@@ -1,0 +1,8 @@
+{
+  TaskSeries s=this.underlying.getSeries(series);
+  Task t=s.get(item);
+  TimePeriod duration=t.getDuration();
+  Date start=duration.getStart();
+  Date end=duration.getEnd();
+  return (start.getTime() + end.getTime()) / 2.0;
+}

@@ -1,0 +1,8 @@
+{
+  Object[] keyTypes=m_SplitEvaluator.getKeyTypes();
+  Object[] newKeyTypes=new String[keyTypes.length + 2];
+  newKeyTypes[0]=new String();
+  newKeyTypes[1]=new String();
+  System.arraycopy(keyTypes,0,newKeyTypes,2,keyTypes.length);
+  return newKeyTypes;
+}

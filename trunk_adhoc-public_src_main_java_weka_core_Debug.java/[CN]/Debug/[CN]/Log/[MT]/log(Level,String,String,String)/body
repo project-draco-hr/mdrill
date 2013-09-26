@@ -1,0 +1,6 @@
+{
+  Logger logger;
+  logger=getLogger();
+  if (logger != null)   logger.logp(level,sourceclass,sourcemethod,message);
+ else   System.out.println(message);
+}

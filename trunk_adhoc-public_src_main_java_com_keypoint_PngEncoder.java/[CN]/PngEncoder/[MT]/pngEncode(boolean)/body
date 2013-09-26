@@ -1,0 +1,21 @@
+{
+  byte[] pngIdBytes={-119,80,78,71,13,10,26,10};
+  if (this.image == null) {
+    return null;
+  }
+  this.width=this.image.getWidth(null);
+  this.height=this.image.getHeight(null);
+  this.pngBytes=new byte[((this.width + 1) * this.height * 3) + 200];
+  this.maxPos=0;
+  this.bytePos=writeBytes(pngIdBytes,0);
+  writeHeader();
+  writeResolution();
+  if (writeImageData()) {
+    writeEnd();
+    this.pngBytes=resizeByteArray(this.pngBytes,this.maxPos);
+  }
+ else {
+    this.pngBytes=null;
+  }
+  return this.pngBytes;
+}

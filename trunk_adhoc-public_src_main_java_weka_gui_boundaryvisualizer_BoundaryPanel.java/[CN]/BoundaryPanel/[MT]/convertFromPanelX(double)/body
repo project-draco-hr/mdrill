@@ -1,0 +1,5 @@
+{
+  pX/=(double)m_panelWidth;
+  pX*=m_rangeX;
+  return pX + m_minX;
+}

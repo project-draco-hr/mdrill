@@ -1,0 +1,37 @@
+{
+  final int oldEditor=this.selectedRootEditor;
+  if (oldEditor == selectedEditor) {
+    return;
+  }
+  this.selectedRootEditor=selectedEditor;
+  for (int i=0; i < this.rootEditors.size(); i++) {
+    final boolean shouldBeActive=(i == selectedEditor);
+    final RootEditor container=(RootEditor)this.rootEditors.get(i);
+    if (container.isActive() && (shouldBeActive == false)) {
+      container.setActive(false);
+    }
+  }
+  if (this.currentToolbar != null) {
+    closeToolbar();
+    this.toolbarContainer.removeAll();
+    this.currentToolbar=null;
+  }
+  for (int i=0; i < this.rootEditors.size(); i++) {
+    final boolean shouldBeActive=(i == selectedEditor);
+    final RootEditor container=(RootEditor)this.rootEditors.get(i);
+    if ((container.isActive() == false) && (shouldBeActive == true)) {
+      container.setActive(true);
+      setJMenuBar(createEditorMenubar(container));
+      this.currentToolbar=container.getToolbar();
+      if (this.currentToolbar != null) {
+        this.toolbarContainer.add(this.currentToolbar,BorderLayout.CENTER);
+        this.toolbarContainer.setVisible(true);
+        this.currentToolbar.setVisible(true);
+      }
+ else {
+        this.toolbarContainer.setVisible(false);
+      }
+      this.getJMenuBar().repaint();
+    }
+  }
+}

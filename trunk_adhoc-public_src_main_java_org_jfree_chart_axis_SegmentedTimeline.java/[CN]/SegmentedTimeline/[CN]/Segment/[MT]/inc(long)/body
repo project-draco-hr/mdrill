@@ -1,0 +1,7 @@
+{
+  this.segmentNumber+=n;
+  long m=n * SegmentedTimeline.this.segmentSize;
+  this.segmentStart+=m;
+  this.segmentEnd+=m;
+  this.millisecond+=m;
+}

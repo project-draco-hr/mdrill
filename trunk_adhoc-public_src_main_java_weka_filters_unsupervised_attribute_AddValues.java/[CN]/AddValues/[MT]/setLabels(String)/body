@@ -1,0 +1,28 @@
+{
+  int i;
+  String label;
+  boolean quoted;
+  boolean add;
+  m_Labels.clear();
+  label="";
+  quoted=false;
+  add=false;
+  for (i=0; i < value.length(); i++) {
+    if (value.charAt(i) == '"') {
+      quoted=!quoted;
+      if (!quoted)       add=true;
+    }
+ else     if ((value.charAt(i) == ',') && (!quoted)) {
+      add=true;
+    }
+ else {
+      label+=value.charAt(i);
+      if (i == value.length() - 1)       add=true;
+    }
+    if (add) {
+      if (label.length() != 0)       m_Labels.add(label);
+      label="";
+      add=false;
+    }
+  }
+}

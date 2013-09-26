@@ -1,0 +1,12 @@
+{
+  Capabilities result=new Capabilities(this);
+  result.disableAll();
+  result.enable(Capability.NO_CLASS);
+  result.enable(Capability.NOMINAL_ATTRIBUTES);
+  result.enable(Capability.NUMERIC_ATTRIBUTES);
+  result.enable(Capability.DATE_ATTRIBUTES);
+  result.enable(Capability.MISSING_VALUES);
+  result.enable(Capability.STRING_ATTRIBUTES);
+  result.setMinimumNumberInstances(0);
+  return result;
+}

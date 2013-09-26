@@ -1,0 +1,6 @@
+{
+  super(c);
+  if (!c.isArray()) {
+    throw new IllegalArgumentException("Need an array class");
+  }
+}

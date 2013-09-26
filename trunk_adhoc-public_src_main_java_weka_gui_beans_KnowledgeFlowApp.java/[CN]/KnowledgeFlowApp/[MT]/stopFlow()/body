@@ -1,0 +1,8 @@
+{
+  if (m_mainKFPerspective.getCurrentTabIndex() >= 0) {
+    RunThread running=m_mainKFPerspective.getExecutionThread();
+    if (running != null) {
+      running.stopAllFlows();
+    }
+  }
+}

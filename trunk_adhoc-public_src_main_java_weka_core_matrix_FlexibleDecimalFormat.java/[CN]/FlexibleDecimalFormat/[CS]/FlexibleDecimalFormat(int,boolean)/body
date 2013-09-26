@@ -1,0 +1,4 @@
+{
+  this(digits);
+  this.trailing=trailing;
+}

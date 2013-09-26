@@ -1,0 +1,12 @@
+{
+  Enumeration enm;
+  writer.write("# generated " + new Date());
+  writer.newLine();
+  enm=elements();
+  while (enm.hasMoreElements()) {
+    writer.write(enm.nextElement().toString());
+    writer.newLine();
+  }
+  writer.flush();
+  writer.close();
+}

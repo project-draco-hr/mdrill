@@ -1,0 +1,10 @@
+{
+  double errorsLeaf, errorsTree;
+  errorsTree=getEstimatedErrorsForTree();
+  errorsLeaf=getEstimatedErrorsForLeaf();
+  if (Utils.smOrEq(errorsLeaf,errorsTree + 0.1)) {
+    m_isLeaf=true;
+    m_sons=null;
+    m_localModel=new NoSplit(localModel().distribution());
+  }
+}

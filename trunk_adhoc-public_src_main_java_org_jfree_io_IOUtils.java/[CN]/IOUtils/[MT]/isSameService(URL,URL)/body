@@ -1,0 +1,12 @@
+{
+  if (!url.getProtocol().equals(baseUrl.getProtocol())) {
+    return false;
+  }
+  if (!url.getHost().equals(baseUrl.getHost())) {
+    return false;
+  }
+  if (url.getPort() != baseUrl.getPort()) {
+    return false;
+  }
+  return true;
+}

@@ -1,0 +1,6 @@
+{
+  if ((series < 0) || (series >= getSeriesCount())) {
+    throw new IllegalArgumentException("Index 'series' out of range.");
+  }
+  return (TimePeriodValues)this.data.get(series);
+}

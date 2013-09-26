@@ -1,0 +1,10 @@
+{
+  out.defaultWriteObject();
+  if (isParentSaved() == false) {
+    out.writeBoolean(false);
+  }
+ else {
+    out.writeBoolean(true);
+    out.writeObject(this.parentConfiguration);
+  }
+}

@@ -1,0 +1,7 @@
+{
+  Vector newVector=new Vector();
+  newVector.addElement(new Option("\tSets the attribute index\n" + "\t(default: last)","C",1,"-C <col>"));
+  newVector.addElement(new Option("\tSets the label of the newly merged classes\n" + "\t(default: 'merged')","L",1,"-L <label>"));
+  newVector.addElement(new Option("\tSets the merge range. 'first and 'last' are accepted as well.'\n" + "\tE.g.: first-5,7,9,20-last\n" + "\t(default: 1,2)","R",1,"-R <range>"));
+  return newVector.elements();
+}

@@ -1,0 +1,27 @@
+{
+  PrintWriter output=null;
+  StringBuffer text=new StringBuffer("");
+  if (f.length() != 0) {
+    String name=f + ".curv";
+    output=new PrintWriter(new FileOutputStream(name));
+  }
+ else {
+    return;
+  }
+  double diff=(max - min) / ((double)numPoints - 1.0);
+  try {
+    text.append("" + min + " "+ est.getProbability(min)+ " \n");
+    for (double value=min + diff; value < max; value+=diff) {
+      text.append("" + value + " "+ est.getProbability(value)+ " \n");
+    }
+    text.append("" + max + " "+ est.getProbability(max)+ " \n");
+  }
+ catch (  Exception ex) {
+    ex.printStackTrace();
+    System.out.println(ex.getMessage());
+  }
+  output.println(text.toString());
+  if (output != null) {
+    output.close();
+  }
+}

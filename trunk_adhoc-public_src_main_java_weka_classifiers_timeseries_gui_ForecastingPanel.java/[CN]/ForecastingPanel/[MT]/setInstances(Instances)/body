@@ -1,0 +1,23 @@
+{
+  m_sortedCheck=false;
+  boolean first=(m_simpleConfigPanel.m_targetPanel.getTableModel() == null);
+  m_instances=new Instances(insts);
+  m_simpleConfigPanel.setInstances(insts);
+  m_advancedConfigPanel.setInstances(insts);
+  if (first) {
+    TableModel model=m_simpleConfigPanel.m_targetPanel.getTableModel();
+    model.addTableModelListener(new TableModelListener(){
+      public void tableChanged(      TableModelEvent e){
+        int[] selected=m_simpleConfigPanel.m_targetPanel.getSelectedAttributes();
+        if (selected != null && selected.length > 0) {
+          m_startBut.setEnabled(true);
+        }
+ else {
+          m_startBut.setEnabled(false);
+        }
+        m_advancedConfigPanel.updatePanel();
+      }
+    }
+);
+  }
+}

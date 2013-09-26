@@ -1,0 +1,3 @@
+{
+  return "Sets the factor with which the temperature (and thus the acceptance probability of " + "steps in the wrong direction in the search space) is decreased in each iteration.";
+}

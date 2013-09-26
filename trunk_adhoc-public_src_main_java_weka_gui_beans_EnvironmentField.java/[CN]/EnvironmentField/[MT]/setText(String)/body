@@ -1,0 +1,5 @@
+{
+  m_currentContents=text;
+  m_combo.setSelectedItem(m_currentContents);
+  m_support.firePropertyChange("",null,null);
+}

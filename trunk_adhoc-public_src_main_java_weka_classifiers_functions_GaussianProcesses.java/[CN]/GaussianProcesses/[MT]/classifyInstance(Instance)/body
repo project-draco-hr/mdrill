@@ -1,0 +1,10 @@
+{
+  inst=filterInstance(inst);
+  Matrix k=new Matrix(m_NumTrain,1);
+  for (int i=0; i < m_NumTrain; i++) {
+    k.set(i,0,m_kernel.eval(-1,i,inst));
+  }
+  double result=k.transpose().times(m_t).get(0,0) + m_avg_target;
+  result=(result - m_Blin) / m_Alin;
+  return result;
+}

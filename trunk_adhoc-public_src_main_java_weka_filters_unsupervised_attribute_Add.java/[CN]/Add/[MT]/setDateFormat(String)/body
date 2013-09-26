@@ -1,0 +1,9 @@
+{
+  try {
+    new SimpleDateFormat(value);
+    m_DateFormat=value;
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
+}

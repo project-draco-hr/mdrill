@@ -1,0 +1,6 @@
+{
+  this.paint=paint;
+  if (notify) {
+    fireChangeEvent();
+  }
+}

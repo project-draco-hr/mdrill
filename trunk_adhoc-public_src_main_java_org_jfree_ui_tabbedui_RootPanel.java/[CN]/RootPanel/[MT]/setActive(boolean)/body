@@ -1,0 +1,12 @@
+{
+  if (this.active == active) {
+    return;
+  }
+  this.active=active;
+  if (active) {
+    panelActivated();
+  }
+ else {
+    panelDeactivated();
+  }
+}

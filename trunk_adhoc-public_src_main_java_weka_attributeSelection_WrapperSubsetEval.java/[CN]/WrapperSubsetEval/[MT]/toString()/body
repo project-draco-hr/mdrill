@@ -1,0 +1,54 @@
+{
+  StringBuffer text=new StringBuffer();
+  if (m_trainInstances == null) {
+    text.append("\tWrapper subset evaluator has not been built yet\n");
+  }
+ else {
+    text.append("\tWrapper Subset Evaluator\n");
+    text.append("\tLearning scheme: " + getClassifier().getClass().getName() + "\n");
+    text.append("\tScheme options: ");
+    String[] classifierOptions=new String[0];
+    if (m_BaseClassifier instanceof OptionHandler) {
+      classifierOptions=((OptionHandler)m_BaseClassifier).getOptions();
+      for (int i=0; i < classifierOptions.length; i++) {
+        text.append(classifierOptions[i] + " ");
+      }
+    }
+    text.append("\n");
+switch (m_evaluationMeasure) {
+case EVAL_DEFAULT:
+case EVAL_ACCURACY:
+      if (m_trainInstances.attribute(m_classIndex).isNumeric()) {
+        text.append("\tSubset evaluation: RMSE\n");
+      }
+ else {
+        text.append("\tSubset evaluation: classification error\n");
+      }
+    break;
+case EVAL_RMSE:
+  if (m_trainInstances.attribute(m_classIndex).isNumeric()) {
+    text.append("\tSubset evaluation: RMSE\n");
+  }
+ else {
+    text.append("\tSubset evaluation: RMSE (probability estimates)\n");
+  }
+break;
+case EVAL_MAE:
+if (m_trainInstances.attribute(m_classIndex).isNumeric()) {
+text.append("\tSubset evaluation: MAE\n");
+}
+ else {
+text.append("\tSubset evaluation: MAE (probability estimates)\n");
+}
+break;
+case EVAL_FMEASURE:
+text.append("\tSubset evaluation: F-measure\n");
+break;
+case EVAL_AUC:
+text.append("\tSubset evaluation: area under the ROC curve\n");
+break;
+}
+text.append("\tNumber of folds for accuracy estimation: " + m_folds + "\n");
+}
+return text.toString();
+}

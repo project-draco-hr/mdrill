@@ -1,0 +1,10 @@
+{
+  if (lowerBound >= upperBound) {
+    throw new IllegalArgumentException("Invalid bounds");
+  }
+  this.lowerBound=lowerBound;
+  this.upperBound=upperBound;
+  this.includeLowerBound=includeLowerBound;
+  this.includeUpperBound=includeUpperBound;
+  this.itemCount=0;
+}

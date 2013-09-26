@@ -1,0 +1,8 @@
+{
+  if (renderer.getAutoPopulateSeriesPaint()) {
+    renderer.clearSeriesPaints(false);
+  }
+  if (renderer.getAutoPopulateSeriesStroke()) {
+    renderer.clearSeriesStrokes(false);
+  }
+}

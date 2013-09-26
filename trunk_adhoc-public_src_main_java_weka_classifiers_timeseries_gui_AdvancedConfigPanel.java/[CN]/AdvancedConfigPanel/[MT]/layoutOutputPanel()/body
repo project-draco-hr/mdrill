@@ -1,0 +1,121 @@
+{
+  JPanel outputOptsHolder=new JPanel();
+  outputOptsHolder.setLayout(new GridLayout(1,2));
+  JPanel textOutHolder=new JPanel();
+  textOutHolder.setLayout(new BorderLayout());
+  textOutHolder.setBorder(BorderFactory.createTitledBorder("Output options"));
+  SpinnerNumberModel snm=new SpinnerNumberModel();
+  snm.setValue(1);
+  snm.setMinimum(1);
+  m_outputStepSpinner=new JSpinner(snm);
+  Dimension spinD=m_outputStepSpinner.getPreferredSize();
+  spinD=new Dimension((int)(spinD.getWidth() * 1.5),(int)spinD.getHeight());
+  m_outputStepSpinner.setPreferredSize(spinD);
+  JPanel checkHolder=new JPanel();
+  checkHolder.setLayout(new BorderLayout());
+  checkHolder.add(m_outputPredsCheckBox,BorderLayout.WEST);
+  JPanel comboAndSpinnerHolder=new JPanel();
+  comboAndSpinnerHolder.setLayout(new BorderLayout());
+  JPanel combo1Holder=new JPanel();
+  combo1Holder.setLayout(new BorderLayout());
+  combo1Holder.setBorder(BorderFactory.createEmptyBorder(0,0,1,0));
+  combo1Holder.add(m_outputPredsCombo,BorderLayout.EAST);
+  combo1Holder.add(m_outputPredsComboLabel,BorderLayout.CENTER);
+  comboAndSpinnerHolder.add(combo1Holder,BorderLayout.NORTH);
+  JPanel spinnerHolder1=new JPanel();
+  spinnerHolder1.setLayout(new BorderLayout());
+  spinnerHolder1.add(m_outputStepSpinner,BorderLayout.EAST);
+  spinnerHolder1.add(m_outputStepLabel,BorderLayout.CENTER);
+  JPanel spinnerHolder2=new JPanel();
+  spinnerHolder2.setLayout(new BorderLayout());
+  spinnerHolder2.setBorder(BorderFactory.createEmptyBorder(1,0,0,0));
+  spinnerHolder2.add(spinnerHolder1,BorderLayout.NORTH);
+  comboAndSpinnerHolder.add(spinnerHolder2,BorderLayout.CENTER);
+  textOutHolder.add(comboAndSpinnerHolder,BorderLayout.CENTER);
+  textOutHolder.add(checkHolder,BorderLayout.NORTH);
+  m_outputStepSpinner.setEnabled(false);
+  m_outputStepLabel.setEnabled(false);
+  m_outputPredsCombo.setEnabled(false);
+  m_outputPredsCheckBox.addActionListener(new ActionListener(){
+    public void actionPerformed(    ActionEvent e){
+      m_outputStepSpinner.setEnabled(m_outputPredsCheckBox.isSelected());
+      m_outputStepLabel.setEnabled(m_outputPredsCheckBox.isSelected());
+      m_outputPredsComboLabel.setEnabled(m_outputPredsCheckBox.isSelected());
+      m_outputPredsCombo.setEnabled(m_outputPredsCheckBox.isSelected());
+    }
+  }
+);
+  JPanel temp1=new JPanel();
+  temp1.setLayout(new BorderLayout());
+  temp1.add(m_outputFutureCheckBox,BorderLayout.NORTH);
+  textOutHolder.add(temp1,BorderLayout.SOUTH);
+  outputOptsHolder.add(textOutHolder);
+  m_outputFutureCheckBox.setSelected(true);
+  JPanel graphOutputHolder=new JPanel();
+  graphOutputHolder.setLayout(new BorderLayout());
+  graphOutputHolder.setBorder(BorderFactory.createTitledBorder("Graphing options"));
+  outputOptsHolder.add(graphOutputHolder);
+  snm=new SpinnerNumberModel();
+  snm.setValue(1);
+  snm.setMinimum(1);
+  m_graphPredsAtStepSpinner=new JSpinner(snm);
+  spinD=m_graphPredsAtStepSpinner.getPreferredSize();
+  spinD=new Dimension((int)(spinD.getWidth() * 1.5),(int)spinD.getHeight());
+  m_graphPredsAtStepSpinner.setPreferredSize(spinD);
+  JPanel labAndSpinnerHolder=new JPanel();
+  labAndSpinnerHolder.setLayout(new BorderLayout());
+  labAndSpinnerHolder.add(m_graphPredsAtStepCheckBox,BorderLayout.WEST);
+  labAndSpinnerHolder.add(m_graphPredsAtStepSpinner,BorderLayout.EAST);
+  graphOutputHolder.add(labAndSpinnerHolder,BorderLayout.NORTH);
+  m_graphPredsAtStepCheckBox.addActionListener(new ActionListener(){
+    public void actionPerformed(    ActionEvent e){
+      m_graphPredsAtStepSpinner.setEnabled(m_graphPredsAtStepCheckBox.isSelected());
+    }
+  }
+);
+  m_graphPredsAtStepSpinner.setEnabled(false);
+  JPanel comboAndRangeHolder=new JPanel();
+  comboAndRangeHolder.setLayout(new BorderLayout());
+  comboAndRangeHolder.add(m_graphTargetForStepsCheckBox,BorderLayout.NORTH);
+  JPanel temp2=new JPanel();
+  temp2.setLayout(new BorderLayout());
+  temp2.setBorder(BorderFactory.createEmptyBorder(0,0,1,0));
+  temp2.add(m_graphTargetAtStepsCombo,BorderLayout.EAST);
+  temp2.add(m_targetComboLabel,BorderLayout.CENTER);
+  JPanel temp3=new JPanel();
+  temp3.setLayout(new BorderLayout());
+  temp3.add(temp2,BorderLayout.NORTH);
+  JPanel textHolder=new JPanel();
+  textHolder.setLayout(new BorderLayout());
+  textHolder.add(m_stepRange,BorderLayout.EAST);
+  m_stepRange.setPreferredSize(new Dimension((int)spinD.getWidth() * 2,(int)spinD.getHeight()));
+  m_stepLab.setToolTipText("Comma separated list of step numbers to graph");
+  m_stepRange.setToolTipText("Comma separated list of step numbers to graph");
+  JPanel ll=new JPanel();
+  ll.setLayout(new BorderLayout());
+  ll.add(m_stepLab,BorderLayout.EAST);
+  textHolder.add(ll,BorderLayout.CENTER);
+  temp3.add(textHolder,BorderLayout.CENTER);
+  JPanel ll2=new JPanel();
+  ll2.setLayout(new BorderLayout());
+  ll2.add(temp3,BorderLayout.NORTH);
+  comboAndRangeHolder.add(ll2,BorderLayout.CENTER);
+  comboAndRangeHolder.add(m_graphFutureCheckBox,BorderLayout.SOUTH);
+  m_graphFutureCheckBox.setSelected(true);
+  m_stepLab.setEnabled(false);
+  m_stepRange.setEnabled(false);
+  m_targetComboLabel.setEnabled(false);
+  m_graphTargetAtStepsCombo.setEnabled(false);
+  m_graphTargetForStepsCheckBox.addActionListener(new ActionListener(){
+    public void actionPerformed(    ActionEvent e){
+      boolean enabled=m_graphTargetForStepsCheckBox.isSelected();
+      m_stepLab.setEnabled(enabled);
+      m_stepRange.setEnabled(enabled);
+      m_targetComboLabel.setEnabled(enabled);
+      m_graphTargetAtStepsCombo.setEnabled(enabled);
+    }
+  }
+);
+  graphOutputHolder.add(comboAndRangeHolder,BorderLayout.CENTER);
+  m_configHolder.addTab("Output",null,outputOptsHolder,"Configure output");
+}

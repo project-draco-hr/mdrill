@@ -1,0 +1,8 @@
+double[] xValue
+double[] yValue
+boolean fillPath
+boolean drawPath
+Paint fillPaint
+Paint drawPaint
+Stroke drawStroke
+Composite composite

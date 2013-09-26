@@ -1,0 +1,8 @@
+{
+  for (int i=0; i < m_Datasets.size(); i++) {
+    if (((Dataset)m_Datasets.elementAt(i)).matchesTemplate(inst)) {
+      return ((Dataset)m_Datasets.elementAt(i)).contents();
+    }
+  }
+  return null;
+}

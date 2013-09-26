@@ -1,0 +1,3 @@
+{
+  addObservation(value,true);
+}

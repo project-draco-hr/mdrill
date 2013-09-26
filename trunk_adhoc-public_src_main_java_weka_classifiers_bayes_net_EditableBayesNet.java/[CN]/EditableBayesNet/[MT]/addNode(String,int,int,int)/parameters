@@ -1,0 +1,4 @@
+String sName
+int nCardinality
+int nPosX
+int nPosY

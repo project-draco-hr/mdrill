@@ -1,0 +1,3 @@
+{
+  return "Repeat xval if stdev of mean exceeds this value.";
+}

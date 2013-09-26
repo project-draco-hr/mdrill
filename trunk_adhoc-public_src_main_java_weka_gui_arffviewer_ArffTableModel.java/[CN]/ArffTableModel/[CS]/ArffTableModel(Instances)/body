@@ -1,0 +1,4 @@
+{
+  this();
+  this.m_Data=data;
+}

@@ -1,0 +1,4 @@
+{
+  getCapabilities().testWithFail(data);
+  getCapabilities().testWithFail(data.attribute(attrIndex));
+}

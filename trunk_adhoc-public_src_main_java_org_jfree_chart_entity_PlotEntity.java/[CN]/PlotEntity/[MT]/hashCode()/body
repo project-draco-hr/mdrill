@@ -1,0 +1,6 @@
+{
+  int result=39;
+  result=HashUtilities.hashCode(result,getToolTipText());
+  result=HashUtilities.hashCode(result,getURLText());
+  return result;
+}

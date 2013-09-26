@@ -1,0 +1,46 @@
+{
+  if (m_RP != rp) {
+    throw new Error("Unrecognized ResultProducer sending results!!");
+  }
+  String[] keyNames=m_RP.getKeyNames();
+  String[] resultNames=m_RP.getResultNames();
+  FastVector attribInfo=new FastVector();
+  for (int i=0; i < m_AttributeTypes.length; i++) {
+    String attribName="Unknown";
+    if (i < keyNames.length) {
+      attribName="Key_" + keyNames[i];
+    }
+ else {
+      attribName=resultNames[i - keyNames.length];
+    }
+switch (m_AttributeTypes[i]) {
+case Attribute.NOMINAL:
+      if (m_NominalStrings[i].size() > 0) {
+        attribInfo.addElement(new Attribute(attribName,m_NominalStrings[i]));
+      }
+ else {
+        attribInfo.addElement(new Attribute(attribName,(FastVector)null));
+      }
+    break;
+case Attribute.NUMERIC:
+  attribInfo.addElement(new Attribute(attribName));
+break;
+case Attribute.STRING:
+attribInfo.addElement(new Attribute(attribName,(FastVector)null));
+break;
+default :
+throw new Exception("Unknown attribute type");
+}
+}
+Instances result=new Instances("InstanceResultListener",attribInfo,m_Instances.size());
+for (int i=0; i < m_Instances.size(); i++) {
+result.add((Instance)m_Instances.elementAt(i));
+}
+m_Out.println(new Instances(result,0));
+for (int i=0; i < result.numInstances(); i++) {
+m_Out.println(result.instance(i));
+}
+if (!(m_OutputFile == null) && !(m_OutputFile.getName().equals("-"))) {
+m_Out.close();
+}
+}

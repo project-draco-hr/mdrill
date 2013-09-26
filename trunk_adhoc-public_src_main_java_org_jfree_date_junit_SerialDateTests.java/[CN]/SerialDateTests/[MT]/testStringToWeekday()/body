@@ -1,0 +1,8 @@
+{
+  int weekday=SerialDate.stringToWeekdayCode("Wednesday");
+  assertEquals(SerialDate.WEDNESDAY,weekday);
+  weekday=SerialDate.stringToWeekdayCode(" Wednesday ");
+  assertEquals(SerialDate.WEDNESDAY,weekday);
+  weekday=SerialDate.stringToWeekdayCode("Wed");
+  assertEquals(SerialDate.WEDNESDAY,weekday);
+}

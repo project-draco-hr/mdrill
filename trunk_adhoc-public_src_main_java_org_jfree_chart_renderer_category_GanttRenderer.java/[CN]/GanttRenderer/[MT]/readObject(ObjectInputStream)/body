@@ -1,0 +1,5 @@
+{
+  stream.defaultReadObject();
+  this.completePaint=SerialUtilities.readPaint(stream);
+  this.incompletePaint=SerialUtilities.readPaint(stream);
+}

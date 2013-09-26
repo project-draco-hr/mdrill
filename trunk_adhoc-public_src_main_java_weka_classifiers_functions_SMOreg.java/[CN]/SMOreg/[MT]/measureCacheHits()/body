@@ -1,0 +1,8 @@
+{
+  if (m_optimizer != null) {
+    return m_optimizer.getCacheHits();
+  }
+ else {
+    return 0;
+  }
+}

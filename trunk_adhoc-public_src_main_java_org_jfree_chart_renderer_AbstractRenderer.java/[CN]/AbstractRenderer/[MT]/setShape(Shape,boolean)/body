@@ -1,0 +1,6 @@
+{
+  this.shape=shape;
+  if (notify) {
+    fireChangeEvent();
+  }
+}

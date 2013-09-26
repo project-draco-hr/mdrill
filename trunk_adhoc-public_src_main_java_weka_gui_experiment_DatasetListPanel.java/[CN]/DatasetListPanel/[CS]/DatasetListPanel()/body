@@ -1,0 +1,92 @@
+{
+  m_List=new JList();
+  m_List.addListSelectionListener(new ListSelectionListener(){
+    public void valueChanged(    ListSelectionEvent e){
+      setButtons(e);
+    }
+  }
+);
+  MouseListener mouseListener=new MouseAdapter(){
+    public void mouseClicked(    MouseEvent e){
+      if (e.getClickCount() == 2) {
+        int index=m_List.locationToIndex(e.getPoint());
+        if (index > -1)         actionPerformed(new ActionEvent(m_EditBut,0,""));
+      }
+    }
+  }
+;
+  m_List.addMouseListener(mouseListener);
+  m_FileChooser.setCoreConvertersOnly(true);
+  m_FileChooser.setMultiSelectionEnabled(true);
+  m_FileChooser.setFileSelectionMode(ConverterFileChooser.FILES_AND_DIRECTORIES);
+  m_FileChooser.setAcceptAllFileFilterUsed(false);
+  m_DeleteBut.setEnabled(false);
+  m_DeleteBut.addActionListener(this);
+  m_AddBut.setEnabled(false);
+  m_AddBut.addActionListener(this);
+  m_EditBut.setEnabled(false);
+  m_EditBut.addActionListener(this);
+  m_UpBut.setEnabled(false);
+  m_UpBut.addActionListener(this);
+  m_DownBut.setEnabled(false);
+  m_DownBut.addActionListener(this);
+  m_relativeCheck.setSelected(ExperimenterDefaults.getUseRelativePaths());
+  m_relativeCheck.setToolTipText("Store file paths relative to " + "the start directory");
+  setLayout(new BorderLayout());
+  setBorder(BorderFactory.createTitledBorder("Datasets"));
+  JPanel topLab=new JPanel();
+  GridBagLayout gb=new GridBagLayout();
+  GridBagConstraints constraints=new GridBagConstraints();
+  topLab.setBorder(BorderFactory.createEmptyBorder(10,5,10,5));
+  topLab.setLayout(gb);
+  constraints.gridx=0;
+  constraints.gridy=0;
+  constraints.weightx=5;
+  constraints.fill=GridBagConstraints.HORIZONTAL;
+  constraints.gridwidth=1;
+  constraints.gridheight=1;
+  constraints.insets=new Insets(0,2,0,2);
+  topLab.add(m_AddBut,constraints);
+  constraints.gridx=1;
+  constraints.gridy=0;
+  constraints.weightx=5;
+  constraints.gridwidth=1;
+  constraints.gridheight=1;
+  topLab.add(m_EditBut,constraints);
+  constraints.gridx=2;
+  constraints.gridy=0;
+  constraints.weightx=5;
+  constraints.gridwidth=1;
+  constraints.gridheight=1;
+  topLab.add(m_DeleteBut,constraints);
+  constraints.gridx=0;
+  constraints.gridy=1;
+  constraints.weightx=5;
+  constraints.fill=GridBagConstraints.HORIZONTAL;
+  constraints.gridwidth=1;
+  constraints.gridheight=1;
+  constraints.insets=new Insets(0,2,0,2);
+  topLab.add(m_relativeCheck,constraints);
+  JPanel bottomLab=new JPanel();
+  gb=new GridBagLayout();
+  constraints=new GridBagConstraints();
+  bottomLab.setBorder(BorderFactory.createEmptyBorder(10,5,10,5));
+  bottomLab.setLayout(gb);
+  constraints.gridx=0;
+  constraints.gridy=0;
+  constraints.weightx=5;
+  constraints.fill=GridBagConstraints.HORIZONTAL;
+  constraints.gridwidth=1;
+  constraints.gridheight=1;
+  constraints.insets=new Insets(0,2,0,2);
+  bottomLab.add(m_UpBut,constraints);
+  constraints.gridx=1;
+  constraints.gridy=0;
+  constraints.weightx=5;
+  constraints.gridwidth=1;
+  constraints.gridheight=1;
+  bottomLab.add(m_DownBut,constraints);
+  add(topLab,BorderLayout.NORTH);
+  add(new JScrollPane(m_List),BorderLayout.CENTER);
+  add(bottomLab,BorderLayout.SOUTH);
+}

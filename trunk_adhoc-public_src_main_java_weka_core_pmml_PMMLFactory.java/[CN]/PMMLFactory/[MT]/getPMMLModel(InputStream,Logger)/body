@@ -1,0 +1,23 @@
+{
+  DocumentBuilderFactory dbf=DocumentBuilderFactory.newInstance();
+  DocumentBuilder db=dbf.newDocumentBuilder();
+  Document doc=db.parse(stream);
+  stream.close();
+  doc.getDocumentElement().normalize();
+  if (!isPMML(doc)) {
+    throw new IllegalArgumentException("[PMMLFactory] Source is not a PMML file!!");
+  }
+  Instances dataDictionary=getDataDictionaryAsInstances(doc);
+  TransformationDictionary transDict=getTransformationDictionary(doc,dataDictionary);
+  ModelType modelType=getModelType(doc);
+  if (modelType == ModelType.UNKNOWN_MODEL) {
+    throw new Exception("Unsupported PMML model type");
+  }
+  Element model=getModelElement(doc,modelType);
+  MiningSchema ms=new MiningSchema(model,dataDictionary,transDict);
+  PMMLModel theModel=getModelInstance(doc,modelType,model,dataDictionary,ms);
+  if (log != null) {
+    theModel.setLog(log);
+  }
+  return theModel;
+}

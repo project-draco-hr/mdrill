@@ -1,0 +1,4 @@
+{
+  this.legendShape.setShape(series,shape);
+  fireChangeEvent();
+}

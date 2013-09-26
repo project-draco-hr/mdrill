@@ -1,0 +1,13 @@
+{
+  Capabilities result;
+  if (m_ASEvaluator == null) {
+    result=super.getCapabilities();
+    result.disableAll();
+  }
+ else {
+    result=m_ASEvaluator.getCapabilities();
+    result.enable(Capability.NO_CLASS);
+  }
+  result.setMinimumNumberInstances(0);
+  return result;
+}

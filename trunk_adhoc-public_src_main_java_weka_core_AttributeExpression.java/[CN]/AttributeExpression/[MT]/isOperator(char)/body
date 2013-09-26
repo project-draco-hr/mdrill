@@ -1,0 +1,6 @@
+{
+  if (OPERATORS.indexOf(tok) == -1) {
+    return false;
+  }
+  return true;
+}

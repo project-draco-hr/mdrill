@@ -1,0 +1,5 @@
+{
+  this.multiplexInfo=new MultiplexMappingInfo(loadClass(className),typeAttr);
+  this.multiplexInfo.setSource(this.source);
+  this.multiplexTypeInfos=new ArrayList();
+}

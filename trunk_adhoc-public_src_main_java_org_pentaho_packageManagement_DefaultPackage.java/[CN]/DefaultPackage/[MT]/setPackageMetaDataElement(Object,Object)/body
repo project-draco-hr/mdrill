@@ -1,0 +1,7 @@
+{
+  if (m_packageMetaData == null) {
+    throw new Exception("[DefaultPackage] no meta data map has been set!");
+  }
+  Map<Object,Object> meta=(Map<Object,Object>)m_packageMetaData;
+  meta.put(key,value);
+}

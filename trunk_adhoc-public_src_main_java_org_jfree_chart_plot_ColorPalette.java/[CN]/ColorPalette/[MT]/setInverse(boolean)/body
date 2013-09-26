@@ -1,0 +1,8 @@
+{
+  this.inverse=inverse;
+  initialize();
+  if (inverse) {
+    invertPalette();
+  }
+  return;
+}

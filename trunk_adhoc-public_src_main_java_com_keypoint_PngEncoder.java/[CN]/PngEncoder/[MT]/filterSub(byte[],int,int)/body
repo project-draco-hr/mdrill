@@ -1,0 +1,13 @@
+{
+  int offset=this.bytesPerPixel;
+  int actualStart=startPos + offset;
+  int nBytes=width * this.bytesPerPixel;
+  int leftInsert=offset;
+  int leftExtract=0;
+  for (int i=actualStart; i < startPos + nBytes; i++) {
+    this.leftBytes[leftInsert]=pixels[i];
+    pixels[i]=(byte)((pixels[i] - this.leftBytes[leftExtract]) % 256);
+    leftInsert=(leftInsert + 1) % 0x0f;
+    leftExtract=(leftExtract + 1) % 0x0f;
+  }
+}

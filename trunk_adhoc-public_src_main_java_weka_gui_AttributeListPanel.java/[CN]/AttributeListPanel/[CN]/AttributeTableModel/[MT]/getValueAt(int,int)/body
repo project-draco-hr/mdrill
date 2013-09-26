@@ -1,0 +1,10 @@
+{
+switch (column) {
+case 0:
+    return new Integer(row + 1);
+case 1:
+  return m_Instances.attribute(row).name();
+default :
+return null;
+}
+}

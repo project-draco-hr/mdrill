@@ -1,0 +1,63 @@
+{
+  if (dlg == null) {
+    dlg=new JDialog();
+    dlg.setTitle("Add node");
+    JLabel jLbName=new JLabel("Name");
+    jTfName.setHorizontalAlignment(JTextField.CENTER);
+    JLabel jLbCard=new JLabel("Cardinality");
+    jTfCard.setHorizontalAlignment(JTextField.CENTER);
+    jTfCard.setText("2");
+    JButton jBtCancel;
+    jBtCancel=new JButton("Cancel");
+    jBtCancel.setMnemonic('C');
+    jBtCancel.addActionListener(new ActionListener(){
+      public void actionPerformed(      ActionEvent ae){
+        dlg.setVisible(false);
+      }
+    }
+);
+    JButton jBtOk=new JButton("Ok");
+    jBtOk.setMnemonic('O');
+    jBtOk.addActionListener(new ActionListener(){
+      public void actionPerformed(      ActionEvent ae){
+        String sName=jTfName.getText();
+        if (sName.length() <= 0) {
+          JOptionPane.showMessageDialog(null,"Name should have at least one character");
+          return;
+        }
+        int nCard=new Integer(jTfCard.getText()).intValue();
+        if (nCard <= 1) {
+          JOptionPane.showMessageDialog(null,"Cardinality should be larger than 1");
+          return;
+        }
+        try {
+          if (m_X < Integer.MAX_VALUE) {
+            m_BayesNet.addNode(sName,nCard,m_X,m_Y);
+          }
+ else {
+            m_BayesNet.addNode(sName,nCard);
+          }
+          m_jStatusBar.setText(m_BayesNet.lastActionMsg());
+          a_undo.setEnabled(true);
+          a_redo.setEnabled(false);
+        }
+ catch (        Exception e) {
+          e.printStackTrace();
+        }
+        repaint();
+        dlg.setVisible(false);
+      }
+    }
+);
+    dlg.setLayout(new GridLayout(3,2,10,10));
+    dlg.add(jLbName);
+    dlg.add(jTfName);
+    dlg.add(jLbCard);
+    dlg.add(jTfCard);
+    dlg.add(jBtOk);
+    dlg.add(jBtCancel);
+    dlg.setSize(dlg.getPreferredSize());
+  }
+  jTfName.setText("Node" + (m_BayesNet.getNrOfNodes() + 1));
+  dlg.setVisible(true);
+}

@@ -1,0 +1,8 @@
+{
+  String list="";
+  for (  String f : m_fieldsToForecast) {
+    list+=(f + ",");
+  }
+  list=list.substring(0,list.lastIndexOf(','));
+  return list;
+}

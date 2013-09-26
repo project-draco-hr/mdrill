@@ -1,0 +1,297 @@
+{
+  this.setBackground(m_plot2D.getBackground());
+  this.setLayout(new BorderLayout());
+  this.add(m_plot2D,BorderLayout.CENTER);
+  m_plot2D.setPlotCompanion(this);
+  m_createShape=false;
+  m_shapes=null;
+  m_shapePoints=null;
+  m_newMousePos=new Dimension();
+  this.addMouseListener(new MouseAdapter(){
+    public void mousePressed(    MouseEvent e){
+      if ((e.getModifiers() & MouseEvent.BUTTON1_MASK) == MouseEvent.BUTTON1_MASK) {
+        if (m_sIndex == 0) {
+        }
+ else         if (m_sIndex == 1) {
+          m_createShape=true;
+          m_shapePoints=new FastVector(5);
+          m_shapePoints.addElement(new Double(m_sIndex));
+          m_shapePoints.addElement(new Double(e.getX()));
+          m_shapePoints.addElement(new Double(e.getY()));
+          m_shapePoints.addElement(new Double(e.getX()));
+          m_shapePoints.addElement(new Double(e.getY()));
+          Graphics g=m_plot2D.getGraphics();
+          g.setColor(Color.black);
+          g.setXORMode(Color.white);
+          g.drawRect(((Double)m_shapePoints.elementAt(1)).intValue(),((Double)m_shapePoints.elementAt(2)).intValue(),((Double)m_shapePoints.elementAt(3)).intValue() - ((Double)m_shapePoints.elementAt(1)).intValue(),((Double)m_shapePoints.elementAt(4)).intValue() - ((Double)m_shapePoints.elementAt(2)).intValue());
+          g.dispose();
+        }
+      }
+    }
+    public void mouseClicked(    MouseEvent e){
+      if ((m_sIndex == 2 || m_sIndex == 3) && (m_createShape || (e.getModifiers() & MouseEvent.BUTTON1_MASK) == MouseEvent.BUTTON1_MASK)) {
+        if (m_createShape) {
+          Graphics g=m_plot2D.getGraphics();
+          g.setColor(Color.black);
+          g.setXORMode(Color.white);
+          if ((e.getModifiers() & MouseEvent.BUTTON1_MASK) == MouseEvent.BUTTON1_MASK && !e.isAltDown()) {
+            m_shapePoints.addElement(new Double(m_plot2D.convertToAttribX(e.getX())));
+            m_shapePoints.addElement(new Double(m_plot2D.convertToAttribY(e.getY())));
+            m_newMousePos.width=e.getX();
+            m_newMousePos.height=e.getY();
+            g.drawLine((int)Math.ceil(m_plot2D.convertToPanelX(((Double)m_shapePoints.elementAt(m_shapePoints.size() - 2)).doubleValue())),(int)Math.ceil(m_plot2D.convertToPanelY(((Double)m_shapePoints.elementAt(m_shapePoints.size() - 1)).doubleValue())),m_newMousePos.width,m_newMousePos.height);
+          }
+ else           if (m_sIndex == 3) {
+            m_createShape=false;
+            if (m_shapePoints.size() >= 5) {
+              double cx=Math.ceil(m_plot2D.convertToPanelX(((Double)m_shapePoints.elementAt(m_shapePoints.size() - 4)).doubleValue()));
+              double cx2=Math.ceil(m_plot2D.convertToPanelX(((Double)m_shapePoints.elementAt(m_shapePoints.size() - 2)).doubleValue())) - cx;
+              cx2*=50000;
+              double cy=Math.ceil(m_plot2D.convertToPanelY(((Double)m_shapePoints.elementAt(m_shapePoints.size() - 3)).doubleValue()));
+              double cy2=Math.ceil(m_plot2D.convertToPanelY(((Double)m_shapePoints.elementAt(m_shapePoints.size() - 1)).doubleValue())) - cy;
+              cy2*=50000;
+              double cxa=Math.ceil(m_plot2D.convertToPanelX(((Double)m_shapePoints.elementAt(3)).doubleValue()));
+              double cxa2=Math.ceil(m_plot2D.convertToPanelX(((Double)m_shapePoints.elementAt(1)).doubleValue())) - cxa;
+              cxa2*=50000;
+              double cya=Math.ceil(m_plot2D.convertToPanelY(((Double)m_shapePoints.elementAt(4)).doubleValue()));
+              double cya2=Math.ceil(m_plot2D.convertToPanelY(((Double)m_shapePoints.elementAt(2)).doubleValue())) - cya;
+              cya2*=50000;
+              m_shapePoints.setElementAt(new Double(m_plot2D.convertToAttribX(cxa2 + cxa)),1);
+              m_shapePoints.setElementAt(new Double(m_plot2D.convertToAttribY(cy2 + cy)),m_shapePoints.size() - 1);
+              m_shapePoints.setElementAt(new Double(m_plot2D.convertToAttribX(cx2 + cx)),m_shapePoints.size() - 2);
+              m_shapePoints.setElementAt(new Double(m_plot2D.convertToAttribY(cya2 + cya)),2);
+              cy=Double.POSITIVE_INFINITY;
+              cy2=Double.NEGATIVE_INFINITY;
+              if (((Double)m_shapePoints.elementAt(1)).doubleValue() > ((Double)m_shapePoints.elementAt(3)).doubleValue()) {
+                if (((Double)m_shapePoints.elementAt(2)).doubleValue() == ((Double)m_shapePoints.elementAt(4)).doubleValue()) {
+                  cy=((Double)m_shapePoints.elementAt(2)).doubleValue();
+                }
+              }
+              if (((Double)m_shapePoints.elementAt(m_shapePoints.size() - 2)).doubleValue() > ((Double)m_shapePoints.elementAt(m_shapePoints.size() - 4)).doubleValue()) {
+                if (((Double)m_shapePoints.elementAt(m_shapePoints.size() - 3)).doubleValue() == ((Double)m_shapePoints.elementAt(m_shapePoints.size() - 1)).doubleValue()) {
+                  cy2=((Double)m_shapePoints.lastElement()).doubleValue();
+                }
+              }
+              m_shapePoints.addElement(new Double(cy));
+              m_shapePoints.addElement(new Double(cy2));
+              if (!inPolyline(m_shapePoints,m_plot2D.convertToAttribX(e.getX()),m_plot2D.convertToAttribY(e.getY()))) {
+                Double tmp=(Double)m_shapePoints.elementAt(m_shapePoints.size() - 2);
+                m_shapePoints.setElementAt(m_shapePoints.lastElement(),m_shapePoints.size() - 2);
+                m_shapePoints.setElementAt(tmp,m_shapePoints.size() - 1);
+              }
+              if (m_shapes == null) {
+                m_shapes=new FastVector(4);
+              }
+              m_shapes.addElement(m_shapePoints);
+              m_submit.setText("Submit");
+              m_submit.setActionCommand("Submit");
+              m_submit.setEnabled(true);
+            }
+            m_shapePoints=null;
+            PlotPanel.this.repaint();
+          }
+ else {
+            m_createShape=false;
+            if (m_shapePoints.size() >= 7) {
+              m_shapePoints.addElement(m_shapePoints.elementAt(1));
+              m_shapePoints.addElement(m_shapePoints.elementAt(2));
+              if (m_shapes == null) {
+                m_shapes=new FastVector(4);
+              }
+              m_shapes.addElement(m_shapePoints);
+              m_submit.setText("Submit");
+              m_submit.setActionCommand("Submit");
+              m_submit.setEnabled(true);
+            }
+            m_shapePoints=null;
+            PlotPanel.this.repaint();
+          }
+          g.dispose();
+        }
+ else         if ((e.getModifiers() & MouseEvent.BUTTON1_MASK) == MouseEvent.BUTTON1_MASK) {
+          m_createShape=true;
+          m_shapePoints=new FastVector(17);
+          m_shapePoints.addElement(new Double(m_sIndex));
+          m_shapePoints.addElement(new Double(m_plot2D.convertToAttribX(e.getX())));
+          m_shapePoints.addElement(new Double(m_plot2D.convertToAttribY(e.getY())));
+          m_newMousePos.width=e.getX();
+          m_newMousePos.height=e.getY();
+          Graphics g=m_plot2D.getGraphics();
+          g.setColor(Color.black);
+          g.setXORMode(Color.white);
+          g.drawLine((int)Math.ceil(m_plot2D.convertToPanelX(((Double)m_shapePoints.elementAt(1)).doubleValue())),(int)Math.ceil(m_plot2D.convertToPanelY(((Double)m_shapePoints.elementAt(2)).doubleValue())),m_newMousePos.width,m_newMousePos.height);
+          g.dispose();
+        }
+      }
+ else {
+        if ((e.getModifiers() & InputEvent.BUTTON1_MASK) == InputEvent.BUTTON1_MASK) {
+          m_plot2D.searchPoints(e.getX(),e.getY(),false);
+        }
+ else {
+          m_plot2D.searchPoints(e.getX(),e.getY(),true);
+        }
+      }
+    }
+    public void mouseReleased(    MouseEvent e){
+      if (m_createShape) {
+        if (((Double)m_shapePoints.elementAt(0)).intValue() == 1) {
+          m_createShape=false;
+          Graphics g=m_plot2D.getGraphics();
+          g.setColor(Color.black);
+          g.setXORMode(Color.white);
+          g.drawRect(((Double)m_shapePoints.elementAt(1)).intValue(),((Double)m_shapePoints.elementAt(2)).intValue(),((Double)m_shapePoints.elementAt(3)).intValue() - ((Double)m_shapePoints.elementAt(1)).intValue(),((Double)m_shapePoints.elementAt(4)).intValue() - ((Double)m_shapePoints.elementAt(2)).intValue());
+          g.dispose();
+          if (checkPoints(((Double)m_shapePoints.elementAt(1)).doubleValue(),((Double)m_shapePoints.elementAt(2)).doubleValue()) && checkPoints(((Double)m_shapePoints.elementAt(3)).doubleValue(),((Double)m_shapePoints.elementAt(4)).doubleValue())) {
+            if (((Double)m_shapePoints.elementAt(1)).doubleValue() < ((Double)m_shapePoints.elementAt(3)).doubleValue() && ((Double)m_shapePoints.elementAt(2)).doubleValue() < ((Double)m_shapePoints.elementAt(4)).doubleValue()) {
+              if (m_shapes == null) {
+                m_shapes=new FastVector(2);
+              }
+              m_shapePoints.setElementAt(new Double(m_plot2D.convertToAttribX(((Double)m_shapePoints.elementAt(1)).doubleValue())),1);
+              m_shapePoints.setElementAt(new Double(m_plot2D.convertToAttribY(((Double)m_shapePoints.elementAt(2)).doubleValue())),2);
+              m_shapePoints.setElementAt(new Double(m_plot2D.convertToAttribX(((Double)m_shapePoints.elementAt(3)).doubleValue())),3);
+              m_shapePoints.setElementAt(new Double(m_plot2D.convertToAttribY(((Double)m_shapePoints.elementAt(4)).doubleValue())),4);
+              m_shapes.addElement(m_shapePoints);
+              m_submit.setText("Submit");
+              m_submit.setActionCommand("Submit");
+              m_submit.setEnabled(true);
+              PlotPanel.this.repaint();
+            }
+          }
+          m_shapePoints=null;
+        }
+      }
+    }
+  }
+);
+  this.addMouseMotionListener(new MouseMotionAdapter(){
+    public void mouseDragged(    MouseEvent e){
+      if (m_createShape) {
+        if (((Double)m_shapePoints.elementAt(0)).intValue() == 1) {
+          Graphics g=m_plot2D.getGraphics();
+          g.setColor(Color.black);
+          g.setXORMode(Color.white);
+          g.drawRect(((Double)m_shapePoints.elementAt(1)).intValue(),((Double)m_shapePoints.elementAt(2)).intValue(),((Double)m_shapePoints.elementAt(3)).intValue() - ((Double)m_shapePoints.elementAt(1)).intValue(),((Double)m_shapePoints.elementAt(4)).intValue() - ((Double)m_shapePoints.elementAt(2)).intValue());
+          m_shapePoints.setElementAt(new Double(e.getX()),3);
+          m_shapePoints.setElementAt(new Double(e.getY()),4);
+          g.drawRect(((Double)m_shapePoints.elementAt(1)).intValue(),((Double)m_shapePoints.elementAt(2)).intValue(),((Double)m_shapePoints.elementAt(3)).intValue() - ((Double)m_shapePoints.elementAt(1)).intValue(),((Double)m_shapePoints.elementAt(4)).intValue() - ((Double)m_shapePoints.elementAt(2)).intValue());
+          g.dispose();
+        }
+      }
+    }
+    public void mouseMoved(    MouseEvent e){
+      if (m_createShape) {
+        if (((Double)m_shapePoints.elementAt(0)).intValue() == 2 || ((Double)m_shapePoints.elementAt(0)).intValue() == 3) {
+          Graphics g=m_plot2D.getGraphics();
+          g.setColor(Color.black);
+          g.setXORMode(Color.white);
+          g.drawLine((int)Math.ceil(m_plot2D.convertToPanelX(((Double)m_shapePoints.elementAt(m_shapePoints.size() - 2)).doubleValue())),(int)Math.ceil(m_plot2D.convertToPanelY(((Double)m_shapePoints.elementAt(m_shapePoints.size() - 1)).doubleValue())),m_newMousePos.width,m_newMousePos.height);
+          m_newMousePos.width=e.getX();
+          m_newMousePos.height=e.getY();
+          g.drawLine((int)Math.ceil(m_plot2D.convertToPanelX(((Double)m_shapePoints.elementAt(m_shapePoints.size() - 2)).doubleValue())),(int)Math.ceil(m_plot2D.convertToPanelY(((Double)m_shapePoints.elementAt(m_shapePoints.size() - 1)).doubleValue())),m_newMousePos.width,m_newMousePos.height);
+          g.dispose();
+        }
+      }
+    }
+  }
+);
+  m_submit.addActionListener(new ActionListener(){
+    public void actionPerformed(    ActionEvent e){
+      if (e.getActionCommand().equals("Submit")) {
+        if (m_splitListener != null && m_shapes != null) {
+          Instances sub_set1=new Instances(m_plot2D.getMasterPlot().m_plotInstances,500);
+          Instances sub_set2=new Instances(m_plot2D.getMasterPlot().m_plotInstances,500);
+          if (m_plot2D.getMasterPlot().m_plotInstances != null) {
+            for (int noa=0; noa < m_plot2D.getMasterPlot().m_plotInstances.numInstances(); noa++) {
+              if (!m_plot2D.getMasterPlot().m_plotInstances.instance(noa).isMissing(m_xIndex) && !m_plot2D.getMasterPlot().m_plotInstances.instance(noa).isMissing(m_yIndex)) {
+                if (inSplit(m_plot2D.getMasterPlot().m_plotInstances.instance(noa))) {
+                  sub_set1.add(m_plot2D.getMasterPlot().m_plotInstances.instance(noa));
+                }
+ else {
+                  sub_set2.add(m_plot2D.getMasterPlot().m_plotInstances.instance(noa));
+                }
+              }
+            }
+            FastVector tmp=m_shapes;
+            cancelShapes();
+            m_splitListener.userDataEvent(new VisualizePanelEvent(tmp,sub_set1,sub_set2,m_xIndex,m_yIndex));
+          }
+        }
+ else         if (m_shapes != null && m_plot2D.getMasterPlot().m_plotInstances != null) {
+          Instances sub_set1=new Instances(m_plot2D.getMasterPlot().m_plotInstances,500);
+          int count=0;
+          for (int noa=0; noa < m_plot2D.getMasterPlot().m_plotInstances.numInstances(); noa++) {
+            if (inSplit(m_plot2D.getMasterPlot().m_plotInstances.instance(noa))) {
+              sub_set1.add(m_plot2D.getMasterPlot().m_plotInstances.instance(noa));
+              count++;
+            }
+          }
+          int[] nSizes=null;
+          int[] nTypes=null;
+          int x=m_xIndex;
+          int y=m_yIndex;
+          if (m_originalPlot == null) {
+            m_originalPlot=m_plot2D.getMasterPlot();
+          }
+          if (count > 0) {
+            nTypes=new int[count];
+            nSizes=new int[count];
+            count=0;
+            for (int noa=0; noa < m_plot2D.getMasterPlot().m_plotInstances.numInstances(); noa++) {
+              if (inSplit(m_plot2D.getMasterPlot().m_plotInstances.instance(noa))) {
+                nTypes[count]=m_plot2D.getMasterPlot().m_shapeType[noa];
+                nSizes[count]=m_plot2D.getMasterPlot().m_shapeSize[noa];
+                count++;
+              }
+            }
+          }
+          cancelShapes();
+          PlotData2D newPlot=new PlotData2D(sub_set1);
+          try {
+            newPlot.setShapeSize(nSizes);
+            newPlot.setShapeType(nTypes);
+            m_plot2D.removeAllPlots();
+            VisualizePanel.this.addPlot(newPlot);
+          }
+ catch (          Exception ex) {
+            System.err.println(ex);
+            ex.printStackTrace();
+          }
+          try {
+            VisualizePanel.this.setXIndex(x);
+            VisualizePanel.this.setYIndex(y);
+          }
+ catch (          Exception er) {
+            System.out.println("Error : " + er);
+          }
+        }
+      }
+ else       if (e.getActionCommand().equals("Reset")) {
+        int x=m_xIndex;
+        int y=m_yIndex;
+        m_plot2D.removeAllPlots();
+        try {
+          VisualizePanel.this.addPlot(m_originalPlot);
+        }
+ catch (        Exception ex) {
+          System.err.println(ex);
+          ex.printStackTrace();
+        }
+        try {
+          VisualizePanel.this.setXIndex(x);
+          VisualizePanel.this.setYIndex(y);
+        }
+ catch (        Exception er) {
+          System.out.println("Error : " + er);
+        }
+      }
+    }
+  }
+);
+  m_cancel.addActionListener(new ActionListener(){
+    public void actionPerformed(    ActionEvent e){
+      cancelShapes();
+      PlotPanel.this.repaint();
+    }
+  }
+);
+}

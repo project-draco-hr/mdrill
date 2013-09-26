@@ -1,0 +1,20 @@
+{
+  double minDist=Integer.MAX_VALUE;
+  int bestCluster=0;
+  for (int i=0; i < m_NumClusters; i++) {
+    double dist;
+    if (useFastDistCalc)     dist=m_DistanceFunction.distance(instance,m_ClusterCentroids.instance(i),minDist);
+ else     dist=m_DistanceFunction.distance(instance,m_ClusterCentroids.instance(i));
+    if (dist < minDist) {
+      minDist=dist;
+      bestCluster=i;
+    }
+  }
+  if (updateErrors) {
+    if (m_DistanceFunction instanceof EuclideanDistance) {
+      minDist*=minDist;
+    }
+    m_squaredErrors[bestCluster]+=minDist;
+  }
+  return bestCluster;
+}

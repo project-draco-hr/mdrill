@@ -1,0 +1,12 @@
+{
+  this.segmentSize=segmentSize;
+  this.segmentsIncluded=segmentsIncluded;
+  this.segmentsExcluded=segmentsExcluded;
+  this.groupSegmentCount=this.segmentsIncluded + this.segmentsExcluded;
+  this.segmentsIncludedSize=this.segmentsIncluded * this.segmentSize;
+  this.segmentsExcludedSize=this.segmentsExcluded * this.segmentSize;
+  this.segmentsGroupSize=this.segmentsIncludedSize + this.segmentsExcludedSize;
+  int offset=TimeZone.getDefault().getRawOffset();
+  TimeZone z=new SimpleTimeZone(offset,"UTC-" + offset);
+  this.workingCalendarNoDST=new GregorianCalendar(z,Locale.getDefault());
+}

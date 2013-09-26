@@ -1,0 +1,4 @@
+{
+  ArrayList row=(ArrayList)this.rows.get(itemIndex);
+  return (Number)row.get(seriesIndex + 1);
+}

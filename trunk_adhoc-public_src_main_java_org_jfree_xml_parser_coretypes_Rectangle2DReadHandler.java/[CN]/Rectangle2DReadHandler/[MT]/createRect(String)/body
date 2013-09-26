@@ -1,0 +1,6 @@
+{
+  if ("float".equals(type)) {
+    return new Rectangle2D.Float();
+  }
+  return new Rectangle2D.Double();
+}

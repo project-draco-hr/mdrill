@@ -1,0 +1,6 @@
+{
+  this.notify=notify;
+  if (notify) {
+    notifyListeners(new PlotChangeEvent(this));
+  }
+}

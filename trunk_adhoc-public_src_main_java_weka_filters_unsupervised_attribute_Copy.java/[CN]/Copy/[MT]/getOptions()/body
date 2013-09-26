@@ -1,0 +1,15 @@
+{
+  String[] options=new String[3];
+  int current=0;
+  if (getInvertSelection()) {
+    options[current++]="-V";
+  }
+  if (!getAttributeIndices().equals("")) {
+    options[current++]="-R";
+    options[current++]=getAttributeIndices();
+  }
+  while (current < options.length) {
+    options[current++]="";
+  }
+  return options;
+}

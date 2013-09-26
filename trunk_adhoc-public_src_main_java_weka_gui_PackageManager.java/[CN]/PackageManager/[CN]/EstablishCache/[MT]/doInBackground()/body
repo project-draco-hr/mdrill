@@ -1,0 +1,11 @@
+{
+  int numPackages=WekaPackageManager.numRepositoryPackages();
+  if (numPackages < 0) {
+    numPackages=100;
+  }
+  m_progress=new javax.swing.ProgressMonitor(PackageManager.this,"Establising cache...","",0,numPackages);
+  ProgressPrintStream pps=new ProgressPrintStream(this);
+  m_error=WekaPackageManager.establishCacheIfNeeded(pps);
+  m_cacheEstablished=true;
+  return null;
+}

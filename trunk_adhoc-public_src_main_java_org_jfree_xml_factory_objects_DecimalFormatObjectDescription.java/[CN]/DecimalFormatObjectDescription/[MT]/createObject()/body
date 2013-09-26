@@ -1,0 +1,10 @@
+{
+  final DecimalFormat format=(DecimalFormat)super.createObject();
+  if (getParameter("pattern") != null) {
+    format.applyPattern((String)getParameter("pattern"));
+  }
+  if (getParameter("localizedPattern") != null) {
+    format.applyLocalizedPattern((String)getParameter("localizedPattern"));
+  }
+  return format;
+}

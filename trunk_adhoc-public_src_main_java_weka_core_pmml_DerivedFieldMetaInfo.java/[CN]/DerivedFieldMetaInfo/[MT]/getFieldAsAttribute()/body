@@ -1,0 +1,3 @@
+{
+  return m_expression.getOutputDef().copy(m_fieldName);
+}

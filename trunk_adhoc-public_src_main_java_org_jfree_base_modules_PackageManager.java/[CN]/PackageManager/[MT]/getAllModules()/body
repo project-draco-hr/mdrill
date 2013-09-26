@@ -1,0 +1,8 @@
+{
+  final Module[] mods=new Module[this.modules.size()];
+  for (int i=0; i < this.modules.size(); i++) {
+    final PackageState state=(PackageState)this.modules.get(i);
+    mods[i]=state.getModule();
+  }
+  return mods;
+}

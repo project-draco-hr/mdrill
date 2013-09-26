@@ -1,0 +1,11 @@
+{
+  XMLDocument doc;
+  if (args.length > 0) {
+    doc=new XMLDocument();
+    doc.read(args[0]);
+    doc.print();
+    if (args.length > 1) {
+      doc.write(args[1]);
+    }
+  }
+}

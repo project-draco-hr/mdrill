@@ -1,0 +1,12 @@
+{
+  if (this.equals(XYCoordinateType.DATA)) {
+    return XYCoordinateType.DATA;
+  }
+ else   if (this.equals(XYCoordinateType.RELATIVE)) {
+    return XYCoordinateType.RELATIVE;
+  }
+ else   if (this.equals(XYCoordinateType.INDEX)) {
+    return XYCoordinateType.INDEX;
+  }
+  return null;
+}

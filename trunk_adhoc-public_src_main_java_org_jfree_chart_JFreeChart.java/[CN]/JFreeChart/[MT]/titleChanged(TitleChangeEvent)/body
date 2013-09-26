@@ -1,0 +1,4 @@
+{
+  event.setChart(this);
+  notifyListeners(event);
+}

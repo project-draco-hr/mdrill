@@ -1,0 +1,5 @@
+{
+  Stroke result=this.outlineStrokeSequence[this.outlineStrokeIndex % this.outlineStrokeSequence.length];
+  this.outlineStrokeIndex++;
+  return result;
+}

@@ -1,0 +1,7 @@
+{
+  this();
+  setName(name);
+  setVersion(version);
+  setLicenceName(licence);
+  setInfo(info);
+}

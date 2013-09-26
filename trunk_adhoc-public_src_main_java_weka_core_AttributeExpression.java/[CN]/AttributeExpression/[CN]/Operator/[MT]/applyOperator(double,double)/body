@@ -1,0 +1,15 @@
+{
+switch (m_operator) {
+case '+':
+    return (first + second);
+case '-':
+  return (first - second);
+case '*':
+return (first * second);
+case '/':
+return (first / second);
+case '^':
+return Math.pow(first,second);
+}
+return Double.NaN;
+}

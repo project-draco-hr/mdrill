@@ -1,0 +1,8 @@
+String title
+String xAxisLabel
+String yAxisLabel
+TableXYDataset dataset
+PlotOrientation orientation
+boolean legend
+boolean tooltips
+boolean urls

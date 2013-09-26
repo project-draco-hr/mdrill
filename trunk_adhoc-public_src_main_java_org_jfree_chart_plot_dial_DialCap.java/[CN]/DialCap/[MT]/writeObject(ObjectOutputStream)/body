@@ -1,0 +1,6 @@
+{
+  stream.defaultWriteObject();
+  SerialUtilities.writePaint(this.fillPaint,stream);
+  SerialUtilities.writePaint(this.outlinePaint,stream);
+  SerialUtilities.writeStroke(this.outlineStroke,stream);
+}

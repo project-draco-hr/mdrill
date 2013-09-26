@@ -1,0 +1,4 @@
+{
+  this.xDpi=Math.round(xDpi / INCH_IN_METER_UNIT);
+  this.yDpi=Math.round(yDpi / INCH_IN_METER_UNIT);
+}

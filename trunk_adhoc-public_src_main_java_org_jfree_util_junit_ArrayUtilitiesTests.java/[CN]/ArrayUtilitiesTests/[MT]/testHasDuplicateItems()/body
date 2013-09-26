@@ -1,0 +1,8 @@
+{
+  Object[] a1=new Object[]{"1","2","3"};
+  Object[] a2=new Object[]{"1","1","3"};
+  Object[] a3=new Object[]{null,"2",null};
+  assertFalse(ArrayUtilities.hasDuplicateItems(a1));
+  assertTrue(ArrayUtilities.hasDuplicateItems(a2));
+  assertFalse(ArrayUtilities.hasDuplicateItems(a3));
+}

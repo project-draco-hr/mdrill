@@ -1,0 +1,6 @@
+{
+  if (flag != this.tickLabelsVisible) {
+    this.tickLabelsVisible=flag;
+    fireChangeEvent();
+  }
+}

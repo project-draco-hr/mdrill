@@ -1,0 +1,23 @@
+{
+  String[] options=new String[7];
+  int current=0;
+  if (getInvertSelection()) {
+    options[current++]="-V";
+  }
+  if (!getAttributeIndices().equals("")) {
+    options[current++]="-R";
+    options[current++]=getAttributeIndices();
+  }
+  if (m_Class != null) {
+    options[current++]="-C";
+    options[current++]=getClassName();
+  }
+  if (m_Method != null) {
+    options[current++]="-M";
+    options[current++]=getMethodName();
+  }
+  while (current < options.length) {
+    options[current++]="";
+  }
+  return options;
+}

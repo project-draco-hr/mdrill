@@ -1,0 +1,18 @@
+{
+  String[] options=new String[6];
+  int current=0;
+  if (getCenterData()) {
+    options[current++]="-C";
+  }
+  options[current++]="-R";
+  options[current++]="" + getVarianceCovered();
+  options[current++]="-A";
+  options[current++]="" + getMaximumAttributeNames();
+  if (getTransformBackToOriginal()) {
+    options[current++]="-O";
+  }
+  while (current < options.length) {
+    options[current++]="";
+  }
+  return options;
+}

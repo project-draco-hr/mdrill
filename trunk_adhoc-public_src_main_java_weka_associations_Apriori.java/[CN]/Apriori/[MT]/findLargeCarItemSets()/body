@@ -1,0 +1,34 @@
+{
+  FastVector kMinusOneSets, kSets;
+  Hashtable hashtable;
+  int necSupport, necMaxSupport, i=0;
+  double nextMinSupport=m_minSupport * (double)m_instances.numInstances();
+  double nextMaxSupport=m_upperBoundMinSupport * (double)m_instances.numInstances();
+  if ((double)Math.rint(nextMinSupport) == nextMinSupport) {
+    necSupport=(int)nextMinSupport;
+  }
+ else {
+    necSupport=Math.round((float)(nextMinSupport + 0.5));
+  }
+  if ((double)Math.rint(nextMaxSupport) == nextMaxSupport) {
+    necMaxSupport=(int)nextMaxSupport;
+  }
+ else {
+    necMaxSupport=Math.round((float)(nextMaxSupport + 0.5));
+  }
+  kSets=LabeledItemSet.singletons(m_instances,m_onlyClass);
+  LabeledItemSet.upDateCounters(kSets,m_instances,m_onlyClass);
+  kSets=LabeledItemSet.deleteItemSets(kSets,necSupport,m_instances.numInstances());
+  if (kSets.size() == 0)   return;
+  do {
+    m_Ls.addElement(kSets);
+    kMinusOneSets=kSets;
+    kSets=LabeledItemSet.mergeAllItemSets(kMinusOneSets,i,m_instances.numInstances());
+    hashtable=LabeledItemSet.getHashtable(kMinusOneSets,kMinusOneSets.size());
+    kSets=LabeledItemSet.pruneItemSets(kSets,hashtable);
+    LabeledItemSet.upDateCounters(kSets,m_instances,m_onlyClass);
+    kSets=LabeledItemSet.deleteItemSets(kSets,necSupport,m_instances.numInstances());
+    i++;
+  }
+ while (kSets.size() > 0);
+}

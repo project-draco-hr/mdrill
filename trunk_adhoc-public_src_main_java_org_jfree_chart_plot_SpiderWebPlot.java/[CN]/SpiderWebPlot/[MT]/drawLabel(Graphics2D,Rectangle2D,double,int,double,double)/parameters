@@ -1,0 +1,6 @@
+Graphics2D g2
+Rectangle2D plotArea
+double value
+int cat
+double startAngle
+double extent

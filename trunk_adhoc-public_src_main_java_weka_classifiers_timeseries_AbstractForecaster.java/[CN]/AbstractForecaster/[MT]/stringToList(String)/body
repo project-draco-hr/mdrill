@@ -1,0 +1,8 @@
+{
+  String[] fieldNames=list.split(",");
+  List<String> thelist=new ArrayList<String>();
+  for (  String f : fieldNames) {
+    thelist.add(f);
+  }
+  return thelist;
+}

@@ -1,0 +1,4 @@
+{
+  m_Format=(SimpleDateFormat)value;
+  m_customEditor.formatChanged();
+}

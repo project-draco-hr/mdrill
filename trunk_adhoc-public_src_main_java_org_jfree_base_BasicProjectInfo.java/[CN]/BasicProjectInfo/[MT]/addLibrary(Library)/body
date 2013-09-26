@@ -1,0 +1,6 @@
+{
+  if (library == null) {
+    throw new NullPointerException();
+  }
+  this.libraries.add(library);
+}

@@ -1,0 +1,3 @@
+{
+  return this.crossFs != null && this.crossFs.length > 0;
+}

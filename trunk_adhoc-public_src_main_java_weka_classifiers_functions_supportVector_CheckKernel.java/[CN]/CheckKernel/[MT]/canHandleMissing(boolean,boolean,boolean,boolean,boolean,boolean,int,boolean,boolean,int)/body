@@ -1,0 +1,18 @@
+{
+  if (missingLevel == 100)   print("100% ");
+  print("missing");
+  if (predictorMissing) {
+    print(" predictor");
+    if (classMissing)     print(" and");
+  }
+  if (classMissing)   print(" class");
+  print(" values");
+  printAttributeSummary(nominalPredictor,numericPredictor,stringPredictor,datePredictor,relationalPredictor,multiInstance,classType);
+  print("...");
+  FastVector accepts=new FastVector();
+  accepts.addElement("missing");
+  accepts.addElement("value");
+  accepts.addElement("train");
+  int numTrain=getNumInstances(), numClasses=2;
+  return runBasicTest(nominalPredictor,numericPredictor,stringPredictor,datePredictor,relationalPredictor,multiInstance,classType,missingLevel,predictorMissing,classMissing,numTrain,numClasses,accepts);
+}

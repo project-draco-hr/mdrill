@@ -1,0 +1,3 @@
+{
+  return this.seriesShapesFilled.getBoolean(series);
+}

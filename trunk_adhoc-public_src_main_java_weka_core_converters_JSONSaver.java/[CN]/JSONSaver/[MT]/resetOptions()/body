@@ -1,0 +1,5 @@
+{
+  super.resetOptions();
+  if (getCompressOutput())   setFileExtension(JSONLoader.FILE_EXTENSION_COMPRESSED);
+ else   setFileExtension(JSONLoader.FILE_EXTENSION);
+}

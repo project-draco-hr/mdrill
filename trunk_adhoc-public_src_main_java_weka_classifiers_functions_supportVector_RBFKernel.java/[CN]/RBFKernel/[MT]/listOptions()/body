@@ -1,0 +1,9 @@
+{
+  Vector result;
+  Enumeration en;
+  result=new Vector();
+  en=super.listOptions();
+  while (en.hasMoreElements())   result.addElement(en.nextElement());
+  result.addElement(new Option("\tThe Gamma parameter.\n" + "\t(default: 0.01)","G",1,"-G <num>"));
+  return result.elements();
+}

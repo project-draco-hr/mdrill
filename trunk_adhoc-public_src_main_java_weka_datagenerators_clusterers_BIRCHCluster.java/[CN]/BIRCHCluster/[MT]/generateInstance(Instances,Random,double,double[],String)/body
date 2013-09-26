@@ -1,0 +1,10 @@
+{
+  Instance example;
+  int numAtts=getNumAttributes();
+  if (getClassFlag())   numAtts++;
+  example=new DenseInstance(numAtts);
+  example.setDataset(format);
+  for (int i=0; i < getNumAttributes(); i++)   example.setValue(i,randomG.nextGaussian() * stdDev + center[i]);
+  if (getClassFlag())   example.setClassValue(cName);
+  return example;
+}

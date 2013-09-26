@@ -1,0 +1,3 @@
+{
+  return "A stemmer based on the Lovins stemmer, described here:\n\n" + getTechnicalInformation().toString();
+}

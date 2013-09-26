@@ -1,0 +1,5 @@
+Matrix L
+double[] D
+double[] v
+double coeff
+boolean[] isFixed

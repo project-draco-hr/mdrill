@@ -1,0 +1,17 @@
+{
+  JarFile jar;
+  JarEntry entry;
+  Enumeration enm;
+  if (VERBOSE)   System.out.println("Analyzing jar: " + file);
+  try {
+    jar=new JarFile(file);
+    enm=jar.entries();
+    while (enm.hasMoreElements()) {
+      entry=(JarEntry)enm.nextElement();
+      if (entry.getName().endsWith(".class"))       add(entry.getName());
+    }
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
+}

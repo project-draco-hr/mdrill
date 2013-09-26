@@ -1,0 +1,15 @@
+{
+  writer.writeTag(tagName,mPlexAttribute,mPlexValue,XMLWriterSupport.OPEN);
+  final List list=(List)object;
+  final Iterator it=list.iterator();
+  while (it.hasNext()) {
+    final Object value=it.next();
+    if (value == null) {
+      writer.writeTag("null",XMLWriterSupport.CLOSE);
+    }
+ else {
+      getRootHandler().write("object",value,Object.class,writer);
+    }
+  }
+  writer.writeCloseTag(tagName);
+}

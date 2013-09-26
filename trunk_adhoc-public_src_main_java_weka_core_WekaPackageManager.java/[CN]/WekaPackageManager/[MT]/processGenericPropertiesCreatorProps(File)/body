@@ -1,0 +1,29 @@
+{
+  try {
+    Properties expProps=new Properties();
+    BufferedInputStream bi=new BufferedInputStream(new FileInputStream(propsFile));
+    expProps.load(bi);
+    bi.close();
+    bi=null;
+    Properties GPCInputProps=GenericPropertiesCreator.getGlobalInputProperties();
+    Set keys=expProps.keySet();
+    Iterator keysI=keys.iterator();
+    while (keysI.hasNext()) {
+      String key=(String)keysI.next();
+      String existingVal=GPCInputProps.getProperty(key,"");
+      if (existingVal.length() > 0) {
+        String newVal=expProps.getProperty(key);
+        if (existingVal.indexOf(newVal) < 0) {
+          newVal=existingVal + "," + newVal;
+          GPCInputProps.put(key,newVal);
+        }
+      }
+ else {
+        String newVal=expProps.getProperty(key);
+        GPCInputProps.put(key,newVal);
+      }
+    }
+  }
+ catch (  Exception ex) {
+  }
+}

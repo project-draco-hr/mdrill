@@ -1,0 +1,12 @@
+{
+  Vector v=new Vector();
+  Vector beans=BeanInstance.getBeanInstances(m_mainKFPerspective.getCurrentTabIndex());
+  Vector connections=BeanConnection.getConnections(m_mainKFPerspective.getCurrentTabIndex());
+  detachFromLayout(beans);
+  v.add(beans);
+  v.add(connections);
+  SerializedObject so=new SerializedObject(v);
+  Vector copy=(Vector)so.getObject();
+  integrateFlow(beans,connections,true,false);
+  return copy;
+}

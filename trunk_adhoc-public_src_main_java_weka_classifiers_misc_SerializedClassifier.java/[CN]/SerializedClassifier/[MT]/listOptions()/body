@@ -1,0 +1,9 @@
+{
+  Vector result;
+  Enumeration enm;
+  result=new Vector();
+  enm=super.listOptions();
+  while (enm.hasMoreElements())   result.addElement(enm.nextElement());
+  result.addElement(new Option("\tThe file containing the serialized model.\n" + "\t(required)","model",1,"-model <filename>"));
+  return result.elements();
+}

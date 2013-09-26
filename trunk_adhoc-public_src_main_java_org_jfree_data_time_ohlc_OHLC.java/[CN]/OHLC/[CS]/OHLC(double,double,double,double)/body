@@ -1,0 +1,6 @@
+{
+  this.open=open;
+  this.close=close;
+  this.high=high;
+  this.low=low;
+}

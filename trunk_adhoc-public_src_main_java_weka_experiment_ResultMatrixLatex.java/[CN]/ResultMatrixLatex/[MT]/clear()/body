@@ -1,0 +1,6 @@
+{
+  super.clear();
+  TIE_STRING=" ";
+  WIN_STRING="$\\circ$";
+  LOSS_STRING="$\\bullet$";
+}

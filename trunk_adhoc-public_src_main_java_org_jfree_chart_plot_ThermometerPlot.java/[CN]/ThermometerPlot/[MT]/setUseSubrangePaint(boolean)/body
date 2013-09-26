@@ -1,0 +1,4 @@
+{
+  this.useSubrangePaint=flag;
+  fireChangeEvent();
+}

@@ -1,0 +1,3 @@
+{
+  return "Used to terminate validation testing." + "The value here dictates how many times in a row the validation set" + " error can get worse before training is terminated.";
+}

@@ -1,0 +1,187 @@
+{
+  if (eta <= 0) {
+    return false;
+  }
+  boolean case1=false;
+  boolean case2=false;
+  boolean case3=false;
+  boolean case4=false;
+  boolean finished=false;
+  while (!finished) {
+    if ((case1 == false) && (alpha1 > 0 || (alpha1Star == 0 && deltaPhi > 0)) && (alpha2 > 0 || (alpha2Star == 0 && deltaPhi < 0))) {
+      double L=Math.max(0,gamma - C1);
+      double H=Math.min(C2,gamma);
+      if (L < H) {
+        double a2=alpha2 - deltaPhi / eta;
+        a2=Math.min(a2,H);
+        a2=Math.max(L,a2);
+        if (a2 > C2 - m_Del * C2) {
+          a2=C2;
+        }
+ else         if (a2 <= m_Del * C2) {
+          a2=0;
+        }
+        double a1=alpha1 - (a2 - alpha2);
+        if (a1 > C1 - m_Del * C1) {
+          a1=C1;
+        }
+ else         if (a1 <= m_Del * C1) {
+          a1=0;
+        }
+        if (Math.abs(alpha1 - a1) > m_eps) {
+          deltaPhi+=eta * (a2 - alpha2);
+          alpha1=a1;
+          alpha2=a2;
+        }
+      }
+ else {
+        finished=true;
+      }
+      case1=true;
+    }
+ else     if ((case2 == false) && (alpha1 > 0 || (alpha1Star == 0 && deltaPhi > 2 * m_epsilon)) && (alpha2Star > 0 || (alpha2 == 0 && deltaPhi > 2 * m_epsilon))) {
+      double L=Math.max(0,-gamma);
+      double H=Math.min(C2,-gamma + C1);
+      if (L < H) {
+        double a2=alpha2Star + (deltaPhi - 2 * m_epsilon) / eta;
+        a2=Math.min(a2,H);
+        a2=Math.max(L,a2);
+        if (a2 > C2 - m_Del * C2) {
+          a2=C2;
+        }
+ else         if (a2 <= m_Del * C2) {
+          a2=0;
+        }
+        double a1=alpha1 + (a2 - alpha2Star);
+        if (a1 > C1 - m_Del * C1) {
+          a1=C1;
+        }
+ else         if (a1 <= m_Del * C1) {
+          a1=0;
+        }
+        if (Math.abs(alpha1 - a1) > m_eps) {
+          deltaPhi+=eta * (-a2 + alpha2Star);
+          alpha1=a1;
+          alpha2Star=a2;
+        }
+      }
+ else {
+        finished=true;
+      }
+      case2=true;
+    }
+ else     if ((case3 == false) && (alpha1Star > 0 || (alpha1 == 0 && deltaPhi < -2 * m_epsilon)) && (alpha2 > 0 || (alpha2Star == 0 && deltaPhi < -2 * m_epsilon))) {
+      double L=Math.max(0,gamma);
+      double H=Math.min(C2,C1 + gamma);
+      if (L < H) {
+        double a2=alpha2 - (deltaPhi + 2 * m_epsilon) / eta;
+        a2=Math.min(a2,H);
+        a2=Math.max(L,a2);
+        if (a2 > C2 - m_Del * C2) {
+          a2=C2;
+        }
+ else         if (a2 <= m_Del * C2) {
+          a2=0;
+        }
+        double a1=alpha1Star + (a2 - alpha2);
+        if (a1 > C1 - m_Del * C1) {
+          a1=C1;
+        }
+ else         if (a1 <= m_Del * C1) {
+          a1=0;
+        }
+        if (Math.abs(alpha1Star - a1) > m_eps) {
+          deltaPhi+=eta * (a2 - alpha2);
+          alpha1Star=a1;
+          alpha2=a2;
+        }
+      }
+ else {
+        finished=true;
+      }
+      case3=true;
+    }
+ else     if ((case4 == false) && (alpha1Star > 0 || (alpha1 == 0 && deltaPhi < 0)) && (alpha2Star > 0 || (alpha2 == 0 && deltaPhi > 0))) {
+      double L=Math.max(0,-gamma - C1);
+      double H=Math.min(C2,-gamma);
+      if (L < H) {
+        double a2=alpha2Star + deltaPhi / eta;
+        a2=Math.min(a2,H);
+        a2=Math.max(L,a2);
+        if (a2 > C2 - m_Del * C2) {
+          a2=C2;
+        }
+ else         if (a2 <= m_Del * C2) {
+          a2=0;
+        }
+        double a1=alpha1Star - (a2 - alpha2Star);
+        if (a1 > C1 - m_Del * C1) {
+          a1=C1;
+        }
+ else         if (a1 <= m_Del * C1) {
+          a1=0;
+        }
+        if (Math.abs(alpha1Star - a1) > m_eps) {
+          deltaPhi+=eta * (-a2 + alpha2Star);
+          alpha1Star=a1;
+          alpha2Star=a2;
+        }
+      }
+ else {
+        finished=true;
+      }
+      case4=true;
+    }
+ else {
+      finished=true;
+    }
+  }
+  if (Math.abs(alpha1 - m_alpha[i1]) > m_eps || Math.abs(alpha1Star - m_alphaStar[i1]) > m_eps || Math.abs(alpha2 - m_alpha[i2]) > m_eps || Math.abs(alpha2Star - m_alphaStar[i2]) > m_eps) {
+    if (alpha1 > C1 - m_Del * C1) {
+      alpha1=C1;
+    }
+ else     if (alpha1 <= m_Del * C1) {
+      alpha1=0;
+    }
+    if (alpha1Star > C1 - m_Del * C1) {
+      alpha1Star=C1;
+    }
+ else     if (alpha1Star <= m_Del * C1) {
+      alpha1Star=0;
+    }
+    if (alpha2 > C2 - m_Del * C2) {
+      alpha2=C2;
+    }
+ else     if (alpha2 <= m_Del * C2) {
+      alpha2=0;
+    }
+    if (alpha2Star > C2 - m_Del * C2) {
+      alpha2Star=C2;
+    }
+ else     if (alpha2Star <= m_Del * C2) {
+      alpha2Star=0;
+    }
+    m_alpha[i1]=alpha1;
+    m_alphaStar[i1]=alpha1Star;
+    m_alpha[i2]=alpha2;
+    m_alphaStar[i2]=alpha2Star;
+    if (alpha1 != 0 || alpha1Star != 0) {
+      if (!m_supportVectors.contains(i1)) {
+        m_supportVectors.insert(i1);
+      }
+    }
+ else {
+      m_supportVectors.delete(i1);
+    }
+    if (alpha2 != 0 || alpha2Star != 0) {
+      if (!m_supportVectors.contains(i2)) {
+        m_supportVectors.insert(i2);
+      }
+    }
+ else {
+      m_supportVectors.delete(i2);
+    }
+    return true;
+  }
+  return false;
+}

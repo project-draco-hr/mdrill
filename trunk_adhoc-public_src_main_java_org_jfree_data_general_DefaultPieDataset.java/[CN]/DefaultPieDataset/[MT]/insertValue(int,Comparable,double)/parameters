@@ -1,0 +1,3 @@
+int position
+Comparable key
+double value

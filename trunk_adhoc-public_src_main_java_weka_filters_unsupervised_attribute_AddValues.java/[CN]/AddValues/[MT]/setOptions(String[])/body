@@ -1,0 +1,11 @@
+{
+  String tmpStr;
+  tmpStr=Utils.getOption('C',options);
+  if (tmpStr.length() != 0)   setAttributeIndex(tmpStr);
+ else   setAttributeIndex("last");
+  tmpStr=Utils.getOption('L',options);
+  if (tmpStr.length() != 0)   setLabels(tmpStr);
+ else   setLabels("");
+  setSort(Utils.getFlag('S',options));
+  if (getInputFormat() != null)   setInputFormat(getInputFormat());
+}

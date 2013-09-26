@@ -1,0 +1,20 @@
+{
+  boolean incremental=m_readIncrementally;
+  try {
+    m_Loader=ConverterUtils.getURLLoaderForFile(u.toString());
+    if (m_Loader == null)     throw new Exception("No suitable URLSourcedLoader found for URL!\n" + u);
+    if (!(m_Loader instanceof IncrementalConverter))     incremental=false;
+    ((URLSourcedLoader)m_Loader).setURL(u.toString());
+    if (incremental) {
+      m_Summary.setShowZeroInstancesAsUnknown(m_showZeroInstancesAsUnknown);
+      setInstances(m_Loader.getStructure());
+    }
+ else {
+      m_Summary.setShowZeroInstancesAsUnknown(false);
+      setInstances(m_Loader.getDataSet());
+    }
+  }
+ catch (  Exception ex) {
+    JOptionPane.showMessageDialog(this,"Couldn't read from URL:\n" + u,"Load Instances",JOptionPane.ERROR_MESSAGE);
+  }
+}

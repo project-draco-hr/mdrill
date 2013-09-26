@@ -33,7 +33,7 @@
           if (amt == null) {
             amt=0l;
           }
-          if (cnt > 1000) {
+          if (cnt > 1) {
             amt+=1;
           }
           dayAmt.put(e.getKey() + "@" + info.replicationindex,amt);

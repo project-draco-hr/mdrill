@@ -1,0 +1,3 @@
+{
+  return "Discretizes numeric attributes using equal frequency binning," + " where the number of bins is equal to the square root of the" + " number of non-missing values.\n\n"+ "For more information, see:\n\n"+ getTechnicalInformation().toString();
+}

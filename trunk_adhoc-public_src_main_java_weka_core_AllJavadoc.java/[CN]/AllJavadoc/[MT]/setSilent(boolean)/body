@@ -1,0 +1,4 @@
+{
+  super.setSilent(value);
+  for (int i=0; i < m_Javadocs.size(); i++)   ((Javadoc)m_Javadocs.get(i)).setSilent(value);
+}

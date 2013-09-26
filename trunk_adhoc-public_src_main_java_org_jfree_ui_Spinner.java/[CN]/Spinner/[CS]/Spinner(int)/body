@@ -1,0 +1,15 @@
+{
+  super(new BorderLayout());
+  this.value=value;
+  this.textField=new JTextField(Integer.toString(this.value));
+  this.textField.setHorizontalAlignment(SwingConstants.RIGHT);
+  add(this.textField);
+  this.buttonPanel=new JPanel(new GridLayout(2,1,0,1));
+  this.upButton=new ArrowPanel(ArrowPanel.UP);
+  this.upButton.addMouseListener(this);
+  this.downButton=new ArrowPanel(ArrowPanel.DOWN);
+  this.downButton.addMouseListener(this);
+  this.buttonPanel.add(this.upButton);
+  this.buttonPanel.add(this.downButton);
+  add(this.buttonPanel,BorderLayout.EAST);
+}

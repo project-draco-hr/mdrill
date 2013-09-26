@@ -1,0 +1,3 @@
+{
+  this.listenerList.add(DialLayerChangeListener.class,listener);
+}

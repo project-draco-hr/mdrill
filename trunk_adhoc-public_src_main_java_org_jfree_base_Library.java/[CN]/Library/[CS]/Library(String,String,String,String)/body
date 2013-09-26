@@ -1,0 +1,6 @@
+{
+  this.name=name;
+  this.version=version;
+  this.licenceName=licence;
+  this.info=info;
+}

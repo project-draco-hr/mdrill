@@ -1,0 +1,9 @@
+{
+  for (  String key : m_tableIndexes.keySet()) {
+    if (!mainKFLine && key.equals("[KnowledgeFlow]")) {
+      continue;
+    }
+    String tm=key + "|" + message;
+    statusMessage(tm);
+  }
+}

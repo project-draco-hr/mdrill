@@ -1,0 +1,13 @@
+{
+  if (this == o) {
+    return true;
+  }
+  if (!(o instanceof Layer)) {
+    return false;
+  }
+  final Layer layer=(Layer)o;
+  if (!this.name.equals(layer.name)) {
+    return false;
+  }
+  return true;
+}

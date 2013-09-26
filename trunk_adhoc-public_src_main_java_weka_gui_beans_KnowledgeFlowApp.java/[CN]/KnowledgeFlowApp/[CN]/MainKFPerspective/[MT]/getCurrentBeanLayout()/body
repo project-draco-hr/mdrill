@@ -1,0 +1,6 @@
+{
+  if (getCurrentTabIndex() >= 0) {
+    return m_beanLayouts.get(getCurrentTabIndex());
+  }
+  return null;
+}

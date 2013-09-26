@@ -1,0 +1,6 @@
+{
+  final String family=attrs.getValue("family");
+  final int size=Integer.parseInt(attrs.getValue("size"));
+  final int style=getFontStyle(attrs.getValue("style"));
+  this.font=new Font(family,style,size);
+}

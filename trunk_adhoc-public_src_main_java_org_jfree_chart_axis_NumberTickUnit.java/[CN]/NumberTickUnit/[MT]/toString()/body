@@ -1,0 +1,3 @@
+{
+  return "[size=" + this.valueToString(this.getSize()) + "]";
+}

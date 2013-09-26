@@ -1,0 +1,4 @@
+{
+  setDisplayConnectors(dc);
+  m_connectorColor=c;
+}

@@ -1,0 +1,9 @@
+{
+  if (getItemCount() > 0) {
+    OHLCItem item0=(OHLCItem)this.getDataItem(0);
+    if (!period.getClass().equals(item0.getPeriod().getClass())) {
+      throw new IllegalArgumentException("Can't mix RegularTimePeriod class types.");
+    }
+  }
+  super.add(new OHLCItem(period,open,high,low,close),true);
+}

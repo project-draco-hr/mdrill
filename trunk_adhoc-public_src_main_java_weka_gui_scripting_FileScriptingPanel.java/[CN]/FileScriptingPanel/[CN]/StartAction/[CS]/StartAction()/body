@@ -1,0 +1,4 @@
+{
+  super((m_Script.canExecuteScripts() ? "Start" : "Start (missing classes?)"),"run.gif","ctrl R",'S');
+  setEnabled(false);
+}

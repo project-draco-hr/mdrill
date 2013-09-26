@@ -1,0 +1,87 @@
+{
+  String fieldsToLag=Utils.getOption('F',options);
+  if (fieldsToLag.length() == 0) {
+    throw new Exception("Must specify the name of at least one field " + "to create lags for!");
+  }
+  String[] fieldNames=fieldsToLag.split(",");
+  List<String> fieldList=new ArrayList<String>();
+  for (  String f : fieldNames) {
+    fieldList.add(f);
+  }
+  setFieldsToLag(fieldList);
+  String overlayFields=Utils.getOption("overlay",options);
+  if (overlayFields.length() > 0) {
+    String[] names=overlayFields.split(",");
+    List<String> nameList=new ArrayList<String>();
+    for (    String f : names) {
+      nameList.add(f);
+    }
+    setOverlayFields(nameList);
+  }
+  String minL=Utils.getOption('L',options);
+  if (minL.length() > 0) {
+    int mL=Integer.parseInt(minL);
+    setMinLag(mL);
+    if (mL < 1) {
+      throw new Exception("Minimum lag can't be less than 1!");
+    }
+  }
+  String maxL=Utils.getOption('M',options);
+  if (maxL.length() > 0) {
+    int mL=Integer.parseInt(maxL);
+    setMaxLag(mL);
+  }
+  if (getMaxLag() < getMinLag()) {
+    throw new Exception("Can't have the maximum lag set lower than the " + "minimum lag!");
+  }
+  String lagRange=Utils.getOption('R',options);
+  m_lagFineTune=lagRange;
+  if (m_lagFineTune.length() > 0) {
+    getLagRangeSelection(lagRange);
+  }
+  boolean avLongLags=Utils.getFlag('A',options);
+  setAverageConsecutiveLongLags(avLongLags);
+  String avLongerThan=Utils.getOption('B',options);
+  if (avLongerThan.length() > 0) {
+    int avL=Integer.parseInt(avLongerThan);
+    if (avL < getMinLag() || avL > getMaxLag()) {
+      throw new Exception("Average consecutive long lags value can't " + "be less than the minimum lag or greater than the " + "maximum lag!");
+    }
+    setAverageLagsAfter(avL);
+  }
+  String consecutiveLongLagS=Utils.getOption('C',options);
+  if (consecutiveLongLagS.length() > 0) {
+    int consecutive=Integer.parseInt(consecutiveLongLagS);
+    if (consecutive < 1 || consecutive > (getMaxLag() - getMinLag())) {
+      throw new Exception("Number of consecutive long lags to average " + "must be greater than 0 and less than " + (getMaxLag() - getMinLag()));
+    }
+    setNumConsecutiveLongLagsToAverage(consecutive);
+  }
+  boolean dontAdjTrends=Utils.getFlag('Z',options);
+  setAdjustForTrends(!dontAdjTrends);
+  boolean adjVariance=Utils.getFlag("V",options);
+  setAdjustForVariance(adjVariance);
+  String timeStampF=Utils.getOption('G',options);
+  if (timeStampF.length() > 0) {
+    setTimeStampField(timeStampF);
+  }
+  setAddAMIndicator(Utils.getFlag("am-pm",options));
+  setAddDayOfWeek(Utils.getFlag("dayofweek",options));
+  setAddDayOfMonth(Utils.getFlag("dayofmonth",options));
+  setAddNumDaysInMonth(Utils.getFlag("numdaysinmonth",options));
+  setAddWeekendIndicator(Utils.getFlag("weekend",options));
+  setAddMonthOfYear(Utils.getFlag("month",options));
+  setAddQuarterOfYear(Utils.getFlag("quarter",options));
+  String customPeriodic=Utils.getOption("custom",options);
+  while (customPeriodic.length() > 0) {
+    addCustomPeriodic(customPeriodic);
+  }
+  String primaryPeriodicN=Utils.getOption("periodic",options);
+  if (primaryPeriodicN.length() > 0) {
+    setPrimaryPeriodicFieldName(primaryPeriodicN);
+  }
+  String skipString=Utils.getOption("skip",options);
+  if (skipString.length() > 0) {
+    setSkipEntries(skipString);
+  }
+}

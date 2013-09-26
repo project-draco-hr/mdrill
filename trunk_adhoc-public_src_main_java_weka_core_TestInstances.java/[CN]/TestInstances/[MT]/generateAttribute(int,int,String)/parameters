@@ -1,0 +1,3 @@
+int index
+int attType
+String namePrefix

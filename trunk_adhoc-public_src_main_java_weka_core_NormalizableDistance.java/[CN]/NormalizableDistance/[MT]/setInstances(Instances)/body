@@ -1,0 +1,4 @@
+{
+  m_Data=insts;
+  invalidate();
+}

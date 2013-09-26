@@ -1,0 +1,14 @@
+{
+  final TypeInfo[] tis=mi.getChildClasses();
+  final AttributeList al=new AttributeList();
+  al.setAttribute(ClassModelTags.BASE_CLASS_ATTR,mi.getBaseClass().getName());
+  al.setAttribute(ClassModelTags.TYPE_ATTR,mi.getTypeAttribute());
+  getWriterSupport().writeTag(writer,ClassModelTags.MAPPING_TAG,al,XMLWriterSupport.OPEN);
+  for (int j=0; j < tis.length; j++) {
+    final AttributeList tiAttr=new AttributeList();
+    tiAttr.setAttribute(ClassModelTags.NAME_ATTR,tis[j].getName());
+    tiAttr.setAttribute(ClassModelTags.CLASS_ATTR,tis[j].getType().getName());
+    writeTag(writer,ClassModelTags.TYPE_TAG,tiAttr,tis[j].getComments());
+  }
+  getWriterSupport().writeCloseTag(writer,ClassModelTags.MAPPING_TAG);
+}

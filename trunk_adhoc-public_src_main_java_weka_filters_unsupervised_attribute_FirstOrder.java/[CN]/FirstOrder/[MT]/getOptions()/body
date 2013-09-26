@@ -1,0 +1,12 @@
+{
+  String[] options=new String[2];
+  int current=0;
+  if (!getAttributeIndices().equals("")) {
+    options[current++]="-R";
+    options[current++]=getAttributeIndices();
+  }
+  while (current < options.length) {
+    options[current++]="";
+  }
+  return options;
+}

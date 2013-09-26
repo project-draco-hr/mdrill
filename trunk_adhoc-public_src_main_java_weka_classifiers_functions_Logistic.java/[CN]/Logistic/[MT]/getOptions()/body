@@ -1,0 +1,11 @@
+{
+  String[] options=new String[5];
+  int current=0;
+  if (getDebug())   options[current++]="-D";
+  options[current++]="-R";
+  options[current++]="" + m_Ridge;
+  options[current++]="-M";
+  options[current++]="" + m_MaxIts;
+  while (current < options.length)   options[current++]="";
+  return options;
+}

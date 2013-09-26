@@ -1,0 +1,7 @@
+{
+  Vector newVector=new Vector(0);
+  if (m_visualizeDataSet != null) {
+    newVector.addElement("Show summaries");
+  }
+  return newVector.elements();
+}

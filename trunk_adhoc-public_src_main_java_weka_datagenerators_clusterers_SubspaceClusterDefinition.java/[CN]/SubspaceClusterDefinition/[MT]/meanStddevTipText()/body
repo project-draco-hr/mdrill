@@ -1,0 +1,3 @@
+{
+  return "The mean and stddev, in case of gaussian.";
+}

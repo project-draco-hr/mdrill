@@ -1,0 +1,22 @@
+{
+  String result;
+  OptionHandler handler;
+  String optionStr;
+  result="";
+  if (index == 0) {
+    if (!canInstantiateClass())     return result;
+    if (!ClassDiscovery.hasInterface(OptionHandler.class,getInstance().getClass()))     throw new Exception("Class '" + getClassname() + "' is not an OptionHandler!");
+    handler=(OptionHandler)getInstance();
+    Enumeration enm=handler.listOptions();
+    if (!enm.hasMoreElements())     return result;
+    if (getProlog())     result="Valid options are: <p/>\n\n";
+    enm=handler.listOptions();
+    while (enm.hasMoreElements()) {
+      Option option=(Option)enm.nextElement();
+      optionStr=toHTML(option.synopsis()) + "\n" + toHTML(option.description().replaceAll("\\t"," "));
+      result+="<pre> " + optionStr.replaceAll("<br/>","") + "</pre>\n\n";
+    }
+    if (getUseStars())     result=indent(result,1,"* ");
+  }
+  return result;
+}

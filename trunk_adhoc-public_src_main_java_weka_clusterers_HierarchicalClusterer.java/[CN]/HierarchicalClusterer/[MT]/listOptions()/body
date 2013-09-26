@@ -1,0 +1,10 @@
+{
+  Vector newVector=new Vector(8);
+  newVector.addElement(new Option("\tIf set, classifier is run in debug mode and\n" + "\tmay output additional info to the console","D",0,"-D"));
+  newVector.addElement(new Option("\tIf set, distance is interpreted as branch length\n" + "\totherwise it is node height.","B",0,"-B"));
+  newVector.addElement(new Option("\tnumber of clusters","N",1,"-N <Nr Of Clusters>"));
+  newVector.addElement(new Option("\tFlag to indicate the cluster should be printed in Newick format.","P",0,"-P"));
+  newVector.addElement(new Option("Link type (Single, Complete, Average, Mean, Centroid, Ward, Adjusted complete, Neighbor joining)","L",1,"-L [SINGLE|COMPLETE|AVERAGE|MEAN|CENTROID|WARD|ADJCOMLPETE|NEIGHBOR_JOINING]"));
+  newVector.add(new Option("\tDistance function to use.\n" + "\t(default: weka.core.EuclideanDistance)","A",1,"-A <classname and options>"));
+  return newVector.elements();
+}

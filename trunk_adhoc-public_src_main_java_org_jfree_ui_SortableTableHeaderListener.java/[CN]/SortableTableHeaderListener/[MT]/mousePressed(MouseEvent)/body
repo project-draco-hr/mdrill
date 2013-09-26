@@ -1,0 +1,20 @@
+{
+  final JTableHeader header=(JTableHeader)e.getComponent();
+  if (header.getResizingColumn() == null) {
+    if (header.getDraggedDistance() < 1) {
+      final int columnIndex=header.columnAtPoint(e.getPoint());
+      final int modelColumnIndex=header.getTable().convertColumnIndexToModel(columnIndex);
+      if (this.model.isSortable(modelColumnIndex)) {
+        this.sortColumnIndex=header.getTable().convertColumnIndexToModel(columnIndex);
+        this.renderer.setPressedColumn(this.sortColumnIndex);
+        header.repaint();
+        if (header.getTable().isEditing()) {
+          header.getTable().getCellEditor().stopCellEditing();
+        }
+      }
+ else {
+        this.sortColumnIndex=-1;
+      }
+    }
+  }
+}

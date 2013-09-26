@@ -1,0 +1,25 @@
+{
+  Classifier lagFiller=new weka.classifiers.functions.LinearRegression();
+  ArrayList<Attribute> atts=new ArrayList<Attribute>();
+  atts.add(new Attribute("time"));
+  atts.add(new Attribute("target"));
+  Instances simple=new Instances("simple",atts,insts.numInstances());
+  int targetIndex=insts.attribute(targetName).index();
+  for (int i=0; i < insts.numInstances(); i++) {
+    double targetValue=insts.instance(i).value(targetIndex);
+    double time=i;
+    double[] vals=new double[2];
+    vals[0]=time;
+    vals[1]=targetValue;
+    DenseInstance d=new DenseInstance(1.0,vals);
+    simple.add(d);
+  }
+  simple.setClassIndex(1);
+  lagFiller.buildClassifier(simple);
+  System.err.println(lagFiller);
+  simple=new Instances(simple,0);
+  List<Object> results=new ArrayList<Object>();
+  results.add(lagFiller);
+  results.add(simple);
+  return results;
+}

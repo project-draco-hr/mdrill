@@ -1,0 +1,4 @@
+{
+  this.angleGridlineStroke=stroke;
+  fireChangeEvent();
+}

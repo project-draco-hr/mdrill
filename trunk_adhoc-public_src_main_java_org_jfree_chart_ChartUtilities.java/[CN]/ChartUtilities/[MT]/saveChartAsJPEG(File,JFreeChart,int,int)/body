@@ -1,0 +1,3 @@
+{
+  saveChartAsJPEG(file,chart,width,height,null);
+}

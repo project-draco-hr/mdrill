@@ -1,0 +1,7 @@
+{
+  for (  int i : this.distufs.listIndex) {
+    UnvertFile uf=this.distufs.cols[i];
+    double value=uf.uif.quickToDouble(doc,uf.filetype,uf.ti);
+    cnt.dist[i].set(String.valueOf(value));
+  }
+}

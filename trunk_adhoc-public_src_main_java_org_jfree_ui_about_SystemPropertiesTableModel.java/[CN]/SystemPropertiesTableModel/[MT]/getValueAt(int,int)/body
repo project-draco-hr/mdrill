@@ -1,0 +1,14 @@
+{
+  final SystemProperty sp=(SystemProperty)this.properties.get(row);
+  if (column == 0) {
+    return sp.getName();
+  }
+ else {
+    if (column == 1) {
+      return sp.getValue();
+    }
+ else {
+      return null;
+    }
+  }
+}

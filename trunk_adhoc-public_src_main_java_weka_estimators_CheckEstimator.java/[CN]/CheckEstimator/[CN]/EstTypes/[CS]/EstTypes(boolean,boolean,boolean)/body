@@ -1,0 +1,5 @@
+{
+  incremental=i;
+  weighted=w;
+  supervised=s;
+}

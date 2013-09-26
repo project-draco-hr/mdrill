@@ -1,0 +1,7 @@
+{
+  if ((columnIndex > 0) && (columnIndex < getColumnCount())) {
+    if (!m_IgnoreChanges)     addUndoPoint();
+    m_Data.deleteAttributeAt(columnIndex - 1);
+    if (notify)     notifyListener(new TableModelEvent(this,TableModelEvent.HEADER_ROW));
+  }
+}

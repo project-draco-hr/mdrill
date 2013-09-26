@@ -1,0 +1,42 @@
+{
+  String optionString;
+  resetOptions();
+  optionString=Utils.getOption('B',options);
+  if (optionString.length() == 0)   optionString=ZeroR.class.getName();
+  setClassifier(AbstractClassifier.forName(optionString,Utils.partitionOptions(options)));
+  optionString=Utils.getOption('F',options);
+  if (optionString.length() != 0) {
+    setFolds(Integer.parseInt(optionString));
+  }
+  optionString=Utils.getOption('R',options);
+  if (optionString.length() != 0) {
+    setSeed(Integer.parseInt(optionString));
+  }
+  optionString=Utils.getOption('T',options);
+  if (optionString.length() != 0) {
+    Double temp;
+    temp=Double.valueOf(optionString);
+    setThreshold(temp.doubleValue());
+  }
+  optionString=Utils.getOption('E',options);
+  if (optionString.length() != 0) {
+    if (optionString.equals("acc")) {
+      setEvaluationMeasure(new SelectedTag(EVAL_ACCURACY,TAGS_EVALUATION));
+    }
+ else     if (optionString.equals("rmse")) {
+      setEvaluationMeasure(new SelectedTag(EVAL_RMSE,TAGS_EVALUATION));
+    }
+ else     if (optionString.equals("mae")) {
+      setEvaluationMeasure(new SelectedTag(EVAL_MAE,TAGS_EVALUATION));
+    }
+ else     if (optionString.equals("f-meas")) {
+      setEvaluationMeasure(new SelectedTag(EVAL_FMEASURE,TAGS_EVALUATION));
+    }
+ else     if (optionString.equals("auc")) {
+      setEvaluationMeasure(new SelectedTag(EVAL_AUC,TAGS_EVALUATION));
+    }
+ else {
+      throw new IllegalArgumentException("Invalid evaluation measure");
+    }
+  }
+}

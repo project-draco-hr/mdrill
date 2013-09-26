@@ -1,0 +1,7 @@
+{
+  m_numBoostingIterations=numBoostingIterations;
+  m_useCrossValidation=useCrossValidation;
+  m_errorOnProbabilities=errorOnProbabilities;
+  m_weightTrimBeta=0;
+  m_useAIC=false;
+}

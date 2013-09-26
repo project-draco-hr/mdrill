@@ -1,0 +1,4 @@
+{
+  YIntervalSeries s=(YIntervalSeries)this.data.get(series);
+  return s.getYValue(item);
+}

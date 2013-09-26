@@ -1,0 +1,4 @@
+BufferedImage bi
+BufferedImageOp bio
+int i1
+int i2

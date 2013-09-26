@@ -1,0 +1,3 @@
+{
+  return removeAnnotation(annotation,true);
+}

@@ -1,0 +1,48 @@
+{
+  if (m_constraint == null) {
+    throw new Exception("[VersionPackageConstraint] No constraint has been set!");
+  }
+  if (target instanceof VersionRangePackageConstraint) {
+    return target.checkConstraint(this);
+  }
+  String targetVersion=target.getPackage().getPackageMetaDataElement(VERSION_KEY).toString();
+  String thisVersion=m_thePackage.getPackageMetaDataElement(VERSION_KEY).toString();
+  VersionComparison comp=compare(thisVersion,targetVersion);
+  if (comp == VersionComparison.EQUAL) {
+    if (m_constraint == ((VersionPackageConstraint)target).getVersionComparison()) {
+      return this;
+    }
+ else     if (m_constraint == VersionComparison.GREATERTHAN && (((VersionPackageConstraint)target).getVersionComparison() == VersionComparison.GREATERTHAN || ((VersionPackageConstraint)target).getVersionComparison() == VersionComparison.GREATERTHANOREQUAL)) {
+      return this;
+    }
+ else     if ((m_constraint == VersionComparison.GREATERTHANOREQUAL || m_constraint == VersionComparison.GREATERTHAN) && ((VersionPackageConstraint)target).getVersionComparison() == VersionComparison.GREATERTHAN) {
+      return target;
+    }
+    return null;
+  }
+ else {
+    if (((VersionPackageConstraint)target).getVersionComparison() == VersionComparison.GREATERTHAN || ((VersionPackageConstraint)target).getVersionComparison() == VersionComparison.GREATERTHANOREQUAL) {
+      if (m_constraint == VersionComparison.EQUAL || m_constraint == VersionComparison.GREATERTHAN || m_constraint == VersionComparison.GREATERTHANOREQUAL) {
+        if (comp == VersionComparison.GREATERTHAN) {
+          return this;
+        }
+ else {
+          return target;
+        }
+      }
+      return null;
+    }
+ else     if (((VersionPackageConstraint)target).getVersionComparison() == VersionComparison.LESSTHAN || ((VersionPackageConstraint)target).getVersionComparison() == VersionComparison.LESSTHANOREQUAL) {
+      if (m_constraint == VersionComparison.EQUAL || m_constraint == VersionComparison.LESSTHAN || m_constraint == VersionComparison.LESSTHANOREQUAL) {
+        if (comp == VersionComparison.GREATERTHAN) {
+          return target;
+        }
+ else {
+          return this;
+        }
+      }
+      return null;
+    }
+    return null;
+  }
+}

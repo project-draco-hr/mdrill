@@ -1,0 +1,12 @@
+{
+  if (this.yCrosshairs.isEmpty()) {
+    return;
+  }
+  List crosshairs=getRangeCrosshairs();
+  for (int i=0; i < crosshairs.size(); i++) {
+    Crosshair c=(Crosshair)crosshairs.get(i);
+    this.yCrosshairs.remove(c);
+    c.removePropertyChangeListener(this);
+  }
+  fireOverlayChanged();
+}

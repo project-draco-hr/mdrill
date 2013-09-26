@@ -1,0 +1,3 @@
+{
+  this(categoryAnchor,labelAnchor,TextAnchor.CENTER,0.0,CategoryLabelWidthType.CATEGORY,0.95f);
+}

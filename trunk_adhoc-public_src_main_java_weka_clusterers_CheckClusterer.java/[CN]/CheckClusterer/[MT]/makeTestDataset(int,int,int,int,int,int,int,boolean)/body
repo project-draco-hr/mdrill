@@ -1,0 +1,13 @@
+{
+  TestInstances dataset=new TestInstances();
+  dataset.setSeed(seed);
+  dataset.setNumInstances(numInstances);
+  dataset.setNumNominal(numNominal);
+  dataset.setNumNumeric(numNumeric);
+  dataset.setNumString(numString);
+  dataset.setNumDate(numDate);
+  dataset.setNumRelational(numRelational);
+  dataset.setClassIndex(TestInstances.NO_CLASS);
+  dataset.setMultiInstance(multiInstance);
+  return dataset.generate();
+}

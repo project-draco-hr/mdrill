@@ -1,0 +1,23 @@
+{
+  JSONObject jsonObj=new JSONObject();
+  ArrayList<String> groupbyFields=new ArrayList<String>();
+  ArrayList<String> showFields=WebServiceParams.showFields(fl);
+  jsonObj.put("pie_stat","count(*)");
+  for (  String showfield : showFields) {
+    StateField showfielda=WebServiceParams.parseStat(showfield);
+    if (showfielda.isstat) {
+      jsonObj.put("pie_stat",showfield);
+    }
+ else {
+      groupbyFields.add(showfield);
+    }
+  }
+  jsonObj.put("fieldToName",AdhocWebServiceParams.parseFieldToNames(fl,groupby,dimvalue,null));
+  jsonObj.put("pie_dimvalue",dimvalue);
+  jsonObj.put("pie_groupby",groupbyFields);
+  jsonObj.put("project",projectName);
+  jsonObj.put("q",queryStr);
+  jsonObj.put("sort",String.valueOf(jsonObj.getString("pie_stat")));
+  jsonObj.put("order",String.valueOf("desc"));
+  return jsonObj.toString();
+}

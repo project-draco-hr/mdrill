@@ -1,0 +1,6 @@
+Estimator est
+Instances instances
+int attrIndex
+int classIndex
+int classValueIndex
+boolean isIncremental

@@ -1,0 +1,16 @@
+{
+  m_Name=attributeName;
+  m_Index=-1;
+  m_Values=null;
+  m_Hashtable=null;
+  m_Header=null;
+  m_Type=DATE;
+  if (dateFormat != null) {
+    m_DateFormat=new SimpleDateFormat(dateFormat);
+  }
+ else {
+    m_DateFormat=new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss");
+  }
+  m_DateFormat.setLenient(false);
+  setMetadata(metadata);
+}

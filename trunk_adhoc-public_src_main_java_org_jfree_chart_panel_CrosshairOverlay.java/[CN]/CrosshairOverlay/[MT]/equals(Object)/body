@@ -1,0 +1,16 @@
+{
+  if (obj == this) {
+    return true;
+  }
+  if (!(obj instanceof CrosshairOverlay)) {
+    return false;
+  }
+  CrosshairOverlay that=(CrosshairOverlay)obj;
+  if (!this.xCrosshairs.equals(that.xCrosshairs)) {
+    return false;
+  }
+  if (!this.yCrosshairs.equals(that.yCrosshairs)) {
+    return false;
+  }
+  return true;
+}

@@ -1,0 +1,4 @@
+{
+  this.subtitles.remove(title);
+  fireChartChanged();
+}

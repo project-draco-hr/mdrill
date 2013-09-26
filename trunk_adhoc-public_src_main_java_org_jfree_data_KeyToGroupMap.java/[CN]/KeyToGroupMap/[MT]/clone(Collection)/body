@@ -1,0 +1,17 @@
+{
+  Collection result=null;
+  if (list != null) {
+    try {
+      List clone=(List)list.getClass().newInstance();
+      Iterator iterator=list.iterator();
+      while (iterator.hasNext()) {
+        clone.add(KeyToGroupMap.clone(iterator.next()));
+      }
+      result=clone;
+    }
+ catch (    Exception e) {
+      throw new CloneNotSupportedException("Exception.");
+    }
+  }
+  return result;
+}

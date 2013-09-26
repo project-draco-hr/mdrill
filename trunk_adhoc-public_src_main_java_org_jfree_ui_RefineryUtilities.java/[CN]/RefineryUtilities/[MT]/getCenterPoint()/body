@@ -1,0 +1,11 @@
+{
+  final GraphicsEnvironment localGraphicsEnvironment=GraphicsEnvironment.getLocalGraphicsEnvironment();
+  try {
+    final Method method=GraphicsEnvironment.class.getMethod("getCenterPoint",(Class[])null);
+    return (Point)method.invoke(localGraphicsEnvironment,(Object[])null);
+  }
+ catch (  Exception e) {
+  }
+  final Dimension s=Toolkit.getDefaultToolkit().getScreenSize();
+  return new Point(s.width / 2,s.height / 2);
+}

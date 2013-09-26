@@ -1,0 +1,14 @@
+{
+  plot.setLabelLinkPaint(this.labelLinkPaint);
+  plot.setLabelLinkStyle(this.labelLinkStyle);
+  plot.setLabelFont(this.regularFont);
+  if (plot.getAutoPopulateSectionPaint()) {
+    plot.clearSectionPaints(false);
+  }
+  if (plot.getAutoPopulateSectionOutlinePaint()) {
+    plot.clearSectionOutlinePaints(false);
+  }
+  if (plot.getAutoPopulateSectionOutlineStroke()) {
+    plot.clearSectionOutlineStrokes(false);
+  }
+}

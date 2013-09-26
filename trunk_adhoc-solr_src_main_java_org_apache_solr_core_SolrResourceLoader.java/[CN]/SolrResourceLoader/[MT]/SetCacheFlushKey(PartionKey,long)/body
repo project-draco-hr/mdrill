@@ -1,0 +1,10 @@
+{
+  log.info("higolog SetCacheFlushKey " + String.valueOf(p) + " "+ key);
+  SolrResourceLoader.cacheFlushKey.set(key);
+  if (p != null) {
+    cacheFlushKeyMap.put(p,key);
+    if (cacheFlushKeyMap.size() > 1024) {
+      cacheFlushKeyMap.clear();
+    }
+  }
+}

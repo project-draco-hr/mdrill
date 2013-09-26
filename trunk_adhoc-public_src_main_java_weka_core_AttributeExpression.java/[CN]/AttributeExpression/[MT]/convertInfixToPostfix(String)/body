@@ -1,0 +1,38 @@
+{
+  m_originalInfix=infixExp;
+  infixExp=Utils.removeSubstring(infixExp," ");
+  infixExp=Utils.replaceSubstring(infixExp,"log","l");
+  infixExp=Utils.replaceSubstring(infixExp,"abs","b");
+  infixExp=Utils.replaceSubstring(infixExp,"cos","c");
+  infixExp=Utils.replaceSubstring(infixExp,"exp","e");
+  infixExp=Utils.replaceSubstring(infixExp,"sqrt","s");
+  infixExp=Utils.replaceSubstring(infixExp,"floor","f");
+  infixExp=Utils.replaceSubstring(infixExp,"ceil","h");
+  infixExp=Utils.replaceSubstring(infixExp,"rint","r");
+  infixExp=Utils.replaceSubstring(infixExp,"tan","t");
+  infixExp=Utils.replaceSubstring(infixExp,"sin","n");
+  StringTokenizer tokenizer=new StringTokenizer(infixExp,OPERATORS,true);
+  m_postFixExpVector=new Vector<ExpressionComponent>();
+  while (tokenizer.hasMoreTokens()) {
+    String tok=tokenizer.nextToken();
+    if (tok.length() > 1) {
+      handleOperand(tok);
+    }
+ else {
+      if (isOperator(tok.charAt(0))) {
+        handleOperator(tok);
+      }
+ else {
+        handleOperand(tok);
+      }
+    }
+    m_previousTok=tok;
+  }
+  while (!m_operatorStack.empty()) {
+    String popop=(String)(m_operatorStack.pop());
+    if (popop.charAt(0) == '(' || popop.charAt(0) == ')') {
+      throw new Exception("Mis-matched parenthesis!");
+    }
+    m_postFixExpVector.addElement(new Operator(popop.charAt(0)));
+  }
+}

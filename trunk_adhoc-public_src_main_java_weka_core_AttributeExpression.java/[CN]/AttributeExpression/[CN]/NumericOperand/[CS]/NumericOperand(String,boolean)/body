@@ -1,0 +1,6 @@
+{
+  m_numericConst=Double.valueOf(operand).doubleValue();
+  if (sign) {
+    m_numericConst*=-1.0;
+  }
+}

@@ -1,0 +1,3 @@
+{
+  return getInstance().getDebuglevel() >= LogTarget.WARN;
+}

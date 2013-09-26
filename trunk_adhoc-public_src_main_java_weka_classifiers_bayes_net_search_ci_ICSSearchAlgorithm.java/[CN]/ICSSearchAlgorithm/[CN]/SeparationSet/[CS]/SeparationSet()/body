@@ -1,0 +1,3 @@
+{
+  m_set=new int[getMaxCardinality() + 1];
+}

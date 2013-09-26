@@ -1,0 +1,3 @@
+{
+  return "The learning rate.";
+}

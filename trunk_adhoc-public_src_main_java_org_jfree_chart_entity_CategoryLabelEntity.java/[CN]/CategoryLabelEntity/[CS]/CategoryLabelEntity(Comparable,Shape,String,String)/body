@@ -1,0 +1,4 @@
+{
+  super(area,toolTipText,urlText);
+  this.key=key;
+}

@@ -1,0 +1,3 @@
+{
+  runFileLoader(new SVMLightLoader(),args);
+}

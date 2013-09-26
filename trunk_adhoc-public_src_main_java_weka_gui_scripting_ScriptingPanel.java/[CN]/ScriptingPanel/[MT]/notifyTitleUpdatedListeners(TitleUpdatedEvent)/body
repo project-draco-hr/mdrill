@@ -1,0 +1,5 @@
+{
+  Iterator<TitleUpdatedListener> iter;
+  iter=m_TitleUpdatedListeners.iterator();
+  while (iter.hasNext())   iter.next().titleUpdated(e);
+}

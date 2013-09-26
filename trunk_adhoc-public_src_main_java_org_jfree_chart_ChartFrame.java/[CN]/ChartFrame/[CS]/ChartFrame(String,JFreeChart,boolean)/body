@@ -1,0 +1,11 @@
+{
+  super(title);
+  setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+  this.chartPanel=new ChartPanel(chart);
+  if (scrollPane) {
+    setContentPane(new JScrollPane(this.chartPanel));
+  }
+ else {
+    setContentPane(this.chartPanel);
+  }
+}

@@ -1,0 +1,10 @@
+{
+  final List v=(List)this.table.get(key);
+  if (v == null) {
+    put(key,val);
+    return true;
+  }
+ else {
+    return v.add(val);
+  }
+}

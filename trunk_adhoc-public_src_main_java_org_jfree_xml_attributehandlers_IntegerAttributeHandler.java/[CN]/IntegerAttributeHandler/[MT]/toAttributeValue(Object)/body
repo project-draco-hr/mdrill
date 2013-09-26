@@ -1,0 +1,12 @@
+{
+  try {
+    final Integer in=(Integer)o;
+    return in.toString();
+  }
+ catch (  ClassCastException cce) {
+    if (o != null) {
+      Log.debug("ClassCastException: Expected Integer, found " + o.getClass());
+    }
+    throw cce;
+  }
+}

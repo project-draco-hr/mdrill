@@ -1,0 +1,25 @@
+{
+  String sqldelete="DELETE FROM module_info WHERE queryday='" + queryDay + "'";
+  String sql="INSERT INTO module_info(queryday,module_name,query_cnt,uv) " + " SELECT ? AS queryday, set_name ,COUNT(*) AS query_cnt,COUNT(distinct nick) AS uv " + " FROM query_log "+ " WHERE DATE_FORMAT(query_date,?)=? "+ " AND nick NOT IN (SELECT nick FROM dev_nicks) "+ " GROUP BY queryday,set_name";
+  PreparedStatement pstmt=null;
+  try {
+    Connection conn=DriverManager.getConnection(url,username,password);
+    Statement stmt=conn.createStatement();
+    stmt.executeUpdate(sqldelete);
+    pstmt=conn.prepareStatement(sql);
+    pstmt.setString(1,queryDay);
+    pstmt.setString(2,mysqlDayFormat);
+    pstmt.setString(3,queryDay);
+    pstmt.executeUpdate();
+    LOG.info(pstmt.toString());
+    pstmt.close();
+    conn.close();
+  }
+ catch (  SQLException e) {
+    String debugsql="";
+    if (pstmt != null) {
+      debugsql=pstmt.toString();
+    }
+    LOG.error(debugsql,e);
+  }
+}

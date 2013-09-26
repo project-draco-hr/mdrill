@@ -1,0 +1,10 @@
+{
+  if (this.seriesOutlineStroke != null) {
+    return this.seriesOutlineStroke;
+  }
+  Stroke result=this.seriesOutlineStrokeList.getStroke(series);
+  if (result == null) {
+    result=this.baseSeriesOutlineStroke;
+  }
+  return result;
+}

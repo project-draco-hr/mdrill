@@ -1,0 +1,9 @@
+{
+  if (this.equals(UnitType.ABSOLUTE)) {
+    return UnitType.ABSOLUTE;
+  }
+ else   if (this.equals(UnitType.RELATIVE)) {
+    return UnitType.RELATIVE;
+  }
+  return null;
+}

@@ -1,0 +1,10 @@
+{
+  for (int i=0; i < tags.length; i++) {
+    if (tags[i].getReadable().equalsIgnoreCase(tagText) || tags[i].getIDStr().equalsIgnoreCase(tagText)) {
+      m_Selected=i;
+      m_Tags=tags;
+      return;
+    }
+  }
+  throw new IllegalArgumentException("Selected tag is not valid");
+}

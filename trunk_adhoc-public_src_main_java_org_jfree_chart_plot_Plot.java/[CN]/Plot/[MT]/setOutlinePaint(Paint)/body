@@ -1,0 +1,17 @@
+{
+  if (paint == null) {
+    if (this.outlinePaint != null) {
+      this.outlinePaint=null;
+      fireChangeEvent();
+    }
+  }
+ else {
+    if (this.outlinePaint != null) {
+      if (this.outlinePaint.equals(paint)) {
+        return;
+      }
+    }
+    this.outlinePaint=paint;
+    fireChangeEvent();
+  }
+}

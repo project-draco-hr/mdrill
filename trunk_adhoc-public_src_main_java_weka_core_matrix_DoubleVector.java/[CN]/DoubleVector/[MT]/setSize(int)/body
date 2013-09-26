@@ -1,0 +1,4 @@
+{
+  if (m > capacity())   throw new IllegalArgumentException("insufficient capacity");
+  sizeOfVector=m;
+}

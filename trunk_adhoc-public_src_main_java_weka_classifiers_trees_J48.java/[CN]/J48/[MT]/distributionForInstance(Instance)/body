@@ -1,0 +1,3 @@
+{
+  return m_root.distributionForInstance(instance,m_useLaplace);
+}

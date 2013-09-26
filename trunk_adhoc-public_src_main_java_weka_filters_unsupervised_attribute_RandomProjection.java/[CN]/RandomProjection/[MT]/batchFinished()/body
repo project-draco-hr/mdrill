@@ -1,0 +1,46 @@
+{
+  if (getInputFormat() == null) {
+    throw new NullPointerException("No input instance format defined");
+  }
+  boolean conversionDone=false;
+  if (m_replaceMissing != null) {
+    if (m_replaceMissing.batchFinished()) {
+      Instance newInstance, instance;
+      while ((instance=m_replaceMissing.output()) != null) {
+        if (!m_OutputFormatDefined)         setOutputFormat();
+        if (m_ntob != null) {
+          m_ntob.input(instance);
+        }
+ else {
+          newInstance=convertInstance(instance);
+          push(newInstance);
+        }
+      }
+      if (m_ntob != null) {
+        if (m_ntob.batchFinished()) {
+          while ((instance=m_ntob.output()) != null) {
+            if (!m_OutputFormatDefined)             setOutputFormat();
+            newInstance=convertInstance(instance);
+            push(newInstance);
+          }
+          m_ntob=null;
+        }
+      }
+      m_replaceMissing=null;
+      conversionDone=true;
+    }
+  }
+  if (conversionDone == false && m_ntob != null) {
+    if (m_ntob.batchFinished()) {
+      Instance newInstance, instance;
+      while ((instance=m_ntob.output()) != null) {
+        if (!m_OutputFormatDefined)         setOutputFormat();
+        newInstance=convertInstance(instance);
+        push(newInstance);
+      }
+      m_ntob=null;
+    }
+  }
+  m_OutputFormatDefined=false;
+  return super.batchFinished();
+}

@@ -1,0 +1,16 @@
+{
+  if (this == o) {
+    return true;
+  }
+  if (!(o instanceof FloatDimension)) {
+    return false;
+  }
+  final FloatDimension floatDimension=(FloatDimension)o;
+  if (this.height != floatDimension.height) {
+    return false;
+  }
+  if (this.width != floatDimension.width) {
+    return false;
+  }
+  return true;
+}

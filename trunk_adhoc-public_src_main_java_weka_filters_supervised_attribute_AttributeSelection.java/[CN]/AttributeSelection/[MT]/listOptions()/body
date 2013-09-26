@@ -1,0 +1,20 @@
+{
+  Vector newVector=new Vector(6);
+  newVector.addElement(new Option("\tSets search method for subset evaluators.\n" + "\teg. -S \"weka.attributeSelection.BestFirst -S 8\"","S",1,"-S <\"Name of search class [search options]\">"));
+  newVector.addElement(new Option("\tSets attribute/subset evaluator.\n" + "\teg. -E \"weka.attributeSelection.CfsSubsetEval -L\"","E",1,"-E <\"Name of attribute/subset evaluation class [evaluator options]\">"));
+  if ((m_ASEvaluator != null) && (m_ASEvaluator instanceof OptionHandler)) {
+    Enumeration enu=((OptionHandler)m_ASEvaluator).listOptions();
+    newVector.addElement(new Option("","",0,"\nOptions specific to " + "evaluator " + m_ASEvaluator.getClass().getName() + ":"));
+    while (enu.hasMoreElements()) {
+      newVector.addElement((Option)enu.nextElement());
+    }
+  }
+  if ((m_ASSearch != null) && (m_ASSearch instanceof OptionHandler)) {
+    Enumeration enu=((OptionHandler)m_ASSearch).listOptions();
+    newVector.addElement(new Option("","",0,"\nOptions specific to " + "search " + m_ASSearch.getClass().getName() + ":"));
+    while (enu.hasMoreElements()) {
+      newVector.addElement((Option)enu.nextElement());
+    }
+  }
+  return newVector.elements();
+}

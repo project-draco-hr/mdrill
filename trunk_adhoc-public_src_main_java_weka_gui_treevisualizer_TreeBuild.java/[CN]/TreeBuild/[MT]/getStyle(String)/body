@@ -1,0 +1,8 @@
+{
+  if (sty.equalsIgnoreCase("filled")) {
+    return new Integer(1);
+  }
+ else {
+    return null;
+  }
+}

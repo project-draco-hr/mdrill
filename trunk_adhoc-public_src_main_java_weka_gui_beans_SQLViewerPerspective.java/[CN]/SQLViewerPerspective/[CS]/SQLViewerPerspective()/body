@@ -1,0 +1,30 @@
+{
+  setLayout(new BorderLayout());
+  m_viewer=new SqlViewer(null);
+  add(m_viewer,BorderLayout.CENTER);
+  m_newFlowBut=new JButton("New Flow");
+  m_newFlowBut.setToolTipText("Set up a new Knowledge Flow with the " + "current connection and query");
+  JPanel butHolder=new JPanel();
+  butHolder.add(m_newFlowBut);
+  add(butHolder,BorderLayout.SOUTH);
+  m_newFlowBut.addActionListener(new ActionListener(){
+    public void actionPerformed(    ActionEvent e){
+      if (m_mainPerspective != null) {
+        newFlow();
+      }
+    }
+  }
+);
+  m_newFlowBut.setEnabled(false);
+  m_viewer.addConnectionListener(new ConnectionListener(){
+    @Override public void connectionChange(    ConnectionEvent evt){
+      if (evt.getType() == ConnectionEvent.DISCONNECT) {
+        m_newFlowBut.setEnabled(false);
+      }
+ else {
+        m_newFlowBut.setEnabled(true);
+      }
+    }
+  }
+);
+}

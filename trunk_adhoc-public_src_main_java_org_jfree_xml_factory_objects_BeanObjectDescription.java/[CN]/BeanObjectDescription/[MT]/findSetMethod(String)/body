@@ -1,0 +1,4 @@
+{
+  final PropertyDescriptor descriptor=(PropertyDescriptor)this.properties.get(parameterName);
+  return descriptor.getWriteMethod();
+}

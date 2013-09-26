@@ -1,0 +1,6 @@
+{
+  if (m_undoStack.size() == 0) {
+    return "";
+  }
+  return ((UndoAction)m_undoStack.lastElement()).getRedoMsg();
+}

@@ -1,0 +1,3 @@
+{
+  return "Whether to fit logistic models to the outputs (for proper " + "probability estimates).";
+}

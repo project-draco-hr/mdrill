@@ -1,0 +1,6 @@
+{
+  final int size=getSize();
+  this.data.clear();
+  final ListDataEvent evt=new ListDataEvent(this,ListDataEvent.INTERVAL_REMOVED,0,size - 1);
+  fireListDataEvent(evt);
+}

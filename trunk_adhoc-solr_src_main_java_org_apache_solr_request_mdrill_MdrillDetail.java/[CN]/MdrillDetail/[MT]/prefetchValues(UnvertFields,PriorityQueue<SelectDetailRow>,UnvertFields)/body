@@ -4,7 +4,7 @@
     tm[i]=new TermNumToString(ufs,i);
   }
   tm[ufs.length]=new TermNumToString(sortufs,0);
-  boolean usedsort=isNeedSort && this.SelectDetailSort == null;
+  boolean usedsort=this.container.isOnlyColumnSort();
   for (  SelectDetailRow row : res) {
     int doc=row.docid;
     for (int i=0; i < ufs.length; i++) {
@@ -18,21 +18,15 @@
       int ternnum=(int)row.value;
       tm[ufs.length].addTermNum(ternnum);
     }
-    for (    HigoJoinInvert inv : joinInvert) {
+    for (    HigoJoinInvert inv : this.container.joinInvert) {
       int fc=inv.fieldCount();
-      LinkedBlockingQueue<GroupList> groupListCache=inv.getGroupListCache();
-      GroupList base=GroupList.INSTANCE(groupListCache,fc);
+      LinkedBlockingQueue<GroupListCache.GroupList> groupListCache=inv.getGroupListCache();
+      GroupListCache.GroupList base=GroupListCache.GroupList.INSTANCE(groupListCache,fc);
       base.reset();
-      GroupList[] groups=inv.fieldNum(doc,base);
-      if (groups != null) {
-        for (        GroupList group : groups) {
-          for (int i=0; i < fc; i++) {
-            inv.addTermNum(group.list[i],i);
-          }
+      if (inv.fieldNum(doc,base)) {
+        for (int i=0; i < fc; i++) {
+          inv.addTermNum(base.list[i],i);
         }
-      }
-      for (      GroupList group : groups) {
-        groupListCache.add(group);
       }
       groupListCache.add(base);
     }
@@ -40,7 +34,7 @@
   for (int i=0; i < tm.length; i++) {
     tm[i].fetchValues();
   }
-  for (  HigoJoinInvert inv : joinInvert) {
+  for (  HigoJoinInvert inv : this.container.joinInvert) {
     inv.fetchValues();
   }
   return tm;

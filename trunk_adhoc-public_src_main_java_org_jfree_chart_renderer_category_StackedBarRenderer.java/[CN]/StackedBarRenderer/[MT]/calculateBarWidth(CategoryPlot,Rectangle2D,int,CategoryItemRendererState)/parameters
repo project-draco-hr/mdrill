@@ -1,0 +1,4 @@
+CategoryPlot plot
+Rectangle2D dataArea
+int rendererIndex
+CategoryItemRendererState state

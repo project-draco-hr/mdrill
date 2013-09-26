@@ -1,0 +1,3 @@
+{
+  return m_perBag[index] - numCorrect(index);
+}

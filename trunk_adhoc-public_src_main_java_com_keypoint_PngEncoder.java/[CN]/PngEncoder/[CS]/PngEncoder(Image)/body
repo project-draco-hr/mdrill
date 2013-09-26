@@ -1,0 +1,3 @@
+{
+  this(image,false,FILTER_NONE,0);
+}

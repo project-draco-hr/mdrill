@@ -1,0 +1,4 @@
+int attIndex
+int left
+int right
+int k

@@ -1,0 +1,14 @@
+{
+  if (Double.isNaN(logOfX)) {
+    return logOfY;
+  }
+  if (Double.isNaN(logOfY)) {
+    return logOfX;
+  }
+  if (logOfX > logOfY) {
+    return logOfX + Math.log(1 + Math.exp(logOfY - logOfX));
+  }
+ else {
+    return logOfY + Math.log(1 + Math.exp(logOfX - logOfY));
+  }
+}

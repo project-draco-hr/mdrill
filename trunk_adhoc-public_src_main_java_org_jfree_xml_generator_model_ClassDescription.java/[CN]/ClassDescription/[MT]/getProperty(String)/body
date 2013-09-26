@@ -1,0 +1,11 @@
+{
+  if (this.properties == null) {
+    return null;
+  }
+  for (int i=0; i < this.properties.length; i++) {
+    if (this.properties[i].getName().equals(name)) {
+      return this.properties[i];
+    }
+  }
+  return null;
+}

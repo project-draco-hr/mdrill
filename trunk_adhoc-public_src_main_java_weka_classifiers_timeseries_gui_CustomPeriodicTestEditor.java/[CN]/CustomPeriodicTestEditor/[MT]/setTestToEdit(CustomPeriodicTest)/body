@@ -1,0 +1,5 @@
+{
+  m_testToEdit=t;
+  m_partToEdit=(m_right) ? m_testToEdit.getUpperTest() : m_testToEdit.getLowerTest();
+  fillGUIElements();
+}

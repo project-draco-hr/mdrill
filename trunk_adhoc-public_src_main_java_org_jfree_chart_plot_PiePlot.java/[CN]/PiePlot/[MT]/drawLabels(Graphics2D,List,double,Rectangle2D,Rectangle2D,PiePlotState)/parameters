@@ -1,0 +1,6 @@
+Graphics2D g2
+List keys
+double totalValue
+Rectangle2D plotArea
+Rectangle2D linkArea
+PiePlotState state

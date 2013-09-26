@@ -1,0 +1,14 @@
+{
+  List<String> columns=TABLE_COLUMNS.get(tablename);
+  StringBuilder sb=new StringBuilder();
+  if (columns != null) {
+    for (    String col : columns) {
+      sb.append(",sum(" + col + ")");
+    }
+    int remaind=7 - columns.size();
+    for (int i=0; i < remaind; i++) {
+      sb.append(",0");
+    }
+  }
+  return sb.toString();
+}

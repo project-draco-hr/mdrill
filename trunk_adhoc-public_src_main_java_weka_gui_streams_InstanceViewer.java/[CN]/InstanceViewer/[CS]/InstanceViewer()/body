@@ -1,0 +1,8 @@
+{
+  setLayout(new BorderLayout());
+  m_UpdateString="";
+  setClearEachDataset(true);
+  m_OutputTex=new JTextArea(10,20);
+  m_OutputTex.setEditable(false);
+  add("Center",new JScrollPane(m_OutputTex));
+}

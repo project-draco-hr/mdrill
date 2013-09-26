@@ -1,0 +1,29 @@
+{
+  if (VisualizeUtils.VISUALIZE_PROPERTIES != null) {
+    String thisClass=this.getClass().getName();
+    if (relationName == null) {
+      String showAttBars=thisClass + ".displayAttributeBars";
+      String val=VisualizeUtils.VISUALIZE_PROPERTIES.getProperty(showAttBars);
+      if (val == null) {
+      }
+ else {
+        if (m_showAttBars) {
+          if (val.compareTo("true") == 0 || val.compareTo("on") == 0) {
+            m_showAttBars=true;
+          }
+ else {
+            m_showAttBars=false;
+          }
+        }
+      }
+    }
+ else {
+      String xcolKey=thisClass + "." + relationName+ ".XDimension";
+      String ycolKey=thisClass + "." + relationName+ ".YDimension";
+      String ccolKey=thisClass + "." + relationName+ ".ColourDimension";
+      m_preferredXDimension=VisualizeUtils.VISUALIZE_PROPERTIES.getProperty(xcolKey);
+      m_preferredYDimension=VisualizeUtils.VISUALIZE_PROPERTIES.getProperty(ycolKey);
+      m_preferredColourDimension=VisualizeUtils.VISUALIZE_PROPERTIES.getProperty(ccolKey);
+    }
+  }
+}

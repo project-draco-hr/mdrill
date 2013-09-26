@@ -1,0 +1,3 @@
+{
+  return getPMMLModel(new File(filename),log);
+}
