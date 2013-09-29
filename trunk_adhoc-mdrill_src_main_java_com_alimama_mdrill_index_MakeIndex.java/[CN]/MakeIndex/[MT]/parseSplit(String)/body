@@ -1,12 +1,3 @@
 {
-  if (str.equals("\\001")) {
-    return "\001";
-  }
-  if (str.equals("default")) {
-    return "\001";
-  }
-  if (str.equals("tab")) {
-    return "\t";
-  }
-  return str;
+  return SplitStrEncode.parseSplit(str);
 }

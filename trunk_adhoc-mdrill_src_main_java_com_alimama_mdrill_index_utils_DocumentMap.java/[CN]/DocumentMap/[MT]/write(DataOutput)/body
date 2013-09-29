@@ -1,0 +1,7 @@
+{
+  out.writeInt(this.data.size());
+  for (  Entry<String,String> e : this.data.entrySet()) {
+    out.writeUTF(e.getKey());
+    out.writeUTF(e.getValue());
+  }
+}

@@ -19,13 +19,16 @@
   if (projectName.equals("r_rpt_nz_adhoc_member")) {
     hpart="ds";
   }
+  if (projectName.equals("st_tanx_x_core_gateway")) {
+    hpart="ds";
+  }
   queryStr=WebServiceParams.query(queryStr);
   TablePartion part=GetPartions.partion(projectName);
   ShardsList[] cores=GetShards.get(part.name,false);
   ShardsList[] ms=GetShards.get(part.name,true);
   String[] partionsAll=AdhocHivePartions.get(queryStr,part.parttype);
   GetPartions.Shards shard=GetPartions.getshard(part,partionsAll,cores,ms);
-  HashMap<String,String> filetypeMap=MdrillService.readFieldsFromSchemaXml(part.name);
+  LinkedHashMap<String,String> filetypeMap=MdrillService.readFieldsFromSchemaXml(part.name);
   ArrayList<String> fqList=WebServiceParams.fqListHive(false,hpart,queryStr,shard,isPartionByPt,filetypeMap,null,null,null);
   StringBuffer sqlWhere=AdhocWebServiceParams.makeWhere(fqList);
   ArrayList<String> groupFields=WebServiceParams.groupFields(groupby);

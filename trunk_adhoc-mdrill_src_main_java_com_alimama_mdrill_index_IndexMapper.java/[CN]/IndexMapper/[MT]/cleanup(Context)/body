@@ -1,6 +1,2 @@
 {
-  if (doclist.size() > 0) {
-    context.write(new Text(String.valueOf(this.Index++)),new DocumentList(this.doclist));
-    doclist.clear();
-  }
 }

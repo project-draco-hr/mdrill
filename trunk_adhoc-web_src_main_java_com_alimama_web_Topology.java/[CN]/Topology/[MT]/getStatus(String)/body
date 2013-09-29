@@ -7,30 +7,36 @@
   List<String> rtn=new ArrayList<String>();
   List<Integer> taskids=stat.task_ids(stormId);
   for (  Integer tid : taskids) {
-    TaskInfoContainer con=new TaskInfoContainer();
-    con.setStarttime(taskStartTimeSecs.get(tid));
-    NodePort np=taskToNodeport.get(tid);
-    con.setNp(np);
-    if (np != null) {
-      con.setHostname(nodeHost.get(np.getNode()));
-    }
+    try {
+      TaskInfoContainer con=new TaskInfoContainer();
+      con.setStarttime(taskStartTimeSecs.get(tid));
+      NodePort np=taskToNodeport.get(tid);
+      con.setNp(np);
+      if (np != null) {
+        con.setHostname(nodeHost.get(np.getNode()));
+      }
  else {
-      con.setHostname("nohost");
+        con.setHostname("nohost");
+      }
+      con.setTaskId(tid);
+      con.setTaskInfo(stat.task_info(stormId,tid));
+      con.setHb(stat.task_heartbeat(stormId,tid));
+      con.setTaskerrors(stat.task_errors(stormId,tid));
+      StringBuffer buff=new StringBuffer();
+      buff.append("??????:" + String.format("%03d",con.getTaskId()) + "<br>");
+      buff.append("????????????:" + con.getHostname() + "<br>");
+      buff.append("nodeport:" + con.getNp() + "<br>");
+      SimpleDateFormat fmt=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+      if (con.getStarttime() != null) {
+        String yyyymmmddd=fmt.format(new Date(1000l * con.getStarttime()));
+        buff.append("????????????:" + yyyymmmddd + "<br>");
+      }
+      buff.append("????????????:" + con.getHb() + "<br>");
+      buff.append("task????????????:" + con.getTaskerrors() + "<br>");
+      rtn.add(buff.toString());
     }
-    con.setTaskId(tid);
-    con.setTaskInfo(stat.task_info(stormId,tid));
-    con.setHb(stat.task_heartbeat(stormId,tid));
-    con.setTaskerrors(stat.task_errors(stormId,tid));
-    StringBuffer buff=new StringBuffer();
-    buff.append("??????:" + String.format("%03d",con.getTaskId()) + "<br>");
-    buff.append("????????????:" + con.getHostname() + "<br>");
-    buff.append("nodeport:" + con.getNp() + "<br>");
-    SimpleDateFormat fmt=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-    String yyyymmmddd=fmt.format(new Date(1000l * con.getStarttime()));
-    buff.append("????????????:" + yyyymmmddd + "<br>");
-    buff.append("????????????:" + con.getHb() + "<br>");
-    buff.append("task????????????:" + con.getTaskerrors() + "<br>");
-    rtn.add(buff.toString());
+ catch (    Throwable e) {
+    }
   }
   Collections.sort(rtn);
   return rtn;

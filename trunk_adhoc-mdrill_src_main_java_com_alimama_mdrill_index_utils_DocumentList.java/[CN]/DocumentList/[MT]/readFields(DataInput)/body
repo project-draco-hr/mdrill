@@ -1,6 +1,0 @@
-{
-  int size=in.readInt();
-  byte[] data=new byte[size];
-  in.readFully(data);
-  list=(ArrayList<HashMap<String,String>>)this.deserialize(data);
-}

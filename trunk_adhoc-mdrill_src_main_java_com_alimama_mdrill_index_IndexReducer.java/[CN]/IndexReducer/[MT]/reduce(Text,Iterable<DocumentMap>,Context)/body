@@ -1,0 +1,44 @@
+{
+  if (key.toString().startsWith("uniq_")) {
+    int dumps=0;
+    Iterator<DocumentMap> iterator=values.iterator();
+    while (iterator.hasNext()) {
+      DocumentMap doclist=iterator.next();
+      dumps++;
+    }
+    if (dumps > 1) {
+      context.getCounter("higo","dumpcount").increment(1);
+      ;
+      if (debuglines < 100) {
+        debuglines++;
+        System.out.println("dumpcount: " + key.toString() + "");
+      }
+    }
+    return;
+  }
+  lastkey=key;
+  DocumentList doclistcache=new DocumentList();
+  RamWriter ramMerger=new RamWriter();
+  Iterator<DocumentMap> iterator=values.iterator();
+  while (iterator.hasNext()) {
+    if (doccount > maxDocCount) {
+      break;
+    }
+    doclistcache.add(iterator.next());
+    if (!doclistcache.isoversize()) {
+      continue;
+    }
+    RamWriter ram=doclistcache.toRamWriter(documentConverter,analyzer,context);
+    ramMerger.process(ram);
+    if (this.maybeFlush(ramMerger,context,false)) {
+      ramMerger=new RamWriter();
+      ;
+    }
+    doclistcache=new DocumentList();
+  }
+  RamWriter ram=doclistcache.toRamWriter(documentConverter,analyzer,context);
+  ramMerger.process(ram);
+  if (this.maybeFlush(ramMerger,context,true)) {
+    ramMerger=null;
+  }
+}

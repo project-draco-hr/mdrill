@@ -5,50 +5,37 @@
   String choosepase=HigoJoinUtils.localStoreBase[hashcode % len];
   File basedir=new File(choosepase,"higojoin_work");
   File tmpbase=new File(choosepase,"higojoin_tmp");
-  File lockbase=new File(choosepase,"higojoin_lock");
   File workPath=new File(basedir,tablename);
   File tmp=new File(tmpbase,tablename);
-  File lockPath=new File(lockbase,tablename);
   File completePath=new File(workPath,"complete");
-  maybeclear(basedir,lockbase);
-  TryLockFile lock=new TryLockFile(lockPath.getAbsolutePath());
-  try {
-    if (completePath.exists()) {
-      return workPath.getAbsolutePath();
-    }
-    if (!lockbase.exists()) {
-      lockbase.mkdirs();
-    }
-    if (!tmpbase.exists()) {
-      tmpbase.mkdirs();
-    }
-    if (!basedir.exists()) {
-      basedir.mkdirs();
-    }
-    lock.trylock();
-    if (!completePath.exists()) {
-      Configuration conf=getConf();
-      FileSystem fs=FileSystem.get(conf);
-      FileSystem lfs=FileSystem.getLocal(conf);
-      String hdfsstorepath=req.getParams().get(getPath(tablename));
-      String rtnpath=workPath.getAbsolutePath();
-      Path storepath=new Path(rtnpath,"store");
-      boolean iscopy=IndexUtils.copyToLocal(fs,lfs,new Path(hdfsstorepath),storepath,new Path(tmp.getAbsolutePath()),true);
-      Path indexlinks=new Path(rtnpath,"indexLinks");
-      if (iscopy) {
-        if (lfs.exists(indexlinks)) {
-          lfs.delete(indexlinks,true);
-        }
-        FSDataOutputStream outlinks=lfs.create(indexlinks);
-        outlinks.write((new String(storepath.toString() + "\r\n")).getBytes());
-        outlinks.close();
-        completePath.mkdirs();
-      }
-    }
+  maybeclear(basedir);
+  if (completePath.exists()) {
+    return workPath.getAbsolutePath();
   }
-  finally {
-    lock.unlock();
-    lockPath.delete();
+  if (!tmpbase.exists()) {
+    tmpbase.mkdirs();
+  }
+  if (!basedir.exists()) {
+    basedir.mkdirs();
+  }
+  if (!completePath.exists()) {
+    Configuration conf=getConf();
+    FileSystem fs=FileSystem.get(conf);
+    FileSystem lfs=FileSystem.getLocal(conf);
+    String hdfsstorepath=req.getParams().get(getPath(tablename));
+    String rtnpath=workPath.getAbsolutePath();
+    Path storepath=new Path(rtnpath,"store");
+    boolean iscopy=IndexUtils.copyToLocal(fs,lfs,new Path(hdfsstorepath),storepath,new Path(tmp.getAbsolutePath()),true);
+    Path indexlinks=new Path(rtnpath,"indexLinks");
+    if (iscopy) {
+      if (lfs.exists(indexlinks)) {
+        lfs.delete(indexlinks,true);
+      }
+      FSDataOutputStream outlinks=lfs.create(indexlinks);
+      outlinks.write((new String(storepath.toString() + "\r\n")).getBytes());
+      outlinks.close();
+      completePath.mkdirs();
+    }
   }
   return workPath.getAbsolutePath();
 }

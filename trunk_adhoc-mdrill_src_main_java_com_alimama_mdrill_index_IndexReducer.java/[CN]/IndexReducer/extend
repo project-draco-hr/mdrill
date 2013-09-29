@@ -1,1 +1,1 @@
-Reducer<Text,DocumentList,Text,Text>
+Reducer<Text,DocumentMap,IntWritable,Text>

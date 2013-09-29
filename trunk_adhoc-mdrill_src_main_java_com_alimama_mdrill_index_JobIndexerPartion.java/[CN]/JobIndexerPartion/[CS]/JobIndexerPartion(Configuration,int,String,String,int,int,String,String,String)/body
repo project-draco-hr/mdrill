@@ -2,6 +2,7 @@
   this.shards=_shards;
   this.solrHome=_solrHome;
   this.tmp=new Path(_solrHome,"tmp");
+  this.workDir=new Path(this.tmp,java.util.UUID.randomUUID().toString());
   this.index=new Path(_solrHome,"index");
   this.inputBase=_inputBase;
   this.dayDelay=_dayplus;

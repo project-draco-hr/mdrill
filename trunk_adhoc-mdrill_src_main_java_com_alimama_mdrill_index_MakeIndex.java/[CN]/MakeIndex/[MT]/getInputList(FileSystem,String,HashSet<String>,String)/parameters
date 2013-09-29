@@ -1,0 +1,4 @@
+FileSystem fs
+String inputBase
+HashSet<String> inputs
+String inputmatch

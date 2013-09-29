@@ -16,7 +16,7 @@
     HashSet<String> commonStatMap=new HashSet<String>();
     HashSet<String> distStatFieldMap=new HashSet<String>();
     WebServiceParams.setCrossStatMap(showFields,commonStatMap,distStatFieldMap);
-    HashMap<String,String> fieldColumntypeMap=readFieldsFromSchemaXml(part.name);
+    LinkedHashMap<String,String> fieldColumntypeMap=readFieldsFromSchemaXml(part.name);
     SortParam sortType=WebServiceParams.sort(sort,order,fieldColumntypeMap);
     ShardsList[] cores=GetShards.get(part.name,false);
     Map stormconf=Utils.readStormConfig();

@@ -1,19 +1,39 @@
 {
-  Cache<ILruMemSizeKey,ILruMemSizeCache> cache=GrobalCache.fieldValueCache;
-  ILruMemSizeKey key=new GrobalCache.StringKey("seg@" + partion + "@"+ field+ "@"+ reader.getStringCacheKey()+ "@"+ LuceneUtils.crcKey(reader)+ "@"+ reader.getSegmentName());
+  final Cache<ILruMemSizeKey,ILruMemSizeCache> cache=GrobalCache.fieldValueCache;
+  final ILruMemSizeKey key=new GrobalCache.StringKey("seg@" + partion + "@"+ field+ "@"+ reader.getStringCacheKey()+ "@"+ LuceneUtils.crcKey(reader)+ "@"+ reader.getSegmentName());
   UnInvertedField uif=(UnInvertedField)cache.get(key);
   if (uif == null) {
-    TryLock lock=new TryLock(reader.directory());
-    try {
-      lock.tryLock();
-      uif=(UnInvertedField)cache.get(key);
-      if (uif == null) {
-        uif=new UnInvertedField(field,reader,schema);
-        cache.put(key,uif);
+    ExecutorCompletionService<UnivertPool> serv=new ExecutorCompletionService<UnivertPool>(pool);
+    Callable<UnivertPool> task=new Callable<UnivertPool>(){
+      public UnivertPool call() throws Exception {
+        UnivertPool rtnuif=new UnivertPool();
+        try {
+          rtnuif.uni=(UnInvertedField)cache.get(key);
+          if (rtnuif.uni == null) {
+            rtnuif.uni=new UnInvertedField(field,reader,schema);
+            cache.put(key,rtnuif.uni);
+          }
+        }
+ catch (        IOException e) {
+          rtnuif.e=e;
+        }
+ finally {
+          rtnuif.isfinish.set(true);
+        }
+        return rtnuif;
       }
     }
-  finally {
-      lock.unlock();
+;
+    serv.submit(task);
+    try {
+      UnivertPool rtnuif=serv.take().get();
+      if (rtnuif.e != null) {
+        throw rtnuif.e;
+      }
+      uif=rtnuif.uni;
+    }
+ catch (    Throwable e) {
+      throw new IOException(e);
     }
   }
   uif.refCnt.incrementAndGet();

@@ -1,0 +1,25 @@
+{
+  HashMap<String,HashSet<String>> partions=new HashMap<String,HashSet<String>>();
+  partions.put(partion,partionDays);
+  HashMap<String,String> vertifyset=this.mdrillpartion.indexVertify(partions,shards,startday,dayDelay,maxRunDays);
+  String partionvertify=vertifyset.get(partion);
+  if (partionvertify == null || partionvertify.isEmpty()) {
+    partionvertify="partionV" + MdrillPartions.PARTION_VERSION + "@001@single@"+ this.shards+ "@"+ java.util.UUID.randomUUID().toString();
+  }
+  HashSet<FileStatus> pathlist=MakeIndex.getInputList(this.fs,this.inputBase,partionDays,submatch);
+  long dusize=0;
+  long mintime=Long.MAX_VALUE;
+  long maxtime=Long.MIN_VALUE;
+  for (  FileStatus p : pathlist) {
+    if (p.isDir()) {
+      dusize+=HadoopUtil.duSize(fs,p.getPath());
+    }
+ else {
+      dusize+=p.getLen();
+    }
+    long lasttimes=p.getModificationTime();
+    mintime=Math.min(mintime,lasttimes);
+    maxtime=Math.max(maxtime,lasttimes);
+  }
+  return partionvertify + "@" + dusize+ "@"+ pathlist.size()+ "@"+ parseDate(mintime)+ "@"+ parseDate(maxtime);
+}

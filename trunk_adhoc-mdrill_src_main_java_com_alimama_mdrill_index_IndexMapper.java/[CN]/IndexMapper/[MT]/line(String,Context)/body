@@ -40,15 +40,11 @@
     printlines++;
     System.out.println("res: " + res.toString() + " arrays,"+ Arrays.toString(values));
   }
-  this.doclist.add(res);
-  if (this.doclist.size() >= PER) {
-    context.write(new Text(String.valueOf(this.Index++)),new DocumentList(this.doclist));
-    this.doclist.clear();
-  }
+  context.write(new Text(String.valueOf(this.Index++)),new DocumentMap(res));
   if (this.isuniqcheck && res.containsKey(this.uniqfield)) {
     String notempty=res.get(this.uniqfield);
     if (notempty.length() > 0 && !notempty.equals("_")) {
-      context.write(new Text("uniq_" + notempty),new DocumentList());
+      context.write(new Text("uniq_" + notempty),new DocumentMap());
     }
   }
   return true;

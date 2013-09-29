@@ -1,0 +1,53 @@
+{
+  String key=basedir.getAbsolutePath();
+  Long expirestimes=cleartimes.contains(key) ? cleartimes.get(key) + checkinterval : checkinterval;
+  long nowtimes=System.currentTimeMillis();
+  if (expirestimes > nowtimes) {
+    LOG.info("nonclean " + key + ","+ expirestimes+ ","+ nowtimes);
+    return;
+  }
+  LOG.info("begin clean " + key + ","+ expirestimes+ ","+ nowtimes);
+  cleartimes.put(key,nowtimes);
+  Configuration conf=getConf();
+  FileSystem lfs=FileSystem.getLocal(conf);
+  Path basepath=new Path(key);
+  if (!lfs.exists(basepath)) {
+    return;
+  }
+  FileStatus[] list=lfs.listStatus(basepath);
+  if (list == null) {
+    return;
+  }
+  long cleantimes=nowtimes - cleanTimesinterval;
+  ArrayList<Path> toremove=new ArrayList<Path>();
+  ArrayList<cleanPair> toSave=new ArrayList<cleanPair>();
+  for (  FileStatus s : list) {
+    if (!s.isDir()) {
+      continue;
+    }
+    long lasttimes=Math.max(s.getAccessTime(),s.getModificationTime());
+    if (lasttimes < cleantimes) {
+      LOG.info("drop " + s.getAccessTime() + ","+ s.getModificationTime()+ ","+ cleantimes+ ","+ s.getPath().toString());
+      toremove.add(s.getPath());
+    }
+ else {
+      toSave.add(new cleanPair(s.getPath(),lasttimes));
+    }
+  }
+  for (  Path p : toremove) {
+    lfs.delete(p,true);
+  }
+  if (toSave.size() <= checkMaxDirCount) {
+    return;
+  }
+  Collections.sort(toSave,new Comparator<cleanPair>(){
+    @Override public int compare(    cleanPair o1,    cleanPair o2){
+      return o2.t.compareTo(o1.t);
+    }
+  }
+);
+  for (int i=checkMaxDirCount; i < toSave.size(); i++) {
+    cleanPair p=toSave.get(i);
+    lfs.delete(p.p,true);
+  }
+}

@@ -1,0 +1,7 @@
+{
+  System.out.println(String.valueOf(parseSplit("8@1")).equals(String.valueOf("\001")));
+  System.out.println(String.valueOf(parseSplit("8@5")).equals("\005"));
+  System.out.println(String.valueOf(parseSplit("8@10")).equals("\010"));
+  System.out.println(String.valueOf(parseSplit("16@10")).equals(String.valueOf((char)0x010)));
+  System.out.println(String.valueOf(parseSplit("16@11")).equals(String.valueOf((char)0x011)));
+}

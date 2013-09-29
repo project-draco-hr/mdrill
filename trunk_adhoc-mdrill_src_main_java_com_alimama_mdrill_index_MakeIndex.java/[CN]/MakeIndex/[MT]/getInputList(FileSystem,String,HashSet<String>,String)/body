@@ -1,0 +1,14 @@
+{
+  HashSet<FileStatus> rtn=new HashSet<FileStatus>();
+  for (  String input : inputs) {
+    Path p=new Path(inputBase,"*" + input + "*/"+ inputmatch+ "");
+    FileStatus[] list=fs.globStatus(p);
+    if (list == null) {
+      continue;
+    }
+    for (    FileStatus f : list) {
+      rtn.add(f);
+    }
+  }
+  return rtn;
+}

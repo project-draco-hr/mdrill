@@ -17,27 +17,11 @@
   this.dataType=UnInvertedFieldUtils.getDataType(this.ft);
   this.tnr=new TermNumReadSingle();
   String key=LuceneUtils.crcKey(reader);
-  boolean isUsedCache=!LinkFSDirectory.isRealTime() && searcher.getFieldcacheDir() != null;
-  if (isUsedCache) {
-    if (this.readUninvertCache(reader,searcher,startTime)) {
-      this.tnr.setUni(this);
-      this.dataType=UnInvertedFieldUtils.getDataType(this.ft);
-      total_time=(int)(System.currentTimeMillis() - startTime);
-      SolrCore.log.info("####UnInverted#### Load " + this.toString() + " "+ this.isMultiValued+ "@"+ key+ ",dataType="+ dataType+ ",");
-      return;
-    }
- else {
-      this.setdefault();
-    }
-  }
   this.dataType=UnInvertedFieldUtils.getDataType(this.ft);
   NumberedTermEnum te=ti.getEnumerator(reader);
   this.setSingleValue(te,reader,key);
   numTermsInField=te.getTermNumber();
   te.close();
-  if (isUsedCache) {
-    this.writeUnvertCache(reader,searcher);
-  }
   total_time=(int)(System.currentTimeMillis() - startTime);
   this.tnr.setUni(this);
   SolrCore.log.info("####UnInverted#### Create " + this.toString() + " "+ this.isMultiValued+ "@"+ key+ ",dataType="+ dataType+ ",");

@@ -1,0 +1,12 @@
+{
+  HashSet<String> namelist=this.mdrillpartion.getNameList(fs,this.inputBase,this.startday,dayDelay,maxRunDays);
+  HashMap<String,HashSet<String>> partions=this.mdrillpartion.indexPartions(namelist,startday,dayDelay,maxRunDays);
+  TreeMap<String,HashSet<String>> rtn=new TreeMap<String,HashSet<String>>(new Comparator<String>(){
+    @Override public int compare(    String o1,    String o2){
+      return o2.compareTo(o1);
+    }
+  }
+);
+  rtn.putAll(partions);
+  return rtn;
+}

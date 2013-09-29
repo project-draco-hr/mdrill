@@ -1,0 +1,4 @@
+{
+  this.list.add(res.getMap());
+  this.count++;
+}

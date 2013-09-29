@@ -16,7 +16,12 @@
       FileInputFormat.addInputPath(job,p);
     }
   }
-  String jobnameOutput=new String(output);
+  Path baseP=new Path(output);
+  Path baseParent=new Path(output);
+  if (baseP.getParent() != null && baseP.getParent().getParent() != null) {
+    baseParent=baseP.getParent().getParent();
+  }
+  String jobnameOutput=new String(baseParent.toString() + "*" + baseP.getName());
   int cutoutlen=50;
   if (jobnameOutput.length() > cutoutlen) {
     jobnameOutput="*" + jobnameOutput.substring(jobnameOutput.length() - cutoutlen,jobnameOutput.length());
@@ -45,9 +50,9 @@
   conf.set("higo.index.fields",fields);
   job.setMapperClass(IndexMapper.class);
   job.setMapOutputKeyClass(Text.class);
-  job.setMapOutputValueClass(DocumentList.class);
+  job.setMapOutputValueClass(DocumentMap.class);
   job.setReducerClass(IndexReducer.class);
-  job.setOutputKeyClass(Text.class);
+  job.setOutputKeyClass(IntWritable.class);
   job.setOutputValueClass(Text.class);
   job.setOutputFormatClass(SequenceFileOutputFormat.class);
   FileOutputFormat.setOutputPath(job,smallindex);
@@ -74,10 +79,11 @@
   job2.setJarByClass(JobIndexerPartion.class);
   job2.setInputFormatClass(SequenceFileInputFormat.class);
   SequenceFileInputFormat.addInputPath(job2,new Path(smallindex,"part-r-*"));
-  job2.setMapOutputKeyClass(Text.class);
+  job2.setMapOutputKeyClass(IntWritable.class);
   job2.setMapOutputValueClass(Text.class);
+  job2.setPartitionerClass(IntPartion.class);
   job2.setReducerClass(IndexReducerMerge.class);
-  job2.setOutputKeyClass(Text.class);
+  job2.setOutputKeyClass(IntWritable.class);
   job2.setOutputValueClass(Text.class);
   job2.setOutputFormatClass(SequenceFileOutputFormat.class);
   job2.setNumReduceTasks(shards);

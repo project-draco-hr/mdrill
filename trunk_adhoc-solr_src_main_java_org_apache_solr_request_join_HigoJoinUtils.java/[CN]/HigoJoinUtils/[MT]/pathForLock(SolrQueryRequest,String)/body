@@ -7,5 +7,5 @@
   if (!lockbase.exists()) {
     lockbase.mkdirs();
   }
-  return lockbase.getAbsolutePath();
+  return new File(lockbase.getAbsolutePath(),String.valueOf(hashcode % 100)).getAbsolutePath();
 }

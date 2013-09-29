@@ -1,0 +1,14 @@
+{
+  TreeMap<String,HashSet<String>> partions=this.getPartions();
+  Set<String> olds=parse.readPartion(this.index);
+  for (  Entry<String,HashSet<String>> e : partions.entrySet()) {
+    String partion=e.getKey();
+    olds.remove(partion);
+  }
+  for (  String old : olds) {
+    Path indexOtherPath=new Path(this.index,old);
+    if (this.fs.exists(indexOtherPath)) {
+      this.fs.delete(indexOtherPath,true);
+    }
+  }
+}

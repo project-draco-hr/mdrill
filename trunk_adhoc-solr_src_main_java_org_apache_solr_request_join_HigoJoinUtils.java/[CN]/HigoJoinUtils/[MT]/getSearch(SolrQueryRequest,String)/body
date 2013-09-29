@@ -1,5 +1,16 @@
 {
-  String path=pathToLocal(req,tablename);
+  String path=null;
+  TryLockFile lock=null;
+  try {
+    lock=new TryLockFile(HigoJoinUtils.pathForLock(req,tablename));
+    lock.trylock();
+    path=pathToLocal(req,tablename);
+  }
+  finally {
+    if (lock != null) {
+      lock.unlock();
+    }
+  }
   LOG.info("###joinpath###" + path);
   return req.getCore().getSearcherByPath(null,"join@" + SolrResourceLoader.getCacheFlushKey(null) + "@"+ String.valueOf(path),path,false,false,false);
 }

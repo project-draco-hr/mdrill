@@ -1,0 +1,4 @@
+{
+  HashMap<String,String> vertifyset=this.mdrillpartion.indexVertify(partions,shards,startday,dayDelay,maxRunDays);
+  return vertifyset;
+}
