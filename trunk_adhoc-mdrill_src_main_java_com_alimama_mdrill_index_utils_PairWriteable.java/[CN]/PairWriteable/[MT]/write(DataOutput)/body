@@ -1,0 +1,9 @@
+{
+  out.writeBoolean(this.isNum);
+  if (this.isNum) {
+    out.writeInt(this.index);
+  }
+ else {
+    this.uniq.write(out);
+  }
+}

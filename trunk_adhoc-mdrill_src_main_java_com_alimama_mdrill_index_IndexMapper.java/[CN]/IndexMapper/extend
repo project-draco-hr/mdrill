@@ -1,1 +1,1 @@
-Mapper<WritableComparable,Text,Text,DocumentMap>
+Mapper<WritableComparable,Text,PairWriteable,DocumentMap>

@@ -1,5 +1,8 @@
 {
   super.setup(context);
+  TaskID taskId=context.getTaskAttemptID().getTaskID();
+  this.Index=taskId.getId();
+  System.out.println("###########>>>>" + this.Index);
   String fieldStrs=context.getConfiguration().get("higo.index.fields");
   this.uniqfield=context.getConfiguration().get("uniq.check.field");
   if (this.uniqfield != null && this.uniqfield.length() > 0) {

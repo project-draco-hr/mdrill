@@ -38,7 +38,9 @@
         continue;
       }
       String currentVertify=this.getCurrentVertify(runPartion.partion,days,submatch);
+      System.out.println("vertify:" + runPartion.partion + ">>>"+ runPartion.partionvertify+ "<<<"+ currentVertify);
       if (!currentVertify.equals(runPartion.partionvertify)) {
+        System.out.println("##########changed#########");
         continue;
       }
       try {

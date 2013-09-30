@@ -4,6 +4,8 @@
   Configuration conf=context.getConfiguration();
   heartBeater=new HeartBeater(context);
   heartBeater.needHeartBeat();
+  this.doclistcache=new DocumentList();
+  this.ramMerger=new RamWriter();
   String fieldStrs=conf.get("higo.index.fields");
   String[] fieldslist=fieldStrs.split(",");
   this.documentConverter=new DocumentConverter(fieldslist,"solrconfig.xml","schema.xml");

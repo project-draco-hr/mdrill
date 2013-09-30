@@ -1,5 +1,11 @@
 {
   try {
+    RamWriter ram=doclistcache.toRamWriter(documentConverter,analyzer,context);
+    ramMerger.process(ram);
+    if (this.maybeFlush(ramMerger,context,true)) {
+      ramMerger=null;
+    }
+    doclistcache=new DocumentList();
     shardWriter.optimize();
     shardWriter.close();
     Configuration conf=context.getConfiguration();
@@ -11,6 +17,7 @@
     if (shardWriter.getNumDocs() > 0 && lastkey != null) {
       TaskID taskId=context.getTaskAttemptID().getTaskID();
       int partition=taskId.getId();
+      System.out.println("###########>>>>" + partition);
       context.write(new IntWritable(partition),new Text(indexHdfsPath));
     }
     FileSystem lfs=FileSystem.getLocal(conf);

@@ -1,0 +1,6 @@
+{
+  super();
+  this.isNum=true;
+  this.uniq=new Text();
+  this.index=index;
+}

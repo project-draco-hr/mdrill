@@ -1,0 +1,11 @@
+{
+  this.isNum=in.readBoolean();
+  this.uniq=new Text();
+  this.index=0;
+  if (this.isNum) {
+    this.index=in.readInt();
+  }
+ else {
+    this.uniq.readFields(in);
+  }
+}

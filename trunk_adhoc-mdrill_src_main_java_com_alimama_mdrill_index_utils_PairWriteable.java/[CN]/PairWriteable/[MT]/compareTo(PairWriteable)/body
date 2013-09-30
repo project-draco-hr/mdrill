@@ -1,0 +1,12 @@
+{
+  int rtn=this.isNum.compareTo(o.isNum);
+  if (rtn != 0) {
+    return rtn;
+  }
+  if (this.isNum) {
+    return this.index.compareTo(o.index);
+  }
+ else {
+    return this.uniq.compareTo(o.uniq);
+  }
+}
