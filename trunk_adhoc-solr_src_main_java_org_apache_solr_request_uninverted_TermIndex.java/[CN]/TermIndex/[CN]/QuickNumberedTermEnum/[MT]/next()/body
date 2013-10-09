@@ -2,14 +2,38 @@
   if (termNum >= this.termCount) {
     return false;
   }
+  if (this.isNonText) {
+    if ((termNum & intervalMask) == 0) {
+      textpos=this.quicktisInput.quicktisInput.readVLong();
+      long tpos=lasttxtPointer + textpos;
+      this.lasttxtPointer=tpos;
+      pos.add(tpos);
+    }
+    if (this.isReadDouble) {
+      vvvlong=this.quicktisInput.quicktisInputVal.readVVVLong();
+    }
+ else {
+      vvvlong=0l;
+    }
+    long pos=this.quicktisInput.quicktisInput.readVLong();
+    doccount=1;
+    if ((pos & 1) == 0) {
+      doccount=this.quicktisInput.quicktisInput.readVInt();
+    }
+    freqPos=(pos >> 1) + lastfreqPointer;
+    this.lastfreqPointer=freqPos;
+    termNumRtn=termNum;
+    termNum++;
+    return true;
+  }
   if ((termNum & intervalMask) == 0) {
-    text=this.quicktisInput.readString();
+    text=this.quicktisInput.quicktisInput.readString();
     this.ti.sizeOfStrings+=text.length() << 1;
     lst.add(text);
   }
-  vvvlong=this.quicktisInput.readVVVLong();
-  doccount=this.quicktisInput.readVInt();
-  long pos=this.quicktisInput.readVLong();
+  vvvlong=this.quicktisInput.quicktisInput.readVVVLong();
+  doccount=this.quicktisInput.quicktisInput.readVInt();
+  long pos=this.quicktisInput.quicktisInput.readVLong();
   freqPos=pos + lastfreqPointer;
   this.lastfreqPointer=freqPos;
   termNumRtn=termNum;

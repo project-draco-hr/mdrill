@@ -1,0 +1,49 @@
+{
+  SolrCore.log.info("####UnInverted#### SegmentReader begin");
+  this.field=field;
+  if (this.checkEmpty()) {
+    return;
+  }
+  long startTime=System.currentTimeMillis();
+  FieldType schemaft=schema.getFieldType(field);
+  String prefix=TrieField.getMainValuePrefix(schemaft);
+  SchemaField sf=schema.getField(field);
+  this.ft=sf.getType();
+  this.isMultiValued=ft.isMultiValued();
+  if (this.isMultiValued) {
+    throw new IOException("unsupport MultiValued");
+  }
+  this.dataType=UnInvertedFieldUtils.getDataType(this.ft);
+  this.tnr=new TermNumReadSingle();
+  String key=LuceneUtils.crcKey(reader);
+  this.dataType=UnInvertedFieldUtils.getDataType(this.ft);
+  this.ti=new TermIndex(field,prefix);
+  boolean isbyQuick=false;
+  try {
+    if (reader.isSupportQuick()) {
+      Long pos=reader.getQuickPos(this.field);
+      Integer cnt=reader.getQuickCount(this.field);
+      if (pos != null && cnt != null) {
+        Long posval=reader.getQuickDoublePos(this.field);
+        TermIndex.QuickNumberedTermEnum te=ti.getEnumerator(reader,reader.getQuickTis(),pos,cnt,posval,isreadDouble);
+        this.setSingleValue(te,reader,key,isreadDouble);
+        numTermsInField=te.getTermNumber();
+        te.close();
+        isbyQuick=true;
+      }
+    }
+  }
+ catch (  Throwable e) {
+    log.error("readFail",e);
+  }
+  if (!isbyQuick) {
+    log.info("#####isbyQuick false");
+    NumberedTermEnum te=ti.getEnumerator(reader);
+    this.setSingleValue(te,reader,key);
+    numTermsInField=te.getTermNumber();
+    te.close();
+  }
+  total_time=(int)(System.currentTimeMillis() - startTime);
+  this.tnr.setUni(this);
+  SolrCore.log.info("####UnInverted#### Create " + this.toString() + " "+ this.isMultiValued+ "@"+ key+ ",dataType="+ dataType+ ",");
+}

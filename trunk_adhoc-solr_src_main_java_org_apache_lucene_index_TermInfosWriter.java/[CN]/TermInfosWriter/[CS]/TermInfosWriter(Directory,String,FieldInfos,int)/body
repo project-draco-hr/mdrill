@@ -8,7 +8,7 @@
   }
   finally {
     if (!success) {
-      IOUtils.closeWhileHandlingException(output,outputSize,other,outputQuickTii,outputQuickTis);
+      IOUtils.closeWhileHandlingException(output,outputSize,other,outputQuickTii,outputQuickTis,outputQuickTisTxt,outputQuickTisVal);
     }
   }
 }

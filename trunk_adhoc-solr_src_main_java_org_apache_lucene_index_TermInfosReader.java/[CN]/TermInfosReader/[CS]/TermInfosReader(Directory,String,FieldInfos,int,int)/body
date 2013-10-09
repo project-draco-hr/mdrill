@@ -1,7 +1,6 @@
 {
   boolean success=false;
-  fieldPos=new ConcurrentHashMap<Integer,Long>();
-  fieldCount=new ConcurrentHashMap<Integer,Integer>();
+  quicktisInput=null;
   supportquick.set(false);
   if (indexDivisor < 1 && indexDivisor != -1) {
     throw new IllegalArgumentException("indexDivisor must be -1 (don't load terms index) or greater than 0: got " + indexDivisor);
@@ -13,25 +12,45 @@
     long tisfilesize=-1;
     String tisFileSize=IndexFileNames.segmentFileName(segment,IndexFileNames.TERMS_EXTENSION_SIZE);
     String quickTis=IndexFileNames.segmentFileName(segment,IndexFileNames.TERMS_EXTENSION_QUICK);
+    String quickTisTxt=IndexFileNames.segmentFileName(segment,IndexFileNames.TERMS_EXTENSION_QUICK_TXT);
+    String quickTisVal=IndexFileNames.segmentFileName(segment,IndexFileNames.TERMS_EXTENSION_QUICK_VAL);
     if (directory.fileExists(tisFileSize)) {
       IndexInput sizebuff=directory.openInput(tisFileSize,readBufferSize);
       tisfilesize=sizebuff.readLong();
       if (directory.fileExists(quickTis)) {
+        quicktisInput=new QuickInput();
+        if (directory.fileExists(quickTisTxt)) {
+          quicktisInput.isQuickTxtMode.set(true);
+        }
         if (directory instanceof FSDirectory) {
           FSDirectory dddir=(FSDirectory)directory;
           String absPath=dddir.getDirectory().getAbsolutePath();
-          quicktisInput=new BlockBufferInput(directory.openInput(quickTis,readBufferSize),absPath + "@" + quickTis);
+          quicktisInput.quicktisInput=new BlockBufferInput(directory.openInput(quickTis,readBufferSize),absPath + "@" + quickTis);
+          if (quicktisInput.isQuickTxtMode.get()) {
+            quicktisInput.quicktisInputTxt=new BlockBufferInput(directory.openInput(quickTisTxt,readBufferSize),absPath + "@" + quickTisTxt);
+            quicktisInput.quicktisInputVal=new BlockBufferInput(directory.openInput(quickTisVal,readBufferSize),absPath + "@" + quickTisVal);
+          }
         }
  else {
-          quicktisInput=directory.openInput(quickTis,readBufferSize);
+          quicktisInput.quicktisInput=directory.openInput(quickTis,readBufferSize);
+          if (quicktisInput.isQuickTxtMode.get()) {
+            quicktisInput.quicktisInputTxt=directory.openInput(quickTisTxt,readBufferSize);
+            quicktisInput.quicktisInputVal=directory.openInput(quickTisVal,readBufferSize);
+          }
         }
         int size=sizebuff.readInt();
         for (int i=0; i < size; i++) {
-          fieldPos.put(sizebuff.readInt(),sizebuff.readLong());
+          quicktisInput.fieldPos.put(sizebuff.readInt(),sizebuff.readLong());
         }
         size=sizebuff.readInt();
         for (int i=0; i < size; i++) {
-          fieldCount.put(sizebuff.readInt(),sizebuff.readInt());
+          quicktisInput.fieldCount.put(sizebuff.readInt(),sizebuff.readInt());
+        }
+        if (quicktisInput.isQuickTxtMode.get()) {
+          size=sizebuff.readInt();
+          for (int i=0; i < size; i++) {
+            quicktisInput.fieldPosVal.put(sizebuff.readInt(),sizebuff.readLong());
+          }
         }
         supportquick.set(true);
       }

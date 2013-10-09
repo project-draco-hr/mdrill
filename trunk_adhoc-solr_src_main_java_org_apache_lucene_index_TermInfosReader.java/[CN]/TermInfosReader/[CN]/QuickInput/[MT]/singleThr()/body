@@ -1,0 +1,11 @@
+{
+  QuickInput rtn=new QuickInput();
+  rtn.isQuickTxtMode.set(this.isQuickTxtMode.get());
+  rtn.quicktisInput=(this.quicktisInput == null ? null : (IndexInput)quicktisInput.clone());
+  rtn.quicktisInputTxt=this.quicktisInputTxt == null ? null : (IndexInput)quicktisInputTxt.clone();
+  rtn.quicktisInputVal=this.quicktisInputVal == null ? null : (IndexInput)quicktisInputVal.clone();
+  rtn.fieldPos=this.fieldPos;
+  rtn.fieldCount=this.fieldCount;
+  rtn.fieldPosVal=this.fieldPosVal;
+  return rtn;
+}

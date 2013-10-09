@@ -1,0 +1,6 @@
+SegmentReader reader
+TermInfosReader.QuickInput quicktisInput
+long pos
+int cnt
+Long pos2
+boolean isReadDouble

@@ -1,3 +1,0 @@
-{
-  return new QuickNumberedTermEnum(this,(IndexInput)quicktisInput.clone(),pos,cnt);
-}

@@ -1,9 +1,8 @@
 {
-  fieldCount=new ConcurrentHashMap<Integer,Integer>();
-  fieldPos=new ConcurrentHashMap<Integer,Long>();
   supportquick.set(false);
   if (this.quicktisInput != null) {
     quicktisInput.close();
+    quicktisInput=null;
   }
   if (this.isQuickMode.get()) {
     if (tiiInput != null) {

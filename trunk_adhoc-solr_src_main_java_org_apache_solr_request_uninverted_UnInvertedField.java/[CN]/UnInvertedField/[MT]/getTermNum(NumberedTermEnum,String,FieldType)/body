@@ -1,4 +1,7 @@
 {
+  if ((text.startsWith("_") || text.startsWith("null")) && !this.dataType.equals(Datatype.d_string)) {
+    return this.nullTermNum;
+  }
   if (te.skipTo(ft.toInternal(text))) {
     return te.getTermNumber();
   }

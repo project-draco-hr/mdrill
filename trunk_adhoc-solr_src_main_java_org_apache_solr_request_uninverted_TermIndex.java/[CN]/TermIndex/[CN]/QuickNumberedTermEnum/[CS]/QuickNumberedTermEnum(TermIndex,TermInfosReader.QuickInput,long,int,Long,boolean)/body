@@ -1,0 +1,14 @@
+{
+  this.isReadDouble=isReadDouble;
+  this.ti=ti;
+  this.quicktisInput=quicktisInput.singleThr();
+  this.quicktisInput.quicktisInput.seek(pos);
+  this.termCount=cnt;
+  this.termNum=0;
+  this.lst=new ArrayList<String>();
+  this.pos=new ArrayList<Long>();
+  this.isNonText=this.quicktisInput.isQuickTxtMode.get();
+  if (this.isNonText && this.isReadDouble) {
+    this.quicktisInput.quicktisInputVal.seek(pos2);
+  }
+}

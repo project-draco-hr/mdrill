@@ -9,12 +9,12 @@
   this.workerId=worker_id;
   this.active=new AtomicBoolean(true);
   this.zkActive=new AtomicBoolean();
-  this.zkClusterstate=Cluster.mk_distributed_cluster_state(conf);
-  this.zkCluster=Cluster.mk_storm_cluster_state(zkClusterstate);
-  shareCluster=this.zkCluster;
   if (StormConfig.cluster_mode(conf).equals("distributed")) {
     PathUtils.touch(StormConfig.worker_pid_path(conf,worker_id,StormUtils.process_pid()));
   }
+  this.zkClusterstate=Cluster.mk_distributed_cluster_state(conf);
+  this.zkCluster=Cluster.mk_storm_cluster_state(zkClusterstate);
+  shareCluster=this.zkCluster;
   this.stormConf=StormConfig.read_supervisor_storm_conf(conf,topology_id);
   if (this.mqContext == null) {
     int zmqThreads=StormUtils.parseInt(stormConf.get(Config.ZMQ_THREADS));

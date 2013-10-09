@@ -2,7 +2,7 @@
   int delta=termNumber - pos;
   if (delta < 0 || delta > tindex.interval || tenum == null) {
     int idx=termNumber >>> tindex.intervalBits;
-    String base=tindex.index[idx];
+    String base=tindex.index.get(idx);
     pos=idx << tindex.intervalBits;
     delta=termNumber - pos;
     if (tenum != null) {

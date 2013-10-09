@@ -6,7 +6,7 @@
     Integer fileNum=this.fieldInfos().fieldNumber(field);
     buff.append("#fileNum#" + String.valueOf(fileNum));
     if (fileNum != null && fileNum >= 0 && core != null && core.getTermsReader() != null) {
-      ConcurrentHashMap<Integer,Long> filepos=core.getTermsReader().fieldPos;
+      ConcurrentHashMap<Integer,Long> filepos=this.getQuickTis().fieldPos;
       if (filepos != null) {
         Long rtn=filepos.get(fileNum);
         buff.append("#pos#" + String.valueOf(rtn));

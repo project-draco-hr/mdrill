@@ -1,6 +1,6 @@
 {
   if (t != null && t.equals(target))   return true;
-  int startIdx=Arrays.binarySearch(tindex.index,target.text());
+  int startIdx=tindex.index.search(target.text());
   if (startIdx >= 0) {
     if (tenum != null)     tenum.close();
     tenum=reader.terms(target);
@@ -19,7 +19,7 @@
   }
  else {
     if (tenum != null)     tenum.close();
-    tenum=reader.terms(target.createTerm(tindex.index[startIdx]));
+    tenum=reader.terms(target.createTerm(tindex.index.get(startIdx)));
     pos=startIdx << tindex.intervalBits;
     setTerm();
   }

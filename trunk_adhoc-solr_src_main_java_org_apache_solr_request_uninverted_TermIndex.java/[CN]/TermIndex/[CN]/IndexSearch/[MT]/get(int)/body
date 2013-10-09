@@ -1,0 +1,6 @@
+{
+  if (quicktisInput == null) {
+    return index[i];
+  }
+  return getl(i);
+}

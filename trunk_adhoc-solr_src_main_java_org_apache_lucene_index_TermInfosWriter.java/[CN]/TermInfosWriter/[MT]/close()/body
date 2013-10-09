@@ -5,6 +5,12 @@
   if (outputQuickTis != null) {
     outputQuickTis.close();
   }
+  if (outputQuickTisVal != null) {
+    outputQuickTisVal.close();
+  }
+  if (outputQuickTisTxt != null) {
+    outputQuickTisTxt.close();
+  }
   try {
     outputSize.writeLong(size);
     outputSize.writeInt(fieldPos.size());
@@ -17,6 +23,11 @@
     for (    Entry<Integer,Integer> e : fieldCount.entrySet()) {
       outputSize.writeInt(e.getKey());
       outputSize.writeInt(e.getValue());
+    }
+    outputSize.writeInt(fieldPosVal.size());
+    for (    Entry<Integer,Long> e : fieldPosVal.entrySet()) {
+      outputSize.writeInt(e.getKey());
+      outputSize.writeLong(e.getValue());
     }
   }
   finally {

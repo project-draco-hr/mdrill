@@ -1,0 +1,3 @@
+{
+  uninvert(field,reader,schema,isreadDouble);
+}
