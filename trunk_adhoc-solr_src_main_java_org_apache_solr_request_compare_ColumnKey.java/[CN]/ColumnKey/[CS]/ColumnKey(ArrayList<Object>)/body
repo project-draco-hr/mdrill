@@ -1,0 +1,11 @@
+{
+  if (d.size() > 1) {
+    this.iscrc=true;
+    this.crc=(Long)d.get(0);
+    this.sort=(ArrayList<Object>)d.get(1);
+  }
+ else {
+    this.iscrc=false;
+    this.key=(String)d.get(0);
+  }
+}

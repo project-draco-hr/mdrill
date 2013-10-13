@@ -1,0 +1,4 @@
+{
+  DistinctCount vv=this.dist.get(UniqTypeNum.foundIndex(this.distFS,field));
+  return vv.getValue();
+}

@@ -1,11 +1,5 @@
 {
-  try {
-    conf=YamlUtils.getConfigFromYamlFile("adhoc-metric.yaml");
-  }
- catch (  IOException e) {
-    System.err.println("[" + sdf.format(new Date(System.currentTimeMillis())) + "] "+ "Error when open YAML File");
-    e.printStackTrace();
-  }
+  conf=Utils.readStormConfig("adhoc.yaml");
   metricServer=new MetricService();
   if (queryFrom.equals("hive")) {
     queryServer=new HiveQueryService(conf);

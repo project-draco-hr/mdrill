@@ -1,0 +1,3 @@
+{
+  return realField.equals("*") ? "higoempty_count_l" : realField;
+}

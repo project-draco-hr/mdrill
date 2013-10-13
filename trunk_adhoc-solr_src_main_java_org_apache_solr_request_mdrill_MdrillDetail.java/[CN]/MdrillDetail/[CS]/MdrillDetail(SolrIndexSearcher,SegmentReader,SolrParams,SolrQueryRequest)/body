@@ -4,5 +4,4 @@
   this.searcher=_searcher;
   this.parse=new MdrillParseDetail(_params);
   this.recordCount=new RecordCountDetail();
-  this.recordCount.setFinalResult(false);
 }

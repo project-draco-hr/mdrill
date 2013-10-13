@@ -1,0 +1,11 @@
+{
+  if (iscrc) {
+    ArrayList<Object> rtn=new ArrayList<Object>();
+    rtn.add(0,crc);
+    rtn.add(1,sort);
+    return rtn;
+  }
+  ArrayList<Object> rtn=new ArrayList<Object>();
+  rtn.add(0,key);
+  return rtn;
+}

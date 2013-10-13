@@ -1,0 +1,6 @@
+{
+  Map ret=readStormConfig();
+  Map storm=findAndReadConfigFile(filename,false);
+  ret.putAll(storm);
+  return ret;
+}

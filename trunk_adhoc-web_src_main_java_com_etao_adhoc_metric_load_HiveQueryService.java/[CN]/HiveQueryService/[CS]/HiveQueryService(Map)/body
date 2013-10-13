@@ -1,18 +1,3 @@
 {
-  String url=(String)conf.get("hive.conn.str");
-  String username=(String)conf.get("hive.username");
-  String password=(String)conf.get("hive.password");
-  try {
-    Class.forName("org.apache.hadoop.hive.jdbc.HiveDriver");
-    conn=DriverManager.getConnection(url,username,password);
-    stmt=conn.createStatement();
-  }
- catch (  ClassNotFoundException e) {
-    System.err.println("[" + sdf.format(new Date(System.currentTimeMillis())) + "] "+ "Can not find class: org.apache.hadoop.hive.jdbc.HiveDriver");
-    e.printStackTrace();
-  }
-catch (  SQLException e) {
-    System.err.println("[" + sdf.format(new Date(System.currentTimeMillis())) + "] "+ "Error when building HIVE Connection");
-    e.printStackTrace();
-  }
+  this.conf=conf;
 }

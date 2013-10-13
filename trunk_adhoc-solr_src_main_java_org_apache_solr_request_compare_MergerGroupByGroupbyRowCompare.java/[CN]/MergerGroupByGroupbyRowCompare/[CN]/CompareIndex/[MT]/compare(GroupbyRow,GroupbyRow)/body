@@ -1,5 +1,8 @@
 {
-  String[] values1=o1.getKey().split(UniqConfig.GroupJoinString());
-  String[] values2=o2.getKey().split(UniqConfig.GroupJoinString());
+  if (o1.getKey().isIscrc()) {
+    return UniqTypeNum.compare((Long)o1.getKey().getSort().get(0),(Long)o2.getKey().getSort().get(0));
+  }
+  String[] values1=o1.getKey().getKey().split(UniqConfig.GroupJoinString());
+  String[] values2=o2.getKey().getKey().split(UniqConfig.GroupJoinString());
   return UniqTypeNum.compareDecode(values1,values2);
 }

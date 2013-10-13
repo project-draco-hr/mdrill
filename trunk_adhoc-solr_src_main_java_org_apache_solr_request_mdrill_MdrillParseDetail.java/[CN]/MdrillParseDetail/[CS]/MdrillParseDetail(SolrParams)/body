@@ -13,4 +13,5 @@
   }
   this.sort_column_type=params.get("facet.cross.sort.cp");
   this.isdesc=params.getBool(FacetParams.FACET_CROSS_SORT_ISDESC,true);
+  this.crcOutputSet=params.get("mdrill.crc.key.set");
 }

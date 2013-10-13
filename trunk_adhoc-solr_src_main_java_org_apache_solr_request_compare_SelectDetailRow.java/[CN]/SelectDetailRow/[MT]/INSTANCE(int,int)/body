@@ -6,7 +6,6 @@
   rtn.docid=docid;
   rtn.value=value;
   rtn.key=null;
-  rtn.isFinalResult=false;
   rtn.colVal=null;
   return rtn;
 }

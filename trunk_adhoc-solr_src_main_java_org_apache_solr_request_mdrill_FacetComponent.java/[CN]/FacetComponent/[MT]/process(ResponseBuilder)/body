@@ -3,22 +3,19 @@
     return;
   }
   SolrParams params=rb.req.getParams();
-  NamedList res=new SimpleOrderedMap();
+  String[] facetFs=params.getParams(FacetParams.FACET_FIELD);
   try {
-    String[] facetFs=params.getParams(FacetParams.FACET_FIELD);
     if (null != facetFs) {
       boolean isdetail=params.getBool(FacetParams.FACET_CROSS_DETAIL,false);
-      res.add("solrCorssFields_s",this.getResult(isdetail,rb.req.getSearcher(),params,rb.req,facetFs,rb.getResults().docSet));
+      Object res=this.getResult(isdetail,rb.req.getSearcher(),params,rb.req,facetFs,rb.getResults().docSet);
+      rb.rsp.add("mdrill_data",res);
+    }
+ else {
+      throw new Exception("null != facetFs");
     }
   }
  catch (  Throwable e) {
     LOG.error("getFacetCounts",e);
     throw new SolrException(ErrorCode.SERVER_ERROR,e);
   }
-  SimpleOrderedMap facetResponse=new SimpleOrderedMap();
-  facetResponse.add("facet_queries",new SimpleOrderedMap());
-  facetResponse.add("facet_fields",res);
-  facetResponse.add("facet_dates",new SimpleOrderedMap());
-  facetResponse.add("facet_ranges",new SimpleOrderedMap());
-  rb.rsp.add("facet_counts",facetResponse);
 }

@@ -1,43 +1,11 @@
 {
   Metric metric=queryServer.getMetric(tablename,thedate);
   String queryServiceName=queryServer.getName();
-  int retry=3;
-  if (!queryServiceName.equals("HIGO")) {
-    retry=1;
+  if (metric == null) {
+    System.out.println(queryServiceName + " RETURN NULL");
   }
-  Set<Metric> history=new HashSet<Metric>();
-  boolean getResult=false;
-  for (int i=0; i < retry; i++) {
-    if (metric == null) {
-      System.out.println(queryServiceName + " RETURN NULL");
-    }
  else {
-      if (!queryServiceName.equals("HIGO") || history.contains(metric)) {
-        System.out.println("GET METRIC FROM " + queryServiceName + ": "+ metric);
-        metricServer.delete(metric);
-        metricServer.insert(metric);
-        getResult=true;
-        break;
-      }
- else {
-        try {
-          TimeUnit.SECONDS.sleep(10);
-        }
- catch (        InterruptedException e) {
-          e.printStackTrace();
-        }
-        history.add(metric);
-      }
-    }
-    metric=queryServer.getMetric(tablename,thedate);
-  }
-  if (history.size() > 1) {
-    System.out.println("DIFFERENT RESULTS FROM HIGO :");
-    for (    Metric m : history) {
-      System.out.println(m);
-    }
-  }
-  if (!getResult) {
-    System.out.println("GET METRIC FROM " + queryServiceName + "FAILED");
+    metricServer.delete(metric);
+    metricServer.insert(metric);
   }
 }

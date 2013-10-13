@@ -1,0 +1,46 @@
+{
+  for (  String showfield : showFields) {
+    if (showfield.equals("higoempty_groupby_forjoin_l")) {
+      continue;
+    }
+    if (jo.has(showfield)) {
+      continue;
+    }
+    if (showfield.startsWith("count(")) {
+      if (showfield.indexOf("higoempty_") >= 0) {
+        jo.put(showfield,String.valueOf(row.getValue()));
+      }
+ else {
+        String realField=parseRealField(showfield.substring(6,showfield.length() - 1));
+        double cnt=row.getStat(realField,"cnt");
+        jo.put(showfield,String.valueOf(cnt));
+      }
+    }
+    if (showfield.startsWith("sum(")) {
+      String realField=parseRealField(showfield.substring(4,showfield.length() - 1));
+      jo.put(showfield,String.valueOf(row.getStat(realField,"sum")));
+    }
+    if (showfield.startsWith("max(")) {
+      String realField=parseRealField(showfield.substring(4,showfield.length() - 1));
+      jo.put(showfield,String.valueOf(row.getStat(realField,"max")));
+    }
+    if (showfield.startsWith("min(")) {
+      String realField=parseRealField(showfield.substring(4,showfield.length() - 1));
+      jo.put(showfield,String.valueOf(row.getStat(realField,"min")));
+    }
+    if (showfield.startsWith("average(")) {
+      String realField=parseRealField(showfield.substring(8,showfield.length() - 1));
+      double cnt=row.getStat(realField,"cnt");
+      if (cnt != 0) {
+        jo.put(showfield,String.valueOf(row.getStat(realField,"sum") / cnt));
+      }
+ else {
+        jo.put(showfield,"0");
+      }
+    }
+    if (showfield.startsWith("dist(")) {
+      String realField=parseRealField(showfield.substring(5,showfield.length() - 1));
+      jo.put(showfield,row.getDist(realField));
+    }
+  }
+}

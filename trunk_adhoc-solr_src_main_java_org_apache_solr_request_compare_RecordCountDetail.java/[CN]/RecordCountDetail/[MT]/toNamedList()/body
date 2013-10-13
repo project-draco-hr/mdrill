@@ -1,9 +1,6 @@
 {
-  NamedList rtn=new NamedList();
-  rtn.add("recordcount",this.count);
-  rtn.add("count",Integer.MAX_VALUE);
-  if (!isFinalResult) {
-    rtn.add("rc",3);
-  }
+  ArrayList<Object> rtn=new ArrayList<Object>();
+  rtn.add(0,this.count);
+  rtn.add(1,3);
   return rtn;
 }

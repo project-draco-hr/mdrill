@@ -1,8 +1,7 @@
 {
   this.recordCount.setCrcRecord(groupname);
-  GroupbyRow row=new GroupbyRow(groupname,ref.val);
+  GroupbyRow row=new GroupbyRow(new ColumnKey(groupname),ref.val);
   row.setCross(this.parse.crossFs,this.parse.distFS);
-  row.setFinalResult(false);
   if (this.parse.hasStat()) {
     for (int i=0; i < this.parse.crossFs.length; i++) {
       RefRowStat s=ref.stat[i];

@@ -4,28 +4,30 @@
   }
   long t1=System.currentTimeMillis();
   FacetInfo fi=rb._facetInfo;
-  NamedList facet_counts=new SimpleOrderedMap();
-  facet_counts.add("facet_queries",new SimpleOrderedMap());
-  NamedList facet_fields=new SimpleOrderedMap();
-  facet_counts.add("facet_fields",facet_fields);
-  DistribFieldFacet dff=fi.cross;
-  NamedList fieldCounts=new NamedList();
-  facet_fields.add(dff.getKey(),fieldCounts);
-  int saverecords=dff.offset + dff.limit;
-  GroupbyItem[] counts=dff.getPairSorted(saverecords);
-  if (dff.recordcount != null) {
-    GroupbyItem recordcount=dff.recordcount;
-    fieldCounts.add(recordcount.getKey(),recordcount.toNamedList());
+  if (rb.req.getParams().get("mdrill.crc.key.get",null) != null) {
+    rb.rsp.add("mdrill_data",rb.crcvalue);
   }
-  int end=dff.limit < 0 ? counts.length : Math.min(dff.offset + dff.limit,counts.length);
-  for (int i=dff.offset; i < end; i++) {
-    GroupbyItem item=counts[i];
-    fieldCounts.add(item.getKey(),item.toNamedList());
+ else {
+    NamedList fieldCounts=new SimpleOrderedMap();
+    DistribFieldFacet dff=fi.cross;
+    int saverecords=dff.offset + dff.limit;
+    GroupbyItem[] counts=dff.getPairSorted(saverecords);
+    if (dff.recordcount != null) {
+      GroupbyItem recordcount=dff.recordcount;
+      fieldCounts.add("count",recordcount.toNamedList());
+    }
+    int end=dff.limit < 0 ? counts.length : Math.min(dff.offset + dff.limit,counts.length);
+    ArrayList<Object> list=new ArrayList<Object>();
+    for (int i=dff.offset; i < end; i++) {
+      GroupbyItem item=counts[i];
+      list.add(item.toNamedList());
+    }
+    fieldCounts.add("list",list);
+    rb.rsp.add("mdrill_data",fieldCounts);
   }
-  facet_counts.add("facet_dates",new SimpleOrderedMap());
-  facet_counts.add("facet_ranges",new SimpleOrderedMap());
   rb.rsp.add("mdrill_shard_time",rb.timetaken);
-  rb.rsp.add("facet_counts",facet_counts);
+  rb.crcvalue=new HashMap<Long,String>();
+  rb.timetaken=new LinkedHashMap<String,String>();
   rb._facetInfo=null;
   long t2=System.currentTimeMillis();
   LOG.info("##finishStage## time taken " + (t2 - t1));

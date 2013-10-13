@@ -2,7 +2,7 @@
   long t1=System.currentTimeMillis();
   Collection<GroupbyRow> collections=counts.values();
   int sz=counts.size();
-  final MergerGroupByGroupbyRowCompare cmp=new MergerGroupByGroupbyRowCompare(this.sort_column_type,this.facetFs,this.crossFs,this.distFS,this.joinSort,this.sort_fl,this.sort_type,this.isdesc);
+  final MergerGroupByGroupbyRowCompare cmp=this.createMergerGroupCmp();
   if (sz <= (saverecords * 2)) {
     GroupbyRow[] arr=new GroupbyRow[sz];
     int index=0;

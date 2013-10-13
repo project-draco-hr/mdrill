@@ -26,7 +26,7 @@
     buff.sortString=sortString;
     this.setGroupJoin(buff,ufs.length,doc);
     SelectDetailRow newrow=SelectDetailRow.INSTANCE(doc,row.getCompareValue());
-    newrow.setKey(buff.groupbuff.toString());
+    newrow.setKey(new ColumnKey(buff.groupbuff.toString()));
     newrow.colVal=buff.sortString;
     QueuePutUtils.put2QueueDetail(newrow,topItems,this.parse.limit_offset,this.container.cmpresult);
   }

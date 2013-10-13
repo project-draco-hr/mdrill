@@ -1,5 +1,4 @@
 {
   int rtn=foundIndex(list,fl,0);
-  LOG.info("####" + Arrays.toString(list) + "@"+ fl+ "@"+ rtn);
   return rtn;
 }

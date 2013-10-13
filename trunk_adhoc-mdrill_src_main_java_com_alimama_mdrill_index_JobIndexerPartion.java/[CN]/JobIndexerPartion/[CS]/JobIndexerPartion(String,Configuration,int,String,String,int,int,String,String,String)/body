@@ -1,0 +1,24 @@
+{
+  this.shards=_shards;
+  this.solrHome=_solrHome;
+  this.tmp=new Path(_solrHome,"tmp");
+  this.workDir=new Path(this.tmp,java.util.UUID.randomUUID().toString());
+  this.index=new Path(_solrHome,"index");
+  this.inputBase=_inputBase;
+  this.dayDelay=_dayplus;
+  this.maxRunDays=_maxRunDays;
+  this.startday=_startday;
+  this.filetype=_filetype;
+  this.fs=FileSystem.get(conf);
+  this.parse=new JobIndexParse(fs);
+  this.type=type;
+  this.mdrillpartion=MdrillPartions.INSTANCE(this.type);
+  String stormhome=System.getProperty("storm.home");
+  if (stormhome == null) {
+    stormhome=".";
+  }
+  String lockPathBase=stormhome + "/lock";
+  File file=new File(lockPathBase);
+  file.mkdirs();
+  flock=new TryLockFile(lockPathBase + "/" + tablename);
+}

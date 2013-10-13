@@ -1,0 +1,6 @@
+{
+  this.key=new ColumnKey((ArrayList<Object>)nst.get(0));
+  this.docid=(Integer)nst.get(2);
+  this.colVal=(String)nst.get(3);
+  this.value=(Integer)nst.get(4);
+}

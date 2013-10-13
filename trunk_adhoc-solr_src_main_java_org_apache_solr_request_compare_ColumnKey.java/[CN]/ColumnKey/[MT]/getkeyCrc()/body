@@ -1,0 +1,5 @@
+{
+  CRC32 crc32=new CRC32();
+  crc32.update(String.valueOf(this.key).getBytes());
+  return crc32.getValue();
+}

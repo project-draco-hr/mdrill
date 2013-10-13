@@ -1,4 +1,24 @@
 {
+  String crcget=params.get("mdrill.crc.key.get",null);
+  if (crcget != null) {
+    ConcurrentHashMap<Long,String> cache=MdrillUtils.CRC_CACHE_SIZE.remove(crcget);
+    Map<Long,String> crcvalue=new HashMap<Long,String>();
+    if (cache == null) {
+      return crcvalue;
+    }
+    String crcliststr=params.get("mdrill.crc.key.get.crclist");
+    if (crcliststr != null) {
+      String[] crclist=crcliststr.split(",");
+      for (      String s : crclist) {
+        Long crc=Long.parseLong(s);
+        String v=cache.get(crc);
+        if (v != null) {
+          crcvalue.put(crc,v);
+        }
+      }
+    }
+    return crcvalue;
+  }
   SolrIndexReader reader=searcher.getReader();
   IndexReader.InvertParams invparam=new IndexReader.InvertParams();
   invparam.searcher=searcher;
@@ -25,11 +45,13 @@
   GroupbyItem[] counts=dff.getPairSorted(limit_offset);
   if (dff.recordcount != null) {
     GroupbyItem recordcount=dff.recordcount;
-    fieldCounts.add(recordcount.getKey(),recordcount.toNamedList());
+    fieldCounts.add("count",recordcount.toNamedList());
   }
+  ArrayList<Object> list=new ArrayList<Object>();
   int end=limit_offset > counts.length ? counts.length : limit_offset;
   for (int i=offset; i < end; i++) {
-    fieldCounts.add(counts[i].getKey(),counts[i].toNamedList());
+    list.add(counts[i].toNamedList());
   }
+  fieldCounts.add("list",list);
   return fieldCounts;
 }

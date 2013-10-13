@@ -1,0 +1,7 @@
+{
+  this.sort=cmp.getCmpobj().getCompareValue(this);
+  this.crc=this.getkeyCrc();
+  cache.put(this.crc,this.key);
+  this.key=null;
+  this.iscrc=true;
+}

@@ -1,6 +1,6 @@
 {
   final Cache<ILruMemSizeKey,ILruMemSizeCache> cache=GrobalCache.fieldValueCache;
-  final ILruMemSizeKey key=new GrobalCache.StringKey("seg@" + String.valueOf(isreadDouble) + "@"+ partion+ "@"+ field+ "@"+ reader.getStringCacheKey()+ "@"+ LuceneUtils.crcKey(reader)+ "@"+ reader.getSegmentName());
+  final ILruMemSizeKey key=new GrobalCache.StringKey("seg@" + String.valueOf(isreadDouble) + "@"+ partion+ "@"+ field+ "@"+ reader.getStringCacheKey()+ "@"+ reader.uuid+ "@"+ LuceneUtils.crcKey(reader)+ "@"+ reader.getSegmentName());
   UnInvertedField uif=(UnInvertedField)cache.get(key);
   if (uif == null) {
     ExecutorCompletionService<UnivertPool> serv=new ExecutorCompletionService<UnivertPool>(pool);

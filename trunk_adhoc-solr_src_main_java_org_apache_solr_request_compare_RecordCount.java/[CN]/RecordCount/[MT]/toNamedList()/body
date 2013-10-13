@@ -1,7 +1,8 @@
 {
-  NamedList rtn=new NamedList();
-  if (!isFinalResult) {
-    return toNamelistForMerge(rtn);
-  }
-  return toNamelistForResult(rtn);
+  ArrayList<Object> rtn=new ArrayList<Object>();
+  rtn.add(0,this.isoversize ? "yes" : "no");
+  rtn.add(1,0);
+  rtn.add(2,maxUniqSize);
+  rtn.add(3,this.uniq);
+  return rtn;
 }

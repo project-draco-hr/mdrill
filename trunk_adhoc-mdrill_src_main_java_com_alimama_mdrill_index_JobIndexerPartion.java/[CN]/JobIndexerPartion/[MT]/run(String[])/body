@@ -27,8 +27,22 @@
     }
     if (runPartion != null) {
       System.out.println("vertify:" + runPartion.partion + ">>>"+ runPartion.partionvertify);
-      int ret=this.subRun(runPartion.days,runPartion.tmpindexOtherPath.toString(),split,split,parallel);
-      parse.writeStr(new Path(runPartion.tmpindexOtherPath,"vertify"),runPartion.partionvertify);
+      int ret=0;
+      try {
+        flock.trylock();
+        String currentvertify=this.getCurrentVertify(runPartion.partion,runPartion.days,submatch);
+        Path indexOtherPath=new Path(this.index,runPartion.partion);
+        Path otherveritify=new Path(indexOtherPath,"vertify");
+        if (currentvertify.equals(parse.readFirstLineStr(otherveritify))) {
+          System.out.println("##########finiesd by other process #########");
+          continue;
+        }
+        ret=this.subRun(runPartion.days,runPartion.tmpindexOtherPath.toString(),split,split,parallel);
+        parse.writeStr(new Path(runPartion.tmpindexOtherPath,"vertify"),runPartion.partionvertify);
+      }
+  finally {
+        flock.unlock();
+      }
       if (ret != 0) {
         return ret;
       }

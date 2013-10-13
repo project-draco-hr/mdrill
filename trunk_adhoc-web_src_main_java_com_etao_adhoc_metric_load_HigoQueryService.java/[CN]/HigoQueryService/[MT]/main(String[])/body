@@ -1,7 +1,0 @@
-{
-  Map conf=YamlUtils.getConfigFromYamlFile("adhoc-metric.yaml");
-  HigoQueryService higo=new HigoQueryService(conf);
-  Metric metric=higo.getMetric("auction",args[0]);
-  higo.close();
-  System.out.print(metric);
-}

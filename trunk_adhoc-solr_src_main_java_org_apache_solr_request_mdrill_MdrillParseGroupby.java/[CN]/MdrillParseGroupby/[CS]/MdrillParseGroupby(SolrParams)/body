@@ -1,4 +1,5 @@
 {
+  this.params=params;
   this.offset=params.getInt(FacetParams.FACET_CROSS_OFFSET,0);
   int limit=params.getInt(FacetParams.FACET_CROSS_LIMIT,100);
   this.limit_offset=this.offset + limit;
@@ -13,6 +14,7 @@
   if (this.joinList == null) {
     this.joinList=new String[0];
   }
+  this.crcOutputSet=params.get("mdrill.crc.key.set");
   this.preGroupList=params.getParams(FacetParams.FACET_CROSS_FL_PRE_GROUPS);
   if (this.preGroupList == null) {
     this.preGroupList=new String[0];

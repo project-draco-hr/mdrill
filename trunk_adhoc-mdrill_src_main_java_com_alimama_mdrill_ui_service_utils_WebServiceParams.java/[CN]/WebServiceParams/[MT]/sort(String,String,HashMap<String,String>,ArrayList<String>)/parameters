@@ -1,0 +1,4 @@
+String sort
+String order
+HashMap<String,String> fieldColumntypeMap
+ArrayList<String> groupbyFields

@@ -1,0 +1,4 @@
+{
+  ArrayList<Double> vv=this.stat.get(UniqTypeNum.foundIndex(this.crossFs,field));
+  return vv.get(typeIndex.get(type));
+}

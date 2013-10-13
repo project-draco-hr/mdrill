@@ -1,6 +1,6 @@
 {
   GroupbyRow instance=(GroupbyRow)o;
-  if (this.key == null || this.key.isEmpty()) {
+  if (this.key == null) {
     this.key=instance.key;
   }
   this.value+=instance.value;

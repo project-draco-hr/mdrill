@@ -1,0 +1,3 @@
+{
+  return index.getCompareValue(o1);
+}

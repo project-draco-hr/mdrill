@@ -7,5 +7,6 @@
       System.err.println("[" + sdf.format(new Date(System.currentTimeMillis())) + "] "+ "Error when close Connection");
       e.printStackTrace();
     }
+    conn=null;
   }
 }

@@ -1,7 +1,13 @@
 {
-  String[] values1=o1.getKey().split(UniqConfig.GroupJoinString());
-  String[] values2=o2.getKey().split(UniqConfig.GroupJoinString());
-  int cmp=UniqTypeNum.compareDecode(values1[fl_num],values2[fl_num]);
+  int cmp=0;
+  if (o1.getKey().isIscrc()) {
+    cmp=UniqTypeNum.compareDecode((String)o1.getKey().getSort().get(1),(String)o2.getKey().getSort().get(1));
+  }
+ else {
+    String[] values1=o1.getKey().getKey().split(UniqConfig.GroupJoinString());
+    String[] values2=o2.getKey().getKey().split(UniqConfig.GroupJoinString());
+    cmp=UniqTypeNum.compareDecode(values1[fl_num],values2[fl_num]);
+  }
   if (cmp == 0) {
     cmp=index.compare(o1,o2);
   }

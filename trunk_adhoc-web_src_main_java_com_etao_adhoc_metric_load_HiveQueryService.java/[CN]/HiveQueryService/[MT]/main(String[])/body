@@ -1,7 +1,0 @@
-{
-  Map conf=YamlUtils.getConfigFromYamlFile("adhoc-metric.yaml");
-  HiveQueryService hive=new HiveQueryService(conf);
-  Metric metric=hive.getMetric("auction",args[0]);
-  hive.close();
-  System.out.println(metric);
-}

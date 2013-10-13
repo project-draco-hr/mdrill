@@ -1,0 +1,7 @@
+SolrQuery query
+JSONObject jsonObj
+QueryResponse qr
+ArrayList<String> groupFields
+ArrayList<String> showFields
+HigoJoinParams[] joins
+LinkedHashMap<String,GroupbyRow> groupValueCacheLast

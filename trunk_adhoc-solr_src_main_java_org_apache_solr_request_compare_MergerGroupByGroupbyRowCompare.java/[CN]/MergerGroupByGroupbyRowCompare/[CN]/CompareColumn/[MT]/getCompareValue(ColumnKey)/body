@@ -1,0 +1,6 @@
+{
+  ArrayList<Object> list=index.getCompareValue(o1);
+  String[] values1=o1.getKey().split(UniqConfig.GroupJoinString());
+  list.add(1,values1[fl_num]);
+  return list;
+}

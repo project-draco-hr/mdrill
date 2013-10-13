@@ -1,0 +1,3 @@
+{
+  return new MergerGroupByGroupbyRowCompare(this.sort_column_type,this.facetFs,this.crossFs,this.distFS,this.joinSort,this.sort_fl,this.sort_type,this.isdesc);
+}

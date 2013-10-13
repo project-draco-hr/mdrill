@@ -1,0 +1,29 @@
+{
+  Integer rc=(Integer)nst.get(1);
+switch (rc) {
+case 0:
+{
+      groupby=new RecordCount(nst);
+      break;
+    }
+case 1:
+{
+    groupby=new GroupbyRow(nst);
+    break;
+  }
+case 2:
+{
+  groupby=new SelectDetailRow(nst);
+  break;
+}
+case 3:
+{
+groupby=new RecordCountDetail(nst);
+break;
+}
+default :
+{
+groupby=new RecordCount(nst);
+}
+}
+}

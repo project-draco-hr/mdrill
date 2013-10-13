@@ -1,20 +1,9 @@
 {
-  NamedList rtn=new NamedList();
-  rtn.add("count",value);
-  if (isFinalResult) {
-    NamedList stat=new NamedList();
-    stat.add("sum",0d);
-    stat.add("max",0d);
-    stat.add("min",0d);
-    stat.add("dist",0d);
-    rtn.add("higo_empty_s",stat);
-  }
- else {
-    rtn.add("rc",2);
-    rtn.add("docid",this.docid);
-    if (colVal != null) {
-      rtn.add("sortStr",colVal);
-    }
-  }
+  ArrayList<Object> rtn=new ArrayList<Object>();
+  rtn.add(0,this.key.toNamedList());
+  rtn.add(1,2);
+  rtn.add(2,this.docid);
+  rtn.add(3,colVal == null ? "" : colVal);
+  rtn.add(4,this.value);
   return rtn;
 }

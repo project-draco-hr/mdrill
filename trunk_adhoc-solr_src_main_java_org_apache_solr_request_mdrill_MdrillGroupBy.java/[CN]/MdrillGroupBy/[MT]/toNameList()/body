@@ -4,12 +4,31 @@
   Collections.sort(recommendations,this.container.cmpString);
   Integer index=0;
   NamedList res=new NamedList();
-  res.add(recordCount.getKey(),recordCount.toNamedList());
+  res.add("count",recordCount.toNamedList());
+  ConcurrentHashMap<Long,String> cache=null;
+  boolean issetCrc=this.parse.crcOutputSet != null;
+  MergerGroupByGroupbyRowCompare mergerCmp=null;
+  if (issetCrc) {
+synchronized (MdrillUtils.CRC_CACHE_SIZE) {
+      cache=MdrillUtils.CRC_CACHE_SIZE.get(this.parse.crcOutputSet);
+      if (cache == null) {
+        cache=new ConcurrentHashMap<Long,String>();
+        MdrillUtils.CRC_CACHE_SIZE.put(this.parse.crcOutputSet,cache);
+      }
+    }
+    FacetComponent.FieldFacet facet=new FacetComponent.FieldFacet(this.parse.params,"solrCorssFields_s");
+    mergerCmp=facet.createMergerGroupCmp();
+  }
+  ArrayList<Object> list=new ArrayList<Object>();
   for (  GroupbyRow kv : recommendations) {
     if (index >= this.parse.offset) {
-      res.add(kv.getKey(),kv.toNamedList());
+      if (issetCrc) {
+        kv.ToCrcSet(mergerCmp,cache);
+      }
+      list.add(kv.toNamedList());
     }
     index++;
   }
+  res.add("list",list);
   return res;
 }

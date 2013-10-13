@@ -1,7 +1,7 @@
 {
   long t1=System.currentTimeMillis();
   int sz=countsDetail.size();
-  final MergerDetailSelectDetailRowCompare cmp=new MergerDetailSelectDetailRowCompare(this.sort_column_type,this.isdesc);
+  final MergerDetailSelectDetailRowCompare cmp=this.createMergerDetailCmp();
   if (sz <= (saverecords * 2)) {
     SelectDetailRow[] arr=new SelectDetailRow[sz];
     int index=0;

@@ -1,0 +1,66 @@
+{
+  String[] crossFs=query.getParams(FacetParams.FACET_CROSS_FL);
+  String[] distFS=query.getParams(FacetParams.FACET_CROSSDIST_FL);
+  LinkedHashMap<String,GroupbyRow> groupValueCache=new LinkedHashMap<String,GroupbyRow>();
+  NamedList ff=(NamedList)qr.get_mdrillData();
+  ArrayList<Object> count=(ArrayList<Object>)ff.get("count");
+  RecordCount p=new RecordCount(count);
+  long totalRecord=p.getValue();
+  if (groupValueCacheLast == null) {
+    jsonObj.put("code","1");
+    jsonObj.put("message","success");
+    jsonObj.put("total",totalRecord);
+  }
+  JSONObject jsonObj2=new JSONObject();
+  JSONArray jsonArray=new JSONArray();
+  JSONArray jsonArray_debug=new JSONArray();
+  ArrayList<Object> facetCounts=(ArrayList<Object>)ff.get("list");
+  int fcsize=0;
+  if (facetCounts != null) {
+    fcsize=facetCounts.size();
+  }
+  if (groupValueCacheLast == null) {
+    for (int i=0; i < fcsize; i++) {
+      GroupbyRow row=new GroupbyRow((ArrayList<Object>)facetCounts.get(i));
+      row.setCross(crossFs,distFS);
+      String groupValues=row.getKey().getKey();
+      groupValueCache.put(groupValues,row);
+      JSONObject jo=new JSONObject();
+      setGroup(jo,groupFields,joins,groupValues);
+      setStat(jo,showFields,row);
+      jsonArray.add(i,jo);
+    }
+  }
+ else {
+    for (int i=0; i < fcsize; i++) {
+      GroupbyRow row=new GroupbyRow((ArrayList<Object>)facetCounts.get(i));
+      row.setCross(crossFs,distFS);
+      String groupValues=row.getKey().getKey();
+      groupValueCache.put(groupValues,row);
+    }
+    int index=0;
+    for (    Entry<String,GroupbyRow> e : groupValueCacheLast.entrySet()) {
+      JSONObject jo=new JSONObject();
+      JSONObject jo_debug=new JSONObject();
+      jo_debug.put("__higo_gruss__","false");
+      String groupValues=e.getKey();
+      GroupbyRow row=groupValueCache.get(groupValues);
+      if (row == null) {
+        row=e.getValue();
+        jo_debug.put("__higo_gruss__","true");
+      }
+      row.setCross(crossFs,distFS);
+      setGroup(jo,groupFields,joins,groupValues);
+      setStat(jo,showFields,row);
+      setGroup(jo_debug,groupFields,joins,groupValues);
+      setStat(jo_debug,showFields,row);
+      jsonArray.add(index,jo);
+      jsonArray_debug.add(index,jo_debug);
+      index++;
+    }
+  }
+  jsonObj2.put("docs",jsonArray);
+  jsonObj2.put("docs_debug",jsonArray_debug);
+  jsonObj.put("data",jsonObj2);
+  return groupValueCache;
+}

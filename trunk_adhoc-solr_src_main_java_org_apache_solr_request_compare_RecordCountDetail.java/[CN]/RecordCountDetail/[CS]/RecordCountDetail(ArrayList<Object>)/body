@@ -1,0 +1,3 @@
+{
+  this.count=(Long)nst.get(0);
+}

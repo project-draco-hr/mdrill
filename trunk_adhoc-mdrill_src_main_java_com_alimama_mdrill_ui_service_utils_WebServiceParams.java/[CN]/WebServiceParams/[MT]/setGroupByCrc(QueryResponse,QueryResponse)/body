@@ -1,0 +1,18 @@
+{
+  StringBuffer buff=new StringBuffer();
+  NamedList ff=(NamedList)qr.get_mdrillData();
+  Map<Long,String> crcvalue=(Map<Long,String>)qr2.get_mdrillData();
+  ArrayList<Object> facetCounts=(ArrayList<Object>)ff.get("list");
+  int fcsize=0;
+  if (facetCounts != null) {
+    fcsize=facetCounts.size();
+  }
+  ArrayList<Object> newlist=new ArrayList<Object>();
+  for (int i=0; i < fcsize; i++) {
+    GroupbyRow row=new GroupbyRow((ArrayList<Object>)facetCounts.get(i));
+    row.setKey(new ColumnKey(crcvalue.get(row.getKey().getCrc())));
+    newlist.add(row.toNamedList());
+  }
+  ff.remove("list");
+  ff.add("list",newlist);
+}

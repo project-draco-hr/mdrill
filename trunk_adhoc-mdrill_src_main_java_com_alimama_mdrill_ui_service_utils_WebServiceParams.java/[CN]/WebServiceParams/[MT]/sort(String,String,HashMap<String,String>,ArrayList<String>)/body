@@ -1,0 +1,88 @@
+{
+  String sortField=null;
+  String sortType=null;
+  String cmptype="string";
+  boolean isStat=false;
+  if (sort != null && !sort.equals("")) {
+    if (sort.startsWith("count(")) {
+      sortField=sort.substring(6,sort.length() - 1);
+      sortType="count";
+      cmptype="tdouble";
+      isStat=true;
+    }
+ else     if (sort.startsWith("sum(")) {
+      sortField=sort.substring(4,sort.length() - 1);
+      sortType="sum";
+      cmptype="tdouble";
+      isStat=true;
+    }
+ else     if (sort.startsWith("index(")) {
+      sortField=sort.substring(6,sort.length() - 1);
+      sortType="index";
+      cmptype="tdouble";
+      isStat=false;
+    }
+ else     if (sort.startsWith("average(")) {
+      sortField=sort.substring(8,sort.length() - 1);
+      sortType="avg";
+      cmptype="tdouble";
+      isStat=true;
+    }
+ else     if (sort.startsWith("max(")) {
+      sortField=sort.substring(4,sort.length() - 1);
+      sortType="max";
+      cmptype="tdouble";
+      isStat=true;
+    }
+ else     if (sort.startsWith("min(")) {
+      sortField=sort.substring(4,sort.length() - 1);
+      sortType="min";
+      cmptype="tdouble";
+      isStat=true;
+    }
+ else     if (sort.startsWith("dist(")) {
+      sortField=sort.substring(5,sort.length() - 1);
+      sortType="dist";
+      cmptype="tdouble";
+      isStat=true;
+    }
+ else {
+      sortField=sort;
+      sortType="column";
+      cmptype="string";
+      if (fieldColumntypeMap.containsKey(sortField)) {
+        cmptype=fieldColumntypeMap.get(sortField);
+      }
+      isStat=false;
+    }
+  }
+ else {
+    if (groupbyFields.size() > 0) {
+      sortField=groupbyFields.get(0);
+      sortType="column";
+      cmptype="string";
+      if (fieldColumntypeMap.containsKey(sortField)) {
+        cmptype=fieldColumntypeMap.get(sortField);
+      }
+      isStat=false;
+    }
+  }
+  if (order == null || order.equals("")) {
+    order="true";
+  }
+ else {
+    if (order.equals("desc")) {
+      order="true";
+    }
+ else     if (order.equals("asc")) {
+      order="false";
+    }
+ else {
+      order="true";
+    }
+  }
+  if (sortField == null) {
+    return new SortParam(null,sortType,order,sort,false,cmptype);
+  }
+  return new SortParam(sortField.equals("*") ? "higoempty_count_l" : sortField,sortType,order,sort,isStat,cmptype);
+}

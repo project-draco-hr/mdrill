@@ -1,0 +1,5 @@
+{
+  ArrayList<Object> rtn=new ArrayList<Object>();
+  rtn.add(0,o1.getkeyCrc());
+  return rtn;
+}

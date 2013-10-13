@@ -1,4 +1,5 @@
 {
+  this.open();
   String sql="INSERT INTO adhoc_metric" + "(thedate,type,tablename,linecnt,impression,finclick,finprice," + "alipay_direct_num,alipay_direct_amt,alipay_indirect_num,"+ "alipay_indirect_amt)"+ " VALUES(?,?,?,?,?,?,?,?,?,?,?) ";
   PreparedStatement pstmt;
   try {
@@ -15,9 +16,11 @@
     pstmt.setLong(10,metric.getAlipayIndirectNum());
     pstmt.setFloat(11,metric.getAlipayIndirectAmt());
     pstmt.executeUpdate();
+    System.out.println(pstmt.toString());
   }
  catch (  SQLException e) {
     System.err.println("[" + sdf.format(new Date(System.currentTimeMillis())) + "] "+ "Error when insert Metric: "+ metric);
     e.printStackTrace();
   }
+  this.close();
 }

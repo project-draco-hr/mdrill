@@ -29,7 +29,7 @@
   if (tabletype != null && !tabletype.isEmpty()) {
     type=tabletype;
   }
-  JobIndexerPartion index=new JobIndexerPartion(conf,shards,new Path(hdfsSolrDir,tablename).toString(),inputdir,3,maxday,startday,format,type);
+  JobIndexerPartion index=new JobIndexerPartion(tablename,conf,shards,new Path(hdfsSolrDir,tablename).toString(),inputdir,3,maxday,startday,format,type);
   ToolRunner.run(conf,index,jobValues);
   System.exit(0);
 }

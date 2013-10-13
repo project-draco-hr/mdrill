@@ -1,0 +1,11 @@
+{
+  this.key=new ColumnKey((ArrayList<Object>)nst.get(0));
+  ArrayList<byte[]> compress=(ArrayList<byte[]>)nst.get(2);
+  this.stat=(ArrayList<ArrayList<Double>>)nst.get(3);
+  this.value=(Long)nst.get(4);
+  int compresssize=compress.size();
+  this.dist=new ArrayList<DistinctCount>(compresssize);
+  for (int i=0; i < compresssize; i++) {
+    this.dist.add(new DistinctCount(compress.get(i)));
+  }
+}
