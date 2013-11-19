@@ -4,13 +4,22 @@
   }
   long formSize=form.totalSizeInBytes();
   Integer docs=form.getNumDocs();
+  if (docs <= 0) {
+    return false;
+  }
   if ((docs >= 1000 && formSize > minsize) || fource) {
-    context.getCounter("higo","docCount").increment(docs);
-    ;
-    doccount+=docs;
-    form.closeWriter();
-    shardWriter.process(form);
-    form.closeDir();
+    try {
+      context.getCounter("higo","docCount").increment(docs);
+      ;
+      doccount+=docs;
+      form.closeWriter();
+      shardWriter.process(form);
+      form.closeDir();
+    }
+ catch (    Throwable e) {
+      LOG.error("maybeFlush error",e);
+      throw new IOException(e);
+    }
     return true;
   }
   return false;

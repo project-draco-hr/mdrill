@@ -1,0 +1,13 @@
+{
+  ArmoryInfo info=getInfo(name);
+  JSONObject jsonObj=new JSONObject();
+  jsonObj.put("code","1");
+  JSONObject jsonObj2=new JSONObject();
+  JSONArray jsonArray=new JSONArray();
+  for (  ArmoryItemInfo i : info.info) {
+    jsonArray.put(i.tomap());
+  }
+  jsonObj2.put("docs",jsonArray);
+  jsonObj.put("data",jsonObj2);
+  return jsonObj.toString();
+}

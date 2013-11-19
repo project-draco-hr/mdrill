@@ -1,0 +1,11 @@
+{
+  index=0;
+  record=0;
+  pidnull=0;
+  processnull=0;
+  interfacenull=0;
+  lastsize_group_norep=0;
+  lastsize_host_norep=0;
+  lastsize=0;
+  groupnameEmpty=0;
+}

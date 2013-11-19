@@ -1,23 +1,26 @@
 {
-synchronized (this.getThrLockObj()) {
-    try {
-      rsyncExecute exe=new rsyncExecute(this,true);
-      EXECUTE.submit(exe);
-      while (!exe.isfinish() && !statcollect.isTimeout(1200l * 1000)) {
-        Thread.sleep(1000l);
+  try {
+    rsyncExecute exe=new rsyncExecute(this,true);
+    EXECUTE2.submit(exe);
+    while (!exe.isfinish() && !statcollect.isTimeout(1200l * 1000)) {
+      Thread.sleep(1000l);
+    }
+    if (statcollect.isTimeout(1200l * 1000)) {
+      statcollect.setLastTime(System.currentTimeMillis());
+    }
+    this.startService();
+    isInit.set(true);
+    LOG.info("higolog table end:" + this.tablename);
+    hb();
+    while (true) {
+      sleep();
+      if (!hbInterval.heartBeatInterval()) {
+        continue;
       }
-      if (statcollect.isTimeout(1200l * 1000)) {
-        statcollect.setLastTime(System.currentTimeMillis());
-      }
-      this.startService();
-      isInit.set(true);
-      LOG.info("higolog table end:" + this.tablename);
+      hb();
     }
- catch (    RuntimeException er) {
-      this.runException(er);
-    }
-catch (    Exception e) {
-      this.runException(e);
-    }
+  }
+ catch (  Throwable er) {
+    this.runException(er);
   }
 }

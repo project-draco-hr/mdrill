@@ -6,9 +6,6 @@
   if (adds.size() < maxNumToLog) {
     adds.add(cmd.getPrintableId(req.getSchema()));
   }
-  if (logDebug) {
-    log.debug("add {}",cmd.getPrintableId(req.getSchema()));
-  }
   numAdds++;
   if (next != null)   next.processAdd(cmd);
 }

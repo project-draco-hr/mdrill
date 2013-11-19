@@ -1,0 +1,41 @@
+{
+synchronized (lock) {
+synchronized (doclistBuffer_lock) {
+      int size=doclistBuffer.size();
+      if (size <= 0) {
+        return;
+      }
+    }
+    ArrayList<SolrInputDocument> flush=null;
+synchronized (doclistBuffer_lock) {
+      flush=doclistBuffer;
+      doclistBuffer=new ArrayList<SolrInputDocument>(UniqConfig.RealTimeDoclistBuffer());
+    }
+    DirectoryInfo buffer=bufferDirector.get(RAM_KEY);
+    if (buffer == null) {
+      buffer=new DirectoryInfo();
+      buffer.d=new RAMDirectory();
+      buffer.tp=DirectoryInfo.DirTpe.buffer;
+      LOG.info("####create buffer####" + this.extaLog());
+      bufferDirector.put(RAM_KEY,buffer);
+    }
+    buffer.d.setSchema(this.core.getSchema());
+    IndexWriter writer=new IndexWriter(buffer.d,null,new KeepOnlyLastCommitDeletionPolicy(),MaxFieldLength.UNLIMITED);
+    writer.setMergeFactor(10);
+    writer.setUseCompoundFile(false);
+    ArrayList<Document> doclist=new ArrayList<Document>(flush.size());
+    for (    SolrInputDocument sdoc : flush) {
+      if ("420434_1006".equals(sdoc.getFieldValue("pid"))) {
+        LOG.info("addDoc_debug33333 " + sdoc.toString() + ",termsCache.size="+ termsCache.size()+ this.extaLog());
+      }
+      sdoc.remove("mdrillPartion");
+      sdoc.remove("mdrillCmd");
+      sdoc.remove("mdrill_uuid");
+      Document lucenedoc=DocumentBuilder.toDocument(sdoc,core.getSchema());
+      doclist.add(lucenedoc);
+    }
+    writer.addDocuments(doclist);
+    writer.close();
+    this.maybeMerger();
+  }
+}

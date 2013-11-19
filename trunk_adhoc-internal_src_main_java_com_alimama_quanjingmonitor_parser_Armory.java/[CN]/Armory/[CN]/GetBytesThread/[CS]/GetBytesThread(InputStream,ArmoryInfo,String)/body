@@ -1,0 +1,5 @@
+{
+  this.name=name;
+  this.ramoryInfo=ramoryInfo;
+  this.reader=new BufferedReader(new InputStreamReader(input));
+}

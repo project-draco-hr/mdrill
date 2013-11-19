@@ -3,8 +3,14 @@
   InvertResult rtn=new InvertResult();
   rtn.setParams(schema,params);
   if (params.isdetail) {
-    MdrillDetail detail=new MdrillDetail(params.searcher,this,params.params,params.req);
-    rtn.setNamelist(detail.get(params.fields,params.base));
+    if (params.params.getBool("fetchfdt",false)) {
+      MdrillDetailFdt detail=new MdrillDetailFdt(params.searcher,this,params.params,params.req);
+      rtn.setNamelist(detail.get(params.fields,params.base));
+    }
+ else {
+      MdrillDetail detail=new MdrillDetail(params.searcher,this,params.params,params.req);
+      rtn.setNamelist(detail.get(params.fields,params.base));
+    }
   }
  else {
     MdrillGroupBy groupby=new MdrillGroupBy(params.searcher,this,params.params,params.req);

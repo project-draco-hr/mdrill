@@ -1,0 +1,18 @@
+{
+  List<String> rawData=rawDataReader.read();
+  List entries=new ArrayList(NEW_ENTRIES_COUNT);
+  if (rawData != null) {
+    for (    String str : rawData) {
+      try {
+        Object e=parser.parse(str);
+        stat.valid++;
+        entries.add(e);
+      }
+ catch (      InvalidEntryException iee) {
+        stat.invalid++;
+        stat.debugError(str,iee);
+      }
+    }
+  }
+  return entries;
+}

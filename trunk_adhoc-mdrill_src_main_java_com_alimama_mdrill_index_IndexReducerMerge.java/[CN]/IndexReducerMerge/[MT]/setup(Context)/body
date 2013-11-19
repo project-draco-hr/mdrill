@@ -1,6 +1,10 @@
 {
   super.setup(context);
   Configuration conf=context.getConfiguration();
+  isNotFdtMode=conf.get("mdrill.table.mode","").indexOf("@hdfs@") < 0;
+  if (!isNotFdtMode) {
+    TermInfosWriter.setSkipInterVal(16);
+  }
   String fieldStrs=conf.get("higo.index.fields");
   String[] fieldslist=fieldStrs.split(",");
   this.documentConverter=new DocumentConverter(fieldslist,"solrconfig.xml","schema.xml");

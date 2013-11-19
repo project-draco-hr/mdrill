@@ -1,5 +1,5 @@
 {
-  for (  Object obj : all_components(topology)) {
-    add_component_system_streams(obj);
+  for (  Object obj : Common.all_components(topology)) {
+    Common.add_component_system_streams(obj);
   }
 }

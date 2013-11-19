@@ -1,7 +1,0 @@
-{
-  IndexWriter writer=new IndexWriter(dir,null,new KeepOnlyLastCommitDeletionPolicy(),MaxFieldLength.UNLIMITED);
-  writer.setUseCompoundFile(false);
-  writer.setMergeFactor(10);
-  writer.setTermIndexInterval(16);
-  return writer;
-}

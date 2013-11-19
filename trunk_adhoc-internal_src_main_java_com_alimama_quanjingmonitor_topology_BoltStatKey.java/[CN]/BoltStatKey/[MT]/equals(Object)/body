@@ -1,0 +1,9 @@
+{
+  if (this == obj)   return true;
+  if (obj == null)   return false;
+  if (getClass() != obj.getClass())   return false;
+  BoltStatKey other=(BoltStatKey)obj;
+  if (isPidKey != other.isPidKey)   return false;
+  if (!Arrays.equals(list,other.list))   return false;
+  return true;
+}

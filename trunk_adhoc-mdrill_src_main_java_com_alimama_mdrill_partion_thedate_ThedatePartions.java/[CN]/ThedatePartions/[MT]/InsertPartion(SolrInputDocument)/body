@@ -1,0 +1,4 @@
+{
+  String thedate=String.valueOf(doc.getFieldValue("thedate"));
+  return ThedatePartionsUtils.parseDay(thedate,this.parttype);
+}

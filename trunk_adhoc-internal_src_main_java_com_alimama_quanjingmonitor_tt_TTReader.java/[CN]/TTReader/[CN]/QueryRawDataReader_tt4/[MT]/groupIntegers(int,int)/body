@@ -1,0 +1,19 @@
+{
+  int[][] result=new int[groupCount][];
+  int quotient=total / groupCount, remainder=total % groupCount;
+  int[] tails=new int[groupCount];
+  for (int i=0; i < groupCount; i++) {
+    result[i]=new int[quotient + (i < remainder ? 1 : 0)];
+    tails[i]=0;
+  }
+  int k=0;
+  for (int i=0; i < quotient; i++)   for (int j=0; j < groupCount; j++) {
+    int offset=tails[j]++;
+    result[j][offset]=k++;
+  }
+  for (int i=0; i < remainder; i++) {
+    int offset=tails[i]++;
+    result[i][offset]=k++;
+  }
+  return result;
+}

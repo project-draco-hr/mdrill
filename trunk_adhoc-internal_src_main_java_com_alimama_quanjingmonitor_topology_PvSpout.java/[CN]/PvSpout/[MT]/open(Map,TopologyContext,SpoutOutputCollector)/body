@@ -1,0 +1,12 @@
+{
+  this.timeoutCheck=new TimeOutCheck(20 * 1000l);
+  this.stat=new PvSpoutStat();
+  this.collector=collector;
+  int readerCount=context.getComponentTasks(context.getThisComponentId()).size();
+  int readerIndex=context.getThisTaskIndex();
+  try {
+    this.reader=new TTReader(conf,confPrefix,new P4PPVLogParser(),readerIndex,readerCount);
+  }
+ catch (  IOException e) {
+  }
+}

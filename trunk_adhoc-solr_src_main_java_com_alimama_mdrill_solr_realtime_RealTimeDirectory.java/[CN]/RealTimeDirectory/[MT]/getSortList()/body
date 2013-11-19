@@ -1,0 +1,8 @@
+{
+  ArrayList<Pair> list=new ArrayList<Pair>();
+  for (  Entry<String,DirectoryInfo> e : this.diskDirector.entrySet()) {
+    list.add(new Pair(e.getKey(),e.getValue()));
+  }
+  Collections.sort(list);
+  return list;
+}

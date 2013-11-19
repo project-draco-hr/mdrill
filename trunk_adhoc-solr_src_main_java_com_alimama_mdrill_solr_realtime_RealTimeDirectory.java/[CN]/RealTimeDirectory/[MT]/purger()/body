@@ -1,0 +1,4 @@
+{
+  this.remakeSearch();
+  SolrResourceLoader.SetCacheFlushKey(this.Partion,System.currentTimeMillis());
+}

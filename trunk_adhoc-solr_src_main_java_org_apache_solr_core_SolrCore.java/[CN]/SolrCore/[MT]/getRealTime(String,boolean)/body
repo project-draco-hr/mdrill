@@ -1,0 +1,60 @@
+{
+  String corename=this.getName();
+  if (corename == null) {
+    corename="";
+  }
+  PartionKey p=new PartionKey(corename,partion);
+  MdrillDirectory rtdir=null;
+synchronized (realtime) {
+    rtdir=realtime.get(p);
+    if (rtdir != null) {
+      if (forwrite) {
+        File f=new File(getDataDir(),partion);
+        realtime_forwrite.put(p,new RealTimeDirectory(f,HadoopUtil.hadoopConfDir,ShardPartion.getHdfsRealtimePath(p.tablename,p.partion).toString()));
+        realtime.remove(p);
+      }
+      rtdir.setPartion(p);
+      rtdir.setCore(this);
+      return rtdir;
+    }
+    rtdir=realtime_forwrite.get(p);
+    if (rtdir != null) {
+      rtdir.setCore(this);
+      rtdir.setPartion(p);
+      return rtdir;
+    }
+  }
+synchronized (realtime) {
+    rtdir=realtime.get(p);
+    if (rtdir != null) {
+      if (forwrite) {
+        File f=new File(getDataDir(),partion);
+        realtime_forwrite.put(p,new RealTimeDirectory(f,HadoopUtil.hadoopConfDir,ShardPartion.getHdfsRealtimePath(p.tablename,p.partion).toString()));
+        realtime.remove(p);
+      }
+      rtdir.setCore(this);
+      rtdir.setPartion(p);
+      return rtdir;
+    }
+    rtdir=realtime_forwrite.get(p);
+    if (rtdir != null) {
+      rtdir.setCore(this);
+      rtdir.setPartion(p);
+      return rtdir;
+    }
+    File f=new File(getDataDir(),partion);
+    if (forwrite) {
+      RealTimeDirectory ddd=new RealTimeDirectory(f,HadoopUtil.hadoopConfDir,ShardPartion.getHdfsRealtimePath(p.tablename,p.partion).toString());
+      rtdir=ddd;
+      realtime_forwrite.put(p,ddd);
+    }
+ else {
+      ReadOnlyDirectory ddd=new ReadOnlyDirectory(f,HadoopUtil.hadoopConfDir,ShardPartion.getHdfsRealtimePath(p.tablename,p.partion).toString());
+      rtdir=ddd;
+      realtime.put(p,ddd);
+    }
+    rtdir.setCore(this);
+    rtdir.setPartion(p);
+    return rtdir;
+  }
+}

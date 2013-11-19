@@ -1,0 +1,16 @@
+{
+  if (this.isChangeTs) {
+    long time=System.currentTimeMillis();
+    if ((lasttime + localMergerDelay) <= time) {
+      this.isChangeTs=false;
+      return true;
+    }
+    return false;
+  }
+  if (ts > this.lastts) {
+    this.lastts=ts;
+    this.isChangeTs=true;
+    this.reset();
+  }
+  return false;
+}

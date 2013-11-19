@@ -1,0 +1,4 @@
+{
+  AccessLogParser p=new AccessLogParser();
+  System.out.println(p.parse("114.97.229.243 0.016  16279 - [30/Oct/2013:18:11:04 +0800] \"GET http://tmatch.simba.taobao.com/?name=tbuad&count=5&q2cused=0&p4p=__p4p_sidebar__%2C__p4p_bottom__&keyword=artka%B9%D9%B7%BD%C6%EC%BD%A2%B5%EA&pid=420434_1006%2C420435_1006&sort=&ip=114.97.229.243&offset=13&rct=8&propertyid=&sbid=5&o=j&t=1383128141192\" 200 5264 \"http://s.taobao.com/search?spm=a230r.1.4.3.wmVJxl&q=artka%B9%D9%B7%BD%C6%EC%BD%A2%B5%EA&rs=up&rsclick=3&tab=all&promote=0&bcoffset=1&s=40\" "));
+}

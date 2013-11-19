@@ -1,7 +1,8 @@
 {
-  DocSet answer=filterCache.get(q);
-  if (answer != null) {
-    return answer;
+  QueryKey qk=new QueryKey(q,this.uuid);
+  QueryVal qv=(QueryVal)GrobalCache.fieldValueCache.get(qk);
+  if (qv != null) {
+    return qv.dset;
   }
   return null;
 }

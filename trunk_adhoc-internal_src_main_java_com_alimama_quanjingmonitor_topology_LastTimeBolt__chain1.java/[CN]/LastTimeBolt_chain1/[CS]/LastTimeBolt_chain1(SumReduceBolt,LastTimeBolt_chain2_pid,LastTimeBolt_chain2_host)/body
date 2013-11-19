@@ -1,0 +1,23 @@
+{
+  this.chain_pid=chain_pid;
+  this.chain_host=chain_host;
+  this.bufferMap=new TimeCacheMap<BoltStatKey,BoltStatVal>(60,this);
+  this.update=new TimeCacheMap.Update<BoltStatKey,BoltStatVal>(){
+    @Override public synchronized BoltStatVal update(    BoltStatKey key,    BoltStatVal old,    BoltStatVal newval){
+      if (old == null) {
+        return newval.copy();
+      }
+      BoltStatVal rtn=old.copy();
+      rtn.cnt+=newval.cnt;
+      rtn.cntnonclear+=newval.cntnonclear;
+      return rtn;
+    }
+  }
+;
+  this.clean=new TimeCacheMap.Timeout<BoltStatKey,BoltStatVal>(){
+    @Override public synchronized boolean timeout(    BoltStatKey key,    BoltStatVal val){
+      return LastTimeBolt_chain1.this.lasttimeout > (Long)key.list[0];
+    }
+  }
+;
+}

@@ -1,0 +1,11 @@
+{
+  if (timeoutCheck.istimeout(logTs)) {
+    this.lasttimeout=logTs;
+    bufferMap.fourceTimeout(this.clean,this.update);
+    timeoutCheck.reset();
+  }
+  int ramsize=bufferMap.size();
+  if (ramsize > 50000) {
+    bufferMap.fourceTimeout();
+  }
+}

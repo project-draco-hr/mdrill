@@ -14,10 +14,15 @@
       flags|=(NO_CHECK_QCACHE | NO_SET_QCACHE | NO_CHECK_FILTERCACHE);
     }
   }
-  if (queryResultCache != null && cmd.getFilter() == null && (flags & (NO_CHECK_QCACHE | NO_SET_QCACHE)) != ((NO_CHECK_QCACHE | NO_SET_QCACHE))) {
+  if (cmd.getFilter() == null && (flags & (NO_CHECK_QCACHE | NO_SET_QCACHE)) != ((NO_CHECK_QCACHE | NO_SET_QCACHE))) {
     key=new QueryResultKey(q,cmd.getFilterList(),cmd.getSort(),flags);
     if ((flags & NO_CHECK_QCACHE) == 0) {
-      superset=queryResultCache.get(key);
+      QueryResultKeyCache qk=new QueryResultKeyCache(key,this.uuid);
+      QueryVal qv=(QueryVal)GrobalCache.fieldValueCache.get(qk);
+      superset=null;
+      if (qv != null) {
+        superset=qv.dlist;
+      }
       if (superset != null) {
         if ((flags & GET_SCORES) == 0 || superset.hasScores()) {
           out.docList=superset.subset(cmd.getOffset(),cmd.getLen());
@@ -52,7 +57,7 @@
     }
   }
   boolean useFilterCache=false;
-  if ((flags & (GET_SCORES | NO_CHECK_FILTERCACHE)) == 0 && useFilterForSortedQuery && cmd.getSort() != null && filterCache != null) {
+  if ((flags & (GET_SCORES | NO_CHECK_FILTERCACHE)) == 0 && useFilterForSortedQuery && cmd.getSort() != null) {
     useFilterCache=true;
     SortField[] sfields=cmd.getSort().getSort();
     for (    SortField sf : sfields) {
@@ -75,7 +80,7 @@
     cmd.setSupersetMaxDoc(supersetMaxDoc);
     if ((flags & GET_DOCSET) != 0) {
       DocSet qDocSet=getDocListAndSetNC(qr,cmd);
-      if (qDocSet != null && filterCache != null && !qr.isPartialResults())       this.filterCachePut(cmd.getQuery(),qDocSet);
+      if (qDocSet != null && !qr.isPartialResults())       this.filterCachePut(cmd.getQuery(),qDocSet);
     }
  else {
       getDocListNC(qr,cmd);
@@ -84,6 +89,9 @@
     out.docList=superset.subset(cmd.getOffset(),cmd.getLen());
   }
   if (key != null && superset.size() <= queryResultMaxDocsCached && !qr.isPartialResults()) {
-    queryResultCache.put(key,superset);
+    QueryResultKeyCache qk=new QueryResultKeyCache(key,this.uuid);
+    QueryVal qv=new QueryVal();
+    qv.dlist=superset;
+    GrobalCache.fieldValueCache.put(qk,qv);
   }
 }

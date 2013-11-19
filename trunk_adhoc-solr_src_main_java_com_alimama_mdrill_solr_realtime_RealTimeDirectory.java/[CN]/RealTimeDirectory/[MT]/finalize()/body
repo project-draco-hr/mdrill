@@ -1,0 +1,11 @@
+{
+  try {
+    _cleaner.interrupt();
+    _doclistthr.interrupt();
+  }
+ catch (  Throwable e) {
+  }
+ finally {
+    super.finalize();
+  }
+}

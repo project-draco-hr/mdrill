@@ -1,0 +1,3 @@
+{
+  ArmoryGroup.getInfo(args[0]);
+}

@@ -1,5 +1,0 @@
-{
-  this.core=core;
-  this.day=day;
-  this.init();
-}

@@ -1,4 +1,5 @@
 {
+  logger.info("close " + this.filePath.getName() + " tlSum="+ tlSum+ ",tlCount="+ tlCount);
   if (!isClone) {
     if (isOpen) {
       descriptor.in.close();

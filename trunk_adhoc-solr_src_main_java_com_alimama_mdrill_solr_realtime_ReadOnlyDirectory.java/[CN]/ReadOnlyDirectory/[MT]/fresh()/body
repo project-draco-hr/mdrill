@@ -1,0 +1,63 @@
+{
+  diskDirector.clear();
+  Configuration conf=this.getConf();
+  FileSystem fs=FileSystem.get(conf);
+  Configuration conf_timeout=this.getConf();
+  conf_timeout.setInt("dfs.socket.timeout",5000);
+  FileSystem fstimeout=FileSystem.get(conf_timeout);
+  fs.mkdirs(new Path(hdfsPath).getParent());
+  path.mkdirs();
+  File links=new File(path,"indexLinks");
+  if (links.exists()) {
+    FileReader freader=new FileReader(links);
+    BufferedReader br=new BufferedReader(freader);
+    String s1=null;
+    while ((s1=br.readLine()) != null) {
+      if (s1.trim().length() > 0) {
+        if (s1.startsWith("@hdfs@")) {
+          Path p=new Path(s1.replaceAll("@hdfs@",""));
+          Path p2=new Path(p.getParent(),"sigment/" + p.getName());
+          if (!fs.exists(p) && !fs.exists(p2)) {
+            continue;
+          }
+          if (fs.exists(p2)) {
+            FileStatus[] sublist=fs.listStatus(p2);
+            if (sublist == null) {
+              continue;
+            }
+            for (            FileStatus ssss : sublist) {
+              FileSystemDirectory d=new FileSystemDirectory(fstimeout,ssss.getPath(),false,conf_timeout);
+              DirectoryInfo info=new DirectoryInfo();
+              info.d=d;
+              info.tp=DirectoryInfo.DirTpe.file;
+              diskDirector.put(s1 + "/sigment/" + ssss.getPath().getName(),info);
+              ishdfsmode=true;
+              SolrCore.log.info(">>>>>FileSystemDirectory hdfs add links " + ssss.getPath());
+            }
+          }
+ else {
+            FileSystemDirectory d=new FileSystemDirectory(fs,p,false,conf);
+            DirectoryInfo info=new DirectoryInfo();
+            info.d=d;
+            info.tp=DirectoryInfo.DirTpe.file;
+            diskDirector.put(s1,info);
+            ishdfsmode=true;
+            SolrCore.log.info(">>>>>FileSystemDirectory readOnlyOpen add links " + s1);
+          }
+        }
+        File f=new File(s1);
+        if (!f.exists()) {
+          continue;
+        }
+        FSDirectory d=LinkFSDirectory.open(f);
+        DirectoryInfo info=new DirectoryInfo();
+        info.d=d;
+        info.tp=DirectoryInfo.DirTpe.file;
+        diskDirector.put(s1,info);
+        SolrCore.log.info(">>>>>LinkFSDirectory readOnlyOpen add links " + s1);
+      }
+    }
+    br.close();
+    freader.close();
+  }
+}

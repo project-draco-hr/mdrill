@@ -1,0 +1,7 @@
+{
+synchronized (_lock) {
+    V old=this.getNolock(key);
+    V finalVal=d.update(key,old,newval);
+    this.putNolock(key,finalVal);
+  }
+}

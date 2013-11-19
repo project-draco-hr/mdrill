@@ -2,19 +2,13 @@
   List<Object> data=StormUtils.mk_list((Object)System.currentTimeMillis());
   this.collector.emit(data);
   try {
-    this.solr.heartbeat();
+    this.solr.checkError();
   }
- catch (  RuntimeException e1) {
+ catch (  Throwable e1) {
     LOG.error(StormUtils.stringify_error(e1));
     this.solr.unregister();
     this.collector.reportError(e1);
     throw new RuntimeException(e1);
-  }
-catch (  Exception e) {
-    LOG.error(StormUtils.stringify_error(e));
-    this.solr.unregister();
-    this.collector.reportError(e);
-    throw new RuntimeException(e);
   }
   this.collector.ack(input);
 }

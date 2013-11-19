@@ -1,0 +1,6 @@
+{
+  jetty.setConf(stormConf);
+  for (  SolrStartTable table : tables) {
+    table.setConf(stormConf);
+  }
+}

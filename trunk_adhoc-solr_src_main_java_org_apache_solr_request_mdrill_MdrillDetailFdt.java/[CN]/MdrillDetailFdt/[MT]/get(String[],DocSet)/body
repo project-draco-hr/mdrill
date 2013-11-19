@@ -1,0 +1,17 @@
+{
+  this.container=this.parse.createContainer(fields,baseDocs,this.reader,this.searcher,this.req);
+  DocIterator iter=baseDocs.iterator();
+  this.recordCount.inc(baseDocs.size());
+  Doclist res=new Doclist(this.parse.limit_offset);
+  int doc=-1;
+  while (iter.hasNext()) {
+    doc=iter.nextDoc();
+    res.add(doc);
+    if (res.index >= this.parse.limit_offset) {
+      break;
+    }
+  }
+  PriorityQueue<SelectDetailRow> topItems=this.transGroupValue(res,fields);
+  this.container.free();
+  return this.toNameList(topItems);
+}

@@ -1,0 +1,36 @@
+{
+  if (this.ishdfsmode) {
+    return;
+  }
+synchronized (lock) {
+    if (val.tp.equals(DirectoryInfo.DirTpe.buffer)) {
+      try {
+        this.mergerBuffer(val);
+        this.maybeMerger();
+      }
+ catch (      Throwable e) {
+        LOG.error("####expire buffer error ####" + this.extaLog(),e);
+      }
+      return;
+    }
+    if (val.tp.equals(DirectoryInfo.DirTpe.ram)) {
+      try {
+        this.mergerRam(val);
+        this.maybeMerger();
+      }
+ catch (      Throwable e) {
+        LOG.error("####expire ram error ####" + this.extaLog(),e);
+      }
+      return;
+    }
+    if (val.tp.equals(DirectoryInfo.DirTpe.delete)) {
+      try {
+        this.deleteDirector(val);
+      }
+ catch (      Throwable e) {
+        LOG.error("deleteDirector" + this.extaLog(),e);
+      }
+      return;
+    }
+  }
+}

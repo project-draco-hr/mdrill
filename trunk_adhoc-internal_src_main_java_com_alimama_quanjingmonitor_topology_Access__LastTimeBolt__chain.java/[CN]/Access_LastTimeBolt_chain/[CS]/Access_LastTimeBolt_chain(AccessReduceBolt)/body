@@ -1,0 +1,22 @@
+{
+  this.bolt=bolt;
+  this.RamDirector_access=new TimeCacheMap<BoltStatKey,AccessStatVal>(600,this);
+  this.doclistBuffer=new ArrayList<SolrInputDocument>(300);
+  this.update=new TimeCacheMap.Update<BoltStatKey,AccessStatVal>(){
+    @Override public AccessStatVal update(    BoltStatKey key,    AccessStatVal old,    AccessStatVal newval){
+      if (old == null) {
+        return newval.copy();
+      }
+      AccessStatVal rtn=old.copy();
+      rtn.merge(newval);
+      return rtn;
+    }
+  }
+;
+  this.clean=new TimeCacheMap.Timeout<BoltStatKey,AccessStatVal>(){
+    @Override public boolean timeout(    BoltStatKey key,    AccessStatVal val){
+      return Access_LastTimeBolt_chain.this.lasttimeout > (Long)key.list[0];
+    }
+  }
+;
+}

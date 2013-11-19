@@ -1,0 +1,6 @@
+{
+  BoltStatVal rtn=new BoltStatVal();
+  rtn.cnt=this.cnt;
+  rtn.cntnonclear=this.cntnonclear;
+  return rtn;
+}

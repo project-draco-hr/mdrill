@@ -1,0 +1,3 @@
+{
+  return "access " + formatHour.format(lastts) + ","+ doclistBuffer.size()+ ","+ RamDirector_access.size();
+}

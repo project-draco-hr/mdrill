@@ -1,4 +1,4 @@
 {
-  this.blockmode_compress=false;
   this.uptopos_compress=0;
+  this.uptopos_compress_record=0;
 }

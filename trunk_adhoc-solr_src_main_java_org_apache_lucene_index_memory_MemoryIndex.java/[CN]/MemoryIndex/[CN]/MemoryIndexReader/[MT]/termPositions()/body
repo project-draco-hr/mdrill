@@ -75,6 +75,8 @@
     public boolean isPayloadAvailable(){
       return false;
     }
+    @Override public void debug(    StringBuffer buff){
+    }
   }
 ;
 }

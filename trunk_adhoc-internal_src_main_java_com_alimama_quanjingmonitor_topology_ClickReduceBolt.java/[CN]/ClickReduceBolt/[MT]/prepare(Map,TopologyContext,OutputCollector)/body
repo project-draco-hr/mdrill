@@ -1,0 +1,6 @@
+{
+  this.timeoutCheck=new TimeOutCheck(20 * 1000l);
+  this.lasttimeUp_chain1=new Click_LastTimeBolt_chain(this);
+  this.collector=collector;
+  this.nolockbuffer=new HashMap<BoltStatKey,BoltStatVal>(10000);
+}

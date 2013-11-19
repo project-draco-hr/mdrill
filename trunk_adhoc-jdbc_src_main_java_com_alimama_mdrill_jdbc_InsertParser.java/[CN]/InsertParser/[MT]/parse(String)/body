@@ -1,0 +1,31 @@
+{
+  this.sql=sql;
+  CCJSqlParserManager parserManager=new CCJSqlParserManager();
+  Insert insert=(Insert)parserManager.parse(new StringReader(sql));
+  this.tablename=insert.getTable().getName();
+  fl=new String[insert.getColumns().size()];
+  for (int i=0; i < fl.length; i++) {
+    fl[i]=((Column)insert.getColumns().get(i)).getColumnName();
+  }
+  ExpressionList explist=((ExpressionList)insert.getItemsList());
+  JSONObject item=new JSONObject();
+  List expressions=explist.getExpressions();
+  for (int i=0; i < expressions.size(); i++) {
+    Object val=expressions.get(i);
+    if (val instanceof StringValue) {
+      StringValue vv=(StringValue)val;
+      item.put(fl[i],String.valueOf(vv.getValue()));
+    }
+    if (val instanceof LongValue) {
+      LongValue vv=(LongValue)val;
+      item.put(fl[i],String.valueOf(vv.getValue()));
+    }
+    if (val instanceof DoubleValue) {
+      DoubleValue vv=(DoubleValue)val;
+      item.put(fl[i],String.valueOf(vv.getValue()));
+    }
+  }
+  JSONArray list=new JSONArray();
+  list.put(item);
+  this.jsons=list.toString();
+}

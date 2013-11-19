@@ -1,0 +1,10 @@
+{
+  long memsize=0;
+  if (dset != null) {
+    memsize+=dset.memSize();
+  }
+  if (dlist != null) {
+    memsize+=dlist.memSize();
+  }
+  return memsize;
+}

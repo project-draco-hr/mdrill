@@ -1,0 +1,7 @@
+{
+  logger.info("params:" + params.toString());
+  this.offset=params.getInt(FacetParams.FACET_CROSS_OFFSET,0);
+  int limit=params.getInt(FacetParams.FACET_CROSS_LIMIT,100);
+  this.limit_offset=this.offset + limit;
+  this.crcOutputSet=params.get("mdrill.crc.key.set");
+}

@@ -1,7 +1,6 @@
 {
 synchronized (listlock) {
     search.reftime=System.currentTimeMillis();
-    search.get().SolrCoreClearCache();
     clearlist.add(search);
   }
   try {

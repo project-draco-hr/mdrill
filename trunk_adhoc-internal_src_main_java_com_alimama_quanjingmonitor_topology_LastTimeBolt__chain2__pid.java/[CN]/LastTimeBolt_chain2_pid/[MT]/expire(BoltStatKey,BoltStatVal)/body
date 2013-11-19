@@ -1,0 +1,28 @@
+{
+  long ts=60000 + (Long)key.list[0];
+  long ts5=300000 + ((Long)key.list[0] / 300000) * 300000;
+  Date d=new Date(ts);
+  Date d5=new Date(ts5);
+  SolrInputDocument doc=new SolrInputDocument();
+  doc.addField("thedate",formatDay.format(d));
+  doc.addField("mdrillPartion",formatPartion.format(d));
+  doc.addField("mdrillCmd","add");
+  doc.addField("higo_uuid",0);
+  doc.addField("miniute",formatDay2.format(d) + "T" + formatHour.format(d)+ "Z");
+  doc.addField("miniute5",formatDay2.format(d5) + "T" + formatHour.format(d5)+ "Z");
+  doc.addField("hour",formatHourStr.format(d));
+  doc.addField("logtype",this.bolt.type);
+  doc.addField("pid",key.list[1]);
+  doc.addField("groupName",key.list[2]);
+  doc.addField("namemodle",key.list[3]);
+  doc.addField("datanum_a",val.cnt);
+  doc.addField("datanum_b",val.cntnonclear);
+  boolean needCommit=false;
+synchronized (doclistLock) {
+    doclistBuffer.add(doc);
+    needCommit=doclistBuffer.size() > 200;
+  }
+  if (needCommit) {
+    this.commit();
+  }
+}

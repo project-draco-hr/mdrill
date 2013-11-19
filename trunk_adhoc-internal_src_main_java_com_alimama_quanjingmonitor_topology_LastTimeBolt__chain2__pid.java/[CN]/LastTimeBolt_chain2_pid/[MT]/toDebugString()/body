@@ -1,0 +1,5 @@
+{
+synchronized (doclistLock) {
+    return "pid " + doclistBuffer.size() + ","+ bufferMap.size();
+  }
+}

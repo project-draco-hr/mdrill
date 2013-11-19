@@ -1,0 +1,23 @@
+{
+  this.bolt=bolt;
+  this.bufferMap=new TimeCacheMap<BoltStatKey,BoltStatVal>(600,this);
+  this.doclistBuffer=new ArrayList<SolrInputDocument>(300);
+  this.update=new TimeCacheMap.Update<BoltStatKey,BoltStatVal>(){
+    @Override public synchronized BoltStatVal update(    BoltStatKey key,    BoltStatVal old,    BoltStatVal newval){
+      if (old == null) {
+        return newval.copy();
+      }
+      BoltStatVal rtn=old.copy();
+      rtn.cnt+=newval.cnt;
+      rtn.cntnonclear+=newval.cntnonclear;
+      return rtn;
+    }
+  }
+;
+  this.clean=new TimeCacheMap.Timeout<BoltStatKey,BoltStatVal>(){
+    @Override public synchronized boolean timeout(    BoltStatKey key,    BoltStatVal val){
+      return LastTimeBolt_chain2_pid.this.lasttimeout > (Long)key.list[0];
+    }
+  }
+;
+}

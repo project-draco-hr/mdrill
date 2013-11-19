@@ -1,0 +1,4 @@
+{
+  URL resource=super.getResource(name);
+  return resource != null ? resource : getLocalResource(name);
+}

@@ -1,0 +1,7 @@
+{
+  String buf="";
+  for (  File file : entries) {
+    buf+=file.getAbsolutePath() + ";";
+  }
+  return buf;
+}

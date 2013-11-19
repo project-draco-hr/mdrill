@@ -1,0 +1,6 @@
+{
+  this.sum+=rt;
+  this.cnt++;
+  this.max=this.max == 0 ? rt : Math.max(this.max,rt);
+  this.min=this.min == 0 ? rt : Math.min(this.max,rt);
+}

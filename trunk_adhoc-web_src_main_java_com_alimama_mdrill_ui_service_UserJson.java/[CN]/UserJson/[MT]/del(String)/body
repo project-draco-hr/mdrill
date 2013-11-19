@@ -1,0 +1,23 @@
+{
+  JSONObject jsonObj=new JSONObject();
+  jsonObj.put("code","0");
+  MySqlConn m_fpsql=getConn();
+  Connection conn=m_fpsql.getConn();
+  String strSql="delete from users_json  where userid=? ";
+  PreparedStatement m_fps=conn.prepareStatement(strSql);
+  try {
+    int index=1;
+    m_fps.setString(index++,userid);
+    m_fps.executeUpdate();
+    jsonObj.put("code","1");
+  }
+ catch (  Exception e) {
+    jsonObj.put("message",e.toString());
+    jsonObj.put("code","0");
+  }
+ finally {
+    m_fps.close();
+    m_fpsql.close();
+  }
+  return jsonObj.toString();
+}

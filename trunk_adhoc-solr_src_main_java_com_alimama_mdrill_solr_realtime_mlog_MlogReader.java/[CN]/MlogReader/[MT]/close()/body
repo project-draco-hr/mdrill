@@ -1,5 +1,0 @@
-{
-  if (this.currReader != null) {
-    this.currReader.close();
-  }
-}

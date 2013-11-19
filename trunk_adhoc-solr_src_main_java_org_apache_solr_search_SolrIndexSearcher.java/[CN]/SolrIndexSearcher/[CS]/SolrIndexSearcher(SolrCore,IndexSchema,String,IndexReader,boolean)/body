@@ -6,10 +6,6 @@
   this.name="Searcher@" + Integer.toHexString(hashCode()) + (name != null ? " " + name : "");
   log.info("Opening " + this.name);
   SolrIndexReader.setSearcher(reader,this);
-  if (r.directory() instanceof FSDirectory) {
-    FSDirectory fsDirectory=(FSDirectory)r.directory();
-    indexDir=fsDirectory.getDirectory().getAbsolutePath();
-  }
   this.closeReader=closeReader;
   setSimilarity(schema.getSimilarity());
   SolrConfig solrConfig=core.getSolrConfig();

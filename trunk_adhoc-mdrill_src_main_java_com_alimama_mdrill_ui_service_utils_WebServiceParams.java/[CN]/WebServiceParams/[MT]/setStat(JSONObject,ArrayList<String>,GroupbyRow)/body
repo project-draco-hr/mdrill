@@ -7,11 +7,11 @@
       continue;
     }
     if (showfield.startsWith("count(")) {
-      if (showfield.indexOf("higoempty_") >= 0) {
+      String realField=parseRealField(showfield.substring(6,showfield.length() - 1));
+      if (realField.indexOf("higoempty_") >= 0) {
         jo.put(showfield,String.valueOf(row.getValue()));
       }
  else {
-        String realField=parseRealField(showfield.substring(6,showfield.length() - 1));
         double cnt=row.getStat(realField,"cnt");
         jo.put(showfield,String.valueOf(cnt));
       }

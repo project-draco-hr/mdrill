@@ -1,0 +1,16 @@
+{
+  ArrayList<SolrInputDocument> buffer=null;
+synchronized (doclistLock) {
+    buffer=doclistBuffer;
+    doclistBuffer=new ArrayList<SolrInputDocument>(300);
+  }
+  if (buffer != null && buffer.size() > 0) {
+    try {
+      LOG.info("debug=>request:" + buffer.size());
+      MdrillService.insert("quanjingmointor_pid",buffer,null);
+    }
+ catch (    Throwable e) {
+      LOG.error("insert",e);
+    }
+  }
+}

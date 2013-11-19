@@ -1,0 +1,36 @@
+{
+  String s=null;
+  try {
+    Integer index=0;
+    HashMap<String,String> info=new HashMap<String,String>();
+    boolean skip=false;
+    while ((s=reader.readLine()) != null && index < 100000) {
+      index++;
+      if (s.indexOf("---------") >= 0) {
+        if (!skip && info.size() > 0) {
+          ramoryInfo.info.add(ArmoryItemInfo.INSTANCE(info));
+        }
+        info=new HashMap<String,String>();
+        skip=false;
+        continue;
+      }
+      String[] cols=s.split("[ ]+",-1);
+      if (cols.length >= 2 && !cols[0].isEmpty() && !cols[1].isEmpty()) {
+        if (cols[0].equals("nodename") && !cols[1].startsWith(name + ".")) {
+          info=new HashMap<String,String>();
+          skip=true;
+        }
+        if (!skip && SELECT_KEY.contains(cols[0])) {
+          info.put(cols[0],cols[1]);
+        }
+      }
+    }
+    this.reader.close();
+    if (!skip && info.size() > 0) {
+      ramoryInfo.info.add(ArmoryItemInfo.INSTANCE(info));
+    }
+  }
+ catch (  Throwable e) {
+    LOG.error("armory readLine:",e);
+  }
+}

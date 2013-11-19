@@ -1,0 +1,4 @@
+{
+  this.q=q;
+  this.key=key;
+}

@@ -16,6 +16,14 @@
   String localWorkDirList=(String)stormconf.get("higo.workdir.list");
   Integer msCount=StormUtils.parseInt(stormconf.get("higo.mergeServer.count"));
   Config conf=new Config();
+  String[] tablelist=tableName.split(",");
+  for (  String tbl : tablelist) {
+    String key="higo.mode." + tbl;
+    Object val=stormconf.get(key);
+    if (val != null) {
+      conf.put(key,val);
+    }
+  }
   conf.setNumWorkers(shards + msCount);
   conf.setNumAckers(1);
   conf.setMaxSpoutPending(100);

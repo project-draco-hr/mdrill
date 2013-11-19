@@ -1,0 +1,8 @@
+{
+  if (filesize != null) {
+    return filesize;
+  }
+  Long rtn=this.value.filelength();
+  filesize=rtn;
+  return rtn;
+}

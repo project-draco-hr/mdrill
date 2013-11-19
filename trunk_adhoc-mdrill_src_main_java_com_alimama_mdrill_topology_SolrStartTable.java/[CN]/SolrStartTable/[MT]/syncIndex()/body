@@ -1,7 +1,4 @@
 {
-  if (this.isRealTime) {
-    return false;
-  }
   if (this.isMergeServer) {
     return false;
   }

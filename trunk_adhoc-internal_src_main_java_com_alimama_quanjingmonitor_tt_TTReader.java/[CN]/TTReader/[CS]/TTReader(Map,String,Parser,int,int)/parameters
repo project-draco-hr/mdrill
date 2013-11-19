@@ -1,0 +1,5 @@
+Map conf
+String confPrefix
+Parser parser
+int readerIndex
+int readerCount

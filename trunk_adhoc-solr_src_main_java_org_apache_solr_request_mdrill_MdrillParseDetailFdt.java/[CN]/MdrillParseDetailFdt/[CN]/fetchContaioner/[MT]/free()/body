@@ -1,0 +1,4 @@
+{
+  GroupListCache.cleanFieldValueCache(groupbySize);
+  SelectDetailRow.CLEAN();
+}

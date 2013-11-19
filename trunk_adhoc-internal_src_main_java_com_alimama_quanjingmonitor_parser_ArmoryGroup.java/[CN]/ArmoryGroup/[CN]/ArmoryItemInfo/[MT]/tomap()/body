@@ -1,0 +1,9 @@
+{
+  HashMap<String,String> d=new HashMap<String,String>();
+  d.put("nodename",this.nodename);
+  d.put("dns_ip",this.dns_ip);
+  d.put("nodegroup",this.nodegroup);
+  d.put("product_name",this.product_name);
+  d.put("site",this.site);
+  return d;
+}

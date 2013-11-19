@@ -1,0 +1,10 @@
+{
+  while (true) {
+    File rtn=new File(new File(baseDir,"realtime"),String.valueOf(uniqIndex++) + "_" + java.util.UUID.randomUUID().toString());
+    if (rtn.exists()) {
+      continue;
+    }
+    rtn.mkdirs();
+    return rtn.getAbsolutePath();
+  }
+}

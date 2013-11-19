@@ -1,0 +1,7 @@
+{
+  this.uptopos_compress_record+=i;
+  buffer_compress[uptopos_compress++]=v;
+  if (uptopos_compress == BLOGK_SIZE_COMPRESS) {
+    flushCompressBlock();
+  }
+}

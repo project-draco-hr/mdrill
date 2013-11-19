@@ -21,7 +21,6 @@
   booleanQueryMaxClauseCount();
   initListeners();
   initDeletionPolicy();
-  initIndex();
   initWriters();
   initQParsers();
   initValueSourceParsers();

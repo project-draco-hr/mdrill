@@ -1,4 +1,5 @@
 {
+  this.numBuckets=numBuckets;
   if (numBuckets < 2) {
     throw new IllegalArgumentException("numBuckets must be >= 2");
   }
@@ -23,6 +24,7 @@ synchronized (_lock) {
             for (            Entry<K,V> entry : dead.entrySet()) {
               _callback.expire(entry.getKey(),entry.getValue());
             }
+            _callback.commit();
           }
         }
       }

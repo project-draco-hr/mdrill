@@ -1,0 +1,28 @@
+{
+  BoltStatKey key=(BoltStatKey)input.getValue(0);
+  BoltStatVal bv=(BoltStatVal)input.getValue(1);
+  BoltStatVal statval=nolockbuffer.get(key);
+  if (statval == null) {
+    statval=new BoltStatVal();
+    nolockbuffer.put(key,statval);
+  }
+  statval.cnt+=bv.cnt;
+  statval.cntnonclear+=bv.cntnonclear;
+  index++;
+  if ((index % 1000 != 0)) {
+    this.collector.ack(input);
+    return;
+  }
+  boolean isNotOvertime=!this.timeoutCheck.istimeout();
+  if (isNotOvertime && nolockbuffer.size() < BUFFER_SIZE) {
+    this.collector.ack(input);
+    return;
+  }
+  HashMap<BoltStatKey,BoltStatVal> buffer=nolockbuffer;
+  nolockbuffer=new HashMap<BoltStatKey,BoltStatVal>(BUFFER_SIZE);
+  this.lasttimeUp_chain1.updateAll(buffer,(Long)key.list[0]);
+  LOG.info("bolt flush:" + "@" + ",total=" + index + ",buffersize="+ buffer.size()+ ","+ this.lasttimeUp_chain1.toDebugString());
+  this.timeoutCheck.reset();
+  this.collector.ack(input);
+  index=0;
+}

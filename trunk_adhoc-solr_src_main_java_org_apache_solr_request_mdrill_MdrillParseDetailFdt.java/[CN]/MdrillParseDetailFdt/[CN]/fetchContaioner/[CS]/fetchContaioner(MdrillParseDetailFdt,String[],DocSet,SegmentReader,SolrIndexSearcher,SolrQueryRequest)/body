@@ -1,0 +1,4 @@
+{
+  this.parse=parse;
+  this.groupbySize=fields.length;
+}

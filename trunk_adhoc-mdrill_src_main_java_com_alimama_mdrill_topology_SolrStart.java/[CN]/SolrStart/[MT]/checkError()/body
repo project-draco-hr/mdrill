@@ -1,0 +1,6 @@
+{
+  jetty.checkError();
+  for (  SolrStartTable table : tables) {
+    table.checkError();
+  }
+}

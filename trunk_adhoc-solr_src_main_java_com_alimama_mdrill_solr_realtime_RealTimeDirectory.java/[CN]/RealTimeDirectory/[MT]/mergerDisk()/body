@@ -1,0 +1,26 @@
+{
+  long time=System.currentTimeMillis();
+  if ((lasttime + localMergerDelay) >= time) {
+    return;
+  }
+  lasttime=time;
+  while (true) {
+    if (this.diskDirector.size() <= UniqConfig.RealTimeLocalMergerFactory()) {
+      return;
+    }
+    LOG.info("####mergerDisk####" + this.extaLog());
+    ArrayList<Pair> list=this.getSortList();
+    DirectoryInfo d=new DirectoryInfo();
+    String path=this.mallocPath();
+    d.d=FSDirectory.open(new File(path));
+    d.tp=DirectoryInfo.DirTpe.file;
+    Pair p1=list.get(0);
+    Pair p2=list.get(1);
+    this.merger(p1.value,p2.value,d);
+    diskDirector.put(path,d);
+    this.maybeDelayClear(diskDirector.remove(p1.key));
+    this.maybeDelayClear(diskDirector.remove(p2.key));
+    this.remakeLinkFs();
+    this.purger();
+  }
+}

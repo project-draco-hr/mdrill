@@ -1,26 +1,86 @@
 {
+  String tablemode=String.valueOf(this.stormConf.get("higo.mode." + this.tablename));
+  boolean ishdfsmode=false;
+  if (tablemode.indexOf("@hdfs@") >= 0) {
+    ishdfsmode=true;
+  }
   Path localPartionWork=new Path(localIndexPath,key);
-  String partionDisk=IndexUtils.getPath(this.diskDirList,taskIndex,key.hashCode(),this.lfs);
-  Path localPartionStorePath=new Path(new Path(partionDisk,"higo"),tablename + "/" + this.params.compname+ "_"+ this.taskIndex+ "/"+ key);
-  boolean iscopy=false;
-  if (!this.isMergeServer) {
-    Path hdfsPartionShardPath=new Path(hdfspartion,IndexUtils.getHdfsForder(taskIndex));
-    iscopy=IndexUtils.copyToLocal(fs,lfs,hdfsPartionShardPath,localPartionStorePath,new Path(partionDisk,"higotmp/" + tablename + "/"+ this.params.compname+ "_"+ this.taskIndex),true);
-    if (!iscopy) {
-      copy2indexFailTimes.incrementAndGet();
-    }
-  }
+  Path hdfsPartionShardPath=new Path(hdfspartion,IndexUtils.getHdfsForder(taskIndex));
+  Path realtime=new Path(hdfsPartionShardPath,"realtime");
+  Path localrealtime=new Path(localPartionWork,"realtime");
   Path indexlinks=new Path(localPartionWork,"indexLinks");
-  if (iscopy || !lfs.exists(indexlinks)) {
-    IndexUtils.truncate(lfs,localPartionWork);
-    FSDataOutputStream outlinks=lfs.create(indexlinks);
-    if (!this.isMergeServer && iscopy) {
-      outlinks.write((new String(localPartionStorePath.toString() + "\r\n")).getBytes());
+  if (ishdfsmode) {
+    if (!lfs.exists(indexlinks)) {
+      IndexUtils.truncate(lfs,localPartionWork);
+      FSDataOutputStream outlinks=lfs.create(indexlinks);
+      outlinks.write((new String("@hdfs@" + hdfsPartionShardPath.toString() + "\r\n")).getBytes());
+      outlinks.close();
     }
-    outlinks.close();
   }
-  if (iscopy) {
-    boolean issuccess=IndexUtils.copyToLocal(fs,lfs,new Path(hdfspartion,"vertify"),new Path(localPartionWork,"vertify"),this.localTmpPath);
+ else {
+    boolean isnotrealtime=false;
+    try {
+      if (fs.exists(hdfsPartionShardPath)) {
+        FileStatus fstat=fs.getFileStatus(hdfsPartionShardPath);
+        if (!fstat.isDir()) {
+          isnotrealtime=true;
+        }
+      }
+ else {
+        isnotrealtime=true;
+      }
+    }
+ catch (    Throwable e) {
+      isnotrealtime=true;
+    }
+    if (!isnotrealtime && (fs.exists(realtime) || lfs.exists(localrealtime))) {
+      boolean iscopy=false;
+      if (IndexUtils.readReadTimeTs(lfs,localrealtime) < IndexUtils.readReadTimeTs(fs,realtime)) {
+        iscopy=IndexUtils.copyToLocal(fs,lfs,realtime,localrealtime,new Path(localPartionWork,"higotmp/" + tablename + "/"+ this.params.compname+ "_"+ this.taskIndex),true);
+        if (!iscopy) {
+          copy2indexFailTimes.incrementAndGet();
+        }
+      }
+      if (iscopy || !lfs.exists(indexlinks)) {
+        if (lfs.exists(localPartionWork)) {
+          FileStatus[] list=lfs.listStatus(localPartionWork);
+          if (list != null) {
+            for (            FileStatus s : list) {
+              if (!s.getPath().getName().equals("realtime")) {
+                lfs.delete(s.getPath(),true);
+              }
+            }
+          }
+        }
+        FSDataOutputStream outlinks=lfs.create(indexlinks);
+        FileStatus[] sublist=this.lfs.listStatus(localrealtime);
+        if (sublist != null) {
+          for (          FileStatus f : sublist) {
+            outlinks.write((new String(f.getPath().toString() + "\r\n")).getBytes());
+          }
+        }
+        outlinks.close();
+      }
+    }
+ else {
+      boolean iscopy=false;
+      String partionDisk=IndexUtils.getPath(this.diskDirList,taskIndex,key.hashCode(),this.lfs);
+      Path localPartionStorePath=new Path(new Path(partionDisk,"higo"),tablename + "/" + this.params.compname+ "_"+ this.taskIndex+ "/"+ key);
+      iscopy=IndexUtils.copyToLocal(fs,lfs,hdfsPartionShardPath,localPartionStorePath,new Path(partionDisk,"higotmp/" + tablename + "/"+ this.params.compname+ "_"+ this.taskIndex),true);
+      if (!iscopy) {
+        copy2indexFailTimes.incrementAndGet();
+      }
+      if (iscopy || !lfs.exists(indexlinks)) {
+        IndexUtils.truncate(lfs,localPartionWork);
+        FSDataOutputStream outlinks=lfs.create(indexlinks);
+        outlinks.write((new String(localPartionStorePath.toString() + "\r\n")).getBytes());
+        outlinks.close();
+      }
+    }
+  }
+  Path hdfsvertify=new Path(hdfspartion,"vertify");
+  if (fs.exists(hdfsvertify)) {
+    boolean issuccess=IndexUtils.copyToLocal(fs,lfs,hdfsvertify,new Path(localPartionWork,"vertify"),this.localTmpPath);
     if (!issuccess) {
       copy2indexFailTimes.incrementAndGet();
     }

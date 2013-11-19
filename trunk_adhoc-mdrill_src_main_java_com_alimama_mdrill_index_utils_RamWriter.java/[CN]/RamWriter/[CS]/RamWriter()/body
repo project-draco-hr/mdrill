@@ -1,5 +1,8 @@
 {
   dir=new RAMDirectory();
-  writer=null;
+  writer=new IndexWriter(dir,null,new KeepOnlyLastCommitDeletionPolicy(),MaxFieldLength.UNLIMITED);
+  writer.setUseCompoundFile(false);
+  writer.setMergeFactor(10);
+  writer.setTermIndexInterval(128);
   numDocs=0;
 }

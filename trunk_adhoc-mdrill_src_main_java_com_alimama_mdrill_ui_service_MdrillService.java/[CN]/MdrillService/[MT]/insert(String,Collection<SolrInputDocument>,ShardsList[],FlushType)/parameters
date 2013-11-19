@@ -1,0 +1,4 @@
+String projectName
+Collection<SolrInputDocument> docs
+ShardsList[] coresfortest
+FlushType tp

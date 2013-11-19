@@ -1,0 +1,3 @@
+{
+  return "InsertParser [sql=" + sql + ", tablename="+ tablename+ ", fl="+ Arrays.toString(fl)+ ", jsons="+ jsons+ "]";
+}

@@ -4,5 +4,12 @@
   if (stat.equals(ShardsState.SERVICE)) {
     timespan=1000l * 60 * 20;
   }
-  return isInit.get() && statcollect.isTimeout(timespan);
+  boolean istimeout=isInit.get() && statcollect.isTimeout(timespan);
+  if (istimeout) {
+    String tablemode=String.valueOf(this.stormConf.get("higo.mode." + this.tablename));
+    if (tablemode.indexOf("@hdfs@") >= 0) {
+      return false;
+    }
+  }
+  return istimeout;
 }

@@ -1,0 +1,21 @@
+{
+  if (!needFlushDfs.get() || isreadOnly.get()) {
+    return;
+  }
+  needFlushDfs.set(false);
+synchronized (lock) {
+    flushToDisk();
+    try {
+      saveToHdfs_makelist();
+    }
+ catch (    Throwable e) {
+      LOG.error("syncHdfs" + this.extaLog(),e);
+    }
+  }
+  try {
+    saveToHdfs();
+  }
+ catch (  Throwable e) {
+    LOG.error("syncHdfs" + this.extaLog(),e);
+  }
+}

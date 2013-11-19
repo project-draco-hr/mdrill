@@ -1,0 +1,6 @@
+{
+  jetty.setExecute(EXECUTE);
+  for (  SolrStartTable table : tables) {
+    table.setExecute(EXECUTE);
+  }
+}

@@ -1,7 +1,0 @@
-{
-  ByteBuffer bufsize=ByteBuffer.allocate(HEADSIZE);
-  this.read(bufsize,offset);
-  bufsize.rewind();
-  int size=bufsize.getInt();
-  return size + HEADSIZE;
-}

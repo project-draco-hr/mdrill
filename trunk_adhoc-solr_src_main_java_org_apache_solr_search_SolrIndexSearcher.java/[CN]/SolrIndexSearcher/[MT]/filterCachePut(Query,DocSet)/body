@@ -1,3 +1,6 @@
 {
-  filterCache.put(query,docset);
+  QueryKey qk=new QueryKey(query,this.uuid);
+  QueryVal qv=new QueryVal();
+  qv.dset=docset;
+  GrobalCache.fieldValueCache.put(qk,qv);
 }

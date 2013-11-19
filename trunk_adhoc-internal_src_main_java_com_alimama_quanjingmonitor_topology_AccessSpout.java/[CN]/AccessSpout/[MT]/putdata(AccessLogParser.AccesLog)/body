@@ -1,0 +1,51 @@
+{
+  boolean isover=false;
+  String pidlist=pv.pid;
+  if (pidlist == null || pidlist.isEmpty() || pv.name == null || pv.ts < 1 || pv.rt <= 0) {
+    this.stat.pidnull++;
+    return isover;
+  }
+  long ts=pv.ts;
+  long ts_300=(ts / 60000) * 60000;
+  String[] pids=pidlist.split(",",-1);
+  for (  String pid : pids) {
+    if (pid.isEmpty()) {
+      continue;
+    }
+    this.stat.lastsize++;
+    BoltStatKey key=new BoltStatKey(3);
+    key.list[0]=ts_300;
+    key.list[1]=pid;
+    key.list[2]=pv.name;
+    AccessStatVal statval=nolockbuffer.get(key);
+    if (statval == null) {
+      statval=new AccessStatVal();
+      nolockbuffer.put(key,statval);
+    }
+    statval.add(pv.rt);
+  }
+  this.stat.index++;
+  if ((this.stat.index % 1000 != 0)) {
+    return isover;
+  }
+  if (!this.timeoutCheck.istimeout() && nolockbuffer.size() < BUFFER_SIZE) {
+    return isover;
+  }
+  this.timeoutCheck.reset();
+  isover=true;
+  HashMap<BoltStatKey,AccessStatVal> buffer=null;
+  buffer=nolockbuffer;
+  LOG.info("####total:buffer.size=" + buffer.size() + ",ts:"+ formatHour.format(new Date(ts))+ ",stat:"+ this.stat.toString());
+  nolockbuffer=new HashMap<BoltStatKey,AccessStatVal>(BUFFER_SIZE);
+  this.stat.lastsize=0;
+  for (  Entry<BoltStatKey,AccessStatVal> e : buffer.entrySet()) {
+    BoltStatKey pkey=e.getKey();
+    long result=pkey.list[0].hashCode();
+    result=result * 31 + pkey.list[1].hashCode();
+    result=result * 31 + pkey.list[2].hashCode();
+    List<Object> data=StormUtils.mk_list((Object)pkey,e.getValue(),result);
+    collector.emit(data,SpoutUtils.uuid());
+  }
+  this.stat.reset();
+  return isover;
+}

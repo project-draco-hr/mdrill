@@ -13,7 +13,6 @@
   }
   JSONObject jsonObj2=new JSONObject();
   JSONArray jsonArray=new JSONArray();
-  JSONArray jsonArray_debug=new JSONArray();
   ArrayList<Object> facetCounts=(ArrayList<Object>)ff.get("list");
   int fcsize=0;
   if (facetCounts != null) {
@@ -41,26 +40,19 @@
     int index=0;
     for (    Entry<String,GroupbyRow> e : groupValueCacheLast.entrySet()) {
       JSONObject jo=new JSONObject();
-      JSONObject jo_debug=new JSONObject();
-      jo_debug.put("__higo_gruss__","false");
       String groupValues=e.getKey();
       GroupbyRow row=groupValueCache.get(groupValues);
       if (row == null) {
         row=e.getValue();
-        jo_debug.put("__higo_gruss__","true");
       }
       row.setCross(crossFs,distFS);
       setGroup(jo,groupFields,joins,groupValues);
       setStat(jo,showFields,row);
-      setGroup(jo_debug,groupFields,joins,groupValues);
-      setStat(jo_debug,showFields,row);
       jsonArray.add(index,jo);
-      jsonArray_debug.add(index,jo_debug);
       index++;
     }
   }
   jsonObj2.put("docs",jsonArray);
-  jsonObj2.put("docs_debug",jsonArray_debug);
   jsonObj.put("data",jsonObj2);
   return groupValueCache;
 }

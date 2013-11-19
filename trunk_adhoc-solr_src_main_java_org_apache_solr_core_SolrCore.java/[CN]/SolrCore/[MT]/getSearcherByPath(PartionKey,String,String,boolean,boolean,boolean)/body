@@ -31,8 +31,39 @@
       if (!f.exists()) {
         return null;
       }
-      Directory dir=getDirectoryFactory().open(f.getAbsolutePath());
-      IndexReader reader=getIndexReaderFactory().newReader(dir,true);
+      Directory dir=null;
+      IndexReader reader=null;
+      if (p == null) {
+        log.info("#######################getSearcher:" + partionKey + ":"+ f.getAbsolutePath()+ ",p=null");
+        dir=LinkFSDirectory.readOnlyOpen(f);
+        ;
+        reader=IndexReader.open(dir);
+      }
+ else       if (p.partion.equals("default")) {
+        RAMDirectory rd=new RAMDirectory();
+        IndexWriter writer=new IndexWriter(rd,null,new KeepOnlyLastCommitDeletionPolicy(),MaxFieldLength.UNLIMITED);
+        writer.setMergeFactor(10);
+        writer.setUseCompoundFile(false);
+        writer.close();
+        reader=IndexReader.open(rd);
+      }
+ else {
+        MdrillDirectory rtdir=getRealTime(p.partion,false);
+        List<Directory> list=rtdir.getForSearch();
+        IndexReader[] r=new IndexReader[list.size()];
+        for (int i=0; i < list.size(); i++) {
+          r[i]=IndexReader.open(list.get(i));
+        }
+        if (r.length == 1) {
+          reader=r[0];
+        }
+ else {
+          reader=new MultiReader(r,true);
+        }
+      }
+      if (dir == null) {
+        dir=FSDirectory.open(f);
+      }
       File cachedir=null;
       if (dir instanceof FSDirectory) {
         FSDirectory d=(FSDirectory)dir;

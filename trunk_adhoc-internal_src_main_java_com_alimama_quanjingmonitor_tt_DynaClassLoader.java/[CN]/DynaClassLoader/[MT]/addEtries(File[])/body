@@ -1,0 +1,3 @@
+{
+  this.entries.addAll(Arrays.asList(fs));
+}

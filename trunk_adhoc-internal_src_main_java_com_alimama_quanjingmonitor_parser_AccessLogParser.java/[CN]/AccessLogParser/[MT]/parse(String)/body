@@ -1,0 +1,27 @@
+{
+  try {
+    if (raw == null) {
+      throw new InvalidEntryException("Invalid log `" + String.valueOf(raw) + "'");
+    }
+    String[] cols=raw.split("[ ]+",-1);
+    if (cols.length < 7) {
+      throw new InvalidEntryException("Invalid log `" + raw + "'");
+    }
+    AccesLog rtn=new AccesLog();
+    int indexadd=0;
+    if (cols[3].indexOf("[") < 0) {
+      indexadd=1;
+    }
+    rtn.rt=Double.parseDouble(cols[1 + indexadd]);
+    rtn.ts=formatter.parse(cols[3 + indexadd]).getTime();
+    String url=cols[6 + indexadd].replaceAll("\"+","");
+    Map<String,String> params=getName(url);
+    rtn.pid=params.get("pid");
+    rtn.name=params.get("name");
+    return rtn;
+  }
+ catch (  Throwable nfe) {
+    nfe.printStackTrace();
+    throw new InvalidEntryException("Invalid log `" + raw + "'\n"+ nfe);
+  }
+}

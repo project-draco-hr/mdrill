@@ -2,16 +2,33 @@
   String stormroot=StormConfig.supervisor_stormdist_root(conf,topologyId);
   String stormjar=StormConfig.supervisor_stormjar_path(stormroot);
   Map stormConf=StormConfig.read_supervisor_storm_conf(conf,topologyId);
-  String classpath=StormUtils.current_classpath() + ":" + stormjar;
+  String[] classpath=(new String(StormUtils.current_classpath() + ":" + stormjar)).split(":");
+  String execute=(String)stormConf.get("worker.classpath.exclude");
+  ArrayList<String> finalclasspath=new ArrayList<String>();
+  for (  String s : classpath) {
+    if (execute == null || !s.matches(execute)) {
+      finalclasspath.add(s);
+    }
+  }
+  StringBuffer classpathBuffer=new StringBuffer();
+  String joinchar="";
+  for (  String s : finalclasspath) {
+    classpathBuffer.append(joinchar);
+    classpathBuffer.append(s);
+    joinchar=":";
+  }
   String childopts="";
+  if (conf.get(Config.WORKER_CHILDOPTS) != null) {
+    childopts="" + conf.get(Config.WORKER_CHILDOPTS);
+  }
   if (conf.get(Config.WORKER_CHILDOPTS + "." + port) != null) {
-    childopts+=conf.get(Config.WORKER_CHILDOPTS + "." + port);
+    childopts="" + conf.get(Config.WORKER_CHILDOPTS + "." + port);
   }
- else   if (conf.get(Config.WORKER_CHILDOPTS) != null) {
-    childopts+=conf.get(Config.WORKER_CHILDOPTS);
+  if (stormConf.get(Config.TOPOLOGY_WORKER_CHILDOPTS) != null) {
+    childopts=" " + stormConf.get(Config.TOPOLOGY_WORKER_CHILDOPTS);
   }
- else   if (stormConf.get(Config.TOPOLOGY_WORKER_CHILDOPTS) != null) {
-    childopts+=" " + stormConf.get(Config.TOPOLOGY_WORKER_CHILDOPTS);
+  if (stormConf.get(Config.TOPOLOGY_WORKER_CHILDOPTS + "." + port) != null) {
+    childopts=" " + stormConf.get(Config.TOPOLOGY_WORKER_CHILDOPTS + "." + port);
   }
   String stormhome=System.getProperty("storm.home");
   if (stormhome == null) {
@@ -32,7 +49,7 @@
   commandSB.append(stormhome);
   commandSB.append(" -Dlog4j.configuration=storm.log.properties");
   commandSB.append(" -cp ");
-  commandSB.append(classpath);
+  commandSB.append(classpathBuffer.toString());
   commandSB.append(" com.alipay.bluewhale.core.work.Worker ");
   commandSB.append(topologyId);
   commandSB.append(" ");

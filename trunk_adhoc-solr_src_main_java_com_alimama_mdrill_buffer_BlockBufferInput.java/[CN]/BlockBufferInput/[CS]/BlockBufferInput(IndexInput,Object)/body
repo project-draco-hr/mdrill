@@ -1,0 +1,6 @@
+{
+  super("BlockBufferInput",1024);
+  this.descriptor=new Descriptor(input);
+  this.isOpen=true;
+  this.key=key;
+}

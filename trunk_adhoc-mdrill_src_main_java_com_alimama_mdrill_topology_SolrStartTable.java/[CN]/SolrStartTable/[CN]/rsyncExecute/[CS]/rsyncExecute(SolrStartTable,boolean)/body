@@ -1,5 +1,4 @@
 {
-  super();
   this.obj=obj;
   this.issync=issync;
 }

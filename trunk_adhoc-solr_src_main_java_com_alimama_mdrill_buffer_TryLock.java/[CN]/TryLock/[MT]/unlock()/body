@@ -1,9 +1,0 @@
-{
-  try {
-    if (lockf != null) {
-      lockf.unlock();
-    }
-  }
- catch (  Exception e) {
-  }
-}

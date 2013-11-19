@@ -16,10 +16,11 @@
     HashSet<String> commonStatMap=new HashSet<String>();
     HashSet<String> distStatFieldMap=new HashSet<String>();
     WebServiceParams.setCrossStatMap(showFields,commonStatMap,distStatFieldMap);
+    Map stormconf=Utils.readStormConfig();
+    String mode=String.valueOf(stormconf.get("higo.mode." + part.name));
     LinkedHashMap<String,String> fieldColumntypeMap=readFieldsFromSchemaXml(part.name);
     SortParam sortType=WebServiceParams.sort(sort,order,fieldColumntypeMap,groupbyFields);
     ShardsList[] cores=GetShards.get(part.name,false);
-    Map stormconf=Utils.readStormConfig();
     for (int i=0; i < 10; i++) {
       if (cores.length != StormUtils.parseInt(stormconf.get("higo.shards.count"))) {
         if (i > 5) {
@@ -44,7 +45,7 @@
     GetPartions.Shards shard=GetPartions.getshard(part,partionsAll,cores,ms);
     HigoJoinParams[] joins=WebServiceParams.parseJoins(leftjoin,shard);
     ArrayList<String> fqList=WebServiceParams.fqList(queryStr,shard,fieldColumntypeMap);
-    String rtn=result(part,callback,fqList,shard,start,rows,sortType,groupbyFields,showFields,commonStatMap,distStatFieldMap,joins);
+    String rtn=result(part,callback,fqList,shard,start,rows,sortType,groupbyFields,showFields,commonStatMap,distStatFieldMap,joins,mode);
     long t2=System.currentTimeMillis();
     long timetaken=t2 - t1;
     LOG.info("timetaken:" + (timetaken) + ",logParams2:"+ logParams2);

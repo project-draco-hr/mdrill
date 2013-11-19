@@ -7,9 +7,11 @@
     String s1=null;
     while ((s1=br.readLine()) != null) {
       if (s1.trim().length() > 0) {
-        Path indexpath=new Path(s1);
-        if (lfs.exists(indexpath)) {
-          lfs.delete(new Path(s1),true);
+        if (s1.indexOf("@hdfs@") < 0) {
+          Path indexpath=new Path(s1);
+          if (lfs.exists(indexpath)) {
+            lfs.delete(new Path(s1),true);
+          }
         }
       }
     }

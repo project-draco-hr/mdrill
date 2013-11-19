@@ -1,0 +1,28 @@
+{
+  try {
+    for (int i=0; i < 100; i++) {
+      List ttdata=this.reader.read();
+      if (ttdata == null) {
+        return;
+      }
+      boolean isover=false;
+      for (      Object o : ttdata) {
+        this.stat.record++;
+        P4PPVLog pv=(P4PPVLog)o;
+        if (this.putdata(pv)) {
+          isover=true;
+        }
+      }
+      if (isover) {
+        return;
+      }
+    }
+  }
+ catch (  Throwable e) {
+    try {
+      Thread.sleep(100);
+    }
+ catch (    InterruptedException e1) {
+    }
+  }
+}

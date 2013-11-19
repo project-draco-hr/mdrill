@@ -1,0 +1,8 @@
+{
+  AccessStatVal rtn=new AccessStatVal();
+  rtn.cnt=this.cnt;
+  rtn.sum=this.sum;
+  rtn.max=this.max;
+  rtn.min=this.min;
+  return rtn;
+}

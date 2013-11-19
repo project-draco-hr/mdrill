@@ -1,0 +1,9 @@
+{
+  try {
+    this.obj.heartbeat();
+  }
+ catch (  Exception e) {
+    this.obj.errorCollect.setException(e);
+  }
+  isfinish.set(true);
+}

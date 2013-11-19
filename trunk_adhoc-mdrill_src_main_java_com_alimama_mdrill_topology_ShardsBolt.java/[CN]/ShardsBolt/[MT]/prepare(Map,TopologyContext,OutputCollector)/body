@@ -1,5 +1,6 @@
 {
   this.collector=collector;
+  this.EXECUTE=new ThreadPoolExecutor(3,3,1800l,TimeUnit.SECONDS,new LinkedBlockingQueue<Runnable>());
   try {
     this.conf=new Configuration();
     HadoopUtil.grabConfiguration(this.hadoopConfPath,this.conf);
@@ -9,7 +10,9 @@
     }
     Integer taskIndex=context.getThisTaskIndex();
     this.solr=new SolrStart(this.params,collector,conf,solrhome,tablename.split(","),storePath,this.portbase,taskIndex,this.topologyName,context.getThisTaskId(),this.partions);
+    this.solr.setExecute(this.EXECUTE);
     this.solr.setConfigDir(this.hadoopConfPath);
+    this.solr.setConf(stormConf);
     this.solr.setRealTime(this.isRealTime);
     this.solr.setMergeServer(!this.isRealTime && taskIndex >= this.shards);
     this.solr.start();

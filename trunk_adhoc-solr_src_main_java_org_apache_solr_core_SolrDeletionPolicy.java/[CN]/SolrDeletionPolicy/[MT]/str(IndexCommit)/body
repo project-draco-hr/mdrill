@@ -7,6 +7,10 @@
       FSDirectory fsd=(FSDirectory)dir;
       sb.append("dir=").append(fsd.getDirectory());
     }
+ else     if (dir instanceof FileSystemDirectory) {
+      FileSystemDirectory fsd=(FileSystemDirectory)dir;
+      sb.append("dir=").append(fsd.directory.toString());
+    }
  else {
       sb.append("dir=").append(dir);
     }

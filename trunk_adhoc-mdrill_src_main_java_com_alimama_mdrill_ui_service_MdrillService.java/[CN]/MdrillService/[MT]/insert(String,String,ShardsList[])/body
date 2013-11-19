@@ -1,0 +1,15 @@
+{
+  JSONArray jsonStr=new JSONArray(list.trim());
+  Collection<SolrInputDocument> docs=new ArrayList<SolrInputDocument>();
+  for (int i=0; i < jsonStr.length(); i++) {
+    SolrInputDocument doc=new SolrInputDocument();
+    JSONObject obj=jsonStr.getJSONObject(i);
+    Iterator keys=obj.keys();
+    while (keys.hasNext()) {
+      String key=(String)keys.next();
+      doc.addField(key,obj.get(key));
+    }
+    docs.add(doc);
+  }
+  return insert(projectName,docs,coresfortest,FlushType.buffer);
+}

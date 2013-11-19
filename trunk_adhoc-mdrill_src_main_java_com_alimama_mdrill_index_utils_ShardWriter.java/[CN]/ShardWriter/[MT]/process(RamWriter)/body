@@ -1,6 +1,8 @@
 {
   int docs=form.getNumDocs();
-  numDocs+=docs;
-  numForms++;
-  this.process(form.getDirectory());
+  if (docs > 0) {
+    numDocs+=docs;
+    numForms++;
+    this.process(form.getDirectory());
+  }
 }

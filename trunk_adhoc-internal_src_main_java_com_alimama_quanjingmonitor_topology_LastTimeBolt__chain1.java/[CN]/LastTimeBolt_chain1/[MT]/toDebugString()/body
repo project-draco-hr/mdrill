@@ -1,0 +1,3 @@
+{
+  return "LastTimeBolt_chain1 " + formatHour.format(lastts) + ","+ bufferMap.size()+ ","+ this.chain_host.toDebugString()+ ","+ this.chain_pid.toDebugString();
+}

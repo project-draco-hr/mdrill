@@ -1,0 +1,31 @@
+{
+  java.util.ArrayList<SelectDetailRow> recommendations=new ArrayList<SelectDetailRow>(topItems.size());
+  recommendations.addAll(topItems);
+  Collections.sort(recommendations,defcmp);
+  Integer index=0;
+  NamedList res=new NamedList();
+  res.add("count",recordCount.toNamedList());
+  ConcurrentHashMap<Long,String> cache=null;
+  boolean issetCrc=this.parse.crcOutputSet != null;
+  if (issetCrc) {
+synchronized (MdrillUtils.CRC_CACHE_SIZE) {
+      cache=MdrillUtils.CRC_CACHE_SIZE.get(this.parse.crcOutputSet);
+      if (cache == null) {
+        cache=new ConcurrentHashMap<Long,String>();
+        MdrillUtils.CRC_CACHE_SIZE.put(this.parse.crcOutputSet,cache);
+      }
+    }
+  }
+  ArrayList<Object> list=new ArrayList<Object>();
+  for (  SelectDetailRow kv : recommendations) {
+    if (index >= this.parse.offset) {
+      if (issetCrc) {
+        kv.ToCrcSet(cache);
+      }
+      list.add(kv.toNamedList());
+    }
+    index++;
+  }
+  res.add("list",list);
+  return res;
+}

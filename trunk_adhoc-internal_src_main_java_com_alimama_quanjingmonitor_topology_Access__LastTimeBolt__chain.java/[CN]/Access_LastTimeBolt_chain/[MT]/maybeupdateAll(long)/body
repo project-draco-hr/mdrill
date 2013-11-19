@@ -1,0 +1,12 @@
+{
+  if (timeoutCheck.istimeout(logTs)) {
+    this.lasttimeout=logTs;
+    RamDirector_access.fourceTimeout(this.clean,this.update);
+    timeoutCheck.reset();
+  }
+  int ramsize=RamDirector_access.size();
+  if (ramsize > 50000) {
+    RamDirector_access.fourceTimeout();
+  }
+  this.lastts=logTs;
+}

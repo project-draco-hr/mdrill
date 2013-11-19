@@ -1,0 +1,4 @@
+{
+  InputStream _super=super.getResourceAsStream(name);
+  return _super != null ? _super : getLocalResourceAsStream(name);
+}

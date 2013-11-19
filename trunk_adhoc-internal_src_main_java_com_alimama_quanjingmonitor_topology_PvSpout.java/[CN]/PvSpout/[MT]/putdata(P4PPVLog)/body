@@ -1,0 +1,102 @@
+{
+  boolean isover=false;
+  String namemodle=getName(pv.getQueryOriginURL());
+  if (namemodle == null || namemodle.isEmpty() || namemodle.length() > 50) {
+    this.stat.interfacenull++;
+    if (this.stat.interfacenull % 10000 == 0) {
+      LOG.info("interfacenull:" + pv.getQueryOriginURL());
+    }
+    return isover;
+  }
+  String pid=pv.getP4PPID();
+  if (pid == null || pid.isEmpty()) {
+    this.stat.pidnull++;
+    return isover;
+  }
+  String[] processList=String.valueOf(pv.getProcessPath()).split("-");
+  int onlyFirstAdd=1;
+  int onlyFirstAddhost=1;
+  long ts=Long.parseLong(pv.getTimestamp());
+  long ts_300=(ts / 60) * 60000;
+  HashSet<BoltStatKey> noreplication=new HashSet<BoltStatKey>(32);
+  HashSet<BoltStatKey> noreplicationMachine=new HashSet<BoltStatKey>(32);
+  for (  String process : processList) {
+    if (process == null || process.isEmpty()) {
+      this.stat.processnull++;
+      continue;
+    }
+    Armory.ArmoryInfo ainfo=Armory.getInfo(String.valueOf(process));
+    for (    ArmoryItemInfo item : ainfo.info) {
+      if (item.groupName == null || item.groupName.isEmpty()) {
+        this.stat.groupnameEmpty++;
+        continue;
+      }
+      this.stat.lastsize++;
+      BoltStatKey key=new BoltStatKey(4);
+      key.isPidKey=true;
+      key.list[0]=ts_300;
+      key.list[1]=pid;
+      key.list[2]=item.groupName;
+      key.list[3]=namemodle;
+      BoltStatKey host_key=new BoltStatKey(7);
+      host_key.isPidKey=false;
+      host_key.list[0]=ts_300;
+      host_key.list[1]=item.groupName;
+      host_key.list[2]=item.nodename;
+      host_key.list[3]=item.dns_ip;
+      host_key.list[4]=item.nodegroup;
+      host_key.list[5]=item.product_name;
+      host_key.list[6]=item.site;
+      if (!noreplication.contains(key)) {
+        this.stat.lastsize_group_norep++;
+        noreplication.add(key);
+        BoltStatVal statval=nolockbuffer.get(key);
+        if (statval == null) {
+          statval=new BoltStatVal();
+          nolockbuffer.put(key,statval);
+        }
+        statval.cnt+=onlyFirstAdd;
+        statval.cntnonclear+=1;
+        onlyFirstAdd=0;
+      }
+      if (!noreplicationMachine.contains(host_key)) {
+        this.stat.lastsize_host_norep++;
+        noreplicationMachine.add(host_key);
+        BoltStatVal host_val=nolockbuffer_machine.get(host_key);
+        if (host_val == null) {
+          host_val=new BoltStatVal();
+          nolockbuffer_machine.put(host_key,host_val);
+        }
+        host_val.cnt+=onlyFirstAddhost;
+        host_val.cntnonclear+=1;
+        onlyFirstAddhost=0;
+      }
+    }
+  }
+  this.stat.index++;
+  if ((this.stat.index % 1000 != 0)) {
+    return isover;
+  }
+  if (!this.timeoutCheck.istimeout() && nolockbuffer.size() < BUFFER_SIZE && nolockbuffer_machine.size() < BUFFER_SIZE) {
+    return isover;
+  }
+  this.timeoutCheck.reset();
+  isover=true;
+  HashMap<BoltStatKey,BoltStatVal> buffer=nolockbuffer;
+  HashMap<BoltStatKey,BoltStatVal> buffer_machine=nolockbuffer_machine;
+  LOG.info("####total:buffer.size=" + buffer.size() + "@"+ buffer_machine.size()+ ",ts:"+ formatHour.format(new Date(ts * 1000))+ ",stat:"+ this.stat.toString());
+  nolockbuffer=new HashMap<BoltStatKey,BoltStatVal>(BUFFER_SIZE);
+  nolockbuffer_machine=new HashMap<BoltStatKey,BoltStatVal>(BUFFER_SIZE);
+  for (  Entry<BoltStatKey,BoltStatVal> e : buffer.entrySet()) {
+    BoltStatKey pkey=e.getKey();
+    List<Object> data=StormUtils.mk_list((Object)pkey,e.getValue());
+    collector.emit(data,SpoutUtils.uuid());
+  }
+  for (  Entry<BoltStatKey,BoltStatVal> e : buffer_machine.entrySet()) {
+    BoltStatKey pkey=e.getKey();
+    List<Object> data=StormUtils.mk_list((Object)pkey,e.getValue());
+    collector.emit(data,SpoutUtils.uuid());
+  }
+  this.stat.reset();
+  return isover;
+}

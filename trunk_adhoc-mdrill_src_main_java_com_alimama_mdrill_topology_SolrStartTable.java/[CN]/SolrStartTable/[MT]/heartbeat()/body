@@ -1,23 +1,29 @@
 {
-  errorCollect.checkException();
-  if (!hbInterval.heartBeatInterval()) {
-    return;
+  rsyncExecute exe=new rsyncExecute(this,false);
+  EXECUTE2.submit(exe);
+  while (!exe.isfinish() && !statcollect.isTimeout(900l * 1000)) {
+    Thread.sleep(1000l);
   }
-  if (!this.checkInitFinish()) {
-    return;
+  if (statcollect.isTimeout(900l * 1000)) {
+    statcollect.setLastTime(System.currentTimeMillis());
   }
-  if (copy2indexFailTimes.get() > 10) {
-    errorCollect.setException(new Exception("copy2indexFailTimes>10"));
-    return;
-  }
-synchronized (this.getThrLockObj()) {
-    LOG.info("higolog heartbeat:" + this.tablename + ",copy2indexFailTimes="+ copy2indexFailTimes.get());
-    try {
-      this.heartbeatExecute();
+  boolean needRestart=exe.isfinish() ? exe.result() : false;
+  if (!needRestart) {
+    this.checkSolr();
+    if (!statcollect.getStat().equals(ShardsState.SERVICE)) {
+      this.startService();
     }
- catch (    IOException e) {
-      LOG.error(StormUtils.stringify_error(e));
-      errorCollect.setException(e);
+  }
+ else {
+    this.stopService();
+    exe=new rsyncExecute(this,false);
+    EXECUTE2.submit(exe);
+    while (!statcollect.isTimeout(900l * 1000)) {
+      Thread.sleep(1000l);
     }
+    if (statcollect.isTimeout(900l * 1000)) {
+      statcollect.setLastTime(System.currentTimeMillis());
+    }
+    this.startService();
   }
 }

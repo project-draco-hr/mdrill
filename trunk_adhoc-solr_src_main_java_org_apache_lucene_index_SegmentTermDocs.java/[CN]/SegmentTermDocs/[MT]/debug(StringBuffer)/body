@@ -1,0 +1,4 @@
+{
+  buff.append("df=").append(this.df);
+  buff.append("freqBasePointer=").append(this.freqBasePointer);
+}

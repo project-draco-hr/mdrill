@@ -1,0 +1,3 @@
+SumReduceBolt bolt
+LastTimeBolt_chain2_pid chain_pid
+LastTimeBolt_chain2_host chain_host

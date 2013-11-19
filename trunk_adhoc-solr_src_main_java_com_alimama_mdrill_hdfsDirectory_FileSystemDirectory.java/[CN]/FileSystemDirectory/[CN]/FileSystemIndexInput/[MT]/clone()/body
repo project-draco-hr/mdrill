@@ -1,5 +1,7 @@
 {
   FileSystemIndexInput clone=(FileSystemIndexInput)super.clone();
   clone.isClone=true;
+  clone.tlCount=0;
+  clone.tlSum=0;
   return clone;
 }

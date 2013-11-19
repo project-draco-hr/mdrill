@@ -1,4 +1,0 @@
-{
-  this.cacheDir=cacheDir;
-  this.subdir=subdir;
-}

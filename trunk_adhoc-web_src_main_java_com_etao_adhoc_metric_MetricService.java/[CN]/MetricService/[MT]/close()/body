@@ -1,7 +1,7 @@
 {
   if (conn != null) {
     try {
-      if (!conn.isClosed())       conn.close();
+      conn.close();
     }
  catch (    SQLException e) {
       System.err.println("[" + sdf.format(new Date(System.currentTimeMillis())) + "] "+ "Error when close Connection");

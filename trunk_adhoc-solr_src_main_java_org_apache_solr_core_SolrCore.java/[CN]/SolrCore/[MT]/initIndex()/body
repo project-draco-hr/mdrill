@@ -1,4 +1,0 @@
-{
-  initDirectoryFactory();
-  initIndexReaderFactory();
-}

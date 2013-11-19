@@ -1,4 +1,9 @@
 {
+  try {
+    setLockFactory(new SingleInstanceLockFactory());
+  }
+ catch (  IOException e) {
+  }
   this.fs=fs;
   this.directory=directory;
   this.ioFileBufferSize=conf.getInt("io.file.buffer.size",4096);

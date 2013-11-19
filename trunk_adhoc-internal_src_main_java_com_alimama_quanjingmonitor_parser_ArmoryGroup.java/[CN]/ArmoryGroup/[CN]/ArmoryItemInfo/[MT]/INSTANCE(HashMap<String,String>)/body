@@ -1,0 +1,10 @@
+{
+  ArmoryItemInfo rtn=new ArmoryItemInfo();
+  rtn.nodename=d.get("nodename");
+  rtn.dns_ip=d.get("dns_ip");
+  rtn.nodegroup=d.get("nodegroup");
+  rtn.product_name=d.get("product_name");
+  rtn.site=d.get("site");
+  rtn.groupName=rtn.nodegroup;
+  return rtn;
+}

@@ -1,5 +1,9 @@
 {
   String tableConfig=args[1];
+  String store="false";
+  if (args.length > 2) {
+    store=args[2];
+  }
   String stormhome=System.getProperty("storm.home");
   if (stormhome == null) {
     stormhome=".";
@@ -20,7 +24,12 @@
   for (int i=0; i < createTable.getColumnDefinitions().size(); i++) {
     ColumnDefinition col=(ColumnDefinition)createTable.getColumnDefinitions().get(i);
     String colname=col.getColumnName();
-    String type=col.getColDataType().getDataType();
+    String[] coltype=col.getColDataType().getDataType().split("_mdrill_");
+    String type=coltype[0];
+    String fieldstore=store;
+    if (coltype.length > 1) {
+      fieldstore=coltype[1];
+    }
     if (type.equals("long") || type.equals("int") || type.equals("tint")|| type.equals("bigint")) {
       type="tlong";
     }
@@ -33,7 +42,12 @@
     if (type.indexOf("char") > 0 || type.indexOf("string") > 0) {
       type="string";
     }
-    buffer.append("<field name=\"" + colname + "\" type=\""+ type+ "\" indexed=\"true\" stored=\"false\"/>");
+    if (type.toLowerCase().equals("text")) {
+      buffer.append("<field name=\"" + colname + "\" type=\""+ type+ "\" indexed=\"true\" stored=\""+ fieldstore+ "\"  omitTermFreqAndPositions=\"true\" multiValued=\"true\" />");
+    }
+ else {
+      buffer.append("<field name=\"" + colname + "\" type=\""+ type+ "\" indexed=\"true\" stored=\""+ fieldstore+ "\"  omitTermFreqAndPositions=\"true\" />");
+    }
     buffer.append("\r\n");
   }
   Path tablepath=new Path(hdfsSolrDir,tableName);

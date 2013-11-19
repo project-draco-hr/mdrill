@@ -1,0 +1,14 @@
+{
+  URL res=getLocalResource(name);
+  if (res == null) {
+    return null;
+  }
+  InputStream inputstream=null;
+  try {
+    inputstream=res.openStream();
+  }
+ catch (  IOException ex) {
+    ex.printStackTrace();
+  }
+  return inputstream;
+}

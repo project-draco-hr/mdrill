@@ -31,6 +31,15 @@
             quicktisInput.quicktisInputVal=new BlockBufferInput(directory.openInput(quickTisVal,readBufferSize),absPath + "@" + quickTisVal);
           }
         }
+ else         if (directory instanceof FileSystemDirectory) {
+          FileSystemDirectory dddir=(FileSystemDirectory)directory;
+          String absPath=dddir.directory.toString();
+          quicktisInput.quicktisInput=new BlockBufferInput(directory.openInput(quickTis,readBufferSize),absPath + "@" + quickTis);
+          if (quicktisInput.isQuickTxtMode.get()) {
+            quicktisInput.quicktisInputTxt=new BlockBufferInput(directory.openInput(quickTisTxt,readBufferSize),absPath + "@" + quickTisTxt);
+            quicktisInput.quicktisInputVal=new BlockBufferInput(directory.openInput(quickTisVal,readBufferSize),absPath + "@" + quickTisVal);
+          }
+        }
  else {
           quicktisInput.quicktisInput=directory.openInput(quickTis,readBufferSize);
           if (quicktisInput.isQuickTxtMode.get()) {
@@ -62,6 +71,12 @@
     if (directory instanceof FSDirectory) {
       FSDirectory dddir=(FSDirectory)directory;
       String absPath=dddir.getDirectory().getAbsolutePath();
+      tisInput=new BlockBufferInput(directory.openInput(filename,readBufferSize),absPath + "@" + filename);
+      tiiInput=directory.openInput(indexFileName,readBufferSize);
+    }
+    if (directory instanceof FileSystemDirectory) {
+      FileSystemDirectory dddir=(FileSystemDirectory)directory;
+      String absPath=dddir.directory.toString();
       tisInput=new BlockBufferInput(directory.openInput(filename,readBufferSize),absPath + "@" + filename);
       tiiInput=directory.openInput(indexFileName,readBufferSize);
     }

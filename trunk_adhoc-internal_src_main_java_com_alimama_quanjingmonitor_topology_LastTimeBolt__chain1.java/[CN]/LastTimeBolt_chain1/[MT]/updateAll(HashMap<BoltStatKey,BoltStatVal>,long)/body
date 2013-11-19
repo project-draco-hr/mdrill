@@ -1,0 +1,15 @@
+{
+  this.bufferMap.updateAll(buffer,this.update);
+  if (timeoutCheck.istimeout()) {
+    this.lasttimeout=((System.currentTimeMillis() - localMergerDelay) / 60000) * 60000;
+    bufferMap.fourceTimeout(this.clean,this.update);
+    timeoutCheck.reset();
+  }
+  int ramsize=bufferMap.size();
+  if (ramsize > 50000) {
+    bufferMap.fourceTimeout();
+  }
+  this.chain_host.maybeupdateAll(logTs);
+  this.chain_pid.maybeupdateAll(logTs);
+  this.lastts=logTs;
+}

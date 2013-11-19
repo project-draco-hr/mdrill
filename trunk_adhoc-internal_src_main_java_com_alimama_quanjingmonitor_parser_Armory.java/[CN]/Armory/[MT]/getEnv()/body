@@ -1,0 +1,20 @@
+{
+  HashMap<String,String> map=new HashMap<String,String>();
+  Map<String,String> sysenv=System.getenv();
+  if (sysenv != null) {
+    for (    Entry<String,String> e : System.getenv().entrySet()) {
+      String ekey=e.getKey();
+      String evalue=e.getValue();
+      if (ekey.length() > 1 && evalue.length() > 1) {
+        map.put(ekey,evalue);
+      }
+    }
+  }
+  String[] env=new String[map.size()];
+  int index=0;
+  for (  Entry<String,String> e : map.entrySet()) {
+    env[index]=e.getKey() + "=" + e.getValue();
+    index++;
+  }
+  return env;
+}

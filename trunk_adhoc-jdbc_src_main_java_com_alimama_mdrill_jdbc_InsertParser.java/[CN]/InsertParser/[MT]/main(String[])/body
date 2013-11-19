@@ -1,0 +1,5 @@
+{
+  InsertParser p=new InsertParser();
+  p.parse("INSERT INTO table_name (???1, ???2) VALUES ('111', '22') ");
+  System.out.println(p.toString());
+}

@@ -2,6 +2,8 @@
   String split=args[0];
   String submatch=args[1];
   Integer parallel=Integer.parseInt(args[2]);
+  String tablemode=args[3];
+  Integer rep=Integer.parseInt(args[4]);
   this.cleanTmp();
   while (true) {
     TreeMap<String,HashSet<String>> partions=this.getPartions();
@@ -37,7 +39,7 @@
           System.out.println("##########finiesd by other process #########");
           continue;
         }
-        ret=this.subRun(runPartion.days,runPartion.tmpindexOtherPath.toString(),split,split,parallel);
+        ret=this.subRun(runPartion.days,runPartion.tmpindexOtherPath.toString(),split,submatch,parallel,tablemode,rep);
         parse.writeStr(new Path(runPartion.tmpindexOtherPath,"vertify"),runPartion.partionvertify);
       }
   finally {

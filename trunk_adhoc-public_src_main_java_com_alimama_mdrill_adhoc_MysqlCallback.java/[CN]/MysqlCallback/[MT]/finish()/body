@@ -30,9 +30,9 @@ synchronized (lock) {
           contentw.append("???????????????" + this.jobname + "<br>");
           DecimalFormat df=new DecimalFormat("0.00");
           double f=sizekb * 1.0 / 1024;
-          contentw.append("???????????????<span style=\"color: #FF0000;font-weight: bold;\">" + (sizekb <= 1 ? "??????1KB" : df.format(f) + "MB") + "</span><br>\r\n");
+          contentw.append("???????????????" + (sizekb <= 1 ? "??????1KB" : df.format(f) + "MB") + "<br>\r\n");
           String strurl="http://adhoc.etao.com:9999/downloadoffline.jsp?uuid=" + this.getUuid();
-          contentw.append("???????????????<a href=" + strurl + " target=\"_blank\">"+ strurl+ "</a><br>");
+          contentw.append("??????:" + strurl + "<br>");
         }
  else {
           contentw.append(" <br>");
@@ -40,16 +40,20 @@ synchronized (lock) {
           contentw.append("???????????????" + this.jobname + "<br>");
           contentw.append("??????ID???" + this.uuid + "<br>");
         }
-        String urlFormat="http://10.246.155.184:9999/wwnotify.war/mesg?user=%s&subject=%s&msg=%s";
-        String subject=URLEncoder.encode(this.isfail ? "adhoc??????????????????" : "adhoc??????????????????","gbk");
-        String msg=URLEncoder.encode(contentw.toString(),"gbk");
-        String wname=URLEncoder.encode(s,"gbk");
-        String urlStr=String.format(urlFormat,wname,subject,msg);
-        debug.append(urlStr + "\r\n");
-        URL url=new URL(urlStr);
-        URLConnection conn=url.openConnection();
-        InputStream inputStream=conn.getInputStream();
-        inputStream.close();
+        String subject=URLEncoder.encode(this.isfail ? "adhoc??????????????????" : "adhoc??????????????????","utf8");
+        String msg=URLEncoder.encode(contentw.toString(),"utf8");
+        String wname=URLEncoder.encode(s,"utf8");
+        StringBuffer urlFormat=new StringBuffer();
+        ;
+        urlFormat.append("receiver=" + wname);
+        urlFormat.append("&subtitle=" + subject);
+        urlFormat.append("&message=" + msg);
+        urlFormat.append("&method=" + URLEncoder.encode("wang-alert","utf8"));
+        urlFormat.append("&username=" + URLEncoder.encode("yannian.mu","utf8"));
+        urlFormat.append("&password=" + this.getMD5((new String("yannian.mu@1106" + s)).getBytes("utf8")));
+        urlFormat.append("&charset=utf8");
+        debug.append(urlFormat.toString() + "\r\n");
+        Request(urlFormat);
       }
  catch (      Exception e) {
       }
@@ -73,6 +77,20 @@ synchronized (lock) {
     content.append("<tr><td>hadoop??????ID???" + this.hadoopjobId + "</tr></td>\r\n");
   }
   content.append("</table>");
-  SendMail send=new SendMail();
-  send.send("adhoc@alipay.com","adhoc",cols[0],cols[0],this.isfail ? "???adhoc?????????????????????- " + this.jobname : "???adhoc?????????????????????- " + this.jobname,content.toString(),"","gbk","172.24.108.36","172.24.108.36","","",25);
+  try {
+    StringBuffer urlFormat=new StringBuffer();
+    ;
+    urlFormat.append("receiver=" + URLEncoder.encode(cols[0],"utf8"));
+    urlFormat.append("&subtitle=" + URLEncoder.encode(this.isfail ? "???adhoc?????????????????????- " + this.jobname : "???adhoc?????????????????????- " + this.jobname,"utf8"));
+    urlFormat.append("&message=" + URLEncoder.encode(content.toString(),"utf8"));
+    urlFormat.append("&method=" + URLEncoder.encode("mail","utf8"));
+    urlFormat.append("&username=" + URLEncoder.encode("yannian.mu","utf8"));
+    urlFormat.append("&password=" + this.getMD5((new String("yannian.mu@1106" + cols[0])).getBytes("utf8")));
+    urlFormat.append("&charset=utf8");
+    debug.append(urlFormat.toString() + "\r\n");
+    Request(urlFormat);
+  }
+ catch (  Exception e) {
+  }
+  LOG.info(debug.toString());
 }

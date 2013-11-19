@@ -1,0 +1,7 @@
+{
+  this.path=path;
+  LOG.info("####" + path.getAbsolutePath() + ","+ hdfsPath);
+  this.hadoopConfDir=hadoopConfDir;
+  this.baseDir=path.getAbsolutePath();
+  this.hdfsPath=hdfsPath;
+}

@@ -1,0 +1,27 @@
+{
+  Date d=new Date(60000 + (Long)key.list[0]);
+  SolrInputDocument doc=new SolrInputDocument();
+  doc.addField("thedate",formatDay.format(d));
+  doc.addField("mdrillPartion",formatPartion.format(d));
+  doc.addField("mdrillCmd","add");
+  doc.addField("higo_uuid",0);
+  doc.addField("miniute",formatDay2.format(d) + "T" + formatHour.format(d)+ "Z");
+  doc.addField("hour",formatHourStr.format(d));
+  doc.addField("logtype",this.bolt.type);
+  doc.addField("groupName",key.list[1]);
+  doc.addField("nodename",key.list[2]);
+  doc.addField("dns_ip",key.list[3]);
+  doc.addField("nodegroup",key.list[4]);
+  doc.addField("product_name",key.list[5]);
+  doc.addField("site",key.list[6]);
+  doc.addField("datanum_a",val.cnt);
+  doc.addField("datanum_b",val.cntnonclear);
+  boolean needCommit=false;
+synchronized (doclistLock) {
+    doclistBuffer.add(doc);
+    needCommit=doclistBuffer.size() > 200;
+  }
+  if (needCommit) {
+    this.commit();
+  }
+}

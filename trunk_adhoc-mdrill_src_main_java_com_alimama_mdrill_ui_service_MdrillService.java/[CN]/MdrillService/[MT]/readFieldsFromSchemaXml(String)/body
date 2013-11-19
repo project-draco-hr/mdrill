@@ -10,7 +10,7 @@
   Map stormconf=Utils.readStormConfig();
   Configuration conf=getConf(stormconf);
   FileSystem fs=FileSystem.get(conf);
-  String regex="<field\\s+name=\"([^\"]*?)\"\\s+type=\"([^\"]*?)\"\\s+indexed=\"([^\"]*?)\"\\s+stored=\"([^\"]*?)\"\\s*/>";
+  String regex="<field\\s+name=\"([^\"]*?)\"\\s+type=\"([^\"]*?)\"\\s+indexed=\"([^\"]*?)\"\\s+stored=\"([^\"]*?)\"\\s*.*/>";
   Pattern pattern=Pattern.compile(regex);
   Matcher matcher=pattern.matcher("");
   BufferedReader br=null;

@@ -1,0 +1,13 @@
+TablePartion part
+String callback
+ArrayList<String> fqList
+GetPartions.Shards shard
+int start
+int rows
+SortParam sortType
+ArrayList<String> groupbyFields
+ArrayList<String> showFields
+HashSet<String> commonStatMap
+HashSet<String> distStatFieldMap
+HigoJoinParams[] joins
+String mode

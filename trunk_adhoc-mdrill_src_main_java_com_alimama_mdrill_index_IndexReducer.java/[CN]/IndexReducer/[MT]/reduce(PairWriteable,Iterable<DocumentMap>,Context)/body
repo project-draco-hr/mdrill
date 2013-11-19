@@ -27,11 +27,11 @@
       continue;
     }
     RamWriter ram=doclistcache.toRamWriter(documentConverter,analyzer,context);
+    doclistcache=new DocumentList();
     ramMerger.process(ram);
     if (this.maybeFlush(ramMerger,context,false)) {
       ramMerger=new RamWriter();
       ;
     }
-    doclistcache=new DocumentList();
   }
 }

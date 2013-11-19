@@ -1,0 +1,18 @@
+{
+  String[] list=m1.d.listAll();
+  if (list != null) {
+    for (    String s : list) {
+      m1.d.deleteFile(s);
+    }
+  }
+  if (m1.d instanceof FSDirectory) {
+    FSDirectory fd=(FSDirectory)m1.d;
+    FileUtils.forceDelete(fd.getDirectory());
+  }
+  if (m1.d instanceof FileSystemDirectory) {
+    FileSystemDirectory fd=(FileSystemDirectory)m1.d;
+    Configuration conf=this.getConf();
+    FileSystem fs=FileSystem.get(conf);
+    fs.delete(fd.directory,true);
+  }
+}

@@ -1,0 +1,16 @@
+{
+  List<Directory> rtn=null;
+synchronized (readLock) {
+    rtn=readList;
+  }
+  if (rtn == null) {
+synchronized (lock) {
+      this.remakeSearch();
+    }
+  }
+synchronized (readLock) {
+    rtn=readList;
+  }
+  LOG.info("####getForSearch####" + String.valueOf(rtn) + this.extaLog());
+  return rtn;
+}

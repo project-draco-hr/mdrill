@@ -1,0 +1,4 @@
+{
+  cnt++;
+  bits.fastSet(docid + this.base);
+}

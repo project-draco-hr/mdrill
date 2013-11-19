@@ -1,0 +1,3 @@
+{
+  return "PvSpoutStat [index=" + index + ", record="+ record+ ", pidnull="+ pidnull+ ", processnull="+ processnull+ ", interfacenull="+ interfacenull+ ", lastsize="+ lastsize+ ", groupnameempty="+ groupnameEmpty+ ", lastsize_group_norep="+ lastsize_group_norep+ ", lastsize_host_norep="+ lastsize_host_norep+ "]";
+}

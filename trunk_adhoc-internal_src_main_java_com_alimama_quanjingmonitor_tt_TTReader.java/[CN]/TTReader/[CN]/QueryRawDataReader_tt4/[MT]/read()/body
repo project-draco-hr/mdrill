@@ -1,0 +1,29 @@
+{
+  TTLogBlock block=null;
+  try {
+    block=_inStreamInput.read();
+  }
+ catch (  IndexOutOfBoundsException e) {
+    e.printStackTrace();
+  }
+catch (  TTQueueException e) {
+    e.printStackTrace();
+  }
+catch (  TTQueueSafemodeException e) {
+    e.printStackTrace();
+  }
+catch (  TTSubChangedException e) {
+    e.printStackTrace();
+  }
+  if (block == null) {
+    return null;
+  }
+  MessageKey key=block.getKey();
+  key.ack();
+  List<String> list=new ArrayList<String>(NEW_ENTRIES_COUNT);
+  String buffer=new String(block.getBuffer());
+  for (  String mesgStr : buffer.split("[\n\r]",-1)) {
+    list.add(mesgStr);
+  }
+  return list;
+}

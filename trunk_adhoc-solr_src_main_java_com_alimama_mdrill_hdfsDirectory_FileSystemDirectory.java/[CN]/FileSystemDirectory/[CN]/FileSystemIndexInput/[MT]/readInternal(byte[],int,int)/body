@@ -1,4 +1,5 @@
 {
+  long t1=System.currentTimeMillis();
 synchronized (descriptor) {
     long position=getFilePointer();
     if (position != descriptor.position) {
@@ -15,5 +16,16 @@ synchronized (descriptor) {
       total+=i;
     }
  while (total < len);
+  }
+  long t2=System.currentTimeMillis();
+  long tl=t2 - t1;
+  tlSum+=tl;
+  tlCount+=1;
+  if (tl > 100 || tlCount % 1000 == 0) {
+    logger.info("readInternal " + this.filePath.getName() + " timetaken="+ tl+ ",tlSum="+ tlSum+ ",tlCount="+ tlCount);
+    if (tlSum > 10000000) {
+      tlCount=0;
+      tlSum=0;
+    }
   }
 }

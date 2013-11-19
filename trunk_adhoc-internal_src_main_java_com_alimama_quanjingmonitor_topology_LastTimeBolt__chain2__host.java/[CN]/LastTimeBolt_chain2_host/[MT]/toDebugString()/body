@@ -1,0 +1,5 @@
+{
+synchronized (doclistLock) {
+    return "host chain " + doclistBuffer.size() + ","+ bufferMap.size();
+  }
+}

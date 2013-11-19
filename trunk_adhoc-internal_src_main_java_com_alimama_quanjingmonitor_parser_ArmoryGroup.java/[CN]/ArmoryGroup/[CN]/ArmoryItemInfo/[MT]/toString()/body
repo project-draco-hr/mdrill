@@ -1,0 +1,3 @@
+{
+  return "ArmoryItemInfo [nodename=" + nodename + ", dns_ip="+ dns_ip+ ", nodegroup="+ nodegroup+ ", product_name="+ product_name+ ", site="+ site+ ", groupName="+ groupName+ "]";
+}

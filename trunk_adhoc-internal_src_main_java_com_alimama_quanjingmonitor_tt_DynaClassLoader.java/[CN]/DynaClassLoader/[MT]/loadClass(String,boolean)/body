@@ -1,0 +1,47 @@
+{
+  Class clazz=null;
+  try {
+    clazz=super.loadClass(name,b);
+    if (clazz != null) {
+      return clazz;
+    }
+  }
+ catch (  ClassNotFoundException e) {
+  }
+  int dotIndex=name.indexOf(".");
+  String separator=File.separator;
+  if (separator.equals("\\")) {
+    separator="\\\\";
+  }
+  String fileName;
+  if (dotIndex != -1) {
+    fileName=new StringBuilder().append(name.replaceAll("\\.",separator)).append(".class").toString();
+  }
+ else {
+    fileName=new StringBuilder().append(name).append(".class").toString();
+  }
+  InputStream is=getLocalResourceAsStream(fileName);
+  if (is == null) {
+    throw new ClassNotFoundException(name);
+  }
+  try {
+    Class loadedClass=readClass(name,is);
+    is.close();
+    if (loadedClass != null) {
+      return loadedClass;
+    }
+ else {
+      throw new ClassNotFoundException(name);
+    }
+  }
+ catch (  Exception e) {
+    throw new ClassNotFoundException(name);
+  }
+ finally {
+    try {
+      is.close();
+    }
+ catch (    IOException e) {
+    }
+  }
+}

@@ -1,0 +1,7 @@
+HashSet<String> inputs
+String output
+String split
+String submatch
+Integer parallel
+String tablemode
+int rep

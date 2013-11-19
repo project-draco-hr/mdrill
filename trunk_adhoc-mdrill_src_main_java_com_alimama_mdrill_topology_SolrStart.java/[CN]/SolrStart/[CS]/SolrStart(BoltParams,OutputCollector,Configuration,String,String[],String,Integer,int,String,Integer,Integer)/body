@@ -1,5 +1,8 @@
 {
   this.params=params;
+  ShardPartion.base=solrhomeBase;
+  ShardPartion.taskIndex=taskIndex;
+  ShardPartion.index=IndexUtils.getHdfsForder(taskIndex);
   jetty=new SolrStartJetty(this.params,collector,conf,solrhomeBase + "/" + tableNames[0],diskList,portbase,taskIndex,topologyName,taskid,partions);
   tables=new SolrStartTable[tableNames.length];
   for (int i=0; i < tableNames.length; i++) {

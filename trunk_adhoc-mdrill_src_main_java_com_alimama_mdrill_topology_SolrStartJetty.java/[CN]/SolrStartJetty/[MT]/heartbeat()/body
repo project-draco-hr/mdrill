@@ -1,20 +1,29 @@
 {
   LOG.info("higolog heartbeat called:" + this.tablename);
-  errorCollect.checkException();
-  if (!hbInterval.heartBeatInterval()) {
-    return;
-  }
-  if (!this.checkInitFinish()) {
-    return;
-  }
-synchronized (this.getThrLockObj()) {
-    LOG.info("higolog heartbeat:" + this.tablename);
-    try {
-      this.heartbeatExecute();
+  boolean needhb=false;
+  if (!neetRestart.get()) {
+    if (!statcollect.getStat().equals(ShardsState.SERVICE)) {
+      this.startJetty();
     }
- catch (    IOException e) {
-      LOG.error(StormUtils.stringify_error(e));
-      errorCollect.setException(e);
+ else {
+      needhb=true;
     }
+  }
+ else {
+    neetRestart.set(false);
+    this.stopJetty();
+    rsyncExecute exe=new rsyncExecute(this,false);
+    EXECUTE2.submit(exe);
+    while (!exe.isfinish() && !statcollect.isTimeout(600l * 1000)) {
+      Thread.sleep(1000l);
+    }
+    if (statcollect.isTimeout(600l * 1000)) {
+      statcollect.setLastTime(System.currentTimeMillis());
+    }
+    this.startJetty();
+  }
+  this.statcollect.setLastTime(System.currentTimeMillis());
+  if (needhb) {
+    this.zkHeatbeat();
   }
 }

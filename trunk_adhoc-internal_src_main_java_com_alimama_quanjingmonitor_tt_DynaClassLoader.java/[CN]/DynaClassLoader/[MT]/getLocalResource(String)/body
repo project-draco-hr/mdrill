@@ -1,0 +1,42 @@
+{
+  for (int i=0; i < entries.size(); i++) {
+    File entry=entries.get(i);
+    if (entry.isDirectory() && entry.exists()) {
+      File f=new File(entry,name);
+      if (f.exists()) {
+        URL url;
+        try {
+          url=f.toURI().toURL();
+        }
+ catch (        MalformedURLException ex) {
+          continue;
+        }
+        return url;
+      }
+    }
+ else     if (entry.isFile() && entry.exists()) {
+      URL url=null;
+      try {
+        ZipFile zf=new ZipFile(entry);
+        name=name.replaceAll("\\\\","/");
+        ZipEntry zipEntry=zf.getEntry(name);
+        if (zipEntry == null) {
+          continue;
+        }
+        String url_0_=entry.getAbsolutePath().replaceAll("\\\\","/");
+        if (!url_0_.startsWith("/")) {
+          url_0_=new StringBuilder().append("/").append(url_0_).toString();
+        }
+        url=new URL(new StringBuilder().append("jar:file://").append(url_0_).append("!/").append(name).toString());
+      }
+ catch (      ZipException zipexception) {
+        zipexception.printStackTrace();
+      }
+catch (      IOException ioexception) {
+        ioexception.printStackTrace();
+      }
+      return url;
+    }
+  }
+  return null;
+}

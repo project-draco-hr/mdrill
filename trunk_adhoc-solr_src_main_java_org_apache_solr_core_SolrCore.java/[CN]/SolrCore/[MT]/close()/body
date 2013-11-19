@@ -6,16 +6,6 @@
     return;
   }
   log.info(logid + " CLOSING SolrCore " + this);
-  if (closeHooks != null) {
-    for (    CloseHook hook : closeHooks) {
-      try {
-        hook.preClose(this);
-      }
- catch (      Throwable e) {
-        SolrException.log(log,e);
-      }
-    }
-  }
   try {
     infoRegistry.clear();
   }
@@ -36,21 +26,5 @@
   }
  catch (  Exception e) {
     SolrException.log(log,e);
-  }
-  try {
-    closeSearcher();
-  }
- catch (  Exception e) {
-    SolrException.log(log,e);
-  }
-  if (closeHooks != null) {
-    for (    CloseHook hook : closeHooks) {
-      try {
-        hook.postClose(this);
-      }
- catch (      Throwable e) {
-        SolrException.log(log,e);
-      }
-    }
   }
 }

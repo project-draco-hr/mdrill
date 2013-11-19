@@ -48,7 +48,7 @@
     ArrayList<Object> row=new ArrayList<Object>();
     for (int j=0; j < this.parser.colsNames.length; j++) {
       String colname=this.parser.colsNames[j];
-      row.add(j,String.valueOf(rowMap.get(colname)));
+      row.add(j,String.valueOf(rowMap.opt(colname)));
     }
     results.add(row);
   }

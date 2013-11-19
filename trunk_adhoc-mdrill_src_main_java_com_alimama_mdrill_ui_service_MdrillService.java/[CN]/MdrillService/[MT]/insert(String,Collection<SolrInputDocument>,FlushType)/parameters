@@ -1,0 +1,3 @@
+String projectName
+Collection<SolrInputDocument> docs
+FlushType tp

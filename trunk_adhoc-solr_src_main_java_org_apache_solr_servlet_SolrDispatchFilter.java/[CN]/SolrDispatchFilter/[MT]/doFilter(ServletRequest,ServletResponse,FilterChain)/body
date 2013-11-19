@@ -10,8 +10,6 @@
     SolrQueryRequest solrReq=null;
     SolrCore core=null;
     String corename="";
-    ReadLock rlock=HigoRealTimeSync.getLock().readLock();
-    rlock.lock();
     try {
       req.setAttribute("org.apache.solr.CoreContainer",cores);
       String path=req.getServletPath();
@@ -84,7 +82,6 @@
       if (core != null) {
         core.close();
       }
-      rlock.unlock();
     }
   }
   chain.doFilter(request,response);

@@ -1,0 +1,5 @@
+{
+  Configuration conf=new Configuration();
+  HadoopUtil.grabConfiguration(this.hadoopConfDir,conf);
+  return conf;
+}

@@ -1,0 +1,18 @@
+{
+  LinkedList<HashMap<K,V>> lastdata=null;
+synchronized (_lock) {
+    lastdata=_buckets;
+    _buckets=new LinkedList<HashMap<K,V>>();
+    for (int i=0; i < numBuckets; i++) {
+      _buckets.add(new HashMap<K,V>());
+    }
+  }
+  if (_callback != null && lastdata != null) {
+    for (    HashMap<K,V> dead : lastdata) {
+      for (      Entry<K,V> entry : dead.entrySet()) {
+        _callback.expire(entry.getKey(),entry.getValue());
+      }
+    }
+    _callback.commit();
+  }
+}

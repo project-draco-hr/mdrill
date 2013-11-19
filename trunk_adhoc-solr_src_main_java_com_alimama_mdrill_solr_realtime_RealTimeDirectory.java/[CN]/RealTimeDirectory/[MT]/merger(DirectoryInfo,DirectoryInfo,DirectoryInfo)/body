@@ -1,0 +1,22 @@
+{
+  try {
+    to.d.setSchema(this.core.getSchema());
+    IndexWriter writer=new IndexWriter(to.d,null,new KeepOnlyLastCommitDeletionPolicy(),MaxFieldLength.UNLIMITED);
+    writer.setMergeFactor(512);
+    writer.setUseCompoundFile(false);
+    if (m1 != null) {
+      m1.d.setSchema(this.core.getSchema());
+      writer.addIndexesNoOptimize(m1.d);
+    }
+    if (m2 != null) {
+      m2.d.setSchema(this.core.getSchema());
+      writer.addIndexesNoOptimize(m2.d);
+    }
+    writer.optimize();
+    writer.close();
+  }
+ catch (  Throwable e) {
+    LOG.error("####merger####",e);
+    throw new IOException(e);
+  }
+}

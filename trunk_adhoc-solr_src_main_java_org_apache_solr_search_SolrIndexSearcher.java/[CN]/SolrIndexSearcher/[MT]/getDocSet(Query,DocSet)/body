@@ -13,13 +13,10 @@
   Query absQ=QueryUtils.getAbs(query);
   boolean positive=absQ == query;
   DocSet first;
-  if (filterCache != null) {
-    first=this.filterCacheGet(absQ);
-    if (first == null) {
-      first=getDocSetNC(absQ,null);
-      this.filterCachePut(absQ,first);
-    }
-    return positive ? first.intersection(filter) : filter.andNot(first);
+  first=this.filterCacheGet(absQ);
+  if (first == null) {
+    first=getDocSetNC(absQ,null);
+    this.filterCachePut(absQ,first);
   }
-  return positive ? getDocSetNC(absQ,filter) : filter.andNot(getPositiveDocSet(absQ));
+  return positive ? first.intersection(filter) : filter.andNot(first);
 }

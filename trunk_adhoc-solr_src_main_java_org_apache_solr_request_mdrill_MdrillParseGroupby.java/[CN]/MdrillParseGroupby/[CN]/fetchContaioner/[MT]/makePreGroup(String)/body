@@ -1,6 +1,6 @@
 {
-  String[] values=EncodeUtils.decode(g.split(UniqConfig.GroupJoinString()));
-  GroupListCache.GroupList group=GroupListCache.GroupList.INSTANCE(groupListCache,values.length);
+  String[] values=EncodeUtils.decode(g.split(UniqConfig.GroupJoinString(),-1));
+  GroupListCache.GroupList group=GroupListCache.GroupList.INSTANCE(groupListCache,ufs.length);
   group.reset();
   for (  int i : ufs.listIndex) {
     UnvertFile uf=ufs.cols[i];
@@ -8,7 +8,7 @@
       group.list[i]=uf.uif.getTermNum(uf.ti,values[i],uf.filetype);
     }
  catch (    Throwable e) {
-      LOG.error("makePreGroup",e);
+      LOG.error("makePreGroup,g=" + g + ",values="+ Arrays.toString(values),e);
       group.list[i]=uf.uif.getNullTm();
     }
   }

@@ -1,0 +1,32 @@
+{
+  if ("420434_1006".equals(doc.getFieldValue("pid"))) {
+    LOG.info("addDoc_debug222222 " + doc.toString() + ",termsCache.size="+ termsCache.size()+ oo.extaLog());
+  }
+  if (debuglines.incrementAndGet() % 10000 == 0) {
+    LOG.info("addDoc " + doc.toString() + ",termsCache.size="+ termsCache.size()+ oo.extaLog());
+    if (debuglines.get() > 100000000) {
+      debuglines.set(0);
+    }
+  }
+  Object uuid=doc.getFieldValue("mdrill_uuid");
+  if (uuid != null) {
+    try {
+      Long uuidl=(Long)uuid;
+synchronized (termsCache) {
+        if (termsCache.containsKey(uuidl)) {
+          LOG.info("replication uuid :" + String.valueOf(uuid) + ",doc="+ doc.toString()+ ",termsCache.size="+ termsCache.size()+ oo.extaLog());
+          termsCache.put(uuidl,new Object());
+          return true;
+        }
+        termsCache.put(uuidl,new Object());
+      }
+    }
+ catch (    Throwable e) {
+      LOG.info("uuid is null:doc=" + doc.toString() + ",termsCache.size="+ termsCache.size()+ oo.extaLog(),e);
+    }
+  }
+ else {
+    LOG.info("uuid is null:doc=" + doc.toString() + ",termsCache.size="+ termsCache.size()+ oo.extaLog());
+  }
+  return false;
+}

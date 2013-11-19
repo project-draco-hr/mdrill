@@ -1,0 +1,7 @@
+{
+  this.reader=reader;
+  this.req=req;
+  this.searcher=_searcher;
+  this.parse=new MdrillParseDetailFdt(_params);
+  this.recordCount=new RecordCountDetail();
+}

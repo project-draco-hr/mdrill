@@ -1,0 +1,34 @@
+{
+  MySqlConn m_fpsql=getConn();
+  StringBuffer sqlbuffer=new StringBuffer();
+  String joinchar="";
+  String[] indexval=new String[val.size()];
+  int index=0;
+  for (  Entry<String,String> e : val.entrySet()) {
+    sqlbuffer.append(joinchar).append(e.getKey() + "=?");
+    joinchar=",";
+    indexval[index]=e.getValue();
+    index++;
+  }
+  Connection conn=m_fpsql.getConn();
+  String strSql="update users_json set " + " " + sqlbuffer + " where userid=? ";
+  System.out.println(strSql);
+  PreparedStatement m_fps=conn.prepareStatement(strSql);
+  try {
+    for (int i=0; i < indexval.length; i++) {
+      m_fps.setString(i + 1,indexval[i]);
+    }
+    m_fps.setString(indexval.length + 1,userid);
+    m_fps.executeUpdate();
+    String fullstrSql=m_fps.toString();
+    return fullstrSql;
+  }
+ catch (  Exception e) {
+    LOG.error("updatePercent" + m_fps.toString(),e);
+  }
+ finally {
+    m_fps.close();
+    m_fpsql.close();
+  }
+  return "";
+}

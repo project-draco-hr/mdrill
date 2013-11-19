@@ -1,0 +1,15 @@
+{
+  if (this == obj)   return true;
+  if (obj == null)   return false;
+  if (getClass() != obj.getClass())   return false;
+  QueryResultKeyCache other=(QueryResultKeyCache)obj;
+  if (key == null) {
+    if (other.key != null)     return false;
+  }
+ else   if (!key.equals(other.key))   return false;
+  if (q == null) {
+    if (other.q != null)     return false;
+  }
+ else   if (!q.equals(other.q))   return false;
+  return true;
+}

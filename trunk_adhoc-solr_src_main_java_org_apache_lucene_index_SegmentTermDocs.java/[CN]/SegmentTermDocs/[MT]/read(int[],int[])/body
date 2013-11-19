@@ -6,10 +6,10 @@
  else {
     int i=0;
     while (i < length && count < df) {
-      final int docCode=this.compress.readCompressblock(this.df);
+      final int docCode=this.compress.readCompressblock(this.skipInterval,this.df);
       doc+=docCode >>> 1;
       if ((docCode & 1) != 0)       freq=1;
- else       freq=this.compress.readCompressblock(this.df);
+ else       freq=this.compress.readCompressblock(this.skipInterval,this.df);
       count++;
       if (deletedDocs == null || !deletedDocs.get(doc)) {
         docs[i]=doc;

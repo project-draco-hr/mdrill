@@ -1,0 +1,44 @@
+{
+  ArmoryInfo rtn=termsCache.get(name);
+  long ts=System.currentTimeMillis() - DELAYTIME;
+  if (rtn != null && rtn.ts > ts) {
+    return rtn;
+  }
+synchronized (termsCache) {
+    rtn=termsCache.get(name);
+    if (rtn != null && rtn.ts > ts) {
+      return rtn;
+    }
+    rtn=new ArmoryInfo();
+    String[] execmd={"/bin/sh","-c","/home/taobao/armory/armory.sh " + name + ""};
+    String[] env=getEnv();
+    Process process=null;
+    try {
+      process=Runtime.getRuntime().exec(execmd,env);
+    }
+ catch (    Throwable e) {
+      LOG.error("armory Runtime:",e);
+    }
+    try {
+      if (process != null) {
+        GetBytesThreadError thr2=new GetBytesThreadError(process.getErrorStream(),rtn,name);
+        GetBytesThread thr=new GetBytesThread(process.getInputStream(),rtn,name);
+        thr2.start();
+        thr.start();
+        process.waitFor();
+        thr2.join();
+        thr.join();
+        int exitValue=process.exitValue();
+      }
+    }
+ catch (    Throwable e) {
+      LOG.error("armory Runtime:",e);
+    }
+    LOG.info("armory:" + rtn.toString() + ","+ termsCache.size()+ ",name="+ name);
+    if (termsCache.size() > 100000) {
+      termsCache.clear();
+    }
+    termsCache.put(name,rtn);
+  }
+  return rtn;
+}

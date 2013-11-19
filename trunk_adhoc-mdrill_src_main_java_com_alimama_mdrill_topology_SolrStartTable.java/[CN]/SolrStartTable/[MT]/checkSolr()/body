@@ -7,10 +7,13 @@
     statcollect.setLastTime(System.currentTimeMillis());
     this.zkHeatbeat();
   }
- catch (  Exception e) {
+ catch (  Throwable e) {
     LOG.error(StormUtils.stringify_error(e));
-    statcollect.setStat(ShardsState.SOLRDIE);
-    this.zkHeatbeat();
-    errorCollect.setException(e);
+    String tablemode=String.valueOf(this.stormConf.get("higo.mode." + this.tablename));
+    if (tablemode.indexOf("@hdfs@") < 0) {
+      statcollect.setStat(ShardsState.SOLRDIE);
+      this.zkHeatbeat();
+      errorCollect.setException(e);
+    }
   }
 }

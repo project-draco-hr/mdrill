@@ -1,0 +1,40 @@
+{
+  if (this.ishdfsmode) {
+    return;
+  }
+  File links=new File(baseDir,"indexLinks");
+  File links2=new File(baseDir,"indexLinks_tmp_" + (uniqIndex++) + "_"+ System.currentTimeMillis());
+  File realtime_ts=new File(baseDir,"realtime_ts");
+  File realtime_ts2=new File(baseDir,"realtime_ts_tmp_" + (uniqIndex++) + "_"+ System.currentTimeMillis());
+  FileWriter freader=new FileWriter(links2);
+  StringBuffer buffer=new StringBuffer();
+  ArrayList<String> toremove=new ArrayList<String>();
+  for (  Entry<String,DirectoryInfo> e : diskDirector.entrySet()) {
+    File f=new File(e.getKey());
+    if (!f.exists()) {
+      toremove.add(e.getKey());
+      continue;
+    }
+    freader.write(e.getKey() + "\r\n");
+    buffer.append(e.getKey() + "\r\n");
+  }
+  freader.close();
+  FileWriter freader2=new FileWriter(realtime_ts2);
+  freader2.write(String.valueOf(System.currentTimeMillis()));
+  freader2.close();
+  if (links.exists()) {
+    links.delete();
+  }
+  if (realtime_ts.exists()) {
+    realtime_ts.delete();
+  }
+  for (  String s : toremove) {
+    diskDirector.remove(s);
+  }
+  if (toremove.size() > 0) {
+    LOG.info("####toremove####" + toremove.toString() + this.extaLog());
+  }
+  LOG.info("####remakeLinkFs####" + buffer.toString() + this.extaLog());
+  links2.renameTo(links);
+  realtime_ts2.renameTo(realtime_ts);
+}

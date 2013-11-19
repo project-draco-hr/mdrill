@@ -1,0 +1,4 @@
+{
+  this.RamDirector_access.updateAll(buffer,this.update);
+  this.maybeupdateAll(logTs);
+}

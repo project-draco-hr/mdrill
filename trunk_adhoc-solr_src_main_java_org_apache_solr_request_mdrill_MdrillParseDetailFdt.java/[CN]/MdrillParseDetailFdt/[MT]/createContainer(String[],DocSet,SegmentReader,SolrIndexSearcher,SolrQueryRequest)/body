@@ -1,0 +1,3 @@
+{
+  return new fetchContaioner(this,fields,baseDocs,reader,searcher,req);
+}

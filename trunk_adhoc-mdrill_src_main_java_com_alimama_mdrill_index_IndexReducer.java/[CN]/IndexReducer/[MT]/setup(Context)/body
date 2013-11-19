@@ -2,6 +2,10 @@
   super.setup(context);
   context.getCounter("higo","dumpcount").increment(0);
   Configuration conf=context.getConfiguration();
+  isNotFdtMode=conf.get("mdrill.table.mode","").indexOf("@hdfs@") < 0;
+  if (!isNotFdtMode) {
+    TermInfosWriter.setSkipInterVal(16);
+  }
   heartBeater=new HeartBeater(context);
   heartBeater.needHeartBeat();
   this.doclistcache=new DocumentList();

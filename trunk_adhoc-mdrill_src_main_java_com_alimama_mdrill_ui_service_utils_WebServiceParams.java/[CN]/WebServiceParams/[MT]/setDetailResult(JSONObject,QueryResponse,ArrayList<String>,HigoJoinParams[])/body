@@ -17,7 +17,7 @@
     SelectDetailRow row=new SelectDetailRow((ArrayList<Object>)facetCounts.get(i));
     JSONObject jo=new JSONObject();
     String groupValues=row.getKey().getKey();
-    String[] values=EncodeUtils.decode(groupValues.split(UniqConfig.GroupJoinString()));
+    String[] values=EncodeUtils.decode(groupValues.split(UniqConfig.GroupJoinString(),-1));
     int valuesoffset=2;
     for (int j=0; j < (values.length - valuesoffset) && j < showFields.size(); j++) {
       if (showFields.get(j).equals("higoempty_groupby_forjoin_l")) {

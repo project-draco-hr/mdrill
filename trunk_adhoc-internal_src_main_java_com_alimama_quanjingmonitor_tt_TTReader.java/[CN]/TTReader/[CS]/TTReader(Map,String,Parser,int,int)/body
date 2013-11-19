@@ -1,0 +1,5 @@
+{
+  stat=new Stat();
+  rawDataReader=new QueryRawDataReader_tt4(conf,confPrefix,readerIndex,readerCount,stat);
+  this.parser=parser;
+}
