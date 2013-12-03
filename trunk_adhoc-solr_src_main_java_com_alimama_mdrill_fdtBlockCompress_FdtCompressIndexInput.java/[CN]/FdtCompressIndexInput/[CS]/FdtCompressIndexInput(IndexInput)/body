@@ -1,0 +1,5 @@
+{
+  super("FdtCompressIndexIndexInput");
+  this.input=input;
+  this.blockpos=input.getFilePointer();
+}

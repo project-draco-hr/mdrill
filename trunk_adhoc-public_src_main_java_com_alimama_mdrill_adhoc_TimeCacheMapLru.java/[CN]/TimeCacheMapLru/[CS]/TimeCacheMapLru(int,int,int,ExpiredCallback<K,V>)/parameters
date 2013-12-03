@@ -1,0 +1,4 @@
+int lrusize
+int expirationSecs
+int numBuckets
+ExpiredCallback<K,V> callback

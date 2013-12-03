@@ -1,0 +1,11 @@
+{
+synchronized (_lock) {
+    for (    Entry<K,V> e : bucket.entrySet()) {
+      K key=e.getKey();
+      V old=this.getNolock(key);
+      V newval=e.getValue();
+      V finalVal=d.update(key,old,newval);
+      this.putNolock(key,finalVal);
+    }
+  }
+}

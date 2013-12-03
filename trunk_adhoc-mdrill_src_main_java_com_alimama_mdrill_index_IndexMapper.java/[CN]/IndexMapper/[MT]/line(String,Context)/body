@@ -4,45 +4,42 @@
   if (!this.validate(values,record,context)) {
     return false;
   }
-  HashMap<String,String> res=new HashMap<String,String>(fields.length);
+  String[] res=new String[fields.length];
   for (int i=0; i < fields.length; i++) {
     String fieldName=fields[i];
     String string=(i < values.length) ? values[i] : null;
     String val=parseDefault(string);
     if (this.isDate[i]) {
-      res.put(fieldName,TdateFormat.ensureTdate(val,fieldName));
+      res[i]=TdateFormat.ensureTdate(val,fieldName);
     }
  else     if (val != null) {
-      res.put(fieldName,val);
+      res[i]=val;
     }
  else     if (this.isString[i]) {
-      res.put(fieldName,"_");
+      res[i]="_";
     }
   }
-  if (usedthedate) {
+  if (usedthedate && thedateIndex > 0) {
     if (thedate != null) {
-      res.put("thedate",thedate);
+      res[thedateIndex]=thedate;
     }
-    res.put("thedate",String.valueOf(res.get("thedate")).replaceAll("-","").replaceAll("_",""));
-    if (res.get("thedate").length() != 8) {
+    res[thedateIndex]=String.valueOf(res[thedateIndex]).replaceAll("-","").replaceAll("_","");
+    if (res[thedateIndex] == null || res[thedateIndex].length() != 8) {
       if (debuglines < 100) {
         debuglines++;
         System.out.println("miss thedate values: " + record.replaceAll(split,"#") + "");
       }
       context.getCounter("higo","skiprecords").increment(1);
     }
-    context.getCounter("higo","dayrecord_" + String.valueOf(res.get("thedate"))).increment(1);
-    CRC32 crc32=new CRC32();
-    crc32.update(java.util.UUID.randomUUID().toString().getBytes());
-    res.put("higo_uuid",Long.toString(crc32.getValue()));
+    context.getCounter("higo","dayrecord_" + String.valueOf(res[thedateIndex])).increment(1);
   }
   if (printlines < 10) {
     printlines++;
-    System.out.println("res: " + res.toString() + " arrays,"+ Arrays.toString(values));
+    System.out.println("res:" + Arrays.toString(values));
   }
   context.write(new PairWriteable(this.Index++),new DocumentMap(res));
-  if (this.isuniqcheck && res.containsKey(this.uniqfield)) {
-    String notempty=res.get(this.uniqfield);
+  if (this.isuniqcheck && uniqfieldIndex > 0 && res[uniqfieldIndex] != null) {
+    String notempty=res[uniqfieldIndex];
     if (notempty.length() > 0 && !notempty.equals("_")) {
       context.write(new PairWriteable(new Text("uniq_" + notempty)),new DocumentMap());
     }

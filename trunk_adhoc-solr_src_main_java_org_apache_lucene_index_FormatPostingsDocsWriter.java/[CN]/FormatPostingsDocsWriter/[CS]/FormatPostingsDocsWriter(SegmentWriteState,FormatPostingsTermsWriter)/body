@@ -1,12 +1,17 @@
 {
   this.parent=parent;
+  skipInterval=parent.parent.termsOut.skipInterval;
   out=parent.parent.dir.createOutput(IndexFileNames.segmentFileName(parent.parent.segment,IndexFileNames.FREQ_EXTENSION));
-  this.currentIsUseCompress=true;
-  out.writeVInt(this.currentIsUseCompress ? 1 : 0);
+  if (skipInterval >= (Integer.MAX_VALUE - 10000)) {
+    this.compressType=1;
+  }
+ else {
+    this.compressType=0;
+  }
+  out.writeVInt(this.compressType);
   boolean success=false;
   try {
     totalNumDocs=parent.parent.totalNumDocs;
-    skipInterval=parent.parent.termsOut.skipInterval;
     skipListWriter=parent.parent.skipListWriter;
     skipListWriter.setFreqOutput(out);
     posWriter=new FormatPostingsPositionsWriter(state,this);

@@ -45,8 +45,6 @@
   conf.set("higo.column.custfields",custFields);
   conf.set("higo.input.base",inputBase);
   conf.setBoolean("higo.column.userthedate",usedthedate);
-  conf.set("io.sort.mb","80");
-  conf.set("mapred.reduce.slowstart.completed.maps","0.01");
   conf.set("higo.index.fields",fields);
   job.setPartitionerClass(PairPartion.class);
   job.setMapperClass(IndexMapper.class);

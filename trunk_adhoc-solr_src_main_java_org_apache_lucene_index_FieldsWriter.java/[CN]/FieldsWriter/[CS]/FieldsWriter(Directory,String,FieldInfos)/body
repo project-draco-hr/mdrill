@@ -4,10 +4,19 @@
   fieldInfos=fn;
   boolean success=false;
   try {
-    fieldsStream=directory.createOutput(IndexFileNames.segmentFileName(segment,IndexFileNames.FIELDS_EXTENSION));
+    IndexOutput fdt=directory.createOutput(IndexFileNames.segmentFileName(segment,IndexFileNames.FIELDS_EXTENSION));
     indexStream=directory.createOutput(IndexFileNames.segmentFileName(segment,IndexFileNames.FIELDS_INDEX_EXTENSION));
-    fieldsStream.writeInt(FORMAT_CURRENT);
-    indexStream.writeInt(FORMAT_CURRENT);
+    if (FieldsWriterCompress.isFdtCompress() && !(directory instanceof RAMDirectory)) {
+      indexStream.writeInt(FieldsWriterCompress.FORMAT_CURRENT);
+      fieldsStream=new FdtCompressIndexOutput(fdt,1024 * 512);
+      fieldsStream.writeInt(FieldsWriterCompress.FORMAT_CURRENT);
+    }
+ else {
+      fdt.writeInt(FORMAT_CURRENT);
+      indexStream.writeInt(FORMAT_CURRENT);
+      fieldsStream=fdt;
+      fieldsStream.writeInt(FieldsWriterCompress.FORMAT_CURRENT);
+    }
     success=true;
   }
   finally {

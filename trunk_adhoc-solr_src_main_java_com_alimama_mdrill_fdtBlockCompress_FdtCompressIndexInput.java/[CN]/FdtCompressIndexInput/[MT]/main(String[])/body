@@ -1,0 +1,5 @@
+{
+  long pos=721943728;
+  System.out.println(FdtCompressIndexInput.getBlockPos(pos));
+  System.out.println(FdtCompressIndexInput.getRamOffset(pos));
+}

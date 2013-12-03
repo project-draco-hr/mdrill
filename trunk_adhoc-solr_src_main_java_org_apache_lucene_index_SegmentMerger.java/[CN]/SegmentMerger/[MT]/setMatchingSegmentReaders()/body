@@ -21,5 +21,7 @@
     }
   }
   rawDocLengths=new int[MAX_RAW_MERGE_DOCS];
+  rawDocStarts=new long[MAX_RAW_MERGE_DOCS];
+  rawDocEnds=new long[MAX_RAW_MERGE_DOCS];
   rawDocLengths2=new int[MAX_RAW_MERGE_DOCS];
 }

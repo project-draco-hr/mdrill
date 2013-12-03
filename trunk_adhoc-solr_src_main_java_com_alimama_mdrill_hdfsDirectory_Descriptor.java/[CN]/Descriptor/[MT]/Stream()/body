@@ -1,0 +1,17 @@
+{
+  if (this.in == null) {
+    long t1=System.currentTimeMillis();
+    this.in=fs.open(file,ioFileBufferSize);
+    RamDirector.put(this.uuid,this);
+    long t2=System.currentTimeMillis();
+    long tl=t2 - t1;
+    if (tl > 100) {
+      logger.info("fs.open " + file.getName() + " timetaken "+ tl);
+    }
+  }
+  index++;
+  if (index > 100) {
+    RamDirector.put(this.uuid,this);
+  }
+  return this.in;
+}

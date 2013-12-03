@@ -1,0 +1,15 @@
+{
+  if (this.isNeedFlush) {
+    ByteArrayOutputStream bos=new ByteArrayOutputStream();
+    GZIPOutputStream gzip=new GZIPOutputStream(bos);
+    this.ramoutput.writeTo(gzip);
+    gzip.finish();
+    gzip.close();
+    byte[] b=bos.toByteArray();
+    bos.close();
+    this.output.writeVInt(b.length);
+    this.output.writeBytes(b,0,b.length);
+    this.ramoutput=new RAMOutputStream();
+    this.isNeedFlush=false;
+  }
+}

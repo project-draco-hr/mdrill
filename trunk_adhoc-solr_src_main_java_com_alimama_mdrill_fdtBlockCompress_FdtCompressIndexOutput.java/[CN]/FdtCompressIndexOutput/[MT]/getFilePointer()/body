@@ -1,0 +1,4 @@
+{
+  long rtn=(this.output.getFilePointer() << 24) + this.ramoutput.getFilePointer();
+  return rtn;
+}

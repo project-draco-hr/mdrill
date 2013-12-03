@@ -1,12 +1,5 @@
 {
   filePath=path;
-  long t1=System.currentTimeMillis();
-  descriptor=new Descriptor(path,ioFileBufferSize);
-  length=fs.getFileStatus(path).getLen();
-  long t2=System.currentTimeMillis();
-  long tl=t2 - t1;
-  if (tl > 100) {
-    logger.info("fs.open " + path.getName() + " timetaken "+ tl);
-  }
+  descriptor=new Descriptor(fs,path,ioFileBufferSize);
   isOpen=true;
 }

@@ -1,0 +1,5 @@
+{
+synchronized (_lock) {
+    return this.getNolock(key);
+  }
+}

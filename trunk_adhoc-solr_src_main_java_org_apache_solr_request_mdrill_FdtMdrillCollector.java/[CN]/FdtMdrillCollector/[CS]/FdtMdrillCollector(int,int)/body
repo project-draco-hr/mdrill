@@ -1,0 +1,4 @@
+{
+  this.limit=limit;
+  bits=new OpenBitSet(maxDoc);
+}

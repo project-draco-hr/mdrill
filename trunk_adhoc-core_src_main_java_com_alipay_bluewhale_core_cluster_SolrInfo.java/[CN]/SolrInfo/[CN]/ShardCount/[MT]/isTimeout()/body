@@ -1,0 +1,4 @@
+{
+  Long nowtimes=(new Date()).getTime();
+  return nowtimes - times > 1000l * 3600 * 6;
+}

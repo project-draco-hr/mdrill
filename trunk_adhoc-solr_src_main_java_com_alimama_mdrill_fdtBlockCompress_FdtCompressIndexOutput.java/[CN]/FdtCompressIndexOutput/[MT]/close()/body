@@ -1,0 +1,5 @@
+{
+  this.syncBlock();
+  this.output.close();
+  this.ramoutput.close();
+}

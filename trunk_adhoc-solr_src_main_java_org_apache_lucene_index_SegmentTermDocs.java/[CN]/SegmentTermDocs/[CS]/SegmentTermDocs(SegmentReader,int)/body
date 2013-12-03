@@ -20,7 +20,7 @@
     }
   }
   try {
-    isfrqCompress=this.freqStream.readVInt() == 1 ? true : false;
+    isfrqCompress=this.freqStream.readVInt();
   }
  catch (  IOException e) {
   }

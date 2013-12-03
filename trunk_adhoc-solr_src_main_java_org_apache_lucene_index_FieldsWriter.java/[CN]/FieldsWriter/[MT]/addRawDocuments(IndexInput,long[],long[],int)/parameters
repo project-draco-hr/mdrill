@@ -1,0 +1,4 @@
+IndexInput stream
+long[] lengthsstart
+long[] lengthsend
+int numDocs

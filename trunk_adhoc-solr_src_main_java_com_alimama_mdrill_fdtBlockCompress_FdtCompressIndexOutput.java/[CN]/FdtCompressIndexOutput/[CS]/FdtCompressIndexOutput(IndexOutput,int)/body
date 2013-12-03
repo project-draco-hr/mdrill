@@ -1,0 +1,6 @@
+{
+  this.output=output;
+  this.blocksize=blocksize;
+  this.ramoutput=new RAMOutputStream();
+  isNeedFlush=false;
+}

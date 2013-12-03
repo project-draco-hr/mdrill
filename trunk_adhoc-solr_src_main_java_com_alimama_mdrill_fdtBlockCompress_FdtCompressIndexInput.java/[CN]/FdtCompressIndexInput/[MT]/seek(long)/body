@@ -1,0 +1,6 @@
+{
+  long blockpos=getBlockPos(pos);
+  long ramoff=getRamOffset(pos);
+  this.resetBlock(blockpos);
+  this.raminput.seek(ramoff);
+}

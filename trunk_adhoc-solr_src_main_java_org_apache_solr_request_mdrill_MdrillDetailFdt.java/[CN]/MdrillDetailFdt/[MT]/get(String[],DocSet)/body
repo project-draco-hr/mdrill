@@ -1,17 +1,74 @@
 {
-  this.container=this.parse.createContainer(fields,baseDocs,this.reader,this.searcher,this.req);
-  DocIterator iter=baseDocs.iterator();
-  this.recordCount.inc(baseDocs.size());
-  Doclist res=new Doclist(this.parse.limit_offset);
-  int doc=-1;
-  while (iter.hasNext()) {
-    doc=iter.nextDoc();
-    res.add(doc);
-    if (res.index >= this.parse.limit_offset) {
-      break;
+  if (this.crcget == null) {
+    this.container=this.parse.createContainer(fields,baseDocs,this.reader,this.searcher,this.req);
+    DocIterator iter=baseDocs.iterator();
+    this.recordCount.inc(baseDocs.size());
+    Doclist res=new Doclist(this.parse.limit_offset);
+    int doc=-1;
+    while (iter.hasNext()) {
+      doc=iter.nextDoc();
+      res.add(doc);
+      if (res.index >= this.parse.limit_offset) {
+        break;
+      }
+    }
+    PriorityQueue<SelectDetailRow> topItems=this.transGroupValue(res,fields);
+    this.container.free();
+    return this.toNameList(topItems);
+  }
+  String hostkey=String.valueOf(this.getkeyCrc());
+  ConcurrentHashMap<Long,String> cache=MdrillUtils.CRC_CACHE_SIZE.remove(crcget + "@" + hostkey);
+  NamedList rtn=new NamedList();
+  Map<Long,String> crcvalue=new HashMap<Long,String>();
+  rtn.add("fdtcre",crcvalue);
+  if (cache != null) {
+    MapFieldSelector selector=new MapFieldSelector(fields);
+    FieldType[] ftlist=new FieldType[fields.length];
+    IndexSchema schema=this.searcher.getSchema();
+    for (int j=0; j < fields.length; j++) {
+      ftlist[j]=schema.getFieldType(fields[j]);
+    }
+    String crcliststr=params.get("mdrill.crc.key.get.crclist");
+    if (crcliststr != null) {
+      String[] crclist=crcliststr.split(",");
+      for (      String s : crclist) {
+        Long crc=Long.parseLong(s);
+        String v=cache.get(crc);
+        if (v != null) {
+          String cols[]=v.split(UniqConfig.GroupJoinString(),-1);
+          if (cols.length >= 2) {
+            int doc=Integer.parseInt(cols[0]);
+            SortGroupVal buff=new SortGroupVal();
+            buff.groupbuff.append("-");
+            buff.groupbuff.append(UniqConfig.GroupJoinString());
+            buff.groupbuff.append("-");
+            Document docfields=this.reader.document(doc,selector);
+            if (docfields == null) {
+              for (int j=0; j < fields.length; j++) {
+                buff.groupbuff.append(UniqConfig.GroupJoinString());
+                buff.groupbuff.append(EncodeUtils.encode("-"));
+              }
+              if (!crcvalue.containsKey(crc)) {
+                crcvalue.put(crc,buff.groupbuff.toString());
+              }
+            }
+ else {
+              for (int j=0; j < fields.length; j++) {
+                buff.groupbuff.append(UniqConfig.GroupJoinString());
+                Fieldable fv=docfields.getFieldable(fields[j]);
+                if (fv != null) {
+                  buff.groupbuff.append(ftlist[j].toExternal(fv));
+                }
+ else {
+                  buff.groupbuff.append(EncodeUtils.encode("-"));
+                }
+              }
+              crcvalue.put(crc,buff.groupbuff.toString());
+            }
+          }
+        }
+      }
     }
   }
-  PriorityQueue<SelectDetailRow> topItems=this.transGroupValue(res,fields);
-  this.container.free();
-  return this.toNameList(topItems);
+  return rtn;
 }

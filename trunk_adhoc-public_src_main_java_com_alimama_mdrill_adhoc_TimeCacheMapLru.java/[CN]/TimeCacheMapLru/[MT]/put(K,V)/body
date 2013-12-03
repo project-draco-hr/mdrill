@@ -1,0 +1,5 @@
+{
+synchronized (_lock) {
+    this.putNolock(key,value);
+  }
+}

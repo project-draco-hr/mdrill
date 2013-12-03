@@ -4,7 +4,9 @@
     int toRead=fieldsStream.readVInt();
     long pointer=fieldsStream.getFilePointer();
     f=new LazyField(fi.name,Field.Store.YES,toRead,pointer,binary,compressed,cacheResult);
-    fieldsStream.seek(pointer + toRead);
+    fieldsStream.seek(pointer);
+    byte[] skip=new byte[toRead];
+    fieldsStream.readBytes(skip,0,toRead);
   }
  else   if (numeric != 0) {
     f=loadNumericField(fi,numeric);
@@ -17,13 +19,17 @@
       int toRead=fieldsStream.readVInt();
       long pointer=fieldsStream.getFilePointer();
       f=new LazyField(fi.name,store,toRead,pointer,binary,compressed,cacheResult);
-      fieldsStream.seek(pointer + toRead);
+      fieldsStream.seek(pointer);
+      byte[] skip=new byte[toRead];
+      fieldsStream.readBytes(skip,0,toRead);
     }
  else {
       int length=fieldsStream.readVInt();
       long pointer=fieldsStream.getFilePointer();
       if (format >= FieldsWriter.FORMAT_VERSION_UTF8_LENGTH_IN_BYTES) {
-        fieldsStream.seek(pointer + length);
+        fieldsStream.seek(pointer);
+        byte[] skip=new byte[length];
+        fieldsStream.readBytes(skip,0,length);
       }
  else {
         fieldsStream.skipChars(length);

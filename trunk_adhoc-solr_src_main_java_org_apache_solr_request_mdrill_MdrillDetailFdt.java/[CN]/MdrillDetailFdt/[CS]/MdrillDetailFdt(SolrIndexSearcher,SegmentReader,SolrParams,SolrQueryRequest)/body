@@ -1,7 +1,16 @@
 {
+  try {
+    this.hostId=java.net.InetAddress.getLocalHost().getHostAddress() + "," + String.valueOf(java.net.InetAddress.getLocalHost().getHostName());
+  }
+ catch (  UnknownHostException e) {
+    hostId=java.util.UUID.randomUUID().toString();
+  }
+  this.segKey=reader.getSigmentUniqKey();
   this.reader=reader;
   this.req=req;
   this.searcher=_searcher;
   this.parse=new MdrillParseDetailFdt(_params);
+  this.crcget=_params.get("mdrill.crc.key.get",null);
   this.recordCount=new RecordCountDetail();
+  this.params=_params;
 }

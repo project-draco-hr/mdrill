@@ -24,6 +24,12 @@
       long genB=-1;
       for (int i=0; i < defaultGenFileRetryCount; i++) {
         IndexInput genInput=null;
+        if (!directory.fileExists(IndexFileNames.SEGMENTS_GEN)) {
+          if (infoStream != null) {
+            message("segments.gen open: FileNotFoundException " + IndexFileNames.SEGMENTS_GEN);
+          }
+          break;
+        }
         try {
           genInput=directory.openInput(IndexFileNames.SEGMENTS_GEN);
         }
@@ -53,7 +59,13 @@ catch (        IOException e) {
               }
             }
           }
- catch (          IOException err2) {
+ catch (          FileNotFoundException err2) {
+            if (infoStream != null) {
+              message("segments.gen open: FileNotFoundException " + err2);
+            }
+            break;
+          }
+catch (          IOException err2) {
           }
  finally {
             genInput.close();

@@ -1,0 +1,4 @@
+{
+  int cnt=res.setMap(this.list,fields);
+  this.count+=cnt;
+}

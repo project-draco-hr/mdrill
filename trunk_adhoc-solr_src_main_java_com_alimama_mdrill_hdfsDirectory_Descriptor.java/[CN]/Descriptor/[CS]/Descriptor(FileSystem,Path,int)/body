@@ -1,0 +1,6 @@
+{
+  this.position=0l;
+  this.file=_file;
+  this.fs=fs;
+  this.ioFileBufferSize=ioFileBufferSize;
+}

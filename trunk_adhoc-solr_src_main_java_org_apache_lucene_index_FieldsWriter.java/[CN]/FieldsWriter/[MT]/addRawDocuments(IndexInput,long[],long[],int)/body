@@ -1,0 +1,34 @@
+{
+  if (stream instanceof FdtCompressIndexInput) {
+    FdtCompressIndexInput inputstream=(FdtCompressIndexInput)stream;
+    for (int i=0; i < numDocs; i++) {
+      long position=fieldsStream.getFilePointer();
+      indexStream.writeLong(position);
+      inputstream.writeToPos(fieldsStream,lengthsend[i]);
+    }
+    return;
+  }
+  if (fieldsStream instanceof FdtCompressIndexOutput) {
+    for (int i=0; i < numDocs; i++) {
+      long position=fieldsStream.getFilePointer();
+      indexStream.writeLong(position);
+      long end=lengthsend[i];
+      if (end == -1) {
+        end=stream.length();
+      }
+      fieldsStream.copyBytes(stream,end - lengthsstart[i]);
+    }
+    return;
+  }
+  long position=fieldsStream.getFilePointer();
+  long start=position;
+  for (int i=0; i < numDocs; i++) {
+    indexStream.writeLong(position);
+    long end=lengthsend[i];
+    if (end == -1) {
+      end=stream.length();
+    }
+    position+=end - lengthsstart[i];
+  }
+  fieldsStream.copyBytes(stream,position - start);
+}

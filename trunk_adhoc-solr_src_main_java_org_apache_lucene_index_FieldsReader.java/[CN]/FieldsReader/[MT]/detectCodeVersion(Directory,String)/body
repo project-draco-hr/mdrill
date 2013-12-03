@@ -2,7 +2,10 @@
   IndexInput idxStream=dir.openInput(IndexFileNames.segmentFileName(segment,IndexFileNames.FIELDS_INDEX_EXTENSION),1024);
   try {
     int format=idxStream.readInt();
-    if (format < FieldsWriter.FORMAT_LUCENE_3_0_NO_COMPRESSED_FIELDS) {
+    if (format == FieldsWriterCompress.FORMAT_CURRENT) {
+      return "3.0";
+    }
+ else     if (format < FieldsWriter.FORMAT_LUCENE_3_0_NO_COMPRESSED_FIELDS) {
       return "2.x";
     }
  else {

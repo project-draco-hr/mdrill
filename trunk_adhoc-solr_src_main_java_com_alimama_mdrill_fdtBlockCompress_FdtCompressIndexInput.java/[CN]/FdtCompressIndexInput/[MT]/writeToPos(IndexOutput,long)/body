@@ -1,0 +1,36 @@
+{
+  if (end == -1) {
+    while (true) {
+      long pos=this.raminput.getFilePointer();
+      long size=this.raminput.length();
+      int left=(int)(size - pos);
+      byte[] buffer=new byte[left];
+      this.readBytes(buffer,0,left);
+      output.writeBytes(buffer,0,left);
+      if (this.nextpos >= this.input.length()) {
+        return;
+      }
+      this.resetBlock(this.nextpos);
+    }
+  }
+ else {
+    long endblock=getBlockPos(end);
+    long ramoffset=getRamOffset(end);
+    while (endblock > this.blockpos) {
+      long pos=this.raminput.getFilePointer();
+      long size=this.raminput.length();
+      int left=(int)(size - pos);
+      byte[] buffer=new byte[left];
+      this.readBytes(buffer,0,left);
+      output.writeBytes(buffer,0,left);
+      this.resetBlock(this.nextpos);
+    }
+    if (endblock == this.blockpos) {
+      long pos=this.raminput.getFilePointer();
+      int left=(int)(ramoffset - pos);
+      byte[] buffer=new byte[left];
+      this.readBytes(buffer,0,left);
+      output.writeBytes(buffer,0,left);
+    }
+  }
+}

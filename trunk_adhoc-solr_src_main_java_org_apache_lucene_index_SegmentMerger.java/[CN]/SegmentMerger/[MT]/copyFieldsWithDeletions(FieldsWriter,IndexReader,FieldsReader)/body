@@ -18,8 +18,8 @@
         }
       }
  while (numDocs < MAX_RAW_MERGE_DOCS);
-      IndexInput stream=matchingFieldsReader.rawDocs(rawDocLengths,start,numDocs);
-      fieldsWriter.addRawDocuments(stream,rawDocLengths,numDocs);
+      IndexInput stream=matchingFieldsReader.rawDocs(rawDocStarts,rawDocEnds,start,numDocs);
+      fieldsWriter.addRawDocuments(stream,rawDocStarts,rawDocEnds,numDocs);
       docCount+=numDocs;
       checkAbort.work(300 * numDocs);
     }

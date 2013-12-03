@@ -1,0 +1,7 @@
+{
+  this.ramoutput.writeByte(b);
+  this.isNeedFlush=true;
+  if (this.ramoutput.getFilePointer() > this.blocksize) {
+    this.syncBlock();
+  }
+}

@@ -1,7 +1,12 @@
 {
-  out.writeInt(this.data.size());
-  for (  Entry<String,String> e : this.data.entrySet()) {
-    out.writeUTF(e.getKey());
-    out.writeUTF(e.getValue());
+  out.writeInt(data.length);
+  for (int i=0; i < data.length; i++) {
+    if (data[i] == null) {
+      out.writeBoolean(false);
+    }
+ else {
+      out.writeBoolean(true);
+      out.writeUTF(data[i]);
+    }
   }
 }

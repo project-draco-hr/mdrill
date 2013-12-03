@@ -1,3 +1,11 @@
 {
+  if (length < 0) {
+    try {
+      length=fs.getFileStatus(this.filePath).getLen();
+    }
+ catch (    IOException e) {
+      logger.error("getFileStatus " + filePath.getName() + " timetaken ",e);
+    }
+  }
   return length;
 }

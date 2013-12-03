@@ -1,7 +1,12 @@
 {
-  data=new HashMap<String,String>();
   int size=in.readInt();
+  data=new String[size];
   for (int i=0; i < size; i++) {
-    this.data.put(in.readUTF(),in.readUTF());
+    if (in.readBoolean()) {
+      data[i]=in.readUTF();
+    }
+ else {
+      data[i]=null;
+    }
   }
 }

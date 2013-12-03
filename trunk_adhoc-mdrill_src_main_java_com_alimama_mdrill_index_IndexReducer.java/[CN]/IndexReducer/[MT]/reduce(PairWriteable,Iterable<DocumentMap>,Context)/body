@@ -22,7 +22,7 @@
     if (doccount > maxDocCount) {
       break;
     }
-    doclistcache.add(iterator.next());
+    doclistcache.add(iterator.next(),this.fields);
     if (!doclistcache.isoversize()) {
       continue;
     }

@@ -1,0 +1,9 @@
+{
+  long timelen=ishdfsmode ? 1000l * 600 : 1000l * 360;
+  long nowtime=System.currentTimeMillis();
+  if (nowtime - hbInterval < timelen) {
+    return false;
+  }
+  hbInterval=nowtime;
+  return true;
+}

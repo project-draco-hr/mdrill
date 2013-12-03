@@ -1,0 +1,20 @@
+{
+  if (this.raminput == null) {
+    this.resetBlock(this.blockpos);
+  }
+  int posoffset=0;
+  while (posoffset < len) {
+    long pos=this.raminput.getFilePointer();
+    long size=this.raminput.length();
+    long left=size - pos;
+    int need=len - posoffset;
+    int readSize=(int)Math.min(left,need);
+    if (readSize > 0) {
+      this.raminput.readBytes(b,offset + posoffset,readSize);
+      posoffset+=readSize;
+    }
+    if (need > left) {
+      this.resetBlock(this.nextpos);
+    }
+  }
+}

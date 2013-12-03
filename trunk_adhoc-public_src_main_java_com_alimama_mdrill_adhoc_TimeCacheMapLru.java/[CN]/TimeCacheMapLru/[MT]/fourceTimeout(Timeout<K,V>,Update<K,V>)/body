@@ -1,0 +1,29 @@
+{
+  LinkedList<Map<K,V>> lastdata=null;
+synchronized (_lock) {
+    lastdata=_buckets;
+    _buckets=new LinkedList<Map<K,V>>();
+    for (int i=0; i < numBuckets; i++) {
+      _buckets.add(this.CreateMap());
+    }
+  }
+  if (_callback != null && lastdata != null) {
+    HashMap<K,V> needupdate=new HashMap<K,V>();
+    for (    Map<K,V> dead : lastdata) {
+      for (      Entry<K,V> entry : dead.entrySet()) {
+        K key=entry.getKey();
+        V val=entry.getValue();
+        if (fetch.timeout(key,val)) {
+          _callback.expire(key,val);
+        }
+ else {
+          needupdate.put(key,val);
+        }
+      }
+    }
+    _callback.commit();
+    if (needupdate.size() > 0) {
+      this.updateAll(needupdate,d);
+    }
+  }
+}

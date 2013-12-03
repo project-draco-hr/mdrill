@@ -1,0 +1,4 @@
+long[] posStartList
+long[] posEndList
+int startDocID
+int numDocs

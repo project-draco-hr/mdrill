@@ -41,8 +41,10 @@
     }
   }
  catch (  ThreadInterruptedException t) {
+    logger.info("sigment error ",t);
     throw t;
   }
 catch (  Throwable t) {
+    logger.info("sigment error ",t);
   }
 }

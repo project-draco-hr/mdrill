@@ -1,0 +1,8 @@
+{
+  if (this.isClone) {
+  }
+  this.input.close();
+  if (this.raminput != null) {
+    this.raminput.close();
+  }
+}

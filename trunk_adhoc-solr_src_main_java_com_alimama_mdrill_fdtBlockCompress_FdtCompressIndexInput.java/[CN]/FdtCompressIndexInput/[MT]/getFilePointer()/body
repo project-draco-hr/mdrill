@@ -1,0 +1,10 @@
+{
+  if (this.raminput == null) {
+    try {
+      this.resetBlock(this.blockpos);
+    }
+ catch (    IOException e) {
+    }
+  }
+  return (this.blockpos << 24) + this.raminput.getFilePointer();
+}

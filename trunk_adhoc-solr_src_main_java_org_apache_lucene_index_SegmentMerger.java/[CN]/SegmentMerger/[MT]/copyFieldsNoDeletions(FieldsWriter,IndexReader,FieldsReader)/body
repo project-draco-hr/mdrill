@@ -4,8 +4,8 @@
   if (matchingFieldsReader != null) {
     while (docCount < maxDoc) {
       int len=Math.min(MAX_RAW_MERGE_DOCS,maxDoc - docCount);
-      IndexInput stream=matchingFieldsReader.rawDocs(rawDocLengths,docCount,len);
-      fieldsWriter.addRawDocuments(stream,rawDocLengths,len);
+      IndexInput stream=matchingFieldsReader.rawDocs(rawDocStarts,rawDocEnds,docCount,len);
+      fieldsWriter.addRawDocuments(stream,rawDocStarts,rawDocEnds,len);
       docCount+=len;
       checkAbort.work(300 * len);
     }

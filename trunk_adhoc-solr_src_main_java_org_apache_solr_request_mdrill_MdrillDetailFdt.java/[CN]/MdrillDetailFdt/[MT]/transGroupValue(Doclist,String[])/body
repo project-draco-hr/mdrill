@@ -1,32 +1,15 @@
 {
+  long key=getkeyCrc();
   PriorityQueue<SelectDetailRow> topItems=new PriorityQueue<SelectDetailRow>(this.parse.limit_offset,Collections.reverseOrder(defcmp));
-  MapFieldSelector selector=new MapFieldSelector(fields);
-  FieldType[] ftlist=new FieldType[fields.length];
-  IndexSchema schema=this.searcher.getSchema();
-  for (int j=0; j < fields.length; j++) {
-    ftlist[j]=schema.getFieldType(fields[j]);
-  }
   for (int i=0; i < res.index; i++) {
     int doc=res.list[i];
     SortGroupVal buff=new SortGroupVal();
-    buff.groupbuff.append("-");
+    buff.groupbuff.append(String.valueOf(doc));
     buff.groupbuff.append(UniqConfig.GroupJoinString());
-    buff.groupbuff.append("-");
-    Document docfields=this.reader.document(doc,selector);
+    buff.groupbuff.append(String.valueOf(key));
     for (int j=0; j < fields.length; j++) {
       buff.groupbuff.append(UniqConfig.GroupJoinString());
-      if (docfields != null) {
-        String fv=docfields.get(fields[j]);
-        if (fv != null) {
-          buff.groupbuff.append(ftlist[j].indexedToReadable(fv));
-        }
- else {
-          buff.groupbuff.append(EncodeUtils.encode("-"));
-        }
-      }
- else {
-        buff.groupbuff.append(EncodeUtils.encode("-"));
-      }
+      buff.groupbuff.append(EncodeUtils.encode("-"));
     }
     buff.sortString="0";
     SelectDetailRow newrow=SelectDetailRow.INSTANCE(doc,doc);

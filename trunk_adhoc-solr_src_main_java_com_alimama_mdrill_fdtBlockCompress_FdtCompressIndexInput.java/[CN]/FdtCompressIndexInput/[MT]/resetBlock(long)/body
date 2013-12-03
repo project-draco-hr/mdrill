@@ -1,0 +1,27 @@
+{
+  if (this.blockpos == pos && this.raminput != null) {
+    return;
+  }
+  if (this.raminput != null) {
+    this.raminput.close();
+  }
+  this.input.seek(pos);
+  this.blockpos=pos;
+  int bytelen=this.input.readVInt();
+  byte[] compressdata=new byte[bytelen];
+  this.input.readBytes(compressdata,0,bytelen);
+  this.nextpos=this.input.getFilePointer();
+  ramDirectory=new RAMDirectory();
+  IndexOutput output=ramDirectory.createOutput("r");
+  ByteArrayInputStream bis=new ByteArrayInputStream(compressdata);
+  GZIPInputStream gzip=new GZIPInputStream(bis);
+  byte[] buff=new byte[1024];
+  int rc=0;
+  while ((rc=gzip.read(buff,0,buff.length)) > 0) {
+    output.writeBytes(buff,0,rc);
+  }
+  gzip.close();
+  bis.close();
+  output.close();
+  this.raminput=ramDirectory.openInput("r");
+}

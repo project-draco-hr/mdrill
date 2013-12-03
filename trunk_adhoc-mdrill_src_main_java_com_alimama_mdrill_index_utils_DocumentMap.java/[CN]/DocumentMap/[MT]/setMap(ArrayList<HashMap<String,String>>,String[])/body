@@ -1,0 +1,13 @@
+{
+  HashMap<String,String> rtn=new HashMap<String,String>();
+  for (int i=0; i < data.length && i < fields.length; i++) {
+    if (data[i] != null) {
+      rtn.put(fields[i],data[i]);
+    }
+  }
+  CRC32 crc32=new CRC32();
+  crc32.update(java.util.UUID.randomUUID().toString().getBytes());
+  rtn.put("higo_uuid",Long.toString(crc32.getValue()));
+  list.add(rtn);
+  return 1;
+}

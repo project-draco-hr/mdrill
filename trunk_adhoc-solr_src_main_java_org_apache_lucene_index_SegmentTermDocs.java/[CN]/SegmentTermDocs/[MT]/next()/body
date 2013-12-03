@@ -1,7 +1,7 @@
 {
   while (true) {
     if (count == df)     return false;
-    final int docCode=this.compress.readCompressblock(this.skipInterval,this.df);
+    final int docCode=this.compress.readCompressblock(this.df);
     if (indexOptions == IndexOptions.DOCS_ONLY) {
       doc+=docCode;
       freq=1;
@@ -9,7 +9,7 @@
  else {
       doc+=docCode >>> 1;
       if ((docCode & 1) != 0)       freq=1;
- else       freq=this.compress.readCompressblock(this.skipInterval,this.df);
+ else       freq=this.compress.readCompressblock(this.df);
     }
     count++;
     if (deletedDocs == null || !deletedDocs.get(doc))     break;

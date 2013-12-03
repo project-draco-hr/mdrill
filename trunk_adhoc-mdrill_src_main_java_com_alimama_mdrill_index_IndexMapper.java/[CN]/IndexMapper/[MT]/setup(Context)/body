@@ -29,8 +29,16 @@
       String[] fieldSchema=fieldslist[i].split(":");
       String fieldName=fieldSchema[0].trim().toLowerCase();
       String type=fieldSchema[1];
-      this.isStore[i]=Boolean.valueOf(fieldSchema[3]);
       this.fields[i]=fieldName;
+      if (this.fields[i].equals("thedate")) {
+        thedateIndex=i;
+      }
+      if (this.isuniqcheck) {
+        if (this.fields[i].equals(this.uniqfield)) {
+          uniqfieldIndex=i;
+        }
+      }
+      this.isStore[i]=Boolean.valueOf(fieldSchema[3]);
       this.isDate[i]=type.equalsIgnoreCase("tdate");
       this.isString[i]=type.equalsIgnoreCase("string");
     }
@@ -44,6 +52,14 @@
     for (int i=0; i < fieldslist.length; i++) {
       this.isStore[i]=Boolean.valueOf(false);
       this.fields[i]=fieldslist[i];
+      if (this.fields[i].equals("thedate")) {
+        thedateIndex=i;
+      }
+      if (this.isuniqcheck) {
+        if (this.fields[i].equals(this.uniqfield)) {
+          uniqfieldIndex=i;
+        }
+      }
       this.isDate[i]=false;
       this.isString[i]=true;
     }

@@ -3,7 +3,8 @@
     return;
   }
   if (format >= FieldsWriter.FORMAT_VERSION_UTF8_LENGTH_IN_BYTES || binary || compressed) {
-    fieldsStream.seek(fieldsStream.getFilePointer() + toRead);
+    byte[] skip=new byte[toRead];
+    fieldsStream.readBytes(skip,0,toRead);
   }
  else {
     fieldsStream.skipChars(toRead);

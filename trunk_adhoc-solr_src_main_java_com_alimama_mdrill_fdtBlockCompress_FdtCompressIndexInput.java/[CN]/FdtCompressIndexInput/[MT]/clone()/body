@@ -1,0 +1,17 @@
+{
+  FdtCompressIndexInput clone=(FdtCompressIndexInput)super.clone();
+  clone.isClone=true;
+  clone.blockpos=blockpos;
+  clone.nextpos=nextpos;
+  clone.input=(IndexInput)input.clone();
+  clone.raminput=null;
+  clone.compressuuid=java.util.UUID.randomUUID().toString();
+  clone.ramDirectory=new RAMDirectory();
+  try {
+    clone.seek(this.getFilePointer());
+  }
+ catch (  IOException e) {
+    LOG.error("clone seek",e);
+  }
+  return clone;
+}
