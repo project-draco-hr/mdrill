@@ -26,6 +26,7 @@
     }
   }
  catch (  Exception e) {
+    throw new IOException(e);
   }
   heartBeater.cancelHeartBeat();
   heartBeater.interrupt();

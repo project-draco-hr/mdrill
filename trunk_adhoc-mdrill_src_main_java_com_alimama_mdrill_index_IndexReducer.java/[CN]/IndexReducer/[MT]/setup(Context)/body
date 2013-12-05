@@ -32,7 +32,8 @@
   this.documentConverter=new DocumentConverter(fieldslist,"solrconfig.xml","schema.xml");
   shardWriter=this.initShardWriter(context);
   try {
-    this.analyzer=JobIndexPublic.setAnalyzer(conf);
+    this.analyzer=this.documentConverter.getAnalyzer();
+    JobIndexPublic.setAnalyzer(conf);
   }
  catch (  Exception e) {
     throw new IOException(e);

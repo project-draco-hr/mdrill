@@ -2,16 +2,14 @@
   return new LinkedHashMap<K,V>((int)Math.ceil(lursize / 0.75f) + 1,0.75f,true){
     private static final long serialVersionUID=1L;
     @Override protected boolean removeEldestEntry(    Map.Entry<K,V> eldest){
-synchronized (_lock) {
-        boolean rtn=size() > lursize;
-        if (rtn) {
-          if (_callback != null) {
-            _callback.expire(eldest.getKey(),eldest.getValue());
-            _callback.commit();
-          }
+      boolean rtn=size() > lursize;
+      if (rtn) {
+        if (_callback != null) {
+          _callback.expire(eldest.getKey(),eldest.getValue());
+          _callback.commit();
         }
-        return rtn;
       }
+      return rtn;
     }
   }
 ;

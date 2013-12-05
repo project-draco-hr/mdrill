@@ -2,6 +2,7 @@
   super.setup(context);
   Configuration conf=context.getConfiguration();
   isNotFdtMode=conf.get("mdrill.table.mode","").indexOf("@hdfs@") < 0;
+  isNotZip=conf.get("mdrill.table.mode","").indexOf("@nonzipout@") >= 0;
   if (!isNotFdtMode) {
     TermInfosWriter.setSkipInterVal(16);
   }

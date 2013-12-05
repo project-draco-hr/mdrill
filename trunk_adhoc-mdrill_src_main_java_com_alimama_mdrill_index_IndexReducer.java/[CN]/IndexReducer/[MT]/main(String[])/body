@@ -1,0 +1,16 @@
+{
+  IndexSchema schema=null;
+  SolrConfig solrConfig=new SolrConfig("E:\\??????svn\\higo\\trunk\\adhoc-core\\solr\\conf\\solrconfig.xml");
+  InputSource is=new InputSource(solrConfig.getResourceLoader().openSchema("E:\\??????svn\\higo\\trunk\\adhoc-core\\solr\\conf\\schema.xml"));
+  schema=new IndexSchema(solrConfig,"solrconfig",is);
+  String s="Ab94aa4CdDbd34dfde082ed1b4c4d0c505b69";
+  StringReader sr=new StringReader(s);
+  Analyzer analyzer=schema.getAnalyzer();
+  TokenStream tk=analyzer.tokenStream("rawquery",sr);
+  boolean hasnext=tk.incrementToken();
+  while (hasnext) {
+    TermAttribute ta=tk.getAttribute(TermAttribute.class);
+    System.out.println(ta.term());
+    hasnext=tk.incrementToken();
+  }
+}

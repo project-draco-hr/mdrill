@@ -23,6 +23,36 @@
     hpart="ds";
   }
   queryStr=WebServiceParams.query(queryStr);
+  if (projectName.equals("fact_wirelesspv_clickcosteffect1_app_adhoc_d_1")) {
+    projectName="fact_wirelesspv_clickcosteffect1_app_adhoc_d";
+    JSONArray jsonStr=new JSONArray(queryStr.trim());
+    JSONObject obj=new JSONObject();
+    obj.put("key","app_type");
+    obj.put("operate","1");
+    obj.put("value","1");
+    jsonStr.put(obj);
+    queryStr=WebServiceParams.query(jsonStr.toString());
+  }
+  if (projectName.equals("fact_wirelesspv_clickcosteffect1_app_adhoc_d_2")) {
+    projectName="fact_wirelesspv_clickcosteffect1_app_adhoc_d";
+    JSONArray jsonStr=new JSONArray(queryStr.trim());
+    JSONObject obj=new JSONObject();
+    obj.put("key","app_type");
+    obj.put("operate","1");
+    obj.put("value","2");
+    jsonStr.put(obj);
+    queryStr=WebServiceParams.query(jsonStr.toString());
+  }
+  if (projectName.equals("fact_wirelesspv_clickcosteffect1_app_adhoc_d_3")) {
+    projectName="fact_wirelesspv_clickcosteffect1_app_adhoc_d";
+    JSONArray jsonStr=new JSONArray(queryStr.trim());
+    JSONObject obj=new JSONObject();
+    obj.put("key","app_type");
+    obj.put("operate","1");
+    obj.put("value","3");
+    jsonStr.put(obj);
+    queryStr=WebServiceParams.query(jsonStr.toString());
+  }
   TablePartion part=GetPartions.partion(projectName);
   ShardsList[] cores=GetShards.get(part.name,false);
   ShardsList[] ms=GetShards.get(part.name,true);
