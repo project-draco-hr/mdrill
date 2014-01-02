@@ -1,0 +1,3 @@
+{
+  return selectInputStreams(fromTxId,toAtLeastTxId,inProgressOk,true);
+}

@@ -11,11 +11,13 @@
     for (    Entry<String,HashSet<String>> e : partions.entrySet()) {
       String partion=e.getKey();
       HashSet<String> days=e.getValue();
-      String currentvertify=this.getCurrentVertify(partion,days,submatch);
+      String currentvertify=this.getCurrentVertify(partion,days,submatch,tablemode);
       Path indexOtherPath=new Path(this.index,partion);
       Path tmpindexOtherPath=new Path(this.workDir,partion);
       Path otherveritify=new Path(indexOtherPath,"vertify");
-      if (!currentvertify.equals(parse.readFirstLineStr(otherveritify))) {
+      String lastVertify=parse.readFirstLineStr(otherveritify);
+      System.out.println("11111111 vertify:>>>last>>>" + lastVertify + ">>current>>"+ currentvertify+ "<<<<");
+      if (!currentvertify.equals(lastVertify)) {
         if (days.size() > 0) {
           runPartion=new rebuildPartion();
           runPartion.partion=partion;
@@ -28,14 +30,16 @@
       }
     }
     if (runPartion != null) {
-      System.out.println("vertify:" + runPartion.partion + ">>>"+ runPartion.partionvertify);
+      System.out.println("22222  vertify:" + runPartion.partion + ">>>"+ runPartion.partionvertify+ "<<<<");
       int ret=0;
       try {
         flock.trylock();
-        String currentvertify=this.getCurrentVertify(runPartion.partion,runPartion.days,submatch);
+        String currentvertify=this.getCurrentVertify(runPartion.partion,runPartion.days,submatch,tablemode);
         Path indexOtherPath=new Path(this.index,runPartion.partion);
         Path otherveritify=new Path(indexOtherPath,"vertify");
-        if (currentvertify.equals(parse.readFirstLineStr(otherveritify))) {
+        String lastVertify=parse.readFirstLineStr(otherveritify);
+        System.out.println("333333 vertify:" + runPartion.partion + ">>>"+ runPartion.partionvertify+ ">>>"+ currentvertify+ ">>>>"+ lastVertify+ "<<<<");
+        if (currentvertify.equals(lastVertify)) {
           System.out.println("##########finiesd by other process #########");
           continue;
         }
@@ -53,8 +57,8 @@
       if (days == null) {
         continue;
       }
-      String currentVertify=this.getCurrentVertify(runPartion.partion,days,submatch);
-      System.out.println("vertify:" + runPartion.partion + ">>>"+ runPartion.partionvertify+ "<<<"+ currentVertify);
+      String currentVertify=this.getCurrentVertify(runPartion.partion,days,submatch,tablemode);
+      System.out.println("44444 vertify:" + runPartion.partion + ">>>"+ runPartion.partionvertify+ "<<<"+ currentVertify+ "<<<<");
       if (!currentVertify.equals(runPartion.partionvertify)) {
         System.out.println("##########changed#########");
         continue;

@@ -1,0 +1,30 @@
+{
+  FSEditLogOp op=null;
+switch (state) {
+case UNINIT:
+    try {
+      init();
+    }
+ catch (    Throwable e) {
+      LOG.error("caught exception initializing " + this,e);
+      if (skipBrokenEdits) {
+        return null;
+      }
+      Throwables.propagateIfPossible(e,IOException.class);
+    }
+  Preconditions.checkState(state != State.UNINIT);
+return nextOpImpl(skipBrokenEdits);
+case OPEN:
+op=reader.readOp(skipBrokenEdits);
+if ((op != null) && (op.hasTransactionId())) {
+long txId=op.getTransactionId();
+if ((txId > lastTxId) && (lastTxId != HdfsConstants.INVALID_TXID)) {
+return null;
+}
+}
+break;
+case CLOSED:
+break;
+}
+return op;
+}

@@ -1,0 +1,4 @@
+{
+  closeStream();
+  journal.close();
+}

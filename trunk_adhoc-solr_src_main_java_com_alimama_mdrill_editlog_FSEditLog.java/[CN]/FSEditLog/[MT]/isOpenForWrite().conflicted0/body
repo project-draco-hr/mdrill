@@ -1,0 +1,3 @@
+{
+  return state == State.IN_SEGMENT || state == State.BETWEEN_LOG_SEGMENTS;
+}

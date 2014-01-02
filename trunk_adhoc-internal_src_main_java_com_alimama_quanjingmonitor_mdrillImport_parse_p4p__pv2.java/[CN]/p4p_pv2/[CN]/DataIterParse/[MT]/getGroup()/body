@@ -1,0 +1,12 @@
+{
+  long ts=Long.parseLong(p4ppvlog.getTimestamp());
+  long ts300=(ts / 300) * 300000;
+  Date d=new Date(ts300);
+  String[] rtn=new String[5];
+  rtn[0]=String.valueOf(formatDay.format(d));
+  rtn[1]=String.valueOf(formatMin.format(d));
+  rtn[2]=String.valueOf(formatHour.format(d));
+  rtn[3]=String.valueOf(p4ppvlog.getP4PPID());
+  rtn[4]=String.valueOf(getName(p4ppvlog.getQueryOriginURL(),"keyword"));
+  return rtn;
+}

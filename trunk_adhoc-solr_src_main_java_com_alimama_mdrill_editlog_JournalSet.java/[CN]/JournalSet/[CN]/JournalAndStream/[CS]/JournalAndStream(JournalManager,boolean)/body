@@ -1,0 +1,4 @@
+{
+  this.journal=manager;
+  this.required=required;
+}

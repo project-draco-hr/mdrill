@@ -1,0 +1,4 @@
+{
+  assert hasCorruptHeader;
+  renameSelf(".corrupt");
+}

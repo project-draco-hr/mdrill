@@ -1,0 +1,4 @@
+{
+  Preconditions.checkState(isSegmentOpen(),"Bad state: %s",state);
+  return curSegmentTxId;
+}

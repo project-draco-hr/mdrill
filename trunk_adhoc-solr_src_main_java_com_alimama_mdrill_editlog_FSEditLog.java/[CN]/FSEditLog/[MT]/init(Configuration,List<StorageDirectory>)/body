@@ -1,0 +1,5 @@
+{
+  isSyncRunning=false;
+  lastPrintTime=System.currentTimeMillis();
+  this.editsDirs=Lists.newArrayList(editsDirs);
+}

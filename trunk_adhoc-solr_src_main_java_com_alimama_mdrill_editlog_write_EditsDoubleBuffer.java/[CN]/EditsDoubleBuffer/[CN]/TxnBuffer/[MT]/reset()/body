@@ -1,0 +1,6 @@
+{
+  super.reset();
+  firstTxId=HdfsConstants.INVALID_TXID;
+  numTxns=0;
+  return this;
+}

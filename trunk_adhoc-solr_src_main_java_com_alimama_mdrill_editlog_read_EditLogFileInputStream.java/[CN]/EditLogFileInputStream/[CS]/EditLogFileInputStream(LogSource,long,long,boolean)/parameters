@@ -1,0 +1,4 @@
+LogSource log
+long firstTxId
+long lastTxId
+boolean isInProgress

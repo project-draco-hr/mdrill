@@ -1,7 +1,7 @@
 {
   log.info("SolrDispatchFilter.init()");
   boolean abortOnConfigurationError=true;
-  CoreContainer.Initializer init=createInitializer();
+  CoreContainer.Initializer init=new CoreContainer.Initializer();
   try {
     this.cores=init.initialize();
     abortOnConfigurationError=init.isAbortOnConfigurationError();

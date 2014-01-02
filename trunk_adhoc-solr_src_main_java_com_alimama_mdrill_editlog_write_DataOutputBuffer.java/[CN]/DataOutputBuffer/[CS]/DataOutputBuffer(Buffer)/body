@@ -1,0 +1,4 @@
+{
+  super(buffer);
+  this.buffer=buffer;
+}

@@ -1,0 +1,7 @@
+{
+  boolean ishdfsmode=false;
+  if (tablemode.indexOf("@hdfs@") >= 0) {
+    ishdfsmode=true;
+  }
+  return ishdfsmode;
+}

@@ -1,0 +1,12 @@
+{
+  while (true) {
+    FSEditLogOp op=readOp();
+    if (op == null) {
+      return false;
+    }
+    if (op.getTransactionId() >= txid) {
+      cachedOp=op;
+      return true;
+    }
+  }
+}

@@ -1,0 +1,3 @@
+{
+  bufCurrent.write(bytes,offset,length);
+}

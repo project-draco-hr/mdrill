@@ -1,0 +1,4 @@
+{
+  this.group.updateAll(buffer,this.update);
+  this.maybeupdateAll(logTs);
+}

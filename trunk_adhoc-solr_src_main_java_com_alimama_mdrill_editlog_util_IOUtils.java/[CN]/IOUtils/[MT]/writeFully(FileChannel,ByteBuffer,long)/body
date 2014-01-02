@@ -1,0 +1,6 @@
+{
+  do {
+    offset+=fc.write(buf,offset);
+  }
+ while (buf.remaining() > 0);
+}

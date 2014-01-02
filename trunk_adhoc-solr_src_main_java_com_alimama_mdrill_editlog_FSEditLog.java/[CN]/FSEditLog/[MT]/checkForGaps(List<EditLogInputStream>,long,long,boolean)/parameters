@@ -1,0 +1,4 @@
+List<EditLogInputStream> streams
+long fromTxId
+long toAtLeastTxId
+boolean inProgressOk

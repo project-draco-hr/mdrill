@@ -1,0 +1,3 @@
+{
+  return !NameNodeResourcePolicy.areResourcesAvailable(journals,minimumRedundantJournals);
+}

@@ -1,6 +1,0 @@
-{
-synchronized (diskDirector_hdfs_lock) {
-    remakeLinkFs();
-    diskDirector_hdfs=new ConcurrentHashMap<String,DirectoryInfo>(diskDirector);
-  }
-}

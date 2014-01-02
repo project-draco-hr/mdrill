@@ -1,0 +1,4 @@
+{
+  Preconditions.checkArgument(synctxid <= txid && nextTxId >= txid,"May not decrease txid." + " synctxid=%s txid=%s nextTxId=%s",synctxid,txid,nextTxId);
+  txid=nextTxId - 1;
+}

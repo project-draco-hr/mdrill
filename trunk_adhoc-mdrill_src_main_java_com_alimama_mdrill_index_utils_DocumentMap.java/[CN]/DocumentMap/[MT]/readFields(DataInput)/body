@@ -3,7 +3,10 @@
   data=new String[size];
   for (int i=0; i < size; i++) {
     if (in.readBoolean()) {
-      data[i]=in.readUTF();
+      int len=in.readInt();
+      byte[] bytes=new byte[len];
+      in.readFully(bytes);
+      data[i]=new String(bytes,"utf8");
     }
  else {
       data[i]=null;

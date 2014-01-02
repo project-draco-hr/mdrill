@@ -1,0 +1,24 @@
+{
+  this.curIdx=0;
+  this.prevTxId=(startTxId == HdfsConstants.INVALID_TXID) ? HdfsConstants.INVALID_TXID : (startTxId - 1);
+  this.state=(streams.isEmpty()) ? State.EOF : State.SKIP_UNTIL;
+  this.prevException=null;
+  EditLogInputStream first=null;
+  for (  EditLogInputStream s : streams) {
+    Preconditions.checkArgument(s.getFirstTxId() != HdfsConstants.INVALID_TXID,"invalid first txid in stream: %s",s);
+    Preconditions.checkArgument(s.getLastTxId() != HdfsConstants.INVALID_TXID,"invalid last txid in stream: %s",s);
+    if (first == null) {
+      first=s;
+    }
+ else {
+      Preconditions.checkArgument(s.getFirstTxId() == first.getFirstTxId(),"All streams in the RedundantEditLogInputStream must have the same " + "start transaction ID!  " + first + " had start txId "+ first.getFirstTxId()+ ", but "+ s+ " had start txId "+ s.getFirstTxId());
+    }
+  }
+  this.streams=streams.toArray(new EditLogInputStream[0]);
+  Arrays.sort(this.streams,new Comparator<EditLogInputStream>(){
+    @Override public int compare(    EditLogInputStream a,    EditLogInputStream b){
+      return Longs.compare(b.getLastTxId(),a.getLastTxId());
+    }
+  }
+);
+}

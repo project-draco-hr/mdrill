@@ -1,7 +1,52 @@
 {
-  statcollect.setLastTime(System.currentTimeMillis());
   statcollect.setStat(ShardsState.INIT);
   this.zkHeatbeat();
-  LOG.info("higolog table begin:" + this.tablename);
-  new Thread(this).start();
+  TimerTask task=new TimerTask(){
+    @Override public void run(){
+      try {
+synchronized (isInit) {
+          if (!isInit.get()) {
+            LOG.info("higolog table begin:" + SolrStartTable.this.tablename);
+            statcollect.setLastTime(System.currentTimeMillis());
+            rsyncExecute exe=new rsyncExecute(SolrStartTable.this,true);
+            EXECUTE.EXECUTE_HDFS.submit(exe);
+            while (!exe.isfinish() && !statcollect.isTimeout(1200l * 1000)) {
+              Thread.sleep(1000l);
+            }
+            while (!initSolrConfig.get()) {
+              Thread.sleep(1000l);
+            }
+            if (statcollect.isTimeout(1200l * 1000)) {
+              statcollect.setLastTime(System.currentTimeMillis());
+            }
+            SolrStartTable.this.startService();
+            isInit.set(true);
+            LOG.info("higolog table end:" + SolrStartTable.this.tablename);
+            hb();
+            return;
+          }
+        }
+        String tablemode=String.valueOf(SolrStartTable.this.stormConf.get("higo.mode." + SolrStartTable.this.tablename));
+        boolean ishdfsmode=false;
+        if (tablemode.indexOf("@hdfs@") >= 0) {
+          ishdfsmode=true;
+        }
+        if (!hbInterval.heartBeatInterval(ishdfsmode)) {
+          return;
+        }
+        hb();
+      }
+ catch (      Throwable ex) {
+        LOG.error("hb",ex);
+        try {
+          SolrStartTable.this.runException(ex);
+        }
+ catch (        Throwable eee) {
+        }
+      }
+    }
+  }
+;
+  taskList.add(task);
+  EXECUTE.TIMER.schedule(task,10000l,10000l);
 }

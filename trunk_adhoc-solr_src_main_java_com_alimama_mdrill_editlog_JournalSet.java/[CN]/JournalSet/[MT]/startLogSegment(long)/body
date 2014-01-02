@@ -1,0 +1,9 @@
+{
+  mapJournalsAndReportErrors(new JournalClosure(){
+    @Override public void apply(    JournalAndStream jas) throws IOException {
+      jas.startLogSegment(txId);
+    }
+  }
+,"starting log segment " + txId);
+  return new JournalSetOutputStream();
+}

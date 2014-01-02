@@ -1,7 +1,47 @@
 {
-  statcollect.setLastTime(System.currentTimeMillis());
   statcollect.setStat(ShardsState.INIT);
   this.zkHeatbeat();
-  LOG.info("higolog table begin:" + this.tablename);
-  new Thread(this).start();
+  TimerTask task=new TimerTask(){
+    @Override public void run(){
+      try {
+synchronized (isInit) {
+          if (!isInit.get()) {
+            statcollect.setLastTime(System.currentTimeMillis());
+            LOG.info("higolog table begin:" + SolrStartJetty.this.tablename);
+            rsyncExecute exe=new rsyncExecute(SolrStartJetty.this,true);
+            EXECUTE.EXECUTE_HDFS.submit(exe);
+            while (!exe.isfinish() && !statcollect.isTimeout(1200l * 1000)) {
+              Thread.sleep(1000l);
+            }
+            while (!initSolrConfig.get()) {
+              Thread.sleep(1000l);
+            }
+            if (statcollect.isTimeout(1200l * 1000)) {
+              statcollect.setLastTime(System.currentTimeMillis());
+            }
+            SolrStartJetty.this.startJetty();
+            isInit.set(true);
+            LOG.info("higolog table end:" + SolrStartJetty.this.tablename);
+            hb();
+            return;
+          }
+        }
+        if (!hbInterval.heartBeatInterval()) {
+          return;
+        }
+        hb();
+      }
+ catch (      Throwable ex) {
+        LOG.error("hb",ex);
+        try {
+          SolrStartJetty.this.runException(ex);
+        }
+ catch (        Throwable eee) {
+        }
+      }
+    }
+  }
+;
+  taskList.add(task);
+  EXECUTE.TIMER.schedule(task,100l,10000l);
 }

@@ -1,5 +1,6 @@
 {
   System.setProperty("org.mortbay.jetty.Request.maxFormContentSize","9000000");
+  System.setProperty("org.eclipse.jetty.server.Request.maxFormContentSize","9000000");
   this.context=context;
   server=new Server();
   QueuedThreadPool threads=new QueuedThreadPool(512);

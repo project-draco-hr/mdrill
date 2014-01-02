@@ -1,0 +1,7 @@
+{
+  for (  JournalAndStream jas : journals) {
+    if (jas.isActive()) {
+      jas.abort();
+    }
+  }
+}

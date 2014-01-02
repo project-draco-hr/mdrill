@@ -12,9 +12,9 @@
       logger.info("fs.open " + file.getName() + " timetaken "+ tl);
     }
   }
-  index++;
-  if (index > 100) {
+  if (index++ > 10) {
     RamDirector.put(this.uuid,this);
+    index=0;
   }
   return this.in;
 }

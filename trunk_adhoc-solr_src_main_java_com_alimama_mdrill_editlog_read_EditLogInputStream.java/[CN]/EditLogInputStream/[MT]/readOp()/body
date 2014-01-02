@@ -1,0 +1,9 @@
+{
+  FSEditLogOp ret;
+  if (cachedOp != null) {
+    ret=cachedOp;
+    cachedOp=null;
+    return ret;
+  }
+  return nextOp();
+}

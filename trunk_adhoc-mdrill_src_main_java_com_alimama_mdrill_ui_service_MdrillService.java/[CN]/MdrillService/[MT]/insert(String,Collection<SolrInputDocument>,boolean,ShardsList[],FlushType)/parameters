@@ -1,0 +1,5 @@
+String projectName
+Collection<SolrInputDocument> docs
+boolean islocal
+ShardsList[] coresfortest
+FlushType tp

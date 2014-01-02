@@ -6,7 +6,7 @@
   LOG.debug("Opening TT connection logname=" + logname + ", accesskey="+ accesskey+ ", subid="+ subid);
   try {
     Date curTime;
-    SimpleDateFormat formatDate=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    SimpleDateFormat formatDate=new SimpleDateFormat("yyyyMMddHHmmss");
     Object startTime=config.get(confPrefix + "-start-time");
     if (startTime == null) {
       curTime=new Date(System.currentTimeMillis());

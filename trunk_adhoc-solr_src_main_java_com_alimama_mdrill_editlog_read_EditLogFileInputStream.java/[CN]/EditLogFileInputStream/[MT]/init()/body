@@ -1,0 +1,23 @@
+{
+  Preconditions.checkState(state == State.UNINIT);
+  BufferedInputStream bin=null;
+  try {
+    fStream=log.getInputStream();
+    bin=new BufferedInputStream(fStream);
+    dataIn=new DataInputStream(bin);
+    try {
+      logVersion=readLogVersion(dataIn);
+    }
+ catch (    EOFException eofe) {
+      throw new LogHeaderCorruptException("No header found in log");
+    }
+    reader=new FSEditLogOp.Reader(dataIn,logVersion,this.maxOpSize);
+    state=State.OPEN;
+  }
+  finally {
+    if (reader == null) {
+      IOUtils.cleanup(LOG,dataIn,bin,fStream);
+      state=State.CLOSED;
+    }
+  }
+}

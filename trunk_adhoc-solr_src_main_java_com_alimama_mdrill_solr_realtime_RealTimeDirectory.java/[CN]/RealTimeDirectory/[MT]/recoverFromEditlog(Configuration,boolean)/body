@@ -1,0 +1,73 @@
+{
+  long t1=System.currentTimeMillis();
+  List<StorageDirectory> editsDirs=new ArrayList<StorageDirectory>();
+  if ("hdfs".equals(SolrCore.getBinglogType())) {
+    editsDirs.add(new StorageDirectory(FileSystem.get(conf),new Path(params.hdfsPath,"editlogs_v6")));
+  }
+ else {
+    editsDirs.add(new StorageDirectory(FileSystem.getLocal(conf),new Path(params.baseDir,"editlogs_v6")));
+  }
+  LOG.info("recoverFromEditlog begin:" + this.params.getLogStr());
+  editlog=new FSEditLog(conf,editsDirs);
+  editlog.initJournalsForWrite();
+  editlog.recoverUnclosedStreams();
+  long savedTxid=this.data.getMaxTxidFromLocal();
+  if (isUsedHdfs) {
+    Path realtimefinal=new Path(this.params.hdfsPath,"realtime");
+    FileSystem fs=FileSystem.get(conf);
+    FileStatus[] list=fs.listStatus(realtimefinal);
+    if (list != null) {
+      for (      FileStatus s : list) {
+        try {
+          DirectoryInfo info=new DirectoryInfo();
+          info.tp=DirTpe.hdfs;
+          info.d=new FileSystemDirectory(fs,s.getPath(),false,conf);
+          savedTxid=Math.max(savedTxid,info.readTxid());
+        }
+ catch (        Throwable e) {
+          LOG.error("recoverFromEditlog error",e);
+        }
+      }
+    }
+  }
+  LOG.info("recoverFromEditlog savedTxid:" + savedTxid + ","+ this.params.getLogStr());
+  long lines=0;
+  long allrecord=0;
+  Collection<EditLogInputStream> streams=new ArrayList<EditLogInputStream>();
+  editlog.selectInputStreams(streams,savedTxid + 1,true,true);
+  long lasttxid=savedTxid;
+  if (streams != null && streams.size() > 0) {
+    for (    EditLogInputStream stream : streams) {
+      while (true) {
+        AddOp op=null;
+        try {
+          op=(AddOp)stream.readOp();
+          if (op == null) {
+            break;
+          }
+        }
+ catch (        Throwable e) {
+          LOG.error("readOp",e);
+          break;
+        }
+        if (lines < 100000) {
+          lines++;
+          if (lines % 500 == 0) {
+            LOG.info("##recover##" + op.getDoc().toString() + ",savedTxid="+ savedTxid+ ":"+ this.params.getLogStr());
+          }
+        }
+        allrecord++;
+        if (allrecord % 1000 == 0) {
+          this.flushDocList();
+        }
+        this.addDocument(op.getDoc(),false);
+      }
+      lasttxid=Math.max(stream.getLastTxId(),lasttxid);
+    }
+    FSEditLog.closeAllStreams(streams);
+  }
+  editlog.setNextTxId(lasttxid + 1);
+  long t2=System.currentTimeMillis();
+  long timetaken=t2 - t1;
+  LOG.info("##recovercount##count=" + allrecord + ",savedTxid="+ savedTxid+ ",getLastTxId="+ lasttxid+ ",timetaken="+ timetaken+ ","+ this.params.getLogStr());
+}

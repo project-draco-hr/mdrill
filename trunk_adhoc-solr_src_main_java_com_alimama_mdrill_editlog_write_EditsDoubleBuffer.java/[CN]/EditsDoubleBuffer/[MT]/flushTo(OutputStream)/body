@@ -1,0 +1,4 @@
+{
+  bufReady.writeTo(out);
+  bufReady.reset();
+}

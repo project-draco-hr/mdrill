@@ -1,0 +1,28 @@
+{
+  DirectoryInfo buffer=bufferDirector.get(RAM_KEY);
+  if (buffer == null) {
+    buffer=new DirectoryInfo();
+    buffer.d=new RAMDirectory();
+    buffer.tp=DirectoryInfo.DirTpe.buffer;
+    LOG.info("####create buffer####");
+    bufferDirector.put(RAM_KEY,buffer);
+  }
+  buffer.d.setSchema(params.core.getSchema());
+  IndexWriter writer=new IndexWriter(buffer.d,null,new KeepOnlyLastCommitDeletionPolicy(),MaxFieldLength.UNLIMITED);
+  writer.setMergeFactor(10);
+  writer.setUseCompoundFile(false);
+  ArrayList<Document> doclist=new ArrayList<Document>(flush.size());
+  long txid=0;
+  for (  SolrInputDocument sdoc : flush) {
+    txid=Math.max(txid,sdoc.getTxid());
+    sdoc.remove("mdrillPartion");
+    sdoc.remove("mdrillCmd");
+    sdoc.remove("mdrill_uuid");
+    Document lucenedoc=DocumentBuilder.toDocument(sdoc,params.core.getSchema());
+    doclist.add(lucenedoc);
+  }
+  writer.addDocuments(doclist);
+  writer.close();
+  buffer.UpTxid(txid);
+  this.maybeMerger();
+}

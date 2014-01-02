@@ -1,0 +1,8 @@
+{
+  try {
+    return fs.getFileStatus(file).getLen();
+  }
+ catch (  IOException e) {
+    return 0;
+  }
+}

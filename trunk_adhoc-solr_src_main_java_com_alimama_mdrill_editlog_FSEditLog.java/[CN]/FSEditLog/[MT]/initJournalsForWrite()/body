@@ -1,0 +1,5 @@
+{
+  Preconditions.checkState(state == State.UNINITIALIZED || state == State.CLOSED,"Unexpected state: %s",state);
+  initJournals(this.editsDirs);
+  state=State.BETWEEN_LOG_SEGMENTS;
+}

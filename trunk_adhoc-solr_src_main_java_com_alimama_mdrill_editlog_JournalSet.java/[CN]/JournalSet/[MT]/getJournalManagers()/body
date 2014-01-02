@@ -1,0 +1,7 @@
+{
+  List<JournalManager> jList=new ArrayList<JournalManager>();
+  for (  JournalAndStream j : journals) {
+    jList.add(j.getManager());
+  }
+  return jList;
+}

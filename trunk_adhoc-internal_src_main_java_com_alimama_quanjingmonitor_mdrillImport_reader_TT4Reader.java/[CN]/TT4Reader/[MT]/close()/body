@@ -1,0 +1,7 @@
+{
+  if (!closed) {
+    closed=true;
+    _inStreamInput.close();
+    LOG.info("TimeTunnel query client closed");
+  }
+}

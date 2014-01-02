@@ -1,0 +1,29 @@
+{
+  try {
+    return decodeOp();
+  }
+ catch (  IOException e) {
+    if (!skipBrokenEdits) {
+      throw e;
+    }
+ else {
+      return null;
+    }
+  }
+catch (  RuntimeException e) {
+    if (!skipBrokenEdits) {
+      throw e;
+    }
+ else {
+      return null;
+    }
+  }
+catch (  Throwable e) {
+    if (!skipBrokenEdits) {
+      throw new IOException("got unexpected exception " + e.getMessage(),e);
+    }
+ else {
+      return null;
+    }
+  }
+}

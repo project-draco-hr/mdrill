@@ -1,0 +1,9 @@
+{
+  long start=beginTransaction();
+  try {
+    editLogStream.writeRaw(data,0,length);
+  }
+ catch (  IOException ex) {
+  }
+  endTransaction(start);
+}

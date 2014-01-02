@@ -1,0 +1,5 @@
+{
+  initBufferSize=defaultBufferSize;
+  bufCurrent=new TxnBuffer(initBufferSize);
+  bufReady=new TxnBuffer(initBufferSize);
+}

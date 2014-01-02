@@ -1,0 +1,7 @@
+{
+  FileStatus[] files=fs.listStatus(dir);
+  if (files == null) {
+    throw new IOException("Invalid directory or I/O error occurred for dir: " + dir.toString());
+  }
+  return files;
+}

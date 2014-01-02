@@ -1,0 +1,9 @@
+{
+  try {
+    return nextOpImpl(true);
+  }
+ catch (  Throwable e) {
+    LOG.error("nextValidOp: got exception while reading " + this,e);
+    return null;
+  }
+}

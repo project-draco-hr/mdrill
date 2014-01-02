@@ -1,37 +1,3 @@
 {
-  JSONObject jsonObj=new JSONObject();
-  jsonObj.put("code","1");
-  MySqlConn m_fpsql=getConn();
-  Connection conn=m_fpsql.getConn();
-  String strSql="select userid,email,cname,role,permission from users_json order by role desc,userid";
-  Statement stmt=conn.createStatement();
-  try {
-    ResultSet res=stmt.executeQuery(strSql);
-    HashMap<String,String> rtn=new HashMap<String,String>();
-    rtn.put("_exehql",strSql);
-    JSONArray userlist=new JSONArray();
-    while (res.next()) {
-      JSONObject item=new JSONObject();
-      item.put("userid",String.valueOf(res.getString("userid")));
-      item.put("email",String.valueOf(res.getString("email")));
-      item.put("cname",String.valueOf(res.getString("cname")));
-      item.put("role",Integer.parseInt(res.getString("role")));
-      item.put("permission",new JSONArray(res.getString("permission")));
-      userlist.put(item);
-    }
-    m_fpsql.close();
-    jsonObj.put("code","1");
-    jsonObj.put("message","success");
-    JSONObject dddd=new JSONObject();
-    dddd.put("users",userlist);
-    jsonObj.put("data",dddd);
-  }
- catch (  Exception e) {
-    jsonObj.put("message",e.toString());
-    jsonObj.put("code","0");
-  }
- finally {
-    m_fpsql.close();
-  }
-  return jsonObj.toString();
+  return getJson(null,false);
 }

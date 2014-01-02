@@ -15,5 +15,6 @@
       lfs.mkdirs(new Path(confpath,"complete"));
     }
   }
+  initSolrConfig.set(true);
   return ischange;
 }

@@ -1,0 +1,24 @@
+{
+  try {
+    String[] tem=decodeString(url).split("\\?",2);
+    String params=tem[0];
+    if (tem.length >= 2) {
+      params=tem[1];
+    }
+    for (    String s : params.split("&",-1)) {
+      String[] tem1=s.split("=",-1);
+      try {
+        String key=URLDecoder.decode(tem1[0],LOG_ENCODING);
+        if (key.equals(keyname)) {
+          String value=(tem1.length < 2 ? "" : URLDecoder.decode(tem1[1],LOG_ENCODING));
+          return value;
+        }
+      }
+ catch (      UnsupportedEncodingException uee) {
+      }
+    }
+  }
+ catch (  Throwable e) {
+  }
+  return null;
+}

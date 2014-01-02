@@ -1,0 +1,4 @@
+InputStream in
+OutputStream out
+int buffSize
+boolean close

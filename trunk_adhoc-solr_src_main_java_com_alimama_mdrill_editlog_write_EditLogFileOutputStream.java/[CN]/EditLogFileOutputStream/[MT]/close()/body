@@ -1,0 +1,19 @@
+{
+  if (fp == null) {
+    throw new IOException("Trying to use aborted output stream");
+  }
+  try {
+    if (doubleBuf != null) {
+      doubleBuf.close();
+      doubleBuf=null;
+    }
+    fp.close();
+    fp=null;
+  }
+  finally {
+    IOUtils.cleanup(LOG,fp);
+    doubleBuf=null;
+    fp=null;
+  }
+  fp=null;
+}

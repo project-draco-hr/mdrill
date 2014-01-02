@@ -1,0 +1,8 @@
+{
+  for (  JournalAndStream jas : journals) {
+    if (jas.isActive()) {
+      return jas.getCurrentStream().getNumSync();
+    }
+  }
+  return 0;
+}

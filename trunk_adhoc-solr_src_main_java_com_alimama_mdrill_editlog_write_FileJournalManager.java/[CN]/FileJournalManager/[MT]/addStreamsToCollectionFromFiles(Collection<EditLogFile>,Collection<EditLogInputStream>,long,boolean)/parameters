@@ -1,0 +1,4 @@
+Collection<EditLogFile> elfs
+Collection<EditLogInputStream> streams
+long fromTxId
+boolean inProgressOk

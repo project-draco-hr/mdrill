@@ -1,0 +1,5 @@
+{
+  for (  EditLogInputStream s : streams) {
+    IOUtils.closeStream(s);
+  }
+}

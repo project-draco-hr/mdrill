@@ -1,6 +1,8 @@
 {
-  long t1=System.currentTimeMillis();
+  long t0=System.currentTimeMillis();
+  long t1=0l;
 synchronized (descriptor) {
+    t1=System.currentTimeMillis();
     long position=getFilePointer();
     if (position != descriptor.Positon()) {
       descriptor.Stream().seek(position);
@@ -19,13 +21,8 @@ synchronized (descriptor) {
   }
   long t2=System.currentTimeMillis();
   long tl=t2 - t1;
-  tlSum+=tl;
-  tlCount+=1;
-  if (tl > 100 || tlCount % 1000 == 0) {
-    logger.info("readInternal " + this.filePath.getName() + " timetaken="+ tl+ ",tlSum="+ tlSum+ ",tlCount="+ tlCount);
-    if (tlSum > 10000000) {
-      tlCount=0;
-      tlSum=0;
-    }
+  long tl2=t2 - t0;
+synchronized (descriptor) {
+    descriptor.Stat(tl,tl2,len);
   }
 }

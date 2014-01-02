@@ -1,0 +1,10 @@
+{
+  if (badJournals == null || badJournals.isEmpty()) {
+    return;
+  }
+  for (  JournalAndStream j : badJournals) {
+    LOG.error("Disabling journal " + j);
+    j.abort();
+    j.setDisabled(true);
+  }
+}

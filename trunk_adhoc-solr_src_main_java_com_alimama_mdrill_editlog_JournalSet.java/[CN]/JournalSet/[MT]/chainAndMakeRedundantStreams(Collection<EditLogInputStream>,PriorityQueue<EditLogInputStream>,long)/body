@@ -1,0 +1,27 @@
+{
+  LinkedList<EditLogInputStream> acc=new LinkedList<EditLogInputStream>();
+  EditLogInputStream elis;
+  while ((elis=allStreams.poll()) != null) {
+    if (acc.isEmpty()) {
+      acc.add(elis);
+    }
+ else {
+      long accFirstTxId=acc.get(0).getFirstTxId();
+      if (accFirstTxId == elis.getFirstTxId()) {
+        acc.add(elis);
+      }
+ else       if (accFirstTxId < elis.getFirstTxId()) {
+        outStreams.add(new RedundantEditLogInputStream(acc,fromTxId));
+        acc.clear();
+        acc.add(elis);
+      }
+ else       if (accFirstTxId > elis.getFirstTxId()) {
+        throw new RuntimeException("sorted set invariants violated!  " + "Got stream with first txid " + elis.getFirstTxId() + ", but the last firstTxId was "+ accFirstTxId);
+      }
+    }
+  }
+  if (!acc.isEmpty()) {
+    outStreams.add(new RedundantEditLogInputStream(acc,fromTxId));
+    acc.clear();
+  }
+}

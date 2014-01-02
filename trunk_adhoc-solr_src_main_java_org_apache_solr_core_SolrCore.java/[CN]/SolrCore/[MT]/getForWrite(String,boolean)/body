@@ -1,0 +1,38 @@
+{
+  String corename=this.getName();
+  if (corename == null) {
+    corename="";
+  }
+  PartionKey p=new PartionKey(corename,partion);
+  boolean isWritePool=false;
+synchronized (forRealTimeDir) {
+    RealTimeDirectory rtn=forRealTimeDir.remove(p);
+    if (forwrite) {
+      isWritePool=true;
+      if (rtn == null) {
+        rtn=forWriteDir.remove(p);
+      }
+    }
+ else {
+      if (rtn == null) {
+        rtn=forWriteDir.remove(p);
+        if (rtn != null) {
+          isWritePool=true;
+        }
+      }
+    }
+    if (rtn == null) {
+      File f=new File(getDataDir(),partion);
+      rtn=new RealTimeDirectory(f,HadoopUtil.hadoopConfDir,ShardPartion.getHdfsRealtimePath(p.tablename,p.partion).toString(),this,p);
+    }
+    if (isWritePool) {
+      forWriteDir.put(p,rtn);
+    }
+ else {
+      forRealTimeDir.put(p,rtn);
+    }
+    rtn.setCore(this);
+    rtn.setPartion(p);
+    return rtn;
+  }
+}

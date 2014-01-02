@@ -1,0 +1,43 @@
+{
+  String logname=(String)config.get(confPrefix + "-log");
+  String accesskey=(String)config.get(confPrefix + "-accesskey");
+  String subid=(String)config.get(confPrefix + "-subid");
+  LOG.debug("Opening TT connection logname=" + logname + ", accesskey="+ accesskey+ ", subid="+ subid);
+  try {
+    Date curTime;
+    SimpleDateFormat formatDate=new SimpleDateFormat("yyyyMMddHHmmss");
+    Object startTime=config.get(confPrefix + "-start-time");
+    if (startTime == null) {
+      curTime=new Date(System.currentTimeMillis());
+    }
+ else {
+      curTime=formatDate.parse((String)startTime);
+    }
+    _log=new TTLogImpl(logname,subid,accesskey);
+    if (_inStreamInput != null) {
+      _inStreamInput.close();
+    }
+    TTQueueCluster qc=new TTQueueClusterImpl(_log.getName(),_log.getSubid(),_log.getFilter(),_log.getAccesskey());
+    int partitionCount=qc.getQueues().length;
+    int[][] inputIndicesList=this.groupIntegers(partitionCount,readerCount);
+    int[] inputIndices=inputIndicesList[readerIndex];
+    LOG.info("TimeTunnel init prepare partitionCount:" + partitionCount + ", readerCount:"+ readerCount+ ", readerIndex:"+ readerIndex+ ","+ String.valueOf(inputIndices));
+    _inStreamInput=new TTLogSimpleInput(_log,curTime,inputIndices);
+  }
+ catch (  Throwable e) {
+    LOG.error("TimeTunnel open fail ",e);
+    throw new IOException("parse timestamp failed...., ts=" + this._reseekTimestamp,e);
+  }
+  LOG.info("TimeTunnel query client opened");
+  Runtime.getRuntime().addShutdownHook(new Thread(){
+    @Override public void run(){
+      try {
+        close();
+      }
+ catch (      IOException ioe) {
+        LOG.warn("Closing TimeTunnel query client",ioe);
+      }
+    }
+  }
+);
+}

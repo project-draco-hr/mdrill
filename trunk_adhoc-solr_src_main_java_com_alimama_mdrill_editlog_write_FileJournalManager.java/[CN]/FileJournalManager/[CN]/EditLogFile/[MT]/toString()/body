@@ -1,0 +1,3 @@
+{
+  return String.format("EditLogFile(file=%s,first=%019d,last=%019d," + "inProgress=%b,hasCorruptHeader=%b)",file.toString(),firstTxId,lastTxId,isInProgress(),hasCorruptHeader);
+}

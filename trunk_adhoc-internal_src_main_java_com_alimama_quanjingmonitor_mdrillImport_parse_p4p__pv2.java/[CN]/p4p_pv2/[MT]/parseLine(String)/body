@@ -1,0 +1,20 @@
+{
+  try {
+    P4PPVLog p4ppvlog=com.taobao.loganalyzer.input.p4ppv.parser.P4PPVLogParser.parse(line);
+    if (p4ppvlog == null) {
+      return null;
+    }
+    if (p4ppvlog.getP4PPID() == null) {
+      return null;
+    }
+    DataIterParse rtn=new DataIterParse(p4ppvlog);
+    return rtn;
+  }
+ catch (  Throwable nfe) {
+    if (groupCreateerror < 100) {
+      LOG.error("InvalidEntryException:" + line,nfe);
+      groupCreateerror++;
+    }
+    throw new InvalidEntryException("Invalid log `" + line + "'\n",nfe);
+  }
+}

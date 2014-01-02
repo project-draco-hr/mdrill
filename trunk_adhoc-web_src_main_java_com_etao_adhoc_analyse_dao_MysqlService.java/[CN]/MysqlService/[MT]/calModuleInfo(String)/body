@@ -1,6 +1,6 @@
 {
   String sqldelete="DELETE FROM module_info WHERE queryday='" + queryDay + "'";
-  String sql="INSERT INTO module_info(queryday,module_name,query_cnt,uv) " + " SELECT ? AS queryday, set_name ,COUNT(*) AS query_cnt,COUNT(distinct nick) AS uv " + " FROM query_log "+ " WHERE DATE_FORMAT(query_date,?)=? "+ " AND nick NOT IN (SELECT nick FROM dev_nicks) "+ " GROUP BY queryday,set_name";
+  String sql="INSERT INTO module_info(queryday,module_name,query_cnt,uv,nicklist) " + "select ? AS queryday,set_name,sum(query_cnt) AS query_cnt,COUNT(distinct nick) AS uv,GROUP_CONCAT(CONCAT(nick,':',query_cnt)  order by query_cnt desc)  from ( " + " SELECT  set_name,nick ,COUNT(*) AS query_cnt "+ " FROM query_log "+ " WHERE DATE_FORMAT(query_date,?)=? "+ " AND nick NOT IN (SELECT nick FROM dev_nicks) "+ " GROUP BY set_name,nick ) a GROUP BY queryday,set_name"+ "";
   PreparedStatement pstmt=null;
   try {
     Connection conn=DriverManager.getConnection(url,username,password);

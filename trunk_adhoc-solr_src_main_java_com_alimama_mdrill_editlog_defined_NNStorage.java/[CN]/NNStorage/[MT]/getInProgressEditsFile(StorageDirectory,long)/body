@@ -1,0 +1,3 @@
+{
+  return new Path(sd.getCurrentDir(),FileJournalManager.EDITS_INPROGRESS_FILE_NAME + "_" + txid);
+}

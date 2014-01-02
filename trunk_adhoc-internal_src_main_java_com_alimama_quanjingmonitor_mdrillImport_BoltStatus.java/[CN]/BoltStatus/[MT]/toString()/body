@@ -1,0 +1,3 @@
+{
+  return "BoltStatus [InputCount=" + InputCount + ", groupCreate="+ groupCreate+ "]";
+}

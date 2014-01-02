@@ -10,10 +10,11 @@
     }
   }
  else {
+    statcollect.setLastTime(System.currentTimeMillis());
     neetRestart.set(false);
     this.stopJetty();
     rsyncExecute exe=new rsyncExecute(this,false);
-    EXECUTE2.submit(exe);
+    EXECUTE.EXECUTE_HDFS.submit(exe);
     while (!exe.isfinish() && !statcollect.isTimeout(600l * 1000)) {
       Thread.sleep(1000l);
     }

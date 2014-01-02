@@ -1,0 +1,13 @@
+{
+  try {
+    mapJournalsAndReportErrors(new JournalClosure(){
+      @Override public void apply(      JournalAndStream jas) throws IOException {
+        jas.getManager().setOutputBufferCapacity(size);
+      }
+    }
+,"setOutputBufferCapacity");
+  }
+ catch (  IOException e) {
+    LOG.error("Error in setting outputbuffer capacity");
+  }
+}

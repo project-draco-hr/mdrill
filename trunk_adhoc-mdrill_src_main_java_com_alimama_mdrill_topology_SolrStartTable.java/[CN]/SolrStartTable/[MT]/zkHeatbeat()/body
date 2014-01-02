@@ -3,8 +3,10 @@
     String hdfsforder=(this.isMergeServer) ? "mergerServer" : IndexUtils.getHdfsForder(taskIndex);
     Integer bindport=this.getBindPort();
     Long hbtime=statcollect.getLastTime();
+    String tablemode=this.getTableMode();
+    boolean isrealtime=this.isrealtime(tablemode);
     HashMap<String,ShardCount> daystat=this.partstat.getExtaCount();
-    SolrInfo info=new SolrInfo(this.params.replication,this.params.replicationindex,this.taskIndex,this.isRealTime,localSolrPath.toString(),hdfsIndexpath.toString(),hdfsforder,bindport,statcollect.getStat(),this.partstat.getPartioncount(),daystat,statcollect.getSetupTime(),hbtime,this.isMergeServer);
+    SolrInfo info=new SolrInfo(this.params.replication,this.params.replicationindex,this.taskIndex,isrealtime,localSolrPath.toString(),hdfsIndexpath.toString(),hdfsforder,bindport,statcollect.getStat(),this.partstat.getPartioncount(),daystat,statcollect.getSetupTime(),hbtime,this.isMergeServer);
     LOG.info("higolog zkHeatbeat " + this.tablename + ",info:"+ info.toString());
     Worker.getCluster().higo_heartbeat(this.tablename,this.taskid,info);
   }

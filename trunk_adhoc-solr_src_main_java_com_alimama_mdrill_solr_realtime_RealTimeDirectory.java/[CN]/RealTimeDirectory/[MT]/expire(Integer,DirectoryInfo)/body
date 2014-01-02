@@ -1,36 +1,35 @@
 {
-  if (this.ishdfsmode) {
+  if (val.tp.equals(DirectoryInfo.DirTpe.buffer)) {
+    try {
+synchronized (rlock.lock) {
+        this.data.mergerBuffer(val);
+        this.data.maybeMerger();
+      }
+    }
+ catch (    Throwable e) {
+      LOG.error("####expire buffer error ####",e);
+    }
     return;
   }
-synchronized (lock) {
-    if (val.tp.equals(DirectoryInfo.DirTpe.buffer)) {
-      try {
-        this.mergerBuffer(val);
-        this.maybeMerger();
+  if (val.tp.equals(DirectoryInfo.DirTpe.ram)) {
+    try {
+synchronized (rlock.lock) {
+        this.data.mergerRam(val);
+        this.data.maybeMerger();
       }
- catch (      Throwable e) {
-        LOG.error("####expire buffer error ####" + this.extaLog(),e);
-      }
-      return;
     }
-    if (val.tp.equals(DirectoryInfo.DirTpe.ram)) {
-      try {
-        this.mergerRam(val);
-        this.maybeMerger();
-      }
- catch (      Throwable e) {
-        LOG.error("####expire ram error ####" + this.extaLog(),e);
-      }
-      return;
+ catch (    Throwable e) {
+      LOG.error("####expire ram error ####",e);
     }
-    if (val.tp.equals(DirectoryInfo.DirTpe.delete)) {
-      try {
-        this.deleteDirector(val);
-      }
- catch (      Throwable e) {
-        LOG.error("deleteDirector" + this.extaLog(),e);
-      }
-      return;
+    return;
+  }
+  if (val.tp.equals(DirectoryInfo.DirTpe.delete)) {
+    try {
+      RealTimeDirectorUtils.deleteDirector(val,this.params.getConf());
     }
+ catch (    Throwable e) {
+      LOG.error("deleteDirector",e);
+    }
+    return;
   }
 }

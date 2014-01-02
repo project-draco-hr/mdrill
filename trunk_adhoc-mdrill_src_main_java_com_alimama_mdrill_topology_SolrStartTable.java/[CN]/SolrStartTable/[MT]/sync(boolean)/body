@@ -10,6 +10,7 @@
     return ischange;
   }
  catch (  Throwable e) {
+    initSolrConfig.set(true);
     LOG.error(StormUtils.stringify_error(e));
     return false;
   }

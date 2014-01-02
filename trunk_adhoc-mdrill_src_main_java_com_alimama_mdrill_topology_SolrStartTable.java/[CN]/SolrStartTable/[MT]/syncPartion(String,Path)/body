@@ -1,9 +1,7 @@
 {
-  String tablemode=String.valueOf(this.stormConf.get("higo.mode." + this.tablename));
-  boolean ishdfsmode=false;
-  if (tablemode.indexOf("@hdfs@") >= 0) {
-    ishdfsmode=true;
-  }
+  String tablemode=this.getTableMode();
+  boolean ishdfsmode=this.ishdfsmode(tablemode);
+  boolean isrealtime=this.isrealtime(tablemode);
   Path localPartionWork=new Path(localIndexPath,key);
   Path hdfsPartionShardPath=new Path(hdfspartion,IndexUtils.getHdfsForder(taskIndex));
   Path realtime=new Path(hdfsPartionShardPath,"realtime");
@@ -33,34 +31,7 @@
  catch (    Throwable e) {
       isnotrealtime=true;
     }
-    if (!isnotrealtime && (fs.exists(realtime) || lfs.exists(localrealtime))) {
-      boolean iscopy=false;
-      if (IndexUtils.readReadTimeTs(lfs,localrealtime) < IndexUtils.readReadTimeTs(fs,realtime)) {
-        iscopy=IndexUtils.copyToLocal(fs,lfs,realtime,localrealtime,new Path(localPartionWork,"higotmp/" + tablename + "/"+ this.params.compname+ "_"+ this.taskIndex),true);
-        if (!iscopy) {
-          copy2indexFailTimes.incrementAndGet();
-        }
-      }
-      if (iscopy || !lfs.exists(indexlinks)) {
-        if (lfs.exists(localPartionWork)) {
-          FileStatus[] list=lfs.listStatus(localPartionWork);
-          if (list != null) {
-            for (            FileStatus s : list) {
-              if (!s.getPath().getName().equals("realtime")) {
-                lfs.delete(s.getPath(),true);
-              }
-            }
-          }
-        }
-        FSDataOutputStream outlinks=lfs.create(indexlinks);
-        FileStatus[] sublist=this.lfs.listStatus(localrealtime);
-        if (sublist != null) {
-          for (          FileStatus f : sublist) {
-            outlinks.write((new String(f.getPath().toString() + "\r\n")).getBytes());
-          }
-        }
-        outlinks.close();
-      }
+    if (!isnotrealtime && (isrealtime || fs.exists(realtime) || lfs.exists(localrealtime))) {
     }
  else {
       boolean iscopy=false;

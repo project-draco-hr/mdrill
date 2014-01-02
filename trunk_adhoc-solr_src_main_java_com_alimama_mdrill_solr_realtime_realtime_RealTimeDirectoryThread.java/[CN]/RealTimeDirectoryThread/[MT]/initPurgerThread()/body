@@ -1,0 +1,23 @@
+{
+  TimerTask task=new TimerTask(){
+    @Override public void run(){
+      try {
+        if (status.needRemakeLinks.get()) {
+          status.needRemakeLinks.set(false);
+          status.needPurger.set(false);
+          mainThread.purger(true);
+        }
+        if (status.needPurger.get()) {
+          status.needPurger.set(false);
+          mainThread.purger(false);
+        }
+      }
+ catch (      Throwable ex) {
+        LOG.error("_purgerthr",ex);
+      }
+    }
+  }
+;
+  taskList.add(task);
+  RealTimeDirectorUtils.timerquick.schedule(task,300,300);
+}

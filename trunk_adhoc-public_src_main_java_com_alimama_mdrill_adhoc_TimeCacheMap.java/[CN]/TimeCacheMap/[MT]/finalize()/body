@@ -1,6 +1,12 @@
 {
   try {
-    _cleaner.interrupt();
+    if (_cleaner != null) {
+      _cleaner.interrupt();
+    }
+    if (this.timer != null) {
+      this.task.cancel();
+      this.timer.purge();
+    }
   }
   finally {
     super.finalize();

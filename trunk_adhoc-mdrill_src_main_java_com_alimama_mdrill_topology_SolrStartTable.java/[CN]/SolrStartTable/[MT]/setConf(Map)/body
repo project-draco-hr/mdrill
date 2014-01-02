@@ -1,3 +1,5 @@
 {
   this.stormConf=stormConf;
+  String tablemode=String.valueOf(this.stormConf.get("higo.mode." + this.tablename));
+  SolrCore.setTablemode(this.tablename,tablemode);
 }

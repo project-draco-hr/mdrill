@@ -1,0 +1,6 @@
+{
+  LOG.info("Exiting with status " + status);
+  IOException ee=new IOException(status + "@" + msg);
+  LOG.error("Terminate called",ee);
+  throw ee;
+}

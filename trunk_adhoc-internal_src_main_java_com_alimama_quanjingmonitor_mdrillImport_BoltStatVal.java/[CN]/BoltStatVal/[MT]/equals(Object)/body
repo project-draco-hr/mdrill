@@ -1,0 +1,8 @@
+{
+  if (this == obj)   return true;
+  if (obj == null)   return false;
+  if (getClass() != obj.getClass())   return false;
+  BoltStatVal other=(BoltStatVal)obj;
+  if (!Arrays.equals(list,other.list))   return false;
+  return true;
+}

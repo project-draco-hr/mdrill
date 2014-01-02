@@ -1,0 +1,3 @@
+DataInputStream in
+int logVersion
+int maxOpSize

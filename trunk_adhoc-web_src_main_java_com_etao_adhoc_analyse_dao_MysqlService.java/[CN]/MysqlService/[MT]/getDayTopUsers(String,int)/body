@@ -1,5 +1,5 @@
 {
-  String sql="SELECT nick,query_cnt FROM day_user_pv " + " WHERE queryday = ?" + " ORDER BY query_cnt"+ " DESC LIMIT ?";
+  String sql="select a.nick as nick,a.query_cnt as query_cnt, b.department as department" + " from (" + ""+ "SELECT nick,query_cnt FROM day_user_pv "+ " WHERE queryday = ?"+ " ORDER BY query_cnt"+ " DESC LIMIT ?"+ ""+ ") a left join user_info b on (a.nick=b.nick) ORDER BY a.query_cnt desc";
   List<DayUserPv> dayUserPvList=null;
   PreparedStatement pstmt=null;
   try {
@@ -14,6 +14,7 @@
       dayUserPv.setQueryDay(queryDay);
       dayUserPv.setNick(rs.getString(1));
       dayUserPv.setQueryCnt(rs.getInt(2));
+      dayUserPv.setDepartment(String.valueOf(rs.getString(3)));
       dayUserPvList.add(dayUserPv);
     }
     LOG.info(pstmt.toString());

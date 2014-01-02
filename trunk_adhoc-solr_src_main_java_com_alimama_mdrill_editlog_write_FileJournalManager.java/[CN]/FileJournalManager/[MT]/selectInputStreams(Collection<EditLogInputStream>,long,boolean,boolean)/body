@@ -1,0 +1,5 @@
+{
+  List<EditLogFile> elfs=matchEditLogs(sd.getFileSystem(),sd.getCurrentDir());
+  LOG.debug(this + ": selecting input streams starting at " + fromTxId+ (inProgressOk ? " (inProgress ok) " : " (excluding inProgress) ")+ "from among "+ elfs.size()+ " candidate file(s)");
+  addStreamsToCollectionFromFiles(elfs,streams,fromTxId,inProgressOk);
+}

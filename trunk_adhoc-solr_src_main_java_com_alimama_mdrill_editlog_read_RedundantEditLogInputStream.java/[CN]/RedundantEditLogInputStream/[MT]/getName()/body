@@ -1,0 +1,10 @@
+{
+  StringBuilder bld=new StringBuilder();
+  String prefix="";
+  for (  EditLogInputStream elis : streams) {
+    bld.append(prefix);
+    bld.append(elis.getName());
+    prefix=", ";
+  }
+  return bld.toString();
+}

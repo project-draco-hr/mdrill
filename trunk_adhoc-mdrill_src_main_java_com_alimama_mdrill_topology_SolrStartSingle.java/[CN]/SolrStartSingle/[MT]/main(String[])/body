@@ -1,5 +1,4 @@
 {
-  LinkFSDirectory.setRealTime(true);
   SolrCore.setSearchCacheSize(32);
   String hdfsconf="/home/taobao/config";
   HadoopUtil.setHdfsConfDir(hdfsconf);

@@ -1,0 +1,12 @@
+{
+  Path inprogressFile=NNStorage.getInProgressEditsFile(sd,firstTxId);
+  Path dstFile=NNStorage.getFinalizedEditsFile(sd,firstTxId,lastTxId);
+  LOG.info("Finalizing edits file " + inprogressFile + " -> "+ dstFile);
+  Preconditions.checkState(!sd.getFileSystem().exists(dstFile),"Can't finalize edits file " + inprogressFile + " since finalized file "+ "already exists");
+  if (!sd.getFileSystem().rename(inprogressFile,dstFile)) {
+    throw new IllegalStateException("Unable to finalize edits file " + inprogressFile);
+  }
+  if (inprogressFile.equals(currentInProgress)) {
+    currentInProgress=null;
+  }
+}

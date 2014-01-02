@@ -1,0 +1,14 @@
+{
+  if (fp == null) {
+    throw new IOException("Trying to use aborted output stream");
+  }
+  if (doubleBuf.isFlushed()) {
+    LOG.info("Nothing to flush");
+    return;
+  }
+  doubleBuf.flushTo(fp);
+  if (durable) {
+    fp.flush();
+    fp.sync();
+  }
+}

@@ -7,7 +7,7 @@
       if (isMs && !info.stat.equals(ShardsState.SERVICE)) {
         continue;
       }
-      if ((info.times + 1000l * 600) < nowtime) {
+      if ((info.times + 1000l * 3600) < nowtime) {
         continue;
       }
       ShardsList solrlist=replication.get(info.taskIndex);

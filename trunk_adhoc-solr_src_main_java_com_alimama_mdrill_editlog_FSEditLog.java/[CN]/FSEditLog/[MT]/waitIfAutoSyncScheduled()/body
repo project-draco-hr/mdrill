@@ -1,0 +1,9 @@
+{
+  try {
+    while (isAutoSyncScheduled) {
+      this.wait(1000);
+    }
+  }
+ catch (  InterruptedException e) {
+  }
+}

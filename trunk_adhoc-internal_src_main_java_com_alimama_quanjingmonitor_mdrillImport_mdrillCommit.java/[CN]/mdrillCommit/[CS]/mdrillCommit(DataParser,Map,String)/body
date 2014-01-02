@@ -1,0 +1,28 @@
+{
+  this.parse=parse;
+  this.commitbatch=Integer.parseInt(String.valueOf(conf.get(confPrefix + "-commitbatch")));
+  this.buffersize=Integer.parseInt(String.valueOf(conf.get(confPrefix + "-commitbuffer")));
+  this.timeout=Integer.parseInt(String.valueOf(conf.get(confPrefix + "-timeoutBolt")));
+  int timeoutCache=Integer.parseInt(String.valueOf(conf.get(confPrefix + "-timeoutCommit")));
+  timeoutCheck=new TimeOutCheck(this.timeout * 1000l);
+  timeoutCheckcommit=new TimeOutCheck(timeoutCache * 1000l);
+  this.group=new TimeCacheMap<BoltStatKey,BoltStatVal>(120,this);
+  this.doclist=new ArrayList<SolrInputDocument>(300);
+  this.update=new TimeCacheMap.Update<BoltStatKey,BoltStatVal>(){
+    @Override public BoltStatVal update(    BoltStatKey key,    BoltStatVal old,    BoltStatVal newval){
+      if (old == null) {
+        return newval;
+      }
+      BoltStatVal rtn=old;
+      rtn.merger(newval);
+      return rtn;
+    }
+  }
+;
+  this.clean=new TimeCacheMap.Timeout<BoltStatKey,BoltStatVal>(){
+    @Override public boolean timeout(    BoltStatKey key,    BoltStatVal val){
+      return mdrillCommit.this.lasttimeout > key.getGroupts();
+    }
+  }
+;
+}

@@ -1,0 +1,10 @@
+{
+  mapJournalsAndReportErrors(new JournalClosure(){
+    @Override public void apply(    JournalAndStream jas) throws IOException {
+      if (jas.isActive()) {
+        jas.getCurrentStream().create();
+      }
+    }
+  }
+,"create");
+}

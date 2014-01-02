@@ -1,0 +1,9 @@
+{
+  journalSet=new JournalSet(1);
+  for (  StorageDirectory sd : dirs) {
+    journalSet.add(new FileJournalManager(sd),sd.isrequire());
+  }
+  if (journalSet.isEmpty()) {
+    LOG.error("No edits directories configured!");
+  }
+}

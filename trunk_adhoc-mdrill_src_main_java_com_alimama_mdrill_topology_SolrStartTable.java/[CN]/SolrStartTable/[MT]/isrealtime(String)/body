@@ -1,0 +1,7 @@
+{
+  boolean isrealtime=false;
+  if (tablemode.indexOf("@realtime@") >= 0) {
+    isrealtime=true;
+  }
+  return isrealtime;
+}

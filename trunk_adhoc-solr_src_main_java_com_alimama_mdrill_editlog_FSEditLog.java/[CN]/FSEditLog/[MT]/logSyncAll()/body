@@ -1,0 +1,7 @@
+{
+synchronized (this) {
+    TransactionId id=myTransactionId.get();
+    id.txid=txid;
+  }
+  logSync();
+}

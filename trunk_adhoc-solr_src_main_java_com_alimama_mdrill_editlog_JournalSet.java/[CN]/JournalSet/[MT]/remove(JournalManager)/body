@@ -1,0 +1,13 @@
+{
+  JournalAndStream jasToRemove=null;
+  for (  JournalAndStream jas : journals) {
+    if (jas.getManager().equals(j)) {
+      jasToRemove=jas;
+      break;
+    }
+  }
+  if (jasToRemove != null) {
+    jasToRemove.abort();
+    journals.remove(jasToRemove);
+  }
+}

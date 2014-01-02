@@ -1,0 +1,7 @@
+{
+  numSync++;
+  long start=System.currentTimeMillis();
+  flushAndSync(durable);
+  long end=System.currentTimeMillis();
+  totalTimeSync+=(end - start);
+}

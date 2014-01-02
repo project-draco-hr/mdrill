@@ -1,0 +1,7 @@
+{
+  this.logVersion=logVersion;
+  this.checksum=new PureJavaCrc32();
+  this.in=new DataInputStream(new CheckedInputStream(in,this.checksum));
+  this.cache=new OpInstanceCache();
+  this.maxOpSize=maxOpSize;
+}

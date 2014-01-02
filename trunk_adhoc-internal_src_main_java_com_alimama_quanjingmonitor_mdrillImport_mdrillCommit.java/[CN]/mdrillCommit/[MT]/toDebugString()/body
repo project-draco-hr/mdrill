@@ -1,0 +1,3 @@
+{
+  return "access " + formatHour.format(new Date(lastts)) + ",doclist="+ doclist.size()+ ",group="+ group.size();
+}

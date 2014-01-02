@@ -1,0 +1,4 @@
+long fromTxId
+long toAtLeastTxId
+boolean inProgressOk
+boolean forReading

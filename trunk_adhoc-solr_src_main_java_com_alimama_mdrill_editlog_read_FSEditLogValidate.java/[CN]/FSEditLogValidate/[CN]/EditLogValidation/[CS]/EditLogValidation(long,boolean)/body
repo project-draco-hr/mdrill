@@ -1,0 +1,4 @@
+{
+  this.endTxId=endTxId;
+  this.hasCorruptHeader=hasCorruptHeader;
+}

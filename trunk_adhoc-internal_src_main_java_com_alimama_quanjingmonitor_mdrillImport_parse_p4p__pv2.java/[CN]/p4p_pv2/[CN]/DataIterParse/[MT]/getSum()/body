@@ -1,0 +1,5 @@
+{
+  double[] rtn=new double[1];
+  rtn[0]=1;
+  return rtn;
+}

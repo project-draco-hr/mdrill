@@ -1,0 +1,2 @@
+Collection<? extends CheckableNameNodeResource> resources
+int minimumRedundantResources

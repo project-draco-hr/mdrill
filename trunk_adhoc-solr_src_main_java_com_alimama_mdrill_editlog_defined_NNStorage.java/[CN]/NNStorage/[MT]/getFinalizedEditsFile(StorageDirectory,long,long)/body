@@ -1,0 +1,3 @@
+{
+  return new Path(sd.getCurrentDir(),FileJournalManager.EDITS_FILE_NAME + "_" + firstTxId+ "-"+ lastTxId);
+}

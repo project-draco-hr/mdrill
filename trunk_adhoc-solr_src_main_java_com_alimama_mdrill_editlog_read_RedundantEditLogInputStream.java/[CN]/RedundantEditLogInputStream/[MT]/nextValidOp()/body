@@ -1,0 +1,11 @@
+{
+  try {
+    if (state == State.STREAM_FAILED) {
+      state=State.STREAM_FAILED_RESYNC;
+    }
+    return nextOp();
+  }
+ catch (  IOException e) {
+    return null;
+  }
+}

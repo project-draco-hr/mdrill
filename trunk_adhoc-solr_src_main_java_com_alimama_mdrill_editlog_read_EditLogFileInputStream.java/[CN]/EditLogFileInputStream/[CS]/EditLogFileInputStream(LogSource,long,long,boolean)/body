@@ -1,0 +1,7 @@
+{
+  this.log=log;
+  this.firstTxId=firstTxId;
+  this.lastTxId=lastTxId;
+  this.isInProgress=isInProgress;
+  this.maxOpSize=DFSConfigKeys.DFS_NAMENODE_MAX_OP_SIZE_DEFAULT;
+}

@@ -1,0 +1,8 @@
+{
+  try {
+    return nextOp();
+  }
+ catch (  Throwable e) {
+    return null;
+  }
+}

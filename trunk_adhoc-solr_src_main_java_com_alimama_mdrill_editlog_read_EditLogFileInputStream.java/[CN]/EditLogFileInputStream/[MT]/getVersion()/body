@@ -1,0 +1,6 @@
+{
+  if (state == State.UNINIT) {
+    init();
+  }
+  return logVersion;
+}

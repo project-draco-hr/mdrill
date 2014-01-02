@@ -1,0 +1,19 @@
+{
+  LOG.info("Starting log segment at " + segmentTxId);
+  Preconditions.checkArgument(segmentTxId > 0,"Bad txid: %s",segmentTxId);
+  Preconditions.checkState(state == State.BETWEEN_LOG_SEGMENTS,"Bad state: %s",state);
+  Preconditions.checkState(segmentTxId > curSegmentTxId,"Cannot start writing to log segment " + segmentTxId + " when previous log segment started at "+ curSegmentTxId);
+  Preconditions.checkArgument(segmentTxId == txid + 1,"Cannot start log segment at txid %s when next expected " + "txid is %s",segmentTxId,txid + 1);
+  numTransactions=totalTimeTransactions=numTransactionsBatchedInSync=0;
+  try {
+    editLogStream=journalSet.startLogSegment(segmentTxId);
+  }
+ catch (  IOException ex) {
+    throw new IOException("Unable to start log segment " + segmentTxId + ": too few journals successfully started.",ex);
+  }
+  curSegmentTxId=segmentTxId;
+  state=State.IN_SEGMENT;
+  if (writeHeaderTxn) {
+    logSync();
+  }
+}

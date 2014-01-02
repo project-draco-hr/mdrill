@@ -1,0 +1,24 @@
+{
+  try {
+    long txid=0;
+    to.d.setSchema(params.core.getSchema());
+    IndexWriter writer=new IndexWriter(to.d,null,new KeepOnlyLastCommitDeletionPolicy(),MaxFieldLength.UNLIMITED);
+    writer.setMergeFactor(64);
+    writer.setUseCompoundFile(false);
+    for (    DirectoryInfo tomr : mlist) {
+      if (tomr != null) {
+        tomr.d.setSchema(params.core.getSchema());
+        txid=Math.max(txid,tomr.readTxid());
+        writer.addIndexesNoOptimize(tomr.d);
+      }
+    }
+    writer.optimize();
+    writer.close();
+    to.UpTxid(txid);
+    to.synctxid();
+  }
+ catch (  Throwable e) {
+    LOG.error("####merger####",e);
+    throw new IOException(e);
+  }
+}

@@ -1,0 +1,5 @@
+{
+  EditLogValidation val=EditLogFileInputStream.validateEditLog(fs,file);
+  this.lastTxId=val.getEndTxId();
+  this.hasCorruptHeader=val.hasCorruptHeader();
+}

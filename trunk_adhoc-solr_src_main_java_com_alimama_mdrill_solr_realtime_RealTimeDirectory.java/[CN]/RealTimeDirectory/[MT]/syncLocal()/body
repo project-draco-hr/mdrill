@@ -1,0 +1,5 @@
+{
+synchronized (rlock.lock) {
+    this.data.flushToDisk();
+  }
+}

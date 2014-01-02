@@ -1,0 +1,7 @@
+{
+  DataIter rtn=this.parseLine(raw);
+  if (rtn == null) {
+    throw new InvalidEntryException();
+  }
+  return rtn;
+}

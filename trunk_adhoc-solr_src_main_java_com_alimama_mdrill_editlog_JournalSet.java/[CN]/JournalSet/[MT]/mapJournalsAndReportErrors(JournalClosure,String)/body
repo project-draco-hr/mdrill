@@ -1,0 +1,26 @@
+{
+  List<JournalAndStream> badJAS=Lists.newLinkedList();
+  for (  JournalAndStream jas : journals) {
+    try {
+      closure.apply(jas);
+    }
+ catch (    Throwable t) {
+      if (jas.isRequired()) {
+        final String msg="Error: " + status + " failed for required journal ("+ jas+ ")";
+        LOG.fatal(msg,t);
+        abortAllJournals();
+        FSEditLog.terminate(1,msg);
+      }
+ else {
+        LOG.error("Error: " + status + " failed for (journal "+ jas+ ")",t);
+        badJAS.add(jas);
+      }
+    }
+  }
+  disableAndReportErrorOnJournals(badJAS);
+  if (!NameNodeResourcePolicy.areResourcesAvailable(journals,minimumRedundantJournals)) {
+    String message=status + " failed for too many journals";
+    LOG.error("Error: " + message);
+    throw new IOException(message);
+  }
+}

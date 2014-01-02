@@ -1,0 +1,4 @@
+{
+  LOG.info("Purging old edit log " + log.getFile().toString());
+  deleteOrWarn(log.getFs(),log.getFile());
+}

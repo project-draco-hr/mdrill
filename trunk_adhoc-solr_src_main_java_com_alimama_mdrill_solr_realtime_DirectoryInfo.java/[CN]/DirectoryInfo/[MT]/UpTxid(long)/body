@@ -1,0 +1,3 @@
+{
+  this.txid=Math.max(this.txid,txidp);
+}

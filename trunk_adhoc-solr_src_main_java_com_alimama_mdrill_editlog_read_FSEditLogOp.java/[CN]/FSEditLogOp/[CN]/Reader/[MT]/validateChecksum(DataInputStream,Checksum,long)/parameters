@@ -1,0 +1,3 @@
+DataInputStream in
+Checksum checksum
+long txid

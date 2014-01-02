@@ -1,0 +1,20 @@
+{
+  DirectoryInfo buffer=bufferDirector.get(RAM_KEY);
+  if (buffer != null) {
+    try {
+      this.mergerBuffer(null);
+    }
+ catch (    Throwable e) {
+      LOG.error("mayBeMerger_buffer",e);
+    }
+  }
+  DirectoryInfo ram=this.RamDirector.get(RAM_KEY);
+  if (ram != null) {
+    try {
+      this.mergerRam(null);
+    }
+ catch (    Throwable e) {
+      LOG.error("mayBeMerger_ram",e);
+    }
+  }
+}

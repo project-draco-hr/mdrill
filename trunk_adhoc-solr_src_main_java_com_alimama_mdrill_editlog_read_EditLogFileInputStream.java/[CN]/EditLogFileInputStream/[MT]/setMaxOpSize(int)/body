@@ -1,0 +1,6 @@
+{
+  this.maxOpSize=maxOpSize;
+  if (reader != null) {
+    reader.setMaxOpSize(maxOpSize);
+  }
+}

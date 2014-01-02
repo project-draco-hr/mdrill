@@ -1,0 +1,50 @@
+{
+  Configuration conf=params.getConf();
+  final Path localHdfsRecover=new Path(params.baseDir,"realtime_hdfs_recover");
+  final Path hdfsRealtime=new Path(params.hdfsPath,"realtime");
+  final FileSystem fs=FileSystem.get(conf);
+  final FileSystem lfs=FileSystem.getLocal(conf);
+  lfs.delete(localHdfsRecover,true);
+  final Path localPath=new Path(localHdfsRecover.getParent(),localHdfsRecover.getName() + "_hdfs");
+  final Path localPathtmp=new Path(localHdfsRecover.getParent(),localHdfsRecover.getName() + "_tmp");
+  TimerTask task=new TimerTask(){
+    @Override public void run(){
+      try {
+        IndexUtils.copyToLocal(fs,lfs,hdfsRealtime,localPath,localPathtmp,true);
+synchronized (plock.lock) {
+          FileStatus[] filelist=lfs.listStatus(localPath);
+          boolean needPurge=false;
+          if (filelist != null) {
+            for (            FileStatus f : filelist) {
+              if (!f.isDir()) {
+                continue;
+              }
+              try {
+                DirectoryInfo d=new DirectoryInfo();
+                File findex=new File(f.getPath().toString());
+                d.d=FSDirectory.open(findex);
+                d.tp=DirectoryInfo.DirTpe.file;
+                data.AddIndex(findex.getAbsolutePath(),d);
+                needPurge=true;
+              }
+ catch (              Throwable e) {
+                LOG.error("AddIndex",e);
+              }
+            }
+          }
+          if (needPurge) {
+            status.needRemakeLinks.set(true);
+          }
+        }
+        callback.run();
+        return;
+      }
+ catch (      Throwable ex) {
+        LOG.error("syncHdfs",ex);
+      }
+    }
+  }
+;
+  taskList.add(task);
+  RealTimeDirectorUtils.timerslow.schedule(task,0);
+}

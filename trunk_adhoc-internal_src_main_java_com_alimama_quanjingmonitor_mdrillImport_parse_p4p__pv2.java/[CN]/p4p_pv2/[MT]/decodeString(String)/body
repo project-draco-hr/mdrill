@@ -1,0 +1,8 @@
+{
+  try {
+    return new String(java.net.URLDecoder.decode(args,LOG_ENCODING).getBytes("UTF-8"),"UTF-8");
+  }
+ catch (  Exception e) {
+    return args;
+  }
+}

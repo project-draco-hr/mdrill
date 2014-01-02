@@ -1,32 +1,21 @@
 {
   this.collector=collector;
-  this.EXECUTE=new ThreadPoolExecutor(3,3,1800l,TimeUnit.SECONDS,new LinkedBlockingQueue<Runnable>());
+  this.EXECUTE=new ShardThread();
   try {
     this.conf=new Configuration();
     HadoopUtil.grabConfiguration(this.hadoopConfPath,this.conf);
-    int hashcode=this.tablename.hashCode() % 10000;
-    if (hashcode < 0) {
-      hashcode*=-1;
-    }
     Integer taskIndex=context.getThisTaskIndex();
     this.solr=new SolrStart(this.params,collector,conf,solrhome,tablename.split(","),storePath,this.portbase,taskIndex,this.topologyName,context.getThisTaskId(),this.partions);
     this.solr.setExecute(this.EXECUTE);
     this.solr.setConfigDir(this.hadoopConfPath);
     this.solr.setConf(stormConf);
-    this.solr.setRealTime(this.isRealTime);
-    this.solr.setMergeServer(!this.isRealTime && taskIndex >= this.shards);
+    this.solr.setMergeServer(taskIndex >= this.shards);
     this.solr.start();
   }
- catch (  RuntimeException e1) {
+ catch (  Throwable e1) {
     LOG.error(StormUtils.stringify_error(e1));
     this.collector.reportError(e1);
     this.solr.unregister();
     throw new RuntimeException(e1);
-  }
-catch (  Exception e) {
-    LOG.error(StormUtils.stringify_error(e));
-    this.collector.reportError(e);
-    this.solr.unregister();
-    throw new RuntimeException(e);
   }
 }

@@ -11,5 +11,5 @@
     }
     docs.add(doc);
   }
-  return insert(projectName,docs,coresfortest,FlushType.buffer);
+  return insert(projectName,docs,false,coresfortest,FlushType.buffer);
 }

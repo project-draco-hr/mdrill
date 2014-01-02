@@ -1,0 +1,2 @@
+SolrInputDocument doc
+boolean writelog

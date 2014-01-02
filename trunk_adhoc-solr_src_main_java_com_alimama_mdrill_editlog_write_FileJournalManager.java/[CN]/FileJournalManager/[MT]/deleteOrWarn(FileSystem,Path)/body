@@ -1,0 +1,10 @@
+{
+  try {
+    if (!fs.delete(file,true)) {
+      LOG.warn("Could not delete " + file);
+    }
+  }
+ catch (  IOException e) {
+    LOG.warn("Could not delete " + file);
+  }
+}

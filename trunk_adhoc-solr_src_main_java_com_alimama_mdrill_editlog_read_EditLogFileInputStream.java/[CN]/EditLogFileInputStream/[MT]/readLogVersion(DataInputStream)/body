@@ -1,0 +1,10 @@
+{
+  int logVersion;
+  try {
+    logVersion=in.readInt();
+  }
+ catch (  EOFException eofe) {
+    throw new LogHeaderCorruptException("Reached EOF when reading log header");
+  }
+  return logVersion;
+}

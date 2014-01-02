@@ -1,0 +1,5 @@
+FileSystem fs
+Path name
+long firstTxId
+long lastTxId
+boolean isInProgress

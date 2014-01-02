@@ -1,0 +1,30 @@
+{
+  File links=new File(this.params.baseDir,"indexLinks");
+  if (isUsedHdfs) {
+    if (links.exists()) {
+      links.delete();
+    }
+    return;
+  }
+  if (links.exists()) {
+    FileReader freader=new FileReader(links);
+    BufferedReader br=new BufferedReader(freader);
+    String s1=null;
+    while ((s1=br.readLine()) != null) {
+      if (s1.trim().length() > 0) {
+        File f=new File(s1);
+        if (!f.exists()) {
+          continue;
+        }
+        FSDirectory d=LinkFSDirectory.open(f,true);
+        DirectoryInfo info=new DirectoryInfo();
+        info.d=d;
+        info.tp=DirectoryInfo.DirTpe.file;
+        this.diskDirector.put(s1,info);
+        SolrCore.log.info(">>>>>LinkFSDirectory readOnlyOpen add links " + s1);
+      }
+    }
+    br.close();
+    freader.close();
+  }
+}

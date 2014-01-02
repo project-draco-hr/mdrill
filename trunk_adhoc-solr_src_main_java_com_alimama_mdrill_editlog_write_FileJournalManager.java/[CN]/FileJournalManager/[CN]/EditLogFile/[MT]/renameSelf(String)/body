@@ -1,0 +1,9 @@
+{
+  Path src=file;
+  Path dst=new Path(src.getParent(),src.getName() + newSuffix);
+  boolean success=fs.rename(src,dst);
+  if (!success) {
+    throw new IOException("Couldn't rename log " + src + " to "+ dst);
+  }
+  file=dst;
+}

@@ -1,0 +1,2 @@
+long endTxId
+boolean hasCorruptHeader

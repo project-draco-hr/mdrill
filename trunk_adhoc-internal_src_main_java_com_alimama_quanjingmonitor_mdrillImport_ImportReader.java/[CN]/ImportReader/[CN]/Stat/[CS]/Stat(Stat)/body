@@ -1,0 +1,5 @@
+{
+  size=stat.size;
+  valid=stat.valid;
+  invalid=stat.invalid;
+}

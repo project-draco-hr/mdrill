@@ -1,0 +1,4 @@
+Map config
+String confPrefix
+int readerIndex
+int readerCount

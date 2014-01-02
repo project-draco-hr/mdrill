@@ -1,0 +1,19 @@
+{
+  Iterator<EditLogInputStream> iter=streams.iterator();
+  long txId=fromTxId;
+  while (true) {
+    if (txId > toAtLeastTxId)     return;
+    if (!iter.hasNext())     break;
+    EditLogInputStream elis=iter.next();
+    if (elis.getFirstTxId() > txId)     break;
+    long next=elis.getLastTxId();
+    if (next == HdfsConstants.INVALID_TXID) {
+      if (!inProgressOk) {
+        throw new RuntimeException("inProgressOk = false, but " + "selectInputStreams returned an in-progress edit " + "log input stream (" + elis + ")");
+      }
+      return;
+    }
+    txId=next + 1;
+  }
+  throw new IOException(String.format("Gap in transactions. Expected to " + "be able to read up until at least txid %d but unable to find any " + "edit logs containing txid %d",toAtLeastTxId,txId));
+}

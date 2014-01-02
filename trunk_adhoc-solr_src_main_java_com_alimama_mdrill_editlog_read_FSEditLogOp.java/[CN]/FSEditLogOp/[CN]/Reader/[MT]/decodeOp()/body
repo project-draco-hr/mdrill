@@ -1,0 +1,23 @@
+{
+  in.mark(maxOpSize);
+  checksum.reset();
+  byte opCodeByte;
+  try {
+    opCodeByte=in.readByte();
+  }
+ catch (  EOFException eof) {
+    return null;
+  }
+  FSEditLogOpCodes opCode=FSEditLogOpCodes.fromByte(opCodeByte);
+  if (opCode == FSEditLogOpCodes.OP_INVALID) {
+    throw new IOException("Read invalid opcode " + opCode);
+  }
+  FSEditLogOp op=cache.get(opCode);
+  if (op == null) {
+    throw new IOException("Read invalid opcode " + opCode);
+  }
+  op.setTransactionId(in.readLong());
+  op.readFields(in,logVersion);
+  validateChecksum(in,checksum,op.txid);
+  return op;
+}

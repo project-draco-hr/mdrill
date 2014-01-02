@@ -1,0 +1,3 @@
+{
+  journalSet.selectInputStreams(streams,fromTxId,inProgressOk,forReading);
+}

@@ -1,0 +1,11 @@
+{
+  try {
+    return is.read(buf,off,len);
+  }
+ catch (  IOException ie) {
+    throw ie;
+  }
+catch (  Throwable t) {
+    throw new IOException("Error while reading compressed data",t);
+  }
+}

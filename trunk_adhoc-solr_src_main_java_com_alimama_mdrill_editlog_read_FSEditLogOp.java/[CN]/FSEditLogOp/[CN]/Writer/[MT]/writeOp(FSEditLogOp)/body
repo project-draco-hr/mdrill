@@ -1,0 +1,11 @@
+{
+  int start=buf.getLength();
+  buf.writeByte(op.opCode.getOpCode());
+  buf.writeLong(op.txid);
+  op.writeFields(buf);
+  int end=buf.getLength();
+  checksum.reset();
+  checksum.update(buf.getData(),start,end - start);
+  int sum=(int)checksum.getValue();
+  buf.writeInt(sum);
+}

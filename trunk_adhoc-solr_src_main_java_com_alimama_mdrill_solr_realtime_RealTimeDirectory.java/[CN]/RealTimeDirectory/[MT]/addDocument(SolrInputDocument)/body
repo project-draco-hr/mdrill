@@ -1,14 +1,3 @@
 {
-  if (this.ishdfsmode) {
-    return;
-  }
-  total_add_nofilter.incrementAndGet();
-  if (maybeReplication(doc,this)) {
-    return;
-  }
-  total_add.incrementAndGet();
-  needFlushDfs.set(true);
-synchronized (doclistBuffer_lock) {
-    doclistBuffer.add(doc);
-  }
+  this.addDocument(doc,true);
 }

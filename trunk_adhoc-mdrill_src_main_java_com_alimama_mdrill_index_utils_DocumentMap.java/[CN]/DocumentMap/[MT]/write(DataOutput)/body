@@ -6,7 +6,9 @@
     }
  else {
       out.writeBoolean(true);
-      out.writeUTF(data[i]);
+      byte[] arr=data[i].getBytes("utf8");
+      out.writeInt(arr.length);
+      out.write(arr);
     }
   }
 }

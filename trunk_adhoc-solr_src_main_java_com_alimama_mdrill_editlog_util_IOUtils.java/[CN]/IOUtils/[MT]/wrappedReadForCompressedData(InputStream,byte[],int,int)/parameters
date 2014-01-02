@@ -1,0 +1,4 @@
+InputStream is
+byte[] buf
+int off
+int len

@@ -1,0 +1,11 @@
+{
+  mapJournalsAndReportErrors(new JournalClosure(){
+    @Override public void apply(    JournalAndStream jas) throws IOException {
+      if (jas.isActive()) {
+        jas.closeStream();
+        jas.getManager().finalizeLogSegment(firstTxId,lastTxId);
+      }
+    }
+  }
+,"finalize log segment " + firstTxId + ", "+ lastTxId);
+}

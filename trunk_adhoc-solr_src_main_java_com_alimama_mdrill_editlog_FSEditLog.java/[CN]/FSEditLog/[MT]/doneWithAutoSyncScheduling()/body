@@ -1,0 +1,6 @@
+{
+  if (isAutoSyncScheduled) {
+    isAutoSyncScheduled=false;
+    notifyAll();
+  }
+}

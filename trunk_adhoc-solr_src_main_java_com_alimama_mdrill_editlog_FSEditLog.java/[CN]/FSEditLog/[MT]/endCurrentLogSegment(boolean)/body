@@ -1,0 +1,16 @@
+{
+  LOG.info("Ending log segment " + curSegmentTxId);
+  Preconditions.checkState(isSegmentOpen(),"Bad state: %s",state);
+  if (writeEndTxn) {
+    logSync();
+  }
+  printStatistics(true);
+  final long lastTxId=getLastWrittenTxId();
+  try {
+    journalSet.finalizeLogSegment(curSegmentTxId,lastTxId);
+    editLogStream=null;
+  }
+ catch (  IOException e) {
+  }
+  state=State.BETWEEN_LOG_SEGMENTS;
+}

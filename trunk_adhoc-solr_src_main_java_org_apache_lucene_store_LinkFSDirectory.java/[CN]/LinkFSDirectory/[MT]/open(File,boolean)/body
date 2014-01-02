@@ -1,0 +1,5 @@
+{
+  LinkFSDirectory rtn=open(path,null);
+  rtn.setAllowLinks(isallowmove);
+  return rtn;
+}

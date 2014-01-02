@@ -1,0 +1,8 @@
+{
+  mapJournalsAndReportErrors(new JournalClosure(){
+    @Override public void apply(    JournalAndStream jas) throws IOException {
+      jas.closeStream();
+    }
+  }
+,"close");
+}

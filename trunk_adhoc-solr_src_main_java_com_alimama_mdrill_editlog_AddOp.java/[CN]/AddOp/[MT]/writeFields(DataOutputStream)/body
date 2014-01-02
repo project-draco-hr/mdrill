@@ -1,0 +1,4 @@
+{
+  JavaBinCodec code=new JavaBinCodec();
+  code.marshal(doc,out);
+}

@@ -1,0 +1,5 @@
+{
+  for (  EditLogInputStream elis : streams) {
+    elis.setMaxOpSize(maxOpSize);
+  }
+}

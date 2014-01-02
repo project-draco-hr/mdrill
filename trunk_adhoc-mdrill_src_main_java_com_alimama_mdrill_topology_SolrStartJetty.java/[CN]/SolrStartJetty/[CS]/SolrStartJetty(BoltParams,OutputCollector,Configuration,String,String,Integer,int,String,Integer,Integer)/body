@@ -12,6 +12,7 @@
   this.singleStorePath=IndexUtils.getPath(diskList,taskIndex,0,this.lfs);
   HigoJoinUtils.setLocalStorePath(diskList.split(","));
   SolrCore.setSearchCacheSize(partions);
+  SolrCore.setBinglogType(params.binlog);
   LOG.info("higolog init table:" + this.tablename + ",port:"+ this.portbase+ ",taskIndex:"+ this.taskIndex+ ",taskId:"+ this.taskid+ ",storepath:"+ this.singleStorePath);
   this.init();
   this.validate();

@@ -1,0 +1,3 @@
+{
+  copyBytes(in,out,conf.getInt("io.file.buffer.size",4096),close);
+}

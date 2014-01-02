@@ -1,0 +1,7 @@
+{
+  if (fp == null) {
+    return;
+  }
+  IOUtils.cleanup(LOG,fp);
+  fp=null;
+}

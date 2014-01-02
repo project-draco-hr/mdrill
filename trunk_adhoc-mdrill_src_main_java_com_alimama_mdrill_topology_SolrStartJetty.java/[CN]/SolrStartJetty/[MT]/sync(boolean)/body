@@ -17,10 +17,12 @@
         lfs.mkdirs(new Path(confpath,"complete"));
       }
     }
+    initSolrConfig.set(true);
     return needRestart;
   }
  catch (  Throwable e) {
     LOG.error(StormUtils.stringify_error(e));
+    initSolrConfig.set(true);
     return false;
   }
 }

@@ -1,0 +1,7 @@
+{
+  super();
+  this.fs=fs;
+  this.file=name;
+  this.size=size;
+  this.create();
+}

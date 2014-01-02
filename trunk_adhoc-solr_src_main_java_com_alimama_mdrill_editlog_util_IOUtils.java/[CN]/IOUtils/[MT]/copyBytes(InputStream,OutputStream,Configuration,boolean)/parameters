@@ -1,0 +1,4 @@
+InputStream in
+OutputStream out
+Configuration conf
+boolean close

@@ -1,0 +1,4 @@
+{
+  String tablemode=String.valueOf(this.stormConf.get("higo.mode." + this.tablename));
+  return tablemode;
+}

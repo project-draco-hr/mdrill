@@ -1,5 +1,5 @@
 {
-  String sql="SELECT nick,query_cnt FROM total_user_pv" + " ORDER BY query_cnt" + " DESC LIMIT ?";
+  String sql="select a.nick as nick,a.query_cnt as query_cnt, b.department as department" + " from (" + "SELECT nick,query_cnt FROM total_user_pv"+ " ORDER BY query_cnt"+ " DESC LIMIT ?"+ ") a left join user_info b on (a.nick=b.nick) ORDER BY a.query_cnt desc";
   List<TotalUserPv> totalUserPvList=null;
   PreparedStatement pstmt=null;
   try {
@@ -12,6 +12,7 @@
       TotalUserPv totalUserPv=new TotalUserPv();
       totalUserPv.setNick(rs.getString(1));
       totalUserPv.setQueryCnt(rs.getInt(2));
+      totalUserPv.setDepartment(String.valueOf(rs.getString(3)));
       totalUserPvList.add(totalUserPv);
     }
     LOG.info(pstmt.toString());

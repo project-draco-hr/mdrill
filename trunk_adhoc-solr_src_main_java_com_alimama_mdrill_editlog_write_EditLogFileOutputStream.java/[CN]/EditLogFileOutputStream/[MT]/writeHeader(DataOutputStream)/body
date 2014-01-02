@@ -1,0 +1,3 @@
+{
+  out.writeInt(HdfsConstants.LAYOUT_VERSION);
+}

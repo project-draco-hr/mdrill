@@ -1,0 +1,11 @@
+{
+  try {
+    this.thread.close();
+    if (this.needRollLogs.get()) {
+      this.editlog.endCurrentLogSegment(true);
+    }
+  }
+ catch (  Throwable e) {
+    LOG.error("close",e);
+  }
+}

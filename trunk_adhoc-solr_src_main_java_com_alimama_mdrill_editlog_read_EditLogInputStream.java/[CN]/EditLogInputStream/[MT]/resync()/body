@@ -1,0 +1,6 @@
+{
+  if (cachedOp != null) {
+    return;
+  }
+  cachedOp=nextValidOp();
+}

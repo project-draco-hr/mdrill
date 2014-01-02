@@ -1,0 +1,4 @@
+InputStream in
+OutputStream out
+long count
+boolean close

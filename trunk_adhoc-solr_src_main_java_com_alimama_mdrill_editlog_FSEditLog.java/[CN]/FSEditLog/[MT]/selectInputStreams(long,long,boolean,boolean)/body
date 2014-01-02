@@ -1,0 +1,12 @@
+{
+  List<EditLogInputStream> streams=new ArrayList<EditLogInputStream>();
+  selectInputStreams(streams,fromTxId,inProgressOk,forReading);
+  try {
+    checkForGaps(streams,fromTxId,toAtLeastTxId,inProgressOk);
+  }
+ catch (  IOException e) {
+    closeAllStreams(streams);
+    throw e;
+  }
+  return streams;
+}

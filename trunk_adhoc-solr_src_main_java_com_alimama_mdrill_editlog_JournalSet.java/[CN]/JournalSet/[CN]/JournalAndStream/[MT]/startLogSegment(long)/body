@@ -1,0 +1,5 @@
+{
+  Preconditions.checkState(stream == null);
+  disabled=false;
+  stream=journal.startLogSegment(txId);
+}

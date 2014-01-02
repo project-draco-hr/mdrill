@@ -1,0 +1,17 @@
+{
+  if (fp != null) {
+    fp.close();
+  }
+  if (doubleBuf != null) {
+    doubleBuf.close();
+    doubleBuf=null;
+  }
+  doubleBuf=new EditsDoubleBuffer(size);
+  if (this.fs.exists(this.file)) {
+    fs.delete(this.file,true);
+  }
+  fp=this.fs.create(this.file,true);
+  writeHeader(doubleBuf.getCurrentBuf());
+  setReadyToFlush();
+  flush();
+}

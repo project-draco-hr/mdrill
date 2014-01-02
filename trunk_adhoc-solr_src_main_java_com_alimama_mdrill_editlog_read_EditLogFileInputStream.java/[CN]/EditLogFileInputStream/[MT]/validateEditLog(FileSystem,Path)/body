@@ -1,0 +1,17 @@
+{
+  EditLogFileInputStream in;
+  try {
+    in=new EditLogFileInputStream(fs,file);
+    in.getVersion();
+  }
+ catch (  LogHeaderCorruptException e) {
+    LOG.warn("Log file " + file + " has no valid header",e);
+    return new FSEditLogValidate.EditLogValidation(HdfsConstants.INVALID_TXID,true);
+  }
+  try {
+    return FSEditLogValidate.validateEditLog(in);
+  }
+  finally {
+    IOUtils.closeStream(in);
+  }
+}

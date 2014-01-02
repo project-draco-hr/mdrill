@@ -11,6 +11,7 @@
   Integer partions=StormUtils.parseInt(stormconf.get("higo.cache.partions"));
   Integer portbase=StormUtils.parseInt(stormconf.get("higo.solr.ports.begin"));
   String hdfsSolrDir=(String)stormconf.get("higo.table.path");
+  String realtimebinlog=String.valueOf(stormconf.get("higo.realtime.binlog"));
   String topologyName="adhoc";
   String hadoopConfDir=(String)stormconf.get("hadoop.conf.dir");
   String localWorkDirList=(String)stormconf.get("higo.workdir.list");
@@ -42,7 +43,8 @@
   paramsMs.compname="merge_0";
   paramsMs.replication=1;
   paramsMs.replicationindex=0;
-  ShardsBolt ms=new ShardsBolt(paramsMs,false,hadoopConfDir,hdfsSolrDir,tableName,localWorkDirList,portbase + shards * replication + 100,0,partions,topologyName);
+  paramsMs.binlog=realtimebinlog;
+  ShardsBolt ms=new ShardsBolt(paramsMs,hadoopConfDir,hdfsSolrDir,tableName,localWorkDirList,portbase + shards * replication + 100,0,partions,topologyName);
   TopologyBuilder builder=new TopologyBuilder();
   builder.setSpout("heartbeat",new HeartBeatSpout(),1);
   for (int i=0; i < replication; i++) {
@@ -50,7 +52,8 @@
     paramsShard.replication=replication;
     paramsShard.replicationindex=i;
     paramsShard.compname="shard_" + i;
-    ShardsBolt solr=new ShardsBolt(paramsShard,false,hadoopConfDir,hdfsSolrDir,tableName,localWorkDirList,portbase + shards * i,shards,partions,topologyName);
+    paramsShard.binlog=realtimebinlog;
+    ShardsBolt solr=new ShardsBolt(paramsShard,hadoopConfDir,hdfsSolrDir,tableName,localWorkDirList,portbase + shards * i,shards,partions,topologyName);
     builder.setBolt("shard@" + i,solr,shards).allGrouping("heartbeat");
   }
   builder.setBolt("merge",ms,msCount).allGrouping("heartbeat");

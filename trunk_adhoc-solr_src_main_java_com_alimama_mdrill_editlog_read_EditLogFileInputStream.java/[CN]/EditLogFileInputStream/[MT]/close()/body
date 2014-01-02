@@ -1,0 +1,6 @@
+{
+  if (state == State.OPEN) {
+    dataIn.close();
+  }
+  state=State.CLOSED;
+}

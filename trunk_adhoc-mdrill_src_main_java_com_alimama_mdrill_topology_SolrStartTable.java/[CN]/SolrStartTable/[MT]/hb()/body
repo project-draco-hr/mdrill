@@ -1,7 +1,10 @@
 {
-  hbExecute exec=new hbExecute(this);
-  EXECUTE.submit(exec);
-  while (!exec.isfinish()) {
-    this.sleep();
+  if (!initSolrConfig.get()) {
+    return;
+  }
+  if (lasthb == null || lasthb.isfinish()) {
+    hbExecute exec=new hbExecute(this);
+    EXECUTE.EXECUTE.submit(exec);
+    lasthb=exec;
   }
 }

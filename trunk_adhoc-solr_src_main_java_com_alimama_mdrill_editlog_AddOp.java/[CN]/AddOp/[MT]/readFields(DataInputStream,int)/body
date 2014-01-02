@@ -1,0 +1,4 @@
+{
+  JavaBinCodec code=new JavaBinCodec();
+  this.doc=(SolrInputDocument)code.unmarshal(in);
+}

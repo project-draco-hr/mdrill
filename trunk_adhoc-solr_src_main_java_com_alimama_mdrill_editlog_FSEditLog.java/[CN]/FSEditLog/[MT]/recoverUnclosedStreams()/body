@@ -1,0 +1,8 @@
+{
+  Preconditions.checkState(state == State.BETWEEN_LOG_SEGMENTS,"May not recover segments - wrong state: %s",state);
+  try {
+    journalSet.recoverUnfinalizedSegments();
+  }
+ catch (  IOException ex) {
+  }
+}

@@ -1,0 +1,3 @@
+FileSystem fs
+Path name
+int size

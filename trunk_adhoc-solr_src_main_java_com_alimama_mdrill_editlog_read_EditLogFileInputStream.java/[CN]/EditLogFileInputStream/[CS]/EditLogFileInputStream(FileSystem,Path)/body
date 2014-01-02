@@ -1,0 +1,3 @@
+{
+  this(fs,name,HdfsConstants.INVALID_TXID,HdfsConstants.INVALID_TXID,false);
+}

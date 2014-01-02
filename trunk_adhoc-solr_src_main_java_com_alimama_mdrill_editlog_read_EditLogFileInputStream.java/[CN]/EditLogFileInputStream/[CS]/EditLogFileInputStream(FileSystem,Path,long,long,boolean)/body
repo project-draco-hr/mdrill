@@ -1,0 +1,3 @@
+{
+  this(new FsFileLog(name,fs),firstTxId,lastTxId,isInProgress);
+}

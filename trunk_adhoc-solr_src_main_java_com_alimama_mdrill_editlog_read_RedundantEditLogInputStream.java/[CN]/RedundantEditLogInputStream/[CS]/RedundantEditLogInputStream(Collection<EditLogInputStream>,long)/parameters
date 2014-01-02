@@ -1,0 +1,2 @@
+Collection<EditLogInputStream> streams
+long startTxId

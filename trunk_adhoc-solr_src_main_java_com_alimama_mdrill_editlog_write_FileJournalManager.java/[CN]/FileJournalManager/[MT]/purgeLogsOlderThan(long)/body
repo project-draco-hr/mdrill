@@ -1,0 +1,10 @@
+{
+  LOG.info("Purging logs older than " + minTxIdToKeep);
+  FileStatus[] files=FileUtil.listFiles(sd.getFileSystem(),sd.getCurrentDir());
+  List<EditLogFile> editLogs=FileJournalManager.matchEditLogs(sd.getFileSystem(),files);
+  for (  EditLogFile log : editLogs) {
+    if (!log.isInProgress() && log.getFirstTxId() < minTxIdToKeep && log.getLastTxId() < minTxIdToKeep) {
+      purgeLog(log);
+    }
+  }
+}

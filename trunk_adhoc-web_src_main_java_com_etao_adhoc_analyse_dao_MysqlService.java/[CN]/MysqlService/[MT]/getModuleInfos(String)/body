@@ -1,5 +1,5 @@
 {
-  String sql="SELECT sum(query_cnt) as query_cnt,sum(uv) as uv,module_name FROM module_info" + " WHERE queryday=? " + " group by module_name order by module_name ";
+  String sql="SELECT sum(query_cnt) as query_cnt,sum(uv) as uv,module_name,nicklist FROM module_info" + " WHERE queryday=? " + " group by module_name order by module_name ";
   PreparedStatement pstmt=null;
   ArrayList<ModuleInfo> list=new ArrayList<ModuleInfo>();
   try {
@@ -13,6 +13,7 @@
       moduleInfo.setQueryCnt(rs.getInt(1));
       moduleInfo.setUv(rs.getInt(2));
       moduleInfo.setModuleName(rs.getString(3));
+      moduleInfo.setNicklist(rs.getString(4));
       list.add(moduleInfo);
     }
     LOG.info(pstmt.toString());

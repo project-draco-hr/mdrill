@@ -1,0 +1,14 @@
+{
+  long amt=len;
+  while (amt > 0) {
+    long ret=in.skip(amt);
+    if (ret == 0) {
+      int b=in.read();
+      if (b == -1) {
+        throw new EOFException("Premature EOF from inputStream after " + "skipping " + (len - amt) + " byte(s).");
+      }
+      ret=1;
+    }
+    amt-=ret;
+  }
+}

@@ -1,0 +1,11 @@
+{
+  try {
+    currentInProgress=NNStorage.getInProgressEditsFile(sd,txid);
+    EditLogOutputStream stm=new EditLogFileOutputStream(sd.getFileSystem(),currentInProgress,outputBufferCapacity);
+    return stm;
+  }
+ catch (  IOException e) {
+    LOG.warn("Unable to start log segment " + txid + " at "+ currentInProgress+ ": "+ e.getLocalizedMessage());
+    throw e;
+  }
+}
