@@ -1,0 +1,11 @@
+{
+  super();
+  this.key=key;
+  this.index=pos;
+  if (p == null) {
+    this.flushkey=SolrResourceLoader.getCacheFlushKey(null);
+  }
+ else {
+    this.flushkey=SolrResourceLoader.getCacheFlushKey(p);
+  }
+}

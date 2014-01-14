@@ -1,0 +1,29 @@
+{
+  if (lp.isCurCharCA()) {
+    return false;
+  }
+ else {
+    lr.addField("JumpType",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("HttpVia",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("HttpXForwardedFor",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("HttpProxyConnection",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("HttpAccept",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("HttpAcceptCharset",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("HttpAcceptLanguage",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("HttpAcceptEncoding",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("HttpKeepAlive",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("HttpXMoz",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("UserAgent",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("ExtraInfo",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("FFCode",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("BFCode",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("FFIsFilter",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    String IsFilter=lp.getAllRemained();
+    if (IsFilter == null || IsFilter.indexOf(LogParser.CONTROL_A) != -1 || IsFilter.indexOf(LogParser.CONTROL_B) != -1)     return false;
+    lr.addField("IsFilter",new LogField(LogField.TYPE_STRING,IsFilter));
+  }
+  if (lp.isError()) {
+    return false;
+  }
+  return true;
+}

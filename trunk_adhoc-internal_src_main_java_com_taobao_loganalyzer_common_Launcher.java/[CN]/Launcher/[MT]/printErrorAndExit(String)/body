@@ -1,0 +1,5 @@
+{
+  System.out.println(message);
+  System.out.println("Usage : Launcher [ProcessorClass] [InputPath] [OutputPath] [numOfMappers] [numOfReducers] <name1=value1> <name2=value2>...");
+  System.exit(1);
+}

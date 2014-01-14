@@ -1,0 +1,15 @@
+{
+  if (lp.isCurCharCA()) {
+    return false;
+  }
+ else {
+    if (lr.version_cmp("2.0") < 0) {
+      lr.addField("Verify",new LogField(LogField.TYPE_STRING,lp.getAllRemained()));
+    }
+ else {
+      lr.addField("Verify",new LogField(LogField.TYPE_STRING,lp.getNextCA()));
+    }
+  }
+  if (lp.isError())   return false;
+  return true;
+}

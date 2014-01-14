@@ -1,0 +1,26 @@
+{
+  if (lp.isCurCharCA()) {
+    if (!lp.hasNextChar())     return false;
+  }
+ else {
+    String ws=lp.getNextCB();
+    if (ws == null) {
+      return false;
+    }
+    String[] warr=ws.split("\003",-1);
+    List<String[]> googleweight=new ArrayList<String[]>();
+    for (    String str : warr) {
+      String[] pair=str.split("\004",-1);
+      if (pair.length != 2) {
+        continue;
+      }
+      googleweight.add(pair);
+    }
+    lr.addField("googleweight",new LogField(LogField.TYPE_LIST,googleweight));
+    lp.getNextCB();
+    lp.getNextCB();
+    lp.getNextCA();
+  }
+  if (lp.isError())   return false;
+  return true;
+}

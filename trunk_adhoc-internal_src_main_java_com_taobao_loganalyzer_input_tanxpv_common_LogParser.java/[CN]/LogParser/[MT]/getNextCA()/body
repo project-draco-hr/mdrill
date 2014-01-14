@@ -1,0 +1,12 @@
+{
+  String field=getNextField(new char[]{CONTROL_A,CONTROL_B});
+  if (getMatchedChar() != CONTROL_A) {
+    if (error == false) {
+      error=true;
+      errMsg=new StringBuilder().append("error: expected ").append(CONTROL_B).append(" from ").append(pos).toString();
+    }
+    pos=length + 1;
+    return null;
+  }
+  return field;
+}

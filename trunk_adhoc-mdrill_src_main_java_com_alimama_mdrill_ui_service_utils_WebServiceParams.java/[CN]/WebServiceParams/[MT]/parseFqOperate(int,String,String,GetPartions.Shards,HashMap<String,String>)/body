@@ -18,7 +18,7 @@ case 1:
         return key + ":" + TdateFormat.transformSolrMetacharactor(TdateFormat.ensureTdateForSearch(value2));
       }
       if (isnull) {
-        return "-" + key + ":['' TO *]";
+        return "-" + key + ":[* TO *]";
       }
       return key + ":" + TdateFormat.transformSolrMetacharactor(value2);
     }
@@ -114,6 +114,10 @@ joinchar=" OR ";
 sb.append(")");
 return sb.toString();
 }
+}
+case 40:
+{
+return "{!contains f=" + key + "}"+ value2;
 }
 case 9:
 {

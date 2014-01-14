@@ -1,0 +1,4 @@
+{
+  boolean[] flags=new boolean[]{true,true,true,true,true,true};
+  return parse(line,flags);
+}

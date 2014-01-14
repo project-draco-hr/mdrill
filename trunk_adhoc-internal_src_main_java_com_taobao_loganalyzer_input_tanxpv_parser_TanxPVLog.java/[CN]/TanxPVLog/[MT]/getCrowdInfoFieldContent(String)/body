@@ -1,0 +1,11 @@
+{
+  List<LogRecord> list=(List<LogRecord>)getFieldContentList(name);
+  List<CrowdInfo> crowds=null;
+  if (list != null) {
+    crowds=new ArrayList<CrowdInfo>();
+    for (    LogRecord lr : list) {
+      crowds.add(new CrowdInfo(lr));
+    }
+  }
+  return crowds;
+}

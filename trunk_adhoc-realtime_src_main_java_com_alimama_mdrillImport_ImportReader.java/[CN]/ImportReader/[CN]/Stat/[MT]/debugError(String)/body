@@ -1,0 +1,15 @@
+{
+  debuglines++;
+  if (debuglines < 20) {
+    if (!s.isEmpty() && s.length() < 500) {
+      LOG.error("wronglog:" + s);
+    }
+  }
+  if (debuglines % 10000 == 0) {
+    long nowts=System.currentTimeMillis() / 300000;
+    if (nowts != debugts) {
+      debugts=nowts;
+      debuglines=0;
+    }
+  }
+}

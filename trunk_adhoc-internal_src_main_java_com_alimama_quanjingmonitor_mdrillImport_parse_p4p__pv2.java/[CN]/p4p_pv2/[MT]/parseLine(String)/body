@@ -4,14 +4,24 @@
     if (p4ppvlog == null) {
       return null;
     }
-    if (p4ppvlog.getP4PPID() == null) {
+    if (p4ppvlog.getP4PPID() == null || p4ppvlog.getTimestamp() == null) {
+      return null;
+    }
+    this.lines++;
+    if (this.lines > 100000) {
+      this.laststartts=(System.currentTimeMillis() / 1000) - TS_MAX;
+      this.lastendts=(System.currentTimeMillis() / 1000) + TS_MAX;
+      this.lines=0;
+    }
+    long ts=Long.parseLong(p4ppvlog.getTimestamp());
+    if (ts < laststartts || ts > lastendts) {
       return null;
     }
     DataIterParse rtn=new DataIterParse(p4ppvlog);
     return rtn;
   }
  catch (  Throwable nfe) {
-    if (groupCreateerror < 100) {
+    if (groupCreateerror < 10) {
       LOG.error("InvalidEntryException:" + line,nfe);
       groupCreateerror++;
     }

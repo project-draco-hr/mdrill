@@ -1,0 +1,15 @@
+{
+  if (input == null) {
+    return null;
+  }
+  input=input.trim();
+  if (input.isEmpty() || input.equals("\\N") || input.equals("\\n")|| input.toLowerCase().equals("null")) {
+    context.getCounter("higo","nullcolcount").increment(1);
+    return null;
+  }
+  if (input.length() >= 512000) {
+    context.getCounter("higo","bigtextskip").increment(1);
+    return null;
+  }
+  return input;
+}

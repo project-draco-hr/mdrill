@@ -1,0 +1,17 @@
+{
+  if (a instanceof Integer) {
+    return a.intValue() + b.intValue();
+  }
+ else   if (a instanceof Long) {
+    return a.longValue() + b.longValue();
+  }
+ else   if (a instanceof Double) {
+    return a.doubleValue() + b.doubleValue();
+  }
+ else   if (a instanceof Float) {
+    return a.floatValue() + b.floatValue();
+  }
+ else {
+    return a.floatValue() + b.floatValue();
+  }
+}

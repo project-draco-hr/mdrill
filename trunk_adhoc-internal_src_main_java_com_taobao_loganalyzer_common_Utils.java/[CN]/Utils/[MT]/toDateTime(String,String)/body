@@ -1,0 +1,10 @@
+{
+  try {
+    Long ts=Long.parseLong(timeStamp) * 1000;
+    DateFormat sdf=new SimpleDateFormat(fmt);
+    return sdf.format(new java.util.Date(ts));
+  }
+ catch (  NumberFormatException e) {
+    return "";
+  }
+}

@@ -1,0 +1,7 @@
+{
+  if (lr != null) {
+    LogField lf=lr.getField(name);
+    return lf == null ? "" : (String)lf.getContent();
+  }
+  return "";
+}

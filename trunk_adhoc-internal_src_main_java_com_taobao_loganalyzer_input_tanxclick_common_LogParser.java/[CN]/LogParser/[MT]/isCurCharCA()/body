@@ -1,0 +1,4 @@
+{
+  if (pos >= length)   return false;
+  return log.charAt(pos) == CONTROL_A;
+}

@@ -1,0 +1,4 @@
+{
+  if (pos < length)   return log.substring(pos);
+  return null;
+}

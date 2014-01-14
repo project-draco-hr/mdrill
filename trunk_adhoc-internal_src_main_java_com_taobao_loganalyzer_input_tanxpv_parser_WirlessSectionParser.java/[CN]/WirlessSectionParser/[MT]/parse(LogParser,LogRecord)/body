@@ -1,0 +1,32 @@
+{
+  if (lr.version_cmp("2.0") < 0) {
+    return true;
+  }
+  if (lp.isCurCharCA()) {
+    return false;
+  }
+ else {
+    lr.addField("12AppPackage",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("12DevicePlatform",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("12OS",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("12OS_Version",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("12Manufacturer",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("12DeviceModel",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("12DeviceScreen",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("12DeviceIMEI",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("12DeviceMAC",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("12iOS_IDFA",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("12DeviceNetwork",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("12Longitude",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("12Latitude",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lp.getNextCB();
+    lp.getNextCB();
+    lp.getNextCB();
+    lp.getNextCB();
+    lp.getNextCB();
+    lp.getNextCB();
+    lp.getAllRemained();
+  }
+  if (lp.isError())   return false;
+  return true;
+}

@@ -7,7 +7,7 @@
   if (docs <= 0) {
     return false;
   }
-  if ((docs >= 1000 && formSize > minsize) || fource) {
+  if ((docs >= 1000 && formSize > minsize) || fource || docs >= 10000) {
     try {
       context.getCounter("higo","docCount").increment(docs);
       ;

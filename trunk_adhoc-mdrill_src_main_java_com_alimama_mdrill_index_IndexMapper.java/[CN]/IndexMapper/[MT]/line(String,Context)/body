@@ -8,7 +8,7 @@
   for (int i=0; i < fields.length; i++) {
     String fieldName=fields[i];
     String string=(i < values.length) ? values[i] : null;
-    String val=parseDefault(string);
+    String val=parseDefault(string,context);
     if (this.isDate[i]) {
       res[i]=TdateFormat.ensureTdate(val,fieldName);
     }

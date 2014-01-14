@@ -1,0 +1,4 @@
+{
+  String line="2.2f051a1fb8cc225dc118671c7ed4583bc0af34d8ae742a9e8f8dc269e970d137412452254301245225768121.12.249.194StCRTAntOZRQBAcL5DHlP2my91238120116S419252_1006http://search1.taobao.com/browse/0/n-1----------------------0-----------------------g,2g44x5nu7q----------------40--commend-40-all-0.htm?ssid=p101-s510052_20000660_20000832_300257171100000061397600,0redbaby10921 50002711T3c3c19147ac0e688b837226880ac3ad0?????????3993971http://item.taobao.com/auction/item_detail.jhtml?item_id=3c3c19147ac0e688b837226880ac3ad0?????????25502haha1.1*/*zh-cngzip, deflateMozilla/4.0 (compatible; MSIE 8.0; Windows NT 5.1; Trident/4.0; .NET CLR 2.0.50727; .NET CLR 3.0.04506.648; .NET CLR 3.5.21022; MAXTHON 2.0)00";
+  TanxClickLog cl=TanxClickLogParser.parse(line);
+}

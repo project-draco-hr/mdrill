@@ -1,5 +1,6 @@
 {
   try {
+    LOG.info("begin clean up");
     RamWriter ram=doclistcache.toRamWriter(documentConverter,analyzer,context);
     ramMerger.process(ram);
     if (this.maybeFlush(ramMerger,context,true)) {
@@ -25,7 +26,8 @@
       lfs.delete(new Path(localtmpath),true);
     }
   }
- catch (  Exception e) {
+ catch (  Throwable e) {
+    LOG.error("cleanup",e);
     throw new IOException(e);
   }
   heartBeater.cancelHeartBeat();

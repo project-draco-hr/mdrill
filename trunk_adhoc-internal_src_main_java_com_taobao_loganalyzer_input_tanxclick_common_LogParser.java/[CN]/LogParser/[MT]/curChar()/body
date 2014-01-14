@@ -1,0 +1,4 @@
+{
+  if (pos >= length)   return 0;
+  return log.charAt(pos);
+}

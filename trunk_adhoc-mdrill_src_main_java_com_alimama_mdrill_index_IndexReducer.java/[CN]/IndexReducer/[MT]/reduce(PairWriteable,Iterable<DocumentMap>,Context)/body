@@ -1,4 +1,12 @@
 {
+  if (debugInfo % 10000 == 0) {
+    LOG.info("debugInfo:" + debugInfo);
+    if (debugInfo > maxDocCount_l) {
+      LOG.info("debugInfo>maxDocCount_l:" + debugInfo);
+      return;
+    }
+  }
+  debugInfo++;
   if (!key.isNum()) {
     int dumps=0;
     Iterator<DocumentMap> iterator=values.iterator();
@@ -19,10 +27,16 @@
   lastkey=new IntWritable(key.getIndex());
   Iterator<DocumentMap> iterator=values.iterator();
   while (iterator.hasNext()) {
-    if (doccount > maxDocCount) {
+    if (doccount > maxDocCount || debugInfo > maxDocCount_l) {
+      LOG.info("count over:" + debugInfo);
       break;
     }
-    doclistcache.add(iterator.next(),this.fields);
+    DocumentMap map=iterator.next();
+    int addcnt=doclistcache.add(map,this.fields);
+    if (addcnt <= 0) {
+      context.getCounter("higo","addempty").increment(1);
+      continue;
+    }
     if (!doclistcache.isoversize()) {
       continue;
     }

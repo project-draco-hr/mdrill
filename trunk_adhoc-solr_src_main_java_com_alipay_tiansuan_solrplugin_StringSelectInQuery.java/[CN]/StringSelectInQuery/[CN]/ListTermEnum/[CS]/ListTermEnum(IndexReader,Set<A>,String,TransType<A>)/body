@@ -1,5 +1,8 @@
 {
   this.trans=trans;
+  if (list == null || list.size() <= 0) {
+    isempty=true;
+  }
   this.maxmincmp=this.TermMaxMin(field,list,this.trans);
   this.list=list;
   this.field=field;

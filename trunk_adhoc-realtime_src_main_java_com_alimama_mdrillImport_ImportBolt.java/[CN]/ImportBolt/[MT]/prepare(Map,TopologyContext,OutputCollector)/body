@@ -1,0 +1,16 @@
+{
+  try {
+    parse=(DataParser)Class.forName(String.valueOf(conf.get(this.confPrefix + "-parse"))).newInstance();
+    parse.init(true,conf,context);
+  }
+ catch (  Throwable e1) {
+    LOG.error(this.confPrefix + " DataParser",e1);
+  }
+  int timeout=Integer.parseInt(String.valueOf(conf.get(confPrefix + "-timeoutBolt")));
+  this.buffersize=Integer.parseInt(String.valueOf(conf.get(confPrefix + "-boltbuffer")));
+  this.status=new BoltStatus();
+  this.timeoutCheck=new TimeOutCheck(timeout * 1000l);
+  this.commit=new mdrillCommit(parse,conf,this.confPrefix);
+  this.collector=collector;
+  this.nolockbuffer=new HashMap<BoltStatKey,BoltStatVal>(10000);
+}

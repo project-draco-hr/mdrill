@@ -1,0 +1,12 @@
+{
+  long ts=Long.parseLong(pvlog.getTimestamp());
+  long ts300=(ts / 300) * 300000;
+  Date d=new Date(ts300);
+  String[] rtn=new String[5];
+  rtn[0]=String.valueOf(formatDay.format(d));
+  rtn[1]=String.valueOf(formatMin.format(d));
+  rtn[2]=String.valueOf(pvlog.getPid());
+  rtn[3]=String.valueOf(pvlog.getProductType());
+  rtn[4]=String.valueOf(pvlog.getSubProductType());
+  return rtn;
+}

@@ -1,0 +1,3 @@
+String hpart
+ArrayList<String> groupFields
+ArrayList<String> showFields

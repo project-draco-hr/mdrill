@@ -1,0 +1,10 @@
+{
+  StringBuffer sb=new StringBuffer();
+  boolean isFirst=true;
+  for (  String token : tokens) {
+    if (isFirst)     isFirst=false;
+ else     sb.append(separator);
+    sb.append(token);
+  }
+  return sb.toString();
+}

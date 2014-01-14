@@ -1,0 +1,5 @@
+{
+  this.log=log;
+  this.pos=pos;
+  this.length=log.length();
+}

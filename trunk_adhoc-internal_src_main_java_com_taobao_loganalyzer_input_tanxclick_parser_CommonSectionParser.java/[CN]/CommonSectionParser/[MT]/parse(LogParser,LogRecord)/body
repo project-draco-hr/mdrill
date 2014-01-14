@@ -1,0 +1,32 @@
+{
+  if (lp.isCurCharCA()) {
+    return false;
+  }
+ else {
+    lr.addField("PvID",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("ClickID",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("PvTime",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("ClickTime",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("ClickIP",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("PvIP",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("ClickCookie",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("ClickCookieTime",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("PvCookie",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("Pid",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("Referer",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("ServiceID",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("CustomerID",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("ClickPrice",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("ProType",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("ProSubtype",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("FlowType",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("Abtag",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("WangWangID",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("RefPID",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("RefCreativeID",new LogField(LogField.TYPE_STRING,lp.getNextCA()));
+  }
+  if (lp.isError()) {
+    return false;
+  }
+  return true;
+}

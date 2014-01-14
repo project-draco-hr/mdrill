@@ -40,6 +40,10 @@ case 31:
 {
 return OperateType.lgeq;
 }
+case 40:
+{
+return OperateType.bigin;
+}
 case 5:
 case 6:
 case 7:

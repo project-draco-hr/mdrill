@@ -1,0 +1,23 @@
+{
+  try {
+    parse=(DataParser)Class.forName(String.valueOf(conf.get(this.confPrefix + "-parse"))).newInstance();
+    parse.init(true,conf,context);
+  }
+ catch (  Throwable e1) {
+    LOG.error(this.confPrefix + " DataParser",e1);
+  }
+  this.commit=new mdrillCommit(parse,conf,this.confPrefix);
+  int timeout=Integer.parseInt(String.valueOf(conf.get(confPrefix + "-timeoutSpout")));
+  this.buffersize=Integer.parseInt(String.valueOf(conf.get(confPrefix + "-spoutbuffer")));
+  this.timeoutCheck=new TimeOutCheck(timeout * 1000l);
+  this.status=new SpoutStatus();
+  int readerCount=context.getComponentTasks(context.getThisComponentId()).size();
+  int readerIndex=context.getThisTaskIndex();
+  nolockbuffer=new HashMap<BoltStatKey,BoltStatVal>(this.buffersize);
+  try {
+    this.reader=new ImportReader(conf,confPrefix,parse,readerIndex,readerCount);
+  }
+ catch (  IOException e) {
+    LOG.error("TTReader",e);
+  }
+}

@@ -1,6 +1,11 @@
 {
   if (shouldClose()) {
-    if (hitOOM)     rollbackInternal();
- else     closeInternal(waitForMerges);
+    if (hitOOM) {
+      rollbackInternal();
+      throw new CorruptIndexException("hit oom");
+    }
+ else {
+      closeInternal(waitForMerges);
+    }
   }
 }

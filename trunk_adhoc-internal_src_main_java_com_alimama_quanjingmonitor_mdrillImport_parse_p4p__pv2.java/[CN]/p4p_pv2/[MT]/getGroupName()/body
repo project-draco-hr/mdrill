@@ -1,9 +1,8 @@
 {
-  String[] rtn=new String[5];
+  String[] rtn=new String[4];
   rtn[0]="thedate";
   rtn[1]="miniute_5";
   rtn[2]="hour";
   rtn[3]="pid";
-  rtn[4]="keyword";
   return rtn;
 }

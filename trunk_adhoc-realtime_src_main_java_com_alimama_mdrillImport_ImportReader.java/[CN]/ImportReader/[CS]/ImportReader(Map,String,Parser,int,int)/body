@@ -1,0 +1,11 @@
+{
+  stat=new Stat();
+  try {
+    rawDataReader=(RawDataReader)Class.forName(String.valueOf(conf.get(confPrefix + "-reader"))).newInstance();
+    rawDataReader.init(conf,confPrefix,readerIndex,readerCount);
+  }
+ catch (  Throwable e1) {
+    LOG.error("RawDataReader",e1);
+  }
+  this.parser=parser;
+}

@@ -1,7 +1,13 @@
 {
-  this.ramoutput.writeBytes(b,offset,length);
-  this.isNeedFlush=true;
-  if (this.ramoutput.getFilePointer() > this.blocksize) {
-    this.syncBlock();
+  int begin=offset;
+  int end=offset + length;
+  while (begin < end) {
+    int size=Math.min(1024,end - begin);
+    this.ramoutput.writeBytes(b,begin,size);
+    this.isNeedFlush=true;
+    if (this.ramoutput.getFilePointer() > this.blocksize) {
+      this.syncBlock();
+    }
+    begin+=size;
   }
 }

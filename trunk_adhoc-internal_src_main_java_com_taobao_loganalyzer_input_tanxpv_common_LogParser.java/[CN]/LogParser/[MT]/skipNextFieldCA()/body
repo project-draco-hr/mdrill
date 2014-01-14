@@ -1,0 +1,3 @@
+{
+  return skipNextField(CONTROL_A);
+}

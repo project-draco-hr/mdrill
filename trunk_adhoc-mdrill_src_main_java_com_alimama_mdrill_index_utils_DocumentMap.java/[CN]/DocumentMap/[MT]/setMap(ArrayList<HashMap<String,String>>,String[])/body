@@ -5,6 +5,9 @@
       rtn.put(fields[i],data[i]);
     }
   }
+  if (rtn.size() <= 0) {
+    return 0;
+  }
   CRC32 crc32=new CRC32();
   crc32.update(java.util.UUID.randomUUID().toString().getBytes());
   rtn.put("higo_uuid",Long.toString(crc32.getValue()));

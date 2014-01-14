@@ -4,7 +4,12 @@
     String[] list=this.d.listAll();
     if (list != null) {
       for (      String d : list) {
-        rtn+=this.d.fileLength(d);
+        try {
+          rtn+=this.d.fileLength(d);
+        }
+ catch (        Throwable e) {
+          LOG.error("getfilelen",e);
+        }
       }
     }
   }

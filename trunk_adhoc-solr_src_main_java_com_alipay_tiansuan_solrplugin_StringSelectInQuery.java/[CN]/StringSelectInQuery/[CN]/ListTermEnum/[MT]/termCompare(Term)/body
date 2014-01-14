@@ -1,4 +1,8 @@
 {
+  if (isempty) {
+    endEnum=true;
+    return false;
+  }
   if (term.field().equals(this.field) && list.contains(this.trans.trans(term.text()))) {
     return true;
   }

@@ -13,4 +13,5 @@
   writer.setMergeFactor(256);
   writer.setTermIndexInterval(128);
   writer.setUseCompoundFile(false);
+  logger.info("finish Construct a shard writer " + indexOutputPathStr);
 }

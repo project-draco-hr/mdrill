@@ -1,0 +1,5 @@
+{
+  LogRecord lr=parseTanxPV(line,flags);
+  if (lr == null)   return null;
+  return new TanxPVLog(lr);
+}

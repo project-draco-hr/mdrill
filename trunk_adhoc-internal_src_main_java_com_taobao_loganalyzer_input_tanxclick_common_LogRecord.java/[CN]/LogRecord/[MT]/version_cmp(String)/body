@@ -1,0 +1,13 @@
+{
+  String ver_cur="";
+  LogField ver=getField("Version");
+  if (ver != null)   ver_cur=ver.getContent().toString();
+  String[] ver1=ver_cur.split("\\.",-1);
+  String[] ver2=version.split("\\.",-1);
+  if (ver1.length == 2 && ver2.length == 2) {
+    int ret=ver1[0].compareTo(ver2[0]);
+    if (ret == 0)     ret=ver1[1].compareTo(ver2[1]);
+    return ret;
+  }
+  return 1;
+}

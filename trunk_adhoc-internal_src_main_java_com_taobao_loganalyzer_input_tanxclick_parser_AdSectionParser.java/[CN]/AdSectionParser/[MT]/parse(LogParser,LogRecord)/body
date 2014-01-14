@@ -1,0 +1,23 @@
+{
+  if (lp.isCurCharCA()) {
+    return false;
+  }
+ else {
+    lr.addField("AdTypeID",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("AdOrigin",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("ThridPartyID",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("Keyword",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("HighestPrice",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("CostPrice",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("DiscountRate",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("AdzoneSize",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("Undefine2",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("CustomURL",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("TargetType",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("TargetAttribute",new LogField(LogField.TYPE_STRING,lp.getNextCA()));
+  }
+  if (lp.isError()) {
+    return false;
+  }
+  return true;
+}

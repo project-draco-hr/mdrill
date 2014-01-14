@@ -1,0 +1,13 @@
+{
+  if (lp.isCurCharCA()) {
+    if (!lp.hasNextChar())     return false;
+  }
+ else {
+    lr.addField("Blacklist",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("BlacklistDup",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("SelfDef",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("SelfDefDup",new LogField(LogField.TYPE_STRING,lp.getNextCA()));
+  }
+  if (lp.isError())   return false;
+  return true;
+}

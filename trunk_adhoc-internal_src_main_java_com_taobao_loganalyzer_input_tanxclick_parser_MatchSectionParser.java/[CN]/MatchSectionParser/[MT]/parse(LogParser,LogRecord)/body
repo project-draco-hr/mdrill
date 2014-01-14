@@ -1,0 +1,25 @@
+{
+  if (lp.isCurCharCA()) {
+    if (!lp.hasNextChar())     return false;
+  }
+ else {
+    String version=(lr.getField("Version") == null) ? "" : lr.getField("Version").getContent().toString();
+    lr.addField("SearchKeyword",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("PageNum",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("AdsPerPage",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("RelativePosition",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("Area",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("AdzoneTypeID",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    if ("2.1".equals(version)) {
+      lr.addField("QueryAfterRewrite",new LogField(LogField.TYPE_STRING,lp.getNextCA()));
+    }
+ else {
+      lr.addField("QueryAfterRewrite",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+      lr.addField("AdRankingOrder",new LogField(LogField.TYPE_STRING,lp.getNextCA()));
+    }
+  }
+  if (lp.isError()) {
+    return false;
+  }
+  return true;
+}

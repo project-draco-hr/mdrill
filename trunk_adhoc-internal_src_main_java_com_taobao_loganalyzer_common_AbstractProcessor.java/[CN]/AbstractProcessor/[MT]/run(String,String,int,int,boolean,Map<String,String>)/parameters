@@ -1,0 +1,6 @@
+String inputPath
+String outputPath
+int numMap
+int numReduce
+boolean isInputSequenceFile
+Map<String,String> properties

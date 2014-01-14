@@ -1,0 +1,19 @@
+{
+  java.util.Enumeration<String> s=fields.keys();
+  while (s.hasMoreElements()) {
+    String name=s.nextElement();
+    LogField lf=fields.get(name);
+    if (lf.getType() == LogField.TYPE_STRING)     System.out.println(name + ": " + lf.getContent());
+ else     if (lf.getType() == LogField.TYPE_LIST) {
+      System.out.println(name + ": LIST ");
+      java.util.List list=(java.util.List)lf.getContent();
+      for (int i=0; i < list.size(); i++) {
+        LogRecord l=(LogRecord)list.get(i);
+        l.printAll();
+      }
+    }
+ else {
+      System.out.println(name + " is null");
+    }
+  }
+}

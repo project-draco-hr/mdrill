@@ -1,0 +1,14 @@
+{
+  long sum=0;
+  while (values.hasNext()) {
+    sum+=values.next().get();
+  }
+  longVal.set(sum);
+  String newkey=key.toString() + "\u0001" + String.valueOf(sum);
+  try {
+    output.collect(new Text(newkey),null);
+  }
+ catch (  Exception e) {
+    return;
+  }
+}

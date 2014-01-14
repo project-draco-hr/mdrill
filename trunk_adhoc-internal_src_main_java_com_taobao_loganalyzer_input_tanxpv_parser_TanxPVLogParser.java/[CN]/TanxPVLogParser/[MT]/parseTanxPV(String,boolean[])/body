@@ -1,0 +1,25 @@
+{
+  if (flags.length != PV_SECTIONS) {
+    throw new RuntimeException("Expected " + flags.length + " sections, but only "+ PV_SECTIONS+ " section exist.");
+  }
+  flags[8]=false;
+  flags[9]=false;
+  LogRecord lr=new LogRecord();
+  LogParser lp=new LogParser(line);
+  for (int i=0; i < PV_SECTIONS; i++) {
+    if (flags[i] == true) {
+      boolean ret=sp[i].parse(lp,lr);
+      if (ret == false) {
+        System.err.println(sp[i].getClass() + " run error");
+        return null;
+      }
+    }
+ else {
+      if (lp.skipNextFieldCA() == false && i != sp.length - 1) {
+        return null;
+      }
+    }
+  }
+  if (!check(lr))   return null;
+  return lr;
+}

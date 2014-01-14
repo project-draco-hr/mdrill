@@ -1,0 +1,21 @@
+{
+  int index=pos;
+  int i=0;
+  char c;
+  matchedChar=0;
+  while (pos < length) {
+    c=log.charAt(pos);
+    for (i=0; i < ch.length && ch[i] != c; i++)     ;
+    if (i == ch.length)     pos++;
+ else {
+      matchedChar=c;
+      return log.substring(index,pos++);
+    }
+  }
+  if (error == false) {
+    error=true;
+    errMsg=new StringBuilder().append("error: expected ").append(ch).append(" from ").append(index).toString();
+  }
+  pos=length + 1;
+  return null;
+}

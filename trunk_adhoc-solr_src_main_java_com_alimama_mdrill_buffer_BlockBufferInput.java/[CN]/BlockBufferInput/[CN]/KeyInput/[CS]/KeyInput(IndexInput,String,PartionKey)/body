@@ -1,0 +1,6 @@
+{
+  super("KeyInput");
+  this.input=input;
+  this.key=key;
+  this.p=p;
+}

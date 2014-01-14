@@ -1,0 +1,31 @@
+{
+  if (lp.isCurCharCA()) {
+    if (!lp.hasNextChar())     return false;
+  }
+ else {
+    List<LogRecord> list=new ArrayList<LogRecord>();
+    do {
+      if (lp.curChar() == LogParser.CONTROL_B) {
+        if (!lp.hasNextChar())         return false;
+        continue;
+      }
+ else       if (lp.curChar() == LogParser.CONTROL_A) {
+        if (!lp.hasNextChar())         return false;
+        break;
+      }
+      LogRecord inner_lr=new LogRecord();
+      inner_lr.addField("ServiceID",new LogField(LogField.TYPE_STRING,lp.getNextCC()));
+      inner_lr.addField("Origin",new LogField(LogField.TYPE_STRING,lp.getNextCC()));
+      inner_lr.addField("MemberID",new LogField(LogField.TYPE_STRING,lp.getNextCC()));
+      inner_lr.addField("Price",new LogField(LogField.TYPE_STRING,lp.getNextCC()));
+      inner_lr.addField("Brokerage",new LogField(LogField.TYPE_STRING,lp.getNextCC()));
+      String abs_pos=lp.getNextField(new char[]{LogParser.CONTROL_B,LogParser.CONTROL_A});
+      inner_lr.addField("AbsPos",new LogField(LogField.TYPE_STRING,abs_pos));
+      list.add(inner_lr);
+    }
+ while (lp.getMatchedChar() != 0 && lp.getMatchedChar() != LogParser.CONTROL_A);
+    lr.addField("CPAList",new LogField(LogField.TYPE_LIST,list));
+  }
+  if (lp.isError())   return false;
+  return true;
+}

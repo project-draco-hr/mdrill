@@ -23,6 +23,20 @@
     hpart="ds";
   }
   queryStr=WebServiceParams.query(queryStr);
+  Map stormconf=Utils.readStormConfig();
+  String mode=String.valueOf(stormconf.get("higo.mode." + projectName));
+  boolean isnothedate=mode.indexOf("@nothedate@") >= 0;
+  if (isnothedate) {
+    if (fl != null) {
+      fl=fl.replaceAll("thedate",hpart);
+    }
+    if (groupby != null) {
+      groupby=groupby.replaceAll("thedate",hpart);
+    }
+    if (queryStr != null) {
+      queryStr=queryStr.replaceAll("thedate",hpart);
+    }
+  }
   if (projectName.equals("fact_wirelesspv_clickcosteffect1_app_adhoc_d_1")) {
     projectName="fact_wirelesspv_clickcosteffect1_app_adhoc_d";
     JSONArray jsonStr=new JSONArray(queryStr.trim());
@@ -53,6 +67,16 @@
     jsonStr.put(obj);
     queryStr=WebServiceParams.query(jsonStr.toString());
   }
+  if (projectName.equals("fact_wirelesspv_clickcosteffect1_app_adhoc_d_4")) {
+    projectName="fact_wirelesspv_clickcosteffect1_app_adhoc_d";
+    JSONArray jsonStr=new JSONArray(queryStr.trim());
+    JSONObject obj=new JSONObject();
+    obj.put("key","app_type");
+    obj.put("operate","1");
+    obj.put("value","4");
+    jsonStr.put(obj);
+    queryStr=WebServiceParams.query(jsonStr.toString());
+  }
   TablePartion part=GetPartions.partion(projectName);
   ShardsList[] cores=GetShards.get(part.name,false);
   ShardsList[] ms=GetShards.get(part.name,true);
@@ -64,7 +88,7 @@
   ArrayList<String> groupFields=WebServiceParams.groupFields(groupby);
   ArrayList<String> showFields=WebServiceParams.showHiveFields(fl);
   HigoAdhocJoinParams[] joins=AdhocWebServiceParams.parseJoinsHive(leftjoin,shard);
-  String daycols=AdhocWebServiceParams.parseDayCols(groupFields,showFields);
+  String daycols=AdhocWebServiceParams.parseDayCols(hpart,groupFields,showFields);
   HashMap<String,String> colMap=new HashMap<String,String>();
   HashMap<String,String> colMapforStatFilter=new HashMap<String,String>();
   StringBuffer cols_inner=new StringBuffer();
@@ -142,7 +166,6 @@
   String md5=MD5.getMD5(hql);
   SimpleDateFormat fmt=new SimpleDateFormat("yyyyMMdd");
   String day=fmt.format(new Date());
-  Map stormconf=Utils.readStormConfig();
   String hdpConf=(String)stormconf.get("hadoop.conf.dir");
   String connstr=(String)stormconf.get("higo.download.offline.conn");
   String uname=(String)stormconf.get("higo.download.offline.username");

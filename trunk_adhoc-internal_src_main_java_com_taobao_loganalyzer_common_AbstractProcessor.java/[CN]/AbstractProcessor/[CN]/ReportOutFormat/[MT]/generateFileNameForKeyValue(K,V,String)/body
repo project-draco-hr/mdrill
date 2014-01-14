@@ -1,0 +1,11 @@
+{
+  String tag="";
+  if (key.toString().split("\u0001").length > 0) {
+    tag=key.toString().split("\u0001")[0];
+  }
+  for (int counter=0; counter < tag.length(); counter++) {
+    char c=tag.charAt(counter);
+    if (!(('a' <= c && c <= 'z') || ('A' <= c && c <= 'Z') || ('0' <= c && c <= '9')|| c == '_'))     break;
+  }
+  return name + "_" + tag;
+}

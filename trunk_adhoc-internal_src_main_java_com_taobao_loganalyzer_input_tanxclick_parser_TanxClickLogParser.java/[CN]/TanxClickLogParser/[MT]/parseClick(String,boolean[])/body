@@ -1,0 +1,23 @@
+{
+  if (flags.length != CLICK_SECTIONS) {
+    throw new RuntimeException("Expected " + flags.length + " sections, but only "+ CLICK_SECTIONS+ " section exist.");
+  }
+  flags[3]=false;
+  flags[4]=false;
+  LogRecord lr=new LogRecord();
+  LogParser lp=new LogParser(line);
+  for (int i=0; i < sp.length; i++) {
+    if (flags[i] == true) {
+      boolean ret=sp[i].parse(lp,lr);
+      if (ret == false) {
+        return null;
+      }
+    }
+ else {
+      if (lp.skipNextFieldCA() == false && i != sp.length - 1) {
+        return null;
+      }
+    }
+  }
+  return lr;
+}

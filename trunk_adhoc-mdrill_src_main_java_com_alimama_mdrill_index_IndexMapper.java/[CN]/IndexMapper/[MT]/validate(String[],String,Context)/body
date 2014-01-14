@@ -10,7 +10,7 @@
     }
   }
  else {
-    if (parseDefault(record) == null) {
+    if (parseDefault(record,context) == null) {
       return false;
     }
   }

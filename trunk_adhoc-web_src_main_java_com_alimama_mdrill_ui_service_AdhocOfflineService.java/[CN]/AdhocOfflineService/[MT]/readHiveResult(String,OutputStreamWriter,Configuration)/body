@@ -16,7 +16,7 @@
         bytesRead+=line.getBytes().length;
         String towrite=line;
         if (line.indexOf("\001") >= 0 || line.indexOf("\t") >= 0) {
-          towrite=line.replaceAll(",","\\\",\\\"").replaceAll("\001",",").replaceAll("\t",",");
+          towrite=line.replaceAll(",","\\\",\\\"").replaceAll("\001",",").replaceAll("\t",",").replaceAll("\"","");
         }
         if (!towrite.isEmpty()) {
           outStream.write(towrite);

@@ -1,0 +1,8 @@
+{
+  long sum=0;
+  while (values.hasNext()) {
+    sum+=values.next().get();
+  }
+  longVal.set(sum);
+  output.collect(key,longVal);
+}

@@ -3,7 +3,7 @@
   ArrayList<String> groupFields=WebServiceParams.groupFields(groupby);
   ArrayList<String> showFields=WebServiceParams.showHiveFields(fl);
   HigoAdhocJoinParams[] joins=AdhocWebServiceParams.parseJoinsHive(leftjoin,null);
-  String daycols=AdhocWebServiceParams.parseDayCols(groupFields,showFields);
+  String daycols=AdhocWebServiceParams.parseDayCols("dt",groupFields,showFields);
   ArrayList<String> fieldlist=new ArrayList<String>();
   if (joins.length <= 0) {
     for (    String field : groupFields) {

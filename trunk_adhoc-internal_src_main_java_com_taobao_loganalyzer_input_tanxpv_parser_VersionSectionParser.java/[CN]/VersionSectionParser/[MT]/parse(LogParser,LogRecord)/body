@@ -1,0 +1,10 @@
+{
+  if (lp.isCurCharCA()) {
+    return false;
+  }
+ else {
+    lr.addField("Version",new LogField(LogField.TYPE_STRING,lp.getNextCA()));
+  }
+  if (lp.isError())   return false;
+  return true;
+}

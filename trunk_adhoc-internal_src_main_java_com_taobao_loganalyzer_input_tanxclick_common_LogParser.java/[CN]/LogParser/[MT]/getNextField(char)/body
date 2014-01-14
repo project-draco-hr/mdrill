@@ -1,0 +1,11 @@
+{
+  int index=pos;
+  pos=log.indexOf(ch,pos);
+  if (pos != -1)   return log.substring(index,pos++);
+  if (error == false) {
+    error=true;
+    errMsg=new StringBuilder().append("error: expected ").append(ch).append(" from ").append(index).toString();
+  }
+  pos=length + 1;
+  return null;
+}

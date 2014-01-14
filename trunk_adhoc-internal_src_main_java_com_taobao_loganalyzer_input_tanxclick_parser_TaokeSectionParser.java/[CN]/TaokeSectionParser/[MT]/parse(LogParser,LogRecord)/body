@@ -1,0 +1,19 @@
+{
+  if (lp.isCurCharCA()) {
+    if (!lp.hasNextChar())     return false;
+  }
+ else {
+    lr.addField("DeployType",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("ItemPrice",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("PriceComRate",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("ActualComRate",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("ShopComRate",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("OriginType",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("ShowMode",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("PromotionType",new LogField(LogField.TYPE_STRING,lp.getNextCA()));
+  }
+  if (lp.isError()) {
+    return false;
+  }
+  return true;
+}

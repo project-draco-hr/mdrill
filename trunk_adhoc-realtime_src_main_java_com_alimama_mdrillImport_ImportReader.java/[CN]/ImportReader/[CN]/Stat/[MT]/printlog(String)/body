@@ -1,0 +1,15 @@
+{
+  print++;
+  if (print < 20) {
+    if (!s.isEmpty() && s.length() < 500) {
+      LOG.info("loginfo " + s);
+    }
+  }
+  if (print % 10000 == 0) {
+    long nowts=System.currentTimeMillis() / 300000;
+    if (nowts != printts) {
+      printts=nowts;
+      print=0;
+    }
+  }
+}

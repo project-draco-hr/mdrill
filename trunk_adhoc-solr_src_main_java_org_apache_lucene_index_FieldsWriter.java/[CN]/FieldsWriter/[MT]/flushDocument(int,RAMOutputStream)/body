@@ -1,5 +1,6 @@
 {
-  indexStream.writeLong(fieldsStream.getFilePointer());
+  long pos=fieldsStream.getFilePointer();
+  indexStream.writeLong(pos);
   fieldsStream.writeVInt(numStoredFields);
   buffer.writeTo(fieldsStream);
 }

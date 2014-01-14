@@ -1,0 +1,6 @@
+{
+  String verify=getFieldContent(lr,"Verify");
+  String sessionID=getFieldContent(lr,"SessionID");
+  if (verify == null || verify.length() != 4 || sessionID == null || !sessionID.startsWith(verify))   return false;
+  return true;
+}

@@ -1,0 +1,25 @@
+{
+  JobConf conf=new JobConf(this.getClass());
+  System.out.println(">>>" + this.getClass().getCanonicalName());
+  conf.setJobName(this.getClass().getSimpleName());
+  FileInputFormat.setInputPaths(conf,inputPath);
+  FileOutputFormat.setOutputPath(conf,new Path(outputPath));
+  if (isInputSequenceFile)   conf.setInputFormat(SequenceFileInputFormat.class);
+ else   conf.setInputFormat(TextInputFormat.class);
+  conf.setMapperClass(getMapper());
+  conf.setNumMapTasks(numMap);
+  conf.setReducerClass(getReducer());
+  conf.setNumReduceTasks(numReduce);
+  if ("true".equals(conf.get("map.out.compress"))) {
+    SequenceFileOutputFormat.setOutputCompressionType(conf,SequenceFile.CompressionType.BLOCK);
+    SequenceFileOutputFormat.setOutputCompressorClass(conf,GzipCodec.class);
+  }
+  if (conf.get("mapred.max.track.failures") != null) {
+    conf.setMaxTaskFailuresPerTracker(Integer.valueOf(conf.get("mapred.max.track.failures")));
+  }
+  for (  String propertyKey : properties.keySet())   conf.set(propertyKey,properties.get(propertyKey));
+  configJob(conf);
+  JobClient c=new JobClient(conf);
+  RunningJob job=c.runJob(conf);
+  return job.isSuccessful();
+}

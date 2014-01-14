@@ -13,6 +13,9 @@
         filterType=obj.getString("filter");
       }
       ArrayList<String> sublist=fqListHive(isNumber,part,obj.getJSONArray("list").toString(),shard,isPartionByPt,filetypeMap,colMap,colMap2,tblname);
+      if (sublist.size() == 0) {
+        continue;
+      }
       if (sublist.size() == 1) {
         fqList.add(sublist.get(0));
       }

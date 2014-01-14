@@ -3,17 +3,9 @@
   try {
     block=_inStreamInput.read();
   }
- catch (  IndexOutOfBoundsException e) {
-    e.printStackTrace();
-  }
-catch (  TTQueueException e) {
-    e.printStackTrace();
-  }
-catch (  TTQueueSafemodeException e) {
-    e.printStackTrace();
-  }
-catch (  TTSubChangedException e) {
-    e.printStackTrace();
+ catch (  Throwable e) {
+    LOG.error("ttreaderror",e);
+    block=null;
   }
   if (block == null) {
     return null;

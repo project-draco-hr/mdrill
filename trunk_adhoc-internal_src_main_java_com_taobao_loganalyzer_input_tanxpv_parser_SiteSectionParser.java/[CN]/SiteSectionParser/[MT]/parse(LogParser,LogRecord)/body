@@ -1,0 +1,11 @@
+{
+  if (lp.isCurCharCA()) {
+    if (!lp.hasNextChar())     return false;
+  }
+ else {
+    lr.addField("SiteCategory",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("SiteLevel",new LogField(LogField.TYPE_STRING,lp.getNextCA()));
+  }
+  if (lp.isError())   return false;
+  return true;
+}

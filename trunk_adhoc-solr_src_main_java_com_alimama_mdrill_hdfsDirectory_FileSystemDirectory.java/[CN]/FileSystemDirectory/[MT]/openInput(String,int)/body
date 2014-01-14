@@ -6,5 +6,9 @@
  else {
     logger.info("openInput->usedlinks:" + name + "@"+ getShortPath(f));
   }
-  return new FileSystemIndexInput(f,bufferSize);
+  FileSystemIndexInput rtn=new FileSystemIndexInput(f,bufferSize);
+  if (this.isUsedBlockBuffer() && name.indexOf("frq") >= 0) {
+    return new BlockBufferInput(rtn,f.toString(),this.getP());
+  }
+  return rtn;
 }

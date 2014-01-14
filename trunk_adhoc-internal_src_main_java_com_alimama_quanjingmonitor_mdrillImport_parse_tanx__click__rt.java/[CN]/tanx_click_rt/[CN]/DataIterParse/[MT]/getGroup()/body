@@ -1,0 +1,11 @@
+{
+  long ts=Long.parseLong(pvlog[1]);
+  long ts300=(ts / 300) * 300000;
+  Date d=new Date(ts300);
+  String[] rtn=new String[4];
+  rtn[0]=String.valueOf(formatDay.format(d));
+  rtn[1]=String.valueOf(formatMin.format(d));
+  rtn[2]=String.valueOf(pvlog[4]);
+  rtn[3]=String.valueOf("tanx_rd_log");
+  return rtn;
+}

@@ -1,0 +1,8 @@
+{
+  String[] rtn=new String[4];
+  rtn[0]="thedate";
+  rtn[1]="miniute_5";
+  rtn[2]="pid";
+  rtn[3]="logtype";
+  return rtn;
+}

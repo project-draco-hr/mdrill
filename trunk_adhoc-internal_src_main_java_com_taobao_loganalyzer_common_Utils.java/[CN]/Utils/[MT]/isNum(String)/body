@@ -1,0 +1,12 @@
+{
+  if (str == null)   return false;
+  int i;
+  for (i=0; i < str.length(); i++) {
+    char ch=str.charAt(i);
+    if (Character.isDigit(ch) == false)     return false;
+  }
+  if (i != 0) {
+    return true;
+  }
+ else   return false;
+}

@@ -20,14 +20,14 @@
         maxEend=Math.min(rows + 100,UniqConfig.defaultCrossMaxLimit());
       }
       WebServiceParams.setGroupByQuery(query,fqList,groupbyFields,minstart,maxEend,distStatFieldMap,commonStatMap,sortType,joins,null);
-      LOG.info("queryinfo:" + shard.urlMain + "/select/?"+ query.toString());
+      LOG.info("queryinfo:" + shard.urlMain + "/select/?"+ cutString(query.toString()));
       QueryResponse qr=WebServiceParams.fetchGroupCrcQr(query,server);
       LinkedHashMap<String,GroupbyRow> groupValueCache=WebServiceParams.setGroupByResult(query,jsonObj,qr,groupbyFields,showFields,joins,null);
       if (jsonObj.getLong("total") > (UniqConfig.defaultCrossMaxLimit() - 10) && groupValueCache.size() <= UniqConfig.defaultCrossMaxLimit() && jsonObj.getString("code").equals("1")) {
         try {
           query=WebServiceParams.makeSolrQuery(shard);
           WebServiceParams.setGroupByQuery(query,fqList,groupbyFields,0,Math.min(groupValueCache.size() * 10,UniqConfig.defaultCrossMaxLimit()),distStatFieldMap,commonStatMap,sortType,joins,groupValueCache);
-          LOG.info("queryinfo_pre:" + shard.urlMain + "/select/?"+ query.toString());
+          LOG.info("queryinfo_pre:" + shard.urlMain + "/select/?"+ cutString(query.toString()));
           QueryResponse qr2=server.query(query,SolrRequest.METHOD.POST);
           WebServiceParams.setGroupByResult(query,jsonObj,qr2,groupbyFields,showFields,joins,groupValueCache);
         }
@@ -76,13 +76,13 @@
  else     if (commonStatMap.size() > 0 || distStatFieldMap.size() > 0) {
       ArrayList<String> groupFieldsEmpty=WebServiceParams.groupFields("higoempty_groupby_l");
       WebServiceParams.setGroupByQuery(query,fqList,groupFieldsEmpty,start,rows,distStatFieldMap,commonStatMap,sortType,joins,null);
-      LOG.info("queryinfo:" + shard.urlMain + "/select/?"+ query.toString());
+      LOG.info("queryinfo:" + shard.urlMain + "/select/?"+ cutString(query.toString()));
       QueryResponse qr=server.query(query,SolrRequest.METHOD.POST);
       WebServiceParams.setGroupByResult(query,jsonObj,qr,groupbyFields,showFields,joins,null);
     }
  else {
       WebServiceParams.setDetailByQuery(query,fqList,showFields,start,rows,sortType,joins,mode.indexOf("@fdt@") >= 0);
-      LOG.info("queryinfo:" + shard.urlMain + "/select/?"+ query.toString());
+      LOG.info("queryinfo:" + shard.urlMain + "/select/?"+ cutString(query.toString()));
       QueryResponse qr=WebServiceParams.fetchDetailCrcQr(query,server);
       WebServiceParams.setDetailResult(jsonObj,qr,showFields,joins);
     }
@@ -94,7 +94,7 @@
     jsonObj.put("code","0");
     jsonObj.put("message",WebServiceParams.errorToString(e));
   }
-  jsonObj.put("____debugurl",shard.urlMain + "/select/?" + query.toString());
+  jsonObj.put("____debugurl",shard.urlMain + "/select/?" + cutString(query.toString()));
   if (callback != null && callback.length() > 0) {
     return callback + "(" + jsonObj.toString()+ ")";
   }

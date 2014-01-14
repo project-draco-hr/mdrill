@@ -9,7 +9,7 @@
     HigoJoinParams p=new HigoJoinParams();
     p.tablename=obj.getString("tablename");
     p.hdfsPath=obj.getString("path") + "/part-00000";
-    p.fq=WebServiceParams.fqList(obj.getString("fq"),shard,null);
+    p.fq=WebServiceParams.fqList(false,obj.getString("fq"),shard,null);
     p.fl=obj.getString("fl").split(",");
     p.leftkey=obj.getString("leftkey");
     p.rightkey=obj.getString("rightkey");

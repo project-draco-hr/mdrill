@@ -1,4 +1,7 @@
 {
+  if (isempty) {
+    return new maxminPair<Term>(new Term(fields),new Term(fields));
+  }
   Iterator<? extends T> i=coll.iterator();
   Term first=new Term(fields,t.transBack(i.next()));
   Term max=first;

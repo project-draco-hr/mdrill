@@ -1,0 +1,26 @@
+{
+  if (lp.isCurCharCA()) {
+    return false;
+  }
+ else {
+    lr.addField("AdzoneCategory",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("AdzonePosition",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("AdzoneSize",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("AdzoneArea",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("IsFirstPage",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("ViewMode",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("LimitPrice",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    lr.addField("AdzoneAttribute",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+    if (lr.version_cmp("1.4") >= 0) {
+      lr.addField("AdzoneType",new LogField(LogField.TYPE_STRING,lp.getNextCB()));
+      lr.addField("AdzonePutOnSize",new LogField(LogField.TYPE_STRING,lp.getNextCA()));
+    }
+ else {
+      lr.addField("AdzoneType",new LogField(LogField.TYPE_STRING,lp.getNextCA()));
+    }
+  }
+  if (lp.isError()) {
+    return false;
+  }
+  return true;
+}
