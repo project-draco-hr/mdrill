@@ -1,5 +1,3 @@
 {
-  String[] rtn=new String[1];
-  rtn[0]="records";
-  return rtn;
+  return sumName;
 }

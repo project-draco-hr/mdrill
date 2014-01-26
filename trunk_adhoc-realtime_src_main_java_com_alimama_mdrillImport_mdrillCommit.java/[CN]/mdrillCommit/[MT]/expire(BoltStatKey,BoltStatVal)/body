@@ -1,20 +1,26 @@
 {
-  SolrInputDocument doc=new SolrInputDocument();
-  String[] groupnames=parse.getGroupName();
-  for (int i=0; i < groupnames.length && i < key.list.length; i++) {
-    doc.addField(groupnames[i],key.list[i]);
-  }
-  String[] statNames=parse.getSumName();
-  for (int i=0; i < statNames.length && i < val.list.length; i++) {
-    doc.addField(statNames[i],val.list[i]);
-  }
-  boolean needCommit=false;
+  try {
+    this.committs=val.getGroupts();
+    SolrInputDocument doc=new SolrInputDocument();
+    String[] groupnames=parse.getGroupName();
+    for (int i=0; i < groupnames.length && i < key.list.length; i++) {
+      doc.addField(groupnames[i],key.list[i]);
+    }
+    String[] statNames=parse.getSumName();
+    for (int i=0; i < statNames.length && i < val.list.length; i++) {
+      doc.addField(statNames[i],val.list[i]);
+    }
+    boolean needCommit=false;
 synchronized (doclistLock) {
-    doclist.add(doc);
-    needCommit=doclist.size() > this.commitbatch;
+      doclist.add(doc);
+      needCommit=doclist.size() > this.commitbatch;
+    }
+    if (needCommit || timeoutCheckcommit.istimeout()) {
+      timeoutCheckcommit.reset();
+      this.commit();
+    }
   }
-  if (needCommit || timeoutCheckcommit.istimeout()) {
-    timeoutCheckcommit.reset();
-    this.commit();
+ catch (  Throwable e) {
+    LOG.info("expire " + this.toDebugString(),e);
   }
 }

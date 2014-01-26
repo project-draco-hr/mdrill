@@ -1,0 +1,9 @@
+{
+synchronized (_lock) {
+    if (!this.isTimeout()) {
+      return;
+    }
+    this.timerReset();
+  }
+  this.clean();
+}

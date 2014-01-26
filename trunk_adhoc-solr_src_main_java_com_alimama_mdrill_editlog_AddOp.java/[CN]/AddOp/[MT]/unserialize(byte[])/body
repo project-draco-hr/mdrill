@@ -1,0 +1,11 @@
+{
+  ByteArrayInputStream bais=null;
+  try {
+    bais=new ByteArrayInputStream(bytes);
+    ObjectInputStream ois=new ObjectInputStream(bais);
+    return ois.readObject();
+  }
+ catch (  Exception e) {
+  }
+  return null;
+}

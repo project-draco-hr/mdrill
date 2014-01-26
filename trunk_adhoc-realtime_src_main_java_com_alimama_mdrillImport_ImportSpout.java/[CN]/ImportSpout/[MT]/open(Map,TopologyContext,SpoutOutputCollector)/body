@@ -13,7 +13,8 @@
   this.collector=collector;
   int readerCount=context.getComponentTasks(context.getThisComponentId()).size();
   int readerIndex=context.getThisTaskIndex();
-  nolockbuffer=new HashMap<BoltStatKey,BoltStatVal>(this.buffersize);
+  this.intMapsize=Math.min(this.buffersize,1024);
+  nolockbuffer=new HashMap<BoltStatKey,BoltStatVal>(this.intMapsize);
   try {
     this.reader=new ImportReader(conf,confPrefix,parse,readerIndex,readerCount);
   }

@@ -1,3 +1,3 @@
 {
-  return "SpoutStatus [ttInput=" + ttInput + ", groupInput="+ groupInput+ ", groupCreate="+ groupCreate+ "]";
+  return "SpoutStatus [ackCnt=" + ackCnt + ", failCnt="+ failCnt+ ", ttInput="+ ttInput+ ", groupInput="+ groupInput+ ", groupCreate="+ groupCreate+ "]";
 }

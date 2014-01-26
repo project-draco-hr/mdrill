@@ -2,7 +2,7 @@
   for (  TimerTask t : taskList) {
     t.cancel();
   }
-  EXECUTE.TIMER.purge();
+  EXECUTE.purge();
   statcollect.setStat(ShardsState.UINIT);
   this.zkHeatbeat();
   this.stopJetty();

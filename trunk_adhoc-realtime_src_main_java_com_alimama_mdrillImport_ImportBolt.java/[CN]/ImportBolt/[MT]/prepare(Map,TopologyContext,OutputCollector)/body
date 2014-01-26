@@ -8,9 +8,10 @@
   }
   int timeout=Integer.parseInt(String.valueOf(conf.get(confPrefix + "-timeoutBolt")));
   this.buffersize=Integer.parseInt(String.valueOf(conf.get(confPrefix + "-boltbuffer")));
+  this.intMapsize=Math.min(this.buffersize,1024);
   this.status=new BoltStatus();
   this.timeoutCheck=new TimeOutCheck(timeout * 1000l);
   this.commit=new mdrillCommit(parse,conf,this.confPrefix);
   this.collector=collector;
-  this.nolockbuffer=new HashMap<BoltStatKey,BoltStatVal>(10000);
+  this.nolockbuffer=new HashMap<BoltStatKey,BoltStatVal>(this.intMapsize);
 }

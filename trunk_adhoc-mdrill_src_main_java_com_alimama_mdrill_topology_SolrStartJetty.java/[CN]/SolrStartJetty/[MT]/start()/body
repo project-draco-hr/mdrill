@@ -43,5 +43,5 @@ synchronized (isInit) {
   }
 ;
   taskList.add(task);
-  EXECUTE.TIMER.schedule(task,100l,10000l);
+  EXECUTE.schedule(task,100l,10000l);
 }

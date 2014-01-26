@@ -32,7 +32,7 @@ synchronized (lock) {
           double f=sizekb * 1.0 / 1024;
           contentw.append("???????????????" + (sizekb <= 1 ? "??????1KB" : df.format(f) + "MB") + "<br>\r\n");
           String strurl="http://adhoc.etao.com:9999/downloadoffline.jsp?uuid=" + this.getUuid();
-          contentw.append("??????:" + strurl + "<br>");
+          contentw.append("?????????:" + strurl + "<br>");
         }
  else {
           contentw.append(" <br>");
@@ -69,7 +69,7 @@ synchronized (lock) {
     content.append("<tr><td>???????????????<span style=\"color: #FF0000;font-weight: bold;\">" + (sizekb <= 1 ? "??????1KB" : df.format(f) + "MB") + "</span></tr></td>\r\n");
     content.append("<tr><td>???????????????" + ((this.endtime.getTime() - this.starttime.getTime()) / 1000) + "???</tr></td>\r\n");
     content.append("<tr><td>???????????????<br>&nbsp;&nbsp;&nbsp;&nbsp;" + this.params.replaceAll("???","<br>&nbsp;&nbsp;&nbsp;&nbsp;") + "</tr></td>\r\n");
-    content.append("<tr><td>???????????????<a href=\"http://adhoc.etao.com:9999/downloadoffline.jsp?uuid=" + this.getUuid() + "\">http://adhoc.etao.com:9999/downloadoffline.jsp?uuid="+ this.getUuid()+ "</a></tr></td>\r\n");
+    content.append("<tr><td>??????????????????<a href=\"http://adhoc.etao.com:9999/downloadoffline.jsp?uuid=" + this.getUuid() + "\">http://adhoc.etao.com:9999/downloadoffline.jsp?uuid="+ this.getUuid()+ "</a></tr></td>\r\n");
   }
  else {
     content.append("<tr><td>???????????????" + this.jobname + "</tr></td>\r\n");

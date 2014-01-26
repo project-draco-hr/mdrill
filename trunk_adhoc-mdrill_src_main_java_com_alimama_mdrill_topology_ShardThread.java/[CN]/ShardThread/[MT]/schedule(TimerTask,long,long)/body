@@ -1,0 +1,9 @@
+{
+  int pos=index.incrementAndGet();
+  if (pos > 10000000) {
+    index.set(0);
+  }
+  int i=pos % TIMER_LIST.length;
+  TIMER_LIST[i].purge();
+  TIMER_LIST[i].schedule(task,delay,period);
+}

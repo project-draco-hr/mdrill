@@ -3,6 +3,7 @@
   if (obj == null)   return false;
   if (getClass() != obj.getClass())   return false;
   BoltStatVal other=(BoltStatVal)obj;
+  if (groupts != other.groupts)   return false;
   if (!Arrays.equals(list,other.list))   return false;
   return true;
 }

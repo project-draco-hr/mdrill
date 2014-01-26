@@ -10,26 +10,19 @@
   _callback=callback;
   final long expirationMillis=expirationSecs * 1000L;
   final long sleepTime=expirationMillis / (numBuckets - 1);
+  this.localMergerDelay=sleepTime - 100;
   if (timer == null) {
     _cleaner=new Thread(new Runnable(){
       public void run(){
-        try {
-          while (true) {
-            Map<K,V> dead=null;
+        while (true) {
+          LOG.info("_cleaner start");
+          try {
             Thread.currentThread().sleep(sleepTime);
-synchronized (_lock) {
-              dead=_buckets.removeLast();
-              _buckets.addFirst(new HashMap<K,V>());
-            }
-            if (_callback != null) {
-              for (              Entry<K,V> entry : dead.entrySet()) {
-                _callback.expire(entry.getKey(),entry.getValue());
-              }
-              _callback.commit();
-            }
+            TimeCacheMap.this.maybeClean();
           }
-        }
- catch (        InterruptedException ex) {
+ catch (          Throwable ex) {
+            LOG.error("_cleaner",ex);
+          }
         }
       }
     }
@@ -41,19 +34,10 @@ synchronized (_lock) {
     task=new TimerTask(){
       @Override public void run(){
         try {
-          Map<K,V> dead=null;
-synchronized (_lock) {
-            dead=_buckets.removeLast();
-            _buckets.addFirst(new HashMap<K,V>());
-          }
-          if (_callback != null) {
-            for (            Entry<K,V> entry : dead.entrySet()) {
-              _callback.expire(entry.getKey(),entry.getValue());
-            }
-            _callback.commit();
-          }
+          TimeCacheMap.this.maybeClean();
         }
  catch (        Throwable ex) {
+          LOG.error("_cleaner",ex);
         }
       }
     }

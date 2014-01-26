@@ -4,7 +4,9 @@
     if (pvlog == null) {
       return null;
     }
-    if (pvlog.getPid() == null || pvlog.getTimestamp() == null || pvlog.getPid().length() > 50) {
+    String pid=pvlog.getPid();
+    String strts=pvlog.getTimestamp();
+    if (pid == null || strts == null || pid.length() > 50) {
       return null;
     }
     this.lines++;
@@ -13,11 +15,11 @@
       this.lastendts=(System.currentTimeMillis() / 1000) + TS_MAX;
       this.lines=0;
     }
-    long ts=Long.parseLong(pvlog.getTimestamp());
+    long ts=Long.parseLong(strts);
     if (ts < laststartts || ts > lastendts) {
       return null;
     }
-    DataIterParse rtn=new DataIterParse(pvlog);
+    DataIterParse rtn=new DataIterParse(pvlog,pid,ts);
     return rtn;
   }
  catch (  Throwable nfe) {

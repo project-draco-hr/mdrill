@@ -2,4 +2,6 @@
   ttInput=0;
   groupCreate=0;
   groupInput=0;
+  ackCnt=0;
+  failCnt=0;
 }

@@ -2,10 +2,10 @@
   long t1=System.currentTimeMillis();
   List<StorageDirectory> editsDirs=new ArrayList<StorageDirectory>();
   if ("hdfs".equals(SolrCore.getBinglogType())) {
-    editsDirs.add(new StorageDirectory(FileSystem.get(conf),new Path(params.hdfsPath,"editlogs_v6")));
+    editsDirs.add(new StorageDirectory(FileSystem.get(conf),new Path(params.hdfsPath,"editlogs_v9")));
   }
  else {
-    editsDirs.add(new StorageDirectory(FileSystem.getLocal(conf),new Path(params.baseDir,"editlogs_v6")));
+    editsDirs.add(new StorageDirectory(FileSystem.getLocal(conf),new Path(params.baseDir,"editlogs_v9")));
   }
   LOG.info("recoverFromEditlog begin:" + this.params.getLogStr());
   editlog=new FSEditLog(conf,editsDirs);
@@ -43,24 +43,31 @@
         try {
           op=(AddOp)stream.readOp();
           if (op == null) {
+            LOG.error("readOp end");
             break;
+          }
+          if (op.getDoc() == null) {
+            LOG.error("readOp doc null");
+            continue;
           }
         }
  catch (        Throwable e) {
           LOG.error("readOp",e);
           break;
         }
+        SolrInputDocument doc=op.getDoc();
+        doc.setTxid(op.getTransactionId());
         if (lines < 100000) {
           lines++;
           if (lines % 500 == 0) {
-            LOG.info("##recover##" + op.getDoc().toString() + ",savedTxid="+ savedTxid+ ":"+ this.params.getLogStr());
+            LOG.info("##recover##" + doc.toString() + ",savedTxid="+ savedTxid+ ":"+ this.params.getLogStr());
           }
         }
         allrecord++;
         if (allrecord % 1000 == 0) {
           this.flushDocList();
         }
-        this.addDocument(op.getDoc(),false);
+        this.addDocument(doc,false);
       }
       lasttxid=Math.max(stream.getLastTxId(),lasttxid);
     }

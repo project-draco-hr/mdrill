@@ -1,4 +1,16 @@
 {
-  JavaBinCodec code=new JavaBinCodec();
-  code.marshal(doc,out);
+  byte[] data=null;
+  try {
+    data=ser(doc);
+  }
+ catch (  Throwable e) {
+    data=null;
+  }
+  if (data == null || data.length == 0) {
+    out.writeInt(0);
+  }
+ else {
+    out.writeInt(data.length);
+    out.write(data,0,data.length);
+  }
 }

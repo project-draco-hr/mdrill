@@ -1,7 +1,7 @@
 {
   long ts=log.getTs();
-  BoltStatKey key=new BoltStatKey(log.getGroup(),ts);
-  BoltStatVal val=new BoltStatVal(log.getSum());
+  BoltStatKey key=new BoltStatKey(log.getGroup());
+  BoltStatVal val=new BoltStatVal(log.getSum(),ts);
   BoltStatVal statval=nolockbuffer.get(key);
   this.status.ttInput++;
   if (statval == null) {
@@ -21,7 +21,7 @@
   HashMap<BoltStatKey,BoltStatVal> buffer=nolockbuffer;
   LOG.info(this.confPrefix + "####total:group=" + buffer.size()+ ",ts:"+ formatHour.format(new Date(ts))+ ",status:"+ this.status.toString());
   nolockbuffer=new HashMap<BoltStatKey,BoltStatVal>(buffersize);
-  this.commit.updateAll(buffer,key.getGroupts());
+  this.commit.updateAll(buffer,false);
   if (this.status.ttInput > 100000000) {
     this.status.reset();
   }

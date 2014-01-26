@@ -12,5 +12,5 @@
   }
 ;
   taskList.add(task);
-  RealTimeDirectorUtils.timerslow.schedule(task,len,len);
+  RealTimeDirectorUtils.getSlowTimer().schedule(task,len,len);
 }

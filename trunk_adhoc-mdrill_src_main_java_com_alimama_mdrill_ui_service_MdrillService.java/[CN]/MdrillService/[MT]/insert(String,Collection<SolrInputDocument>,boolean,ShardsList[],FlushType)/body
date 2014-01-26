@@ -24,6 +24,9 @@
     }
   }
   for (  SolrInputDocument doc : docs) {
+    if ("mm_12229823_1573806_11174236".equals(doc.getFieldValue("pid"))) {
+      LOG.info("####yannian debug pid :" + doc);
+    }
     doc.setField("mdrill_uuid",uuid());
     if (!doc.containsKey("mdrillPartion")) {
       String partion=drillpart.InsertPartion(doc);
@@ -65,26 +68,7 @@
     }
     for (    String s : write.list) {
       String url="http://" + s + "/solr/"+ projectName;
-      CommonsHttpSolrServer server=new CommonsHttpSolrServer(url);
-      server.setConnectionManagerTimeout(60000l);
-      server.setSoTimeout(60000);
-      server.setConnectionTimeout(10000);
-      server.setDefaultMaxConnectionsPerHost(100);
-      server.setMaxTotalConnections(100);
-      server.setFollowRedirects(false);
-      server.setAllowCompression(false);
-      server.setMaxRetries(4);
-      server.setRequestWriter(new BinaryRequestWriter());
-      UpdateRequest req=new UpdateRequest();
-      req.add(docs);
-      UpdateResponse rsp=req.process(server);
-      rtn.put(s,rsp.toString());
-    }
-  }
- else   if (tp.equals(FlushType.sync) || tp.equals(FlushType.syncHdfs)) {
-    for (    ShardsList write : cores) {
-      for (      String s : write.list) {
-        String url="http://" + s + "/solr/"+ projectName;
+      try {
         CommonsHttpSolrServer server=new CommonsHttpSolrServer(url);
         server.setConnectionManagerTimeout(60000l);
         server.setSoTimeout(60000);
@@ -99,6 +83,37 @@
         req.add(docs);
         UpdateResponse rsp=req.process(server);
         rtn.put(s,rsp.toString());
+      }
+ catch (      Throwable e) {
+        LOG.error("insert error " + url,e);
+        throw new Exception(e);
+      }
+    }
+  }
+ else   if (tp.equals(FlushType.sync) || tp.equals(FlushType.syncHdfs)) {
+    for (    ShardsList write : cores) {
+      for (      String s : write.list) {
+        String url="http://" + s + "/solr/"+ projectName;
+        try {
+          CommonsHttpSolrServer server=new CommonsHttpSolrServer(url);
+          server.setConnectionManagerTimeout(60000l);
+          server.setSoTimeout(60000);
+          server.setConnectionTimeout(10000);
+          server.setDefaultMaxConnectionsPerHost(100);
+          server.setMaxTotalConnections(100);
+          server.setFollowRedirects(false);
+          server.setAllowCompression(false);
+          server.setMaxRetries(4);
+          server.setRequestWriter(new BinaryRequestWriter());
+          UpdateRequest req=new UpdateRequest();
+          req.add(docs);
+          UpdateResponse rsp=req.process(server);
+          rtn.put(s,rsp.toString());
+        }
+ catch (        Throwable e) {
+          LOG.error("insert error " + url,e);
+          throw new Exception(e);
+        }
       }
     }
   }

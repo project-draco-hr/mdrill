@@ -1,5 +1,3 @@
 {
-  Number[] rtn=new Number[1];
-  rtn[0]=1;
-  return rtn;
+  return new Number[]{1};
 }

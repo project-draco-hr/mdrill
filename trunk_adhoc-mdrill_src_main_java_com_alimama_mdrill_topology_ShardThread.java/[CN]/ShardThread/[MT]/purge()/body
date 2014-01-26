@@ -1,0 +1,7 @@
+{
+  int rtn=0;
+  for (  Timer t : TIMER_LIST) {
+    rtn+=t.purge();
+  }
+  return rtn;
+}

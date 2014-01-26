@@ -1,9 +1,3 @@
 {
-  String[] rtn=new String[5];
-  rtn[0]="thedate";
-  rtn[1]="miniute_5";
-  rtn[2]="pid";
-  rtn[3]="producttype";
-  rtn[4]="subproducttype";
-  return rtn;
+  return colname;
 }

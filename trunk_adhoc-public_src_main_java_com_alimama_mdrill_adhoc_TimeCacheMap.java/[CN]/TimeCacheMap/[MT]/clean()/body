@@ -1,0 +1,20 @@
+{
+  try {
+    Map<K,V> dead=null;
+synchronized (_lock) {
+      dead=_buckets.removeLast();
+      _buckets.addFirst(new HashMap<K,V>());
+    }
+    if (_callback != null) {
+synchronized (_callback) {
+        for (        Entry<K,V> entry : dead.entrySet()) {
+          _callback.expire(entry.getKey(),entry.getValue());
+        }
+        _callback.commit();
+      }
+    }
+  }
+ catch (  Throwable ex) {
+    LOG.error("_cleaner maybeClean",ex);
+  }
+}

@@ -1,0 +1,6 @@
+{
+synchronized (buffer) {
+    ObjectBuffer buffer=new ObjectBuffer(KROY);
+    return buffer.writeClassAndObject(doc);
+  }
+}

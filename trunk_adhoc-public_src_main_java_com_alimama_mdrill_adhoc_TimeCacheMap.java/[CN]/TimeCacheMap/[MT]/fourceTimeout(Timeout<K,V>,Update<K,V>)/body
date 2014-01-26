@@ -8,22 +8,24 @@ synchronized (_lock) {
     }
   }
   if (_callback != null && lastdata != null) {
-    HashMap<K,V> needupdate=new HashMap<K,V>();
-    for (    HashMap<K,V> dead : lastdata) {
-      for (      Entry<K,V> entry : dead.entrySet()) {
-        K key=entry.getKey();
-        V val=entry.getValue();
-        if (fetch.timeout(key,val)) {
-          _callback.expire(key,val);
-        }
+synchronized (_callback) {
+      HashMap<K,V> needupdate=new HashMap<K,V>();
+      for (      HashMap<K,V> dead : lastdata) {
+        for (        Entry<K,V> entry : dead.entrySet()) {
+          K key=entry.getKey();
+          V val=entry.getValue();
+          if (fetch.timeout(key,val)) {
+            _callback.expire(key,val);
+          }
  else {
-          needupdate.put(key,val);
+            needupdate.put(key,val);
+          }
         }
       }
-    }
-    _callback.commit();
-    if (needupdate.size() > 0) {
-      this.updateAll(needupdate,d);
+      _callback.commit();
+      if (needupdate.size() > 0) {
+        this.updateAll(needupdate,d);
+      }
     }
   }
 }

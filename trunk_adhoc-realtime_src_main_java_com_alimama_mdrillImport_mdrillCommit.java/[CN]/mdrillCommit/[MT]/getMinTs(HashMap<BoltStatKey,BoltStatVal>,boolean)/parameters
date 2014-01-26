@@ -1,0 +1,2 @@
+HashMap<BoltStatKey,BoltStatVal> buffer
+boolean istanxpv

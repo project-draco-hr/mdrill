@@ -5,9 +5,29 @@
   boolean ischange=false;
   HashMap<String,Vertify> hdfsVertify=IndexUtils.readVertifyList(fs,hdfsIndexpath);
   HashMap<String,Vertify> localVertify=IndexUtils.readVertifyList(lfs,localIndexPath);
+  String partionday=cleanPartionDays();
+  String dropCmp=null;
+  try {
+    if (partionday != null) {
+      dropCmp=this.mdrillpartion.getDropComparePartion(Long.parseLong(partionday));
+    }
+  }
+ catch (  Throwable e1) {
+    LOG.info("getDropComparePartion",e1);
+  }
   this.partstat.syncClearPartions();
   for (  Entry<String,Vertify> e : hdfsVertify.entrySet()) {
     String partion=e.getKey();
+    if (partionday != null && dropCmp != null) {
+      try {
+        if (this.mdrillpartion.isAllowDropPartion(partion,dropCmp)) {
+          continue;
+        }
+      }
+ catch (      Exception e1) {
+        LOG.info("isAllowDropPartion",e1);
+      }
+    }
     this.partstat.addPartionStat(partion);
     Vertify hdfsValue=e.getValue();
     Vertify localValue=localVertify.remove(partion);

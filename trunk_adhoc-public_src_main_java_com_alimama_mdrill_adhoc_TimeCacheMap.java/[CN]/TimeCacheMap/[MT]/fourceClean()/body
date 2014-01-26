@@ -1,0 +1,6 @@
+{
+synchronized (_lock) {
+    this.timerReset();
+  }
+  this.clean();
+}

@@ -1,16 +1,21 @@
 {
+  if ("mm_12229823_1573806_11174236".equals(doc.getFieldValue("pid"))) {
+    LOG.info("####addDocument 1 :" + doc + ","+ String.valueOf(writelog));
+  }
   if (RealTimeDirectorUtils.maybeReplication(doc)) {
     return;
   }
-  doc.setTxid(0l);
+  if ("mm_12229823_1573806_11174236".equals(doc.getFieldValue("pid"))) {
+    LOG.info("####addDocument 2 :" + doc + ","+ String.valueOf(writelog));
+  }
   if (writelog) {
     try {
       AddOp op=new AddOp();
       op.setDoc(doc);
 synchronized (editlog) {
         if (!needRollLogs.get()) {
-          needRollLogs.set(true);
           editlog.openForWrite();
+          needRollLogs.set(true);
         }
         editlog.logEdit(op);
         long lasttid=editlog.getLastWrittenTxId();
@@ -25,7 +30,8 @@ synchronized (editlog) {
       }
     }
  catch (    Exception e) {
-      LOG.error("editlog",e);
+      LOG.error("editlog_" + this.params.Partion.toString(),e);
+      editlog.openForWrite();
     }
   }
   needFlushDfs.set(true);

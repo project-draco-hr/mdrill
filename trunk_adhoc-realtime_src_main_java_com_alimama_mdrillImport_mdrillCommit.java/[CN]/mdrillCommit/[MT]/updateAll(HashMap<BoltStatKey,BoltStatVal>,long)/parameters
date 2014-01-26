@@ -1,2 +1,0 @@
-HashMap<BoltStatKey,BoltStatVal> buffer
-long logTs

@@ -1,0 +1,10 @@
+{
+  String tablemode=this.getTableMode();
+  String hdfsPral=null;
+  Pattern mapiPattern=Pattern.compile("@cleanPartionDays:([0-9]+)@");
+  Matcher mat=mapiPattern.matcher(tablemode);
+  if (mat.find()) {
+    hdfsPral=mat.group(1);
+  }
+  return hdfsPral;
+}

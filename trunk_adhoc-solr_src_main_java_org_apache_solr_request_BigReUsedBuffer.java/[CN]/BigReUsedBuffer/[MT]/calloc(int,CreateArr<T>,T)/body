@@ -23,6 +23,5 @@
       data[i].set(j,init);
     }
   }
-  log.info("####BigByteBuffer### calloc free:" + free.size() + ",mallocTimes:"+ mallocTimes.get()+ ",reusedTimes:"+ reusedTimes.get());
   return new BlockArray<T>(data,size);
 }

@@ -1,8 +1,8 @@
 {
-  Long timespan=1000l * 60 * 30;
+  Long timespan=1000l * 60 * 40;
   ShardsState stat=statcollect.getStat();
   if (stat.equals(ShardsState.SERVICE)) {
-    timespan=1000l * 60 * 20;
+    timespan=1000l * 60 * 40;
   }
   boolean istimeout=isInit.get() && statcollect.isTimeout(timespan);
   if (istimeout) {

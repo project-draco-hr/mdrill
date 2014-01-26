@@ -1,24 +1,29 @@
 {
-  ArrayList<SolrInputDocument> buffer=null;
+  try {
+    ArrayList<SolrInputDocument> buffer=null;
 synchronized (doclistLock) {
-    buffer=doclist;
-    doclist=new ArrayList<SolrInputDocument>(300);
-  }
-  if (buffer != null && buffer.size() > 0) {
-    for (int i=0; i < 100; i++) {
-      try {
-        LOG.info(this.confPrefix + " mdrill request:" + buffer.size());
-        MdrillService.insertLocal(this.parse.getTableName(),buffer,null);
-        break;
-      }
- catch (      Throwable e) {
-        LOG.error(this.confPrefix + " insert",e);
-      }
-      try {
-        Thread.sleep(1000);
-      }
- catch (      InterruptedException e) {
+      buffer=doclist;
+      doclist=new ArrayList<SolrInputDocument>(300);
+    }
+    if (buffer != null && buffer.size() > 0) {
+      for (int i=0; i < 100; i++) {
+        try {
+          LOG.info(this.confPrefix + " mdrill request:" + i+ "@"+ buffer.size()+ ","+ this.toDebugString());
+          MdrillService.insertLocal(this.parse.getTableName(),buffer,null);
+          break;
+        }
+ catch (        Throwable e) {
+          LOG.error(this.confPrefix + " insert",e);
+        }
+        try {
+          Thread.sleep(1000);
+        }
+ catch (        InterruptedException e) {
+        }
       }
     }
+  }
+ catch (  Throwable e) {
+    LOG.info("commit " + this.toDebugString(),e);
   }
 }

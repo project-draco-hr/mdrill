@@ -21,7 +21,7 @@
         info.d=d;
         info.tp=DirectoryInfo.DirTpe.file;
         this.diskDirector.put(s1,info);
-        SolrCore.log.info(">>>>>LinkFSDirectory readOnlyOpen add links " + s1);
+        SolrCore.log.info(">>>>> add links " + s1);
       }
     }
     br.close();

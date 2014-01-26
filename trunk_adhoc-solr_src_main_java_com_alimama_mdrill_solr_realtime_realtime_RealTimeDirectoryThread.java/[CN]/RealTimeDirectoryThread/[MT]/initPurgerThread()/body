@@ -19,5 +19,5 @@
   }
 ;
   taskList.add(task);
-  RealTimeDirectorUtils.timerquick.schedule(task,300,300);
+  RealTimeDirectorUtils.getQuickTimer().schedule(task,300,300);
 }

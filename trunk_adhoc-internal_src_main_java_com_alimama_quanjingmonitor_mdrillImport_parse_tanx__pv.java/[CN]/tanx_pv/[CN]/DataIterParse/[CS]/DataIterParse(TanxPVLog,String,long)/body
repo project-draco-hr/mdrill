@@ -1,0 +1,5 @@
+{
+  this.pvlog=pvlog;
+  this.pid=pid;
+  this.ts=ts;
+}

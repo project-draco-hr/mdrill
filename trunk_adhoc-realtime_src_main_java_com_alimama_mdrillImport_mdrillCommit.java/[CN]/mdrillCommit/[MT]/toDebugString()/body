@@ -1,3 +1,8 @@
 {
-  return "access " + formatHour.format(new Date(lastts)) + ",doclist="+ doclist.size()+ ",group="+ group.size();
+  try {
+    return "access " + formatHour.format(new Date(lastts[0])) + "@"+ formatHour.format(new Date(lastts[1]))+ "@"+ formatHour.format(new Date(this.committs))+ ",doclist="+ doclist.size()+ ",group="+ group.size();
+  }
+ catch (  Throwable e) {
+  }
+  return "";
 }

@@ -1,4 +1,16 @@
 {
-  JavaBinCodec code=new JavaBinCodec();
-  this.doc=(SolrInputDocument)code.unmarshal(in);
+  int len=in.readInt();
+  if (len <= 0) {
+    this.doc=null;
+    return;
+  }
+  byte[] b=new byte[len];
+  in.read(b,0,len);
+  try {
+    this.doc=dec(b);
+  }
+ catch (  Throwable e) {
+    LOG.error("dec",e);
+    this.doc=null;
+  }
 }

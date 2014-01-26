@@ -31,7 +31,7 @@
  catch (    Throwable e) {
       isnotrealtime=true;
     }
-    if (!isnotrealtime && (isrealtime || fs.exists(realtime) || lfs.exists(localrealtime))) {
+    if (isrealtime || (!isnotrealtime && (fs.exists(realtime) || lfs.exists(localrealtime)))) {
     }
  else {
       boolean iscopy=false;

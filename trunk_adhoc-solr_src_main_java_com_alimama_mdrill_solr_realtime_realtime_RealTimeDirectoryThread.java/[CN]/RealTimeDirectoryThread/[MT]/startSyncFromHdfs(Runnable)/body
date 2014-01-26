@@ -46,5 +46,5 @@ synchronized (plock.lock) {
   }
 ;
   taskList.add(task);
-  RealTimeDirectorUtils.timerslow.schedule(task,0);
+  RealTimeDirectorUtils.getSlowTimer().schedule(task,0);
 }

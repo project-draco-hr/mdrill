@@ -1,0 +1,19 @@
+{
+  if (days <= 0) {
+    return null;
+  }
+  long dayms=1000l * 3600 * 24;
+  int index=0;
+  while (true) {
+    long before=System.currentTimeMillis() - (days + index) * dayms;
+    long prev=System.currentTimeMillis() - (days + index) * dayms + dayms;
+    String day=fmt.format(new Date(before));
+    String prevday=fmt.format(new Date(prev));
+    String p1=ThedatePartionsUtils.parseDay(day,this.parttype);
+    String pprev=ThedatePartionsUtils.parseDay(prevday,this.parttype);
+    if (!pprev.equals(p1)) {
+      return p1;
+    }
+    index++;
+  }
+}

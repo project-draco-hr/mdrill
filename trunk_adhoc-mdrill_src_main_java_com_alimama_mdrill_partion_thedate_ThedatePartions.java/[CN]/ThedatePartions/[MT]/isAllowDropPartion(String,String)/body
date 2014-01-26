@@ -1,0 +1,6 @@
+{
+  if (cmp == null || partion == null) {
+    return false;
+  }
+  return cmp.compareTo(partion) >= 0;
+}

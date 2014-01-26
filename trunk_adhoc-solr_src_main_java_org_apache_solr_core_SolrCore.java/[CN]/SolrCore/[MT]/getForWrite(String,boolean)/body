@@ -23,7 +23,13 @@ synchronized (forRealTimeDir) {
     }
     if (rtn == null) {
       File f=new File(getDataDir(),partion);
-      rtn=new RealTimeDirectory(f,HadoopUtil.hadoopConfDir,ShardPartion.getHdfsRealtimePath(p.tablename,p.partion).toString(),this,p);
+      try {
+        rtn=new RealTimeDirectory(f,HadoopUtil.hadoopConfDir,ShardPartion.getHdfsRealtimePath(p.tablename,p.partion).toString(),this,p);
+      }
+ catch (      Throwable e) {
+        log.error("getForWrite error",e);
+        rtn=null;
+      }
     }
     if (isWritePool) {
       forWriteDir.put(p,rtn);

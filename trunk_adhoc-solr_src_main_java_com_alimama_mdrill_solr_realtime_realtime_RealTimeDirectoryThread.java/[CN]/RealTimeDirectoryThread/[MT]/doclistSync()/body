@@ -26,5 +26,5 @@ synchronized (plock.doclistBuffer_lock) {
   }
 ;
   taskList.add(task);
-  RealTimeDirectorUtils.timerquick.schedule(task,len,len);
+  RealTimeDirectorUtils.getQuickTimer().schedule(task,len,len);
 }

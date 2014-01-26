@@ -1,0 +1,5 @@
+{
+  this.port=port;
+  this.list=ramoryInfo;
+  this.reader=new BufferedReader(new InputStreamReader(input));
+}

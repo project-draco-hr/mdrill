@@ -23,16 +23,17 @@
       con.setHb(stat.task_heartbeat(stormId,tid));
       con.setTaskerrors(stat.task_errors(stormId,tid));
       StringBuffer buff=new StringBuffer();
-      buff.append("??????:" + String.format("%03d",con.getTaskId()) + "<br>");
-      buff.append("????????????:" + con.getHostname() + "<br>");
-      buff.append("nodeport:" + con.getNp() + "<br>");
+      buff.append("getComponentId:" + con.getTaskInfo().getComponentId() + "<br>\r\n");
+      buff.append("??????:" + String.format("%03d",con.getTaskId()) + "<br>\r\n");
+      buff.append("????????????:" + con.getHostname() + "<br>\r\n");
+      buff.append("nodeport:" + con.getNp() + "<br>\r\n");
       SimpleDateFormat fmt=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
       if (con.getStarttime() != null) {
         String yyyymmmddd=fmt.format(new Date(1000l * con.getStarttime()));
-        buff.append("????????????:" + yyyymmmddd + "<br>");
+        buff.append("????????????:" + yyyymmmddd + "<br>\r\n");
       }
-      buff.append("????????????:" + con.getHb() + "<br>");
-      buff.append("task????????????:" + con.getTaskerrors() + "<br>");
+      buff.append("????????????:" + con.getHb() + "<br>\r\n");
+      buff.append("task????????????:" + con.getTaskerrors() + "<br>\r\n");
       rtn.add(buff.toString());
     }
  catch (    Throwable e) {

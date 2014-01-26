@@ -1,7 +1,6 @@
 {
   final int prime=31;
   int result=1;
-  result=prime * result + (int)(groupts ^ (groupts >>> 32));
   result=prime * result + Arrays.hashCode(list);
   return result;
 }

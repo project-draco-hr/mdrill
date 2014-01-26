@@ -1,0 +1,5 @@
+{
+synchronized (buffer) {
+    return (SolrInputDocument)buffer.readClassAndObject(buff);
+  }
+}

@@ -1,0 +1,18 @@
+{
+  for (int k=0; k < 1000; k++) {
+    SolrInputDocument dd=new SolrInputDocument();
+    dd.addField("a",1);
+    dd.addField("b",1.0);
+    dd.addField("c","1123");
+    dd.addField("d",1l);
+    dd.addField("c","333");
+    dd.addField("c","1111000000000000000000001111");
+    dd.addField("e","4");
+    dd.addField("d" + k,k);
+    byte[] bytes=ser(dd);
+    System.out.println(serialize(dd).length + "==" + bytes.length);
+    SolrInputDocument aaa=dec(bytes);
+    System.out.println(aaa.toString());
+    System.out.println("#######################");
+  }
+}

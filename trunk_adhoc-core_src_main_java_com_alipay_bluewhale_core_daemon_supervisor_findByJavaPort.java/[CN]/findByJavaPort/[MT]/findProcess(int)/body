@@ -1,0 +1,28 @@
+{
+  String[] execmd={"/bin/sh","-c","netstat -npl"};
+  String[] env=getEnv();
+  Process process=null;
+  try {
+    process=Runtime.getRuntime().exec(execmd,env);
+  }
+ catch (  Throwable e) {
+    LOG.error("armory Runtime:",e);
+  }
+  ArrayList<String> list=new ArrayList<String>();
+  try {
+    if (process != null) {
+      GetBytesThreadError thr2=new GetBytesThreadError(process.getErrorStream(),list,port);
+      GetBytesThread thr=new GetBytesThread(process.getInputStream(),list,port);
+      thr2.start();
+      thr.start();
+      process.waitFor();
+      thr2.join();
+      thr.join();
+      int exitValue=process.exitValue();
+    }
+  }
+ catch (  Throwable e) {
+    LOG.error("armory Runtime:",e);
+  }
+  return list;
+}

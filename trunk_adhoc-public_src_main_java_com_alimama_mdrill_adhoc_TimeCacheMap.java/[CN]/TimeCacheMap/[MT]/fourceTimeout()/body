@@ -8,11 +8,13 @@ synchronized (_lock) {
     }
   }
   if (_callback != null && lastdata != null) {
-    for (    HashMap<K,V> dead : lastdata) {
-      for (      Entry<K,V> entry : dead.entrySet()) {
-        _callback.expire(entry.getKey(),entry.getValue());
+synchronized (_callback) {
+      for (      HashMap<K,V> dead : lastdata) {
+        for (        Entry<K,V> entry : dead.entrySet()) {
+          _callback.expire(entry.getKey(),entry.getValue());
+        }
       }
+      _callback.commit();
     }
-    _callback.commit();
   }
 }

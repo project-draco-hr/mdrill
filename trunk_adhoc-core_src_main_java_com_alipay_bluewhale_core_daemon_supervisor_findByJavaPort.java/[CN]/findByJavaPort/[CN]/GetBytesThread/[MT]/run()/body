@@ -1,0 +1,17 @@
+{
+  String s=null;
+  try {
+    Integer index=0;
+    while ((s=reader.readLine()) != null && index < 100000) {
+      index++;
+      String pid=fetch(s,port);
+      if (pid != null) {
+        list.add(pid);
+      }
+    }
+    this.reader.close();
+  }
+ catch (  Throwable e) {
+    LOG.error("armory readLine:",e);
+  }
+}
