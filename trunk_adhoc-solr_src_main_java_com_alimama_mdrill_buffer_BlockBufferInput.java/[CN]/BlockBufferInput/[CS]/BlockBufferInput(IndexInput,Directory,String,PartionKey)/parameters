@@ -1,3 +1,4 @@
 IndexInput input
-String key
+Directory dir
+String filename
 PartionKey p

@@ -1,0 +1,4 @@
+Directory dir
+String filename
+long pos
+PartionKey p

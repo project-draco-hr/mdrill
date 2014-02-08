@@ -1,3 +1,4 @@
 IndexInput input
-Object key
+Directory d
+String fname
 PartionKey p

@@ -1,0 +1,9 @@
+{
+  final int prime=31;
+  int result=1;
+  result=prime * result + Arrays.hashCode(filelist);
+  result=prime * result + ((p == null) ? 0 : p.hashCode());
+  result=prime * result + (int)(ts ^ (ts >>> 32));
+  result=prime * result + ((uniq == null) ? 0 : uniq.hashCode());
+  return result;
+}

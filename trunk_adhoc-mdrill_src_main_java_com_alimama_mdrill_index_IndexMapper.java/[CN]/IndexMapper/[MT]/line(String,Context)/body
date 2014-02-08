@@ -37,6 +37,25 @@
     printlines++;
     System.out.println("res:" + Arrays.toString(values));
   }
+  if (this.containsfilter) {
+    int maxlen=res.length;
+    for (int i=0; i < this.contains.length; i++) {
+      String[] containslist=this.contains[i];
+      if (containslist != null) {
+        if (i >= maxlen) {
+          context.getCounter("higo","skiprecords_filter").increment(1);
+          return true;
+        }
+        String val=res[i];
+        for (        String s : containslist) {
+          if (val.indexOf(s) < 0) {
+            context.getCounter("higo","skiprecords_filter").increment(1);
+            return true;
+          }
+        }
+      }
+    }
+  }
   context.write(new PairWriteable(this.Index++),new DocumentMap(res));
   if (this.isuniqcheck && uniqfieldIndex > 0 && res[uniqfieldIndex] != null) {
     String notempty=res[uniqfieldIndex];

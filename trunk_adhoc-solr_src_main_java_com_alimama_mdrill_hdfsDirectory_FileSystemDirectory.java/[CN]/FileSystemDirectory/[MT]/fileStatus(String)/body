@@ -1,0 +1,7 @@
+{
+  Path f=this.links.get(name);
+  if (f == null) {
+    f=new Path(directory,name);
+  }
+  return fs.getFileStatus(f);
+}

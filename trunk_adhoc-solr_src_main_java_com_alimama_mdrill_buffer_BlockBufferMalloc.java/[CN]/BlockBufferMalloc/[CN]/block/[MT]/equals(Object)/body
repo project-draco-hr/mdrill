@@ -3,11 +3,10 @@
   if (obj == null)   return false;
   if (getClass() != obj.getClass())   return false;
   block other=(block)obj;
-  if (flushkey != other.flushkey)   return false;
-  if (index != other.index)   return false;
-  if (key == null) {
-    if (other.key != null)     return false;
+  if (flushkey == null) {
+    if (other.flushkey != null)     return false;
   }
- else   if (!key.equals(other.key))   return false;
+ else   if (!flushkey.equals(other.flushkey))   return false;
+  if (index != other.index)   return false;
   return true;
 }

@@ -4,15 +4,23 @@
   final ILruMemSizeKey key=new GrobalCache.StringKey(searcher.getPartionKey() + "@@" + field+ "@@"+ LuceneUtils.crcKey(reader));
   UnInvertedField uif=(UnInvertedField)cache.get(key);
   if (uif == null) {
+    Object lockobj=LOCK.get(key);
+    if (lockobj == null) {
+      lockobj=new Object();
+      LOCK.put(key,lockobj);
+    }
+    final Object lockthr=lockobj;
     ExecutorCompletionService<UnivertPool> serv=new ExecutorCompletionService<UnivertPool>(pool);
     Callable<UnivertPool> task=new Callable<UnivertPool>(){
       public UnivertPool call() throws Exception {
         UnivertPool rtnuif=new UnivertPool();
         try {
-          rtnuif.uni=(UnInvertedField)cache.get(key);
-          if (rtnuif.uni == null) {
-            rtnuif.uni=new UnInvertedField(field,searcher,searcher.getReader());
-            cache.put(key,rtnuif.uni);
+synchronized (lockthr) {
+            rtnuif.uni=(UnInvertedField)cache.get(key);
+            if (rtnuif.uni == null) {
+              rtnuif.uni=new UnInvertedField(field,searcher,searcher.getReader());
+              cache.put(key,rtnuif.uni);
+            }
           }
         }
  catch (        IOException e) {

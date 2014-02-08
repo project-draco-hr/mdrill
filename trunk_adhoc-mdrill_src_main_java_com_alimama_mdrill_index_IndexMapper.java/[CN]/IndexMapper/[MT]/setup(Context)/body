@@ -3,19 +3,42 @@
   TaskID taskId=context.getTaskAttemptID().getTaskID();
   this.Index=taskId.getId();
   System.out.println("###########>>>>" + this.Index);
-  String fieldStrs=context.getConfiguration().get("higo.index.fields");
-  this.uniqfield=context.getConfiguration().get("uniq.check.field");
+  Configuration conf=context.getConfiguration();
+  String mode=conf.get("mdrill.table.mode","");
+  HashMap<String,ArrayList<String>> contanis=new HashMap<String,ArrayList<String>>();
+  if (mode.indexOf("@fieldcontains:") >= 0) {
+    Pattern mapiPattern=Pattern.compile("@fieldcontains:([^@]+)@");
+    Matcher mat=mapiPattern.matcher(mode);
+    while (mat.find()) {
+      String matchStr=mat.group(1);
+      String[] kv=matchStr.split("&");
+      for (      String s : kv) {
+        String[] kvpair=s.split("=");
+        if (kvpair.length >= 2) {
+          ArrayList<String> list=contanis.get(kvpair[0]);
+          if (list == null) {
+            list=new ArrayList<String>();
+            contanis.put(kvpair[0],list);
+          }
+          list.add(kvpair[1]);
+        }
+      }
+    }
+  }
+  containsfilter=contanis.size() > 0;
+  String fieldStrs=conf.get("higo.index.fields");
+  this.uniqfield=conf.get("uniq.check.field");
   if (this.uniqfield != null && this.uniqfield.length() > 0) {
     this.isuniqcheck=true;
   }
-  split=MakeIndex.parseSplit(context.getConfiguration().get("higo.column.split",split));
-  String custfields=context.getConfiguration().get("higo.column.custfields","");
-  usedthedate=context.getConfiguration().getBoolean("higo.column.userthedate",usedthedate);
+  split=MakeIndex.parseSplit(conf.get("higo.column.split",split));
+  String custfields=conf.get("higo.column.custfields","");
+  usedthedate=conf.getBoolean("higo.column.userthedate",usedthedate);
   this.thedate=null;
   if (usedthedate) {
     InputSplit inputSplit=context.getInputSplit();
     Path filepath=((FileSplit)inputSplit).getPath();
-    String inputbase=context.getConfiguration().get("higo.input.base");
+    String inputbase=conf.get("higo.input.base");
     this.thedate=JobIndexPublic.parseThedate(new Path(inputbase),filepath);
     System.out.println("thedatepath: " + thedate + "@"+ filepath.toString()+ "@"+ inputbase+ "");
   }
@@ -25,11 +48,20 @@
     this.isDate=new Boolean[fieldslist.length];
     this.isString=new Boolean[fieldslist.length];
     this.isStore=new Boolean[fieldslist.length];
+    this.contains=new String[fieldslist.length][];
     for (int i=0; i < fieldslist.length; i++) {
       String[] fieldSchema=fieldslist[i].split(":");
       String fieldName=fieldSchema[0].trim().toLowerCase();
       String type=fieldSchema[1];
       this.fields[i]=fieldName;
+      ArrayList<String> filterlist=contanis.get(fieldName);
+      if (filterlist == null) {
+        this.contains[i]=null;
+      }
+ else {
+        String[] filterarr=new String[filterlist.size()];
+        this.contains[i]=filterlist.toArray(filterarr);
+      }
       if (this.fields[i].equals("thedate")) {
         thedateIndex=i;
       }

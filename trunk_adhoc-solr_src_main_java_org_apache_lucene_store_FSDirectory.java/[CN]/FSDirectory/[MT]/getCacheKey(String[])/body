@@ -1,0 +1,39 @@
+{
+  CacheKeyBuffer kkk=new CacheKeyBuffer(filelist,this.dir_uuid,System.currentTimeMillis() / 600000l,this.getP());
+  String rtn=CACHE_BUFFER.get(kkk);
+  if (rtn == null) {
+    StringBuffer buff=new StringBuffer();
+    buff.append(this.getClass().getName()).append("_");
+    buff.append(this.directory.getAbsolutePath()).append("_");
+    CRC32 crc32=new CRC32();
+    crc32.update(0);
+    long filesize=0;
+    long filemodify=0;
+    if (filelist != null) {
+      buff.append(filelist.length).append("_");
+      for (      String s : filelist) {
+        crc32.update(new String(s).getBytes());
+        try {
+          filesize+=this.fileLength(s);
+        }
+ catch (        Throwable e) {
+          logger.error("filelength",e);
+        }
+        try {
+          filemodify=Math.max(filemodify,this.fileModified(s));
+        }
+ catch (        Throwable e) {
+          logger.error("filelength",e);
+        }
+      }
+    }
+    long crcvalue=crc32.getValue();
+    buff.append(crcvalue).append("_");
+    buff.append(filesize).append("_");
+    buff.append(filemodify).append("_");
+    buff.append(format.format(new Date(filemodify)));
+    rtn=buff.toString();
+    CACHE_BUFFER.put(kkk,rtn);
+  }
+  return rtn;
+}

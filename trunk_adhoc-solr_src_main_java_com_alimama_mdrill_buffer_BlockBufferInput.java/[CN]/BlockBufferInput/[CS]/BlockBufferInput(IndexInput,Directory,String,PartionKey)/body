@@ -2,6 +2,7 @@
   super("BlockBufferInput",1024);
   this.descriptor=new Descriptor(input);
   this.isOpen=true;
-  this.key=key;
+  this.dir=dir;
+  this.filename=filename;
   this.p=p;
 }

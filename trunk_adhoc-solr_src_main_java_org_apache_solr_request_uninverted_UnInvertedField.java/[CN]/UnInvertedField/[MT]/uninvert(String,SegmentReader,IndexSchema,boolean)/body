@@ -1,5 +1,5 @@
 {
-  SolrCore.log.info("####UnInverted#### SegmentReader begin");
+  UnInvertedField.log.info("####UnInverted#### SegmentReader begin");
   this.field=field;
   if (this.checkEmpty()) {
     return;
@@ -45,5 +45,5 @@
   }
   total_time=(int)(System.currentTimeMillis() - startTime);
   this.tnr.setUni(this);
-  SolrCore.log.info("####UnInverted#### Create " + this.toString() + " "+ this.isMultiValued+ "@"+ key+ ",dataType="+ dataType+ ",");
+  UnInvertedField.log.info("####UnInverted#### Create " + this.toString() + " "+ this.isMultiValued+ "@"+ key+ ",dataType="+ dataType+ ",");
 }

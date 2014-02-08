@@ -1,0 +1,17 @@
+{
+  if (this == obj)   return true;
+  if (obj == null)   return false;
+  if (getClass() != obj.getClass())   return false;
+  CacheKeyBuffer other=(CacheKeyBuffer)obj;
+  if (!Arrays.equals(filelist,other.filelist))   return false;
+  if (p == null) {
+    if (other.p != null)     return false;
+  }
+ else   if (!p.equals(other.p))   return false;
+  if (ts != other.ts)   return false;
+  if (uniq == null) {
+    if (other.uniq != null)     return false;
+  }
+ else   if (!uniq.equals(other.uniq))   return false;
+  return true;
+}

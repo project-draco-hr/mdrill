@@ -6,7 +6,7 @@
     blockdata=this.lastbuff;
   }
   if (blockdata == null) {
-    block blk=new block(this.key,blockIndex,this.p);
+    block blk=new block(this.dir,this.filename,blockIndex,this.p);
     blockdata=(blockData)GrobalCache.fieldValueCache.get(blk);
     if (blockdata == null) {
 synchronized (lock) {

@@ -5,5 +5,9 @@
       return rtn;
     }
   }
-  return SolrResourceLoader.cacheFlushKey.get();
+  long rtn=SolrResourceLoader.cacheFlushKey.get();
+  if (p != null) {
+    cacheFlushKeyMap.put(p,rtn);
+  }
+  return rtn;
 }

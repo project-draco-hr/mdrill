@@ -1,0 +1,6 @@
+{
+  super();
+  this.index=pos;
+  String[] filelist=new String[]{filename};
+  flushkey=dir.getCacheKey(filelist);
+}

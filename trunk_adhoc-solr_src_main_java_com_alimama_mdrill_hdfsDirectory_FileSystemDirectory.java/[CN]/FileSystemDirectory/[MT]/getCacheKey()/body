@@ -1,0 +1,16 @@
+{
+  CacheKeyBuffer kkk=new CacheKeyBuffer(new String[0],this.dir_uuid,System.currentTimeMillis() / 600000l,this.getP());
+  String rtn=CACHE_BUFFER.get(kkk);
+  if (rtn == null) {
+    String[] filelist=null;
+    try {
+      filelist=this.listAll();
+    }
+ catch (    Throwable e) {
+      logger.error("listAll",e);
+    }
+    rtn=getCacheKey(filelist);
+    CACHE_BUFFER.put(kkk,rtn);
+  }
+  return rtn;
+}
