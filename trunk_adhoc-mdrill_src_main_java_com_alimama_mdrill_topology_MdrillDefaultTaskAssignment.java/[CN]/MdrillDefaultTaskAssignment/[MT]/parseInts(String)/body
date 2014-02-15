@@ -1,0 +1,16 @@
+{
+  ArrayList<Integer> rtn=new ArrayList<Integer>();
+  String[] list=str.split(",");
+  for (  String s : list) {
+    String[] spans=s.split("~");
+    int begin=Integer.parseInt(spans[0]);
+    int end=begin;
+    if (spans.length > 1) {
+      end=Integer.parseInt(spans[1]);
+    }
+    for (int i=begin; i <= end; i++) {
+      rtn.add(i);
+    }
+  }
+  return rtn;
+}

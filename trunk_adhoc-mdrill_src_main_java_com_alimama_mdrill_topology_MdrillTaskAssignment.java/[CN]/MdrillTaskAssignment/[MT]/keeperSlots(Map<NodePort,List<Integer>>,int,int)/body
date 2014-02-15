@@ -1,0 +1,5 @@
+{
+  Map<NodePort,List<Integer>> rtn=new HashMap<NodePort,List<Integer>>();
+  rtn.putAll(aliveAssigned);
+  return rtn;
+}

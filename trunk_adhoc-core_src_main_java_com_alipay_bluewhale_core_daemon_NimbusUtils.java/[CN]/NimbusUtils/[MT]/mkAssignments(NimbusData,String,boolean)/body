@@ -21,7 +21,6 @@
  else {
     reassignIds=changeIds(new HashMap<Integer,NodePort>(),taskNodePort);
   }
-  int nowSecs=TimeUtils.current_time_secs();
   Map<Integer,Integer> startTimes=new HashMap<Integer,Integer>();
   if (existingAssignment != null) {
     Map<Integer,Integer> taskStartTimeSecs=existingAssignment.getTaskStartTimeSecs();
@@ -30,21 +29,26 @@
     }
   }
   if (reassignIds != null) {
-    for (Iterator<Integer> it=reassignIds.iterator(); it.hasNext(); ) {
-      Integer entry=it.next();
-      startTimes.put(entry,nowSecs);
+    int nowSecs=TimeUtils.current_time_secs();
+    for (    Integer reassignid : reassignIds) {
+      startTimes.put(reassignid,nowSecs);
     }
   }
+  Map<String,String> storeNodeHosts=new HashMap<String,String>();
   if (taskNodePort != null) {
-    Set<Entry<Integer,NodePort>> entryNodeHost=taskNodePort.entrySet();
-    for (Iterator<Entry<Integer,NodePort>> it=entryNodeHost.iterator(); it.hasNext(); ) {
-      Entry<Integer,NodePort> entry=it.next();
-      if (!allNodeHost.containsKey((entry.getValue()).getNode())) {
-        allNodeHost.remove((entry.getValue()).getNode());
-      }
+    HashSet<String> toSaveHosts=new HashSet<String>();
+    for (    Entry<Integer,NodePort> entry : taskNodePort.entrySet()) {
+      toSaveHosts.add((entry.getValue()).getNode());
+    }
+    for (    String node : toSaveHosts) {
+      String host=allNodeHost.get(node);
+      storeNodeHosts.put(node,host);
     }
   }
-  Assignment assignment=new Assignment(StormConfig.masterStormdistRoot(conf,topologyid),taskNodePort,allNodeHost,startTimes);
+ else {
+    storeNodeHosts.putAll(allNodeHost);
+  }
+  Assignment assignment=new Assignment(StormConfig.masterStormdistRoot(conf,topologyid),taskNodePort,storeNodeHosts,startTimes);
   if (assignment.equals(existingAssignment)) {
     LOG.debug("Assignment for " + topologyid + " hasn't changed");
   }

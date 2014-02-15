@@ -1,0 +1,16 @@
+{
+  ArrayList<TaskIndex> taskIndexList=new ArrayList<TaskIndex>();
+  String[] comp_taskIndexs=taskIndexListstr.split("&");
+  for (  String comp : comp_taskIndexs) {
+    String[] taskList=comp.split(":");
+    if (taskList.length < 2) {
+      continue;
+    }
+    String componname=taskList[0];
+    ArrayList<Integer> tasks=this.parseInts(taskList[1]);
+    for (    Integer index : tasks) {
+      taskIndexList.add(new TaskIndex(componname,index));
+    }
+  }
+  return taskIndexList;
+}

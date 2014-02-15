@@ -1,0 +1,3 @@
+ArrayList<NodePort> randomNP
+ArrayList<Integer> nonassign
+Map<Integer,NodePort> assignRef

@@ -1,0 +1,12 @@
+{
+  if (this == obj)   return true;
+  if (obj == null)   return false;
+  if (getClass() != obj.getClass())   return false;
+  HostPort other=(HostPort)obj;
+  if (hostname == null) {
+    if (other.hostname != null)     return false;
+  }
+ else   if (!hostname.equals(other.hostname))   return false;
+  if (port != other.port)   return false;
+  return true;
+}

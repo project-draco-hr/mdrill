@@ -1,0 +1,12 @@
+{
+  if (this == obj)   return true;
+  if (obj == null)   return false;
+  if (getClass() != obj.getClass())   return false;
+  TaskIndex other=(TaskIndex)obj;
+  if (componname == null) {
+    if (other.componname != null)     return false;
+  }
+ else   if (!componname.equals(other.componname))   return false;
+  if (index != other.index)   return false;
+  return true;
+}

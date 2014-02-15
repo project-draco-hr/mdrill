@@ -1,0 +1,28 @@
+{
+  TermNumToString tm=this.prefetchValues(res,sortufs);
+  PriorityQueue<SelectDetailRow> topItems=new PriorityQueue<SelectDetailRow>(this.parse.limit_offset,Collections.reverseOrder(this.container.cmpresult));
+  boolean usedsort=this.container.isOnlyColumnSort();
+  long key=getkeyCrc();
+  for (  SelectDetailRow row : res) {
+    int doc=row.docid;
+    String sortString=null;
+    if (usedsort) {
+      sortString=tm.getTermValueWithNull((int)row.value);
+    }
+    SortGroupVal buff=new SortGroupVal();
+    buff.groupbuff.append(String.valueOf(doc));
+    buff.groupbuff.append(UniqConfig.GroupJoinString());
+    buff.groupbuff.append(String.valueOf(key));
+    for (int i=0; i < this.container.fields.length; i++) {
+      buff.groupbuff.append(UniqConfig.GroupJoinString());
+      buff.groupbuff.append(EncodeUtils.encode("-"));
+    }
+    buff.sortString=sortString;
+    this.setGroupJoin(buff,this.container.fields.length,doc);
+    SelectDetailRow newrow=SelectDetailRow.INSTANCE(doc,row.getCompareValue());
+    newrow.setKey(new ColumnKey(buff.groupbuff.toString()));
+    newrow.colVal=buff.sortString;
+    QueuePutUtils.put2QueueDetail(newrow,topItems,this.parse.limit_offset,this.container.cmpresult);
+  }
+  return topItems;
+}

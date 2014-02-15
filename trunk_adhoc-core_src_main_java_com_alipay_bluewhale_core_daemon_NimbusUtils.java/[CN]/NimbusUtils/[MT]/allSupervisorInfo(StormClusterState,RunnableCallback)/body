@@ -3,8 +3,7 @@
   Set<String> supervisorIds=StormUtils.listToSet(stormClusterState.supervisors(callback));
   if (supervisorIds != null) {
     rtn=new HashMap<String,SupervisorInfo>();
-    for (Iterator<String> iter=supervisorIds.iterator(); iter.hasNext(); ) {
-      String supervisorId=iter.next();
+    for (    String supervisorId : supervisorIds) {
       SupervisorInfo supervisorInfo=stormClusterState.supervisor_info(supervisorId);
       rtn.put(supervisorId,supervisorInfo);
     }

@@ -5,15 +5,11 @@
     return rtn;
   }
   Map<String,List<Integer>> allSlots=new HashMap<String,List<Integer>>();
-  Set<Entry<String,SupervisorInfo>> entrySet=supervisorInfos.entrySet();
-  for (Iterator<Entry<String,SupervisorInfo>> it=entrySet.iterator(); it.hasNext(); ) {
-    Entry<String,SupervisorInfo> entry=it.next();
+  for (  Entry<String,SupervisorInfo> entry : supervisorInfos.entrySet()) {
     allSlots.put(entry.getKey(),entry.getValue().getWorkPorts());
   }
   Map<String,Set<Integer>> assignedSlots=assigned_Slots(stormClusterState);
-  Set<Entry<String,List<Integer>>> slotsEntrySet=allSlots.entrySet();
-  for (Iterator<Entry<String,List<Integer>>> it=slotsEntrySet.iterator(); it.hasNext(); ) {
-    Entry<String,List<Integer>> entry=it.next();
+  for (  Entry<String,List<Integer>> entry : allSlots.entrySet()) {
     String supervisorid=entry.getKey();
     List<Integer> s=entry.getValue();
     if (assignedSlots != null) {
@@ -22,9 +18,8 @@
         s.removeAll(e);
       }
     }
-    for (Iterator<Integer> iter=s.iterator(); iter.hasNext(); ) {
-      NodePort nodeport=new NodePort(supervisorid,iter.next());
-      rtn.add(nodeport);
+    for (    Integer port : s) {
+      rtn.add(new NodePort(supervisorid,port));
     }
   }
   return rtn;

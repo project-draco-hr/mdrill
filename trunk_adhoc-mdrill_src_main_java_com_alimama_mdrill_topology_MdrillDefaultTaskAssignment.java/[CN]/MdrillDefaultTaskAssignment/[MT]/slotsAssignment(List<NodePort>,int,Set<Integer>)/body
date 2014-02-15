@@ -1,0 +1,4 @@
+{
+  this.reassign_num=reassign_num;
+  return freedSlots;
+}

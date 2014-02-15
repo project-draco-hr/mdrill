@@ -1,0 +1,12 @@
+{
+  long logTs=System.currentTimeMillis();
+  long logTsmax=System.currentTimeMillis();
+  for (  Entry<BoltStatKey,BoltStatVal> e : buffer.entrySet()) {
+    BoltStatKey key=e.getKey();
+    BoltStatVal bv=e.getValue();
+    long ts=bv.getGroupts();
+    logTs=Math.min(logTs,ts);
+    logTsmax=Math.max(logTsmax,ts);
+  }
+  return new long[]{logTs,logTsmax};
+}

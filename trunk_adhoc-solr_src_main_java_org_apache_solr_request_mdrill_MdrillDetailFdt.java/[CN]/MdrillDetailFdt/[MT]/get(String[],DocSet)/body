@@ -57,7 +57,7 @@
                 buff.groupbuff.append(UniqConfig.GroupJoinString());
                 Fieldable fv=docfields.getFieldable(fields[j]);
                 if (fv != null) {
-                  buff.groupbuff.append(ftlist[j].toExternal(fv));
+                  buff.groupbuff.append(EncodeUtils.encode(ftlist[j].toExternal(fv)));
                 }
  else {
                   buff.groupbuff.append(EncodeUtils.encode("-"));

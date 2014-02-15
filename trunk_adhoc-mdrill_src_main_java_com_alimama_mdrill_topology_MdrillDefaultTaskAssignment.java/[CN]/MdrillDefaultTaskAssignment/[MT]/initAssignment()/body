@@ -1,0 +1,17 @@
+{
+  Object allowPortsstr=topology_conf.get(MDRILL_ASSIGNMENT_PORTS);
+  if (allowPortsstr != null) {
+    ArrayList<Integer> ports=this.parseInts(String.valueOf(allowPortsstr));
+    this.allowPorts.addAll(ports);
+  }
+  List<String> assignment=(List<String>)topology_conf.get(MDRILL_ASSIGNMENT_DEFAULT);
+  if (assignment == null) {
+    return;
+  }
+  for (  String ass : assignment) {
+    if (ass == null || ass.isEmpty() || ass.startsWith("#")) {
+      continue;
+    }
+    this.setEachAssignment(ass);
+  }
+}

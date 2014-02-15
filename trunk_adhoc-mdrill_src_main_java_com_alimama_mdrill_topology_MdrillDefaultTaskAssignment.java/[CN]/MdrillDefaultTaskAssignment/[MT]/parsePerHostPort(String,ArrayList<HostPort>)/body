@@ -1,0 +1,51 @@
+{
+  String[] hostSetlist=hostportstr.split("&");
+  ArrayList<HostPort> hostports=new ArrayList<HostPort>();
+  int hostports_index=0;
+  for (  String subhost : hostSetlist) {
+    if (subhost == null || subhost.isEmpty()) {
+      continue;
+    }
+    String[] hostPorts=subhost.split(":");
+    boolean isUsedPrefHost=false;
+    if (hostPorts.length < 1) {
+      continue;
+    }
+    if (hostPorts.length == 1) {
+      isUsedPrefHost=true;
+    }
+    String hostname=null;
+    ArrayList<Integer> ports=null;
+    if (isUsedPrefHost) {
+      hostname="prev";
+      ports=this.parseInts(hostPorts[0]);
+    }
+ else {
+      hostname=hostPorts[0];
+      ports=this.parseInts(hostPorts[1]);
+    }
+    if (ports.size() == 0) {
+      continue;
+    }
+    for (    Integer p : ports) {
+      if (isUsedPrefHost) {
+        String privhostname=null;
+        if (prev_hostports != null) {
+          HostPort prevHostport=prev_hostports.get(hostports_index);
+          if (prevHostport != null) {
+            privhostname=prevHostport.hostname;
+          }
+        }
+        if (privhostname == null) {
+          privhostname="mdrill_unset_hostname";
+        }
+        hostports.add(new HostPort(privhostname,p));
+      }
+ else {
+        hostports.add(new HostPort(hostname,p));
+      }
+      hostports_index++;
+    }
+  }
+  return hostports;
+}

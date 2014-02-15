@@ -1,0 +1,28 @@
+{
+  Set<Integer> allTaskIds=StormUtils.listToSet(this.zkCluster.task_ids(this.topologyId));
+  HashSet<String> componnames=new HashSet<String>();
+  HashMap<String,ArrayList<Integer>> componname2Ids=new HashMap<String,ArrayList<Integer>>();
+  for (  Integer tid : allTaskIds) {
+    TaskInfo info=this.zkCluster.task_info(this.topologyId,tid);
+    if (info == null) {
+      LOG.info("can`t find TaskInfo " + this.topologyId + ","+ tid);
+      continue;
+    }
+    taskId2TaskInfo.put(tid,info);
+    String componentId=info.getComponentId();
+    componnames.add(componentId);
+    ArrayList<Integer> tasks=componname2Ids.get(componentId);
+    if (tasks == null) {
+      tasks=new ArrayList<Integer>();
+      componname2Ids.put(componentId,tasks);
+    }
+    tasks.add(tid);
+  }
+  for (  String componentId : componnames) {
+    ArrayList<Integer> tasks=componname2Ids.get(componentId);
+    Collections.sort(tasks);
+    for (int j=0; j < tasks.size(); j++) {
+      taskId2Index.put(new TaskId(componentId,tasks.get(j)),j);
+    }
+  }
+}

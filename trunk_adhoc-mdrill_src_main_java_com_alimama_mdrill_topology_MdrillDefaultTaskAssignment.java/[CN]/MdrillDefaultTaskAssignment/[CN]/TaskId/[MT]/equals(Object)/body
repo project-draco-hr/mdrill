@@ -1,0 +1,12 @@
+{
+  if (this == obj)   return true;
+  if (obj == null)   return false;
+  if (getClass() != obj.getClass())   return false;
+  TaskId other=(TaskId)obj;
+  if (componname == null) {
+    if (other.componname != null)     return false;
+  }
+ else   if (!componname.equals(other.componname))   return false;
+  if (tid != other.tid)   return false;
+  return true;
+}

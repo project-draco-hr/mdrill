@@ -1,0 +1,7 @@
+{
+  LOG.info("assignment " + MdrillDefaultTaskAssignment.class.getCanonicalName() + " setup "+ topologyId);
+  this.topology_conf=topology_conf;
+  this.supInfos=supInfos;
+  this.zkCluster=zkCluster;
+  this.topologyId=topologyId;
+}

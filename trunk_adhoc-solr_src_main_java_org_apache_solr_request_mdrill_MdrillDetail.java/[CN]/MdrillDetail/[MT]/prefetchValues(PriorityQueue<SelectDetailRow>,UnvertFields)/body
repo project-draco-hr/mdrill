@@ -1,0 +1,28 @@
+{
+  TermNumToString forsort=new TermNumToString(sortufs,0);
+  boolean usedsort=this.container.isOnlyColumnSort();
+  for (  SelectDetailRow row : res) {
+    int doc=row.docid;
+    if (usedsort) {
+      int ternnum=(int)row.value;
+      forsort.addTermNum(ternnum);
+    }
+    for (    HigoJoinInvert inv : this.container.joinInvert) {
+      int fc=inv.fieldCount();
+      LinkedBlockingQueue<GroupListCache.GroupList> groupListCache=inv.getGroupListCache();
+      GroupListCache.GroupList base=GroupListCache.GroupList.INSTANCE(groupListCache,fc);
+      base.reset();
+      if (inv.fieldNum(doc,base)) {
+        for (int i=0; i < fc; i++) {
+          inv.addTermNum(base.list[i],i);
+        }
+      }
+      groupListCache.add(base);
+    }
+  }
+  forsort.fetchValues();
+  for (  HigoJoinInvert inv : this.container.joinInvert) {
+    inv.fetchValues();
+  }
+  return forsort;
+}

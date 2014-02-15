@@ -1,4 +1,3 @@
 {
   this.confPrefix=confPrefix;
-  istanxpv=this.confPrefix.indexOf("tanx_pv") >= 0;
 }

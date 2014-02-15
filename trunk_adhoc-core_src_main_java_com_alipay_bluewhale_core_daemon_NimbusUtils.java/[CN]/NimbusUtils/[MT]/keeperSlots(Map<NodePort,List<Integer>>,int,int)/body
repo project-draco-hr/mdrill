@@ -3,9 +3,7 @@
   if (numWorkers != 0) {
     keepers=new HashMap<NodePort,List<Integer>>();
     Map<Integer,Integer> distribution=StormUtils.integer_divided(numTaskIds,numWorkers);
-    Set<Entry<NodePort,List<Integer>>> entrySet=aliveAssigned.entrySet();
-    for (Iterator<Entry<NodePort,List<Integer>>> it=entrySet.iterator(); it.hasNext(); ) {
-      Entry<NodePort,List<Integer>> entry=it.next();
+    for (    Entry<NodePort,List<Integer>> entry : aliveAssigned.entrySet()) {
       NodePort nodeport=entry.getKey();
       List<Integer> tasklist=entry.getValue();
       Integer taskCount=tasklist.size();

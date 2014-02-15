@@ -1,0 +1,34 @@
+{
+  Map<NodePort,ArrayList<Integer>> reref=new HashMap<NodePort,ArrayList<Integer>>();
+  for (  Entry<Integer,NodePort> e : assignRef.entrySet()) {
+    NodePort np=e.getValue();
+    ArrayList<Integer> tlis=reref.get(np);
+    if (tlis == null) {
+      tlis=new ArrayList<Integer>();
+      reref.put(np,tlis);
+    }
+    tlis.add(e.getKey());
+  }
+  Map<Integer,NodePort> rtn=new HashMap<Integer,NodePort>();
+  int index=0;
+  if (nonassign != null && randomNP != null && randomNP.size() != 0) {
+    for (    Integer task : nonassign) {
+      while (true) {
+        if (index >= randomNP.size()) {
+          index=0;
+        }
+        NodePort np=randomNP.get(index);
+        ArrayList<Integer> tlis=reref.get(np);
+        if (tlis != null && tlis.size() > 0) {
+          tlis.remove(0);
+          index++;
+          continue;
+        }
+        rtn.put(task,np);
+        index++;
+        break;
+      }
+    }
+  }
+  return rtn;
+}

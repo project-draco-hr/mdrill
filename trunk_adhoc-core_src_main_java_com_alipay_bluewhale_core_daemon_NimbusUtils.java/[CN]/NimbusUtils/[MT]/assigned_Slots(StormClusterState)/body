@@ -3,27 +3,21 @@
   Map<String,Set<Integer>> rtn=null;
   if (assignments != null) {
     rtn=new HashMap<String,Set<Integer>>();
-    for (Iterator<String> iter=assignments.iterator(); iter.hasNext(); ) {
-      String topologyid=(String)iter.next();
+    for (    String topologyid : assignments) {
       Assignment assignment=stormClusterState.assignment_info(topologyid,null);
       if (assignment == null) {
         continue;
       }
       Map<Integer,NodePort> taskNodePort=assignment.getTaskToNodeport();
       if (taskNodePort != null) {
-        Set<Entry<Integer,NodePort>> entrySet=taskNodePort.entrySet();
-        for (Iterator<Entry<Integer,NodePort>> it=entrySet.iterator(); it.hasNext(); ) {
-          Entry<Integer,NodePort> entry=it.next();
+        for (        Entry<Integer,NodePort> entry : taskNodePort.entrySet()) {
           NodePort np=entry.getValue();
-          if (!rtn.containsKey(np.getNode())) {
-            Set<Integer> tmp=new HashSet<Integer>();
-            tmp.add(np.getPort());
-            rtn.put(np.getNode(),tmp);
+          Set<Integer> ports=rtn.get(np.getNode());
+          if (ports == null) {
+            ports=new HashSet<Integer>();
+            rtn.put(np.getNode(),ports);
           }
- else {
-            Set<Integer> ports=rtn.get(np.getNode());
-            ports.add(np.getPort());
-          }
+          ports.add(np.getPort());
         }
       }
     }

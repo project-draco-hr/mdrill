@@ -7,12 +7,13 @@
   res.add("count",recordCount.toNamedList());
   ConcurrentHashMap<Long,String> cache=null;
   boolean issetCrc=this.parse.crcOutputSet != null;
+  long crckey=this.getkeyCrc();
   if (issetCrc) {
 synchronized (MdrillUtils.CRC_CACHE_SIZE) {
-      cache=MdrillUtils.CRC_CACHE_SIZE.get(this.parse.crcOutputSet);
+      cache=MdrillUtils.CRC_CACHE_SIZE.get(this.parse.crcOutputSet + "@" + crckey);
       if (cache == null) {
         cache=new ConcurrentHashMap<Long,String>();
-        MdrillUtils.CRC_CACHE_SIZE.put(this.parse.crcOutputSet,cache);
+        MdrillUtils.CRC_CACHE_SIZE.put(this.parse.crcOutputSet + "@" + crckey,cache);
       }
     }
   }

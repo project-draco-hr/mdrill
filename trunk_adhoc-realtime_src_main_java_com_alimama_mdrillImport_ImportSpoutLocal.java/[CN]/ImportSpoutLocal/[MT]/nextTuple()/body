@@ -17,6 +17,6 @@
     }
   }
  catch (  Throwable e) {
-    this.sleep();
+    this.sleep(100);
   }
 }

@@ -5,41 +5,58 @@
   }
   if (taskIds != null) {
     rtn=new HashSet<Integer>();
-    for (Iterator<Integer> it=taskIds.iterator(); it.hasNext(); ) {
-      int taskId=it.next();
+    for (    Integer taskId : taskIds) {
       TaskHeartbeat taskHeartbeat=stormClusterState.task_heartbeat(topologyid,taskId);
       Integer reportTime=null;
       if (taskHeartbeat != null) {
         reportTime=taskHeartbeat.getTimeSecs();
       }
-      Integer lastNimbusTime=null;
-      Integer lastReportedTime=null;
-      if (taskHeartbeatsCache.get(topologyid) != null) {
-        Map<TkHbCacheTime,Integer> last=taskHeartbeatsCache.get(topologyid).get(taskId);
-        if (last != null) {
-          lastNimbusTime=last.get(TkHbCacheTime.nimbusTime);
-          lastReportedTime=last.get(TkHbCacheTime.taskReportedTime);
-        }
+      Map<Integer,Map<TkHbCacheTime,Integer>> val=taskHeartbeatsCache.get(topologyid);
+      if (val == null) {
+        LOG.info("topologyid is null:topologyid" + topologyid);
+        val=new HashMap<Integer,Map<TkHbCacheTime,Integer>>();
+        taskHeartbeatsCache.put(topologyid,val);
+      }
+      Map<TkHbCacheTime,Integer> last=taskHeartbeatsCache.get(topologyid).get(taskId);
+      if (last == null) {
+        LOG.info("topologyid taskid is null:topologyid:" + topologyid + ",taskId:"+ taskId);
+        last=new HashMap<TkHbCacheTime,Integer>();
+        val.put(taskId,last);
+      }
+      Integer lastNimbusTime=last.get(TkHbCacheTime.nimbusTime);
+      Integer lastReportedTime=last.get(TkHbCacheTime.taskReportedTime);
+      if (reportTime != null) {
+        last.put(TkHbCacheTime.taskReportedTime,reportTime);
       }
       Integer taskStartTime=taskStartTimes.get(taskId);
       Integer nimbusTime=null;
-      if (lastNimbusTime == null || lastReportedTime != reportTime) {
+      if (lastNimbusTime == null || lastReportedTime == null) {
+        nimbusTime=TimeUtils.current_time_secs();
+      }
+ else       if (!lastReportedTime.equals(reportTime)) {
         nimbusTime=TimeUtils.current_time_secs();
       }
  else {
         nimbusTime=lastNimbusTime;
       }
-      Map<Integer,Map<TkHbCacheTime,Integer>> val=taskHeartbeatsCache.get(topologyid);
-      if (val == null) {
-        val=new HashMap<Integer,Map<TkHbCacheTime,Integer>>();
-      }
-      Map<TkHbCacheTime,Integer> times=new HashMap<TkHbCacheTime,Integer>();
-      times.put(TkHbCacheTime.nimbusTime,nimbusTime);
-      times.put(TkHbCacheTime.taskReportedTime,reportTime);
-      val.put(taskId,times);
-      taskHeartbeatsCache.put(topologyid,val);
-      if (taskStartTime != null && ((TimeUtils.time_delta(taskStartTime) < (Integer)conf.get(Config.NIMBUS_TASK_LAUNCH_SECS)) || (nimbusTime == null) || (TimeUtils.time_delta(nimbusTime) < (Integer)conf.get(Config.NIMBUS_TASK_TIMEOUT_SECS)))) {
-        rtn.add(taskId);
+      last.put(TkHbCacheTime.nimbusTime,nimbusTime);
+      if (taskStartTime != null) {
+        boolean isLantch=TimeUtils.time_delta(taskStartTime) < (Integer)conf.get(Config.NIMBUS_TASK_LAUNCH_SECS);
+        if (isLantch) {
+          rtn.add(taskId);
+          continue;
+        }
+        if (nimbusTime == null) {
+          rtn.add(taskId);
+          continue;
+        }
+        boolean ishb=TimeUtils.time_delta(nimbusTime) < (Integer)conf.get(Config.NIMBUS_TASK_TIMEOUT_SECS);
+        if (ishb) {
+          rtn.add(taskId);
+        }
+ else {
+          LOG.info("Task2 " + topologyid + ":"+ taskId+ " timed out taskStartTime="+ String.valueOf(taskStartTime)+ ",nimbustime="+ String.valueOf(nimbusTime));
+        }
       }
  else {
         LOG.info("Task " + topologyid + ":"+ taskId+ " timed out taskStartTime="+ String.valueOf(taskStartTime)+ ",nimbustime="+ String.valueOf(nimbusTime));

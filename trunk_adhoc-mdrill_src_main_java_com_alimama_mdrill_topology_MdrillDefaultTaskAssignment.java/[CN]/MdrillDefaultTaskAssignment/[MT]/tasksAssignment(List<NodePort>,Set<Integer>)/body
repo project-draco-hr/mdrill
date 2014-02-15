@@ -1,0 +1,82 @@
+{
+  Map<Integer,NodePort> rtn=new HashMap<Integer,NodePort>();
+  if (reassignIds.size() <= 0) {
+    return rtn;
+  }
+  this.initAssignment();
+  this.taskIdToIndex();
+  LOG.info("taskId2Index " + taskId2Index.toString());
+  LOG.info("taskIndexAssign " + taskIndexAssign.toString());
+  LOG.info("taskId2TaskInfo " + taskId2TaskInfo.toString());
+  LOG.info("hostports " + hostports.toString());
+  LOG.info("supInfos " + supInfos.toString());
+  ArrayList<Integer> nonAssignTask=new ArrayList<Integer>();
+  ArrayList<NodePort> nonAssignNodePort=new ArrayList<NodePort>();
+  HashSet<NodePort> UsedNodePort=new HashSet<NodePort>();
+  HashMap<HostPort,NodePort> host2node=new HashMap<HostPort,NodePort>();
+  for (  NodePort p : reassignSlots) {
+    SupervisorInfo info=this.supInfos.get(p.getNode());
+    if (info != null) {
+      HostPort hp=new HostPort(info.getHostName(),p.getPort());
+      if (hostports.contains(hp)) {
+        host2node.put(hp,p);
+        continue;
+      }
+    }
+    if (!this.allowPorts.contains(p.getPort())) {
+      continue;
+    }
+    nonAssignNodePort.add(p);
+  }
+  for (  Integer task : reassignIds) {
+    TaskInfo info=taskId2TaskInfo.get(task);
+    if (info == null) {
+      nonAssignTask.add(task);
+      LOG.info("can`t find task:" + task + ","+ this.topologyId);
+      continue;
+    }
+    String componname=info.getComponentId();
+    Integer index=taskId2Index.get(new TaskId(componname,task));
+    if (index == null) {
+      nonAssignTask.add(task);
+      LOG.info("can`t find taskindex:" + task + ","+ this.topologyId+ ",index:"+ index);
+      continue;
+    }
+    ArrayList<HostPort> taskAssignList=taskIndexAssign.get(new TaskIndex(componname,index));
+    if (taskAssignList == null || taskAssignList.size() == 0) {
+      nonAssignTask.add(task);
+      continue;
+    }
+    boolean isbreak=false;
+    for (    HostPort hp : taskAssignList) {
+      NodePort np=host2node.get(hp);
+      if (np != null) {
+        UsedNodePort.add(np);
+        LOG.info("assign:task:" + componname + "@"+ task+ "@"+ index+ ",HostPort:"+ hp.toString()+ ","+ ",NodePort:"+ np.toString());
+        rtn.put(task,np);
+        isbreak=true;
+        break;
+      }
+    }
+    if (isbreak) {
+      continue;
+    }
+    nonAssignTask.add(task);
+  }
+  if (nonAssignTask.size() > 0) {
+    int left=this.reassign_num - UsedNodePort.size();
+    ArrayList<NodePort> randomList=new ArrayList<NodePort>();
+    if (left > 0) {
+      List<NodePort> sortlist=sortSlots(nonAssignNodePort);
+      randomList.addAll(sortlist.subList(0,Math.min(left,sortlist.size())));
+    }
+    if (randomList.size() > 0) {
+      LOG.info("random assign:nonAssignTask:" + nonAssignTask.toString() + ",randomList:"+ randomList.toString());
+      rtn.putAll(this.randAssign(randomList,nonAssignTask,rtn));
+    }
+ else {
+      LOG.error("nofreeNode" + nonAssignTask.toString() + ">>"+ reassignSlots.toString());
+    }
+  }
+  return rtn;
+}

@@ -2,28 +2,23 @@
   long ts=log.getTs();
   BoltStatKey key=new BoltStatKey(log.getGroup());
   BoltStatVal val=new BoltStatVal(log.getSum(),ts);
-  BoltStatVal statval=nolockbuffer.get(key);
   this.status.ttInput++;
-  if (statval == null) {
-    nolockbuffer.put(key,val);
-    this.status.groupCreate++;
+  this.status.groupCreate++;
+  SolrInputDocument doc=new SolrInputDocument();
+  String[] groupnames=parse.getGroupName();
+  for (int i=0; i < groupnames.length && i < key.list.length; i++) {
+    doc.addField(groupnames[i],key.list[i]);
   }
- else {
-    statval.merger(val);
+  String[] statNames=parse.getSumName();
+  for (int i=0; i < statNames.length && i < val.list.length; i++) {
+    doc.addField(statNames[i],val.list[i]);
   }
-  if ((this.status.ttInput % 1000 != 0)) {
+synchronized (doclistLock) {
+    doclist.add(doc);
+  }
+  if ((this.status.ttInput % checkIntervel != 0)) {
     return false;
   }
-  if (!this.timeoutCheck.istimeout() && nolockbuffer.size() < buffersize && nolockbuffer.size() < buffersize) {
-    return false;
-  }
-  this.timeoutCheck.reset();
-  HashMap<BoltStatKey,BoltStatVal> buffer=nolockbuffer;
-  LOG.info(this.confPrefix + "####total:group=" + buffer.size()+ ",ts:"+ formatHour.format(new Date(ts))+ ",status:"+ this.status.toString());
-  nolockbuffer=new HashMap<BoltStatKey,BoltStatVal>(buffersize);
-  this.commit.updateAll(buffer,false);
-  if (this.status.ttInput > 100000000) {
-    this.status.reset();
-  }
+  this.commit();
   return true;
 }

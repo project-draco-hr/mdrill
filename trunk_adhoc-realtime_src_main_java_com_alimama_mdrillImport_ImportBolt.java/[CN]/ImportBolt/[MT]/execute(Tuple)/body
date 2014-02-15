@@ -2,11 +2,6 @@
   this.status.InputCount++;
   BoltStatKey key=(BoltStatKey)input.getValue(0);
   BoltStatVal bv=(BoltStatVal)input.getValue(1);
-  if (istanxpv) {
-    if (key.list.length >= 3 && "mm_12229823_1573806_11174236".equals(key.list[2])) {
-      LOG.info("yanniandebugbolt:" + key.toString() + "==="+ bv.toString());
-    }
-  }
   BoltStatVal statval=nolockbuffer.get(key);
   if (statval == null) {
     this.status.groupCreate++;
@@ -15,7 +10,7 @@
  else {
     statval.merger(bv);
   }
-  if ((this.status.InputCount % 1000 != 0)) {
+  if ((this.status.InputCount % this.checkIntervel != 0)) {
     this.collector.ack(input);
     return;
   }
@@ -26,7 +21,7 @@
   }
   HashMap<BoltStatKey,BoltStatVal> buffer=nolockbuffer;
   nolockbuffer=new HashMap<BoltStatKey,BoltStatVal>(this.intMapsize);
-  this.commit.updateAll(buffer,istanxpv);
+  this.commit.updateAll(buffer);
   LOG.info(this.confPrefix + " bolt flush:groupsize=" + buffer.size()+ ","+ this.status.toString()+ ","+ this.commit.toDebugString());
   this.timeoutCheck.reset();
   this.collector.ack(input);

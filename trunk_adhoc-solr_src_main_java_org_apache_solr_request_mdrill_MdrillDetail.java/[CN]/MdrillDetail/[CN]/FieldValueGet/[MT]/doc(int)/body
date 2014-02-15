@@ -1,0 +1,25 @@
+{
+  Document docfields=this.reader.document(docid,selector);
+  String[] rtn=new String[this.fields.length];
+  for (int j=0; j < fields.length; j++) {
+    rtn[j]="-";
+    String field=fields[j];
+    if (this.isStore[j]) {
+      Fieldable fv=docfields.getFieldable(field);
+      if (fv != null) {
+        rtn[j]=ftlist[j].toExternal(fv);
+      }
+    }
+ else {
+      UnvertFile uf=ufs.cols[j];
+      if (uf != null) {
+        Integer termNum=uf.uif.termNum(docid);
+        String fieldvalue=uf.uif.tNumToString(termNum,uf.filetype,uf.ti,"null");
+        if (fieldvalue != null) {
+          rtn[j]=fieldvalue;
+        }
+      }
+    }
+  }
+  return rtn;
+}

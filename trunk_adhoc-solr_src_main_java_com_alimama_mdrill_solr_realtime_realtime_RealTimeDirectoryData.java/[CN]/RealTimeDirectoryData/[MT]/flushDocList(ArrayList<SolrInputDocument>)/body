@@ -18,9 +18,6 @@
     sdoc.remove("mdrillPartion");
     sdoc.remove("mdrillCmd");
     sdoc.remove("mdrill_uuid");
-    if ("mm_12229823_1573806_11174236".equals(sdoc.getFieldValue("pid"))) {
-      LOG.info("####flushDocList :" + sdoc);
-    }
     Document lucenedoc=DocumentBuilder.toDocument(sdoc,params.core.getSchema());
     doclist.add(lucenedoc);
   }

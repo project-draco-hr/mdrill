@@ -1,12 +1,6 @@
 {
-  if ("mm_12229823_1573806_11174236".equals(doc.getFieldValue("pid"))) {
-    LOG.info("####addDocument 1 :" + doc + ","+ String.valueOf(writelog));
-  }
   if (RealTimeDirectorUtils.maybeReplication(doc)) {
     return;
-  }
-  if ("mm_12229823_1573806_11174236".equals(doc.getFieldValue("pid"))) {
-    LOG.info("####addDocument 2 :" + doc + ","+ String.valueOf(writelog));
   }
   if (writelog) {
     try {

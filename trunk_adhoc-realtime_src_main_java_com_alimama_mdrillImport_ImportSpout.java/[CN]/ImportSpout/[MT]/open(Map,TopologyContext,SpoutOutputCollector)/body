@@ -8,6 +8,10 @@
   }
   int timeout=Integer.parseInt(String.valueOf(conf.get(confPrefix + "-timeoutSpout")));
   this.buffersize=Integer.parseInt(String.valueOf(conf.get(confPrefix + "-spoutbuffer")));
+  Object chkIntervel=conf.get(confPrefix + "-spoutIntervel");
+  if (chkIntervel != null) {
+    this.checkIntervel=Integer.parseInt(String.valueOf(chkIntervel));
+  }
   this.timeoutCheck=new TimeOutCheck(timeout * 1000l);
   this.status=new SpoutStatus();
   this.collector=collector;

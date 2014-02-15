@@ -1,0 +1,20 @@
+{
+synchronized (diskMallocLock) {
+    if (diskDirList != null) {
+      try {
+        Configuration conf=this.getConf();
+        FileSystem lfs=FileSystem.getLocal(conf);
+        String partionDisk=IndexUtils.getPath(RealTimeDirectoryParams.diskDirList,taskIndex,hashcode,lfs);
+        String tablename=this.Partion == null ? "default" : this.Partion.tablename;
+        String partionName=this.Partion == null ? "default" : this.Partion.partion;
+        Path localPartionStorePath=new Path(new Path(partionDisk,"higo"),tablename + "/" + partionName+ "/"+ taskIndex);
+        lfs.mkdirs(localPartionStorePath);
+        return localPartionStorePath.toString();
+      }
+ catch (      IOException e) {
+        LOG.error("getIndexMalloc",e);
+      }
+    }
+  }
+  return this.baseDir;
+}

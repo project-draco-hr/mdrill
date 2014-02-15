@@ -1,0 +1,34 @@
+{
+  String[] cols=ass.split(";");
+  if (cols.length < 2) {
+    return;
+  }
+  ArrayList<TaskIndex> taskIndexList=this.parseTaskIndexList(cols[0]);
+  if (taskIndexList.size() == 0) {
+    return;
+  }
+  ArrayList<HostPort> prev_hostports=null;
+  for (int j=1; j < cols.length; j++) {
+    if (cols[j] == null || cols[j].isEmpty()) {
+      continue;
+    }
+    ArrayList<HostPort> hostports=this.parsePerHostPort(cols[j],prev_hostports);
+    prev_hostports=hostports;
+    int index=0;
+    int maxsize=hostports.size();
+    for (    TaskIndex task : taskIndexList) {
+      if (index >= maxsize) {
+        index=0;
+      }
+      HostPort hp=hostports.get(index);
+      index++;
+      ArrayList<HostPort> list=this.taskIndexAssign.get(task);
+      if (list == null) {
+        list=new ArrayList<HostPort>();
+        this.taskIndexAssign.put(task,list);
+      }
+      list.add(hp);
+      this.hostports.add(hp);
+    }
+  }
+}

@@ -1,6 +1,6 @@
 {
   this.parse=parse;
-  ufs=new UnvertFields(fields,reader,searcher.getPartionKey(),searcher.getSchema(),false);
+  this.fields=fields;
   sortufs=new UnvertFields(new String[]{parse.sort_fl},reader,searcher.getPartionKey(),searcher.getSchema(),true);
   this.joinInvert=new HigoJoinInvert[parse.joinList.length];
   HigoJoinSort[] joinSort=new HigoJoinSort[this.parse.joinList.length];
@@ -26,7 +26,7 @@
     }
   }
   res=new PriorityQueue<SelectDetailRow>(this.parse.limit_offset,Collections.reverseOrder(cmpTermNum));
-  this.groupbySize=ufs.length;
+  this.groupbySize=this.fields.length;
   for (  HigoJoinInvert inv : joinInvert) {
     this.groupbySize+=inv.fieldCount();
   }

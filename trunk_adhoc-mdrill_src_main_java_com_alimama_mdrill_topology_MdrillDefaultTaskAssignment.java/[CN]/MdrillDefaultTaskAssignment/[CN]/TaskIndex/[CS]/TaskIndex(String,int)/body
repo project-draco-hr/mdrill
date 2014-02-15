@@ -1,0 +1,4 @@
+{
+  this.componname=componname;
+  this.index=index;
+}
