@@ -28,7 +28,8 @@
         TermIndex.QuickNumberedTermEnum te=ti.getEnumerator(reader,reader.getQuickTis(),pos,cnt,posval,isreadDouble);
         this.setSingleValue(te,reader,key,isreadDouble);
         numTermsInField=te.getTermNumber();
-        te.close();
+        te.TermIndexTrans();
+        cachete=te;
         isbyQuick=true;
       }
     }

@@ -1,0 +1,10 @@
+{
+  if (this.cachete != null) {
+    try {
+      this.cachete.resetQuickTis(reader.getQuickTis());
+    }
+ catch (    Throwable e) {
+      log.info("setSegmentReader",e);
+    }
+  }
+}

@@ -4,7 +4,7 @@
     Integer bindport=this.getBindPort();
     Long hbtime=statcollect.getLastTime();
     SolrInfo info=new SolrInfo(this.params.replication,this.params.replicationindex,this.taskIndex,false,localSolrPath.toString(),"solrservice".toString(),hdfsforder,bindport,statcollect.getStat(),new HashMap<String,ShardCount>(),new HashMap<String,ShardCount>(),this.statcollect.getSetupTime(),hbtime,this.isMergeServer);
-    LOG.info("higolog zkHeatbeat " + this.tablename + ",info:"+ info.toString());
+    LOG.info("higolog zkHeatbeat " + this.tablename + ",info:"+ info.toShortString());
     Worker.getCluster().higo_heartbeat(this.tablename,this.taskid,info);
   }
  catch (  Exception e) {
