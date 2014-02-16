@@ -1,11 +1,14 @@
 {
   if (quicktisInput != null) {
     quicktisInput.close();
+    quicktisInput=null;
   }
   if (quicktisInputTxt != null) {
     quicktisInputTxt.close();
+    quicktisInputTxt=null;
   }
   if (quicktisInputVal != null) {
     quicktisInputVal.close();
+    quicktisInputVal=null;
   }
 }

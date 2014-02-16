@@ -1,4 +1,8 @@
 {
   long current_time=System.currentTimeMillis();
-  return pathname.isFile() && (pathname.lastModified() + seconds * 1000 <= current_time);
+  long lastMonity=pathname.lastModified();
+  if (lastMonity <= 0) {
+    lastMonity=current_time;
+  }
+  return pathname.isFile() && (lastMonity + seconds * 1000l <= current_time);
 }

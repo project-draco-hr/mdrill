@@ -3,6 +3,7 @@
     return;
   }
   isShutDown=true;
+  this.extendFree();
   if (this.index != null) {
     INT_BUFFER.free(this.index);
   }

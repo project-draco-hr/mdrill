@@ -1,0 +1,8 @@
+{
+  super.finalize();
+  try {
+    this.close();
+  }
+ catch (  Throwable e) {
+  }
+}

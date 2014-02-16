@@ -6,10 +6,22 @@
       StatusTransition.transition(data,topologyid,false,StatusType.monitor);
     }
   }
+  long times=index.incrementAndGet();
+  if (times % 10 != 0) {
+    return;
+  }
+  if (times > 10000000) {
+    index.set(0l);
+  }
 synchronized (data.getSubmitLock()) {
     Set<String> to_cleanup_ids=do_cleanup(clusterState,active_topologys);
     if (to_cleanup_ids != null && to_cleanup_ids.size() > 0) {
       for (      String storm_id : to_cleanup_ids) {
+        if (!lastneedClean.containsKey(storm_id)) {
+          LOG.info("nexttime Cleaning up " + storm_id);
+          lastneedClean.put(storm_id,System.currentTimeMillis());
+          continue;
+        }
         LOG.info("Cleaning up " + storm_id);
         clusterState.teardown_heartbeats(storm_id);
         clusterState.teardown_task_errors(storm_id);

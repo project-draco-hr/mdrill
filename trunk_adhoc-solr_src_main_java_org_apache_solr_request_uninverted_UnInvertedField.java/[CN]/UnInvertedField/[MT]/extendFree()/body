@@ -1,0 +1,11 @@
+{
+  try {
+    if (this.cachete != null) {
+      this.cachete.close();
+    }
+  }
+ catch (  Throwable e) {
+    log.info("extendFree",e);
+  }
+  super.extendFree();
+}
