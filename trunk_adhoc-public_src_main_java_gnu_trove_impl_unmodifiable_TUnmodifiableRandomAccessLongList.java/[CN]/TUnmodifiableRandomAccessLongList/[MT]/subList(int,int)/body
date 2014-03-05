@@ -1,0 +1,3 @@
+{
+  return new TUnmodifiableRandomAccessLongList(list.subList(fromIndex,toIndex));
+}

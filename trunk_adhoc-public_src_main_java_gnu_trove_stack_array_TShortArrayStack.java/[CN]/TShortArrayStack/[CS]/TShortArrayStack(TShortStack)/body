@@ -1,0 +1,9 @@
+{
+  if (stack instanceof TShortArrayStack) {
+    TShortArrayStack array_stack=(TShortArrayStack)stack;
+    this._list=new TShortArrayList(array_stack._list);
+  }
+ else {
+    throw new UnsupportedOperationException("Only support TShortArrayStack");
+  }
+}

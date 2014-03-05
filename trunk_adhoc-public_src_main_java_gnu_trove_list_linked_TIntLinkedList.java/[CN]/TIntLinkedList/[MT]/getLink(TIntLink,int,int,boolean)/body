@@ -1,0 +1,11 @@
+{
+  int i=idx;
+  while (got(l)) {
+    if (i == offset) {
+      return l;
+    }
+    i=i + (next ? 1 : -1);
+    l=next ? l.getNext() : l.getPrevious();
+  }
+  return null;
+}

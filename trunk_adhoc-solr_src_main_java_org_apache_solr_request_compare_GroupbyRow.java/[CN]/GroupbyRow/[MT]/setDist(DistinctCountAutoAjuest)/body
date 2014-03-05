@@ -1,0 +1,7 @@
+{
+  if (dist != null) {
+    for (int i=0; i < dist.size(); i++) {
+      autoDist.put(Arrays.asList(this.key,new Integer(i)),dist.get(i));
+    }
+  }
+}

@@ -1,0 +1,5 @@
+{
+  Object[] result=new Object[size()];
+  forEach(new ToObjectArrayProceedure(result));
+  return result;
+}

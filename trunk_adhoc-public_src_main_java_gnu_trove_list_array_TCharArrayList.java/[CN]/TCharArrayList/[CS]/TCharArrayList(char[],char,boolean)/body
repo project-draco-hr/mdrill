@@ -1,0 +1,7 @@
+{
+  if (!wrap)   throw new IllegalStateException("Wrong call");
+  if (values == null)   throw new IllegalArgumentException("values can not be null");
+  _data=values;
+  _pos=values.length;
+  this.no_entry_value=no_entry_value;
+}

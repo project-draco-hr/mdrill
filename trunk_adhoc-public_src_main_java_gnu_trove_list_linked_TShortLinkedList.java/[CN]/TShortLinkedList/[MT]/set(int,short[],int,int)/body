@@ -1,0 +1,6 @@
+{
+  for (int i=0; i < length; i++) {
+    short value=values[valOffset + i];
+    set(offset + i,value);
+  }
+}

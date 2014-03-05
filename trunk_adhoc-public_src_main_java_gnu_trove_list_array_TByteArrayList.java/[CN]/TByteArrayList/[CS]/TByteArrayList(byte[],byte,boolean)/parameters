@@ -1,0 +1,3 @@
+byte[] values
+byte no_entry_value
+boolean wrap

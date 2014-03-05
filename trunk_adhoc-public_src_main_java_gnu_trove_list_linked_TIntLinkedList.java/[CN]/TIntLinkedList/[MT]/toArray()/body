@@ -1,0 +1,3 @@
+{
+  return toArray(new int[size],0,size);
+}

@@ -1,0 +1,3 @@
+{
+  TObjectByteHashMap.this.clear();
+}

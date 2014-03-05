@@ -1,0 +1,7 @@
+{
+  DistinctCount dist=new DistinctCount();
+  ajust.put(key,dist);
+  this.autoAjust();
+  dist.setAutoAjust(this);
+  return dist;
+}

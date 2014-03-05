@@ -1,0 +1,4 @@
+{
+  if (!(o instanceof Float))   return false;
+  return _set.contains(((Float)o).floatValue());
+}

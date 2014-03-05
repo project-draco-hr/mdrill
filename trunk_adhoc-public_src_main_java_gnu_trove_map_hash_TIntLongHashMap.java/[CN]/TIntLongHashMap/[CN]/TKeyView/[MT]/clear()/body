@@ -1,0 +1,3 @@
+{
+  TIntLongHashMap.this.clear();
+}

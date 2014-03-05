@@ -1,0 +1,3 @@
+{
+  return TObjectByteHashMap.this.values(dest);
+}

@@ -1,0 +1,4 @@
+{
+  if (c == null)   throw new NullPointerException();
+  this.c=c;
+}

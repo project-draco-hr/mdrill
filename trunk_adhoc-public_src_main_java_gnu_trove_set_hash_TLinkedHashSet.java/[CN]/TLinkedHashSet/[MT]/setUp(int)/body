@@ -1,0 +1,19 @@
+{
+  order=new TIntArrayList(initialCapacity){
+    /** 
+ * Grow the internal array as needed to accommodate the specified number of elements.
+ * The size of the array bytes on each resize unless capacity requires more than twice
+ * the current capacity.
+ */
+    @Override public void ensureCapacity(    int capacity){
+      if (capacity > _data.length) {
+        int newCap=Math.max(_set.length,capacity);
+        int[] tmp=new int[newCap];
+        System.arraycopy(_data,0,tmp,0,_data.length);
+        _data=tmp;
+      }
+    }
+  }
+;
+  return super.setUp(initialCapacity);
+}

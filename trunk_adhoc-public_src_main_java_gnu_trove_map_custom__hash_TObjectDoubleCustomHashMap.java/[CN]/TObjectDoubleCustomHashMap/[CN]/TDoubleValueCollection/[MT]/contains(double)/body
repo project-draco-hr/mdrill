@@ -1,0 +1,3 @@
+{
+  return TObjectDoubleCustomHashMap.this.containsValue(entry);
+}

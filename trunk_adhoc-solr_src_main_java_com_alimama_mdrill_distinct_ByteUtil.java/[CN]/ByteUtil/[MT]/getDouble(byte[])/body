@@ -1,0 +1,5 @@
+{
+  long l=getLong(bytes);
+  System.out.println(l);
+  return Double.longBitsToDouble(l);
+}

@@ -1,0 +1,14 @@
+{
+  for (  Object element : collection) {
+    if (element instanceof Short) {
+      short c=((Short)element).shortValue();
+      if (!contains(c)) {
+        return false;
+      }
+    }
+ else {
+      return false;
+    }
+  }
+  return true;
+}

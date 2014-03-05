@@ -1,0 +1,14 @@
+{
+  float previous=no_entry_value;
+  boolean isNewMapping=true;
+  if (index < 0) {
+    index=-index - 1;
+    previous=_values[index];
+    isNewMapping=false;
+  }
+  _values[index]=value;
+  if (isNewMapping) {
+    postInsertHook(consumeFreeSlot);
+  }
+  return previous;
+}

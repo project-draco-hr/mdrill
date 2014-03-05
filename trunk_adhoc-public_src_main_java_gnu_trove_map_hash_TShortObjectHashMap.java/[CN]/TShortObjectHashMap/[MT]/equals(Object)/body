@@ -1,0 +1,30 @@
+{
+  if (!(other instanceof TShortObjectMap)) {
+    return false;
+  }
+  TShortObjectMap that=(TShortObjectMap)other;
+  if (that.size() != this.size()) {
+    return false;
+  }
+  try {
+    TShortObjectIterator iter=this.iterator();
+    while (iter.hasNext()) {
+      iter.advance();
+      short key=iter.key();
+      Object value=iter.value();
+      if (value == null) {
+        if (!(that.get(key) == null && that.containsKey(key))) {
+          return false;
+        }
+      }
+ else {
+        if (!value.equals(that.get(key))) {
+          return false;
+        }
+      }
+    }
+  }
+ catch (  ClassCastException ex) {
+  }
+  return true;
+}

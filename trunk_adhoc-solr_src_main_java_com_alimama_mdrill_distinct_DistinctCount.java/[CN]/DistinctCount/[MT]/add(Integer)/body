@@ -1,7 +1,15 @@
 {
   if (this.isallow(crc)) {
     boolean isadd=this.uniq.add(crc);
-    if (isadd && this.uniq.size() > getMaxUniqSize()) {
+    if (!isadd) {
+      return;
+    }
+    if (autoAjust != null) {
+      if (this.uniq.size() > getMaxUniqSize()) {
+        autoAjust.ajust();
+      }
+    }
+    if (this.uniq.size() > getMaxUniqSize()) {
       int newtimes=currentTimes * TimesStep;
       this.reFilter(newtimes);
     }

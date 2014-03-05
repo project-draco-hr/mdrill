@@ -1,0 +1,4 @@
+{
+  if (values == null)   values=TCollections.unmodifiableCollection(m.valueCollection());
+  return values;
+}

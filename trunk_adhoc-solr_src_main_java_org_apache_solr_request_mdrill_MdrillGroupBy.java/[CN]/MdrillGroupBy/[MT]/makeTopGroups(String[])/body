@@ -1,6 +1,7 @@
 {
   GroupListCache.GroupList group=GroupListCache.GroupList.INSTANCE(container.groupListCache,container.groupbySize);
   QuickHashMap<GroupListCache.GroupList,RefRow> groups=new QuickHashMap<GroupListCache.GroupList,RefRow>(this.parse.limit_offset_maxgroups + 1);
+  boolean issetDist=this.parse.isMustSetDistResult();
   if (container.groupNonEmptySize == 0) {
     group.reset();
     RefRow cnt=this.makeOrGetGroup(groups,group);
@@ -20,7 +21,9 @@
         while (iter.hasNext()) {
           int doc=iter.nextDoc();
           cnt.val++;
-          container.updateDist(cnt,doc);
+          if (issetDist) {
+            container.updateDist(cnt,doc);
+          }
         }
       }
  else {
@@ -28,7 +31,9 @@
           int doc=iter.nextDoc();
           cnt.val++;
           container.updateStat(cnt,doc);
-          container.updateDist(cnt,doc);
+          if (issetDist) {
+            container.updateDist(cnt,doc);
+          }
         }
       }
     }
@@ -62,7 +67,9 @@
         if (container.toGroupsByJoin(doc,group) && container.pre.contains(group)) {
           RefRow cnt=this.makeOrGetGroup(groups,group);
           cnt.val++;
-          container.updateDist(cnt,doc);
+          if (issetDist) {
+            container.updateDist(cnt,doc);
+          }
           this.delayPut(groups,cnt,group);
         }
       }
@@ -74,7 +81,9 @@
           RefRow cnt=this.makeOrGetGroup(groups,group);
           cnt.val++;
           container.updateStat(cnt,doc);
-          container.updateDist(cnt,doc);
+          if (issetDist) {
+            container.updateDist(cnt,doc);
+          }
           this.delayPut(groups,cnt,group);
         }
       }

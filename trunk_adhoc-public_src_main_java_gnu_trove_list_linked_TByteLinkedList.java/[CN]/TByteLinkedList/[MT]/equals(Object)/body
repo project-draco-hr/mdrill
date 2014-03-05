@@ -1,0 +1,14 @@
+{
+  if (this == o)   return true;
+  if (o == null || getClass() != o.getClass())   return false;
+  TByteLinkedList that=(TByteLinkedList)o;
+  if (no_entry_value != that.no_entry_value)   return false;
+  if (size != that.size)   return false;
+  TByteIterator iterator=iterator();
+  TByteIterator thatIterator=that.iterator();
+  while (iterator.hasNext()) {
+    if (!thatIterator.hasNext())     return false;
+    if (iterator.next() != thatIterator.next())     return false;
+  }
+  return true;
+}

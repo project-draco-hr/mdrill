@@ -1,0 +1,4 @@
+{
+  ForEachProcedure forEachProcedure=new ForEachProcedure(_set,procedure);
+  return order.forEach(forEachProcedure);
+}

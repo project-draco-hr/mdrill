@@ -19,7 +19,7 @@
       res[i]="_";
     }
   }
-  if (usedthedate && thedateIndex > 0) {
+  if (usedthedate && thedateIndex >= 0) {
     if (thedate != null) {
       res[thedateIndex]=thedate;
     }

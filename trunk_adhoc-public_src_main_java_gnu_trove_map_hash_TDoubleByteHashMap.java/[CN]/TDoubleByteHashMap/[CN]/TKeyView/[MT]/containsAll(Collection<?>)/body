@@ -1,0 +1,14 @@
+{
+  for (  Object element : collection) {
+    if (element instanceof Double) {
+      double ele=((Double)element).doubleValue();
+      if (!TDoubleByteHashMap.this.containsKey(ele)) {
+        return false;
+      }
+    }
+ else {
+      return false;
+    }
+  }
+  return true;
+}

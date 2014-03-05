@@ -1,0 +1,8 @@
+{
+  long ret=Long.MAX_VALUE;
+  if (isEmpty())   throw new IllegalStateException();
+  for (TLongLink l=head; got(l); l=l.getNext()) {
+    if (ret > l.getValue())     ret=l.getValue();
+  }
+  return ret;
+}

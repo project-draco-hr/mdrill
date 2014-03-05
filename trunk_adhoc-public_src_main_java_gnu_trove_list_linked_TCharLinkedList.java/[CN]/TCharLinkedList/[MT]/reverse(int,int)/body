@@ -1,0 +1,23 @@
+{
+  if (from > to)   throw new IllegalArgumentException("from > to : " + from + ">"+ to);
+  TCharLink start=getLinkAt(from);
+  TCharLink stop=getLinkAt(to);
+  TCharLink prev, next;
+  TCharLink tmp=null;
+  TCharLink tmpHead=start.getPrevious();
+  TCharLink l=start;
+  while (l != stop) {
+    next=l.getNext();
+    prev=l.getPrevious();
+    tmp=l;
+    l=l.getNext();
+    tmp.setNext(prev);
+    tmp.setPrevious(next);
+  }
+  if (got(tmp)) {
+    tmpHead.setNext(tmp);
+    stop.setPrevious(tmpHead);
+  }
+  start.setNext(stop);
+  stop.setPrevious(start);
+}

@@ -1,0 +1,8 @@
+{
+  for (  double element : array) {
+    if (!TDoubleObjectHashMap.this.containsKey(element)) {
+      return false;
+    }
+  }
+  return true;
+}

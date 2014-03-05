@@ -1,0 +1,3 @@
+HashingStrategy<? super T> strategy
+int initialCapacity
+float loadFactor

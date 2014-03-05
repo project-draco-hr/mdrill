@@ -1,0 +1,21 @@
+{
+  if (end < begin) {
+    throw new IllegalArgumentException("begin index " + begin + " greater than end index "+ end);
+  }
+  if (size < begin) {
+    throw new IllegalArgumentException("begin index " + begin + " greater than last index "+ size);
+  }
+  if (begin < 0) {
+    throw new IndexOutOfBoundsException("begin index can not be < 0");
+  }
+  if (end > size) {
+    throw new IndexOutOfBoundsException("end index < " + size);
+  }
+  TDoubleLinkedList ret=new TDoubleLinkedList();
+  TDoubleLink tmp=getLinkAt(begin);
+  for (int i=begin; i < end; i++) {
+    ret.add(tmp.getValue());
+    tmp=tmp.getNext();
+  }
+  return ret;
+}

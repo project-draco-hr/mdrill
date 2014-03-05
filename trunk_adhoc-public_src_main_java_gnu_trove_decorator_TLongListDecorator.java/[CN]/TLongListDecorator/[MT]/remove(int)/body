@@ -1,0 +1,5 @@
+{
+  long previous_value=list.removeAt(index);
+  if (previous_value == list.getNoEntryValue())   return null;
+ else   return Long.valueOf(previous_value);
+}

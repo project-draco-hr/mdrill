@@ -1,0 +1,8 @@
+{
+  if (offset > size)   throw new IndexOutOfBoundsException("index " + offset + " exceeds size "+ size);
+  TCharLink l=getLinkAt(offset);
+  if (no(l))   throw new IndexOutOfBoundsException("at offset " + offset);
+  char prev=l.getValue();
+  l.setValue(val);
+  return prev;
+}

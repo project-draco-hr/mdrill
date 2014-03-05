@@ -1,0 +1,9 @@
+{
+  out.writeByte(0);
+  out.writeShort(no_entry_value);
+  out.writeInt(size);
+  for (TShortIterator iterator=iterator(); iterator.hasNext(); ) {
+    short next=iterator.next();
+    out.writeShort(next);
+  }
+}

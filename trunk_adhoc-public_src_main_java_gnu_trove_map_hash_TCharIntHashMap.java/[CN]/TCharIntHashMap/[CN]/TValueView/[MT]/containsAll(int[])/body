@@ -1,0 +1,8 @@
+{
+  for (  int element : array) {
+    if (!TCharIntHashMap.this.containsValue(element)) {
+      return false;
+    }
+  }
+  return true;
+}

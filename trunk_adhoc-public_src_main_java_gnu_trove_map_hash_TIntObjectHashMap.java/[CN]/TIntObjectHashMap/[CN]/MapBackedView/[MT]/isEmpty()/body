@@ -1,0 +1,3 @@
+{
+  return TIntObjectHashMap.this.isEmpty();
+}

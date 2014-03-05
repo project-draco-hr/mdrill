@@ -1,4 +1,5 @@
 {
+  doclistLock=new Object();
   try {
     parse=(DataParser)Class.forName(String.valueOf(conf.get(this.confPrefix + "-parse"))).newInstance();
     parse.init(true,conf,context);

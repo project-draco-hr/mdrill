@@ -1,0 +1,3 @@
+{
+  return val instanceof Long && _map.containsValue(unwrapValue(val));
+}

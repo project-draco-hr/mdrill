@@ -1,0 +1,8 @@
+{
+  for (  int element : array) {
+    if (!TIntIntHashMap.this.contains(element)) {
+      return false;
+    }
+  }
+  return true;
+}

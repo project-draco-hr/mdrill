@@ -1,0 +1,6 @@
+{
+  bitField1_=(bitField1_ & ~0x00004000);
+  spmUrl_=getDefaultInstance().getSpmUrl();
+  onChanged();
+  return this;
+}

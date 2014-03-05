@@ -1,0 +1,6 @@
+{
+  bitField0_=(bitField0_ & ~0x01000000);
+  b2COrid_=getDefaultInstance().getB2COrid();
+  onChanged();
+  return this;
+}

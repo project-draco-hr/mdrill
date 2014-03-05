@@ -1,0 +1,4 @@
+{
+  if (!(o instanceof Character))   return false;
+  return _set.contains(((Character)o).charValue());
+}

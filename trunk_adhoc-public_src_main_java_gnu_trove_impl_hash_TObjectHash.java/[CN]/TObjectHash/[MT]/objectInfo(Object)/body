@@ -1,0 +1,3 @@
+{
+  return (o == null ? "class null" : o.getClass()) + " id= " + System.identityHashCode(o)+ " hashCode= "+ (o == null ? 0 : o.hashCode())+ " toString= "+ String.valueOf(o);
+}

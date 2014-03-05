@@ -1,0 +1,3 @@
+{
+  return TLongFloatHashMap.this.forEachKey(procedure);
+}

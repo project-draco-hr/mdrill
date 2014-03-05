@@ -1,0 +1,10 @@
+{
+  if (len == 0) {
+    return dest;
+  }
+  if (source_pos < 0 || source_pos >= _pos) {
+    throw new ArrayIndexOutOfBoundsException(source_pos);
+  }
+  System.arraycopy(_data,source_pos,dest,dest_pos,len);
+  return dest;
+}

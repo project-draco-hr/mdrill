@@ -1,0 +1,3 @@
+{
+  this.collector.reportError(new RuntimeException("timeout:" + this.tablename));
+}

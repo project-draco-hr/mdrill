@@ -1,0 +1,4 @@
+int initialCapacity
+float loadFactor
+float noEntryKey
+double noEntryValue

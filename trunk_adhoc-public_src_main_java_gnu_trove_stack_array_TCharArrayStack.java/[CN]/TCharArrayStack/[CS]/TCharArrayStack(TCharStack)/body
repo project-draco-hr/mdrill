@@ -1,0 +1,9 @@
+{
+  if (stack instanceof TCharArrayStack) {
+    TCharArrayStack array_stack=(TCharArrayStack)stack;
+    this._list=new TCharArrayList(array_stack._list);
+  }
+ else {
+    throw new UnsupportedOperationException("Only support TCharArrayStack");
+  }
+}

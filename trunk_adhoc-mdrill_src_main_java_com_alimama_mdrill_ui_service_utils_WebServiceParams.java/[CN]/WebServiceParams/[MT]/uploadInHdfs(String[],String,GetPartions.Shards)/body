@@ -6,8 +6,10 @@
   try {
     Map stormconf=Utils.readStormConfig();
     String hdpConf=(String)stormconf.get("hadoop.conf.dir");
+    Integer maxReplicaton=(Integer)stormconf.get("higo.fq.max.replication");
     Configuration conf=new Configuration();
     HadoopBaseUtils.grabConfiguration(hdpConf,conf);
+    conf.setInt("dfs.replication",maxReplicaton);
     FileSystem fs=FileSystem.get(conf);
     IndexUtils.truncate(fs,new Path(upFolder));
     FSDataOutputStream output=fs.create(new Path(upFolder),true);

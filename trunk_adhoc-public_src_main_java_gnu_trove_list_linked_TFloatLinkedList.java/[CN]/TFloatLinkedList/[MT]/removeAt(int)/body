@@ -1,0 +1,7 @@
+{
+  TFloatLink l=getLinkAt(offset);
+  if (no(l))   throw new ArrayIndexOutOfBoundsException("no elemenet at " + offset);
+  float prev=l.getValue();
+  removeLink(l);
+  return prev;
+}

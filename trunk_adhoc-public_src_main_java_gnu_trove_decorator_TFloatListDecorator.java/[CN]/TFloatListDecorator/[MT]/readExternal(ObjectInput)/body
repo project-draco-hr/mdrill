@@ -1,0 +1,4 @@
+{
+  in.readByte();
+  list=(TFloatList)in.readObject();
+}

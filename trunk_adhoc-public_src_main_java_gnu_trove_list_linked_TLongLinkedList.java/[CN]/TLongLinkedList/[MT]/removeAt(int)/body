@@ -1,0 +1,7 @@
+{
+  TLongLink l=getLinkAt(offset);
+  if (no(l))   throw new ArrayIndexOutOfBoundsException("no elemenet at " + offset);
+  long prev=l.getValue();
+  removeLink(l);
+  return prev;
+}

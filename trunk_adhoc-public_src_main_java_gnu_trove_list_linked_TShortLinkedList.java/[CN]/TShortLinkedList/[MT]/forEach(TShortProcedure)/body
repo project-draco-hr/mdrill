@@ -1,0 +1,6 @@
+{
+  for (TShortLink l=head; got(l); l=l.getNext()) {
+    if (!procedure.execute(l.getValue()))     return false;
+  }
+  return true;
+}

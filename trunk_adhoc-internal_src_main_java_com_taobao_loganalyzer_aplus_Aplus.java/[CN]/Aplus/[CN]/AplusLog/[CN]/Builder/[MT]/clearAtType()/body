@@ -1,0 +1,6 @@
+{
+  bitField0_=(bitField0_ & ~0x02000000);
+  atType_=getDefaultInstance().getAtType();
+  onChanged();
+  return this;
+}

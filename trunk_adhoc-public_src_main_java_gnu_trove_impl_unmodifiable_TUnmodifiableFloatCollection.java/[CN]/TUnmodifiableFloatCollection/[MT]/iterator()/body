@@ -1,0 +1,15 @@
+{
+  return new TFloatIterator(){
+    TFloatIterator i=c.iterator();
+    public boolean hasNext(){
+      return i.hasNext();
+    }
+    public float next(){
+      return i.next();
+    }
+    public void remove(){
+      throw new UnsupportedOperationException();
+    }
+  }
+;
+}

@@ -1,0 +1,3 @@
+{
+  return (list instanceof RandomAccess ? new TSynchronizedRandomAccessLongList(list,mutex) : new TSynchronizedLongList(list,mutex));
+}

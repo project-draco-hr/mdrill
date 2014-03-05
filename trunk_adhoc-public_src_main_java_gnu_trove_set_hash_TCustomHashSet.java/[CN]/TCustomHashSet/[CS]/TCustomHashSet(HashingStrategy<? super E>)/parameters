@@ -1,0 +1,1 @@
+HashingStrategy<? super E> strategy

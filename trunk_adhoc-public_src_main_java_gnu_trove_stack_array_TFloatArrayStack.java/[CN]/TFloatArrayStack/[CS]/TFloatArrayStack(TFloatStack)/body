@@ -1,0 +1,9 @@
+{
+  if (stack instanceof TFloatArrayStack) {
+    TFloatArrayStack array_stack=(TFloatArrayStack)stack;
+    this._list=new TFloatArrayList(array_stack._list);
+  }
+ else {
+    throw new UnsupportedOperationException("Only support TFloatArrayStack");
+  }
+}

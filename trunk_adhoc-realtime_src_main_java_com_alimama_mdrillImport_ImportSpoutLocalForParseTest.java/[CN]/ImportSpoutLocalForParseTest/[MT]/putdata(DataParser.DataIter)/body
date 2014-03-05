@@ -1,0 +1,16 @@
+{
+  long ts=log.getTs();
+  BoltStatKey key=new BoltStatKey(log.getGroup());
+  BoltStatVal val=new BoltStatVal(log.getSum(),ts);
+  SolrInputDocument doc=new SolrInputDocument();
+  String[] groupnames=parse.getGroupName();
+  for (int i=0; i < groupnames.length && i < key.list.length; i++) {
+    doc.addField(groupnames[i],key.list[i]);
+  }
+  String[] statNames=parse.getSumName();
+  for (int i=0; i < statNames.length && i < val.list.length; i++) {
+    doc.addField(statNames[i],val.list[i]);
+  }
+  System.out.println(doc.toString());
+  return true;
+}

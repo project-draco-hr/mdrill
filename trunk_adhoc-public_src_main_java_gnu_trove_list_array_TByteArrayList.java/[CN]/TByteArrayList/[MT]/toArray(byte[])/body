@@ -1,0 +1,9 @@
+{
+  int len=dest.length;
+  if (dest.length > _pos) {
+    len=_pos;
+    dest[len]=no_entry_value;
+  }
+  toArray(dest,0,len);
+  return dest;
+}

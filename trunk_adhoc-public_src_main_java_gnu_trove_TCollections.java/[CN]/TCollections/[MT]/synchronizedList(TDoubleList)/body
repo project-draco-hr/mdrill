@@ -1,0 +1,3 @@
+{
+  return (list instanceof RandomAccess ? new TSynchronizedRandomAccessDoubleList(list) : new TSynchronizedDoubleList(list));
+}

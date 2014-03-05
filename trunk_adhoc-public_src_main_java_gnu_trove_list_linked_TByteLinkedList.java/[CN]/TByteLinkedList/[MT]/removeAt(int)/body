@@ -1,0 +1,7 @@
+{
+  TByteLink l=getLinkAt(offset);
+  if (no(l))   throw new ArrayIndexOutOfBoundsException("no elemenet at " + offset);
+  byte prev=l.getValue();
+  removeLink(l);
+  return prev;
+}

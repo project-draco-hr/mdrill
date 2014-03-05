@@ -1,0 +1,8 @@
+{
+  boolean ret=false;
+  for (TByteIterator it=collection.iterator(); it.hasNext(); ) {
+    byte i=it.next();
+    if (add(i))     ret=true;
+  }
+  return ret;
+}

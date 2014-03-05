@@ -1,0 +1,5 @@
+{
+  char[] rv=new char[len];
+  toArray(rv,offset,len);
+  return rv;
+}

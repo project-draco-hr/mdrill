@@ -1,0 +1,10 @@
+{
+  boolean changed=false;
+  for (  Short element : collection) {
+    short e=element.shortValue();
+    if (add(e)) {
+      changed=true;
+    }
+  }
+  return changed;
+}

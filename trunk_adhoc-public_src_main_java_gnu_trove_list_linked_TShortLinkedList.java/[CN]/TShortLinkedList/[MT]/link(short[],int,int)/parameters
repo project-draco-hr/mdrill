@@ -1,0 +1,3 @@
+short[] values
+int valOffset
+int len

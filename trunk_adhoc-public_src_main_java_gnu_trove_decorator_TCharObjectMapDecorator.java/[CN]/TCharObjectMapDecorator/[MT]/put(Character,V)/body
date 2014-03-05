@@ -1,0 +1,10 @@
+{
+  char k;
+  if (key == null) {
+    k=_map.getNoEntryKey();
+  }
+ else {
+    k=unwrapKey(key);
+  }
+  return _map.put(k,value);
+}

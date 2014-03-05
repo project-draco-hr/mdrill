@@ -1,0 +1,15 @@
+{
+  byte k;
+  if (key != null) {
+    if (key instanceof Byte) {
+      k=unwrapKey((Byte)key);
+    }
+ else {
+      return null;
+    }
+  }
+ else {
+    k=_map.getNoEntryKey();
+  }
+  return _map.remove(k);
+}

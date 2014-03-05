@@ -1,0 +1,7 @@
+{
+  TDoubleLinkedList ret=new TDoubleLinkedList();
+  for (int i=0; i < len; i++) {
+    ret.add(values[valOffset + i]);
+  }
+  return ret;
+}

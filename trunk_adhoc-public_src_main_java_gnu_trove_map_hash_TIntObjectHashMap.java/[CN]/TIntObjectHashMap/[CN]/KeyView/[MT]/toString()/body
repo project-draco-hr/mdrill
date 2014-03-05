@@ -1,0 +1,12 @@
+{
+  final StringBuilder buf=new StringBuilder("{");
+  boolean first=true;
+  for (int i=_states.length; i-- > 0; ) {
+    if (_states[i] == FULL) {
+      if (first)       first=false;
+ else       buf.append(",");
+      buf.append(_set[i]);
+    }
+  }
+  return buf.toString();
+}

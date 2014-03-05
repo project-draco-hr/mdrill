@@ -1,0 +1,13 @@
+{
+  if (isEmpty())   return false;
+  for (  Object o : collection) {
+    if (o instanceof Short) {
+      Short i=(Short)o;
+      if (!(contains(i)))       return false;
+    }
+ else {
+      return false;
+    }
+  }
+  return true;
+}

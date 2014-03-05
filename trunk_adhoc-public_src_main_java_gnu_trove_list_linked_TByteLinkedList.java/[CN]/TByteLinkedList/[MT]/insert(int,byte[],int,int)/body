@@ -1,0 +1,3 @@
+{
+  insert(offset,link(values,valOffset,len));
+}

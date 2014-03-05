@@ -1,0 +1,2 @@
+HashingStrategy<? super K> strategy
+TObjectDoubleMap<? extends K> map

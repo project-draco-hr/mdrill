@@ -1,0 +1,16 @@
+{
+  consumeFreeSlot=false;
+  if (key == null)   return insertKeyForNull();
+  final int hash=hash(key) & 0x7fffffff;
+  int index=hash % _set.length;
+  Object cur=_set[index];
+  if (cur == FREE) {
+    consumeFreeSlot=true;
+    _set[index]=key;
+    return index;
+  }
+  if (cur == key || equals(key,cur)) {
+    return -index - 1;
+  }
+  return insertKeyRehash(key,index,hash,cur);
+}

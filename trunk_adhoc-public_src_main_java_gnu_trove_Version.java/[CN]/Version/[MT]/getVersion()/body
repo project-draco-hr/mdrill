@@ -1,0 +1,7 @@
+{
+  String version=Version.class.getPackage().getImplementationVersion();
+  if (version != null) {
+    return "trove4j version " + version;
+  }
+  return "Sorry no Implementation-Version manifest attribute available";
+}

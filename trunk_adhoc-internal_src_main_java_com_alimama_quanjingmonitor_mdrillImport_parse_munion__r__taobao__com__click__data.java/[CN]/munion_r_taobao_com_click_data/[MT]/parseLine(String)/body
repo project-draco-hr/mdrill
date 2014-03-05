@@ -1,0 +1,55 @@
+{
+  try {
+    if (line == null) {
+      return null;
+    }
+    this.lines++;
+    if (this.lines > 100000) {
+      this.laststartts=(System.currentTimeMillis() / 1000) - TS_MAX;
+      this.lastendts=(System.currentTimeMillis() / 1000) + TS_MAX;
+      this.lines=0;
+    }
+    String[] clicklog=line.split("\001",-1);
+    if (clicklog.length < 4) {
+      return null;
+    }
+    String[] sessionb02=clicklog[1].split("\002",-1);
+    String[] sessionb03=clicklog[2].split("\002",-1);
+    String[] sessionb04=clicklog[3].split("\002",-1);
+    if (sessionb02.length < 12 || sessionb03.length < 2 || sessionb04.length < 2) {
+      return null;
+    }
+    if (sessionb02[0].isEmpty() || sessionb02[1].isEmpty() || sessionb02[0].length() <= 5 || sessionb02[1].length() > 50) {
+      return null;
+    }
+    long ts=Long.parseLong(sessionb02[0]);
+    this.lines_sb++;
+    if (this.lines_sb > 5000) {
+      this.lines_sb=0;
+      long nowts=System.currentTimeMillis();
+      if (nowts - timediff > 30000) {
+        timediff=nowts;
+        StringBuilder b=new StringBuilder();
+        for (int i=0; i < clicklog.length; i++) {
+          b.append(i);
+          b.append("=");
+          b.append(String.valueOf(clicklog[i]));
+          b.append(",");
+        }
+        LOG.info("parseLine_sb_" + formatDayMin.format(new Date(ts * 1000)) + " "+ b.toString());
+      }
+    }
+    if (ts < laststartts || ts > lastendts) {
+      return null;
+    }
+    DataIterParse rtn=new DataIterParse(ts,sessionb02);
+    return rtn;
+  }
+ catch (  Throwable nfe) {
+    if (groupCreateerror < 100) {
+      LOG.error("InvalidEntryException:" + line,nfe);
+      groupCreateerror++;
+    }
+    throw new InvalidEntryException("Invalid log `" + line + "'\n",nfe);
+  }
+}

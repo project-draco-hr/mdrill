@@ -1,0 +1,3 @@
+{
+  return TLongShortHashMap.this.values(dest);
+}

@@ -1,0 +1,4 @@
+{
+  Charset charset=Charset.forName(charsetName);
+  return data.getBytes(charset);
+}

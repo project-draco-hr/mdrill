@@ -1,0 +1,5 @@
+{
+  super(initialCapacity);
+  no_entry_key=(float)0;
+  no_entry_value=(long)0;
+}

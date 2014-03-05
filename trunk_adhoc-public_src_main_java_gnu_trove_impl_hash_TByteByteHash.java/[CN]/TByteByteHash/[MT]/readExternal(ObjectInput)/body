@@ -1,0 +1,6 @@
+{
+  in.readByte();
+  super.readExternal(in);
+  no_entry_key=in.readByte();
+  no_entry_value=in.readByte();
+}

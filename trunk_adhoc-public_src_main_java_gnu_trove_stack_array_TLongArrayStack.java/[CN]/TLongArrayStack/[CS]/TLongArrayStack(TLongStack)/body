@@ -1,0 +1,9 @@
+{
+  if (stack instanceof TLongArrayStack) {
+    TLongArrayStack array_stack=(TLongArrayStack)stack;
+    this._list=new TLongArrayList(array_stack._list);
+  }
+ else {
+    throw new UnsupportedOperationException("Only support TLongArrayStack");
+  }
+}

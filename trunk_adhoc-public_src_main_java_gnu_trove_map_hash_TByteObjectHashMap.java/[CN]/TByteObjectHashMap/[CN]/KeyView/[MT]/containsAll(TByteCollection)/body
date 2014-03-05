@@ -1,0 +1,12 @@
+{
+  if (collection == this) {
+    return true;
+  }
+  TByteIterator iter=collection.iterator();
+  while (iter.hasNext()) {
+    if (!TByteObjectHashMap.this.containsKey(iter.next())) {
+      return false;
+    }
+  }
+  return true;
+}

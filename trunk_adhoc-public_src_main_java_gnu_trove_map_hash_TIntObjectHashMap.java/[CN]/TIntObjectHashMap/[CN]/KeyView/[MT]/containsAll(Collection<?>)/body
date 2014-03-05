@@ -1,0 +1,8 @@
+{
+  for (  Object element : collection) {
+    if (!TIntObjectHashMap.this.containsKey(((Integer)element).intValue())) {
+      return false;
+    }
+  }
+  return true;
+}

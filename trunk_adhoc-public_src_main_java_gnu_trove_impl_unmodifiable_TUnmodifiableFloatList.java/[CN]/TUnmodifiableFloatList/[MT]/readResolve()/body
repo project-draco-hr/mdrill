@@ -1,0 +1,3 @@
+{
+  return (list instanceof RandomAccess ? new TUnmodifiableRandomAccessFloatList(list) : this);
+}

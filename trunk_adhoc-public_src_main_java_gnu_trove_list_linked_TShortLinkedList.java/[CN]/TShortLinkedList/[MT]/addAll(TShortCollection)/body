@@ -1,0 +1,8 @@
+{
+  boolean ret=false;
+  for (TShortIterator it=collection.iterator(); it.hasNext(); ) {
+    short i=it.next();
+    if (add(i))     ret=true;
+  }
+  return ret;
+}

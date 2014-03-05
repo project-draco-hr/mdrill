@@ -1,0 +1,6 @@
+{
+  TFloatList tmp=subList(fromIndex,toIndex);
+  float[] vals=tmp.toArray();
+  Arrays.sort(vals);
+  set(fromIndex,vals);
+}

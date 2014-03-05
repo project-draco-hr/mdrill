@@ -1,0 +1,21 @@
+{
+  short k;
+  if (key != null) {
+    if (key instanceof Short) {
+      k=unwrapKey(key);
+    }
+ else {
+      return null;
+    }
+  }
+ else {
+    k=_map.getNoEntryKey();
+  }
+  short v=_map.get(k);
+  if (v == _map.getNoEntryValue()) {
+    return null;
+  }
+ else {
+    return wrapValue(v);
+  }
+}

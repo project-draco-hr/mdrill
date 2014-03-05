@@ -1,0 +1,78 @@
+{
+  return new AbstractSet<Map.Entry<Short,Float>>(){
+    public int size(){
+      return _map.size();
+    }
+    public boolean isEmpty(){
+      return TShortFloatMapDecorator.this.isEmpty();
+    }
+    public boolean contains(    Object o){
+      if (o instanceof Map.Entry) {
+        Object k=((Map.Entry)o).getKey();
+        Object v=((Map.Entry)o).getValue();
+        return TShortFloatMapDecorator.this.containsKey(k) && TShortFloatMapDecorator.this.get(k).equals(v);
+      }
+ else {
+        return false;
+      }
+    }
+    public Iterator<Map.Entry<Short,Float>> iterator(){
+      return new Iterator<Map.Entry<Short,Float>>(){
+        private final TShortFloatIterator it=_map.iterator();
+        public Map.Entry<Short,Float> next(){
+          it.advance();
+          short ik=it.key();
+          final Short key=(ik == _map.getNoEntryKey()) ? null : wrapKey(ik);
+          float iv=it.value();
+          final Float v=(iv == _map.getNoEntryValue()) ? null : wrapValue(iv);
+          return new Map.Entry<Short,Float>(){
+            private Float val=v;
+            public boolean equals(            Object o){
+              return o instanceof Map.Entry && ((Map.Entry)o).getKey().equals(key) && ((Map.Entry)o).getValue().equals(val);
+            }
+            public Short getKey(){
+              return key;
+            }
+            public Float getValue(){
+              return val;
+            }
+            public int hashCode(){
+              return key.hashCode() + val.hashCode();
+            }
+            public Float setValue(            Float value){
+              val=value;
+              return put(key,value);
+            }
+          }
+;
+        }
+        public boolean hasNext(){
+          return it.hasNext();
+        }
+        public void remove(){
+          it.remove();
+        }
+      }
+;
+    }
+    public boolean add(    Map.Entry<Short,Float> o){
+      throw new UnsupportedOperationException();
+    }
+    public boolean remove(    Object o){
+      boolean modified=false;
+      if (contains(o)) {
+        Short key=((Map.Entry<Short,Float>)o).getKey();
+        _map.remove(unwrapKey(key));
+        modified=true;
+      }
+      return modified;
+    }
+    public boolean addAll(    Collection<? extends Map.Entry<Short,Float>> c){
+      throw new UnsupportedOperationException();
+    }
+    public void clear(){
+      TShortFloatMapDecorator.this.clear();
+    }
+  }
+;
+}

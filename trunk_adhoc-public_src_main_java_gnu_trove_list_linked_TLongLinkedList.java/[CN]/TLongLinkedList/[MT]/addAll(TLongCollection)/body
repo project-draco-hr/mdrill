@@ -1,0 +1,8 @@
+{
+  boolean ret=false;
+  for (TLongIterator it=collection.iterator(); it.hasNext(); ) {
+    long i=it.next();
+    if (add(i))     ret=true;
+  }
+  return ret;
+}

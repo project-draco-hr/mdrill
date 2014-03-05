@@ -1,0 +1,8 @@
+{
+synchronized (mutex) {
+    if (values == null) {
+      values=new SynchronizedCollection<V>(m.valueCollection(),mutex);
+    }
+    return values;
+  }
+}

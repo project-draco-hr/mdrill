@@ -1,0 +1,309 @@
+{
+  com.google.protobuf.UnknownFieldSet.Builder unknownFields=com.google.protobuf.UnknownFieldSet.newBuilder(this.getUnknownFields());
+  while (true) {
+    int tag=input.readTag();
+switch (tag) {
+case 0:
+      this.setUnknownFields(unknownFields.build());
+    onChanged();
+  return this;
+default :
+{
+  if (!parseUnknownField(input,unknownFields,extensionRegistry,tag)) {
+    this.setUnknownFields(unknownFields.build());
+    onChanged();
+    return this;
+  }
+  break;
+}
+case 10:
+{
+bitField0_|=0x00000001;
+version_=input.readBytes();
+break;
+}
+case 16:
+{
+bitField0_|=0x00000002;
+ip_=input.readUInt32();
+break;
+}
+case 24:
+{
+bitField0_|=0x00000004;
+time_=input.readUInt32();
+break;
+}
+case 34:
+{
+bitField0_|=0x00000008;
+url_=input.readBytes();
+break;
+}
+case 42:
+{
+bitField0_|=0x00000010;
+userAgent_=input.readBytes();
+break;
+}
+case 50:
+{
+bitField0_|=0x00000020;
+linezingSession_=input.readBytes();
+break;
+}
+case 58:
+{
+bitField0_|=0x00000040;
+cna_=input.readBytes();
+break;
+}
+case 66:
+{
+bitField0_|=0x00000080;
+adid_=input.readBytes();
+break;
+}
+case 74:
+{
+bitField0_|=0x00000100;
+amid_=input.readBytes();
+break;
+}
+case 82:
+{
+bitField0_|=0x00000200;
+cmid_=input.readBytes();
+break;
+}
+case 90:
+{
+bitField0_|=0x00000400;
+pmid_=input.readBytes();
+break;
+}
+case 98:
+{
+bitField0_|=0x00000800;
+uid_=input.readBytes();
+break;
+}
+case 106:
+{
+bitField0_|=0x00001000;
+sid_=input.readBytes();
+break;
+}
+case 114:
+{
+bitField0_|=0x00002000;
+pre_=input.readBytes();
+break;
+}
+case 130:
+{
+bitField0_|=0x00004000;
+scr_=input.readBytes();
+break;
+}
+case 138:
+{
+bitField0_|=0x00008000;
+nick_=input.readBytes();
+break;
+}
+case 146:
+{
+bitField0_|=0x00010000;
+atAutype_=input.readBytes();
+break;
+}
+case 152:
+{
+bitField0_|=0x00020000;
+bbid_=input.readUInt32();
+break;
+}
+case 160:
+{
+bitField0_|=0x00040000;
+atIsb_=input.readUInt32();
+break;
+}
+case 168:
+{
+bitField0_|=0x00080000;
+atMallProRe_=input.readUInt32();
+break;
+}
+case 176:
+{
+bitField0_|=0x00100000;
+atMallRe_=input.readUInt32();
+break;
+}
+case 186:
+{
+bitField0_|=0x00200000;
+atShoptype_=input.readBytes();
+break;
+}
+case 192:
+{
+bitField0_|=0x00400000;
+b2CAuction_=input.readUInt32();
+break;
+}
+case 200:
+{
+bitField0_|=0x00800000;
+b2CBrand_=input.readUInt32();
+break;
+}
+case 210:
+{
+bitField0_|=0x01000000;
+b2COrid_=input.readBytes();
+break;
+}
+case 218:
+{
+bitField0_|=0x02000000;
+atType_=input.readBytes();
+break;
+}
+case 226:
+{
+bitField0_|=0x04000000;
+category_=input.readBytes();
+break;
+}
+case 234:
+{
+bitField0_|=0x08000000;
+marketinfo_=input.readBytes();
+break;
+}
+case 242:
+{
+bitField0_|=0x10000000;
+atpIsdpp_=input.readBytes();
+break;
+}
+case 250:
+{
+bitField0_|=0x20000000;
+atBucketid_=input.readBytes();
+break;
+}
+case 258:
+{
+bitField0_|=0x40000000;
+atInsid_=input.readBytes();
+break;
+}
+case 266:
+{
+bitField0_|=0x80000000;
+atJporid_=input.readBytes();
+break;
+}
+case 290:
+{
+bitField1_|=0x00000001;
+wmPageid_=input.readBytes();
+break;
+}
+case 298:
+{
+bitField1_|=0x00000002;
+wmPrototypeid_=input.readBytes();
+break;
+}
+case 306:
+{
+bitField1_|=0x00000004;
+wmSid_=input.readBytes();
+break;
+}
+case 314:
+{
+bitField1_|=0x00000008;
+spmCnt_=input.readBytes();
+break;
+}
+case 322:
+{
+bitField1_|=0x00000010;
+title_=input.readBytes();
+break;
+}
+case 330:
+{
+bitField1_|=0x00000020;
+urlType_=input.readBytes();
+break;
+}
+case 338:
+{
+bitField1_|=0x00000040;
+refType_=input.readBytes();
+break;
+}
+case 346:
+{
+bitField1_|=0x00000080;
+refShopid_=input.readBytes();
+break;
+}
+case 354:
+{
+bitField1_|=0x00000100;
+logkey_=input.readBytes();
+break;
+}
+case 362:
+{
+bitField1_|=0x00000200;
+gmkey_=input.readBytes();
+break;
+}
+case 370:
+{
+bitField1_|=0x00000400;
+gokey_=input.readBytes();
+break;
+}
+case 378:
+{
+bitField1_|=0x00000800;
+logtype_=input.readBytes();
+break;
+}
+case 386:
+{
+bitField1_|=0x00001000;
+atpSid_=input.readBytes();
+break;
+}
+case 392:
+{
+bitField1_|=0x00002000;
+userid_=input.readUInt32();
+break;
+}
+case 410:
+{
+bitField1_|=0x00004000;
+spmUrl_=input.readBytes();
+break;
+}
+case 418:
+{
+bitField1_|=0x00008000;
+spmPre_=input.readBytes();
+break;
+}
+}
+}
+}

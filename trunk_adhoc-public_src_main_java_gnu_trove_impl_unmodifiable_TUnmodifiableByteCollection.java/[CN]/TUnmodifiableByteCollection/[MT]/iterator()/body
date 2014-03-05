@@ -1,0 +1,15 @@
+{
+  return new TByteIterator(){
+    TByteIterator i=c.iterator();
+    public boolean hasNext(){
+      return i.hasNext();
+    }
+    public byte next(){
+      return i.next();
+    }
+    public void remove(){
+      throw new UnsupportedOperationException();
+    }
+  }
+;
+}

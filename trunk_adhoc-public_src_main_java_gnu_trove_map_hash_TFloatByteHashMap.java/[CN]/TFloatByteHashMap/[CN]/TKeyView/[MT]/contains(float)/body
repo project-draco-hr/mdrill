@@ -1,0 +1,3 @@
+{
+  return TFloatByteHashMap.this.contains(entry);
+}

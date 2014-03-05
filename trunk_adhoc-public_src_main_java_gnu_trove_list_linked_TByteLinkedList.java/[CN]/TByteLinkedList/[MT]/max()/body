@@ -1,0 +1,8 @@
+{
+  byte ret=Byte.MIN_VALUE;
+  if (isEmpty())   throw new IllegalStateException();
+  for (TByteLink l=head; got(l); l=l.getNext()) {
+    if (ret < l.getValue())     ret=l.getValue();
+  }
+  return ret;
+}

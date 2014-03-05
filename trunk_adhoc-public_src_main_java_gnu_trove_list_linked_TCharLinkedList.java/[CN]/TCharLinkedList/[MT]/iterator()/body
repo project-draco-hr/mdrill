@@ -1,0 +1,22 @@
+{
+  return new TCharIterator(){
+    TCharLink l=head;
+    TCharLink current;
+    public char next(){
+      if (no(l))       throw new NoSuchElementException();
+      char ret=l.getValue();
+      current=l;
+      l=l.getNext();
+      return ret;
+    }
+    public boolean hasNext(){
+      return got(l);
+    }
+    public void remove(){
+      if (current == null)       throw new IllegalStateException();
+      removeLink(current);
+      current=null;
+    }
+  }
+;
+}

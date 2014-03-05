@@ -1,0 +1,3 @@
+{
+  return toArray(new short[size],0,size);
+}

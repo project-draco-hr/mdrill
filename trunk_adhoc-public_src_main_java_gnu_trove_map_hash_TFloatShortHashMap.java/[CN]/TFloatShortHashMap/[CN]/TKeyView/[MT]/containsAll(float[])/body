@@ -1,0 +1,8 @@
+{
+  for (  float element : array) {
+    if (!TFloatShortHashMap.this.contains(element)) {
+      return false;
+    }
+  }
+  return true;
+}

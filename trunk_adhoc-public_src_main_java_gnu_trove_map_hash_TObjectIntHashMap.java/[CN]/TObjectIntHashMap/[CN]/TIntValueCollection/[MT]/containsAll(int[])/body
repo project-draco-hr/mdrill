@@ -1,0 +1,8 @@
+{
+  for (  int element : array) {
+    if (!TObjectIntHashMap.this.containsValue(element)) {
+      return false;
+    }
+  }
+  return true;
+}

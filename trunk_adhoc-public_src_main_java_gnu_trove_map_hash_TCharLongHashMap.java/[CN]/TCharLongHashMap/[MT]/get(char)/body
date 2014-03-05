@@ -1,0 +1,4 @@
+{
+  int index=index(key);
+  return index < 0 ? no_entry_value : _values[index];
+}

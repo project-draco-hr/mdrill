@@ -1,0 +1,7 @@
+{
+  boolean ret=false;
+  for (  Double v : collection) {
+    if (add(v.doubleValue()))     ret=true;
+  }
+  return ret;
+}

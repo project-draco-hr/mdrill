@@ -1,0 +1,21 @@
+{
+  float k;
+  if (key != null) {
+    if (key instanceof Float) {
+      k=unwrapKey(key);
+    }
+ else {
+      return null;
+    }
+  }
+ else {
+    k=_map.getNoEntryKey();
+  }
+  int v=_map.remove(k);
+  if (v == _map.getNoEntryValue()) {
+    return null;
+  }
+ else {
+    return wrapValue(v);
+  }
+}

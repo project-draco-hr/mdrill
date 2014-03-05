@@ -15,8 +15,11 @@
       while ((line=bf.readLine()) != null) {
         bytesRead+=line.getBytes().length;
         String towrite=line;
-        if (line.indexOf("\001") >= 0 || line.indexOf("\t") >= 0) {
-          towrite=line.replaceAll(",","\\\",\\\"").replaceAll("\001",",").replaceAll("\t",",").replaceAll("\"","");
+        if (line.indexOf("\001") >= 0) {
+          towrite=line.replaceAll(",","_").replaceAll("\001",",").replaceAll("\t","_").replaceAll("\"","");
+        }
+ else         if (line.indexOf("\t") >= 0) {
+          towrite=line.replaceAll(",","_").replaceAll("\001","_").replaceAll("\t",",").replaceAll("\"","");
         }
         if (!towrite.isEmpty()) {
           outStream.write(towrite);

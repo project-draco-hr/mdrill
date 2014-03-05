@@ -1,0 +1,15 @@
+{
+  return new TIntIterator(){
+    TIntIterator i=c.iterator();
+    public boolean hasNext(){
+      return i.hasNext();
+    }
+    public int next(){
+      return i.next();
+    }
+    public void remove(){
+      throw new UnsupportedOperationException();
+    }
+  }
+;
+}

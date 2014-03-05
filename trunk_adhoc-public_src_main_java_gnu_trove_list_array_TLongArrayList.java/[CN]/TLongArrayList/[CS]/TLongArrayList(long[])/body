@@ -1,0 +1,4 @@
+{
+  this(values.length);
+  add(values);
+}

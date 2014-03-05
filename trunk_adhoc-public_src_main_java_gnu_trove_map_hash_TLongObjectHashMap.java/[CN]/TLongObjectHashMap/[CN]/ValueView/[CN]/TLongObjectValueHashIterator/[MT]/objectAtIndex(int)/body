@@ -1,0 +1,8 @@
+{
+  byte[] states=_states;
+  Object value=_map._values[index];
+  if (states[index] != FULL) {
+    return null;
+  }
+  return (V)value;
+}

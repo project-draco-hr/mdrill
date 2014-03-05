@@ -1,0 +1,7 @@
+{
+  boolean ret=false;
+  for (  float i : array) {
+    if (add(i))     ret=true;
+  }
+  return ret;
+}

@@ -1,0 +1,2 @@
+HashingStrategy<? super K> strategy
+Map<? extends K,? extends V> map

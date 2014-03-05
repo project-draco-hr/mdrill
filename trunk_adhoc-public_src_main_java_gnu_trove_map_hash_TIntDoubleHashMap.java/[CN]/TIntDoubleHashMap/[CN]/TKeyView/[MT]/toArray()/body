@@ -1,0 +1,3 @@
+{
+  return TIntDoubleHashMap.this.keys();
+}

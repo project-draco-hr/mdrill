@@ -1,0 +1,5 @@
+{
+  short value=list.get(index);
+  if (value == list.getNoEntryValue())   return null;
+ else   return Short.valueOf(value);
+}

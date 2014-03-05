@@ -1,0 +1,8 @@
+{
+  for (  short element : array) {
+    if (!TObjectShortHashMap.this.containsValue(element)) {
+      return false;
+    }
+  }
+  return true;
+}

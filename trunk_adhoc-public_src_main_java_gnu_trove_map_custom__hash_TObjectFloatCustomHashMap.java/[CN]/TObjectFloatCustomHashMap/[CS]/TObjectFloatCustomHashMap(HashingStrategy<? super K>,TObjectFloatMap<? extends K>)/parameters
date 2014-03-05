@@ -1,0 +1,2 @@
+HashingStrategy<? super K> strategy
+TObjectFloatMap<? extends K> map

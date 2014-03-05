@@ -1,0 +1,3 @@
+{
+  return TDoubleIntHashMap.this.values();
+}

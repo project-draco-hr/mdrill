@@ -1,0 +1,8 @@
+{
+  for (  Object element : collection) {
+    if (!TCharObjectHashMap.this.containsKey(((Character)element).charValue())) {
+      return false;
+    }
+  }
+  return true;
+}

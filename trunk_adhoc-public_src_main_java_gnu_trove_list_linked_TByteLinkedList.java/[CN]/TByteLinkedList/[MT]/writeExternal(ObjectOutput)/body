@@ -1,0 +1,9 @@
+{
+  out.writeByte(0);
+  out.writeByte(no_entry_value);
+  out.writeInt(size);
+  for (TByteIterator iterator=iterator(); iterator.hasNext(); ) {
+    byte next=iterator.next();
+    out.writeByte(next);
+  }
+}

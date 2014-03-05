@@ -1,0 +1,6 @@
+{
+  this.pvlog=pvlog;
+  this.ts=ts;
+  this.urlid=urlid;
+  this.urlpre=urlpre;
+}

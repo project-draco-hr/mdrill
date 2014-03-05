@@ -1,0 +1,9 @@
+{
+  TLongIterator iter=collection.iterator();
+  while (iter.hasNext()) {
+    if (!TLongIntHashMap.this.containsKey(iter.next())) {
+      return false;
+    }
+  }
+  return true;
+}

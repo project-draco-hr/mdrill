@@ -1,0 +1,8 @@
+{
+  in.readByte();
+  no_entry_value=in.readFloat();
+  int len=in.readInt();
+  for (int i=0; i < len; i++) {
+    add(in.readFloat());
+  }
+}

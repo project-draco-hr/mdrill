@@ -1,0 +1,3 @@
+{
+  return TIntCharHashMap.this.contains(entry);
+}

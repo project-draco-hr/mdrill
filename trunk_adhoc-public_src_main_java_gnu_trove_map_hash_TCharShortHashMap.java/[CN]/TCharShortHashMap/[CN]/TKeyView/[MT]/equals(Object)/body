@@ -1,0 +1,17 @@
+{
+  if (!(other instanceof TCharSet)) {
+    return false;
+  }
+  final TCharSet that=(TCharSet)other;
+  if (that.size() != this.size()) {
+    return false;
+  }
+  for (int i=_states.length; i-- > 0; ) {
+    if (_states[i] == FULL) {
+      if (!that.contains(_set[i])) {
+        return false;
+      }
+    }
+  }
+  return true;
+}

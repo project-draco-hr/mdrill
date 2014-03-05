@@ -1,0 +1,13 @@
+{
+  if (this == collection) {
+    return true;
+  }
+  TFloatIterator iter=collection.iterator();
+  while (iter.hasNext()) {
+    float element=iter.next();
+    if (!contains(element)) {
+      return false;
+    }
+  }
+  return true;
+}

@@ -1,0 +1,3 @@
+{
+  return TObjectLongHashMap.this.contains(key);
+}

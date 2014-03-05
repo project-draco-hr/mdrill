@@ -1,0 +1,15 @@
+{
+  return new TDoubleIterator(){
+    TDoubleIterator i=c.iterator();
+    public boolean hasNext(){
+      return i.hasNext();
+    }
+    public double next(){
+      return i.next();
+    }
+    public void remove(){
+      throw new UnsupportedOperationException();
+    }
+  }
+;
+}

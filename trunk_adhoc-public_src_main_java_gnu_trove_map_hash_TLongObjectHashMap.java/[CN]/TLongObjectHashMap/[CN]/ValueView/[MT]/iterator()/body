@@ -1,0 +1,8 @@
+{
+  return new TLongObjectValueHashIterator(TLongObjectHashMap.this){
+    protected V objectAtIndex(    int index){
+      return _values[index];
+    }
+  }
+;
+}

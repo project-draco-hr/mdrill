@@ -1,0 +1,4 @@
+{
+  if (value == null)   return wrapValue(_map.put(key,_map.getNoEntryValue()));
+  return wrapValue(_map.put(key,unwrapValue(value)));
+}

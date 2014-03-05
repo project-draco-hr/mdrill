@@ -1,0 +1,4 @@
+{
+  if (!(o instanceof Byte))   return false;
+  return _set.contains(((Byte)o).byteValue());
+}

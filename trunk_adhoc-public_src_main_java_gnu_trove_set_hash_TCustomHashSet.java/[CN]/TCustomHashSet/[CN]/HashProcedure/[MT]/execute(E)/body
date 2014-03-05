@@ -1,0 +1,4 @@
+{
+  h+=HashFunctions.hash(key);
+  return true;
+}

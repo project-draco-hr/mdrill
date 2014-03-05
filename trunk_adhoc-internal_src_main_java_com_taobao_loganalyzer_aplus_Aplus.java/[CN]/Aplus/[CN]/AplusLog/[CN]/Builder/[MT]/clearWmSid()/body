@@ -1,0 +1,6 @@
+{
+  bitField1_=(bitField1_ & ~0x00000004);
+  wmSid_=getDefaultInstance().getWmSid();
+  onChanged();
+  return this;
+}

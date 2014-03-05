@@ -1,0 +1,9 @@
+{
+  out.writeByte(0);
+  out.writeDouble(no_entry_value);
+  out.writeInt(size);
+  for (TDoubleIterator iterator=iterator(); iterator.hasNext(); ) {
+    double next=iterator.next();
+    out.writeDouble(next);
+  }
+}

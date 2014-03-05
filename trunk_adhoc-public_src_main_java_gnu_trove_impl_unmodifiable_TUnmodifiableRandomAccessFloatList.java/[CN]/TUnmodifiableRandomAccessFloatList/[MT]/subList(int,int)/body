@@ -1,0 +1,3 @@
+{
+  return new TUnmodifiableRandomAccessFloatList(list.subList(fromIndex,toIndex));
+}

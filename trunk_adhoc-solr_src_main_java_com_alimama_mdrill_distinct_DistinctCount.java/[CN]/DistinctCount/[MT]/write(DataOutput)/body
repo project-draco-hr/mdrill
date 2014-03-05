@@ -3,7 +3,7 @@
   out.writeInt(this.currentTimes);
   out.writeInt(this.TimesStep);
   out.writeInt(this.uniq.size());
-  for (  Integer uin : this.uniq) {
+  for (  Integer uin : this.uniq.toArray()) {
     out.writeInt(uin);
   }
 }

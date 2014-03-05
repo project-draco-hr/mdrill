@@ -1,0 +1,2 @@
+TObjectIntMap<K> m
+Object mutex

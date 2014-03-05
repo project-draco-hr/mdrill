@@ -1,0 +1,14 @@
+{
+  for (  Object element : collection) {
+    if (element instanceof Byte) {
+      byte c=((Byte)element).byteValue();
+      if (!contains(c)) {
+        return false;
+      }
+    }
+ else {
+      return false;
+    }
+  }
+  return true;
+}

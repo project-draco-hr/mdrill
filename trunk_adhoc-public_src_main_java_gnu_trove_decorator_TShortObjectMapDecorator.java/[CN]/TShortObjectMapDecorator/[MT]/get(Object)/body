@@ -1,0 +1,15 @@
+{
+  short k;
+  if (key != null) {
+    if (key instanceof Short) {
+      k=unwrapKey((Short)key);
+    }
+ else {
+      return null;
+    }
+  }
+ else {
+    k=_map.getNoEntryKey();
+  }
+  return _map.get(k);
+}

@@ -21,7 +21,7 @@
   }
   if (this.parse.hasDist()) {
     for (int i=0; i < this.parse.distFS.length; i++) {
-      row.addDistinct(i,ref.dist[i]);
+      row.setDistinct(i,ref.dist[i]);
     }
   }
   QueuePutUtils.put2Queue(row,this.container.res,this.parse.limit_offset,this.container.cmpString);

@@ -1,0 +1,5 @@
+{
+synchronized (mutex) {
+    return m.adjustOrPutValue(key,adjust_amount,put_amount);
+  }
+}

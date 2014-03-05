@@ -1,0 +1,3 @@
+{
+  return TDoubleFloatHashMap.this.values(dest);
+}

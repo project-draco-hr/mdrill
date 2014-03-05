@@ -1,0 +1,3 @@
+{
+  return TLongDoubleHashMap.this.containsValue(entry);
+}

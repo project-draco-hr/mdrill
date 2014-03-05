@@ -26,6 +26,7 @@
   int cnt1=0;
   for (  GroupListCache.GroupList torm : toremove) {
     groups.remove(torm);
+    this.container.freeRow(torm);
     this.container.groupListCache.add(torm);
     cnt1++;
   }

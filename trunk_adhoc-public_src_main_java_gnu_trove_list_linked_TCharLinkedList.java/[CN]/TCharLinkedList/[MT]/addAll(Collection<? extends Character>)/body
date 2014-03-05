@@ -1,0 +1,7 @@
+{
+  boolean ret=false;
+  for (  Character v : collection) {
+    if (add(v.charValue()))     ret=true;
+  }
+  return ret;
+}

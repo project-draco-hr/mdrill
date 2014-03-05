@@ -1,0 +1,5 @@
+{
+  char previous_value=list.removeAt(index);
+  if (previous_value == list.getNoEntryValue())   return null;
+ else   return Character.valueOf(previous_value);
+}

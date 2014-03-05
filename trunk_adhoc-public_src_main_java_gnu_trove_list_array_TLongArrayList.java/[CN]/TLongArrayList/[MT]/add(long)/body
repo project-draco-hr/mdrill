@@ -1,0 +1,5 @@
+{
+  ensureCapacity(_pos + 1);
+  _data[_pos++]=val;
+  return true;
+}

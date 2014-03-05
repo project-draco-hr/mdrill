@@ -1,0 +1,6 @@
+{
+  for (TByteLink l=tail; got(l); l=l.getPrevious()) {
+    if (!procedure.execute(l.getValue()))     return false;
+  }
+  return true;
+}

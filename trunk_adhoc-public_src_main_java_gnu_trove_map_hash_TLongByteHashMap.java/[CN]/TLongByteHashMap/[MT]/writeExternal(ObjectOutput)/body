@@ -1,0 +1,11 @@
+{
+  out.writeByte(0);
+  super.writeExternal(out);
+  out.writeInt(_size);
+  for (int i=_states.length; i-- > 0; ) {
+    if (_states[i] == FULL) {
+      out.writeLong(_set[i]);
+      out.writeByte(_values[i]);
+    }
+  }
+}

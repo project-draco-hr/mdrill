@@ -1,0 +1,14 @@
+{
+  this(strategy,map.size(),0.5f,map.getNoEntryValue());
+  if (map instanceof TObjectFloatCustomHashMap) {
+    TObjectFloatCustomHashMap hashmap=(TObjectFloatCustomHashMap)map;
+    this._loadFactor=hashmap._loadFactor;
+    this.no_entry_value=hashmap.no_entry_value;
+    this.strategy=hashmap.strategy;
+    if (this.no_entry_value != (float)0) {
+      Arrays.fill(_values,this.no_entry_value);
+    }
+    setUp((int)Math.ceil(DEFAULT_CAPACITY / _loadFactor));
+  }
+  putAll(map);
+}

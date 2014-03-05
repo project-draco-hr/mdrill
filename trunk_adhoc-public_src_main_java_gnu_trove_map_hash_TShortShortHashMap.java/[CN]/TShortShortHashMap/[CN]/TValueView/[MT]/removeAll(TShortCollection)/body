@@ -1,0 +1,15 @@
+{
+  if (this == collection) {
+    clear();
+    return true;
+  }
+  boolean changed=false;
+  TShortIterator iter=collection.iterator();
+  while (iter.hasNext()) {
+    short element=iter.next();
+    if (remove(element)) {
+      changed=true;
+    }
+  }
+  return changed;
+}

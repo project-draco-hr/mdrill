@@ -1,0 +1,11 @@
+{
+  boolean changed=false;
+  TShortIterator iter=collection.iterator();
+  while (iter.hasNext()) {
+    short element=iter.next();
+    if (add(element)) {
+      changed=true;
+    }
+  }
+  return changed;
+}

@@ -1,0 +1,2 @@
+TObjectLongMap<K> m
+Object mutex

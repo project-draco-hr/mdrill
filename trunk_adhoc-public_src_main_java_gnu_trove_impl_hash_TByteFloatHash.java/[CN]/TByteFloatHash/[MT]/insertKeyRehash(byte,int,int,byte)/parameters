@@ -1,0 +1,4 @@
+byte val
+int index
+int hash
+byte state

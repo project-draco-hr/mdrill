@@ -1,0 +1,4 @@
+{
+  in.readByte();
+  _map=(TIntObjectMap<V>)in.readObject();
+}

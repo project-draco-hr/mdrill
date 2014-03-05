@@ -24,6 +24,7 @@
       GroupbyRow row=(GroupbyRow)p.getRaw();
       GroupbyRow sfc=counts.get(row.getKey());
       if (sfc == null) {
+        row.setDist(autoDist);
         counts.put(row.getKey(),row);
       }
  else {

@@ -1,0 +1,8 @@
+{
+  boolean ret=false;
+  for (TDoubleIterator it=collection.iterator(); it.hasNext(); ) {
+    double i=it.next();
+    if (add(i))     ret=true;
+  }
+  return ret;
+}

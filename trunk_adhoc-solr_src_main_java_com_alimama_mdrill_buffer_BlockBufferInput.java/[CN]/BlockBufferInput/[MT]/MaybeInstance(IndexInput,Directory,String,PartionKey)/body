@@ -1,0 +1,9 @@
+{
+  if (dir instanceof org.apache.lucene.store.LinkMMapDirectory) {
+    return input;
+  }
+  if (dir instanceof org.apache.lucene.store.MMapDirectory) {
+    return input;
+  }
+  return new BlockBufferInput(input,dir,filename,p);
+}

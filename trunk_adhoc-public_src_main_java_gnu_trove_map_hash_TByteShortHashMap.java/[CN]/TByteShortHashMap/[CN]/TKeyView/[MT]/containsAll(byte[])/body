@@ -1,0 +1,8 @@
+{
+  for (  byte element : array) {
+    if (!TByteShortHashMap.this.contains(element)) {
+      return false;
+    }
+  }
+  return true;
+}

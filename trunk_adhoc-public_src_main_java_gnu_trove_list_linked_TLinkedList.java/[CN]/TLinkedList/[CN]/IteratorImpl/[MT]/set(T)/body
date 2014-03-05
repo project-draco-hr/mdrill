@@ -1,0 +1,7 @@
+{
+  if (_lastReturned == null) {
+    throw new IllegalStateException();
+  }
+  swap(_lastReturned,linkable);
+  _lastReturned=linkable;
+}

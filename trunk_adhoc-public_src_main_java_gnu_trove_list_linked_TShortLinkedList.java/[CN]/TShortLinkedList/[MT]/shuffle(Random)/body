@@ -1,0 +1,7 @@
+{
+  for (int i=0; i < size; i++) {
+    TShortLink l=getLinkAt(rand.nextInt(size()));
+    removeLink(l);
+    add(l.getValue());
+  }
+}

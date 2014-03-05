@@ -1,0 +1,16 @@
+{
+  TIntLink h=head;
+  TIntLink t=tail;
+  TIntLink prev, next, tmp;
+  TIntLink l=head;
+  while (got(l)) {
+    next=l.getNext();
+    prev=l.getPrevious();
+    tmp=l;
+    l=l.getNext();
+    tmp.setNext(prev);
+    tmp.setPrevious(next);
+  }
+  head=t;
+  tail=h;
+}

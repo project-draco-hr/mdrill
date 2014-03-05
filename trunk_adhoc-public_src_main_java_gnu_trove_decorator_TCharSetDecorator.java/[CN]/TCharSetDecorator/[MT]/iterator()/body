@@ -1,0 +1,15 @@
+{
+  return new Iterator<Character>(){
+    private final TCharIterator it=_set.iterator();
+    public Character next(){
+      return Character.valueOf(it.next());
+    }
+    public boolean hasNext(){
+      return it.hasNext();
+    }
+    public void remove(){
+      it.remove();
+    }
+  }
+;
+}

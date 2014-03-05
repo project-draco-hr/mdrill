@@ -1,0 +1,13 @@
+{
+  if (obj == null)   return indexForNull();
+  final int hash=hash(obj) & 0x7fffffff;
+  int index=hash % _set.length;
+  Object cur=_set[index];
+  if (cur == FREE) {
+    return -1;
+  }
+  if (cur == obj || equals(obj,cur)) {
+    return index;
+  }
+  return indexRehashed(obj,index,hash,cur);
+}

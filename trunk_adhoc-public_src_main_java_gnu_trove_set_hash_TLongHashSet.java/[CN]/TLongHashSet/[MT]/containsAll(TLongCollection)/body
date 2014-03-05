@@ -1,0 +1,10 @@
+{
+  TLongIterator iter=collection.iterator();
+  while (iter.hasNext()) {
+    long element=iter.next();
+    if (!contains(element)) {
+      return false;
+    }
+  }
+  return true;
+}

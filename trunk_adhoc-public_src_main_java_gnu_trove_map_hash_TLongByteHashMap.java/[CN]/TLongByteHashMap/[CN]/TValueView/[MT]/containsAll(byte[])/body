@@ -1,0 +1,8 @@
+{
+  for (  byte element : array) {
+    if (!TLongByteHashMap.this.containsValue(element)) {
+      return false;
+    }
+  }
+  return true;
+}

@@ -1,0 +1,6 @@
+{
+synchronized (mutex) {
+    if (keySet == null)     keySet=new TSynchronizedCharSet(m.keySet(),mutex);
+    return keySet;
+  }
+}

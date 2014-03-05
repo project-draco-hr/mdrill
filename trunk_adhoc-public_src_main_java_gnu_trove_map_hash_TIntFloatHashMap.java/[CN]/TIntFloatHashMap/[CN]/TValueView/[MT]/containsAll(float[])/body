@@ -1,0 +1,8 @@
+{
+  for (  float element : array) {
+    if (!TIntFloatHashMap.this.containsValue(element)) {
+      return false;
+    }
+  }
+  return true;
+}

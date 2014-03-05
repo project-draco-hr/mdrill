@@ -1,0 +1,19 @@
+{
+  final StringBuilder buf=new StringBuilder("{");
+  forEachKey(new TByteProcedure(){
+    private boolean first=true;
+    public boolean execute(    byte key){
+      if (first) {
+        first=false;
+      }
+ else {
+        buf.append(", ");
+      }
+      buf.append(key);
+      return true;
+    }
+  }
+);
+  buf.append("}");
+  return buf.toString();
+}

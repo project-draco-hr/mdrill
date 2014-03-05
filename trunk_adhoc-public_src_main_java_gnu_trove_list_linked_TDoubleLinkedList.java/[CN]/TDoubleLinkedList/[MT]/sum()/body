@@ -1,0 +1,7 @@
+{
+  double sum=0;
+  for (TDoubleLink l=head; got(l); l=l.getNext()) {
+    sum+=l.getValue();
+  }
+  return sum;
+}

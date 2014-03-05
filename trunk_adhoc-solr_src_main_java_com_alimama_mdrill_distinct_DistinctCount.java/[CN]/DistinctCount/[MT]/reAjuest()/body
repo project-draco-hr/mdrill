@@ -1,0 +1,6 @@
+{
+  while (this.uniq.size() > getMaxUniqSize()) {
+    int newtimes=currentTimes * TimesStep;
+    this.reFilter(newtimes);
+  }
+}

@@ -1,0 +1,4 @@
+{
+  if (!(o instanceof Long))   return false;
+  return _set.contains(((Long)o).longValue());
+}

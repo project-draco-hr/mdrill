@@ -1,0 +1,7 @@
+{
+  super(initialCapacity,loadFactor);
+  no_entry_value=Constants.DEFAULT_DOUBLE_NO_ENTRY_VALUE;
+  if (no_entry_value != (double)0) {
+    Arrays.fill(_set,no_entry_value);
+  }
+}

@@ -1,0 +1,9 @@
+{
+  TDoubleIterator iter=collection.iterator();
+  while (iter.hasNext()) {
+    if (!TObjectDoubleCustomHashMap.this.containsValue(iter.next())) {
+      return false;
+    }
+  }
+  return true;
+}

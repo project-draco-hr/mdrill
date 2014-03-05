@@ -1,0 +1,13 @@
+{
+  boolean changed=false;
+  Arrays.sort(array);
+  long[] values=_values;
+  byte[] states=_states;
+  for (int i=values.length; i-- > 0; ) {
+    if (states[i] == FULL && (Arrays.binarySearch(array,values[i]) < 0)) {
+      removeAt(i);
+      changed=true;
+    }
+  }
+  return changed;
+}

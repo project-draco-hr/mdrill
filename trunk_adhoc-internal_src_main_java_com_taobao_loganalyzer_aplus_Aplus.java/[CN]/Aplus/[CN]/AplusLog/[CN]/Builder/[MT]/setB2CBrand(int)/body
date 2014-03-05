@@ -1,0 +1,6 @@
+{
+  bitField0_|=0x00800000;
+  b2CBrand_=value;
+  onChanged();
+  return this;
+}

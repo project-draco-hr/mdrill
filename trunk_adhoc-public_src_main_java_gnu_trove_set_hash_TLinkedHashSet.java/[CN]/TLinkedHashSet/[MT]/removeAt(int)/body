@@ -1,0 +1,4 @@
+{
+  order.remove(index);
+  super.removeAt(index);
+}

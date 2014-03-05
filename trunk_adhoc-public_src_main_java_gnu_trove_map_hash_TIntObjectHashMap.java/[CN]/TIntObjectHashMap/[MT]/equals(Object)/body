@@ -1,0 +1,30 @@
+{
+  if (!(other instanceof TIntObjectMap)) {
+    return false;
+  }
+  TIntObjectMap that=(TIntObjectMap)other;
+  if (that.size() != this.size()) {
+    return false;
+  }
+  try {
+    TIntObjectIterator iter=this.iterator();
+    while (iter.hasNext()) {
+      iter.advance();
+      int key=iter.key();
+      Object value=iter.value();
+      if (value == null) {
+        if (!(that.get(key) == null && that.containsKey(key))) {
+          return false;
+        }
+      }
+ else {
+        if (!value.equals(that.get(key))) {
+          return false;
+        }
+      }
+    }
+  }
+ catch (  ClassCastException ex) {
+  }
+  return true;
+}

@@ -1,0 +1,8 @@
+{
+  for (  int element : array) {
+    if (!TFloatIntHashMap.this.containsValue(element)) {
+      return false;
+    }
+  }
+  return true;
+}

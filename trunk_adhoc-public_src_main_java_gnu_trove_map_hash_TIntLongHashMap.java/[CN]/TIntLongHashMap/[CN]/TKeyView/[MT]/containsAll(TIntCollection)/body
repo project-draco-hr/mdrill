@@ -1,0 +1,9 @@
+{
+  TIntIterator iter=collection.iterator();
+  while (iter.hasNext()) {
+    if (!TIntLongHashMap.this.containsKey(iter.next())) {
+      return false;
+    }
+  }
+  return true;
+}

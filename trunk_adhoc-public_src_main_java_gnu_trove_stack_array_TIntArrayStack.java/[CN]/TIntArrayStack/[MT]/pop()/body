@@ -1,0 +1,3 @@
+{
+  return _list.removeAt(_list.size() - 1);
+}

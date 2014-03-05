@@ -1,0 +1,8 @@
+{
+  try {
+    return removeElement((E)o);
+  }
+ catch (  ClassCastException ex) {
+    return false;
+  }
+}

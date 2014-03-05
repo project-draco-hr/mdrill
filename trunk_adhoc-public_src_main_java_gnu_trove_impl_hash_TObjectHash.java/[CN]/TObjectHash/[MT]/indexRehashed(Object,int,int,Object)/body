@@ -1,0 +1,17 @@
+{
+  final Object[] set=_set;
+  final int length=set.length;
+  int probe=1 + (hash % (length - 2));
+  final int loopIndex=index;
+  do {
+    index-=probe;
+    if (index < 0) {
+      index+=length;
+    }
+    cur=set[index];
+    if (cur == FREE)     return -1;
+    if ((cur == obj || equals(obj,cur)))     return index;
+  }
+ while (index != loopIndex);
+  return -1;
+}

@@ -1,0 +1,4 @@
+{
+  if (key == null)   return _map.containsKey(_map.getNoEntryKey());
+  return key instanceof Byte && _map.containsKey(((Byte)key).byteValue());
+}

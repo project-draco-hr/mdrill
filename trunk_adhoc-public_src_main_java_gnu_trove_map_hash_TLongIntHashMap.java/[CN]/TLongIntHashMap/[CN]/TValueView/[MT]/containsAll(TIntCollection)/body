@@ -1,0 +1,9 @@
+{
+  TIntIterator iter=collection.iterator();
+  while (iter.hasNext()) {
+    if (!TLongIntHashMap.this.containsValue(iter.next())) {
+      return false;
+    }
+  }
+  return true;
+}

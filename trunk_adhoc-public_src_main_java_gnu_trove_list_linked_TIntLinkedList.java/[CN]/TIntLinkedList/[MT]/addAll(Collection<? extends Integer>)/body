@@ -1,0 +1,7 @@
+{
+  boolean ret=false;
+  for (  Integer v : collection) {
+    if (add(v.intValue()))     ret=true;
+  }
+  return ret;
+}

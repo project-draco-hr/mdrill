@@ -1,0 +1,9 @@
+{
+  Set<Object> types=new HashSet<Object>();
+  for (  Object o : keys) {
+    if (o != FREE && o != REMOVED) {
+      types.add(o);
+    }
+  }
+  return types;
+}

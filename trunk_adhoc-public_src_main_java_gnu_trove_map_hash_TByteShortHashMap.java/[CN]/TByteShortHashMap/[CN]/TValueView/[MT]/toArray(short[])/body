@@ -1,0 +1,3 @@
+{
+  return TByteShortHashMap.this.values(dest);
+}

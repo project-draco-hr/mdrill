@@ -1,0 +1,3 @@
+{
+  return new TUnmodifiableShortList(list.subList(fromIndex,toIndex));
+}

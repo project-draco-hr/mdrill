@@ -1,0 +1,8 @@
+{
+  char ret=Character.MAX_VALUE;
+  if (isEmpty())   throw new IllegalStateException();
+  for (TCharLink l=head; got(l); l=l.getNext()) {
+    if (ret > l.getValue())     ret=l.getValue();
+  }
+  return ret;
+}

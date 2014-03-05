@@ -1,0 +1,8 @@
+{
+  if (isEmpty())   return false;
+  for (TIntIterator it=collection.iterator(); it.hasNext(); ) {
+    int i=it.next();
+    if (!(contains(i)))     return false;
+  }
+  return true;
+}

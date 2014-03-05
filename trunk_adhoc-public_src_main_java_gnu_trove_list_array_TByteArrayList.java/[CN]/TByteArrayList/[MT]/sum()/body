@@ -1,0 +1,7 @@
+{
+  byte sum=0;
+  for (int i=0; i < _pos; i++) {
+    sum+=_data[i];
+  }
+  return sum;
+}

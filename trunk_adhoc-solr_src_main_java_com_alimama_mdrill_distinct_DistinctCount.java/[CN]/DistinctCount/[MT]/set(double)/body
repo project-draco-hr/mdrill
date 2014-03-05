@@ -1,0 +1,6 @@
+{
+  CRC32 crc32=new CRC32();
+  crc32.update(ByteUtil.getBytes(item));
+  long crcvalue=crc32.getValue();
+  this.add((int)crcvalue);
+}

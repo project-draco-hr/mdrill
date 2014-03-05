@@ -1,0 +1,78 @@
+{
+  return new AbstractSet<Map.Entry<Short,Integer>>(){
+    public int size(){
+      return _map.size();
+    }
+    public boolean isEmpty(){
+      return TShortIntMapDecorator.this.isEmpty();
+    }
+    public boolean contains(    Object o){
+      if (o instanceof Map.Entry) {
+        Object k=((Map.Entry)o).getKey();
+        Object v=((Map.Entry)o).getValue();
+        return TShortIntMapDecorator.this.containsKey(k) && TShortIntMapDecorator.this.get(k).equals(v);
+      }
+ else {
+        return false;
+      }
+    }
+    public Iterator<Map.Entry<Short,Integer>> iterator(){
+      return new Iterator<Map.Entry<Short,Integer>>(){
+        private final TShortIntIterator it=_map.iterator();
+        public Map.Entry<Short,Integer> next(){
+          it.advance();
+          short ik=it.key();
+          final Short key=(ik == _map.getNoEntryKey()) ? null : wrapKey(ik);
+          int iv=it.value();
+          final Integer v=(iv == _map.getNoEntryValue()) ? null : wrapValue(iv);
+          return new Map.Entry<Short,Integer>(){
+            private Integer val=v;
+            public boolean equals(            Object o){
+              return o instanceof Map.Entry && ((Map.Entry)o).getKey().equals(key) && ((Map.Entry)o).getValue().equals(val);
+            }
+            public Short getKey(){
+              return key;
+            }
+            public Integer getValue(){
+              return val;
+            }
+            public int hashCode(){
+              return key.hashCode() + val.hashCode();
+            }
+            public Integer setValue(            Integer value){
+              val=value;
+              return put(key,value);
+            }
+          }
+;
+        }
+        public boolean hasNext(){
+          return it.hasNext();
+        }
+        public void remove(){
+          it.remove();
+        }
+      }
+;
+    }
+    public boolean add(    Map.Entry<Short,Integer> o){
+      throw new UnsupportedOperationException();
+    }
+    public boolean remove(    Object o){
+      boolean modified=false;
+      if (contains(o)) {
+        Short key=((Map.Entry<Short,Integer>)o).getKey();
+        _map.remove(unwrapKey(key));
+        modified=true;
+      }
+      return modified;
+    }
+    public boolean addAll(    Collection<? extends Map.Entry<Short,Integer>> c){
+      throw new UnsupportedOperationException();
+    }
+    public void clear(){
+      TShortIntMapDecorator.this.clear();
+    }
+  }
+;
+}

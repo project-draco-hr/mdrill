@@ -1,0 +1,13 @@
+{
+  int oldCapacity=_set.length;
+  char oldSet[]=_set;
+  byte oldStates[]=_states;
+  _set=new char[newCapacity];
+  _states=new byte[newCapacity];
+  for (int i=oldCapacity; i-- > 0; ) {
+    if (oldStates[i] == FULL) {
+      char o=oldSet[i];
+      int index=insertKey(o);
+    }
+  }
+}

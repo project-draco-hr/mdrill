@@ -1,0 +1,6 @@
+{
+  TDoubleList tmp=subList(fromIndex,toIndex);
+  double[] vals=tmp.toArray();
+  Arrays.sort(vals);
+  set(fromIndex,vals);
+}

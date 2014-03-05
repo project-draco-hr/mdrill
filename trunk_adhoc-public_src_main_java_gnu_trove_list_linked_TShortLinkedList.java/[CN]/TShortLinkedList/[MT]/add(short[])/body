@@ -1,0 +1,5 @@
+{
+  for (  short val : vals) {
+    add(val);
+  }
+}

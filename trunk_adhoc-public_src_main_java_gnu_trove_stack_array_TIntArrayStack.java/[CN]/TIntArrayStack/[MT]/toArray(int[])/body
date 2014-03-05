@@ -1,0 +1,13 @@
+{
+  int size=size();
+  int start=size - dest.length;
+  if (start < 0) {
+    start=0;
+  }
+  int length=Math.min(size,dest.length);
+  _list.toArray(dest,start,length);
+  reverse(dest,0,length);
+  if (dest.length > size) {
+    dest[size]=_list.getNoEntryValue();
+  }
+}

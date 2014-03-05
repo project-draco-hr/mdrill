@@ -1,0 +1,11 @@
+{
+  boolean changed=false;
+  TCharIterator iter=collection.iterator();
+  while (iter.hasNext()) {
+    char element=iter.next();
+    if (add(element)) {
+      changed=true;
+    }
+  }
+  return changed;
+}

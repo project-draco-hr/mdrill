@@ -1,0 +1,3 @@
+{
+  TByteObjectHashMap.this.clear();
+}

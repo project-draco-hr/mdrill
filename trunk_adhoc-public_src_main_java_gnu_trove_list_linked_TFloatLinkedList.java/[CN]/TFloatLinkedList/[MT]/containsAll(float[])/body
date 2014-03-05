@@ -1,0 +1,7 @@
+{
+  if (isEmpty())   return false;
+  for (  float i : array) {
+    if (!contains(i))     return false;
+  }
+  return true;
+}

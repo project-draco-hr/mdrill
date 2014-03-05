@@ -1,0 +1,6 @@
+{
+  super(initial_capacity,load_factor,no_entry_value);
+  if (no_entry_value != (int)0) {
+    Arrays.fill(_set,no_entry_value);
+  }
+}

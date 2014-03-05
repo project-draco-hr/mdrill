@@ -1,0 +1,3 @@
+{
+  return TByteDoubleHashMap.this.keys(dest);
+}

@@ -1,0 +1,8 @@
+{
+  int index=insertKey(obj);
+  if (index < 0) {
+    return false;
+  }
+  postInsertHook(consumeFreeSlot);
+  return true;
+}

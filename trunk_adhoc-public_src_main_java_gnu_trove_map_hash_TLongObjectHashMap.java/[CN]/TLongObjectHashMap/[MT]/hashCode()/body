@@ -1,0 +1,11 @@
+{
+  int hashcode=0;
+  V[] values=_values;
+  byte[] states=_states;
+  for (int i=values.length; i-- > 0; ) {
+    if (states[i] == FULL) {
+      hashcode+=HashFunctions.hash(_set[i]) ^ (values[i] == null ? 0 : values[i].hashCode());
+    }
+  }
+  return hashcode;
+}

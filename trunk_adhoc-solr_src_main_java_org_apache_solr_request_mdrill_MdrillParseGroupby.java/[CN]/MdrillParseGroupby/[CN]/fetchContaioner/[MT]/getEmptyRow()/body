@@ -1,6 +1,6 @@
 {
   if (emptyrow == null) {
-    emptyrow=this.createRow();
+    emptyrow=this.createRow(new Integer(0));
   }
   return emptyrow;
 }

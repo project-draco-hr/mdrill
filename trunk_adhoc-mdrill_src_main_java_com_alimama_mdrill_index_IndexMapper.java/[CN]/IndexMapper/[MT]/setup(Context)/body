@@ -35,9 +35,16 @@
   String custfields=conf.get("higo.column.custfields","");
   usedthedate=conf.getBoolean("higo.column.userthedate",usedthedate);
   this.thedate=null;
+  InputSplit inputSplit=context.getInputSplit();
+  Path filepath=((FileSplit)inputSplit).getPath();
+  if (filepath != null) {
+    String pash=filepath.toString();
+    this.Index=pash.hashCode() % 1000000;
+    if (this.Index < 0) {
+      this.Index*=-1;
+    }
+  }
   if (usedthedate) {
-    InputSplit inputSplit=context.getInputSplit();
-    Path filepath=((FileSplit)inputSplit).getPath();
     String inputbase=conf.get("higo.input.base");
     this.thedate=JobIndexPublic.parseThedate(new Path(inputbase),filepath);
     System.out.println("thedatepath: " + thedate + "@"+ filepath.toString()+ "@"+ inputbase+ "");

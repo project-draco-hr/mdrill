@@ -1,0 +1,30 @@
+{
+  if (!(other instanceof TObjectCharMap)) {
+    return false;
+  }
+  TObjectCharMap that=(TObjectCharMap)other;
+  if (that.size() != this.size()) {
+    return false;
+  }
+  try {
+    TObjectCharIterator iter=this.iterator();
+    while (iter.hasNext()) {
+      iter.advance();
+      Object key=iter.key();
+      char value=iter.value();
+      if (value == no_entry_value) {
+        if (!(that.get(key) == that.getNoEntryValue() && that.containsKey(key))) {
+          return false;
+        }
+      }
+ else {
+        if (value != that.get(key)) {
+          return false;
+        }
+      }
+    }
+  }
+ catch (  ClassCastException ex) {
+  }
+  return true;
+}

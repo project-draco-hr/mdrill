@@ -1,0 +1,9 @@
+{
+  if (stack instanceof TIntArrayStack) {
+    TIntArrayStack array_stack=(TIntArrayStack)stack;
+    this._list=new TIntArrayList(array_stack._list);
+  }
+ else {
+    throw new UnsupportedOperationException("Only support TIntArrayStack");
+  }
+}

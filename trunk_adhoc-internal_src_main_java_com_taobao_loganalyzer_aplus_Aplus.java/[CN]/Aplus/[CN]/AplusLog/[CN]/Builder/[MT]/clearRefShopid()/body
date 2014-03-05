@@ -1,0 +1,6 @@
+{
+  bitField1_=(bitField1_ & ~0x00000080);
+  refShopid_=getDefaultInstance().getRefShopid();
+  onChanged();
+  return this;
+}

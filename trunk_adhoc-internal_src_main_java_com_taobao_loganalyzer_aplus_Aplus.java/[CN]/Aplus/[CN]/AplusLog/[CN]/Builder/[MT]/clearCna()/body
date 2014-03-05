@@ -1,0 +1,6 @@
+{
+  bitField0_=(bitField0_ & ~0x00000040);
+  cna_=getDefaultInstance().getCna();
+  onChanged();
+  return this;
+}

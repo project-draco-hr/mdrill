@@ -1,0 +1,4 @@
+{
+  _expectedSize=_hash.size();
+  _index=_hash.capacity();
+}

@@ -1,0 +1,3 @@
+{
+  return TObjectLongCustomHashMap.this.containsValue(entry);
+}

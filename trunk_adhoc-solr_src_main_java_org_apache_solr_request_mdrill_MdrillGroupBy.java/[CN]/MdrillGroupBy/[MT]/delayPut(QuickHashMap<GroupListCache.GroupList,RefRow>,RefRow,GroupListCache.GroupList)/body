@@ -4,5 +4,8 @@
       cnt.delayPut=false;
       groups.put(group.copy(this.container.groupListCache),cnt);
     }
+ else {
+      this.container.freeRow(group);
+    }
   }
 }

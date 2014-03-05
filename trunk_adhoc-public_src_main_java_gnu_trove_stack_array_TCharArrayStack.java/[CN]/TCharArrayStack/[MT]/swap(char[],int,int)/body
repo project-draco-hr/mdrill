@@ -1,0 +1,5 @@
+{
+  char tmp=dest[i];
+  dest[i]=dest[j];
+  dest[j]=tmp;
+}

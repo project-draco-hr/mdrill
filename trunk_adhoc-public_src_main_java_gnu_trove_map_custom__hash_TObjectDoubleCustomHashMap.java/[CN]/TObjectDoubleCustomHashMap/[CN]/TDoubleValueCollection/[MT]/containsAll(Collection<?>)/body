@@ -1,0 +1,14 @@
+{
+  for (  Object element : collection) {
+    if (element instanceof Double) {
+      double ele=((Double)element).doubleValue();
+      if (!TObjectDoubleCustomHashMap.this.containsValue(ele)) {
+        return false;
+      }
+    }
+ else {
+      return false;
+    }
+  }
+  return true;
+}

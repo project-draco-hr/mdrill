@@ -1,0 +1,4 @@
+{
+  if (newSize != oldSize)   return "[Warning] apparent concurrent modification of the key set. " + "Size before and after rehash() do not match " + oldSize + " vs "+ newSize;
+  return "";
+}

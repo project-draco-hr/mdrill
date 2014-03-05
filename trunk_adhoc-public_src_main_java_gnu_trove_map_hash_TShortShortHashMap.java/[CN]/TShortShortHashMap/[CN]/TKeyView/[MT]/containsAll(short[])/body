@@ -1,0 +1,8 @@
+{
+  for (  short element : array) {
+    if (!TShortShortHashMap.this.contains(element)) {
+      return false;
+    }
+  }
+  return true;
+}

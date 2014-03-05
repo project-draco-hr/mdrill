@@ -95,7 +95,7 @@ case 8:
 {
 boolean isNotIn=(operate == 7 || operate == 8);
 String[] listStrs=filterListStr(ft,value2.split(","));
-if (listStrs.length > 20 && !isNotIn) {
+if (listStrs.length > 200 && !isNotIn) {
 return uploadInHdfs(listStrs,key,shard);
 }
  else {

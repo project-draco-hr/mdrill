@@ -1,0 +1,6 @@
+{
+synchronized (mutex) {
+    if (values == null)     values=new TSynchronizedByteCollection(m.valueCollection(),mutex);
+    return values;
+  }
+}

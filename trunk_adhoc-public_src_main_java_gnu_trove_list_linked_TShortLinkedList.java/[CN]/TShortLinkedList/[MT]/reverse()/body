@@ -1,0 +1,16 @@
+{
+  TShortLink h=head;
+  TShortLink t=tail;
+  TShortLink prev, next, tmp;
+  TShortLink l=head;
+  while (got(l)) {
+    next=l.getNext();
+    prev=l.getPrevious();
+    tmp=l;
+    l=l.getNext();
+    tmp.setNext(prev);
+    tmp.setPrevious(next);
+  }
+  head=t;
+  tail=h;
+}

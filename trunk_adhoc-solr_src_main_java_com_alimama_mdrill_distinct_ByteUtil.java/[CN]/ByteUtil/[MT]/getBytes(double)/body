@@ -1,0 +1,4 @@
+{
+  long intBits=Double.doubleToLongBits(data);
+  return getBytes(intBits);
+}

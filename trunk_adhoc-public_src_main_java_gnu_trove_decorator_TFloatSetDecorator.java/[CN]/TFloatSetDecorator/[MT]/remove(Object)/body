@@ -1,0 +1,3 @@
+{
+  return value instanceof Float && _set.remove(((Float)value).floatValue());
+}

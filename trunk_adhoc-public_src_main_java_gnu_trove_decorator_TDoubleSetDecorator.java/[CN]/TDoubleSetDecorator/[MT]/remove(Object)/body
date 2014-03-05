@@ -1,0 +1,3 @@
+{
+  return value instanceof Double && _set.remove(((Double)value).doubleValue());
+}

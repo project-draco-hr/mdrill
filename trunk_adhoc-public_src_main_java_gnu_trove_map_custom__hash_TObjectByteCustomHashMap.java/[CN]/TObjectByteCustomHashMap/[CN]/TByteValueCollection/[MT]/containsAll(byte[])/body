@@ -1,0 +1,8 @@
+{
+  for (  byte element : array) {
+    if (!TObjectByteCustomHashMap.this.containsValue(element)) {
+      return false;
+    }
+  }
+  return true;
+}

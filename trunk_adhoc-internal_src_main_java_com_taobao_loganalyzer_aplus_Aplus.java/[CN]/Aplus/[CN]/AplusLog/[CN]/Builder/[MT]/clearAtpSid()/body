@@ -1,0 +1,6 @@
+{
+  bitField1_=(bitField1_ & ~0x00001000);
+  atpSid_=getDefaultInstance().getAtpSid();
+  onChanged();
+  return this;
+}

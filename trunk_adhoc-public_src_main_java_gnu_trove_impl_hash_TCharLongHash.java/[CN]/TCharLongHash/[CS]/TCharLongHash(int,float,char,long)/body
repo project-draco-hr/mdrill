@@ -1,0 +1,5 @@
+{
+  super(initialCapacity,loadFactor);
+  this.no_entry_key=no_entry_key;
+  this.no_entry_value=no_entry_value;
+}

@@ -1,0 +1,19 @@
+{
+  final StringBuilder buf=new StringBuilder("{");
+  forEachKey(new TLongProcedure(){
+    private boolean first=true;
+    public boolean execute(    long key){
+      if (first) {
+        first=false;
+      }
+ else {
+        buf.append(", ");
+      }
+      buf.append(key);
+      return true;
+    }
+  }
+);
+  buf.append("}");
+  return buf.toString();
+}

@@ -1,0 +1,8 @@
+{
+  for (  float element : array) {
+    if (!TByteFloatHashMap.this.containsValue(element)) {
+      return false;
+    }
+  }
+  return true;
+}

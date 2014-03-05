@@ -1,0 +1,7 @@
+{
+  no_entry_value=list.getNoEntryValue();
+  for (TDoubleIterator iterator=list.iterator(); iterator.hasNext(); ) {
+    double next=iterator.next();
+    add(next);
+  }
+}

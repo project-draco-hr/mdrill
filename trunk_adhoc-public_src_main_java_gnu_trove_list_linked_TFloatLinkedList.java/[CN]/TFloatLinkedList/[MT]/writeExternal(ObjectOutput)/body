@@ -1,0 +1,9 @@
+{
+  out.writeByte(0);
+  out.writeFloat(no_entry_value);
+  out.writeInt(size);
+  for (TFloatIterator iterator=iterator(); iterator.hasNext(); ) {
+    float next=iterator.next();
+    out.writeFloat(next);
+  }
+}

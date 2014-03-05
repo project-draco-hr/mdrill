@@ -1,0 +1,10 @@
+{
+  boolean changed=false;
+  for (  Float element : collection) {
+    float e=element.floatValue();
+    if (add(e)) {
+      changed=true;
+    }
+  }
+  return changed;
+}

@@ -1,0 +1,4 @@
+{
+  in.readByte();
+  _map=(TCharByteMap)in.readObject();
+}

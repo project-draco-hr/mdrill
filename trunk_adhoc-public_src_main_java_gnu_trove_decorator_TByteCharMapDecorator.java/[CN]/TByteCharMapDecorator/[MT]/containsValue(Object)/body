@@ -1,0 +1,3 @@
+{
+  return val instanceof Character && _map.containsValue(unwrapValue(val));
+}

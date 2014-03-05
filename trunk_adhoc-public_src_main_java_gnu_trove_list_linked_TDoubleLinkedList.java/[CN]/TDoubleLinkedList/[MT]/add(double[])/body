@@ -1,0 +1,5 @@
+{
+  for (  double val : vals) {
+    add(val);
+  }
+}

@@ -1,0 +1,3 @@
+{
+  return new TFloatLongValueHashIterator(TFloatLongHashMap.this);
+}

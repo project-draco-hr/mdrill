@@ -1,0 +1,6 @@
+{
+  if (this.ispv2 || this.isclick_2) {
+    return new Number[]{this.ispv2 ? 1 : 0,0,this.isclick_2 ? 1 : 0,0,0,0,0,0};
+  }
+  return new Number[]{0,this.isclick_1 ? 1 : 0,0,0,0,0,0,0};
+}

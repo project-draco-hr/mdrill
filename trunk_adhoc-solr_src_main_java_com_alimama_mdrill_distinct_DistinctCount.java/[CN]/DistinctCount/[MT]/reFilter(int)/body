@@ -3,8 +3,8 @@
     return;
   }
   this.currentTimes=times;
-  HashSet<Integer> data=new HashSet<Integer>();
-  for (  Integer ucrc : this.uniq) {
+  TIntHashSet data=DistinctCount.createmap();
+  for (  Integer ucrc : this.uniq.toArray()) {
     if (this.isallow(ucrc)) {
       data.add(ucrc);
     }

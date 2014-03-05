@@ -1,0 +1,5 @@
+{
+  int value=list.get(index);
+  if (value == list.getNoEntryValue())   return null;
+ else   return Integer.valueOf(value);
+}

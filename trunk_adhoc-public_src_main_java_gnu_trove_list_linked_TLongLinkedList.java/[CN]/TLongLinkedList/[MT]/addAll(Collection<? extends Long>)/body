@@ -1,0 +1,7 @@
+{
+  boolean ret=false;
+  for (  Long v : collection) {
+    if (add(v.longValue()))     ret=true;
+  }
+  return ret;
+}

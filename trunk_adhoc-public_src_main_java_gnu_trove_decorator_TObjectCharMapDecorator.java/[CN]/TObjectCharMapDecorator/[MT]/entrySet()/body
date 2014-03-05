@@ -1,0 +1,76 @@
+{
+  return new AbstractSet<Map.Entry<K,Character>>(){
+    public int size(){
+      return _map.size();
+    }
+    public boolean isEmpty(){
+      return TObjectCharMapDecorator.this.isEmpty();
+    }
+    public boolean contains(    Object o){
+      if (o instanceof Map.Entry) {
+        Object k=((Map.Entry)o).getKey();
+        Object v=((Map.Entry)o).getValue();
+        return TObjectCharMapDecorator.this.containsKey(k) && TObjectCharMapDecorator.this.get(k).equals(v);
+      }
+ else {
+        return false;
+      }
+    }
+    public Iterator<Map.Entry<K,Character>> iterator(){
+      return new Iterator<Map.Entry<K,Character>>(){
+        private final TObjectCharIterator<K> it=_map.iterator();
+        public Map.Entry<K,Character> next(){
+          it.advance();
+          final K key=it.key();
+          final Character v=wrapValue(it.value());
+          return new Map.Entry<K,Character>(){
+            private Character val=v;
+            public boolean equals(            Object o){
+              return o instanceof Map.Entry && ((Map.Entry)o).getKey().equals(key) && ((Map.Entry)o).getValue().equals(val);
+            }
+            public K getKey(){
+              return key;
+            }
+            public Character getValue(){
+              return val;
+            }
+            public int hashCode(){
+              return key.hashCode() + val.hashCode();
+            }
+            public Character setValue(            Character value){
+              val=value;
+              return put(key,value);
+            }
+          }
+;
+        }
+        public boolean hasNext(){
+          return it.hasNext();
+        }
+        public void remove(){
+          it.remove();
+        }
+      }
+;
+    }
+    public boolean add(    Map.Entry<K,Character> o){
+      throw new UnsupportedOperationException();
+    }
+    public boolean remove(    Object o){
+      boolean modified=false;
+      if (contains(o)) {
+        K key=((Map.Entry<K,Character>)o).getKey();
+        _map.remove(key);
+        modified=true;
+      }
+      return modified;
+    }
+    public boolean addAll(    Collection<? extends Map.Entry<K,Character>> c){
+      throw new UnsupportedOperationException();
+    }
+    public void clear(){
+      TObjectCharMapDecorator.this.clear();
+    }
+  }
+;
+}

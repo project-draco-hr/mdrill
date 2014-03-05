@@ -1,0 +1,15 @@
+{
+  return new Iterator<Float>(){
+    private final TFloatIterator it=_set.iterator();
+    public Float next(){
+      return Float.valueOf(it.next());
+    }
+    public boolean hasNext(){
+      return it.hasNext();
+    }
+    public void remove(){
+      it.remove();
+    }
+  }
+;
+}

@@ -1,0 +1,4 @@
+TLongLink l
+int idx
+int offset
+boolean next

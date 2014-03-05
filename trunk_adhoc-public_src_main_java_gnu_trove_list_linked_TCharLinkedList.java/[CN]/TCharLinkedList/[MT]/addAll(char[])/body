@@ -1,0 +1,7 @@
+{
+  boolean ret=false;
+  for (  char i : array) {
+    if (add(i))     ret=true;
+  }
+  return ret;
+}

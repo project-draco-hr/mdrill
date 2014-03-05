@@ -1,0 +1,3 @@
+{
+  return TFloatObjectHashMap.this.isEmpty();
+}

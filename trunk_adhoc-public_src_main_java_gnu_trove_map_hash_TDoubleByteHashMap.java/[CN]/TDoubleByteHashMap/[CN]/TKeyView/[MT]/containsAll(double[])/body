@@ -1,0 +1,8 @@
+{
+  for (  double element : array) {
+    if (!TDoubleByteHashMap.this.contains(element)) {
+      return false;
+    }
+  }
+  return true;
+}

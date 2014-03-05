@@ -1,0 +1,5 @@
+{
+  TLongLinkedList tmp=new TLongLinkedList();
+  tmp.add(value);
+  insert(offset,tmp);
+}

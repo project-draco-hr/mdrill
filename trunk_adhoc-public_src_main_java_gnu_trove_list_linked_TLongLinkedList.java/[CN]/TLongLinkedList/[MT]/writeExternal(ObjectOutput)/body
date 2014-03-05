@@ -1,0 +1,9 @@
+{
+  out.writeByte(0);
+  out.writeLong(no_entry_value);
+  out.writeInt(size);
+  for (TLongIterator iterator=iterator(); iterator.hasNext(); ) {
+    long next=iterator.next();
+    out.writeLong(next);
+  }
+}

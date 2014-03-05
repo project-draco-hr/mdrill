@@ -1,0 +1,40 @@
+{
+  T from_p=from.getPrevious();
+  T from_n=from.getNext();
+  T to_p=to.getPrevious();
+  T to_n=to.getNext();
+  if (from_n == to) {
+    if (from_p != null)     from_p.setNext(to);
+    to.setPrevious(from_p);
+    to.setNext(from);
+    from.setPrevious(to);
+    from.setNext(to_n);
+    if (to_n != null)     to_n.setPrevious(from);
+  }
+ else   if (to_n == from) {
+    if (to_p != null)     to_p.setNext(to);
+    to.setPrevious(from);
+    to.setNext(from_n);
+    from.setPrevious(to_p);
+    from.setNext(to);
+    if (from_n != null)     from_n.setPrevious(to);
+  }
+ else {
+    from.setNext(to_n);
+    from.setPrevious(to_p);
+    if (to_p != null)     to_p.setNext(from);
+    if (to_n != null)     to_n.setPrevious(from);
+    to.setNext(from_n);
+    to.setPrevious(from_p);
+    if (from_p != null)     from_p.setNext(to);
+    if (from_n != null)     from_n.setPrevious(to);
+  }
+  if (_head == from)   _head=to;
+ else   if (_head == to)   _head=from;
+  if (_tail == from)   _tail=to;
+ else   if (_tail == to)   _tail=from;
+  if (_lastReturned == from)   _lastReturned=to;
+ else   if (_lastReturned == to)   _lastReturned=from;
+  if (_next == from)   _next=to;
+ else   if (_next == to)   _next=from;
+}

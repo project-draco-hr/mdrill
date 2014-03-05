@@ -1,0 +1,5 @@
+{
+  TCharLinkedList tmp=new TCharLinkedList();
+  tmp.add(value);
+  insert(offset,tmp);
+}

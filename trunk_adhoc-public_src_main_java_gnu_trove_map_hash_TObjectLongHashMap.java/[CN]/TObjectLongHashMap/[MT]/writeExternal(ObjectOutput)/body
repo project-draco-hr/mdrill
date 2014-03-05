@@ -1,0 +1,12 @@
+{
+  out.writeByte(0);
+  super.writeExternal(out);
+  out.writeLong(no_entry_value);
+  out.writeInt(_size);
+  for (int i=_set.length; i-- > 0; ) {
+    if (_set[i] != REMOVED && _set[i] != FREE) {
+      out.writeObject(_set[i]);
+      out.writeLong(_values[i]);
+    }
+  }
+}

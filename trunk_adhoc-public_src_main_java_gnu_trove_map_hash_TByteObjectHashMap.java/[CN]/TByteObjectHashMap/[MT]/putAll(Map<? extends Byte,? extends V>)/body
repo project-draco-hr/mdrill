@@ -1,0 +1,6 @@
+{
+  Set<? extends Map.Entry<? extends Byte,? extends V>> set=map.entrySet();
+  for (  Map.Entry<? extends Byte,? extends V> entry : set) {
+    put(entry.getKey(),entry.getValue());
+  }
+}

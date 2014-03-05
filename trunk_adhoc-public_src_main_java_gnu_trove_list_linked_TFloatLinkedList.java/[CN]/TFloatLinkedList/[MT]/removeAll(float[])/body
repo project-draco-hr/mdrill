@@ -1,0 +1,12 @@
+{
+  Arrays.sort(array);
+  boolean modified=false;
+  TFloatIterator iter=iterator();
+  while (iter.hasNext()) {
+    if (Arrays.binarySearch(array,iter.next()) >= 0) {
+      iter.remove();
+      modified=true;
+    }
+  }
+  return modified;
+}

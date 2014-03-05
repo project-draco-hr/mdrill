@@ -1,0 +1,78 @@
+{
+  return new AbstractSet<Map.Entry<Character,Double>>(){
+    public int size(){
+      return _map.size();
+    }
+    public boolean isEmpty(){
+      return TCharDoubleMapDecorator.this.isEmpty();
+    }
+    public boolean contains(    Object o){
+      if (o instanceof Map.Entry) {
+        Object k=((Map.Entry)o).getKey();
+        Object v=((Map.Entry)o).getValue();
+        return TCharDoubleMapDecorator.this.containsKey(k) && TCharDoubleMapDecorator.this.get(k).equals(v);
+      }
+ else {
+        return false;
+      }
+    }
+    public Iterator<Map.Entry<Character,Double>> iterator(){
+      return new Iterator<Map.Entry<Character,Double>>(){
+        private final TCharDoubleIterator it=_map.iterator();
+        public Map.Entry<Character,Double> next(){
+          it.advance();
+          char ik=it.key();
+          final Character key=(ik == _map.getNoEntryKey()) ? null : wrapKey(ik);
+          double iv=it.value();
+          final Double v=(iv == _map.getNoEntryValue()) ? null : wrapValue(iv);
+          return new Map.Entry<Character,Double>(){
+            private Double val=v;
+            public boolean equals(            Object o){
+              return o instanceof Map.Entry && ((Map.Entry)o).getKey().equals(key) && ((Map.Entry)o).getValue().equals(val);
+            }
+            public Character getKey(){
+              return key;
+            }
+            public Double getValue(){
+              return val;
+            }
+            public int hashCode(){
+              return key.hashCode() + val.hashCode();
+            }
+            public Double setValue(            Double value){
+              val=value;
+              return put(key,value);
+            }
+          }
+;
+        }
+        public boolean hasNext(){
+          return it.hasNext();
+        }
+        public void remove(){
+          it.remove();
+        }
+      }
+;
+    }
+    public boolean add(    Map.Entry<Character,Double> o){
+      throw new UnsupportedOperationException();
+    }
+    public boolean remove(    Object o){
+      boolean modified=false;
+      if (contains(o)) {
+        Character key=((Map.Entry<Character,Double>)o).getKey();
+        _map.remove(unwrapKey(key));
+        modified=true;
+      }
+      return modified;
+    }
+    public boolean addAll(    Collection<? extends Map.Entry<Character,Double>> c){
+      throw new UnsupportedOperationException();
+    }
+    public void clear(){
+      TCharDoubleMapDecorator.this.clear();
+    }
+  }
+;
+}

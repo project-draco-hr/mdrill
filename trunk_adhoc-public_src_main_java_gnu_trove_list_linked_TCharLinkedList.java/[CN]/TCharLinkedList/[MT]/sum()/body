@@ -1,0 +1,7 @@
+{
+  char sum=0;
+  for (TCharLink l=head; got(l); l=l.getNext()) {
+    sum+=l.getValue();
+  }
+  return sum;
+}

@@ -1,0 +1,30 @@
+{
+  if (!(other instanceof TObjectIntMap)) {
+    return false;
+  }
+  TObjectIntMap that=(TObjectIntMap)other;
+  if (that.size() != this.size()) {
+    return false;
+  }
+  try {
+    TObjectIntIterator iter=this.iterator();
+    while (iter.hasNext()) {
+      iter.advance();
+      Object key=iter.key();
+      int value=iter.value();
+      if (value == no_entry_value) {
+        if (!(that.get(key) == that.getNoEntryValue() && that.containsKey(key))) {
+          return false;
+        }
+      }
+ else {
+        if (value != that.get(key)) {
+          return false;
+        }
+      }
+    }
+  }
+ catch (  ClassCastException ex) {
+  }
+  return true;
+}

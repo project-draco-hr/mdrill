@@ -1,0 +1,15 @@
+{
+  return new TCharIterator(){
+    TCharIterator i=c.iterator();
+    public boolean hasNext(){
+      return i.hasNext();
+    }
+    public char next(){
+      return i.next();
+    }
+    public void remove(){
+      throw new UnsupportedOperationException();
+    }
+  }
+;
+}

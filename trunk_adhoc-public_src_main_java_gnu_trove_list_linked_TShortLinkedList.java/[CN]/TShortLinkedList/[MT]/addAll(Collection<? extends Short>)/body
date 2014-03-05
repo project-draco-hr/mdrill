@@ -1,0 +1,7 @@
+{
+  boolean ret=false;
+  for (  Short v : collection) {
+    if (add(v.shortValue()))     ret=true;
+  }
+  return ret;
+}

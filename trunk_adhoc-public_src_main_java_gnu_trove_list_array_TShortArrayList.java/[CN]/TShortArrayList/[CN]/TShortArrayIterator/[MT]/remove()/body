@@ -1,0 +1,11 @@
+{
+  if (lastRet == -1)   throw new IllegalStateException();
+  try {
+    TShortArrayList.this.remove(lastRet,1);
+    if (lastRet < cursor)     cursor--;
+    lastRet=-1;
+  }
+ catch (  IndexOutOfBoundsException e) {
+    throw new ConcurrentModificationException();
+  }
+}

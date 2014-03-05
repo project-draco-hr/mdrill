@@ -1,0 +1,5 @@
+{
+  _data=new short[capacity];
+  _pos=0;
+  this.no_entry_value=no_entry_value;
+}

@@ -1,0 +1,8 @@
+{
+  boolean ret=false;
+  for (TCharIterator it=collection.iterator(); it.hasNext(); ) {
+    char i=it.next();
+    if (add(i))     ret=true;
+  }
+  return ret;
+}

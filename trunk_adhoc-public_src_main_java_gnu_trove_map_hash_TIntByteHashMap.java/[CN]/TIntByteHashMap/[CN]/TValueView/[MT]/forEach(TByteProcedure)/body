@@ -1,0 +1,3 @@
+{
+  return TIntByteHashMap.this.forEachValue(procedure);
+}

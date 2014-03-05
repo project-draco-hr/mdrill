@@ -1,0 +1,16 @@
+{
+  int oldCapacity=_set.length;
+  byte oldKeys[]=_set;
+  float oldVals[]=_values;
+  byte oldStates[]=_states;
+  _set=new byte[newCapacity];
+  _values=new float[newCapacity];
+  _states=new byte[newCapacity];
+  for (int i=oldCapacity; i-- > 0; ) {
+    if (oldStates[i] == FULL) {
+      byte o=oldKeys[i];
+      int index=insertKey(o);
+      _values[index]=oldVals[i];
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  TByteLinkedList ret=new TByteLinkedList();
+  for (int i=0; i < len; i++) {
+    ret.add(values[valOffset + i]);
+  }
+  return ret;
+}

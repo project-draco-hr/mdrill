@@ -1,0 +1,11 @@
+{
+  boolean changed=false;
+  TDoubleIterator iter=collection.iterator();
+  while (iter.hasNext()) {
+    double element=iter.next();
+    if (add(element)) {
+      changed=true;
+    }
+  }
+  return changed;
+}

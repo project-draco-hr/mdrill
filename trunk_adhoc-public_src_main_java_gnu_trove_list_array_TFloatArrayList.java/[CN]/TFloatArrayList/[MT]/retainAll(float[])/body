@@ -1,0 +1,12 @@
+{
+  boolean changed=false;
+  Arrays.sort(array);
+  float[] data=_data;
+  for (int i=_pos; i-- > 0; ) {
+    if (Arrays.binarySearch(array,data[i]) < 0) {
+      remove(i,1);
+      changed=true;
+    }
+  }
+  return changed;
+}

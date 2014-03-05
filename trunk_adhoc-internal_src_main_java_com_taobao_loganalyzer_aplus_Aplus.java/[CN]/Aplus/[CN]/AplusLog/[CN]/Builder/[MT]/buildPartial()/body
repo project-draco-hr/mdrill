@@ -1,0 +1,203 @@
+{
+  com.taobao.loganalyzer.aplus.Aplus.AplusLog result=new com.taobao.loganalyzer.aplus.Aplus.AplusLog(this);
+  int from_bitField0_=bitField0_;
+  int from_bitField1_=bitField1_;
+  int to_bitField0_=0;
+  int to_bitField1_=0;
+  if (((from_bitField0_ & 0x00000001) == 0x00000001)) {
+    to_bitField0_|=0x00000001;
+  }
+  result.version_=version_;
+  if (((from_bitField0_ & 0x00000002) == 0x00000002)) {
+    to_bitField0_|=0x00000002;
+  }
+  result.ip_=ip_;
+  if (((from_bitField0_ & 0x00000004) == 0x00000004)) {
+    to_bitField0_|=0x00000004;
+  }
+  result.time_=time_;
+  if (((from_bitField0_ & 0x00000008) == 0x00000008)) {
+    to_bitField0_|=0x00000008;
+  }
+  result.url_=url_;
+  if (((from_bitField0_ & 0x00000010) == 0x00000010)) {
+    to_bitField0_|=0x00000010;
+  }
+  result.userAgent_=userAgent_;
+  if (((from_bitField0_ & 0x00000020) == 0x00000020)) {
+    to_bitField0_|=0x00000020;
+  }
+  result.linezingSession_=linezingSession_;
+  if (((from_bitField0_ & 0x00000040) == 0x00000040)) {
+    to_bitField0_|=0x00000040;
+  }
+  result.cna_=cna_;
+  if (((from_bitField0_ & 0x00000080) == 0x00000080)) {
+    to_bitField0_|=0x00000080;
+  }
+  result.adid_=adid_;
+  if (((from_bitField0_ & 0x00000100) == 0x00000100)) {
+    to_bitField0_|=0x00000100;
+  }
+  result.amid_=amid_;
+  if (((from_bitField0_ & 0x00000200) == 0x00000200)) {
+    to_bitField0_|=0x00000200;
+  }
+  result.cmid_=cmid_;
+  if (((from_bitField0_ & 0x00000400) == 0x00000400)) {
+    to_bitField0_|=0x00000400;
+  }
+  result.pmid_=pmid_;
+  if (((from_bitField0_ & 0x00000800) == 0x00000800)) {
+    to_bitField0_|=0x00000800;
+  }
+  result.uid_=uid_;
+  if (((from_bitField0_ & 0x00001000) == 0x00001000)) {
+    to_bitField0_|=0x00001000;
+  }
+  result.sid_=sid_;
+  if (((from_bitField0_ & 0x00002000) == 0x00002000)) {
+    to_bitField0_|=0x00002000;
+  }
+  result.pre_=pre_;
+  if (((from_bitField0_ & 0x00004000) == 0x00004000)) {
+    to_bitField0_|=0x00004000;
+  }
+  result.scr_=scr_;
+  if (((from_bitField0_ & 0x00008000) == 0x00008000)) {
+    to_bitField0_|=0x00008000;
+  }
+  result.nick_=nick_;
+  if (((from_bitField0_ & 0x00010000) == 0x00010000)) {
+    to_bitField0_|=0x00010000;
+  }
+  result.atAutype_=atAutype_;
+  if (((from_bitField0_ & 0x00020000) == 0x00020000)) {
+    to_bitField0_|=0x00020000;
+  }
+  result.bbid_=bbid_;
+  if (((from_bitField0_ & 0x00040000) == 0x00040000)) {
+    to_bitField0_|=0x00040000;
+  }
+  result.atIsb_=atIsb_;
+  if (((from_bitField0_ & 0x00080000) == 0x00080000)) {
+    to_bitField0_|=0x00080000;
+  }
+  result.atMallProRe_=atMallProRe_;
+  if (((from_bitField0_ & 0x00100000) == 0x00100000)) {
+    to_bitField0_|=0x00100000;
+  }
+  result.atMallRe_=atMallRe_;
+  if (((from_bitField0_ & 0x00200000) == 0x00200000)) {
+    to_bitField0_|=0x00200000;
+  }
+  result.atShoptype_=atShoptype_;
+  if (((from_bitField0_ & 0x00400000) == 0x00400000)) {
+    to_bitField0_|=0x00400000;
+  }
+  result.b2CAuction_=b2CAuction_;
+  if (((from_bitField0_ & 0x00800000) == 0x00800000)) {
+    to_bitField0_|=0x00800000;
+  }
+  result.b2CBrand_=b2CBrand_;
+  if (((from_bitField0_ & 0x01000000) == 0x01000000)) {
+    to_bitField0_|=0x01000000;
+  }
+  result.b2COrid_=b2COrid_;
+  if (((from_bitField0_ & 0x02000000) == 0x02000000)) {
+    to_bitField0_|=0x02000000;
+  }
+  result.atType_=atType_;
+  if (((from_bitField0_ & 0x04000000) == 0x04000000)) {
+    to_bitField0_|=0x04000000;
+  }
+  result.category_=category_;
+  if (((from_bitField0_ & 0x08000000) == 0x08000000)) {
+    to_bitField0_|=0x08000000;
+  }
+  result.marketinfo_=marketinfo_;
+  if (((from_bitField0_ & 0x10000000) == 0x10000000)) {
+    to_bitField0_|=0x10000000;
+  }
+  result.atpIsdpp_=atpIsdpp_;
+  if (((from_bitField0_ & 0x20000000) == 0x20000000)) {
+    to_bitField0_|=0x20000000;
+  }
+  result.atBucketid_=atBucketid_;
+  if (((from_bitField0_ & 0x40000000) == 0x40000000)) {
+    to_bitField0_|=0x40000000;
+  }
+  result.atInsid_=atInsid_;
+  if (((from_bitField0_ & 0x80000000) == 0x80000000)) {
+    to_bitField0_|=0x80000000;
+  }
+  result.atJporid_=atJporid_;
+  if (((from_bitField1_ & 0x00000001) == 0x00000001)) {
+    to_bitField1_|=0x00000001;
+  }
+  result.wmPageid_=wmPageid_;
+  if (((from_bitField1_ & 0x00000002) == 0x00000002)) {
+    to_bitField1_|=0x00000002;
+  }
+  result.wmPrototypeid_=wmPrototypeid_;
+  if (((from_bitField1_ & 0x00000004) == 0x00000004)) {
+    to_bitField1_|=0x00000004;
+  }
+  result.wmSid_=wmSid_;
+  if (((from_bitField1_ & 0x00000008) == 0x00000008)) {
+    to_bitField1_|=0x00000008;
+  }
+  result.spmCnt_=spmCnt_;
+  if (((from_bitField1_ & 0x00000010) == 0x00000010)) {
+    to_bitField1_|=0x00000010;
+  }
+  result.title_=title_;
+  if (((from_bitField1_ & 0x00000020) == 0x00000020)) {
+    to_bitField1_|=0x00000020;
+  }
+  result.urlType_=urlType_;
+  if (((from_bitField1_ & 0x00000040) == 0x00000040)) {
+    to_bitField1_|=0x00000040;
+  }
+  result.refType_=refType_;
+  if (((from_bitField1_ & 0x00000080) == 0x00000080)) {
+    to_bitField1_|=0x00000080;
+  }
+  result.refShopid_=refShopid_;
+  if (((from_bitField1_ & 0x00000100) == 0x00000100)) {
+    to_bitField1_|=0x00000100;
+  }
+  result.logkey_=logkey_;
+  if (((from_bitField1_ & 0x00000200) == 0x00000200)) {
+    to_bitField1_|=0x00000200;
+  }
+  result.gmkey_=gmkey_;
+  if (((from_bitField1_ & 0x00000400) == 0x00000400)) {
+    to_bitField1_|=0x00000400;
+  }
+  result.gokey_=gokey_;
+  if (((from_bitField1_ & 0x00000800) == 0x00000800)) {
+    to_bitField1_|=0x00000800;
+  }
+  result.logtype_=logtype_;
+  if (((from_bitField1_ & 0x00001000) == 0x00001000)) {
+    to_bitField1_|=0x00001000;
+  }
+  result.atpSid_=atpSid_;
+  if (((from_bitField1_ & 0x00002000) == 0x00002000)) {
+    to_bitField1_|=0x00002000;
+  }
+  result.userid_=userid_;
+  if (((from_bitField1_ & 0x00004000) == 0x00004000)) {
+    to_bitField1_|=0x00004000;
+  }
+  result.spmUrl_=spmUrl_;
+  if (((from_bitField1_ & 0x00008000) == 0x00008000)) {
+    to_bitField1_|=0x00008000;
+  }
+  result.spmPre_=spmPre_;
+  result.bitField0_=to_bitField0_;
+  result.bitField1_=to_bitField1_;
+  onBuilt();
+  return result;
+}

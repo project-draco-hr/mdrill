@@ -1,0 +1,7 @@
+{
+  if (this.parse.distFS != null) {
+    for (int i=0; i < this.parse.distFS.length; i++) {
+      autoDist.remove(Arrays.asList(key,i));
+    }
+  }
+}

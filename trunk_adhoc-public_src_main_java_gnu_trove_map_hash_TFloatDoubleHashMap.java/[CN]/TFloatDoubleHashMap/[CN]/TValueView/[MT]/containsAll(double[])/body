@@ -1,0 +1,8 @@
+{
+  for (  double element : array) {
+    if (!TFloatDoubleHashMap.this.containsValue(element)) {
+      return false;
+    }
+  }
+  return true;
+}

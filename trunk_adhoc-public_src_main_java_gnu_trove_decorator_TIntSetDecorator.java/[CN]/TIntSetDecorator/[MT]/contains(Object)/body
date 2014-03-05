@@ -1,0 +1,4 @@
+{
+  if (!(o instanceof Integer))   return false;
+  return _set.contains(((Integer)o).intValue());
+}

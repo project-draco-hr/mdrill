@@ -1,0 +1,9 @@
+{
+  int hashcode=0;
+  for (int i=_states.length; i-- > 0; ) {
+    if (_states[i] == FULL) {
+      hashcode+=HashFunctions.hash(_set[i]);
+    }
+  }
+  return hashcode;
+}

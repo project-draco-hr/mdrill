@@ -1,0 +1,23 @@
+{
+  if (from > to)   throw new IllegalArgumentException("from > to : " + from + ">"+ to);
+  TByteLink start=getLinkAt(from);
+  TByteLink stop=getLinkAt(to);
+  TByteLink prev, next;
+  TByteLink tmp=null;
+  TByteLink tmpHead=start.getPrevious();
+  TByteLink l=start;
+  while (l != stop) {
+    next=l.getNext();
+    prev=l.getPrevious();
+    tmp=l;
+    l=l.getNext();
+    tmp.setNext(prev);
+    tmp.setPrevious(next);
+  }
+  if (got(tmp)) {
+    tmpHead.setNext(tmp);
+    stop.setPrevious(tmpHead);
+  }
+  start.setNext(stop);
+  stop.setPrevious(start);
+}

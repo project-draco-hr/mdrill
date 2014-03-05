@@ -1,0 +1,6 @@
+{
+  this.pvlog=pvlog;
+  this.ts=ts;
+  this.refpid=refpid;
+  this.iswareless=iswareless;
+}

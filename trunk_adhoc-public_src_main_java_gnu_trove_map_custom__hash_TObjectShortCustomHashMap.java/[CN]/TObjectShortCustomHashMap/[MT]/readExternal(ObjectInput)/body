@@ -1,0 +1,13 @@
+{
+  in.readByte();
+  super.readExternal(in);
+  strategy=(HashingStrategy<K>)in.readObject();
+  no_entry_value=in.readShort();
+  int size=in.readInt();
+  setUp(size);
+  while (size-- > 0) {
+    K key=(K)in.readObject();
+    short val=in.readShort();
+    put(key,val);
+  }
+}

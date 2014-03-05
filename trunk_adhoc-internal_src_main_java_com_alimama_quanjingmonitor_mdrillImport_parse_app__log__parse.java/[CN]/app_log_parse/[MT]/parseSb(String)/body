@@ -1,0 +1,11 @@
+{
+  String[] split=str.split("[ ]*,[ ]*",-1);
+  for (  String s : split) {
+    if (!s.startsWith("_sb=")) {
+      continue;
+    }
+    String json=decodeString(s.substring(4));
+    return new JSONObject(json);
+  }
+  return new JSONObject();
+}

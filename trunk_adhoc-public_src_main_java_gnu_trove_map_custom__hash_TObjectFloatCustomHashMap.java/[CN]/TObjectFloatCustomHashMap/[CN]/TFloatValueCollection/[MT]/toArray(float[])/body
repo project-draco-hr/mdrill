@@ -1,0 +1,3 @@
+{
+  return TObjectFloatCustomHashMap.this.values(dest);
+}

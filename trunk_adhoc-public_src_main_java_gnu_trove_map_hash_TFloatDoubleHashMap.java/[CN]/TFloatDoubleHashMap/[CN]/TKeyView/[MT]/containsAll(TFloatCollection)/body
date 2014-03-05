@@ -1,0 +1,9 @@
+{
+  TFloatIterator iter=collection.iterator();
+  while (iter.hasNext()) {
+    if (!TFloatDoubleHashMap.this.containsKey(iter.next())) {
+      return false;
+    }
+  }
+  return true;
+}

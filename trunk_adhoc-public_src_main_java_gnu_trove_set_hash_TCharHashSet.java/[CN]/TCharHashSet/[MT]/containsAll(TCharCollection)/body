@@ -1,0 +1,10 @@
+{
+  TCharIterator iter=collection.iterator();
+  while (iter.hasNext()) {
+    char element=iter.next();
+    if (!contains(element)) {
+      return false;
+    }
+  }
+  return true;
+}

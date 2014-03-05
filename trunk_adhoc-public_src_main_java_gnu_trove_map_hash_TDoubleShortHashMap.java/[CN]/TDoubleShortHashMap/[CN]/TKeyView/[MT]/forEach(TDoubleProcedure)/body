@@ -1,0 +1,3 @@
+{
+  return TDoubleShortHashMap.this.forEachKey(procedure);
+}

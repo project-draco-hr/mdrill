@@ -1,0 +1,7 @@
+{
+  super(initialCapacity,loadFactor);
+  this.no_entry_value=no_entry_value;
+  if (no_entry_value != (byte)0) {
+    Arrays.fill(_set,no_entry_value);
+  }
+}

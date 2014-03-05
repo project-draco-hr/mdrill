@@ -1,0 +1,3 @@
+{
+  return val instanceof Float && _map.containsValue(unwrapValue(val));
+}

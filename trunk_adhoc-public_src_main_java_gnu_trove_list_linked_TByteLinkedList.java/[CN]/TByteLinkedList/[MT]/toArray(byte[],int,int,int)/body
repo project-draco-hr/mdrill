@@ -1,0 +1,14 @@
+{
+  if (len == 0) {
+    return dest;
+  }
+  if (source_pos < 0 || source_pos >= size()) {
+    throw new ArrayIndexOutOfBoundsException(source_pos);
+  }
+  TByteLink tmp=getLinkAt(source_pos);
+  for (int i=0; i < len; i++) {
+    dest[dest_pos + i]=tmp.getValue();
+    tmp=tmp.getNext();
+  }
+  return dest;
+}

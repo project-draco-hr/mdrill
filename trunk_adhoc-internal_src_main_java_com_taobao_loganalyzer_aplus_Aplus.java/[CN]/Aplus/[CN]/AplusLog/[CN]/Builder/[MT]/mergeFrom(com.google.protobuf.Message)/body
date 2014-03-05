@@ -1,0 +1,9 @@
+{
+  if (other instanceof com.taobao.loganalyzer.aplus.Aplus.AplusLog) {
+    return mergeFrom((com.taobao.loganalyzer.aplus.Aplus.AplusLog)other);
+  }
+ else {
+    super.mergeFrom(other);
+    return this;
+  }
+}

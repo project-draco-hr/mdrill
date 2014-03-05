@@ -1,0 +1,9 @@
+{
+  out.writeByte(0);
+  out.writeChar(no_entry_value);
+  out.writeInt(size);
+  for (TCharIterator iterator=iterator(); iterator.hasNext(); ) {
+    char next=iterator.next();
+    out.writeChar(next);
+  }
+}

@@ -1,0 +1,15 @@
+{
+  if (collection == this) {
+    clear();
+    return true;
+  }
+  boolean changed=false;
+  TDoubleIterator iter=collection.iterator();
+  while (iter.hasNext()) {
+    double element=iter.next();
+    if (remove(element)) {
+      changed=true;
+    }
+  }
+  return changed;
+}

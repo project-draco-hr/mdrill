@@ -1,0 +1,35 @@
+{
+  final Object[] set=_set;
+  final int length=set.length;
+  final int probe=1 + (hash % (length - 2));
+  final int loopIndex=index;
+  int firstRemoved=-1;
+  do {
+    if (cur == REMOVED && firstRemoved == -1)     firstRemoved=index;
+    index-=probe;
+    if (index < 0) {
+      index+=length;
+    }
+    cur=set[index];
+    if (cur == FREE) {
+      if (firstRemoved != -1) {
+        _set[firstRemoved]=key;
+        return firstRemoved;
+      }
+ else {
+        consumeFreeSlot=true;
+        _set[index]=key;
+        return index;
+      }
+    }
+    if (cur == key || equals(key,cur)) {
+      return -index - 1;
+    }
+  }
+ while (index != loopIndex);
+  if (firstRemoved != -1) {
+    _set[firstRemoved]=key;
+    return firstRemoved;
+  }
+  throw new IllegalStateException("No free or removed slots available. Key set full?!!");
+}

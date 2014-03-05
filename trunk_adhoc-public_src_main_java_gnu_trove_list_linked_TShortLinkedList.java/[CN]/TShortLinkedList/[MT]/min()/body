@@ -1,0 +1,8 @@
+{
+  short ret=Short.MAX_VALUE;
+  if (isEmpty())   throw new IllegalStateException();
+  for (TShortLink l=head; got(l); l=l.getNext()) {
+    if (ret > l.getValue())     ret=l.getValue();
+  }
+  return ret;
+}

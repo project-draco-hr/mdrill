@@ -1,0 +1,5 @@
+{
+  byte previous_value=list.removeAt(index);
+  if (previous_value == list.getNoEntryValue())   return null;
+ else   return Byte.valueOf(previous_value);
+}

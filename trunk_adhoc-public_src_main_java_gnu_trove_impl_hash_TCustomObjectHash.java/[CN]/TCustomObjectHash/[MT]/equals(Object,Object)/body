@@ -1,0 +1,3 @@
+{
+  return two != REMOVED && strategy.equals((T)one,(T)two);
+}

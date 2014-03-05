@@ -1,0 +1,16 @@
+{
+  StringBuilder buf=new StringBuilder();
+  Set<Class<?>> types=new HashSet<Class<?>>();
+  for (  Object o : _set) {
+    if (o != FREE && o != REMOVED) {
+      if (o != null)       types.add(o.getClass());
+ else       types.add(null);
+    }
+  }
+  if (types.size() > 1) {
+    buf.append("\nMore than one type used for keys. Watch out for asymmetric equals(). " + "Read about the 'Liskov substitution principle' and the implications for equals() in java.");
+    buf.append("\nKey types: ").append(types);
+    buf.append(equalsSymmetryInfo(newVal,oldVal));
+  }
+  return buf.toString();
+}

@@ -1,0 +1,7 @@
+{
+  byte sum=0;
+  for (TByteLink l=head; got(l); l=l.getNext()) {
+    sum+=l.getValue();
+  }
+  return sum;
+}

@@ -1,0 +1,14 @@
+{
+  for (  Object element : collection) {
+    if (element instanceof Float) {
+      float ele=((Float)element).floatValue();
+      if (!TFloatIntHashMap.this.containsKey(ele)) {
+        return false;
+      }
+    }
+ else {
+      return false;
+    }
+  }
+  return true;
+}

@@ -1,0 +1,8 @@
+{
+  ensureCapacity(map.size());
+  TDoubleLongIterator iter=map.iterator();
+  while (iter.hasNext()) {
+    iter.advance();
+    this.put(iter.key(),iter.value());
+  }
+}

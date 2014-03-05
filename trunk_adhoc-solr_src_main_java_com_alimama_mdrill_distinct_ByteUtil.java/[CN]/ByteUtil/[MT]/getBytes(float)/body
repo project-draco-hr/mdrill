@@ -1,0 +1,4 @@
+{
+  int intBits=Float.floatToIntBits(data);
+  return getBytes(intBits);
+}

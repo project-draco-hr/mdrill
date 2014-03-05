@@ -1,0 +1,14 @@
+{
+  for (  Object element : collection) {
+    if (element instanceof Byte) {
+      byte ele=((Byte)element).byteValue();
+      if (!TCharByteHashMap.this.containsValue(ele)) {
+        return false;
+      }
+    }
+ else {
+      return false;
+    }
+  }
+  return true;
+}

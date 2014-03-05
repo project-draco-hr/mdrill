@@ -1,0 +1,8 @@
+{
+  for (  Object element : collection) {
+    if (!TByteObjectHashMap.this.containsKey(((Byte)element).byteValue())) {
+      return false;
+    }
+  }
+  return true;
+}

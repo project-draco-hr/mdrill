@@ -1,0 +1,6 @@
+{
+  bitField0_=(bitField0_ & ~0x80000000);
+  atJporid_=getDefaultInstance().getAtJporid();
+  onChanged();
+  return this;
+}

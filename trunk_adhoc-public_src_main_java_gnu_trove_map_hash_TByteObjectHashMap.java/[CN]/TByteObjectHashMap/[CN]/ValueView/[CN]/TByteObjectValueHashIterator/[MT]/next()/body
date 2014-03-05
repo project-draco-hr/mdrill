@@ -1,0 +1,4 @@
+{
+  moveToNextIndex();
+  return (V)_map._values[_index];
+}

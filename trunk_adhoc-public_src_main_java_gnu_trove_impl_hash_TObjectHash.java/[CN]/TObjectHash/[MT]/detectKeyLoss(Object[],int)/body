@@ -1,0 +1,10 @@
+{
+  StringBuilder buf=new StringBuilder();
+  Set<Object> k=makeKeySet(keys);
+  if (k.size() != oldSize) {
+    buf.append("\nhashCode() and/or equals() have inconsistent implementation");
+    buf.append("\nKey set lost entries, now got ").append(k.size()).append(" instead of ").append(oldSize);
+    buf.append(". This can manifest itself as an apparent duplicate key.");
+  }
+  return buf.toString();
+}

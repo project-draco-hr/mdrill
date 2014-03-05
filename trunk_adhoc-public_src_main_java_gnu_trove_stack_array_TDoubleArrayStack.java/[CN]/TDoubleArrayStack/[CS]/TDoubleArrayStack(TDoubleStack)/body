@@ -1,0 +1,9 @@
+{
+  if (stack instanceof TDoubleArrayStack) {
+    TDoubleArrayStack array_stack=(TDoubleArrayStack)stack;
+    this._list=new TDoubleArrayList(array_stack._list);
+  }
+ else {
+    throw new UnsupportedOperationException("Only support TDoubleArrayStack");
+  }
+}

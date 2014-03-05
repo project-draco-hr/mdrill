@@ -1,0 +1,3 @@
+{
+  return TDoubleCharHashMap.this.forEachKey(procedure);
+}

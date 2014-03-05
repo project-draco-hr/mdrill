@@ -1,0 +1,10 @@
+{
+  boolean changed=false;
+  for (  Long element : collection) {
+    long e=element.longValue();
+    if (add(e)) {
+      changed=true;
+    }
+  }
+  return changed;
+}

@@ -1,0 +1,7 @@
+{
+  int index=index(key);
+  if (index < 0 || !strategy.equals((K)_set[index],(K)key)) {
+    return null;
+  }
+  return _values[index];
+}

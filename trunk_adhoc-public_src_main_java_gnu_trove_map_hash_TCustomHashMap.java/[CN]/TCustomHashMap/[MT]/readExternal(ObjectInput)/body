@@ -1,0 +1,13 @@
+{
+  byte version=in.readByte();
+  if (version != 0) {
+    super.readExternal(in);
+  }
+  int size=in.readInt();
+  setUp(size);
+  while (size-- > 0) {
+    K key=(K)in.readObject();
+    V val=(V)in.readObject();
+    put(key,val);
+  }
+}

@@ -1,0 +1,7 @@
+{
+  int sum=0;
+  for (TIntLink l=head; got(l); l=l.getNext()) {
+    sum+=l.getValue();
+  }
+  return sum;
+}

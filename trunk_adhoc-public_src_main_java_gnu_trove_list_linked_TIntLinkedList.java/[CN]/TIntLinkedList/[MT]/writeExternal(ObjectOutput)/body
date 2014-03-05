@@ -1,0 +1,9 @@
+{
+  out.writeByte(0);
+  out.writeInt(no_entry_value);
+  out.writeInt(size);
+  for (TIntIterator iterator=iterator(); iterator.hasNext(); ) {
+    int next=iterator.next();
+    out.writeInt(next);
+  }
+}

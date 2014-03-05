@@ -1,0 +1,14 @@
+{
+  StringBuilder buffy=new StringBuilder(_size * 2 + 2);
+  buffy.append("{");
+  for (int i=_states.length, j=1; i-- > 0; ) {
+    if (_states[i] == FULL) {
+      buffy.append(_set[i]);
+      if (j++ < _size) {
+        buffy.append(",");
+      }
+    }
+  }
+  buffy.append("}");
+  return buffy.toString();
+}

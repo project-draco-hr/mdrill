@@ -1,0 +1,12 @@
+{
+  in.readByte();
+  super.readExternal(in);
+  no_entry_key=in.readDouble();
+  int size=in.readInt();
+  setUp(size);
+  while (size-- > 0) {
+    double key=in.readDouble();
+    V val=(V)in.readObject();
+    put(key,val);
+  }
+}

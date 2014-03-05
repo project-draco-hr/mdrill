@@ -1,0 +1,3 @@
+{
+  return TByteObjectHashMap.this.size();
+}

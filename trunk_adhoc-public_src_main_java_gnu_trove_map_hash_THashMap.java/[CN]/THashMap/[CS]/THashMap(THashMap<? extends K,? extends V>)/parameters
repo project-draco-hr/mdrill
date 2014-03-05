@@ -1,0 +1,1 @@
+THashMap<? extends K,? extends V> map

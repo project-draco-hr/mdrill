@@ -1,0 +1,7 @@
+{
+  TCharLink l=getLinkAt(offset);
+  if (no(l))   throw new ArrayIndexOutOfBoundsException("no elemenet at " + offset);
+  char prev=l.getValue();
+  removeLink(l);
+  return prev;
+}

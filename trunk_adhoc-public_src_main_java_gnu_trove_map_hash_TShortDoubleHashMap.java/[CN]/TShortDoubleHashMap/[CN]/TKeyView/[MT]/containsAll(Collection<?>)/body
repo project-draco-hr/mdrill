@@ -1,0 +1,14 @@
+{
+  for (  Object element : collection) {
+    if (element instanceof Short) {
+      short ele=((Short)element).shortValue();
+      if (!TShortDoubleHashMap.this.containsKey(ele)) {
+        return false;
+      }
+    }
+ else {
+      return false;
+    }
+  }
+  return true;
+}

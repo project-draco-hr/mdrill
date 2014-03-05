@@ -1,0 +1,23 @@
+{
+  if (from > to)   throw new IllegalArgumentException("from > to : " + from + ">"+ to);
+  TDoubleLink start=getLinkAt(from);
+  TDoubleLink stop=getLinkAt(to);
+  TDoubleLink prev, next;
+  TDoubleLink tmp=null;
+  TDoubleLink tmpHead=start.getPrevious();
+  TDoubleLink l=start;
+  while (l != stop) {
+    next=l.getNext();
+    prev=l.getPrevious();
+    tmp=l;
+    l=l.getNext();
+    tmp.setNext(prev);
+    tmp.setPrevious(next);
+  }
+  if (got(tmp)) {
+    tmpHead.setNext(tmp);
+    stop.setPrevious(tmpHead);
+  }
+  start.setNext(stop);
+  stop.setPrevious(start);
+}

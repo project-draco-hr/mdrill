@@ -1,0 +1,8 @@
+{
+  for (  byte element : array) {
+    if (!TIntByteHashMap.this.containsValue(element)) {
+      return false;
+    }
+  }
+  return true;
+}

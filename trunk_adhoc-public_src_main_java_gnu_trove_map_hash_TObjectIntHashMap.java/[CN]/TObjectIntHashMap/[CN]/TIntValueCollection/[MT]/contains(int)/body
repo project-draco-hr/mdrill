@@ -1,0 +1,3 @@
+{
+  return TObjectIntHashMap.this.containsValue(entry);
+}

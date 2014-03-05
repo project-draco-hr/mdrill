@@ -1,0 +1,5 @@
+{
+  for (  float val : vals) {
+    add(val);
+  }
+}

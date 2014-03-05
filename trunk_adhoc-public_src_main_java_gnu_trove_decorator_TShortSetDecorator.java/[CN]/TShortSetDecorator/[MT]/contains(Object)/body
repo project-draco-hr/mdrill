@@ -1,0 +1,4 @@
+{
+  if (!(o instanceof Short))   return false;
+  return _set.contains(((Short)o).shortValue());
+}

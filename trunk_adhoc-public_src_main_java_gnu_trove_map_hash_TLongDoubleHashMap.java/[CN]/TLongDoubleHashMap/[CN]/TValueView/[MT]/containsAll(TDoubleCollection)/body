@@ -1,0 +1,9 @@
+{
+  TDoubleIterator iter=collection.iterator();
+  while (iter.hasNext()) {
+    if (!TLongDoubleHashMap.this.containsValue(iter.next())) {
+      return false;
+    }
+  }
+  return true;
+}

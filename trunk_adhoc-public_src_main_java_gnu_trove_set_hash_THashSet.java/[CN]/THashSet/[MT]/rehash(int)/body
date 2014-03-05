@@ -1,0 +1,19 @@
+{
+  int oldCapacity=_set.length;
+  int oldSize=size();
+  Object oldSet[]=_set;
+  _set=new Object[newCapacity];
+  Arrays.fill(_set,FREE);
+  int count=0;
+  for (int i=oldCapacity; i-- > 0; ) {
+    E o=(E)oldSet[i];
+    if (o != FREE && o != REMOVED) {
+      int index=insertKey(o);
+      if (index < 0) {
+        throwObjectContractViolation(_set[(-index - 1)],o,size(),oldSize,oldSet);
+      }
+      count++;
+    }
+  }
+  reportPotentialConcurrentMod(size(),oldSize);
+}

@@ -1,0 +1,9 @@
+{
+  int index=insertKey(obj);
+  if (index < 0) {
+    return false;
+  }
+  if (!order.add(index))   throw new IllegalStateException("Order not changed after insert");
+  postInsertHook(consumeFreeSlot);
+  return true;
+}

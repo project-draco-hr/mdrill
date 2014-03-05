@@ -1,0 +1,3 @@
+char[] vals
+int offset
+int length

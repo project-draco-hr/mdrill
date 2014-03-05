@@ -1,0 +1,8 @@
+{
+  for (  char element : array) {
+    if (!TCharDoubleHashMap.this.contains(element)) {
+      return false;
+    }
+  }
+  return true;
+}

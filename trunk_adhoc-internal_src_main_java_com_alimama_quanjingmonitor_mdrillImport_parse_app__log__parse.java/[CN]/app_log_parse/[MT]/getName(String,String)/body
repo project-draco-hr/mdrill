@@ -1,0 +1,20 @@
+{
+  try {
+    String[] tem=decodeString(url).split("\\?",2);
+    String params=tem[0];
+    if (tem.length >= 2) {
+      params=tem[1];
+    }
+    for (    String s : params.split("&",-1)) {
+      String[] tem1=s.split("=",-1);
+      String key=decodeString(tem1[0]);
+      if (key.equals(keyname)) {
+        String value=(tem1.length < 2 ? "" : decodeString(tem1[1]));
+        return value;
+      }
+    }
+  }
+ catch (  Throwable e) {
+  }
+  return null;
+}

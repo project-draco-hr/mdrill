@@ -1,0 +1,11 @@
+{
+  final StringBuilder buf=new StringBuilder("{");
+  TDoubleIterator it=iterator();
+  while (it.hasNext()) {
+    double next=it.next();
+    buf.append(next);
+    if (it.hasNext())     buf.append(", ");
+  }
+  buf.append("}");
+  return buf.toString();
+}

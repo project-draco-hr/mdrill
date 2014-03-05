@@ -1,0 +1,8 @@
+{
+  for (  Object element : collection) {
+    if (!TFloatObjectHashMap.this.containsKey(((Float)element).floatValue())) {
+      return false;
+    }
+  }
+  return true;
+}

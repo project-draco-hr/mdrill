@@ -1,0 +1,7 @@
+{
+  if (adid == null || adid.isEmpty()) {
+    return null;
+  }
+  String ad_id_cut=adid.substring(0,Math.min(10,adid.length()));
+  return map.get(strday + "@" + String.valueOf(ad_id_cut));
+}

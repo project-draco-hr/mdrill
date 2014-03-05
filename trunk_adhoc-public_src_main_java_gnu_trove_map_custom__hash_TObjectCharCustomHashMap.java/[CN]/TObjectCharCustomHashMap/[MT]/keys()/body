@@ -1,0 +1,10 @@
+{
+  K[] keys=(K[])new Object[size()];
+  Object[] k=_set;
+  for (int i=k.length, j=0; i-- > 0; ) {
+    if (k[i] != FREE && k[i] != REMOVED) {
+      keys[j++]=(K)k[i];
+    }
+  }
+  return keys;
+}

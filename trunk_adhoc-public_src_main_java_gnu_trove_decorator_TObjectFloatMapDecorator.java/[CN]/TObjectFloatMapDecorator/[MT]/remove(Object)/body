@@ -1,0 +1,9 @@
+{
+  float v=_map.remove(key);
+  if (v == _map.getNoEntryValue()) {
+    return null;
+  }
+ else {
+    return wrapValue(v);
+  }
+}

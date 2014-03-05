@@ -1,0 +1,6 @@
+{
+  out.writeByte(0);
+  super.writeExternal(out);
+  out.writeByte(no_entry_key);
+  out.writeChar(no_entry_value);
+}

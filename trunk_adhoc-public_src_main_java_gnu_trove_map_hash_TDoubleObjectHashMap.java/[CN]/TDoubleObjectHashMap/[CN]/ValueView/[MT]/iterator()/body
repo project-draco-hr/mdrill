@@ -1,0 +1,8 @@
+{
+  return new TDoubleObjectValueHashIterator(TDoubleObjectHashMap.this){
+    protected V objectAtIndex(    int index){
+      return _values[index];
+    }
+  }
+;
+}

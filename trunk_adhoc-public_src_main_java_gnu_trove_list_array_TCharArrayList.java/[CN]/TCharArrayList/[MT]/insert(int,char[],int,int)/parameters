@@ -1,0 +1,4 @@
+int offset
+char[] values
+int valOffset
+int len

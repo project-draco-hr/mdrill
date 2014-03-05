@@ -1,0 +1,2 @@
+HashingStrategy<? super T> strategy
+int initialCapacity

@@ -1,0 +1,9 @@
+{
+  TCharIterator iter=collection.iterator();
+  while (iter.hasNext()) {
+    if (!TCharDoubleHashMap.this.containsKey(iter.next())) {
+      return false;
+    }
+  }
+  return true;
+}

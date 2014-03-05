@@ -1,0 +1,15 @@
+{
+  long k;
+  if (key != null) {
+    if (key instanceof Long) {
+      k=unwrapKey((Long)key);
+    }
+ else {
+      return null;
+    }
+  }
+ else {
+    k=_map.getNoEntryKey();
+  }
+  return _map.remove(k);
+}

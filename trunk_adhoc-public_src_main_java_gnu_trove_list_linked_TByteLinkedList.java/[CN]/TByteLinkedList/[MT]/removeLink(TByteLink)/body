@@ -1,0 +1,20 @@
+{
+  if (no(l))   return;
+  size--;
+  TByteLink prev=l.getPrevious();
+  TByteLink next=l.getNext();
+  if (got(prev)) {
+    prev.setNext(next);
+  }
+ else {
+    head=next;
+  }
+  if (got(next)) {
+    next.setPrevious(prev);
+  }
+ else {
+    tail=prev;
+  }
+  l.setNext(null);
+  l.setPrevious(null);
+}

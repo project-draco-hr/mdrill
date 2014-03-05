@@ -1,0 +1,26 @@
+{
+  byte isInitialized=memoizedIsInitialized;
+  if (isInitialized != -1)   return isInitialized == 1;
+  if (!hasVersion()) {
+    memoizedIsInitialized=0;
+    return false;
+  }
+  if (!hasIp()) {
+    memoizedIsInitialized=0;
+    return false;
+  }
+  if (!hasTime()) {
+    memoizedIsInitialized=0;
+    return false;
+  }
+  if (!hasUrl()) {
+    memoizedIsInitialized=0;
+    return false;
+  }
+  if (!hasUserAgent()) {
+    memoizedIsInitialized=0;
+    return false;
+  }
+  memoizedIsInitialized=1;
+  return true;
+}

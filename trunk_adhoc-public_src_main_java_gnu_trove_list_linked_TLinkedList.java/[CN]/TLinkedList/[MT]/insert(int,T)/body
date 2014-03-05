@@ -1,0 +1,26 @@
+{
+  if (_size == 0) {
+    _head=_tail=linkable;
+  }
+ else   if (index == 0) {
+    linkable.setNext(_head);
+    _head.setPrevious(linkable);
+    _head=linkable;
+  }
+ else   if (index == _size) {
+    _tail.setNext(linkable);
+    linkable.setPrevious(_tail);
+    _tail=linkable;
+  }
+ else {
+    T node=get(index);
+    T before=node.getPrevious();
+    if (before != null) {
+      before.setNext(linkable);
+    }
+    linkable.setPrevious(before);
+    linkable.setNext(node);
+    node.setPrevious(linkable);
+  }
+  _size++;
+}

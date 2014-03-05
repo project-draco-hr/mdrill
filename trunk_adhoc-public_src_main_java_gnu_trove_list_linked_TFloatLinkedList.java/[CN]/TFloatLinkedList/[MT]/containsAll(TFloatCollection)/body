@@ -1,0 +1,8 @@
+{
+  if (isEmpty())   return false;
+  for (TFloatIterator it=collection.iterator(); it.hasNext(); ) {
+    float i=it.next();
+    if (!(contains(i)))     return false;
+  }
+  return true;
+}

@@ -1,0 +1,3 @@
+{
+  return TIntShortHashMap.this.contains(entry);
+}

@@ -1,0 +1,9 @@
+{
+  TIntIterator iter=collection.iterator();
+  while (iter.hasNext()) {
+    if (!TCharIntHashMap.this.containsValue(iter.next())) {
+      return false;
+    }
+  }
+  return true;
+}

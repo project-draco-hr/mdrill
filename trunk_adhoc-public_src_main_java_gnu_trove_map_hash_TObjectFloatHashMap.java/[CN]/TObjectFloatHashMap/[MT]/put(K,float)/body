@@ -1,0 +1,4 @@
+{
+  int index=insertKey(key);
+  return doPut(value,index);
+}

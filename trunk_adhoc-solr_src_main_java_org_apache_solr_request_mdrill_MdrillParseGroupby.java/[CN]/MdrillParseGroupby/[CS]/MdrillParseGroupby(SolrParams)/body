@@ -4,6 +4,7 @@
   int limit=params.getInt(FacetParams.FACET_CROSS_LIMIT,100);
   this.limit_offset=this.offset + limit;
   this.limit_offset_maxgroups=UniqConfig.ShardMaxGroups();
+  this.limit_offset_maxgroups_merger=UniqConfig.shardMergerCount();
   this.sort_fl=params.get(FacetParams.FACET_CROSS_SORT_FL,null);
   this.sort_type=params.get(FacetParams.FACET_CROSS_SORT_TYPE,"index");
   this.isdesc=params.getBool(FacetParams.FACET_CROSS_SORT_ISDESC,true);

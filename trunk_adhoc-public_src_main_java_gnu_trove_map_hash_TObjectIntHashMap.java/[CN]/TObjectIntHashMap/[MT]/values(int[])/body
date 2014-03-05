@@ -1,0 +1,17 @@
+{
+  int size=size();
+  if (array.length < size) {
+    array=new int[size];
+  }
+  int[] v=_values;
+  Object[] keys=_set;
+  for (int i=v.length, j=0; i-- > 0; ) {
+    if (keys[i] != FREE && keys[i] != REMOVED) {
+      array[j++]=v[i];
+    }
+  }
+  if (array.length > size) {
+    array[size]=no_entry_value;
+  }
+  return array;
+}

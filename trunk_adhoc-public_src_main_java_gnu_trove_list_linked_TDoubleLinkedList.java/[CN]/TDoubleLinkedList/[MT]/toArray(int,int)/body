@@ -1,0 +1,3 @@
+{
+  return toArray(new double[len],offset,0,len);
+}

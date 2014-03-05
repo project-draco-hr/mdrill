@@ -1,0 +1,10 @@
+{
+  boolean changed=false;
+  for (TCharLink l=head; got(l); l=l.getNext()) {
+    if (l.getValue() == value) {
+      changed=true;
+      removeLink(l);
+    }
+  }
+  return changed;
+}

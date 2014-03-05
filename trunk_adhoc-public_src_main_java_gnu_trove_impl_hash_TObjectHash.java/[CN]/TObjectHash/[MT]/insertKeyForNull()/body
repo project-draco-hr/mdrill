@@ -1,0 +1,27 @@
+{
+  int index=0;
+  int firstRemoved=-1;
+  for (  Object o : _set) {
+    if (o == REMOVED && firstRemoved == -1)     firstRemoved=index;
+    if (o == FREE) {
+      if (firstRemoved != -1) {
+        _set[firstRemoved]=null;
+        return firstRemoved;
+      }
+ else {
+        consumeFreeSlot=true;
+        _set[index]=null;
+        return index;
+      }
+    }
+    if (o == null) {
+      return -index - 1;
+    }
+    index++;
+  }
+  if (firstRemoved != -1) {
+    _set[firstRemoved]=null;
+    return firstRemoved;
+  }
+  throw new IllegalStateException("Could not find insertion index for null key. Key set full!?!!");
+}

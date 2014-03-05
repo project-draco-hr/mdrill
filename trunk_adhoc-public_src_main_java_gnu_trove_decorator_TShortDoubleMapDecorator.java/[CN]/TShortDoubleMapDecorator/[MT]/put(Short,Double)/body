@@ -1,0 +1,21 @@
+{
+  short k;
+  double v;
+  if (key == null) {
+    k=_map.getNoEntryKey();
+  }
+ else {
+    k=unwrapKey(key);
+  }
+  if (value == null) {
+    v=_map.getNoEntryValue();
+  }
+ else {
+    v=unwrapValue(value);
+  }
+  double retval=_map.put(k,v);
+  if (retval == _map.getNoEntryValue()) {
+    return null;
+  }
+  return wrapValue(retval);
+}

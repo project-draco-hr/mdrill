@@ -1,0 +1,5 @@
+{
+  short old=value();
+  _values[_index]=val;
+  return old;
+}

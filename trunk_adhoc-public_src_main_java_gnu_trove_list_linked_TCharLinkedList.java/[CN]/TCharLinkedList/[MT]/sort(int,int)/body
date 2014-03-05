@@ -1,0 +1,6 @@
+{
+  TCharList tmp=subList(fromIndex,toIndex);
+  char[] vals=tmp.toArray();
+  Arrays.sort(vals);
+  set(fromIndex,vals);
+}

@@ -1,0 +1,4 @@
+{
+  super(initialCapacity);
+  no_entry_key=Constants.DEFAULT_INT_NO_ENTRY_VALUE;
+}

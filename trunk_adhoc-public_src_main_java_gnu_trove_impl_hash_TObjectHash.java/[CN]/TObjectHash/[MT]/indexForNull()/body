@@ -1,0 +1,9 @@
+{
+  int index=0;
+  for (  Object o : _set) {
+    if (o == null)     return index;
+    if (o == FREE)     return -1;
+    index++;
+  }
+  return -1;
+}

@@ -1,0 +1,7 @@
+{
+  float sum=0;
+  for (TFloatLink l=head; got(l); l=l.getNext()) {
+    sum+=l.getValue();
+  }
+  return sum;
+}

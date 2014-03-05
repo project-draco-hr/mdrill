@@ -1,0 +1,15 @@
+{
+  try {
+    parse=(DataParser)Class.forName(String.valueOf(conf.get(this.confPrefix + "-parse"))).newInstance();
+    parse.init(true,conf,context);
+  }
+ catch (  Throwable e1) {
+    LOG.error(this.confPrefix + " DataParser",e1);
+  }
+  try {
+    this.reader=new ImportReader(conf,confPrefix,parse,0,1);
+  }
+ catch (  IOException e) {
+    LOG.error("TTReader",e);
+  }
+}

@@ -1,0 +1,19 @@
+{
+  final StringBuilder buf=new StringBuilder("{");
+  forEachValue(new TFloatProcedure(){
+    private boolean first=true;
+    public boolean execute(    float value){
+      if (first) {
+        first=false;
+      }
+ else {
+        buf.append(", ");
+      }
+      buf.append(value);
+      return true;
+    }
+  }
+);
+  buf.append("}");
+  return buf.toString();
+}

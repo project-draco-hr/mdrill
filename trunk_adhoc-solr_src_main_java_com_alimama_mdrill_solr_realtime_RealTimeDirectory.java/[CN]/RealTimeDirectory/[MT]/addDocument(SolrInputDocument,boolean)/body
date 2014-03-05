@@ -2,6 +2,7 @@
   if (RealTimeDirectorUtils.maybeReplication(doc)) {
     return;
   }
+  this.status.lastAddDocumentTime.set(System.currentTimeMillis());
   if (writelog) {
     try {
       AddOp op=new AddOp();

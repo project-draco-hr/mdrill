@@ -1,0 +1,15 @@
+{
+  TTLogBlock block=this.readBlock();
+  if (block == null) {
+    return null;
+  }
+  MessageKey key=block.getKey();
+  key.ack();
+  byte[] data=block.getBuffer();
+  List<byte[]> messages=MessageParser.parseProtoBufsFromBytes(data);
+  List<Object> list=new ArrayList<Object>(1);
+  for (  byte[] d : messages) {
+    list.add(d);
+  }
+  return list;
+}

@@ -1,0 +1,3 @@
+{
+  return val instanceof Short && _map.containsValue(unwrapValue(val));
+}

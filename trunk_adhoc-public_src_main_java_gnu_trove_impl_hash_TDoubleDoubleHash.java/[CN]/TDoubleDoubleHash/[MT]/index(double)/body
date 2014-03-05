@@ -1,0 +1,12 @@
+{
+  int hash, probe, index, length;
+  final byte[] states=_states;
+  final double[] set=_set;
+  length=states.length;
+  hash=HashFunctions.hash(key) & 0x7fffffff;
+  index=hash % length;
+  byte state=states[index];
+  if (state == FREE)   return -1;
+  if (state == FULL && set[index] == key)   return index;
+  return indexRehashed(key,index,hash,state);
+}

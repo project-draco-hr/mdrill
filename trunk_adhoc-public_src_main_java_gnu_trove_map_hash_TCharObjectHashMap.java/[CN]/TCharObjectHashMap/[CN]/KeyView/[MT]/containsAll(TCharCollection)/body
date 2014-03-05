@@ -1,0 +1,12 @@
+{
+  if (collection == this) {
+    return true;
+  }
+  TCharIterator iter=collection.iterator();
+  while (iter.hasNext()) {
+    if (!TCharObjectHashMap.this.containsKey(iter.next())) {
+      return false;
+    }
+  }
+  return true;
+}

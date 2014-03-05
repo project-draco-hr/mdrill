@@ -1,0 +1,8 @@
+{
+  boolean ret=false;
+  for (TFloatIterator it=collection.iterator(); it.hasNext(); ) {
+    float i=it.next();
+    if (add(i))     ret=true;
+  }
+  return ret;
+}

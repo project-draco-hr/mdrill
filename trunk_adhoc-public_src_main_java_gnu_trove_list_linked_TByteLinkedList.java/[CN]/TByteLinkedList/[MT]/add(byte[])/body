@@ -1,0 +1,5 @@
+{
+  for (  byte val : vals) {
+    add(val);
+  }
+}

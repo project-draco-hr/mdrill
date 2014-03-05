@@ -1,0 +1,9 @@
+{
+  boolean changed=false;
+  for (  short element : array) {
+    if (add(element)) {
+      changed=true;
+    }
+  }
+  return changed;
+}

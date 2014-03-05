@@ -1,0 +1,10 @@
+{
+  in.readByte();
+  _pos=in.readInt();
+  no_entry_value=in.readDouble();
+  int len=in.readInt();
+  _data=new double[len];
+  for (int i=0; i < len; i++) {
+    _data[i]=in.readDouble();
+  }
+}

@@ -1,0 +1,43 @@
+{
+  return new TObjectHashIterator<E>(this){
+    TIntIterator localIterator=order.iterator();
+    int lastIndex;
+    /** 
+ * Moves the iterator to the next Object and returns it.
+ * @return an <code>Object</code> value
+ * @throws java.util.ConcurrentModificationExceptionif the structure
+ * was changed using a method that isn't on this iterator.
+ * @throws java.util.NoSuchElementExceptionif this is called on an
+ * exhausted iterator.
+ */
+    @Override public E next(){
+      lastIndex=localIterator.next();
+      return objectAtIndex(lastIndex);
+    }
+    /** 
+ * Returns true if the iterator can be advanced past its current
+ * location.
+ * @return a <code>boolean</code> value
+ */
+    @Override public boolean hasNext(){
+      return localIterator.hasNext();
+    }
+    /** 
+ * Removes the last entry returned by the iterator.
+ * Invoking this method more than once for a single entry
+ * will leave the underlying data structure in a confused
+ * state.
+ */
+    @Override public void remove(){
+      localIterator.remove();
+      try {
+        _hash.tempDisableAutoCompaction();
+        TLinkedHashSet.this.removeAt(lastIndex);
+      }
+  finally {
+        _hash.reenableAutoCompaction(false);
+      }
+    }
+  }
+;
+}

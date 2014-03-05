@@ -1,0 +1,7 @@
+{
+  boolean ret=false;
+  for (  long i : array) {
+    if (add(i))     ret=true;
+  }
+  return ret;
+}

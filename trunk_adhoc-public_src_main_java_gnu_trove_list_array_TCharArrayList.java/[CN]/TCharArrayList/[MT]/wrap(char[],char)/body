@@ -1,0 +1,11 @@
+{
+  return new TCharArrayList(values,no_entry_value,true){
+    /** 
+ * Growing the wrapped external array is not allow
+ */
+    @Override public void ensureCapacity(    int capacity){
+      if (capacity > _data.length)       throw new IllegalStateException("Can not grow ArrayList wrapped external array");
+    }
+  }
+;
+}

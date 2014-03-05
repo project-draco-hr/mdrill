@@ -1,0 +1,5 @@
+{
+  TShortLinkedList tmp=new TShortLinkedList();
+  tmp.add(value);
+  insert(offset,tmp);
+}

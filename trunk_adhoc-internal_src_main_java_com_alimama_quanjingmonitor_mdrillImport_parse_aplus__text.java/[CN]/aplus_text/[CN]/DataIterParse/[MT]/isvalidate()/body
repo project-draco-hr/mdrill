@@ -1,0 +1,3 @@
+{
+  return this.ispv2 || this.isclick_2 || this.isclick_1;
+}

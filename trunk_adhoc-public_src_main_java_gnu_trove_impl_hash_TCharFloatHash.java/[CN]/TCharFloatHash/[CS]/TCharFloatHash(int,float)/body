@@ -1,0 +1,5 @@
+{
+  super(initialCapacity,loadFactor);
+  no_entry_key=(char)0;
+  no_entry_value=(float)0;
+}

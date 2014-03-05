@@ -1,0 +1,5 @@
+{
+  if (m == null)   throw new NullPointerException();
+  this.m=m;
+  mutex=this;
+}

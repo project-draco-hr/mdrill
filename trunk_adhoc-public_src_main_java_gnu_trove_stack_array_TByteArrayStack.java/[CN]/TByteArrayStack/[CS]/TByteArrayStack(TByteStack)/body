@@ -1,0 +1,9 @@
+{
+  if (stack instanceof TByteArrayStack) {
+    TByteArrayStack array_stack=(TByteArrayStack)stack;
+    this._list=new TByteArrayList(array_stack._list);
+  }
+ else {
+    throw new UnsupportedOperationException("Only support TByteArrayStack");
+  }
+}

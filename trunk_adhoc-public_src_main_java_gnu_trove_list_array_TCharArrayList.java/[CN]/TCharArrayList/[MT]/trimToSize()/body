@@ -1,0 +1,7 @@
+{
+  if (_data.length > size()) {
+    char[] tmp=new char[size()];
+    toArray(tmp,0,tmp.length);
+    _data=tmp;
+  }
+}

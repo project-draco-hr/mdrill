@@ -1,0 +1,6 @@
+{
+  TShortList tmp=subList(fromIndex,toIndex);
+  short[] vals=tmp.toArray();
+  Arrays.sort(vals);
+  set(fromIndex,vals);
+}

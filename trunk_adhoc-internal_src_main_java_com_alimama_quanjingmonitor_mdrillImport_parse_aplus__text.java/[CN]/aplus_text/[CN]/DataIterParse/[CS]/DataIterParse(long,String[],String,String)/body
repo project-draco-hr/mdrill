@@ -1,0 +1,13 @@
+{
+  this.ts=ts;
+  this.ad_id=ad_id;
+  this.url_ad_id=url_ad_id;
+  this.Url=decodeString(pvlog[3]);
+  this.logkey=pvlog[45];
+  String strday=formatDay.format(new Date(ts * 1000));
+  this.pid=this.fetch(this.ad_id,strday);
+  this.pid_Url=this.fetch(this.url_ad_id,strday);
+  this.ispv2=this.pid != null && (!this.logkey.equals("/")) && this.url_ad_id.length() > 10 && this.ad_id.startsWith("10");
+  this.isclick_2=this.pid != null && (!this.logkey.equals("/")) && this.ad_id.startsWith("10");
+  this.isclick_1=this.pid_Url != null && this.logkey.equals("/") && this.url_ad_id.length() > 10 && this.Url.indexOf("ju.mmstat.com") >= 0;
+}

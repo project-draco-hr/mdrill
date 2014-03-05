@@ -1,0 +1,8 @@
+{
+  for (  Object element : collection) {
+    if (!TShortObjectHashMap.this.containsKey(((Short)element).shortValue())) {
+      return false;
+    }
+  }
+  return true;
+}

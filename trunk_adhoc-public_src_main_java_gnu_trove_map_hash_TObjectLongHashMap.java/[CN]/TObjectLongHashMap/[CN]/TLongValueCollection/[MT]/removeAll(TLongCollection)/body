@@ -1,0 +1,15 @@
+{
+  if (this == collection) {
+    clear();
+    return true;
+  }
+  boolean changed=false;
+  TLongIterator iter=collection.iterator();
+  while (iter.hasNext()) {
+    long element=iter.next();
+    if (remove(element)) {
+      changed=true;
+    }
+  }
+  return changed;
+}

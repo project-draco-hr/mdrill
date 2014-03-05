@@ -1,0 +1,13 @@
+{
+  if (this == collection) {
+    return true;
+  }
+  TShortIterator iter=collection.iterator();
+  while (iter.hasNext()) {
+    short element=iter.next();
+    if (!contains(element)) {
+      return false;
+    }
+  }
+  return true;
+}

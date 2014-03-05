@@ -1,0 +1,4 @@
+{
+  if (!(o instanceof Double))   return false;
+  return _set.contains(((Double)o).doubleValue());
+}

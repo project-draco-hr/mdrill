@@ -1,0 +1,12 @@
+{
+  if (collection == this) {
+    return true;
+  }
+  TIntIterator iter=collection.iterator();
+  while (iter.hasNext()) {
+    if (!TIntObjectHashMap.this.containsKey(iter.next())) {
+      return false;
+    }
+  }
+  return true;
+}

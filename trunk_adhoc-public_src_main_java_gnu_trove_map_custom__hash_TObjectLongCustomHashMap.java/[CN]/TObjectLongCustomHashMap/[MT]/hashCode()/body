@@ -1,0 +1,11 @@
+{
+  int hashcode=0;
+  Object[] keys=_set;
+  long[] values=_values;
+  for (int i=values.length; i-- > 0; ) {
+    if (keys[i] != FREE && keys[i] != REMOVED) {
+      hashcode+=HashFunctions.hash(values[i]) ^ (keys[i] == null ? 0 : keys[i].hashCode());
+    }
+  }
+  return hashcode;
+}

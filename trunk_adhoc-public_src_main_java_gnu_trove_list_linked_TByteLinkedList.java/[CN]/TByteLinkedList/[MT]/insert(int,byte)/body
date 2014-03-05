@@ -1,0 +1,5 @@
+{
+  TByteLinkedList tmp=new TByteLinkedList();
+  tmp.add(value);
+  insert(offset,tmp);
+}

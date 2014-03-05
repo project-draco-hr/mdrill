@@ -1,0 +1,14 @@
+{
+  for (  Object element : collection) {
+    if (element instanceof Integer) {
+      int c=((Integer)element).intValue();
+      if (!contains(c)) {
+        return false;
+      }
+    }
+ else {
+      return false;
+    }
+  }
+  return true;
+}

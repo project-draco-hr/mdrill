@@ -1,0 +1,12 @@
+{
+  boolean changed=false;
+  for (  Object element : collection) {
+    if (element instanceof Double) {
+      double c=((Double)element).doubleValue();
+      if (remove(c)) {
+        changed=true;
+      }
+    }
+  }
+  return changed;
+}

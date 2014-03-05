@@ -1,0 +1,3 @@
+{
+  return toArray(new byte[size],0,size);
+}

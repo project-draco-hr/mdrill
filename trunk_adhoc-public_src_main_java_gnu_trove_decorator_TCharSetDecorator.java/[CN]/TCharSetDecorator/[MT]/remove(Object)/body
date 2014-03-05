@@ -1,0 +1,3 @@
+{
+  return value instanceof Character && _set.remove(((Character)value).charValue());
+}

@@ -1,0 +1,14 @@
+{
+  if (this == collection) {
+    return false;
+  }
+  boolean modified=false;
+  TIntIterator iter=iterator();
+  while (iter.hasNext()) {
+    if (!collection.contains(iter.next())) {
+      iter.remove();
+      modified=true;
+    }
+  }
+  return modified;
+}

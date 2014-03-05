@@ -1,0 +1,14 @@
+{
+  TDoubleLink l=new TDoubleLink(val);
+  if (no(head)) {
+    head=l;
+    tail=l;
+  }
+ else {
+    l.setPrevious(tail);
+    tail.setNext(l);
+    tail=l;
+  }
+  size++;
+  return true;
+}

@@ -3,14 +3,14 @@
   if (cnt == null) {
     if (groups.size() >= this.parse.limit_offset_maxgroups) {
       mergercount++;
-      if (mergercount >= UniqConfig.shardMergerCount()) {
+      if (mergercount >= this.parse.limit_offset_maxgroups_merger) {
         return this.container.getEmptyRow();
       }
       this.recordCount.setCrcRecord("-");
       this.recordCount.setIsoversize(true);
       TopMaps(groups);
     }
-    cnt=this.container.createRow();
+    cnt=this.container.createRow(group);
     if (smallestShardGroup == null) {
       groups.put(group.copy(this.container.groupListCache),cnt);
     }

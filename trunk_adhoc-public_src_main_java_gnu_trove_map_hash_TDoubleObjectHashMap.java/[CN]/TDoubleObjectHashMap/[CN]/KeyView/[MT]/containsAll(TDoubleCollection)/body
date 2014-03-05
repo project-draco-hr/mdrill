@@ -1,0 +1,12 @@
+{
+  if (collection == this) {
+    return true;
+  }
+  TDoubleIterator iter=collection.iterator();
+  while (iter.hasNext()) {
+    if (!TDoubleObjectHashMap.this.containsKey(iter.next())) {
+      return false;
+    }
+  }
+  return true;
+}

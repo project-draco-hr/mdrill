@@ -1,0 +1,3 @@
+{
+  return (list instanceof RandomAccess ? new TSynchronizedRandomAccessByteList(list,mutex) : new TSynchronizedByteList(list,mutex));
+}

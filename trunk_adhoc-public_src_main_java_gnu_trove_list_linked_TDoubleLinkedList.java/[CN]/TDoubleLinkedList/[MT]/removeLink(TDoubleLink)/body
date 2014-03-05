@@ -1,0 +1,20 @@
+{
+  if (no(l))   return;
+  size--;
+  TDoubleLink prev=l.getPrevious();
+  TDoubleLink next=l.getNext();
+  if (got(prev)) {
+    prev.setNext(next);
+  }
+ else {
+    head=next;
+  }
+  if (got(next)) {
+    next.setPrevious(prev);
+  }
+ else {
+    tail=prev;
+  }
+  l.setNext(null);
+  l.setPrevious(null);
+}

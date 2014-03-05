@@ -1,0 +1,4 @@
+{
+  if (remove(value))   changed=true;
+  return true;
+}

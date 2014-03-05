@@ -1,0 +1,3 @@
+{
+  return lastIndexOf(0,value);
+}

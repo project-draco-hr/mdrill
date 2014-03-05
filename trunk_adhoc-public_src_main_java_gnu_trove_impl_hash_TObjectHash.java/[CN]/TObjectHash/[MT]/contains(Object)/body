@@ -1,0 +1,3 @@
+{
+  return index(obj) >= 0;
+}

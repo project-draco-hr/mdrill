@@ -1,0 +1,12 @@
+{
+  boolean changed=false;
+  int size=size();
+  Iterator<E> it=iterator();
+  while (size-- > 0) {
+    if (!collection.contains(it.next())) {
+      it.remove();
+      changed=true;
+    }
+  }
+  return changed;
+}

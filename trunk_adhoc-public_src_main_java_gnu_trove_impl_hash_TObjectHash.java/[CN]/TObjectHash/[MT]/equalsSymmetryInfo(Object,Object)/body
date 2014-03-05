@@ -1,0 +1,17 @@
+{
+  StringBuilder buf=new StringBuilder();
+  if (a == b) {
+    return "a == b";
+  }
+  if (a.getClass() != b.getClass()) {
+    buf.append("Class of objects differ a=").append(a.getClass()).append(" vs b=").append(b.getClass());
+    boolean aEb=a.equals(b);
+    boolean bEa=b.equals(a);
+    if (aEb != bEa) {
+      buf.append("\nequals() of a or b object are asymmetric");
+      buf.append("\na.equals(b) =").append(aEb);
+      buf.append("\nb.equals(a) =").append(bEa);
+    }
+  }
+  return buf.toString();
+}

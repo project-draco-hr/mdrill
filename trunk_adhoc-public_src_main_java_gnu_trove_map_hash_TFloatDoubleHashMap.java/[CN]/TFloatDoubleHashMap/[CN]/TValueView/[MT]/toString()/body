@@ -1,0 +1,19 @@
+{
+  final StringBuilder buf=new StringBuilder("{");
+  forEachValue(new TDoubleProcedure(){
+    private boolean first=true;
+    public boolean execute(    double value){
+      if (first) {
+        first=false;
+      }
+ else {
+        buf.append(", ");
+      }
+      buf.append(value);
+      return true;
+    }
+  }
+);
+  buf.append("}");
+  return buf.toString();
+}

@@ -1,0 +1,8 @@
+{
+  return new TByteObjectValueHashIterator(TByteObjectHashMap.this){
+    protected V objectAtIndex(    int index){
+      return _values[index];
+    }
+  }
+;
+}

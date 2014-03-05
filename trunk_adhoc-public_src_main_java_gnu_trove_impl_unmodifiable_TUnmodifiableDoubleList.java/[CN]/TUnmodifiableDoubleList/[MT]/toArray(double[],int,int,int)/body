@@ -1,0 +1,3 @@
+{
+  return list.toArray(dest,source_pos,dest_pos,len);
+}

@@ -1,0 +1,6 @@
+{
+  super();
+  initialCapacity=Math.max(1,initialCapacity);
+  _loadFactor=loadFactor;
+  setUp(HashFunctions.fastCeil(initialCapacity / loadFactor));
+}

@@ -1,0 +1,7 @@
+{
+  boolean ret=false;
+  for (  Byte v : collection) {
+    if (add(v.byteValue()))     ret=true;
+  }
+  return ret;
+}

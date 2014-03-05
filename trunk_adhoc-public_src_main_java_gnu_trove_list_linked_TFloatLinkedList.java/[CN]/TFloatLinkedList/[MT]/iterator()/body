@@ -1,0 +1,22 @@
+{
+  return new TFloatIterator(){
+    TFloatLink l=head;
+    TFloatLink current;
+    public float next(){
+      if (no(l))       throw new NoSuchElementException();
+      float ret=l.getValue();
+      current=l;
+      l=l.getNext();
+      return ret;
+    }
+    public boolean hasNext(){
+      return got(l);
+    }
+    public void remove(){
+      if (current == null)       throw new IllegalStateException();
+      removeLink(current);
+      current=null;
+    }
+  }
+;
+}

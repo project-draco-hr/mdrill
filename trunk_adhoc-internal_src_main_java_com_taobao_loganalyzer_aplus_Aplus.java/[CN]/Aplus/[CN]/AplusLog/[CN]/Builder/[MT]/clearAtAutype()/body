@@ -1,0 +1,6 @@
+{
+  bitField0_=(bitField0_ & ~0x00010000);
+  atAutype_=getDefaultInstance().getAtAutype();
+  onChanged();
+  return this;
+}

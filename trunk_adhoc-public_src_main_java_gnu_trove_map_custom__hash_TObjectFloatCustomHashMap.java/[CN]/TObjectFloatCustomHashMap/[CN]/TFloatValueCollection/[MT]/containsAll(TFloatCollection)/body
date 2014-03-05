@@ -1,0 +1,9 @@
+{
+  TFloatIterator iter=collection.iterator();
+  while (iter.hasNext()) {
+    if (!TObjectFloatCustomHashMap.this.containsValue(iter.next())) {
+      return false;
+    }
+  }
+  return true;
+}

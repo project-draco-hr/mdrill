@@ -1,0 +1,8 @@
+{
+  if (o instanceof Map.Entry) {
+    Map.Entry<K,V> e1=this;
+    Map.Entry e2=(Map.Entry)o;
+    return (THashMap.this.equals(e1.getKey(),e2.getKey())) && (THashMap.this.equals(e1.getValue(),e1.getValue()));
+  }
+  return false;
+}

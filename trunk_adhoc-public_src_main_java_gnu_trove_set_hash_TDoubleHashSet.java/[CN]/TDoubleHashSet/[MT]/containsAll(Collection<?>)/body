@@ -1,0 +1,14 @@
+{
+  for (  Object element : collection) {
+    if (element instanceof Double) {
+      double c=((Double)element).doubleValue();
+      if (!contains(c)) {
+        return false;
+      }
+    }
+ else {
+      return false;
+    }
+  }
+  return true;
+}

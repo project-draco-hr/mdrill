@@ -1,0 +1,16 @@
+{
+  int length=_set.length;
+  int probe=1 + (hash % (length - 2));
+  final int loopIndex=index;
+  do {
+    index-=probe;
+    if (index < 0) {
+      index+=length;
+    }
+    state=_states[index];
+    if (state == FREE)     return -1;
+    if (key == _set[index] && state != REMOVED)     return index;
+  }
+ while (index != loopIndex);
+  return -1;
+}

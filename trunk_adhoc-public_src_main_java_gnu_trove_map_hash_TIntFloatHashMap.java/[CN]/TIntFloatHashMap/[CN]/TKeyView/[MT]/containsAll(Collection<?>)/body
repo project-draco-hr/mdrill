@@ -1,0 +1,14 @@
+{
+  for (  Object element : collection) {
+    if (element instanceof Integer) {
+      int ele=((Integer)element).intValue();
+      if (!TIntFloatHashMap.this.containsKey(ele)) {
+        return false;
+      }
+    }
+ else {
+      return false;
+    }
+  }
+  return true;
+}

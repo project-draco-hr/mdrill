@@ -1,0 +1,3 @@
+int initial_capacity
+float load_factor
+byte no_entry_value

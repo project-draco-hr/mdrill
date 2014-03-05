@@ -1,0 +1,7 @@
+{
+  for (int i=_set.length; i-- > 0; ) {
+    if (_set[i] != REMOVED && _set[i] != FREE) {
+      out.writeObject(_set[i]);
+    }
+  }
+}

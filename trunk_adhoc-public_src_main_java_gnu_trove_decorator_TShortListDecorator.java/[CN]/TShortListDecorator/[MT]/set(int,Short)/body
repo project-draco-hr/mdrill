@@ -1,0 +1,5 @@
+{
+  short previous_value=list.set(index,value);
+  if (previous_value == list.getNoEntryValue())   return null;
+ else   return Short.valueOf(previous_value);
+}

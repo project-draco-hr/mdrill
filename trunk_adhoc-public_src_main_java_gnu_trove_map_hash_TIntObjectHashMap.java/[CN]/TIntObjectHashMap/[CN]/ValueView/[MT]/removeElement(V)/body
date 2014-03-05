@@ -1,0 +1,13 @@
+{
+  V[] values=_values;
+  byte[] states=_states;
+  for (int i=values.length; i-- > 0; ) {
+    if (states[i] == FULL) {
+      if (value == values[i] || (null != values[i] && values[i].equals(value))) {
+        removeAt(i);
+        return true;
+      }
+    }
+  }
+  return false;
+}

@@ -1,0 +1,22 @@
+{
+  return new TIntIterator(){
+    TIntLink l=head;
+    TIntLink current;
+    public int next(){
+      if (no(l))       throw new NoSuchElementException();
+      int ret=l.getValue();
+      current=l;
+      l=l.getNext();
+      return ret;
+    }
+    public boolean hasNext(){
+      return got(l);
+    }
+    public void remove(){
+      if (current == null)       throw new IllegalStateException();
+      removeLink(current);
+      current=null;
+    }
+  }
+;
+}

@@ -1,0 +1,10 @@
+{
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
+  TByteArrayStack that=(TByteArrayStack)o;
+  return _list.equals(that._list);
+}

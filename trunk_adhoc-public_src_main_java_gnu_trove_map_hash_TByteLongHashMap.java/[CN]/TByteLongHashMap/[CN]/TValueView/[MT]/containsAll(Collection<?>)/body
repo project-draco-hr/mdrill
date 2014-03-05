@@ -1,0 +1,14 @@
+{
+  for (  Object element : collection) {
+    if (element instanceof Long) {
+      long ele=((Long)element).longValue();
+      if (!TByteLongHashMap.this.containsValue(ele)) {
+        return false;
+      }
+    }
+ else {
+      return false;
+    }
+  }
+  return true;
+}

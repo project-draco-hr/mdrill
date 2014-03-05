@@ -1,0 +1,6 @@
+{
+  TLongList tmp=subList(fromIndex,toIndex);
+  long[] vals=tmp.toArray();
+  Arrays.sort(vals);
+  set(fromIndex,vals);
+}

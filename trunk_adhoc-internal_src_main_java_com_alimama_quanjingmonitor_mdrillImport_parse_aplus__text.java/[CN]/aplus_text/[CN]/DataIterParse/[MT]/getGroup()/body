@@ -1,0 +1,8 @@
+{
+  long ts300=(this.ts / 300) * 300000;
+  Date d=new Date(ts300);
+  if (this.ispv2 || this.isclick_2) {
+    return new String[]{String.valueOf(formatDay.format(d)),String.valueOf(formatMin.format(d)),"pc","aplus_text","pc",this.pid,"",DebugVersion.version};
+  }
+  return new String[]{String.valueOf(formatDay.format(d)),String.valueOf(formatMin.format(d)),"pc","aplus_text","pc",this.pid_Url,"",DebugVersion.version};
+}

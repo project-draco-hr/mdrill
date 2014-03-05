@@ -1,0 +1,5 @@
+{
+  V val=get(keyForEntry(entry));
+  V entryValue=entry.getValue();
+  return entryValue == val || (null != val && THashMap.this.equals(val,entryValue));
+}

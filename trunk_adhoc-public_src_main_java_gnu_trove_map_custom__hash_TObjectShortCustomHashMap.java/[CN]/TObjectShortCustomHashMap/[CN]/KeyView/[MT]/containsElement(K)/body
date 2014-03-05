@@ -1,0 +1,3 @@
+{
+  return TObjectShortCustomHashMap.this.contains(key);
+}

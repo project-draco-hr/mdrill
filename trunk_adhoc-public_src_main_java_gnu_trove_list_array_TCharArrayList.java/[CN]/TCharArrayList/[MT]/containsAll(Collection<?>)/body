@@ -1,0 +1,14 @@
+{
+  for (  Object element : collection) {
+    if (element instanceof Character) {
+      char c=((Character)element).charValue();
+      if (!contains(c)) {
+        return false;
+      }
+    }
+ else {
+      return false;
+    }
+  }
+  return true;
+}

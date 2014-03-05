@@ -1,0 +1,19 @@
+{
+  int oldCapacity=_set.length;
+  K oldKeys[]=(K[])_set;
+  short oldVals[]=_values;
+  _set=new Object[newCapacity];
+  Arrays.fill(_set,FREE);
+  _values=new short[newCapacity];
+  Arrays.fill(_values,no_entry_value);
+  for (int i=oldCapacity; i-- > 0; ) {
+    K o=oldKeys[i];
+    if (o != FREE && o != REMOVED) {
+      int index=insertKey(o);
+      if (index < 0) {
+        throwObjectContractViolation(_set[(-index - 1)],o);
+      }
+      _values[index]=oldVals[i];
+    }
+  }
+}

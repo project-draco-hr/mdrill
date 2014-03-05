@@ -1,0 +1,9 @@
+{
+  TIntIterator iter=collection.iterator();
+  while (iter.hasNext()) {
+    if (!TObjectIntHashMap.this.containsValue(iter.next())) {
+      return false;
+    }
+  }
+  return true;
+}

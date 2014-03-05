@@ -1,0 +1,34 @@
+{
+  final int length=_set.length;
+  int probe=1 + (hash % (length - 2));
+  final int loopIndex=index;
+  int firstRemoved=-1;
+  do {
+    if (state == REMOVED && firstRemoved == -1)     firstRemoved=index;
+    index-=probe;
+    if (index < 0) {
+      index+=length;
+    }
+    state=_states[index];
+    if (state == FREE) {
+      if (firstRemoved != -1) {
+        insertKeyAt(firstRemoved,val);
+        return firstRemoved;
+      }
+ else {
+        consumeFreeSlot=true;
+        insertKeyAt(index,val);
+        return index;
+      }
+    }
+    if (state == FULL && _set[index] == val) {
+      return -index - 1;
+    }
+  }
+ while (index != loopIndex);
+  if (firstRemoved != -1) {
+    insertKeyAt(firstRemoved,val);
+    return firstRemoved;
+  }
+  throw new IllegalStateException("No free or removed slots available. Key set full?!!");
+}

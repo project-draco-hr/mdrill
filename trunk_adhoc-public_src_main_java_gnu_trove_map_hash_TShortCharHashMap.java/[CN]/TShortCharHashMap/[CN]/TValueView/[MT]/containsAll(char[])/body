@@ -1,0 +1,8 @@
+{
+  for (  char element : array) {
+    if (!TShortCharHashMap.this.containsValue(element)) {
+      return false;
+    }
+  }
+  return true;
+}

@@ -1,0 +1,8 @@
+{
+  for (  int element : array) {
+    if (!TIntObjectHashMap.this.containsKey(element)) {
+      return false;
+    }
+  }
+  return true;
+}

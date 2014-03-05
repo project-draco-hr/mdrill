@@ -1,0 +1,28 @@
+{
+  TDoubleLink l=getLinkAt(offset);
+  size=size + tmp.size;
+  if (l == head) {
+    tmp.tail.setNext(head);
+    head.setPrevious(tmp.tail);
+    head=tmp.head;
+    return;
+  }
+  if (no(l)) {
+    if (size == 0) {
+      head=tmp.head;
+      tail=tmp.tail;
+    }
+ else {
+      tail.setNext(tmp.head);
+      tmp.head.setPrevious(tail);
+      tail=tmp.tail;
+    }
+  }
+ else {
+    TDoubleLink prev=l.getPrevious();
+    l.getPrevious().setNext(tmp.head);
+    tmp.tail.setNext(l);
+    l.setPrevious(tmp.tail);
+    tmp.head.setPrevious(prev);
+  }
+}

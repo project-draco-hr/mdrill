@@ -1,0 +1,7 @@
+{
+  no_entry_value=list.getNoEntryValue();
+  for (TLongIterator iterator=list.iterator(); iterator.hasNext(); ) {
+    long next=iterator.next();
+    add(next);
+  }
+}

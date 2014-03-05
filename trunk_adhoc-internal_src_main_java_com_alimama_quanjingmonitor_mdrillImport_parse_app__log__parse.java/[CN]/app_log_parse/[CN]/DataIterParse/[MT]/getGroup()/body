@@ -1,0 +1,15 @@
+{
+  long ts300=(this.ts / 300) * 300000;
+  Date d=new Date(ts300);
+  String channel=String.valueOf(pvlog[20]).toLowerCase();
+  if (channel.indexOf("android") >= 0) {
+    channel="android";
+  }
+ else   if (channel.indexOf("iphone") >= 0 || channel.indexOf("ios") >= 0) {
+    channel="ios";
+  }
+ else {
+    channel="other";
+  }
+  return new String[]{String.valueOf(formatDay.format(d)),String.valueOf(formatMin.format(d)),"wireless","app_log_parse",(this.iswareless ? "wireless" : "pc"),String.valueOf(this.refpid),channel,DebugVersion.version};
+}

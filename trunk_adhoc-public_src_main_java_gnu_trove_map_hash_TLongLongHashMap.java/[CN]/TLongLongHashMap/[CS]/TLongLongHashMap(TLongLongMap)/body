@@ -1,0 +1,17 @@
+{
+  super(map.size());
+  if (map instanceof TLongLongHashMap) {
+    TLongLongHashMap hashmap=(TLongLongHashMap)map;
+    this._loadFactor=hashmap._loadFactor;
+    this.no_entry_key=hashmap.no_entry_key;
+    this.no_entry_value=hashmap.no_entry_value;
+    if (this.no_entry_key != (long)0) {
+      Arrays.fill(_set,this.no_entry_key);
+    }
+    if (this.no_entry_value != (long)0) {
+      Arrays.fill(_values,this.no_entry_value);
+    }
+    setUp((int)Math.ceil(DEFAULT_CAPACITY / _loadFactor));
+  }
+  putAll(map);
+}

@@ -1,18 +1,11 @@
 {
-  TTLogBlock block=null;
-  try {
-    block=_inStreamInput.read();
-  }
- catch (  Throwable e) {
-    LOG.error("ttreaderror",e);
-    block=null;
-  }
+  TTLogBlock block=this.readBlock();
   if (block == null) {
     return null;
   }
   MessageKey key=block.getKey();
   key.ack();
-  List<String> list=new ArrayList<String>(NEW_ENTRIES_COUNT);
+  List<Object> list=new ArrayList<Object>(NEW_ENTRIES_COUNT);
   String buffer=new String(block.getBuffer());
   for (  String mesgStr : buffer.split("[\n\r]",-1)) {
     list.add(mesgStr);

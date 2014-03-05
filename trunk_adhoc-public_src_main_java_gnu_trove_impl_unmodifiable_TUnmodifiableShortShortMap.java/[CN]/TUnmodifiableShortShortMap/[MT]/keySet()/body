@@ -1,0 +1,4 @@
+{
+  if (keySet == null)   keySet=TCollections.unmodifiableSet(m.keySet());
+  return keySet;
+}

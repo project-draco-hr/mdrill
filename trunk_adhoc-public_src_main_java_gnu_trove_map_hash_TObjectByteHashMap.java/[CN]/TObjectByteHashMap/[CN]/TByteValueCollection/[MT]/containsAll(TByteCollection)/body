@@ -1,0 +1,9 @@
+{
+  TByteIterator iter=collection.iterator();
+  while (iter.hasNext()) {
+    if (!TObjectByteHashMap.this.containsValue(iter.next())) {
+      return false;
+    }
+  }
+  return true;
+}

@@ -1,0 +1,17 @@
+{
+  int version=in.readByte();
+  super.readExternal(in);
+  int size=in.readInt();
+  if (version >= 1) {
+    _loadFactor=in.readFloat();
+    no_entry_value=in.readDouble();
+    if (no_entry_value != (double)0) {
+      Arrays.fill(_set,no_entry_value);
+    }
+  }
+  setUp(size);
+  while (size-- > 0) {
+    double val=in.readDouble();
+    add(val);
+  }
+}

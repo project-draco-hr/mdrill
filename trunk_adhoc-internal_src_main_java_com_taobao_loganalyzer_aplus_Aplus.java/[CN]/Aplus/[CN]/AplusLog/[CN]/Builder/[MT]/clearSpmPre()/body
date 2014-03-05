@@ -1,0 +1,6 @@
+{
+  bitField1_=(bitField1_ & ~0x00008000);
+  spmPre_=getDefaultInstance().getSpmPre();
+  onChanged();
+  return this;
+}

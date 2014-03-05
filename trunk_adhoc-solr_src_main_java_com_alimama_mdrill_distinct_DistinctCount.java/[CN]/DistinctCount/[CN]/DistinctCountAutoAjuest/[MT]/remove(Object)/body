@@ -1,0 +1,8 @@
+{
+  if (key == null) {
+    return null;
+  }
+  DistinctCount rtn=ajust.remove(key);
+  this.autoAjust();
+  return rtn;
+}

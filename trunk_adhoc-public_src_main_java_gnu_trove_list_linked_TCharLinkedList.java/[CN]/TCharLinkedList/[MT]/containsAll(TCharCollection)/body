@@ -1,0 +1,8 @@
+{
+  if (isEmpty())   return false;
+  for (TCharIterator it=collection.iterator(); it.hasNext(); ) {
+    char i=it.next();
+    if (!(contains(i)))     return false;
+  }
+  return true;
+}

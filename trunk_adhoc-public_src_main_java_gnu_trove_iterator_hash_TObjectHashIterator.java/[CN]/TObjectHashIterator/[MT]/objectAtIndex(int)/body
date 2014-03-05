@@ -1,0 +1,7 @@
+{
+  Object obj=_objectHash._set[index];
+  if (obj == TObjectHash.FREE || obj == TObjectHash.REMOVED) {
+    return null;
+  }
+  return (E)obj;
+}

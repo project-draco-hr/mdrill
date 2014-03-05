@@ -1,0 +1,4 @@
+{
+  super(initialCapacity,loadFactor);
+  no_entry_value=Constants.DEFAULT_BYTE_NO_ENTRY_VALUE;
+}

@@ -1,0 +1,14 @@
+{
+  for (  Object element : collection) {
+    if (element instanceof Float) {
+      float c=((Float)element).floatValue();
+      if (!contains(c)) {
+        return false;
+      }
+    }
+ else {
+      return false;
+    }
+  }
+  return true;
+}

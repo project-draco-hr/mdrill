@@ -1,0 +1,13 @@
+{
+  if (isEmpty())   return false;
+  for (  Object o : collection) {
+    if (o instanceof Long) {
+      Long i=(Long)o;
+      if (!(contains(i)))       return false;
+    }
+ else {
+      return false;
+    }
+  }
+  return true;
+}

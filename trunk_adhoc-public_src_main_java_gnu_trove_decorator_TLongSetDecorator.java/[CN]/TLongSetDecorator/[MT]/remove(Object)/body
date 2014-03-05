@@ -1,0 +1,3 @@
+{
+  return value instanceof Long && _set.remove(((Long)value).longValue());
+}

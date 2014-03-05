@@ -1,0 +1,10 @@
+{
+  try {
+    output.writeObject(_set[value]);
+  }
+ catch (  IOException e) {
+    ioException=e;
+    return false;
+  }
+  return true;
+}

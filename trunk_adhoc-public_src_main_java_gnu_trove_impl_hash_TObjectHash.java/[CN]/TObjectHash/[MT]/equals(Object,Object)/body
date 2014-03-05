@@ -1,0 +1,4 @@
+{
+  if (two == null || two == REMOVED)   return false;
+  return notnull.equals(two);
+}

@@ -1,0 +1,3 @@
+{
+  return TIntIntHashMap.this.values(dest);
+}

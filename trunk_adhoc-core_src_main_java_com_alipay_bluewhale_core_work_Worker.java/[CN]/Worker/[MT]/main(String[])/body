@@ -14,12 +14,9 @@
     sd.join();
     LOG.info("WorkerShutdown topology_id=" + topology_id + ",port_str="+ port_str);
   }
- catch (  RuntimeException e) {
+ catch (  Throwable e) {
     LOG.error("make worker error",e);
     LOG.info("WorkerShutdown topology_id=" + topology_id + ",port_str="+ port_str);
-  }
-catch (  Exception e) {
-    LOG.error("make worker error",e);
-    LOG.info("WorkerShutdown topology_id=" + topology_id + ",port_str="+ port_str);
+    System.exit(0);
   }
 }

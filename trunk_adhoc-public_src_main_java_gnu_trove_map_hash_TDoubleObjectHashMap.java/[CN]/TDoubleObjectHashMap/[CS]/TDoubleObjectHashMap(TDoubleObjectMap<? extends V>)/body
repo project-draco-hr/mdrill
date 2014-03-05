@@ -1,0 +1,4 @@
+{
+  this(map.size(),0.5f,map.getNoEntryKey());
+  putAll(map);
+}

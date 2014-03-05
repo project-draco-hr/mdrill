@@ -1,0 +1,10 @@
+{
+  TDoubleIterator iter=collection.iterator();
+  while (iter.hasNext()) {
+    double element=iter.next();
+    if (!contains(element)) {
+      return false;
+    }
+  }
+  return true;
+}

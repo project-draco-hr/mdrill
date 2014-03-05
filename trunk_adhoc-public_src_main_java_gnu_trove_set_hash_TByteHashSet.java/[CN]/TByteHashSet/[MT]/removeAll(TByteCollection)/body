@@ -1,0 +1,11 @@
+{
+  boolean changed=false;
+  TByteIterator iter=collection.iterator();
+  while (iter.hasNext()) {
+    byte element=iter.next();
+    if (remove(element)) {
+      changed=true;
+    }
+  }
+  return changed;
+}

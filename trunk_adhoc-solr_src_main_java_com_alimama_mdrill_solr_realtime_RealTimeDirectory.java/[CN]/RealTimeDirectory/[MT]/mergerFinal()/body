@@ -1,0 +1,9 @@
+{
+synchronized (rlock.lock) {
+    this.data.flushToDisk();
+    boolean ismerger=this.data.maybeMergerFinal();
+    if (ismerger) {
+      needFlushDfs.set(true);
+    }
+  }
+}

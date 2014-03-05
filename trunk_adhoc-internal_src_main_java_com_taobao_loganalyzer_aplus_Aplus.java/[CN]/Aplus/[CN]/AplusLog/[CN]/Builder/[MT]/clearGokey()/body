@@ -1,0 +1,6 @@
+{
+  bitField1_=(bitField1_ & ~0x00000400);
+  gokey_=getDefaultInstance().getGokey();
+  onChanged();
+  return this;
+}

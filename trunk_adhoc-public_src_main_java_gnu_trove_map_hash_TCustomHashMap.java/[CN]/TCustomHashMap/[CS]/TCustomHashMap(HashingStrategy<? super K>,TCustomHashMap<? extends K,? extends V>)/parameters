@@ -1,0 +1,2 @@
+HashingStrategy<? super K> strategy
+TCustomHashMap<? extends K,? extends V> map

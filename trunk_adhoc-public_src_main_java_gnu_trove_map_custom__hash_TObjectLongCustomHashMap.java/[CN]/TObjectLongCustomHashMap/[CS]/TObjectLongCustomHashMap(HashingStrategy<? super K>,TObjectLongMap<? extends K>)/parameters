@@ -1,0 +1,2 @@
+HashingStrategy<? super K> strategy
+TObjectLongMap<? extends K> map

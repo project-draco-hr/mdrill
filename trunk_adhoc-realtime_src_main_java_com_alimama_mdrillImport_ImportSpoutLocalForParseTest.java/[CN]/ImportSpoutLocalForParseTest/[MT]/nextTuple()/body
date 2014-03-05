@@ -1,0 +1,20 @@
+{
+  try {
+    List ttdata=this.reader.read();
+    if (ttdata == null) {
+      return;
+    }
+    for (    Object o : ttdata) {
+      DataParser.DataIter pv=(DataParser.DataIter)o;
+      while (true) {
+        this.putdata(pv);
+        if (!pv.next()) {
+          break;
+        }
+      }
+    }
+  }
+ catch (  Throwable e) {
+    this.sleep(100);
+  }
+}

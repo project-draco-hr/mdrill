@@ -1,0 +1,3 @@
+{
+  return TCharFloatHashMap.this.forEachValue(procedure);
+}

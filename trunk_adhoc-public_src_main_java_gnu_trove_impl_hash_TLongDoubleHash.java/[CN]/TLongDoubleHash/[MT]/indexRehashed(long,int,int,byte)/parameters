@@ -1,0 +1,4 @@
+long key
+int index
+int hash
+byte state

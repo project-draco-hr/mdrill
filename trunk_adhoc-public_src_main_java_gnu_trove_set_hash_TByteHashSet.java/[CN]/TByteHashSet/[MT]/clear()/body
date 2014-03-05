@@ -1,0 +1,9 @@
+{
+  super.clear();
+  byte[] set=_set;
+  byte[] states=_states;
+  for (int i=set.length; i-- > 0; ) {
+    set[i]=no_entry_value;
+    states[i]=FREE;
+  }
+}

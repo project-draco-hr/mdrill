@@ -1,0 +1,9 @@
+{
+  int zjustsize=Math.max(ajust.size(),1);
+  int persize=size / zjustsize;
+  if (persize < 20) {
+    persize=20;
+  }
+  this.last_persize=persize;
+  this._ajust(zjustsize,persize);
+}

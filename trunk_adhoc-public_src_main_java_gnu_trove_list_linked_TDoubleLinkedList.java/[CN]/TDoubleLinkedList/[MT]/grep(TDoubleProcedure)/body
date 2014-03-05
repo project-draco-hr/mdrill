@@ -1,0 +1,7 @@
+{
+  TDoubleList ret=new TDoubleLinkedList();
+  for (TDoubleLink l=head; got(l); l=l.getNext()) {
+    if (condition.execute(l.getValue()))     ret.add(l.getValue());
+  }
+  return ret;
+}

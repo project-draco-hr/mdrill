@@ -1,0 +1,3 @@
+{
+  return com.taobao.loganalyzer.aplus.Aplus.internal_static_com_taobao_loganalyzer_aplus_AplusLog_fieldAccessorTable;
+}

@@ -1,0 +1,6 @@
+{
+synchronized (mutex) {
+    if (keySet == null)     keySet=new TSynchronizedFloatSet(m.keySet(),mutex);
+    return keySet;
+  }
+}

@@ -1,0 +1,3 @@
+{
+  return toArray(new float[len],offset,0,len);
+}

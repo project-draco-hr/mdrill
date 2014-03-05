@@ -1,0 +1,15 @@
+{
+  double k;
+  if (key != null) {
+    if (key instanceof Double) {
+      k=unwrapKey((Double)key);
+    }
+ else {
+      return null;
+    }
+  }
+ else {
+    k=_map.getNoEntryKey();
+  }
+  return _map.remove(k);
+}

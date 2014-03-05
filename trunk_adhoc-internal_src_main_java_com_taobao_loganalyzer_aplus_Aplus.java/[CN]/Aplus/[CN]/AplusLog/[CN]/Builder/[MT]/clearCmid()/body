@@ -1,0 +1,6 @@
+{
+  bitField0_=(bitField0_ & ~0x00000200);
+  cmid_=getDefaultInstance().getCmid();
+  onChanged();
+  return this;
+}

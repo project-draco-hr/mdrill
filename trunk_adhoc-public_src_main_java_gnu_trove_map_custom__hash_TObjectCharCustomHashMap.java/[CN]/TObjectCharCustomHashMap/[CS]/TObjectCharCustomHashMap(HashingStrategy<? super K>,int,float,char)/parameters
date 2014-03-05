@@ -1,0 +1,4 @@
+HashingStrategy<? super K> strategy
+int initialCapacity
+float loadFactor
+char noEntryValue

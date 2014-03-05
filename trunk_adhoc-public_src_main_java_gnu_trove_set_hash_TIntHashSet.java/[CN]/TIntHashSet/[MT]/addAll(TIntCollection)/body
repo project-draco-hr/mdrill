@@ -1,0 +1,11 @@
+{
+  boolean changed=false;
+  TIntIterator iter=collection.iterator();
+  while (iter.hasNext()) {
+    int element=iter.next();
+    if (add(element)) {
+      changed=true;
+    }
+  }
+  return changed;
+}

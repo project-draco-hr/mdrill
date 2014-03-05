@@ -1,0 +1,16 @@
+{
+  int zjustsize=Math.max(ajust.size(),1);
+  int persize=size / zjustsize;
+  int diff=Math.abs((zjustsize * this.last_persize) - size);
+  if (diff < 102400) {
+    return;
+  }
+  if (persize < 20) {
+    persize=20;
+  }
+  if (persize == this.last_persize) {
+    return;
+  }
+  this.last_persize=persize;
+  this._ajust(zjustsize,persize);
+}

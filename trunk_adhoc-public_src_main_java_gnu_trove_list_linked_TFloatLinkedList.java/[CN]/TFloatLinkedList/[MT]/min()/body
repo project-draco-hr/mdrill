@@ -1,0 +1,8 @@
+{
+  float ret=Float.POSITIVE_INFINITY;
+  if (isEmpty())   throw new IllegalStateException();
+  for (TFloatLink l=head; got(l); l=l.getNext()) {
+    if (ret > l.getValue())     ret=l.getValue();
+  }
+  return ret;
+}

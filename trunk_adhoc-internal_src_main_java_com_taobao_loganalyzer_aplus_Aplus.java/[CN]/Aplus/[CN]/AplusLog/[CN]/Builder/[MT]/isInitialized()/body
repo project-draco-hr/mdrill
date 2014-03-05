@@ -1,0 +1,18 @@
+{
+  if (!hasVersion()) {
+    return false;
+  }
+  if (!hasIp()) {
+    return false;
+  }
+  if (!hasTime()) {
+    return false;
+  }
+  if (!hasUrl()) {
+    return false;
+  }
+  if (!hasUserAgent()) {
+    return false;
+  }
+  return true;
+}

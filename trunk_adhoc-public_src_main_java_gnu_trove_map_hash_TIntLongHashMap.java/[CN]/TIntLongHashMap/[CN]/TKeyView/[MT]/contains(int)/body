@@ -1,0 +1,3 @@
+{
+  return TIntLongHashMap.this.contains(entry);
+}

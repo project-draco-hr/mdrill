@@ -1,0 +1,13 @@
+{
+  this(Math.max(collection.size(),DEFAULT_CAPACITY));
+  if (collection instanceof TCharHashSet) {
+    TCharHashSet hashset=(TCharHashSet)collection;
+    this._loadFactor=hashset._loadFactor;
+    this.no_entry_value=hashset.no_entry_value;
+    if (this.no_entry_value != (char)0) {
+      Arrays.fill(_set,this.no_entry_value);
+    }
+    setUp((int)Math.ceil(DEFAULT_CAPACITY / _loadFactor));
+  }
+  addAll(collection);
+}

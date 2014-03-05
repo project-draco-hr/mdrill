@@ -1,0 +1,8 @@
+{
+  in.readByte();
+  no_entry_value=in.readShort();
+  int len=in.readInt();
+  for (int i=0; i < len; i++) {
+    add(in.readShort());
+  }
+}

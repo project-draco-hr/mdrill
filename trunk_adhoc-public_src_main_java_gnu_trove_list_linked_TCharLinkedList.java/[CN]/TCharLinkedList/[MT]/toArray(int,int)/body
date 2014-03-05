@@ -1,0 +1,3 @@
+{
+  return toArray(new char[len],offset,0,len);
+}

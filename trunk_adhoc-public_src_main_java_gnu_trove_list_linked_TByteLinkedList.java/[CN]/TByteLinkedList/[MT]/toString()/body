@@ -1,0 +1,11 @@
+{
+  final StringBuilder buf=new StringBuilder("{");
+  TByteIterator it=iterator();
+  while (it.hasNext()) {
+    byte next=it.next();
+    buf.append(next);
+    if (it.hasNext())     buf.append(", ");
+  }
+  buf.append("}");
+  return buf.toString();
+}

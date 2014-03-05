@@ -1,0 +1,10 @@
+{
+  try {
+    short next=get(cursor);
+    lastRet=cursor++;
+    return next;
+  }
+ catch (  IndexOutOfBoundsException e) {
+    throw new NoSuchElementException();
+  }
+}

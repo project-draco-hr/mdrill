@@ -1,0 +1,9 @@
+{
+  TDoubleIterator iter=collection.iterator();
+  while (iter.hasNext()) {
+    if (!TDoubleByteHashMap.this.containsKey(iter.next())) {
+      return false;
+    }
+  }
+  return true;
+}

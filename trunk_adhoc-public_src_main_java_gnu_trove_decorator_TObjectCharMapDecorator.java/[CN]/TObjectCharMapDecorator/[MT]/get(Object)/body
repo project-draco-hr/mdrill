@@ -1,0 +1,9 @@
+{
+  char v=_map.get(key);
+  if (v == _map.getNoEntryValue()) {
+    return null;
+  }
+ else {
+    return wrapValue(v);
+  }
+}

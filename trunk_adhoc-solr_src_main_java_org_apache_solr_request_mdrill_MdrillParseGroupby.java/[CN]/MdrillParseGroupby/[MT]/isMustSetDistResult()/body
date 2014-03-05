@@ -1,0 +1,5 @@
+{
+  boolean isfetchStat=this.params.getBool("mdrill.isRestat",false);
+  boolean issortByDist=this.sort_type.equals("dist");
+  return isfetchStat || issortByDist;
+}

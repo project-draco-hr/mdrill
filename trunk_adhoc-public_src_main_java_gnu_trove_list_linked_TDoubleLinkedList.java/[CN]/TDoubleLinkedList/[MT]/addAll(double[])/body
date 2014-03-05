@@ -1,0 +1,7 @@
+{
+  boolean ret=false;
+  for (  double i : array) {
+    if (add(i))     ret=true;
+  }
+  return ret;
+}

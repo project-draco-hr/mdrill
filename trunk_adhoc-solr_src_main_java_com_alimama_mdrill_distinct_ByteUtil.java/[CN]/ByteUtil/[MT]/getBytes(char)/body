@@ -1,0 +1,6 @@
+{
+  byte[] bytes=new byte[2];
+  bytes[0]=(byte)(data);
+  bytes[1]=(byte)(data >> 8);
+  return bytes;
+}

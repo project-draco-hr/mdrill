@@ -1,0 +1,3 @@
+{
+  TShortIntHashMap.this.clear();
+}

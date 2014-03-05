@@ -1,0 +1,4 @@
+Object obj
+int index
+int hash
+Object cur

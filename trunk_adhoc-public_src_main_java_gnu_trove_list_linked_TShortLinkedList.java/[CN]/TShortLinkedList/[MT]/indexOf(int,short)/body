@@ -1,0 +1,8 @@
+{
+  int count=offset;
+  for (TShortLink l=getLinkAt(offset); got(l.getNext()); l=l.getNext()) {
+    if (l.getValue() == value)     return count;
+    count++;
+  }
+  return -1;
+}

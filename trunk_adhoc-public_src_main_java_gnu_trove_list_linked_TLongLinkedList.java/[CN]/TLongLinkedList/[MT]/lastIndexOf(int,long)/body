@@ -1,0 +1,10 @@
+{
+  if (isEmpty())   return -1;
+  int last=-1;
+  int count=offset;
+  for (TLongLink l=getLinkAt(offset); got(l.getNext()); l=l.getNext()) {
+    if (l.getValue() == value)     last=count;
+    count++;
+  }
+  return last;
+}

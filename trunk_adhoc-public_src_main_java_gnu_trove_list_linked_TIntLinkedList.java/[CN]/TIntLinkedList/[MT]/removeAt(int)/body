@@ -1,0 +1,7 @@
+{
+  TIntLink l=getLinkAt(offset);
+  if (no(l))   throw new ArrayIndexOutOfBoundsException("no elemenet at " + offset);
+  int prev=l.getValue();
+  removeLink(l);
+  return prev;
+}

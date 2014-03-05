@@ -1,0 +1,9 @@
+{
+  byte prev=no_entry_value;
+  int index=index(key);
+  if (index >= 0) {
+    prev=_values[index];
+    removeAt(index);
+  }
+  return prev;
+}

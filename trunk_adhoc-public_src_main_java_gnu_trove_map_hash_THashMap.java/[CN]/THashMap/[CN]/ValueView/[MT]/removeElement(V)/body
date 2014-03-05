@@ -1,0 +1,11 @@
+{
+  Object[] values=_values;
+  Object[] set=_set;
+  for (int i=values.length; i-- > 0; ) {
+    if ((set[i] != FREE && set[i] != REMOVED) && value == values[i] || (null != values[i] && THashMap.this.equals(values[i],value))) {
+      removeAt(i);
+      return true;
+    }
+  }
+  return false;
+}

@@ -1,0 +1,3 @@
+{
+  return TShortIntHashMap.this.forEachValue(procedure);
+}

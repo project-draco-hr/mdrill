@@ -1,0 +1,14 @@
+{
+  for (  Object element : collection) {
+    if (element instanceof Character) {
+      char ele=((Character)element).charValue();
+      if (!TObjectCharCustomHashMap.this.containsValue(ele)) {
+        return false;
+      }
+    }
+ else {
+      return false;
+    }
+  }
+  return true;
+}

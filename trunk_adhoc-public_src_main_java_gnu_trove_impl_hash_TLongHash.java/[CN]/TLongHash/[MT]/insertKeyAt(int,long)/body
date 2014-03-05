@@ -1,0 +1,4 @@
+{
+  _set[index]=val;
+  _states[index]=FULL;
+}

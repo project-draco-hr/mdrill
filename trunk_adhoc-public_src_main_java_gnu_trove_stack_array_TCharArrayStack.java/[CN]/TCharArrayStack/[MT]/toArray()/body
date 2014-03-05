@@ -1,0 +1,5 @@
+{
+  char[] retval=_list.toArray();
+  reverse(retval,0,size());
+  return retval;
+}

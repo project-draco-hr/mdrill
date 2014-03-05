@@ -1,0 +1,11 @@
+{
+  TTLogBlock block=null;
+  try {
+    block=_inStreamInput.read();
+  }
+ catch (  Throwable e) {
+    LOG.error("ttreaderror",e);
+    block=null;
+  }
+  return block;
+}

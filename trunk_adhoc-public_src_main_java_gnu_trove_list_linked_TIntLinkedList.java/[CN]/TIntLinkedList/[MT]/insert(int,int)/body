@@ -1,0 +1,5 @@
+{
+  TIntLinkedList tmp=new TIntLinkedList();
+  tmp.add(value);
+  insert(offset,tmp);
+}

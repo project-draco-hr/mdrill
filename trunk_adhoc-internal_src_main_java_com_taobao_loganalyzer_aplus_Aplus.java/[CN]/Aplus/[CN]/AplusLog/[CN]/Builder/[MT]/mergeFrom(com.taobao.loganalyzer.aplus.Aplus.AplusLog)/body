@@ -1,0 +1,149 @@
+{
+  if (other == com.taobao.loganalyzer.aplus.Aplus.AplusLog.getDefaultInstance())   return this;
+  if (other.hasVersion()) {
+    setVersion(other.getVersion());
+  }
+  if (other.hasIp()) {
+    setIp(other.getIp());
+  }
+  if (other.hasTime()) {
+    setTime(other.getTime());
+  }
+  if (other.hasUrl()) {
+    setUrl(other.getUrl());
+  }
+  if (other.hasUserAgent()) {
+    setUserAgent(other.getUserAgent());
+  }
+  if (other.hasLinezingSession()) {
+    setLinezingSession(other.getLinezingSession());
+  }
+  if (other.hasCna()) {
+    setCna(other.getCna());
+  }
+  if (other.hasAdid()) {
+    setAdid(other.getAdid());
+  }
+  if (other.hasAmid()) {
+    setAmid(other.getAmid());
+  }
+  if (other.hasCmid()) {
+    setCmid(other.getCmid());
+  }
+  if (other.hasPmid()) {
+    setPmid(other.getPmid());
+  }
+  if (other.hasUid()) {
+    setUid(other.getUid());
+  }
+  if (other.hasSid()) {
+    setSid(other.getSid());
+  }
+  if (other.hasPre()) {
+    setPre(other.getPre());
+  }
+  if (other.hasScr()) {
+    setScr(other.getScr());
+  }
+  if (other.hasNick()) {
+    setNick(other.getNick());
+  }
+  if (other.hasAtAutype()) {
+    setAtAutype(other.getAtAutype());
+  }
+  if (other.hasBbid()) {
+    setBbid(other.getBbid());
+  }
+  if (other.hasAtIsb()) {
+    setAtIsb(other.getAtIsb());
+  }
+  if (other.hasAtMallProRe()) {
+    setAtMallProRe(other.getAtMallProRe());
+  }
+  if (other.hasAtMallRe()) {
+    setAtMallRe(other.getAtMallRe());
+  }
+  if (other.hasAtShoptype()) {
+    setAtShoptype(other.getAtShoptype());
+  }
+  if (other.hasB2CAuction()) {
+    setB2CAuction(other.getB2CAuction());
+  }
+  if (other.hasB2CBrand()) {
+    setB2CBrand(other.getB2CBrand());
+  }
+  if (other.hasB2COrid()) {
+    setB2COrid(other.getB2COrid());
+  }
+  if (other.hasAtType()) {
+    setAtType(other.getAtType());
+  }
+  if (other.hasCategory()) {
+    setCategory(other.getCategory());
+  }
+  if (other.hasMarketinfo()) {
+    setMarketinfo(other.getMarketinfo());
+  }
+  if (other.hasAtpIsdpp()) {
+    setAtpIsdpp(other.getAtpIsdpp());
+  }
+  if (other.hasAtBucketid()) {
+    setAtBucketid(other.getAtBucketid());
+  }
+  if (other.hasAtInsid()) {
+    setAtInsid(other.getAtInsid());
+  }
+  if (other.hasAtJporid()) {
+    setAtJporid(other.getAtJporid());
+  }
+  if (other.hasWmPageid()) {
+    setWmPageid(other.getWmPageid());
+  }
+  if (other.hasWmPrototypeid()) {
+    setWmPrototypeid(other.getWmPrototypeid());
+  }
+  if (other.hasWmSid()) {
+    setWmSid(other.getWmSid());
+  }
+  if (other.hasSpmCnt()) {
+    setSpmCnt(other.getSpmCnt());
+  }
+  if (other.hasTitle()) {
+    setTitle(other.getTitle());
+  }
+  if (other.hasUrlType()) {
+    setUrlType(other.getUrlType());
+  }
+  if (other.hasRefType()) {
+    setRefType(other.getRefType());
+  }
+  if (other.hasRefShopid()) {
+    setRefShopid(other.getRefShopid());
+  }
+  if (other.hasLogkey()) {
+    setLogkey(other.getLogkey());
+  }
+  if (other.hasGmkey()) {
+    setGmkey(other.getGmkey());
+  }
+  if (other.hasGokey()) {
+    setGokey(other.getGokey());
+  }
+  if (other.hasLogtype()) {
+    setLogtype(other.getLogtype());
+  }
+  if (other.hasAtpSid()) {
+    setAtpSid(other.getAtpSid());
+  }
+  if (other.hasUserid()) {
+    setUserid(other.getUserid());
+  }
+  if (other.hasSpmUrl()) {
+    setSpmUrl(other.getSpmUrl());
+  }
+  if (other.hasSpmPre()) {
+    setSpmPre(other.getSpmPre());
+  }
+  this.mergeUnknownFields(other.getUnknownFields());
+  return this;
+}

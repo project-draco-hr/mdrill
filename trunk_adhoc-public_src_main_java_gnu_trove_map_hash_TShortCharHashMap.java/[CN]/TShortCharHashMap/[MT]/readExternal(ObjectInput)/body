@@ -1,0 +1,11 @@
+{
+  in.readByte();
+  super.readExternal(in);
+  int size=in.readInt();
+  setUp(size);
+  while (size-- > 0) {
+    short key=in.readShort();
+    char val=in.readChar();
+    put(key,val);
+  }
+}

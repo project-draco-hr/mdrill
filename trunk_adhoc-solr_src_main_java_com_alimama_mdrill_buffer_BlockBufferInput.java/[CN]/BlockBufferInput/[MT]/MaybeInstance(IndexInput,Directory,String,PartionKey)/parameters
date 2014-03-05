@@ -1,0 +1,4 @@
+IndexInput input
+Directory dir
+String filename
+PartionKey p

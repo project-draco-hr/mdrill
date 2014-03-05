@@ -1,0 +1,4 @@
+{
+  String extra=dumpExtraInfo(o1,o2,size(),oldSize,oldKeys);
+  throw buildObjectContractViolation(o1,o2,extra);
+}

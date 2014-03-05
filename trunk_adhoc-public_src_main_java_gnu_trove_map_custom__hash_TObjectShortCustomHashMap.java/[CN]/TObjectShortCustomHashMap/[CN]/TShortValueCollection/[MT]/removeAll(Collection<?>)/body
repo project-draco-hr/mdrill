@@ -1,0 +1,12 @@
+{
+  boolean changed=false;
+  for (  Object element : collection) {
+    if (element instanceof Short) {
+      short c=((Short)element).shortValue();
+      if (remove(c)) {
+        changed=true;
+      }
+    }
+  }
+  return changed;
+}

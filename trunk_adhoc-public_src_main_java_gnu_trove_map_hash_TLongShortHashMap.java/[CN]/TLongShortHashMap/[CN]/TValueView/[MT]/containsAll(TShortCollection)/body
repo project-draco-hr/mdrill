@@ -1,0 +1,9 @@
+{
+  TShortIterator iter=collection.iterator();
+  while (iter.hasNext()) {
+    if (!TLongShortHashMap.this.containsValue(iter.next())) {
+      return false;
+    }
+  }
+  return true;
+}

@@ -1,0 +1,3 @@
+{
+  return TFloatLongHashMap.this.containsValue(entry);
+}

@@ -1,0 +1,10 @@
+{
+  TIntIterator iter=collection.iterator();
+  while (iter.hasNext()) {
+    int element=iter.next();
+    if (!contains(element)) {
+      return false;
+    }
+  }
+  return true;
+}

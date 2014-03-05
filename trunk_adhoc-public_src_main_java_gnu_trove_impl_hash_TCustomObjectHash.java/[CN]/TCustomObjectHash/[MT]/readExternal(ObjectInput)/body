@@ -1,0 +1,5 @@
+{
+  in.readByte();
+  super.readExternal(in);
+  strategy=(HashingStrategy<T>)in.readObject();
+}

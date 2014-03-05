@@ -1,0 +1,8 @@
+{
+  int result=HashFunctions.hash(no_entry_value);
+  result=31 * result + size;
+  for (TDoubleIterator iterator=iterator(); iterator.hasNext(); ) {
+    result=31 * result + HashFunctions.hash(iterator.next());
+  }
+  return result;
+}

@@ -1,0 +1,11 @@
+{
+  boolean modified=false;
+  TLongIterator iter=iterator();
+  while (iter.hasNext()) {
+    if (collection.contains(iter.next())) {
+      iter.remove();
+      modified=true;
+    }
+  }
+  return modified;
+}

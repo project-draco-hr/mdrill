@@ -1,0 +1,5 @@
+{
+  TDoubleLinkedList tmp=new TDoubleLinkedList();
+  tmp.add(value);
+  insert(offset,tmp);
+}

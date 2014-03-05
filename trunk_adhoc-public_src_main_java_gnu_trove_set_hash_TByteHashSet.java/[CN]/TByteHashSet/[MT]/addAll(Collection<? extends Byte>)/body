@@ -1,0 +1,10 @@
+{
+  boolean changed=false;
+  for (  Byte element : collection) {
+    byte e=element.byteValue();
+    if (add(e)) {
+      changed=true;
+    }
+  }
+  return changed;
+}

@@ -1,0 +1,10 @@
+{
+  StringBuilder b=new StringBuilder();
+  b.append(dumpKeyTypes(newVal,oldVal));
+  b.append(reportPotentialConcurrentMod(currentSize,oldSize));
+  b.append(detectKeyLoss(oldKeys,oldSize));
+  if (newVal == oldVal) {
+    b.append("Inserting same object twice, rehashing bug. Object= ").append(oldVal);
+  }
+  return b.toString();
+}

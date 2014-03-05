@@ -22,6 +22,9 @@
   if (projectName.equals("st_tanx_x_core_gateway")) {
     hpart="ds";
   }
+  if (projectName.equals("r_rpt_tanx_amif_adhoc_adzone")) {
+    hpart="ds";
+  }
   queryStr=WebServiceParams.query(queryStr);
   Map stormconf=Utils.readStormConfig();
   String mode=String.valueOf(stormconf.get("higo.mode." + projectName));
@@ -163,6 +166,7 @@
   if (limit > 0) {
     hql=hql + " limit " + limit;
   }
+  hql=hql.replaceAll("dist\\((.*)\\)","count(distinct($1))");
   String md5=MD5.getMD5(hql);
   SimpleDateFormat fmt=new SimpleDateFormat("yyyyMMdd");
   String day=fmt.format(new Date());

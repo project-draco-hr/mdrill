@@ -1,0 +1,5 @@
+{
+  char value=list.get(index);
+  if (value == list.getNoEntryValue())   return null;
+ else   return Character.valueOf(value);
+}

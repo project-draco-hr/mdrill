@@ -1,0 +1,5 @@
+{
+  if (offset >= size())   return null;
+  if (offset <= (size() >>> 1))   return getLink(head,0,offset,true);
+ else   return getLink(tail,size() - 1,offset,false);
+}

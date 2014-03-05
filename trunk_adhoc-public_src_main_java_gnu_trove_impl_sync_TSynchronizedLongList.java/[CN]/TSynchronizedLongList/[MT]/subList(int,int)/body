@@ -1,0 +1,5 @@
+{
+synchronized (mutex) {
+    return new TSynchronizedLongList(list.subList(fromIndex,toIndex),mutex);
+  }
+}

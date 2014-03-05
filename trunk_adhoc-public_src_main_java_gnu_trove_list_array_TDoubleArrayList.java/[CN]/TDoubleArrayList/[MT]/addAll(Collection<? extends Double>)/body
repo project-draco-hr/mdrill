@@ -1,0 +1,10 @@
+{
+  boolean changed=false;
+  for (  Double element : collection) {
+    double e=element.doubleValue();
+    if (add(e)) {
+      changed=true;
+    }
+  }
+  return changed;
+}

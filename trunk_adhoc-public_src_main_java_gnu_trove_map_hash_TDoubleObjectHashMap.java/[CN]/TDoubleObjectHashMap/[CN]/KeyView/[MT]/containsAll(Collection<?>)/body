@@ -1,0 +1,8 @@
+{
+  for (  Object element : collection) {
+    if (!TDoubleObjectHashMap.this.containsKey(((Double)element).doubleValue())) {
+      return false;
+    }
+  }
+  return true;
+}

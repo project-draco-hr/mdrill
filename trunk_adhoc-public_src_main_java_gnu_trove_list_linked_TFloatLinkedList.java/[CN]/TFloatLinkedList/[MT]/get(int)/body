@@ -1,0 +1,6 @@
+{
+  if (offset > size)   throw new IndexOutOfBoundsException("index " + offset + " exceeds size "+ size);
+  TFloatLink l=getLinkAt(offset);
+  if (no(l))   return no_entry_value;
+  return l.getValue();
+}

@@ -1,13 +1,14 @@
 {
   Socket socket=ZeroMq.socket(context,ZeroMq.pull);
-  for (int i=0; i < 61; i++) {
+  for (int i=0; i < 605; i++) {
     try {
       ZeroMq.bind(socket,url);
+      LOG.info("bind:" + url);
       break;
     }
  catch (    org.zeromq.ZMQException e) {
-      LOG.info("zeromqBind error",e);
-      if (i >= 60) {
+      LOG.info("zeromqBind error" + i,e);
+      if (i >= 600) {
         throw e;
       }
       try {

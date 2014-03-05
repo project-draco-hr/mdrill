@@ -1,0 +1,4 @@
+{
+  in.readByte();
+  _map=(TObjectIntMap<K>)in.readObject();
+}

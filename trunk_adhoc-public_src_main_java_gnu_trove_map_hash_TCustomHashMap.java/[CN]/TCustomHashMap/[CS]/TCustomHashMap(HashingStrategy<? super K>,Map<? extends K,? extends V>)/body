@@ -1,0 +1,4 @@
+{
+  this(strategy,map.size());
+  putAll(map);
+}

@@ -1,0 +1,11 @@
+{
+  boolean changed=false;
+  TFloatIterator iter=collection.iterator();
+  while (iter.hasNext()) {
+    float element=iter.next();
+    if (add(element)) {
+      changed=true;
+    }
+  }
+  return changed;
+}

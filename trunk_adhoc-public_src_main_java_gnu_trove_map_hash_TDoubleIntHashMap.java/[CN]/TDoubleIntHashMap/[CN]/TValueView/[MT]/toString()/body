@@ -1,0 +1,19 @@
+{
+  final StringBuilder buf=new StringBuilder("{");
+  forEachValue(new TIntProcedure(){
+    private boolean first=true;
+    public boolean execute(    int value){
+      if (first) {
+        first=false;
+      }
+ else {
+        buf.append(", ");
+      }
+      buf.append(value);
+      return true;
+    }
+  }
+);
+  buf.append("}");
+  return buf.toString();
+}

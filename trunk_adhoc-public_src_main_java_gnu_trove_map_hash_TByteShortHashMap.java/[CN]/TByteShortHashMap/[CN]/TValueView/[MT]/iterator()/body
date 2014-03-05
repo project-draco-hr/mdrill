@@ -1,0 +1,3 @@
+{
+  return new TByteShortValueHashIterator(TByteShortHashMap.this);
+}

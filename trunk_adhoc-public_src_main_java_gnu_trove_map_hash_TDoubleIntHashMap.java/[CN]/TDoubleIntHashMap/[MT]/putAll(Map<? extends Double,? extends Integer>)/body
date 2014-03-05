@@ -1,0 +1,6 @@
+{
+  ensureCapacity(map.size());
+  for (  Map.Entry<? extends Double,? extends Integer> entry : map.entrySet()) {
+    this.put(entry.getKey().doubleValue(),entry.getValue().intValue());
+  }
+}

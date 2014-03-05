@@ -1,0 +1,7 @@
+{
+  TLongList ret=new TLongLinkedList();
+  for (TLongLink l=head; got(l); l=l.getNext()) {
+    if (condition.execute(l.getValue()))     ret.add(l.getValue());
+  }
+  return ret;
+}

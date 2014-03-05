@@ -1,0 +1,8 @@
+{
+  return new TFloatObjectValueHashIterator(TFloatObjectHashMap.this){
+    protected V objectAtIndex(    int index){
+      return _values[index];
+    }
+  }
+;
+}

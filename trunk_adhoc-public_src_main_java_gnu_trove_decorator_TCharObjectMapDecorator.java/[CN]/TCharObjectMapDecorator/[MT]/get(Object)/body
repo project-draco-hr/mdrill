@@ -1,0 +1,15 @@
+{
+  char k;
+  if (key != null) {
+    if (key instanceof Character) {
+      k=unwrapKey((Character)key);
+    }
+ else {
+      return null;
+    }
+  }
+ else {
+    k=_map.getNoEntryKey();
+  }
+  return _map.get(k);
+}

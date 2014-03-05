@@ -1,0 +1,77 @@
+{
+  return new AbstractSet<Map.Entry<Integer,V>>(){
+    public int size(){
+      return _map.size();
+    }
+    public boolean isEmpty(){
+      return TIntObjectMapDecorator.this.isEmpty();
+    }
+    public boolean contains(    Object o){
+      if (o instanceof Map.Entry) {
+        Object k=((Map.Entry)o).getKey();
+        Object v=((Map.Entry)o).getValue();
+        return TIntObjectMapDecorator.this.containsKey(k) && TIntObjectMapDecorator.this.get(k).equals(v);
+      }
+ else {
+        return false;
+      }
+    }
+    public Iterator<Map.Entry<Integer,V>> iterator(){
+      return new Iterator<Map.Entry<Integer,V>>(){
+        private final TIntObjectIterator<V> it=_map.iterator();
+        public Map.Entry<Integer,V> next(){
+          it.advance();
+          int k=it.key();
+          final Integer key=(k == _map.getNoEntryKey()) ? null : wrapKey(k);
+          final V v=it.value();
+          return new Map.Entry<Integer,V>(){
+            private V val=v;
+            public boolean equals(            Object o){
+              return o instanceof Map.Entry && ((Map.Entry)o).getKey().equals(key) && ((Map.Entry)o).getValue().equals(val);
+            }
+            public Integer getKey(){
+              return key;
+            }
+            public V getValue(){
+              return val;
+            }
+            public int hashCode(){
+              return key.hashCode() + val.hashCode();
+            }
+            public V setValue(            V value){
+              val=value;
+              return put(key,value);
+            }
+          }
+;
+        }
+        public boolean hasNext(){
+          return it.hasNext();
+        }
+        public void remove(){
+          it.remove();
+        }
+      }
+;
+    }
+    public boolean add(    Map.Entry<Integer,V> o){
+      throw new UnsupportedOperationException();
+    }
+    public boolean remove(    Object o){
+      boolean modified=false;
+      if (contains(o)) {
+        Integer key=((Map.Entry<Integer,V>)o).getKey();
+        _map.remove(unwrapKey(key));
+        modified=true;
+      }
+      return modified;
+    }
+    public boolean addAll(    Collection<? extends Map.Entry<Integer,V>> c){
+      throw new UnsupportedOperationException();
+    }
+    public void clear(){
+      TIntObjectMapDecorator.this.clear();
+    }
+  }
+;
+}

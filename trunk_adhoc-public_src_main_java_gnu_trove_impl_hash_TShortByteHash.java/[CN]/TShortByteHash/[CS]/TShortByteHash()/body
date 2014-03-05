@@ -1,0 +1,5 @@
+{
+  super();
+  no_entry_key=(short)0;
+  no_entry_value=(byte)0;
+}

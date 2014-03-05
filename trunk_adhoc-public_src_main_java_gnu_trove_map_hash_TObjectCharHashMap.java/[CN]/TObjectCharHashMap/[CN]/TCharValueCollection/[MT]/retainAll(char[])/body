@@ -1,0 +1,13 @@
+{
+  boolean changed=false;
+  Arrays.sort(array);
+  char[] values=_values;
+  Object[] set=_set;
+  for (int i=set.length; i-- > 0; ) {
+    if (set[i] != FREE && set[i] != REMOVED && (Arrays.binarySearch(array,values[i]) < 0)) {
+      removeAt(i);
+      changed=true;
+    }
+  }
+  return changed;
+}

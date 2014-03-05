@@ -1,0 +1,15 @@
+{
+  return new TShortIterator(){
+    TShortIterator i=c.iterator();
+    public boolean hasNext(){
+      return i.hasNext();
+    }
+    public short next(){
+      return i.next();
+    }
+    public void remove(){
+      throw new UnsupportedOperationException();
+    }
+  }
+;
+}

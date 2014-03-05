@@ -1,0 +1,6 @@
+{
+  for (TCharLink l=head; got(l); ) {
+    l.setValue(function.execute(l.getValue()));
+    l=l.getNext();
+  }
+}

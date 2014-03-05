@@ -1,0 +1,23 @@
+{
+  long len=1000l * 600;
+  final long timeoutone=1000l * UniqConfig.RealTimeMergerOneTimelen();
+  TimerTask task=new TimerTask(){
+    @Override public void run(){
+      try {
+        long nowtime=System.currentTimeMillis();
+        long diff=nowtime - status.lastAddDocumentTime.get();
+        if (diff >= timeoutone) {
+          mainThread.mergerFinal();
+          status.lastAddDocumentTime.set(System.currentTimeMillis());
+          LOG.info("flushDocList timetake:" + (diff / 1000));
+        }
+      }
+ catch (      Throwable ex) {
+        LOG.error("flushDocList",ex);
+      }
+    }
+  }
+;
+  taskList.add(task);
+  RealTimeDirectorUtils.getSlowTimer().schedule(task,len,len);
+}

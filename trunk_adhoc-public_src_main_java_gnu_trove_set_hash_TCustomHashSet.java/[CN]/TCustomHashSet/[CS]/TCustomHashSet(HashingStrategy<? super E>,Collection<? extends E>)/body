@@ -1,0 +1,4 @@
+{
+  this(strategy,collection.size());
+  addAll(collection);
+}

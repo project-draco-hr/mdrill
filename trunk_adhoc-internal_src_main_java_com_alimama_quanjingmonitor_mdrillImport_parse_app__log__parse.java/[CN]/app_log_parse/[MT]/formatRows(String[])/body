@@ -1,0 +1,10 @@
+{
+  StringBuilder b=new StringBuilder();
+  for (int i=0; i < clicklog.length; i++) {
+    b.append(i);
+    b.append("=");
+    b.append(String.valueOf(clicklog[i]));
+    b.append(",");
+  }
+  return b.toString();
+}

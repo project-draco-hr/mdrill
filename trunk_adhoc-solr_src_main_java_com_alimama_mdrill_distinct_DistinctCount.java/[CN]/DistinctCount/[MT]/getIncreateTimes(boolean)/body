@@ -1,0 +1,13 @@
+{
+  if (fromcache) {
+    return this.last_increateTime;
+  }
+  int increateTime=1;
+  int times=this.currentTimes;
+  while (times > 1) {
+    times=times / TimesStep;
+    increateTime++;
+  }
+  this.last_increateTime=increateTime;
+  return increateTime;
+}

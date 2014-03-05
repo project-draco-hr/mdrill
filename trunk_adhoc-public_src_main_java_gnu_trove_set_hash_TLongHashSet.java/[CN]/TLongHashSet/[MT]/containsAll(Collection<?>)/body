@@ -1,0 +1,14 @@
+{
+  for (  Object element : collection) {
+    if (element instanceof Long) {
+      long c=((Long)element).longValue();
+      if (!contains(c)) {
+        return false;
+      }
+    }
+ else {
+      return false;
+    }
+  }
+  return true;
+}

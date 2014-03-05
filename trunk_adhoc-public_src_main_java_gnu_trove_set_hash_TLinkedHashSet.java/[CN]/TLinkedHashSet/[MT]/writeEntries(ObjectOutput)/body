@@ -1,0 +1,4 @@
+{
+  WriteProcedure writeProcedure=new WriteProcedure(out);
+  if (!order.forEach(writeProcedure))   throw writeProcedure.getIoException();
+}

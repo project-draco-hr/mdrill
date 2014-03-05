@@ -1,0 +1,7 @@
+{
+  no_entry_value=list.getNoEntryValue();
+  for (TByteIterator iterator=list.iterator(); iterator.hasNext(); ) {
+    byte next=iterator.next();
+    add(next);
+  }
+}

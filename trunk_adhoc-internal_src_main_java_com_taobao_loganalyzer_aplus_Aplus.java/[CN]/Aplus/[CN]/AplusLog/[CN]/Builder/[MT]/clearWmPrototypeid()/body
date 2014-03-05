@@ -1,0 +1,6 @@
+{
+  bitField1_=(bitField1_ & ~0x00000002);
+  wmPrototypeid_=getDefaultInstance().getWmPrototypeid();
+  onChanged();
+  return this;
+}

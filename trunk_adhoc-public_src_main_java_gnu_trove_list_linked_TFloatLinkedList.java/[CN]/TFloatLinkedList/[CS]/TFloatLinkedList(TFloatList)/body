@@ -1,0 +1,7 @@
+{
+  no_entry_value=list.getNoEntryValue();
+  for (TFloatIterator iterator=list.iterator(); iterator.hasNext(); ) {
+    float next=iterator.next();
+    add(next);
+  }
+}

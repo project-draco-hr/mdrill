@@ -1,0 +1,6 @@
+{
+  TByteList tmp=subList(fromIndex,toIndex);
+  byte[] vals=tmp.toArray();
+  Arrays.sort(vals);
+  set(fromIndex,vals);
+}

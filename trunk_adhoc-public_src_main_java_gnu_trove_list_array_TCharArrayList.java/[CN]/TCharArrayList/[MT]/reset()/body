@@ -1,0 +1,4 @@
+{
+  _pos=0;
+  Arrays.fill(_data,no_entry_value);
+}

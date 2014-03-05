@@ -1,0 +1,10 @@
+{
+  if (this == o) {
+    return true;
+  }
+  if (o == null || getClass() != o.getClass()) {
+    return false;
+  }
+  TShortArrayStack that=(TShortArrayStack)o;
+  return _list.equals(that._list);
+}

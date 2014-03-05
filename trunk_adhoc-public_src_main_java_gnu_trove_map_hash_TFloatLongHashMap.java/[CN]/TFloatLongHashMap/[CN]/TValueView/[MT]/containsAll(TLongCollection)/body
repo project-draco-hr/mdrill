@@ -1,0 +1,9 @@
+{
+  TLongIterator iter=collection.iterator();
+  while (iter.hasNext()) {
+    if (!TFloatLongHashMap.this.containsValue(iter.next())) {
+      return false;
+    }
+  }
+  return true;
+}

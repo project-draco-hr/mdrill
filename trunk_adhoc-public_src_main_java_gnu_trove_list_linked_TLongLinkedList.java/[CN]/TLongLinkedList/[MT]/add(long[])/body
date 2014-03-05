@@ -1,0 +1,5 @@
+{
+  for (  long val : vals) {
+    add(val);
+  }
+}

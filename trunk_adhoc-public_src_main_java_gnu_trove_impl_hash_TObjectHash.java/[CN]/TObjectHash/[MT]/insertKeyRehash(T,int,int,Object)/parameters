@@ -1,0 +1,4 @@
+T key
+int index
+int hash
+Object cur

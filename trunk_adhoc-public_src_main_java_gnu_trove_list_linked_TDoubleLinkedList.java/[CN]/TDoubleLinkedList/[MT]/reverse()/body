@@ -1,0 +1,16 @@
+{
+  TDoubleLink h=head;
+  TDoubleLink t=tail;
+  TDoubleLink prev, next, tmp;
+  TDoubleLink l=head;
+  while (got(l)) {
+    next=l.getNext();
+    prev=l.getPrevious();
+    tmp=l;
+    l=l.getNext();
+    tmp.setNext(prev);
+    tmp.setPrevious(next);
+  }
+  head=t;
+  tail=h;
+}

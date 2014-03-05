@@ -1,0 +1,8 @@
+{
+  for (  long element : array) {
+    if (!TObjectLongHashMap.this.containsValue(element)) {
+      return false;
+    }
+  }
+  return true;
+}

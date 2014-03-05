@@ -1,0 +1,5 @@
+{
+  double value=list.get(index);
+  if (value == list.getNoEntryValue())   return null;
+ else   return Double.valueOf(value);
+}

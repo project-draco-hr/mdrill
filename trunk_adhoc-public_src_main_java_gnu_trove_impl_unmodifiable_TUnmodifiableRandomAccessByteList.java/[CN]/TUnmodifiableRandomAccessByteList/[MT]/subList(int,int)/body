@@ -1,0 +1,3 @@
+{
+  return new TUnmodifiableRandomAccessByteList(list.subList(fromIndex,toIndex));
+}

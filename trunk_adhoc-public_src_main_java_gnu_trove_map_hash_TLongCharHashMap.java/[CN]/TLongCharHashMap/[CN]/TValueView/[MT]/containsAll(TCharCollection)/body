@@ -1,0 +1,9 @@
+{
+  TCharIterator iter=collection.iterator();
+  while (iter.hasNext()) {
+    if (!TLongCharHashMap.this.containsValue(iter.next())) {
+      return false;
+    }
+  }
+  return true;
+}

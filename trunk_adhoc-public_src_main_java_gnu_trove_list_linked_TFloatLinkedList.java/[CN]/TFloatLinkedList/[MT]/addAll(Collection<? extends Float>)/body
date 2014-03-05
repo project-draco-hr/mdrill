@@ -1,0 +1,7 @@
+{
+  boolean ret=false;
+  for (  Float v : collection) {
+    if (add(v.floatValue()))     ret=true;
+  }
+  return ret;
+}

@@ -1,0 +1,5 @@
+{
+  super();
+  no_entry_key=(double)0;
+  no_entry_value=(char)0;
+}

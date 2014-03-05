@@ -1,0 +1,10 @@
+{
+  out.writeByte(0);
+  out.writeInt(_pos);
+  out.writeChar(no_entry_value);
+  int len=_data.length;
+  out.writeInt(len);
+  for (int i=0; i < len; i++) {
+    out.writeChar(_data[i]);
+  }
+}

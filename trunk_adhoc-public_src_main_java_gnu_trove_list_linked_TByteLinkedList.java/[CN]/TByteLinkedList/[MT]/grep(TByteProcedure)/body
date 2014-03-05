@@ -1,0 +1,7 @@
+{
+  TByteList ret=new TByteLinkedList();
+  for (TByteLink l=head; got(l); l=l.getNext()) {
+    if (condition.execute(l.getValue()))     ret.add(l.getValue());
+  }
+  return ret;
+}

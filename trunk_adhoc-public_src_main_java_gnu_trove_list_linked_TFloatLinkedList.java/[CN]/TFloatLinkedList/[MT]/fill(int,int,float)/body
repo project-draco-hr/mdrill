@@ -1,0 +1,21 @@
+{
+  if (fromIndex < 0) {
+    throw new IndexOutOfBoundsException("begin index can not be < 0");
+  }
+  TFloatLink l=getLinkAt(fromIndex);
+  if (toIndex > size) {
+    for (int i=fromIndex; i < size; i++) {
+      l.setValue(val);
+      l=l.getNext();
+    }
+    for (int i=size; i < toIndex; i++) {
+      add(val);
+    }
+  }
+ else {
+    for (int i=fromIndex; i < toIndex; i++) {
+      l.setValue(val);
+      l=l.getNext();
+    }
+  }
+}

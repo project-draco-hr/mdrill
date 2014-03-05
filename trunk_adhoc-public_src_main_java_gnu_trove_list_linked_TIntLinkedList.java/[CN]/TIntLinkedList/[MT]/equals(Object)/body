@@ -1,0 +1,14 @@
+{
+  if (this == o)   return true;
+  if (o == null || getClass() != o.getClass())   return false;
+  TIntLinkedList that=(TIntLinkedList)o;
+  if (no_entry_value != that.no_entry_value)   return false;
+  if (size != that.size)   return false;
+  TIntIterator iterator=iterator();
+  TIntIterator thatIterator=that.iterator();
+  while (iterator.hasNext()) {
+    if (!thatIterator.hasNext())     return false;
+    if (iterator.next() != thatIterator.next())     return false;
+  }
+  return true;
+}

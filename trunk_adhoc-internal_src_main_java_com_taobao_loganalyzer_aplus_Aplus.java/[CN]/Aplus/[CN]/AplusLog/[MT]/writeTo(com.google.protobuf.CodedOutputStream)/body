@@ -1,0 +1,148 @@
+{
+  getSerializedSize();
+  if (((bitField0_ & 0x00000001) == 0x00000001)) {
+    output.writeBytes(1,version_);
+  }
+  if (((bitField0_ & 0x00000002) == 0x00000002)) {
+    output.writeUInt32(2,ip_);
+  }
+  if (((bitField0_ & 0x00000004) == 0x00000004)) {
+    output.writeUInt32(3,time_);
+  }
+  if (((bitField0_ & 0x00000008) == 0x00000008)) {
+    output.writeBytes(4,url_);
+  }
+  if (((bitField0_ & 0x00000010) == 0x00000010)) {
+    output.writeBytes(5,userAgent_);
+  }
+  if (((bitField0_ & 0x00000020) == 0x00000020)) {
+    output.writeBytes(6,linezingSession_);
+  }
+  if (((bitField0_ & 0x00000040) == 0x00000040)) {
+    output.writeBytes(7,cna_);
+  }
+  if (((bitField0_ & 0x00000080) == 0x00000080)) {
+    output.writeBytes(8,adid_);
+  }
+  if (((bitField0_ & 0x00000100) == 0x00000100)) {
+    output.writeBytes(9,amid_);
+  }
+  if (((bitField0_ & 0x00000200) == 0x00000200)) {
+    output.writeBytes(10,cmid_);
+  }
+  if (((bitField0_ & 0x00000400) == 0x00000400)) {
+    output.writeBytes(11,pmid_);
+  }
+  if (((bitField0_ & 0x00000800) == 0x00000800)) {
+    output.writeBytes(12,uid_);
+  }
+  if (((bitField0_ & 0x00001000) == 0x00001000)) {
+    output.writeBytes(13,sid_);
+  }
+  if (((bitField0_ & 0x00002000) == 0x00002000)) {
+    output.writeBytes(14,pre_);
+  }
+  if (((bitField0_ & 0x00004000) == 0x00004000)) {
+    output.writeBytes(16,scr_);
+  }
+  if (((bitField0_ & 0x00008000) == 0x00008000)) {
+    output.writeBytes(17,nick_);
+  }
+  if (((bitField0_ & 0x00010000) == 0x00010000)) {
+    output.writeBytes(18,atAutype_);
+  }
+  if (((bitField0_ & 0x00020000) == 0x00020000)) {
+    output.writeUInt32(19,bbid_);
+  }
+  if (((bitField0_ & 0x00040000) == 0x00040000)) {
+    output.writeUInt32(20,atIsb_);
+  }
+  if (((bitField0_ & 0x00080000) == 0x00080000)) {
+    output.writeUInt32(21,atMallProRe_);
+  }
+  if (((bitField0_ & 0x00100000) == 0x00100000)) {
+    output.writeUInt32(22,atMallRe_);
+  }
+  if (((bitField0_ & 0x00200000) == 0x00200000)) {
+    output.writeBytes(23,atShoptype_);
+  }
+  if (((bitField0_ & 0x00400000) == 0x00400000)) {
+    output.writeUInt32(24,b2CAuction_);
+  }
+  if (((bitField0_ & 0x00800000) == 0x00800000)) {
+    output.writeUInt32(25,b2CBrand_);
+  }
+  if (((bitField0_ & 0x01000000) == 0x01000000)) {
+    output.writeBytes(26,b2COrid_);
+  }
+  if (((bitField0_ & 0x02000000) == 0x02000000)) {
+    output.writeBytes(27,atType_);
+  }
+  if (((bitField0_ & 0x04000000) == 0x04000000)) {
+    output.writeBytes(28,category_);
+  }
+  if (((bitField0_ & 0x08000000) == 0x08000000)) {
+    output.writeBytes(29,marketinfo_);
+  }
+  if (((bitField0_ & 0x10000000) == 0x10000000)) {
+    output.writeBytes(30,atpIsdpp_);
+  }
+  if (((bitField0_ & 0x20000000) == 0x20000000)) {
+    output.writeBytes(31,atBucketid_);
+  }
+  if (((bitField0_ & 0x40000000) == 0x40000000)) {
+    output.writeBytes(32,atInsid_);
+  }
+  if (((bitField0_ & 0x80000000) == 0x80000000)) {
+    output.writeBytes(33,atJporid_);
+  }
+  if (((bitField1_ & 0x00000001) == 0x00000001)) {
+    output.writeBytes(36,wmPageid_);
+  }
+  if (((bitField1_ & 0x00000002) == 0x00000002)) {
+    output.writeBytes(37,wmPrototypeid_);
+  }
+  if (((bitField1_ & 0x00000004) == 0x00000004)) {
+    output.writeBytes(38,wmSid_);
+  }
+  if (((bitField1_ & 0x00000008) == 0x00000008)) {
+    output.writeBytes(39,spmCnt_);
+  }
+  if (((bitField1_ & 0x00000010) == 0x00000010)) {
+    output.writeBytes(40,title_);
+  }
+  if (((bitField1_ & 0x00000020) == 0x00000020)) {
+    output.writeBytes(41,urlType_);
+  }
+  if (((bitField1_ & 0x00000040) == 0x00000040)) {
+    output.writeBytes(42,refType_);
+  }
+  if (((bitField1_ & 0x00000080) == 0x00000080)) {
+    output.writeBytes(43,refShopid_);
+  }
+  if (((bitField1_ & 0x00000100) == 0x00000100)) {
+    output.writeBytes(44,logkey_);
+  }
+  if (((bitField1_ & 0x00000200) == 0x00000200)) {
+    output.writeBytes(45,gmkey_);
+  }
+  if (((bitField1_ & 0x00000400) == 0x00000400)) {
+    output.writeBytes(46,gokey_);
+  }
+  if (((bitField1_ & 0x00000800) == 0x00000800)) {
+    output.writeBytes(47,logtype_);
+  }
+  if (((bitField1_ & 0x00001000) == 0x00001000)) {
+    output.writeBytes(48,atpSid_);
+  }
+  if (((bitField1_ & 0x00002000) == 0x00002000)) {
+    output.writeUInt32(49,userid_);
+  }
+  if (((bitField1_ & 0x00004000) == 0x00004000)) {
+    output.writeBytes(51,spmUrl_);
+  }
+  if (((bitField1_ & 0x00008000) == 0x00008000)) {
+    output.writeBytes(52,spmPre_);
+  }
+  getUnknownFields().writeTo(output);
+}

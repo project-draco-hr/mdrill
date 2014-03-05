@@ -1,0 +1,3 @@
+{
+  return val instanceof Byte && _map.containsValue(unwrapValue(val));
+}

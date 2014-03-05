@@ -1,0 +1,78 @@
+{
+  return new AbstractSet<Map.Entry<Long,Short>>(){
+    public int size(){
+      return _map.size();
+    }
+    public boolean isEmpty(){
+      return TLongShortMapDecorator.this.isEmpty();
+    }
+    public boolean contains(    Object o){
+      if (o instanceof Map.Entry) {
+        Object k=((Map.Entry)o).getKey();
+        Object v=((Map.Entry)o).getValue();
+        return TLongShortMapDecorator.this.containsKey(k) && TLongShortMapDecorator.this.get(k).equals(v);
+      }
+ else {
+        return false;
+      }
+    }
+    public Iterator<Map.Entry<Long,Short>> iterator(){
+      return new Iterator<Map.Entry<Long,Short>>(){
+        private final TLongShortIterator it=_map.iterator();
+        public Map.Entry<Long,Short> next(){
+          it.advance();
+          long ik=it.key();
+          final Long key=(ik == _map.getNoEntryKey()) ? null : wrapKey(ik);
+          short iv=it.value();
+          final Short v=(iv == _map.getNoEntryValue()) ? null : wrapValue(iv);
+          return new Map.Entry<Long,Short>(){
+            private Short val=v;
+            public boolean equals(            Object o){
+              return o instanceof Map.Entry && ((Map.Entry)o).getKey().equals(key) && ((Map.Entry)o).getValue().equals(val);
+            }
+            public Long getKey(){
+              return key;
+            }
+            public Short getValue(){
+              return val;
+            }
+            public int hashCode(){
+              return key.hashCode() + val.hashCode();
+            }
+            public Short setValue(            Short value){
+              val=value;
+              return put(key,value);
+            }
+          }
+;
+        }
+        public boolean hasNext(){
+          return it.hasNext();
+        }
+        public void remove(){
+          it.remove();
+        }
+      }
+;
+    }
+    public boolean add(    Map.Entry<Long,Short> o){
+      throw new UnsupportedOperationException();
+    }
+    public boolean remove(    Object o){
+      boolean modified=false;
+      if (contains(o)) {
+        Long key=((Map.Entry<Long,Short>)o).getKey();
+        _map.remove(unwrapKey(key));
+        modified=true;
+      }
+      return modified;
+    }
+    public boolean addAll(    Collection<? extends Map.Entry<Long,Short>> c){
+      throw new UnsupportedOperationException();
+    }
+    public void clear(){
+      TLongShortMapDecorator.this.clear();
+    }
+  }
+;
+}

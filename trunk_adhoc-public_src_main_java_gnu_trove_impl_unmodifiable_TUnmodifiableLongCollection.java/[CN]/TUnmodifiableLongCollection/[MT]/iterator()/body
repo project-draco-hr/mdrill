@@ -1,0 +1,15 @@
+{
+  return new TLongIterator(){
+    TLongIterator i=c.iterator();
+    public boolean hasNext(){
+      return i.hasNext();
+    }
+    public long next(){
+      return i.next();
+    }
+    public void remove(){
+      throw new UnsupportedOperationException();
+    }
+  }
+;
+}

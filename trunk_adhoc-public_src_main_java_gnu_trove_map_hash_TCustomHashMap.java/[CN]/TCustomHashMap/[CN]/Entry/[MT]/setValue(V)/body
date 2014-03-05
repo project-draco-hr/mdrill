@@ -1,0 +1,9 @@
+{
+  if (_values[index] != val) {
+    throw new ConcurrentModificationException();
+  }
+  V retval=val;
+  _values[index]=o;
+  val=o;
+  return retval;
+}

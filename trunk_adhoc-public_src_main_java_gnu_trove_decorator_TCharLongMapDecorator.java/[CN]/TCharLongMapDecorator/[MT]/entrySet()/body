@@ -1,0 +1,78 @@
+{
+  return new AbstractSet<Map.Entry<Character,Long>>(){
+    public int size(){
+      return _map.size();
+    }
+    public boolean isEmpty(){
+      return TCharLongMapDecorator.this.isEmpty();
+    }
+    public boolean contains(    Object o){
+      if (o instanceof Map.Entry) {
+        Object k=((Map.Entry)o).getKey();
+        Object v=((Map.Entry)o).getValue();
+        return TCharLongMapDecorator.this.containsKey(k) && TCharLongMapDecorator.this.get(k).equals(v);
+      }
+ else {
+        return false;
+      }
+    }
+    public Iterator<Map.Entry<Character,Long>> iterator(){
+      return new Iterator<Map.Entry<Character,Long>>(){
+        private final TCharLongIterator it=_map.iterator();
+        public Map.Entry<Character,Long> next(){
+          it.advance();
+          char ik=it.key();
+          final Character key=(ik == _map.getNoEntryKey()) ? null : wrapKey(ik);
+          long iv=it.value();
+          final Long v=(iv == _map.getNoEntryValue()) ? null : wrapValue(iv);
+          return new Map.Entry<Character,Long>(){
+            private Long val=v;
+            public boolean equals(            Object o){
+              return o instanceof Map.Entry && ((Map.Entry)o).getKey().equals(key) && ((Map.Entry)o).getValue().equals(val);
+            }
+            public Character getKey(){
+              return key;
+            }
+            public Long getValue(){
+              return val;
+            }
+            public int hashCode(){
+              return key.hashCode() + val.hashCode();
+            }
+            public Long setValue(            Long value){
+              val=value;
+              return put(key,value);
+            }
+          }
+;
+        }
+        public boolean hasNext(){
+          return it.hasNext();
+        }
+        public void remove(){
+          it.remove();
+        }
+      }
+;
+    }
+    public boolean add(    Map.Entry<Character,Long> o){
+      throw new UnsupportedOperationException();
+    }
+    public boolean remove(    Object o){
+      boolean modified=false;
+      if (contains(o)) {
+        Character key=((Map.Entry<Character,Long>)o).getKey();
+        _map.remove(unwrapKey(key));
+        modified=true;
+      }
+      return modified;
+    }
+    public boolean addAll(    Collection<? extends Map.Entry<Character,Long>> c){
+      throw new UnsupportedOperationException();
+    }
+    public void clear(){
+      TCharLongMapDecorator.this.clear();
+    }
+  }
+;
+}

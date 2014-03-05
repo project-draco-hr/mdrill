@@ -1,0 +1,4 @@
+{
+  in.readByte();
+  _list=(TByteArrayList)in.readObject();
+}

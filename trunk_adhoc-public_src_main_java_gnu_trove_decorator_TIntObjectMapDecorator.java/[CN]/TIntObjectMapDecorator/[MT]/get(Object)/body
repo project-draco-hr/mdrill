@@ -1,0 +1,15 @@
+{
+  int k;
+  if (key != null) {
+    if (key instanceof Integer) {
+      k=unwrapKey((Integer)key);
+    }
+ else {
+      return null;
+    }
+  }
+ else {
+    k=_map.getNoEntryKey();
+  }
+  return _map.get(k);
+}

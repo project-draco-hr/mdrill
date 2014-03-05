@@ -1,0 +1,6 @@
+{
+  bitField0_=(bitField0_ & ~0x00008000);
+  nick_=getDefaultInstance().getNick();
+  onChanged();
+  return this;
+}

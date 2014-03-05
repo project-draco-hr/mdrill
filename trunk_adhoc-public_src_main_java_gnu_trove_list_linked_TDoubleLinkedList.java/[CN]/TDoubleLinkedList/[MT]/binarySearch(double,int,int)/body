@@ -1,0 +1,29 @@
+{
+  if (fromIndex < 0) {
+    throw new IndexOutOfBoundsException("begin index can not be < 0");
+  }
+  if (toIndex > size) {
+    throw new IndexOutOfBoundsException("end index > size: " + toIndex + " > "+ size);
+  }
+  if (toIndex < fromIndex) {
+    return -(fromIndex + 1);
+  }
+  TDoubleLink middle;
+  int mid;
+  int from=fromIndex;
+  TDoubleLink fromLink=getLinkAt(fromIndex);
+  int to=toIndex;
+  while (from < to) {
+    mid=(from + to) >>> 1;
+    middle=getLink(fromLink,from,mid);
+    if (middle.getValue() == value)     return mid;
+    if (middle.getValue() < value) {
+      from=mid + 1;
+      fromLink=middle.next;
+    }
+ else {
+      to=mid - 1;
+    }
+  }
+  return -(from + 1);
+}

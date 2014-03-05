@@ -1,0 +1,10 @@
+{
+  boolean changed=false;
+  for (  Integer element : collection) {
+    int e=element.intValue();
+    if (add(e)) {
+      changed=true;
+    }
+  }
+  return changed;
+}

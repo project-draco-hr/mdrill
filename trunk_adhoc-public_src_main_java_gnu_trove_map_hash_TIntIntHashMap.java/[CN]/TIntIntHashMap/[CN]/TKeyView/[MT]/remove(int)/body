@@ -1,0 +1,3 @@
+{
+  return no_entry_value != TIntIntHashMap.this.remove(entry);
+}
