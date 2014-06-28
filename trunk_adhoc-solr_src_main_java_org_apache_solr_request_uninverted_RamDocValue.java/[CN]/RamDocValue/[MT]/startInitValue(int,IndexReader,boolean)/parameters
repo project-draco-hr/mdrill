@@ -1,0 +1,3 @@
+int maxDoc
+IndexReader reader
+boolean isReadDouble

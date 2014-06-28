@@ -1,0 +1,3 @@
+{
+  return "<tr><td>" + start + "</td><td>"+ end+ "</td><td>"+ info.pid+ "</td><td>"+ info.overrate+ "</td><td>"+ arrayToString(dayList)+ "</td>"+ "<td>"+ printIsOver(info.overrate,this.p4pprice)+ "</td>"+ "<td>"+ printIsOver(info.overrate,this.p4pclick)+ "</td>"+ "<td>"+ printIsOver(info.overrate,this.p4ppv)+ "</td><td>"+ printIsOver(info.overrate,this.p4pctr)+ "</td></tr>";
+}

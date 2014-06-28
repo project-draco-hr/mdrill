@@ -1,0 +1,9 @@
+{
+  this.p4pctr=new double[this.dayList.length];
+  for (int i=0; i < this.dayList.length; i++) {
+    this.p4pctr[i]=0;
+    if (this.p4ppv[i] > 0 && this.p4ppv[i] > this.p4pclick[i]) {
+      this.p4pctr[i]=this.p4pclick[i] * 100 / this.p4ppv[i];
+    }
+  }
+}

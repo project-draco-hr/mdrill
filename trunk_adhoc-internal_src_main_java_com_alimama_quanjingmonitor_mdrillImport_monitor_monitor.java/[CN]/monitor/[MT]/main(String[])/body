@@ -1,0 +1,15 @@
+{
+  String path=args[1];
+  String lockname=args[2];
+  String stormhome=System.getProperty("storm.home");
+  if (stormhome == null) {
+    stormhome=".";
+  }
+  String lockPathBase=stormhome + "/lock";
+  File file=new File(lockPathBase);
+  file.mkdirs();
+  TryLockFile flock=new TryLockFile(lockPathBase + "/" + lockname);
+  flock.trylock();
+  execute(path);
+  flock.unlock();
+}

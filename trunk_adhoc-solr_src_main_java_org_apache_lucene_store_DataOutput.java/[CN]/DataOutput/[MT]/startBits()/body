@@ -1,0 +1,4 @@
+{
+  this.bytepos=0;
+  this.bytebuffer=0;
+}

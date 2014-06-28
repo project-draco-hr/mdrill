@@ -1,0 +1,16 @@
+{
+  long ts300=(this.ts / 300) * 300000;
+  Date d=new Date(ts300);
+  ByteString agent=pvlog.getUserAgent();
+  String channel=String.valueOf(agent == null ? "" : agent.toStringUtf8()).toLowerCase();
+  if (channel.indexOf("android") >= 0) {
+    channel="android";
+  }
+ else   if (channel.indexOf("iphone") >= 0 || channel.indexOf("ios") >= 0) {
+    channel="ios";
+  }
+ else {
+    channel="other";
+  }
+  return new String[]{String.valueOf(ColsDefine.formatDay.format(d)),String.valueOf(ColsDefine.formatMin.format(d)),"wireless","aplus_wireless",String.valueOf(this.urlid == null ? this.urlpre : this.urlid),channel,String.valueOf(this.urlid == null ? this.urlpre_tid : this.urlid_tid),"",ColsDefine.version};
+}

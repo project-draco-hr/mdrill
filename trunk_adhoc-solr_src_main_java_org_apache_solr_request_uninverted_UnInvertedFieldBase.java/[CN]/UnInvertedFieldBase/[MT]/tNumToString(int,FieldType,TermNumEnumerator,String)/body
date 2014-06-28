@@ -1,0 +1,4 @@
+{
+  String rtn=this.tnr.tNumToString(tnum,ft,te,def);
+  return rtn;
+}

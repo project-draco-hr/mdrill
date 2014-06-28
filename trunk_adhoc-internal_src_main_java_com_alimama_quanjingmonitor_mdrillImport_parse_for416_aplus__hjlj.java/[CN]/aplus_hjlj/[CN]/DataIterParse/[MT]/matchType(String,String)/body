@@ -1,0 +1,33 @@
+{
+  if (logkey.indexOf("laiwang.1.1") >= 0 && gmkey.indexOf("outer419") >= 0) {
+    return "pc";
+  }
+  if (gmkey.indexOf("419") < 0) {
+    return null;
+  }
+  if (gmkey.indexOf("h5down") >= 0) {
+    return "wireless_huodong";
+  }
+  if (gmkey.indexOf("419_cat") >= 0) {
+    return "wireless_huodong";
+  }
+  if (gmkey.indexOf("419_rank") >= 0) {
+    return "wireless_huodong";
+  }
+  if (gmkey.indexOf("419_rank_all") >= 0) {
+    return "wireless_huodong";
+  }
+  if (gmkey.indexOf("419_rank_catid") >= 0) {
+    return "wireless_huodong";
+  }
+  if (gmkey.indexOf("419_rule") >= 0) {
+    return "wireless_huodong";
+  }
+  if (gmkey.indexOf("outer419_lwfrom") >= 0) {
+    return "wireless_huodong";
+  }
+  if (gmkey.indexOf("launch419_lwfrom") >= 0) {
+    return "wireless_zhadui";
+  }
+  return null;
+}

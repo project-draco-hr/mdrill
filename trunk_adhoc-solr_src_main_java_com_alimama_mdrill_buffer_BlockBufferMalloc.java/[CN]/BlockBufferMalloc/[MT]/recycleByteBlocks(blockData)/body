@@ -1,0 +1,8 @@
+{
+synchronized (lock) {
+    int allowsize=UniqConfig.getBlockBufferSize() - freeByteBlocks.size();
+    if (allowsize > 0) {
+      freeByteBlocks.add(data);
+    }
+  }
+}

@@ -1,0 +1,60 @@
+{
+  if (uni.checkEmpty()) {
+    return;
+  }
+  BitDocSet tmp=null;
+  if (baseAdvanceDocs != null) {
+    tmp=(BitDocSet)baseAdvanceDocs.andNot(this.uni.bits);
+    if (tmp != null && tmp.size() <= 0) {
+      return;
+    }
+  }
+  this.uni.baseAdvanceDocs=UnInvertedField.ajustBase(48,tmp,reader);
+  TermNumEnumerator te=uni.ti.getEnumerator(reader);
+  log.info("addDoclist start " + this.uni.field + ",baseAdvanceDocs="+ (this.uni.baseAdvanceDocs == null ? "null" : this.uni.baseAdvanceDocs.size())+ "@"+ (baseAdvanceDocs == null ? "null" : baseAdvanceDocs.size()));
+  int maxDoc=reader.maxDoc();
+  int limitsize=this.getLimitSize();
+  PriorityQueue<MixTermInfo> termDocslist=new PriorityQueue<MixTermInfo>(limitsize,Collections.reverseOrder(UnInvertedFieldUtils.TD_CMP));
+  TermDocs tdreader=reader.termDocs(1024);
+  for (; ; ) {
+    Term t=te.term();
+    if (t == null) {
+      break;
+    }
+    if (this.isFinish()) {
+      break;
+    }
+    int termNum=te.getTermNumber();
+    if (termNum % 10000 == 0) {
+      log.info("termsInverted " + termNum + "@"+ this.uni.field+ ",limitsize="+ limitsize);
+    }
+    TermDocs td=te.getTermDocs();
+    int df=te.docFreq();
+    if (df <= SKIP_MIN || this.uni.baseAdvanceDocs == null) {
+      td.seek(te);
+      this.set_Doc2TermNum_NonSkip(td,docs,freqs,termNum,false,maxDoc);
+    }
+ else {
+      MixTermInfo cl=new MixTermInfo(df,termNum,tdreader,new Term(t.field(),t.text()));
+      if (termDocslist.size() < limitsize) {
+        termDocslist.add(cl);
+      }
+ else {
+        MixTermInfo peek=termDocslist.peek();
+        if (UnInvertedFieldUtils.TD_CMP.compare(peek,cl) > 0 && cl.getCount() / (peek.getCount() + 1) > 1.5) {
+          termDocslist.add(cl);
+          MixTermInfo cl_old=termDocslist.poll();
+          this.set_Doc2TermNum_NonSkip(cl_old.getTd(),docs,freqs,cl_old.getTermNum(),false,maxDoc);
+        }
+ else {
+          td.seek(te);
+          this.set_Doc2TermNum_NonSkip(td,docs,freqs,termNum,false,maxDoc);
+        }
+      }
+    }
+    te.next();
+  }
+  this.PriorityQueue_skip_set(termDocslist,maxDoc,false);
+  te.close();
+  this.setTdIndex_NULL();
+}

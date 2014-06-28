@@ -1,0 +1,8 @@
+UnInvertedField inv
+int maxdoc
+boolean isinit
+TermIndex ti
+DocValuesReader quicktisInput
+int fieldNumber
+boolean isReadDouble
+BitDocSet baseAdvanceDocs

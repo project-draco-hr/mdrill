@@ -1,0 +1,5 @@
+{
+  arg0.writeDouble(this.weight);
+  arg0.writeDouble(this.mustveryLikeNumber);
+  arg0.writeBoolean(this.mustVeryLike);
+}

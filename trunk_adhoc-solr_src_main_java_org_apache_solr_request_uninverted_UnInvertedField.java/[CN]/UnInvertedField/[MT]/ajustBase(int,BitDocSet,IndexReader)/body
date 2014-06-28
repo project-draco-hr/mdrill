@@ -1,0 +1,19 @@
+{
+  try {
+    if (baseAdvanceDocs == null) {
+      return null;
+    }
+    int maxdoc=reader.maxDoc();
+    int oversize=maxdoc / times;
+    int size=baseAdvanceDocs.size();
+    int maxinterval=reader.getMaxInterval();
+    log.info("ajustBase " + maxinterval + ",baseAdvanceDocs="+ size+ "@"+ oversize+ "@"+ maxdoc+ ","+ reader.getClass().getCanonicalName());
+    if (size >= oversize || maxinterval > 256) {
+      return null;
+    }
+  }
+ catch (  Exception e) {
+    return null;
+  }
+  return baseAdvanceDocs;
+}

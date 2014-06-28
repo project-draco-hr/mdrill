@@ -1,0 +1,9 @@
+{
+  if (lwfrom == null || lwfrom.isEmpty()) {
+    return null;
+  }
+  if (isshaoma || type.equals("pc")) {
+    return FetchAdid2PidPC.fetch().get(strday + "@" + String.valueOf(lwfrom));
+  }
+  return FetchAdid2PidWireLess.fetch().get(strday + "@" + String.valueOf(lwfrom));
+}

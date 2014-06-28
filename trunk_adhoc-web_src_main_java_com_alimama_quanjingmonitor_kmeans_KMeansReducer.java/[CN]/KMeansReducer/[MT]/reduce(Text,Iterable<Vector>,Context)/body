@@ -1,0 +1,27 @@
+{
+  Vector cluster=new Vector();
+  Vector cluster_default=new Vector();
+  boolean isset=false;
+  boolean ismerger=false;
+  for (  Vector value : values) {
+    if (value.getNumPoints() > 0) {
+      cluster.merger(value);
+      ismerger=true;
+    }
+ else {
+      cluster_default.merger(value);
+      isset=true;
+    }
+  }
+  if (!ismerger && isset) {
+    cluster.merger(cluster_default);
+  }
+  Cluster clusterconv=clusterMap.get(key.toString());
+  boolean converged=cluster.distiance(clusterconv.getCenter()) < this.convergenceDelta;
+  if (converged) {
+    context.getCounter("Clustering","Converged Clusters").increment(1);
+  }
+  Cluster clu=new Cluster(cluster,Integer.parseInt(key.toString()));
+  clu.setConverged(converged);
+  context.write(new Text(key),clu);
+}

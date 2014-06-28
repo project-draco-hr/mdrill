@@ -1,0 +1,16 @@
+{
+  long ts300=(this.ts / 300) * 300000;
+  Date d=new Date(ts300);
+  String channel=String.valueOf(pvlog[7]).toLowerCase();
+  if (channel.indexOf("android") >= 0) {
+    channel="android";
+  }
+ else   if (channel.indexOf("iphone") >= 0 || channel.indexOf("ios") >= 0) {
+    channel="ios";
+  }
+ else {
+    channel="other";
+  }
+  String url=pvlog[12];
+  return new String[]{String.valueOf(ColsDefine.formatDay.format(d)),String.valueOf(ColsDefine.formatMin.format(d)),"wireless","munion_r_taobao_com_click_data",String.valueOf(pvlog[1]),channel,ColsDefine.getName(url,"tid"),"",ColsDefine.version};
+}

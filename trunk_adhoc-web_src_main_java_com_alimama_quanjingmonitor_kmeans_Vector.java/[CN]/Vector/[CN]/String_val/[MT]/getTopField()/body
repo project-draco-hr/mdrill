@@ -1,0 +1,10 @@
+{
+  String f=null;
+  int count=0;
+  for (  Entry<String,Integer> e : this.val.entrySet()) {
+    if (f == null || count <= e.getValue()) {
+      f=e.getKey();
+    }
+  }
+  return String.valueOf(f);
+}

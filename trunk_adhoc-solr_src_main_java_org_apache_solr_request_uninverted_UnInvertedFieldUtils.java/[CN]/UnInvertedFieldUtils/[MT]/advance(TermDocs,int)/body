@@ -1,0 +1,14 @@
+{
+  try {
+    int doc=NO_MORE_DOCS;
+    boolean result=termDocs.skipTo(target);
+    if (result) {
+      doc=termDocs.doc();
+    }
+    return doc;
+  }
+ catch (  Throwable e) {
+    UnInvertedField.log.error("advance " + target,e);
+    return NO_MORE_DOCS;
+  }
+}

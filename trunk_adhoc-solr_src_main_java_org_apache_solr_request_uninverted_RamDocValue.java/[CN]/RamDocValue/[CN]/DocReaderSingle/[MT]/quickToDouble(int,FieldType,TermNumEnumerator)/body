@@ -1,0 +1,7 @@
+{
+  int tnum=this.doc2tm.get(doc);
+  if (tnum >= this.uni.tmValue.nullTermNum) {
+    return RamTermNumValue.TERMNUM_NAN_VALUE;
+  }
+  return this.termNumberValue.tm(tnum,ft,te);
+}

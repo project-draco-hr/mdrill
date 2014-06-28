@@ -1,0 +1,9 @@
+{
+  super.write(arg0);
+  arg0.writeInt(this.count);
+  arg0.writeInt(this.val.size());
+  for (  Entry<String,Integer> e : this.val.entrySet()) {
+    arg0.writeUTF(e.getKey());
+    arg0.writeInt(e.getValue());
+  }
+}

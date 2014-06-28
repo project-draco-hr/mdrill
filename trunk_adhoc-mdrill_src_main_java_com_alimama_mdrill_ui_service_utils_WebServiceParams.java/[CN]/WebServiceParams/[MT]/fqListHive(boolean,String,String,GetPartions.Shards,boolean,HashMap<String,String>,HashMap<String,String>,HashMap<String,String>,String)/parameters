@@ -1,9 +1,0 @@
-boolean isNumber
-String part
-String queryStr
-GetPartions.Shards shard
-boolean isPartionByPt
-HashMap<String,String> filetypeMap
-HashMap<String,String> colMap
-HashMap<String,String> colMap2
-String tblname

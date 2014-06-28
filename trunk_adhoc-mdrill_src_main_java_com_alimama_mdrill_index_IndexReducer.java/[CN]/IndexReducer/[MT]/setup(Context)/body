@@ -25,6 +25,7 @@
       this.fields[i]=fieldslist[i];
     }
   }
+  TermInfosWriter.setNotUseQuick(true);
   if (!isNotFdtMode) {
     TermInfosWriter.setSkipInterVal(16);
   }

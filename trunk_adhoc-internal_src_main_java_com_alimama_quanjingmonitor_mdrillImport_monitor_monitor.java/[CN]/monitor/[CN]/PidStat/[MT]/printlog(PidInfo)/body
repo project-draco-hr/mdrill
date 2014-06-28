@@ -1,0 +1,3 @@
+{
+  return start + "\t" + end+ "\t"+ info.pid+ "\t"+ info.overrate+ "\t"+ arrayToString(dayList)+ "\t"+ arrayToString(p4pprice)+ "\t"+ isover(info.overrate,this.p4pprice)+ "\t"+ arrayToString(p4pclick)+ "\t"+ isover(info.overrate,this.p4pclick)+ "\t"+ arrayToString(aclick)+ "\t"+ isover(info.overrate,this.aclick)+ "\t"+ arrayToString(apv)+ "\t"+ isover(info.overrate,this.apv)+ "\t"+ arrayToString(p4ppv)+ "\t"+ isover(info.overrate,this.p4ppv)+ "\t"+ isover(info.overrate,this.p4pctr)+ "";
+}

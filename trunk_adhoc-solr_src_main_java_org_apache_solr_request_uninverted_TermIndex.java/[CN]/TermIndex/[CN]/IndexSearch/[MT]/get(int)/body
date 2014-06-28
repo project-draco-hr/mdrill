@@ -1,9 +1,6 @@
 {
-  if (quicktisInput == null) {
-    if (index == null || i >= index.length) {
-      return "null";
-    }
-    return index[i];
+  if (index == null || i >= index.length) {
+    return "null";
   }
-  return getl(i);
+  return index[i];
 }

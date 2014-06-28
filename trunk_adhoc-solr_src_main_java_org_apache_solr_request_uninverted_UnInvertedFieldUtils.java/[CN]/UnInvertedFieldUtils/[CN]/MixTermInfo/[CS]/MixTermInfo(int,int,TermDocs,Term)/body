@@ -1,0 +1,6 @@
+{
+  this.count=count;
+  this.termNum=termNum;
+  this.td=td;
+  this.tm=tm;
+}

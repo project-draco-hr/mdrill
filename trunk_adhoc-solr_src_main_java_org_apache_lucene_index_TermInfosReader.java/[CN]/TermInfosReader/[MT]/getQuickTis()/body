@@ -1,6 +1,0 @@
-{
-  if (this.quicktisInput == null) {
-    return null;
-  }
-  return this.quicktisInput;
-}

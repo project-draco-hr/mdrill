@@ -1,0 +1,30 @@
+{
+  if (this.uni.baseAdvanceDocs == null) {
+    for (; ; ) {
+      int n=td.read(docs,freqs);
+      if (n <= 0) {
+        break;
+      }
+      for (int i=0; i < n; i++) {
+        int docid=docs[i];
+        this.uni.bits.add(docid);
+        this.uni.markDocTm(docid,termNum,isinit);
+      }
+    }
+    return;
+  }
+  DocSetCollector collect=new DocSetCollector(10240,maxDoc);
+  for (; ; ) {
+    int n=td.read(docs,freqs);
+    if (n <= 0) {
+      break;
+    }
+    for (int i=0; i < n; i++) {
+      int docid=docs[i];
+      collect.collect(docid);
+      this.uni.bits.add(docid);
+      this.uni.markDocTm(docid,termNum,isinit);
+    }
+  }
+  this.cleanBase(collect);
+}

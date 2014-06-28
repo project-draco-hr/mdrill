@@ -1,0 +1,9 @@
+{
+  StringBuffer buff=new StringBuffer();
+  String join="";
+  for (  double s : d) {
+    buff.append(join).append((long)s);
+    join=",";
+  }
+  return buff.toString();
+}

@@ -1,0 +1,53 @@
+{
+  int skipcount=0;
+  DocSetCollector collect=new DocSetCollector(10240,maxDoc);
+  DocIterator iter=this.uni.baseAdvanceDocs.iterator();
+  int doc=-1;
+  int baseDoc=-1;
+  while (iter.hasNext()) {
+    doc=iter.nextDoc();
+    if (doc < baseDoc) {
+      continue;
+    }
+    if (doc > baseDoc) {
+      int diff=doc - baseDoc;
+      if (diff >= SKIP_STEP) {
+        if (baseDoc >= 0) {
+          skipcount++;
+        }
+        baseDoc=UnInvertedFieldUtils.advance(td,doc);
+        if (UnInvertedFieldUtils.NO_MORE_DOCS == baseDoc) {
+          break;
+        }
+      }
+ else {
+        boolean is_no_more_docs=false;
+        for (int i=0; i <= SKIP_STEP; i++) {
+          if (td.next()) {
+            baseDoc=td.doc();
+            if (baseDoc >= doc) {
+              break;
+            }
+            collect.collect(baseDoc);
+            this.uni.bits.add(baseDoc);
+            this.uni.markDocTm(baseDoc,termNum,isinit);
+          }
+ else {
+            is_no_more_docs=true;
+            break;
+          }
+        }
+        if (is_no_more_docs) {
+          break;
+        }
+      }
+    }
+    if (baseDoc == doc) {
+      this.uni.bits.add(doc);
+      collect.collect(doc);
+      this.uni.markDocTm(doc,termNum,isinit);
+    }
+  }
+  this.cleanBase(collect);
+  return skipcount;
+}

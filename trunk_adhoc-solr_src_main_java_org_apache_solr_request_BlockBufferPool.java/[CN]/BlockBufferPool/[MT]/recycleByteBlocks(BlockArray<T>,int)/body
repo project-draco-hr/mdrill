@@ -1,0 +1,14 @@
+{
+synchronized (BlockBufferPool.this) {
+    int allowsize=UniqConfig.getBlockBufferSize() - this.freeByteBlocks.size();
+    final int size=data.data.length;
+    for (int i=start; i < size; i++) {
+      if (i < allowsize) {
+        freeByteBlocks.add(data.data[i]);
+      }
+      data.data[i]=null;
+    }
+    data.data=null;
+    data.size=0;
+  }
+}

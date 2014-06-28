@@ -1,0 +1,4 @@
+{
+  this.curr=querylist.poll();
+  return isvalidate();
+}

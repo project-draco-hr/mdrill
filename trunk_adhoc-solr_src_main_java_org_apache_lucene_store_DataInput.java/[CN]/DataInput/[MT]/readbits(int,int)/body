@@ -1,0 +1,17 @@
+{
+  int result=0;
+  int sstart=start;
+  int readbitsleft=useBits;
+  while (readbitsleft > 0) {
+    int bytedata=this.readByte() & 0xFF;
+    int slen=BYTE_BITS - sstart;
+    if (slen >= readbitsleft) {
+      slen=readbitsleft;
+    }
+    int cutbits=this.cutByteBits(bytedata,sstart,slen);
+    result=(result << slen) | cutbits;
+    sstart=0;
+    readbitsleft-=slen;
+  }
+  return result;
+}

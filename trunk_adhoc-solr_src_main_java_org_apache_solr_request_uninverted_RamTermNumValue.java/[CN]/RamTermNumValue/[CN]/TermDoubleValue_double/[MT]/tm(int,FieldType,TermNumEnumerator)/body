@@ -1,0 +1,6 @@
+{
+  if (tm >= tv.nullTermNum) {
+    return TERMNUM_NAN_VALUE;
+  }
+  return this.termValueDouble.get(tm);
+}

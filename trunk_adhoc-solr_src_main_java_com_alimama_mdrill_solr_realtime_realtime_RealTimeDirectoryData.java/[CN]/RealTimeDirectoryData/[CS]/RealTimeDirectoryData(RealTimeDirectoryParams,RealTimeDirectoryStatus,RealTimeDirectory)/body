@@ -1,7 +1,7 @@
 {
   this.params=params;
   this.status=rstatus;
-  this.RamDirector=new TimeCacheMap<Integer,DirectoryInfo>(RealTimeDirectorUtils.getSlowTimer(),UniqConfig.RealTimeLocalFlush(),mainthr);
-  this.bufferDirector=new TimeCacheMap<Integer,DirectoryInfo>(RealTimeDirectorUtils.getQuickTimer(),UniqConfig.RealTimeBufferFlush(),mainthr);
+  this.RamDirector=new TimeCacheMap<Integer,DirectoryInfo>(RealTimeDirectorUtils.getSlowTimer(),UniqConfig.RealTimeLocalFlush(),mainthr,mainthr.getCleanLock());
+  this.bufferDirector=new TimeCacheMap<Integer,DirectoryInfo>(RealTimeDirectorUtils.getQuickTimer(),UniqConfig.RealTimeBufferFlush(),mainthr,mainthr.getCleanLock());
   this.ToDel=new TimeCacheMap<Integer,DirectoryInfo>(RealTimeDirectorUtils.getSlowTimer(),UniqConfig.RealTimeDelete(),mainthr);
 }

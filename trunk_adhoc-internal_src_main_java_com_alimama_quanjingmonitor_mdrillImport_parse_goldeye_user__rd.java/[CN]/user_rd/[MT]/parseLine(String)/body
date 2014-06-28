@@ -1,0 +1,33 @@
+{
+  try {
+    if (line == null) {
+      return null;
+    }
+    String[] clicklog=line.split("\001",-1);
+    if (clicklog.length < 5) {
+      return null;
+    }
+    if (clicklog[4].isEmpty() || clicklog[1].isEmpty() || clicklog[1].length() <= 5 || clicklog[4].length() > 100) {
+      return null;
+    }
+    this.lines++;
+    if (this.lines > 100000) {
+      this.laststartts=(System.currentTimeMillis() / 1000) - TS_MAX;
+      this.lastendts=(System.currentTimeMillis() / 1000) + TS_MAX;
+      this.lines=0;
+    }
+    long ts=Long.parseLong(clicklog[1]);
+    if (ts < laststartts || ts > lastendts) {
+      return null;
+    }
+    DataIterParse rtn=new DataIterParse(clicklog);
+    return rtn;
+  }
+ catch (  Throwable nfe) {
+    if (groupCreateerror < 100) {
+      LOG.error("InvalidEntryException:" + line,nfe);
+      groupCreateerror++;
+    }
+    throw new InvalidEntryException("Invalid log `" + line + "'\n",nfe);
+  }
+}

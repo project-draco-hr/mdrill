@@ -1,0 +1,5 @@
+HashMap<String,StringBuffer> mailTo
+HashMap<String,StringBuffer> wangwangTo
+long ts
+HashMap<String,PidInfo> pidinfo
+ArrayList<String> pidlist

@@ -1,0 +1,22 @@
+{
+  FileSystem fs=FileSystem.get(output.toUri(),conf);
+  Path outFile=new Path(output,"part-InitCenter");
+  Job job=new Job(conf);
+  job.setJobName("KMeans Driver: " + outFile);
+  job.setMapOutputKeyClass(Text.class);
+  job.setMapOutputValueClass(Cluster.class);
+  job.setOutputKeyClass(Text.class);
+  job.setOutputValueClass(Cluster.class);
+  job.setOutputFormatClass(SequenceFileOutputFormat.class);
+  job.setMapperClass(KMeansGroupMapper.class);
+  job.setCombinerClass(KMeansGroupCombine.class);
+  job.setReducerClass(KMeansGroupReducer.class);
+  FileInputFormat.addInputPath(job,input);
+  SequenceFileOutputFormat.setOutputPath(job,outFile);
+  job.setNumReduceTasks(32);
+  job.setJarByClass(KMeansDriver.class);
+  if (!job.waitForCompletion(true)) {
+    throw new InterruptedException("K-Means Iteration failed processing " + outFile);
+  }
+  return outFile;
+}

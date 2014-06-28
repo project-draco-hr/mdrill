@@ -1,0 +1,9 @@
+{
+  if (dt == CompressType.d_byte) {
+    return 1;
+  }
+  if (dt == CompressType.d_short) {
+    return 2;
+  }
+  return 0;
+}

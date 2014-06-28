@@ -1,0 +1,13 @@
+{
+  if (this.uni.baseAdvanceDocs == null) {
+    return;
+  }
+  log.info("setTdIndex_NULL :" + this.uni.baseAdvanceDocs.size());
+  DocIterator iter=this.uni.baseAdvanceDocs.iterator();
+  while (iter.hasNext()) {
+    int doc=iter.nextDoc();
+    this.uni.bits.add(doc);
+    this.uni.markDocTm(doc,this.uni.getNullTm(),false);
+  }
+  this.uni.baseAdvanceDocs=null;
+}

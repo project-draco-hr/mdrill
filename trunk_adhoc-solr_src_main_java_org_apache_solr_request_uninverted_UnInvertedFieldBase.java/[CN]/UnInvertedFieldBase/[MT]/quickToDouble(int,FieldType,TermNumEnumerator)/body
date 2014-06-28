@@ -1,0 +1,8 @@
+{
+  try {
+    return this.tnr.quickToDouble(doc,ft,te);
+  }
+ catch (  Throwable e) {
+    return RamTermNumValue.TERMNUM_NAN_VALUE;
+  }
+}

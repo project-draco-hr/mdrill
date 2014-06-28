@@ -1,0 +1,3 @@
+{
+  this.ramDocValue.tmValue.termValueDouble.set(tm,val);
+}

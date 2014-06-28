@@ -1,0 +1,14 @@
+{
+  double a=this.avg();
+  double b=obj_val_cmp_str.avg();
+  if (this.val <= 0.001 || this.val <= 0.001) {
+    return 1;
+  }
+  double ab=a * b;
+  double maxval=a * a + b * b - ab;
+  if (maxval == 0) {
+    return 1;
+  }
+  double rtn=Math.abs(ab / maxval);
+  return 1 - rtn;
+}

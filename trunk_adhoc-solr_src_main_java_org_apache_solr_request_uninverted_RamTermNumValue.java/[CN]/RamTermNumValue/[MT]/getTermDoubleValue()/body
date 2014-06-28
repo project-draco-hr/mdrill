@@ -1,0 +1,12 @@
+{
+  if (fieldDataType.equals(UnInvertedFieldUtils.FieldDatatype.d_long)) {
+    return new TermDoubleValue_long(this);
+  }
+  if (fieldDataType.equals(UnInvertedFieldUtils.FieldDatatype.d_string)) {
+    return new TermDoubleValue_long(this);
+  }
+  if (fieldDataType.equals(UnInvertedFieldUtils.FieldDatatype.d_double)) {
+    return new TermDoubleValue_double(this);
+  }
+  return new TermDoubleValue_nan();
+}

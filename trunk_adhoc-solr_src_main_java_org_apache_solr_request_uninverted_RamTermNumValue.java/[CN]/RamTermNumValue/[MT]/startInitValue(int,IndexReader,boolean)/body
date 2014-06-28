@@ -1,0 +1,12 @@
+{
+  if (!isReadDouble) {
+    return;
+  }
+  int maxDocOffset=maxDoc + 2;
+  if (this.fieldDataType.equals(UnInvertedFieldUtils.FieldDatatype.d_double)) {
+    this.termValueDouble=BlockBufferPool.DOUBLE_POOL.calloc(maxDocOffset,BlockBufferPool.DOUBLE_CREATE,(double)RamTermNumValue.TERMNUM_NAN_VALUE);
+  }
+ else {
+    this.termValueLong=BlockBufferPool.LONG_POOL.calloc(maxDocOffset,BlockBufferPool.LONG_CREATE,RamTermNumValue.TERMNUM_NAN_VALUE);
+  }
+}

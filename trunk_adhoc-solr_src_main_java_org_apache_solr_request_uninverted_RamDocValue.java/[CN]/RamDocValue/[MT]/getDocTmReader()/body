@@ -1,0 +1,9 @@
+{
+  if (this.indexDatatype.equals(CompressType.d_byte)) {
+    return new ByteDoc2Tm(this.indexbyte);
+  }
+  if (this.indexDatatype.equals(CompressType.d_short)) {
+    return new ShortDoc2Tm(this.indexshort);
+  }
+  return new IntDoc2Tm(this.index);
+}

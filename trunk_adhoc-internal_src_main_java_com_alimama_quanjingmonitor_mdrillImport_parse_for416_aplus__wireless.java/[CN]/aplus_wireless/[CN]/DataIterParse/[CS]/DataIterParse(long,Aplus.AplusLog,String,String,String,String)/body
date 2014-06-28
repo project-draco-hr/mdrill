@@ -1,0 +1,8 @@
+{
+  this.pvlog=pvlog;
+  this.ts=ts;
+  this.urlid=urlid;
+  this.urlpre=urlpre;
+  this.urlid_tid=url_pid;
+  this.urlpre_tid=pre_pid;
+}

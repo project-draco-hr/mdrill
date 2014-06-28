@@ -1,0 +1,15 @@
+{
+  if (s == null) {
+    return null;
+  }
+  try {
+    JSONObject obj=new JSONObject(s);
+    if (obj.has(key)) {
+      return String.valueOf(obj.get(key));
+    }
+  }
+ catch (  Throwable e) {
+    return null;
+  }
+  return null;
+}

@@ -1,0 +1,5 @@
+{
+  Path base=new Path(new Path(path).getParent(),"AB");
+  AdhocOfflineService.readAbtestResult(path,new Path(base,"A"),new Path(base,"B"),conf);
+  return base;
+}

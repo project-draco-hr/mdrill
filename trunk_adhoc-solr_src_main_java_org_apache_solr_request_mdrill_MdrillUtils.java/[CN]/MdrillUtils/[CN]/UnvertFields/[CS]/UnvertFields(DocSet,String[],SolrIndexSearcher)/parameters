@@ -1,0 +1,3 @@
+DocSet baseAdvanceDocs
+String[] fields
+SolrIndexSearcher searcher

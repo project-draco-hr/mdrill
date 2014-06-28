@@ -1,0 +1,18 @@
+{
+  List<Object> data=StormUtils.mk_list((Object)System.currentTimeMillis());
+  this.collector.emit(data);
+  try {
+    this.solr.checkError();
+  }
+ catch (  Throwable e1) {
+    LOG.error(StormUtils.stringify_error(e1));
+    this.solr.unregister();
+    throw new RuntimeException(e1);
+  }
+  try {
+    Thread.sleep(1000l * 60);
+  }
+ catch (  InterruptedException e) {
+  }
+  ;
+}

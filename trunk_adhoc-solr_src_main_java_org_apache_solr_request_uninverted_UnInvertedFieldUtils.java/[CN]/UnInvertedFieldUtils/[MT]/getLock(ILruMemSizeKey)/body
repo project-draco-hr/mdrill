@@ -1,0 +1,8 @@
+{
+  Object lockobj=LOCK.get(key);
+  if (lockobj == null) {
+    lockobj=new Object();
+    LOCK.put(key,lockobj);
+  }
+  return lockobj;
+}

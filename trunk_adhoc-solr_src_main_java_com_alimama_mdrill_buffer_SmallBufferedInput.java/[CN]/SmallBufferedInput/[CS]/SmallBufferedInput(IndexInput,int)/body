@@ -1,0 +1,6 @@
+{
+  super("SmallBufferedInput",buffersize);
+  log.info("SmallBufferedInput:" + input.getClass().getName() + ","+ buffersize);
+  this.in=input;
+  this.isOpen=true;
+}

@@ -1,0 +1,48 @@
+{
+  Class.forName("com.alimama.mdrill.jdbc.MdrillDriver");
+  HashMap<String,PidStat> rtn=new HashMap<String,PidStat>();
+  long delaymin=1800;
+  String[] dayList={formatDay.format(new Date(ts - 1000l * delaymin)),formatDay.format(new Date(ts - 1000l * delaymin - 1000l * 3600 * 24* 1)),formatDay.format(new Date(ts - 1000l * delaymin - 1000l * 3600 * 24* 3)),formatDay.format(new Date(ts - 1000l * delaymin - 1000l * 3600 * 24* 7))};
+  HashMap<String,Integer> dayIndex=new HashMap<String,Integer>();
+  for (int i=0; i < dayList.length; i++) {
+    dayIndex.put(dayList[i],i);
+  }
+  String start=formatMin.format(new Date(ts - 1000l * delaymin - 1000l * 3600));
+  String end=formatMin.format(new Date(ts - 1000l * delaymin));
+  StringBuffer pidliststr=new StringBuffer();
+  String join="";
+  for (  String pid : pidlist) {
+    pidliststr.append(join).append("'" + pid + "'");
+    join=",";
+  }
+  String sql="select " + " thedate,pid,sum(p4pprice) as p4pprice,sum(p4pclick) as p4pclick,sum(aclick) as aclick,sum(apv) as apv,sum(p4ppv) as p4ppv " + " from rpt_quanjing_p4p_k2_realtime where thedate in ('" + dayList[0] + "','"+ dayList[1]+ "','"+ dayList[2]+ "','"+ dayList[3]+ "') "+ " and pid in ("+ pidliststr+ ") and miniute_5>='"+ start+ "' and miniute_5<='"+ end+ "' group by thedate,pid limit 0,8000 ";
+  Connection con=DriverManager.getConnection("jdbc:mdrill://adhoc7.kgb.cm6:9999","","");
+  Statement stmt=con.createStatement();
+  MdrillQueryResultSet res=null;
+  res=(MdrillQueryResultSet)stmt.executeQuery(sql);
+  while (res.next()) {
+    String thedate=res.getString("thedate");
+    String pid=res.getString("pid");
+    int index=dayIndex.get(thedate);
+    PidStat stat=rtn.get(pid);
+    if (stat == null) {
+      stat=new PidStat();
+      stat.start=start;
+      stat.end=end;
+      stat.dayList=dayList;
+      stat.p4pprice=new double[dayList.length];
+      stat.p4pclick=new double[dayList.length];
+      stat.apv=new double[dayList.length];
+      stat.p4ppv=new double[dayList.length];
+      stat.aclick=new double[dayList.length];
+      rtn.put(pid,stat);
+    }
+    stat.p4pprice[index]=Double.parseDouble(res.getString("p4pprice"));
+    stat.p4pclick[index]=Double.parseDouble(res.getString("p4pclick"));
+    stat.apv[index]=Double.parseDouble(res.getString("apv"));
+    stat.p4ppv[index]=Double.parseDouble(res.getString("p4ppv"));
+    stat.aclick[index]=Double.parseDouble(res.getString("p4pprice"));
+  }
+  con.close();
+  return rtn;
+}

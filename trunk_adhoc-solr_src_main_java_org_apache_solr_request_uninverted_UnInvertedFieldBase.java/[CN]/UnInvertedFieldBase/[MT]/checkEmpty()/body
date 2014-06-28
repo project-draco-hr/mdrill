@@ -1,0 +1,13 @@
+{
+  if (this.field.indexOf("higoempty_") >= 0) {
+    this.isNullField=true;
+  }
+  if (this.isNullField) {
+    this.tnr=this.ramDocValue.getDocReaderNull();
+    return true;
+  }
+  if (this.isMultiValued) {
+    throw new IOException("unsupport MultiValued");
+  }
+  return false;
+}

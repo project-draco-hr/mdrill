@@ -1,0 +1,26 @@
+{
+  long ts=Long.parseLong(p4ppvlog.getTimestamp());
+  long ts300=(ts / 300) * 300000;
+  Date d=new Date(ts300);
+  String bucketId="";
+  String seaBucketid="";
+  try {
+    String tagFields[]=p4ppvlog.getAbTag().split(";",3);
+    if (tagFields.length >= 2) {
+      bucketId=tagFields[0];
+      seaBucketid=tagFields[1];
+    }
+  }
+ catch (  Throwable e) {
+  }
+  List<P4PPVLog.ADSection> adList=p4ppvlog.getAdList();
+  String productType="";
+  if (adList != null) {
+    for (    P4PPVLog.ADSection adsec : adList) {
+      productType=adsec.getProductType();
+      break;
+    }
+  }
+  String pvtype=String.valueOf(p4ppvlog.getAdzoneCategory());
+  return new String[]{String.valueOf(ColsDefine.formatDay.format(d)),String.valueOf(ColsDefine.formatMin.format(d)),String.valueOf((pvtype.isEmpty() || pvtype.equals("0") || pvtype.equals("2")|| pvtype.equals("1")) ? "1" : pvtype),String.valueOf(productType),String.valueOf(p4ppvlog.getP4PPID()),String.valueOf(bucketId),"p4p_wt_itempv","",ColsDefine.version,seaBucketid,""};
+}

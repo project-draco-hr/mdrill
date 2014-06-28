@@ -1,0 +1,16 @@
+{
+  boolean converged=false;
+  int iteration=1;
+  while (!converged && iteration <= maxIterations) {
+    int stage=7 + iteration;
+    if (callback != null) {
+      callback.setPercent("Stage-" + stage + " map = 100.0%, reduce = 100.0%");
+      callback.maybeSync();
+    }
+    Path clustersOut=new Path(output,"cluster_" + iteration);
+    converged=runIteration(conf,input,clustersIn,clustersOut,delta);
+    clustersIn=clustersOut;
+    iteration++;
+  }
+  return clustersIn;
+}

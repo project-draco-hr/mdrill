@@ -1,0 +1,3 @@
+long ts
+HashMap<String,PidInfo> pidinfo
+ArrayList<String> pidlist

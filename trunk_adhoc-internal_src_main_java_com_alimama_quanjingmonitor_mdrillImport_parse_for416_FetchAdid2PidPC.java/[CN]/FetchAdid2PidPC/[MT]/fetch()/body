@@ -1,0 +1,62 @@
+{
+  if (isinit.get()) {
+    if (FetchAdid2PidPC.times.incrementAndGet() < 1000) {
+      return FetchAdid2PidPC.lastCache.get();
+    }
+    FetchAdid2PidPC.times.set(0);
+    Long nowts=System.currentTimeMillis();
+    if (nowts - FetchAdid2PidPC.ts.get() < FetchAdid2PidPC.maxdiff) {
+      return FetchAdid2PidPC.lastCache.get();
+    }
+  }
+  Long nowts=System.currentTimeMillis();
+synchronized (FetchAdid2PidPC.lock) {
+    if (isinit.get()) {
+      if (nowts - FetchAdid2PidPC.ts.get() < FetchAdid2PidPC.maxdiff) {
+        return FetchAdid2PidPC.lastCache.get();
+      }
+    }
+    for (int j=0; j < 100; j++) {
+      HashMap<String,String> rtn=new HashMap<String,String>();
+      try {
+        String strday=ColsDefine.formatDay.format(new Date(System.currentTimeMillis() - 1000l * 3600 * 24));
+        String fqstr="[{\"thedate\":{\"operate\":1,\"value\":[\"" + strday + "\"]}}]";
+        String jsonstr=MdrillService.result("ods_quanjing_416_pc_pid",null,"0","10000",fqstr,null,"putin_date,pid,url,count(*)","putin_date,pid,url","count(*)","desc",null,null);
+        LOG.info("fetch " + j + "@"+ jsonstr);
+        JSONObject jsonObj=new JSONObject(jsonstr);
+        if (!jsonObj.getString("code").equals("1")) {
+          sleep();
+          continue;
+        }
+        JSONArray list=jsonObj.getJSONObject("data").getJSONArray("docs");
+        if (list.length() == 0) {
+          sleep();
+          continue;
+        }
+        for (int i=0; i < list.length(); i++) {
+          try {
+            JSONObject item=list.getJSONObject(i);
+            String delivey_date=String.valueOf(item.get("putin_date"));
+            String url_lwfrom=ColsDefine.getName(String.valueOf(item.get("url")),"lwfrom");
+            String adid=String.valueOf(url_lwfrom);
+            String pid=String.valueOf(item.get("pid"));
+            rtn.put(delivey_date + "@" + adid,pid);
+          }
+ catch (          Exception e) {
+            LOG.info("fetch parse error",e);
+          }
+        }
+        FetchAdid2PidPC.lastCache.set(rtn);
+        FetchAdid2PidPC.ts.set(System.currentTimeMillis());
+        isinit.set(true);
+        LOG.info("fetch_result:" + FetchAdid2PidPC.lastCache.toString());
+        return rtn;
+      }
+ catch (      Exception e) {
+        LOG.info("fetch error",e);
+        sleep();
+      }
+    }
+  }
+  return FetchAdid2PidPC.lastCache.get();
+}

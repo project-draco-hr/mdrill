@@ -1,0 +1,12 @@
+{
+  this.bits=new BitDocSet(new OpenBitSet(reader.maxDoc()));
+  this.field=field;
+  FieldType schemaft=schema.getFieldType(field);
+  String prefix=TrieField.getMainValuePrefix(schemaft);
+  SchemaField sf=schema.getField(field);
+  this.ft=sf.getType();
+  this.isMultiValued=this.ft.isMultiValued();
+  this.fieldDataType=UnInvertedFieldUtils.getDataType(this.ft);
+  this.ramDocValue=new RamDocValue(this.fieldDataType);
+  this.ti=new TermIndex(field,prefix);
+}

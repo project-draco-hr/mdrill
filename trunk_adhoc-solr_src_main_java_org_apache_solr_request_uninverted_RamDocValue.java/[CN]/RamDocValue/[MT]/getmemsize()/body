@@ -1,0 +1,8 @@
+{
+  int sz=0;
+  if (index != null)   sz+=index.getMemSize() * 4;
+  if (indexshort != null)   sz+=indexshort.getMemSize() * 2;
+  if (indexbyte != null)   sz+=indexbyte.getMemSize() * 1;
+  sz+=this.tmValue.getmemsize();
+  return sz;
+}

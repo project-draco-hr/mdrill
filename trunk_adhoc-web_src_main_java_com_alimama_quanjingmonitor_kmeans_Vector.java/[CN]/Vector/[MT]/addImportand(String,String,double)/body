@@ -1,0 +1,10 @@
+{
+  String_val obj_val=(String_val)vector.get(col);
+  if (obj_val == null) {
+    obj_val=new String_val();
+    obj_val.setWeight(weight);
+    vector.put(col,obj_val);
+  }
+  obj_val.setMustVeryLike(true);
+  obj_val.add(val);
+}

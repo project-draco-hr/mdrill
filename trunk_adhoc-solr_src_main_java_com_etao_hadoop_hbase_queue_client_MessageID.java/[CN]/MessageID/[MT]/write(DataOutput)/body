@@ -1,0 +1,5 @@
+{
+  out.writeLong(this.partioncrc);
+  out.writeLong(this.timestamp);
+  out.writeShort(this.type);
+}

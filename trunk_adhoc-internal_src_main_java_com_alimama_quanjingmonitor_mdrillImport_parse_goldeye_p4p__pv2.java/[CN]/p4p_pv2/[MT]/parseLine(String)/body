@@ -1,0 +1,30 @@
+{
+  try {
+    P4PPVLog p4ppvlog=com.taobao.loganalyzer.input.p4ppv.parser.P4PPVLogParser.parse(line);
+    if (p4ppvlog == null) {
+      return null;
+    }
+    if ((p4ppvlog.getRefPID() == null && p4ppvlog.getP4PPID() == null) || p4ppvlog.getTimestamp() == null) {
+      return null;
+    }
+    this.lines++;
+    if (this.lines > 100000) {
+      this.laststartts=(System.currentTimeMillis() / 1000) - TS_MAX;
+      this.lastendts=(System.currentTimeMillis() / 1000) + TS_MAX;
+      this.lines=0;
+    }
+    long ts=Long.parseLong(p4ppvlog.getTimestamp());
+    if (ts < laststartts || ts > lastendts) {
+      return null;
+    }
+    DataIterParse rtn=new DataIterParse(p4ppvlog);
+    return rtn;
+  }
+ catch (  Throwable nfe) {
+    if (groupCreateerror < 10) {
+      LOG.error("InvalidEntryException:" + line,nfe);
+      groupCreateerror++;
+    }
+    throw new InvalidEntryException("Invalid log `" + line + "'\n",nfe);
+  }
+}

@@ -1,0 +1,7 @@
+{
+  Integer oldval=this.val.get(strval);
+  if (oldval == null) {
+    oldval=0;
+  }
+  this.val.put(strval,oldval + num);
+}

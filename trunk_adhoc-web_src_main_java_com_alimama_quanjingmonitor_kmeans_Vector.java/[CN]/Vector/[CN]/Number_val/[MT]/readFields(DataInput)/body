@@ -1,0 +1,4 @@
+{
+  this.count=arg0.readInt();
+  this.val=arg0.readDouble();
+}

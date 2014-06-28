@@ -1,0 +1,12 @@
+{
+  Cluster clrnew=null;
+  for (  Cluster value : values) {
+    if (clrnew == null) {
+      clrnew=new Cluster(value);
+    }
+ else {
+      clrnew.getCenter().merger(value.getCenter());
+    }
+  }
+  context.write(key,clrnew);
+}

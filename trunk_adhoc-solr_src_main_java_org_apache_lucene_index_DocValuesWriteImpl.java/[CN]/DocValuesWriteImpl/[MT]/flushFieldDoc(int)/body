@@ -1,0 +1,18 @@
+{
+  int size=Math.min(doc2Tm.getSize(),(maxdocid + 1));
+  outputQuickTis.writeInt(size);
+  outputQuickTis.writeInt(termNumCount);
+  int useBits=useBits(termNumCount);
+  outputQuickTis.writeInt(useBits);
+  for (int i=0; i < size; i++) {
+    int tm=doc2Tm.get(i);
+    if (tm == TERM_NULL_NUMBER || tm < 0 || tm >= termNumCount) {
+      outputQuickTis.writeBits(termNumCount,useBits);
+    }
+ else {
+      outputQuickTis.writeBits(tm,useBits);
+    }
+  }
+  outputQuickTis.flushBits();
+  BlockBufferPool.INT_POOL.allset(this.doc2Tm,BlockBufferPool.INT_CREATE,TERM_NULL_NUMBER);
+}

@@ -1,0 +1,10 @@
+{
+  if (s == null) {
+    return null;
+  }
+  Matcher mat=pat.matcher(s);
+  while (mat.find()) {
+    return mat.group(index);
+  }
+  return null;
+}

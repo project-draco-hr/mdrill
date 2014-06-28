@@ -1,0 +1,6 @@
+{
+  int sz=0;
+  if (termValueDouble != null)   sz+=termValueDouble.getMemSize() * 8;
+  if (termValueLong != null)   sz+=termValueLong.getMemSize() * 8;
+  return sz;
+}

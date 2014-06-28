@@ -1,5 +1,5 @@
 {
-  LOG.info("####mergerBuffer####");
+  LOG.info("####mergerBuffer start####");
   DirectoryInfo m1=expire;
   if (m1 == null) {
     m1=this.bufferDirector.remove(RAM_KEY);
@@ -33,5 +33,6 @@
   }
  finally {
     this.status.needPurger.set(true);
+    LOG.info("####mergerBuffer finish####");
   }
 }

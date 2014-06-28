@@ -1,0 +1,18 @@
+{
+  if (url.indexOf("http://m.laiwang.com/market/laiwang/event-square.php") >= 0) {
+    return "pc";
+  }
+  if (url.indexOf("http://h5.m.taobao.com/laiwang/act/419/index.html") >= 0) {
+    return "wireless_huodong";
+  }
+  if (url.indexOf("http://m.laiwang.com/go/laiwang/419/index.php") >= 0) {
+    return "wireless_huodong";
+  }
+  if (url.indexOf("http://www.laiwang.com/event/share.htm") >= 0) {
+    return "wireless_zhadui";
+  }
+  if (url.indexOf("http://www.laiwang.com/event/feed.htm") >= 0) {
+    return "wireless_zhadui";
+  }
+  return null;
+}

@@ -1,0 +1,70 @@
+{
+  try {
+    if (line == null) {
+      return null;
+    }
+    String[] clicklog=line.split("\001",-1);
+    if (clicklog.length < 41) {
+      return null;
+    }
+    if (clicklog[40].isEmpty() || clicklog[40].length() <= 5) {
+      return null;
+    }
+    String app_key=clicklog[13];
+    String event_id=clicklog[33];
+    String arg1=clicklog[34];
+    String args=clicklog[37];
+    String reserves=clicklog[29];
+    boolean match_lwfrom=arg1.indexOf("lwfrom") >= 0 || args.indexOf("lwfrom") >= 0 || reserves.indexOf("lwfrom") >= 0;
+    boolean match_refpid=arg1.indexOf("refpid") >= 0 || args.indexOf("refpid") >= 0 || reserves.indexOf("refpid") >= 0;
+    if (!(match_lwfrom || match_refpid)) {
+      return null;
+    }
+    this.lines++;
+    if (this.lines > 100000) {
+      this.laststartts=(System.currentTimeMillis() / 1000) - TS_MAX;
+      this.lastendts=(System.currentTimeMillis() / 1000) + TS_MAX;
+      this.lines=0;
+    }
+    long ts=Long.parseLong(clicklog[40]);
+    this.lines_sb++;
+    if (this.lines_sb > 5000) {
+      this.lines_sb=0;
+      long nowts=System.currentTimeMillis();
+      if (nowts - timediff > 30000) {
+        timediff=nowts;
+        LOG.info("parseLine_sb_" + ColsDefine.formatDayMin.format(new Date(ts * 1000)) + " "+ formatRows(clicklog));
+      }
+    }
+    if (ts < laststartts || ts > lastendts) {
+      return null;
+    }
+    String refpid=null;
+    String lwfrom=parseGet(arg1,reserves,args);
+    ;
+    if (refpid == null && lwfrom != null) {
+      String strday=ColsDefine.formatDay.format(new Date(ts * 1000));
+      refpid=FetchAdid2PidWireLess.fetch().get(strday + "@" + String.valueOf(lwfrom));
+    }
+    if (isempty(refpid)) {
+      this.lines_sb3++;
+      if (this.lines_sb3 > 100) {
+        this.lines_sb3=0;
+        long nowts=System.currentTimeMillis();
+        if (nowts - timediff3 > 30000) {
+          timediff3=nowts;
+          LOG.info("parse error :" + ColsDefine.formatDayMin.format(new Date(ts * 1000)) + " "+ formatRows(clicklog));
+        }
+      }
+      return null;
+    }
+    return new DataIterParse(ts,clicklog,refpid);
+  }
+ catch (  Throwable nfe) {
+    if (groupCreateerror < 100) {
+      LOG.error("InvalidEntryException:" + line,nfe);
+      groupCreateerror++;
+    }
+    throw new InvalidEntryException("Invalid log `" + line + "'\n",nfe);
+  }
+}

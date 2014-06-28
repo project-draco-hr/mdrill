@@ -1,10 +1,16 @@
 {
-  String regEx="[^0-9]";
-  Pattern p=Pattern.compile(regEx);
-  Matcher m=p.matcher(str);
-  String rtn=m.replaceAll("").trim();
-  if (rtn.isEmpty()) {
-    return "0";
+  if (str == null || str.isEmpty() || str.indexOf("null") >= 0 || str.indexOf("_") >= 0) {
+    return 0d;
   }
-  return rtn;
+  try {
+    return Double.parseDouble(str);
+  }
+ catch (  Throwable e) {
+    Matcher m=p.matcher(str);
+    String rtn=m.replaceAll("").trim();
+    if (rtn.isEmpty()) {
+      return 0d;
+    }
+    return Double.parseDouble(rtn);
+  }
 }

@@ -1,10 +1,8 @@
 {
   if (val.tp.equals(DirectoryInfo.DirTpe.buffer)) {
     try {
-synchronized (rlock.lock) {
-        this.data.mergerBuffer(val);
-        this.data.maybeMerger();
-      }
+      this.data.mergerBuffer(val);
+      this.data.maybeMerger();
     }
  catch (    Throwable e) {
       LOG.error("####expire buffer error ####",e);
@@ -13,10 +11,8 @@ synchronized (rlock.lock) {
   }
   if (val.tp.equals(DirectoryInfo.DirTpe.ram)) {
     try {
-synchronized (rlock.lock) {
-        this.data.mergerRam(val);
-        this.data.maybeMerger();
-      }
+      this.data.mergerRam(val);
+      this.data.maybeMerger();
     }
  catch (    Throwable e) {
       LOG.error("####expire ram error ####",e);

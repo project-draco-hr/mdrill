@@ -1,0 +1,3 @@
+{
+  return getUnInvertedField(baseAdvanceDocs,field,searcher.getReader());
+}

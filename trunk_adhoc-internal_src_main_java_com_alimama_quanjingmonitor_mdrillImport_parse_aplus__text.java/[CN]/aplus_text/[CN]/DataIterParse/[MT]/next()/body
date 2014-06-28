@@ -1,10 +1,9 @@
 {
+  index++;
   if (this.ispv2 || this.isclick_2) {
     this.ispv2=false;
     this.isclick_2=false;
-    if (this.isclick_1) {
-      return true;
-    }
+    return this.isclick_1;
   }
   return false;
 }

@@ -1,0 +1,106 @@
+{
+  Cluster clu=clusterMap.get(key.toString());
+  int numberSelect=1;
+  int limit=1;
+  if (clu != null) {
+    limit=Math.min(clu.getNumselect() * this.rep * 100,100000);
+    numberSelect=clu.getNumselect();
+    System.out.println("key:" + key + ","+ numberSelect);
+  }
+ else {
+    System.out.println("can nott found key:" + key);
+  }
+  if (limit < 5000) {
+    limit=5000;
+  }
+  PriorityQueue<String> res=new PriorityQueue<String>(limit,Collections.reverseOrder(cmp));
+  for (  Text value : values) {
+    if (res.size() < limit) {
+      res.add(value.toString());
+    }
+ else     if (cmp.compare(res.peek(),value.toString()) > 0) {
+      res.add(value.toString());
+      res.poll();
+    }
+  }
+  ArrayList<String> list=new ArrayList<String>(res);
+  Collections.sort(list,cmp);
+  comPair[] writelist=new comPair[numberSelect];
+  int end=list.size();
+  ArrayList<String> left=new ArrayList<String>(res);
+  for (int i=0; i < end; i++) {
+    String s=list.get(i);
+    System.out.println("111>>" + s);
+    String[] cols=s.split("@abtest@");
+    String line=cols[1];
+    Vector group=parse.parseVector(line);
+    for (int j=0; j < writelist.length; j++) {
+      if (writelist[j] == null) {
+        comPair p=new comPair();
+        p.s1=s;
+        p.v1=group;
+        writelist[j]=p;
+        s=null;
+        break;
+      }
+      boolean deny=writelist[j].v1.Deny(group);
+      double dis=writelist[j].v1.distiance(group);
+      System.out.println("222>>" + dis);
+      if (!deny && writelist[j].distance > dis) {
+        writelist[j].distance=dis;
+        String s_tmp=writelist[j].s2;
+        Vector group_tmp=writelist[j].v2;
+        writelist[j].s2=s;
+        writelist[j].v2=group;
+        s=s_tmp;
+        group=group_tmp;
+        if (s_tmp == null) {
+          break;
+        }
+      }
+    }
+    if (s != null) {
+      left.add(s);
+    }
+  }
+  int end2=left.size();
+  for (int i=0; i < end2; i++) {
+    String s=left.get(i);
+    String[] cols=s.split("@abtest@");
+    String line=cols[1];
+    Vector group=parse.parseVector(line);
+    boolean isset=false;
+    for (int j=0; j < writelist.length; j++) {
+      if (writelist[j] == null || writelist[j].s2 != null) {
+        continue;
+      }
+      double dis=writelist[j].v1.distiance(group);
+      if (writelist[j].distance > dis) {
+        System.out.println("333>>" + s);
+        isset=true;
+        writelist[j].distance=dis;
+        String s_tmp=writelist[j].s2;
+        Vector group_tmp=writelist[j].v2;
+        writelist[j].s2=s;
+        writelist[j].v2=group;
+        if (s_tmp == null) {
+          break;
+        }
+        s=s_tmp;
+        group=group_tmp;
+      }
+    }
+    if (!isset) {
+      break;
+    }
+  }
+  for (int i=0; i < writelist.length; i++) {
+    if (writelist[i] != null && writelist[i].s2 != null) {
+      int rrr=(int)((Math.random() * 10000) % 2);
+      int rrr2=(rrr + 1) % 2;
+      System.out.println(writelist[i].toString());
+      context.write(key,new Text(writelist[i].distance + "\t" + i+ "\trep"+ rrr+ "_1\t"+ writelist[i].s1));
+      context.write(key,new Text(writelist[i].distance + "\t" + i+ "\trep"+ rrr2+ "_2\t"+ writelist[i].s2));
+    }
+  }
+}

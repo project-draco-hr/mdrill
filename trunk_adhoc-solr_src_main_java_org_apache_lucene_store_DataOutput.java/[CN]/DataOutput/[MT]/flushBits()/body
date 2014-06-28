@@ -1,0 +1,7 @@
+{
+  if (this.bytepos > 0) {
+    this.writeByte(this.bytebuffer);
+    this.bytebuffer=0;
+  }
+  this.bytepos=0;
+}

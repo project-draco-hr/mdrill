@@ -1,0 +1,10 @@
+{
+  try {
+    this.solr.stop();
+  }
+ catch (  Throwable e) {
+    LOG.error(StormUtils.stringify_error(e));
+    this.solr.unregister();
+    throw new RuntimeException(e);
+  }
+}

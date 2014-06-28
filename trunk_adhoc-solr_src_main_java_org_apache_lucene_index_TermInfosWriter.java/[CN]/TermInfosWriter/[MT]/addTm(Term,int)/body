@@ -1,0 +1,28 @@
+{
+  if (!this.isquickTis) {
+    return;
+  }
+synchronized (lock) {
+    if (this.ft.isMultiValued()) {
+      return;
+    }
+    long tmValue=0;
+    if (dataType == FieldDatatype.d_long) {
+      tmValue=Long.parseLong(ft.indexedToReadable(term.text()));
+    }
+ else     if (dataType == FieldDatatype.d_double) {
+      Double val=MdrillUtils.ParseDouble(ft.indexedToReadable(term.text()));
+      tmValue=Double.doubleToLongBits(val);
+    }
+ else {
+      CRC32 crc32=new CRC32();
+      crc32.update(new String(ft.indexedToReadable(term.text())).getBytes());
+      tmValue=crc32.getValue();
+    }
+    docValues.collectTm(tmValue);
+    if ((this.termNum & TermIndex.intervalMask) == 0) {
+      docValues.collectTmIndex(term.text());
+    }
+    this.termNum++;
+  }
+}

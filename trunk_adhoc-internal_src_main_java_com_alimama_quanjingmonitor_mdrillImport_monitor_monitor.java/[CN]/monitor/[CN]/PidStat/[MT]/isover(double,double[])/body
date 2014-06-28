@@ -1,0 +1,16 @@
+{
+  double base=d[0];
+  boolean isset=false;
+  for (int i=1; i < d.length; i++) {
+    if (d[i] <= 5) {
+      continue;
+    }
+    isset=true;
+    double diff=Math.abs(base - d[i]) / (0.001 + d[i]);
+    double diff2=Math.abs(base - d[i]) / (0.001 + base);
+    if (diff < overrate && diff2 < overrate) {
+      return false;
+    }
+  }
+  return isset;
+}

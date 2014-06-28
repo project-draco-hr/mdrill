@@ -1,0 +1,25 @@
+{
+  Cluster nearestCluster=null;
+  double nearestDistance=Double.MAX_VALUE;
+  Vector pointv=parse.parseVector(point.toString());
+  if (pointv == null) {
+    return;
+  }
+  pointv.setNumPoints(1);
+  for (  Cluster cluster : clusters) {
+    Vector clusterCenter=cluster.getCenter();
+    boolean isDeny=pointv.Deny(clusterCenter);
+    if (isDeny) {
+      continue;
+    }
+    double distance=clusterCenter.distiance(pointv);
+    context.getCounter("Clustering","similar").increment(1);
+    if (distance <= nearestDistance || nearestCluster == null) {
+      nearestCluster=cluster;
+      nearestDistance=distance;
+    }
+  }
+  if (nearestCluster != null) {
+    context.write(new Text(String.valueOf(nearestCluster.getId())),pointv);
+  }
+}

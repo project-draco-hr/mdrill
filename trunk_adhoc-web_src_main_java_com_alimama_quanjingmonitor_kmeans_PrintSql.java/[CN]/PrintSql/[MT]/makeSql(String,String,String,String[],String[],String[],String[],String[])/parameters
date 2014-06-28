@@ -1,0 +1,8 @@
+String tablename
+String sqlwhere
+String idcols
+String[] thedates_a
+String[] colls_important
+String[] number_important
+String[] colls
+String[] numbers

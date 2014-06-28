@@ -1,3 +1,0 @@
-{
-  return this.tnr.quickToDouble(tnum,ft,te);
-}

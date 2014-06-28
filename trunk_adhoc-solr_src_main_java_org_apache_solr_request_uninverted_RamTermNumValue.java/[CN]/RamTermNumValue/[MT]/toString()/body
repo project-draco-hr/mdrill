@@ -1,0 +1,10 @@
+{
+  StringBuffer membuffer=new StringBuffer();
+  if (termValueDouble != null) {
+    membuffer.append(",").append("termValueDouble=" + termValueDouble.getMemSize() + "@"+ termValueDouble.getSize());
+  }
+  if (termValueLong != null) {
+    membuffer.append(",").append("termValueLong=" + termValueLong.getMemSize() + "@"+ termValueLong.getSize());
+  }
+  return membuffer.toString();
+}

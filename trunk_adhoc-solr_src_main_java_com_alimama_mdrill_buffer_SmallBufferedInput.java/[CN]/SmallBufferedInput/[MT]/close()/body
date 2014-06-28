@@ -1,0 +1,11 @@
+{
+  if (!isClone) {
+    if (isOpen) {
+      in.close();
+      isOpen=false;
+    }
+ else {
+      throw new IOException("Index file " + " already closed");
+    }
+  }
+}

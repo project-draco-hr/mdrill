@@ -1,0 +1,22 @@
+{
+  this.numPoints+=vector.numPoints;
+  for (  Entry<String,Vector_val> e : vector.vector.entrySet()) {
+    String s=e.getKey();
+    Vector_val obj_val=e.getValue();
+    Vector_val obj_val_cmp=this.vector.get(s);
+    if (obj_val_cmp == null) {
+      this.vector.put(s,obj_val.copy());
+      continue;
+    }
+    if (obj_val instanceof String_val && obj_val_cmp instanceof String_val) {
+      String_val obj_val_str=(String_val)obj_val;
+      String_val obj_val_cmp_str=(String_val)obj_val_cmp;
+      obj_val_cmp_str.merger(obj_val_str);
+    }
+    if (obj_val instanceof Number_val && obj_val_cmp instanceof Number_val) {
+      Number_val obj_val_num=(Number_val)obj_val;
+      Number_val obj_val_cmp_num=(Number_val)obj_val_cmp;
+      obj_val_cmp_num.merger(obj_val_num);
+    }
+  }
+}

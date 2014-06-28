@@ -1,0 +1,5 @@
+{
+  long ts300=(this.ts / 300) * 300000;
+  Date d=new Date(ts300);
+  return new String[]{String.valueOf(ColsDefine.formatDay.format(d)),String.valueOf(ColsDefine.formatMin.format(d)),(this.curr.isshaoma || this.curr.matchUrl.equals("pc")) ? "pc" : "wireless","aplus_wireless",this.curr.pid,"",this.curr.tid,"",ColsDefine.version};
+}

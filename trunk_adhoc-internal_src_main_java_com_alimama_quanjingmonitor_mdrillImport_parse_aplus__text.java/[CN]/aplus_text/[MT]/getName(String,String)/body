@@ -1,4 +1,7 @@
 {
+  if (url == null) {
+    return null;
+  }
   try {
     String[] tem=decodeString(url).split("\\?",2);
     String params=tem[0];

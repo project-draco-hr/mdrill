@@ -1,0 +1,6 @@
+{
+  long ts=Long.parseLong(pvlog[1]);
+  long ts300=(ts / 300) * 300000;
+  Date d=new Date(ts300);
+  return new String[]{String.valueOf(ColsDefine.formatDay.format(d)),String.valueOf(ColsDefine.formatMin.format(d)),"pc","user_rd",String.valueOf(pvlog[4]),"pc",String.valueOf(ColsDefine.getName(pvlog[11],"tid")),"",ColsDefine.version};
+}

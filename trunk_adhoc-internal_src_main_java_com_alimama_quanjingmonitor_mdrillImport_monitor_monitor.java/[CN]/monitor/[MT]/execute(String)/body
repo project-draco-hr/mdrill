@@ -1,0 +1,67 @@
+{
+  HashMap<String,StringBuffer> mailTo=new HashMap<String,StringBuffer>();
+  HashMap<String,StringBuffer> wangwangTo=new HashMap<String,StringBuffer>();
+  long ts=System.currentTimeMillis();
+  HashMap<String,PidInfo> pidinfo=getPidInfo(filePath);
+  ArrayList<String> pidlist=new ArrayList<String>();
+  for (  Entry<String,PidInfo> e : pidinfo.entrySet()) {
+    pidlist.add(e.getKey());
+    if (pidlist.size() > 49) {
+      mointorBatch(mailTo,wangwangTo,ts,pidinfo,pidlist);
+      pidlist.clear();
+    }
+  }
+  if (pidlist.size() > 0) {
+    mointorBatch(mailTo,wangwangTo,ts,pidinfo,pidlist);
+    pidlist.clear();
+  }
+  String day_ts=formatDayHHMM.format(new Date(ts));
+  for (  Entry<String,StringBuffer> e : wangwangTo.entrySet()) {
+    try {
+      StringBuffer contentw=new StringBuffer();
+      contentw.append(" <br>");
+      contentw.append(e.getValue().toString());
+      String content=contentw.toString();
+      if (content.length() > 150) {
+        content=content.substring(0,150) + "...";
+      }
+      String subject=URLEncoder.encode("???????????????????????????refpid??????[" + day_ts + "]","utf8");
+      String msg=URLEncoder.encode(content,"utf8");
+      String wname=URLEncoder.encode(e.getKey(),"utf8");
+      StringBuffer urlFormat=new StringBuffer();
+      ;
+      urlFormat.append("receiver=" + wname);
+      urlFormat.append("&subtitle=" + subject);
+      urlFormat.append("&message=" + msg);
+      urlFormat.append("&method=" + URLEncoder.encode("wang-alert","utf8"));
+      urlFormat.append("&username=" + URLEncoder.encode("yannian.mu","utf8"));
+      urlFormat.append("&password=" + getMD5((new String("yannian.mu@1106" + e.getKey())).getBytes("utf8")));
+      urlFormat.append("&charset=utf8");
+      Request(urlFormat);
+    }
+ catch (    Exception e2) {
+    }
+  }
+  for (  Entry<String,StringBuffer> e : mailTo.entrySet()) {
+    try {
+      StringBuffer contentw=new StringBuffer();
+      contentw.append(" ???????????????????????????http://quanjing.alimama.com:9999/quanjing/goldeye_realtime.jsp <br>");
+      contentw.append("<table width='100%' border='1' cellspacing='0' cellpadding='0'>");
+      contentw.append("<tr><td>??????</td><td>??????</td><td>pid</td><td>????????????</td><td>??????</td><td>p4p??????</td><td>p4p??????</td><td>p4pPV</td><td>p4p?????????%</td></tr>");
+      contentw.append(e.getValue().toString());
+      contentw.append("</table>");
+      StringBuffer urlFormat=new StringBuffer();
+      ;
+      urlFormat.append("receiver=" + URLEncoder.encode(e.getKey(),"utf8"));
+      urlFormat.append("&subtitle=" + URLEncoder.encode("?????????????????????????????????refpid????????????[" + day_ts + "]","utf8"));
+      urlFormat.append("&message=" + URLEncoder.encode(contentw.toString(),"utf8"));
+      urlFormat.append("&method=" + URLEncoder.encode("mail","utf8"));
+      urlFormat.append("&username=" + URLEncoder.encode("yannian.mu","utf8"));
+      urlFormat.append("&password=" + getMD5((new String("yannian.mu@1106" + e.getKey())).getBytes("utf8")));
+      urlFormat.append("&charset=utf8");
+      Request(urlFormat);
+    }
+ catch (    Exception e2) {
+    }
+  }
+}

@@ -1,0 +1,3 @@
+{
+  return "{field=" + field + ",memSize="+ (memSize() * 1.0 / 1024 / 1024)+ "mb"+ ",nullTermNum="+ this.getNullTm()+ this.ramDocValue.toString()+ ",bits.size="+ this.bits.size()+ "}";
+}

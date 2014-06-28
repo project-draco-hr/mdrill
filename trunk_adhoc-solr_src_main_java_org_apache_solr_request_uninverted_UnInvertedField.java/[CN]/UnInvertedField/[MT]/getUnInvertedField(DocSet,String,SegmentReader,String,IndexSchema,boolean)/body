@@ -1,0 +1,45 @@
+{
+  final ILruMemSizeKey key=new GrobalCache.StringKey("seg@" + String.valueOf(isreadDouble) + "@"+ field+ "@"+ reader.getStringCacheKey()+ "@"+ reader.getSegmentName());
+  ExecutorCompletionService<UnivertPool> submit=new ExecutorCompletionService<UnivertPool>(SUBMIT_POOL);
+  Callable<UnivertPool> task=new Callable<UnivertPool>(){
+    public UnivertPool call() throws Exception {
+      UnivertPool rtnuif=new UnivertPool();
+      try {
+        Cache<ILruMemSizeKey,ILruMemSizeCache> cache=GrobalCache.fieldValueCache;
+        final Object lockthr=UnInvertedFieldUtils.getLock(key);
+synchronized (lockthr) {
+          long t1=System.currentTimeMillis();
+          rtnuif.uni=(UnInvertedField)cache.get(key);
+          BitDocSet clonebitset=cloneBitset(baseAdvanceDocs,reader);
+          if (rtnuif.uni == null || rtnuif.uni.isShutDown()) {
+            rtnuif.uni=new UnInvertedField();
+            boolean issucecess=MakeUnivertedFieldBySigment.makeInit(rtnuif.uni,clonebitset,field,reader,schema,isreadDouble);
+            if (!issucecess) {
+              MakeUnivertedFieldByIndex forjoin=new MakeUnivertedFieldByIndex(rtnuif.uni);
+              forjoin.makeInit(clonebitset,field,schema,reader);
+            }
+            cache.put(key,rtnuif.uni);
+          }
+ else {
+            boolean issucecess=MakeUnivertedFieldBySigment.addDoclist(rtnuif.uni,clonebitset,field,reader,schema,isreadDouble);
+            if (!issucecess) {
+              MakeUnivertedFieldByIndex forjoin=new MakeUnivertedFieldByIndex(rtnuif.uni);
+              forjoin.addDoclist(clonebitset,field,reader);
+            }
+          }
+          long diff=System.currentTimeMillis() - t1;
+          log.info("####timetaken####:" + diff + ","+ String.valueOf(rtnuif.uni));
+        }
+      }
+ catch (      IOException e) {
+        rtnuif.e=e;
+      }
+      return rtnuif;
+    }
+  }
+;
+  submit.submit(task);
+  UnInvertedField uif=UnInvertedFieldUtils.takeUnf(submit);
+  uif.refCnt.incrementAndGet();
+  return uif;
+}

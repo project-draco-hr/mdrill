@@ -1,0 +1,16 @@
+{
+  String isMathchUrl=matchType(currurl);
+  if (isMathchUrl != null && !"pc".equals(isMathchUrl)) {
+    String pid=ColsDefine.getName(currurl,"refpid");
+    if (pid != null) {
+      String tid=ColsDefine.getName(currurl,"tid");
+      ;
+      pid_type p=new pid_type();
+      p.isAplusMode=true;
+      p.pid=pid;
+      p.tid=tid;
+      p.matchUrl=isMathchUrl;
+      querylist.add(p);
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  int block=size / interval + 1;
+  BlockInterface<T>[] data=c.createBlocks(block);
+  for (int i=0; i < data.length; i++) {
+    data[i]=getByteBlock(c);
+    data[i].allset(init);
+  }
+  return new BlockArray<T>(data,size);
+}

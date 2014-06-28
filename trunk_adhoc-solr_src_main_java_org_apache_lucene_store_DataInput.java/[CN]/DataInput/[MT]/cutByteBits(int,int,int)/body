@@ -1,0 +1,6 @@
+{
+  int intstart=24 + start;
+  int cutRight=INT_BITS - intstart - len;
+  int copybits=(i << intstart) >>> intstart;
+  return copybits >>> cutRight;
+}

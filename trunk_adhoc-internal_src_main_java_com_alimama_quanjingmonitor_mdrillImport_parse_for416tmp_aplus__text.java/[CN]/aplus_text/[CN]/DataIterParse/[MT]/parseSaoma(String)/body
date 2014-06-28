@@ -1,0 +1,15 @@
+{
+  String[] url_lwfrom_split=String.valueOf(url_lwfrom).split("_");
+  boolean isshaoma=url_lwfrom_split.length > 2 && !url_lwfrom_split[2].isEmpty();
+  if (isshaoma) {
+    String strday=ColsDefine.formatDay.format(new Date(ts * 1000));
+    String shaomaPid=this.fetch(true,"pc",url_lwfrom_split[0],strday);
+    if (shaomaPid != null) {
+      pid_type p=new pid_type();
+      p.isshaoma=true;
+      p.pid=shaomaPid;
+      p.matchUrl="pc";
+      querylist.add(p);
+    }
+  }
+}

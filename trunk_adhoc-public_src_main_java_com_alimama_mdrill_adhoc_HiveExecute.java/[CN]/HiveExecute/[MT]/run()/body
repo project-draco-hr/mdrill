@@ -33,6 +33,9 @@ catch (  IOException e) {
     errorThread.join();
     inputThread.join();
     int exitValue=process.exitValue();
+    if (Processer != null) {
+      Processer.run();
+    }
     this.callback.setExitValue(exitValue);
   }
  catch (  Exception e) {

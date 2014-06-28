@@ -1,0 +1,6 @@
+long pos
+int docFreq
+IndexOptions indexOptions
+boolean currentFieldStoresPayloads
+int skipOffset
+long proxPointer

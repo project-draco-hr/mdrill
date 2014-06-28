@@ -1,16 +1,16 @@
 {
-  Datatype dataType=Datatype.d_default;
+  FieldDatatype dataType=FieldDatatype.d_default;
   if (ft instanceof StrField) {
-    dataType=Datatype.d_string;
+    dataType=FieldDatatype.d_string;
   }
  else   if (ft instanceof LongField || ft instanceof TrieLongField) {
-    dataType=Datatype.d_long;
+    dataType=FieldDatatype.d_long;
   }
  else   if (ft instanceof DoubleField || ft instanceof TrieDoubleField) {
-    dataType=Datatype.d_double;
+    dataType=FieldDatatype.d_double;
   }
  else {
-    dataType=Datatype.d_default;
+    dataType=FieldDatatype.d_default;
   }
   return dataType;
 }

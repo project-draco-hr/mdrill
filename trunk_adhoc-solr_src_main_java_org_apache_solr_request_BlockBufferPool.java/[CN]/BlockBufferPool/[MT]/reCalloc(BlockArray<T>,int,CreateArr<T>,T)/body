@@ -1,0 +1,15 @@
+{
+  int block=size / interval + 1;
+  BlockInterface<T>[] data=c.createBlocks(block);
+  for (int i=0; i < data.length; i++) {
+    if (i < old.data.length) {
+      data[i]=old.data[i];
+    }
+ else {
+      data[i]=getByteBlock(c);
+      data[i].allset(init);
+    }
+  }
+  this.recycleByteBlocks(old,data.length);
+  return new BlockArray<T>(data,size);
+}

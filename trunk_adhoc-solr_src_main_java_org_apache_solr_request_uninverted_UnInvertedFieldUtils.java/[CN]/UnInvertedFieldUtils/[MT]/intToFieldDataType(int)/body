@@ -1,0 +1,20 @@
+{
+switch (d) {
+case 1:
+{
+      return FieldDatatype.d_string;
+    }
+case 2:
+{
+    return FieldDatatype.d_long;
+  }
+case 3:
+{
+  return FieldDatatype.d_double;
+}
+default :
+{
+return FieldDatatype.d_default;
+}
+}
+}

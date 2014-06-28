@@ -1,0 +1,40 @@
+{
+  final SolrIndexSearcher searcher=reader.getSearcher();
+  final ILruMemSizeKey key=new GrobalCache.StringKey(searcher.getPartionKey() + "@@" + field+ "@@"+ LuceneUtils.crcKey(reader));
+  ExecutorCompletionService<UnivertPool> submit=new ExecutorCompletionService<UnivertPool>(SUBMIT_POOL);
+  Callable<UnivertPool> task=new Callable<UnivertPool>(){
+    public UnivertPool call() throws Exception {
+      UnivertPool rtnuif=new UnivertPool();
+      try {
+        final Cache<ILruMemSizeKey,ILruMemSizeCache> cache=GrobalCache.fieldValueCache;
+        final Object lockthr=UnInvertedFieldUtils.getLock(key);
+synchronized (lockthr) {
+          long t1=System.currentTimeMillis();
+          rtnuif.uni=(UnInvertedField)cache.get(key);
+          SolrIndexReader reader=searcher.getReader();
+          BitDocSet clonebitset=cloneBitset(baseAdvanceDocs,reader);
+          MakeUnivertedFieldByIndex forjoin=new MakeUnivertedFieldByIndex(rtnuif.uni);
+          if (rtnuif.uni == null || rtnuif.uni.isShutDown()) {
+            rtnuif.uni=new UnInvertedField();
+            forjoin.makeInit(clonebitset,field,searcher.getSchema(),reader);
+            cache.put(key,rtnuif.uni);
+          }
+ else {
+            forjoin.addDoclist(clonebitset,field,reader);
+          }
+          long diff=System.currentTimeMillis() - t1;
+          log.info("timetaken by index:" + diff + ","+ String.valueOf(rtnuif.uni));
+        }
+      }
+ catch (      IOException e) {
+        rtnuif.e=e;
+      }
+      return rtnuif;
+    }
+  }
+;
+  submit.submit(task);
+  UnInvertedField uif=UnInvertedFieldUtils.takeUnf(submit);
+  uif.refCnt.incrementAndGet();
+  return uif;
+}

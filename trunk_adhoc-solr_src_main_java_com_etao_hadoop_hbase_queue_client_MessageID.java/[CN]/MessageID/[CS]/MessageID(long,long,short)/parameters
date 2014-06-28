@@ -1,0 +1,3 @@
+long partioncrc
+long timestamp
+short type

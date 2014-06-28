@@ -1,0 +1,15 @@
+{
+  if (isover(info.overrate,this.p4pprice)) {
+    return true;
+  }
+  if (isover(info.overrate,this.p4pclick)) {
+    return true;
+  }
+  if (isover(info.overrate,this.p4pctr)) {
+    return true;
+  }
+  if (isover(info.overrate,this.p4ppv)) {
+    return true;
+  }
+  return false;
+}

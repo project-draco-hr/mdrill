@@ -1,0 +1,4 @@
+IndexReader reader
+TermIndex tindex
+String termValue
+int pos

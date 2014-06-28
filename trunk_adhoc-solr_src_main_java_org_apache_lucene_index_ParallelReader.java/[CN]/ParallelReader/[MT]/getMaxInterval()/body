@@ -1,0 +1,7 @@
+{
+  int maxIntervel=0;
+  for (  final IndexReader reader : readers) {
+    maxIntervel=Math.max(maxIntervel,reader.getMaxInterval());
+  }
+  return maxIntervel;
+}

@@ -2,12 +2,17 @@
   this.ts=ts;
   this.ad_id=ad_id;
   this.url_ad_id=url_ad_id;
-  this.Url=decodeString(pvlog[3]);
+  String Url=decodeString(pvlog[3]);
+  String pre=decodeString(pvlog[13]);
   this.logkey=pvlog[45];
   String strday=formatDay.format(new Date(ts * 1000));
   this.pid=this.fetch(this.ad_id,strday);
   this.pid_Url=this.fetch(this.url_ad_id,strday);
-  this.ispv2=this.pid != null && (!this.logkey.equals("/")) && this.url_ad_id.length() > 10 && this.ad_id.startsWith("10");
-  this.isclick_2=this.pid != null && (!this.logkey.equals("/")) && this.ad_id.startsWith("10");
-  this.isclick_1=this.pid_Url != null && this.logkey.equals("/") && this.url_ad_id.length() > 10 && this.Url.indexOf("ju.mmstat.com") >= 0;
+  String jlogid=getName(Url,"jlogid");
+  String jlogid_pre=getName(pre,"jlogid");
+  boolean isMathchUrl=Url.indexOf("38.tmall.com") >= 0 && jlogid != null && !jlogid.isEmpty();
+  boolean isMathchPre=pre.indexOf("38.tmall.com") >= 0 && jlogid_pre != null && !jlogid_pre.isEmpty();
+  this.ispv2=this.pid != null && (!this.logkey.equals("/")) && this.ad_id.startsWith("10") && isMathchUrl;
+  this.isclick_2=this.pid != null && (!this.logkey.equals("/")) && this.ad_id.startsWith("10") && isMathchPre;
+  this.isclick_1=this.pid_Url != null && this.logkey.equals("/") && this.url_ad_id.length() > 10 && Url.indexOf("ju.mmstat.com") >= 0;
 }

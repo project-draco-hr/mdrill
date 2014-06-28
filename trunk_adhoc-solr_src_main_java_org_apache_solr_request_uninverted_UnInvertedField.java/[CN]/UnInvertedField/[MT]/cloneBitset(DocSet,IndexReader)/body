@@ -1,0 +1,15 @@
+{
+  if (baseAdvanceDocs instanceof BitDocSet) {
+    BitDocSet rtn=(BitDocSet)baseAdvanceDocs;
+    OpenBitSet newbits=(OpenBitSet)(rtn.getBits().clone());
+    return new BitDocSet(newbits,rtn.size());
+  }
+  OpenBitSet bs=new OpenBitSet(reader.maxDoc());
+  DocIterator iter=baseAdvanceDocs.iterator();
+  int pos=0;
+  while (iter.hasNext()) {
+    bs.fastSet(iter.nextDoc());
+    pos++;
+  }
+  return new BitDocSet(bs,pos);
+}

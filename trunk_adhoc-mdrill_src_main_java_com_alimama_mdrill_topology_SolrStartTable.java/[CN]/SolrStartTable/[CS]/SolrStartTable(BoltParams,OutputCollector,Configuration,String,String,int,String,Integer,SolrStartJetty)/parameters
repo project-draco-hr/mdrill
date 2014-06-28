@@ -1,9 +1,0 @@
-BoltParams params
-OutputCollector collector
-Configuration conf
-String solrhome
-String diskList
-int taskIndex
-String tblName
-Integer taskid
-SolrStartJetty solrservice

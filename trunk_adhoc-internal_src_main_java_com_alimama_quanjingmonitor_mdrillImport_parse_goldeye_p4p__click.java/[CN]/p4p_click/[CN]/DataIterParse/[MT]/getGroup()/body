@@ -1,0 +1,17 @@
+{
+  long ts=Long.parseLong(p4ppvlog.getClickTime());
+  long ts300=(ts / 300) * 300000;
+  Date d=new Date(ts300);
+  String bucketId="";
+  String seaBucketid="";
+  try {
+    String tagFields[]=p4ppvlog.getAbtag().split(";",-1)[1].split("#")[1].split("\\|",-1);
+    if (tagFields.length >= 2) {
+      bucketId=tagFields[0];
+      seaBucketid=tagFields[1];
+    }
+  }
+ catch (  Throwable e) {
+  }
+  return new String[]{String.valueOf(ColsDefine.formatDay.format(d)),String.valueOf(ColsDefine.formatMin.format(d)),String.valueOf(""),String.valueOf(""),String.valueOf(p4ppvlog.getRefPID()),String.valueOf(bucketId),"p4p_click","",ColsDefine.version,seaBucketid,String.valueOf(p4ppvlog.getP4PPID())};
+}

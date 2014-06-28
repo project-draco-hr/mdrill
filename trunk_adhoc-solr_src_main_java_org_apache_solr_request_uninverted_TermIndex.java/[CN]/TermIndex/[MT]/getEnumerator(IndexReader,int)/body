@@ -1,5 +1,5 @@
 {
-  NumberedTermEnum te=new NumberedTermEnum(reader,this);
+  TermNumEnumerator te=new TermNumEnumerator(reader,this);
   te.skipTo(termNumber);
   return te;
 }

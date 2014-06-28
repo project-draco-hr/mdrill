@@ -1,0 +1,6 @@
+UnInvertedField uni
+BitDocSet baseAdvanceDocs
+String field
+SegmentReader reader
+IndexSchema schema
+boolean isreadDouble

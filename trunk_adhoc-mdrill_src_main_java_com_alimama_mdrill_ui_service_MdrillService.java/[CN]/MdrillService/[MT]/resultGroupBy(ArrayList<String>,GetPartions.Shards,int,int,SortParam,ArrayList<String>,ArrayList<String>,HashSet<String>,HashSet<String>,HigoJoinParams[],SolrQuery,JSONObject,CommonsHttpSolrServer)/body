@@ -15,7 +15,7 @@
   WebServiceParams.setGroupByQuery(query,fqList,groupbyFields,minstart,maxEend,distStatFieldMap,commonStatMap,sortType,joins,null);
   LOG.info("queryinfo:" + shard.urlMain + "/select/?"+ cutString(query.toString()));
   query.set("mdrill.isRestat",false);
-  QueryResponse qr=WebServiceParams.fetchGroupCrcQr(query,server);
+  QueryResponse qr=WebServiceParams.fetchGroupCrcQr(query,server,jsonObj,"__timedebug");
   LinkedHashMap<String,GroupbyRow> groupValueCache=WebServiceParams.setGroupByResult(query,jsonObj,qr,groupbyFields,showFields,joins,null);
   boolean isUseRefetch=jsonObj.getLong("total") > (UniqConfig.defaultCrossMaxLimit() - 10) && groupValueCache.size() <= UniqConfig.defaultCrossMaxLimit() && jsonObj.getString("code").equals("1");
   if ((distStatFieldMap.size() > 0) || isUseRefetch) {
@@ -25,6 +25,7 @@
       LOG.info("queryinfo_pre:" + shard.urlMain + "/select/?"+ cutString(query.toString()));
       query.set("mdrill.isRestat",true);
       QueryResponse qr2=server.query(query,SolrRequest.METHOD.POST);
+      jsonObj.put("__timedebug_qr2",qr2.getTimetaken(4).toString());
       WebServiceParams.setGroupByResult(query,jsonObj,qr2,groupbyFields,showFields,joins,groupValueCache);
     }
  catch (    Exception e2) {

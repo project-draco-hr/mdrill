@@ -1,0 +1,17 @@
+{
+  Number[][] rtn=new Number[StringCols.length][];
+  for (int i=0; i < rtn.length; i++) {
+    String[] cols=StringCols[i].split("@");
+    rtn[i]=new Number[3];
+    rtn[i][0]=Integer.parseInt(cols[0]);
+    rtn[i][1]=10;
+    rtn[i][2]=1.0;
+    if (cols.length > 1) {
+      rtn[i][1]=parseDouble(cols[1]);
+    }
+    if (cols.length > 2) {
+      rtn[i][2]=parseDouble(cols[2]);
+    }
+  }
+  return rtn;
+}

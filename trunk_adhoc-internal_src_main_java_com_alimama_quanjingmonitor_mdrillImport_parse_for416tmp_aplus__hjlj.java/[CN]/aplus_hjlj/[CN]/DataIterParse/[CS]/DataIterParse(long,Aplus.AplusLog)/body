@@ -1,0 +1,7 @@
+{
+  this.ts=ts;
+  String currurl=toUtf8String(log.getUrl());
+  this.parse_aplustext(ts,log,currurl);
+  this.parse_hjlj(ts,log,currurl);
+  this.curr=querylist.poll();
+}

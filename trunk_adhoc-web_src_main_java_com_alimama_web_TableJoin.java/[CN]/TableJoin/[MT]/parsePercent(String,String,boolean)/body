@@ -1,7 +1,7 @@
 {
   Integer totalstage=Integer.parseInt(stage);
   if (pat == null) {
-    pat=Pattern.compile(".*Stage.*[^\\d]*(\\d+)[^\\d]map[^\\d]*(\\d+)[^\\d].*reduce[^\\d]*(\\d+)[^\\d].*");
+    pat=Pattern.compile(".*Stage[^\\d]*(\\d+)[^\\d]map[^\\d]*(\\d+)[^\\d].*reduce[^\\d]*(\\d+)[^\\d].*");
   }
   if (!percent.startsWith("Stage")) {
     return 0d;

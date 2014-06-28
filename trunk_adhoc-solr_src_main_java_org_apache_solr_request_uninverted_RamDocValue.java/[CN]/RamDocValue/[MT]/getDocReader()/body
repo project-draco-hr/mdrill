@@ -1,0 +1,5 @@
+{
+  DocReaderSingle rnt=new DocReaderSingle();
+  rnt.setUni(this);
+  return rnt;
+}

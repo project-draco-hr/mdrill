@@ -1,0 +1,60 @@
+{
+  uni.init(field,reader,schema);
+  uni.baseAdvanceDocs=UnInvertedField.ajustBase(48,baseAdvanceDocs,reader);
+  if (this.uni.checkEmpty()) {
+    return;
+  }
+  log.info(" makeInit  begin " + this.uni.field + " field "+ ",baseAdvanceDocs="+ (this.uni.baseAdvanceDocs == null ? "null" : this.uni.baseAdvanceDocs.size())+ "@"+ (baseAdvanceDocs == null ? "null" : baseAdvanceDocs.size()));
+  TermNumEnumerator te=uni.ti.getEnumerator(reader);
+  int maxDoc=reader.maxDoc();
+  this.uni.startRamDocValue(maxDoc,reader,true);
+  int limitsize=this.getLimitSize();
+  PriorityQueue<MixTermInfo> termDocslist=new PriorityQueue<MixTermInfo>(limitsize,Collections.reverseOrder(UnInvertedFieldUtils.TD_CMP));
+  TermDocs tdreader=reader.termDocs(1024);
+  int maxTermNum=0;
+  for (; ; ) {
+    Term t=te.term();
+    if (t == null) {
+      break;
+    }
+    int termNum=te.getTermNumber();
+    if (termNum % 100000 == 0) {
+      log.info("termsInverted " + termNum + "@"+ this.uni.field+ ",limitsize="+ limitsize);
+    }
+    int df=te.docFreq();
+    if (!this.isFinish()) {
+      TermDocs td=te.getTermDocs();
+      if (df <= SKIP_MIN || this.uni.baseAdvanceDocs == null) {
+        td.seek(te);
+        this.set_Doc2TermNum_NonSkip(td,docs,freqs,termNum,true,maxDoc);
+      }
+ else {
+        MixTermInfo cl=new MixTermInfo(df,termNum,tdreader,new Term(t.field(),t.text()));
+        if (termDocslist.size() < limitsize) {
+          termDocslist.add(cl);
+        }
+ else {
+          MixTermInfo peek=termDocslist.peek();
+          if (UnInvertedFieldUtils.TD_CMP.compare(peek,cl) > 0 && cl.getCount() / (peek.getCount() + 1) > 1.5) {
+            termDocslist.add(cl);
+            MixTermInfo cl_old=termDocslist.poll();
+            this.set_Doc2TermNum_NonSkip(cl_old.getTd(),docs,freqs,cl_old.getTermNum(),true,maxDoc);
+          }
+ else {
+            td.seek(te);
+            this.set_Doc2TermNum_NonSkip(td,docs,freqs,termNum,true,maxDoc);
+          }
+        }
+      }
+    }
+    maxTermNum=Math.max(maxTermNum,termNum);
+    this.setTermNumValue(t,termNum);
+    te.next();
+  }
+  this.PriorityQueue_skip_set(termDocslist,maxDoc,true);
+  this.uni.endRamDocValue(true,maxTermNum);
+  tdreader.close();
+  te.close();
+  this.uni.tnr=this.uni.ramDocValue.getDocReader();
+  this.setTdIndex_NULL();
+}

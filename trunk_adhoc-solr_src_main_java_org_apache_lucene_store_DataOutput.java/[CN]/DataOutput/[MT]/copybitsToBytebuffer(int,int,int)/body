@@ -1,0 +1,6 @@
+{
+  int cutLeft=start;
+  int cutRight=INT_BITS - cutLeft - len;
+  int copybits=(i << cutLeft) >>> cutLeft;
+  return (copybits >> cutRight);
+}

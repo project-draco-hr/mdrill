@@ -1,0 +1,7 @@
+{
+  Integer fileNum=this.fieldInfos().fieldNumber(field);
+  if (fileNum != null && fileNum >= 0 && core != null && core.getTermsReader() != null) {
+    return fileNum;
+  }
+  return -1;
+}

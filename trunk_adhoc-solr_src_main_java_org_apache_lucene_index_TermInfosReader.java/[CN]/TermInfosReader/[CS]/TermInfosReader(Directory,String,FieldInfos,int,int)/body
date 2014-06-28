@@ -1,6 +1,6 @@
 {
   boolean success=false;
-  quicktisInput=null;
+  docValues=null;
   supportquick.set(false);
   if (indexDivisor < 1 && indexDivisor != -1) {
     throw new IllegalArgumentException("indexDivisor must be -1 (don't load terms index) or greater than 0: got " + indexDivisor);
@@ -18,45 +18,11 @@
       IndexInput sizebuff=directory.openInput(tisFileSize,readBufferSize);
       tisfilesize=sizebuff.readLong();
       if (directory.fileExists(quickTis)) {
-        quicktisInput=new QuickInput();
-        if (directory.fileExists(quickTisTxt)) {
-          quicktisInput.isQuickTxtMode.set(true);
-        }
-        if (directory instanceof FSDirectory) {
-          quicktisInput.quicktisInput=BlockBufferInput.MaybeInstance(directory.openInput(quickTis,readBufferSize),directory,quickTis,directory.getP());
-          if (quicktisInput.isQuickTxtMode.get()) {
-            quicktisInput.quicktisInputTxt=BlockBufferInput.MaybeInstance(directory.openInput(quickTisTxt,readBufferSize),directory,quickTisTxt,directory.getP());
-            quicktisInput.quicktisInputVal=BlockBufferInput.MaybeInstance(directory.openInput(quickTisVal,readBufferSize),directory,quickTisVal,directory.getP());
-          }
-        }
- else         if (directory instanceof FileSystemDirectory) {
-          quicktisInput.quicktisInput=BlockBufferInput.MaybeInstance(directory.openInput(quickTis,readBufferSize),directory,quickTis,directory.getP());
-          if (quicktisInput.isQuickTxtMode.get()) {
-            quicktisInput.quicktisInputTxt=BlockBufferInput.MaybeInstance(directory.openInput(quickTisTxt,readBufferSize),directory,quickTisTxt,directory.getP());
-            quicktisInput.quicktisInputVal=BlockBufferInput.MaybeInstance(directory.openInput(quickTisVal,readBufferSize),directory,quickTisVal,directory.getP());
-          }
-        }
- else {
-          quicktisInput.quicktisInput=directory.openInput(quickTis,readBufferSize);
-          if (quicktisInput.isQuickTxtMode.get()) {
-            quicktisInput.quicktisInputTxt=directory.openInput(quickTisTxt,readBufferSize);
-            quicktisInput.quicktisInputVal=directory.openInput(quickTisVal,readBufferSize);
-          }
-        }
-        int size=sizebuff.readInt();
-        for (int i=0; i < size; i++) {
-          quicktisInput.fieldPos.put(sizebuff.readInt(),sizebuff.readLong());
-        }
-        size=sizebuff.readInt();
-        for (int i=0; i < size; i++) {
-          quicktisInput.fieldCount.put(sizebuff.readInt(),sizebuff.readInt());
-        }
-        if (quicktisInput.isQuickTxtMode.get()) {
-          size=sizebuff.readInt();
-          for (int i=0; i < size; i++) {
-            quicktisInput.fieldPosVal.put(sizebuff.readInt(),sizebuff.readLong());
-          }
-        }
+        docValues=new DocValuesReader();
+        docValues.quicktisInput=new SmallBufferedInput(directory.openInput(quickTis,8),8);
+        docValues.quicktisInputTxt=new SmallBufferedInput(directory.openInput(quickTisTxt,1024),1024);
+        docValues.quicktisInputVal=new SmallBufferedInput(directory.openInput(quickTisVal,8),8);
+        docValues.readPosForm(sizebuff);
         supportquick.set(true);
       }
       sizebuff.close();
@@ -68,7 +34,7 @@
       tisInput=BlockBufferInput.MaybeInstance(directory.openInput(filename,readBufferSize),directory,filename,directory.getP());
       tiiInput=directory.openInput(indexFileName,readBufferSize);
     }
-    if (directory instanceof FileSystemDirectory) {
+ else     if (directory instanceof FileSystemDirectory) {
       tisInput=BlockBufferInput.MaybeInstance(directory.openInput(filename,readBufferSize),directory,filename,directory.getP());
       tiiInput=directory.openInput(indexFileName,readBufferSize);
     }

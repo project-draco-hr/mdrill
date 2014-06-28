@@ -1,0 +1,8 @@
+{
+  if (isinit) {
+    this.ramDocValue.index.set(doc,termNum);
+  }
+ else {
+    this.tnr.setTermNum(doc,termNum);
+  }
+}

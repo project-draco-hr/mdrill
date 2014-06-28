@@ -1,0 +1,4 @@
+{
+  this.tmValue.endInitValue(isReadDouble,maxTermNum);
+  this.compressDoc2Tm();
+}

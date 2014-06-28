@@ -1,0 +1,6 @@
+{
+  if (b == null) {
+    return "";
+  }
+  return b.toStringUtf8();
+}

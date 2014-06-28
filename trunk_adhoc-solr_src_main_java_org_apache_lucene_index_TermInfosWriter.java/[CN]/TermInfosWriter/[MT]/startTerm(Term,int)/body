@@ -1,0 +1,14 @@
+{
+synchronized (lock) {
+    if (this.lastquickfieldNumber != fieldNumber) {
+      if (this.lastquickfieldNumber != unIntfieldnum) {
+        this.docValues.flushFieldDoc(this.termNum);
+      }
+      this.docValues.start(fieldNumber,term.field);
+      this.ft=this.schemainfo.getField(term.field).getType();
+      this.dataType=UnInvertedFieldUtils.getDataType(ft);
+      this.lastquickfieldNumber=fieldNumber;
+      this.termNum=0;
+    }
+  }
+}

@@ -1,0 +1,4 @@
+Timer timer
+int expirationSecs
+ExpiredCallback<K,V> callback
+CleanExecute<K,V> cleanlock

@@ -1,0 +1,3 @@
+{
+  return refpid == null || refpid.isEmpty() || refpid.length() < 5 || refpid.length() > 500;
+}

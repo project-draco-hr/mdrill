@@ -1,0 +1,13 @@
+{
+  if (this.uni.fieldDataType == FieldDatatype.d_long) {
+    this.uni.setTmValueLong(termNum,Long.parseLong(this.uni.ft.indexedToReadable(t.text())));
+  }
+ else   if (this.uni.fieldDataType == FieldDatatype.d_double) {
+    this.uni.setTmValueDouble(termNum,MdrillUtils.ParseDouble(this.uni.ft.indexedToReadable(t.text())));
+  }
+ else   if (this.uni.fieldDataType == FieldDatatype.d_string) {
+    CRC32 crc32=new CRC32();
+    crc32.update(new String(this.uni.ft.indexedToReadable(t.text())).getBytes());
+    this.uni.setTmValueLong(termNum,crc32.getValue());
+  }
+}

@@ -1,16 +1,11 @@
 {
-  if (sz >= 0) {
+  if (sz > 0) {
     return sz;
   }
   sz=8 * 8 + 32;
-  if (index != null)   sz+=index.getMemSize() * 4;
-  if (indexshort != null)   sz+=indexshort.getMemSize() * 2;
-  if (indexbyte != null)   sz+=indexbyte.getMemSize() * 1;
-  if (termValueDouble != null)   sz+=termValueDouble.getMemSize() * 8;
-  if (termValueLong != null)   sz+=termValueLong.getMemSize() * 8;
-  if (tnums != null) {
-    for (    byte[] arr : tnums)     if (arr != null)     sz+=arr.length;
-  }
+  if (bits != null)   sz+=bits.memSize();
+  if (baseAdvanceDocs != null)   sz+=baseAdvanceDocs.memSize();
+  sz+=ramDocValue.getmemsize();
   sz+=ti.memSize();
   return sz;
 }

@@ -9,6 +9,6 @@ synchronized (rlock.lock) {
   }
 synchronized (rlock.searchLock) {
     readList=copyDir;
+    SolrResourceLoader.SetCacheFlushKey(params.Partion,System.currentTimeMillis());
   }
-  SolrResourceLoader.SetCacheFlushKey(params.Partion,System.currentTimeMillis());
 }

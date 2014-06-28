@@ -1,0 +1,6 @@
+{
+  if (this.uni.baseAdvanceDocs == null) {
+    return false;
+  }
+  return this.uni.baseAdvanceDocs.size() <= 0;
+}

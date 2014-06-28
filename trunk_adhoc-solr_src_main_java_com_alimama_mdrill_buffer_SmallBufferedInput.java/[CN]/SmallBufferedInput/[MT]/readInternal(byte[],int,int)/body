@@ -1,0 +1,9 @@
+{
+  long position=getFilePointer();
+synchronized (this.in) {
+    if (position != this.in.getFilePointer()) {
+      this.in.seek(position);
+    }
+    this.in.readBytes(b,offset,length);
+  }
+}

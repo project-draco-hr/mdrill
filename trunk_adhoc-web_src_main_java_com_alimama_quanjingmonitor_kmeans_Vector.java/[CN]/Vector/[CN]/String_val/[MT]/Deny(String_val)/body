@@ -1,0 +1,9 @@
+{
+  if (this.isMustVeryLike()) {
+    if (this.getTopField().equals(obj_val_cmp_str.getTopField())) {
+      return false;
+    }
+    return true;
+  }
+  return false;
+}

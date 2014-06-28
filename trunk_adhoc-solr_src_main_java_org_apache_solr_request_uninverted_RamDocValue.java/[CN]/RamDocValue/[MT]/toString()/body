@@ -1,0 +1,14 @@
+{
+  StringBuffer membuffer=new StringBuffer();
+  if (index != null) {
+    membuffer.append(",").append("index=" + index.getMemSize() + "@"+ index.getSize());
+  }
+  if (indexshort != null) {
+    membuffer.append(",").append("indexshort=" + indexshort.getMemSize() + "@"+ indexshort.getSize());
+  }
+  if (indexbyte != null) {
+    membuffer.append(",").append("indexbyte=" + indexbyte.getMemSize() + "@"+ indexbyte.getSize());
+  }
+  membuffer.append(",").append(this.tmValue.toString());
+  return membuffer.toString();
+}

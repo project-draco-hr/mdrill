@@ -1,0 +1,21 @@
+{
+  if (bytelen > 3) {
+    writeByte((byte)(i >> 24));
+    writeByte((byte)(i >> 16));
+    writeByte((byte)(i >> 8));
+    writeByte((byte)i);
+    return;
+  }
+  if (bytelen > 2) {
+    writeByte((byte)(i >> 16));
+    writeByte((byte)(i >> 8));
+    writeByte((byte)i);
+    return;
+  }
+  if (bytelen > 1) {
+    writeByte((byte)(i >> 8));
+    writeByte((byte)i);
+    return;
+  }
+  writeByte((byte)i);
+}

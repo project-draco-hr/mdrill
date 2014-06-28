@@ -1,0 +1,3 @@
+{
+  return RamTermNumValue.TERMNUM_NAN_VALUE;
+}

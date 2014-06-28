@@ -1,0 +1,10 @@
+{
+  if (this.termValueDouble != null) {
+    BlockBufferPool.DOUBLE_POOL.recycleByteBlocks(this.termValueDouble);
+    this.termValueDouble=null;
+  }
+  if (this.termValueLong != null) {
+    BlockBufferPool.LONG_POOL.recycleByteBlocks(this.termValueLong);
+    this.termValueLong=null;
+  }
+}

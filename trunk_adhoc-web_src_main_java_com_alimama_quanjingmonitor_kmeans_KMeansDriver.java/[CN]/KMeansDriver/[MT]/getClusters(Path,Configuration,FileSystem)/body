@@ -1,0 +1,8 @@
+{
+  ArrayList<Cluster> clusters=new ArrayList<Cluster>();
+  KmeansPublic.configureWithClusterInfo(conf,filePath,clusters);
+  if (clusters.isEmpty()) {
+    throw new IllegalStateException("No clusters found. Check your -c path.");
+  }
+  return clusters;
+}

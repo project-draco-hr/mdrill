@@ -1,0 +1,5 @@
+{
+  SmallBufferedInput clone=(SmallBufferedInput)super.clone();
+  clone.isClone=true;
+  return clone;
+}

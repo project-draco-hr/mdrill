@@ -1,0 +1,8 @@
+{
+  int limitsize=TD_LIMIT_MAX;
+  if (this.uni.baseAdvanceDocs != null) {
+    limitsize=(int)Math.min(limitsize,TD_MAX_CMP_COUNT / (1 + this.uni.baseAdvanceDocs.size()));
+  }
+  limitsize=Math.max(limitsize,TD_LIMIT_MIN);
+  return limitsize;
+}

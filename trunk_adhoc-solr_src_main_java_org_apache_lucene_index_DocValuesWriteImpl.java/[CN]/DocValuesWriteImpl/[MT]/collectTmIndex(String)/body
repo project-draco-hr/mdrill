@@ -1,0 +1,3 @@
+{
+  outputQuickTisTxt.writeString(termValue);
+}

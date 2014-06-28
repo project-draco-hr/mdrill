@@ -13,7 +13,7 @@
       NamedList stv;
       String prefix=TrieField.getMainValuePrefix(ft);
       if (sf.multiValued() || ft.multiValuedFieldCache() || prefix != null) {
-        UnInvertedField uif=UnInvertedField.getUnInvertedField(f,searcher);
+        UnInvertedField uif=UnInvertedField.getUnInvertedField(docs,f,searcher);
         stv=uif.getStats(searcher,docs,facets).getStatsValues();
       }
  else {

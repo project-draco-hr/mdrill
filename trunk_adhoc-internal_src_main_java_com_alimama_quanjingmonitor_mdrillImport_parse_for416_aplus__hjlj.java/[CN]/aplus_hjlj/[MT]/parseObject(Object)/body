@@ -1,0 +1,56 @@
+{
+  try {
+    if (line == null) {
+      return null;
+    }
+    this.lines++;
+    if (this.lines > 100000) {
+      this.laststartts=(System.currentTimeMillis() / 1000) - TS_MAX;
+      this.lastendts=(System.currentTimeMillis() / 1000) + TS_MAX;
+      this.lines=0;
+    }
+    byte[] d=(byte[])line;
+    Aplus.AplusLog log=Aplus.AplusLog.parseFrom(d);
+    if (log == null) {
+      return null;
+    }
+    long ts=log.getTime();
+    com.google.protobuf.ByteString currurlbyte=log.getUrl();
+    com.google.protobuf.ByteString preurlbyte=log.getPre();
+    String currurl=String.valueOf(currurlbyte == null ? "" : currurlbyte.toStringUtf8());
+    String preurl=String.valueOf(preurlbyte == null ? "" : preurlbyte.toStringUtf8());
+    this.lines_sb++;
+    if (this.lines_sb > 5000) {
+      this.lines_sb=0;
+      long nowts=System.currentTimeMillis();
+      if (nowts - timediff > 30000) {
+        timediff=nowts;
+        LOG.info("parseLine_sb_" + ColsDefine.formatDayMin.format(new Date(ts * 1000)) + " "+ " "+ currurl+ "=="+ preurl+ "<<<");
+      }
+    }
+    if (ts < laststartts || ts > lastendts) {
+      return null;
+    }
+    DataIterParse rtn=new DataIterParse(ts,log);
+    if (!rtn.isvalidate()) {
+      this.lines_sb2++;
+      if (this.lines_sb2 > 5000) {
+        this.lines_sb2=0;
+        long nowts=System.currentTimeMillis();
+        if (nowts - timediff2 > 30000) {
+          timediff2=nowts;
+          LOG.info("parseLine_sb2_" + ColsDefine.formatDayMin.format(new Date(ts * 1000)) + " "+ " "+ currurl+ "=="+ preurl+ "<<<");
+        }
+      }
+      return null;
+    }
+    return rtn;
+  }
+ catch (  Throwable nfe) {
+    if (groupCreateerror < 100) {
+      LOG.error("InvalidEntryException:" + line,nfe);
+      groupCreateerror++;
+    }
+    throw new InvalidEntryException("Invalid log `" + line + "'\n",nfe);
+  }
+}

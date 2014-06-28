@@ -5,5 +5,5 @@ synchronized (_lock) {
     }
     this.timerReset();
   }
-  this.clean();
+  this._cleanlock.executeClean(this);
 }

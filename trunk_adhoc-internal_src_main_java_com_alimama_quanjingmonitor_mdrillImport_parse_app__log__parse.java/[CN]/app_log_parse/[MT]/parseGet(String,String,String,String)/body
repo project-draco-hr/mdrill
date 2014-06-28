@@ -1,0 +1,19 @@
+{
+  String rtn=null;
+  if (rtn == null && arg1 != null && arg1.indexOf(key) >= 0) {
+    String lower_decode_arg1=decodeString(String.valueOf(arg1)).toLowerCase();
+    rtn=get_json_object(matchGet(lower_decode_arg1,pat_arg1,3),key);
+  }
+  if (rtn == null && reserves != null && reserves.indexOf(key) >= 0) {
+    String lower_decode_reserves=decodeString(String.valueOf(reserves)).toLowerCase();
+    rtn=get_json_object(matchGet(lower_decode_reserves,pat_reserves,3),key);
+  }
+  if (rtn == null && args != null && args.indexOf(key) >= 0) {
+    String lower_decode_args=decodeString(String.valueOf(args)).toLowerCase();
+    rtn=get_json_object(matchGet(lower_decode_args,pat_args,3),key);
+  }
+  if (rtn == null) {
+    return null;
+  }
+  return matchGet(rtn,pat_last,1);
+}

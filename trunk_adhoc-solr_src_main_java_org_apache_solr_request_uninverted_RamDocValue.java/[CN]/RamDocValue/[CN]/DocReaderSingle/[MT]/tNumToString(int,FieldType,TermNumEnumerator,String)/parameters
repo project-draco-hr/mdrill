@@ -1,0 +1,4 @@
+int tnum
+FieldType ft
+TermNumEnumerator te
+String def

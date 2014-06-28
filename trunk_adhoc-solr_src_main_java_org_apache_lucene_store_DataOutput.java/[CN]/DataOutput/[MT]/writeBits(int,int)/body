@@ -1,0 +1,19 @@
+{
+  int bytesLeave=bitslen;
+  int start=INT_BITS - bitslen;
+  while (bytesLeave > 0) {
+    int len=BYTE_BITS - this.bytepos;
+    if (len >= bytesLeave) {
+      len=bytesLeave;
+    }
+    int byteresult=this.copybitsToBytebuffer(i,start,len);
+    int bitsleave=BYTE_BITS - this.bytepos - len;
+    this.bytebuffer|=(byteresult << bitsleave);
+    bytesLeave-=len;
+    start+=len;
+    this.bytepos+=len;
+    if (this.bytepos >= BYTE_BITS) {
+      this.flushBits();
+    }
+  }
+}

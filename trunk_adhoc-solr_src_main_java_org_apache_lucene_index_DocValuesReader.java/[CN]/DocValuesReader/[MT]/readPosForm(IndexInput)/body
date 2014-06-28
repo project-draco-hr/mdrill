@@ -1,0 +1,17 @@
+{
+synchronized (lock) {
+    int size;
+    size=sizebuff.readInt();
+    for (int i=0; i < size; i++) {
+      fieldPosTis.put(sizebuff.readInt(),sizebuff.readLong());
+    }
+    size=sizebuff.readInt();
+    for (int i=0; i < size; i++) {
+      fieldPosTisTxt.put(sizebuff.readInt(),sizebuff.readLong());
+    }
+    size=sizebuff.readInt();
+    for (int i=0; i < size; i++) {
+      fieldPosTisVal.put(sizebuff.readInt(),sizebuff.readLong());
+    }
+  }
+}

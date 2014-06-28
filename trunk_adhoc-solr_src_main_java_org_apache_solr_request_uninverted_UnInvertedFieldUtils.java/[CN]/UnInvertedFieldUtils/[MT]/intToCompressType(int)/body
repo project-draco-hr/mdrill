@@ -1,0 +1,16 @@
+{
+switch (d) {
+case 1:
+{
+      return CompressType.d_byte;
+    }
+case 2:
+{
+    return CompressType.d_short;
+  }
+default :
+{
+  return CompressType.d_int;
+}
+}
+}

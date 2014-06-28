@@ -1,0 +1,27 @@
+{
+  URL u=new URL("http://mon.alibaba-inc.com/noticenter/send.do");
+  HttpURLConnection con=(HttpURLConnection)u.openConnection();
+  con.setRequestMethod("POST");
+  con.setDoOutput(true);
+  con.setDoInput(true);
+  con.setUseCaches(false);
+  con.setRequestProperty("Content-Type","application/x-www-form-urlencoded");
+  OutputStreamWriter osw=new OutputStreamWriter(con.getOutputStream(),"UTF-8");
+  osw.write(urlFormat.toString());
+  osw.flush();
+  osw.close();
+  InputStreamReader urlStream=new InputStreamReader(con.getInputStream(),"utf-8");
+  BufferedReader in=new BufferedReader(urlStream);
+  int bufferlen=1;
+  char[] buffer=new char[bufferlen];
+  int readBytes=0;
+  while (true) {
+    readBytes=in.read(buffer,0,bufferlen);
+    if (readBytes < 0) {
+      break;
+    }
+  }
+  in.close();
+  urlStream.close();
+  con.disconnect();
+}

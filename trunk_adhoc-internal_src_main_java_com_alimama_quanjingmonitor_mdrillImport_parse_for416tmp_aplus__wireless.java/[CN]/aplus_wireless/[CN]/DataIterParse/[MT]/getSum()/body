@@ -1,0 +1,5 @@
+{
+  int type1=(!this.curr.isshaoma && this.curr.matchUrl.equals("wireless_zhadui")) ? 1 : 0;
+  int type2=(!this.curr.isshaoma && !this.curr.matchUrl.equals("wireless_zhadui")) ? 1 : 0;
+  return new Number[]{type1,0,0,0,0,0,type2,0,this.curr.isshaoma ? 1 : 0};
+}

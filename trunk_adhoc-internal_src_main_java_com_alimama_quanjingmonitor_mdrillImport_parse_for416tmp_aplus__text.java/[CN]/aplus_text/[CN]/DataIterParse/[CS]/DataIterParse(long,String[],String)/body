@@ -1,0 +1,8 @@
+{
+  this.ts=ts;
+  String Url=ColsDefine.decodeString(pvlog[3]);
+  String url_lwfrom=ColsDefine.getName(Url,"lwfrom");
+  this.parseSaoma(url_lwfrom);
+  this.setPV2(url_lwfrom,Url);
+  this.curr=querylist.poll();
+}

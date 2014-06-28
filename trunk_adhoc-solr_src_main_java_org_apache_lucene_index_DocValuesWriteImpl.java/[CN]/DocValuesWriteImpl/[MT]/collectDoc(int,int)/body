@@ -1,0 +1,8 @@
+{
+  if (this.current_alloc_size <= docid) {
+    this.current_alloc_size=docid + BlockBufferPool.interval;
+    this.doc2Tm=BlockBufferPool.INT_POOL.reCalloc(this.doc2Tm,this.current_alloc_size,BlockBufferPool.INT_CREATE,TERM_NULL_NUMBER);
+  }
+  maxdocid=Math.max(maxdocid,docid);
+  doc2Tm.set(docid,termNum);
+}

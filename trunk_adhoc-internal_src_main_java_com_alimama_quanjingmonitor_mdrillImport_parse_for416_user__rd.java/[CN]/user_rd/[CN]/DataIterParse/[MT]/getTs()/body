@@ -1,0 +1,4 @@
+{
+  long ts=Long.parseLong(pvlog[1]);
+  return (ts / 10) * 10000;
+}

@@ -119,6 +119,10 @@ case 40:
 {
 return "{!contains f=" + key + "}"+ value2;
 }
+case 80:
+{
+return "{!inhdfs f=" + key + "}"+ value2;
+}
 case 9:
 {
 String[] listStrs=value2.split(",");

@@ -1,0 +1,32 @@
+{
+  HashMap<String,PidStat> requestData=request(ts,pidinfo,pidlist);
+  for (  Entry<String,PidStat> e : requestData.entrySet()) {
+    String pid=e.getKey();
+    PidInfo info=pidinfo.get(pid);
+    PidStat stat=e.getValue();
+    stat.makectr();
+    String loginfo="can`t found pid info " + pid;
+    if (info != null) {
+      loginfo=stat.printlog(info);
+      if (stat.isover(info)) {
+        for (        String mail : info.mailto) {
+          StringBuffer buffer=mailTo.get(mail);
+          if (buffer == null) {
+            buffer=new StringBuffer();
+            mailTo.put(mail,buffer);
+          }
+          buffer.append(stat.print(info)).append("\r\n");
+        }
+        for (        String wangwang : info.wangwang) {
+          StringBuffer buffer=wangwangTo.get(wangwang);
+          if (buffer == null) {
+            buffer=new StringBuffer();
+            wangwangTo.put(wangwang,buffer);
+          }
+          buffer.append(pid).append("\r\n");
+        }
+      }
+    }
+    System.out.println(loginfo);
+  }
+}

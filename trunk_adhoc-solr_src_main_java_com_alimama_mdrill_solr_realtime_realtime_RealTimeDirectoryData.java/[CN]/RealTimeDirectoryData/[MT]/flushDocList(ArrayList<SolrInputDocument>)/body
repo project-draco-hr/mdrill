@@ -1,4 +1,5 @@
 {
+  LOG.info("flushDocList start");
   DirectoryInfo buffer=bufferDirector.get(RAM_KEY);
   if (buffer == null) {
     buffer=new DirectoryInfo();
@@ -24,5 +25,6 @@
   writer.addDocuments(doclist);
   writer.close();
   buffer.UpTxid(txid);
+  LOG.info("flushDocList end");
   this.maybeMerger();
 }

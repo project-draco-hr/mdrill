@@ -1,0 +1,30 @@
+{
+  if (t != null && t.equals(target))   return true;
+  int startIdx=tindex.index.search(target.text());
+  if (startIdx >= 0) {
+    if (tenum != null)     tenum.close();
+    tenum=reader.terms(target);
+    pos=startIdx << tindex.intervalBits;
+    return setTerm();
+  }
+  startIdx=-startIdx - 1;
+  if (startIdx == 0) {
+    if (tenum != null)     tenum.close();
+    tenum=reader.terms(target);
+    pos=0;
+    return setTerm();
+  }
+  startIdx--;
+  if ((pos >> tindex.intervalBits) == startIdx && t != null && t.text().compareTo(target.text()) <= 0) {
+  }
+ else {
+    if (tenum != null)     tenum.close();
+    tenum=reader.terms(target.createTerm(tindex.index.get(startIdx)));
+    pos=startIdx << tindex.intervalBits;
+    setTerm();
+  }
+  while (t != null && t.text().compareTo(target.text()) < 0) {
+    next();
+  }
+  return t != null;
+}

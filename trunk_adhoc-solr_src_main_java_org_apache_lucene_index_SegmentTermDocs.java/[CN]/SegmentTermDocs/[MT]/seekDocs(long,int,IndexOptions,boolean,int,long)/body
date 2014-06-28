@@ -1,0 +1,15 @@
+{
+  count=0;
+  this.indexOptions=indexOptions;
+  this.currentFieldStoresPayloads=currentFieldStoresPayloads;
+  df=docFreq;
+  doc=0;
+  freqBasePointer=pos;
+  proxBasePointer=proxPointer;
+  skipPointer=freqBasePointer + skipOffset;
+  freqStream.seek(freqBasePointer);
+  this.compress=new ReadCompress(this.freqStream);
+  this.compress.setCompressMode(isfrqCompress);
+  this.compress.resetCompressblock();
+  haveSkipped=false;
+}

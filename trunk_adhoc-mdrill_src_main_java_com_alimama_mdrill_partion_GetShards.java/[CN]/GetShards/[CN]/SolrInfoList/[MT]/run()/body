@@ -1,21 +1,34 @@
 {
+  ArrayList<SolrInfo> newlist=new ArrayList<SolrInfo>();
+  try {
+    long t1=System.currentTimeMillis();
+    LOG.info("sync from zookeeper " + tableName);
+    StormClusterState zkCluster=getCluster();
+    List<Integer> list=zkCluster.higo_ids(tableName);
+    for (    Integer id : list) {
+      SolrInfo info=zkCluster.higo_info(tableName,id);
+      if (info != null) {
+        newlist.add(info);
+      }
+    }
+    zkCluster.higo_base(tableName,this);
+    long tl=System.currentTimeMillis() - t1;
+    LOG.info("getShards timetaken:" + tl);
+  }
+ catch (  Exception e) {
+    return;
+  }
 synchronized (lock) {
-    try {
-      LOG.info("sync from zookeeper " + tableName);
-      StormClusterState zkCluster=getCluster();
-      List<Integer> list=zkCluster.higo_ids(tableName);
-      ArrayList<SolrInfo> newlist=new ArrayList<SolrInfo>();
-      for (      Integer id : list) {
-        SolrInfo info=zkCluster.higo_info(tableName,id);
-        if (info != null) {
-          newlist.add(info);
+    infolist.clear();
+    infolist.addAll(newlist);
+    if (this.task == null) {
+      this.task=new TimerTask(){
+        @Override public void run(){
+          SolrInfoList.this.run();
         }
       }
-      infolist.clear();
-      infolist.addAll(newlist);
-      zkCluster.higo_base(tableName,this);
-    }
- catch (    Exception e) {
+;
+      EXECUTE.schedule(task,60000l,60000l);
     }
   }
 }

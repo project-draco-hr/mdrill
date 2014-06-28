@@ -1,0 +1,15 @@
+{
+  if (this.index != null) {
+    BlockBufferPool.INT_POOL.recycleByteBlocks(this.index);
+    this.index=null;
+  }
+  if (this.indexshort != null) {
+    BlockBufferPool.SHORT_POOL.recycleByteBlocks(this.indexshort);
+    this.indexshort=null;
+  }
+  if (this.indexbyte != null) {
+    BlockBufferPool.BYTE_POOL.recycleByteBlocks(this.indexbyte);
+    this.indexbyte=null;
+  }
+  this.tmValue.free();
+}

@@ -1,0 +1,24 @@
+{
+  Vector a=new Vector();
+  Vector b=new Vector();
+  Vector c=new Vector();
+  for (int i=0; i < 3; i++) {
+    a.add("s_" + i,String.valueOf(i),1);
+    b.add("s_" + i,String.valueOf(i + 1),1);
+    c.add("s_" + i,String.valueOf(i),1);
+  }
+  a.add("abcd","1",100);
+  a.add("abcd","2",100);
+  a.add("abcd","3",100);
+  a.add("abcd","4",100);
+  b.add("abcd","1",100);
+  b.add("abcd","2",100);
+  b.add("abcd","3",100);
+  b.add("abcd","3",100);
+  c.add("abcd","1",100);
+  c.add("abcd","4",100);
+  c.add("abcd","5",100);
+  c.add("abcd","6",100);
+  System.out.println(a.distiance(b) * 100);
+  System.out.println(a.distiance(c) * 100);
+}

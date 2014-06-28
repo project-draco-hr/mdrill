@@ -1,0 +1,27 @@
+{
+  this.ts=ts;
+  String currurl=toUtf8String(log.getUrl());
+  String logtype=toUtf8String(log.getLogtype());
+  String logkey=toUtf8String(log.getLogkey());
+  String gmkey=toUtf8String(log.getGmkey());
+  String strday=ColsDefine.formatDay.format(new Date(ts * 1000));
+  boolean boolisMathchUrl=logkey.indexOf("laiwang.1.1") >= 0;
+  String isMathchUrl=matchType(gmkey,logkey);
+  String tid="";
+  if ("pc".equals(isMathchUrl)) {
+    String url_lwfrom=ColsDefine.getName(currurl,"lwfrom");
+    this.pid=this.fetch("pc",url_lwfrom,strday);
+  }
+ else {
+    this.pid=ColsDefine.getName(currurl,"pid");
+    tid=ColsDefine.getName(currurl,"tid");
+  }
+  if (this.pid != null && boolisMathchUrl && isMathchUrl != null) {
+    pid_type p=new pid_type();
+    p.pid=this.pid;
+    p.tid=tid;
+    p.matchUrl=isMathchUrl;
+    querylist.add(p);
+  }
+  this.curr=querylist.poll();
+}

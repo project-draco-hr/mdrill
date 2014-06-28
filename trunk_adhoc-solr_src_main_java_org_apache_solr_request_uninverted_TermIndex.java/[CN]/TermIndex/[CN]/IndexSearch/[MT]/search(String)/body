@@ -1,6 +1,3 @@
 {
-  if (quicktisInput == null) {
-    return Arrays.binarySearch(index,s);
-  }
-  return binarySearch0(0,indexl.length,s);
+  return Arrays.binarySearch(index,s);
 }

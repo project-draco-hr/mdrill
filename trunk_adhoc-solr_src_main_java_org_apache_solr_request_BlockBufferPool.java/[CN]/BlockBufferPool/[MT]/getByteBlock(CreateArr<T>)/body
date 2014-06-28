@@ -1,0 +1,15 @@
+{
+synchronized (BlockBufferPool.this) {
+    final int size=freeByteBlocks.size();
+    final BlockInterface<T> b;
+    if (0 == size) {
+      b=c.create(interval);
+      mallocTimes.incrementAndGet();
+    }
+ else {
+      b=freeByteBlocks.remove(size - 1);
+      reusedTimes.incrementAndGet();
+    }
+    return b;
+  }
+}

@@ -1,0 +1,20 @@
+{
+  int fieldNumber=reader.getFieldNum(field);
+  if (isforbiden || !reader.isSupportQuick() || fieldNumber < 0) {
+    return false;
+  }
+  uni.init(field,reader,schema);
+  uni.baseAdvanceDocs=UnInvertedField.ajustBase(4,baseAdvanceDocs,reader);
+  if (uni.checkEmpty()) {
+    return true;
+  }
+  log.info("makeInit start" + uni.field + " ,this.baseAdvanceDocs="+ (uni.baseAdvanceDocs == null ? 0 : uni.baseAdvanceDocs.size()));
+  int maxDoc=reader.maxDoc();
+  uni.startRamDocValue(maxDoc,reader,isreadDouble);
+  DocValuesReader docvalues=reader.getDocValues();
+  int maxtm=RamDocValueFill.Fill(uni,reader.maxDoc(),true,uni.ti,docvalues,fieldNumber,isreadDouble,uni.baseAdvanceDocs);
+  uni.endRamDocValue(isreadDouble,maxtm);
+  uni.tnr=uni.ramDocValue.getDocReader();
+  uni.baseAdvanceDocs=null;
+  return true;
+}

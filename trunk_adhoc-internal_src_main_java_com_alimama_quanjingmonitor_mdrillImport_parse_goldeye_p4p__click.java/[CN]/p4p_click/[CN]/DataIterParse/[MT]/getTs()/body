@@ -1,0 +1,4 @@
+{
+  long ts=Long.parseLong(p4ppvlog.getClickTime());
+  return (ts / 10) * 10000;
+}

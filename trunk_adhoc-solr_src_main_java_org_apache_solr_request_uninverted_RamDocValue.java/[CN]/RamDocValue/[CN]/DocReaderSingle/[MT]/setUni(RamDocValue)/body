@@ -1,0 +1,5 @@
+{
+  this.uni=uni;
+  this.termNumberValue=uni.getTermDoubleValue();
+  this.doc2tm=uni.getDocTmReader();
+}

@@ -1,0 +1,3 @@
+BitDocSet baseAdvanceDocs
+String field
+IndexReader reader

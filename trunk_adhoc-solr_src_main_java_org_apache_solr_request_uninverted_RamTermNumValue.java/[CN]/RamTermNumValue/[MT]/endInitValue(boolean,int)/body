@@ -1,0 +1,15 @@
+{
+  this.nullTermNum=maxTermNum + 1;
+  if (!isReadDouble) {
+    return;
+  }
+  int fillSize=nullTermNum + 1;
+  if (this.fieldDataType.equals(UnInvertedFieldUtils.FieldDatatype.d_double)) {
+    this.termValueDouble=BlockBufferPool.DOUBLE_POOL.reCalloc(this.termValueDouble,fillSize,BlockBufferPool.DOUBLE_CREATE,(double)RamTermNumValue.TERMNUM_NAN_VALUE);
+    this.termValueDouble.set(this.nullTermNum,(double)RamTermNumValue.TERMNUM_NAN_VALUE);
+  }
+ else {
+    this.termValueLong=BlockBufferPool.LONG_POOL.reCalloc(this.termValueLong,fillSize,BlockBufferPool.LONG_CREATE,RamTermNumValue.TERMNUM_NAN_VALUE);
+    this.termValueLong.set(this.nullTermNum,(long)RamTermNumValue.TERMNUM_NAN_VALUE);
+  }
+}

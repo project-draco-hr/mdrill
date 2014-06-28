@@ -9,6 +9,7 @@
   this.hivexec.setStoreDir(this.storeDir);
   this.hivexec.setHql(this.hql);
   this.hivexec.setCallback(this.offline);
+  this.hivexec.setProcesser(this.getProcesser());
   this.hivexec.init();
   EXECUTE.execute(this.hivexec);
 }

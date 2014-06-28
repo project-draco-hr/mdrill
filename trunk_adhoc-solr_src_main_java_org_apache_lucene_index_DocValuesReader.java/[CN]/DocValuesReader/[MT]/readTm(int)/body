@@ -1,0 +1,15 @@
+{
+  if (docid >= this.maxsize) {
+    return this.maxtm + 1;
+  }
+  long startbits=1l * docid * useBits;
+  long startpos=startbits / 8;
+  int offsetbits=(int)(startbits - (startpos * 8));
+  long pos=this.tispos + startpos;
+  this.quicktisInput.seek(pos);
+  int rtn=this.quicktisInput.readbits(offsetbits,useBits);
+  if (rtn < 0 || rtn > this.maxtm) {
+    return this.maxtm + 1;
+  }
+  return rtn;
+}

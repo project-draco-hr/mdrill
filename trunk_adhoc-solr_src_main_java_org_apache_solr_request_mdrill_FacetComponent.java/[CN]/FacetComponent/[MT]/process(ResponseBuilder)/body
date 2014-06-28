@@ -1,21 +1,36 @@
 {
-  if (!rb.doFacets) {
+  if (!rb1.doFacets) {
     return;
   }
-  SolrParams params=rb.req.getParams();
-  String[] facetFs=params.getParams(FacetParams.FACET_FIELD);
-  try {
-    if (null != facetFs) {
-      boolean isdetail=params.getBool(FacetParams.FACET_CROSS_DETAIL,false);
-      Object res=this.getResult(isdetail,rb.req.getSearcher(),params,rb.req,facetFs,rb.getResults().docSet);
-      rb.rsp.add("mdrill_data",res);
-    }
+  final ResponseBuilder rb=rb1;
+  ExecutorCompletionService<String> submit=new ExecutorCompletionService<String>(SUBMIT_POOL);
+  Callable<String> task=new Callable<String>(){
+    public String call() throws Exception {
+      SolrParams params=rb.req.getParams();
+      String[] facetFs=params.getParams(FacetParams.FACET_FIELD);
+      try {
+        if (null != facetFs) {
+          boolean isdetail=params.getBool(FacetParams.FACET_CROSS_DETAIL,false);
+          Object res=FacetComponent.this.getResult(isdetail,rb.req.getSearcher(),params,rb.req,facetFs,rb.getResults().docSet);
+          rb.rsp.add("mdrill_data",res);
+        }
  else {
-      throw new Exception("null != facetFs");
+          throw new Exception("null != facetFs");
+        }
+      }
+ catch (      Throwable e) {
+        LOG.error("getFacetCounts",e);
+        throw new SolrException(ErrorCode.SERVER_ERROR,e);
+      }
+      return "";
     }
   }
+;
+  submit.submit(task);
+  try {
+    submit.take().get();
+  }
  catch (  Throwable e) {
-    LOG.error("getFacetCounts",e);
-    throw new SolrException(ErrorCode.SERVER_ERROR,e);
+    throw new IOException(e);
   }
 }

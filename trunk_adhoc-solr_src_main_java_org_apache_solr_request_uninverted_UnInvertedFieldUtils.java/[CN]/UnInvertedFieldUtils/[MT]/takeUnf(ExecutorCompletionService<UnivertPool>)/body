@@ -1,0 +1,14 @@
+{
+  UnInvertedField uif=null;
+  try {
+    UnivertPool rtnuif=serv.take().get();
+    if (rtnuif.e != null) {
+      throw rtnuif.e;
+    }
+    uif=rtnuif.uni;
+  }
+ catch (  Throwable e) {
+    throw new IOException(e);
+  }
+  return uif;
+}

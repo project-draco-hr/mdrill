@@ -1,0 +1,4 @@
+SolrQuery query
+CommonsHttpSolrServer server
+JSONObject jsonObj
+String key

@@ -1,0 +1,7 @@
+{
+synchronized (lock) {
+    if (!this.isIndex) {
+      docValues.collectDoc(docid,this.termNum);
+    }
+  }
+}

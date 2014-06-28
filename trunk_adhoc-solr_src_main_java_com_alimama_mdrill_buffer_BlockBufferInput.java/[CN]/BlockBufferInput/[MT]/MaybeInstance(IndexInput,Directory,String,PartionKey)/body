@@ -5,5 +5,8 @@
   if (dir instanceof org.apache.lucene.store.MMapDirectory) {
     return input;
   }
+  if (dir instanceof RAMDirectory) {
+    return input;
+  }
   return new BlockBufferInput(input,dir,filename,p);
 }

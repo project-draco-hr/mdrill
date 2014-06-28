@@ -4,7 +4,7 @@
     infolist=new SolrInfoList(tableName);
     infolist.run();
     infolistmap.putIfAbsent(tableName,infolist);
+    LOG.info("SolrInfoList init:" + tableName);
   }
-  infolist.maybeRefresh();
   return infolist;
 }

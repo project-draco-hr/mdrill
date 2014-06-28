@@ -1,0 +1,6 @@
+Configuration conf
+Path input
+Path clustersIn
+Path output
+int maxIterations
+String delta

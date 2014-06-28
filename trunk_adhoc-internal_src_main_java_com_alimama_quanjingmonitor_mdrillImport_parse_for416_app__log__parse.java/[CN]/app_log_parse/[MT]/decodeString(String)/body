@@ -1,0 +1,13 @@
+{
+  try {
+    return new String(java.net.URLDecoder.decode(args,"UTF-8").getBytes("UTF-8"),"UTF-8");
+  }
+ catch (  Throwable e) {
+    try {
+      return new String(java.net.URLDecoder.decode(args,"GBK").getBytes("UTF-8"),"UTF-8");
+    }
+ catch (    Throwable e2) {
+      return args;
+    }
+  }
+}

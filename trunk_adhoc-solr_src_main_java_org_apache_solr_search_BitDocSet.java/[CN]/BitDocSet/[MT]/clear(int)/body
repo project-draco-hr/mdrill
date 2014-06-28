@@ -1,0 +1,4 @@
+{
+  bits.clear(doc);
+  size=-1;
+}

@@ -1,33 +1,14 @@
 {
-  if (outputQuickTii != null) {
-    outputQuickTii.close();
-  }
-  if (outputQuickTis != null) {
-    outputQuickTis.close();
-  }
-  if (outputQuickTisVal != null) {
-    outputQuickTisVal.close();
-  }
-  if (outputQuickTisTxt != null) {
-    outputQuickTisTxt.close();
-  }
+  outputSize.writeLong(size);
   try {
-    outputSize.writeLong(size);
-    outputSize.writeInt(fieldPos.size());
-    for (    Entry<Integer,Long> e : fieldPos.entrySet()) {
-      outputSize.writeInt(e.getKey());
-      outputSize.writeLong(e.getValue());
+synchronized (lock) {
+      this.docValues.flushFieldDoc(this.termNum);
+      this.docValues.flushPosTo(outputSize);
+      this.docValues.free();
+      this.docValues.close();
     }
-    fieldCount.put(this.lastquickfieldNumber,this.termNum);
-    outputSize.writeInt(fieldCount.size());
-    for (    Entry<Integer,Integer> e : fieldCount.entrySet()) {
-      outputSize.writeInt(e.getKey());
-      outputSize.writeInt(e.getValue());
-    }
-    outputSize.writeInt(fieldPosVal.size());
-    for (    Entry<Integer,Long> e : fieldPosVal.entrySet()) {
-      outputSize.writeInt(e.getKey());
-      outputSize.writeLong(e.getValue());
+    if (outputQuickTii != null) {
+      outputQuickTii.close();
     }
   }
   finally {

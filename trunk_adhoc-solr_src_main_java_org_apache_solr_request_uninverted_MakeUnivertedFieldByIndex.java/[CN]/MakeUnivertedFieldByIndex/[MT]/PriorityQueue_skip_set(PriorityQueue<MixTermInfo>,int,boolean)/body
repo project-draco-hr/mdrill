@@ -1,0 +1,18 @@
+{
+  int skipcount=0;
+  ArrayList<MixTermInfo> sorted=new ArrayList<MixTermInfo>(termDocslist.size());
+  sorted.addAll(termDocslist);
+  Collections.sort(sorted,UnInvertedFieldUtils.TD_CMP_TM);
+  for (  MixTermInfo cl : sorted) {
+    if (this.isFinish()) {
+      break;
+    }
+    if (skipcount > MAX_SKIP_COUNT) {
+      this.set_Doc2TermNum_NonSkip(cl.getTd(),docs,freqs,cl.getTermNum(),isinit,maxDoc);
+    }
+ else {
+      skipcount+=this.set_Doc2TermNum_Skip(cl.getTd(),docs,freqs,cl.getTermNum(),isinit,maxDoc);
+    }
+  }
+  return skipcount;
+}

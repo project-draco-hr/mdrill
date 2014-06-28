@@ -3,8 +3,5 @@
   if (index.index != null) {
     size+=index.index.length << 3;
   }
-  if (index.indexl != null) {
-    size+=index.indexl.length * (Long.SIZE / 8);
-  }
   return 8 + 8 + 8+ 8+ size+ sizeOfStrings;
 }

@@ -1,0 +1,4 @@
+int count
+int termNum
+TermDocs td
+Term tm

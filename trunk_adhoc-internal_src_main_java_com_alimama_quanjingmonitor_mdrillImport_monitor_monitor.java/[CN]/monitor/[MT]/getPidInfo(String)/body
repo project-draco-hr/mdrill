@@ -1,0 +1,37 @@
+{
+  HashMap<String,PidInfo> pidinfo=new HashMap<String,PidInfo>();
+  File file=new File(filePath);
+  if (file.isFile() && file.exists()) {
+    try {
+      InputStreamReader read=new InputStreamReader(new FileInputStream(file),"UTF-8");
+      BufferedReader reader=new BufferedReader(read);
+      String line;
+      try {
+        while ((line=reader.readLine()) != null) {
+          String[] cols=line.split("\t");
+          if (cols.length < 4) {
+            continue;
+          }
+          String pid=cols[0];
+          String[] mailto=cols[1].split(",");
+          String[] wangwang=cols[2].split(",");
+          double overrate=Double.parseDouble(cols[3]);
+          PidInfo info=new PidInfo(pid,mailto,wangwang,overrate);
+          pidinfo.put(pid,info);
+        }
+        reader.close();
+        read.close();
+      }
+ catch (      IOException e) {
+        e.printStackTrace();
+      }
+    }
+ catch (    UnsupportedEncodingException e) {
+      e.printStackTrace();
+    }
+catch (    FileNotFoundException e) {
+      e.printStackTrace();
+    }
+  }
+  return pidinfo;
+}

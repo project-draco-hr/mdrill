@@ -1,0 +1,24 @@
+{
+  this.tisposTxt=fieldPosTisTxt.get(fieldNumber);
+  this.tisposVal=fieldPosTisVal.get(fieldNumber);
+  long pos=fieldPosTis.get(fieldNumber);
+  this.quicktisInput.seek(pos);
+  this.maxsize=this.quicktisInput.readInt();
+  this.maxtm=this.quicktisInput.readInt();
+  this.useBits=this.quicktisInput.readInt();
+  ;
+  this.tispos=this.quicktisInput.getFilePointer();
+  this.lst=new ArrayList<String>();
+  this.sizeOfStrings=0;
+  if (readText) {
+    this.quicktisInputTxt.seek(this.tisposTxt);
+    for (int i=0; i < this.maxtm; i++) {
+      if ((i & TermIndex.intervalMask) == 0) {
+        String text=this.quicktisInputTxt.readString();
+        this.sizeOfStrings+=text.length() << 1;
+        lst.add(text);
+      }
+    }
+  }
+  log.info(fieldNumber + ">" + this.toString());
+}

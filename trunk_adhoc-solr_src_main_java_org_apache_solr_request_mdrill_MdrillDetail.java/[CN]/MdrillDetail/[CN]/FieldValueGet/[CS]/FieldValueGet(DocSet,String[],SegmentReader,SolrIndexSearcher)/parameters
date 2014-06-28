@@ -1,0 +1,4 @@
+DocSet baseAdvanceDocs
+String[] fields
+SegmentReader reader
+SolrIndexSearcher searcher

@@ -1,0 +1,3 @@
+BlockArray<T> last
+CreateArr<T> c
+T init

@@ -1,0 +1,55 @@
+{
+  this.ts=ts;
+  String logtype=toUtf8String(log.getLogtype());
+  String Url=toUtf8String(log.getUrl());
+  String strday=ColsDefine.formatDay.format(new Date(ts * 1000));
+  String url_lwfrom=ColsDefine.getName(Url,"lwfrom");
+  StringBuffer buff=new StringBuffer();
+  String[] url_lwfrom_split=String.valueOf(url_lwfrom).split("_");
+  boolean isshaoma=url_lwfrom_split.length > 2 && !url_lwfrom_split[2].isEmpty();
+  if (isshaoma) {
+    String shaomaPid=this.fetch(true,"pc",url_lwfrom_split[0],strday);
+    if (shaomaPid != null) {
+      pid_type p=new pid_type();
+      p.isshaoma=true;
+      p.pid=shaomaPid;
+      p.matchUrl="pc";
+      querylist.add(p);
+    }
+  }
+  String isMathchUrl=matchType(Url);
+  buff.append(Url).append("@####@");
+  buff.append(logtype).append("@####@");
+  buff.append(url_lwfrom).append("@####@");
+  buff.append(isMathchUrl).append("@####@");
+  boolean needprint=Url.indexOf("mm_26632292_4292703_14516725") >= 0 || Url.indexOf("mm_26632286_4290367_14490604") >= 0;
+  needprint=needprint || Url.indexOf("h5.m.taobao.com/laiwang/act/419/index.html") >= 0;
+  needprint=needprint || Url.indexOf("m.laiwang.com/go/laiwang/419/index.php") >= 0;
+  needprint=needprint || Url.indexOf("www.laiwang.com/event/share.htm") >= 0;
+  needprint=needprint || Url.indexOf("www.laiwang.com/event/feed.htm") >= 0;
+  if (isMathchUrl != null) {
+    String tid="";
+    if ("pc".equals(isMathchUrl)) {
+      this.pid=this.fetch(false,"pc",String.valueOf(url_lwfrom),strday);
+    }
+ else {
+      this.pid=ColsDefine.getName(Url,"refpid");
+      tid=ColsDefine.getName(Url,"tid");
+      if (this.pid == null) {
+        needprint=true;
+      }
+    }
+    if (this.pid != null) {
+      pid_type p=new pid_type();
+      p.isshaoma=false;
+      p.pid=this.pid;
+      p.tid=tid;
+      p.matchUrl=isMathchUrl;
+      querylist.add(p);
+    }
+  }
+  if (needprint) {
+    this.strlog=buff.toString();
+  }
+  this.curr=querylist.poll();
+}

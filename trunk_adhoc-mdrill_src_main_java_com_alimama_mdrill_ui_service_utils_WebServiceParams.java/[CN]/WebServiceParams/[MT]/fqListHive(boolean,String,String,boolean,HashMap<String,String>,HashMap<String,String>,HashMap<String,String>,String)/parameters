@@ -1,0 +1,8 @@
+boolean isNumber
+String part
+String queryStr
+boolean isPartionByPt
+HashMap<String,String> filetypeMap
+HashMap<String,String> colMap
+HashMap<String,String> colMap2
+String tblname

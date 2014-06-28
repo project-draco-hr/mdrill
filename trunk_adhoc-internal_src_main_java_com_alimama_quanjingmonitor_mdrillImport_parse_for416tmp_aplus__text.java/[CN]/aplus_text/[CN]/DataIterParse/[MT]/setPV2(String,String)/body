@@ -1,0 +1,24 @@
+{
+  String isMathchUrl=matchType(Url);
+  if (isMathchUrl == null) {
+    return;
+  }
+  String tid="";
+  String pid=null;
+  if ("pc".equals(isMathchUrl)) {
+    String strday=ColsDefine.formatDay.format(new Date(ts * 1000));
+    pid=this.fetch(false,"pc",String.valueOf(url_lwfrom),strday);
+  }
+ else {
+    pid=ColsDefine.getName(Url,"refpid");
+    tid=ColsDefine.getName(Url,"tid");
+  }
+  if (pid != null) {
+    pid_type p=new pid_type();
+    p.isshaoma=false;
+    p.pid=pid;
+    p.tid=tid;
+    p.matchUrl=isMathchUrl;
+    querylist.add(p);
+  }
+}

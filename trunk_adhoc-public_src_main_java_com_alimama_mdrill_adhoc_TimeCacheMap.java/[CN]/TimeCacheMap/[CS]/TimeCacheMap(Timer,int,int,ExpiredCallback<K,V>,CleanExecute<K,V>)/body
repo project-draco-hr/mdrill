@@ -1,0 +1,51 @@
+{
+  if (cleanlock != null) {
+    this._cleanlock=cleanlock;
+  }
+  this.numBuckets=numBuckets;
+  if (numBuckets < 2) {
+    throw new IllegalArgumentException("numBuckets must be >= 2");
+  }
+  _buckets=new LinkedList<HashMap<K,V>>();
+  for (int i=0; i < numBuckets; i++) {
+    _buckets.add(new HashMap<K,V>());
+  }
+  _callback=callback;
+  final long expirationMillis=expirationSecs * 1000L;
+  final long sleepTime=expirationMillis / (numBuckets - 1);
+  this.localMergerDelay=sleepTime - 100;
+  if (timer == null) {
+    _cleaner=new Thread(new Runnable(){
+      public void run(){
+        while (true) {
+          LOG.info("_cleaner start");
+          try {
+            Thread.currentThread().sleep(sleepTime);
+            TimeCacheMap.this.maybeClean();
+          }
+ catch (          Throwable ex) {
+            LOG.error("_cleaner",ex);
+          }
+        }
+      }
+    }
+);
+    _cleaner.setDaemon(true);
+    _cleaner.start();
+  }
+ else {
+    task=new TimerTask(){
+      @Override public void run(){
+        try {
+          TimeCacheMap.this.maybeClean();
+        }
+ catch (        Throwable ex) {
+          LOG.error("_cleaner",ex);
+        }
+      }
+    }
+;
+    timer.schedule(task,sleepTime,sleepTime);
+    this.timer=timer;
+  }
+}

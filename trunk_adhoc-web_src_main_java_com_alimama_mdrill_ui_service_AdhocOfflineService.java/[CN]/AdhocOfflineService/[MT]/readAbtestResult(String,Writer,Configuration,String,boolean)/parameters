@@ -1,0 +1,5 @@
+String path
+Writer outStream
+Configuration conf
+String match
+boolean onlycustid

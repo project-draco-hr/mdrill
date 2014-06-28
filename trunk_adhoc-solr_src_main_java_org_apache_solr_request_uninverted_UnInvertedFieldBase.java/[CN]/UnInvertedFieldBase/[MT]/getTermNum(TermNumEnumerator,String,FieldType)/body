@@ -1,0 +1,11 @@
+{
+  if ((text.startsWith("_") || text.startsWith("null")) && !this.fieldDataType.equals(FieldDatatype.d_string)) {
+    return this.getNullTm();
+  }
+  if (te.skipTo(ft.toInternal(text))) {
+    return te.getTermNumber();
+  }
+ else {
+    return this.getNullTm();
+  }
+}

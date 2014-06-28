@@ -1,5 +1,5 @@
 {
-  LOG.info("####mergerRam####");
+  LOG.info("####mergerRam start####");
   DirectoryInfo m1=expire;
   if (m1 == null) {
     m1=RamDirector.remove(RAM_KEY);

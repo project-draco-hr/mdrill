@@ -1,0 +1,4 @@
+{
+  this.termValueDouble=tv.termValueDouble;
+  this.tv=tv;
+}

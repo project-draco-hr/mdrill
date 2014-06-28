@@ -1,0 +1,3 @@
+{
+  this.ramDocValue.endInitValue(isReadDouble,maxTermNum);
+}

@@ -1,0 +1,5 @@
+{
+  int block=i >>> intervalBits;
+  int pos=i & intervalMask;
+  data[block].set(pos,v);
+}

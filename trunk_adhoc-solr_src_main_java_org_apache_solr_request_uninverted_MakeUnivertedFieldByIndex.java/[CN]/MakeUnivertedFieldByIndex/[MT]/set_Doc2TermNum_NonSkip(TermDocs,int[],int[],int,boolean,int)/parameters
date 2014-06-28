@@ -1,0 +1,6 @@
+TermDocs td
+int[] docs
+int[] freqs
+int termNum
+boolean isinit
+int maxDoc

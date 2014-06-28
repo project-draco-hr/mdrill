@@ -1,0 +1,7 @@
+{
+  this.setWeight(v.getWeight());
+  this.setMustVeryLike(v.isMustVeryLike());
+  this.setMustveryLikeNumber(v.getMustveryLikeNumber());
+  this.val+=v.val;
+  this.count+=v.count;
+}

@@ -1,0 +1,7 @@
+{
+  super();
+  this.pid=pid;
+  this.mailto=mailto;
+  this.wangwang=wangwang;
+  this.overrate=overrate;
+}

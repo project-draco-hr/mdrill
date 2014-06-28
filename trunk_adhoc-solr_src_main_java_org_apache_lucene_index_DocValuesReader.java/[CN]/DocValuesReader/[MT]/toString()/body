@@ -1,0 +1,3 @@
+{
+  return "DocValuesReader [tispos=" + tispos + ", tisposTxt="+ tisposTxt+ ", tisposVal="+ tisposVal+ ", maxsize="+ maxsize+ ", maxtm="+ maxtm+ ", useBits="+ useBits+ ", lst="+ lst.size()+ ", sizeOfStrings="+ sizeOfStrings+ "]";
+}

@@ -1,0 +1,37 @@
+{
+  String logkey=toUtf8String(log.getLogkey());
+  boolean boolisMathchUrl=logkey.indexOf("laiwang.1.1") >= 0;
+  if (!boolisMathchUrl) {
+    return;
+  }
+  String gmkey=toUtf8String(log.getGmkey());
+  String matchurl_type=matchType(gmkey,logkey);
+  if (matchurl_type == null) {
+    return;
+  }
+  if ("pc".equals(matchurl_type)) {
+    String strday=ColsDefine.formatDay.format(new Date(ts * 1000));
+    String url_lwfrom=ColsDefine.getName(currurl,"lwfrom");
+    String pid=this.fetch("pc",url_lwfrom,strday);
+    if (pid != null) {
+      pid_type p=new pid_type();
+      p.pid=pid;
+      p.tid="";
+      p.matchUrl=matchurl_type;
+      p.isAplusMode=false;
+      querylist.add(p);
+    }
+  }
+ else {
+    String pid=ColsDefine.getName(currurl,"refpid");
+    if (pid != null) {
+      String tid=ColsDefine.getName(currurl,"tid");
+      pid_type p=new pid_type();
+      p.pid=pid;
+      p.tid=tid;
+      p.matchUrl=matchurl_type;
+      p.isAplusMode=false;
+      querylist.add(p);
+    }
+  }
+}

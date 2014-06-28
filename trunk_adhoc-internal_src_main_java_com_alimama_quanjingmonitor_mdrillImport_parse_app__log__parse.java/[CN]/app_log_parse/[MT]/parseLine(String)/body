@@ -34,9 +34,6 @@
       this.lastendts=(System.currentTimeMillis() / 1000) + TS_MAX;
       this.lines=0;
     }
-    if (clicklog[29].isEmpty() || clicklog[29].length() < 5 || clicklog[29].indexOf("_sb") < 0) {
-      return null;
-    }
     long ts=Long.parseLong(clicklog[40]);
     this.lines_sb++;
     if (this.lines_sb > 5000) {
@@ -50,65 +47,17 @@
     if (ts < laststartts || ts > lastendts) {
       return null;
     }
-    JSONObject json=parseSb(clicklog[29]);
-    String refpid=null;
-    String ad_id=null;
-    if (match_refpid) {
-      if (json.has("refpid")) {
-        refpid=String.valueOf(json.get("refpid"));
-      }
+    String refpid=parseGet(arg1,reserves,args,"refpid");
+    ;
+    String ad_id=parseGet(arg1,reserves,args,"ad_id");
+    ;
+    boolean iswireless=true;
+    if (refpid == null && ad_id != null) {
+      String strday=formatDay.format(new Date(ts * 1000));
+      refpid=FetchAdid2Pid.fetch().get(strday + "@" + String.valueOf(ad_id));
+      iswireless=false;
     }
-    if (match_ad_id) {
-      if (json.has("ad_id")) {
-        ad_id=String.valueOf(json.get("ad_id"));
-      }
-    }
-    try {
-      if (match_refpid) {
-        if (refpid == null || refpid.isEmpty() || refpid.length() < 5 || refpid.length() > 500) {
-          refpid=getName(args,"refpid");
-        }
-        if (refpid == null || refpid.isEmpty() || refpid.length() < 5 || refpid.length() > 500) {
-          if (arg1.indexOf("refpid") >= 0) {
-            JSONObject jsonstr=new JSONObject(arg1);
-            if (jsonstr.has("refpid")) {
-              refpid=String.valueOf(jsonstr.get("refpid"));
-            }
-          }
-        }
-      }
-      if (match_ad_id) {
-        if (ad_id == null || ad_id.isEmpty() || ad_id.length() < 5 || ad_id.length() > 500) {
-          ad_id=getName(args,"ad_id");
-        }
-        if (ad_id == null || ad_id.isEmpty() || ad_id.length() < 5 || ad_id.length() > 500) {
-          if (arg1.indexOf("ad_id") >= 0) {
-            JSONObject jsonstr=new JSONObject(arg1);
-            if (jsonstr.has("ad_id")) {
-              ad_id=String.valueOf(jsonstr.get("ad_id"));
-            }
-          }
-        }
-      }
-    }
- catch (    Throwable e) {
-      this.lines_sb2++;
-      if (this.lines_sb2 > 100) {
-        this.lines_sb2=0;
-        long nowts=System.currentTimeMillis();
-        if (nowts - timediff2 > 30000) {
-          timediff2=nowts;
-          LOG.info("parse error :" + formatDayMin.format(new Date(ts * 1000)) + " "+ formatRows(clicklog),e);
-        }
-      }
-    }
-    if (refpid == null || refpid.isEmpty() || refpid.length() < 5 || refpid.length() > 500) {
-      if (match_ad_id && ad_id != null) {
-        String strday=formatDay.format(new Date(ts * 1000));
-        refpid=FetchAdid2Pid.fetch().get(strday + "@" + String.valueOf(ad_id));
-      }
-    }
-    if (refpid == null || refpid.isEmpty() || refpid.length() < 5 || refpid.length() > 500) {
+    if (isempty(refpid)) {
       this.lines_sb3++;
       if (this.lines_sb3 > 100) {
         this.lines_sb3=0;
@@ -120,7 +69,7 @@
       }
       return null;
     }
-    return new DataIterParse(ts,clicklog,refpid,!match_ad_id);
+    return new DataIterParse(ts,clicklog,refpid,iswireless);
   }
  catch (  Throwable nfe) {
     if (groupCreateerror < 100) {

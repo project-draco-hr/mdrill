@@ -10,7 +10,7 @@
       this.lines=0;
     }
     String[] log=line.split("\001",-1);
-    if (log == null || log.length < 54) {
+    if (log == null || log.length < 46) {
       return null;
     }
     long ts=Long.parseLong(log[2]);

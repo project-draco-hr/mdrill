@@ -1,0 +1,7 @@
+{
+  for (  Cluster cluster : clusters) {
+    Vector clusterCenter=cluster.getCenter();
+    clusterCenter.setNumPoints(0);
+    context.write(new Text(String.valueOf(cluster.getId())),clusterCenter);
+  }
+}

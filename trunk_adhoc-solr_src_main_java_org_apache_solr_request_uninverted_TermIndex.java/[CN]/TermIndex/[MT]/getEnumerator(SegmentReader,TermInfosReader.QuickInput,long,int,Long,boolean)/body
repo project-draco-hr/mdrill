@@ -1,3 +1,0 @@
-{
-  return new QuickNumberedTermEnum(this,quicktisInput,pos,cnt,pos2,isReadDouble);
-}

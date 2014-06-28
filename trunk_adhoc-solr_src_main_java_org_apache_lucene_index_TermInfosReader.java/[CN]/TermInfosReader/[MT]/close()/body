@@ -1,8 +1,8 @@
 {
   supportquick.set(false);
-  if (this.quicktisInput != null) {
-    quicktisInput.close();
-    quicktisInput=null;
+  if (this.docValues != null) {
+    docValues.close();
+    docValues=null;
   }
   if (this.isQuickMode.get()) {
     if (tiiInput != null) {

@@ -1,0 +1,19 @@
+{
+  int limit=10;
+  PriorityQueue<Integer> res=new PriorityQueue<Integer>(limit,Collections.reverseOrder(cmp));
+  ArrayList<Integer> clusters_list=new ArrayList<Integer>();
+  for (int i=100; i > 1; i--) {
+    clusters_list.add(i);
+    if (res.size() < limit) {
+      res.add(i);
+    }
+ else     if (cmp.compare(res.peek(),i) > 0) {
+      res.add(i);
+    }
+  }
+  for (  Integer i : res) {
+    System.out.println(i);
+  }
+  Collections.sort(clusters_list,cmp);
+  System.out.println(clusters_list);
+}

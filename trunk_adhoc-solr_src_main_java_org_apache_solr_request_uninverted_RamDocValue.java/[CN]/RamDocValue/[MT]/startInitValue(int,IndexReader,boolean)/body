@@ -1,0 +1,5 @@
+{
+  int maxDocOffset=maxDoc + 2;
+  this.index=BlockBufferPool.INT_POOL.calloc(maxDocOffset,BlockBufferPool.INT_CREATE,-1);
+  this.tmValue.startInitValue(maxDoc,reader,isReadDouble);
+}

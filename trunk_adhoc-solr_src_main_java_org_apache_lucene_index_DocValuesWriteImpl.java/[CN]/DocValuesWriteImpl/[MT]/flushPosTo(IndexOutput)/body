@@ -1,0 +1,17 @@
+{
+  outputSize.writeInt(fieldPosTis.size());
+  for (  Entry<Integer,Long> e : fieldPosTis.entrySet()) {
+    outputSize.writeInt(e.getKey());
+    outputSize.writeLong(e.getValue());
+  }
+  outputSize.writeInt(fieldPosTisTxt.size());
+  for (  Entry<Integer,Long> e : fieldPosTisTxt.entrySet()) {
+    outputSize.writeInt(e.getKey());
+    outputSize.writeLong(e.getValue());
+  }
+  outputSize.writeInt(fieldPosTisVal.size());
+  for (  Entry<Integer,Long> e : fieldPosTisVal.entrySet()) {
+    outputSize.writeInt(e.getKey());
+    outputSize.writeLong(e.getValue());
+  }
+}

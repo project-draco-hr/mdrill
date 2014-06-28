@@ -1,0 +1,3 @@
+String field
+IndexReader reader
+IndexSchema schema

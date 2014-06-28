@@ -1,0 +1,4 @@
+{
+  int price=Integer.parseInt(p4ppvlog.getClickPrice());
+  return new Number[]{0,0,1,price,0,0,0,0};
+}

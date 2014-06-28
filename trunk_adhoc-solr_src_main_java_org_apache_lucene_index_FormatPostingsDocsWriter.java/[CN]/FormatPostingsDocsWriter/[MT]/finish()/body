@@ -6,6 +6,8 @@
   if (df > 0) {
     parent.termsOut.add(parent.currentTermobj,fieldInfo.number,utf8.result,utf8.length,termInfo);
   }
+  parent.termsOut.addTm(parent.currentTermobj,fieldInfo.number);
+  ;
   lastDocID=0;
   df=0;
 }

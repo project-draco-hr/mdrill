@@ -1,0 +1,31 @@
+{
+  ArrayList<Clusterlist> clusters_list=new ArrayList<Clusterlist>();
+  for (  Clusterlist list : this.res) {
+    clusters_list.add(list);
+  }
+  System.out.println(clusters_list.size() + "##################");
+  int index=0;
+  int writecount=0;
+  while (true) {
+    boolean iswrite=false;
+    for (    Clusterlist list : clusters_list) {
+      if (list.list.size() > index) {
+        Cluster tmp=list.list.get(index);
+        if (tmp.getCenter().getNumPoints() < 10) {
+          continue;
+        }
+        Cluster w=new Cluster(tmp.getCenter(),Index + writecount);
+        System.out.println(list.key + "\t" + w.toString());
+        context.write(list.key,w);
+        if (writecount++ > outputrecord) {
+          return;
+        }
+        iswrite=true;
+      }
+    }
+    index++;
+    if (!iswrite) {
+      break;
+    }
+  }
+}

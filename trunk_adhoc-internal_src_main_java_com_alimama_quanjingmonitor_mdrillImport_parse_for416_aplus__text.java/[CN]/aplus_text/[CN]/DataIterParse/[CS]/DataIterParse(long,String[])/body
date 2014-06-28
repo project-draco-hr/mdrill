@@ -1,0 +1,39 @@
+{
+  this.ts=ts;
+  String logtype=pvlog[48];
+  String Url=ColsDefine.decodeString(pvlog[3]);
+  String strday=ColsDefine.formatDay.format(new Date(ts * 1000));
+  String url_lwfrom=ColsDefine.getName(pvlog[3],"lwfrom");
+  String[] url_lwfrom_split=String.valueOf(url_lwfrom).split("_");
+  boolean isshaoma=url_lwfrom_split.length > 2 && !url_lwfrom_split[2].isEmpty();
+  if (isshaoma) {
+    String shaomaPid=this.fetch(true,"pc",url_lwfrom_split[0],strday);
+    if (shaomaPid != null && logtype.equals("1")) {
+      pid_type p=new pid_type();
+      p.isshaoma=true;
+      p.pid=shaomaPid;
+      p.matchUrl="pc";
+      querylist.add(p);
+    }
+  }
+  String isMathchUrl=matchType(Url);
+  if (isMathchUrl != null) {
+    String tid="";
+    if ("pc".equals(isMathchUrl)) {
+      this.pid=this.fetch(false,"pc",String.valueOf(url_lwfrom),strday);
+    }
+ else {
+      this.pid=ColsDefine.getName(Url,"pid");
+      tid=ColsDefine.getName(Url,"tid");
+    }
+    if (this.pid != null && logtype.equals("1")) {
+      pid_type p=new pid_type();
+      p.isshaoma=false;
+      p.pid=this.pid;
+      p.tid=tid;
+      p.matchUrl=isMathchUrl;
+      querylist.add(p);
+    }
+  }
+  this.curr=querylist.poll();
+}

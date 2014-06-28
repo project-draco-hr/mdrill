@@ -1,0 +1,3 @@
+{
+  this.doc2tm.set(doc,tm);
+}

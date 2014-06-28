@@ -1,0 +1,15 @@
+{
+synchronized (lock) {
+    final int size=freeByteBlocks.size();
+    final blockData b;
+    if (0 == size) {
+      b=new blockData(new byte[BlockBufferInput.BLOCK_SIZE],asize);
+      mallocTimes.incrementAndGet();
+    }
+ else {
+      b=freeByteBlocks.remove(size - 1);
+      reusedTimes.incrementAndGet();
+    }
+    return b;
+  }
+}

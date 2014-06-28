@@ -1,0 +1,3 @@
+{
+  BlockBufferPool.INT_POOL.recycleByteBlocks(this.doc2Tm);
+}

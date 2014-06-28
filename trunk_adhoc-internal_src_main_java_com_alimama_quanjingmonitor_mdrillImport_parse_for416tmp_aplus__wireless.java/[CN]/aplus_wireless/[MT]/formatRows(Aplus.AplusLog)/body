@@ -1,0 +1,5 @@
+{
+  StringBuilder b=new StringBuilder();
+  b.append(log.toString());
+  return b.toString();
+}

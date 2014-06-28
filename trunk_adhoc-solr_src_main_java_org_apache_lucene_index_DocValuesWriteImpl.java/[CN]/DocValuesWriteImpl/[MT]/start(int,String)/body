@@ -1,0 +1,8 @@
+{
+  this.fl=field;
+  this.maxdocid=0;
+  outputQuickTis.startBits();
+  fieldPosTis.put(fieldNumber,outputQuickTis.getFilePointer());
+  fieldPosTisTxt.put(fieldNumber,outputQuickTisTxt.getFilePointer());
+  fieldPosTisVal.put(fieldNumber,outputQuickTisVal.getFilePointer());
+}

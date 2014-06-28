@@ -1,0 +1,8 @@
+{
+  DocSet docsit=collect.getDocSet();
+  DocIterator toremove=docsit.iterator();
+  while (toremove.hasNext()) {
+    int doc=toremove.nextDoc();
+    this.uni.baseAdvanceDocs.clear(doc);
+  }
+}
