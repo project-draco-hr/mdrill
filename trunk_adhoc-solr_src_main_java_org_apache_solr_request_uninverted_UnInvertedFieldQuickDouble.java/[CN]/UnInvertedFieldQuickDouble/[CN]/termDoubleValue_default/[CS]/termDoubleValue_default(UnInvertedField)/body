@@ -1,4 +1,0 @@
-{
-  this.uni=uni;
-  this.tm=UnInvertedFieldUtils.getBlockArrayRead(this.uni);
-}

@@ -1,3 +1,0 @@
-{
-  return this.td.doc(doc,ft,te);
-}

@@ -1,7 +1,0 @@
-{
-  this.reader=reader;
-  this.tindex=tindex;
-  this.pos=pos;
-  tenum=reader.terms(tindex.createTerm(termValue));
-  setTerm();
-}

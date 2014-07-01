@@ -1,9 +1,0 @@
-{
-  List<Object> data=StormUtils.mk_list((Object)System.currentTimeMillis());
-  collector.emit(data,UUID.randomUUID().toString());
-  try {
-    Thread.sleep(10000);
-  }
- catch (  InterruptedException e) {
-  }
-}
