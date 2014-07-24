@@ -1,7 +1,0 @@
-{
-  instance=(Instance)instance.copy();
-  m_nominalToBinary.input(instance);
-  instance=m_nominalToBinary.output();
-  instance.setDataset(m_numericDataHeader);
-  return probs(getFs(instance));
-}

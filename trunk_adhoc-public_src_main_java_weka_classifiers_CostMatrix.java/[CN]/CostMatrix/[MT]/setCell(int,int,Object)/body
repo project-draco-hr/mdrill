@@ -1,3 +1,0 @@
-{
-  m_matrix[rowIndex][columnIndex]=value;
-}

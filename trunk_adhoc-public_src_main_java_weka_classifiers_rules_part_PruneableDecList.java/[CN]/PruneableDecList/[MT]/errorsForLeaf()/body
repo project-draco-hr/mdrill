@@ -1,3 +1,0 @@
-{
-  return m_test.total() - m_test.perClass(localModel().distribution().maxClass());
-}

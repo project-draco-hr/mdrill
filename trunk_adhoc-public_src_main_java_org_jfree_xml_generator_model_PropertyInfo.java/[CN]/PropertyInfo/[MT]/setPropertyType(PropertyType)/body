@@ -1,6 +1,0 @@
-{
-  if (propertyType == null) {
-    throw new NullPointerException();
-  }
-  this.propertyType=propertyType;
-}

@@ -1,3 +1,0 @@
-{
-  this(style,locale,font,paint,RectangleEdge.BOTTOM,HorizontalAlignment.RIGHT,VerticalAlignment.CENTER,Title.DEFAULT_PADDING);
-}

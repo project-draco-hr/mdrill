@@ -1,3 +1,0 @@
-{
-  return "Removes attributes based on a regular expression matched against " + "their names.";
-}

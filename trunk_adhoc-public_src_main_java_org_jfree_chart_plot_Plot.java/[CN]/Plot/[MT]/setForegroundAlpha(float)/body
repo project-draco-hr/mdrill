@@ -1,6 +1,0 @@
-{
-  if (this.foregroundAlpha != alpha) {
-    this.foregroundAlpha=alpha;
-    fireChangeEvent();
-  }
-}

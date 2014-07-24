@@ -1,3 +1,0 @@
-{
-  this.listenerList.remove(AxisChangeListener.class,listener);
-}

@@ -2,13 +2,6 @@
   this.key=facetStr;
   this.offset=params.getInt(FacetParams.FACET_CROSS_OFFSET,0);
   this.limit=params.getInt(FacetParams.FACET_CROSS_LIMIT,100);
-  boolean issub=params.getBool(FacetParams.IS_SUB_SHARDS,false);
-  if (issub) {
-    isFinalResult=false;
-  }
- else {
-    isFinalResult=true;
-  }
   this.isdetail=params.getBool(FacetParams.FACET_CROSS_DETAIL,false);
   if (this.isdetail) {
     this.sort_type="detailMerge";

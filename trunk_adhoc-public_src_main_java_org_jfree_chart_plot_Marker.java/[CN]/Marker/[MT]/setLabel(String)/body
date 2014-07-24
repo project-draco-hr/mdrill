@@ -1,4 +1,0 @@
-{
-  this.label=label;
-  notifyListeners(new MarkerChangeEvent(this));
-}

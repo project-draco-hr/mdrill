@@ -1,3 +1,0 @@
-{
-  return "Whether to save instance data at each node in the tree for " + "visualization purposes.";
-}

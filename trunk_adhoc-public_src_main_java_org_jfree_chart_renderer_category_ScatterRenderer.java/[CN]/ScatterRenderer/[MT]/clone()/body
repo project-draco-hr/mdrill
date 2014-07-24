@@ -1,5 +1,0 @@
-{
-  ScatterRenderer clone=(ScatterRenderer)super.clone();
-  clone.seriesShapesFilled=(BooleanList)this.seriesShapesFilled.clone();
-  return clone;
-}

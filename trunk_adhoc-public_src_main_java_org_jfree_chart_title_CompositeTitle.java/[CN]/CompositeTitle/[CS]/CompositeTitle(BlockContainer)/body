@@ -1,7 +1,0 @@
-{
-  if (container == null) {
-    throw new IllegalArgumentException("Null 'container' argument.");
-  }
-  this.container=container;
-  this.backgroundPaint=null;
-}

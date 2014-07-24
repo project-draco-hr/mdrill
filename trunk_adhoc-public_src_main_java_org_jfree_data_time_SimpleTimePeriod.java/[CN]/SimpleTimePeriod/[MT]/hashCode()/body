@@ -1,6 +1,0 @@
-{
-  int result=17;
-  result=37 * result + (int)this.start;
-  result=37 * result + (int)this.end;
-  return result;
-}

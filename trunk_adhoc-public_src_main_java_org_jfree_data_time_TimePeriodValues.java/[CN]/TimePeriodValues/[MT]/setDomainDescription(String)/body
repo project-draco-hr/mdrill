@@ -1,5 +1,0 @@
-{
-  String old=this.domain;
-  this.domain=description;
-  firePropertyChange("Domain",old,description);
-}

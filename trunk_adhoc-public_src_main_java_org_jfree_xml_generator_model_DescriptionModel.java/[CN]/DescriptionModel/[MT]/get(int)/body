@@ -1,3 +1,0 @@
-{
-  return (ClassDescription)this.classes.get(index);
-}

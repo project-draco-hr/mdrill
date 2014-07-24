@@ -1,9 +1,0 @@
-{
-  if ((series < 0) || (series >= getSeriesCount())) {
-    throw new IllegalArgumentException("TaskSeriesCollection.remove(): index outside valid range.");
-  }
-  TaskSeries ts=(TaskSeries)this.data.get(series);
-  ts.removeChangeListener(this);
-  this.data.remove(series);
-  fireDatasetChanged();
-}

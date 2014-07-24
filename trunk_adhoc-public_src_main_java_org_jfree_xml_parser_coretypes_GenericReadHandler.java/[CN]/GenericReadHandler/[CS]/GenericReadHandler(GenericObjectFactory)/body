@@ -1,5 +1,0 @@
-{
-  this.createdHandler=new HashMap();
-  this.objectRefHandlers=new ArrayList();
-  this.objectFactory=factory;
-}

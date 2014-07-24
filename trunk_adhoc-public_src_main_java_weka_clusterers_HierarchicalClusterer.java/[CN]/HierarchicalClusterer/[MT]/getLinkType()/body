@@ -1,3 +1,0 @@
-{
-  return new SelectedTag(m_nLinkType,TAGS_LINK_TYPE);
-}

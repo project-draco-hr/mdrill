@@ -1,3 +1,0 @@
-{
-  return "sum(abs((predicted - actual) / actual)) / N";
-}

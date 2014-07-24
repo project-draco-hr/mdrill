@@ -1,6 +1,0 @@
-{
-  this.factories.add(factory);
-  if (getConfig() != null) {
-    factory.configure(getConfig());
-  }
-}

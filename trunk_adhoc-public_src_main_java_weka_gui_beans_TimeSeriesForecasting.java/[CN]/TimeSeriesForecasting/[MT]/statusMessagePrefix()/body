@@ -1,3 +1,0 @@
-{
-  return getCustomName() + "$" + hashCode()+ "|"+ ((Utils.joinOptions(m_forecaster.getOptions()).length() > 0) ? Utils.joinOptions(m_forecaster.getOptions()) + "|" : "");
-}

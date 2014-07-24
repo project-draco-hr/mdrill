@@ -1,5 +1,0 @@
-{
-  boolean old=this.visible;
-  this.visible=visible;
-  this.pcs.firePropertyChange("visible",old,visible);
-}

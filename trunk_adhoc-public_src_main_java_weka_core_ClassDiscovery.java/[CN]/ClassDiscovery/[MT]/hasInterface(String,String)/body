@@ -1,8 +1,0 @@
-{
-  try {
-    return hasInterface(Class.forName(intf),Class.forName(cls));
-  }
- catch (  Exception e) {
-    return false;
-  }
-}

@@ -1,7 +1,0 @@
-{
-  String result=m_attribute.name();
-  if (freq) {
-    result+=":" + m_frequency;
-  }
-  return result;
-}

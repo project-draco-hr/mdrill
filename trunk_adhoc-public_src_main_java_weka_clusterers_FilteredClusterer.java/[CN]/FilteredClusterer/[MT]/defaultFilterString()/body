@@ -1,3 +1,0 @@
-{
-  return weka.filters.AllFilter.class.getName();
-}

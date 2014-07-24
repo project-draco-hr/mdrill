@@ -1,6 +1,0 @@
-{
-  this.itemLabelsVisibleList.setBoolean(series,visible);
-  if (notify) {
-    fireChangeEvent();
-  }
-}

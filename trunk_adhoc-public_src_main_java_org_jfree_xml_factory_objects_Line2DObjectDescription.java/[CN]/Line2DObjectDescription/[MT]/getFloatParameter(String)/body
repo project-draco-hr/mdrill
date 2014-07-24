@@ -1,7 +1,0 @@
-{
-  final Float p=(Float)getParameter(param);
-  if (p == null) {
-    return 0;
-  }
-  return p.floatValue();
-}

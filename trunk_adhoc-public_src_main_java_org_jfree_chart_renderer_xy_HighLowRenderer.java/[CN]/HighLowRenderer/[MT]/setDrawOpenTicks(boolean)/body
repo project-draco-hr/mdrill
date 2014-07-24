@@ -1,4 +1,0 @@
-{
-  this.drawOpenTicks=draw;
-  fireChangeEvent();
-}

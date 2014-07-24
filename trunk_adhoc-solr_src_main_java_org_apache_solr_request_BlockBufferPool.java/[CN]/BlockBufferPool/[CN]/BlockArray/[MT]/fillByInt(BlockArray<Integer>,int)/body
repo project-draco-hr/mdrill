@@ -1,0 +1,5 @@
+{
+  for (int i=0; i < d.data.length && i < this.data.length; i++) {
+    this.data[i].fillByInt((BlockInteger)(d.data[i]),skip);
+  }
+}

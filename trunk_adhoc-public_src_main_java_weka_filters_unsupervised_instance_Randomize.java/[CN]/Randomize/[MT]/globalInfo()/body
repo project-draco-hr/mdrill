@@ -1,3 +1,0 @@
-{
-  return "Randomly shuffles the order of instances passed through it. " + "The random number generator is reset with the seed value whenever " + "a new set of instances is passed in.";
-}

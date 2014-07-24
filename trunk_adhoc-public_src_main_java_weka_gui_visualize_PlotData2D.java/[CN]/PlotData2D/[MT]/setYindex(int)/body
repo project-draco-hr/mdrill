@@ -1,4 +1,0 @@
-{
-  m_yIndex=y;
-  determineBounds();
-}

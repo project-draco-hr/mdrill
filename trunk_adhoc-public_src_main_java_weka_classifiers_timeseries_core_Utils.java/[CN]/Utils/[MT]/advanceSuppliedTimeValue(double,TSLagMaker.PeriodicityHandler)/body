@@ -1,3 +1,0 @@
-{
-  return advanceSuppliedTimeValue(valueToAdvance,dateBasedPeriodicity,false);
-}

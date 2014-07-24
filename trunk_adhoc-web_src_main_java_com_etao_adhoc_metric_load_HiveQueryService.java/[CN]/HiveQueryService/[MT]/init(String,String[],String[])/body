@@ -1,5 +1,0 @@
-{
-  System.out.println(hql);
-  System.out.println(Arrays.toString(cmd));
-  System.out.println(Arrays.toString(env));
-}

@@ -1,7 +1,0 @@
-{
-  x++;
-  while (x < maxn() && (!edges[iNode1][x] || !edges[iNode2][x] || x == iNode2)) {
-    x++;
-  }
-  return x;
-}

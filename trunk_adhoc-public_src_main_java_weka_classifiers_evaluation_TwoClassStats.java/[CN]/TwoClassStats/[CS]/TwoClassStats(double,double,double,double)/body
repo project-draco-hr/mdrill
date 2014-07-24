@@ -1,6 +1,0 @@
-{
-  setTruePositive(tp);
-  setFalsePositive(fp);
-  setTrueNegative(tn);
-  setFalseNegative(fn);
-}

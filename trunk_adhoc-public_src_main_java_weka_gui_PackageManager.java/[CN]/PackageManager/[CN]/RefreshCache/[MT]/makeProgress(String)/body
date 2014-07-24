@@ -1,5 +1,0 @@
-{
-  m_detailLabel.setText(progressMessage);
-  m_progressCount++;
-  m_progress.setValue(m_progressCount);
-}

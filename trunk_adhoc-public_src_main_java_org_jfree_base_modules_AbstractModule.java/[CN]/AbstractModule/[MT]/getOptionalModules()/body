@@ -1,5 +1,0 @@
-{
-  final ModuleInfo[] retval=new ModuleInfo[this.optionalModules.length];
-  System.arraycopy(this.optionalModules,0,retval,0,this.optionalModules.length);
-  return retval;
-}

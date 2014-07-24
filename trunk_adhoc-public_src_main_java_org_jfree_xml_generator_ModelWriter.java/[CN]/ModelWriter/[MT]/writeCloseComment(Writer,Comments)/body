@@ -1,9 +1,0 @@
-{
-  if (comments == null) {
-    return;
-  }
-  if (comments.getCloseTagComment() == null) {
-    return;
-  }
-  writeComment(writer,comments.getCloseTagComment());
-}

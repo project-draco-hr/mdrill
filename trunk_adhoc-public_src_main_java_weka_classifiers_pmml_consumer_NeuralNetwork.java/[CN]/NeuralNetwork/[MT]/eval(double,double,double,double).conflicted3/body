@@ -1,3 +1,0 @@
-{
-  return z / (1.0 + Math.abs(z));
-}

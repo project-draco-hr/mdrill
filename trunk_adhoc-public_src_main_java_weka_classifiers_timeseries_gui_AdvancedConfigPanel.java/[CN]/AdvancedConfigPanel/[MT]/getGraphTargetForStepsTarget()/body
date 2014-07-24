@@ -1,6 +1,0 @@
-{
-  if (!getGraphTargetForSteps()) {
-    return null;
-  }
-  return m_graphTargetAtStepsCombo.getSelectedItem().toString();
-}

@@ -1,3 +1,0 @@
-{
-  notifyListeners(new RendererChangeEvent(this));
-}

@@ -1,3 +1,0 @@
-{
-  return "The default value to replace values that are below the minimum threshold.";
-}

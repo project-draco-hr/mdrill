@@ -1,3 +1,0 @@
-{
-  super("Delete Node","Delete Node","delnode","DELETE");
-}

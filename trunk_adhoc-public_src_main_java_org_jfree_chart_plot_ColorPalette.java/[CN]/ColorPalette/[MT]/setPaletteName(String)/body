@@ -1,4 +1,0 @@
-{
-  this.paletteName=paletteName;
-  return;
-}

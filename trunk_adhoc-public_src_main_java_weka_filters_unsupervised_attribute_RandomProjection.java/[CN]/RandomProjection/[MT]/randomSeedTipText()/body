@@ -1,3 +1,0 @@
-{
-  return "The random seed used by the random" + " number generator used for generating" + " the random matrix ";
-}

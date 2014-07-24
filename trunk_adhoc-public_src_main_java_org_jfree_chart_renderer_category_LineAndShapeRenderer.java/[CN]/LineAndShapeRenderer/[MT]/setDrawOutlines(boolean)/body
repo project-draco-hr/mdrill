@@ -1,4 +1,0 @@
-{
-  this.drawOutlines=flag;
-  fireChangeEvent();
-}

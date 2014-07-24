@@ -1,9 +1,0 @@
-{
-  this.count+=v.count;
-  this.setWeight(v.getWeight());
-  this.setMustVeryLike(v.isMustVeryLike());
-  this.setMustveryLikeNumber(v.getMustveryLikeNumber());
-  for (  Entry<String,Integer> e : v.val.entrySet()) {
-    this.addval(e.getKey(),e.getValue());
-  }
-}

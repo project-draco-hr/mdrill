@@ -1,9 +1,0 @@
-{
-  String result;
-  int i;
-  result=content;
-  for (i=0; i < m_StartTag.length; i++) {
-    result=updateJavadoc(result,i);
-  }
-  return result;
-}

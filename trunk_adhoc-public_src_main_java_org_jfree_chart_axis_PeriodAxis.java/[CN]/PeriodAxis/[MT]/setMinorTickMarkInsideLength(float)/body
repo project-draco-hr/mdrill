@@ -1,4 +1,0 @@
-{
-  this.minorTickMarkInsideLength=length;
-  notifyListeners(new AxisChangeEvent(this));
-}

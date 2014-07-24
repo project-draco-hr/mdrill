@@ -1,4 +1,0 @@
-{
-  initCache();
-  return m_Cache.get(cls.getName() + "-" + pkgname);
-}

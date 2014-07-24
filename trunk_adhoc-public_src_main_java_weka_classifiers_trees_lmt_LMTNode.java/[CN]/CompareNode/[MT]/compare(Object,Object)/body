@@ -1,5 +1,0 @@
-{
-  if (((LMTNode)o1).m_alpha < ((LMTNode)o2).m_alpha)   return -1;
-  if (((LMTNode)o1).m_alpha > ((LMTNode)o2).m_alpha)   return 1;
-  return 0;
-}

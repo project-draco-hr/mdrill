@@ -1,4 +1,0 @@
-{
-  this.tasks.remove(task);
-  fireSeriesChanged();
-}

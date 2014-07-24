@@ -1,3 +1,0 @@
-{
-  super("Generate Network","Generate Random Bayesian Network","generate.network","ctrl N");
-}

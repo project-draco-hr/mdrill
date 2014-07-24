@@ -1,6 +1,0 @@
-Graphics2D g2
-Rectangle2D area
-double minValue
-double maxValue
-Paint paint
-Stroke stroke

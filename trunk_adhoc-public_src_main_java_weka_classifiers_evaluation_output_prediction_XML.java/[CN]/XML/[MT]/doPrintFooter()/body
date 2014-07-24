@@ -1,3 +1,0 @@
-{
-  append("</" + TAG_PREDICTIONS + ">\n");
-}

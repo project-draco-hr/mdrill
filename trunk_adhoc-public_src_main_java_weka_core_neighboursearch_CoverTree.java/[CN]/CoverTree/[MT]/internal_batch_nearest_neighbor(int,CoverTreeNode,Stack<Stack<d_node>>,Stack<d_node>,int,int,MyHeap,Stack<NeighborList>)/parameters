@@ -1,8 +1,0 @@
-int k
-CoverTreeNode query_node
-Stack<Stack<d_node>> cover_sets
-Stack<d_node> zero_set
-int current_scale
-int max_scale
-MyHeap upper_k
-Stack<NeighborList> results

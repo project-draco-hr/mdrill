@@ -1,6 +1,0 @@
-{
-  if (size > this.period) {
-    this.period=size;
-  }
-  super.setAutoRangeMinimumSize(size,notify);
-}

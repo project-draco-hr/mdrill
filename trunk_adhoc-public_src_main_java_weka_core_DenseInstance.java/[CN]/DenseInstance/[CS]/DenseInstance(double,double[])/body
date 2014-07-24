@@ -1,5 +1,0 @@
-{
-  m_AttValues=attValues;
-  m_Weight=weight;
-  m_Dataset=null;
-}

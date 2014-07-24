@@ -1,7 +1,0 @@
-{
-  if (generator == null) {
-    throw new IllegalArgumentException("Null 'generator' argument.");
-  }
-  this.legendLabelGenerator=generator;
-  fireChangeEvent();
-}

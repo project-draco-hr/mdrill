@@ -1,3 +1,0 @@
-{
-  ScriptingPanel.showPanel(new SimpleCLIPanel(),args,600,500);
-}

@@ -1,8 +1,0 @@
-{
-  if (!c.isArray()) {
-    return null;
-  }
- else {
-    return new ArrayObjectDescription(c);
-  }
-}

@@ -1,4 +1,0 @@
-{
-  this.shapesFilled=filled;
-  fireChangeEvent();
-}

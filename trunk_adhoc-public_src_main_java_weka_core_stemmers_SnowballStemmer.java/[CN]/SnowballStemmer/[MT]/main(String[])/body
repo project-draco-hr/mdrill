@@ -1,8 +1,0 @@
-{
-  try {
-    Stemming.useStemmer(new SnowballStemmer(),args);
-  }
- catch (  Exception e) {
-    e.printStackTrace();
-  }
-}

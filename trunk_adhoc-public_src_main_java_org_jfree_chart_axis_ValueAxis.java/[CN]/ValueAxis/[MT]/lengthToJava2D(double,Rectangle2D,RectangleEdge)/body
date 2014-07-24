@@ -1,5 +1,0 @@
-{
-  double zero=valueToJava2D(0.0,area,edge);
-  double l=valueToJava2D(length,area,edge);
-  return Math.abs(l - zero);
-}

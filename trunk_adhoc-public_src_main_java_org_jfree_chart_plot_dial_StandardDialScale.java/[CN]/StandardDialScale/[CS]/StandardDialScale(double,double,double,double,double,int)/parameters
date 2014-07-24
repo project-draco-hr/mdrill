@@ -1,6 +1,0 @@
-double lowerBound
-double upperBound
-double startAngle
-double extent
-double majorTickIncrement
-int minorTickCount

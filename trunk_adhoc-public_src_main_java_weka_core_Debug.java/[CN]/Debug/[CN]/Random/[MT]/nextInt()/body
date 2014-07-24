@@ -1,5 +1,0 @@
-{
-  int result=super.nextInt();
-  println("nextInt=" + result);
-  return result;
-}

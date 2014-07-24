@@ -1,6 +1,0 @@
-{
-  this.basePaint=paint;
-  if (notify) {
-    fireChangeEvent();
-  }
-}

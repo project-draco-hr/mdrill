@@ -1,5 +1,0 @@
-{
-  Capabilities result=m_clusterer.getCapabilities();
-  result.setMinimumNumberInstances(0);
-  return result;
-}

@@ -1,9 +1,0 @@
-{
-  Vector newVector=new Vector(1);
-  Enumeration enu=super.listOptions();
-  while (enu.hasMoreElements()) {
-    newVector.addElement(enu.nextElement());
-  }
-  newVector.addElement(new Option("\tName of a directory to search for cost files when loading\n" + "\tcosts on demand (default current directory).","D",1,"-D <directory>"));
-  return newVector.elements();
-}

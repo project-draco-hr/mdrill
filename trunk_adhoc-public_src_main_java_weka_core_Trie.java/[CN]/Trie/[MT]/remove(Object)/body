@@ -1,6 +1,0 @@
-{
-  boolean result;
-  result=m_Root.remove(((String)o) + TrieNode.STOP);
-  m_RecalcHashCode=result;
-  return result;
-}

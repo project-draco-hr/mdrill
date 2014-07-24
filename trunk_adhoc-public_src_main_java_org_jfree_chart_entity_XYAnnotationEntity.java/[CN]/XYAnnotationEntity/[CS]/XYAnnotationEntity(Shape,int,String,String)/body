@@ -1,4 +1,0 @@
-{
-  super(hotspot,toolTipText,urlText);
-  this.rendererIndex=rendererIndex;
-}

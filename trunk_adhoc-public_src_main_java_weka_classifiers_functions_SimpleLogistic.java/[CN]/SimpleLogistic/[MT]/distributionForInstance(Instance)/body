@@ -1,7 +1,0 @@
-{
-  m_ReplaceMissingValues.input(inst);
-  inst=m_ReplaceMissingValues.output();
-  m_NominalToBinary.input(inst);
-  inst=m_NominalToBinary.output();
-  return m_boostedModel.distributionForInstance(inst);
-}

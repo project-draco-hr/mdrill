@@ -1,4 +1,0 @@
-{
-  final int serial=this.jan1Y1900.toSerial();
-  assertEquals(2,serial);
-}

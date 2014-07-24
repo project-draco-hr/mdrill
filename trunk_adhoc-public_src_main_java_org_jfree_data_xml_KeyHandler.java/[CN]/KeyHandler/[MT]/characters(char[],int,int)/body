@@ -1,5 +1,0 @@
-{
-  if (this.currentText != null) {
-    this.currentText.append(String.copyValueOf(ch,start,length));
-  }
-}

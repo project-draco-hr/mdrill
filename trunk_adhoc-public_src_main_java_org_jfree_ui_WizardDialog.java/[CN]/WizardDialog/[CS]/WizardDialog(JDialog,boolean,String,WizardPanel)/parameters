@@ -1,4 +1,0 @@
-JDialog owner
-boolean modal
-String title
-WizardPanel firstPanel

@@ -1,4 +1,0 @@
-{
-  this.drawBarOutline=draw;
-  fireChangeEvent();
-}

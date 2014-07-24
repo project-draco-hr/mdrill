@@ -1,3 +1,0 @@
-{
-  return Statistics.lnGamma(x + 1);
-}

@@ -1,3 +1,0 @@
-{
-  return new Range(this.minValue,this.maxValue);
-}

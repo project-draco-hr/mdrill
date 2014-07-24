@@ -1,3 +1,0 @@
-{
-  return "RectangleConstraint[" + this.widthConstraintType.toString() + ": width="+ this.width+ ", height="+ this.height+ "]";
-}

@@ -1,6 +1,0 @@
-{
-  double numerator;
-  numerator=oldEnt(bags) - newEnt(bags);
-  if (Utils.eq(numerator,0))   return Double.MAX_VALUE;
-  return bags.total() / numerator;
-}

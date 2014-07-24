@@ -1,3 +1,0 @@
-{
-  throw new IOException("SVMLightLoader can't read data sets incrementally.");
-}

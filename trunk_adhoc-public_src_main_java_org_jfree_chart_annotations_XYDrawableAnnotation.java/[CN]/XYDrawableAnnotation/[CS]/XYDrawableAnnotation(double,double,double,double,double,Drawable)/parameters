@@ -1,6 +1,0 @@
-double x
-double y
-double displayWidth
-double displayHeight
-double drawScaleFactor
-Drawable drawable

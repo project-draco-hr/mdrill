@@ -1,6 +1,0 @@
-{
-  if (painter == null) {
-    throw new IllegalArgumentException("Null 'painter' argument.");
-  }
-  this.barPainter=painter;
-}

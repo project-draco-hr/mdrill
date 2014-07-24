@@ -1,5 +1,0 @@
-{
-  double tickLabelWidth=estimateMaximumTickLabelWidth(g2,getTickUnit());
-  double n=getRange().getLength() * tickLabelWidth / dataArea.getHeight();
-  setTickUnit((NumberTickUnit)getStandardTickUnits().getCeilingTickUnit(n),false,false);
-}

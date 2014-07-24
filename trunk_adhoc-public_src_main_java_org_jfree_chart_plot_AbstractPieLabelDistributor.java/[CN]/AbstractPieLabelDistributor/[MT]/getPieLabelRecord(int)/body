@@ -1,3 +1,0 @@
-{
-  return (PieLabelRecord)this.labels.get(index);
-}

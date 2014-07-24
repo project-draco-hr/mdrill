@@ -1,6 +1,0 @@
-{
-  final MultiplexMappingEntry[] mappings=(MultiplexMappingEntry[])this.multiplexEntries.toArray(new MultiplexMappingEntry[0]);
-  final Class c=loadClass(this.baseClass);
-  this.multiplexMappings.put(c,new MultiplexMappingDefinition(c,this.attributeName,mappings));
-  this.multiplexEntries=null;
-}

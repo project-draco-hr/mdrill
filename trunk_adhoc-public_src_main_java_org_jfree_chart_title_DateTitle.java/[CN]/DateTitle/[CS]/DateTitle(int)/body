@@ -1,3 +1,0 @@
-{
-  this(style,Locale.getDefault(),new Font("Dialog",Font.PLAIN,12),Color.black);
-}

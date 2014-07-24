@@ -1,4 +1,0 @@
-{
-  int nTargetNode=getNode2(sName);
-  return getValues(nTargetNode);
-}

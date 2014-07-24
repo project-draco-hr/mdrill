@@ -1,8 +1,0 @@
-HashMap<String,HashMap<String,Object>> lines
-boolean writeline
-int end
-int presize
-minMaxX minmax
-String[] fields
-JSONArray list
-StringBuilder numberfield

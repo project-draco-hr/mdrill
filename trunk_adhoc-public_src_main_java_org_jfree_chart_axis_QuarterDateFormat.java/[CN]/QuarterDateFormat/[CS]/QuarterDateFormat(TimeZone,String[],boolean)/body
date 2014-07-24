@@ -1,9 +1,0 @@
-{
-  if (zone == null) {
-    throw new IllegalArgumentException("Null 'zone' argument.");
-  }
-  this.calendar=new GregorianCalendar(zone);
-  this.quarters=quarterSymbols;
-  this.quarterFirst=quarterFirst;
-  this.numberFormat=NumberFormat.getNumberInstance();
-}

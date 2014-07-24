@@ -1,8 +1,0 @@
-{
-  super();
-  m_Result=new StringBuffer();
-  m_Evaluations=new double[0][0];
-  m_Options=new String[0];
-  m_NumEvals=0;
-  m_NumCacheHits=0;
-}

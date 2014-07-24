@@ -1,5 +1,0 @@
-{
-  if (newVal != m_Enabled) {
-    m_Enabled=newVal;
-  }
-}

@@ -1,6 +1,0 @@
-{
-  super(seed);
-  setDebug(debug);
-  m_ID=nextID();
-  if (getDebug())   printStackTrace();
-}

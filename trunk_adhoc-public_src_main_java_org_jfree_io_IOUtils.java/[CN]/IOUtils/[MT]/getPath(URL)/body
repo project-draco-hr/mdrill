@@ -1,8 +1,0 @@
-{
-  final String file=url.getFile();
-  final int queryIndex=file.indexOf('?');
-  if (queryIndex == -1) {
-    return file;
-  }
-  return file.substring(0,queryIndex);
-}

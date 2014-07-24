@@ -1,5 +1,0 @@
-{
-  Object[] v=new Object[]{this.numberFormat.format(crosshair.getValue())};
-  String result=MessageFormat.format(this.labelTemplate,v);
-  return result;
-}

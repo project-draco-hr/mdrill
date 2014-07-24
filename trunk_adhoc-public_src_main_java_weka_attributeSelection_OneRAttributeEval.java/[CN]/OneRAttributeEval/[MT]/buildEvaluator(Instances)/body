@@ -1,7 +1,0 @@
-{
-  getCapabilities().testWithFail(data);
-  m_trainInstances=data;
-  m_classIndex=m_trainInstances.classIndex();
-  m_numAttribs=m_trainInstances.numAttributes();
-  m_numInstances=m_trainInstances.numInstances();
-}

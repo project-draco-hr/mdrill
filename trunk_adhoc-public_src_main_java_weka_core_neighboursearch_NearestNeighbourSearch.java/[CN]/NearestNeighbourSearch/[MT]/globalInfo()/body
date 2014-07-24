@@ -1,3 +1,0 @@
-{
-  return "Abstract class for nearest neighbour search. All algorithms (classes) that " + "do nearest neighbour search should extend this class.";
-}

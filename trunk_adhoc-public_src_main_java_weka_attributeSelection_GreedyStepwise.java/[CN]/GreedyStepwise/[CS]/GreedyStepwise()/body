@@ -1,7 +1,0 @@
-{
-  m_threshold=-Double.MAX_VALUE;
-  m_doneRanking=false;
-  m_startRange=new Range();
-  m_starting=null;
-  resetOptions();
-}

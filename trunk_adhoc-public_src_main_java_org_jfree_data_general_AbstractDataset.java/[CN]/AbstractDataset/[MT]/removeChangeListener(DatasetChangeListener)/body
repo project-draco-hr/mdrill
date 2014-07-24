@@ -1,3 +1,0 @@
-{
-  this.listenerList.remove(DatasetChangeListener.class,listener);
-}

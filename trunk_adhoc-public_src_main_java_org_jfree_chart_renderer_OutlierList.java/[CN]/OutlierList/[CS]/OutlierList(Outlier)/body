@@ -1,4 +1,0 @@
-{
-  this.outliers=new ArrayList();
-  setAveragedOutlier(outlier);
-}

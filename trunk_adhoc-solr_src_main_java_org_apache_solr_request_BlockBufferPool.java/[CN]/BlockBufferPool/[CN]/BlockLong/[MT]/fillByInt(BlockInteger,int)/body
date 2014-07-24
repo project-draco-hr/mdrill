@@ -1,0 +1,26 @@
+{
+  if (d.hasInit) {
+    if (this.hasInit) {
+      for (int i=0; i < d.data.length; i++) {
+        if (d.data[i] != skip) {
+          data[i]=(long)d.data[i];
+        }
+      }
+    }
+ else {
+      data=new long[BlockBufferPool.interval];
+      for (int i=0; i < d.data.length; i++) {
+        if (d.data[i] != skip) {
+          data[i]=(long)d.data[i];
+        }
+ else {
+          data[i]=this.def;
+        }
+      }
+      hasInit=true;
+    }
+  }
+ else   if (d.def != skip) {
+    this.allset((long)d.def);
+  }
+}

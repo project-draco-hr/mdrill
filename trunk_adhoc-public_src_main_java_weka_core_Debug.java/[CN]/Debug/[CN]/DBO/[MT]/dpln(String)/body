@@ -1,5 +1,0 @@
-{
-  if (m_verboseOn) {
-    System.out.println(text);
-  }
-}

@@ -1,4 +1,0 @@
-{
-  this.cursor=cursor;
-  this.ticks=new java.util.ArrayList();
-}

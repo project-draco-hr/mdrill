@@ -1,9 +1,0 @@
-{
-  if (moduleClass == null) {
-    throw new NullPointerException("Module class must not be null.");
-  }
-  this.moduleClass=moduleClass;
-  this.majorVersion=majorVersion;
-  this.minorVersion=minorVersion;
-  this.patchLevel=patchLevel;
-}

@@ -1,4 +1,0 @@
-{
-  setWidth(width);
-  setHeight(height);
-}

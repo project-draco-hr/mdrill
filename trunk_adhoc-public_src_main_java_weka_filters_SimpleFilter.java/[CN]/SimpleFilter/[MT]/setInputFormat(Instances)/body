@@ -1,6 +1,0 @@
-{
-  super.setInputFormat(instanceInfo);
-  reset();
-  if (hasImmediateOutputFormat())   setOutputFormat(determineOutputFormat(instanceInfo));
-  return hasImmediateOutputFormat();
-}

@@ -1,6 +1,0 @@
-{
-  if (config == null) {
-    throw new NullPointerException("The given configuration is null");
-  }
-  this.config=config;
-}

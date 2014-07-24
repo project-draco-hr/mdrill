@@ -1,7 +1,0 @@
-{
-  TableEntry table[]=m_Table;
-  for (int index=table.length; --index >= 0; ) {
-    table[index]=null;
-  }
-  m_Count=0;
-}

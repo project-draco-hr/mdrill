@@ -1,4 +1,0 @@
-{
-  instance=normalizeInstance(instance);
-  return m_BayesNetEstimator.distributionForInstance(this,instance);
-}

@@ -1,4 +1,0 @@
-{
-  super(owner,pe.getClass().getName(),true);
-  initialize(pe,x,y);
-}

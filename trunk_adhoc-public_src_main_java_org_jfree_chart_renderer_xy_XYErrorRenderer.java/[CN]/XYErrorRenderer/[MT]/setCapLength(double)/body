@@ -1,4 +1,0 @@
-{
-  this.capLength=length;
-  fireChangeEvent();
-}

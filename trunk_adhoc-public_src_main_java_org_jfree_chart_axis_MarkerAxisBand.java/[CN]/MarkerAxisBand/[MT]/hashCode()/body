@@ -1,6 +1,0 @@
-{
-  int result=37;
-  result=19 * result + this.font.hashCode();
-  result=19 * result + this.markers.hashCode();
-  return result;
-}

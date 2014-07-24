@@ -1,6 +1,0 @@
-{
-  if (property == null) {
-    return "Available properties";
-  }
-  return property.getDisplayName();
-}

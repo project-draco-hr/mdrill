@@ -1,3 +1,0 @@
-{
-  return logPSI - x * x / 2.;
-}

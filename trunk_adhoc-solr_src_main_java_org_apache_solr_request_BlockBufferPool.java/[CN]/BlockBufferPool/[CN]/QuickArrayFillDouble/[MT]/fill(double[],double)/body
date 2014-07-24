@@ -1,0 +1,11 @@
+{
+  if (v == -1l) {
+    System.arraycopy(data_1,0,data,0,data_1.length);
+  }
+ else   if (v == dbl) {
+    System.arraycopy(data_2,0,data,0,data_2.length);
+  }
+ else {
+    Arrays.fill(data,v);
+  }
+}

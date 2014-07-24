@@ -1,9 +1,0 @@
-{
-  if (std <= 0) {
-    throw new IllegalArgumentException("Requires 'std' > 0.");
-  }
-  this.mean=mean;
-  this.std=std;
-  this.factor=1 / (std * Math.sqrt(2.0 * Math.PI));
-  this.denominator=2 * std * std;
-}

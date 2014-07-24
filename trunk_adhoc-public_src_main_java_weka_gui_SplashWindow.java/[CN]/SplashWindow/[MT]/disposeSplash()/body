@@ -1,6 +1,0 @@
-{
-  if (m_instance != null) {
-    m_instance.getOwner().dispose();
-    m_instance=null;
-  }
-}

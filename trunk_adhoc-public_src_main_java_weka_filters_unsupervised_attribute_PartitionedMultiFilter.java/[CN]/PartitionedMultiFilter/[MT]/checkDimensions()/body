@@ -1,3 +1,0 @@
-{
-  if (getFilters().length != getRanges().length)   throw new IllegalArgumentException("Number of filters (= " + getFilters().length + ") "+ "and ranges (= "+ getRanges().length+ ") don't match!");
-}

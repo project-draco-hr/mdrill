@@ -1,4 +1,0 @@
-{
-  final String o=(String)getParameter("value");
-  return Short.valueOf(o);
-}

@@ -1,3 +1,0 @@
-{
-  throw new IOException("Saving in a file not supported.");
-}

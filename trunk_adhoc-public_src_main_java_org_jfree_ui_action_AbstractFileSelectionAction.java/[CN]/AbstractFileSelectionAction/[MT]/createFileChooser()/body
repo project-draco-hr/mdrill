@@ -1,7 +1,0 @@
-{
-  final JFileChooser fc=new JFileChooser();
-  fc.addChoosableFileFilter(new ExtensionFileFilter(getFileDescription(),getFileExtension()));
-  fc.setMultiSelectionEnabled(false);
-  fc.setCurrentDirectory(getCurrentDirectory());
-  return fc;
-}

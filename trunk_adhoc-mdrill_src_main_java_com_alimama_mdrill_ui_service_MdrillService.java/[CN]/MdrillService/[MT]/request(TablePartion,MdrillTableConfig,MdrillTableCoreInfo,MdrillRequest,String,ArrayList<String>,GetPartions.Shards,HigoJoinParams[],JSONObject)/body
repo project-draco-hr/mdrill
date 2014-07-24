@@ -1,0 +1,39 @@
+{
+  CommonsHttpSolrServer server=WebServiceParams.makeServer(shard);
+  if (req.groupbyFields.size() == 0 && joins.length > 0) {
+    if (req.commonStatMap.size() > 0 || req.distStatFieldMap.size() > 0) {
+      req.groupbyFields.add("higoempty_groupby_forjoin_l");
+    }
+    req.showFields.add("higoempty_groupby_forjoin_l");
+  }
+  if (req.commonStatMap.size() > 0 || req.distStatFieldMap.size() > 0) {
+    if (req.groupbyFields.size() == 0) {
+      req.groupbyFields.add("higoempty_groupby_l");
+      req.showFields.add("higoempty_groupby_l");
+    }
+  }
+  try {
+    if (req.groupbyFields.size() > 0) {
+      resultGroupBy(fqList,shard,req,joins,jsonObj,server);
+    }
+ else {
+      SolrQuery query=WebServiceParams.makeSolrQuery(shard);
+      WebServiceParams.setDetailByQuery(query,fqList,req,joins);
+      LOG.info("queryinfo:" + shard.urlMain + "/select/?"+ MdrillRequestLog.cutString(query.toString()));
+      QueryResponse qr=WebServiceParams.fetchDetailCrcQr(query,server,jsonObj,"__timedebug");
+      WebServiceParams.setDetailResult(jsonObj,qr,req.showFields,joins);
+    }
+  }
+ catch (  Throwable e) {
+    GetShards.purge(part.name);
+    LOG.error("higocall,exceptin",e);
+    jsonObj.put("code","0");
+    jsonObj.put("message",WebServiceParams.errorToString(e));
+  }
+  if (callback != null && callback.length() > 0) {
+    return callback + "(" + jsonObj.toString()+ ")";
+  }
+ else {
+    return jsonObj.toString();
+  }
+}

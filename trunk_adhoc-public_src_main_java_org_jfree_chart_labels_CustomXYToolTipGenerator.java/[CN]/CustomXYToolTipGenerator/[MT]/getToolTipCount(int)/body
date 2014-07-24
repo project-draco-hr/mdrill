@@ -1,8 +1,0 @@
-{
-  int result=0;
-  List tooltips=(List)this.toolTipSeries.get(list);
-  if (tooltips != null) {
-    result=tooltips.size();
-  }
-  return result;
-}

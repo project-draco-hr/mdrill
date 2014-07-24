@@ -1,6 +1,0 @@
-int iMin1
-int iMin2
-double fDist1
-double fDist2
-Vector<Integer>[] nClusterID
-Node[] clusterNodes

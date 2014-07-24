@@ -1,3 +1,0 @@
-{
-  return "Takes results from a result producer and sends them to a " + "database.";
-}

@@ -1,3 +1,0 @@
-{
-  return "Class for bagging a classifier to reduce variance. Can do classification " + "and regression depending on the base learner. \n\n" + "For more information, see\n\n"+ getTechnicalInformation().toString();
-}

@@ -1,8 +1,0 @@
-{
-  super();
-  m_Component=component;
-  m_AspectRatio=Double.NaN;
-  getComponent().addMouseListener(new PrintMouseListener(this));
-  getComponent().setToolTipText(getToolTipText(this));
-  initFileChooser();
-}

@@ -1,6 +1,0 @@
-{
-  ClipPath clone=(ClipPath)super.clone();
-  clone.xValue=(double[])this.xValue.clone();
-  clone.yValue=(double[])this.yValue.clone();
-  return clone;
-}

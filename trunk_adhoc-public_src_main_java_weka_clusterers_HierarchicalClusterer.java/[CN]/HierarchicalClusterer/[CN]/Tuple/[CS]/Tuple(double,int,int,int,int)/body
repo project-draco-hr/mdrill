@@ -1,7 +1,0 @@
-{
-  m_fDist=d;
-  m_iCluster1=i;
-  m_iCluster2=j;
-  m_nClusterSize1=nSize1;
-  m_nClusterSize2=nSize2;
-}

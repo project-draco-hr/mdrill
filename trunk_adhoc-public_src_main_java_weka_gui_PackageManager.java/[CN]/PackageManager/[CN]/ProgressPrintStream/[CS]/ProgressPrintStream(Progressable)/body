@@ -1,4 +1,0 @@
-{
-  super(System.out);
-  m_listener=listener;
-}

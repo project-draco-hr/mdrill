@@ -1,3 +1,0 @@
-{
-  return (Instance)m_Instances.get(0);
-}

@@ -1,4 +1,0 @@
-{
-  final String test=SerialDate.weekdayCodeToString(SerialDate.SATURDAY);
-  assertEquals("Saturday",test);
-}

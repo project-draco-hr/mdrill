@@ -1,3 +1,0 @@
-{
-  return read(new BufferedInputStream(new FileInputStream(file)));
-}

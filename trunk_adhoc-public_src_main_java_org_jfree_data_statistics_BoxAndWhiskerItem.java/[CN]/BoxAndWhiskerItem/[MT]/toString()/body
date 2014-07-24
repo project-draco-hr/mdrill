@@ -1,3 +1,0 @@
-{
-  return super.toString() + "[mean=" + this.mean+ ",median="+ this.median+ ",q1="+ this.q1+ ",q3="+ this.q3+ "]";
-}

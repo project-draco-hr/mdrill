@@ -1,4 +1,0 @@
-{
-  m_Estimators[(int)data].addValue(given,weight);
-  m_Weights.addValue((int)data,weight);
-}

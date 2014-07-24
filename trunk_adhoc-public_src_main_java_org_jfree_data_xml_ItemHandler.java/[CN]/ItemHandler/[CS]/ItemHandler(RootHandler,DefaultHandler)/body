@@ -1,6 +1,0 @@
-{
-  this.root=root;
-  this.parent=parent;
-  this.key=null;
-  this.value=null;
-}

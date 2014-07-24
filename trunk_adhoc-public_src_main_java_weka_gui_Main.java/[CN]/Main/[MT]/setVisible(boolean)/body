@@ -1,4 +1,0 @@
-{
-  super.setVisible(b);
-  if (b)   paint(this.getGraphics());
-}

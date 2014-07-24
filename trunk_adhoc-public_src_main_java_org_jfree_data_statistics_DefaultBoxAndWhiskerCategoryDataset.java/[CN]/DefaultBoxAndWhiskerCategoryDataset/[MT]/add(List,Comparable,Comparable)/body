@@ -1,4 +1,0 @@
-{
-  BoxAndWhiskerItem item=BoxAndWhiskerCalculator.calculateBoxAndWhiskerStatistics(list);
-  add(item,rowKey,columnKey);
-}

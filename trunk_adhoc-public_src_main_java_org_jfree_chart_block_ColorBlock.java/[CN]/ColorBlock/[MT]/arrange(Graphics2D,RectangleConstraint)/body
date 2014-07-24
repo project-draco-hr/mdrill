@@ -1,3 +1,0 @@
-{
-  return new Size2D(calculateTotalWidth(getWidth()),calculateTotalHeight(getHeight()));
-}

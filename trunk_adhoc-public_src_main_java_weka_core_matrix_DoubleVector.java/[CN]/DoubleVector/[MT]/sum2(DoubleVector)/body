@@ -1,3 +1,0 @@
-{
-  return minus(v).sum2();
-}

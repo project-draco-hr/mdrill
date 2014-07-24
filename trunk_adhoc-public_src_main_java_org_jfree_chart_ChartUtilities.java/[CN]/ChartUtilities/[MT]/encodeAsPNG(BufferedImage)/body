@@ -1,3 +1,0 @@
-{
-  return EncoderUtil.encode(image,ImageFormat.PNG);
-}

@@ -1,8 +1,0 @@
-{
-  m_doRank=false;
-  m_best_group=null;
-  m_ASEval=null;
-  m_Instances=null;
-  m_rankedSoFar=-1;
-  m_rankedAtts=null;
-}

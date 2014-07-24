@@ -1,4 +1,0 @@
-{
-  super(Double.class);
-  setParameterDefinition("value",String.class);
-}

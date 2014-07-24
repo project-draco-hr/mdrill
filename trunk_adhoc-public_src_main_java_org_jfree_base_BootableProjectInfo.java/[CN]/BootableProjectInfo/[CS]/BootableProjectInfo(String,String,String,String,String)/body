@@ -1,8 +1,0 @@
-{
-  this();
-  setName(name);
-  setVersion(version);
-  setLicenceName(licenceName);
-  setInfo(info);
-  setCopyright(copyright);
-}

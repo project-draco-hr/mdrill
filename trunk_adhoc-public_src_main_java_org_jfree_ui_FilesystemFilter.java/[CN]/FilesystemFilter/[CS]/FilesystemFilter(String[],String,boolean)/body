@@ -1,5 +1,0 @@
-{
-  this.fileext=(String[])fileext.clone();
-  this.descr=descr;
-  this.accDirs=accDirs;
-}

@@ -1,5 +1,0 @@
-{
-synchronized (lock) {
-    this.appendCut(this.hadoopjobId,jobid + ",",10000,2);
-  }
-}

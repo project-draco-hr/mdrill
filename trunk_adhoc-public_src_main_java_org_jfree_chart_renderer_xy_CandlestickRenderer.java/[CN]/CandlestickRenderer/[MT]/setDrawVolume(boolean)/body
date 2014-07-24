@@ -1,6 +1,0 @@
-{
-  if (this.drawVolume != flag) {
-    this.drawVolume=flag;
-    fireChangeEvent();
-  }
-}

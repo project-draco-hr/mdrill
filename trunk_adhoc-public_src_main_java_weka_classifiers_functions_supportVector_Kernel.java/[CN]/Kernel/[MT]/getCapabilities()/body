@@ -1,5 +1,0 @@
-{
-  Capabilities result=new Capabilities(this);
-  result.enableAll();
-  return result;
-}

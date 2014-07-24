@@ -1,8 +1,0 @@
-{
-  String tmpStr;
-  super.setOptions(options);
-  tmpStr=Utils.getOption("E",options);
-  if (tmpStr.length() != 0)   setExpression(tmpStr);
- else   setExpression(DEFAULT_EXPRESSION);
-  setInvertSelection(Utils.getFlag("V",options));
-}

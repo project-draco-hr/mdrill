@@ -1,6 +1,0 @@
-{
-  for (int i=0; i < instances.numInstances(); i++) {
-    Enumeration enu=itemSets.elements();
-    while (enu.hasMoreElements())     ((ItemSet)enu.nextElement()).upDateCounter(instances.instance(i));
-  }
-}

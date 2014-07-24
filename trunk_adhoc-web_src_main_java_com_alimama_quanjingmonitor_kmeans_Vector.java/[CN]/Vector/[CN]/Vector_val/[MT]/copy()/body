@@ -1,7 +1,0 @@
-{
-  Vector_val rtn=new Vector_val();
-  rtn.weight=this.weight;
-  rtn.mustVeryLike=this.mustVeryLike;
-  rtn.mustveryLikeNumber=this.mustveryLikeNumber;
-  return rtn;
-}

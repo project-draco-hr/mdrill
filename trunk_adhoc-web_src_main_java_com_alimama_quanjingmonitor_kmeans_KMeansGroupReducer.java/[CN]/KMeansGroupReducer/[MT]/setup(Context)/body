@@ -1,7 +1,0 @@
-{
-  super.setup(context);
-  Configuration conf=context.getConfiguration();
-  this.res=new PriorityQueue<Clusterlist>(limit,Collections.reverseOrder(cmp));
-  TaskID taskId=context.getTaskAttemptID().getTaskID();
-  this.Index=taskId.getId() * 10000;
-}

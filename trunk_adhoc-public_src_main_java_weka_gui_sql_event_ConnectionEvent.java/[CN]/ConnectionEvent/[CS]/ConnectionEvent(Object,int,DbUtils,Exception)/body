@@ -1,6 +1,0 @@
-{
-  super(source);
-  m_Type=type;
-  m_DbUtils=utils;
-  m_Exception=ex;
-}

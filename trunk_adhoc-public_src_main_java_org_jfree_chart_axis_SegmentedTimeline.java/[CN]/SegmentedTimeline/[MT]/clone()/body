@@ -1,4 +1,0 @@
-{
-  SegmentedTimeline clone=(SegmentedTimeline)super.clone();
-  return clone;
-}

@@ -1,4 +1,0 @@
-{
-  arg0.writeInt(this.count);
-  arg0.writeDouble(this.val);
-}

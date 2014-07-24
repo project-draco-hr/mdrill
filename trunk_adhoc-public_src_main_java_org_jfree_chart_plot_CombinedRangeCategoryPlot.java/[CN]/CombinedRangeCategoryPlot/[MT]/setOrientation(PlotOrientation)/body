@@ -1,8 +1,0 @@
-{
-  super.setOrientation(orientation);
-  Iterator iterator=this.subplots.iterator();
-  while (iterator.hasNext()) {
-    CategoryPlot plot=(CategoryPlot)iterator.next();
-    plot.setOrientation(orientation);
-  }
-}

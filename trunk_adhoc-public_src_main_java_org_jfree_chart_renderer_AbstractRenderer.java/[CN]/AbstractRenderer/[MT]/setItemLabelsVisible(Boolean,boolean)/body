@@ -1,6 +1,0 @@
-{
-  this.itemLabelsVisible=visible;
-  if (notify) {
-    fireChangeEvent();
-  }
-}

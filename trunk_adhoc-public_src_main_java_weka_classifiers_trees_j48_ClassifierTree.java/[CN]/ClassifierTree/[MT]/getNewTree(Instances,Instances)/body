@@ -1,5 +1,0 @@
-{
-  ClassifierTree newTree=new ClassifierTree(m_toSelectModel);
-  newTree.buildTree(train,test,false);
-  return newTree;
-}

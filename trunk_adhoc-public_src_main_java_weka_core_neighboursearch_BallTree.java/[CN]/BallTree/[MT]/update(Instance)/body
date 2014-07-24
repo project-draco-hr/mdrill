@@ -1,4 +1,0 @@
-{
-  addInstanceInfo(ins);
-  m_InstList=m_TreeConstructor.addInstance(m_Root,ins);
-}

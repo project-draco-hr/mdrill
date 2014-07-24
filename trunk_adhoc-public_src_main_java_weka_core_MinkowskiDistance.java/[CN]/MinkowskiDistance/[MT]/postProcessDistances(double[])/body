@@ -1,5 +1,0 @@
-{
-  for (int i=0; i < distances.length; i++) {
-    distances[i]=Math.pow(distances[i],1 / m_Order);
-  }
-}

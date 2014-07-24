@@ -1,5 +1,0 @@
-{
-  LogFormat clone=(LogFormat)super.clone();
-  clone.formatter=(NumberFormat)this.formatter.clone();
-  return clone;
-}

@@ -1,8 +1,0 @@
-{
-  Vector newVector=new Vector(4);
-  newVector.addElement(new Option("\tThe number of iterations to be performed.\n" + "\t(default 1)","I",1,"-I <int>"));
-  newVector.addElement(new Option("\tThe exponent for the polynomial kernel.\n" + "\t(default 1)","E",1,"-E <double>"));
-  newVector.addElement(new Option("\tThe seed for the random number generation.\n" + "\t(default 1)","S",1,"-S <int>"));
-  newVector.addElement(new Option("\tThe maximum number of alterations allowed.\n" + "\t(default 10000)","M",1,"-M <int>"));
-  return newVector.elements();
-}

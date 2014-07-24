@@ -1,4 +1,0 @@
-{
-  if (!m_FinishUpCalled)   finishUp();
-  return m_PlotInstances;
-}

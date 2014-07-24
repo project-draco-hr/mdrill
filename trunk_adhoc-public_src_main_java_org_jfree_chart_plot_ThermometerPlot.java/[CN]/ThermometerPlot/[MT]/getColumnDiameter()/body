@@ -1,3 +1,0 @@
-{
-  return getColumnRadius() * 2;
-}

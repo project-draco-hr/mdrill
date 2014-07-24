@@ -1,4 +1,0 @@
-{
-  final int serialDayNumber=base.toSerial() + days;
-  return SerialDate.createInstance(serialDayNumber);
-}

@@ -1,4 +1,0 @@
-{
-  super.setRange(range);
-  setupSmallLogFlag();
-}

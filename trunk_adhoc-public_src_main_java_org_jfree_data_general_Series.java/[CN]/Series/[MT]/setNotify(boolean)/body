@@ -1,6 +1,0 @@
-{
-  if (this.notify != notify) {
-    this.notify=notify;
-    fireSeriesChanged();
-  }
-}

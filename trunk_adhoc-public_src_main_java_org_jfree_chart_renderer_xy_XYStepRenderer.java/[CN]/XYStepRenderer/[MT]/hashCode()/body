@@ -1,3 +1,0 @@
-{
-  return HashUtilities.hashCode(super.hashCode(),this.stepPoint);
-}

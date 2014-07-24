@@ -1,6 +1,0 @@
-{
-  this.strokeList.clear();
-  if (notify) {
-    fireChangeEvent();
-  }
-}

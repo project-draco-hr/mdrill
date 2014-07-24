@@ -1,3 +1,0 @@
-{
-  return "The number of folds for cross-validation used to generate " + "training data for logistic models (-1 means use training data).";
-}

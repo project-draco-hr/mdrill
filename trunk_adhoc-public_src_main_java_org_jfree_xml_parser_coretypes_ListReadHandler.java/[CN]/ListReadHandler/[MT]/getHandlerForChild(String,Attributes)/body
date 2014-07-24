@@ -1,5 +1,0 @@
-{
-  final XmlReadHandler handler=getRootHandler().createHandler(Object.class,tagName,atts);
-  this.handlers.add(handler);
-  return handler;
-}

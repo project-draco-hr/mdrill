@@ -1,3 +1,0 @@
-{
-  return "The classifier upon which to base the misclassifications.";
-}

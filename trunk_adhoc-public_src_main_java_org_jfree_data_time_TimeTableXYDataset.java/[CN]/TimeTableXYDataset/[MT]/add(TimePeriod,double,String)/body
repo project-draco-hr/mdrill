@@ -1,3 +1,0 @@
-{
-  add(period,new Double(y),seriesName,true);
-}

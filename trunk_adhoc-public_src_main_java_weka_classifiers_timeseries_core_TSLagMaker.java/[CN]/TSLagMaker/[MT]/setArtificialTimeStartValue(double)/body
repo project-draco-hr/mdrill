@@ -1,8 +1,0 @@
-{
-  if (isUsingAnArtificialTimeIndex()) {
-    m_lastTimeValue=value;
-  }
- else {
-    throw new Exception("Not using an artificial time index");
-  }
-}

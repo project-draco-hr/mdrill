@@ -1,8 +1,0 @@
-{
-  String tString=Utils.getOption('T',options);
-  if (tString.length() != 0)   setAttributeTypeString(tString);
-  setInvertSelection(Utils.getFlag('V',options));
-  if (getInputFormat() != null) {
-    setInputFormat(getInputFormat());
-  }
-}

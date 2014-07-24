@@ -1,3 +1,0 @@
-{
-  return localizationResources.getString("Pie_3D_Plot");
-}

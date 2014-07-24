@@ -1,5 +1,0 @@
-{
-  Vector<Option> result=new Vector<Option>();
-  result.add(new Option("\tSkip identical instances (distances equal to zero).\n","S",1,"-S"));
-  return result.elements();
-}

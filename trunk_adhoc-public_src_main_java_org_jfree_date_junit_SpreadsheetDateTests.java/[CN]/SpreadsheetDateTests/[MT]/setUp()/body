@@ -1,4 +1,0 @@
-{
-  this.jan1Y1900=new SpreadsheetDate(1,MonthConstants.JANUARY,1900);
-  this.s2=new SpreadsheetDate(2);
-}

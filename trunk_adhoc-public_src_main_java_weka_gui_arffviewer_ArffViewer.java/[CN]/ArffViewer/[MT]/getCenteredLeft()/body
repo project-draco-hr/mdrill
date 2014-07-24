@@ -1,8 +1,0 @@
-{
-  int width;
-  int x;
-  width=getBounds().width;
-  x=(getGraphicsConfiguration().getBounds().width - width) / 2;
-  if (x < 0)   x=0;
-  return x;
-}

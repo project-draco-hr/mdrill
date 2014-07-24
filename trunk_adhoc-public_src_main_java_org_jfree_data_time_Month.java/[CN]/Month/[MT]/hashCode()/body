@@ -1,6 +1,0 @@
-{
-  int result=17;
-  result=37 * result + this.month;
-  result=37 * result + this.year;
-  return result;
-}

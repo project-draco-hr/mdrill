@@ -1,7 +1,0 @@
-{
-  super.setInputFormat(instanceInfo);
-  m_SelectedRange.setUpper(instanceInfo.numAttributes() - 1);
-  m_AvgDocLength=-1;
-  m_NumInstances=-1;
-  return false;
-}

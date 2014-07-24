@@ -1,4 +1,0 @@
-{
-  Instance converted=constructMappedInstance(inst);
-  return m_Classifier.classifyInstance(converted);
-}

@@ -1,4 +1,0 @@
-{
-  super(Color.class);
-  setParameterDefinition("value",String.class);
-}

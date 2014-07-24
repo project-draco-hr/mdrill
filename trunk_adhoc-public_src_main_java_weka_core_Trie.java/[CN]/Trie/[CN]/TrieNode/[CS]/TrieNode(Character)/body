@@ -1,4 +1,0 @@
-{
-  super(c);
-  m_Children=new Hashtable<Character,TrieNode>(100);
-}

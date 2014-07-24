@@ -1,3 +1,0 @@
-{
-  writeBufferedImageAsJPEG(out,0.75f,image);
-}

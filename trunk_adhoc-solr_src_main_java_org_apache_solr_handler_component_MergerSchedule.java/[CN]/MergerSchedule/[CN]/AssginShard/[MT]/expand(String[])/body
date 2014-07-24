@@ -1,0 +1,11 @@
+{
+  List<String> tmp=new ArrayList<String>(shards.size() * partions.length);
+  for (  String s : this.shards) {
+    for (    String p : partions) {
+      if (!p.isEmpty()) {
+        tmp.add(s.replaceAll("_mdrillshard_",p));
+      }
+    }
+  }
+  this.shards=tmp;
+}

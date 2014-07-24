@@ -1,8 +1,0 @@
-{
-  try {
-    return System.getProperties().containsKey(key);
-  }
- catch (  SecurityException se) {
-    return false;
-  }
-}

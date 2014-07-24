@@ -1,3 +1,0 @@
-{
-  return (XYToolTipGenerator)this.toolTipGeneratorList.get(series);
-}

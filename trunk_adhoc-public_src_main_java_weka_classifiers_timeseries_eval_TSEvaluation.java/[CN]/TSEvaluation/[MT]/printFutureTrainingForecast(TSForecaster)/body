@@ -1,6 +1,0 @@
-{
-  if (m_trainingData == null || m_trainingData.numInstances() == 0) {
-    throw new Exception("Can't forecast beyond the end of the" + " training instances because no training instances have been " + "supplied!");
-  }
-  return printFutureForecast(forecaster,m_trainingFuture,m_trainingData);
-}

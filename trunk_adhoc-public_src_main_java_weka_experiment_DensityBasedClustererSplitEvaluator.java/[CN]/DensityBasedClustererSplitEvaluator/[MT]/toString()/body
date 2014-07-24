@@ -1,7 +1,0 @@
-{
-  String result="DensityBasedClustererSplitEvaluator: ";
-  if (m_clusterer == null) {
-    return result + "<null> clusterer";
-  }
-  return result + m_clusterer.getClass().getName() + " "+ m_clustererOptions+ "(version "+ m_clustererVersion+ ")";
-}

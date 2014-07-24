@@ -1,5 +1,0 @@
-{
-  super.setInputFormat(instanceInfo);
-  setOutputFormat(instanceInfo);
-  return true;
-}

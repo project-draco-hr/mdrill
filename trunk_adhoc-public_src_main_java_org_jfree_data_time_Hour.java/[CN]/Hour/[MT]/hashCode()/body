@@ -1,6 +1,0 @@
-{
-  int result=17;
-  result=37 * result + this.hour;
-  result=37 * result + this.day.hashCode();
-  return result;
-}

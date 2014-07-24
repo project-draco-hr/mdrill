@@ -1,3 +1,0 @@
-{
-  return padString(s,length,false);
-}

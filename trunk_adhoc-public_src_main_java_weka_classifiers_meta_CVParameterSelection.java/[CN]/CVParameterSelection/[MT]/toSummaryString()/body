@@ -1,4 +1,0 @@
-{
-  String result="Selected values: " + Utils.joinOptions(m_BestClassifierOptions);
-  return result + '\n';
-}

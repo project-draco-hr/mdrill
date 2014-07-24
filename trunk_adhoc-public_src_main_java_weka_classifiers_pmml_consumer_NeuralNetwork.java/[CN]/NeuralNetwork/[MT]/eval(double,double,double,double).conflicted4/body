@@ -1,5 +1,0 @@
-{
-  double a=Math.exp(z);
-  double b=Math.exp(-z);
-  return ((a - b) / (a + b));
-}

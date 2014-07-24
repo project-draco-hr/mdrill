@@ -1,9 +1,0 @@
-{
-  String result;
-  String name;
-  name=inst.relationName();
-  if (getRelationFind().length() > 0)   name=name.replaceAll(getRelationFind(),getRelationReplace());
-  result=getTestsetDir().getPath() + File.separator;
-  result+=getTestsetPrefix() + name + getTestsetSuffix();
-  return result;
-}

@@ -1,3 +1,0 @@
-{
-  return beanSetContains(m_subFlow,toCheck);
-}

@@ -1,5 +1,0 @@
-Graphics2D g2
-Rectangle2D dataArea
-XYPlot plot
-XYDataset data
-PlotRenderingInfo info

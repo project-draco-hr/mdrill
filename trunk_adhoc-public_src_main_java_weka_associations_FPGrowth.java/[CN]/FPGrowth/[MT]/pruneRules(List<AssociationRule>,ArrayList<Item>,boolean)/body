@@ -1,9 +1,0 @@
-{
-  ArrayList<AssociationRule> result=new ArrayList<AssociationRule>();
-  for (  AssociationRule r : rulesToPrune) {
-    if (r.containsItems(itemsToConsider,useOr)) {
-      result.add(r);
-    }
-  }
-  return result;
-}

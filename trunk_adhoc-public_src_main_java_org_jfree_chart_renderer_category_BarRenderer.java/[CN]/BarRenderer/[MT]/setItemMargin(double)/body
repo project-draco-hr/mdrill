@@ -1,4 +1,0 @@
-{
-  this.itemMargin=percent;
-  fireChangeEvent();
-}

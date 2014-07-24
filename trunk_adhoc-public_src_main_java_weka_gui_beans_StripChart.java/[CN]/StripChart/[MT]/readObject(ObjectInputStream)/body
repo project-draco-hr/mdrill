@@ -1,9 +1,0 @@
-{
-  try {
-    ois.defaultReadObject();
-    initPlot();
-  }
- catch (  Exception ex) {
-    ex.printStackTrace();
-  }
-}

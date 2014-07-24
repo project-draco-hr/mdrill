@@ -1,8 +1,0 @@
-{
-  m_Start=start;
-  m_End=end;
-  m_NodeNumber=nodeNumber;
-  m_Pivot=pivot;
-  m_Radius=radius;
-  m_NumInstances=end - start + 1;
-}

@@ -1,4 +1,0 @@
-{
-  stream.defaultReadObject();
-  this.chartArea=(Rectangle2D)SerialUtilities.readShape(stream);
-}

@@ -1,4 +1,0 @@
-{
-  if (b)   return VAL_YES;
- else   return VAL_NO;
-}

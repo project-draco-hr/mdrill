@@ -1,8 +1,0 @@
-{
-  int result=0;
-  XYDataset dataset=getDataset();
-  if (dataset != null) {
-    result=dataset.getSeriesCount();
-  }
-  return result;
-}

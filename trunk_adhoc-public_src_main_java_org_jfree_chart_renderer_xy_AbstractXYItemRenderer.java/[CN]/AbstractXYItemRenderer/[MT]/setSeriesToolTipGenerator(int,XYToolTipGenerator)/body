@@ -1,4 +1,0 @@
-{
-  this.toolTipGeneratorList.set(series,generator);
-  fireChangeEvent();
-}

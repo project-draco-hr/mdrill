@@ -1,9 +1,0 @@
-{
-  m_GlobalBlend=b;
-  if (m_GlobalBlend > 100) {
-    m_GlobalBlend=100;
-  }
-  if (m_GlobalBlend < 0) {
-    m_GlobalBlend=0;
-  }
-}

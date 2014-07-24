@@ -1,3 +1,0 @@
-{
-  return "Writes to a destination that is in svm light format.\n\n" + "For more information about svm light see:\n\n" + "http://svmlight.joachims.org/";
-}

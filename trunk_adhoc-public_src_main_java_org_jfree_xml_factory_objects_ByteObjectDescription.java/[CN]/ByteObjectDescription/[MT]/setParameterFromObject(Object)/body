@@ -1,6 +1,0 @@
-{
-  if (!(o instanceof Byte)) {
-    throw new ObjectFactoryException("The given object is no java.lang.Byte.");
-  }
-  setParameter("value",String.valueOf(o));
-}

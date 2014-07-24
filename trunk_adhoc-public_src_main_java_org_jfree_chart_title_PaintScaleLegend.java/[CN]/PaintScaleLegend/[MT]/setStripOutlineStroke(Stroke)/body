@@ -1,7 +1,0 @@
-{
-  if (stroke == null) {
-    throw new IllegalArgumentException("Null 'stroke' argument.");
-  }
-  this.stripOutlineStroke=stroke;
-  notifyListeners(new TitleChangeEvent(this));
-}

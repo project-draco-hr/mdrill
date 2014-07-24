@@ -1,4 +1,0 @@
-{
-  buildDecList(data,false);
-  cleanup(new Instances(data,0));
-}

@@ -1,3 +1,0 @@
-{
-  this(title,JFreeChart.DEFAULT_TITLE_FONT,plot,true);
-}

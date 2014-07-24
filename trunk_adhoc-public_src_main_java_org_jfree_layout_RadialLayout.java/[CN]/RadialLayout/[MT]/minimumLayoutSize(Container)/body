@@ -1,8 +1,0 @@
-{
-  final Dimension dim=new Dimension(0,0);
-  final Insets insets=parent.getInsets();
-  dim.width=this.minWidth + insets.left + insets.right;
-  dim.height=this.minHeight + insets.top + insets.bottom;
-  this.sizeUnknown=false;
-  return dim;
-}

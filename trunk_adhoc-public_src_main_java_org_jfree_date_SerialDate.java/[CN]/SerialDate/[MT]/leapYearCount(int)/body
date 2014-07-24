@@ -1,6 +1,0 @@
-{
-  final int leap4=(yyyy - 1896) / 4;
-  final int leap100=(yyyy - 1800) / 100;
-  final int leap400=(yyyy - 1600) / 400;
-  return leap4 - leap100 + leap400;
-}

@@ -1,3 +1,0 @@
-{
-  this.safeTags.put(tag,new SafeDescription(true,true));
-}

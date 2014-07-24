@@ -1,3 +1,0 @@
-{
-  return getDomainAxisEdge(0);
-}

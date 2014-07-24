@@ -1,6 +1,0 @@
-TSForecaster forecaster
-List<ErrorModule> preds
-String targetName
-List<Integer> stepsToPlot
-int instanceNumOffset
-Instances data

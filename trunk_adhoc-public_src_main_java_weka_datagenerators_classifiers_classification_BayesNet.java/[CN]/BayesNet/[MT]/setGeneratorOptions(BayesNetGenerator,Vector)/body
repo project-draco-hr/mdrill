@@ -1,8 +1,0 @@
-{
-  try {
-    generator.setOptions((String[])options.toArray(new String[options.size()]));
-  }
- catch (  Exception e) {
-    e.printStackTrace();
-  }
-}

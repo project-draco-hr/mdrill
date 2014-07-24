@@ -1,6 +1,0 @@
-{
-  super.setInputFormat(instanceInfo);
-  m_Columns.setUpper(instanceInfo.numAttributes() - 1);
-  setOutputFormat();
-  return true;
-}

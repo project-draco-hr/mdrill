@@ -1,3 +1,0 @@
-{
-  this.listenerList.remove(MarkerChangeListener.class,listener);
-}

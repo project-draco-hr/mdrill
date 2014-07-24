@@ -1,6 +1,0 @@
-{
-  if (s.length() == 0) {
-    throw new RuntimeException("Ugly, no char set!");
-  }
-  return new Character(s.charAt(0));
-}

@@ -1,8 +1,0 @@
-{
-  if (hourOfDay.equals("*")) {
-    m_hour_of_day=-100;
-  }
- else {
-    m_hour_of_day=Integer.parseInt(hourOfDay);
-  }
-}

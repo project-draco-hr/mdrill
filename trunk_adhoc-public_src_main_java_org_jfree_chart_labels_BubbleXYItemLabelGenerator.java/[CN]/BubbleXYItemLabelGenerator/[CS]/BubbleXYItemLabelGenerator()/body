@@ -1,3 +1,0 @@
-{
-  this(DEFAULT_FORMAT_STRING,NumberFormat.getNumberInstance(),NumberFormat.getNumberInstance(),NumberFormat.getNumberInstance());
-}

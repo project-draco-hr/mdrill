@@ -1,5 +1,0 @@
-{
-  VectorSeries s=(VectorSeries)this.data.get(series);
-  VectorDataItem di=(VectorDataItem)s.getDataItem(item);
-  return di.getVectorX();
-}

@@ -1,4 +1,0 @@
-OutputStream out
-BufferedImage image
-boolean encodeAlpha
-int compression

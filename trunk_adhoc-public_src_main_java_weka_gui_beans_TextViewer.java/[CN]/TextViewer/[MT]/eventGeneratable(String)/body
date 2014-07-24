@@ -1,6 +1,0 @@
-{
-  if (eventName.equals("text")) {
-    return true;
-  }
-  return false;
-}

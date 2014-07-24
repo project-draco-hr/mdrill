@@ -1,3 +1,0 @@
-{
-  return addOrUpdate(new Double(x),new Double(y));
-}

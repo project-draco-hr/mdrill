@@ -1,4 +1,0 @@
-{
-  this.seriesKey=seriesKey;
-  initialize(xData,yData,zData);
-}

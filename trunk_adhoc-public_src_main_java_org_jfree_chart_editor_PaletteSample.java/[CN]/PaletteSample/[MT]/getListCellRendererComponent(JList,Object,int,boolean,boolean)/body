@@ -1,7 +1,0 @@
-{
-  if (value instanceof PaletteSample) {
-    PaletteSample in=(PaletteSample)value;
-    setPalette(in.getPalette());
-  }
-  return this;
-}

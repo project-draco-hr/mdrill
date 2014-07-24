@@ -1,3 +1,0 @@
-{
-  return localizationResources.getString("Meter_Plot");
-}

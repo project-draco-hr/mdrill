@@ -1,4 +1,0 @@
-{
-  setMonth(month);
-  setDayOfMonth(dayOfMonth);
-}

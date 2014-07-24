@@ -1,6 +1,0 @@
-{
-  InputStream in;
-  in=getInputStream(filename);
-  if (in == null)   return null;
- else   return new InputStreamReader(in);
-}

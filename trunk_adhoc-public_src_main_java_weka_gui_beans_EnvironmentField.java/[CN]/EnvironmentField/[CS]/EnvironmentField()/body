@@ -1,4 +1,0 @@
-{
-  this("");
-  setEnvironment(Environment.getSystemWide());
-}

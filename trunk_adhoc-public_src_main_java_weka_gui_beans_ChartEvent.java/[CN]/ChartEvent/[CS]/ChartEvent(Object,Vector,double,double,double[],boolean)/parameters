@@ -1,6 +1,0 @@
-Object source
-Vector legendText
-double min
-double max
-double[] dataPoint
-boolean reset

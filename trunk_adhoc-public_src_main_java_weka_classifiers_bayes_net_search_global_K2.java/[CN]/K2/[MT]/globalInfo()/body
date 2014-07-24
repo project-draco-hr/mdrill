@@ -1,3 +1,0 @@
-{
-  return "This Bayes Network learning algorithm uses a hill climbing algorithm " + "restricted by an order on the variables.\n\n" + "For more information see:\n\n" + getTechnicalInformation().toString() + "\n\n"+ "Works with nominal variables and no missing values only.";
-}

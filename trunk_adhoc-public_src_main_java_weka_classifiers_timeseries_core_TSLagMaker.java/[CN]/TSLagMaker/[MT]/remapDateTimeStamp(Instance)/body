@@ -1,9 +1,0 @@
-{
-  Instance result=inst;
-  if (m_addDateMap != null) {
-    m_addDateMap.input(result);
-    result=m_addDateMap.output();
-    result=m_dateBasedPeriodicity.remapDateTimeStamp(result,null,m_timeStampName);
-  }
-  return result;
-}

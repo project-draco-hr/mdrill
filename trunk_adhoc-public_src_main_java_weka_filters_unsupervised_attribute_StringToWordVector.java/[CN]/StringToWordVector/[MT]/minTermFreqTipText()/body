@@ -1,3 +1,0 @@
-{
-  return "Sets the minimum term frequency. This is enforced " + "on a per-class basis.";
-}

@@ -6,25 +6,10 @@
   MdrillPartionsInterface drillpart=MdrillPartions.INSTANCE(part.parttype);
   ShardsList[] cores=coresfortest;
   if (cores == null) {
-    cores=GetShards.get(part.name,false);
-    for (int i=0; i < 10; i++) {
-      if (cores == null || cores.length <= 0) {
-        if (i > 5) {
-          throw new Exception("core.size<=0");
-        }
-        SolrInfoList infolist=GetShards.getSolrInfoList(part.name);
-        infolist.run();
-        cores=GetShards.get(part.name,false);
-        LOG.info("core.size=" + cores.length);
-        Thread.sleep(1000);
-      }
- else {
-        break;
-      }
-    }
+    cores=GetShards.getCoresNonCheck(part);
   }
   for (  SolrInputDocument doc : docs) {
-    doc.setField("mdrill_uuid",uuid());
+    doc.setField("mdrill_uuid",MdrillFunction.uuid());
     if (!doc.containsKey("mdrillPartion")) {
       String partion=drillpart.InsertPartion(doc);
       doc.setField("mdrillPartion",partion);

@@ -1,3 +1,0 @@
-{
-  return "Whether to generate rules (decision list) rather than a tree.";
-}

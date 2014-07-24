@@ -1,4 +1,0 @@
-{
-  Map<?,?> packageProps=getInstalledPackageInfo(packageName).getPackageMetaData();
-  printPackageInfo(packageProps);
-}

@@ -1,4 +1,0 @@
-{
-  this.markerBand=band;
-  notifyListeners(new AxisChangeEvent(this));
-}

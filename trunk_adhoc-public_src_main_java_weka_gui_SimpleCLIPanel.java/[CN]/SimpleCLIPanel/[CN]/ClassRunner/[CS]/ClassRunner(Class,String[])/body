@@ -1,9 +1,0 @@
-{
-  setDaemon(true);
-  Class[] argTemplate={String[].class};
-  m_CommandArgs=commandArgs;
-  m_MainMethod=theClass.getMethod("main",argTemplate);
-  if (((m_MainMethod.getModifiers() & Modifier.STATIC) == 0) || (m_MainMethod.getModifiers() & Modifier.PUBLIC) == 0) {
-    throw new NoSuchMethodException("main(String[]) method of " + theClass.getName() + " is not public and static.");
-  }
-}

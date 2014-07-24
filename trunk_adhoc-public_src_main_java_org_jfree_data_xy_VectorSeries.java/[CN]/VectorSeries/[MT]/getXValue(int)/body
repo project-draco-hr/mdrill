@@ -1,4 +1,0 @@
-{
-  VectorDataItem item=(VectorDataItem)this.getDataItem(index);
-  return item.getXValue();
-}

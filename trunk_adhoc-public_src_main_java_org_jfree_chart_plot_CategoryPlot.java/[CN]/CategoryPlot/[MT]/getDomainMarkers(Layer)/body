@@ -1,3 +1,0 @@
-{
-  return getDomainMarkers(0,layer);
-}

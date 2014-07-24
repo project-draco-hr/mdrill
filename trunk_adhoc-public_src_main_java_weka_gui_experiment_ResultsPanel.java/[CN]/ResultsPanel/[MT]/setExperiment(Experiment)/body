@@ -1,4 +1,0 @@
-{
-  m_Exp=exp;
-  m_FromExpBut.setEnabled(exp != null);
-}

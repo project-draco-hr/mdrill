@@ -1,5 +1,0 @@
-{
-  Number_val rtn=new Number_val();
-  rtn.merger(this);
-  return rtn;
-}

@@ -1,6 +1,0 @@
-{
-  if (o instanceof BooleanList) {
-    return super.equals(o);
-  }
-  return false;
-}

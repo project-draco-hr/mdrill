@@ -1,3 +1,0 @@
-{
-  return 2.0 * Math.atan(z) / Math.PI;
-}

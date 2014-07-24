@@ -1,4 +1,0 @@
-{
-  String eventName=esd.getName();
-  return eventGeneratable(eventName);
-}

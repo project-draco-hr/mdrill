@@ -1,5 +1,0 @@
-{
-  m_Data=data;
-  m_Cache.clear();
-  fireTableDataChanged();
-}

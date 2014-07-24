@@ -1,3 +1,0 @@
-{
-  m_bcSupport.addVetoableChangeListener(name,vcl);
-}

@@ -1,4 +1,0 @@
-{
-  m_PrintRowNames=print;
-  if (!print)   setEnumerateRowNames(true);
-}

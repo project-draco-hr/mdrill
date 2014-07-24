@@ -1,3 +1,0 @@
-{
-  return "Class for visualizing class probability estimates.\n\n" + "For more information, see\n\n" + getTechnicalInformation().toString();
-}

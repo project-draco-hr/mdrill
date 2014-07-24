@@ -1,0 +1,6 @@
+ArrayList<String> fqList
+GetPartions.Shards shard
+MdrillRequest req
+HigoJoinParams[] joins
+JSONObject jsonObj
+CommonsHttpSolrServer server

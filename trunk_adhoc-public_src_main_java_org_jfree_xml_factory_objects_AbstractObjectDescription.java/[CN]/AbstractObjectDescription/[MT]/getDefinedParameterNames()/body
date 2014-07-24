@@ -1,3 +1,0 @@
-{
-  return new ReadOnlyIterator(this.parameters.keySet().iterator());
-}

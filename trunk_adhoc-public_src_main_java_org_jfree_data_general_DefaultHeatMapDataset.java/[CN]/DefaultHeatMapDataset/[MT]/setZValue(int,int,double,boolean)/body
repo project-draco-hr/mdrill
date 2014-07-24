@@ -1,6 +1,0 @@
-{
-  this.zValues[xIndex][yIndex]=z;
-  if (notify) {
-    fireDatasetChanged();
-  }
-}

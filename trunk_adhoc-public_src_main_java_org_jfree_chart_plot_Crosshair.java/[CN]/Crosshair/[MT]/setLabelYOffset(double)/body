@@ -1,5 +1,0 @@
-{
-  Double old=new Double(this.labelYOffset);
-  this.labelYOffset=offset;
-  this.pcs.firePropertyChange("labelYOffset",old,new Double(offset));
-}

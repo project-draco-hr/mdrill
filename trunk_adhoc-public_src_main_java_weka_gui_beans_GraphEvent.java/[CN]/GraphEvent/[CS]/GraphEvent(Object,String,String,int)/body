@@ -1,6 +1,0 @@
-{
-  super(source);
-  m_graphString=graphString;
-  m_graphTitle=graphTitle;
-  m_graphType=graphType;
-}

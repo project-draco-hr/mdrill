@@ -1,6 +1,0 @@
-{
-  if (objectClass == null) {
-    throw new NullPointerException();
-  }
-  this.objectClass=objectClass;
-}

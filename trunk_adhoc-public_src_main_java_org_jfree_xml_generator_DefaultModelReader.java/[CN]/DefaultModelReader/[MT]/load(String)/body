@@ -1,7 +1,0 @@
-{
-  this.model=new DescriptionModel();
-  this.baseURL=new File(file).toURL();
-  parseXml(this.baseURL);
-  fillSuperClasses();
-  return this.model;
-}

@@ -1,9 +1,0 @@
-{
-  try {
-    System.out.println(AssociatorEvaluation.evaluate(associator,options));
-  }
- catch (  Exception e) {
-    if ((e.getMessage() != null) && (e.getMessage().indexOf("General options") == -1))     e.printStackTrace();
- else     System.err.println(e.getMessage());
-  }
-}

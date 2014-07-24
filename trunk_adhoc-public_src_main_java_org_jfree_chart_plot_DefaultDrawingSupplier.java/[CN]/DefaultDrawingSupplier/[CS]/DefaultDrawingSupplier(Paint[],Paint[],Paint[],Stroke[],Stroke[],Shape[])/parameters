@@ -1,6 +1,0 @@
-Paint[] paintSequence
-Paint[] fillPaintSequence
-Paint[] outlinePaintSequence
-Stroke[] strokeSequence
-Stroke[] outlineStrokeSequence
-Shape[] shapeSequence

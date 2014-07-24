@@ -1,4 +1,0 @@
-{
-  super.setInstances(insts);
-  rootRadius=-1;
-}

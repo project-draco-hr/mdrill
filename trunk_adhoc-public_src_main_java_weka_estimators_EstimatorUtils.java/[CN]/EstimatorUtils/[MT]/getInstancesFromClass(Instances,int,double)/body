@@ -1,9 +1,0 @@
-{
-  Instances workData=new Instances(data,0);
-  for (int i=0; i < data.numInstances(); i++) {
-    if (data.instance(i).value(classIndex) == classValue) {
-      workData.add(data.instance(i));
-    }
-  }
-  return workData;
-}

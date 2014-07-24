@@ -1,3 +1,0 @@
-{
-  m_Classifier=new weka.classifiers.rules.ZeroR();
-}

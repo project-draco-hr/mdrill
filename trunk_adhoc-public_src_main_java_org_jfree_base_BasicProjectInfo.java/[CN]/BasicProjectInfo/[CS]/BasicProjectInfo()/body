@@ -1,4 +1,0 @@
-{
-  this.libraries=new ArrayList();
-  this.optionalLibraries=new ArrayList();
-}

@@ -1,3 +1,0 @@
-{
-  return "The date format to change to. This should be a " + "format understood by Java's SimpleDateFormat class.";
-}

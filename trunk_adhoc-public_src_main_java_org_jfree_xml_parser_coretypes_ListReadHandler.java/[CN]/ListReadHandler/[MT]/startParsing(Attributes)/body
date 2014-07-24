@@ -1,7 +1,0 @@
-{
-  this.listType=attrs.getValue("type");
-  if (this.listType == null) {
-    this.listType="array-list";
-  }
-  this.handlers=new ArrayList();
-}

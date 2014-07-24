@@ -1,8 +1,0 @@
-Graphics2D g2
-Rectangle2D plotArea
-Point2D centre
-PlotRenderingInfo info
-int series
-int catCount
-double headH
-double headW

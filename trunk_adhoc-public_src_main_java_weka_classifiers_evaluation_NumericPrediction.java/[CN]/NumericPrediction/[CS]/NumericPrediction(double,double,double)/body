@@ -1,3 +1,0 @@
-{
-  this(actual,predicted,weight,new double[0][]);
-}

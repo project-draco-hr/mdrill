@@ -1,8 +1,0 @@
-{
-  if (colorBar != null) {
-    return new DefaultColorBarEditor(colorBar);
-  }
- else {
-    return null;
-  }
-}

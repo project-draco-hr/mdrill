@@ -1,3 +1,0 @@
-{
-  assertTrue(TextBlockAnchor.CENTER.equals(TextBlockAnchor.CENTER));
-}

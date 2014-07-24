@@ -1,3 +1,0 @@
-{
-  return parent_query_dist - child_parent_dist <= upper_bound;
-}

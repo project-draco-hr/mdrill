@@ -1,6 +1,0 @@
-{
-  if (getObjectClass() == null) {
-    return null;
-  }
-  return getObjectClass().getName();
-}

@@ -1,4 +1,0 @@
-{
-  this.margin=margin;
-  fireChangeEvent();
-}

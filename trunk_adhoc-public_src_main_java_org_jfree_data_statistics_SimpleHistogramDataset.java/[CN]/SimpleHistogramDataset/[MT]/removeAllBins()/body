@@ -1,4 +1,0 @@
-{
-  this.bins=new ArrayList();
-  notifyListeners(new DatasetChangeEvent(this,this));
-}

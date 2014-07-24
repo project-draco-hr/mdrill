@@ -1,7 +1,0 @@
-{
-  src=s;
-  dest=d;
-  type=t;
-  srcLbl=null;
-  destLbl=null;
-}

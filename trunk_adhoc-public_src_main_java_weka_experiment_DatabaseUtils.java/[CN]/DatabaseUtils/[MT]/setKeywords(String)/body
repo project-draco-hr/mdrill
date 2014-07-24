@@ -1,7 +1,0 @@
-{
-  String[] keywords;
-  int i;
-  m_Keywords.clear();
-  keywords=value.replaceAll(" ","").split(",");
-  for (i=0; i < keywords.length; i++)   m_Keywords.add(keywords[i].toUpperCase());
-}

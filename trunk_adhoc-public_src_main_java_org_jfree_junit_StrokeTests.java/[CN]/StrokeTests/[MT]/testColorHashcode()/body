@@ -1,8 +1,0 @@
-{
-  final Stroke s1=new BasicStroke(1.5f);
-  final Stroke s2=new BasicStroke(1.5f);
-  assertTrue(s1.equals(s2));
-  final int h1=s1.hashCode();
-  final int h2=s2.hashCode();
-  assertEquals(h1,h2);
-}

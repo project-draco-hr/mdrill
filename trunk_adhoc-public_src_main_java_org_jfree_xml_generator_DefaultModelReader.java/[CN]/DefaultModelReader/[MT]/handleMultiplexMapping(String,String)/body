@@ -1,5 +1,0 @@
-{
-  final TypeInfo info=new TypeInfo(typeName,loadClass(className));
-  info.setComments(new Comments(getOpenComment(),getCloseComment()));
-  this.multiplexTypeInfos.add(info);
-}

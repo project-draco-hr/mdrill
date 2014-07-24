@@ -1,3 +1,0 @@
-{
-  return "Whether entropy-based blending is to be used.";
-}

@@ -1,4 +1,0 @@
-{
-  if (getInvert())   return "inv(" + getRanges() + ")";
- else   return getRanges();
-}

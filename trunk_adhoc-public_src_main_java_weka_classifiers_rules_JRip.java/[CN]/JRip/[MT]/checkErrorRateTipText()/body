@@ -1,3 +1,0 @@
-{
-  return "Whether check for error rate >= 1/2 is included" + " in stopping criterion.";
-}

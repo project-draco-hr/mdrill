@@ -1,9 +1,0 @@
-{
-  final ClassDescription[] cds=(ClassDescription[])this.classes.toArray(new ClassDescription[0]);
-  for (int i=0; i < cds.length; i++) {
-    if (cds[i].isUndefined()) {
-      removeClassDescription(cds[i]);
-      Log.debug("Pruned: " + cds[i].getName());
-    }
-  }
-}

@@ -1,6 +1,0 @@
-{
-  for (int iNode=0; iNode < m_nodes.size(); iNode++) {
-    int nNode=(Integer)m_nodes.elementAt(iNode);
-    setPosition(nNode,getPositionX(nNode) + m_dX,getPositionY(nNode) + m_dY);
-  }
-}

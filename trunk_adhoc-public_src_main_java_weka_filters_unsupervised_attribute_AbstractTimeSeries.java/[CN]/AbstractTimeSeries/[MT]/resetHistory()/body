@@ -1,8 +1,0 @@
-{
-  if (m_History == null) {
-    m_History=new Queue();
-  }
- else {
-    m_History.removeAllElements();
-  }
-}

@@ -1,4 +1,0 @@
-{
-  super(xOffset,yOffset);
-  this.renderAsPercentages=renderAsPercentages;
-}

@@ -1,7 +1,0 @@
-{
-  m_Table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-  m_Table.setColumnSelectionAllowed(false);
-  m_Table.setPreferredScrollableViewportSize(new Dimension(250,150));
-  setLayout(new BorderLayout());
-  add(new JScrollPane(m_Table),BorderLayout.CENTER);
-}

@@ -1,5 +1,0 @@
-{
-  m_Extension=new String[1];
-  m_Extension[0]=extension;
-  m_Description=description;
-}

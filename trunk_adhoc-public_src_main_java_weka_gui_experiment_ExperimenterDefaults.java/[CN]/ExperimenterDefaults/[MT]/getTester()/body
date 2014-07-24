@@ -1,3 +1,0 @@
-{
-  return get("Tester",new PairedCorrectedTTester().getDisplayName());
-}

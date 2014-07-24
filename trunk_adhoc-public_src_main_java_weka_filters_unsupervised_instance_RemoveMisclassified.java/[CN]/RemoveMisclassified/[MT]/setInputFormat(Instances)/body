@@ -1,6 +1,0 @@
-{
-  super.setInputFormat(instanceInfo);
-  setOutputFormat(instanceInfo);
-  m_firstBatchFinished=false;
-  return true;
-}

@@ -1,5 +1,0 @@
-{
-  AbstractDialLayer clone=(AbstractDialLayer)super.clone();
-  clone.listenerList=new EventListenerList();
-  return clone;
-}

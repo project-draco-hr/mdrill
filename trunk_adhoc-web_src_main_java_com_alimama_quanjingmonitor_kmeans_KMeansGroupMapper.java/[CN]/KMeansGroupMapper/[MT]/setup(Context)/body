@@ -1,5 +1,0 @@
-{
-  super.setup(context);
-  Configuration conf=context.getConfiguration();
-  parse.setup(conf);
-}

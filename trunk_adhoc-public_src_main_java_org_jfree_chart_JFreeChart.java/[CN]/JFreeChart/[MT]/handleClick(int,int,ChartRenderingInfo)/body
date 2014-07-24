@@ -1,3 +1,0 @@
-{
-  this.plot.handleClick(x,y,info.getPlotInfo());
-}

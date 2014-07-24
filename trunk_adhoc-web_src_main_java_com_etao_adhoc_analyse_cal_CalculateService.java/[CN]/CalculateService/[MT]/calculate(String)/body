@@ -1,5 +1,0 @@
-{
-  server.calModuleInfo(thedate);
-  server.calDayUserPv(thedate);
-  server.calTotalUserPv();
-}

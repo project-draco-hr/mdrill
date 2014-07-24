@@ -1,3 +1,0 @@
-{
-  return "The file containing the stopwords (if this is a directory then the default ones are used).";
-}

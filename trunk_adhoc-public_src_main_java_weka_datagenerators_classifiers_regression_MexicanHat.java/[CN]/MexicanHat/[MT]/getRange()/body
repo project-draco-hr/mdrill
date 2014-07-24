@@ -1,4 +1,0 @@
-{
-  String fromTo="" + Utils.doubleToString(getMinRange(),2) + ".."+ Utils.doubleToString(getMaxRange(),2);
-  return fromTo;
-}

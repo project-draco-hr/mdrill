@@ -1,5 +1,0 @@
-{
-  final Paint p1=new TexturePaint(new BufferedImage(100,200,BufferedImage.TYPE_INT_RGB),new Rectangle2D.Double());
-  final Paint p2=new TexturePaint(new BufferedImage(100,200,BufferedImage.TYPE_INT_RGB),new Rectangle2D.Double());
-  assertEquals(p1,p2);
-}

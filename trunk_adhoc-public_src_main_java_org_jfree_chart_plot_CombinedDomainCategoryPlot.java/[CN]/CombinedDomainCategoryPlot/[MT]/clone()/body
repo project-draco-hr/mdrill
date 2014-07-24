@@ -1,9 +1,0 @@
-{
-  CombinedDomainCategoryPlot result=(CombinedDomainCategoryPlot)super.clone();
-  result.subplots=(List)ObjectUtilities.deepClone(this.subplots);
-  for (Iterator it=result.subplots.iterator(); it.hasNext(); ) {
-    Plot child=(Plot)it.next();
-    child.setParent(result);
-  }
-  return result;
-}

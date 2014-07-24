@@ -1,7 +1,0 @@
-{
-  Vector<String> result;
-  result=new Vector();
-  result.add("-gui");
-  result.add("" + getGUIType());
-  return result.toArray(new String[result.size()]);
-}

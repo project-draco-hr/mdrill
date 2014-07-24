@@ -1,5 +1,0 @@
-{
-  ImageEncoder imageEncoder=newInstance(format);
-  imageEncoder.setEncodingAlpha(encodingAlpha);
-  return imageEncoder;
-}

@@ -1,3 +1,0 @@
-{
-  return getSegmentNumberRelativeToGroup() >= SegmentedTimeline.this.segmentsIncluded;
-}

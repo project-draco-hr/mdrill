@@ -1,4 +1,0 @@
-{
-  super(name,rows,columns);
-  this.m_totalSum=Double.MIN_VALUE;
-}

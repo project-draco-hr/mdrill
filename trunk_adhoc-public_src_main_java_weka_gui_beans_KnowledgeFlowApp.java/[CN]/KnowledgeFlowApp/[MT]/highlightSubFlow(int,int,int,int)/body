@@ -1,5 +1,0 @@
-{
-  java.awt.Rectangle r=new java.awt.Rectangle((startX < endX) ? startX : endX,(startY < endY) ? startY : endY,Math.abs(startX - endX),Math.abs(startY - endY));
-  Vector selected=BeanInstance.findInstances(r,m_mainKFPerspective.getCurrentTabIndex());
-  m_mainKFPerspective.setSelectedBeans(selected);
-}

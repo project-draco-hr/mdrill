@@ -1,4 +1,0 @@
-{
-  this.categoryLabelPositionOffset=offset;
-  notifyListeners(new AxisChangeEvent(this));
-}

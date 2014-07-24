@@ -1,3 +1,0 @@
-{
-  setRetainStringValues(Utils.getFlag('R',options));
-}

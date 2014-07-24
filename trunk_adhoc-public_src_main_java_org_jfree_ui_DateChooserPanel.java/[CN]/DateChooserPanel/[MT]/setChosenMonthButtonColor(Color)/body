@@ -1,9 +1,0 @@
-{
-  if (chosenMonthButtonColor == null) {
-    throw new NullPointerException("UIColor must not be null.");
-  }
-  final Color oldValue=this.chosenMonthButtonColor;
-  this.chosenMonthButtonColor=chosenMonthButtonColor;
-  refreshButtons();
-  firePropertyChange("chosenMonthButtonColor",oldValue,chosenMonthButtonColor);
-}

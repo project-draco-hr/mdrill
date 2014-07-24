@@ -1,6 +1,0 @@
-{
-  super();
-  setFunction(defaultFunction());
-  setBalanceClass(defaultBalanceClass());
-  setPerturbationFraction(defaultPerturbationFraction());
-}

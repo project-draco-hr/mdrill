@@ -1,5 +1,0 @@
-{
-  Loader loader;
-  loader=new Loader(dir);
-  return loader.getInputStream(filename);
-}

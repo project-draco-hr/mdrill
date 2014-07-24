@@ -1,8 +1,0 @@
-{
-  try {
-    setDistribution(m_nTargetNode,m_P);
-  }
- catch (  Exception e) {
-    e.printStackTrace();
-  }
-}

@@ -1,7 +1,0 @@
-{
-  m_vertical=vertical;
-  this.setBackground(Color.black);
-  String fontFamily=this.getFont().getFamily();
-  Font newFont=new Font(fontFamily,Font.PLAIN,10);
-  this.setFont(newFont);
-}

@@ -1,3 +1,0 @@
-{
-  return doScale(x,m_localGraphicsState.getXScale());
-}

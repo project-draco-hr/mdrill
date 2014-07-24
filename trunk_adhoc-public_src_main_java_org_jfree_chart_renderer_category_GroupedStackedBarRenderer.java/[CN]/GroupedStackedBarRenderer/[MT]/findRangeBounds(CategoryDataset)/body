@@ -1,7 +1,0 @@
-{
-  if (dataset == null) {
-    return null;
-  }
-  Range r=DatasetUtilities.findStackedRangeBounds(dataset,this.seriesToGroupMap);
-  return r;
-}

@@ -1,7 +1,0 @@
-{
-  int month=Quarter.LAST_MONTH_IN_QUARTER[this.quarter];
-  int eom=SerialDate.lastDayOfMonth(month,this.year);
-  calendar.set(this.year,month - 1,eom,23,59,59);
-  calendar.set(Calendar.MILLISECOND,999);
-  return calendar.getTime().getTime();
-}

@@ -1,3 +1,0 @@
-{
-  return getMeanValue(row,column);
-}

@@ -1,4 +1,0 @@
-{
-  this.baseLegendShape=shape;
-  fireChangeEvent();
-}

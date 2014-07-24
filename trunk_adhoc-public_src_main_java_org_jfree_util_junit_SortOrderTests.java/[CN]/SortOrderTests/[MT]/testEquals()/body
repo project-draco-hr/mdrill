@@ -1,4 +1,0 @@
-{
-  assertTrue(SortOrder.ASCENDING.equals(SortOrder.ASCENDING));
-  assertTrue(SortOrder.DESCENDING.equals(SortOrder.DESCENDING));
-}

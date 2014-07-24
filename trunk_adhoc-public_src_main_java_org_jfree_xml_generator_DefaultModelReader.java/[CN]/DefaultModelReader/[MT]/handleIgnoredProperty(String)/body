@@ -1,5 +1,0 @@
-{
-  final IgnoredPropertyInfo propertyInfo=new IgnoredPropertyInfo(name);
-  propertyInfo.setComments(new Comments(getOpenComment(),getCloseComment()));
-  this.propertyList.add(propertyInfo);
-}

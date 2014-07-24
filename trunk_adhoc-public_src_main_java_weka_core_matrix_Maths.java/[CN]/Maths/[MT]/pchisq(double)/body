@@ -1,4 +1,0 @@
-{
-  double xh=Math.sqrt(x);
-  return pnorm(xh) - pnorm(-xh);
-}

@@ -1,6 +1,0 @@
-{
-  if (this.library == null) {
-    this.library=loadLibrary(this.libraryClass);
-  }
-  return this.library;
-}

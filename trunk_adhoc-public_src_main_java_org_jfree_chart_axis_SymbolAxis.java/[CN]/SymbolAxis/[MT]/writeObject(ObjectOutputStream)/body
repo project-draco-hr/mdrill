@@ -1,5 +1,0 @@
-{
-  stream.defaultWriteObject();
-  SerialUtilities.writePaint(this.gridBandPaint,stream);
-  SerialUtilities.writePaint(this.gridBandAlternatePaint,stream);
-}

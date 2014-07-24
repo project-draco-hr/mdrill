@@ -1,4 +1,0 @@
-{
-  button.addMouseListener(this);
-  button.setBorderPainted(false);
-}

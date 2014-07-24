@@ -1,5 +1,0 @@
-{
-  setClusterer(new SimpleKMeans());
-  m_clusteringResults=new StringBuffer();
-  m_clusterAssignments=null;
-}

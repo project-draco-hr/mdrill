@@ -1,6 +1,0 @@
-{
-  if (PLUGINS.get(interfaceName) != null) {
-    return PLUGINS.get(interfaceName).keySet();
-  }
-  return null;
-}

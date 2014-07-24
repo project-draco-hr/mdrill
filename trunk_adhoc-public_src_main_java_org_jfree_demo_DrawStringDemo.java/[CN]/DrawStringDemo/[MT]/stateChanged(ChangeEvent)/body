@@ -1,7 +1,0 @@
-{
-  int r=this.slider.getValue();
-  double angle=Math.PI * 2.0 * (r / 360.0);
-  this.drawStringPanel2.setAngle(angle);
-  this.drawStringPanel2.invalidate();
-  this.drawStringPanel2.repaint();
-}

@@ -1,7 +1,0 @@
-{
-  super(formatString,xFormat,yFormat);
-  if (zFormat == null) {
-    throw new IllegalArgumentException("Null 'zFormat' argument.");
-  }
-  this.zFormat=zFormat;
-}

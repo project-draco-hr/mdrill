@@ -1,3 +1,0 @@
-{
-  return "The CISearchAlgorithm class supports Bayes net structure " + "search algorithms that are based on conditional independence " + "test (as opposed to for example score based of cross validation "+ "based search algorithms).";
-}

@@ -1,4 +1,0 @@
-{
-  this.endPercent=percent;
-  fireChangeEvent();
-}

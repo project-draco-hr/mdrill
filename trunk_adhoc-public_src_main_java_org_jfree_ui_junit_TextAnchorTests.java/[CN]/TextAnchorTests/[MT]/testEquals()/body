@@ -1,3 +1,0 @@
-{
-  assertTrue(TextAnchor.BOTTOM_LEFT.equals(TextAnchor.BOTTOM_LEFT));
-}

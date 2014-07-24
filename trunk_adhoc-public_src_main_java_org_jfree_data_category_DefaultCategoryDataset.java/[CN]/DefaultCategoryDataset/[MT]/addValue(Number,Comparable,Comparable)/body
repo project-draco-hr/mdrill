@@ -1,4 +1,0 @@
-{
-  this.data.addValue(value,rowKey,columnKey);
-  fireDatasetChanged();
-}

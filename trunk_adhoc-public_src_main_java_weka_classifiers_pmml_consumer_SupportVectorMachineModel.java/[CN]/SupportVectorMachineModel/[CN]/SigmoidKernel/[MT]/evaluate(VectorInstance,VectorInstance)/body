@@ -1,7 +1,0 @@
-{
-  double dotProd=x.dotProduct(y);
-  double z=m_gamma * dotProd + m_coef0;
-  double a=Math.exp(z);
-  double b=Math.exp(-z);
-  return ((a - b) / (a + b));
-}

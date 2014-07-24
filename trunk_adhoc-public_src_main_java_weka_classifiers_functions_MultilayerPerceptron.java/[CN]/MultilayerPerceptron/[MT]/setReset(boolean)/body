@@ -1,6 +1,0 @@
-{
-  if (m_gui) {
-    r=false;
-  }
-  m_reset=r;
-}

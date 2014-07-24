@@ -1,3 +1,0 @@
-{
-  return kthSmallestValue(att.index(),k);
-}

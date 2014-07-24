@@ -1,4 +1,0 @@
-{
-  super("Learn CPT","Learn conditional probability tables","learncpt","");
-  setEnabled(false);
-}

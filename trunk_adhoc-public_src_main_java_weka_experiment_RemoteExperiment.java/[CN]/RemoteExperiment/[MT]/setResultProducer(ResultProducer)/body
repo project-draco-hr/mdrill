@@ -1,4 +1,0 @@
-{
-  super.setResultProducer(newResultProducer);
-  m_baseExperiment.setResultProducer(newResultProducer);
-}

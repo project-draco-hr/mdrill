@@ -1,5 +1,0 @@
-{
-  if (newMode.getTags() == TAGS_MISSING) {
-    m_MissingMode=newMode.getSelectedTag().getID();
-  }
-}

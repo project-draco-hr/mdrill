@@ -1,7 +1,0 @@
-{
-  final Polygon result=new Polygon();
-  result.addPoint(7,7);
-  result.addPoint(2,2);
-  result.addPoint(12,2);
-  return result;
-}

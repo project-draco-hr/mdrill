@@ -1,8 +1,0 @@
-{
-  try {
-    getCurrentHandler().endElement(qName);
-  }
- catch (  XmlReaderException xre) {
-    throw new ParseException(xre,getLocator());
-  }
-}

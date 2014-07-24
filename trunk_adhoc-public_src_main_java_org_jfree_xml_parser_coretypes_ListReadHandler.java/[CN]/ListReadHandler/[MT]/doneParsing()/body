@@ -1,8 +1,0 @@
-{
-  final XmlReadHandler[] handler=(XmlReadHandler[])this.handlers.toArray(new XmlReadHandler[this.handlers.size()]);
-  this.retval=createList(handler.length);
-  for (int i=0; i < handler.length; i++) {
-    this.retval.add(handler[i].getObject());
-  }
-  this.handlers.clear();
-}

@@ -1,5 +1,0 @@
-{
-  m_ThreadMonitor=null;
-  m_ThreadMonitor=getThreadMonitor();
-  m_CanMeasureCpuTime=m_ThreadMonitor.isThreadCpuTimeSupported();
-}

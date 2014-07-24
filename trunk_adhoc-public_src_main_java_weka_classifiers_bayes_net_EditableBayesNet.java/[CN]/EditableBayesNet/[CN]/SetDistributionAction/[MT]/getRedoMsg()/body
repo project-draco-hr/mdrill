@@ -1,3 +1,0 @@
-{
-  return "Distribution of node " + getNodeName(m_nTargetNode) + " changed";
-}

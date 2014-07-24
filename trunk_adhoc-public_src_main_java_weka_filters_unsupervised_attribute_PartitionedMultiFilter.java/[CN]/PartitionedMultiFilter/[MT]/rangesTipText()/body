@@ -1,3 +1,0 @@
-{
-  return "The attribute ranges to be used; 'inv(...)' denotes an inverted range.";
-}

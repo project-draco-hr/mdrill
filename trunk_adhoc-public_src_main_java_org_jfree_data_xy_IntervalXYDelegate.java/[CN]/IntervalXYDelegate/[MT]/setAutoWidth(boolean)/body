@@ -1,6 +1,0 @@
-{
-  this.autoWidth=b;
-  if (b) {
-    this.autoIntervalWidth=recalculateInterval();
-  }
-}

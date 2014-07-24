@@ -1,5 +1,0 @@
-{
-  this.propertyName=propertyName;
-  this.attributeName=attributeName;
-  this.handler=handler;
-}

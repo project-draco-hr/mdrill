@@ -1,9 +1,0 @@
-{
-  Object[] firstKey=(Object[])m_Keys.elementAt(0);
-  Object[] lastKey=(Object[])m_Keys.elementAt(m_Keys.size() - 1);
-  for (int i=0; i < firstKey.length; i++) {
-    if ((i != m_KeyIndex) && !firstKey[i].equals(lastKey[i])) {
-      throw new Exception("Keys differ on fields other than \"" + m_KeyFieldName + "\" -- time to implement multiple averaging");
-    }
-  }
-}

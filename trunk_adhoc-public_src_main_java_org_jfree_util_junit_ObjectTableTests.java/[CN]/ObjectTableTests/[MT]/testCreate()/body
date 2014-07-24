@@ -1,7 +1,0 @@
-{
-  final TObjectTable t=new TObjectTable();
-  assertEquals(t.getColumnCount(),0);
-  assertEquals(t.getRowCount(),0);
-  assertNull(t.getObject(0,0));
-  assertNull(t.getObject(12,12));
-}

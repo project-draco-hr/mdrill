@@ -1,8 +1,0 @@
-{
-  for (int i=0; i < this.data.size(); i++) {
-    VectorSeries series=(VectorSeries)this.data.get(i);
-    series.removeChangeListener(this);
-  }
-  this.data.clear();
-  fireDatasetChanged();
-}

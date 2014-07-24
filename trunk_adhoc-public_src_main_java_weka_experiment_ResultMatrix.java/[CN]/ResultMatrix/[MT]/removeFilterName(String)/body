@@ -1,4 +1,0 @@
-{
-  if (getRemoveFilterName())   return s.replaceAll("-weka\\.filters\\..*","").replaceAll("-unsupervised\\..*","").replaceAll("-supervised\\..*","");
- else   return s;
-}

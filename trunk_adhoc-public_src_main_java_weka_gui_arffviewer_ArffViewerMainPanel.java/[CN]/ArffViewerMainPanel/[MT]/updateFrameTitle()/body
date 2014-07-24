@@ -1,4 +1,0 @@
-{
-  if (getParentFrame() != null)   getParentFrame().setTitle(getFrameTitle());
-  if (getParentInternalFrame() != null)   getParentInternalFrame().setTitle(getFrameTitle());
-}

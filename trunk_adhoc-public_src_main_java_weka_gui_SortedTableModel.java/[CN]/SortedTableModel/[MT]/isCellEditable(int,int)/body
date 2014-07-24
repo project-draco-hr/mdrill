@@ -1,4 +1,0 @@
-{
-  if (!isInitialized())   return false;
- else   return getModel().isCellEditable(mIndices[rowIndex],columnIndex);
-}

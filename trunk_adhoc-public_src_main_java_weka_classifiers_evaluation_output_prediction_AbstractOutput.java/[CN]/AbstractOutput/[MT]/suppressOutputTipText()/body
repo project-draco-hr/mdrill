@@ -1,3 +1,0 @@
-{
-  return "Whether to suppress the regular output when storing the output in a file.";
-}

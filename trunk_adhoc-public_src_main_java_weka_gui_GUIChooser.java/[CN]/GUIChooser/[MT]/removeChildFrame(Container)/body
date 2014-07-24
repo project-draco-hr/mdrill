@@ -1,4 +1,0 @@
-{
-  boolean result=m_ChildFrames.remove(c);
-  return result;
-}

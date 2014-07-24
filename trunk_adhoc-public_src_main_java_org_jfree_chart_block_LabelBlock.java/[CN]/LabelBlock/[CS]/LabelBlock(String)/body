@@ -1,3 +1,0 @@
-{
-  this(label,new Font("SansSerif",Font.PLAIN,10),DEFAULT_PAINT);
-}

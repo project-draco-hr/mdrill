@@ -1,3 +1,0 @@
-{
-  throw new Exception("[PMMLClassifier] PMML models are pre-built " + "and static!");
-}

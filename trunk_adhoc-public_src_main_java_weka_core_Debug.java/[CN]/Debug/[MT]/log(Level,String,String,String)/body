@@ -1,3 +1,0 @@
-{
-  if (getEnabled())   m_Log.log(level,sourceclass,sourcemethod,message);
-}

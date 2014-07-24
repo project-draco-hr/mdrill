@@ -1,5 +1,0 @@
-{
-  final JLabel result=new JLabel(text);
-  result.setFont(font);
-  return result;
-}

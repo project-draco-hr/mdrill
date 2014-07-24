@@ -1,6 +1,0 @@
-{
-  stream.defaultReadObject();
-  this.aggregatedItemsPaint=SerialUtilities.readPaint(stream);
-  this.legendItemShape=SerialUtilities.readShape(stream);
-  this.sectionPaints=new HashMap();
-}

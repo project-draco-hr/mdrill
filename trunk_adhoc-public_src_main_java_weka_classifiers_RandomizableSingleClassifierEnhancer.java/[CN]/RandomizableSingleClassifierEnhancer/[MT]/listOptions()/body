@@ -1,9 +1,0 @@
-{
-  Vector newVector=new Vector(2);
-  newVector.addElement(new Option("\tRandom number seed.\n" + "\t(default 1)","S",1,"-S <num>"));
-  Enumeration enu=super.listOptions();
-  while (enu.hasMoreElements()) {
-    newVector.addElement(enu.nextElement());
-  }
-  return newVector.elements();
-}

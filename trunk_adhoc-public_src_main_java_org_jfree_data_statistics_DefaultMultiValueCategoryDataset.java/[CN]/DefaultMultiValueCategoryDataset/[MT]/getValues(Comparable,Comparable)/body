@@ -1,3 +1,0 @@
-{
-  return Collections.unmodifiableList((List)this.data.getObject(rowKey,columnKey));
-}

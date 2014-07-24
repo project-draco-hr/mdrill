@@ -1,3 +1,0 @@
-{
-  return this.arrangement.arrange(this,g2,constraint);
-}

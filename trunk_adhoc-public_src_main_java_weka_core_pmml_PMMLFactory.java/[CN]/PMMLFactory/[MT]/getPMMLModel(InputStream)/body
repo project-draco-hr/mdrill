@@ -1,3 +1,0 @@
-{
-  return getPMMLModel(stream,null);
-}

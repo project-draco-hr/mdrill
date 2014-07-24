@@ -1,5 +1,0 @@
-{
-  setBinaryAttributesNominal(Utils.getFlag('N',options));
-  setTransformAllValues(Utils.getFlag('A',options));
-  if (getInputFormat() != null)   setInputFormat(getInputFormat());
-}

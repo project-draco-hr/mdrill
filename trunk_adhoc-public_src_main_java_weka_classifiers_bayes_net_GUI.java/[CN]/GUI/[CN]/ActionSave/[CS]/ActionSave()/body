@@ -1,3 +1,0 @@
-{
-  super("Save","Save Graph","save","ctrl S");
-}

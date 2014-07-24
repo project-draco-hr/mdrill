@@ -1,6 +1,0 @@
-{
-  final SpreadsheetDate d=new SpreadsheetDate(36584);
-  assertEquals(28,d.getDayOfMonth());
-  assertEquals(MonthConstants.FEBRUARY,d.getMonth());
-  assertEquals(2000,d.getYYYY());
-}

@@ -1,5 +1,0 @@
-{
-  double dx=xDataPt - xGrdPt;
-  double dy=yDataPt - yGrdPt;
-  return Math.sqrt(dx * dx + dy * dy);
-}

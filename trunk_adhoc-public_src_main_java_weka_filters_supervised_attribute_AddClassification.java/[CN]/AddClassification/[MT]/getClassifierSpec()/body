@@ -1,8 +1,0 @@
-{
-  String result;
-  Classifier c;
-  c=getClassifier();
-  result=c.getClass().getName();
-  if (c instanceof OptionHandler)   result+=" " + Utils.joinOptions(((OptionHandler)c).getOptions());
-  return result;
-}

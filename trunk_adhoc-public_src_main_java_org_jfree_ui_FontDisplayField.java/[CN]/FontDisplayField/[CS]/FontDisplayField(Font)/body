@@ -1,5 +1,0 @@
-{
-  super("");
-  setDisplayFont(font);
-  setEnabled(false);
-}

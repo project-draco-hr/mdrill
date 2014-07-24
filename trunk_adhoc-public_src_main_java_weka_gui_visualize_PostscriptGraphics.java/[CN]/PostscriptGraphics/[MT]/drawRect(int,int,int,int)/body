@@ -1,4 +1,0 @@
-{
-  setStateToLocal();
-  m_printstream.println(xTransform(xScale(x)) + " " + yTransform(yScale(y))+ " "+ xScale(width)+ " "+ yScale(height)+ " false Rect");
-}

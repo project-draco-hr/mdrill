@@ -1,5 +1,0 @@
-{
-  this.columnKey=columnKey;
-  this.category=columnKey;
-  this.categoryIndex=this.dataset.getColumnIndex(columnKey);
-}

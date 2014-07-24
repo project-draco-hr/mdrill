@@ -1,3 +1,0 @@
-{
-  throw new IOException("Setting InputStream as source not supported");
-}

@@ -1,7 +1,0 @@
-{
-  if (first < 0 || first >= this.underlying.getColumnCount()) {
-    throw new IllegalArgumentException("Invalid index.");
-  }
-  this.firstCategoryIndex=first;
-  fireDatasetChanged();
-}

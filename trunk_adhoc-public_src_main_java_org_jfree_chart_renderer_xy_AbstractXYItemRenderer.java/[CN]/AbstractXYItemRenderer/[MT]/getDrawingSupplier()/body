@@ -1,8 +1,0 @@
-{
-  DrawingSupplier result=null;
-  XYPlot p=getPlot();
-  if (p != null) {
-    result=p.getDrawingSupplier();
-  }
-  return result;
-}

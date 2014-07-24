@@ -1,3 +1,0 @@
-{
-  super.add(new YIntervalDataItem(x,y,yLow,yHigh),true);
-}

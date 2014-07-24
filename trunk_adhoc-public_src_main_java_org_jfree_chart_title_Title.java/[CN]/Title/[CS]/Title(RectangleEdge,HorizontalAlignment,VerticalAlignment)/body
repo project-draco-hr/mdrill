@@ -1,3 +1,0 @@
-{
-  this(position,horizontalAlignment,verticalAlignment,Title.DEFAULT_PADDING);
-}

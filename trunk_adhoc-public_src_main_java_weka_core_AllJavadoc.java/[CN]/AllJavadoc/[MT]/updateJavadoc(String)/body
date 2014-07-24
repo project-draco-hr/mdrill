@@ -1,9 +1,0 @@
-{
-  String result;
-  int i;
-  result=content;
-  for (i=0; i < m_Javadocs.size(); i++) {
-    result=((Javadoc)m_Javadocs.get(i)).updateJavadoc(result);
-  }
-  return result;
-}

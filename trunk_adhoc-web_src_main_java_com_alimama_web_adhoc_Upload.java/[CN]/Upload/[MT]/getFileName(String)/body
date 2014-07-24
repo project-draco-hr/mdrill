@@ -1,8 +1,0 @@
-{
-  int pos=0;
-  pos=filePathName.lastIndexOf(47);
-  if (pos != -1)   return filePathName.substring(pos + 1,filePathName.length());
-  pos=filePathName.lastIndexOf(92);
-  if (pos != -1)   return filePathName.substring(pos + 1,filePathName.length());
- else   return filePathName;
-}

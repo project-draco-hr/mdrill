@@ -1,7 +1,0 @@
-{
-  m_Factory=DocumentBuilderFactory.newInstance();
-  m_XPath=XPathFactory.newInstance(XPathFactory.DEFAULT_OBJECT_MODEL_URI).newXPath();
-  setDocType(null);
-  setRootNode(null);
-  setValidating(false);
-}

@@ -1,6 +1,0 @@
-{
-  double returnValue=0;
-  int j;
-  for (j=0; j < bags.numClasses(); j++)   returnValue=returnValue + logFunc(bags.perClass(j));
-  return logFunc(bags.total()) - returnValue;
-}

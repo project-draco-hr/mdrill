@@ -1,7 +1,0 @@
-{
-  Vector newVector=new Vector(3);
-  newVector.addElement("measureTreeSize");
-  newVector.addElement("measureNumLeaves");
-  newVector.addElement("measureNumRules");
-  return newVector.elements();
-}

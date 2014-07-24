@@ -1,6 +1,6 @@
 {
   QueryKey qk=new QueryKey(q,this.uuid);
-  QueryVal qv=(QueryVal)GrobalCache.fieldValueCache.get(qk);
+  QueryVal qv=(QueryVal)GrobalCache.fieldValueCache_fq.get(qk);
   if (qv != null) {
     return qv.dset;
   }

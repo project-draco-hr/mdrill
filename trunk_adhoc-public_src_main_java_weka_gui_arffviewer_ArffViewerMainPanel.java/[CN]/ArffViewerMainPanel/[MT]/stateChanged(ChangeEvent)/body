@@ -1,5 +1,0 @@
-{
-  updateFrameTitle();
-  updateMenu();
-  if (e.getSource() instanceof JComponent)   setTabTitle((JComponent)e.getSource());
-}

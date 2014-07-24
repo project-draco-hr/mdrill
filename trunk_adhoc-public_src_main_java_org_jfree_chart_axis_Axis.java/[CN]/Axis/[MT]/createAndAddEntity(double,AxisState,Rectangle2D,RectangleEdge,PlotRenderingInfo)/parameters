@@ -1,5 +1,0 @@
-double cursor
-AxisState state
-Rectangle2D dataArea
-RectangleEdge edge
-PlotRenderingInfo plotState

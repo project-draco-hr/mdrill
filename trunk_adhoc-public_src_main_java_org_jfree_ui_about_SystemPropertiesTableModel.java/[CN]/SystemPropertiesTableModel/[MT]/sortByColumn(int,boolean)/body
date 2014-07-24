@@ -1,6 +1,0 @@
-{
-  if (isSortable(column)) {
-    super.sortByColumn(column,ascending);
-    Collections.sort(this.properties,new SystemPropertyComparator(ascending));
-  }
-}

@@ -1,4 +1,0 @@
-{
-  this.actionMap=new HashMap();
-  this.actionList=new ArrayList();
-}

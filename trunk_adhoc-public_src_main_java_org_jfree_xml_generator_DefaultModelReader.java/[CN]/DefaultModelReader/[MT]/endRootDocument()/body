@@ -1,3 +1,0 @@
-{
-  this.model.setModelComments(new Comments(getOpenComment(),getCloseComment()));
-}

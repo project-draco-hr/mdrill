@@ -1,3 +1,0 @@
-{
-  return "Whether MDL correction is used when finding splits on numeric attributes.";
-}

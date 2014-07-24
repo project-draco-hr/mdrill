@@ -1,3 +1,0 @@
-{
-  runJavadoc(new GlobalInfoJavadoc(),args);
-}

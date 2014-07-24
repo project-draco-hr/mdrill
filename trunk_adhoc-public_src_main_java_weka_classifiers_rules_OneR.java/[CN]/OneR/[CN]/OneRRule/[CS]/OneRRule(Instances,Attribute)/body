@@ -1,7 +1,0 @@
-{
-  m_class=data.classAttribute();
-  m_numInst=data.numInstances();
-  m_attr=attribute;
-  m_correct=0;
-  m_classifications=new int[m_attr.numValues()];
-}

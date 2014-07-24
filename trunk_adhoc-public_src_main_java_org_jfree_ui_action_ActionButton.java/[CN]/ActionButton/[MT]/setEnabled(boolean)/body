@@ -1,6 +1,0 @@
-{
-  super.setEnabled(b);
-  if (getAction() != null) {
-    getAction().setEnabled(b);
-  }
-}

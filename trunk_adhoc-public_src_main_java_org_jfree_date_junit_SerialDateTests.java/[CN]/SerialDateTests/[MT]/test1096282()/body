@@ -1,6 +1,0 @@
-{
-  SerialDate d=SerialDate.createInstance(29,2,2004);
-  d=SerialDate.addYears(1,d);
-  SerialDate expected=SerialDate.createInstance(28,2,2005);
-  assertTrue(d.isOn(expected));
-}

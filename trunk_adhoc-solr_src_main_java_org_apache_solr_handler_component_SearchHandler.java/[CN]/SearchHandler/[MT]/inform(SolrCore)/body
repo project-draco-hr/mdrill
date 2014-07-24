@@ -7,6 +7,5 @@
   for (  String c : list) {
     SearchComponent comp=core.getSearchComponent(c);
     components.add(comp);
-    log.info("Adding  component:" + comp);
   }
 }

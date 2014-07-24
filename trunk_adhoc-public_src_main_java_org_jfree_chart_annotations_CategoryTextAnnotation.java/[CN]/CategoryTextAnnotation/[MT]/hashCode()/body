@@ -1,8 +1,0 @@
-{
-  int result=super.hashCode();
-  result=37 * result + this.category.hashCode();
-  result=37 * result + this.categoryAnchor.hashCode();
-  long temp=Double.doubleToLongBits(this.value);
-  result=37 * result + (int)(temp ^ (temp >>> 32));
-  return result;
-}

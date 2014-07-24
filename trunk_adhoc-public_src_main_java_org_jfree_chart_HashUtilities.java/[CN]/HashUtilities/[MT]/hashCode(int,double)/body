@@ -1,4 +1,0 @@
-{
-  long l=Double.doubleToLongBits(d);
-  return 37 * pre + (int)(l ^ (l >>> 32));
-}

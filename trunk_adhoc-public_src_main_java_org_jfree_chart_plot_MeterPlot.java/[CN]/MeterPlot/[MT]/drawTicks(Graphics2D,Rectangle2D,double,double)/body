@@ -1,5 +1,0 @@
-{
-  for (double v=minValue; v <= maxValue; v+=this.tickSize) {
-    drawTick(g2,meterArea,v);
-  }
-}

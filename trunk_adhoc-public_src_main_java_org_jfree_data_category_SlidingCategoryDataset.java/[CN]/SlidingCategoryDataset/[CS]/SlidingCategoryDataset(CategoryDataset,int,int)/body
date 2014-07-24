@@ -1,5 +1,0 @@
-{
-  this.underlying=underlying;
-  this.firstCategoryIndex=firstColumn;
-  this.maximumCategoryCount=maxColumns;
-}

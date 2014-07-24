@@ -1,5 +1,0 @@
-{
-  if (!(m_Loader instanceof DatabaseLoader)) {
-    newStructure();
-  }
-}

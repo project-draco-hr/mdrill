@@ -1,5 +1,0 @@
-{
-  if (connectionAllowed(eventName)) {
-    m_listenee=source;
-  }
-}

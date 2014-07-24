@@ -1,5 +1,0 @@
-{
-  if (!this.inDTD) {
-    this.comment.add(new String(ch,start,length));
-  }
-}

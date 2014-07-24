@@ -1,7 +1,0 @@
-{
-  final Rectangle2D textBounds=new Rectangle2D.Double();
-  final float[] adjust=deriveTextBoundsAnchorOffsets(g2,text,anchor,textBounds);
-  textBounds.setRect(x + adjust[0],y + adjust[1] + adjust[2],textBounds.getWidth(),textBounds.getHeight());
-  g2.drawString(text,x + adjust[0],y + adjust[1]);
-  return textBounds;
-}

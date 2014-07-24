@@ -1,5 +1,0 @@
-{
-  if (newMethod.getTags() == TAGS_WEIGHTING) {
-    m_DistanceWeighting=newMethod.getSelectedTag().getID();
-  }
-}

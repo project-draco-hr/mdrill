@@ -1,4 +1,0 @@
-{
-  this.orderedNames.add(name);
-  this.propertyDefinition.add(new PropertyDefinition(name,element));
-}

@@ -1,4 +1,0 @@
-{
-  final JPanel content=new TextBlockPanel("This is some really long text that we will use " + "for testing purposes.  You'll need to resize the window to see how the TextBlock " + "is dynamically updated.  Also note what happens when there is a really long "+ "word like ABCDEFGHIJKLMNOPQRSTUVWXYZ (OK, that's not really a word).",new Font("Serif",Font.PLAIN,14));
-  return content;
-}

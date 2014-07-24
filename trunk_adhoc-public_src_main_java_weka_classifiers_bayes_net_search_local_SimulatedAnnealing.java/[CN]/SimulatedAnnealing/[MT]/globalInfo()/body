@@ -1,3 +1,0 @@
-{
-  return "This Bayes Network learning algorithm uses the general purpose search method " + "of simulated annealing to find a well scoring network structure.\n\n" + "For more information see:\n\n"+ getTechnicalInformation().toString();
-}

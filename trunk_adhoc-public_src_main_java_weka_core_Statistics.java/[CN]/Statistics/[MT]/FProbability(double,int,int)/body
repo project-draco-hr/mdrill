@@ -1,3 +1,0 @@
-{
-  return incompleteBeta(df2 / 2.0,df1 / 2.0,df2 / (df2 + df1 * F));
-}

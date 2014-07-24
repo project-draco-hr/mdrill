@@ -1,4 +1,0 @@
-{
-  m_minNumInstances=minNumInstances;
-  m_minInfoGain=1.0E-4;
-}

@@ -1,5 +1,0 @@
-{
-  super.tableChanged(e);
-  setLayout();
-  notifyListener();
-}

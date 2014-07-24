@@ -1,4 +1,0 @@
-{
-  if (b_Debug)   System.err.println("InstanceSavePanel::batchFinished()");
-  if (outputWriter != null)   outputWriter.close();
-}

@@ -1,3 +1,0 @@
-{
-  if (m_MeasurePerformance)   m_Stats=new PerformanceStats();
-}

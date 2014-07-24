@@ -1,5 +1,0 @@
-int[] indices
-int startidx
-int endidx
-int splitDim
-double splitVal

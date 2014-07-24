@@ -1,5 +1,0 @@
-{
-  Paint old=this.paint;
-  this.paint=paint;
-  this.pcs.firePropertyChange("paint",old,paint);
-}

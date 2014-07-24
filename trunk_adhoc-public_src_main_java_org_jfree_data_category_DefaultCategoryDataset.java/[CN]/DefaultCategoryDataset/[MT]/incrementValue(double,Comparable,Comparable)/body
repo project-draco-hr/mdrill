@@ -1,8 +1,0 @@
-{
-  double existing=0.0;
-  Number n=getValue(rowKey,columnKey);
-  if (n != null) {
-    existing=n.doubleValue();
-  }
-  setValue(existing + value,rowKey,columnKey);
-}

@@ -1,4 +1,0 @@
-{
-  if (value)   turnChecksOff();
- else   turnChecksOn();
-}

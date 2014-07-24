@@ -1,5 +1,0 @@
-{
-  if ((maxSize % 2) == 0)   maxSize++;
-  m_heap=new MyHeapElement[maxSize + 1];
-  m_heap[0]=new MyHeapElement(-1);
-}

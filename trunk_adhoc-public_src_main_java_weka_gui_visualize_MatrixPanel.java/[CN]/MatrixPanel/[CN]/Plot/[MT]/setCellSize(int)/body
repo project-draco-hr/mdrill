@@ -1,4 +1,0 @@
-{
-  cellSize=newCellSize;
-  initialize();
-}

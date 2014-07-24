@@ -1,6 +1,0 @@
-{
-  if (index >= 0 && index < getNumTabs()) {
-    return m_filePaths.get(index);
-  }
-  return null;
-}

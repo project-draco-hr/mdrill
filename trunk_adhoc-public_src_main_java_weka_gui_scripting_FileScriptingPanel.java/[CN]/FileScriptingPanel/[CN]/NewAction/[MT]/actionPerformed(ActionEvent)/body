@@ -1,4 +1,0 @@
-{
-  m_Script.empty();
-  notifyTitleUpdatedListeners(new TitleUpdatedEvent(FileScriptingPanel.this));
-}

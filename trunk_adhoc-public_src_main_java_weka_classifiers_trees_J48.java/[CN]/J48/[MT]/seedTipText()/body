@@ -1,3 +1,0 @@
-{
-  return "The seed used for randomizing the data " + "when reduced-error pruning is used.";
-}

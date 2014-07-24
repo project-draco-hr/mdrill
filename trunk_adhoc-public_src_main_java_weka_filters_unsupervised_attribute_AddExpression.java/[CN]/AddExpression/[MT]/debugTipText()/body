@@ -1,3 +1,0 @@
-{
-  return "Set debug mode. If true then the new attribute will be named with " + "the postfix parse of the supplied expression.";
-}

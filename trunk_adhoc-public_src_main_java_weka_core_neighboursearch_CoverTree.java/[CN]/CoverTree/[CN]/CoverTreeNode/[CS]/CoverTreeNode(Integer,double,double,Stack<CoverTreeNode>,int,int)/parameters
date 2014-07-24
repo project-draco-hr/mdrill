@@ -1,6 +1,0 @@
-Integer i
-double md
-double pd
-Stack<CoverTreeNode> childs
-int numchilds
-int s

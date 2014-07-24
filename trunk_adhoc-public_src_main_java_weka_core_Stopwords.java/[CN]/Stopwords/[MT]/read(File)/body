@@ -1,3 +1,0 @@
-{
-  read(new BufferedReader(new FileReader(file)));
-}

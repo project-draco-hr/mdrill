@@ -1,4 +1,0 @@
-{
-  super();
-  setRotateY(0.8);
-}

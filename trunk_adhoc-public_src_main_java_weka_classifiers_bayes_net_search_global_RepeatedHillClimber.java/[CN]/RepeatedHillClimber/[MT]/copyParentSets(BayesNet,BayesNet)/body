@@ -1,6 +1,0 @@
-{
-  int nNodes=source.getNrOfNodes();
-  for (int iNode=0; iNode < nNodes; iNode++) {
-    dest.getParentSet(iNode).copy(source.getParentSet(iNode));
-  }
-}

@@ -1,5 +1,0 @@
-{
-  final Stroke s1=new BasicStroke(1.5f);
-  final Stroke s2=new BasicStroke(1.5f);
-  assertEquals(s1,s2);
-}

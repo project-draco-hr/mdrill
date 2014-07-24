@@ -1,7 +1,0 @@
-double x
-double y
-int domainAxisIndex
-int rangeAxisIndex
-double transX
-double transY
-PlotOrientation orientation

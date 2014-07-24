@@ -1,5 +1,0 @@
-{
-  XYItemRendererState state=new StackedXYAreaRendererState(info);
-  state.setProcessVisibleItemsOnly(false);
-  return state;
-}

@@ -1,5 +1,0 @@
-{
-  instance=(Instance)instance.copy();
-  instance.setDataset(m_numericDataHeader);
-  return probs(getFs(instance));
-}

@@ -1,6 +1,0 @@
-{
-  int result;
-  result=Attribute.STRING;
-  if ((rowIndex >= 0) && (rowIndex < getRowCount()) && (columnIndex > 0)&& (columnIndex < getColumnCount()))   result=m_Data.instance(rowIndex).attribute(columnIndex - 1).type();
-  return result;
-}

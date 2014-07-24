@@ -1,8 +1,0 @@
-{
-  try {
-    this.connection.close();
-  }
- catch (  Exception e) {
-    System.err.println("JdbcXYDataset: swallowing exception.");
-  }
-}

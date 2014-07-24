@@ -1,6 +1,0 @@
-{
-  if (s != null) {
-    this.thermometerStroke=s;
-    fireChangeEvent();
-  }
-}

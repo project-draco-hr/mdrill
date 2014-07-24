@@ -1,4 +1,0 @@
-{
-  this.widthRadius=radius;
-  notifyListeners(new DialLayerChangeEvent(this));
-}

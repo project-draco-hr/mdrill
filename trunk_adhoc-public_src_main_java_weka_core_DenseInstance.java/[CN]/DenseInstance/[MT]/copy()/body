@@ -1,5 +1,0 @@
-{
-  DenseInstance result=new DenseInstance(this);
-  result.m_Dataset=m_Dataset;
-  return result;
-}

@@ -1,6 +1,0 @@
-{
-  this.anchorValue=value;
-  if (notify) {
-    fireChangeEvent();
-  }
-}

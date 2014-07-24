@@ -1,3 +1,6 @@
 {
-  return data[i];
+  if (hasInit) {
+    return data[i];
+  }
+  return def;
 }

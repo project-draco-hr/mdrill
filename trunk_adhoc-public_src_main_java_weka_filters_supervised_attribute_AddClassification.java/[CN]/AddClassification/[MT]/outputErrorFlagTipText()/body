@@ -1,3 +1,0 @@
-{
-  return "Whether to add an attribute indicating whether the classifier output " + "a wrong classification (for numeric classes this is the numeric " + "difference).";
-}

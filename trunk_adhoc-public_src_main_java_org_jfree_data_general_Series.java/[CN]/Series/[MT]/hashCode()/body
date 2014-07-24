@@ -1,6 +1,0 @@
-{
-  int result;
-  result=this.key.hashCode();
-  result=29 * result + (this.description != null ? this.description.hashCode() : 0);
-  return result;
-}

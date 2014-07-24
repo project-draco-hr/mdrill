@@ -1,3 +1,0 @@
-{
-  if (m_cancelBut != null)   m_cancelBut.setEnabled(flag);
-}

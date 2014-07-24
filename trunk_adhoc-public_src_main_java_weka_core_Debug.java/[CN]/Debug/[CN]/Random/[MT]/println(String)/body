@@ -1,6 +1,0 @@
-{
-  if (getDebug()) {
-    if (getLog() != null)     getLog().log(Level.INFO,m_ID + ": " + msg);
- else     System.out.println(m_ID + ": " + msg);
-  }
-}

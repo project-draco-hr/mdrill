@@ -1,3 +1,0 @@
-{
-  return "Set the search method. This search method is used " + "during the attribute selection phase before the classifier is " + "invoked.";
-}

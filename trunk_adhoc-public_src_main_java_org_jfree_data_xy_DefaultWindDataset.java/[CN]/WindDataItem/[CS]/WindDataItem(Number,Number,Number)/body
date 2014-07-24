@@ -1,5 +1,0 @@
-{
-  this.x=x;
-  this.windDir=windDir;
-  this.windForce=windForce;
-}

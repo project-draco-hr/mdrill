@@ -1,4 +1,0 @@
-{
-  Comparable key=getSectionKey(section);
-  setSectionOutlinePaint(key,paint);
-}

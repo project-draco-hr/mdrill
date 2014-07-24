@@ -1,6 +1,0 @@
-String label
-Graphics2D g2
-Rectangle2D plotArea
-Rectangle2D dataArea
-RectangleEdge edge
-AxisState state

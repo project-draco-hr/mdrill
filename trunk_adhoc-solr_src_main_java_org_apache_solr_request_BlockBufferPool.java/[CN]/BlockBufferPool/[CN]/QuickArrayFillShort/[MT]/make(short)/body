@@ -1,0 +1,5 @@
+{
+  short[] data=new short[BlockBufferPool.interval];
+  Arrays.fill(data,def);
+  return data;
+}

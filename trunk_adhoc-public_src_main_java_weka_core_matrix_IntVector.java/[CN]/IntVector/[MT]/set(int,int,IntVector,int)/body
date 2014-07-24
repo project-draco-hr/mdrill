@@ -1,3 +1,0 @@
-{
-  for (int i=i0; i <= i1; i++)   set(i,v.get(j0 + i - i0));
-}

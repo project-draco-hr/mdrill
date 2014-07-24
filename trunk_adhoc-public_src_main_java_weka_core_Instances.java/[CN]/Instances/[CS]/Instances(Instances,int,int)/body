@@ -1,7 +1,0 @@
-{
-  this(source,toCopy);
-  if ((first < 0) || ((first + toCopy) > source.numInstances())) {
-    throw new IllegalArgumentException("Parameters first and/or toCopy out " + "of range");
-  }
-  source.copyInstances(first,this,toCopy);
-}

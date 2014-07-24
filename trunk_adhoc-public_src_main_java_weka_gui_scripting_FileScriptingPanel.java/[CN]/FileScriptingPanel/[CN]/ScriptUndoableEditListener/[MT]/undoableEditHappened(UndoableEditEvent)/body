@@ -1,5 +1,0 @@
-{
-  m_Undo.addEdit(e.getEdit());
-  m_UndoAction.updateUndoState();
-  m_RedoAction.updateRedoState();
-}

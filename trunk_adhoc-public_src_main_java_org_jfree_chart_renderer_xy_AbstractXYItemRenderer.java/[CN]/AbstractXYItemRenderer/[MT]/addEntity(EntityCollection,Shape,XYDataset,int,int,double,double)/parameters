@@ -1,7 +1,0 @@
-EntityCollection entities
-Shape area
-XYDataset dataset
-int series
-int item
-double entityX
-double entityY

@@ -1,9 +1,0 @@
-{
-  try {
-    return m_matrix.getCell(row,column);
-  }
- catch (  Exception ex) {
-    ex.printStackTrace();
-  }
-  return new Double(0.0);
-}

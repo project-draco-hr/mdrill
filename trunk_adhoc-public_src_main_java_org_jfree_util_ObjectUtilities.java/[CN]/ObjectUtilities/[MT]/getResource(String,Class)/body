@@ -1,7 +1,0 @@
-{
-  final ClassLoader cl=getClassLoader(c);
-  if (cl == null) {
-    return null;
-  }
-  return cl.getResource(name);
-}

@@ -1,3 +1,0 @@
-{
-  return new BeanDescriptor(weka.gui.beans.Note.class,weka.gui.beans.NoteCustomizer.class);
-}

@@ -1,9 +1,0 @@
-{
-  try {
-    final Class c=loadClass(className);
-    return (XmlReadHandler)c.newInstance();
-  }
- catch (  Exception e) {
-    throw new XmlReaderException("LoadHanderClass: Unable to instantiate " + className,e);
-  }
-}

@@ -1,3 +1,0 @@
-{
-  this(millisecond,new Second(second,minute,hour,day,month,year));
-}

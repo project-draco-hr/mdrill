@@ -1,3 +1,0 @@
-{
-  return generateSectionLabel(dataset,key);
-}

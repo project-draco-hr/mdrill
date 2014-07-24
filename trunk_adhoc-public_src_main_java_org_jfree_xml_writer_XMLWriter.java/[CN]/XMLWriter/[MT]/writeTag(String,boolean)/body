@@ -1,8 +1,0 @@
-{
-  if (close) {
-    writeTag(this.writer,name,new AttributeList(),close);
-  }
- else {
-    writeTag(this.writer,name);
-  }
-}

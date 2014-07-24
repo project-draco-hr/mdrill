@@ -1,7 +1,0 @@
-{
-  this.seriesVisible=visible;
-  if (notify) {
-    RendererChangeEvent e=new RendererChangeEvent(this,true);
-    notifyListeners(e);
-  }
-}

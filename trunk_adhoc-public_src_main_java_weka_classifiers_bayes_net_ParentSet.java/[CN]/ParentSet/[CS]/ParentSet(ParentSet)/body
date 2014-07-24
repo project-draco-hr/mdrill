@@ -1,8 +1,0 @@
-{
-  m_nNrOfParents=other.m_nNrOfParents;
-  m_nCardinalityOfParents=other.m_nCardinalityOfParents;
-  m_nParents=new int[m_nNrOfParents];
-  for (int iParent=0; iParent < m_nNrOfParents; iParent++) {
-    m_nParents[iParent]=other.m_nParents[iParent];
-  }
-}

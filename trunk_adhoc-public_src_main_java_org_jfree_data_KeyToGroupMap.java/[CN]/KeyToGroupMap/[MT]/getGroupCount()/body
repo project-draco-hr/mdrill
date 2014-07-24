@@ -1,3 +1,0 @@
-{
-  return this.groups.size() + 1;
-}

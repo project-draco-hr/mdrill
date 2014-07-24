@@ -1,4 +1,0 @@
-{
-  this.setBackground(Color.blue);
-  setVerticalScrollBarPolicy(VERTICAL_SCROLLBAR_ALWAYS);
-}

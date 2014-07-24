@@ -1,5 +1,0 @@
-KDTreeNode node
-Instances centers
-int[] candidates
-int[] assignments
-double pc

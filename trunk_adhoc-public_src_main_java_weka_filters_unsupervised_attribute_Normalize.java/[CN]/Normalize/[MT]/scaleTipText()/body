@@ -1,3 +1,0 @@
-{
-  return "The factor for scaling the output range (default: 1).";
-}

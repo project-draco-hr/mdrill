@@ -1,0 +1,63 @@
+{
+  StartLimit slimit=req.getReqStartEnd();
+  SolrQuery query=WebServiceParams.makeSolrQuery(shard);
+  WebServiceParams.setGroupByQuery(query,fqList,slimit.start,slimit.rows,req,joins,null);
+  query.set("mdrill.isRestat",false);
+  LOG.info("queryinfo:" + shard.urlMain + "/select/?"+ MdrillRequestLog.cutString(query.toString()));
+  QueryResponse qr=WebServiceParams.fetchGroupCrcQr(query,server,jsonObj,"__timedebug");
+  LinkedHashMap<String,GroupbyRow> groupValueCache=WebServiceParams.setGroupByResult(query,jsonObj,qr,req.groupbyFields,req.showFields,joins,null);
+  boolean isUseRefetch=jsonObj.getLong("total") > (UniqConfig.defaultCrossMaxLimit() - 10) && groupValueCache.size() <= UniqConfig.defaultCrossMaxLimit() && jsonObj.getString("code").equals("1");
+  if ((req.distStatFieldMap.size() > 0) || isUseRefetch) {
+    try {
+      query=WebServiceParams.makeSolrQuery(shard);
+      int rows=Math.min(groupValueCache.size() * 10,UniqConfig.defaultCrossMaxLimit());
+      WebServiceParams.setGroupByQuery(query,fqList,0,rows,req,joins,groupValueCache);
+      LOG.info("queryinfo_pre:" + shard.urlMain + "/select/?"+ MdrillRequestLog.cutString(query.toString()));
+      query.set("mdrill.isRestat",true);
+      QueryResponse qr2=server.query(query,SolrRequest.METHOD.POST);
+      jsonObj.put("__timedebug_qr2",qr2.getTimetaken(4).toString());
+      WebServiceParams.setGroupByResult(query,jsonObj,qr2,req.groupbyFields,req.showFields,joins,groupValueCache);
+    }
+ catch (    Exception e2) {
+      LOG.error("queryinfo_pre_exception",e2);
+    }
+  }
+  if (jsonObj.getString("code").equals("1") && req.sortType.isStatNum) {
+    JSONArray jsonArray=jsonObj.getJSONObject("data").getJSONArray("docs");
+    ArrayList<JSONObject> results=new ArrayList<JSONObject>();
+    boolean iscontains=true;
+    for (int i=0; i < jsonArray.length(); i++) {
+      JSONObject obj=jsonArray.getJSONObject(i);
+      if (!obj.has(req.sortType.sortRow)) {
+        iscontains=false;
+      }
+      results.add(obj);
+    }
+    final boolean isdesc=req.sortType.order.toLowerCase().equals("true");
+    boolean needsort=jsonObj.getLong("total") > (UniqConfig.defaultCrossMaxLimit() - 10);
+    if (iscontains && needsort) {
+      Collections.sort(results,new Comparator<JSONObject>(){
+        @Override public int compare(        JSONObject o1,        JSONObject o2){
+          int rtn=0;
+          try {
+            rtn=Double.compare(ParseDouble(o1.get(req.sortType.sortRow)),ParseDouble(o2.get(req.sortType.sortRow)));
+          }
+ catch (          JSONException e) {
+          }
+          if (isdesc) {
+            rtn*=-1;
+          }
+          return rtn;
+        }
+      }
+);
+    }
+    JSONArray rtnarr=new JSONArray();
+    int actualstart=req.start - slimit.start;
+    int actualend=req.rows + actualstart;
+    for (int i=actualstart; i < results.size() && i < actualend; i++) {
+      rtnarr.put(results.get(i));
+    }
+    jsonObj.getJSONObject("data").put("docs",rtnarr);
+  }
+}

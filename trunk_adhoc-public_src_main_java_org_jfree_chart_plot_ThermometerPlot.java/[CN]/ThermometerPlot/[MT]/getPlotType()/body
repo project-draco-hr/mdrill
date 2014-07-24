@@ -1,3 +1,0 @@
-{
-  return localizationResources.getString("Thermometer_Plot");
-}

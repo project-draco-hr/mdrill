@@ -1,5 +1,0 @@
-{
-  this.source=IOUtils.getInstance().createRelativeURL(resource,this.baseURL);
-  this.model.addSource(this.source);
-  this.model.addIncludeComment(this.source,new Comments(getOpenComment(),getCloseComment()));
-}

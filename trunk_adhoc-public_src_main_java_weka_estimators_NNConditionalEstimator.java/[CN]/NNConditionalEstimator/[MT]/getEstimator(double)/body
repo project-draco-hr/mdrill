@@ -1,7 +1,0 @@
-{
-  if (m_Covariance == null) {
-    calculateCovariance();
-  }
-  Estimator result=new MahalanobisEstimator(m_Covariance,given - m_CondMean,m_ValueMean);
-  return result;
-}

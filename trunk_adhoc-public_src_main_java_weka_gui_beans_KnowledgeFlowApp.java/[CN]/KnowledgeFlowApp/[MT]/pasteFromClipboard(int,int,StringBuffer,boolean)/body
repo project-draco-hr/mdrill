@@ -1,3 +1,0 @@
-{
-  return pasteFromBuffer(x,y,pasteBuffer,addUndoPoint);
-}

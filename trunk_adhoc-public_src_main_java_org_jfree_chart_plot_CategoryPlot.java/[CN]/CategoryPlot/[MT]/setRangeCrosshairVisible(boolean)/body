@@ -1,6 +1,0 @@
-{
-  if (this.rangeCrosshairVisible != flag) {
-    this.rangeCrosshairVisible=flag;
-    fireChangeEvent();
-  }
-}

@@ -1,5 +1,0 @@
-{
-  m_nParents=new int[nMaxNrOfParents];
-  m_nNrOfParents=0;
-  m_nCardinalityOfParents=1;
-}

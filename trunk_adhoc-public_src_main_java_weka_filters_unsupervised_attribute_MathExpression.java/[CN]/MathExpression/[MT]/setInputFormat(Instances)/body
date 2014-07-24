@@ -1,7 +1,0 @@
-{
-  m_SelectCols.setUpper(instanceInfo.numAttributes() - 1);
-  super.setInputFormat(instanceInfo);
-  setOutputFormat(instanceInfo);
-  m_attStats=null;
-  return true;
-}

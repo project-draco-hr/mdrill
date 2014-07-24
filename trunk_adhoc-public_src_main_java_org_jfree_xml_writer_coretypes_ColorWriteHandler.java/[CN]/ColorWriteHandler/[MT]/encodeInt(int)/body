@@ -1,9 +1,0 @@
-{
-  final String retVal=Integer.toHexString(i);
-  if (retVal.length() == 1) {
-    return "0" + retVal;
-  }
- else {
-    return retVal;
-  }
-}

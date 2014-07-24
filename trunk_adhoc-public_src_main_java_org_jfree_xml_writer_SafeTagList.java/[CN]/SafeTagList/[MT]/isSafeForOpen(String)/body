@@ -1,7 +1,0 @@
-{
-  final SafeDescription sd=(SafeDescription)this.safeTags.get(tag);
-  if (sd == null) {
-    return false;
-  }
-  return sd.isOpen();
-}

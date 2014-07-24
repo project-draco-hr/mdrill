@@ -1,5 +1,0 @@
-{
-  this.rowKeys.clear();
-  this.columnKeys.clear();
-  this.rows.clear();
-}

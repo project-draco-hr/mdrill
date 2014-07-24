@@ -1,6 +1,0 @@
-{
-  int n=size();
-  DoubleVector u=new DoubleVector(n);
-  for (int i=0; i < n; i++)   u.V[i]=V[i];
-  return u;
-}

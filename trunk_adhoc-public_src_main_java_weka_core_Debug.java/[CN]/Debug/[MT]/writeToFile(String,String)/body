@@ -1,3 +1,0 @@
-{
-  return writeToFile(filename,message,true);
-}

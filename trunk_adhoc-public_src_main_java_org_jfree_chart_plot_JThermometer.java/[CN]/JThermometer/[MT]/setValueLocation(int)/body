@@ -1,4 +1,0 @@
-{
-  this.plot.setValueLocation(loc);
-  this.panel.repaint();
-}

@@ -1,3 +1,0 @@
-{
-  return new SelectedTag(m_MatrixSource,TAGS_MATRIX_SOURCE);
-}

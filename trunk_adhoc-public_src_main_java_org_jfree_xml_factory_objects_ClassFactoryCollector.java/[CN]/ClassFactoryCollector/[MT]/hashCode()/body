@@ -1,5 +1,0 @@
-{
-  int result=super.hashCode();
-  result=29 * result + this.factories.hashCode();
-  return result;
-}

@@ -1,3 +1,0 @@
-{
-  return (Library[])this.libraries.toArray(new Library[this.libraries.size()]);
-}

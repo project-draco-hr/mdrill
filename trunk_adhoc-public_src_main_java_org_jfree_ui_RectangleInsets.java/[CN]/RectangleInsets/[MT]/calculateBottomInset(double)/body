@@ -1,7 +1,0 @@
-{
-  double result=this.bottom;
-  if (this.unitType == UnitType.RELATIVE) {
-    result=(this.bottom * height);
-  }
-  return result;
-}

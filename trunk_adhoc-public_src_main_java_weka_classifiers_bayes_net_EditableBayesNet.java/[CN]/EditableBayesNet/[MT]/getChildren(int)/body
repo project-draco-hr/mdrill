@@ -1,9 +1,0 @@
-{
-  FastVector children=new FastVector();
-  for (int iNode=0; iNode < getNrOfNodes(); iNode++) {
-    if (m_ParentSets[iNode].contains(nTargetNode)) {
-      children.addElement(iNode);
-    }
-  }
-  return children;
-}

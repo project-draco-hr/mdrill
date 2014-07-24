@@ -1,7 +1,0 @@
-{
-  for (int iAttribute=0; iAttribute < instances.numAttributes(); iAttribute++) {
-    if (iAttribute != instances.classIndex()) {
-      bayesNet.getParentSet(iAttribute).addParent(instances.classIndex(),instances);
-    }
-  }
-}

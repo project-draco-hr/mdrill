@@ -1,8 +1,0 @@
-{
-  List result=null;
-  BoxAndWhiskerItem item=(BoxAndWhiskerItem)this.data.getObject(row,column);
-  if (item != null) {
-    result=item.getOutliers();
-  }
-  return result;
-}

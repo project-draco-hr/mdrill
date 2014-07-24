@@ -1,8 +1,0 @@
-Graphics2D g2
-PlotOrientation orientation
-XYDataset dataset
-int series
-int item
-double x
-double y
-boolean negative

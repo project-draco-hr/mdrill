@@ -1,3 +1,0 @@
-{
-  return new Matrix(weka.core.matrix.Matrix.parseMatlab(matlab).getArray());
-}

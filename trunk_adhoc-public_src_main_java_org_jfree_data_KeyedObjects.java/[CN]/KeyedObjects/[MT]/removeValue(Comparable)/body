@@ -1,7 +1,0 @@
-{
-  int index=getIndex(key);
-  if (index < 0) {
-    throw new UnknownKeyException("The key (" + key.toString() + ") is not recognised.");
-  }
-  removeValue(index);
-}

@@ -1,4 +1,0 @@
-{
-  final MultiplexMappingDefinition definition=(MultiplexMappingDefinition)this.multiplexMappings.get(c);
-  return definition;
-}

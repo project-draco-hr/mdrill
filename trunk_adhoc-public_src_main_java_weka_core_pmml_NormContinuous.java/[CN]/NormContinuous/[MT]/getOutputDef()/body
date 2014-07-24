@@ -1,3 +1,0 @@
-{
-  return new Attribute(m_fieldName + "_normContinuous");
-}

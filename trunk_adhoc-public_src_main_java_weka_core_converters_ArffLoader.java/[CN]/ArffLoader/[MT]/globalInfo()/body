@@ -1,3 +1,0 @@
-{
-  return "Reads a source that is in arff (attribute relation file format) " + "format. ";
-}

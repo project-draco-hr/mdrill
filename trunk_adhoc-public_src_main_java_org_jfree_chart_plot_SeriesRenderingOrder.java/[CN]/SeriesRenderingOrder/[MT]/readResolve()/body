@@ -1,9 +1,0 @@
-{
-  if (this.equals(SeriesRenderingOrder.FORWARD)) {
-    return SeriesRenderingOrder.FORWARD;
-  }
- else   if (this.equals(SeriesRenderingOrder.REVERSE)) {
-    return SeriesRenderingOrder.REVERSE;
-  }
-  return null;
-}

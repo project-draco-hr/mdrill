@@ -1,4 +1,0 @@
-{
-  stream.defaultReadObject();
-  this.shadowPaint=SerialUtilities.readPaint(stream);
-}

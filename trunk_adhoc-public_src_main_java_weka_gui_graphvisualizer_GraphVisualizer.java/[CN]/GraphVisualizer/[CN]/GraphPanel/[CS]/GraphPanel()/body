@@ -1,6 +1,0 @@
-{
-  super();
-  this.addMouseListener(new GraphVisualizerMouseListener());
-  this.addMouseMotionListener(new GraphVisualizerMouseMotionListener());
-  this.setToolTipText("");
-}

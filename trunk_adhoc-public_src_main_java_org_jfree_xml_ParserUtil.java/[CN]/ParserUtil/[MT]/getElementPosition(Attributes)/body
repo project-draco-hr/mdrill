@@ -1,8 +1,0 @@
-{
-  final float x=ParserUtil.parseRelativeFloat(atts.getValue("x"),"Element x not specified");
-  final float y=ParserUtil.parseRelativeFloat(atts.getValue("y"),"Element y not specified");
-  final float w=ParserUtil.parseRelativeFloat(atts.getValue("width"),"Element width not specified");
-  final float h=ParserUtil.parseRelativeFloat(atts.getValue("height"),"Element height not specified");
-  final Rectangle2D.Float retval=new Rectangle2D.Float(x,y,w,h);
-  return retval;
-}

@@ -1,8 +1,0 @@
-{
-  this.eff=new CollectorFileFilter("<ignore>",".java");
-  this.fileList=new ArrayList();
-  this.startDirectory=startDirectory;
-  this.initialPackageName=packageName;
-  this.ignoredPackages=new ArrayList();
-  this.ignoredBaseClasses=new ArrayList();
-}

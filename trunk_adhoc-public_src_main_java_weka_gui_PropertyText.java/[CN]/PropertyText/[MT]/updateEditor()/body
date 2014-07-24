@@ -1,7 +1,0 @@
-{
-  try {
-    m_Editor.setAsText(getText());
-  }
- catch (  IllegalArgumentException ex) {
-  }
-}

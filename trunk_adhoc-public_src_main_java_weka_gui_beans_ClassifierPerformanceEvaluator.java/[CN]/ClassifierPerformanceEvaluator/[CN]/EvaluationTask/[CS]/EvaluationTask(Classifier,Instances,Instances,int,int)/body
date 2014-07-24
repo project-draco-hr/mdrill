@@ -1,7 +1,0 @@
-{
-  m_classifier=classifier;
-  m_setNum=setNum;
-  m_maxSetNum=maxSetNum;
-  m_testData=testData;
-  m_trainData=trainData;
-}

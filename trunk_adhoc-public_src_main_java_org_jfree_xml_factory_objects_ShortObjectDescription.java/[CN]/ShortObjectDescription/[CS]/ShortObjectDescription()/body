@@ -1,4 +1,0 @@
-{
-  super(Short.class);
-  setParameterDefinition("value",String.class);
-}

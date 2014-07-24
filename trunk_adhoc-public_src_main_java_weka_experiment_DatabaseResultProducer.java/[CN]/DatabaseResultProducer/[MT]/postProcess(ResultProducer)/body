@@ -1,4 +1,0 @@
-{
-  super.postProcess(rp);
-  m_ResultListener.postProcess(this);
-}

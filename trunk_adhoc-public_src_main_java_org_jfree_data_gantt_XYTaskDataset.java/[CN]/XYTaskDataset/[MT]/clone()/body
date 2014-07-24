@@ -1,5 +1,0 @@
-{
-  XYTaskDataset clone=(XYTaskDataset)super.clone();
-  clone.underlying=(TaskSeriesCollection)this.underlying.clone();
-  return clone;
-}

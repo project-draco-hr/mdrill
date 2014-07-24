@@ -1,5 +1,0 @@
-{
-  Vector newVector=new Vector(1);
-  newVector.addElement("measureNumRules");
-  return newVector.elements();
-}

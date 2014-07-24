@@ -1,4 +1,0 @@
-{
-  super(s,e);
-  fillLocation(null);
-}

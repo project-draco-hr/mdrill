@@ -1,3 +1,0 @@
-{
-  return new Insets(Math.abs(stringToInt(this.topValueEditor.getText())),Math.abs(stringToInt(this.leftValueEditor.getText())),Math.abs(stringToInt(this.bottomValueEditor.getText())),Math.abs(stringToInt(this.rightValueEditor.getText())));
-}

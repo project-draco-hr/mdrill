@@ -1,7 +1,0 @@
-{
-  if (padding == null) {
-    throw new IllegalArgumentException("Null 'padding' argument.");
-  }
-  this.padding=padding;
-  notifyListeners(new ChartChangeEvent(this));
-}

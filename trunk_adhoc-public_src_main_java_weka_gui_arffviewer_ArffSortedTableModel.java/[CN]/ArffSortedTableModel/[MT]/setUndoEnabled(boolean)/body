@@ -1,3 +1,0 @@
-{
-  ((ArffTableModel)getModel()).setUndoEnabled(enabled);
-}

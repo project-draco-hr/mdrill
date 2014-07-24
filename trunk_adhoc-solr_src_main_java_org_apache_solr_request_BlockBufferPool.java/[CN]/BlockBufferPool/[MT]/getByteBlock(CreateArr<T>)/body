@@ -3,7 +3,7 @@ synchronized (BlockBufferPool.this) {
     final int size=freeByteBlocks.size();
     final BlockInterface<T> b;
     if (0 == size) {
-      b=c.create(interval);
+      b=c.create();
       mallocTimes.incrementAndGet();
     }
  else {

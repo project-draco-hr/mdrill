@@ -1,8 +1,0 @@
-{
-  if (args.length != 2) {
-    System.out.println("\nUsage: " + DataSource.class.getName() + " <input-file> <output-file>\n");
-    System.exit(1);
-  }
-  Instances data=DataSource.read(args[0]);
-  DataSink.write(args[1],data);
-}

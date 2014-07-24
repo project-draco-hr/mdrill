@@ -1,4 +1,0 @@
-{
-  if (parent instanceof JFrame)   return (JFrame)parent;
- else   return null;
-}

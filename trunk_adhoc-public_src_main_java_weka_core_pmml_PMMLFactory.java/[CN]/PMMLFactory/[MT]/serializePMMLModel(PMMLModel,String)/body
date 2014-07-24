@@ -1,3 +1,0 @@
-{
-  serializePMMLModel(model,new File(filename));
-}

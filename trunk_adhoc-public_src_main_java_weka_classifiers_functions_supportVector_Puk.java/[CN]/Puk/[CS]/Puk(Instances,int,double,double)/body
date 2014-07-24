@@ -1,7 +1,0 @@
-{
-  super();
-  setCacheSize(cacheSize);
-  setOmega(omega);
-  setSigma(sigma);
-  buildKernel(data);
-}

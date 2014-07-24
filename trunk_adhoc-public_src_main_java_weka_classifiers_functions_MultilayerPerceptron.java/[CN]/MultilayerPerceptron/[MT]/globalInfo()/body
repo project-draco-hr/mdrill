@@ -1,3 +1,0 @@
-{
-  return "A Classifier that uses backpropagation to classify instances.\n" + "This network can be built by hand, created by an algorithm or both. " + "The network can also be monitored and modified during training time. "+ "The nodes in this network are all sigmoid (except for when the class "+ "is numeric in which case the the output nodes become unthresholded "+ "linear units).";
-}

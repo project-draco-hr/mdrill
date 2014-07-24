@@ -1,4 +1,0 @@
-{
-  this.palette=palette;
-  this.preferredSize=new Dimension(80,18);
-}

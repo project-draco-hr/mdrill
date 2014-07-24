@@ -1,5 +1,0 @@
-{
-  if (e.isPopupTrigger()) {
-    getCopyPopupMenu().show(getTable(),e.getX(),e.getY());
-  }
-}

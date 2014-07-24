@@ -1,8 +1,0 @@
-{
-  m_nodeModel=null;
-  m_right=null;
-  m_left=null;
-  m_parent=parent;
-  m_globalDeviation=globalDev;
-  m_globalAbsDeviation=globalAbsDev;
-}

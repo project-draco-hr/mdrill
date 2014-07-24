@@ -1,3 +1,0 @@
-{
-  return addOrUpdate(period,new Double(value));
-}

@@ -1,3 +1,0 @@
-{
-  return m_plot.m_plotInstances;
-}

@@ -1,5 +1,0 @@
-int attIdx
-int[] indices
-int left
-int right
-int k

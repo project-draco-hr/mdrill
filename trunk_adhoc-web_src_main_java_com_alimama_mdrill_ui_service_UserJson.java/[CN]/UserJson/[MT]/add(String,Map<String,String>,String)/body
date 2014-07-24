@@ -1,4 +1,0 @@
-{
-  del(userid,user);
-  return create(userid,val,user);
-}

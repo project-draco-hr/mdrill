@@ -1,6 +1,0 @@
-Graphics2D g2
-Plot plot
-Rectangle2D plotArea
-Rectangle2D dataArea
-RectangleEdge edge
-AxisSpace space

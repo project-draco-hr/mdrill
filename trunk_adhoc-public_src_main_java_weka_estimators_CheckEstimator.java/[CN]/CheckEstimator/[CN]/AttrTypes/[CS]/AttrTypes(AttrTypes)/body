@@ -1,7 +1,0 @@
-{
-  nominal=newTypes.nominal;
-  numeric=newTypes.numeric;
-  string=newTypes.string;
-  date=newTypes.date;
-  relational=newTypes.relational;
-}

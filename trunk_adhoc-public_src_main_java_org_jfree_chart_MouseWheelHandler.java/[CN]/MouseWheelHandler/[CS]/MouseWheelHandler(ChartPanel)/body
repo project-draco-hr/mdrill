@@ -1,5 +1,0 @@
-{
-  this.chartPanel=chartPanel;
-  this.zoomFactor=0.10;
-  this.chartPanel.addMouseWheelListener(this);
-}

@@ -1,9 +1,0 @@
-{
-  Instances dataset;
-  Random random=new Random(getSeed());
-  setRandom(random);
-  m_DecisionList=new FastVector();
-  setNumExamplesAct(getNumExamples());
-  dataset=defineDataset(random);
-  return dataset;
-}

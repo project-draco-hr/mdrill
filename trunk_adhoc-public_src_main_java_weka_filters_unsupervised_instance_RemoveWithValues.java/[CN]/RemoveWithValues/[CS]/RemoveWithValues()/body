@@ -1,4 +1,0 @@
-{
-  m_Values=new Range("first-last");
-  m_Values.setInvert(true);
-}

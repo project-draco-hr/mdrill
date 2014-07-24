@@ -1,6 +1,0 @@
-{
-  if (subtask == null) {
-    throw new IllegalArgumentException("Null 'subtask' argument.");
-  }
-  this.subtasks.add(subtask);
-}

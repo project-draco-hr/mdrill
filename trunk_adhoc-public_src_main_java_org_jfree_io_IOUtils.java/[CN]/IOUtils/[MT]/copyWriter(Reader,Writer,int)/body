@@ -1,8 +1,0 @@
-{
-  final char[] bytes=new char[buffersize];
-  int bytesRead=in.read(bytes);
-  while (bytesRead > -1) {
-    out.write(bytes,0,bytesRead);
-    bytesRead=in.read(bytes);
-  }
-}

@@ -1,7 +1,0 @@
-{
-  if (w < 0.0) {
-    throw new IllegalArgumentException("Negative 'w' argument.");
-  }
-  this.fixedIntervalWidth=w;
-  this.autoWidth=false;
-}

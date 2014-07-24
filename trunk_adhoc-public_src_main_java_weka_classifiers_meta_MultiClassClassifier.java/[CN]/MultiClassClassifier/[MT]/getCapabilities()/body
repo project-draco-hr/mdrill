@@ -1,7 +1,0 @@
-{
-  Capabilities result=super.getCapabilities();
-  result.disableAllClasses();
-  result.disableAllClassDependencies();
-  result.enable(Capability.NOMINAL_CLASS);
-  return result;
-}

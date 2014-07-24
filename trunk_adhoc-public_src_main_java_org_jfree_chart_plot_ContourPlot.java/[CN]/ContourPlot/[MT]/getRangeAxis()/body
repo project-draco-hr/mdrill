@@ -1,4 +1,0 @@
-{
-  ValueAxis result=this.rangeAxis;
-  return result;
-}

@@ -1,3 +1,0 @@
-{
-  if (getModel() != null)   ((ArffTableModel)getModel()).removeTableModelListener(l);
-}

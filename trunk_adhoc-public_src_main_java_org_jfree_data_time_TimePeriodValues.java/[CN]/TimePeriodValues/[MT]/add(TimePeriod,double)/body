@@ -1,4 +1,0 @@
-{
-  TimePeriodValue item=new TimePeriodValue(period,value);
-  add(item);
-}

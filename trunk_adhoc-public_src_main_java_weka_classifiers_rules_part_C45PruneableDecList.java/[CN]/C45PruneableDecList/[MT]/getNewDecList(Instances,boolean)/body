@@ -1,5 +1,0 @@
-{
-  C45PruneableDecList newDecList=new C45PruneableDecList(m_toSelectModel,CF,m_minNumObj);
-  newDecList.buildDecList((Instances)data,leaf);
-  return newDecList;
-}

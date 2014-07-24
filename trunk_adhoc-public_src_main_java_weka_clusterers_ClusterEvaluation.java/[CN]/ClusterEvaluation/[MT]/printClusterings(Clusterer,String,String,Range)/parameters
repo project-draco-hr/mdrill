@@ -1,4 +1,0 @@
-Clusterer clusterer
-String trainFileName
-String testFileName
-Range attributesToOutput

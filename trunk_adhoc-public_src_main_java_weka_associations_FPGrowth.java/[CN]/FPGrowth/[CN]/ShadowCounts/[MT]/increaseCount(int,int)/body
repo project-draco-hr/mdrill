@@ -1,9 +1,0 @@
-{
-  if (recursionLevel == m_counts.size()) {
-    m_counts.add(incr);
-  }
- else   if (recursionLevel == m_counts.size() - 1) {
-    int n=m_counts.get(recursionLevel).intValue();
-    m_counts.set(recursionLevel,(n + incr));
-  }
-}

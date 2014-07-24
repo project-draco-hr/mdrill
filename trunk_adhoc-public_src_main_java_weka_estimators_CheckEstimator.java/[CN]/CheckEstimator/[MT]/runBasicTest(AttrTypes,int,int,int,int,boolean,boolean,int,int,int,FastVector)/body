@@ -1,3 +1,0 @@
-{
-  return runBasicTest(attrTypes,numAtts,attrIndex,classType,TestInstances.CLASS_IS_LAST,missingLevel,attributeMissing,classMissing,numTrain,numTest,numClasses,accepts);
-}

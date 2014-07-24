@@ -1,3 +1,0 @@
-{
-  this.drawShapes=BooleanUtilities.valueOf(this.drawShapesCheckBox.isSelected());
-}

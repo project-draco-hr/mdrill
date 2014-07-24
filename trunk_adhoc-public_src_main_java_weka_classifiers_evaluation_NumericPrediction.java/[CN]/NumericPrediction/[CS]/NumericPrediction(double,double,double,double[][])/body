@@ -1,6 +1,0 @@
-{
-  m_Actual=actual;
-  m_Predicted=predicted;
-  m_Weight=weight;
-  setPredictionIntervals(predInt);
-}

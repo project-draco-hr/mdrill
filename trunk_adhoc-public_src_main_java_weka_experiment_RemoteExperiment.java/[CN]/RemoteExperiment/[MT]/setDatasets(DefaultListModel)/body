@@ -1,4 +1,0 @@
-{
-  super.setDatasets(ds);
-  m_baseExperiment.setDatasets(ds);
-}

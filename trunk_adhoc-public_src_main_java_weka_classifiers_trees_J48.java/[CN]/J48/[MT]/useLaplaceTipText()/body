@@ -1,3 +1,0 @@
-{
-  return "Whether counts at leaves are smoothed based on Laplace.";
-}

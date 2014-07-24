@@ -1,5 +1,0 @@
-{
-  PiePlotState state=super.initialise(g2,plotArea,plot,index,info);
-  state.setPassesRequired(3);
-  return state;
-}

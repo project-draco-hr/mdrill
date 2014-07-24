@@ -1,3 +1,0 @@
-{
-  throw new Exception("updateClassifier does not apply to BMA estimator");
-}

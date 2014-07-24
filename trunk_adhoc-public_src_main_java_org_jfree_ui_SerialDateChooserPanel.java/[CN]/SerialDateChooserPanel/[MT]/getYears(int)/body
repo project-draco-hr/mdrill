@@ -1,7 +1,0 @@
-{
-  final Vector v=new Vector();
-  for (int i=chosenYear - this.yearSelectionRange; i <= chosenYear + this.yearSelectionRange; i++) {
-    v.addElement(new Integer(i));
-  }
-  return v;
-}

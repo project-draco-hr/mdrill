@@ -1,3 +1,0 @@
-{
-  this(0.0,w,LengthConstraintType.RANGE,h,null,LengthConstraintType.FIXED);
-}

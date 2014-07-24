@@ -1,3 +1,0 @@
-{
-  super("Paste","Paste Nodes","paste","ctrl V");
-}

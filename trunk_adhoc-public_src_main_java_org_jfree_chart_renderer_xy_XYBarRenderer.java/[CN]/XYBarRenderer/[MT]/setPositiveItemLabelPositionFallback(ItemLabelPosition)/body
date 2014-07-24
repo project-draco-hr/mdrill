@@ -1,4 +1,0 @@
-{
-  this.positiveItemLabelPositionFallback=position;
-  fireChangeEvent();
-}

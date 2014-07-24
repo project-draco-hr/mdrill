@@ -1,3 +1,0 @@
-{
-  return "The noise percent: 0 <= perc <= 100.";
-}

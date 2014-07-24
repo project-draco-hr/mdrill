@@ -1,8 +1,0 @@
-{
-  if (isAutoWidth() && !Double.isInfinite(this.autoIntervalWidth)) {
-    return this.autoIntervalWidth;
-  }
- else {
-    return this.fixedIntervalWidth;
-  }
-}

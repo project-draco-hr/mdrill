@@ -1,7 +1,0 @@
-{
-  if (text == null || text.equals("")) {
-    return;
-  }
-  final float[] textAdj=deriveTextBoundsAnchorOffsets(g2,text,textAnchor);
-  drawRotatedString(text,g2,x + textAdj[0],y + textAdj[1],angle,rotationX,rotationY);
-}

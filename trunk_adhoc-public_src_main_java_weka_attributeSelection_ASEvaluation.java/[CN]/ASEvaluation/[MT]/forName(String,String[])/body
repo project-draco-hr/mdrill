@@ -1,3 +1,0 @@
-{
-  return (ASEvaluation)Utils.forName(ASEvaluation.class,evaluatorName,options);
-}

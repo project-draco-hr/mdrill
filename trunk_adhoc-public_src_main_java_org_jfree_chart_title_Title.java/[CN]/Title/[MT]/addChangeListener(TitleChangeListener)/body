@@ -1,3 +1,0 @@
-{
-  this.listenerList.add(TitleChangeListener.class,listener);
-}

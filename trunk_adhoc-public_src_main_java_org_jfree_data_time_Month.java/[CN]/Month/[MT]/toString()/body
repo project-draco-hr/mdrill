@@ -1,3 +1,0 @@
-{
-  return SerialDate.monthCodeToString(this.month) + " " + this.year;
-}

@@ -1,9 +1,0 @@
-{
-  Vector v=new Vector();
-  v.add(model);
-  if (header != null) {
-    v.add(header);
-  }
-  v.trimToSize();
-  XStream.write(saveTo.getAbsolutePath(),v);
-}

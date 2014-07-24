@@ -1,3 +1,0 @@
-{
-  return "Whether resampling is used instead of reweighting.";
-}

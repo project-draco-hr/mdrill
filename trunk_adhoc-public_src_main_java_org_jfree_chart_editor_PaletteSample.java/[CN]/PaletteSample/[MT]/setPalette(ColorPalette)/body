@@ -1,4 +1,0 @@
-{
-  this.palette=palette;
-  this.repaint();
-}

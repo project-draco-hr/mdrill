@@ -1,3 +1,0 @@
-{
-  return isInRange(d1,d2,SerialDate.INCLUDE_BOTH);
-}

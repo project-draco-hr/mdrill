@@ -1,6 +1,0 @@
-{
-  if (!(o instanceof Character)) {
-    throw new ObjectFactoryException("The given object is no java.lang.Character.");
-  }
-  setParameter("value",String.valueOf(o));
-}

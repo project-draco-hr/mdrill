@@ -1,4 +1,0 @@
-{
-  super(extension,description);
-  m_Writer=writer;
-}

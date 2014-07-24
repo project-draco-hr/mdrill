@@ -1,3 +1,0 @@
-{
-  this.buffer.append(ch,start,length);
-}

@@ -1,3 +1,0 @@
-{
-  return getCustomName() + "$" + hashCode()+ "|"+ ((m_Classifier instanceof OptionHandler && Utils.joinOptions(((OptionHandler)m_Classifier).getOptions()).length() > 0) ? Utils.joinOptions(((OptionHandler)m_Classifier).getOptions()) + "|" : "");
-}

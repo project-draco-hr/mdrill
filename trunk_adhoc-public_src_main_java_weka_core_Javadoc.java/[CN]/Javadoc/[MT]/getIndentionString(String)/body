@@ -1,7 +1,0 @@
-{
-  String result;
-  if (str.replaceAll(" ","").length() == 0)   result=" ";
- else   if (str.replaceAll("\t","").length() == 0)   result="\t";
- else   result=str;
-  return result;
-}

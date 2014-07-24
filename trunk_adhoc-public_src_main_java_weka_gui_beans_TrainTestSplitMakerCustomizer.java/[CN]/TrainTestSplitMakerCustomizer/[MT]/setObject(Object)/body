@@ -1,3 +1,0 @@
-{
-  m_splitEditor.setTarget((TrainTestSplitMaker)object);
-}

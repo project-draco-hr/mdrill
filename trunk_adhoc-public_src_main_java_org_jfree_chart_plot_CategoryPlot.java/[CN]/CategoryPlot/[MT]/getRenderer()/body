@@ -1,3 +1,0 @@
-{
-  return getRenderer(0);
-}

@@ -1,9 +1,0 @@
-{
-  final Rectangle s=frame.getGraphicsConfiguration().getBounds();
-  final Dimension f=frame.getSize();
-  final int w=Math.max(s.width - f.width,0);
-  final int h=Math.max(s.height - f.height,0);
-  final int x=(int)(horizontalPercent * w) + s.x;
-  final int y=(int)(verticalPercent * h) + s.y;
-  frame.setBounds(x,y,f.width,f.height);
-}

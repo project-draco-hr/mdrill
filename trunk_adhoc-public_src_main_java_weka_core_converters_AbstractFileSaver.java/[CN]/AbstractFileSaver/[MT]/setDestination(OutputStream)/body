@@ -1,3 +1,0 @@
-{
-  m_writer=new BufferedWriter(new OutputStreamWriter(output));
-}

@@ -1,5 +1,0 @@
-{
-  initializeIndices();
-  if (isSorted())   sort(mSortColumn,mAscending);
-  fireTableChanged(e);
-}

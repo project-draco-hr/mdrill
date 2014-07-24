@@ -1,9 +1,0 @@
-{
-  this.currentHandlers.pop();
-  if (this.currentHandlers.isEmpty() && !this.outerScopes.isEmpty()) {
-    this.currentHandlers=(Stack)this.outerScopes.pop();
-  }
- else   if (!this.currentHandlers.isEmpty()) {
-    getCurrentHandler().endElement(tagName);
-  }
-}

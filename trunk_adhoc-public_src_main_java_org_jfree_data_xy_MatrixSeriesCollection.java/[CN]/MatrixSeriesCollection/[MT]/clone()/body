@@ -1,5 +1,0 @@
-{
-  MatrixSeriesCollection clone=(MatrixSeriesCollection)super.clone();
-  clone.seriesList=(List)ObjectUtilities.deepClone(this.seriesList);
-  return clone;
-}

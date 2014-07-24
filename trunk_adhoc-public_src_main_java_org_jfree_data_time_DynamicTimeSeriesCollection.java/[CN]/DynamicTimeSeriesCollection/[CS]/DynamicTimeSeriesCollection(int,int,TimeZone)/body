@@ -1,4 +1,0 @@
-{
-  this(nSeries,nMoments,new Millisecond(),zone);
-  this.newestAt=nMoments - 1;
-}

@@ -1,3 +1,0 @@
-{
-  return "The level of Gaussian Noise (added to the diagonal of the Covariance Matrix), after the " + "target has been normalized/standardized/left unchanged).";
-}

@@ -1,3 +1,0 @@
-{
-  this(zone,Locale.getDefault(),chars,true,false);
-}

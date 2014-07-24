@@ -1,6 +1,0 @@
-{
-  if (v) {
-    m_reducedErrorPruning=false;
-  }
-  m_unpruned=v;
-}

@@ -1,6 +1,0 @@
-{
-  ArffReader arff=new ArffReader(reader,0);
-  Instances header=arff.getStructure();
-  initialize(header,capacity);
-  m_Lines=arff.getLineNo();
-}

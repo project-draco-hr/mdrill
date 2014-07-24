@@ -1,9 +1,0 @@
-{
-  this.data=new KeyedObjects2D();
-  this.minimumRangeValue=Double.NaN;
-  this.minimumRangeValueRow=-1;
-  this.minimumRangeValueColumn=-1;
-  this.maximumRangeValue=Double.NaN;
-  this.maximumRangeValueRow=-1;
-  this.maximumRangeValueColumn=-1;
-}

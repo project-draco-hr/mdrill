@@ -1,5 +1,0 @@
-int k
-CoverTreeNode query
-Stack<d_node> zero_set
-MyHeap upper_k
-Stack<NeighborList> results

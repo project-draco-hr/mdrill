@@ -1,9 +1,0 @@
-{
-  if (alignment == null) {
-    throw new IllegalArgumentException("Null 'alignment' argument.");
-  }
-  if (this.horizontalAlignment != alignment) {
-    this.horizontalAlignment=alignment;
-    notifyListeners(new TitleChangeEvent(this));
-  }
-}

@@ -1,8 +1,0 @@
-{
-  if (this.imageFlavor.equals(flavor)) {
-    return this.chart.createBufferedImage(width,height);
-  }
- else {
-    throw new UnsupportedFlavorException(flavor);
-  }
-}

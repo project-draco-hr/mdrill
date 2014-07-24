@@ -1,4 +1,0 @@
-{
-  super(classNames.length,classNames.length);
-  m_ClassNames=(String[])classNames.clone();
-}

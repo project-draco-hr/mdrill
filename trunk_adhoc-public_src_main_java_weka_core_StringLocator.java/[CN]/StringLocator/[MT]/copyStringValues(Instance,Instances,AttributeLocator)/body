@@ -1,9 +1,0 @@
-{
-  if (inst.dataset() == null) {
-    throw new IllegalArgumentException("Instance has no dataset assigned!!");
-  }
- else   if (inst.dataset().numAttributes() != destDataset.numAttributes()) {
-    throw new IllegalArgumentException("Src and Dest differ in # of attributes: " + inst.dataset().numAttributes() + " != "+ destDataset.numAttributes());
-  }
-  copyStringValues(inst,true,inst.dataset(),strAtts,destDataset,strAtts);
-}

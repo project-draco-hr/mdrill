@@ -1,6 +1,0 @@
-{
-  super(datasetIndex);
-  this.widthRadius=0.05;
-  this.fillPaint=Color.gray;
-  this.outlinePaint=Color.black;
-}

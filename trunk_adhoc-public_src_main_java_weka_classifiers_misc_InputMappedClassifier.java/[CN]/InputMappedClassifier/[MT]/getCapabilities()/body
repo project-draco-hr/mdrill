@@ -1,5 +1,0 @@
-{
-  Capabilities result=super.getCapabilities();
-  result.disable(Capability.RELATIONAL_ATTRIBUTES);
-  return result;
-}

@@ -1,9 +1,0 @@
-{
-  int result;
-  result=this.name.hashCode();
-  result=29 * result + this.type.hashCode();
-  result=29 * result + (this.nullable ? 1 : 0);
-  result=29 * result + (this.constrained ? 1 : 0);
-  result=29 * result + (this.description != null ? this.description.hashCode() : 0);
-  return result;
-}

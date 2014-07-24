@@ -1,4 +1,0 @@
-{
-  m_URL=m_TextURL.getText();
-  return m_URL;
-}

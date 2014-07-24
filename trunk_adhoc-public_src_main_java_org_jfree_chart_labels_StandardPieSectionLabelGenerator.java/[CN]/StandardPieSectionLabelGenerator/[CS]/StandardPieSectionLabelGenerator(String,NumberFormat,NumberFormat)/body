@@ -1,4 +1,0 @@
-{
-  super(labelFormat,numberFormat,percentFormat);
-  this.attributedLabels=new ObjectList();
-}

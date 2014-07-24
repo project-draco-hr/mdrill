@@ -1,4 +1,0 @@
-{
-  ValueAxis clone=(ValueAxis)super.clone();
-  return clone;
-}

@@ -1,7 +1,0 @@
-{
-  if (label == null) {
-    throw new IllegalArgumentException("Null 'label' argument.");
-  }
-  this.label=label;
-  notifyListeners(new DialLayerChangeEvent(this));
-}

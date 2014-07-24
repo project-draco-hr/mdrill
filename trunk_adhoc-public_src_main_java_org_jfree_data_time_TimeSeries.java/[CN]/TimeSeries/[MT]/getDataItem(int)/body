@@ -1,3 +1,0 @@
-{
-  return (TimeSeriesDataItem)this.data.get(index);
-}

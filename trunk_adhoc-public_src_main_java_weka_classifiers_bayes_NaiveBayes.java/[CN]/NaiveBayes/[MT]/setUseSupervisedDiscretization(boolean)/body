@@ -1,6 +1,0 @@
-{
-  m_UseDiscretization=newblah;
-  if (newblah) {
-    setUseKernelEstimator(false);
-  }
-}

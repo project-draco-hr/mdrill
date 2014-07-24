@@ -1,6 +1,0 @@
-{
-  StringBuffer text=new StringBuffer();
-  text.append("attributes " + attributesToString() + "\n");
-  text.append("number of instances " + getInstNums());
-  return text.toString();
-}

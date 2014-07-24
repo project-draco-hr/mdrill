@@ -1,6 +1,0 @@
-{
-  super.setInputFormat(instanceInfo);
-  resetHistory();
-  m_SelectedCols.setUpper(instanceInfo.numAttributes() - 1);
-  return false;
-}

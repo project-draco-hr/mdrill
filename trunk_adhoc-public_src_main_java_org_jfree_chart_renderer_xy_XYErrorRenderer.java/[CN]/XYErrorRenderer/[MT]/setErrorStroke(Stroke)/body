@@ -1,4 +1,0 @@
-{
-  this.errorStroke=stroke;
-  fireChangeEvent();
-}

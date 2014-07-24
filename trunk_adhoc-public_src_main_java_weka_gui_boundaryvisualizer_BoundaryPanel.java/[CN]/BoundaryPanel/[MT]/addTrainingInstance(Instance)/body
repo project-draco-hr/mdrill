@@ -1,6 +1,0 @@
-{
-  if (m_trainingData == null) {
-    System.err.println("Trying to add to a null training set (BoundaryPanel)");
-  }
-  m_trainingData.add(instance);
-}

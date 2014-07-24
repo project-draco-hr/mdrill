@@ -1,5 +1,0 @@
-{
-  Instance result=source;
-  result=m_lagMaker.processInstance(result,incrementArtificialTime,setAnyPeriodic);
-  return result;
-}

@@ -1,6 +1,0 @@
-{
-  if (listener == null) {
-    throw new IllegalArgumentException("Null 'listener' argument.");
-  }
-  this.changeListeners.add(ChartChangeListener.class,listener);
-}

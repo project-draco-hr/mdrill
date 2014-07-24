@@ -1,3 +1,0 @@
-{
-  return "Penalizes non-continuous subsequence matches, from (0,1)";
-}

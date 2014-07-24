@@ -1,6 +1,0 @@
-{
-  double[] result;
-  initModel();
-  result=m_Model.distributionForInstance(instance);
-  return result;
-}

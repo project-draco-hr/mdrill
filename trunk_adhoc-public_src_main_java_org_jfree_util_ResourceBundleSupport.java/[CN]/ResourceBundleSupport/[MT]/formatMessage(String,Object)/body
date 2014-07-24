@@ -1,3 +1,0 @@
-{
-  return formatMessage(key,new Object[]{parameter});
-}

@@ -1,6 +1,0 @@
-{
-  int result;
-  result=Float.floatToIntBits(this.width);
-  result=29 * result + Float.floatToIntBits(this.height);
-  return result;
-}

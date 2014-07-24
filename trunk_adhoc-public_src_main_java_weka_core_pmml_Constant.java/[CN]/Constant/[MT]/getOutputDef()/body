@@ -1,8 +1,0 @@
-{
-  if (m_opType == FieldMetaInfo.Optype.CONTINUOUS) {
-    return new Attribute("Constant: " + m_continuousConst);
-  }
-  ArrayList<String> nom=new ArrayList<String>();
-  nom.add(m_categoricalConst);
-  return new Attribute("Constant: " + m_categoricalConst,nom);
-}

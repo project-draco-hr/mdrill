@@ -1,3 +1,0 @@
-{
-  this(x,y,image,RectangleAnchor.CENTER);
-}

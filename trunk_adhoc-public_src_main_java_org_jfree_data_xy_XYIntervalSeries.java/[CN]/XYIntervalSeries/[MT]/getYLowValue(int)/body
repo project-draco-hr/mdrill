@@ -1,4 +1,0 @@
-{
-  XYIntervalDataItem item=(XYIntervalDataItem)getDataItem(index);
-  return item.getYLowValue();
-}

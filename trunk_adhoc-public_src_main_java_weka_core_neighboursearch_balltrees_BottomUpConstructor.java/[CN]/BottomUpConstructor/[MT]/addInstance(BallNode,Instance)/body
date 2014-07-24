@@ -1,3 +1,0 @@
-{
-  throw new Exception("BottomUpConstruction method does not allow addition " + "of new Instances.");
-}

@@ -1,9 +1,0 @@
-{
-  int index=this.orientationCombo.getSelectedIndex();
-  if (index == ORIENTATION_VERTICAL) {
-    this.plotOrientation=PlotOrientation.VERTICAL;
-  }
- else {
-    this.plotOrientation=PlotOrientation.HORIZONTAL;
-  }
-}

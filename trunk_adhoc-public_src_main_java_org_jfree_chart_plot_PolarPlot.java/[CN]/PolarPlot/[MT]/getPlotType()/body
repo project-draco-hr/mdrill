@@ -1,3 +1,0 @@
-{
-  return PolarPlot.localizationResources.getString("Polar_Plot");
-}

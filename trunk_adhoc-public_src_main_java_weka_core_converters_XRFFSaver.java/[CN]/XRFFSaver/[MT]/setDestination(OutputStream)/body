@@ -1,4 +1,0 @@
-{
-  if (getCompressOutput())   super.setDestination(new GZIPOutputStream(output));
- else   super.setDestination(output);
-}

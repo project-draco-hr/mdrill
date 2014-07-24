@@ -1,5 +1,0 @@
-{
-  stream.defaultWriteObject();
-  SerialUtilities.writePaint(this.openTickPaint,stream);
-  SerialUtilities.writePaint(this.closeTickPaint,stream);
-}

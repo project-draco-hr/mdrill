@@ -1,5 +1,0 @@
-{
-  this.weight=arg0.readDouble();
-  this.mustveryLikeNumber=arg0.readDouble();
-  this.mustVeryLike=arg0.readBoolean();
-}

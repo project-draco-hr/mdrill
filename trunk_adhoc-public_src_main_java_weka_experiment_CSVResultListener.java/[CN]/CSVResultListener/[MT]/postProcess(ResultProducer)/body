@@ -1,5 +1,0 @@
-{
-  if (!(m_OutputFile == null) && !(m_OutputFile.getName().equals("-"))) {
-    m_Out.close();
-  }
-}

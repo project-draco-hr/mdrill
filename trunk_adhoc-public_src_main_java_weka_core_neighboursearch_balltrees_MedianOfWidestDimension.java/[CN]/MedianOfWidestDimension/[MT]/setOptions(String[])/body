@@ -1,3 +1,0 @@
-{
-  setNormalizeDimWidths(Utils.getFlag('N',options));
-}

@@ -1,3 +1,0 @@
-{
-  return "Determines whether action is to select or delete." + " If set to true, only the specified attributes will be kept;" + " If set to false, specified attributes will be deleted.";
-}

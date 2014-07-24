@@ -1,4 +1,0 @@
-{
-  assignIDs(-1);
-  graphTree(text);
-}

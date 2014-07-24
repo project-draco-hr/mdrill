@@ -1,3 +1,0 @@
-{
-  return (Estimator)new SerializedObject(model).getObject();
-}

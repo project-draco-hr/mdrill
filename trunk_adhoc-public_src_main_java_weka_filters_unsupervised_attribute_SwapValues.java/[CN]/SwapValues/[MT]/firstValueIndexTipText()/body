@@ -1,3 +1,0 @@
-{
-  return "The index of the first value." + "(\"first\" and \"last\" are valid values)";
-}

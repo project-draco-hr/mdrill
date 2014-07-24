@@ -1,6 +1,0 @@
-{
-  m_Stream=null;
-  if (DataSource.isArff(filename))   m_Saver=new ArffSaver();
- else   m_Saver=getSaverForFile(filename);
-  ((AbstractFileSaver)m_Saver).setFile(new File(filename));
-}

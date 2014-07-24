@@ -1,3 +1,0 @@
-{
-  return ((AbstractClassifier)Utils.forName(Classifier.class,classifierName,options));
-}

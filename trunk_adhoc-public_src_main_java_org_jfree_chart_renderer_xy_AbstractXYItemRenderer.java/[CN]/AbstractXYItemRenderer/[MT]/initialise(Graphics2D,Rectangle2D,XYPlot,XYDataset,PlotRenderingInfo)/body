@@ -1,4 +1,0 @@
-{
-  XYItemRendererState state=new XYItemRendererState(info);
-  return state;
-}

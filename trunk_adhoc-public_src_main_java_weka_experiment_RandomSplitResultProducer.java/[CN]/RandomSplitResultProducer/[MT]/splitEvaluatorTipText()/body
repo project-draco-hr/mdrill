@@ -1,3 +1,0 @@
-{
-  return "The evaluator to apply to the test data. " + "This may be a classifier, regression scheme etc.";
-}

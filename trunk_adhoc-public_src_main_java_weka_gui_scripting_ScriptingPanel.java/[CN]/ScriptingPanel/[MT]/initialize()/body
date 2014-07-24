@@ -1,6 +1,0 @@
-{
-  m_POO=new PipedOutputStream();
-  m_POE=new PipedOutputStream();
-  m_Debug=false;
-  m_TitleUpdatedListeners=new HashSet<TitleUpdatedListener>();
-}

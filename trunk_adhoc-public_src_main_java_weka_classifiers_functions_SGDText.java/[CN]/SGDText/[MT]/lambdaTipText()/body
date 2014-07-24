@@ -1,3 +1,0 @@
-{
-  return "The regularization constant. (default = 0.0001)";
-}

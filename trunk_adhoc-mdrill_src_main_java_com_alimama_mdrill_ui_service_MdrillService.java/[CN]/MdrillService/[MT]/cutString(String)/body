@@ -1,4 +1,0 @@
-{
-  String rtn=String.valueOf(str);
-  return rtn.substring(0,Math.min(rtn.length(),10240));
-}

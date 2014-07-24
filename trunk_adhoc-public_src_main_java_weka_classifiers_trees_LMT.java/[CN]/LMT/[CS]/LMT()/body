@@ -1,7 +1,0 @@
-{
-  m_fastRegression=true;
-  m_numBoostingIterations=-1;
-  m_minNumInstances=15;
-  m_weightTrimBeta=0;
-  m_useAIC=false;
-}

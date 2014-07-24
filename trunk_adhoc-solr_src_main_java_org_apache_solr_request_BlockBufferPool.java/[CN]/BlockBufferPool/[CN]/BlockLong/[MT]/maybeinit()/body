@@ -1,0 +1,10 @@
+{
+  if (hasInit) {
+    return;
+  }
+  if (this.data == null) {
+    data=new long[BlockBufferPool.interval];
+  }
+  QuickArrayFillLong.fill(data,def);
+  hasInit=true;
+}

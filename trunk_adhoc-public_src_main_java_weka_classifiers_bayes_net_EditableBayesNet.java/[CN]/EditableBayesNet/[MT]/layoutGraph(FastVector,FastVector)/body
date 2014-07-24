@@ -1,7 +1,0 @@
-{
-  if (m_bNeedsUndoAction) {
-    addUndoAction(new LayoutGraphAction(nPosX,nPosY));
-  }
-  m_nPositionX=nPosX;
-  m_nPositionY=nPosY;
-}

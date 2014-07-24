@@ -1,3 +1,0 @@
-{
-  return new SelectedTag(m_nCVType,TAGS_CV_TYPE);
-}

@@ -1,3 +1,0 @@
-{
-  return Predicate.booleanToEval(Utils.isMissingValue(input[fieldIndex]),(input[fieldIndex] > value));
-}

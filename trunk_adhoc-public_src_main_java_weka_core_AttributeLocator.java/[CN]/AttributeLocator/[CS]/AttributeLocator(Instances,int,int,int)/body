@@ -1,6 +1,0 @@
-{
-  super();
-  int[] indices=new int[toIndex - fromIndex + 1];
-  for (int i=0; i < indices.length; i++)   indices[i]=fromIndex + i;
-  initialize(data,type,indices);
-}

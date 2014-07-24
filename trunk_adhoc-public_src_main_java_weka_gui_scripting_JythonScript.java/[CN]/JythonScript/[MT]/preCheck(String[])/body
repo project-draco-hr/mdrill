@@ -1,4 +1,0 @@
-{
-  super.preCheck(args);
-  if (!Jython.isPresent())   throw new Exception("Jython classes are not present in CLASSPATH!");
-}

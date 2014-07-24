@@ -1,8 +1,0 @@
-{
-  m_fixedNumIterations=-1;
-  m_useCrossValidation=true;
-  m_errorOnProbabilities=false;
-  m_maxIterations=500;
-  m_useAIC=false;
-  m_numParameters=0;
-}

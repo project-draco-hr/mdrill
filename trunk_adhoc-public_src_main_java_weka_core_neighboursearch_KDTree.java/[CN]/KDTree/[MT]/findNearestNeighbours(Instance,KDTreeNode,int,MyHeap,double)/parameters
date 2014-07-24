@@ -1,5 +1,0 @@
-Instance target
-KDTreeNode node
-int k
-MyHeap heap
-double distanceToParents

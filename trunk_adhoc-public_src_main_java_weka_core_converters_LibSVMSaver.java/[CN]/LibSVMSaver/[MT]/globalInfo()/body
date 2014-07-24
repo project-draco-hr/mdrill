@@ -1,3 +1,0 @@
-{
-  return "Writes to a destination that is in libsvm format.\n\n" + "For more information about libsvm see:\n\n" + "http://www.csie.ntu.edu.tw/~cjlin/libsvm/";
-}

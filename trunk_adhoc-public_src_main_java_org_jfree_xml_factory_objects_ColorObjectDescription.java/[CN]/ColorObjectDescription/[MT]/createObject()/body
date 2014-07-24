@@ -1,4 +1,0 @@
-{
-  final String value=(String)getParameter("value");
-  return PaintUtilities.stringToColor(value);
-}

@@ -1,8 +1,0 @@
-{
-  if (percent > 0) {
-  }
- else {
-    getRangeAxis().setAutoRange(true);
-    getDomainAxis().setAutoRange(true);
-  }
-}

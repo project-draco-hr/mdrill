@@ -1,8 +1,0 @@
-{
-  DrawingSupplier result=null;
-  WaferMapPlot p=getPlot();
-  if (p != null) {
-    result=p.getDrawingSupplier();
-  }
-  return result;
-}

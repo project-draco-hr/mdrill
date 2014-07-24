@@ -1,4 +1,0 @@
-{
-  TaskSeries series=(TaskSeries)this.data.get(index);
-  return series.getKey();
-}

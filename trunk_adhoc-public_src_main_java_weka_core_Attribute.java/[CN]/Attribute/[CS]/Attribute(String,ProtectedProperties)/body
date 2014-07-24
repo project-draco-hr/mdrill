@@ -1,9 +1,0 @@
-{
-  m_Name=attributeName;
-  m_Index=-1;
-  m_Values=null;
-  m_Hashtable=null;
-  m_Header=null;
-  m_Type=NUMERIC;
-  setMetadata(metadata);
-}

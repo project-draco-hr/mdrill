@@ -1,9 +1,0 @@
-{
-  String sMsg=m_BayesNet.undo();
-  m_jStatusBar.setText("Undo action performed: " + sMsg);
-  a_redo.setEnabled(m_BayesNet.canRedo());
-  a_undo.setEnabled(m_BayesNet.canUndo());
-  m_Selection.clear();
-  updateStatus();
-  repaint();
-}

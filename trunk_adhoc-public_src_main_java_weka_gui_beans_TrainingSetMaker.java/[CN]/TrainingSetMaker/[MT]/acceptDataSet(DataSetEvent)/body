@@ -1,8 +1,0 @@
-{
-  m_receivedStopNotification=false;
-  System.err.println("In accept data set");
-  TrainingSetEvent tse=new TrainingSetEvent(this,e.getDataSet());
-  tse.m_setNumber=1;
-  tse.m_maxSetNumber=1;
-  notifyTrainingSetProduced(tse);
-}

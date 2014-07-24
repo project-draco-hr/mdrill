@@ -1,7 +1,0 @@
-{
-  this.objectMappings=new HashMap();
-  this.manualMappings=new HashMap();
-  this.multiplexMappings=new HashMap();
-  parseXml(resourceName);
-  rebuildSuperClasses();
-}

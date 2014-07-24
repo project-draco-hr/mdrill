@@ -1,3 +1,0 @@
-{
-  return (Clusterer)Utils.forName(Clusterer.class,clustererName,options);
-}

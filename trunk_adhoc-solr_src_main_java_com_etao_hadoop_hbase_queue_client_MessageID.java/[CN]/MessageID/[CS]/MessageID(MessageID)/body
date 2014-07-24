@@ -1,5 +1,0 @@
-{
-  this.partioncrc=other.partioncrc;
-  this.timestamp=other.timestamp;
-  this.type=other.type;
-}

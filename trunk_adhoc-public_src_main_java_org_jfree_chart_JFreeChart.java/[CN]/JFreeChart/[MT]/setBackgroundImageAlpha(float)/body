@@ -1,6 +1,0 @@
-{
-  if (this.backgroundImageAlpha != alpha) {
-    this.backgroundImageAlpha=alpha;
-    fireChartChanged();
-  }
-}

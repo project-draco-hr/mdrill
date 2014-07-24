@@ -1,4 +1,0 @@
-{
-  InputStream in=new FileInputStream(file);
-  return readPieDatasetFromXML(in);
-}

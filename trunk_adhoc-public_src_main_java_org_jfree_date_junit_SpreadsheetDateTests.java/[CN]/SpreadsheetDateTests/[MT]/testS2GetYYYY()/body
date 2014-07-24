@@ -1,4 +1,0 @@
-{
-  final int year=this.s2.getYYYY();
-  assertEquals(1900,year);
-}

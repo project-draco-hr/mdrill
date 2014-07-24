@@ -1,7 +1,0 @@
-{
-  if (distributor == null) {
-    throw new IllegalArgumentException("Null 'distributor' argument.");
-  }
-  this.labelDistributor=distributor;
-  fireChangeEvent();
-}

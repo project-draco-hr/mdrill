@@ -1,5 +1,0 @@
-Graphics2D g2
-XYPlot plot
-ValueAxis rangeAxis
-Marker marker
-Rectangle2D dataArea

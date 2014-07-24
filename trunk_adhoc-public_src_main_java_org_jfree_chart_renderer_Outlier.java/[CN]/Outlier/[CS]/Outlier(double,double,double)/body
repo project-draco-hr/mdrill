@@ -1,4 +1,0 @@
-{
-  this.point=new Point2D.Double(xCoord - radius,yCoord - radius);
-  this.radius=radius;
-}

@@ -1,9 +1,0 @@
-{
-  super(position,horizontalAlignment,verticalAlignment,padding);
-  if (image == null) {
-    throw new NullPointerException("Null 'image' argument.");
-  }
-  this.image=image;
-  setHeight(height);
-  setWidth(width);
-}

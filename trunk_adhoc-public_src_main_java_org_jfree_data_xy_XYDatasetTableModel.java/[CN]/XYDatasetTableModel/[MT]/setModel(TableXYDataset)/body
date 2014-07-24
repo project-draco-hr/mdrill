@@ -1,5 +1,0 @@
-{
-  this.model=dataset;
-  this.model.addChangeListener(this);
-  fireTableDataChanged();
-}

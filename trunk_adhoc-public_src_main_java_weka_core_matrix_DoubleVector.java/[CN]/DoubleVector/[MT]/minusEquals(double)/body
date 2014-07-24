@@ -1,4 +1,0 @@
-{
-  plusEquals(-x);
-  return this;
-}

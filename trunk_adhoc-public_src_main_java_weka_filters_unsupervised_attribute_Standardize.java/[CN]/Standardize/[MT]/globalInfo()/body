@@ -1,3 +1,0 @@
-{
-  return "Standardizes all numeric attributes in the given dataset " + "to have zero mean and unit variance (apart from the class attribute, if set).";
-}

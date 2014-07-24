@@ -1,7 +1,0 @@
-{
-  super();
-  this.owner=owner;
-  m_ReadMethods=new MethodHandler();
-  m_WriteMethods=new MethodHandler();
-  clear();
-}

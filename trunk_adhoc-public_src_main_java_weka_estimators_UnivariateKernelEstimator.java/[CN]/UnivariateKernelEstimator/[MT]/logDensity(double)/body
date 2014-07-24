@@ -1,9 +1,0 @@
-{
-  updateWidth();
-  double[] sums=new double[2];
-  sums[0]=Double.NaN;
-  sums[1]=Double.NaN;
-  runningSum(m_TM.tailMap(value,true).entrySet(),value,sums);
-  runningSum(m_TM.headMap(value,false).descendingMap().entrySet(),value,sums);
-  return sums[0] - Math.log(m_SumOfWeights);
-}

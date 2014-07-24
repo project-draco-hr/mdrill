@@ -1,4 +1,0 @@
-{
-  super();
-  m_Elements=new Vector<PathElement>();
-}

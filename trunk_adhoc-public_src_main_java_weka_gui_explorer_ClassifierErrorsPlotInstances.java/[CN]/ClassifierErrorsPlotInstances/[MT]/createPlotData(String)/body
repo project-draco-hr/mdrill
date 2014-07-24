@@ -1,9 +1,0 @@
-{
-  PlotData2D result;
-  if (!m_SaveForVisualization)   return null;
-  result=new PlotData2D(m_PlotInstances);
-  result.setShapeSize(m_PlotSizes);
-  result.setShapeType(m_PlotShapes);
-  result.setPlotName(name + " (" + m_Instances.relationName()+ ")");
-  return result;
-}

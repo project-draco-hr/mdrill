@@ -1,3 +1,0 @@
-{
-  return "Number of folds for internal cross-validation (default 0 " + "means no cross-validation is performed).";
-}

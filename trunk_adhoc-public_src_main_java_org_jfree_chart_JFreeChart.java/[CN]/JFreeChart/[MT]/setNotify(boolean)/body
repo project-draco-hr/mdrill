@@ -1,6 +1,0 @@
-{
-  this.notify=notify;
-  if (notify) {
-    notifyListeners(new ChartChangeEvent(this));
-  }
-}

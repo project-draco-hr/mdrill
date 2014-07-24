@@ -1,3 +1,0 @@
-{
-  setValue(src,new Path(path),value);
-}

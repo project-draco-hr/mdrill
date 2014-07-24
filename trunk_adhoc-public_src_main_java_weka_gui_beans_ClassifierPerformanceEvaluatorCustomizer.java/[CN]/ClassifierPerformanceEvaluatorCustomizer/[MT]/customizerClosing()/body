@@ -1,3 +1,0 @@
-{
-  m_cpe.setExecutionSlots(m_executionSlotsBackup);
-}

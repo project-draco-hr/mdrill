@@ -1,9 +1,0 @@
-{
-  m_cIndex=c;
-  for (int i=0; i < m_plots.size(); i++) {
-    ((PlotData2D)m_plots.elementAt(i)).setCindex(m_cIndex);
-  }
-  determineBounds();
-  m_axisChanged=true;
-  this.repaint();
-}

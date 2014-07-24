@@ -1,5 +1,0 @@
-{
-  Vector result=new Vector();
-  result.addElement(new Option("\tRandom number seed.\n" + "\t(default " + m_SeedDefault + ")","S",1,"-S <num>"));
-  return result.elements();
-}

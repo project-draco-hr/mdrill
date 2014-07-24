@@ -1,4 +1,0 @@
-{
-  super(opType,fieldDefs);
-  m_fieldName=fieldRef.getAttribute("field");
-}

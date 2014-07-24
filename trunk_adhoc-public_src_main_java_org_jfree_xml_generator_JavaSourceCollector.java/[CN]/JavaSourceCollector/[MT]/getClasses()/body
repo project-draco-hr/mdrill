@@ -1,3 +1,0 @@
-{
-  return (Class[])this.fileList.toArray(new Class[0]);
-}

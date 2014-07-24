@@ -1,6 +1,0 @@
-{
-  if (m_listenee == null) {
-    return true;
-  }
-  return false;
-}

@@ -1,9 +1,0 @@
-{
-  SerialDate current=getFirstVisibleDate();
-  for (int i=0; i < 42; i++) {
-    final JButton button=this.buttons[i];
-    button.setText(String.valueOf(current.getDayOfWeek()));
-    button.setBackground(getButtonColor(current));
-    current=SerialDate.addDays(1,current);
-  }
-}

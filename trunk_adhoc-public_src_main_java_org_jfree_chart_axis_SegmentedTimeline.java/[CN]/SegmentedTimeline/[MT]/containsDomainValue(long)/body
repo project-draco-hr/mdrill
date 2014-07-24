@@ -1,4 +1,0 @@
-{
-  Segment segment=getSegment(millisecond);
-  return segment.inIncludeSegments();
-}

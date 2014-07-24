@@ -1,4 +1,0 @@
-{
-  this.intervals.clear();
-  fireChangeEvent();
-}

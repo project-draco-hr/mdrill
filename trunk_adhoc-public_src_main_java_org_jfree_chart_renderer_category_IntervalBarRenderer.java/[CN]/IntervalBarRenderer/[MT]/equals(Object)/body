@@ -1,9 +1,0 @@
-{
-  if (obj == this) {
-    return true;
-  }
-  if (!(obj instanceof IntervalBarRenderer)) {
-    return false;
-  }
-  return super.equals(obj);
-}

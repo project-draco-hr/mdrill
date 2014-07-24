@@ -1,8 +1,0 @@
-{
-  if (indentString == null) {
-    throw new NullPointerException("IndentString must not be null");
-  }
-  this.safeTags=safeTags;
-  this.indentLevel=indentLevel;
-  this.indentString=indentString;
-}

@@ -1,3 +1,0 @@
-{
-  runFilter(new AddNoise(),argv);
-}

@@ -1,8 +1,0 @@
-{
-  ObjectOutputStream os=new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(saveTo)));
-  os.writeObject(model);
-  if (header != null) {
-    os.writeObject(header);
-  }
-  os.close();
-}

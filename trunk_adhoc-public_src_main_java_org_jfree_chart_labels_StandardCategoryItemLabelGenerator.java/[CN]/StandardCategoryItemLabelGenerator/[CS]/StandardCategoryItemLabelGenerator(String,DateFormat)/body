@@ -1,3 +1,0 @@
-{
-  super(labelFormat,formatter);
-}

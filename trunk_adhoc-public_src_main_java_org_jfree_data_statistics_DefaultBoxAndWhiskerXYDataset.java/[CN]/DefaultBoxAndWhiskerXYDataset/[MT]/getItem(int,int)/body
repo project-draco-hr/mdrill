@@ -1,3 +1,0 @@
-{
-  return (BoxAndWhiskerItem)this.items.get(item);
-}

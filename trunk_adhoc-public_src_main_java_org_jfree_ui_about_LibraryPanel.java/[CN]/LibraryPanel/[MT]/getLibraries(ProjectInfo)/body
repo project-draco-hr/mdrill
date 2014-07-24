@@ -1,8 +1,0 @@
-{
-  if (info == null) {
-    return new ArrayList();
-  }
-  final ArrayList libs=new ArrayList();
-  collectLibraries(info,libs);
-  return libs;
-}

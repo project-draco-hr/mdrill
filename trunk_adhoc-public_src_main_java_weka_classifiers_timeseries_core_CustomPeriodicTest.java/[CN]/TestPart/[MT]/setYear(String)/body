@@ -1,8 +1,0 @@
-{
-  if (year.equals("*")) {
-    m_year=-100;
-  }
- else {
-    m_year=Integer.parseInt(year);
-  }
-}

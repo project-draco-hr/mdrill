@@ -1,5 +1,0 @@
-{
-  parent=parentFrame;
-  frameTitle="ARFF-Viewer";
-  createPanel();
-}

@@ -1,3 +1,0 @@
-{
-  this(ItemLabelAnchor.OUTSIDE12,TextAnchor.BOTTOM_CENTER,TextAnchor.CENTER,0.0);
-}

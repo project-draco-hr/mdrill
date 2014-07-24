@@ -1,4 +1,0 @@
-{
-  BlockInteger old=(BlockInteger)v;
-  System.arraycopy(old.data,0,this.data,0,old.data.length);
-}

@@ -1,5 +1,0 @@
-{
-  Instance a1=n1.anchor, a2=n2.anchor;
-  double radius=n1.radius + m_DistanceFunction.distance(a1,a2) + n2.radius;
-  return radius / 2;
-}

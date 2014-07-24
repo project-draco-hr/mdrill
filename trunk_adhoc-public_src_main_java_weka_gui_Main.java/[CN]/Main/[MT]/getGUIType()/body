@@ -1,3 +1,0 @@
-{
-  return new SelectedTag(m_GUIType,TAGS_GUI);
-}

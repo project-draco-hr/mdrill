@@ -1,4 +1,0 @@
-{
-  ImageEncoder imageEncoder=ImageEncoderFactory.newInstance(format);
-  imageEncoder.encode(image,outputStream);
-}

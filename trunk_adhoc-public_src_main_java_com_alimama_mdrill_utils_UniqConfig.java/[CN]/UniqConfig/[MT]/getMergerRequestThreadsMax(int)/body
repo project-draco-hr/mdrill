@@ -1,0 +1,6 @@
+{
+  if (depth < threadCountMax.length) {
+    return threadCountMax[depth];
+  }
+  return 2;
+}

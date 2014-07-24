@@ -1,5 +1,0 @@
-{
-  SerialDate jan22Y1970=SerialDate.createInstance(22,MonthConstants.JANUARY,1970);
-  SerialDate mondayNearest=SerialDate.getNearestDayOfWeek(SerialDate.MONDAY,jan22Y1970);
-  assertEquals(19,mondayNearest.getDayOfMonth());
-}

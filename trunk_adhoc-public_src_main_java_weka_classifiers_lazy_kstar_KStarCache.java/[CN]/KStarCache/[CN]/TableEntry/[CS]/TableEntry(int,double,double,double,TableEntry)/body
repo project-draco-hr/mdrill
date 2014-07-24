@@ -1,7 +1,0 @@
-{
-  this.hash=hash;
-  this.key=key;
-  this.value=value;
-  this.pmiss=pmiss;
-  this.next=next;
-}

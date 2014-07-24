@@ -1,5 +1,0 @@
-{
-  DefaultCategoryDataset clone=(DefaultCategoryDataset)super.clone();
-  clone.data=(DefaultKeyedValues2D)this.data.clone();
-  return clone;
-}

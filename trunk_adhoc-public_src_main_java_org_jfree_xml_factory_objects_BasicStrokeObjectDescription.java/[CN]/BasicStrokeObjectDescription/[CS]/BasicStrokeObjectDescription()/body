@@ -1,6 +1,0 @@
-{
-  super(BasicStroke.class);
-  setParameterDefinition("value",String.class);
-  setParameterDefinition("width",Float.class);
-  setParameterDefinition("dashes",Float[].class);
-}

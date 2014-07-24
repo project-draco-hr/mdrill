@@ -1,3 +1,0 @@
-{
-  ChartUtilities.writeChartAsJPEG(out,quality,chart,width,height,null);
-}

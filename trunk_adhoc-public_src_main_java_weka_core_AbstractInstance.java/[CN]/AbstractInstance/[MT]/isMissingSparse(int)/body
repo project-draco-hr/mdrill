@@ -1,6 +1,0 @@
-{
-  if (Utils.isMissingValue(valueSparse(indexOfIndex))) {
-    return true;
-  }
-  return false;
-}

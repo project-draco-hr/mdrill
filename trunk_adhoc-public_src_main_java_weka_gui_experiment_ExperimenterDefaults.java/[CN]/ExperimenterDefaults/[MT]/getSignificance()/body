@@ -1,3 +1,0 @@
-{
-  return Double.parseDouble(get("Significance","0.05"));
-}

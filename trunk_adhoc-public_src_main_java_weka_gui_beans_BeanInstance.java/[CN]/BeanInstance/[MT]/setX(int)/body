@@ -1,5 +1,0 @@
-{
-  m_x=newX;
-  ((JComponent)m_bean).setLocation(m_x,m_y);
-  ((JComponent)m_bean).validate();
-}

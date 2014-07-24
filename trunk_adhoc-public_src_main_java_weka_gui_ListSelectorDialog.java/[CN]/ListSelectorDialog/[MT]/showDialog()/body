@@ -1,9 +1,0 @@
-{
-  m_Result=CANCEL_OPTION;
-  int[] origSelected=m_List.getSelectedIndices();
-  setVisible(true);
-  if (m_Result == CANCEL_OPTION) {
-    m_List.setSelectedIndices(origSelected);
-  }
-  return m_Result;
-}

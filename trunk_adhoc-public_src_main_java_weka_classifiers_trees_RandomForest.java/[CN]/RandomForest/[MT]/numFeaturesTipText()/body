@@ -1,3 +1,0 @@
-{
-  return "The number of attributes to be used in random selection (see RandomTree).";
-}

@@ -1,3 +1,0 @@
-{
-  return Math.exp(fanIn * Math.log(altitude) - z);
-}

@@ -1,6 +1,0 @@
-{
-  if (getItemCount() > 0) {
-    this.data.clear();
-    fireDatasetChanged();
-  }
-}

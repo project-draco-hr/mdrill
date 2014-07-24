@@ -1,6 +1,0 @@
-{
-  super.setInputFormat(instanceInfo);
-  setOutputFormat(instanceInfo);
-  m_Means=null;
-  return true;
-}

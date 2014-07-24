@@ -1,9 +1,0 @@
-{
-  if (text == null) {
-    throw new IllegalArgumentException("Null 'text' argument.");
-  }
-  if (!this.text.equals(text)) {
-    this.text=text;
-    notifyListeners(new TitleChangeEvent(this));
-  }
-}

@@ -1,8 +1,0 @@
-{
-  if (request.compareTo("Show chart") == 0) {
-    showChart();
-  }
- else {
-    throw new IllegalArgumentException(request + " not supported (StripChart)");
-  }
-}

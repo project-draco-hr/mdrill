@@ -1,8 +1,0 @@
-{
-  String abtestconfig=conf.get("abtest.kmeans.config");
-  String[] cols=abtestconfig.split(";");
-  this.importcols=this.Trans(cols[0].split(","));
-  this.importcolsNumber=this.Trans(cols[1].split(","));
-  this.StringCols=this.Trans(cols[2].split(","));
-  this.NumbericCols=this.Trans(cols[3].split(","));
-}

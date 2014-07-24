@@ -1,7 +1,0 @@
-{
-  CategoryAxis result=plot.getDomainAxis(index);
-  if (result == null) {
-    result=plot.getDomainAxis();
-  }
-  return result;
-}

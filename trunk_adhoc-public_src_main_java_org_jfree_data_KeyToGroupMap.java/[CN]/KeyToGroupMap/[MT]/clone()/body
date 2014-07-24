@@ -1,7 +1,0 @@
-{
-  KeyToGroupMap result=(KeyToGroupMap)super.clone();
-  result.defaultGroup=(Comparable)KeyToGroupMap.clone(this.defaultGroup);
-  result.groups=(List)KeyToGroupMap.clone(this.groups);
-  result.keyToGroupMap=(Map)KeyToGroupMap.clone(this.keyToGroupMap);
-  return result;
-}

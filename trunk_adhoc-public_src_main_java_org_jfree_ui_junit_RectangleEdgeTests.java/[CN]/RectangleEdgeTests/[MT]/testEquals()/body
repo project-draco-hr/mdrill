@@ -1,6 +1,0 @@
-{
-  assertTrue(RectangleEdge.TOP.equals(RectangleEdge.TOP));
-  assertTrue(RectangleEdge.BOTTOM.equals(RectangleEdge.BOTTOM));
-  assertTrue(RectangleEdge.LEFT.equals(RectangleEdge.LEFT));
-  assertTrue(RectangleEdge.RIGHT.equals(RectangleEdge.RIGHT));
-}

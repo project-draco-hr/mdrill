@@ -1,4 +1,0 @@
-BayesNet bayesNet
-Instances instances
-int nrOfLookAheadSteps
-int nrOfGoodOperations

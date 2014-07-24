@@ -1,4 +1,0 @@
-{
-  super(URL.class);
-  setParameterDefinition("value",String.class);
-}

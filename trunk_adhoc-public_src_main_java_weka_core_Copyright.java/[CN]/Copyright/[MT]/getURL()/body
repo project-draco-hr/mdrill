@@ -1,3 +1,0 @@
-{
-  return PROPERTIES.getProperty("URL","http://www.cs.waikato.ac.nz/~ml/");
-}

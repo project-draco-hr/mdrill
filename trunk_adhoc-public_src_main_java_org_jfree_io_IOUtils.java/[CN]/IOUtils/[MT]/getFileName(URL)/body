@@ -1,8 +1,0 @@
-{
-  final String file=getPath(url);
-  final int last=file.lastIndexOf("/");
-  if (last < 0) {
-    return file;
-  }
-  return file.substring(last + 1);
-}

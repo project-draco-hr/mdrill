@@ -1,3 +1,0 @@
-{
-  return makeTickLabel(val,false);
-}

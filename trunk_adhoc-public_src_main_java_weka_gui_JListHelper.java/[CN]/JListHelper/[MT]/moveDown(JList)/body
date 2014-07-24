@@ -1,3 +1,0 @@
-{
-  if (canMoveDown(list))   moveItems(list,1,MOVE_DOWN);
-}

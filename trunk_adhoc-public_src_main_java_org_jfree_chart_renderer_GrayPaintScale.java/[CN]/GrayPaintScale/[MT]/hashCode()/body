@@ -1,7 +1,0 @@
-{
-  int hash=7;
-  hash=HashUtilities.hashCode(hash,this.lowerBound);
-  hash=HashUtilities.hashCode(hash,this.upperBound);
-  hash=43 * hash + this.alpha;
-  return hash;
-}

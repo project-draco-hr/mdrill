@@ -1,4 +1,0 @@
-{
-  YongSplitInfo s=(YongSplitInfo)this.clone();
-  return s;
-}

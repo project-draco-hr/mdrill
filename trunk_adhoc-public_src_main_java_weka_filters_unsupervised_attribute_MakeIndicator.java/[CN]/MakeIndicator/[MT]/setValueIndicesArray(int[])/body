@@ -1,3 +1,0 @@
-{
-  setValueIndices(Range.indicesToRangeList(indices));
-}

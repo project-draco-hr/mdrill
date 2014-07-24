@@ -1,6 +1,0 @@
-{
-  int h=super.hashCode();
-  h=HashUtilities.hashCode(h,this.zFormat);
-  h=HashUtilities.hashCode(h,this.zDateFormat);
-  return h;
-}

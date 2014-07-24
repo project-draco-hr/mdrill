@@ -1,5 +1,0 @@
-{
-  UpdateService server=new UpdateService(args[0]);
-  server.load(args[1],args[2]);
-  server.close();
-}

@@ -1,9 +1,0 @@
-{
-  if (shape == null) {
-    throw new IllegalArgumentException("Null 'shape' argument.");
-  }
-  this.shape=shape;
-  this.stroke=stroke;
-  this.outlinePaint=outlinePaint;
-  this.fillPaint=fillPaint;
-}

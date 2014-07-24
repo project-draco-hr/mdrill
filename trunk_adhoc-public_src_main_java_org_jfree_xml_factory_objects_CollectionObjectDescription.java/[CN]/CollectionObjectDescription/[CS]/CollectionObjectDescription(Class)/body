@@ -1,6 +1,0 @@
-{
-  super(c);
-  if (!Collection.class.isAssignableFrom(c)) {
-    throw new ClassCastException("The given class is no Collection instance");
-  }
-}

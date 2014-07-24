@@ -1,3 +1,0 @@
-{
-  setOptimalHeaderWidth(getJTable(),col);
-}

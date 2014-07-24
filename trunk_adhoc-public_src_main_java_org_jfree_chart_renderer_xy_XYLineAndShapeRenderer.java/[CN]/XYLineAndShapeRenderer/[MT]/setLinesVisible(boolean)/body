@@ -1,3 +1,0 @@
-{
-  setLinesVisible(BooleanUtilities.valueOf(visible));
-}

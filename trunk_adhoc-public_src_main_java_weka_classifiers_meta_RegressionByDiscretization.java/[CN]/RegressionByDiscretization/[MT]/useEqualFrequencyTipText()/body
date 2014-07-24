@@ -1,3 +1,0 @@
-{
-  return "If set to true, equal-frequency binning will be used instead of" + " equal-width binning.";
-}

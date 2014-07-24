@@ -1,3 +1,0 @@
-{
-  return "A filter that 'cleanses' the numeric data from values that are too " + "small, too big or very close to a certain value (e.g., 0) and sets " + "these values to a pre-defined default.";
-}

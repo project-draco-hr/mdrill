@@ -1,8 +1,0 @@
-{
-  if (layer == null) {
-    throw new IllegalArgumentException("Null 'layer' argument.");
-  }
-  this.layers.add(layer);
-  layer.addChangeListener(this);
-  fireChangeEvent();
-}

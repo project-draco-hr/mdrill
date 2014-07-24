@@ -1,3 +1,0 @@
-{
-  this(new RectangleInsets(top,left,bottom,right),paint);
-}

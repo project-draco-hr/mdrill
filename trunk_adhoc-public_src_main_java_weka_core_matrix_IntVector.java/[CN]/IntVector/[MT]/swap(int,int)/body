@@ -1,6 +1,0 @@
-{
-  if (i == j)   return;
-  int t=get(i);
-  set(i,get(j));
-  set(j,t);
-}

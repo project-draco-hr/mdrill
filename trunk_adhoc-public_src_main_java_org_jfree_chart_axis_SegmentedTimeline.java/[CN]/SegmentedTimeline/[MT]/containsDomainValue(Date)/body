@@ -1,3 +1,0 @@
-{
-  return containsDomainValue(getTime(date));
-}

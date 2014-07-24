@@ -1,4 +1,0 @@
-{
-  this.seriesPaintList.setPaint(series,paint);
-  fireChangeEvent();
-}

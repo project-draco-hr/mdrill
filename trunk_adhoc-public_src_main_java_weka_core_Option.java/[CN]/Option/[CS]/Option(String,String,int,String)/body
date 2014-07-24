@@ -1,6 +1,0 @@
-{
-  m_Description=description;
-  m_Name=name;
-  m_NumArguments=numArguments;
-  m_Synopsis=synopsis;
-}

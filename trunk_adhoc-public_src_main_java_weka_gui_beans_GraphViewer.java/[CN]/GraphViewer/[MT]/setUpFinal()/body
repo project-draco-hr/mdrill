@@ -1,4 +1,0 @@
-{
-  setUpResultHistory();
-  add(m_history,BorderLayout.CENTER);
-}

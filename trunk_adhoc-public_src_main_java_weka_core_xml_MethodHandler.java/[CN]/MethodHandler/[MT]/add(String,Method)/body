@@ -1,3 +1,0 @@
-{
-  if (method != null)   m_Methods.put(displayName,method);
-}

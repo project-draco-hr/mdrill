@@ -1,4 +1,0 @@
-{
-  m_visual.loadIcons(BeanVisual.ICON_PATH + "TestSetMaker.gif",BeanVisual.ICON_PATH + "TestSetMaker_animated.gif");
-  m_visual.setText("TestSetMaker");
-}

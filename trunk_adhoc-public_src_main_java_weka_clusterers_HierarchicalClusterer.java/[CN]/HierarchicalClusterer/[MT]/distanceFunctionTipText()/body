@@ -1,3 +1,0 @@
-{
-  return "Sets the distance function, which measures the distance between two individual. " + "instances (or possibly the distance between an instance and the centroid of a cluster" + "depending on the Link type).";
-}

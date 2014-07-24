@@ -1,6 +1,0 @@
-{
-  DefaultHandler current=getCurrentHandler();
-  if (current != this) {
-    current.endElement(namespaceURI,localName,qName);
-  }
-}

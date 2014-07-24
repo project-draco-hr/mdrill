@@ -1,4 +1,0 @@
-{
-  super(Byte.class);
-  setParameterDefinition("value",String.class);
-}

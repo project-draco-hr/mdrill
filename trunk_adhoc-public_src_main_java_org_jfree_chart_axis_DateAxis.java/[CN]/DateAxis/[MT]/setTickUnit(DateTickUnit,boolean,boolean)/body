@@ -1,9 +1,0 @@
-{
-  this.tickUnit=unit;
-  if (turnOffAutoSelection) {
-    setAutoTickUnitSelection(false,false);
-  }
-  if (notify) {
-    notifyListeners(new AxisChangeEvent(this));
-  }
-}

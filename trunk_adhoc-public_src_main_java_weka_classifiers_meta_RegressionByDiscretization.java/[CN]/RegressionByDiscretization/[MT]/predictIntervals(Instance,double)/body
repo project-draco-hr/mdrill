@@ -1,4 +1,0 @@
-{
-  UnivariateIntervalEstimator e=(UnivariateIntervalEstimator)getDensityEstimator(instance,false);
-  return e.predictIntervals(confidenceLevel);
-}

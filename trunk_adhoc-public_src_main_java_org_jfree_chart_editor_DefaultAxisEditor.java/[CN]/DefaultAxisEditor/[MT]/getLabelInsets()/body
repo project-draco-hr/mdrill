@@ -1,3 +1,0 @@
-{
-  return (this.labelInsets == null) ? new RectangleInsets(0,0,0,0) : this.labelInsets;
-}

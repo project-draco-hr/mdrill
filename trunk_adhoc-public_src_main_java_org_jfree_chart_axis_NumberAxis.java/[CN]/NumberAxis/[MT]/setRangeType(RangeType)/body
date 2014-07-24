@@ -1,7 +1,0 @@
-{
-  if (rangeType == null) {
-    throw new IllegalArgumentException("Null 'rangeType' argument.");
-  }
-  this.rangeType=rangeType;
-  notifyListeners(new AxisChangeEvent(this));
-}

@@ -1,3 +1,0 @@
-{
-  return result(projectName,startStr,rowsStr,queryStr,fl,groupby,sort,order,"Y",out);
-}

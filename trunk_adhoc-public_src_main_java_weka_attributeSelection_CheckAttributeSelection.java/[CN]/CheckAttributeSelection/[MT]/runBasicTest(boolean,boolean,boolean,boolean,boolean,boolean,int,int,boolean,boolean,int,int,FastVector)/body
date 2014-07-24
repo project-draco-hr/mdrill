@@ -1,3 +1,0 @@
-{
-  return runBasicTest(nominalPredictor,numericPredictor,stringPredictor,datePredictor,relationalPredictor,multiInstance,classType,TestInstances.CLASS_IS_LAST,missingLevel,predictorMissing,classMissing,numTrain,numClasses,accepts);
-}

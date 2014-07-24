@@ -1,7 +1,0 @@
-{
-  String[] resultNames=m_SplitEvaluator.getResultNames();
-  String[] newResultNames=new String[resultNames.length + 1];
-  newResultNames[0]=TIMESTAMP_FIELD_NAME;
-  System.arraycopy(resultNames,0,newResultNames,1,resultNames.length);
-  return newResultNames;
-}

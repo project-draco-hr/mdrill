@@ -1,5 +1,0 @@
-{
-  OHLCSeries s=(OHLCSeries)this.data.get(series);
-  OHLCItem di=(OHLCItem)s.getDataItem(item);
-  return di.getOpenValue();
-}

@@ -1,6 +1,0 @@
-{
-  if (m_adjustForTrends && m_timeStampName.length() > 0) {
-    return m_lastTimeValue;
-  }
-  throw new Exception("Not using a time stamp!");
-}

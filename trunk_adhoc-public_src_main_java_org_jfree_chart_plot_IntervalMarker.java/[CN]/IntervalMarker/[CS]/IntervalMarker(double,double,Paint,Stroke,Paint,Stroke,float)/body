@@ -1,7 +1,0 @@
-{
-  super(paint,stroke,outlinePaint,outlineStroke,alpha);
-  this.startValue=start;
-  this.endValue=end;
-  this.gradientPaintTransformer=null;
-  setLabelOffsetType(LengthAdjustmentType.CONTRACT);
-}

@@ -1,8 +1,0 @@
-{
-  String debug="(KStar.buildClassifier) ";
-  getCapabilities().testWithFail(instances);
-  instances=new Instances(instances);
-  instances.deleteWithMissingClass();
-  m_Train=new Instances(instances,0,instances.numInstances());
-  init_m_Attributes();
-}

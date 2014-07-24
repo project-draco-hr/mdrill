@@ -1,6 +1,0 @@
-{
-  if (!(o instanceof Boolean)) {
-    throw new ObjectFactoryException("The given object is no java.lang.Boolean. ");
-  }
-  setParameter("value",String.valueOf(o));
-}

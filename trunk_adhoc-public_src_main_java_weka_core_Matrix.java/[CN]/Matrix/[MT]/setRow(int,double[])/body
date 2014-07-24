@@ -1,3 +1,0 @@
-{
-  for (int i=0; i < newRow.length; i++)   m_Matrix.set(index,i,newRow[i]);
-}

@@ -1,3 +1,0 @@
-{
-  return "The class that builds a BallTree middle out.\n\n" + "For more information see also:\n\n" + getTechnicalInformation().toString();
-}

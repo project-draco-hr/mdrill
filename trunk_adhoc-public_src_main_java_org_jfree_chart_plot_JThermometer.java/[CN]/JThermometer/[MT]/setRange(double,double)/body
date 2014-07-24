@@ -1,3 +1,0 @@
-{
-  this.plot.setRange(lower,upper);
-}

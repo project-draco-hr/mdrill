@@ -1,3 +1,0 @@
-{
-  if (prec >= 0)   m_MeanPrec=prec;
-}

@@ -1,3 +1,0 @@
-{
-  this(new BlockContainer(new BorderArrangement()));
-}

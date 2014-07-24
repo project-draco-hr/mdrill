@@ -1,7 +1,0 @@
-{
-  if (t == null) {
-    throw new IllegalArgumentException("Null 't' argument.");
-  }
-  this.gradientPaintTransformer=t;
-  notifyListeners(new DialLayerChangeEvent(this));
-}

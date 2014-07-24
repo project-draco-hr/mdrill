@@ -1,3 +1,0 @@
-{
-  return (Number)this.values.get(item);
-}

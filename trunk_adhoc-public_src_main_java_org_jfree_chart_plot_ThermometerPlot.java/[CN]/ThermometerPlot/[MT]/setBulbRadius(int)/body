@@ -1,4 +1,0 @@
-{
-  this.bulbRadius=r;
-  fireChangeEvent();
-}

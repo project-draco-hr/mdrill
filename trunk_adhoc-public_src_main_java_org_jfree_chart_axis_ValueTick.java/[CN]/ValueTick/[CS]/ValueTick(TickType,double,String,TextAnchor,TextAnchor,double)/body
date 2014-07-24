@@ -1,5 +1,0 @@
-{
-  super(label,textAnchor,rotationAnchor,angle);
-  this.value=value;
-  this.tickType=tickType;
-}

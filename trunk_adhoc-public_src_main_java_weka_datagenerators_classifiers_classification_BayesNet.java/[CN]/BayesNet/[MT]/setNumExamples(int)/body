@@ -1,4 +1,0 @@
-{
-  super.setNumExamples(numExamples);
-  setGeneratorOption("M","" + numExamples);
-}

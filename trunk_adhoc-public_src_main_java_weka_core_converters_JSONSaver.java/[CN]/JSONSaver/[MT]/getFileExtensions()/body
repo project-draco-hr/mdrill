@@ -1,3 +1,0 @@
-{
-  return new String[]{JSONLoader.FILE_EXTENSION,JSONLoader.FILE_EXTENSION_COMPRESSED};
-}

@@ -1,3 +1,0 @@
-{
-  return createStandardDateTickUnits(zone,Locale.getDefault());
-}

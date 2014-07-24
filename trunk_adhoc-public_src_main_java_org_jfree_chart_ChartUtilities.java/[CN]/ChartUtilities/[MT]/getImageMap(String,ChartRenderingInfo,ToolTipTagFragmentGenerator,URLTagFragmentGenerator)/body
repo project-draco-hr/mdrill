@@ -1,3 +1,0 @@
-{
-  return ImageMapUtilities.getImageMap(name,info,toolTipTagFragmentGenerator,urlTagFragmentGenerator);
-}

@@ -1,4 +1,0 @@
-{
-  if (value <= getOutlierFactor())   System.err.println("ExtremeValuesFactor must be greater than OutlierFactor!");
- else   m_ExtremeValuesFactor=value;
-}

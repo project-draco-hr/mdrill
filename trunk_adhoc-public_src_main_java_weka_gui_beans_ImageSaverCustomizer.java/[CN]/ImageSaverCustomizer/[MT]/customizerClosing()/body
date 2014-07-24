@@ -1,3 +1,0 @@
-{
-  m_imageSaver.setFilename(m_fileBackup);
-}

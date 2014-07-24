@@ -1,3 +1,0 @@
-{
-  return "Value " + m_sValue + " added to node "+ getNodeName(m_nTargetNode);
-}

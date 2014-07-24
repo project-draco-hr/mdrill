@@ -1,3 +1,0 @@
-Configuration conf
-Path clusterPathStr
-Collection<Cluster> clusters

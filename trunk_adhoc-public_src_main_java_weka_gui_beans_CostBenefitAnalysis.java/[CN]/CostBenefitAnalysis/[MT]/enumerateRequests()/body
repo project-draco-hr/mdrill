@@ -1,9 +1,0 @@
-{
-  Vector newVector=new Vector(0);
-  if (m_analysisPanel != null) {
-    if (m_analysisPanel.m_masterPlot != null) {
-      newVector.addElement("Show analysis");
-    }
-  }
-  return newVector.elements();
-}

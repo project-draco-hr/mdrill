@@ -1,5 +1,0 @@
-{
-  Vector result=enumToVector(super.listOptions());
-  result.addElement(new Option("\tThe expression to use for generating y out of x \n" + "\t(default " + defaultExpression() + ").","E",1,"-E <expression>"));
-  return result.elements();
-}

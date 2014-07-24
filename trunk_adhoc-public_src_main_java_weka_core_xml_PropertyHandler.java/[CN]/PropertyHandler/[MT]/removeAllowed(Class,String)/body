@@ -1,8 +1,0 @@
-{
-  boolean result;
-  HashSet list;
-  result=false;
-  list=(HashSet)m_Allowed.get(c);
-  if (list != null)   result=list.remove(displayName);
-  return result;
-}

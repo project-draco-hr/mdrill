@@ -1,7 +1,0 @@
-{
-  addVariable(key,value);
-  if (this != getSystemWide()) {
-    getSystemWide().addVariableSystemWide(key,value);
-  }
-  System.setProperty(key,value);
-}

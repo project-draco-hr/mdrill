@@ -1,7 +1,0 @@
-{
-  for (int iNode=0; iNode < m_BayesNet.getNrOfNodes(); iNode++) {
-    if (contains(selectedRect,iNode)) {
-      toggleSelection(iNode);
-    }
-  }
-}

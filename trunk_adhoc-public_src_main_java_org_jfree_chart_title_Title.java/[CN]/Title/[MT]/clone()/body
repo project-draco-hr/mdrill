@@ -1,5 +1,0 @@
-{
-  Title duplicate=(Title)super.clone();
-  duplicate.listenerList=new EventListenerList();
-  return duplicate;
-}

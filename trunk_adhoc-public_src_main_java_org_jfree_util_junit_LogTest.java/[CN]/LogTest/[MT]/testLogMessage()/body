@@ -1,6 +1,0 @@
-{
-  Log.debug("Test");
-  Log.info("Test");
-  Log.warn("Test");
-  Log.error("Test");
-}

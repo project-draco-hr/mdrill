@@ -1,7 +1,0 @@
-{
-  final Dimension2D dim=new Dimension();
-  final float width=getFloatParameter("width");
-  final float height=getFloatParameter("height");
-  dim.setSize(width,height);
-  return dim;
-}

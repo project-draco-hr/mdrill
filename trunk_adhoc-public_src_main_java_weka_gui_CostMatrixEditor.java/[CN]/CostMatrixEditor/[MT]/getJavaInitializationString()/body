@@ -1,3 +1,0 @@
-{
-  return ("new CostMatrix(" + m_matrix.size() + ")");
-}

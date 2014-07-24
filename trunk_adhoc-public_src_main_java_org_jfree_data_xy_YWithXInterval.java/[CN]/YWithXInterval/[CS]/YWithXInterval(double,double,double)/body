@@ -1,5 +1,0 @@
-{
-  this.y=y;
-  this.xLow=xLow;
-  this.xHigh=xHigh;
-}

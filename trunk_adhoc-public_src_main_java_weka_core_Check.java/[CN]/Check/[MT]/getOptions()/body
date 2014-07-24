@@ -1,7 +1,0 @@
-{
-  Vector<String> result;
-  result=new Vector<String>();
-  if (getDebug())   result.add("-D");
-  if (getSilent())   result.add("-S");
-  return (String[])result.toArray(new String[result.size()]);
-}

@@ -1,3 +1,0 @@
-{
-  return getType(0,columnIndex);
-}

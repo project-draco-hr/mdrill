@@ -1,7 +1,0 @@
-{
-  Vector newVector=new Vector(3);
-  newVector.addElement(new Option("\tTurn on debugging output.","D",0,"-D"));
-  newVector.addElement(new Option("\tSet the ridge in the log-likelihood.","R",1,"-R <ridge>"));
-  newVector.addElement(new Option("\tSet the maximum number of iterations" + " (default -1, until convergence).","M",1,"-M <number>"));
-  return newVector.elements();
-}

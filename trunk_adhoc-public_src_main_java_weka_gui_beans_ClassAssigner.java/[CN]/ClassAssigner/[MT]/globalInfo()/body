@@ -1,3 +1,0 @@
-{
-  return "Designate which column is to be considered the class column " + "in incoming data.";
-}

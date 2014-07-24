@@ -1,3 +1,0 @@
-{
-  return "Whether or not to invert the selection. If true, correctly classified instances will be discarded.";
-}

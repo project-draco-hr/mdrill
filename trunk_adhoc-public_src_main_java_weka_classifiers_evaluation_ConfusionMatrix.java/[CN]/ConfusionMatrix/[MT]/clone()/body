@@ -1,5 +1,0 @@
-{
-  ConfusionMatrix m=(ConfusionMatrix)super.clone();
-  m.m_ClassNames=(String[])m_ClassNames.clone();
-  return m;
-}

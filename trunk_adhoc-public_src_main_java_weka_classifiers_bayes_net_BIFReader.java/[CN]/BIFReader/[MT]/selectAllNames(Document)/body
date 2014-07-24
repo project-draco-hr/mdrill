@@ -1,4 +1,0 @@
-{
-  NodeList nodelist=doc.getElementsByTagName("NAME");
-  return nodelist;
-}

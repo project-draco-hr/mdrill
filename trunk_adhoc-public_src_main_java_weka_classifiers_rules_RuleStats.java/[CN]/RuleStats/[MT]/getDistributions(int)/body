@@ -1,4 +1,0 @@
-{
-  if ((m_Distributions != null) && (index < m_Distributions.size()))   return (double[])m_Distributions.elementAt(index);
-  return null;
-}

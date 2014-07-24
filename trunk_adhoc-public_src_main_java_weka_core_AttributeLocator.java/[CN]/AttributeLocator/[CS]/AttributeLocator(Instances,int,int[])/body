@@ -1,4 +1,0 @@
-{
-  super();
-  initialize(data,type,indices);
-}

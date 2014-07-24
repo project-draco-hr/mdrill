@@ -1,7 +1,0 @@
-int categoryIndex
-int categoryCount
-int seriesIndex
-int seriesCount
-double itemMargin
-Rectangle2D area
-RectangleEdge edge

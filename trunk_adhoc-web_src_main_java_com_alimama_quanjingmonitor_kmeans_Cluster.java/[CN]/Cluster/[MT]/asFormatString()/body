@@ -1,8 +1,0 @@
-{
-  StringBuffer buf=new StringBuffer();
-  buf.append("id=");
-  buf.append(this.getId() + "," + this.numselect);
-  buf.append(" ");
-  buf.append(center.toString());
-  return buf.toString();
-}

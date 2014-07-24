@@ -1,9 +1,0 @@
-{
-  try {
-    paste(sXML,TEST);
-  }
- catch (  Exception e) {
-    throw e;
-  }
-  paste(sXML,EXECUTE);
-}

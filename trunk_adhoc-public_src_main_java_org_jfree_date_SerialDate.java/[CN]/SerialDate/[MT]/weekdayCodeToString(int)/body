@@ -1,4 +1,0 @@
-{
-  final String[] weekdays=DATE_FORMAT_SYMBOLS.getWeekdays();
-  return weekdays[weekday];
-}

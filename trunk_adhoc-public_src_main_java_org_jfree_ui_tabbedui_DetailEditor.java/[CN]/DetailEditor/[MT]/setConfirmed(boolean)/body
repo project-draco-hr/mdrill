@@ -1,5 +1,0 @@
-{
-  final boolean oldConfirmed=this.confirmed;
-  this.confirmed=confirmed;
-  firePropertyChange("confirmed",oldConfirmed,confirmed);
-}

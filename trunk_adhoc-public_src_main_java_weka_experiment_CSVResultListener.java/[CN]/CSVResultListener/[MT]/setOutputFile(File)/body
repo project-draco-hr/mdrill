@@ -1,4 +1,0 @@
-{
-  m_OutputFile=newOutputFile;
-  setOutputFileName(newOutputFile.getName());
-}

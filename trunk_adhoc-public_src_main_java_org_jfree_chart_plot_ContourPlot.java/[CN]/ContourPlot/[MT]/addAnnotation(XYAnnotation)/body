@@ -1,7 +1,0 @@
-{
-  if (this.annotations == null) {
-    this.annotations=new java.util.ArrayList();
-  }
-  this.annotations.add(annotation);
-  fireChangeEvent();
-}

@@ -1,6 +1,0 @@
-{
-  int pos;
-  pos=m_HeaderKeys.indexOf(key);
-  if (pos == 0)   return null;
- else   return (String)m_HeaderKeys.get(pos);
-}

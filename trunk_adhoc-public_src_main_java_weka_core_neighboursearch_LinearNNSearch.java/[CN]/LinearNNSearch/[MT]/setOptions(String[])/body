@@ -1,4 +1,0 @@
-{
-  super.setOptions(options);
-  setSkipIdentical(Utils.getFlag('S',options));
-}

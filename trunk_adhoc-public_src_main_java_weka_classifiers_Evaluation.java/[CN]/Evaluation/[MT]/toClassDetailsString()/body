@@ -1,3 +1,0 @@
-{
-  return toClassDetailsString("=== Detailed Accuracy By Class ===\n");
-}

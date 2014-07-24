@@ -1,9 +1,0 @@
-{
-  final AttributeList attList=new AttributeList();
-  final Enumeration keys=attributes.keys();
-  while (keys.hasMoreElements()) {
-    final String key=(String)keys.nextElement();
-    attList.setAttribute(key,attributes.getProperty(key));
-  }
-  writeTag(w,name,attList,close);
-}

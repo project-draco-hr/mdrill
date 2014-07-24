@@ -1,8 +1,0 @@
-{
-  if (this.autoTickUnitSelection != flag) {
-    this.autoTickUnitSelection=flag;
-    if (notify) {
-      notifyListeners(new AxisChangeEvent(this));
-    }
-  }
-}

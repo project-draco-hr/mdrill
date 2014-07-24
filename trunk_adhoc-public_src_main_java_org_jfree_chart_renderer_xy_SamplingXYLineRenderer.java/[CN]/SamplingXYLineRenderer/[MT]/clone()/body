@@ -1,7 +1,0 @@
-{
-  SamplingXYLineRenderer clone=(SamplingXYLineRenderer)super.clone();
-  if (this.legendLine != null) {
-    clone.legendLine=ShapeUtilities.clone(this.legendLine);
-  }
-  return clone;
-}

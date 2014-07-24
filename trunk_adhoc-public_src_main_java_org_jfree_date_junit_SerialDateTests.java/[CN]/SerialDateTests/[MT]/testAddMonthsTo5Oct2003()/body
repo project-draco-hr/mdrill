@@ -1,5 +1,0 @@
-{
-  final SerialDate d1=SerialDate.createInstance(5,MonthConstants.OCTOBER,2003);
-  final SerialDate d2=SerialDate.addMonths(2,d1);
-  assertEquals(d2,SerialDate.createInstance(5,MonthConstants.DECEMBER,2003));
-}

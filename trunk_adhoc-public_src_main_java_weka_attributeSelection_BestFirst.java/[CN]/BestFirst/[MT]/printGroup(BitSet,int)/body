@@ -1,9 +1,0 @@
-{
-  int i;
-  for (i=0; i < numAttribs; i++) {
-    if (tt.get(i) == true) {
-      System.out.print((i + 1) + " ");
-    }
-  }
-  System.out.println();
-}

@@ -1,4 +1,0 @@
-{
-  double y=this.minY + (this.maxY - this.minY) * (yIndex / (double)this.ySamples);
-  return y;
-}

@@ -1,7 +1,0 @@
-{
-  String toolTipText=null;
-  if (c.getPreferredSize().width > getCellRect(row,column,false).width) {
-    toolTipText=getValueAt(row,column).toString();
-  }
-  c.setToolTipText(toolTipText);
-}

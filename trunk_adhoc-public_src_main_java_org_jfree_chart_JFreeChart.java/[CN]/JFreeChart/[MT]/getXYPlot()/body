@@ -1,3 +1,0 @@
-{
-  return (XYPlot)this.plot;
-}

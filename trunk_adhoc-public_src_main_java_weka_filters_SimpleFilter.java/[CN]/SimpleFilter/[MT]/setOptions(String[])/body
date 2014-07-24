@@ -1,4 +1,0 @@
-{
-  reset();
-  setDebug(Utils.getFlag('D',options));
-}

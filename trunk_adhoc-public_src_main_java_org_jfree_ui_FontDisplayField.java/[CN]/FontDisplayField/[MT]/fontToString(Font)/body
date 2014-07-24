@@ -1,8 +1,0 @@
-{
-  if (font != null) {
-    return font.getFontName() + ", " + font.getSize();
-  }
- else {
-    return localizationResources.getString("No_Font_Selected");
-  }
-}

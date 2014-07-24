@@ -1,3 +1,0 @@
-{
-  setOptimalColumnWidth(getJTable(),col);
-}

@@ -1,3 +1,0 @@
-{
-  return Math.pow(distance(first,second,Double.POSITIVE_INFINITY,stats),1 / m_Order);
-}

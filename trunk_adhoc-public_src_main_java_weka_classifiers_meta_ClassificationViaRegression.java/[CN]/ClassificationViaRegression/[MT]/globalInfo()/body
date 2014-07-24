@@ -1,3 +1,0 @@
-{
-  return "Class for doing classification using regression methods. Class is " + "binarized and one regression model is built for each class value. For more " + "information, see, for example\n\n"+ getTechnicalInformation().toString();
-}

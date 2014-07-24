@@ -1,4 +1,0 @@
-{
-  this.optionalModules=new ModuleInfo[optionalModules.length];
-  System.arraycopy(optionalModules,0,this.optionalModules,0,optionalModules.length);
-}

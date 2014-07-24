@@ -1,3 +1,0 @@
-{
-  return ((JComponent)m_bean).getHeight();
-}

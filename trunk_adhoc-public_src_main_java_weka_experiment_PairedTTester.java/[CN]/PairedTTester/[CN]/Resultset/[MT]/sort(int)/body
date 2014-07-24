@@ -1,5 +1,0 @@
-{
-  for (int i=0; i < m_Datasets.size(); i++) {
-    ((Dataset)m_Datasets.elementAt(i)).sort(runColumn);
-  }
-}

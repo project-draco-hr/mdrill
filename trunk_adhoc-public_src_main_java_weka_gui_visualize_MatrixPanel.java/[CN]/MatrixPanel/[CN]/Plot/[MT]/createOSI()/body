@@ -1,6 +1,0 @@
-{
-  int iwidth=this.getWidth();
-  int iheight=this.getHeight();
-  m_osi=this.createImage(iwidth,iheight);
-  clearOSI();
-}

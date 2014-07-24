@@ -1,5 +1,0 @@
-{
-  TimePeriodValue item=getDataItem(index);
-  item.setValue(value);
-  fireSeriesChanged();
-}

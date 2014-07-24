@@ -1,6 +1,0 @@
-{
-  final JMenu retval=new JMenu();
-  retval.setText(getString(keyPrefix + ".name"));
-  retval.setMnemonic(getMnemonic(keyPrefix + ".mnemonic").intValue());
-  return retval;
-}

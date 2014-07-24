@@ -1,3 +1,0 @@
-{
-  return "Whether to remove the classname package prefixes from the filter names in datasets.";
-}

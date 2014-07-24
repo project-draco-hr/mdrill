@@ -1,5 +1,0 @@
-{
-  final Calendar calendar=Calendar.getInstance();
-  calendar.set(getYYYY(),getMonth() - 1,getDayOfMonth(),0,0,0);
-  return calendar.getTime();
-}

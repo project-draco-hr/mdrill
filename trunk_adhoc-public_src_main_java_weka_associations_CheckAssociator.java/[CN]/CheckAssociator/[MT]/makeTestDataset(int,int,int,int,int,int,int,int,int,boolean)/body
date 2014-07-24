@@ -1,3 +1,0 @@
-{
-  return makeTestDataset(seed,numInstances,numNominal,numNumeric,numString,numDate,numRelational,numClasses,classType,TestInstances.CLASS_IS_LAST,multiInstance);
-}

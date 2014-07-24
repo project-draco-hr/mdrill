@@ -1,6 +1,0 @@
-{
-  this.negativeItemLabelPositionList.set(series,position);
-  if (notify) {
-    fireChangeEvent();
-  }
-}

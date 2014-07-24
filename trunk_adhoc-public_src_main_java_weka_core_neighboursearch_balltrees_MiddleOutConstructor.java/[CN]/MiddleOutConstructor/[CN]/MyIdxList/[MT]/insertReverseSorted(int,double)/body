@@ -1,8 +1,0 @@
-{
-  int i=0;
-  for (  ListNode temp : m_List) {
-    if (temp.distance < distance)     break;
-    i++;
-  }
-  m_List.add(i,new ListNode(idx,distance));
-}

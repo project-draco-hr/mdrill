@@ -1,6 +1,0 @@
-{
-  getColumnModel().getSelectionModel().clearSelection();
-  getColumnModel().getSelectionModel().setSelectionInterval(index,index);
-  resizeAndRepaint();
-  if (getTableHeader() != null)   getTableHeader().resizeAndRepaint();
-}

@@ -1,3 +1,0 @@
-{
-  return ((OHLCDataset)this.parent).getOpen(this.map[series],item);
-}

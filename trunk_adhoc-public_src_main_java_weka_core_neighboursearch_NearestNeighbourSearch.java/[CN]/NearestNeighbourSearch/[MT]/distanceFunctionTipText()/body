@@ -1,3 +1,0 @@
-{
-  return "The distance function to use for finding neighbours " + "(default: weka.core.EuclideanDistance). ";
-}

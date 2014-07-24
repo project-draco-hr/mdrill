@@ -1,3 +1,0 @@
-{
-  return toTimelineValue(getTime(date));
-}

@@ -1,3 +1,0 @@
-{
-  return contains(new Float(value).toString());
-}

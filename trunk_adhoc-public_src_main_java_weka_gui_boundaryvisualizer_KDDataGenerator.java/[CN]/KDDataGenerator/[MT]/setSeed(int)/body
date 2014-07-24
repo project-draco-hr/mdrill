@@ -1,4 +1,0 @@
-{
-  m_seed=seed;
-  m_random=new Random(m_seed);
-}

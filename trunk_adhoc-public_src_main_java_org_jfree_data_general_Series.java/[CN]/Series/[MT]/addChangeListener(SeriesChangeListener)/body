@@ -1,3 +1,0 @@
-{
-  this.listeners.add(SeriesChangeListener.class,listener);
-}

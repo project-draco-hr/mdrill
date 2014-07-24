@@ -1,3 +1,0 @@
-{
-  this(missingColor,missingColorSelected,Color.RED,Color.RED.darker());
-}

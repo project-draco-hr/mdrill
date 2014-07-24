@@ -1,5 +1,0 @@
-{
-  super(arrangement);
-  this.dataset=dataset;
-  this.seriesKey=seriesKey;
-}

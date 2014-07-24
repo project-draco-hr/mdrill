@@ -1,7 +1,0 @@
-{
-  if (other == null) {
-    return false;
-  }
-  boolean result=other.overlaps(getAveragedOutlier());
-  return result;
-}

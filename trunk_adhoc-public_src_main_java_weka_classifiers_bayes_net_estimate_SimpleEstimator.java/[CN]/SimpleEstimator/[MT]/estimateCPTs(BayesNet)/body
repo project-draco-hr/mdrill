@@ -1,8 +1,0 @@
-{
-  initCPTs(bayesNet);
-  Enumeration enumInsts=bayesNet.m_Instances.enumerateInstances();
-  while (enumInsts.hasMoreElements()) {
-    Instance instance=(Instance)enumInsts.nextElement();
-    updateClassifier(bayesNet,instance);
-  }
-}

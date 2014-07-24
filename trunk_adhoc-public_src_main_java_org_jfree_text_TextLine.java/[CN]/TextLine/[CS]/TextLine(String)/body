@@ -1,3 +1,0 @@
-{
-  this(text,TextFragment.DEFAULT_FONT);
-}

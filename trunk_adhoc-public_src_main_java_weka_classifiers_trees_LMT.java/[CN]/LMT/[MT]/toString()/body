@@ -1,8 +1,0 @@
-{
-  if (m_tree != null) {
-    return "Logistic model tree \n------------------\n" + m_tree.toString();
-  }
- else {
-    return "No tree build";
-  }
-}

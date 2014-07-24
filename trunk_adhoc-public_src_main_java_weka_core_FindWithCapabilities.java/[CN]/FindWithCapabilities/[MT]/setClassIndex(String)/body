@@ -1,4 +1,0 @@
-{
-  if (value.equals("-1"))   m_ClassIndex=null;
- else   m_ClassIndex=new SingleIndex(value);
-}

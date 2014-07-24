@@ -1,4 +1,0 @@
-{
-  this.seriesLinesVisible.setBoolean(series,flag);
-  fireChangeEvent();
-}

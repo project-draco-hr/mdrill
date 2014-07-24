@@ -1,4 +1,0 @@
-{
-  this.toolTipText=text;
-  notifyListeners(new TitleChangeEvent(this));
-}

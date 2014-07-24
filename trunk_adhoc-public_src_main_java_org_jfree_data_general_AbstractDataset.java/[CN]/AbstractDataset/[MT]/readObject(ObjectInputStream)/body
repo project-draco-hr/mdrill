@@ -1,5 +1,0 @@
-{
-  stream.defaultReadObject();
-  this.listenerList=new EventListenerList();
-  stream.registerValidation(this,10);
-}

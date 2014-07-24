@@ -1,6 +1,0 @@
-{
-  this.shapeList.setShape(series,shape);
-  if (notify) {
-    fireChangeEvent();
-  }
-}

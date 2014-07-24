@@ -1,4 +1,0 @@
-{
-  this.axisLabelGap=gap;
-  fireChangeEvent();
-}

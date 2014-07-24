@@ -1,7 +1,0 @@
-{
-  Vector result=new Vector();
-  Enumeration enm=super.listOptions();
-  while (enm.hasMoreElements())   result.add(enm.nextElement());
-  result.addElement(new Option("\tA filter to apply (can be specified multiple times).","F",1,"-F <classname [options]>"));
-  return result.elements();
-}

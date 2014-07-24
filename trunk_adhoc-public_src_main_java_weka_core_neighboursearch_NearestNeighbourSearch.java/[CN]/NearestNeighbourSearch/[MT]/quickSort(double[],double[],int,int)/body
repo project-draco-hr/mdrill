@@ -1,7 +1,0 @@
-{
-  if (left < right) {
-    int middle=partition(arrayToSort,linkedArray,left,right);
-    quickSort(arrayToSort,linkedArray,left,middle);
-    quickSort(arrayToSort,linkedArray,middle + 1,right);
-  }
-}

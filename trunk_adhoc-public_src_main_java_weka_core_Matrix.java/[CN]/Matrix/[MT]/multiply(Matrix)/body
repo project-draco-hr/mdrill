@@ -1,9 +1,0 @@
-{
-  try {
-    return new Matrix(getMatrix().times(b.getMatrix()).getArrayCopy());
-  }
- catch (  Exception e) {
-    e.printStackTrace();
-    return null;
-  }
-}

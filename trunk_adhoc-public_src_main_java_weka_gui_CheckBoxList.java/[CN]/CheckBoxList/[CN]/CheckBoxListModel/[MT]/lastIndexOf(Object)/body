@@ -1,4 +1,0 @@
-{
-  if (!(elem instanceof CheckBoxListItem))   return super.lastIndexOf(new CheckBoxListItem(elem));
- else   return super.lastIndexOf(elem);
-}

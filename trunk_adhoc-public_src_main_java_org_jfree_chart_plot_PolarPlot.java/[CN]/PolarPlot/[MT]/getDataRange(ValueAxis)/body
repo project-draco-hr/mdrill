@@ -1,7 +1,0 @@
-{
-  Range result=null;
-  if (this.dataset != null) {
-    result=Range.combine(result,DatasetUtilities.findRangeBounds(this.dataset));
-  }
-  return result;
-}

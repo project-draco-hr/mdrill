@@ -1,4 +1,0 @@
-{
-  if (num < 1)   throw new Exception("The maximum number of instances in a leaf must " + "be >=1.");
-  m_MaxInstancesInLeaf=num;
-}

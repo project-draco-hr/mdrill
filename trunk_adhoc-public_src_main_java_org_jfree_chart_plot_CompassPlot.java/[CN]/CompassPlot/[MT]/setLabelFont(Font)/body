@@ -1,7 +1,0 @@
-{
-  if (font == null) {
-    throw new IllegalArgumentException("Null 'font' not allowed.");
-  }
-  this.labelFont=font;
-  fireChangeEvent();
-}

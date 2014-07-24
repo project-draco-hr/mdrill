@@ -1,3 +1,0 @@
-{
-  m_predicate=TreeModel.Predicate.getPredicate(ruleE,miningSchema);
-}

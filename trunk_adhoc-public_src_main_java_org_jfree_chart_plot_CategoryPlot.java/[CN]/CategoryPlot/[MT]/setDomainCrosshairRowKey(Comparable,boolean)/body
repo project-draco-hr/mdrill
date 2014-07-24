@@ -1,6 +1,0 @@
-{
-  this.domainCrosshairRowKey=key;
-  if (notify) {
-    fireChangeEvent();
-  }
-}

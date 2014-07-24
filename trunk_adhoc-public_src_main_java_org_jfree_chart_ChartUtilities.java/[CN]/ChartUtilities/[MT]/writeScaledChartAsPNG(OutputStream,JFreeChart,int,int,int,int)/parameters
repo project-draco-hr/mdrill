@@ -1,6 +1,0 @@
-OutputStream out
-JFreeChart chart
-int width
-int height
-int widthScaleFactor
-int heightScaleFactor

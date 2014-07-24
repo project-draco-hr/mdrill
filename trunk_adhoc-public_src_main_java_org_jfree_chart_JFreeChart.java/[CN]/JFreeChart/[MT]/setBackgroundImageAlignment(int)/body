@@ -1,6 +1,0 @@
-{
-  if (this.backgroundImageAlignment != alignment) {
-    this.backgroundImageAlignment=alignment;
-    fireChartChanged();
-  }
-}

@@ -1,7 +1,0 @@
-{
-  int result=super.hashCode();
-  result=HashUtilities.hashCode(result,this.widthRadius);
-  result=HashUtilities.hashCode(result,this.fillPaint);
-  result=HashUtilities.hashCode(result,this.outlinePaint);
-  return result;
-}

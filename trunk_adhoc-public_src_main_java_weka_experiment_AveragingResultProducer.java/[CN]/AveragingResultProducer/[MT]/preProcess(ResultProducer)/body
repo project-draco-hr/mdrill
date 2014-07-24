@@ -1,6 +1,0 @@
-{
-  if (m_ResultListener == null) {
-    throw new Exception("No ResultListener set");
-  }
-  m_ResultListener.preProcess(this);
-}

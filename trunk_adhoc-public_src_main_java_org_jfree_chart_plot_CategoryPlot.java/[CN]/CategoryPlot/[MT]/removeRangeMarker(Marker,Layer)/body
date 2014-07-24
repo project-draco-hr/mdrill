@@ -1,3 +1,0 @@
-{
-  return removeRangeMarker(0,marker,layer);
-}

@@ -1,7 +1,0 @@
-{
-  final List v=(List)this.table.get(key);
-  if (v == null) {
-    return false;
-  }
-  return v.contains(value);
-}

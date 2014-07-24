@@ -1,3 +1,0 @@
-{
-  this.activeFactories.push(factory);
-}

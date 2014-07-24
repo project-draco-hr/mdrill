@@ -1,3 +1,0 @@
-{
-  return localizationResources.getString("XY_Plot");
-}

@@ -1,5 +1,0 @@
-{
-  ComparableObjectItem item=getDataItem(index);
-  item.setObject(y);
-  fireSeriesChanged();
-}

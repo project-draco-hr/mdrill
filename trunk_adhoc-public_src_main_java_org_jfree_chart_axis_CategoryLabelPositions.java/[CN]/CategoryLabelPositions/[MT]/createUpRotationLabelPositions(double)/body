@@ -1,3 +1,0 @@
-{
-  return new CategoryLabelPositions(new CategoryLabelPosition(RectangleAnchor.BOTTOM,TextBlockAnchor.BOTTOM_LEFT,TextAnchor.BOTTOM_LEFT,-angle,CategoryLabelWidthType.RANGE,0.50f),new CategoryLabelPosition(RectangleAnchor.TOP,TextBlockAnchor.TOP_RIGHT,TextAnchor.TOP_RIGHT,-angle,CategoryLabelWidthType.RANGE,0.50f),new CategoryLabelPosition(RectangleAnchor.RIGHT,TextBlockAnchor.BOTTOM_RIGHT,TextAnchor.BOTTOM_RIGHT,-angle,CategoryLabelWidthType.RANGE,0.50f),new CategoryLabelPosition(RectangleAnchor.LEFT,TextBlockAnchor.TOP_LEFT,TextAnchor.TOP_LEFT,-angle,CategoryLabelWidthType.RANGE,0.50f));
-}

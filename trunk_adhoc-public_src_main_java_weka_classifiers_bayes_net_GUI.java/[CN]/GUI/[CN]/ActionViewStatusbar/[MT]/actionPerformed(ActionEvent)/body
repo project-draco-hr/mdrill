@@ -1,3 +1,0 @@
-{
-  m_jStatusBar.setVisible(!m_jStatusBar.isVisible());
-}

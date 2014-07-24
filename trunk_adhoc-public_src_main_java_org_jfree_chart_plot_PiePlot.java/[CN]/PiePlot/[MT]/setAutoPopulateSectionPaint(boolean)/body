@@ -1,4 +1,0 @@
-{
-  this.autoPopulateSectionPaint=auto;
-  fireChangeEvent();
-}

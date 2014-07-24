@@ -1,6 +1,0 @@
-{
-  if (!m_outputPredsCheckBox.isSelected()) {
-    return null;
-  }
-  return m_outputPredsCombo.getSelectedItem().toString();
-}

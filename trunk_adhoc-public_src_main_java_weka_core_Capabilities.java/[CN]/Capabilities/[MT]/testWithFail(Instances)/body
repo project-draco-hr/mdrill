@@ -1,3 +1,0 @@
-{
-  if (!test(data))   throw m_FailReason;
-}

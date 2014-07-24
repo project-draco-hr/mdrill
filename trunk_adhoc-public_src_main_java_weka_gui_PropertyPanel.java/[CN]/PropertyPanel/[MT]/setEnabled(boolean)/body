@@ -1,6 +1,0 @@
-{
-  super.setEnabled(enabled);
-  if (m_HasCustomPanel) {
-    m_CustomPanel.setEnabled(enabled);
-  }
-}

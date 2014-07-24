@@ -1,3 +1,0 @@
-{
-  return (Associator)new SerializedObject(model).getObject();
-}

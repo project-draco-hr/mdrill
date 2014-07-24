@@ -1,3 +1,0 @@
-{
-  init(title,project.getName(),"Version " + project.getVersion(),project.getInfo(),project.getLogo(),project.getCopyright(),project.getLicenceText(),project.getContributors(),project);
-}

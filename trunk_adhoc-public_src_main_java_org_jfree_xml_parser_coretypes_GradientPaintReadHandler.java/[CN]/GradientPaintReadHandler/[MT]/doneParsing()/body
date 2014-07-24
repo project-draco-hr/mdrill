@@ -1,6 +1,0 @@
-{
-  if (this.point1Handler == null || this.point2Handler == null || this.color1Handler == null || this.color2Handler == null) {
-    throw new XmlReaderException("Not all required subelements are defined.");
-  }
-  this.gradient=new GradientPaint((Point2D)this.point1Handler.getObject(),(Color)this.color1Handler.getObject(),(Point2D)this.point2Handler.getObject(),(Color)this.color2Handler.getObject());
-}

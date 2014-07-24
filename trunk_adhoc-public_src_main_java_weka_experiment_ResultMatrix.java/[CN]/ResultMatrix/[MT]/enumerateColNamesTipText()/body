@@ -1,3 +1,0 @@
-{
-  return "Whether to enumerate the column names (prefixing them with '(x)', with 'x' being the index).";
-}

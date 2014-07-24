@@ -1,3 +1,0 @@
-{
-  return "The number of instances forward/backward to merge values between. " + "A negative number indicates taking values from a past instance.";
-}

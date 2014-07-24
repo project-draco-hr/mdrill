@@ -1,8 +1,0 @@
-{
-  if (base == null) {
-    return null;
-  }
-  final AffineTransform rotate=AffineTransform.getRotateInstance(angle,x,y);
-  final Shape result=rotate.createTransformedShape(base);
-  return result;
-}

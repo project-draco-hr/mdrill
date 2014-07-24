@@ -1,9 +1,0 @@
-{
-  HashSet<String> list;
-  list=(HashSet<String>)m_Allowed.get(c);
-  if (list == null) {
-    list=new HashSet<String>();
-    m_Allowed.put(c,list);
-  }
-  list.add(displayName);
-}

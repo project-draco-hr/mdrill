@@ -1,5 +1,0 @@
-{
-  this(source,trainSet,setNum,maxSetNum);
-  m_runNumber=runNum;
-  m_maxRunNumber=maxRunNum;
-}

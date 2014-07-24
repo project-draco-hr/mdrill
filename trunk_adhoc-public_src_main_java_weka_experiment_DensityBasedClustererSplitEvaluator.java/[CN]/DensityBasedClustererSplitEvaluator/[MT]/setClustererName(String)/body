@@ -1,8 +1,0 @@
-{
-  try {
-    setClusterer((DensityBasedClusterer)Class.forName(newClustererName).newInstance());
-  }
- catch (  Exception ex) {
-    throw new Exception("Can't find Clusterer with class name: " + newClustererName);
-  }
-}

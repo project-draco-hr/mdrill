@@ -1,4 +1,0 @@
-{
-  this.labelInfo=info;
-  notifyListeners(new AxisChangeEvent(this));
-}

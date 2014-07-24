@@ -1,4 +1,0 @@
-{
-  this.shapesVisible=flag;
-  fireChangeEvent();
-}

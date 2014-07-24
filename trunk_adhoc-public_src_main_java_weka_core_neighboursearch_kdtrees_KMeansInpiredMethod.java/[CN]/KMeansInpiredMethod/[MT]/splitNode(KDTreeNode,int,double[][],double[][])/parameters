@@ -1,4 +1,0 @@
-KDTreeNode node
-int numNodesCreated
-double[][] nodeRanges
-double[][] universe

@@ -1,5 +1,0 @@
-{
-  String result;
-  result="Filename: " + getFilename();
-  return result;
-}

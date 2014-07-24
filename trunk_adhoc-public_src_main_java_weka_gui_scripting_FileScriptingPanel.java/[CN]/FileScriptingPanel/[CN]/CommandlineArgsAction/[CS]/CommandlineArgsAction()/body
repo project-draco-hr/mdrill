@@ -1,4 +1,0 @@
-{
-  super("Arguments...","properties.gif","",'g');
-  setEnabled(true);
-}

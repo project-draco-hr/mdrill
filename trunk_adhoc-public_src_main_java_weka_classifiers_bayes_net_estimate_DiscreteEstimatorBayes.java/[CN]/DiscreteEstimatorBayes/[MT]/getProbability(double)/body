@@ -1,6 +1,0 @@
-{
-  if (m_SumOfCounts == 0) {
-    return 0;
-  }
-  return (double)m_Counts[(int)data] / m_SumOfCounts;
-}

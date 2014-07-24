@@ -1,7 +1,0 @@
-double x
-double y
-double xprev
-double yprev
-int size
-int shape
-Graphics gx

@@ -1,9 +1,0 @@
-{
-  if (this.size == 0) {
-    throw new EmptyStackException();
-  }
-  this.size-=1;
-  final Object retval=this.contents[this.size];
-  this.contents[this.size]=null;
-  return retval;
-}

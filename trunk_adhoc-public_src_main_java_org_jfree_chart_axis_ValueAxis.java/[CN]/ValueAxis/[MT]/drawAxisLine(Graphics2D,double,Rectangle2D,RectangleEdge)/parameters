@@ -1,4 +1,0 @@
-Graphics2D g2
-double cursor
-Rectangle2D dataArea
-RectangleEdge edge

@@ -1,7 +1,0 @@
-{
-  super.resetOptions();
-  setFileExtension(MatlabLoader.FILE_EXTENSION);
-  setUseDouble(false);
-  setUseTabs(false);
-  m_HeaderWritten=false;
-}

@@ -1,3 +1,0 @@
-{
-  return new SelectedTag(SubspaceCluster.CONTINUOUS,SubspaceCluster.TAGS_CLUSTERSUBTYPE);
-}

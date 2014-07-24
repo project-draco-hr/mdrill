@@ -1,3 +1,0 @@
-{
-  runFileSaver(new XRFFSaver(),args);
-}

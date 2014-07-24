@@ -1,4 +1,0 @@
-{
-  V=new double[n];
-  setSize(n);
-}

@@ -1,7 +1,0 @@
-{
-  Vector newVector=new Vector(3);
-  newVector.addElement(new Option("\tUse kernel density estimator rather than normal\n" + "\tdistribution for numeric attributes","K",0,"-K"));
-  newVector.addElement(new Option("\tUse supervised discretization to process numeric attributes\n","D",0,"-D"));
-  newVector.addElement(new Option("\tDisplay model in old format (good when there are " + "many classes)\n","O",0,"-O"));
-  return newVector.elements();
-}

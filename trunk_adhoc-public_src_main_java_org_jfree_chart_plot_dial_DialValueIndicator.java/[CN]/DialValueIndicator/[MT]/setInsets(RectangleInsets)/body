@@ -1,7 +1,0 @@
-{
-  if (insets == null) {
-    throw new IllegalArgumentException("Null 'insets' argument.");
-  }
-  this.insets=insets;
-  notifyListeners(new DialLayerChangeEvent(this));
-}

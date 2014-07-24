@@ -1,5 +1,0 @@
-{
-  if (!isPanelSelected())   return;
-  if (multiple)   getCurrentPanel().deleteInstances();
- else   getCurrentPanel().deleteInstance();
-}

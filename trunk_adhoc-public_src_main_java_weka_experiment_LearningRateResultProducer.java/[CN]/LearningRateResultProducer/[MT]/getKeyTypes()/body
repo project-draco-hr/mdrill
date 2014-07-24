@@ -1,7 +1,0 @@
-{
-  Object[] keyTypes=m_ResultProducer.getKeyTypes();
-  Object[] newKeyTypes=new Object[keyTypes.length + 1];
-  System.arraycopy(keyTypes,0,newKeyTypes,0,keyTypes.length);
-  newKeyTypes[keyTypes.length]="";
-  return newKeyTypes;
-}

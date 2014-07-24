@@ -1,8 +1,0 @@
-{
-  if (event.getSource() == this.minimumRangeValue) {
-    validateMinimum();
-  }
- else   if (event.getSource() == this.maximumRangeValue) {
-    validateMaximum();
-  }
-}

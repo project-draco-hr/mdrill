@@ -1,7 +1,0 @@
-String text
-Font font
-Paint paint
-RectangleEdge position
-HorizontalAlignment horizontalAlignment
-VerticalAlignment verticalAlignment
-RectangleInsets padding

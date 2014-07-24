@@ -1,3 +1,0 @@
-{
-  return "A file containing the serialized model of a trained classifier.";
-}

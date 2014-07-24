@@ -1,9 +1,0 @@
-{
-  Vector<String> result;
-  result=new Vector<String>();
-  result.add("-S");
-  result.add("" + getRandomSeed());
-  result.add("-Z");
-  result.add("" + getSampleSize());
-  return result.toArray(new String[result.size()]);
-}

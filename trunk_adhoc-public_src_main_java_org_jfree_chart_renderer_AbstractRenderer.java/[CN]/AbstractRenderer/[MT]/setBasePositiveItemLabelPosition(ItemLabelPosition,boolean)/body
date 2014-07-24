@@ -1,9 +1,0 @@
-{
-  if (position == null) {
-    throw new IllegalArgumentException("Null 'position' argument.");
-  }
-  this.basePositiveItemLabelPosition=position;
-  if (notify) {
-    fireChangeEvent();
-  }
-}

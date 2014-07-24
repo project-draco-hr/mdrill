@@ -1,8 +1,0 @@
-{
-  FastVector newVector=new FastVector(itemSets.size());
-  for (int i=0; i < itemSets.size(); i++) {
-    LabeledItemSet current=(LabeledItemSet)itemSets.elementAt(i);
-    if ((current.m_ruleSupCounter >= minSupport) && (current.m_ruleSupCounter <= maxSupport))     newVector.addElement(current);
-  }
-  return newVector;
-}

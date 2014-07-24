@@ -1,3 +1,0 @@
-{
-  return "The order of the Minkowski distance ('1' is Manhattan distance and " + "'2' the Euclidean distance).";
-}

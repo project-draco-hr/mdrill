@@ -1,3 +1,0 @@
-{
-  setIgnoreClass(Utils.getFlag("unset-class-temporarily",options));
-}

@@ -1,8 +1,0 @@
-boolean nominalPredictor
-boolean numericPredictor
-boolean stringPredictor
-boolean datePredictor
-boolean relationalPredictor
-boolean multiInstance
-int classType
-int classIndex

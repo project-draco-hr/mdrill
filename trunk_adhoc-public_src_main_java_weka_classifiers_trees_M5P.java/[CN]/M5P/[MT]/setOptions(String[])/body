@@ -1,4 +1,0 @@
-{
-  setSaveInstances(Utils.getFlag('L',options));
-  super.setOptions(options);
-}

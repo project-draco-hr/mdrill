@@ -1,7 +1,0 @@
-{
-  clusterMap=new HashMap<String,Cluster>();
-  for (  Cluster cluster : clusters) {
-    clusterMap.put(String.valueOf(cluster.getId()),cluster);
-  }
-  clusters.clear();
-}

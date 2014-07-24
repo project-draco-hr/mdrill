@@ -1,6 +1,0 @@
-{
-  this.sectionPaintMap.clear();
-  if (notify) {
-    fireChangeEvent();
-  }
-}

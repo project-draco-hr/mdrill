@@ -1,5 +1,0 @@
-{
-  int index=string.indexOf(m_Seperator);
-  if ((index == (string.length() - 1)) || (index == -1))   return false;
-  return true;
-}

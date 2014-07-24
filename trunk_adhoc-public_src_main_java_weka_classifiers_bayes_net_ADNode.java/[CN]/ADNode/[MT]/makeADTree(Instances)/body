@@ -1,7 +1,0 @@
-{
-  FastVector nRecords=new FastVector(instances.numInstances());
-  for (int iRecord=0; iRecord < instances.numInstances(); iRecord++) {
-    nRecords.addElement(new Integer(iRecord));
-  }
-  return makeADTree(0,nRecords,instances);
-}

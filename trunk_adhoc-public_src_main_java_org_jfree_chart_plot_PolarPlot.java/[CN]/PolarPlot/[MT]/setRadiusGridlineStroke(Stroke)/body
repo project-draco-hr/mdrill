@@ -1,4 +1,0 @@
-{
-  this.radiusGridlineStroke=stroke;
-  fireChangeEvent();
-}

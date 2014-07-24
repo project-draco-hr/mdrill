@@ -1,4 +1,0 @@
-{
-  aStream.defaultReadObject();
-  m_env=Environment.getSystemWide();
-}

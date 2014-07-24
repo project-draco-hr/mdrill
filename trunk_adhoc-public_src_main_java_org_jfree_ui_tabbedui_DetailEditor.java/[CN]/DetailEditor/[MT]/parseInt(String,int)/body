@@ -1,8 +1,0 @@
-{
-  try {
-    return Integer.parseInt(text);
-  }
- catch (  NumberFormatException fe) {
-    return def;
-  }
-}

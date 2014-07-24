@@ -1,6 +1,0 @@
-double w
-Range widthRange
-LengthConstraintType widthConstraintType
-double h
-Range heightRange
-LengthConstraintType heightConstraintType

@@ -1,3 +1,0 @@
-{
-  throw new IllegalArgumentException("Not implemented in SegmentRange");
-}

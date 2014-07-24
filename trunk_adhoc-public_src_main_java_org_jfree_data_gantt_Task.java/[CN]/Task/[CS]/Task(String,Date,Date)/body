@@ -1,3 +1,0 @@
-{
-  this(description,new SimpleTimePeriod(start,end));
-}

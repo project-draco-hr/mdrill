@@ -1,6 +1,0 @@
-{
-  int result=193;
-  result=37 * result + HashUtilities.hashCodeForPaint(this.paint);
-  result=37 * result + this.gradientPaintTransformer.hashCode();
-  return result;
-}

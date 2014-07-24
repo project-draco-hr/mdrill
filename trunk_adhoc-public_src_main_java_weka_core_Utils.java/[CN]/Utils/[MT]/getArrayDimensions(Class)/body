@@ -1,4 +1,0 @@
-{
-  if (array.getComponentType().isArray())   return 1 + getArrayDimensions(array.getComponentType());
- else   return 1;
-}

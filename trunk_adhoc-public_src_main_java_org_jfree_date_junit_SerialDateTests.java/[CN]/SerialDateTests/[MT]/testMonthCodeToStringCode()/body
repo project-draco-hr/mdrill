@@ -1,4 +1,0 @@
-{
-  final String test=SerialDate.monthCodeToString(MonthConstants.DECEMBER);
-  assertEquals("December",test);
-}

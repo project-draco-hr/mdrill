@@ -1,6 +1,0 @@
-{
-  m_Model=null;
-  m_Table.setModel(new DefaultTableModel());
-  m_Table.revalidate();
-  m_Table.repaint();
-}

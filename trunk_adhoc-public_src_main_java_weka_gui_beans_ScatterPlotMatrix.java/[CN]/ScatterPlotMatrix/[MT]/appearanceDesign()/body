@@ -1,7 +1,0 @@
-{
-  m_matrixPanel=null;
-  removeAll();
-  m_visual=new BeanVisual("ScatterPlotMatrix",BeanVisual.ICON_PATH + "ScatterPlotMatrix.gif",BeanVisual.ICON_PATH + "ScatterPlotMatrix_animated.gif");
-  setLayout(new BorderLayout());
-  add(m_visual,BorderLayout.CENTER);
-}

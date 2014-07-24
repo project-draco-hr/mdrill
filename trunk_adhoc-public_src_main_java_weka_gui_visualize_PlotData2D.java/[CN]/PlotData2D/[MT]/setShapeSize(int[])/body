@@ -1,6 +1,0 @@
-{
-  m_shapeSize=ss;
-  if (m_shapeType.length != m_plotInstances.numInstances()) {
-    throw new Exception("PlotData2D: Shape size array must have the same " + "number of entries as number of data points!");
-  }
-}

@@ -1,7 +1,0 @@
-{
-  ValueAxis result=plot.getRangeAxis(index);
-  if (result == null) {
-    result=plot.getRangeAxis();
-  }
-  return result;
-}

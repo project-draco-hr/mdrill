@@ -1,5 +1,0 @@
-{
-  super(Dimension2D.class);
-  setParameterDefinition("width",Float.class);
-  setParameterDefinition("height",Float.class);
-}

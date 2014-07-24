@@ -1,3 +1,0 @@
-{
-  return "Writes to a destination that is in arff (attribute relation file format) " + "format. The data can be compressed with gzip in order to save space.";
-}

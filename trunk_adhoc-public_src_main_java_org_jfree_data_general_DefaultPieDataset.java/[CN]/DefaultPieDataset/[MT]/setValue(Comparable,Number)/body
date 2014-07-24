@@ -1,4 +1,0 @@
-{
-  this.data.setValue(key,value);
-  fireDatasetChanged();
-}

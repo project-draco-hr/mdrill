@@ -1,9 +1,0 @@
-{
-  m_customColour=c;
-  if (c != null) {
-    m_useCustomColour=true;
-  }
- else {
-    m_useCustomColour=false;
-  }
-}

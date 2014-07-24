@@ -1,8 +1,0 @@
-{
-  try {
-    Stemming.useStemmer(new NullStemmer(),args);
-  }
- catch (  Exception e) {
-    e.printStackTrace();
-  }
-}

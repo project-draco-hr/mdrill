@@ -1,3 +1,0 @@
-{
-  if (width >= 0)   m_MeanWidth=width;
-}

@@ -1,5 +1,0 @@
-{
-  Comparable rowKey=getRowKey(row);
-  Comparable columnKey=getColumnKey(column);
-  return getPercentComplete(rowKey,columnKey);
-}

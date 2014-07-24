@@ -1,5 +1,0 @@
-{
-  double smoothed;
-  smoothed=((n * pred) + (SMOOTHING_CONSTANT * supportPred)) / (n + SMOOTHING_CONSTANT);
-  return smoothed;
-}

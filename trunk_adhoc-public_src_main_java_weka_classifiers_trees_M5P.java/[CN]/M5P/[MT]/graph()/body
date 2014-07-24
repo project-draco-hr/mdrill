@@ -1,8 +1,0 @@
-{
-  StringBuffer text=new StringBuffer();
-  text.append("digraph M5Tree {\n");
-  Rule temp=(Rule)m_ruleSet.elementAt(0);
-  temp.topOfTree().graph(text);
-  text.append("}\n");
-  return text.toString();
-}

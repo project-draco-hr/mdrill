@@ -1,5 +1,0 @@
-{
-  g2.setFont(this.font);
-  g2.setPaint(this.paint);
-  TextUtilities.drawRotatedString(this.text,g2,anchorX,anchorY + this.baselineOffset,anchor,angle,rotateX,rotateY);
-}

@@ -1,3 +1,0 @@
-{
-  return (AxisLocation)this.rangeAxisLocations.get(0);
-}

@@ -1,3 +1,0 @@
-{
-  log(LogTarget.ERROR,message);
-}

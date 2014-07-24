@@ -1,0 +1,4 @@
+SolrQuery query
+ArrayList<String> fqList
+MdrillRequest req
+HigoJoinParams[] joins

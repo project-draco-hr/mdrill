@@ -1,7 +1,0 @@
-{
-  String sMsg=m_BayesNet.redo();
-  m_jStatusBar.setText("Redo action performed: " + sMsg);
-  m_Selection.clear();
-  updateStatus();
-  repaint();
-}

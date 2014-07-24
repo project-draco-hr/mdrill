@@ -1,4 +1,0 @@
-{
-  this.sectionOutlineStrokeMap.put(key,stroke);
-  fireChangeEvent();
-}

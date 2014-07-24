@@ -1,3 +1,0 @@
-{
-  return "Sets the directory where cost files are loaded from. This option " + "is used when the costMatrixSource is set to \"On Demand\".";
-}

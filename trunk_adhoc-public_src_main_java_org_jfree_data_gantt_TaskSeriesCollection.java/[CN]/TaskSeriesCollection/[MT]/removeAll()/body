@@ -1,9 +1,0 @@
-{
-  Iterator iterator=this.data.iterator();
-  while (iterator.hasNext()) {
-    TaskSeries series=(TaskSeries)iterator.next();
-    series.removeChangeListener(this);
-  }
-  this.data.clear();
-  fireDatasetChanged();
-}

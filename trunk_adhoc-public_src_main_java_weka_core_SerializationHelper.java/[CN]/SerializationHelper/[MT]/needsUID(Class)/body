@@ -1,6 +1,0 @@
-{
-  boolean result;
-  if (isSerializable(c))   result=!hasUID(c);
- else   result=false;
-  return result;
-}

@@ -1,4 +1,0 @@
-{
-  setHeight((float)height);
-  setWidth((float)width);
-}

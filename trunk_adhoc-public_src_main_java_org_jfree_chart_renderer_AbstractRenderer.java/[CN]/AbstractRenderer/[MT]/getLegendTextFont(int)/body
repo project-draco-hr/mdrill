@@ -1,3 +1,0 @@
-{
-  return (Font)this.legendTextFont.get(series);
-}

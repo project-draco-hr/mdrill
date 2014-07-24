@@ -1,4 +1,0 @@
-{
-  this.domainCrosshairStroke=stroke;
-  fireChangeEvent();
-}

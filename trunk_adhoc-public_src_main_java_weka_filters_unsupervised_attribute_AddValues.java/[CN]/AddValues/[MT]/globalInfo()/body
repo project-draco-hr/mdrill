@@ -1,3 +1,0 @@
-{
-  return "Adds the labels from the given list to an attribute if they are " + "missing. The labels can also be sorted in an ascending manner. " + "If no labels are provided then only the (optional) sorting applies.";
-}

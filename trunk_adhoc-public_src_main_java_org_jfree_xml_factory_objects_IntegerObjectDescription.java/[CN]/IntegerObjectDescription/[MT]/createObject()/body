@@ -1,4 +1,0 @@
-{
-  final String o=(String)getParameter("value");
-  return Integer.valueOf(o);
-}

@@ -1,3 +1,0 @@
-{
-  return (m_Values.containsKey(field) && (((String)m_Values.get(field)).length() != 0));
-}

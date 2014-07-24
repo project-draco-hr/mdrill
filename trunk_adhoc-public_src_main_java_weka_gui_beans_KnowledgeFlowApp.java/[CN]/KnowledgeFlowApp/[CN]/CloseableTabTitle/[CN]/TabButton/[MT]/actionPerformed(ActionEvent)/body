@@ -1,6 +1,0 @@
-{
-  int i=m_enclosingPane.indexOfTabComponent(CloseableTabTitle.this);
-  if (i >= 0 && getAllowMultipleTabs()) {
-    m_mainKFPerspective.removeTab(i);
-  }
-}

@@ -1,6 +1,0 @@
-{
-  if (this.annotations != null) {
-    this.annotations.clear();
-    fireChangeEvent();
-  }
-}

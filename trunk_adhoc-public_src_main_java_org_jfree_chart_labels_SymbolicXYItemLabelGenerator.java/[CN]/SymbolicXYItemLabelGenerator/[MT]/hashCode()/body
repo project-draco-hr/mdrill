@@ -1,4 +1,0 @@
-{
-  int result=127;
-  return result;
-}

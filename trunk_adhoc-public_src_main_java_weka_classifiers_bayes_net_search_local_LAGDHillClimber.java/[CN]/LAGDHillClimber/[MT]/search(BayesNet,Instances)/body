@@ -1,5 +1,0 @@
-{
-  int k=m_nNrOfLookAheadSteps;
-  int l=m_nNrOfGoodOperations;
-  lookAheadInGoodDirectionsSearch(bayesNet,instances,k,l);
-}

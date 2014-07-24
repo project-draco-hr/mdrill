@@ -1,6 +1,0 @@
-{
-  if (this.comment.isEmpty()) {
-    return null;
-  }
-  return (String[])this.comment.toArray(new String[this.comment.size()]);
-}

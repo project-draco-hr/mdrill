@@ -1,5 +1,0 @@
-{
-  if (newScoreType.getTags() == TAGS_SCORE_TYPE) {
-    m_nScoreType=newScoreType.getSelectedTag().getID();
-  }
-}

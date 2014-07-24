@@ -1,3 +1,0 @@
-{
-  return (Estimator)Utils.forName(Estimator.class,name,options);
-}

@@ -1,4 +1,0 @@
-{
-  this(label,JFileChooser.OPEN_DIALOG);
-  setEnvironment(env);
-}

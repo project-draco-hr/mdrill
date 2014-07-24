@@ -1,3 +1,0 @@
-{
-  return new SelectedTag(m_clustertype,SubspaceCluster.TAGS_CLUSTERTYPE);
-}

@@ -1,6 +1,0 @@
-{
-  Vector newVector=new Vector(3);
-  newVector.addElement(new Option("\tTreat missing values as a separate " + "value.","M",0,"-M"));
-  newVector.addElement(new Option("\tDon't include locally predictive attributes" + ".","L",0,"-L"));
-  return newVector.elements();
-}

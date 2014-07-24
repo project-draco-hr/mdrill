@@ -1,9 +1,0 @@
-{
-  setPaletteName("Rainbow");
-  this.r=new int[this.red.length];
-  this.g=new int[this.green.length];
-  this.b=new int[this.blue.length];
-  System.arraycopy(this.red,0,this.r,0,this.red.length);
-  System.arraycopy(this.green,0,this.g,0,this.green.length);
-  System.arraycopy(this.blue,0,this.b,0,this.blue.length);
-}

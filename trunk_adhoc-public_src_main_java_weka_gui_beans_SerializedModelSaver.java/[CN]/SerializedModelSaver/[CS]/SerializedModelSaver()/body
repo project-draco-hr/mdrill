@@ -1,7 +1,0 @@
-{
-  useDefaultVisual();
-  setLayout(new BorderLayout());
-  add(m_visual,BorderLayout.CENTER);
-  m_fileFormat=s_fileFormatsAvailable.get(0);
-  m_env=Environment.getSystemWide();
-}

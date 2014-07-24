@@ -1,3 +1,0 @@
-{
-  return localizationResources.getString("Combined_Range_XYPlot");
-}

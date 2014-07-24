@@ -1,5 +1,0 @@
-FastVector[] rules
-int numItemsInSet
-int numItemsInConsequence
-double minConfidence
-FastVector hashtables

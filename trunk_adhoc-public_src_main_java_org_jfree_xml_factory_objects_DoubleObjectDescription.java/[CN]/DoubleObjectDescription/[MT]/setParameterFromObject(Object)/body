@@ -1,6 +1,0 @@
-{
-  if (!(o instanceof Double)) {
-    throw new ObjectFactoryException("The given object is no java.lang.Double.");
-  }
-  setParameter("value",String.valueOf(o));
-}

@@ -1,4 +1,0 @@
-{
-  Calendar calendar=Calendar.getInstance(zone);
-  return getFirstMillisecond(calendar);
-}

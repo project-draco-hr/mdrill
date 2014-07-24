@@ -1,4 +1,0 @@
-{
-  final Short in=(Short)o;
-  return in.toString();
-}

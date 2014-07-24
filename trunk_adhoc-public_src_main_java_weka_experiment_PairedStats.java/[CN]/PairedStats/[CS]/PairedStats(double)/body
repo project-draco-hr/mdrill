@@ -1,6 +1,0 @@
-{
-  xStats=new Stats();
-  yStats=new Stats();
-  differencesStats=new Stats();
-  sigLevel=sig;
-}

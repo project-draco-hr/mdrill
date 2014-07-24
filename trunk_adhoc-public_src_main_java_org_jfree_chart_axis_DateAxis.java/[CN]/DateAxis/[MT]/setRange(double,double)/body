@@ -1,6 +1,0 @@
-{
-  if (lower >= upper) {
-    throw new IllegalArgumentException("Requires 'lower' < 'upper'.");
-  }
-  setRange(new DateRange(lower,upper));
-}

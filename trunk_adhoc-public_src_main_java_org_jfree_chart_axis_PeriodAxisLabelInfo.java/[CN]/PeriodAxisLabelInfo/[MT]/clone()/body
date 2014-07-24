@@ -1,4 +1,0 @@
-{
-  PeriodAxisLabelInfo clone=(PeriodAxisLabelInfo)super.clone();
-  return clone;
-}

@@ -1,3 +1,0 @@
-{
-  setSeriesFillPaint(series,paint,true);
-}

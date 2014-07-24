@@ -1,9 +1,0 @@
-{
-  Iterator iterator=this.annotations.iterator();
-  while (iterator.hasNext()) {
-    XYAnnotation annotation=(XYAnnotation)iterator.next();
-    ValueAxis xAxis=getDomainAxis();
-    ValueAxis yAxis=getRangeAxis();
-    annotation.draw(g2,this,dataArea,xAxis,yAxis,0,info);
-  }
-}

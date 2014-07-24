@@ -1,8 +1,0 @@
-{
-  if (series == null) {
-    throw new IllegalArgumentException("Cannot add null series.");
-  }
-  this.seriesList.add(series);
-  series.addChangeListener(this);
-  fireDatasetChanged();
-}

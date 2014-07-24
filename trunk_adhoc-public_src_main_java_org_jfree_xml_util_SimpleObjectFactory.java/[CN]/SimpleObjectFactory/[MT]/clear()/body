@@ -1,5 +1,0 @@
-{
-  this.objectMappings.clear();
-  this.manualMappings.clear();
-  this.multiplexMappings.clear();
-}

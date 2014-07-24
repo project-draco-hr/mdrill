@@ -1,9 +1,0 @@
-{
-  if (this.ownToolTipDelaysActive) {
-    ToolTipManager ttm=ToolTipManager.sharedInstance();
-    ttm.setInitialDelay(this.originalToolTipInitialDelay);
-    ttm.setReshowDelay(this.originalToolTipReshowDelay);
-    ttm.setDismissDelay(this.originalToolTipDismissDelay);
-    this.ownToolTipDelaysActive=false;
-  }
-}

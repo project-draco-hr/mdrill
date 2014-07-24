@@ -1,5 +1,0 @@
-{
-  Iterator iter;
-  iter=m_ChangeListeners.iterator();
-  while (iter.hasNext())   ((ChangeListener)iter.next()).stateChanged(new ChangeEvent(this));
-}

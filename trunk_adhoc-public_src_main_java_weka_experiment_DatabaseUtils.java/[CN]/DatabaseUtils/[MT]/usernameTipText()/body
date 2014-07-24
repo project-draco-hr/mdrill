@@ -1,3 +1,0 @@
-{
-  return "The user to use for connecting to the database.";
-}

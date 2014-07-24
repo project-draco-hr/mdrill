@@ -1,4 +1,0 @@
-{
-  m_sigma=value;
-  m_factor=computeFactor(m_omega,m_sigma);
-}

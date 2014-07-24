@@ -1,3 +1,0 @@
-{
-  throw new IOException("Setting File as source not supported");
-}

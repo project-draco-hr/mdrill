@@ -1,8 +1,0 @@
-{
-  Object[] listenerList=this.listeners.getListenerList();
-  for (int i=listenerList.length - 2; i >= 0; i-=2) {
-    if (listenerList[i] == SeriesChangeListener.class) {
-      ((SeriesChangeListener)listenerList[i + 1]).seriesChanged(event);
-    }
-  }
-}

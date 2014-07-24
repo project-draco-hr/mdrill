@@ -1,9 +1,0 @@
-{
-  Vector result=new Vector();
-  result.addElement(new Option("\tSize of each subspace:\n" + "\t\t< 1: percentage of the number of attributes\n" + "\t\t>=1: absolute number of attributes\n","P",1,"-P"));
-  Enumeration enu=super.listOptions();
-  while (enu.hasMoreElements()) {
-    result.addElement(enu.nextElement());
-  }
-  return result.elements();
-}

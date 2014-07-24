@@ -1,4 +1,0 @@
-{
-  validate();
-  m_Ranges=updateRanges(ins,m_Ranges);
-}

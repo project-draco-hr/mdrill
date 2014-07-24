@@ -1,7 +1,0 @@
-Graphics2D g2
-Rectangle2D dataArea
-PlotOrientation orientation
-double value
-ValueAxis axis
-Stroke stroke
-Paint paint

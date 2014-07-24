@@ -1,3 +1,0 @@
-{
-  return getOptionalKeyStroke(key,getMenuKeyMask());
-}

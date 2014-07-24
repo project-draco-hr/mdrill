@@ -1,5 +1,0 @@
-{
-  double central=this.range.getCentralValue();
-  Range adjusted=new Range(this.range.getLowerBound() + value - central,this.range.getUpperBound() + value - central);
-  setRange(adjusted);
-}

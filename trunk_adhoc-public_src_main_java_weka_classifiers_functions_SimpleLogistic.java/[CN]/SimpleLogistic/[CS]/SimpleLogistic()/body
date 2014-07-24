@@ -1,7 +1,0 @@
-{
-  m_numBoostingIterations=0;
-  m_useCrossValidation=true;
-  m_errorOnProbabilities=false;
-  m_weightTrimBeta=0;
-  m_useAIC=false;
-}

@@ -1,8 +1,0 @@
-{
-  if (nb <= 0) {
-    return Math.floor(value + 0.5d);
-  }
-  double p=Math.pow(10,nb);
-  double tempval=Math.floor(value * p + 0.5d);
-  return tempval / p;
-}

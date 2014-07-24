@@ -1,4 +1,0 @@
-{
-  if (m_Pattern == GRID)   return defineClustersGRID(random);
- else   return defineClustersRANDOM(random);
-}

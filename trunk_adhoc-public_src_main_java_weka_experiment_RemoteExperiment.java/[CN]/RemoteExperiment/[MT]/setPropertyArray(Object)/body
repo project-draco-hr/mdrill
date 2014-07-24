@@ -1,4 +1,0 @@
-{
-  super.setPropertyArray(newPropArray);
-  m_baseExperiment.setPropertyArray(newPropArray);
-}

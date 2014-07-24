@@ -1,3 +1,0 @@
-{
-  return (c1.isAssignableFrom(c2) || c2.isAssignableFrom(c1));
-}

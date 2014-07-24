@@ -1,5 +1,0 @@
-{
-  this.keys.clear();
-  this.values.clear();
-  this.indexMap.clear();
-}

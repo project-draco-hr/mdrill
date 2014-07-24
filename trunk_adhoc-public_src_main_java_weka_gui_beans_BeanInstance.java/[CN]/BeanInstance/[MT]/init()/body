@@ -1,4 +1,0 @@
-{
-  TABBED_COMPONENTS.clear();
-  TABBED_COMPONENTS.add(new Vector());
-}

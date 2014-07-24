@@ -1,9 +1,0 @@
-{
-  if (this.equals(TableOrder.BY_ROW)) {
-    return TableOrder.BY_ROW;
-  }
- else   if (this.equals(TableOrder.BY_COLUMN)) {
-    return TableOrder.BY_COLUMN;
-  }
-  return null;
-}

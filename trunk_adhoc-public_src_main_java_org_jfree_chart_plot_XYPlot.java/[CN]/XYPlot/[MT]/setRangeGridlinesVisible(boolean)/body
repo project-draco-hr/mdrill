@@ -1,6 +1,0 @@
-{
-  if (this.rangeGridlinesVisible != visible) {
-    this.rangeGridlinesVisible=visible;
-    fireChangeEvent();
-  }
-}

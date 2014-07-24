@@ -1,5 +1,0 @@
-{
-  this.subrule=subrule;
-  this.dayOfWeek=dayOfWeek;
-  this.relative=relative;
-}

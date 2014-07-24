@@ -1,4 +1,0 @@
-{
-  stream.defaultReadObject();
-  this.area=SerialUtilities.readShape(stream);
-}

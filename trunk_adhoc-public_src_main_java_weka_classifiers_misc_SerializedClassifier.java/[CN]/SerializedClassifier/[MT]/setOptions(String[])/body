@@ -1,7 +1,0 @@
-{
-  String tmpStr;
-  super.setOptions(options);
-  tmpStr=Utils.getOption("model",options);
-  if (tmpStr.length() != 0)   setModelFile(new File(tmpStr));
- else   setModelFile(new File(System.getProperty("user.dir")));
-}

@@ -1,6 +1,0 @@
-{
-  super("Weka: Instance info");
-  initialize();
-  initGUI();
-  initFinished();
-}

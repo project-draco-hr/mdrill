@@ -1,5 +1,0 @@
-{
-  this.t=t;
-  this.state=state;
-  this.nAcquires=0;
-}

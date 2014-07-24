@@ -1,4 +1,0 @@
-{
-  read().add(cls,XMLSerializationMethodHandler.findReadMethod(handler,"read" + name));
-  write().add(cls,XMLSerializationMethodHandler.findWriteMethod(handler,"write" + name));
-}

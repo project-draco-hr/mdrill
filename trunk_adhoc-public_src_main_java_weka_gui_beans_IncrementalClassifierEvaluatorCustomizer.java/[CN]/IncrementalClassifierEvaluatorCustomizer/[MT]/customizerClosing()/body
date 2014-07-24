@@ -1,4 +1,0 @@
-{
-  m_evaluator.setStatusFrequency(m_freqBackup);
-  m_evaluator.setOutputPerClassInfoRetrievalStats(m_perClassBackup);
-}

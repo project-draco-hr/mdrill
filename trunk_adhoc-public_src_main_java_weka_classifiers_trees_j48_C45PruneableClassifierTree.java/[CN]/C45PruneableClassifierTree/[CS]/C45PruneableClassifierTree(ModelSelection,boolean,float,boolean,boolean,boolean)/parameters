@@ -1,6 +1,0 @@
-ModelSelection toSelectLocModel
-boolean pruneTree
-float cf
-boolean raiseTree
-boolean cleanup
-boolean collapseTree

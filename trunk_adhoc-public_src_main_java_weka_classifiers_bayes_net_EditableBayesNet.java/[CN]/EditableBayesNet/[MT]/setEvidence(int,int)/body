@@ -1,3 +1,0 @@
-{
-  m_nEvidence.setElementAt(iValue,iNode);
-}

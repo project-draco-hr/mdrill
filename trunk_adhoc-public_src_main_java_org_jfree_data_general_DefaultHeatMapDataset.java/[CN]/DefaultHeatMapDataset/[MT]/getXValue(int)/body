@@ -1,4 +1,0 @@
-{
-  double x=this.minX + (this.maxX - this.minX) * (xIndex / (double)this.xSamples);
-  return x;
-}

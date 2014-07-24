@@ -1,3 +1,0 @@
-{
-  encoders.put(format,imageEncoderClassName);
-}

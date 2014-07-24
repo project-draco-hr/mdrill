@@ -1,6 +1,0 @@
-{
-  this.paintList.clear();
-  if (notify) {
-    fireChangeEvent();
-  }
-}

@@ -1,3 +1,0 @@
-{
-  return "The Snowball stemmer to use, available: " + getStemmerList(0,"");
-}

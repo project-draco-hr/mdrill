@@ -1,7 +1,0 @@
-{
-  if (location == null) {
-    throw new IllegalArgumentException("Null 'location' argument.");
-  }
-  this.axisLocation=location;
-  notifyListeners(new TitleChangeEvent(this));
-}

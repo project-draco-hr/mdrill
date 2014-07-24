@@ -1,3 +1,0 @@
-{
-  return this.smallLogFlag ? Math.pow(10.0,val) : adjustedPow10(val);
-}

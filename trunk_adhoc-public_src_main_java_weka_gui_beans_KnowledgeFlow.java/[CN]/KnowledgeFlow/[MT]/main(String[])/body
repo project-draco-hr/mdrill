@@ -1,6 +1,0 @@
-{
-  weka.core.logging.Logger.log(weka.core.logging.Logger.Level.INFO,"Logging started");
-  weka.gui.SplashWindow.splash(ClassLoader.getSystemResource("weka/gui/beans/icons/splash.jpg"));
-  weka.gui.SplashWindow.invokeMain("weka.gui.beans.KnowledgeFlowApp",args);
-  weka.gui.SplashWindow.disposeSplash();
-}

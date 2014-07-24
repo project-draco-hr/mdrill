@@ -1,6 +1,0 @@
-{
-  StandardXYItemRenderer clone=(StandardXYItemRenderer)super.clone();
-  clone.seriesShapesFilled=(BooleanList)this.seriesShapesFilled.clone();
-  clone.legendLine=ShapeUtilities.clone(this.legendLine);
-  return clone;
-}

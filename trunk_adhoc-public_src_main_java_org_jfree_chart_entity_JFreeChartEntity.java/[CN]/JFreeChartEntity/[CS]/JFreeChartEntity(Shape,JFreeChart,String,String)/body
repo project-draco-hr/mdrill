@@ -1,7 +1,0 @@
-{
-  super(area,toolTipText,urlText);
-  if (chart == null) {
-    throw new IllegalArgumentException("Null 'chart' argument.");
-  }
-  this.chart=chart;
-}

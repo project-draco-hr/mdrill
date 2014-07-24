@@ -1,4 +1,0 @@
-{
-  this.shapeStroke=shapeStroke;
-  fireChangeEvent();
-}

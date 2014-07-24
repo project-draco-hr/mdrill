@@ -1,6 +1,0 @@
-{
-  super.paintComponent(gx);
-  if (m_plotInstances != null) {
-    drawShapes(gx);
-  }
-}

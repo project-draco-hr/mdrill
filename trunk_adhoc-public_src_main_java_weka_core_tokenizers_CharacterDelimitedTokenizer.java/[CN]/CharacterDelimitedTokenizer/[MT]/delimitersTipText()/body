@@ -1,3 +1,0 @@
-{
-  return "Set of delimiter characters to use in tokenizing (\\r, \\n and \\t can be used for carriage-return, line-feed and tab)";
-}

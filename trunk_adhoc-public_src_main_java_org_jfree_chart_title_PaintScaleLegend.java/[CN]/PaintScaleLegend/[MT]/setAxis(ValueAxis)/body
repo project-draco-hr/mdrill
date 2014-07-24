@@ -1,9 +1,0 @@
-{
-  if (axis == null) {
-    throw new IllegalArgumentException("Null 'axis' argument.");
-  }
-  this.axis.removeChangeListener(this);
-  this.axis=axis;
-  this.axis.addChangeListener(this);
-  notifyListeners(new TitleChangeEvent(this));
-}

@@ -1,3 +1,0 @@
-{
-  throw new Exception("Model selection method not implemented");
-}

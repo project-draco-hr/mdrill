@@ -1,3 +1,0 @@
-{
-  return (CategoryToolTipGenerator)this.toolTipGeneratorList.get(series);
-}

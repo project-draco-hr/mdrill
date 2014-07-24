@@ -1,3 +1,0 @@
-{
-  return kNearestNeighbours(target,1).instance(0);
-}

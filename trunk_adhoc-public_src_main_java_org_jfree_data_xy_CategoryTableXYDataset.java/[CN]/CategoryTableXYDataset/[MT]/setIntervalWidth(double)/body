@@ -1,4 +1,0 @@
-{
-  this.intervalDelegate.setFixedIntervalWidth(d);
-  fireDatasetChanged();
-}

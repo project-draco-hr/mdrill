@@ -1,4 +1,0 @@
-{
-  m_Info=new Hashtable<String,String>();
-  readProperties();
-}

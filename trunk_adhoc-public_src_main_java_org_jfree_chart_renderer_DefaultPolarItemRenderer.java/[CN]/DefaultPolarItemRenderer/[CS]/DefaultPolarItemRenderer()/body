@@ -1,3 +1,0 @@
-{
-  this.seriesFilled=new BooleanList();
-}

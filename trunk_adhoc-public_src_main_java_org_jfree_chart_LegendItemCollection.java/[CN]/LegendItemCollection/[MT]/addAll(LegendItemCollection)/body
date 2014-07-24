@@ -1,3 +1,0 @@
-{
-  this.items.addAll(collection.items);
-}

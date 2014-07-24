@@ -1,3 +1,0 @@
-{
-  return "Applies several filters successively. In case all supplied filters " + "are StreamableFilters, it will act as a streamable one, too.";
-}

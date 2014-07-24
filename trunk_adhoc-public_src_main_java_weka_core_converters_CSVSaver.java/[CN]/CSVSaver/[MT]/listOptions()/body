@@ -1,8 +1,0 @@
-{
-  Vector<Option> result=new Vector<Option>();
-  result.addElement(new Option("\tThe field separator to be used.\n" + "\t'\\t' can be used as well.\n" + "\t(default: ',')","F",1,"-F <separator>"));
-  result.addElement(new Option("\tThe string representing a missing value.\n" + "\t(default: ?)","M",1,"-M <str>"));
-  Enumeration en=super.listOptions();
-  while (en.hasMoreElements())   result.addElement((Option)en.nextElement());
-  return result.elements();
-}

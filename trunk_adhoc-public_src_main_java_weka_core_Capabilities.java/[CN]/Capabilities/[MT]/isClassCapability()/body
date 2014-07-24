@@ -1,3 +1,0 @@
-{
-  return ((m_Flags & CLASS_CAPABILITY) == CLASS_CAPABILITY);
-}

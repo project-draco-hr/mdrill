@@ -1,3 +1,0 @@
-{
-  this(itemLabelAnchor,textAnchor,TextAnchor.CENTER,0.0);
-}

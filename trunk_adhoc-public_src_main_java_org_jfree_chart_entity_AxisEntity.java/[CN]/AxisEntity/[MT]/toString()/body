@@ -1,6 +1,0 @@
-{
-  StringBuffer buf=new StringBuffer("AxisEntity: ");
-  buf.append("tooltip = ");
-  buf.append(getToolTipText());
-  return buf.toString();
-}

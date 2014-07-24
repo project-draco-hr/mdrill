@@ -1,6 +1,0 @@
-{
-  init();
-  m_Start=getCurrentTime();
-  m_Stop=m_Start;
-  m_Running=true;
-}

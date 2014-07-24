@@ -1,6 +1,0 @@
-{
-  this.positionForAxisAtTop=new CategoryLabelPosition();
-  this.positionForAxisAtBottom=new CategoryLabelPosition();
-  this.positionForAxisAtLeft=new CategoryLabelPosition();
-  this.positionForAxisAtRight=new CategoryLabelPosition();
-}

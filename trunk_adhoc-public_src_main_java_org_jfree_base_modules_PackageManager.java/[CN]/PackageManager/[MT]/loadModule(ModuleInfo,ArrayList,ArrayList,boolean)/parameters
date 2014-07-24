@@ -1,4 +1,0 @@
-ModuleInfo moduleInfo
-ArrayList incompleteModules
-ArrayList modules
-boolean fatal

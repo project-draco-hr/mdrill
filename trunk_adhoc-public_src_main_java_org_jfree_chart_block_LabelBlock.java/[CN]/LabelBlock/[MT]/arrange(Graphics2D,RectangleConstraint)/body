@@ -1,5 +1,0 @@
-{
-  g2.setFont(this.font);
-  Size2D s=this.label.calculateDimensions(g2);
-  return new Size2D(calculateTotalWidth(s.getWidth()),calculateTotalHeight(s.getHeight()));
-}

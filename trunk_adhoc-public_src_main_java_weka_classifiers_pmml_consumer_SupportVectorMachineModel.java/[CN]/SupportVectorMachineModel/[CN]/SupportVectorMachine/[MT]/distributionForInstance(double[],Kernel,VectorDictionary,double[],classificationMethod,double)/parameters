@@ -1,6 +1,0 @@
-double[] input
-Kernel kernel
-VectorDictionary vecDict
-double[] preds
-classificationMethod cMethod
-double globalThreshold

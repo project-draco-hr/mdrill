@@ -1,5 +1,0 @@
-{
-  this.currentHandlers.push(handler);
-  handler.init(this,tagName);
-  handler.startElement(tagName,attrs);
-}

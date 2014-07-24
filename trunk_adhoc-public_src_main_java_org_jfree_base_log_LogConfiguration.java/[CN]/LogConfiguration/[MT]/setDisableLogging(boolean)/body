@@ -1,3 +1,0 @@
-{
-  BaseBoot.getConfiguration().setConfigProperty(DISABLE_LOGGING,String.valueOf(disableLogging));
-}

@@ -1,4 +1,0 @@
-{
-  this.legendItemToolTipGenerator=generator;
-  fireChangeEvent();
-}

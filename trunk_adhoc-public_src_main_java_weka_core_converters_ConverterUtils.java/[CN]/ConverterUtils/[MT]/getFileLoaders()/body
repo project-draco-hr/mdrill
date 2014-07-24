@@ -1,3 +1,0 @@
-{
-  return getConverters(m_FileLoaders);
-}

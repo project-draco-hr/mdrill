@@ -1,7 +1,0 @@
-{
-  TrieNode child;
-  child=new TrieNode(c);
-  add(child);
-  m_Children.put(c,child);
-  return child;
-}

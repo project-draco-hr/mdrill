@@ -1,4 +1,0 @@
-{
-  this.barWidth=barWidth;
-  notifyListeners(new DatasetChangeEvent(this,this));
-}

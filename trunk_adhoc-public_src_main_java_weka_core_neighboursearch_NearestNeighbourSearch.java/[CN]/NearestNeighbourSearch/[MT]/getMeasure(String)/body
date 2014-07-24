@@ -1,4 +1,0 @@
-{
-  if (m_Stats == null)   throw new IllegalArgumentException(additionalMeasureName + " not supported (NearestNeighbourSearch)");
- else   return m_Stats.getMeasure(additionalMeasureName);
-}

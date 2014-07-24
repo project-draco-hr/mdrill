@@ -1,3 +1,0 @@
-{
-  return (AbstractFileLoader)getConverterForExtension(extension,m_URLFileLoaders);
-}

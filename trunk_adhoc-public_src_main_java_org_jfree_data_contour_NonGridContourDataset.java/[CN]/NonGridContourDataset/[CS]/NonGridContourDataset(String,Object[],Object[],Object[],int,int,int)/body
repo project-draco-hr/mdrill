@@ -1,4 +1,0 @@
-{
-  super(seriesName,xData,yData,zData);
-  buildGrid(numX,numY,power);
-}

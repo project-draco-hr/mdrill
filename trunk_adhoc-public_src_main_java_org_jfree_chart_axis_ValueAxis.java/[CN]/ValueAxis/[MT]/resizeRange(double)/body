@@ -1,3 +1,0 @@
-{
-  resizeRange(percent,this.range.getCentralValue());
-}

@@ -1,6 +1,0 @@
-{
-  if (instance.isMissing(index))   return new Double(Utils.missingValue());
- else   if (instance.attribute(index).isNominal())   return new String(instance.stringValue(index));
- else   if (instance.attribute(index).isNumeric())   return new Double(instance.value(index));
- else   throw new IllegalArgumentException("Unhandled attribute type '" + instance.attribute(index).type() + "'!");
-}

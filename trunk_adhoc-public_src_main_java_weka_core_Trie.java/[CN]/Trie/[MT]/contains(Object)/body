@@ -1,3 +1,0 @@
-{
-  return m_Root.contains(((String)o) + TrieNode.STOP);
-}

@@ -1,7 +1,0 @@
-{
-  String optionString=Utils.getOption('N',options);
-  if (optionString.length() != 0) {
-    setNumClusters(Integer.parseInt(optionString));
-  }
-  super.setOptions(options);
-}

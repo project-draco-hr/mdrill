@@ -1,6 +1,0 @@
-{
-  if (this.radiusGridlinesVisible != visible) {
-    this.radiusGridlinesVisible=visible;
-    fireChangeEvent();
-  }
-}

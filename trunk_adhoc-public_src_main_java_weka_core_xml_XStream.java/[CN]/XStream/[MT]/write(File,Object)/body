@@ -1,3 +1,0 @@
-{
-  return write(new BufferedOutputStream(new FileOutputStream(file)),o);
-}

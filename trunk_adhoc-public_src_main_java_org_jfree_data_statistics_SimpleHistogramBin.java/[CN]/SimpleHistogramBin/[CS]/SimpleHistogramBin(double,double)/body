@@ -1,3 +1,0 @@
-{
-  this(lowerBound,upperBound,true,true);
-}

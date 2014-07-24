@@ -1,3 +1,0 @@
-{
-  return TAGS_SELECTION[m_metricType.ordinal()].getReadable();
-}

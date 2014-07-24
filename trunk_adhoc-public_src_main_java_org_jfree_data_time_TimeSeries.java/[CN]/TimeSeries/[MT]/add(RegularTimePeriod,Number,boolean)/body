@@ -1,4 +1,0 @@
-{
-  TimeSeriesDataItem item=new TimeSeriesDataItem(period,value);
-  add(item,notify);
-}

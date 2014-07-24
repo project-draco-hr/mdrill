@@ -1,3 +1,0 @@
-{
-  return "Generates a single train/test split and calls the appropriate " + "SplitEvaluator to generate some results.";
-}

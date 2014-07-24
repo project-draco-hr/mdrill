@@ -1,8 +1,0 @@
-{
-  node.m_Start++;
-  node.m_End++;
-  if (!node.isALeaf()) {
-    afterAddInstance(node.m_Left);
-    afterAddInstance(node.m_Right);
-  }
-}

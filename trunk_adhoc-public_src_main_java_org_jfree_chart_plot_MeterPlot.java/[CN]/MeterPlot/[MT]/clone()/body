@@ -1,9 +1,0 @@
-{
-  MeterPlot clone=(MeterPlot)super.clone();
-  clone.tickLabelFormat=(NumberFormat)this.tickLabelFormat.clone();
-  clone.intervals=new java.util.ArrayList(this.intervals);
-  if (clone.dataset != null) {
-    clone.dataset.addChangeListener(clone);
-  }
-  return clone;
-}

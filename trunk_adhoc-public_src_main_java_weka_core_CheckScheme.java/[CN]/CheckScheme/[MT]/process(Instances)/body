@@ -1,4 +1,0 @@
-{
-  if (getPostProcessor() == null)   return data;
- else   return getPostProcessor().process(data);
-}

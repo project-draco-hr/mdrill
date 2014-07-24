@@ -1,3 +1,0 @@
-{
-  return (getClassIndex() == NO_CLASS);
-}

@@ -1,4 +1,0 @@
-{
-  this.open=open;
-  this.close=close;
-}

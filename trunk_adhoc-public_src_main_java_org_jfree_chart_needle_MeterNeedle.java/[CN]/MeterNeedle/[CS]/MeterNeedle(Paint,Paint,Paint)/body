@@ -1,5 +1,0 @@
-{
-  this.fillPaint=fill;
-  this.highlightPaint=highlight;
-  this.outlinePaint=outline;
-}

@@ -1,3 +1,0 @@
-{
-  return " The percentage of dimensions (attributes) the data should" + " be reduced to  (inclusive of the class attribute). This " + " NumberOfAttributes option is ignored if this option is"+ " present or is greater than zero.";
-}

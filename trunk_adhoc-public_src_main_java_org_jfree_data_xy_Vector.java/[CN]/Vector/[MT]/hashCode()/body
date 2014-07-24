@@ -1,8 +1,0 @@
-{
-  int result=193;
-  long temp=Double.doubleToLongBits(this.x);
-  result=37 * result + (int)(temp ^ (temp >>> 32));
-  temp=Double.doubleToLongBits(this.y);
-  result=37 * result + (int)(temp ^ (temp >>> 32));
-  return result;
-}

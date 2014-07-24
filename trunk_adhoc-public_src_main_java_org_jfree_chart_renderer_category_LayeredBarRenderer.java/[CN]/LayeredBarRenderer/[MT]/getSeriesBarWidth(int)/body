@@ -1,8 +1,0 @@
-{
-  double result=Double.NaN;
-  Number n=(Number)this.seriesBarWidthList.get(series);
-  if (n != null) {
-    result=n.doubleValue();
-  }
-  return result;
-}

@@ -1,3 +1,0 @@
-{
-  runFilter(new RemoveUseless(),argv);
-}

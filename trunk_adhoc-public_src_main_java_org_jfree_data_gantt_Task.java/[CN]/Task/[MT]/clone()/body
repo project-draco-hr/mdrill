@@ -1,4 +1,0 @@
-{
-  Task clone=(Task)super.clone();
-  return clone;
-}

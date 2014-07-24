@@ -1,3 +1,0 @@
-{
-  return get("Column","Key_Scheme,Key_Scheme_options,Key_Scheme_version_ID");
-}

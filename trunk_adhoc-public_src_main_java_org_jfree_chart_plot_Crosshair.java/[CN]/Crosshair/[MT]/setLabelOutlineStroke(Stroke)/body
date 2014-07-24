@@ -1,8 +1,0 @@
-{
-  if (stroke == null) {
-    throw new IllegalArgumentException("Null 'stroke' argument.");
-  }
-  Stroke old=this.labelOutlineStroke;
-  this.labelOutlineStroke=stroke;
-  this.pcs.firePropertyChange("labelOutlineStroke",old,stroke);
-}

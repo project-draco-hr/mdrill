@@ -1,3 +1,0 @@
-{
-  return "Sets whether if the word frequencies for a document (instance) " + "should be normalized or not.";
-}

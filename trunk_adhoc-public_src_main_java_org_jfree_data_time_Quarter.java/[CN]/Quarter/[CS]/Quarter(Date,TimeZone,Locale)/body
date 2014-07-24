@@ -1,8 +1,0 @@
-{
-  Calendar calendar=Calendar.getInstance(zone,locale);
-  calendar.setTime(time);
-  int month=calendar.get(Calendar.MONTH) + 1;
-  this.quarter=(byte)SerialDate.monthCodeToQuarter(month);
-  this.year=(short)calendar.get(Calendar.YEAR);
-  peg(calendar);
-}

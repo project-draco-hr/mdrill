@@ -1,4 +1,0 @@
-{
-  this.intervalDelegate.setIntervalPositionFactor(d);
-  fireDatasetChanged();
-}

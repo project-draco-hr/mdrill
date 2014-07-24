@@ -1,3 +1,0 @@
-{
-  return "Initialization value for random number generator." + " Setting the seed allows replicability of experiments.";
-}

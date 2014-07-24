@@ -1,3 +1,0 @@
-{
-  return "The factor for determining the thresholds for extreme values.";
-}

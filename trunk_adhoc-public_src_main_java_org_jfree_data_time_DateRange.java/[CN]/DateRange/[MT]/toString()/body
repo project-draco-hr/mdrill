@@ -1,4 +1,0 @@
-{
-  DateFormat df=DateFormat.getDateTimeInstance();
-  return "[" + df.format(getLowerDate()) + " --> "+ df.format(getUpperDate())+ "]";
-}

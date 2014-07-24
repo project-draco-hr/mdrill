@@ -1,4 +1,0 @@
-{
-  m_Precision=precision;
-  m_StandardDev=m_Precision / (2 * 3);
-}

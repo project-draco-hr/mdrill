@@ -1,6 +1,0 @@
-{
-  if (this.plotLines != flag) {
-    this.plotLines=flag;
-    fireChangeEvent();
-  }
-}

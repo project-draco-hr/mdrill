@@ -1,4 +1,0 @@
-{
-  m_Elements=new double[n];
-  initialize();
-}

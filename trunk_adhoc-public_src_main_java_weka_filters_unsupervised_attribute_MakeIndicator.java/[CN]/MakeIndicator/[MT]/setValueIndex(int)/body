@@ -1,3 +1,0 @@
-{
-  setValueIndices("" + (index + 1));
-}

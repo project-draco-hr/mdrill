@@ -1,4 +1,0 @@
-{
-  this(nSeries,nMoments,new Millisecond(),TimeZone.getDefault());
-  this.newestAt=nMoments - 1;
-}

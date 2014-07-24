@@ -1,4 +1,0 @@
-{
-  super.removeInstanceListener(dsl);
-  m_instanceEventTargets--;
-}

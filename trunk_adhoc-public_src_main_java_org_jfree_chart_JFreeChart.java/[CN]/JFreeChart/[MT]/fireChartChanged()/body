@@ -1,4 +1,0 @@
-{
-  ChartChangeEvent event=new ChartChangeEvent(this);
-  notifyListeners(event);
-}

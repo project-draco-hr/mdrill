@@ -1,6 +1,0 @@
-{
-  Instances workData=new Instances(data,0);
-  double factor=getInstancesFromClass(data,attrIndex,classIndex,(double)classValue,workData);
-  if (workData.numInstances() == 0)   return;
-  addValues(data,attrIndex,min,max,factor);
-}

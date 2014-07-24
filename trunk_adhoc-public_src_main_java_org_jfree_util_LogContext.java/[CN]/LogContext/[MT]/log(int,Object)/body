@@ -1,8 +1,0 @@
-{
-  if (this.contextPrefix != null) {
-    Log.getInstance().doLog(level,new Log.SimpleMessage(this.contextPrefix,":",message));
-  }
- else {
-    Log.getInstance().doLog(level,message);
-  }
-}

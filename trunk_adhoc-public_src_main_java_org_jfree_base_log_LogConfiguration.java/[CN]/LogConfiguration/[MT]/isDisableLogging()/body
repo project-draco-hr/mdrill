@@ -1,3 +1,0 @@
-{
-  return BaseBoot.getInstance().getGlobalConfig().getConfigProperty(DISABLE_LOGGING,DISABLE_LOGGING_DEFAULT).equalsIgnoreCase("true");
-}

@@ -1,3 +1,0 @@
-{
-  return "Reads a source that is in comma separated format (the default). " + "One can also change the column separator from comma to tab or " + "another character. "+ "Assumes that the first row in the file determines the number of "+ "and names of the attributes.";
-}

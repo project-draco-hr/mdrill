@@ -1,3 +1,0 @@
-{
-  setGeneratorOption(getGenerator(),option,value);
-}

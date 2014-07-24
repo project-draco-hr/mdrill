@@ -1,4 +1,0 @@
-{
-  this.center.merger(center);
-  this.id=clusterId;
-}

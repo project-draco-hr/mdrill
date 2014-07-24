@@ -1,3 +1,0 @@
-{
-  return BaseBoot.getInstance().getGlobalConfig().getConfigProperty(LOGTARGET,LOGTARGET_DEFAULT);
-}

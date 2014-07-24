@@ -1,4 +1,0 @@
-{
-  this.legendLabelURLGenerator=generator;
-  fireChangeEvent();
-}

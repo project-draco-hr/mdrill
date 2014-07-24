@@ -1,4 +1,0 @@
-{
-  super(tickType,date.getTime(),label,textAnchor,rotationAnchor,angle);
-  this.date=date;
-}

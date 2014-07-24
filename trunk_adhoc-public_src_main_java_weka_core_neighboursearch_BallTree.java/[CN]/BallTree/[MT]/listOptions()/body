@@ -1,5 +1,0 @@
-{
-  Vector<Option> newVector=new Vector<Option>();
-  newVector.addElement(new Option("\tThe construction method to employ. Either TopDown or BottomUp\n" + "\t(default: weka.core.TopDownConstructor)","C",1,"-C <classname and options>"));
-  return newVector.elements();
-}

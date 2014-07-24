@@ -1,7 +1,0 @@
-Graphics2D g2
-CategoryPlot plot
-ValueAxis axis
-Rectangle2D dataArea
-double value
-Paint paint
-Stroke stroke

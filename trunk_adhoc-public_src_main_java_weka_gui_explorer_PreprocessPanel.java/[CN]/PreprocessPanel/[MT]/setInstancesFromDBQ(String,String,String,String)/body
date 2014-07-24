@@ -1,3 +1,0 @@
-{
-  setInstancesFromDBQ(url,user,pw,query,false);
-}

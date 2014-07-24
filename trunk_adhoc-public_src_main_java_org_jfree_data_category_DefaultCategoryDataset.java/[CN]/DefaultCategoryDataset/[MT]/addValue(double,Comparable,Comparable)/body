@@ -1,3 +1,0 @@
-{
-  addValue(new Double(value),rowKey,columnKey);
-}

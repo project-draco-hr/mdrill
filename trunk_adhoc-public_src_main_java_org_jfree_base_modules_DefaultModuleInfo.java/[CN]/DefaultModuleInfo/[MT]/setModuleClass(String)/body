@@ -1,6 +1,0 @@
-{
-  if (moduleClass == null) {
-    throw new NullPointerException();
-  }
-  this.moduleClass=moduleClass;
-}

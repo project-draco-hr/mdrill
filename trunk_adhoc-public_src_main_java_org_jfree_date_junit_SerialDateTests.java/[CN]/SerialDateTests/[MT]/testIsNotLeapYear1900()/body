@@ -1,3 +1,0 @@
-{
-  assertTrue(!SerialDate.isLeapYear(1900));
-}

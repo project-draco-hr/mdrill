@@ -1,5 +1,0 @@
-{
-  if (attr == ATTR_TYPE.Comment)   setAttributeColor(DEFAULT_COMMENT,c);
- else   if (attr == ATTR_TYPE.Quote)   setAttributeColor(DEFAULT_STRING,c);
- else   setAttributeColor(DEFAULT_NORMAL,c);
-}

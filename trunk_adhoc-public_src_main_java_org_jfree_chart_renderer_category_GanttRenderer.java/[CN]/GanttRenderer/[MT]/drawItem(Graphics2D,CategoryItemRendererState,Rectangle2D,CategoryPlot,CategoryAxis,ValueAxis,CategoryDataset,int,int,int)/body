@@ -1,9 +1,0 @@
-{
-  if (dataset instanceof GanttCategoryDataset) {
-    GanttCategoryDataset gcd=(GanttCategoryDataset)dataset;
-    drawTasks(g2,state,dataArea,plot,domainAxis,rangeAxis,gcd,row,column);
-  }
- else {
-    super.drawItem(g2,state,dataArea,plot,domainAxis,rangeAxis,dataset,row,column,pass);
-  }
-}

@@ -1,5 +1,0 @@
-{
-  out.writeInt(this.id);
-  out.writeInt(this.numselect);
-  this.center.write(out);
-}

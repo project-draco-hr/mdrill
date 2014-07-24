@@ -1,4 +1,0 @@
-{
-  this.sectionPaintMap.put(key,paint);
-  fireChangeEvent();
-}

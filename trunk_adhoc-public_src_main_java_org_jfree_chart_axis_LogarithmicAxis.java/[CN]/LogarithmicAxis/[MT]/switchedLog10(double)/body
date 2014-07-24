@@ -1,3 +1,0 @@
-{
-  return this.smallLogFlag ? Math.log(val) / LOG10_VALUE : adjustedLog10(val);
-}

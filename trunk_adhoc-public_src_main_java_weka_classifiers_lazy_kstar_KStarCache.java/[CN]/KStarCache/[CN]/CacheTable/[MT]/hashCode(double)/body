@@ -1,4 +1,0 @@
-{
-  long bits=Double.doubleToLongBits(key);
-  return (int)(bits ^ (bits >> 32));
-}

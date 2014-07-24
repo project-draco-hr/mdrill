@@ -1,5 +1,0 @@
-{
-  for (int i=0; i < customMenus.length; i++) {
-    menuBar.add(customMenus[i]);
-  }
-}

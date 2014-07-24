@@ -1,3 +1,0 @@
-{
-  log("SystemInfo:\n" + new SystemInfo().toString());
-}

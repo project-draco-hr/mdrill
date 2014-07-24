@@ -1,9 +1,0 @@
-{
-  if (this.equals(LegendRenderingOrder.STANDARD)) {
-    return LegendRenderingOrder.STANDARD;
-  }
- else   if (this.equals(LegendRenderingOrder.REVERSE)) {
-    return LegendRenderingOrder.REVERSE;
-  }
-  return null;
-}

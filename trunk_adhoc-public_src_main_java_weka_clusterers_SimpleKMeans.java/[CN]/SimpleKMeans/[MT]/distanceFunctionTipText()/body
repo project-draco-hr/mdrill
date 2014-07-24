@@ -1,3 +1,0 @@
-{
-  return "The distance function to use for instances comparison " + "(default: weka.core.EuclideanDistance). ";
-}

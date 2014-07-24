@@ -1,7 +1,0 @@
-{
-  this.rowHeights[rowIndex]=Math.max(d0.height,Math.max(d1.height,d2.height));
-  this.totalHeight=this.totalHeight + this.rowHeights[rowIndex];
-  this.columnWidths[0]=Math.max(this.columnWidths[0],d0.width);
-  this.columns1to4Width=Math.max(this.columns1to4Width,d1.width);
-  this.columnWidths[5]=Math.max(this.columnWidths[5],d2.width);
-}

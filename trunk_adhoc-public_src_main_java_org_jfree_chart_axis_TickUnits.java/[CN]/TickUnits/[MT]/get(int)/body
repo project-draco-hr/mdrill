@@ -1,3 +1,0 @@
-{
-  return (TickUnit)this.tickUnits.get(pos);
-}

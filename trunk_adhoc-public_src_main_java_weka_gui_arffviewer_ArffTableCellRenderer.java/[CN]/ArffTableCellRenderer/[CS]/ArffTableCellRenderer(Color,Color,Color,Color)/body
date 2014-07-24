@@ -1,7 +1,0 @@
-{
-  super();
-  this.missingColor=missingColor;
-  this.missingColorSelected=missingColorSelected;
-  this.highlightColor=highlightColor;
-  this.highlightColorSelected=highlightColorSelected;
-}

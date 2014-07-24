@@ -1,4 +1,0 @@
-{
-  super.setUseStars(value);
-  for (int i=0; i < m_Javadocs.size(); i++)   ((Javadoc)m_Javadocs.get(i)).setUseStars(value);
-}

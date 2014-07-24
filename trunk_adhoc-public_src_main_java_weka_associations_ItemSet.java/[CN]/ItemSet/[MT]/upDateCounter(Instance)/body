@@ -1,3 +1,0 @@
-{
-  if (containedBy(instance))   m_counter++;
-}

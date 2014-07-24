@@ -1,9 +1,0 @@
-{
-  if (m_matrix[rowIndex][columnIndex] instanceof Double) {
-    return ((Double)m_matrix[rowIndex][columnIndex]).doubleValue();
-  }
- else   if (m_matrix[rowIndex][columnIndex] instanceof String) {
-    replaceStrings();
-  }
-  return ((AttributeExpression)m_matrix[rowIndex][columnIndex]).evaluateExpression(inst);
-}

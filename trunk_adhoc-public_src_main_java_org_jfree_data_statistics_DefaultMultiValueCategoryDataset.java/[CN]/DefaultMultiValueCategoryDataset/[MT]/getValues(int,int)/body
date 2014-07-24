@@ -1,9 +1,0 @@
-{
-  List values=(List)this.data.getObject(row,column);
-  if (values != null) {
-    return Collections.unmodifiableList(values);
-  }
- else {
-    return Collections.EMPTY_LIST;
-  }
-}

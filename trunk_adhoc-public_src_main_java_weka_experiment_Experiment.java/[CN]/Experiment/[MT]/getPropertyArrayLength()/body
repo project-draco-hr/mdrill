@@ -1,3 +1,0 @@
-{
-  return Array.getLength(m_PropertyArray);
-}

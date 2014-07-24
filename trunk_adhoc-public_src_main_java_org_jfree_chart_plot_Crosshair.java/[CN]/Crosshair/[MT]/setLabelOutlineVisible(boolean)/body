@@ -1,5 +1,0 @@
-{
-  boolean old=this.labelOutlineVisible;
-  this.labelOutlineVisible=visible;
-  this.pcs.firePropertyChange("labelOutlineVisible",old,visible);
-}

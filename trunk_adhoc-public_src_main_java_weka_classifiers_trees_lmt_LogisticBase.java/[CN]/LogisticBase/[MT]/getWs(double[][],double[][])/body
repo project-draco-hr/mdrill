@@ -1,8 +1,0 @@
-{
-  double[][] dataWs=new double[probs.length][m_numClasses];
-  for (int j=0; j < m_numClasses; j++)   for (int i=0; i < probs.length; i++) {
-    double z=getZ(dataYs[i][j],probs[i][j]);
-    dataWs[i][j]=(dataYs[i][j] - probs[i][j]) / z;
-  }
-  return dataWs;
-}

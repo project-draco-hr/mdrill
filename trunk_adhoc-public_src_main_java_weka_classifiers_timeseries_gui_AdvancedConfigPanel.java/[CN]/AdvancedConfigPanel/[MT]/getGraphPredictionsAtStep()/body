@@ -1,6 +1,0 @@
-{
-  if (!m_graphPredsAtStepCheckBox.isSelected()) {
-    return 0;
-  }
-  return ((SpinnerNumberModel)m_graphPredsAtStepSpinner.getModel()).getNumber().intValue();
-}

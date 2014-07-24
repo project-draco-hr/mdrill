@@ -1,3 +1,0 @@
-{
-  return ((ArffTableModel)getModel()).getType(mIndices[0],columnIndex);
-}

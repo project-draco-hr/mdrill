@@ -1,6 +1,0 @@
-{
-  if (this.plotImages != flag) {
-    this.plotImages=flag;
-    fireChangeEvent();
-  }
-}

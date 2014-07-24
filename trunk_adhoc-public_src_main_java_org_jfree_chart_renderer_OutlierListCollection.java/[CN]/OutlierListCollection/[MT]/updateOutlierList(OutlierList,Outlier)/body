@@ -1,7 +1,0 @@
-{
-  boolean result=false;
-  result=list.add(outlier);
-  list.updateAveragedOutlier();
-  list.setMultiple(true);
-  return result;
-}

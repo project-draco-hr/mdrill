@@ -1,3 +1,0 @@
-{
-  return "Converts all nominal attributes into binary numeric attributes. An " + "attribute with k values is transformed into k binary attributes if " + "the class is nominal (using the one-attribute-per-value approach). "+ "Binary attributes are left binary, if option '-A' is not given."+ "If the class is numeric, k - 1 new binary attributes are generated "+ "in the manner described in \"Classification and Regression "+ "Trees\" by Breiman et al. (i.e. taking the average class value associated "+ "with each attribute value into account)\n\n"+ "For more information, see:\n\n"+ getTechnicalInformation().toString();
-}

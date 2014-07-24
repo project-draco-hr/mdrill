@@ -1,3 +1,0 @@
-{
-  return "Initialize cluster centers using the probabilistic " + " farthest first method of the k-means++ algorithm";
-}

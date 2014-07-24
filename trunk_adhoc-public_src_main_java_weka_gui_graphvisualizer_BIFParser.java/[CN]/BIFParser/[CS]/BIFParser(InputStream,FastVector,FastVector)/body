@@ -1,5 +1,0 @@
-{
-  m_nodes=nodes;
-  m_edges=edges;
-  inStream=instream;
-}

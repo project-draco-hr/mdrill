@@ -1,8 +1,0 @@
-{
-  try {
-    centerHorizontal(m_nodes);
-  }
- catch (  Exception e) {
-    e.printStackTrace();
-  }
-}

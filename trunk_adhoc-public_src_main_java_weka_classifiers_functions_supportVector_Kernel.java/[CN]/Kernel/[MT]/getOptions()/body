@@ -1,7 +1,0 @@
-{
-  Vector result;
-  result=new Vector();
-  if (getDebug())   result.add("-D");
-  if (getChecksTurnedOff())   result.add("-no-checks");
-  return (String[])result.toArray(new String[result.size()]);
-}

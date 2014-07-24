@@ -1,3 +1,0 @@
-{
-  return "Generates Outlier/ExtremeValue attribute pair for each numeric " + "attribute, not just a single pair for all numeric attributes together.";
-}

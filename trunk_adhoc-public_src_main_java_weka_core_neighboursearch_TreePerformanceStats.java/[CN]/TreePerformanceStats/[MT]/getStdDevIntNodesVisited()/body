@@ -1,3 +1,0 @@
-{
-  return Math.sqrt((m_SumSqIntNodes - (m_SumIntNodes * m_SumIntNodes) / (double)m_NumQueries) / (m_NumQueries - 1));
-}

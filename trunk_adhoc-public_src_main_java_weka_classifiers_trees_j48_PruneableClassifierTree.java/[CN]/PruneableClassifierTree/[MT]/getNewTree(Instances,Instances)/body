@@ -1,5 +1,0 @@
-{
-  PruneableClassifierTree newTree=new PruneableClassifierTree(m_toSelectModel,pruneTheTree,numSets,m_cleanup,m_seed);
-  newTree.buildTree(train,test,false);
-  return newTree;
-}

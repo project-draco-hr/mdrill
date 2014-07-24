@@ -1,3 +1,0 @@
-{
-  this(source,chart,ChartChangeEventType.GENERAL);
-}

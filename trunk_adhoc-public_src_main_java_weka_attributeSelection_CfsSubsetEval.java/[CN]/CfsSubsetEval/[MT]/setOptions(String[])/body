@@ -1,5 +1,0 @@
-{
-  resetOptions();
-  setMissingSeparate(Utils.getFlag('M',options));
-  setLocallyPredictive(!Utils.getFlag('L',options));
-}

@@ -1,7 +1,0 @@
-int[] nCounts
-int[] nNodes
-int[] nOffsets
-int iNode
-int iOffset
-ADNode parent
-boolean bSubstract

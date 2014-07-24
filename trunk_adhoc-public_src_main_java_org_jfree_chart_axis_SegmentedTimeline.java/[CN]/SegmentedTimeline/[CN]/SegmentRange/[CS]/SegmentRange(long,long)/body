@@ -1,9 +1,0 @@
-{
-  Segment start=getSegment(fromMillisecond);
-  Segment end=getSegment(toMillisecond);
-  this.millisecond=fromMillisecond;
-  this.segmentNumber=calculateSegmentNumber(fromMillisecond);
-  this.segmentStart=start.segmentStart;
-  this.segmentEnd=end.segmentEnd;
-  this.segmentCount=(end.getSegmentNumber() - start.getSegmentNumber() + 1);
-}

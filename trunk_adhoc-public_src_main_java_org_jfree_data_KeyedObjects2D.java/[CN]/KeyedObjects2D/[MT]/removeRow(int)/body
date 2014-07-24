@@ -1,4 +1,0 @@
-{
-  this.rowKeys.remove(rowIndex);
-  this.rows.remove(rowIndex);
-}

@@ -1,7 +1,0 @@
-{
-  this.labelGap=10;
-  this.buttonGap=6;
-  this.vGap=2;
-  this.colWidth=new int[COLUMNS];
-  this.rowHeight=new int[maxrows];
-}

@@ -1,7 +1,0 @@
-{
-  super(parent,"Output Format...",true);
-  m_IgnoreChanges=true;
-  initialize();
-  initGUI();
-  m_IgnoreChanges=false;
-}

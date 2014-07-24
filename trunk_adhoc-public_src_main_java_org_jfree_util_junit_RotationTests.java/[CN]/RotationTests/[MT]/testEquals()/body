@@ -1,4 +1,0 @@
-{
-  assertTrue(Rotation.CLOCKWISE.equals(Rotation.CLOCKWISE));
-  assertTrue(Rotation.ANTICLOCKWISE.equals(Rotation.ANTICLOCKWISE));
-}

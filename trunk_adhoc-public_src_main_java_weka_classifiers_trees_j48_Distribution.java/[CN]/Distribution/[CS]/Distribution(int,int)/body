@@ -1,8 +1,0 @@
-{
-  int i;
-  m_perClassPerBag=new double[numBags][0];
-  m_perBag=new double[numBags];
-  m_perClass=new double[numClasses];
-  for (i=0; i < numBags; i++)   m_perClassPerBag[i]=new double[numClasses];
-  totaL=0;
-}

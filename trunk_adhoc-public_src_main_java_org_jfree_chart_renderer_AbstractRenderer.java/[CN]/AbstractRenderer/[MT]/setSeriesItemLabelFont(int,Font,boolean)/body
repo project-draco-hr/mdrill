@@ -1,6 +1,0 @@
-{
-  this.itemLabelFontList.set(series,font);
-  if (notify) {
-    fireChangeEvent();
-  }
-}

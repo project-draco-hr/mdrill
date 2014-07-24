@@ -1,5 +1,0 @@
-{
-  this.mappingInfos=new HashMap();
-  this.manualMappings=new ArrayList();
-  this.multiplexMappings=new ArrayList();
-}

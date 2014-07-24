@@ -1,5 +1,0 @@
-{
-  if (this.numberFormatterObj instanceof DecimalFormat) {
-    ((DecimalFormat)this.numberFormatterObj).applyPattern(this.expTickLabelsFlag ? "0E0" : "0.###");
-  }
-}

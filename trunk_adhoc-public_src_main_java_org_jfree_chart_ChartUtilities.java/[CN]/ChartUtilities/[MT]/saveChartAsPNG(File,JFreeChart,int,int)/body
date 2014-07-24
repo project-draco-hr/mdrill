@@ -1,3 +1,0 @@
-{
-  saveChartAsPNG(file,chart,width,height,null);
-}

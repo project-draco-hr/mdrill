@@ -1,3 +1,0 @@
-{
-  return "sqrt(sum((predicted - actual)^2) / N)";
-}

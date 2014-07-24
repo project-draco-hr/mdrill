@@ -1,5 +1,0 @@
-{
-  stream.defaultReadObject();
-  this.boxPaint=SerialUtilities.readPaint(stream);
-  this.artifactPaint=SerialUtilities.readPaint(stream);
-}

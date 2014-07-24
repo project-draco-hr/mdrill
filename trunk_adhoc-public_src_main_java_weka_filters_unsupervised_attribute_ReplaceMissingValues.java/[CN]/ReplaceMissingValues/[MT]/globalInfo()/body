@@ -1,3 +1,0 @@
-{
-  return "Replaces all missing values for nominal and numeric attributes in a " + "dataset with the modes and means from the training data.";
-}

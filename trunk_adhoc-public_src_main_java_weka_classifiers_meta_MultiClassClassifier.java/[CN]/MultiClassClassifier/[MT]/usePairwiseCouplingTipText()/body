@@ -1,3 +1,0 @@
-{
-  return "Use pairwise coupling (only has an effect for 1-against-1).";
-}

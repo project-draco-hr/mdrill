@@ -1,6 +1,0 @@
-{
-  XYBarRendererState state=new XYBarRendererState(info);
-  ValueAxis rangeAxis=plot.getRangeAxisForDataset(plot.indexOf(dataset));
-  state.setG2Base(rangeAxis.valueToJava2D(this.base,dataArea,plot.getRangeAxisEdge()));
-  return state;
-}

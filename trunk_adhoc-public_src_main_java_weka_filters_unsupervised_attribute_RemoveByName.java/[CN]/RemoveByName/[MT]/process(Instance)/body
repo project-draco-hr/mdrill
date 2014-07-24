@@ -1,4 +1,0 @@
-{
-  m_Remove.input(instance);
-  return m_Remove.output();
-}

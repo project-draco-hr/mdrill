@@ -1,3 +1,0 @@
-{
-  this(Color.black,new BasicStroke(1.0f),new RectangleInsets(1.0,1.0,1.0,1.0));
-}

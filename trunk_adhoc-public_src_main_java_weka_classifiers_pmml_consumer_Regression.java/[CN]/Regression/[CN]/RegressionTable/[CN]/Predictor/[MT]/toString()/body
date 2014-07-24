@@ -1,3 +1,0 @@
-{
-  return Utils.doubleToString(m_coefficient,12,4) + " * ";
-}

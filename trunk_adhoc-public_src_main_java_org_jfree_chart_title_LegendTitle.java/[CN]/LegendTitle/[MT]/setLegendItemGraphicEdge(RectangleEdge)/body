@@ -1,7 +1,0 @@
-{
-  if (edge == null) {
-    throw new IllegalArgumentException("Null 'edge' argument.");
-  }
-  this.legendItemGraphicEdge=edge;
-  notifyListeners(new TitleChangeEvent(this));
-}

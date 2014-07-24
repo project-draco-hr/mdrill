@@ -1,6 +1,0 @@
-{
-  m_sName=sName;
-  m_nCardinality=nCardinality;
-  m_nPosX=nPosX;
-  m_nPosY=nPosY;
-}

@@ -1,9 +1,0 @@
-{
-  if (!java.awt.GraphicsEnvironment.isHeadless()) {
-    for (    EventObject e : headless) {
-      if (e instanceof TextEvent) {
-        acceptText((TextEvent)e);
-      }
-    }
-  }
-}

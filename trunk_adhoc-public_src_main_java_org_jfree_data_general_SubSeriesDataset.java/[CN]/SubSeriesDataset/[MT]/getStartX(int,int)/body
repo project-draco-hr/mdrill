@@ -1,8 +1,0 @@
-{
-  if (this.parent instanceof IntervalXYDataset) {
-    return ((IntervalXYDataset)this.parent).getStartX(this.map[series],item);
-  }
- else {
-    return getX(series,item);
-  }
-}

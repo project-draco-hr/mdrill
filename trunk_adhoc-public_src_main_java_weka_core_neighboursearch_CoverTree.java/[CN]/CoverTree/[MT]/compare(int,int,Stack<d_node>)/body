@@ -1,3 +1,0 @@
-{
-  return cover_set.element(p1).dist - cover_set.element(p2).dist;
-}

@@ -1,9 +1,0 @@
-{
-  m_Test=test;
-  m_Train=train;
-  m_AttrIndex=attrIndex;
-  m_TrainSet=trainSet;
-  m_RandClassCols=randClassCols;
-  m_Cache=cache;
-  init();
-}

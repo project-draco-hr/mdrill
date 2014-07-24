@@ -1,9 +1,0 @@
-{
-  m_Parent=parent;
-  try {
-    setDefaults();
-  }
- catch (  Exception e) {
-    e.printStackTrace();
-  }
-}

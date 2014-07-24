@@ -1,4 +1,0 @@
-{
-  m_visual.loadIcons(BeanVisual.ICON_PATH + "CrossValidationFoldMaker.gif",BeanVisual.ICON_PATH + "CrossValidationFoldMaker_animated.gif");
-  m_visual.setText("CrossValidationFoldMaker");
-}

@@ -1,4 +1,0 @@
-{
-  if (!(element instanceof CheckBoxListItem))   super.add(index,new CheckBoxListItem(element));
- else   super.add(index,element);
-}

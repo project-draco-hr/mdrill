@@ -1,6 +1,0 @@
-{
-  if (pointer == null) {
-    throw new IllegalArgumentException("Null 'pointer' argument.");
-  }
-  return this.pointers.indexOf(pointer);
-}

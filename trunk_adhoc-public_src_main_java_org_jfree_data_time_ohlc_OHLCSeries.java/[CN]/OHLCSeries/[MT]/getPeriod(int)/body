@@ -1,4 +1,0 @@
-{
-  final OHLCItem item=(OHLCItem)getDataItem(index);
-  return item.getPeriod();
-}

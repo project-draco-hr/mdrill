@@ -1,5 +1,0 @@
-{
-  m_nHead=nHead;
-  m_nTail=nTail;
-  m_nOperation=nOperation;
-}

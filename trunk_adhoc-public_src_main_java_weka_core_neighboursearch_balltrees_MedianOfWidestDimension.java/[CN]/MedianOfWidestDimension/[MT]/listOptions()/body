@@ -1,5 +1,0 @@
-{
-  Vector<Option> newVector=new Vector<Option>();
-  newVector.addElement(new Option("\tNormalize dimensions' widths.","N",0,"-N"));
-  return newVector.elements();
-}

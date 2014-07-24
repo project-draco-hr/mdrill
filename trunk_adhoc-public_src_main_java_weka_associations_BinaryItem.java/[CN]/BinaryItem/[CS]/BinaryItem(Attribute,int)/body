@@ -1,6 +1,0 @@
-{
-  super(att,valueIndex);
-  if (att.isNumeric() || (att.isNominal() && att.numValues() > 2)) {
-    throw new Exception("BinaryItem must be constructed using a nominal attribute" + " with at most 2 values!");
-  }
-}

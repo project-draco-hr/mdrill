@@ -1,4 +1,0 @@
-{
-  m_CustomPropsFile=value;
-  initialize(m_CustomPropsFile);
-}

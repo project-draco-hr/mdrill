@@ -1,6 +1,0 @@
-{
-  boolean removed=this.cornerTextItems.remove(text);
-  if (removed) {
-    fireChangeEvent();
-  }
-}

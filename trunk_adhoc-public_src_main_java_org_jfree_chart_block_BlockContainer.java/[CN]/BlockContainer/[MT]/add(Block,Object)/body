@@ -1,4 +1,0 @@
-{
-  this.blocks.add(block);
-  this.arrangement.add(block,key);
-}

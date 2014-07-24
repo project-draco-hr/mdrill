@@ -1,3 +1,0 @@
-{
-  return rect.intersects((m_BayesNet.getPositionX(iNode)) * m_fScale,(m_BayesNet.getPositionY(iNode)) * m_fScale,m_nPaddedNodeWidth * m_fScale,m_nNodeHeight * m_fScale);
-}

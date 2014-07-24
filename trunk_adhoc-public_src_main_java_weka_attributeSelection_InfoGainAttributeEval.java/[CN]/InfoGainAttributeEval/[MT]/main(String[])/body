@@ -1,3 +1,0 @@
-{
-  runEvaluator(new InfoGainAttributeEval(),args);
-}

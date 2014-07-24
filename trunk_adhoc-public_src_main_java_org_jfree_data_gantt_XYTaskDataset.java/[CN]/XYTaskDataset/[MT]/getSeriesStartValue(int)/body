@@ -1,3 +1,0 @@
-{
-  return series - this.seriesWidth / 2.0;
-}

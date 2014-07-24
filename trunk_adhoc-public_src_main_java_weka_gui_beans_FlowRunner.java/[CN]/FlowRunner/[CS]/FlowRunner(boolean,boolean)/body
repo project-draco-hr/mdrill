@@ -1,6 +1,0 @@
-{
-  if (loadProps) {
-    KnowledgeFlowApp.loadProperties();
-  }
-  m_registerLog=registerLog;
-}

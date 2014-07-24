@@ -1,7 +1,0 @@
-{
-  super.printStackTrace(stream);
-  if (getParent() != null) {
-    stream.println("ParentException: ");
-    getParent().printStackTrace(stream);
-  }
-}

@@ -1,8 +1,0 @@
-{
-  final String name=getString(key);
-  final URL in=ObjectUtilities.getResource(name,ResourceBundleSupport.class);
-  if (in == null) {
-    Log.warn("Unable to find file in the class path: " + name + "; key="+ key);
-  }
-  return in;
-}

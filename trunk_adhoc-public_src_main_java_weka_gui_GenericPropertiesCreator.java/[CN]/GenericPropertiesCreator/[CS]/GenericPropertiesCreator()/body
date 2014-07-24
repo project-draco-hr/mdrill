@@ -1,4 +1,0 @@
-{
-  this(CREATOR_FILE);
-  m_ExplicitPropsFile=false;
-}

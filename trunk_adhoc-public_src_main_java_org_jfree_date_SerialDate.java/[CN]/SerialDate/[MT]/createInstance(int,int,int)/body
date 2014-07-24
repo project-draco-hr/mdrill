@@ -1,3 +1,0 @@
-{
-  return new SpreadsheetDate(day,month,yyyy);
-}

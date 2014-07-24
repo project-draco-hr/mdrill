@@ -1,3 +1,0 @@
-{
-  return weka.classifiers.timeseries.core.Utils.advanceSuppliedTimeValue(valueToAdvance,m_dateBasedPeriodicity);
-}

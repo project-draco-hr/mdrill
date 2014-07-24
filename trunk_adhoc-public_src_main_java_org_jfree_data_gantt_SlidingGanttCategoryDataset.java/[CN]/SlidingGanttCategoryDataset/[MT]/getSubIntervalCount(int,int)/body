@@ -1,3 +1,0 @@
-{
-  return this.underlying.getSubIntervalCount(row,column + this.firstCategoryIndex);
-}

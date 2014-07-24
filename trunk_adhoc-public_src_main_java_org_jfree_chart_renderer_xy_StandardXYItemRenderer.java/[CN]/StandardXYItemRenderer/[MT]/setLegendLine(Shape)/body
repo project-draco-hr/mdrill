@@ -1,7 +1,0 @@
-{
-  if (line == null) {
-    throw new IllegalArgumentException("Null 'line' argument.");
-  }
-  this.legendLine=line;
-  fireChangeEvent();
-}

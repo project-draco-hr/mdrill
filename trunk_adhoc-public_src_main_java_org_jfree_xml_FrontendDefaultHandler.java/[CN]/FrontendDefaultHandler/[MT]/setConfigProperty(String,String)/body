@@ -1,8 +1,0 @@
-{
-  if (value == null) {
-    this.parserConfiguration.remove(key);
-  }
- else {
-    this.parserConfiguration.setProperty(key,value);
-  }
-}

@@ -1,6 +1,0 @@
-CoverTreeNode query_chi
-MyHeap new_upper_k
-Stack<Stack<d_node>> cover_sets
-Stack<Stack<d_node>> new_cover_sets
-int current_scale
-int max_scale

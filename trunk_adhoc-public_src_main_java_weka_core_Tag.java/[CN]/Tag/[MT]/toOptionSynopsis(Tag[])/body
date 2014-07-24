@@ -1,9 +1,0 @@
-{
-  String result;
-  int i;
-  result="";
-  for (i=0; i < tags.length; i++) {
-    result+="\t\t" + tags[i].getIDStr() + " = "+ tags[i].getReadable()+ "\n";
-  }
-  return result;
-}

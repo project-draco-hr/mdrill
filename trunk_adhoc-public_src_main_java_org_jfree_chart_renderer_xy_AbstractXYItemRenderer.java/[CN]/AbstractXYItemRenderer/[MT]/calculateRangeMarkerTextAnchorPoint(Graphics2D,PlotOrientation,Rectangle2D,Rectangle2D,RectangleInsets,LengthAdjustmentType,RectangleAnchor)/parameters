@@ -1,7 +1,0 @@
-Graphics2D g2
-PlotOrientation orientation
-Rectangle2D dataArea
-Rectangle2D markerArea
-RectangleInsets markerOffset
-LengthAdjustmentType labelOffsetForRange
-RectangleAnchor anchor

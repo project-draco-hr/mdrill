@@ -1,8 +1,0 @@
-{
-  super();
-  m_BatchBuffer=inst;
-  m_Loader=null;
-  m_File=null;
-  m_URL=null;
-  m_Incremental=false;
-}

@@ -1,4 +1,0 @@
-{
-  int hash=37;
-  return hash;
-}

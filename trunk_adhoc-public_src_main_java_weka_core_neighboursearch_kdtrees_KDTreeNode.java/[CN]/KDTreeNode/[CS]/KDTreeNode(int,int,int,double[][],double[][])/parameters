@@ -1,5 +1,0 @@
-int nodeNum
-int startidx
-int endidx
-double[][] nodeRanges
-double[][] rectBounds

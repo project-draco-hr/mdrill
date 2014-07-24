@@ -1,3 +1,0 @@
-{
-  return lookupSeriesOutlineStroke(row);
-}

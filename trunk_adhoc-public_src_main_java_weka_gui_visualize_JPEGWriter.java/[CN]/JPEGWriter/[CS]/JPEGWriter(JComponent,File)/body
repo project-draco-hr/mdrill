@@ -1,5 +1,0 @@
-{
-  super(c,f);
-  m_Quality=1.0f;
-  m_Background=Color.WHITE;
-}

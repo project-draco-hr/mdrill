@@ -1,9 +1,0 @@
-{
-  for (int i=0; i < this.ignoredPackages.size(); i++) {
-    final String ignoredPackage=(String)this.ignoredPackages.get(i);
-    if (classname.startsWith(ignoredPackage)) {
-      return true;
-    }
-  }
-  return false;
-}

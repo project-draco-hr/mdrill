@@ -1,3 +1,0 @@
-{
-  return "Metric [lineCnt=" + lineCnt + ", impression="+ impression+ ", finClick="+ finClick+ ", finPrice="+ finPrice+ ", alipayDirectNum="+ alipayDirectNum+ ", alipayDirectAmt="+ alipayDirectAmt+ ", alipayIndirectNum="+ alipayIndirectNum+ ", alipayIndirectAmt="+ alipayIndirectAmt+ ", type="+ type+ ", tablename="+ tablename+ ", thedate="+ thedate+ "]";
-}

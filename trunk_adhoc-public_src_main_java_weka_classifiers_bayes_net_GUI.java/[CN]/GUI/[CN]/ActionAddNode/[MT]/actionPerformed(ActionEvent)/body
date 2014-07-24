@@ -1,4 +1,0 @@
-{
-  m_X=Integer.MAX_VALUE;
-  addNode();
-}

@@ -1,8 +1,0 @@
-{
-  setLayout(new BorderLayout());
-  arffFile_Tex=new TextField("arffoutput.arff");
-  add("Center",arffFile_Tex);
-  count_Lab=new Label("0 instances");
-  add("East",count_Lab);
-  setBackground(Color.lightGray);
-}

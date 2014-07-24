@@ -1,5 +1,0 @@
-{
-  int i;
-  mIndices=new int[mModel.getRowCount()];
-  for (i=0; i < mIndices.length; i++)   mIndices[i]=i;
-}

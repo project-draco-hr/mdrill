@@ -1,9 +1,0 @@
-Instances data
-double[] classProbs
-Instances header
-double minNum
-boolean debug
-int[] attIndicesWindow
-Random random
-int depth
-boolean allow

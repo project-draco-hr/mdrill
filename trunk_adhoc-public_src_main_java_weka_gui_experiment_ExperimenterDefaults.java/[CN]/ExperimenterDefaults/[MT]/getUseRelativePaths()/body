@@ -1,3 +1,0 @@
-{
-  return Boolean.valueOf(get("UseRelativePaths","false")).booleanValue();
-}

@@ -1,8 +1,0 @@
-{
-  try {
-    return Toolkit.getDefaultToolkit().getMenuShortcutKeyMask();
-  }
- catch (  UnsupportedOperationException he) {
-    return InputEvent.CTRL_MASK;
-  }
-}

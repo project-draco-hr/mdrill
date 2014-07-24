@@ -1,3 +1,0 @@
-{
-  return (Integer)(m_nPositionX.elementAt(iNode));
-}

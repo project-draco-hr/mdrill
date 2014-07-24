@@ -1,3 +1,0 @@
-{
-  this(SerialDate.createInstance(new Date()),false,DEFAULT_DATE_BUTTON_COLOR,DEFAULT_MONTH_BUTTON_COLOR);
-}

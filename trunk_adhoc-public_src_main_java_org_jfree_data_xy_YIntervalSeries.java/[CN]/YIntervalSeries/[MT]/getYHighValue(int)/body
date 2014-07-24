@@ -1,4 +1,0 @@
-{
-  YIntervalDataItem item=(YIntervalDataItem)getDataItem(index);
-  return item.getYHighValue();
-}

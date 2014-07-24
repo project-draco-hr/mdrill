@@ -1,5 +1,0 @@
-FPTreeRoot tree
-FrequentItemSets largeItemSets
-int recursionLevel
-FrequentBinaryItemSet conditionalItems
-int minSupport

@@ -1,5 +1,0 @@
-{
-  s_pluginManagerIntialized=false;
-  loadProperties();
-  init();
-}

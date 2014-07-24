@@ -1,6 +1,0 @@
-{
-  if (this.globalConfig == null) {
-    this.globalConfig=loadConfiguration();
-  }
-  return this.globalConfig;
-}

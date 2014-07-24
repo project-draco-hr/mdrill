@@ -1,4 +1,0 @@
-{
-  this.frame.getInsets().trim(area);
-  return area;
-}

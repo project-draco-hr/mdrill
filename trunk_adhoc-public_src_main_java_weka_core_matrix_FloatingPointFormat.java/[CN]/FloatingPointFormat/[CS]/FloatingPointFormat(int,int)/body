@@ -1,7 +1,0 @@
-{
-  width=w;
-  decimal=d;
-  nf=new DecimalFormat(pattern(w,d));
-  nf.setPositivePrefix(" ");
-  nf.setNegativePrefix("-");
-}

@@ -1,6 +1,0 @@
-{
-  if (i < 1) {
-    throw new Exception("Maximum number of iterations must be > 0!");
-  }
-  m_max_iterations=i;
-}

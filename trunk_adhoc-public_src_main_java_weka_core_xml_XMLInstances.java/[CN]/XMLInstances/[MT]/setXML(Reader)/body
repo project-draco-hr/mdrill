@@ -1,4 +1,0 @@
-{
-  read(reader);
-  m_Instances=dataFromXML(headerFromXML());
-}

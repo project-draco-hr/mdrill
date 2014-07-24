@@ -1,7 +1,0 @@
-{
-  super(source);
-  m_testSet=testSet;
-  if (m_testSet != null && m_testSet.numInstances() == 0) {
-    m_structureOnly=true;
-  }
-}

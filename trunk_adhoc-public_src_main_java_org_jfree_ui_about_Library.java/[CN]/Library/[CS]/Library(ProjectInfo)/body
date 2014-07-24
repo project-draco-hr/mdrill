@@ -1,3 +1,0 @@
-{
-  this(project.getName(),project.getVersion(),project.getLicenceName(),project.getInfo());
-}

@@ -1,3 +1,0 @@
-{
-  return "Converts the given set of predictor variables into a kernel matrix. " + "The class value remains unchangedm, as long as the preprocessing " + "filter doesn't change it.\n"+ "By default, the data is preprocessed with the Center filter, but the "+ "user can choose any filter (NB: one must be careful that the filter "+ "does not alter the class attribute unintentionally). With "+ "weka.filters.AllFilter the preprocessing gets disabled.\n\n"+ "For more information regarding preprocessing the data, see:\n\n"+ getTechnicalInformation().toString();
-}

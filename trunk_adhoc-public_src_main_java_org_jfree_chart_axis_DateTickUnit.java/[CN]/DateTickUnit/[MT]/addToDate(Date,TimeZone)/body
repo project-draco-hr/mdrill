@@ -1,6 +1,0 @@
-{
-  Calendar calendar=Calendar.getInstance(zone);
-  calendar.setTime(base);
-  calendar.add(this.unitType.getCalendarField(),this.count);
-  return calendar.getTime();
-}

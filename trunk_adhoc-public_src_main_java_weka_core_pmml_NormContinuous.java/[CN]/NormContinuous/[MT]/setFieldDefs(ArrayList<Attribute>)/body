@@ -1,4 +1,0 @@
-{
-  super.setFieldDefs(fieldDefs);
-  setUpField();
-}

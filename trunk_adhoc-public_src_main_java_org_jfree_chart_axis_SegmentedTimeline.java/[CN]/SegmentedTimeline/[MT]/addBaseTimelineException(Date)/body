@@ -1,3 +1,0 @@
-{
-  addBaseTimelineException(getTime(date));
-}

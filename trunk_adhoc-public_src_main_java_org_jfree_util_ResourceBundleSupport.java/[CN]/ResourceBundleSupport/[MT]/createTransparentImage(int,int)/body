@@ -1,7 +1,0 @@
-{
-  final BufferedImage img=new BufferedImage(width,height,BufferedImage.TYPE_INT_ARGB);
-  final int[] data=img.getRGB(0,0,width,height,null,0,width);
-  Arrays.fill(data,0x00000000);
-  img.setRGB(0,0,width,height,data,0,width);
-  return img;
-}

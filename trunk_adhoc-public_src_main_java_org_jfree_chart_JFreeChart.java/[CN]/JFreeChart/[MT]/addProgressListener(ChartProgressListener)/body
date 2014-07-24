@@ -1,3 +1,0 @@
-{
-  this.progressListeners.add(ChartProgressListener.class,listener);
-}

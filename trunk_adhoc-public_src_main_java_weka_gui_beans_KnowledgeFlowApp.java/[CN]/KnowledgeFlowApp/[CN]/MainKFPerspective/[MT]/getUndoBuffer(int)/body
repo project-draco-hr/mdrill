@@ -1,6 +1,0 @@
-{
-  if (index >= 0 && index < getNumTabs()) {
-    return m_undoBufferList.get(index);
-  }
-  return null;
-}

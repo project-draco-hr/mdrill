@@ -1,3 +1,0 @@
-{
-  return (Task)this.tasks.get(index);
-}

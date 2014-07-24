@@ -1,5 +1,0 @@
-{
-  setLayout(new BorderLayout());
-  useDefaultVisual();
-  add(m_visual,BorderLayout.CENTER);
-}

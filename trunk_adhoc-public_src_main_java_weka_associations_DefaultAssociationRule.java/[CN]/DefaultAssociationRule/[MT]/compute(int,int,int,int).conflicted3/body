@@ -1,5 +1,0 @@
-{
-  double num=(double)premiseSupport * (double)(totalTransactions - consequenceSupport) / (double)totalTransactions;
-  double denom=premiseSupport - totalSupport + 1;
-  return num / denom;
-}

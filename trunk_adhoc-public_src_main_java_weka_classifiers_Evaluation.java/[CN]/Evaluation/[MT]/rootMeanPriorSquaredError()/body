@@ -1,4 +1,0 @@
-{
-  if (m_NoPriors)   return Double.NaN;
-  return Math.sqrt(m_SumPriorSqrErr / m_WithClass);
-}

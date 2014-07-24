@@ -1,3 +1,0 @@
-{
-  m_day_of_week=parseDay(dayOfWeek);
-}

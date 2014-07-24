@@ -1,4 +1,0 @@
-{
-  ListSelectorDialog jd=new ListSelectorDialog(null,m_TestsList);
-  jd.showDialog();
-}

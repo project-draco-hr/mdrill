@@ -1,4 +1,0 @@
-{
-  if (Utils.gr(m_perBag[intIndex],0))   return (m_perClassPerBag[intIndex][classIndex] + 1.0) / (m_perBag[intIndex] + (double)m_perClass.length);
- else   return laplaceProb(classIndex);
-}

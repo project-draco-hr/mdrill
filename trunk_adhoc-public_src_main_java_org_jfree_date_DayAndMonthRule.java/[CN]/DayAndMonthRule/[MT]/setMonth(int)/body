@@ -1,6 +1,0 @@
-{
-  if (!SerialDate.isValidMonthCode(month)) {
-    throw new IllegalArgumentException("DayAndMonthRule(): month code not valid.");
-  }
-  this.month=month;
-}

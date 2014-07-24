@@ -1,5 +1,0 @@
-{
-  super(stream);
-  m_Owner=owner;
-  m_LineFeed=System.getProperty("line.separator");
-}

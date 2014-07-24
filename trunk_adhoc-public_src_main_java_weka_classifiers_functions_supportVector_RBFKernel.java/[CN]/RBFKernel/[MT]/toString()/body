@@ -1,3 +1,0 @@
-{
-  return "RBF kernel: K(x,y) = e^-(" + getGamma() + "* <x-y,x-y>^2)";
-}

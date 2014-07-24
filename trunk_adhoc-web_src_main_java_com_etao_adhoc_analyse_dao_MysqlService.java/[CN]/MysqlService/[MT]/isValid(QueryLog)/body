@@ -1,4 +1,0 @@
-{
-  if (queryLog.getNick().length() > 3)   return false;
-  return true;
-}

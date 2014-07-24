@@ -1,3 +1,0 @@
-{
-  return new SelectedTag(m_Method,TAGS_METHOD);
-}

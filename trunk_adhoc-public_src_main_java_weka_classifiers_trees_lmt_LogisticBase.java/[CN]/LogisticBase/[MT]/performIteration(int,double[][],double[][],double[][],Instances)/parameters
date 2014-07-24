@@ -1,5 +1,0 @@
-int iteration
-double[][] trainYs
-double[][] trainFs
-double[][] probs
-Instances trainNumeric

@@ -1,5 +1,0 @@
-{
-  ByteArrayOutputStream outputStream=new ByteArrayOutputStream();
-  encode(bufferedImage,outputStream);
-  return outputStream.toByteArray();
-}

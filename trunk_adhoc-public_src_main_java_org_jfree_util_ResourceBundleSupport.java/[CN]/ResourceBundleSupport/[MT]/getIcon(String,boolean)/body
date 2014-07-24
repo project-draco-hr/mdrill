@@ -1,4 +1,0 @@
-{
-  final String name=getString(key);
-  return createIcon(name,true,large);
-}

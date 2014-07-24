@@ -1,3 +1,0 @@
-{
-  throw new IOException("JSONLoader can't read data sets incrementally.");
-}

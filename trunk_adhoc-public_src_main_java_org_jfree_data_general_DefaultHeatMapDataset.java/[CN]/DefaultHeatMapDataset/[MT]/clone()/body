@@ -1,5 +1,0 @@
-{
-  DefaultHeatMapDataset clone=(DefaultHeatMapDataset)super.clone();
-  clone.zValues=DataUtilities.clone(this.zValues);
-  return clone;
-}

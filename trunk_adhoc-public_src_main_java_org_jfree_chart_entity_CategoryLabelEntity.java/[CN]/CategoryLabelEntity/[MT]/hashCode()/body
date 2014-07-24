@@ -1,5 +1,0 @@
-{
-  int result=super.hashCode();
-  result=HashUtilities.hashCode(result,this.key);
-  return result;
-}

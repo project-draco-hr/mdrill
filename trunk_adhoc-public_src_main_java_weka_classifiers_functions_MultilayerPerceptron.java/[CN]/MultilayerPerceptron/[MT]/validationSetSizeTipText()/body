@@ -1,3 +1,0 @@
-{
-  return "The percentage size of the validation set." + "(The training will continue until it is observed that" + " the error on the validation set has been consistently getting"+ " worse, or if the training time is reached).\n"+ "If This is set to zero no validation set will be used and instead"+ " the network will train for the specified number of epochs.";
-}

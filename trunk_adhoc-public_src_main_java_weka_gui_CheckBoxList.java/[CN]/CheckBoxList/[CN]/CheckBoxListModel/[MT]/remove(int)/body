@@ -1,3 +1,0 @@
-{
-  return ((CheckBoxListItem)super.remove(index)).getContent();
-}

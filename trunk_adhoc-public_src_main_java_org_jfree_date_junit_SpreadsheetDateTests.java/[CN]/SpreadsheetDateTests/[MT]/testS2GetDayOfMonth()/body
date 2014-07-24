@@ -1,4 +1,0 @@
-{
-  final int dayOfMonth=this.s2.getDayOfMonth();
-  assertEquals(1,dayOfMonth);
-}

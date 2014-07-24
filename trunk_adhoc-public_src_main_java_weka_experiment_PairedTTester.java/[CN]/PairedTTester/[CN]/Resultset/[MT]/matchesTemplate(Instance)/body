@@ -1,8 +1,0 @@
-{
-  for (int i=0; i < m_ResultsetKeyColumns.length; i++) {
-    if (first.value(m_ResultsetKeyColumns[i]) != m_Template.value(m_ResultsetKeyColumns[i])) {
-      return false;
-    }
-  }
-  return true;
-}

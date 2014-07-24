@@ -1,5 +1,0 @@
-{
-  Vector<Option> result=new Vector<Option>();
-  result.add(new Option("\tRetain all string attribute values when reading " + "incrementally.","R",0,"-R"));
-  return result.elements();
-}

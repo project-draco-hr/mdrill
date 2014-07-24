@@ -1,7 +1,0 @@
-{
-  Vector newVector=new Vector(0);
-  if (m_splitThread != null) {
-    newVector.addElement("Stop");
-  }
-  return newVector.elements();
-}

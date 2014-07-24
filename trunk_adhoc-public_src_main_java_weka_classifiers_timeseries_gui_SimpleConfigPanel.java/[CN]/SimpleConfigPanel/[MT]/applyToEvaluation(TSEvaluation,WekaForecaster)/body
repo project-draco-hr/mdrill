@@ -1,8 +1,0 @@
-{
-  int horizon=((SpinnerNumberModel)m_horizonSpinner.getModel()).getNumber().intValue();
-  if (horizon < 1) {
-    throw new Exception("Must specify a non-zero number of steps to" + "forecast into the future");
-  }
-  eval.setHorizon(horizon);
-  eval.setPrimeWindowSize(forecaster.getTSLagMaker().getMaxLag());
-}

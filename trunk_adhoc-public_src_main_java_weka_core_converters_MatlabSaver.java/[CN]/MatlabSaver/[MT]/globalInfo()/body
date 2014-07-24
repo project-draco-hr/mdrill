@@ -1,3 +1,0 @@
-{
-  return "Writes Matlab ASCII files, in single or double precision format.";
-}

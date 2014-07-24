@@ -1,4 +1,0 @@
-{
-  final String name=getString(key);
-  return KeyStroke.getKeyStroke(createMnemonic(name).intValue(),mask);
-}

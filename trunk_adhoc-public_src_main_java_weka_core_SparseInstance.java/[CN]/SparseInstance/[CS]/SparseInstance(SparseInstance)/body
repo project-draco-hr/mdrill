@@ -1,7 +1,0 @@
-{
-  m_AttValues=instance.m_AttValues;
-  m_Indices=instance.m_Indices;
-  m_Weight=instance.m_Weight;
-  m_NumAttributes=instance.m_NumAttributes;
-  m_Dataset=null;
-}

@@ -1,7 +1,0 @@
-{
-  double result=this.right;
-  if (this.unitType == UnitType.RELATIVE) {
-    result=(width / (1 - this.left - this.right)) * this.right;
-  }
-  return result;
-}

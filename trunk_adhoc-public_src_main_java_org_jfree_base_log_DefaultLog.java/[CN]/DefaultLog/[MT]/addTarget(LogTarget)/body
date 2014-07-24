@@ -1,6 +1,0 @@
-{
-  super.addTarget(target);
-  if (target != DEFAULT_LOG_TARGET) {
-    removeTarget(DEFAULT_LOG_TARGET);
-  }
-}

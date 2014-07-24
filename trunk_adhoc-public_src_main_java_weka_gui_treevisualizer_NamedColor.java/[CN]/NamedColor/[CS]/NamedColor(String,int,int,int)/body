@@ -1,4 +1,0 @@
-{
-  m_name=n;
-  m_col=new Color(r,g,b);
-}

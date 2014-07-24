@@ -1,7 +1,0 @@
-{
-  Vector result;
-  result=new Vector();
-  result.add(new Option("\tTreat missing values as zero.","M",0,"-M"));
-  result.add(new Option("\tAdd a dummy first value for nominal attributes.","F",0,"-F"));
-  return result.elements();
-}

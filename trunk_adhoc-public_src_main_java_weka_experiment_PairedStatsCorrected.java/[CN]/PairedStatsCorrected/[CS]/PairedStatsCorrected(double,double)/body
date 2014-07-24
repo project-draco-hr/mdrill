@@ -1,4 +1,0 @@
-{
-  super(sig);
-  m_testTrainRatio=testTrainRatio;
-}

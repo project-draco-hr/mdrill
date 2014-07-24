@@ -1,5 +1,0 @@
-Integer p
-int max_scale
-int top_scale
-Stack<DistanceNode> point_set
-Stack<DistanceNode> consumed_set

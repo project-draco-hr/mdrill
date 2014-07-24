@@ -1,5 +1,0 @@
-{
-  if (digits < 1)   throw new IllegalArgumentException("digits < 1");
-  this.digits=digits;
-  intDigits=1;
-}

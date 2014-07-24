@@ -1,3 +1,0 @@
-{
-  return (compareTo(o) == -1);
-}

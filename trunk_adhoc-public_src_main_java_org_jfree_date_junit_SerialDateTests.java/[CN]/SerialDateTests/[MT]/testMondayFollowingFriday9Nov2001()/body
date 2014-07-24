@@ -1,4 +1,0 @@
-{
-  SerialDate mondayAfter=SerialDate.getFollowingDayOfWeek(SerialDate.MONDAY,this.nov9Y2001);
-  assertEquals(12,mondayAfter.getDayOfMonth());
-}

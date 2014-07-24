@@ -1,3 +1,0 @@
-{
-  runClassifier(new SimpleLogistic(),argv);
-}

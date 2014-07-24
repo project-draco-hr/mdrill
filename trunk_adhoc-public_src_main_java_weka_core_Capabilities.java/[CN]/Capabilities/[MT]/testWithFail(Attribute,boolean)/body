@@ -1,3 +1,0 @@
-{
-  if (!test(att,isClass))   throw m_FailReason;
-}

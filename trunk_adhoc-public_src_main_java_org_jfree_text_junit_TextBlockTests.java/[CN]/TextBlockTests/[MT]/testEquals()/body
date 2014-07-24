@@ -1,8 +1,0 @@
-{
-  final TextBlock b1=new TextBlock();
-  b1.addLine(new TextLine("Test"));
-  final TextBlock b2=new TextBlock();
-  b2.addLine(new TextLine("Test"));
-  assertTrue(b1.equals(b2));
-  assertTrue(b2.equals(b1));
-}

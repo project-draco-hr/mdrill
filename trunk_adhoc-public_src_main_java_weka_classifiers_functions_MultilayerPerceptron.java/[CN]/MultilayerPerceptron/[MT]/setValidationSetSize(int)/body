@@ -1,6 +1,0 @@
-{
-  if (a < 0 || a > 99) {
-    return;
-  }
-  m_valSize=a;
-}

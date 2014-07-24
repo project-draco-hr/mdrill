@@ -1,4 +1,0 @@
-int CUP$Parser$act_num
-java_cup.runtime.lr_parser CUP$Parser$parser
-java.util.Stack CUP$Parser$stack
-int CUP$Parser$top

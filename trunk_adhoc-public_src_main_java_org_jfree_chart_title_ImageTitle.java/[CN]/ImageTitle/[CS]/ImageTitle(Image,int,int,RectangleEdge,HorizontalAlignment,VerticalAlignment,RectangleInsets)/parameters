@@ -1,7 +1,0 @@
-Image image
-int height
-int width
-RectangleEdge position
-HorizontalAlignment horizontalAlignment
-VerticalAlignment verticalAlignment
-RectangleInsets padding

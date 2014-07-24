@@ -1,4 +1,0 @@
-{
-  super(parentFrame,"Database Connection Parameters",true);
-  DbConnectionDialog(url,uname,debug);
-}

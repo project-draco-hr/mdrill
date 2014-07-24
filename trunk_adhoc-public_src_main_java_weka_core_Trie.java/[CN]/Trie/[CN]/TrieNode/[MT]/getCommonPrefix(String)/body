@@ -1,9 +1,0 @@
-{
-  String result;
-  TrieNode startNode;
-  if (startPrefix.length() == 0)   startNode=this;
- else   startNode=find(startPrefix);
-  if (startNode == null)   result=null;
- else   result=startPrefix + startNode.determineCommonPrefix("");
-  return result;
-}

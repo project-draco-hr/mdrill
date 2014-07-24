@@ -1,4 +1,0 @@
-{
-  JFileChooser embeddedEditor=(JFileChooser)m_fileEditor.getCustomEditor();
-  embeddedEditor.addChoosableFileFilter(toSet);
-}

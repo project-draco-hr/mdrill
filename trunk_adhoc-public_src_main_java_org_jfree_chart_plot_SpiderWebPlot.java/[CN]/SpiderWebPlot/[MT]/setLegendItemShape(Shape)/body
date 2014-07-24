@@ -1,7 +1,0 @@
-{
-  if (shape == null) {
-    throw new IllegalArgumentException("Null 'shape' argument.");
-  }
-  this.legendItemShape=shape;
-  fireChangeEvent();
-}

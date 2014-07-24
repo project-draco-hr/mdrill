@@ -1,8 +1,0 @@
-{
-  super();
-  m_Parent=parent;
-  m_QueryPanel=null;
-  m_NameCounter=0;
-  m_Listeners=new HashSet();
-  createPanel();
-}

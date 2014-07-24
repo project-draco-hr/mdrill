@@ -1,4 +1,0 @@
-{
-  m_encodeMissingAsZero=Utils.getFlag('M',options);
-  m_insertDummyNominalFirstValue=Utils.getFlag('F',options);
-}

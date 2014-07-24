@@ -1,8 +1,0 @@
-Object source
-Classifier scheme
-DataSetEvent trsI
-DataSetEvent tstI
-int runNum
-int maxRunNum
-int setNum
-int maxSetNum

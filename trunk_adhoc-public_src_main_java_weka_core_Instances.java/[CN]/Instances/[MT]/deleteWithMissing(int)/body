@@ -1,9 +1,0 @@
-{
-  ArrayList<Instance> newInstances=new ArrayList<Instance>(numInstances());
-  for (int i=0; i < numInstances(); i++) {
-    if (!instance(i).isMissing(attIndex)) {
-      newInstances.add(instance(i));
-    }
-  }
-  m_Instances=newInstances;
-}

@@ -1,5 +1,0 @@
-{
-  Random r=new Random(seed);
-  r.setSeed(instance(r.nextInt(numInstances())).toStringNoWeight().hashCode() + seed);
-  return r;
-}

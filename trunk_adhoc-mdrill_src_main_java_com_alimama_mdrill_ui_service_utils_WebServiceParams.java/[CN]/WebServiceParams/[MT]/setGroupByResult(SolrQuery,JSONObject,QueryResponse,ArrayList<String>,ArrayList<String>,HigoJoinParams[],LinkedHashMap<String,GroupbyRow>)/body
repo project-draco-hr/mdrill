@@ -3,9 +3,7 @@
   String[] distFS=query.getParams(FacetParams.FACET_CROSSDIST_FL);
   LinkedHashMap<String,GroupbyRow> groupValueCache=new LinkedHashMap<String,GroupbyRow>();
   NamedList ff=(NamedList)qr.get_mdrillData();
-  ArrayList<Object> count=(ArrayList<Object>)ff.get("count");
-  RecordCount p=new RecordCount(count);
-  long totalRecord=p.getValue();
+  long totalRecord=(new RecordCount((ArrayList<Object>)ff.get("count"))).getValue();
   if (groupValueCacheLast == null) {
     jsonObj.put("code","1");
     jsonObj.put("message","success");

@@ -1,7 +1,0 @@
-{
-  int hash=5;
-  hash=HashUtilities.hashCode(hash,this.autoWidth);
-  hash=HashUtilities.hashCode(hash,this.intervalPositionFactor);
-  hash=HashUtilities.hashCode(hash,this.fixedIntervalWidth);
-  return hash;
-}

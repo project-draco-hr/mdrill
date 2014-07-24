@@ -1,3 +1,0 @@
-{
-  return get("Row","Key_Dataset");
-}

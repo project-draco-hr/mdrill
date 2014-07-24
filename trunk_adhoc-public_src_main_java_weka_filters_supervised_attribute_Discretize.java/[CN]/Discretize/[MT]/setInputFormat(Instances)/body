@@ -1,6 +1,0 @@
-{
-  super.setInputFormat(instanceInfo);
-  m_DiscretizeCols.setUpper(instanceInfo.numAttributes() - 1);
-  m_CutPoints=null;
-  return false;
-}

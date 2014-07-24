@@ -1,6 +1,0 @@
-{
-  if (x_impliedZeroSubtrahend) {
-    return (x_dataset.getItemCount(0) < 2);
-  }
-  return ((x_dataset.getItemCount(0) < 2) || (x_dataset.getItemCount(1) < 2));
-}

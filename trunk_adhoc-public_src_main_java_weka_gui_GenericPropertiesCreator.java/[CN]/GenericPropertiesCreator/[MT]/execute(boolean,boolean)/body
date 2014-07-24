@@ -1,7 +1,0 @@
-{
-  if (loadInputProps) {
-    loadInputProperties();
-  }
-  generateOutputProperties();
-  if (store)   storeOutputProperties();
-}

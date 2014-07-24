@@ -1,7 +1,0 @@
-{
-  Vector newVector=new Vector();
-  newVector.addElement(new Option("\tName of file containing network structure in BIF format\n","B",1,"-B <BIF File>"));
-  Enumeration en=super.listOptions();
-  while (en.hasMoreElements())   newVector.addElement(en.nextElement());
-  return newVector.elements();
-}

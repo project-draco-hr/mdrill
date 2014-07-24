@@ -1,7 +1,0 @@
-{
-  super.printStackTrace(writer);
-  if (getException() != null) {
-    writer.println("ParentException: ");
-    getException().printStackTrace(writer);
-  }
-}

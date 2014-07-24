@@ -1,3 +1,0 @@
-{
-  return this.dataset.getXValue(series,item) + (1.0 - getIntervalPositionFactor()) * getIntervalWidth();
-}

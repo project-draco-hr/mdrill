@@ -1,5 +1,0 @@
-{
-  if (this.modules.contains(state) == false) {
-    this.modules.add(state);
-  }
-}

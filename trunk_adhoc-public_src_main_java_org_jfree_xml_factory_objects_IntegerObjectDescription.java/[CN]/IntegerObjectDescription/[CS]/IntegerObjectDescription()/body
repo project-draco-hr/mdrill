@@ -1,4 +1,0 @@
-{
-  super(Integer.class);
-  setParameterDefinition("value",String.class);
-}

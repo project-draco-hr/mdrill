@@ -1,9 +1,0 @@
-{
-  super();
-  m_Parent=parent;
-  m_QueryExecuteListeners=new HashSet();
-  m_HistoryChangedListeners=new HashSet();
-  m_DbUtils=null;
-  m_Connected=false;
-  createPanel();
-}

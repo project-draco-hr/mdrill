@@ -1,4 +1,0 @@
-{
-  m_visual.loadIcons(BeanVisual.ICON_PATH + "ClassifierPerformanceEvaluator.gif",BeanVisual.ICON_PATH + "ClassifierPerformanceEvaluator_animated.gif");
-  m_visual.setText("ClassifierPerformanceEvaluator");
-}

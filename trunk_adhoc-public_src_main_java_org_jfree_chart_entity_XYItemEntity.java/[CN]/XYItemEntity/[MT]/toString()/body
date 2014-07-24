@@ -1,3 +1,0 @@
-{
-  return "XYItemEntity: series = " + getSeriesIndex() + ", item = "+ getItem()+ ", dataset = "+ getDataset();
-}

@@ -1,7 +1,0 @@
-{
-  if (width < 0.0) {
-    throw new IllegalArgumentException("Negative 'width' argument.");
-  }
-  this.intervalDelegate.setFixedIntervalWidth(width);
-  fireDatasetChanged();
-}

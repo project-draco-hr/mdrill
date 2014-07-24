@@ -1,9 +1,0 @@
-{
-  int fc=0;
-  for (int jj=0; jj < m_numAttributes; jj++) {
-    if (subset.get(jj)) {
-      fc++;
-    }
-  }
-  return estimatePerformance(subset,fc);
-}

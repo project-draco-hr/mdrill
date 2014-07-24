@@ -1,8 +1,0 @@
-{
-  StringTokenizer tok;
-  Vector<String> list;
-  list=new Vector<String>();
-  tok=new StringTokenizer(value,",");
-  while (tok.hasMoreTokens())   list.add(tok.nextToken());
-  return (String[])list.toArray(new String[list.size()]);
-}

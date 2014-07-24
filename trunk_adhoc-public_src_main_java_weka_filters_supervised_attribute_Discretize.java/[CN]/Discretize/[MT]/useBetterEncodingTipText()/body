@@ -1,3 +1,0 @@
-{
-  return "Uses a more efficient split point encoding.";
-}

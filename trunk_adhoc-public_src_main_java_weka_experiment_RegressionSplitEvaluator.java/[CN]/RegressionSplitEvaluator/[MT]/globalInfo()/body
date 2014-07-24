@@ -1,3 +1,0 @@
-{
-  return "A SplitEvaluator that produces results for a classification " + "scheme on a numeric class attribute.";
-}

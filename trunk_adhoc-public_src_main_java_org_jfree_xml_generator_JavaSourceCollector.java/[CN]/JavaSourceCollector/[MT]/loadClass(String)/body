@@ -1,9 +1,0 @@
-{
-  try {
-    return ObjectUtilities.getClassLoader(JavaSourceCollector.class).loadClass(name);
-  }
- catch (  Exception e) {
-    Log.warn(new Log.SimpleMessage("Do not process: Failed to load class:",name));
-    return null;
-  }
-}

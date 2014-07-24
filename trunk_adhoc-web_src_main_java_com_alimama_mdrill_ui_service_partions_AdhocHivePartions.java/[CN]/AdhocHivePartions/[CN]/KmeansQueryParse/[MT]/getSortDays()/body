@@ -1,8 +1,0 @@
-{
-  Arrays.sort(days);
-  String[] rtn=new String[days.length];
-  for (int i=0; i < rtn.length; i++) {
-    rtn[i]=days[days.length - (i + 1)];
-  }
-  return rtn;
-}

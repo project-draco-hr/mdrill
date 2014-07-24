@@ -1,4 +1,0 @@
-{
-  useCacheOrOnlineRepository();
-  return PACKAGE_MANAGER.getAllPackages();
-}

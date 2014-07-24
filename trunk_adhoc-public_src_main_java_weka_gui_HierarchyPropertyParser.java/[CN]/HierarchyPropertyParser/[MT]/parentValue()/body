@@ -1,4 +1,0 @@
-{
-  if (m_Current.parent != null)   return m_Current.parent.value;
- else   return null;
-}

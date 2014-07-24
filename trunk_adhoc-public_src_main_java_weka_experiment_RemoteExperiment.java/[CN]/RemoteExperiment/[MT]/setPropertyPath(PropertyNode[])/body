@@ -1,4 +1,0 @@
-{
-  super.setPropertyPath(newPropertyPath);
-  m_baseExperiment.setPropertyPath(newPropertyPath);
-}

@@ -1,3 +1,0 @@
-{
-  return readInstance(structure,true);
-}

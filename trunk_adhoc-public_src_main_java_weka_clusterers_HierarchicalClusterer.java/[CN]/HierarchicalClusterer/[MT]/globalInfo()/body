@@ -1,3 +1,0 @@
-{
-  return "Hierarchical clustering class.\n" + "Implements a number of classic agglomorative (i.e. bottom up) hierarchical clustering methods" + "based on .";
-}

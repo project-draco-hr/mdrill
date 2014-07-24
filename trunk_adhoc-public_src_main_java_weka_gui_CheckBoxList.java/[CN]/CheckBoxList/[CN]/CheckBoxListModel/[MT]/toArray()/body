@@ -1,9 +1,0 @@
-{
-  Object[] result;
-  Object[] internal;
-  int i;
-  internal=super.toArray();
-  result=new Object[internal.length];
-  for (i=0; i < internal.length; i++)   result[i]=((CheckBoxListItem)internal[i]).getContent();
-  return result;
-}

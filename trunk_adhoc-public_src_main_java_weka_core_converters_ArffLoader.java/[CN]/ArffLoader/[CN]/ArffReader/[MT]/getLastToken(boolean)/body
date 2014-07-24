@@ -1,5 +1,0 @@
-{
-  if ((m_Tokenizer.nextToken() != StreamTokenizer.TT_EOL) && ((m_Tokenizer.ttype != StreamTokenizer.TT_EOF) || !endOfFileOk)) {
-    errorMessage("end of line expected");
-  }
-}

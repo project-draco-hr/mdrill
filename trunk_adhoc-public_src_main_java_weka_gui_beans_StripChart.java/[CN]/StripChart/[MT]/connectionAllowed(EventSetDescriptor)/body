@@ -1,3 +1,0 @@
-{
-  return connectionAllowed(esd.getName());
-}

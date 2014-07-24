@@ -1,7 +1,0 @@
-{
-  boolean result;
-  int index;
-  index=m_Data.classIndex();
-  result=((index == -1) && (m_Data.numAttributes() == columnIndex)) || (index == columnIndex - 1);
-  return result;
-}

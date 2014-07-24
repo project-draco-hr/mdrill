@@ -1,7 +1,0 @@
-{
-  if (!(o instanceof BasicStroke)) {
-    throw new ObjectFactoryException("Expected object of type BasicStroke");
-  }
-  final BasicStroke bs=(BasicStroke)o;
-  setParameter("value",String.valueOf(bs.getLineWidth()));
-}

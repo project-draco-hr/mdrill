@@ -1,3 +1,0 @@
-{
-  return drawImage(img,x,y,img.getWidth(observer),img.getHeight(observer),bgcolor,observer);
-}

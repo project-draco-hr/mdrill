@@ -1,8 +1,0 @@
-{
-  Insets insets=getInsets();
-  double x=rect.getX() * getScaleX() + insets.left;
-  double y=rect.getY() * getScaleY() + insets.top;
-  double w=rect.getWidth() * getScaleX();
-  double h=rect.getHeight() * getScaleY();
-  return new Rectangle2D.Double(x,y,w,h);
-}

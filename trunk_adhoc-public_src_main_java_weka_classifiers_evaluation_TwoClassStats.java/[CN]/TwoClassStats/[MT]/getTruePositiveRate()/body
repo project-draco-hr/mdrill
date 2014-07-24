@@ -1,8 +1,0 @@
-{
-  if (0 == (m_TruePos + m_FalseNeg)) {
-    return 0;
-  }
- else {
-    return m_TruePos / (m_TruePos + m_FalseNeg);
-  }
-}

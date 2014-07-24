@@ -1,5 +1,0 @@
-{
-  DefaultPieDataset clone=(DefaultPieDataset)super.clone();
-  clone.data=(DefaultKeyedValues)this.data.clone();
-  return clone;
-}

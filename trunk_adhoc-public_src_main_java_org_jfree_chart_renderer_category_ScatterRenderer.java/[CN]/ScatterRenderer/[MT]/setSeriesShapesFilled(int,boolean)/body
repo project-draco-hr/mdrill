@@ -1,4 +1,0 @@
-{
-  this.seriesShapesFilled.setBoolean(series,BooleanUtilities.valueOf(filled));
-  fireChangeEvent();
-}

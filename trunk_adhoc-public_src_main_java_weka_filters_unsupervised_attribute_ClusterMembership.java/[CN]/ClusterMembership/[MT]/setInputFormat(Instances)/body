@@ -1,6 +1,0 @@
-{
-  super.setInputFormat(instanceInfo);
-  m_removeAttributes=null;
-  m_priors=null;
-  return false;
-}

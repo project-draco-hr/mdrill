@@ -1,4 +1,0 @@
-{
-  this.categoryLabelToolTips.clear();
-  notifyListeners(new AxisChangeEvent(this));
-}

@@ -1,4 +1,0 @@
-{
-  if (!trailing && !grouping)   throw new RuntimeException("flexible width");
-  return format(0.).length();
-}

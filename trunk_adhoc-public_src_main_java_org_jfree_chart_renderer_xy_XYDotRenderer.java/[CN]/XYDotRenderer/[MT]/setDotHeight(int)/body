@@ -1,7 +1,0 @@
-{
-  if (h < 1) {
-    throw new IllegalArgumentException("Requires h > 0.");
-  }
-  this.dotHeight=h;
-  fireChangeEvent();
-}

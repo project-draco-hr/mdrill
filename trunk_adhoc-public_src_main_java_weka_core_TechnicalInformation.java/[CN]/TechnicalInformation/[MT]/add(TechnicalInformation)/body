@@ -1,4 +1,0 @@
-{
-  if (value == this)   throw new IllegalArgumentException("Can't add object to itself!");
-  m_Additional.add(value);
-}

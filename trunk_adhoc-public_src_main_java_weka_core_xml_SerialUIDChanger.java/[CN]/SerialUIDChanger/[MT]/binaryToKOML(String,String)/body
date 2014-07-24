@@ -1,7 +1,0 @@
-{
-  Object o;
-  checkKOML();
-  o=readBinary(binary);
-  if (o == null)   throw new Exception("Failed to deserialize object from binary file '" + binary + "'!");
-  KOML.write(koml,o);
-}

@@ -16,14 +16,10 @@
     return;
   }
   String mergeServers=paramsr.get(FacetParams.MERGER_SERVERS);
-  if (shards != null) {
-    List<String> lst=StrUtils.splitSmart(shards,",",true);
-    List<String> mslist=lst;
-    if (mergeServers != null) {
-      mslist=StrUtils.splitSmart(mergeServers,",",true);
-    }
-    MergerSchedule.schedule(paramsr,lst,mslist,rb);
-  }
+  List<String> lst=StrUtils.splitSmart(shards,",",true);
+  List<String> mslist=StrUtils.splitSmart(mergeServers,",",true);
+  String[] partions=paramsr.getParams(ShardParams.PARTIONS);
+  ScheduleInfo scheduleInfo=MergerSchedule.schedule(paramsr,lst,mslist,partions);
   int depth=req.getParams().getInt("__higo_ms_depth__",0);
   HttpCommComponent comm=new HttpCommComponent(depth);
   ShardRequest sreq=new ShardRequest();
@@ -32,34 +28,24 @@
     c.modifyRequest(rb,c,sreq);
     c.distributedProcess(rb);
   }
-  sreq.actualShards=rb.shards;
   sreq.responses=new ArrayList<ShardResponse>();
-  for (int i=0; i < sreq.actualShards.length; i++) {
-    String shard=sreq.actualShards[i];
+  for (int i=0; i < scheduleInfo.shards.length; i++) {
     ModifiableSolrParams params=new ModifiableSolrParams(sreq.params);
     params.remove(ShardParams.SHARDS);
     params.remove("indent");
+    params.remove(ShardParams.PARTIONS);
     params.remove(CommonParams.HEADER_ECHO_PARAMS);
     params.set(ShardParams.IS_SHARD,true);
-    if (rb.issubshard) {
-      params.set(ShardParams.SHARDS,rb.subShards[i]);
-      params.set(FacetParams.IS_SUB_SHARDS,true);
-      if (params.getBool("fetchfdt",false)) {
-        int offset=params.getInt(FacetParams.FACET_CROSS_OFFSET,0);
-        int limit=params.getInt(FacetParams.FACET_CROSS_LIMIT,0);
-        params.remove(FacetParams.FACET_CROSS_OFFSET);
-        params.remove(FacetParams.FACET_CROSS_LIMIT);
-        params.set(FacetParams.FACET_CROSS_OFFSET,0);
-        params.set(FacetParams.FACET_CROSS_LIMIT,offset + limit);
-      }
- else {
-        params.set(FacetParams.FACET_CROSS_OFFSET,0);
-        int maxlimit=MdrillGroupBy.MAX_CROSS_ROWS;
-        params.set(FacetParams.FACET_CROSS_LIMIT,maxlimit);
-      }
+    if (scheduleInfo.partions != null) {
+      params.set(ShardParams.PARTIONS,scheduleInfo.partions);
     }
+    if (scheduleInfo.hasSubShards) {
+      params.set(ShardParams.SHARDS,scheduleInfo.subShards[i]);
+    }
+    params.set(FacetParams.FACET_CROSS_OFFSET,0);
+    params.set(FacetParams.FACET_CROSS_LIMIT,MdrillGroupBy.MAX_CROSS_ROWS);
     params.remove(CommonParams.QT);
-    comm.submit(sreq,shard,params,depth);
+    comm.submit(scheduleInfo,sreq,scheduleInfo.shards[i],params,depth);
   }
   while (true) {
     ShardResponse srsp=comm.takeCompletedOrError();

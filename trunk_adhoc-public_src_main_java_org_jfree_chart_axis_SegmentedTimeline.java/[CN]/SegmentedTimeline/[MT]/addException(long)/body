@@ -1,3 +1,0 @@
-{
-  addException(new Segment(millisecond));
-}

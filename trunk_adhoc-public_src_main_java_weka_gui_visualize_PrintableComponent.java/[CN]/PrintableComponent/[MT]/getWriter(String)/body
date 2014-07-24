@@ -1,3 +1,0 @@
-{
-  return (JComponentWriter)getWriters().get(name);
-}

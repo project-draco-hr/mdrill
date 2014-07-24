@@ -1,7 +1,0 @@
-{
-  ArffPanel panel;
-  panel=new ArffPanel(filename);
-  panel.addChangeListener(this);
-  tabbedPane.addTab(panel.getTitle(),panel);
-  tabbedPane.setSelectedIndex(tabbedPane.getTabCount() - 1);
-}

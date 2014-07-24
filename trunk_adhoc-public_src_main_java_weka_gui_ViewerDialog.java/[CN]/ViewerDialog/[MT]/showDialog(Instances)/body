@@ -1,4 +1,0 @@
-{
-  setInstances(inst);
-  return showDialog();
-}

@@ -1,9 +1,0 @@
-{
-  XYSeries series=new XYSeries(seriesName);
-  int rows=dataset.getYSampleCount();
-  for (int r=0; r < rows; r++) {
-    series.add(dataset.getYValue(r),dataset.getZValue(column,r));
-  }
-  XYSeriesCollection result=new XYSeriesCollection(series);
-  return result;
-}

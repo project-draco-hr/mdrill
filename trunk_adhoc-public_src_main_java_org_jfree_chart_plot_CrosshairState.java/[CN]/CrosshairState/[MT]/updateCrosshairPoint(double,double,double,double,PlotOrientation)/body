@@ -1,3 +1,0 @@
-{
-  updateCrosshairPoint(x,y,0,0,transX,transY,orientation);
-}

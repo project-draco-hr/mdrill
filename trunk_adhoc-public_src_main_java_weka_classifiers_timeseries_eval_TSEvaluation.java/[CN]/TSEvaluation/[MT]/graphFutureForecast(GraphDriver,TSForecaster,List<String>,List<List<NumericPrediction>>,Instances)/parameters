@@ -1,5 +1,0 @@
-GraphDriver driver
-TSForecaster forecaster
-List<String> targetNames
-List<List<NumericPrediction>> preds
-Instances history

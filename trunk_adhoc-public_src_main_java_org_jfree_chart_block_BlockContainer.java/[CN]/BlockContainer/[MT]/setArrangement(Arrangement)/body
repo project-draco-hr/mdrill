@@ -1,6 +1,0 @@
-{
-  if (arrangement == null) {
-    throw new IllegalArgumentException("Null 'arrangement' argument.");
-  }
-  this.arrangement=arrangement;
-}

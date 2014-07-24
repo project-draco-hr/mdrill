@@ -1,3 +1,0 @@
-{
-  return getValueAt(0,c).getClass();
-}

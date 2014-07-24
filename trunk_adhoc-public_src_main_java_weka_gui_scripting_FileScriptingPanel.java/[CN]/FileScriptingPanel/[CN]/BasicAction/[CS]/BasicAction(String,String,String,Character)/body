@@ -1,6 +1,0 @@
-{
-  super(name);
-  if ((icon != null) && (icon.length() > 0))   putValue(Action.SMALL_ICON,ComponentHelper.getImageIcon(icon));
-  if ((accel != null) && (accel.length() > 0))   putValue(Action.ACCELERATOR_KEY,KeyStroke.getKeyStroke(accel));
-  if (mnemonic != null)   putValue(Action.MNEMONIC_KEY,new Integer(mnemonic.charValue()));
-}

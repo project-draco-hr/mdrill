@@ -1,3 +1,0 @@
-{
-  fillRect(x,y,width,height);
-}

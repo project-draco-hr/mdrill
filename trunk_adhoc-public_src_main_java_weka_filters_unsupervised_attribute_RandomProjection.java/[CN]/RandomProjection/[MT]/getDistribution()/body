@@ -1,3 +1,0 @@
-{
-  return new SelectedTag(m_distribution,TAGS_DSTRS_TYPE);
-}

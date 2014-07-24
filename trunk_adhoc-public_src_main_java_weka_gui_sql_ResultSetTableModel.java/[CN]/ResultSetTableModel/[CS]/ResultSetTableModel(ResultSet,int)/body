@@ -1,6 +1,0 @@
-{
-  super();
-  m_Listeners=new HashSet();
-  m_Helper=new ResultSetHelper(rs,rows);
-  m_Data=m_Helper.getCells();
-}

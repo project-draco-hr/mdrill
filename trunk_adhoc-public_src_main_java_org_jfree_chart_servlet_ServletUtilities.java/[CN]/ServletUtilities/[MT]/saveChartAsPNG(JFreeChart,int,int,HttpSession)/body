@@ -1,3 +1,0 @@
-{
-  return ServletUtilities.saveChartAsPNG(chart,width,height,null,session);
-}

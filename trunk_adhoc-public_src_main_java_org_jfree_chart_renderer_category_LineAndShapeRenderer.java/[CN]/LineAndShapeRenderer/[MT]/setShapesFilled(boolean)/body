@@ -1,8 +1,0 @@
-{
-  if (filled) {
-    setShapesFilled(Boolean.TRUE);
-  }
- else {
-    setShapesFilled(Boolean.FALSE);
-  }
-}

@@ -1,4 +1,0 @@
-{
-  super(Boolean.class);
-  setParameterDefinition("value",String.class);
-}

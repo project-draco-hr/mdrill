@@ -1,4 +1,0 @@
-{
-  if (m_PrintPane != null)   return m_PrintPane.getDocument();
- else   return null;
-}

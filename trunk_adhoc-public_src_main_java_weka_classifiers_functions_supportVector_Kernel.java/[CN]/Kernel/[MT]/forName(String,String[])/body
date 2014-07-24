@@ -1,3 +1,0 @@
-{
-  return (Kernel)Utils.forName(Kernel.class,kernelName,options);
-}

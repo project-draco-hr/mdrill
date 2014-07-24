@@ -1,3 +1,0 @@
-weka.core.converters.Loader loader
-int perspectiveIndex
-boolean sendToAll

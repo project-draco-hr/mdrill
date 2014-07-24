@@ -1,7 +1,0 @@
-{
-  super();
-  m_Instances=null;
-  setDocType(DOCTYPE);
-  setRootNode(TAG_DATASET);
-  setValidating(true);
-}

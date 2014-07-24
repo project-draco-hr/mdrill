@@ -1,6 +1,0 @@
-{
-  if (name == null) {
-    throw new IllegalArgumentException("Null 'name' argument.");
-  }
-  this.name=name;
-}

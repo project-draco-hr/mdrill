@@ -1,3 +1,0 @@
-{
-  this.classToHandlerMapping.addMultiplexMapping(new MultiplexMappingDefinition(baseClass,typeAttr,mdef));
-}

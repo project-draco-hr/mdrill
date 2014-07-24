@@ -1,5 +1,0 @@
-{
-  if (b)   m_ReturnValue=JOptionPane.CANCEL_OPTION;
-  super.setVisible(b);
-  if (b)   m_Viewer.clear();
-}

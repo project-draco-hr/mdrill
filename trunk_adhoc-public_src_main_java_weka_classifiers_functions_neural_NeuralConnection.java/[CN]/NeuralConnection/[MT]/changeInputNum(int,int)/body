@@ -1,6 +1,0 @@
-{
-  if (n >= m_numInputs || n < 0) {
-    return;
-  }
-  m_inputNums[n]=v;
-}

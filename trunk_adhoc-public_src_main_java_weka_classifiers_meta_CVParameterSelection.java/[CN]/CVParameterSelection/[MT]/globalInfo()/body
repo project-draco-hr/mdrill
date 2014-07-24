@@ -1,3 +1,0 @@
-{
-  return "Class for performing parameter selection by cross-validation " + "for any classifier.\n\n" + "For more information, see:\n\n"+ getTechnicalInformation().toString();
-}

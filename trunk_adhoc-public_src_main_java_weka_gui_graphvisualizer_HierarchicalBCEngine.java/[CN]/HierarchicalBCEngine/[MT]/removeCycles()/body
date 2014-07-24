@@ -1,9 +1,0 @@
-{
-  int visited[]=new int[m_nodes.size()];
-  for (int i=0; i < graphMatrix.length; i++) {
-    if (visited[i] == 0) {
-      removeCycles2(i,visited);
-      visited[i]=1;
-    }
-  }
-}

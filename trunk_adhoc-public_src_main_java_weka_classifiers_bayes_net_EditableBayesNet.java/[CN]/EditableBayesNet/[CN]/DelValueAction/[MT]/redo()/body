@@ -1,8 +1,0 @@
-{
-  try {
-    delNodeValue(m_nTargetNode,m_sValue);
-  }
- catch (  Exception e) {
-    e.printStackTrace();
-  }
-}

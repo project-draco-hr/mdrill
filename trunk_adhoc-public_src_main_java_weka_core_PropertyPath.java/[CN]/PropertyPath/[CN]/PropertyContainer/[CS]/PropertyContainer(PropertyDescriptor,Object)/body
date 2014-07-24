@@ -1,5 +1,0 @@
-{
-  super();
-  m_Descriptor=desc;
-  m_Object=obj;
-}

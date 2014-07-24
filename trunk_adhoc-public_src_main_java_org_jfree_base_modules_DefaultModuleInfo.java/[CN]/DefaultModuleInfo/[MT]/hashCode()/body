@@ -1,5 +1,0 @@
-{
-  final int result;
-  result=this.moduleClass.hashCode();
-  return result;
-}

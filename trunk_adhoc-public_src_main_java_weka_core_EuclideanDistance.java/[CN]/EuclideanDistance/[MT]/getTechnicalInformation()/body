@@ -1,8 +1,0 @@
-{
-  TechnicalInformation result;
-  result=new TechnicalInformation(Type.MISC);
-  result.setValue(Field.AUTHOR,"Wikipedia");
-  result.setValue(Field.TITLE,"Euclidean distance");
-  result.setValue(Field.URL,"http://en.wikipedia.org/wiki/Euclidean_distance");
-  return result;
-}

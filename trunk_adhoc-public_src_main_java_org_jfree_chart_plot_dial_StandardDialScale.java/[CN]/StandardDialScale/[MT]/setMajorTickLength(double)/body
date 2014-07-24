@@ -1,7 +1,0 @@
-{
-  if (length < 0.0) {
-    throw new IllegalArgumentException("Negative 'length' argument.");
-  }
-  this.majorTickLength=length;
-  notifyListeners(new DialLayerChangeEvent(this));
-}

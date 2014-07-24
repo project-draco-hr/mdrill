@@ -1,5 +1,0 @@
-{
-  Vector newVector=new Vector(1);
-  newVector.addElement(new Option("\tMaximum variance percentage allowed (default 99)","M",1,"-M <max variance %>"));
-  return newVector.elements();
-}

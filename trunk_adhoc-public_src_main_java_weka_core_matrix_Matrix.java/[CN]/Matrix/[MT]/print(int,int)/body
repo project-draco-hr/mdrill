@@ -1,3 +1,0 @@
-{
-  print(new PrintWriter(System.out,true),w,d);
-}

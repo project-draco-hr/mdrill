@@ -1,4 +1,0 @@
-{
-  super("Learn Network","Learn Bayesian Network","learn","ctrl L");
-  setEnabled(false);
-}

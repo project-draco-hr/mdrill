@@ -18,7 +18,7 @@
     key=new QueryResultKey(q,cmd.getFilterList(),cmd.getSort(),flags);
     if ((flags & NO_CHECK_QCACHE) == 0) {
       QueryResultKeyCache qk=new QueryResultKeyCache(key,this.uuid);
-      QueryVal qv=(QueryVal)GrobalCache.fieldValueCache.get(qk);
+      QueryVal qv=(QueryVal)GrobalCache.fieldValueCache_fq.get(qk);
       superset=null;
       if (qv != null) {
         superset=qv.dlist;
@@ -92,6 +92,6 @@
     QueryResultKeyCache qk=new QueryResultKeyCache(key,this.uuid);
     QueryVal qv=new QueryVal();
     qv.dlist=superset;
-    GrobalCache.fieldValueCache.put(qk,qv);
+    GrobalCache.fieldValueCache_fq.put(qk,qv);
   }
 }

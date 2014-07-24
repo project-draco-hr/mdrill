@@ -1,4 +1,0 @@
-{
-  this.simpleLabels=simple;
-  fireChangeEvent();
-}

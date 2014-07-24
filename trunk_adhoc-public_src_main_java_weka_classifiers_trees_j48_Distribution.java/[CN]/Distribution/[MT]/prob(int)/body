@@ -1,8 +1,0 @@
-{
-  if (!Utils.eq(totaL,0)) {
-    return m_perClass[classIndex] / totaL;
-  }
- else {
-    return 0;
-  }
-}

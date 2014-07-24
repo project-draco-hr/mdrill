@@ -1,4 +1,0 @@
-{
-  this.indentLevel++;
-  allowLineBreak();
-}

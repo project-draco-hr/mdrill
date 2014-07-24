@@ -1,3 +1,0 @@
-{
-  m_matrix[rowIndex][columnIndex]=new Double(value);
-}

@@ -1,3 +1,0 @@
-{
-  return "Set attribute selection mode. If false, only selected" + " (numeric) attributes in the range will be 'nominalized'; if" + " true, only non-selected attributes will be 'nominalized'.";
-}

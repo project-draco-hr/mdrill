@@ -1,3 +1,0 @@
-{
-  this(DEFAULT_SECTION_LABEL_FORMAT,locale);
-}

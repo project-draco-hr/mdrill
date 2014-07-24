@@ -1,8 +1,0 @@
-{
-  for (  Operator t : Operator.values()) {
-    if (operator.equals(t.toString())) {
-      m_boundOperator=t;
-      break;
-    }
-  }
-}

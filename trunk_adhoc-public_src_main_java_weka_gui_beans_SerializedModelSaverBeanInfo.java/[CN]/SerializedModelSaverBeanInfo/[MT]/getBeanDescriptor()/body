@@ -1,3 +1,0 @@
-{
-  return new BeanDescriptor(weka.gui.beans.SerializedModelSaver.class,SerializedModelSaverCustomizer.class);
-}

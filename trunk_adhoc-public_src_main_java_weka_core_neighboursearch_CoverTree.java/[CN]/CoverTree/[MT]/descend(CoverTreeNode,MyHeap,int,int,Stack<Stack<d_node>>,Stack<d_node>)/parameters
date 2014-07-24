@@ -1,6 +1,0 @@
-CoverTreeNode query
-MyHeap upper_k
-int current_scale
-int max_scale
-Stack<Stack<d_node>> cover_sets
-Stack<d_node> zero_set

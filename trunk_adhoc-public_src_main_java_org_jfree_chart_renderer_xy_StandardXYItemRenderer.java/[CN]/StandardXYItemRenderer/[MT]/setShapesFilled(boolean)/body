@@ -1,3 +1,0 @@
-{
-  setShapesFilled(BooleanUtilities.valueOf(filled));
-}

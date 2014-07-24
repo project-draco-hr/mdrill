@@ -1,7 +1,0 @@
-{
-  if (bar == null) {
-    throw new IllegalArgumentException("Null 'bar' argument.");
-  }
-  this.legendBar=bar;
-  fireChangeEvent();
-}

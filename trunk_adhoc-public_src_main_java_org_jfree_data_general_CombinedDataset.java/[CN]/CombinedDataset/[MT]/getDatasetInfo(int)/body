@@ -1,3 +1,0 @@
-{
-  return (DatasetInfo)this.datasetInfo.get(series);
-}

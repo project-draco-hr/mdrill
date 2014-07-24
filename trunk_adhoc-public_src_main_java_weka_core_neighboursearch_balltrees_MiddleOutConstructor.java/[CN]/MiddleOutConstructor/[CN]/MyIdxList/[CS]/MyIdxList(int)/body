@@ -1,3 +1,0 @@
-{
-  m_List=new ArrayList<ListNode>(capacity);
-}

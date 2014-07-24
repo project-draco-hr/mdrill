@@ -1,8 +1,0 @@
-{
-  final XmlReadHandler retval=findHandlerForClass(classToRead,atts,new ArrayList());
-  if (retval == null) {
-    throw new NullPointerException("Unable to find handler for class: " + classToRead);
-  }
-  retval.init(this,tagName);
-  return retval;
-}

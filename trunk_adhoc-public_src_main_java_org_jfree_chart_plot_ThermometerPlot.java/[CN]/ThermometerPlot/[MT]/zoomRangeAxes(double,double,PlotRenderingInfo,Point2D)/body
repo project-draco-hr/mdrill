@@ -1,3 +1,0 @@
-{
-  this.rangeAxis.zoomRange(lowerPercent,upperPercent);
-}

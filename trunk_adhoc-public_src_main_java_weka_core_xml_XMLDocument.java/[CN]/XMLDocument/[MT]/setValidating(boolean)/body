@@ -1,6 +1,0 @@
-{
-  m_Validating=validating;
-  m_Factory.setValidating(validating);
-  m_Builder=m_Factory.newDocumentBuilder();
-  clear();
-}

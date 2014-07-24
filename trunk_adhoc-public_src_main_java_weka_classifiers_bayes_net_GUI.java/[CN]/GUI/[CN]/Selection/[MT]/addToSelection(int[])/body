@@ -1,6 +1,0 @@
-{
-  for (int iNode=0; iNode < iNodes.length; iNode++) {
-    addToSelection(iNodes[iNode]);
-  }
-  updateGUI();
-}

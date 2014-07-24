@@ -1,3 +1,0 @@
-{
-  return "The serialized classifier model to use for predictions.";
-}

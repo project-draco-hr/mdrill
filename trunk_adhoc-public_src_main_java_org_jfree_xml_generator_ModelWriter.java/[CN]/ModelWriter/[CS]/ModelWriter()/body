@@ -1,3 +1,0 @@
-{
-  this.writerSupport=new XMLWriterSupport(getSafeTags(),0);
-}

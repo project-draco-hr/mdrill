@@ -1,7 +1,0 @@
-{
-  if (category == null) {
-    throw new IllegalArgumentException("Null 'category' argument.");
-  }
-  this.categoryLabelToolTips.put(category,tooltip);
-  notifyListeners(new AxisChangeEvent(this));
-}

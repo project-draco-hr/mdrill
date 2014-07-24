@@ -1,3 +1,0 @@
-{
-  return "If set to true, estimator may output additional info to " + "the console.";
-}

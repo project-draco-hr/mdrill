@@ -1,6 +1,0 @@
-{
-  m_Document=getBuilder().newDocument();
-  m_Document.appendChild(m_Document.createElement(rootNode));
-  setDocType(docType);
-  return getDocument();
-}

@@ -1,9 +1,0 @@
-{
-  for (  Capability cap : Capability.values()) {
-    if (handles(cap) || c.handles(cap))     m_Capabilities.add(cap);
- else     m_Capabilities.remove(cap);
-    if (hasDependency(cap) || c.hasDependency(cap))     m_Dependencies.add(cap);
- else     m_Dependencies.remove(cap);
-  }
-  if (c.getMinimumNumberInstances() < getMinimumNumberInstances())   setMinimumNumberInstances(c.getMinimumNumberInstances());
-}

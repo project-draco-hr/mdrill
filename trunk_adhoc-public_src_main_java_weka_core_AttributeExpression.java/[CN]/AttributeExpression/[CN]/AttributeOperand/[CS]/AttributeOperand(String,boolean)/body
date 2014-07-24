@@ -1,4 +1,0 @@
-{
-  m_attributeIndex=(Integer.parseInt(operand.substring(1))) - 1;
-  m_negative=sign;
-}

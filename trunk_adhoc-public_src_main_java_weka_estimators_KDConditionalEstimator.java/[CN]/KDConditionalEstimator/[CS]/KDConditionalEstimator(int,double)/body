@@ -1,6 +1,0 @@
-{
-  m_Estimators=new KernelEstimator[numCondSymbols];
-  for (int i=0; i < numCondSymbols; i++) {
-    m_Estimators[i]=new KernelEstimator(precision);
-  }
-}

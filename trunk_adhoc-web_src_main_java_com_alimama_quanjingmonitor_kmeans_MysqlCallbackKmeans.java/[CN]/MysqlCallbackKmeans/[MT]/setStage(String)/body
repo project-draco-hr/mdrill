@@ -1,5 +1,0 @@
-{
-synchronized (lock) {
-    this.stage="30";
-  }
-}

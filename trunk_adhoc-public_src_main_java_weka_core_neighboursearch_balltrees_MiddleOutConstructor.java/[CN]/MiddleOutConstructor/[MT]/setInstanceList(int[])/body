@@ -1,4 +1,0 @@
-{
-  super.setInstanceList(instList);
-  rootRadius=-1;
-}

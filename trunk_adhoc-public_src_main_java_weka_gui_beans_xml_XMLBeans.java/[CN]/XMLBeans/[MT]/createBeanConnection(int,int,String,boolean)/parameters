@@ -1,4 +1,0 @@
-int sourcePos
-int targetPos
-String event
-boolean hidden

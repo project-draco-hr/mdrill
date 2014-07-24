@@ -1,6 +1,0 @@
-{
-  final JLabel result=new JLabel(text);
-  result.setFont(font);
-  result.setForeground(color);
-  return result;
-}

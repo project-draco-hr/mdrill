@@ -1,6 +1,0 @@
-{
-  if (this.autoWidthGap != autoWidthGap) {
-    this.autoWidthGap=autoWidthGap;
-    fireChangeEvent();
-  }
-}

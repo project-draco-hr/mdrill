@@ -1,3 +1,0 @@
-{
-  return fromXML(m_Document.read(file));
-}

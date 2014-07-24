@@ -1,3 +1,0 @@
-{
-  return distance(first,second,Double.POSITIVE_INFINITY,stats);
-}

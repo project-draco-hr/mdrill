@@ -1,8 +1,0 @@
-{
-  if (includeInterval) {
-    return this.maximumRangeValueIncStdDev;
-  }
- else {
-    return this.maximumRangeValue;
-  }
-}

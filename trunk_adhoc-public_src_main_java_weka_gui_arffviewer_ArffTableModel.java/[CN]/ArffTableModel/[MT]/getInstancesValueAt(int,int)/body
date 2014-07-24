@@ -1,6 +1,0 @@
-{
-  double result;
-  result=-1;
-  if ((rowIndex >= 0) && (rowIndex < getRowCount()) && (columnIndex > 0)&& (columnIndex < getColumnCount()))   result=m_Data.instance(rowIndex).value(columnIndex - 1);
-  return result;
-}

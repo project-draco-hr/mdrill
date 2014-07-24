@@ -1,4 +1,0 @@
-{
-  if (isKeyword(s))   return s + m_KeywordsMaskChar;
- else   return s;
-}

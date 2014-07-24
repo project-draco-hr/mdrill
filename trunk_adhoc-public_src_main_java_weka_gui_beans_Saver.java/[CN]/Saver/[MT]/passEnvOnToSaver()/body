@@ -1,5 +1,0 @@
-{
-  if (m_SaverTemplate instanceof EnvironmentHandler && m_env != null) {
-    ((EnvironmentHandler)m_Saver).setEnvironment(m_env);
-  }
-}

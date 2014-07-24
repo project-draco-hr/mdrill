@@ -1,8 +1,0 @@
-{
-  if (min.equals("*")) {
-    m_min_of_hour=-100;
-  }
- else {
-    m_min_of_hour=Integer.parseInt(min);
-  }
-}

@@ -1,6 +1,0 @@
-{
-  if (entity == null) {
-    throw new IllegalArgumentException("Null 'entity' argument.");
-  }
-  this.entities.add(entity);
-}

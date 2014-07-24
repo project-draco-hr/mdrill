@@ -1,3 +1,0 @@
-{
-  m_visual.loadIcons(BeanVisual.ICON_PATH + "DefaultAssociator.gif",BeanVisual.ICON_PATH + "DefaultAssociator_animated.gif");
-}

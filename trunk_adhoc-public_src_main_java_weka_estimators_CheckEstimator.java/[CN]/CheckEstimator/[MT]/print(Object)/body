@@ -1,3 +1,0 @@
-{
-  if (!getSilent())   System.out.print(msg);
-}

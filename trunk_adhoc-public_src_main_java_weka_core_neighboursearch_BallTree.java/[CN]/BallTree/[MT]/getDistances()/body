@@ -1,4 +1,0 @@
-{
-  if (m_Distances == null)   throw new Exception("No distances available. Please call either " + "kNearestNeighbours or nearestNeighbours first.");
-  return m_Distances;
-}

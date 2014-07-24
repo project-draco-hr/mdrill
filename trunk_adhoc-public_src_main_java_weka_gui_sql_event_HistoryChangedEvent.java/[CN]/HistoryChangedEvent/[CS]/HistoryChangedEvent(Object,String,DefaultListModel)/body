@@ -1,5 +1,0 @@
-{
-  super(source);
-  m_HistoryName=name;
-  m_History=history;
-}

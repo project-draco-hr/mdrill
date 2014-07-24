@@ -1,4 +1,0 @@
-{
-  setBIFFile(Utils.getOption('B',options));
-  super.setOptions(options);
-}

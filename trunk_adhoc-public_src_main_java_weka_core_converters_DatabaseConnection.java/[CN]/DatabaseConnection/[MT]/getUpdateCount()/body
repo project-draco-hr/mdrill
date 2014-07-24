@@ -1,4 +1,0 @@
-{
-  if (!isConnected())   throw new IllegalStateException("Not connected, please connect first!");
-  return m_PreparedStatement.getUpdateCount();
-}

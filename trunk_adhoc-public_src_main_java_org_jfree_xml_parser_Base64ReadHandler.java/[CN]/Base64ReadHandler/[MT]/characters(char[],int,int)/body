@@ -1,3 +1,0 @@
-{
-  this.encodedObject=new String(ch,start,length);
-}

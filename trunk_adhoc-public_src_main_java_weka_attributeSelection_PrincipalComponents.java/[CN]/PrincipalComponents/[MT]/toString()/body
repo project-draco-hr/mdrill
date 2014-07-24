@@ -1,8 +1,0 @@
-{
-  if (m_eigenvalues == null) {
-    return "Principal components hasn't been built yet!";
-  }
- else {
-    return "\tPrincipal Components Attribute Transformer\n\n" + principalComponentsSummary();
-  }
-}

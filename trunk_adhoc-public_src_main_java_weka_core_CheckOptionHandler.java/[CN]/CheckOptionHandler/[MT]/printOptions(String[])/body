@@ -1,8 +1,0 @@
-{
-  if (options == null) {
-    return ("<null>");
-  }
- else {
-    return Utils.joinOptions(options);
-  }
-}

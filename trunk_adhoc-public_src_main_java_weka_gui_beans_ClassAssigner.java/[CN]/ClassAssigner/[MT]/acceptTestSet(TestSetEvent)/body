@@ -1,9 +1,0 @@
-{
-  Instances testSet=e.getTestSet();
-  assignClass(testSet);
-  notifyTestListeners(e);
-  if (e.isStructureOnly()) {
-    m_connectedFormat=e.getTestSet();
-    notifyDataFormatListeners();
-  }
-}

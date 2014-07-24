@@ -1,3 +1,0 @@
-{
-  return "The selection of columns to use in the cleansing processs, first and last are valid indices.";
-}

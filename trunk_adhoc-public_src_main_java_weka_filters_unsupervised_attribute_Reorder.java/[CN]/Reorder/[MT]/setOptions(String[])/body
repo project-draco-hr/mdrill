@@ -1,9 +1,0 @@
-{
-  String orderList=Utils.getOption('R',options);
-  if (orderList.length() != 0) {
-    setAttributeIndices(orderList);
-  }
-  if (getInputFormat() != null) {
-    setInputFormat(getInputFormat());
-  }
-}

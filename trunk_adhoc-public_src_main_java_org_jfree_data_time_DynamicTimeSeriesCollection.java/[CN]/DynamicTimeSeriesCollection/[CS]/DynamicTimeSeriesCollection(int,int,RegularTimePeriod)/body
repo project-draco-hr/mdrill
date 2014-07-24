@@ -1,3 +1,0 @@
-{
-  this(nSeries,nMoments,timeSample,TimeZone.getDefault());
-}

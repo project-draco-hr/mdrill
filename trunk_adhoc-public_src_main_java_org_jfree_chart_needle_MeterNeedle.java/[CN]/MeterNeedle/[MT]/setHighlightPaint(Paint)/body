@@ -1,5 +1,0 @@
-{
-  if (p != null) {
-    this.highlightPaint=p;
-  }
-}

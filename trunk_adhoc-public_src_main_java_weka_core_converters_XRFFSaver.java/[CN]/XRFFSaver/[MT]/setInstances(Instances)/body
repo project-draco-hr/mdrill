@@ -1,7 +1,0 @@
-{
-  if (m_ClassIndex.getSingleIndex().length() != 0) {
-    m_ClassIndex.setUpper(instances.numAttributes() - 1);
-    instances.setClassIndex(m_ClassIndex.getIndex());
-  }
-  super.setInstances(instances);
-}

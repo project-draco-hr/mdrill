@@ -1,4 +1,0 @@
-{
-  m_NumInstances=m_Train.numInstances();
-  m_InitFlag=ON;
-}

@@ -1,7 +1,0 @@
-{
-  int result;
-  result=this.rowKeys.hashCode();
-  result=29 * result + this.columnKeys.hashCode();
-  result=29 * result + this.rows.hashCode();
-  return result;
-}

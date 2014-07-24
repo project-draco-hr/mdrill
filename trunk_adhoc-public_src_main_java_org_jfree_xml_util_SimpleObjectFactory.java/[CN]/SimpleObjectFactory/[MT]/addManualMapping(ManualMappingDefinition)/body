@@ -1,3 +1,0 @@
-{
-  this.manualMappings.put(mapping.getBaseClass(),mapping);
-}

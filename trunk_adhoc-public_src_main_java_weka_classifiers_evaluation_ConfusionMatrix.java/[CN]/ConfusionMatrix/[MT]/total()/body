@@ -1,9 +1,0 @@
-{
-  double total=0;
-  for (int row=0; row < size(); row++) {
-    for (int col=0; col < size(); col++) {
-      total+=getElement(row,col);
-    }
-  }
-  return total;
-}

@@ -1,9 +1,0 @@
-{
-  Enumeration enm=o.listOptions();
-  System.out.println("Options for " + o.getClass().getName() + ":\n");
-  while (enm.hasMoreElements()) {
-    Option option=(Option)enm.nextElement();
-    System.out.println(option.synopsis());
-    System.out.println(option.description());
-  }
-}

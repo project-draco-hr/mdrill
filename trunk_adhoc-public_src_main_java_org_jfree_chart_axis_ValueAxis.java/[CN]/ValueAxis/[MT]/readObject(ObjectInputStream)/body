@@ -1,7 +1,0 @@
-{
-  stream.defaultReadObject();
-  this.upArrow=SerialUtilities.readShape(stream);
-  this.downArrow=SerialUtilities.readShape(stream);
-  this.leftArrow=SerialUtilities.readShape(stream);
-  this.rightArrow=SerialUtilities.readShape(stream);
-}

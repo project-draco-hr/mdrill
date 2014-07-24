@@ -1,3 +1,0 @@
-{
-  return "The density based clusterer to use.";
-}

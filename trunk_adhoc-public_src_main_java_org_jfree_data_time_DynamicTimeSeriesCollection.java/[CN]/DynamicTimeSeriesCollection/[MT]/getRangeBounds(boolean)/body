@@ -1,7 +1,0 @@
-{
-  if (this.valueRange == null) {
-    double max=getRangeUpperBound(includeInterval);
-    this.valueRange=new Range(0.0,max);
-  }
-  return this.valueRange;
-}

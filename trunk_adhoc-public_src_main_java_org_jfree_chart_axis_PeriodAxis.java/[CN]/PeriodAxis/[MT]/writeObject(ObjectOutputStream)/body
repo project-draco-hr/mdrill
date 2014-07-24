@@ -1,5 +1,0 @@
-{
-  stream.defaultWriteObject();
-  SerialUtilities.writeStroke(this.minorTickMarkStroke,stream);
-  SerialUtilities.writePaint(this.minorTickMarkPaint,stream);
-}

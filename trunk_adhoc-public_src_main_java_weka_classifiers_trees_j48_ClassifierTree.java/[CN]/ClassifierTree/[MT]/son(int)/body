@@ -1,3 +1,0 @@
-{
-  return (ClassifierTree)m_sons[index];
-}

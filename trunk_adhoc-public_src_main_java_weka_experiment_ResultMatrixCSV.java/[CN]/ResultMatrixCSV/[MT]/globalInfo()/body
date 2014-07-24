@@ -1,3 +1,0 @@
-{
-  return "Generates the matrix in CSV ('comma-separated values') format.";
-}

@@ -1,5 +1,0 @@
-{
-  setDomainZoomable(flag);
-  setRangeZoomable(flag);
-  setFillZoomRectangle(fillRectangle);
-}

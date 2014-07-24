@@ -1,5 +1,0 @@
-{
-  m_Exp=exp;
-  m_StartBut.setEnabled(m_RunThread == null);
-  m_StopBut.setEnabled(m_RunThread != null);
-}

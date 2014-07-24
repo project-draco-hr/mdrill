@@ -1,4 +1,0 @@
-{
-  initModel();
-  getCapabilities().testWithFail(data);
-}

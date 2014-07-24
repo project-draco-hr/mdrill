@@ -1,3 +1,0 @@
-{
-  addLine(new TextLine(text,font,paint));
-}

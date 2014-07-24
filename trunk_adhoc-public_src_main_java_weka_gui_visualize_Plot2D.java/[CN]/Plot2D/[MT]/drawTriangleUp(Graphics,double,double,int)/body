@@ -1,5 +1,0 @@
-{
-  gx.drawLine((int)(x),(int)(y - size),(int)(x - size),(int)(y + size));
-  gx.drawLine((int)(x - size),(int)(y + size),(int)(x + size),(int)(y + size));
-  gx.drawLine((int)(x + size),(int)(y + size),(int)(x),(int)(y - size));
-}

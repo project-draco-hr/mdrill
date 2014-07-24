@@ -1,4 +1,0 @@
-{
-  CVParameter newCV=new CVParameter(cvParam);
-  m_CVParams.addElement(newCV);
-}

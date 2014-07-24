@@ -1,7 +1,0 @@
-{
-  String rtn=cols.replaceAll("[^A-Za-z0-9_]*","");
-  if (rtn.length() > 20) {
-    return rtn.substring(0,20);
-  }
-  return rtn;
-}

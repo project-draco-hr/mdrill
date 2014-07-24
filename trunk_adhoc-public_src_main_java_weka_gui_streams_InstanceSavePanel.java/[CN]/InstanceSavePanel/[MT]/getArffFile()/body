@@ -1,3 +1,0 @@
-{
-  return arffFile_Tex.getText();
-}

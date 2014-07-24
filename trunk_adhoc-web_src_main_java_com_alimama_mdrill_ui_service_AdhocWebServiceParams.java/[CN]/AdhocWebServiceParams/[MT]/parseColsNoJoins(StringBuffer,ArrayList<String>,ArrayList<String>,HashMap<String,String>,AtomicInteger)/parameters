@@ -1,5 +1,0 @@
-StringBuffer cols
-ArrayList<String> groupFields
-ArrayList<String> showFields
-HashMap<String,String> colMapforStatFilter
-AtomicInteger nameindex

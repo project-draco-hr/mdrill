@@ -1,3 +1,0 @@
-{
-  return "The number of folds used for cross-validation (if 0, " + "performance on training data will be used).";
-}

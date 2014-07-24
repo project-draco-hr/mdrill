@@ -1,6 +1,0 @@
-{
-  if (m_opType == FieldMetaInfo.Optype.CONTINUOUS) {
-    throw new IllegalArgumentException("[Constant] Cant't return result as " + "categorical/ordinal as optype is continuous!");
-  }
-  return m_categoricalConst;
-}

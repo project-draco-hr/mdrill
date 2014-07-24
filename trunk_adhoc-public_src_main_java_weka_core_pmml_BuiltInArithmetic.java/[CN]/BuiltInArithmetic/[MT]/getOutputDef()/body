@@ -1,3 +1,0 @@
-{
-  return new Attribute("BuiltInArithmeticResult:" + m_operator.toString());
-}

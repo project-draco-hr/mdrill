@@ -1,4 +1,0 @@
-{
-  if (!(elem instanceof CheckBoxListItem))   return super.contains(new CheckBoxListItem(elem));
- else   return super.contains(elem);
-}

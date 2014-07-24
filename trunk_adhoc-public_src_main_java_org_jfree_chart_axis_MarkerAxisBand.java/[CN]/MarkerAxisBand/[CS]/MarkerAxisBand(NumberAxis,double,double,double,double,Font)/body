@@ -1,9 +1,0 @@
-{
-  this.axis=axis;
-  this.topOuterGap=topOuterGap;
-  this.topInnerGap=topInnerGap;
-  this.bottomOuterGap=bottomOuterGap;
-  this.bottomInnerGap=bottomInnerGap;
-  this.font=font;
-  this.markers=new java.util.ArrayList();
-}

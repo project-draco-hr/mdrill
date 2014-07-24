@@ -1,7 +1,0 @@
-{
-  if (radius <= 0.0) {
-    throw new IllegalArgumentException("The 'radius' must be positive.");
-  }
-  this.tickRadius=radius;
-  notifyListeners(new DialLayerChangeEvent(this));
-}

@@ -1,6 +1,0 @@
-{
-  if (width != this.boxWidth) {
-    this.boxWidth=width;
-    fireChangeEvent();
-  }
-}

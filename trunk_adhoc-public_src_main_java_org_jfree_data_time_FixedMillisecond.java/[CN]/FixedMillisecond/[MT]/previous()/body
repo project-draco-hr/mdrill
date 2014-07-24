@@ -1,8 +1,0 @@
-{
-  RegularTimePeriod result=null;
-  long t=this.time;
-  if (t != Long.MIN_VALUE) {
-    result=new FixedMillisecond(t - 1);
-  }
-  return result;
-}

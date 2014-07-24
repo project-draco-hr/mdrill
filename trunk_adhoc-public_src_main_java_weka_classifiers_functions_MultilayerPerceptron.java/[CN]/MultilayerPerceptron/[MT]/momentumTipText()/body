@@ -1,3 +1,0 @@
-{
-  return "Momentum applied to the weights during updating.";
-}

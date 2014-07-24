@@ -1,5 +1,0 @@
-{
-  super(info);
-  this.workingLine=new Line2D.Double();
-  this.processVisibleItemsOnly=true;
-}

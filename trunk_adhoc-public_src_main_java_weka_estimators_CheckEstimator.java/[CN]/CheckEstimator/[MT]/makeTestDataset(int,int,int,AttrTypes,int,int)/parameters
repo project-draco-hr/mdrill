@@ -1,6 +1,0 @@
-int seed
-int numInstances
-int numAttr
-AttrTypes attrTypes
-int numClasses
-int classType

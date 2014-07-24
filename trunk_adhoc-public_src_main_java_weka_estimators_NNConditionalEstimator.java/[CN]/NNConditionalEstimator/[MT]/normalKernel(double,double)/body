@@ -1,3 +1,0 @@
-{
-  return Math.exp(-x * x / (2 * variance)) / Math.sqrt(variance * TWO_PI);
-}

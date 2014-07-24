@@ -1,5 +1,0 @@
-{
-  Vector nodeList=new Vector();
-  getNodes(nodeList);
-  return nodeList;
-}

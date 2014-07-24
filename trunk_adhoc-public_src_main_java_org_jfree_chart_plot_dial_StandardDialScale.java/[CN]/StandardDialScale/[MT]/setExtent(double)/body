@@ -1,4 +1,0 @@
-{
-  this.extent=extent;
-  notifyListeners(new DialLayerChangeEvent(this));
-}

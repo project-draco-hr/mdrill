@@ -1,8 +1,0 @@
-{
-  Vector<Option> result;
-  result=new Vector<Option>();
-  Enumeration en=super.listOptions();
-  while (en.hasMoreElements())   result.addElement((Option)en.nextElement());
-  result.addElement(new Option("\tCompresses the data (uses '" + ArffLoader.FILE_EXTENSION_COMPRESSED + "' as extension instead of '"+ ArffLoader.FILE_EXTENSION+ "')\n"+ "\t(default: off)","compress",0,"-compress"));
-  return result.elements();
-}

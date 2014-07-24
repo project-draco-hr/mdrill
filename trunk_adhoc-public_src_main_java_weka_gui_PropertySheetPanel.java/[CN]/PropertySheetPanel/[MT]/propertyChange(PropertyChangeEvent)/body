@@ -1,4 +1,0 @@
-{
-  wasModified(evt);
-  support.firePropertyChange("",null,null);
-}

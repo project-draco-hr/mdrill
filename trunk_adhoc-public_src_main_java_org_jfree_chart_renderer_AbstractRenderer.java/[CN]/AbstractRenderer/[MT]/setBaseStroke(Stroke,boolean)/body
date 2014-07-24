@@ -1,9 +1,0 @@
-{
-  if (stroke == null) {
-    throw new IllegalArgumentException("Null 'stroke' argument.");
-  }
-  this.baseStroke=stroke;
-  if (notify) {
-    fireChangeEvent();
-  }
-}

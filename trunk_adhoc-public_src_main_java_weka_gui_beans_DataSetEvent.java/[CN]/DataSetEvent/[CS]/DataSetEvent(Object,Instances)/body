@@ -1,7 +1,0 @@
-{
-  super(source);
-  m_dataSet=dataSet;
-  if (m_dataSet != null && m_dataSet.numInstances() == 0) {
-    m_structureOnly=true;
-  }
-}

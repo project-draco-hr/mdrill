@@ -1,4 +1,0 @@
-{
-  m_FormatText.setText(m_Format.toPattern());
-  m_propSupport.firePropertyChange(null,null,null);
-}

@@ -1,6 +1,0 @@
-{
-  m_Root=new TreeNode();
-  m_Root.parent=null;
-  m_Root.children=new Vector();
-  goToRoot();
-}

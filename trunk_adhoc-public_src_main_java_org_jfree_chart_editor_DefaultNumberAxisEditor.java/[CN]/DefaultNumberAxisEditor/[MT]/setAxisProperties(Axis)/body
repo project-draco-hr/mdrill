@@ -1,8 +1,0 @@
-{
-  super.setAxisProperties(axis);
-  NumberAxis numberAxis=(NumberAxis)axis;
-  numberAxis.setAutoRange(this.autoRange);
-  if (!this.autoRange) {
-    numberAxis.setRange(this.minimumValue,this.maximumValue);
-  }
-}

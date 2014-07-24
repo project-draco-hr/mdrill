@@ -1,0 +1,19 @@
+{
+  ShardsList[] cores=GetShards.get(part.name,false);
+  for (int i=0; i < 10; i++) {
+    if (cores.length != StormUtils.parseInt(stormconf.get("higo.shards.count"))) {
+      if (i > 5) {
+        throw new Exception("core.size=" + cores.length);
+      }
+      GetShards.purge(part.name);
+      cores=GetShards.get(part.name,false);
+      LOG.info("core.size=" + cores.length);
+      Thread.sleep(1000);
+    }
+ else {
+      break;
+    }
+  }
+  LOG.info("request core.size=" + cores.length);
+  return cores;
+}

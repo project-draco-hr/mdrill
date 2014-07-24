@@ -1,3 +1,0 @@
-{
-  m_MinLevel=Level.valueOf(m_Properties.getProperty("MinLevel","INFO"));
-}

@@ -1,4 +1,0 @@
-{
-  TimePeriod period=(TimePeriod)this.values.getRowKey(item);
-  return getXValue(period);
-}

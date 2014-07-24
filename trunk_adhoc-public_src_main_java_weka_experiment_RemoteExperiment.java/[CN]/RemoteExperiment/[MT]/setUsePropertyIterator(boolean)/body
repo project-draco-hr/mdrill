@@ -1,4 +1,0 @@
-{
-  super.setUsePropertyIterator(newUsePropertyIterator);
-  m_baseExperiment.setUsePropertyIterator(newUsePropertyIterator);
-}

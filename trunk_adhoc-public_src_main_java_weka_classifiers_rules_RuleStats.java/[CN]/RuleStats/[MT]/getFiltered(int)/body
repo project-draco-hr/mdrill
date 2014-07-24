@@ -1,4 +1,0 @@
-{
-  if ((m_Filtered != null) && (index < m_Filtered.size()))   return (Instances[])m_Filtered.elementAt(index);
-  return null;
-}

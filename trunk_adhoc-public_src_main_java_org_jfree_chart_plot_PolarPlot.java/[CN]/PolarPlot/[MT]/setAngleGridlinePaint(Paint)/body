@@ -1,4 +1,0 @@
-{
-  this.angleGridlinePaint=paint;
-  fireChangeEvent();
-}

@@ -1,3 +1,0 @@
-{
-  return (o == p || ((o != null) && o.equals(p)));
-}

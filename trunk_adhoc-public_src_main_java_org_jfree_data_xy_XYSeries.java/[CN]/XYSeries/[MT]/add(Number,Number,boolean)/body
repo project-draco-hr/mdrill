@@ -1,4 +1,0 @@
-{
-  XYDataItem item=new XYDataItem(x,y);
-  add(item,notify);
-}

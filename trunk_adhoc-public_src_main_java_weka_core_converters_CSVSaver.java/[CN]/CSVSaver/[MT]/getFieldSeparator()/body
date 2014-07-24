@@ -1,3 +1,0 @@
-{
-  return Utils.backQuoteChars(m_FieldSeparator);
-}

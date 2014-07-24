@@ -1,9 +1,0 @@
-{
-  m_Self=this;
-  m_RootElement=m_Self.getDefaultRootElement();
-  m_Keywords=new HashMap<String,MutableAttributeSet>();
-  m_FontSize=DEFAULT_FONT_SIZE;
-  m_FontName=DEFAULT_FONT_FAMILY;
-  putProperty(DefaultEditorKit.EndOfLineStringProperty,"\n");
-  setup(props);
-}

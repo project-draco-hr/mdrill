@@ -1,3 +1,0 @@
-{
-  return "Ignores all the words that are on the stoplist, if set to true.";
-}

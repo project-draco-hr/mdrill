@@ -1,7 +1,0 @@
-double[][] props
-double[][][] dists
-int att
-int[] sortedIndices
-double[] weights
-double[][] subsetWeights
-Instances data

@@ -1,3 +1,0 @@
-{
-  return "Number of runs for internal cross-validation.";
-}

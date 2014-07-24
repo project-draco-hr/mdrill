@@ -1,6 +1,0 @@
-{
-  super(a);
-  int bag=att.numValues();
-  accurate=new double[bag];
-  coverage=new double[bag];
-}

@@ -1,4 +1,0 @@
-{
-  this.margin.trim(area);
-  return area;
-}

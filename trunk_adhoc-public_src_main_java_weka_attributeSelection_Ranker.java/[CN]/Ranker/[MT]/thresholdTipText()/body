@@ -1,3 +1,0 @@
-{
-  return "Set threshold by which attributes can be discarded. Default value " + "results in no attributes being discarded. Use either this option or " + "numToSelect to reduce the attribute set.";
-}

@@ -1,3 +1,0 @@
-{
-  super(new XYCoordinate(x,y),new Vector(deltaX,deltaY));
-}

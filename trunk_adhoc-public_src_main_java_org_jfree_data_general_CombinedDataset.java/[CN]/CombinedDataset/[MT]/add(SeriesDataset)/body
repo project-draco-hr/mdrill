@@ -1,5 +1,0 @@
-{
-  fastAdd(data);
-  DatasetChangeEvent event=new DatasetChangeEvent(this,this);
-  notifyListeners(event);
-}

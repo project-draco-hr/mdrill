@@ -1,3 +1,0 @@
-{
-  return getCeilingTickUnit(new NumberTickUnit(size,NumberFormat.getInstance()));
-}

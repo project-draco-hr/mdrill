@@ -1,9 +1,0 @@
-{
-  if (font == null) {
-    throw new IllegalArgumentException("Null 'font' argument.");
-  }
-  if (!this.tickLabelFont.equals(font)) {
-    this.tickLabelFont=font;
-    fireChangeEvent();
-  }
-}

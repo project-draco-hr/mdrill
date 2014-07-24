@@ -1,9 +1,0 @@
-{
-  if (!GraphicsEnvironment.isHeadless()) {
-    for (    EventObject e : headless) {
-      if (e instanceof ThresholdDataEvent) {
-        acceptDataSet((ThresholdDataEvent)e);
-      }
-    }
-  }
-}

@@ -1,3 +1,0 @@
-{
-  return getJson(null,false);
-}

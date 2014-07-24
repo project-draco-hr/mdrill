@@ -1,7 +1,0 @@
-{
-  Iterator iterator=bc.getBlocks().iterator();
-  while (iterator.hasNext()) {
-    Block b=(Block)iterator.next();
-    applyToBlock(b);
-  }
-}

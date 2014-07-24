@@ -1,6 +1,0 @@
-{
-  int result;
-  result=this.rows;
-  result=29 * result + this.columns;
-  return result;
-}

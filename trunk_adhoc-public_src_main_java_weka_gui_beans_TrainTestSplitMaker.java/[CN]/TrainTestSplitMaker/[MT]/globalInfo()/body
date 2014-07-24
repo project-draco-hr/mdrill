@@ -1,3 +1,0 @@
-{
-  return "Split an incoming data set into separate train and test sets.";
-}

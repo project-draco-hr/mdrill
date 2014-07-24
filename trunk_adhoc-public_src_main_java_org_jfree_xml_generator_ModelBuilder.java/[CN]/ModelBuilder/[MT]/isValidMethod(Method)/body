@@ -1,9 +1,0 @@
-{
-  if (method == null) {
-    return false;
-  }
-  if (!Modifier.isPublic(method.getModifiers())) {
-    return false;
-  }
-  return true;
-}

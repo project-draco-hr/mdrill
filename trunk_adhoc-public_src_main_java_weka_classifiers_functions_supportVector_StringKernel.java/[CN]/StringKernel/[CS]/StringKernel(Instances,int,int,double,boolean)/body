@@ -1,9 +1,0 @@
-{
-  setDebug(debug);
-  setCacheSize(cacheSize);
-  setInternalCacheSize(200003);
-  setSubsequenceLength(subsequenceLength);
-  setMaxSubsequenceLength(-1);
-  setLambda(lambda);
-  buildKernel(data);
-}

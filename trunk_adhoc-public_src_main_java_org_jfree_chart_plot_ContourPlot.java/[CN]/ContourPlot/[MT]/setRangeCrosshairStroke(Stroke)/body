@@ -1,4 +1,0 @@
-{
-  this.rangeCrosshairStroke=stroke;
-  fireChangeEvent();
-}

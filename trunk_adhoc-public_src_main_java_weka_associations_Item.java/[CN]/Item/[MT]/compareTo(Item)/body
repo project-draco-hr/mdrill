@@ -1,9 +1,0 @@
-{
-  if (m_frequency == comp.getFrequency()) {
-    return -1 * m_attribute.name().compareTo(comp.getAttribute().name());
-  }
-  if (comp.getFrequency() < m_frequency) {
-    return -1;
-  }
-  return 1;
-}

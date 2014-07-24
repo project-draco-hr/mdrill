@@ -1,6 +1,0 @@
-{
-  m_Associator=new Apriori();
-  m_Filter=new MultiFilter();
-  ((MultiFilter)m_Filter).setFilters(new Filter[]{new weka.filters.unsupervised.attribute.ReplaceMissingValues()});
-  m_ClassIndex=-1;
-}

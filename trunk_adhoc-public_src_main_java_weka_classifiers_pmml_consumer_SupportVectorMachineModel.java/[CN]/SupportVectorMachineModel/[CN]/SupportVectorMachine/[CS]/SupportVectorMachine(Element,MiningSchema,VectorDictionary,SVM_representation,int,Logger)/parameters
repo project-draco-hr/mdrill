@@ -1,6 +1,0 @@
-Element machineElement
-MiningSchema miningSchema
-VectorDictionary dictionary
-SVM_representation svmRep
-int altCategoryInd
-Logger log

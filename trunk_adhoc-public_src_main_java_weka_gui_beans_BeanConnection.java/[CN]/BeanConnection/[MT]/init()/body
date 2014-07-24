@@ -1,4 +1,0 @@
-{
-  TABBED_CONNECTIONS.clear();
-  TABBED_CONNECTIONS.add(new Vector());
-}

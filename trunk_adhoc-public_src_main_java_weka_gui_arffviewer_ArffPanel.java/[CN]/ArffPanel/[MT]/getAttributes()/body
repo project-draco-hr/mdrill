@@ -1,8 +1,0 @@
-{
-  Vector result;
-  int i;
-  result=new Vector();
-  for (i=0; i < getInstances().numAttributes(); i++)   result.add(getInstances().attribute(i).name());
-  Collections.sort(result);
-  return result;
-}

@@ -1,3 +1,0 @@
-{
-  super("Print","Print Graph","print","ctrl P");
-}

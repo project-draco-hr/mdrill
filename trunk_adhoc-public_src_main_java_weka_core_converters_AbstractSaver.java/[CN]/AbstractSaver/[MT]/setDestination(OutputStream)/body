@@ -1,3 +1,0 @@
-{
-  throw new IOException("Writing to an outputstream not supported");
-}

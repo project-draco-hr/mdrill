@@ -1,3 +1,0 @@
-{
-  return getBoolProperty(name,false);
-}

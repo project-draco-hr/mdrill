@@ -1,7 +1,0 @@
-{
-  super(predictor,miningSchema);
-  String exponent=predictor.getAttribute("exponent");
-  if (exponent.length() > 0) {
-    m_exponent=Double.parseDouble(exponent);
-  }
-}

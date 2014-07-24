@@ -1,5 +1,0 @@
-{
-  if (size > 0) {
-    this.revolutionDistance=size;
-  }
-}

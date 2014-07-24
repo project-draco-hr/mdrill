@@ -1,7 +1,0 @@
-{
-  if (m_opType == FieldMetaInfo.Optype.CONTINUOUS) {
-    throw new IllegalArgumentException("[Apply] Can't return result as " + "categorical/ordinal because optype is continuous!");
-  }
-  double result=getResult(incoming);
-  return m_outputStructure.value((int)result);
-}

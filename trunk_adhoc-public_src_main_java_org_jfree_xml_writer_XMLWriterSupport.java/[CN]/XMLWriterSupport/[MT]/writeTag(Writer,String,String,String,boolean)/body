@@ -1,7 +1,0 @@
-{
-  final AttributeList attr=new AttributeList();
-  if (attributeName != null) {
-    attr.setAttribute(attributeName,attributeValue);
-  }
-  writeTag(w,name,attr,close);
-}

@@ -1,7 +1,0 @@
-{
-  final String encodedValue=attrs.getValue("value");
-  this.color=Color.decode(encodedValue);
-  if (attrs.getValue("alpha") != null) {
-    this.color=new Color(this.color.getRed(),this.color.getGreen(),this.color.getBlue(),Integer.parseInt(attrs.getValue("alpha")));
-  }
-}

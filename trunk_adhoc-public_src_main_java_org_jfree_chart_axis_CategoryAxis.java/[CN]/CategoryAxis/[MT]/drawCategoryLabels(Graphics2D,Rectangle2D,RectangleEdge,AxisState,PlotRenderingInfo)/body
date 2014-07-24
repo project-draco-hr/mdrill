@@ -1,3 +1,0 @@
-{
-  return drawCategoryLabels(g2,dataArea,dataArea,edge,state,plotState);
-}

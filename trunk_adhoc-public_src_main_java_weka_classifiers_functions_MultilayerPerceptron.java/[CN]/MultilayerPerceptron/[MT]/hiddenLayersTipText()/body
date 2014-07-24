@@ -1,3 +1,0 @@
-{
-  return "This defines the hidden layers of the neural network." + " This is a list of positive whole numbers. 1 for each hidden layer." + " Comma seperated. To have no hidden layers put a single 0 here."+ " This will only be used if autobuild is set. There are also wildcard"+ " values 'a' = (attribs + classes) / 2, 'i' = attribs, 'o' = classes"+ " , 't' = attribs + classes.";
-}

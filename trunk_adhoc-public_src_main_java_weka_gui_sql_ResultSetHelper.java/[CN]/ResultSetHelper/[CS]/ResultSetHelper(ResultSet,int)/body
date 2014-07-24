@@ -1,5 +1,0 @@
-{
-  super();
-  m_ResultSet=rs;
-  m_MaxRows=max;
-}

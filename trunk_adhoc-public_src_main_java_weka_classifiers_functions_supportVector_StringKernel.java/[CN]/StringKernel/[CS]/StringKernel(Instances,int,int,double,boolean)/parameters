@@ -1,5 +1,0 @@
-Instances data
-int cacheSize
-int subsequenceLength
-double lambda
-boolean debug

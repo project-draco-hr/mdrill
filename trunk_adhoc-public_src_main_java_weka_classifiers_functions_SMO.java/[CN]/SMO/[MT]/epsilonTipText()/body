@@ -1,3 +1,0 @@
-{
-  return "The epsilon for round-off error (shouldn't be changed).";
-}

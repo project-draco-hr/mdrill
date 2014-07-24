@@ -1,5 +1,0 @@
-{
-  ImageEncoder imageEncoder=newInstance(format);
-  imageEncoder.setQuality(quality);
-  return imageEncoder;
-}

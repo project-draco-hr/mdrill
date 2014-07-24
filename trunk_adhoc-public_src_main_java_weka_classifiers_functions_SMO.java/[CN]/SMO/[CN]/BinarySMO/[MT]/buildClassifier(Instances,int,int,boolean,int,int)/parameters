@@ -1,6 +1,0 @@
-Instances insts
-int cl1
-int cl2
-boolean fitLogistic
-int numFolds
-int randomSeed

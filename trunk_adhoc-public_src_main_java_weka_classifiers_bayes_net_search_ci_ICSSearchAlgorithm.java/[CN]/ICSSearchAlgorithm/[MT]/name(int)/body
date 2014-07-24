@@ -1,3 +1,0 @@
-{
-  return m_instances.attribute(iAttribute).name();
-}

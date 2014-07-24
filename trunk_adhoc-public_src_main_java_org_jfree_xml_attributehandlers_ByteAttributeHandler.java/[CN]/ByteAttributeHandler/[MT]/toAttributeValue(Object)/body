@@ -1,4 +1,0 @@
-{
-  final Byte in=(Byte)o;
-  return in.toString();
-}

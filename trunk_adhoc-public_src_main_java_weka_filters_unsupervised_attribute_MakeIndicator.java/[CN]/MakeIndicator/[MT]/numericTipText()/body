@@ -1,3 +1,0 @@
-{
-  return "Determines whether the output indicator attribute is numeric. If " + "this is set to false, the output attribute will be nominal.";
-}

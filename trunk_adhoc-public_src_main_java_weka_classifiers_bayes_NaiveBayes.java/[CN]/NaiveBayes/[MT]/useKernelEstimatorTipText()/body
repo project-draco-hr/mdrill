@@ -1,3 +1,0 @@
-{
-  return "Use a kernel estimator for numeric attributes rather than a " + "normal distribution.";
-}

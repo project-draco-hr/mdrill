@@ -1,0 +1,14 @@
+{
+  if (tm >= this.maxtm) {
+    if (islongbits) {
+      return Double.doubleToLongBits(RamTermNumValue.TERMNUM_NAN_VALUE);
+    }
+ else {
+      return (long)RamTermNumValue.TERMNUM_NAN_VALUE;
+    }
+  }
+  long pos=this.tisposVal + 1l * tm * 8;
+  this.quicktisInputVal.seek(pos);
+  long rtn=this.quicktisInputVal.readLong();
+  return rtn;
+}

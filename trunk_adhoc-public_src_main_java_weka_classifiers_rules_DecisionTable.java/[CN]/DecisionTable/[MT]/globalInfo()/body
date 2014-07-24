@@ -1,3 +1,0 @@
-{
-  return "Class for building and using a simple decision table majority " + "classifier.\n\n" + "For more information see: \n\n"+ getTechnicalInformation().toString();
-}

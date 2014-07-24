@@ -1,5 +1,0 @@
-{
-  stream.defaultReadObject();
-  this.separatorStroke=SerialUtilities.readStroke(stream);
-  this.separatorPaint=SerialUtilities.readPaint(stream);
-}

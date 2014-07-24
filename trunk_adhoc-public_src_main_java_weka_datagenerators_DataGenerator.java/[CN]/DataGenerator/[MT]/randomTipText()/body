@@ -1,3 +1,0 @@
-{
-  return "The random number generator to use.";
-}

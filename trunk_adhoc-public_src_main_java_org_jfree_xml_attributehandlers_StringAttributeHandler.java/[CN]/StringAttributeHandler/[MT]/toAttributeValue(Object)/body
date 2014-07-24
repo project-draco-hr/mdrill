@@ -1,7 +1,0 @@
-{
-  final String in=(String)o;
-  if (in != null) {
-    return in;
-  }
-  return null;
-}

@@ -1,3 +1,0 @@
-{
-  return "Class that splits a BallNode of a ball tree using Uhlmann's " + "described method.\n\n" + "For information see:\n\n"+ getTechnicalInformation().toString();
-}

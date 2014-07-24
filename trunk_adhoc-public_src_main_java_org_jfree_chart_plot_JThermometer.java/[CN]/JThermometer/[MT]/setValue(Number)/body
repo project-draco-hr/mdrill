@@ -1,5 +1,0 @@
-{
-  if (this.data != null) {
-    this.data.setValue(value);
-  }
-}

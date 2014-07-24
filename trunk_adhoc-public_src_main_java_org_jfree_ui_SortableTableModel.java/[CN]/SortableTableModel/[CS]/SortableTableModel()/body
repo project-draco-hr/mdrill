@@ -1,4 +1,0 @@
-{
-  this.sortingColumn=-1;
-  this.ascending=true;
-}

@@ -1,5 +1,0 @@
-{
-  super(source);
-  m_Type=type;
-  m_Additional=additional;
-}

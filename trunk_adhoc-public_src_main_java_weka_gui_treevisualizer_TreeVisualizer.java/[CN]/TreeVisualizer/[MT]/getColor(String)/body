@@ -1,6 +1,0 @@
-{
-  Color result;
-  result=null;
-  if ((colorStr != null) && (colorStr.length() > 0))   result=VisualizeUtils.processColour(colorStr,result);
-  return result;
-}

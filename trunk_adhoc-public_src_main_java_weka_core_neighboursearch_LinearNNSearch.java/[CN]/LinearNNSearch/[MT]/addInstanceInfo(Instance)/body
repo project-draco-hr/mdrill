@@ -1,8 +1,0 @@
-{
-  if (m_Instances != null)   try {
-    update(ins);
-  }
- catch (  Exception ex) {
-    ex.printStackTrace();
-  }
-}

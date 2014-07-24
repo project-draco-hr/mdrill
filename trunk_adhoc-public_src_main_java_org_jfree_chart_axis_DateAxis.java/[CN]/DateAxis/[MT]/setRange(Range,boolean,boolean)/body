@@ -1,9 +1,0 @@
-{
-  if (range == null) {
-    throw new IllegalArgumentException("Null 'range' argument.");
-  }
-  if (!(range instanceof DateRange)) {
-    range=new DateRange(range);
-  }
-  super.setRange(range,turnOffAutoRange,notify);
-}

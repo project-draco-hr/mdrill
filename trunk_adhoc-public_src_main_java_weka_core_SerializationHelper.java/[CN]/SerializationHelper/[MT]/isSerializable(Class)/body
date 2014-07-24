@@ -1,3 +1,0 @@
-{
-  return ClassDiscovery.hasInterface(Serializable.class,c);
-}

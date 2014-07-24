@@ -1,5 +1,0 @@
-{
-  final BufferedOutputStream out=new BufferedOutputStream(new FileOutputStream(file));
-  save(out,config);
-  out.close();
-}

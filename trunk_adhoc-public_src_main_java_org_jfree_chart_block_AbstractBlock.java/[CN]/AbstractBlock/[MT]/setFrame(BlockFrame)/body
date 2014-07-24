@@ -1,6 +1,0 @@
-{
-  if (frame == null) {
-    throw new IllegalArgumentException("Null 'frame' argument.");
-  }
-  this.frame=frame;
-}

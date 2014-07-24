@@ -1,3 +1,0 @@
-{
-  return (MultiplexMappingInfo[])this.multiplexMappings.toArray(new MultiplexMappingInfo[this.multiplexMappings.size()]);
-}

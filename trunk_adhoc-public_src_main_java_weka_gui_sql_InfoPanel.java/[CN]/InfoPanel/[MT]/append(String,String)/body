@@ -1,3 +1,0 @@
-{
-  append(new JLabel(msg,ComponentHelper.getImageIcon(icon),JLabel.LEFT));
-}

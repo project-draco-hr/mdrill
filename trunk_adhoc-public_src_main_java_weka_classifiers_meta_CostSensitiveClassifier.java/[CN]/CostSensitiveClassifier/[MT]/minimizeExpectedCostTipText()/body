@@ -1,3 +1,0 @@
-{
-  return "Sets whether the minimum expected cost criteria will be used. If " + "this is false, the training data will be reweighted according to the " + "costs assigned to each class. If true, the minimum expected cost "+ "criteria will be used.";
-}

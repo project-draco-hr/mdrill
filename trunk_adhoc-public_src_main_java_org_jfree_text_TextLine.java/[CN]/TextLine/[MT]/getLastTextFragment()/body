@@ -1,7 +1,0 @@
-{
-  TextFragment result=null;
-  if (this.fragments.size() > 0) {
-    result=(TextFragment)this.fragments.get(this.fragments.size() - 1);
-  }
-  return result;
-}

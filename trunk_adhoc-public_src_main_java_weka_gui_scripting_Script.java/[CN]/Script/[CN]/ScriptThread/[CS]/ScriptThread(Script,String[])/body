@@ -1,5 +1,0 @@
-{
-  super();
-  m_Owner=owner;
-  m_Args=args.clone();
-}

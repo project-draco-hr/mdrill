@@ -1,4 +1,0 @@
-{
-  initStemmers();
-  return m_Stemmers.elements();
-}

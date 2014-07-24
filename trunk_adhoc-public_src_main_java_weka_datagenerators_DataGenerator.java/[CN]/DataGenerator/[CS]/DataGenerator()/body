@@ -1,5 +1,0 @@
-{
-  clearBlacklist();
-  setNumExamplesAct(defaultNumExamplesAct());
-  setSeed(defaultSeed());
-}

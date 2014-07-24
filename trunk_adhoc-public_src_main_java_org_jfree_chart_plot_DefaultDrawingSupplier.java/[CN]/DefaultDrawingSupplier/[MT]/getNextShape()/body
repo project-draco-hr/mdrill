@@ -1,5 +1,0 @@
-{
-  Shape result=this.shapeSequence[this.shapeIndex % this.shapeSequence.length];
-  this.shapeIndex++;
-  return result;
-}

@@ -1,6 +1,0 @@
-{
-  BarChartDemo1 demo=new BarChartDemo1("Bar Chart Demo 1");
-  demo.pack();
-  RefineryUtilities.centerFrameOnScreen(demo);
-  demo.setVisible(true);
-}

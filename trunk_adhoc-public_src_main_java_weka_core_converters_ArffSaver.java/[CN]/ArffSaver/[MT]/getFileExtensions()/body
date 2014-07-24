@@ -1,3 +1,0 @@
-{
-  return new String[]{ArffLoader.FILE_EXTENSION,ArffLoader.FILE_EXTENSION_COMPRESSED};
-}

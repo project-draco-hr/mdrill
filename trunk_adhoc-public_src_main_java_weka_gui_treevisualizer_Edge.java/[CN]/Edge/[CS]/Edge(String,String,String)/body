@@ -1,7 +1,0 @@
-{
-  m_label=label;
-  m_rsource=source;
-  m_rtarget=target;
-  m_lines=new Vector(3,2);
-  breakupLabel();
-}

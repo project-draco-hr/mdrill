@@ -1,3 +1,0 @@
-{
-  this(zone,locale,chars,new boolean[]{showYearForJan,false,false,false,false,false,false,false,false,false,false,false,showYearForDec},new SimpleDateFormat("yy"));
-}

@@ -1,3 +1,0 @@
-{
-  return Plot.resolveDomainAxisLocation(getDomainAxisLocation(),this.orientation);
-}

@@ -1,4 +1,0 @@
-{
-  if (VERBOSE)   System.out.println("Analyzing directory: " + dir);
-  initFromDir(null,dir);
-}

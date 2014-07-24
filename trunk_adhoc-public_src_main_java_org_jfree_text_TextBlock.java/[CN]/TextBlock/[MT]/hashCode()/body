@@ -1,3 +1,0 @@
-{
-  return (this.lines != null ? this.lines.hashCode() : 0);
-}

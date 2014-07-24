@@ -1,3 +1,0 @@
-{
-  System.err.println(Utils.doubleToString(getTimestamp().doubleValue(),4));
-}

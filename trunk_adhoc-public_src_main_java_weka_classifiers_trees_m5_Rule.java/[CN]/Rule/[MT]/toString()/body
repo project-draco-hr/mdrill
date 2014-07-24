@@ -1,8 +1,0 @@
-{
-  if (m_useTree) {
-    return treeToString();
-  }
- else {
-    return ruleToString();
-  }
-}

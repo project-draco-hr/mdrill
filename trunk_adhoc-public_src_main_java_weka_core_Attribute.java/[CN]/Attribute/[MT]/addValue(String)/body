@@ -1,5 +1,0 @@
-{
-  m_Values=Utils.cast(m_Values.clone());
-  m_Hashtable=Utils.cast(m_Hashtable.clone());
-  forceAddValue(value);
-}

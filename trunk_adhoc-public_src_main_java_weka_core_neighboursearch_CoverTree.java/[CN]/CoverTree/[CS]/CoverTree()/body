@@ -1,4 +1,0 @@
-{
-  super();
-  if (getMeasurePerformance())   m_Stats=m_TreeStats=new TreePerformanceStats();
-}

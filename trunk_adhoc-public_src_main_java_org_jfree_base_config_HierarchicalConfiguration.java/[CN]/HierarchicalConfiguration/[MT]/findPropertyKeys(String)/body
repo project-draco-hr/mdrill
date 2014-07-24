@@ -1,5 +1,0 @@
-{
-  final TreeSet keys=new TreeSet();
-  collectPropertyKeys(prefix,this,keys);
-  return Collections.unmodifiableSet(keys).iterator();
-}

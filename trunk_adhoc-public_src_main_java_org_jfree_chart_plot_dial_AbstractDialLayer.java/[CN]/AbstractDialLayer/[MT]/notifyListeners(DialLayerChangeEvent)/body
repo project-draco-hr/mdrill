@@ -1,8 +1,0 @@
-{
-  Object[] listeners=this.listenerList.getListenerList();
-  for (int i=listeners.length - 2; i >= 0; i-=2) {
-    if (listeners[i] == DialLayerChangeListener.class) {
-      ((DialLayerChangeListener)listeners[i + 1]).dialLayerChanged(event);
-    }
-  }
-}

@@ -1,6 +1,0 @@
-{
-  this.size=0;
-  if (this.contents != null) {
-    Arrays.fill(this.contents,null);
-  }
-}

@@ -1,6 +1,0 @@
-{
-  super.initialize();
-  m_PlotShapes=null;
-  m_Clusterer=null;
-  m_Evaluation=null;
-}

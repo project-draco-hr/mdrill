@@ -1,9 +1,0 @@
-{
-  this.digits=digits;
-  this.exp=exp;
-  this.sign=sign;
-  this.trailing=trailing;
-  nf=new DecimalFormat(pattern());
-  nf.setPositivePrefix("+");
-  nf.setNegativePrefix("-");
-}

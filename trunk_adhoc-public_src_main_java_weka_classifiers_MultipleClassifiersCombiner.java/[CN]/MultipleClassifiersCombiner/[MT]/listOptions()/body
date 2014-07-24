@@ -1,9 +1,0 @@
-{
-  Vector newVector=new Vector(1);
-  newVector.addElement(new Option("\tFull class name of classifier to include, followed\n" + "\tby scheme options. May be specified multiple times.\n" + "\t(default: \"weka.classifiers.rules.ZeroR\")","B",1,"-B <classifier specification>"));
-  Enumeration enu=super.listOptions();
-  while (enu.hasMoreElements()) {
-    newVector.addElement(enu.nextElement());
-  }
-  return newVector.elements();
-}

@@ -1,5 +1,0 @@
-{
-  super.setFixedRangeAxisSpace(space);
-  setFixedRangeAxisSpaceForSubplots(space);
-  fireChangeEvent();
-}

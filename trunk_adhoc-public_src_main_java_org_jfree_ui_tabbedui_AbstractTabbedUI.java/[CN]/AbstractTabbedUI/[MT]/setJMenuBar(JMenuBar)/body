@@ -1,5 +1,0 @@
-{
-  final JMenuBar oldMenuBar=this.jMenuBar;
-  this.jMenuBar=menuBar;
-  firePropertyChange(JMENUBAR_PROPERTY,oldMenuBar,menuBar);
-}

@@ -1,4 +1,0 @@
-{
-  if ((index >= 0) && (index < getColCount()))   return m_ColHidden[index];
- else   return false;
-}

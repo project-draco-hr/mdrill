@@ -1,9 +1,0 @@
-{
-  m_ResultMatrix.setSize(getNumResultsets(),getNumDatasets());
-  m_ResultMatrix.setShowStdDev(m_ShowStdDevs);
-  for (int i=0; i < getNumDatasets(); i++)   m_ResultMatrix.setRowName(i,templateString(m_DatasetSpecifiers.specifier(i)));
-  for (int j=0; j < getNumResultsets(); j++) {
-    m_ResultMatrix.setColName(j,getResultsetName(j));
-    m_ResultMatrix.setColHidden(j,!displayResultset(j));
-  }
-}

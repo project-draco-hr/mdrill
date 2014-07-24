@@ -1,3 +1,0 @@
-{
-  return new SelectedTag(m_PruningMethod,TAGS_PRUNING);
-}

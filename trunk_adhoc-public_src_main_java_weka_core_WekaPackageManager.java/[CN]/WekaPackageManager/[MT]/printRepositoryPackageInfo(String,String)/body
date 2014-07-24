@@ -1,4 +1,0 @@
-{
-  Map<?,?> packageProps=getRepositoryPackageInfo(packageName,version).getPackageMetaData();
-  printPackageInfo(packageProps);
-}

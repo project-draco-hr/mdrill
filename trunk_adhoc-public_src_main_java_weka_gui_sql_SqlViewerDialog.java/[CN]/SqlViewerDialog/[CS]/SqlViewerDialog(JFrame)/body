@@ -1,9 +1,0 @@
-{
-  super(parent,"SQL-Viewer",true);
-  m_Parent=parent;
-  m_URL="";
-  m_User="";
-  m_Password="";
-  m_Query="";
-  createDialog();
-}

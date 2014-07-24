@@ -1,3 +1,0 @@
-{
-  return this.underlying.getY(series,item);
-}

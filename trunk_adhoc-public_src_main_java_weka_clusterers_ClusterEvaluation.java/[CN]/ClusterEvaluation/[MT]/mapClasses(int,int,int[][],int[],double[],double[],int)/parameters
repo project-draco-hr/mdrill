@@ -1,7 +1,0 @@
-int numClusters
-int lev
-int[][] counts
-int[] clusterTotals
-double[] current
-double[] best
-int error

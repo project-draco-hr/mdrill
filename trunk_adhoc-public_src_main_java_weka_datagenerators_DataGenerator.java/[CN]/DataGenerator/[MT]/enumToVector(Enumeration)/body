@@ -1,6 +1,0 @@
-{
-  Vector result;
-  result=new Vector();
-  while (enm.hasMoreElements())   result.add(enm.nextElement());
-  return result;
-}

@@ -1,5 +1,0 @@
-{
-  super.searchStart();
-  m_LeafCount=0;
-  m_IntNodeCount=0;
-}

@@ -1,3 +1,0 @@
-{
-  setShapesVisible(BooleanUtilities.valueOf(visible));
-}

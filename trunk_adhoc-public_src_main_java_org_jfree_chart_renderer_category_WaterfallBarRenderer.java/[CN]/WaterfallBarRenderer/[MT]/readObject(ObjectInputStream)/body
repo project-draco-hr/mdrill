@@ -1,7 +1,0 @@
-{
-  stream.defaultReadObject();
-  this.firstBarPaint=SerialUtilities.readPaint(stream);
-  this.lastBarPaint=SerialUtilities.readPaint(stream);
-  this.positiveBarPaint=SerialUtilities.readPaint(stream);
-  this.negativeBarPaint=SerialUtilities.readPaint(stream);
-}

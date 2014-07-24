@@ -1,3 +1,0 @@
-{
-  return localizationResources.getString("Compass_Plot");
-}

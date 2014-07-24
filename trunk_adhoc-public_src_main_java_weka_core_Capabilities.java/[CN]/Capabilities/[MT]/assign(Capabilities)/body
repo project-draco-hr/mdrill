@@ -1,9 +1,0 @@
-{
-  for (  Capability cap : Capability.values()) {
-    if (c.handles(cap))     enable(cap);
- else     disable(cap);
-    if (c.hasDependency(cap))     enableDependency(cap);
- else     disableDependency(cap);
-  }
-  setMinimumNumberInstances(c.getMinimumNumberInstances());
-}

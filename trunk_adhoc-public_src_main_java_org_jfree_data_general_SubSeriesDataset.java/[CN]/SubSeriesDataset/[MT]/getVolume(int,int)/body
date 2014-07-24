@@ -1,3 +1,0 @@
-{
-  return ((OHLCDataset)this.parent).getVolume(this.map[series],item);
-}

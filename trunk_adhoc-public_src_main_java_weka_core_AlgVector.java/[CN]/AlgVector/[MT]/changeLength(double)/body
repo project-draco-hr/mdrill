@@ -1,5 +1,0 @@
-{
-  double factor=this.norm();
-  factor=len / factor;
-  scalarMultiply(factor);
-}

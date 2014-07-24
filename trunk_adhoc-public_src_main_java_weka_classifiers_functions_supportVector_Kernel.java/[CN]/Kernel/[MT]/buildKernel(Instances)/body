@@ -1,4 +1,0 @@
-{
-  if (!getChecksTurnedOff())   getCapabilities().testWithFail(data);
-  initVars(data);
-}

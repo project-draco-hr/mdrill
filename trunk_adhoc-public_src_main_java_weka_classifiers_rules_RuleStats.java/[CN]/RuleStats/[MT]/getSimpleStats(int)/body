@@ -1,4 +1,0 @@
-{
-  if ((m_SimpleStats != null) && (index < m_SimpleStats.size()))   return (double[])m_SimpleStats.elementAt(index);
-  return null;
-}

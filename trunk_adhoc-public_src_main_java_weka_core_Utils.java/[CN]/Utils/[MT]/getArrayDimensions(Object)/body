@@ -1,3 +1,0 @@
-{
-  return getArrayDimensions(array.getClass());
-}

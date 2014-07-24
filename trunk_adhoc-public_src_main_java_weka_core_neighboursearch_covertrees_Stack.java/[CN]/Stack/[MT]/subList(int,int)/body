@@ -1,3 +1,0 @@
-{
-  return elements.subList(beginIdx,uptoLength);
-}

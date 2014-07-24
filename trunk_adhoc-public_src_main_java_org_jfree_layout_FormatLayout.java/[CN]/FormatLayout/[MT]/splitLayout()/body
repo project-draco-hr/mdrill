@@ -1,8 +1,0 @@
-{
-  for (int i=0; i < this.rowFormats.length; i++) {
-    if (this.rowFormats[i] > FormatLayout.LCB) {
-      return true;
-    }
-  }
-  return false;
-}

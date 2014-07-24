@@ -2,4 +2,13 @@
   if (callback != null) {
     higo_base_callback.put(tablename,callback);
   }
+  String tablePath=Cluster.higo_table(tablename);
+  List<String> list=cluster_state.get_children(tablePath,callback != null);
+  List<Integer> rtn=new ArrayList<Integer>();
+  if (list != null) {
+    for (    String str : list) {
+      rtn.add(Integer.parseInt(str));
+    }
+  }
+  return rtn;
 }

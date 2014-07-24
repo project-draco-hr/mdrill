@@ -1,7 +1,0 @@
-{
-  int i=getItemRow(itemIndex);
-  int j=getItemColumn(itemIndex);
-  double mij=get(i,j) * this.m_scaleFactor;
-  Number n=new Double(mij / this.m_totalSum);
-  return n;
-}

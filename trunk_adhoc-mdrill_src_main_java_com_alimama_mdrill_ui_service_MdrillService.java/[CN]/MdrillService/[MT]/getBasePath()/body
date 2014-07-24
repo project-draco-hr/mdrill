@@ -1,14 +1,4 @@
 {
   Map stormconf=Utils.readStormConfig();
-  basePath=(String)stormconf.get("higo.table.path");
-  if (basePath == null || basePath.isEmpty()) {
-    basePath=System.getenv("higo.table.path");
-  }
-  if (basePath == null || basePath.isEmpty()) {
-    basePath=System.getProperty("higo.table.path","/group/tbdp-etao-adhoc/p4padhoc/tablelist");
-  }
-  if (basePath == null || basePath.isEmpty()) {
-    basePath="/group/tbdp-etao-adhoc/p4padhoc/tablelist";
-  }
-  return basePath;
+  return MdrillFieldInfo.getBasePath(stormconf);
 }

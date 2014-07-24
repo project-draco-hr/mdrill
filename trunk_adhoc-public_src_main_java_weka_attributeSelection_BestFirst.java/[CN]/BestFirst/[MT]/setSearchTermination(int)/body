@@ -1,6 +1,0 @@
-{
-  if (t < 1) {
-    throw new Exception("Value of -N must be > 0.");
-  }
-  m_maxStale=t;
-}

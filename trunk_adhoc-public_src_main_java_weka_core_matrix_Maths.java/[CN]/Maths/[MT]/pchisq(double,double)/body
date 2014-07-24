@@ -1,5 +1,0 @@
-{
-  double mean=Math.sqrt(ncp);
-  double xh=Math.sqrt(x);
-  return pnorm(xh - mean) - pnorm(-xh - mean);
-}

@@ -1,3 +1,0 @@
-{
-  return addElement(parent,name,classname,primitive,array,false);
-}

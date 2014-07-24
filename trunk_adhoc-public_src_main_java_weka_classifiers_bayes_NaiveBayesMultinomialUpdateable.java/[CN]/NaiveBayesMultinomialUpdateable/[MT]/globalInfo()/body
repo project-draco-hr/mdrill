@@ -1,3 +1,0 @@
-{
-  return super.globalInfo() + "\n\n" + "Incremental version of the algorithm.";
-}

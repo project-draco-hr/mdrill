@@ -1,3 +1,0 @@
-{
-  notifyListeners(new DatasetChangeEvent(this,this));
-}

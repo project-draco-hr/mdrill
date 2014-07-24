@@ -1,4 +1,0 @@
-{
-  refreshKeys();
-  fireDatasetChanged();
-}

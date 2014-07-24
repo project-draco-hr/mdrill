@@ -1,3 +1,0 @@
-{
-  throw new Exception("Examples cannot be generated one by one.");
-}

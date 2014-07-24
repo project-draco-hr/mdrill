@@ -1,5 +1,0 @@
-int index
-double expFPOverErr
-double[] rulesetStat
-double[] ruleStat
-boolean checkErr

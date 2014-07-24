@@ -1,7 +1,0 @@
-{
-  if (library == null) {
-    throw new NullPointerException("Library must not be null.");
-  }
-  this.library=library;
-  this.libraryClass=library.getClass().getName();
-}

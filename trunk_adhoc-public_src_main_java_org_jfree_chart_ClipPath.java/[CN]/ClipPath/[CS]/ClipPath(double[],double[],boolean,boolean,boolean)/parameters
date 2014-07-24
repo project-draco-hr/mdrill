@@ -1,5 +1,0 @@
-double[] xValue
-double[] yValue
-boolean clip
-boolean fillPath
-boolean drawPath

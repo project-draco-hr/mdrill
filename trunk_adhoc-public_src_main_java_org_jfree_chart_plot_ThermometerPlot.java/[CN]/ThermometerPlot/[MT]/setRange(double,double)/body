@@ -1,5 +1,0 @@
-{
-  this.lowerBound=lower;
-  this.upperBound=upper;
-  setAxisRange();
-}

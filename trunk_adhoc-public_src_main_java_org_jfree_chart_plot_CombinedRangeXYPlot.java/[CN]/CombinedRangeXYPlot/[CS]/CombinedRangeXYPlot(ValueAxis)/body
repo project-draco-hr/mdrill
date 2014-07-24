@@ -1,4 +1,0 @@
-{
-  super(null,null,rangeAxis,null);
-  this.subplots=new java.util.ArrayList();
-}

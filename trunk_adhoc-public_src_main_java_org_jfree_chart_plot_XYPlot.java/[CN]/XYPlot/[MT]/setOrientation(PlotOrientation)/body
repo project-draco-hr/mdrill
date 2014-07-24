@@ -1,9 +1,0 @@
-{
-  if (orientation == null) {
-    throw new IllegalArgumentException("Null 'orientation' argument.");
-  }
-  if (orientation != this.orientation) {
-    this.orientation=orientation;
-    fireChangeEvent();
-  }
-}

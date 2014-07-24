@@ -1,4 +1,0 @@
-{
-  VectorDataItem item=(VectorDataItem)getDataItem(index);
-  return item.getYValue();
-}

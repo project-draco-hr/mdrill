@@ -1,5 +1,0 @@
-{
-  updateMeanAndVariance();
-  double val=-0.5 * (CONST + Math.log(m_Variance) + (value - m_Mean) * (value - m_Mean) / m_Variance);
-  return val;
-}

@@ -1,7 +1,0 @@
-{
-  String result="CostSensitiveClassifierSplitEvaluator: ";
-  if (m_Template == null) {
-    return result + "<null> classifier";
-  }
-  return result + m_Template.getClass().getName() + " "+ m_ClassifierOptions+ "(version "+ m_ClassifierVersion+ ")";
-}

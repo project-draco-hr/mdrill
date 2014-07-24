@@ -1,3 +1,0 @@
-{
-  return historyInput(instance,false);
-}

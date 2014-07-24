@@ -1,3 +1,0 @@
-{
-  return "Save trained models to serialized object files.";
-}

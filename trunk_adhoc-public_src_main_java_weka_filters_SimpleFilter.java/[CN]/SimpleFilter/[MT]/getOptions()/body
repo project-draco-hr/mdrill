@@ -1,6 +1,0 @@
-{
-  Vector result;
-  result=new Vector();
-  if (getDebug())   result.add("-D");
-  return (String[])result.toArray(new String[result.size()]);
-}

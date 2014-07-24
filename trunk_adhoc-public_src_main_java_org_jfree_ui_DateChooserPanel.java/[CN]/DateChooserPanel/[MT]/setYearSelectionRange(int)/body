@@ -1,6 +1,0 @@
-{
-  final int oldYearSelectionRange=this.yearSelectionRange;
-  this.yearSelectionRange=yearSelectionRange;
-  refreshYearSelector();
-  firePropertyChange("yearSelectionRange",oldYearSelectionRange,yearSelectionRange);
-}

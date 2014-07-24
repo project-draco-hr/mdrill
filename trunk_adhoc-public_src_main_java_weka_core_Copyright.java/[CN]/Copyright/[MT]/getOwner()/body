@@ -1,3 +1,0 @@
-{
-  return PROPERTIES.getProperty("Owner","The University of Waikato");
-}

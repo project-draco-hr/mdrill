@@ -1,4 +1,0 @@
-{
-  super();
-  this.seriesBarWidthList=new ObjectList();
-}

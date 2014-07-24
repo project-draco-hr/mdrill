@@ -1,3 +1,4 @@
 {
+  this.maybeinit();
   data[i]=v;
 }

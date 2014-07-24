@@ -1,3 +1,0 @@
-{
-  return "The index of the class attribute, starts with 1, 'first' and 'last' " + "are accepted as well, '0' unsets the class index.";
-}

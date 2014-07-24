@@ -1,8 +1,0 @@
-{
-  if (height <= 0.0) {
-    throw new IllegalArgumentException("The 'height' argument must be > 0.0");
-  }
-  this.blockHeight=height;
-  updateOffsets();
-  fireChangeEvent();
-}

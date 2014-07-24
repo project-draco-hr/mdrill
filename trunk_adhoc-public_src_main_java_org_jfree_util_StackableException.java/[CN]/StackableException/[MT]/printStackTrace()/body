@@ -1,5 +1,0 @@
-{
-synchronized (System.err) {
-    printStackTrace(System.err);
-  }
-}

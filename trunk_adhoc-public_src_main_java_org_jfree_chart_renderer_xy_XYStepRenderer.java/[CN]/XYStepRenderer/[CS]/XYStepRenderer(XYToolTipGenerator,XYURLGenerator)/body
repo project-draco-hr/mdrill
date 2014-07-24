@@ -1,6 +1,0 @@
-{
-  super();
-  setBaseToolTipGenerator(toolTipGenerator);
-  setURLGenerator(urlGenerator);
-  setBaseShapesVisible(false);
-}

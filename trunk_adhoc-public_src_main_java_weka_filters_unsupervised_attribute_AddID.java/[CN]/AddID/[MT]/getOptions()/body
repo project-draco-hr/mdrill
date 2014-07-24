@@ -1,9 +1,0 @@
-{
-  Vector result;
-  result=new Vector();
-  result.add("-C");
-  result.add(getIDIndex());
-  result.add("-N");
-  result.add(getAttributeName());
-  return (String[])result.toArray(new String[result.size()]);
-}

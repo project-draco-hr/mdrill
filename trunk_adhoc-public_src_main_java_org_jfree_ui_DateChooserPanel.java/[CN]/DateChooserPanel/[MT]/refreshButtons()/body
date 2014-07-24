@@ -1,9 +1,0 @@
-{
-  final Calendar c=getFirstVisibleDate();
-  for (int i=0; i < 42; i++) {
-    final JButton b=this.buttons[i];
-    b.setText(Integer.toString(c.get(Calendar.DATE)));
-    b.setBackground(getButtonColor(c));
-    c.add(Calendar.DATE,1);
-  }
-}

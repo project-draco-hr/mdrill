@@ -1,7 +1,0 @@
-{
-  stream.defaultReadObject();
-  this.shape=SerialUtilities.readShape(stream);
-  this.stroke=SerialUtilities.readStroke(stream);
-  this.outlinePaint=SerialUtilities.readPaint(stream);
-  this.fillPaint=SerialUtilities.readPaint(stream);
-}

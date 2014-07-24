@@ -1,3 +1,0 @@
-{
-  return Math.min(m_nNumClusters,m_instances.numInstances());
-}

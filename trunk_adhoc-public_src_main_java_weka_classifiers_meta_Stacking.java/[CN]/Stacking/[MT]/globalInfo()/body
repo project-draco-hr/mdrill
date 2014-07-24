@@ -1,3 +1,0 @@
-{
-  return "Combines several classifiers using the stacking method. " + "Can do classification or regression.\n\n" + "For more information, see\n\n"+ getTechnicalInformation().toString();
-}

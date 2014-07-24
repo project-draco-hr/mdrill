@@ -1,3 +1,0 @@
-{
-  return "Save static images (such as those produced by " + "ModelPerformanceChart) to a file.";
-}

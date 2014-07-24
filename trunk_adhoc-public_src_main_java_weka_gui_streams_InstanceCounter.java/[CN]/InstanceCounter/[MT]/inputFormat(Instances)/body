@@ -1,8 +1,0 @@
-{
-  if (m_Debug) {
-    System.err.println("InstanceCounter::inputFormat()");
-  }
-  Instances inputInstances=new Instances(instanceInfo,0);
-  m_Count=0;
-  m_Count_Lab.setText("" + m_Count + " instances");
-}

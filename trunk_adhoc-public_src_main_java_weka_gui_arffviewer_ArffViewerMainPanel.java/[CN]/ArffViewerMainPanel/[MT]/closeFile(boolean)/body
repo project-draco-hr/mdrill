@@ -1,7 +1,0 @@
-{
-  if (getCurrentIndex() == -1)   return;
-  if (!saveChanges(showCancel))   return;
-  tabbedPane.removeTabAt(getCurrentIndex());
-  updateFrameTitle();
-  System.gc();
-}

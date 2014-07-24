@@ -1,9 +1,0 @@
-{
-  StringBuffer text=new StringBuffer();
-  if (m_Antds.size() > 0) {
-    for (int j=0; j < (m_Antds.size() - 1); j++)     text.append("(" + ((Antd)(m_Antds.elementAt(j))).toString() + ") and ");
-    text.append("(" + ((Antd)(m_Antds.lastElement())).toString() + ")");
-  }
-  text.append(" => " + classAttr.name() + "="+ classAttr.value((int)m_Consequent));
-  return text.toString();
-}

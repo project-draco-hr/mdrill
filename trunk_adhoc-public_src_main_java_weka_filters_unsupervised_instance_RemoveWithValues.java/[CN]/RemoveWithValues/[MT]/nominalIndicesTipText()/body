@@ -1,3 +1,0 @@
-{
-  return "Range of label indices to be used for selection on nominal attribute. " + "First and last are valid indexes.";
-}

@@ -1,3 +1,0 @@
-{
-  return (double)consequence.m_counter / (double)premise.m_counter;
-}

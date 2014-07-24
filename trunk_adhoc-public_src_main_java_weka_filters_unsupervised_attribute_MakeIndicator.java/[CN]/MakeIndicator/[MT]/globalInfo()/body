@@ -1,3 +1,0 @@
-{
-  return "A filter that creates a new dataset with a boolean attribute " + "replacing a nominal attribute.  In the new dataset, a value of 1 is " + "assigned to an instance that exhibits a particular range of attribute "+ "values, a 0 to an instance that doesn't. The boolean attribute is "+ "coded as numeric by default.";
-}

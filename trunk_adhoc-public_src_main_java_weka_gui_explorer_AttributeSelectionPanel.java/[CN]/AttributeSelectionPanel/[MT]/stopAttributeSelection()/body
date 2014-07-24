@@ -1,6 +1,0 @@
-{
-  if (m_RunThread != null) {
-    m_RunThread.interrupt();
-    m_RunThread.stop();
-  }
-}

@@ -1,3 +1,0 @@
-{
-  m_ArffPanel.setInstances(new Instances(inst));
-}

@@ -1,6 +1,0 @@
-{
-  double result;
-  result=currDist;
-  result+=diff * diff;
-  return result;
-}

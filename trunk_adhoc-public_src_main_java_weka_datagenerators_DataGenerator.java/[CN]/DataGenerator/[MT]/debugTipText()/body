@@ -1,3 +1,0 @@
-{
-  return "Whether the generator is run in debug mode or not.";
-}

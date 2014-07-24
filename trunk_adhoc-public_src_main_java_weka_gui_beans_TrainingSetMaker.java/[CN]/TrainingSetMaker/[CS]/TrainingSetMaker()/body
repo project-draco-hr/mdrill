@@ -1,4 +1,0 @@
-{
-  m_visual.loadIcons(BeanVisual.ICON_PATH + "TrainingSetMaker.gif",BeanVisual.ICON_PATH + "TrainingSetMaker_animated.gif");
-  m_visual.setText("TrainingSetMaker");
-}

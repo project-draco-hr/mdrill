@@ -1,6 +1,0 @@
-{
-  if (this.domainCrosshairVisible != flag) {
-    this.domainCrosshairVisible=flag;
-    fireChangeEvent();
-  }
-}

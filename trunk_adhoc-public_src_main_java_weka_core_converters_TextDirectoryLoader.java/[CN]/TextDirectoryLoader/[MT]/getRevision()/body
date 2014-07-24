@@ -1,3 +1,0 @@
-{
-  return RevisionUtils.extract("$Revision: 7784 $");
-}

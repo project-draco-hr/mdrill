@@ -1,3 +1,0 @@
-{
-  return calcRadius(0,instList.length - 1,instList,insts,pivot,distanceFunction);
-}

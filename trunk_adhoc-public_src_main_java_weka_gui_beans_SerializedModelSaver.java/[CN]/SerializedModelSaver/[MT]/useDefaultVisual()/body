@@ -1,4 +1,0 @@
-{
-  m_visual.loadIcons(BeanVisual.ICON_PATH + "SerializedModelSaver.gif",BeanVisual.ICON_PATH + "SerializedModelSaver_animated.gif");
-  m_visual.setText("SerializedModelSaver");
-}

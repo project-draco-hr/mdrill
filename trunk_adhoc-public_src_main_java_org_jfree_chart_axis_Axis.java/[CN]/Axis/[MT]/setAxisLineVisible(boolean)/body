@@ -1,4 +1,0 @@
-{
-  this.axisLineVisible=visible;
-  fireChangeEvent();
-}

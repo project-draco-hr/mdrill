@@ -1,6 +1,0 @@
-{
-  StringBuffer debugBuffer=new StringBuffer();
-  debugBuffer.append(projectName).append(",").append(startStr).append(",").append(rowsStr).append(",").append(queryStr).append(",").append(fl).append(",");
-  debugBuffer.append(groupby).append(",").append(sort).append(",").append(order).append(",").append(leftjoin).append(",");
-  return debugBuffer.toString();
-}

@@ -1,6 +1,0 @@
-{
-  if (singleton == null) {
-    singleton=new Log();
-  }
-  return singleton;
-}

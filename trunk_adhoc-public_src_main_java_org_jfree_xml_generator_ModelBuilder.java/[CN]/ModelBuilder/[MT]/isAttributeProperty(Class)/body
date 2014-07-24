@@ -1,6 +1,0 @@
-{
-  if (BasicTypeSupport.isBasicDataType(c)) {
-    return true;
-  }
-  return this.handlerMapping.containsKey(c.getName());
-}

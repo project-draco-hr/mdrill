@@ -1,3 +1,0 @@
-{
-  renameAttribute(att.index(),name);
-}

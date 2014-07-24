@@ -1,3 +1,0 @@
-{
-  return "The value below which values are considered close to.";
-}

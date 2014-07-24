@@ -1,3 +1,0 @@
-{
-  setNodeName(m_nTargetNode,m_sNewName);
-}

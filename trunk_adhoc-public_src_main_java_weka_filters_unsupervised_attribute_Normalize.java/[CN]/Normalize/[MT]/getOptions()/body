@@ -1,9 +1,0 @@
-{
-  Vector<String> result;
-  result=new Vector<String>();
-  result.add("-S");
-  result.add("" + getScale());
-  result.add("-T");
-  result.add("" + getTranslation());
-  return result.toArray(new String[result.size()]);
-}

@@ -1,3 +1,0 @@
-{
-  if (m_ParentFrame != null)   m_ParentFrame.setVisible(false);
-}

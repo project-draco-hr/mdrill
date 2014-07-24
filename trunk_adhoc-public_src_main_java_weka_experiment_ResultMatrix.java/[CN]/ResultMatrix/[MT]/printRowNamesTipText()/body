@@ -1,3 +1,0 @@
-{
-  return "Whether to output row names or just numbers representing them.";
-}

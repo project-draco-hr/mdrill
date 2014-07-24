@@ -1,3 +1,0 @@
-{
-  return (Kernel)new SerializedObject(kernel).getObject();
-}

@@ -1,3 +1,0 @@
-{
-  return "The learning rate. If normalization is turned off " + "(as it is automatically for streaming data), then" + "the default learning rate will need to be reduced ("+ "try 0.0001).";
-}

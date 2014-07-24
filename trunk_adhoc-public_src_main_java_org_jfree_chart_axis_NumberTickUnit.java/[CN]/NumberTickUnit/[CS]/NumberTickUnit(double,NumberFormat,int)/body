@@ -1,7 +1,0 @@
-{
-  super(size,minorTickCount);
-  if (formatter == null) {
-    throw new IllegalArgumentException("Null 'formatter' argument.");
-  }
-  this.formatter=formatter;
-}

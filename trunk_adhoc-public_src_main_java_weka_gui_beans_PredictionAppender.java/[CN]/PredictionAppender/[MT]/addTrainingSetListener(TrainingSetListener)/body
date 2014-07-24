@@ -1,7 +1,0 @@
-{
-  m_trainingSetListeners.addElement(tsl);
-  if (m_format != null) {
-    TrainingSetEvent e=new TrainingSetEvent(this,m_format);
-    tsl.acceptTrainingSet(e);
-  }
-}

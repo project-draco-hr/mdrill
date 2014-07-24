@@ -1,4 +1,0 @@
-{
-  m_train=new Instances(m_train,0);
-  m_numericData=null;
-}

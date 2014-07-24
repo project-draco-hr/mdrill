@@ -1,4 +1,0 @@
-int maxWidthForLeftCol
-int maxWidth
-List<String> targetFieldNames
-Map<String,List<TSEvalModule>> metricsToUse

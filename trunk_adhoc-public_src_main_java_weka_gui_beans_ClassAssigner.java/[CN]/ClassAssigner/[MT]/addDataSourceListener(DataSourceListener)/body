@@ -1,7 +1,0 @@
-{
-  m_dataListeners.addElement(tsl);
-  if (m_connectedFormat != null) {
-    DataSetEvent e=new DataSetEvent(this,m_connectedFormat);
-    tsl.acceptDataSet(e);
-  }
-}

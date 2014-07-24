@@ -1,4 +1,0 @@
-{
-  this.plot=plot;
-  makePaintIndex();
-}

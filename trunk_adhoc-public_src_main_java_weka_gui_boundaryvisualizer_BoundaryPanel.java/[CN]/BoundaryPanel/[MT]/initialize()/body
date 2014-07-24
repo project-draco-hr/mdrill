@@ -1,7 +1,0 @@
-{
-  int iwidth=m_plotPanel.getWidth();
-  int iheight=m_plotPanel.getHeight();
-  m_osi=m_plotPanel.createImage(iwidth,iheight);
-  Graphics m=m_osi.getGraphics();
-  m.fillRect(0,0,iwidth,iheight);
-}

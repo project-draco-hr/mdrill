@@ -1,5 +1,0 @@
-{
-  Instance newInstance=(Instance)instance.copy();
-  newInstance.setDataset(this);
-  m_Instances.add(index,newInstance);
-}

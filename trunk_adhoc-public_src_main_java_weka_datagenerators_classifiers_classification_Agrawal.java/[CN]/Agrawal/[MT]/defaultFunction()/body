@@ -1,3 +1,0 @@
-{
-  return new SelectedTag(FUNCTION_1,FUNCTION_TAGS);
-}

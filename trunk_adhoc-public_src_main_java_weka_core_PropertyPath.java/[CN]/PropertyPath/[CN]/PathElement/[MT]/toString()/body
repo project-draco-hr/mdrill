@@ -1,6 +1,0 @@
-{
-  String result;
-  result=getName();
-  if (hasIndex())   result+="[" + getIndex() + "]";
-  return result;
-}

@@ -1,5 +1,0 @@
-{
-  if (index < getNumTabs() && index >= 0) {
-    m_executionThreads.set(index,execution);
-  }
-}

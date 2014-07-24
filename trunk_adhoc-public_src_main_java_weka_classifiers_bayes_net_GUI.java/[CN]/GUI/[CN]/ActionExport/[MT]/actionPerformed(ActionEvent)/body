@@ -1,6 +1,0 @@
-{
-  m_bIsExporting=true;
-  m_GraphPanel.saveComponent();
-  m_bIsExporting=false;
-  repaint();
-}

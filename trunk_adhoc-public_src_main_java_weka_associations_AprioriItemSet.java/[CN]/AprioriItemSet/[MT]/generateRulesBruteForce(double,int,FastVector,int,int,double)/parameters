@@ -1,6 +1,0 @@
-double minMetric
-int metricType
-FastVector hashtables
-int numItemsInSet
-int numTransactions
-double significanceLevel

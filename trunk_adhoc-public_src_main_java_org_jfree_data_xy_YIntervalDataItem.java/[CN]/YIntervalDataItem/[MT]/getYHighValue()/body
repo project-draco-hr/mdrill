@@ -1,9 +1,0 @@
-{
-  YInterval interval=(YInterval)getObject();
-  if (interval != null) {
-    return interval.getYHigh();
-  }
- else {
-    return Double.NaN;
-  }
-}

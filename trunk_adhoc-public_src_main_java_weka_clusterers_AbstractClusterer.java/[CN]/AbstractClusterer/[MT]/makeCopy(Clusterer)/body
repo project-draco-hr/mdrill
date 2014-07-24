@@ -1,3 +1,0 @@
-{
-  return (Clusterer)new SerializedObject(model).getObject();
-}

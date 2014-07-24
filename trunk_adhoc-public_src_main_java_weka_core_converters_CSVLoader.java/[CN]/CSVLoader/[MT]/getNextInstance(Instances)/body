@@ -1,3 +1,0 @@
-{
-  throw new IOException("CSVLoader can't read data sets incrementally.");
-}

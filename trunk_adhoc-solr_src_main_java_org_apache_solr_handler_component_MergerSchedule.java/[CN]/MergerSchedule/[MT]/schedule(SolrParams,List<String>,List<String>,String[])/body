@@ -1,0 +1,67 @@
+{
+  ScheduleInfo scheduleInfo=new ScheduleInfo();
+  scheduleInfo.partions=shardpartions;
+  scheduleInfo.hasSubShards=false;
+  boolean isfacet=params.getBool(FacetParams.FACET_CROSS,false);
+  Integer maxshards=params.getInt(FacetParams.MERGER_MAX_SHARDS,UniqConfig.getMaxMergerShard());
+  HashMap<String,AssginShard> host2AssginShard=MergerSchedule.assignByHost(lst,mslist);
+  int hostsize=host2AssginShard.size();
+  int size=countSize(host2AssginShard);
+  if (maxshards >= size || hostsize <= 1 || !isfacet) {
+    if (shardpartions != null && shardpartions.length > 0) {
+      for (      Entry<String,AssginShard> e : host2AssginShard.entrySet()) {
+        e.getValue().expand(shardpartions);
+      }
+      scheduleInfo.partions=null;
+      log.info("MergerSchedule fill:" + size + "=="+ host2AssginShard.toString());
+    }
+  }
+  size=countSize(host2AssginShard);
+  if ((maxshards >= size && hostsize <= 1) || !isfacet) {
+    ArrayList<String> shardlist=new ArrayList<String>();
+    for (    Entry<String,AssginShard> e : host2AssginShard.entrySet()) {
+      shardlist.addAll(e.getValue().shards);
+    }
+    scheduleInfo.shards=shardlist.toArray(new String[shardlist.size()]);
+    log.info("MergerSchedule shards:" + Arrays.toString(scheduleInfo.shards));
+    return scheduleInfo;
+  }
+  ArrayList<AssginShard> result=new ArrayList<AssginShard>();
+  int requestCount=hostsize;
+  if (hostsize > maxshards) {
+    requestCount=maxshards;
+  }
+  for (int i=0; i < requestCount; i++) {
+    result.add(new AssginShard(new ArrayList<String>(),new ArrayList<String>()));
+  }
+  int selectindex=0;
+  for (  Entry<String,AssginShard> e : host2AssginShard.entrySet()) {
+    AssginShard as=e.getValue();
+    AssginShard toadd=result.get(selectindex % requestCount);
+    toadd.ms.addAll(as.ms);
+    toadd.shards.addAll(as.shards);
+    selectindex++;
+  }
+  if (hostsize <= 1) {
+    scheduleSingleHost(result.get(0),scheduleInfo,maxshards);
+    return scheduleInfo;
+  }
+  int shardcnt=result.size();
+  scheduleInfo.shards=new String[shardcnt];
+  scheduleInfo.subShards=new String[shardcnt];
+  scheduleInfo.hasSubShards=true;
+  for (int i=0; i < shardcnt; i++) {
+    AssginShard as=result.get(i);
+    scheduleInfo.shards[i]=as.randomMerger();
+    StringBuffer subShards=new StringBuffer();
+    String joinchar="";
+    for (    String s : as.shards) {
+      subShards.append(joinchar);
+      subShards.append(s);
+      joinchar=",";
+    }
+    scheduleInfo.subShards[i]=subShards.toString();
+    log.info("MergerSchedule host:" + scheduleInfo.shards[i] + "=>>"+ scheduleInfo.subShards[i]);
+  }
+  return scheduleInfo;
+}

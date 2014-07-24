@@ -1,6 +1,0 @@
-{
-synchronized (m_Colors) {
-    m_Colors=colors;
-  }
-  update();
-}

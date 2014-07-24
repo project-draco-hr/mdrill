@@ -1,3 +1,0 @@
-{
-  return removeDomainMarker(marker,Layer.FOREGROUND);
-}

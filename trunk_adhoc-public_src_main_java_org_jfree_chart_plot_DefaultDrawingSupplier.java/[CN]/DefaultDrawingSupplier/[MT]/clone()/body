@@ -1,4 +1,0 @@
-{
-  DefaultDrawingSupplier clone=(DefaultDrawingSupplier)super.clone();
-  return clone;
-}

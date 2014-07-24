@@ -1,3 +1,0 @@
-{
-  scrollToVisible(getJTable(),row,col);
-}

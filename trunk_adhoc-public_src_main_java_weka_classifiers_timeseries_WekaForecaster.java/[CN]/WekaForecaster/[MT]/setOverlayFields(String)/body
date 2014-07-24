@@ -1,8 +1,0 @@
-{
-  if (overlayFields == null) {
-    m_lagMaker.setOverlayFields(null);
-  }
- else {
-    m_lagMaker.setOverlayFields(AbstractForecaster.stringToList(overlayFields));
-  }
-}

@@ -1,6 +1,0 @@
-{
-  if (m_ZeroR != null) {
-    return m_ZeroR.distributionForInstance(instance);
-  }
-  return m_Distribution[whichSubset(instance)];
-}

@@ -1,3 +1,0 @@
-{
-  this(candleWidth,true,new HighLowItemLabelGenerator());
-}

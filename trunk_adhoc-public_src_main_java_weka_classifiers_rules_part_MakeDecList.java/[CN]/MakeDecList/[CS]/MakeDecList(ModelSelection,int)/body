@@ -1,6 +1,0 @@
-{
-  toSelectModeL=toSelectLocModel;
-  reducedErrorPruning=false;
-  unpruned=true;
-  minNumObj=minNum;
-}

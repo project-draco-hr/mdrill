@@ -1,5 +1,0 @@
-{
-  d_node tmp=cover_set.element(a);
-  cover_set.set(a,cover_set.element(b));
-  cover_set.set(b,tmp);
-}

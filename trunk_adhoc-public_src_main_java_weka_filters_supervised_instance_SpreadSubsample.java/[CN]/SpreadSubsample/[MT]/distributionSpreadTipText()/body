@@ -1,3 +1,0 @@
-{
-  return "The maximum class distribution spread. " + "(0 = no maximum spread, 1 = uniform distribution, 10 = allow at most a " + "10:1 ratio between the classes).";
-}

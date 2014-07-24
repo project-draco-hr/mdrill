@@ -1,4 +1,0 @@
-{
-  super.setInstances(instances);
-  buildKDTree(instances);
-}

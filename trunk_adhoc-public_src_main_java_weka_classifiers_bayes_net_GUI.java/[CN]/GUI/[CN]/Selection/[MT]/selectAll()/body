@@ -1,7 +1,0 @@
-{
-  m_selected.removeAllElements();
-  for (int iNode=0; iNode < m_BayesNet.getNrOfNodes(); iNode++) {
-    m_selected.addElement(iNode);
-  }
-  updateGUI();
-}

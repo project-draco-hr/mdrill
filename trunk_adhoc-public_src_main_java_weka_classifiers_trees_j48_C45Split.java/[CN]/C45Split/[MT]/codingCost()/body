@@ -1,3 +1,0 @@
-{
-  return Utils.log2(m_index);
-}

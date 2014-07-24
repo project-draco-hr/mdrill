@@ -1,8 +1,0 @@
-{
-  if (this.area instanceof Rectangle2D) {
-    return "rect";
-  }
- else {
-    return "poly";
-  }
-}

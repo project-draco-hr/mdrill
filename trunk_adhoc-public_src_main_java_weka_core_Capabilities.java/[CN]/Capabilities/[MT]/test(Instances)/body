@@ -1,3 +1,0 @@
-{
-  return test(data,0,data.numAttributes() - 1);
-}

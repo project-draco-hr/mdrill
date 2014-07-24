@@ -1,7 +1,0 @@
-{
-  int result=0;
-  if (this.dataset != null) {
-    result=this.dataset.getSeriesCount();
-  }
-  return result;
-}

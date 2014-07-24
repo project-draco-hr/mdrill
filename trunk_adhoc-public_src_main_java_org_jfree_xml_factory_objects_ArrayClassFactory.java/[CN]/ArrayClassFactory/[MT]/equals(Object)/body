@@ -1,9 +1,0 @@
-{
-  if (this == o) {
-    return true;
-  }
-  if (!(o instanceof ArrayClassFactory)) {
-    return false;
-  }
-  return true;
-}

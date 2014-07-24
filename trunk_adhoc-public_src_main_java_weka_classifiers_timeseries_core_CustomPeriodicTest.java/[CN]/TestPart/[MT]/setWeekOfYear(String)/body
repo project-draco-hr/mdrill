@@ -1,8 +1,0 @@
-{
-  if (week.equals("*")) {
-    m_week_of_yr=-100;
-  }
- else {
-    m_week_of_yr=Integer.parseInt(week);
-  }
-}

@@ -1,6 +1,0 @@
-{
-  double angrad=Math.toRadians(angle);
-  double x=Math.cos(angrad) * length * bounds.getWidth() / 2;
-  double y=-Math.sin(angrad) * length * bounds.getHeight() / 2;
-  return new Point2D.Double(bounds.getX() + x + bounds.getWidth() / 2,bounds.getY() + y + bounds.getHeight() / 2);
-}

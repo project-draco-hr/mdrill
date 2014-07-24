@@ -1,4 +1,0 @@
-{
-  double lowerVal=getRange().getLowerBound();
-  this.smallLogFlag=(!this.allowNegativesFlag && lowerVal < 10.0 && lowerVal > 0.0);
-}

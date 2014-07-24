@@ -1,8 +1,0 @@
-{
-  super(source);
-  m_legendText=legendText;
-  m_max=max;
-  m_min=min;
-  m_dataPoint=dataPoint;
-  m_reset=reset;
-}

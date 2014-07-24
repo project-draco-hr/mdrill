@@ -1,3 +1,0 @@
-{
-  return ("Range[" + this.lower + ","+ this.upper+ "]");
-}

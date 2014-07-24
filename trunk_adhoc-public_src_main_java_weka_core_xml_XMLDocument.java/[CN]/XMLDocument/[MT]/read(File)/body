@@ -1,4 +1,0 @@
-{
-  m_Document=getBuilder().parse(file);
-  return getDocument();
-}

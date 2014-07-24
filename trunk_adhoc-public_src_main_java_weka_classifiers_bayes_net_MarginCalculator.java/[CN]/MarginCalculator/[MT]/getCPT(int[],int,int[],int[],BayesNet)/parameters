@@ -1,5 +1,0 @@
-int[] nodeSet
-int nNodes
-int[] values
-int[] order
-BayesNet bayesNet

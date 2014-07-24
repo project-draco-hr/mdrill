@@ -1,8 +1,0 @@
-{
-  m_Data=null;
-  m_Ruleset=null;
-  m_SimpleStats=null;
-  m_Filtered=null;
-  m_Distributions=null;
-  m_Total=-1;
-}

@@ -1,4 +1,0 @@
-{
-  initialize();
-  return m_ColumnNames;
-}

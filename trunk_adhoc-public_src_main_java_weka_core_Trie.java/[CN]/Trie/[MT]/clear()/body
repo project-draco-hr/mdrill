@@ -1,4 +1,0 @@
-{
-  m_Root.removeAllChildren();
-  m_RecalcHashCode=true;
-}

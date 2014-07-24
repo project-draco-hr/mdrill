@@ -1,3 +1,0 @@
-{
-  this(data,type,0,data.numAttributes() - 1);
-}

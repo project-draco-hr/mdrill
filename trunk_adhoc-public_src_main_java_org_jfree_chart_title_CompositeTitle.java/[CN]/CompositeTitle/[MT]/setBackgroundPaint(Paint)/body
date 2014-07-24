@@ -1,4 +1,0 @@
-{
-  this.backgroundPaint=paint;
-  notifyListeners(new TitleChangeEvent(this));
-}

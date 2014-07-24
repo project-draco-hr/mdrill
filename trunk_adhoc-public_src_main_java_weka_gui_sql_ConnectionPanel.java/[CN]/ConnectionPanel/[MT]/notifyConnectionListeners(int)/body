@@ -1,3 +1,0 @@
-{
-  notifyConnectionListeners(type,null);
-}

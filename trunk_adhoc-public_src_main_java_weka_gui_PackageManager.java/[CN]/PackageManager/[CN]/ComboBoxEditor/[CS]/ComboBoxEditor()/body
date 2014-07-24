@@ -1,3 +1,0 @@
-{
-  super(new JComboBox(new String[]{"one","two"}));
-}

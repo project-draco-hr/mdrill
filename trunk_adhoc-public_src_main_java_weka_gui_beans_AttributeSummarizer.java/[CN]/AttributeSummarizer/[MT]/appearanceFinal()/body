@@ -1,4 +1,0 @@
-{
-  removeAll();
-  setLayout(new BorderLayout());
-}

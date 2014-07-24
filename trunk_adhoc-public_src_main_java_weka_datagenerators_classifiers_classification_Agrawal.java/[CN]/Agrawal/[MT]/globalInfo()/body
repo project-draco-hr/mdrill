@@ -1,3 +1,0 @@
-{
-  return "Generates a people database and is based on the paper by Agrawal " + "et al.:\n" + getTechnicalInformation().toString();
-}

@@ -1,7 +1,0 @@
-{
-  JFreeChart chart=ChartFactory.createPieChart("Pie Chart Demo 1",dataset,true,true,false);
-  PiePlot plot=(PiePlot)chart.getPlot();
-  plot.setSectionOutlinesVisible(false);
-  plot.setNoDataMessage("No data available");
-  return chart;
-}

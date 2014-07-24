@@ -1,7 +1,0 @@
-{
-  if (chart == null) {
-    throw new IllegalArgumentException("Null 'chart' argument.");
-  }
-  BufferedImage bufferedImage=chart.createBufferedImage(width,height,info);
-  EncoderUtil.writeBufferedImage(bufferedImage,ImageFormat.PNG,out);
-}

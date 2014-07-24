@@ -1,4 +1,0 @@
-{
-  if (closed)   throw new UnsupportedOperationException("ProtectedProperties cannot be modified!");
- else   return super.put(key,value);
-}

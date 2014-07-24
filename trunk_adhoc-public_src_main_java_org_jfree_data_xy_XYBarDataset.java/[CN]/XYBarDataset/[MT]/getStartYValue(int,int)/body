@@ -1,3 +1,0 @@
-{
-  return getYValue(series,item);
-}

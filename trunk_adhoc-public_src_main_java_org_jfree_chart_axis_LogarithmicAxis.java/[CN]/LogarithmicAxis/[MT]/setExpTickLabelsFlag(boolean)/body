@@ -1,4 +1,0 @@
-{
-  this.expTickLabelsFlag=flgVal;
-  setupNumberFmtObj();
-}

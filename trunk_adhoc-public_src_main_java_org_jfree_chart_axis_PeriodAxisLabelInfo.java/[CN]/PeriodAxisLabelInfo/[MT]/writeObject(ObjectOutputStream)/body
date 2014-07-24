@@ -1,6 +1,0 @@
-{
-  stream.defaultWriteObject();
-  SerialUtilities.writePaint(this.labelPaint,stream);
-  SerialUtilities.writeStroke(this.dividerStroke,stream);
-  SerialUtilities.writePaint(this.dividerPaint,stream);
-}

@@ -1,3 +1,0 @@
-{
-  this.seriesFilled.setBoolean(series,BooleanUtilities.valueOf(filled));
-}

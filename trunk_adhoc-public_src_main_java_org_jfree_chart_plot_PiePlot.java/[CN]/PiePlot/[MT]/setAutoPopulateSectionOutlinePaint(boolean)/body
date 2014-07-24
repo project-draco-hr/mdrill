@@ -1,4 +1,0 @@
-{
-  this.autoPopulateSectionOutlinePaint=auto;
-  fireChangeEvent();
-}

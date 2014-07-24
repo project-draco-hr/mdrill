@@ -1,4 +1,0 @@
-{
-  this.baseItemURLGenerator=generator;
-  fireChangeEvent();
-}

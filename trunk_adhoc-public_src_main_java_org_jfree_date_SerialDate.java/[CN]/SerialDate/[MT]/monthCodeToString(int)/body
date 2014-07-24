@@ -1,3 +1,0 @@
-{
-  return monthCodeToString(month,false);
-}

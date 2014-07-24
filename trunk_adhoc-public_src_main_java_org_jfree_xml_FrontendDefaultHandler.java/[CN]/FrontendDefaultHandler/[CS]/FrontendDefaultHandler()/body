@@ -1,4 +1,0 @@
-{
-  this.parserConfiguration=new DefaultConfiguration();
-  this.commentHandler=new CommentHandler();
-}

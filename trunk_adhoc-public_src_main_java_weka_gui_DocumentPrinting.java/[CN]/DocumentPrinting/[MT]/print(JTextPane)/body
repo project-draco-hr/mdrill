@@ -1,4 +1,0 @@
-{
-  setDocument(pane);
-  printDialog();
-}

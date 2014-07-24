@@ -1,6 +1,0 @@
-{
-  if (this.rangeCrosshairLockedOnData != flag) {
-    this.rangeCrosshairLockedOnData=flag;
-    fireChangeEvent();
-  }
-}

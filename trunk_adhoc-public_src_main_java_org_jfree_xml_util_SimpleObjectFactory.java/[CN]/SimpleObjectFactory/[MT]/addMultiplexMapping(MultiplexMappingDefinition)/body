@@ -1,3 +1,0 @@
-{
-  this.multiplexMappings.put(mplex.getBaseClass(),mplex);
-}

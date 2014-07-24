@@ -1,5 +1,0 @@
-{
-  this.dateFormatSymbols=new DateFormatSymbols();
-  this.weekdays=this.dateFormatSymbols.getWeekdays();
-  this.months=this.dateFormatSymbols.getMonths();
-}

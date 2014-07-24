@@ -1,3 +1,0 @@
-{
-  return new RectangleConstraint(this.width,this.widthRange,this.widthConstraintType,height,this.heightRange,LengthConstraintType.FIXED);
-}

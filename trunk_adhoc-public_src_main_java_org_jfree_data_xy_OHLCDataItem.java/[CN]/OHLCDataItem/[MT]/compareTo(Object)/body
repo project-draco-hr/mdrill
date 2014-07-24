@@ -1,9 +1,0 @@
-{
-  if (object instanceof OHLCDataItem) {
-    OHLCDataItem item=(OHLCDataItem)object;
-    return this.date.compareTo(item.date);
-  }
- else {
-    throw new ClassCastException("OHLCDataItem.compareTo().");
-  }
-}

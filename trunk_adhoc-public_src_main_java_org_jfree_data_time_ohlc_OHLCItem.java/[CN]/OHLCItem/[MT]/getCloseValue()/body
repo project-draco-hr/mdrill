@@ -1,9 +1,0 @@
-{
-  OHLC ohlc=(OHLC)getObject();
-  if (ohlc != null) {
-    return ohlc.getClose();
-  }
- else {
-    return Double.NaN;
-  }
-}

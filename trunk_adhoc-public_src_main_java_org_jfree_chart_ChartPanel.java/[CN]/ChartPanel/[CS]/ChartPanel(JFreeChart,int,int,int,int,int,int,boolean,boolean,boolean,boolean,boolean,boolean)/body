@@ -1,3 +1,0 @@
-{
-  this(chart,width,height,minimumDrawWidth,minimumDrawHeight,maximumDrawWidth,maximumDrawHeight,useBuffer,properties,true,save,print,zoom,tooltips);
-}

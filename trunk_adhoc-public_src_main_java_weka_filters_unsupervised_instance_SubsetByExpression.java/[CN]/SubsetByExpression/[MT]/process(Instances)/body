@@ -1,8 +1,0 @@
-{
-  if (!isFirstBatchDone() || m_filterAfterFirstBatch) {
-    return Parser.filter(m_Expression,instances);
-  }
- else {
-    return instances;
-  }
-}

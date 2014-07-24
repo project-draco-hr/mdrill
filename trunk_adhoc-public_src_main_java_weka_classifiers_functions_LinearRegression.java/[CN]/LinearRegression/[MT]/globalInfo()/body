@@ -1,3 +1,0 @@
-{
-  return "Class for using linear regression for prediction. Uses the Akaike " + "criterion for model selection, and is able to deal with weighted " + "instances.";
-}

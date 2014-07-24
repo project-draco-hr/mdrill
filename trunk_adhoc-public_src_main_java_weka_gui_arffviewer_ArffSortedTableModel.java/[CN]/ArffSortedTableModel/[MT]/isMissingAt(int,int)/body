@@ -1,3 +1,0 @@
-{
-  return ((ArffTableModel)getModel()).isMissingAt(mIndices[rowIndex],columnIndex);
-}

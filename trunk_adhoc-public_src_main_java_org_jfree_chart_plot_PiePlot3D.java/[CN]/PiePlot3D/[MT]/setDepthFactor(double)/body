@@ -1,4 +1,0 @@
-{
-  this.depthFactor=factor;
-  fireChangeEvent();
-}

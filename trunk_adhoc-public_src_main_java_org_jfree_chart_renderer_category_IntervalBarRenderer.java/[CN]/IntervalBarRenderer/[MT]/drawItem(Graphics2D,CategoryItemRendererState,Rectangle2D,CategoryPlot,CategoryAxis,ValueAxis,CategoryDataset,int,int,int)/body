@@ -1,9 +1,0 @@
-{
-  if (dataset instanceof IntervalCategoryDataset) {
-    IntervalCategoryDataset d=(IntervalCategoryDataset)dataset;
-    drawInterval(g2,state,dataArea,plot,domainAxis,rangeAxis,d,row,column);
-  }
- else {
-    super.drawItem(g2,state,dataArea,plot,domainAxis,rangeAxis,dataset,row,column,pass);
-  }
-}

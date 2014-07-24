@@ -1,4 +1,0 @@
-{
-  SerialDate mondayNearest=SerialDate.getNearestDayOfWeek(SerialDate.MONDAY,this.nov9Y2001);
-  assertEquals(12,mondayNearest.getDayOfMonth());
-}

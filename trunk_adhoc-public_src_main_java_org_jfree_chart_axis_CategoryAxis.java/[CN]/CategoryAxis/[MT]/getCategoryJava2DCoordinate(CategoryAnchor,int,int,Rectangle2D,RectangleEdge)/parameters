@@ -1,5 +1,0 @@
-CategoryAnchor anchor
-int category
-int categoryCount
-Rectangle2D area
-RectangleEdge edge

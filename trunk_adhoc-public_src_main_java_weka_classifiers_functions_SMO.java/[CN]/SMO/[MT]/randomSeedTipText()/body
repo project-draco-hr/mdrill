@@ -1,3 +1,0 @@
-{
-  return "Random number seed for the cross-validation.";
-}

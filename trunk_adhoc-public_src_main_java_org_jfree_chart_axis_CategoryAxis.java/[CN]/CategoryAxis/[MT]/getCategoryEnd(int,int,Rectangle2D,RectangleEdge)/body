@@ -1,3 +1,0 @@
-{
-  return getCategoryStart(category,categoryCount,area,edge) + calculateCategorySize(categoryCount,area,edge);
-}

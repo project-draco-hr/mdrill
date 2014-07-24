@@ -1,3 +1,0 @@
-{
-  return (linkParam < 0.0 || linkParam > 0.0) ? Math.pow(value + offset,(1.0 / linkParam)) * trials : Math.exp(value + offset) * trials;
-}

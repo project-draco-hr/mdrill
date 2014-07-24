@@ -1,8 +1,0 @@
-{
-  if (i < m_children.size()) {
-    return (Edge)m_children.elementAt(i);
-  }
- else {
-    return null;
-  }
-}

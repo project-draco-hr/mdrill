@@ -1,6 +1,0 @@
-{
-  this.horizontalAlignment=hAlign;
-  this.verticalAlignment=vAlign;
-  this.horizontalGap=hGap;
-  this.verticalGap=vGap;
-}

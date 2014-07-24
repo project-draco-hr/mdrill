@@ -1,3 +1,0 @@
-{
-  return "Use word frequencies rather than binary " + "bag of words representation";
-}

@@ -1,7 +1,0 @@
-{
-  long p=(this.segmentNumber % SegmentedTimeline.this.groupSegmentCount);
-  if (p < 0) {
-    p+=SegmentedTimeline.this.groupSegmentCount;
-  }
-  return p;
-}

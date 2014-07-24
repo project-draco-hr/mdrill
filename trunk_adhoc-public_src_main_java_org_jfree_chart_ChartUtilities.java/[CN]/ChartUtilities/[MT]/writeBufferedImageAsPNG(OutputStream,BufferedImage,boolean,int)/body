@@ -1,3 +1,0 @@
-{
-  EncoderUtil.writeBufferedImage(image,ImageFormat.PNG,out,compression,encodeAlpha);
-}

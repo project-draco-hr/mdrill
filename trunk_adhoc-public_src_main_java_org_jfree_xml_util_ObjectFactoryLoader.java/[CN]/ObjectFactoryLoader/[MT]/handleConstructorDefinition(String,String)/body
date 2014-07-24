@@ -1,5 +1,0 @@
-{
-  final Class c=loadClass(parameterClass);
-  this.orderedNames.add(propertyName);
-  this.constructorDefinition.add(new ConstructorDefinition(propertyName,c));
-}

@@ -1,3 +1,0 @@
-{
-  return m_Distributions[iNode][iParent].getProbability(iValue);
-}

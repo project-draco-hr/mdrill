@@ -1,5 +1,0 @@
-{
-  if (value.getTags() == TAGS_TYPE) {
-    m_AttributeType=value.getSelectedTag().getID();
-  }
-}

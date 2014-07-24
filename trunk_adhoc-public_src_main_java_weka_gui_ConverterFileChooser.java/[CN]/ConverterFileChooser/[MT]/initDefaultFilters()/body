@@ -1,4 +1,0 @@
-{
-  initFilters(true,ConverterUtils.getFileLoaders());
-  initFilters(false,ConverterUtils.getFileSavers());
-}

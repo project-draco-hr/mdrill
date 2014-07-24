@@ -1,6 +1,0 @@
-{
-  if (col == 1) {
-    m_Selected[row]=((Boolean)value).booleanValue();
-    fireTableRowsUpdated(0,m_Selected.length);
-  }
-}

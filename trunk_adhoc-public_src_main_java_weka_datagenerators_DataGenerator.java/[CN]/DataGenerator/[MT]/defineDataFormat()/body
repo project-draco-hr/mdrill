@@ -1,4 +1,0 @@
-{
-  if (getRelationName().length() == 0)   setRelationName(defaultRelationName());
-  return m_DatasetFormat;
-}

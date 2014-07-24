@@ -1,0 +1,9 @@
+TablePartion part
+MdrillTableConfig tblconfig
+MdrillTableCoreInfo coreinfo
+MdrillRequest req
+String callback
+ArrayList<String> fqList
+GetPartions.Shards shard
+HigoJoinParams[] joins
+JSONObject jsonObj

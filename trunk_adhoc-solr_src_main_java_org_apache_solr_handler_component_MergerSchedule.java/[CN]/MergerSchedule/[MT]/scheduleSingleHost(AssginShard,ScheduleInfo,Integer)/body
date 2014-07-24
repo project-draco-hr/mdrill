@@ -1,0 +1,16 @@
+{
+  int numshards=(assign0.shards.size() / maxshards) + 1;
+  if (numshards > maxshards) {
+    numshards=maxshards;
+  }
+  String[] ssubshards=MergeShards.split(assign0.shards,numshards);
+  scheduleInfo.shards=new String[ssubshards.length];
+  scheduleInfo.subShards=new String[ssubshards.length];
+  scheduleInfo.hasSubShards=true;
+  for (int i=0; i < ssubshards.length; i++) {
+    scheduleInfo.shards[i]=assign0.randomMerger();
+    scheduleInfo.subShards[i]=ssubshards[i];
+    log.info("shedule by single:" + scheduleInfo.shards[i] + "=>>"+ scheduleInfo.subShards[i]);
+  }
+  log.info("MergerSchedule scheduleSingleHost:" + scheduleInfo.shards.length + ">>"+ numshards);
+}

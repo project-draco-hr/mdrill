@@ -1,7 +1,0 @@
-{
-  LoadService server=new LoadService();
-  File file=new File(args[0]);
-  if (file.exists())   server.loadQueryLogFromFile(file);
- else   System.err.println("File not exists");
-  server.close();
-}

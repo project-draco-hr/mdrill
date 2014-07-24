@@ -1,5 +1,0 @@
-{
-  m_UseDouble=value;
-  if (m_UseDouble)   m_Format=new DecimalFormat("   0.0000000000000000E00;  -0.0000000000000000E00");
- else   m_Format=new DecimalFormat("   0.00000000E00;  -0.00000000E00");
-}

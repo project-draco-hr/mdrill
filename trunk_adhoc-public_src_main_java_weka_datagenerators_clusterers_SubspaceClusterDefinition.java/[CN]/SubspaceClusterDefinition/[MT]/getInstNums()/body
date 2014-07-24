@@ -1,4 +1,0 @@
-{
-  String text=new String("" + m_MinInstNum + ".."+ m_MaxInstNum);
-  return text;
-}

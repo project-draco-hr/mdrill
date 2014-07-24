@@ -1,3 +1,0 @@
-{
-  return "Wether instance weights will be adjusted to maintain total weight per " + "class.";
-}

@@ -1,3 +1,0 @@
-{
-  setSeriesItemLabelsVisible(series,BooleanUtilities.valueOf(visible));
-}

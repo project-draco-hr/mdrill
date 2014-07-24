@@ -1,4 +1,0 @@
-{
-  super(toSelectLocModel,minNum);
-  CF=cf;
-}

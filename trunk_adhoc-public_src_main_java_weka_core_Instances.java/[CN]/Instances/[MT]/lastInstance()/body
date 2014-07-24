@@ -1,3 +1,0 @@
-{
-  return (Instance)m_Instances.get(m_Instances.size() - 1);
-}

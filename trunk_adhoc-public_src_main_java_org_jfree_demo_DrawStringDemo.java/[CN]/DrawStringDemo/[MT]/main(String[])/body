@@ -1,6 +1,0 @@
-{
-  final DrawStringDemo demo=new DrawStringDemo("DrawString Demo");
-  demo.pack();
-  RefineryUtilities.centerFrameOnScreen(demo);
-  demo.setVisible(true);
-}

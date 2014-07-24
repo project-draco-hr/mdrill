@@ -1,5 +1,0 @@
-{
-  super.setOptions(options);
-  setUseDouble(Utils.getFlag("double",options));
-  setUseTabs(Utils.getFlag("tabs",options));
-}

@@ -1,3 +1,0 @@
-{
-  return (Stroke)this.selector.getSelectedItem();
-}

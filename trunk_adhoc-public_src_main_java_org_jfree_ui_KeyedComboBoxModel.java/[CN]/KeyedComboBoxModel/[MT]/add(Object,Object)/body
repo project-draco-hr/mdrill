@@ -1,6 +1,0 @@
-{
-  final ComboBoxItemPair con=new ComboBoxItemPair(key,cbitem);
-  this.data.add(con);
-  final ListDataEvent evt=new ListDataEvent(this,ListDataEvent.INTERVAL_ADDED,this.data.size() - 2,this.data.size() - 2);
-  fireListDataEvent(evt);
-}

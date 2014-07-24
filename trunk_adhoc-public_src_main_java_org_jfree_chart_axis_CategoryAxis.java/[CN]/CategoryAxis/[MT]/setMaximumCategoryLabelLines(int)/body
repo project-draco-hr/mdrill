@@ -1,4 +1,0 @@
-{
-  this.maximumCategoryLabelLines=lines;
-  notifyListeners(new AxisChangeEvent(this));
-}

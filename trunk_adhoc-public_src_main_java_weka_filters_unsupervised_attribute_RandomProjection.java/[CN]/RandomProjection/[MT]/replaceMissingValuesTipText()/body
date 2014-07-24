@@ -1,3 +1,0 @@
-{
-  return "If set the filter uses weka.filters.unsupervised.attribute.ReplaceMissingValues" + " to replace the missing values";
-}

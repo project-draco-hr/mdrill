@@ -1,0 +1,7 @@
+{
+  int size=0;
+  for (  Entry<String,AssginShard> e : host2AssginShard.entrySet()) {
+    size+=e.getValue().shards.size();
+  }
+  return size;
+}

@@ -1,7 +1,0 @@
-{
-  super(toSelectLocModel);
-  pruneTheTree=pruneTree;
-  numSets=num;
-  m_cleanup=cleanup;
-  m_seed=seed;
-}

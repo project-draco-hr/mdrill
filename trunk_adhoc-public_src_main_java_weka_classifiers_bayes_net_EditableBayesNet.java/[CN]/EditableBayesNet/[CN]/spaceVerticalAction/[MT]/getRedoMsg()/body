@@ -1,3 +1,0 @@
-{
-  return "Spaceng " + m_nodes.size() + " nodes vertically.";
-}

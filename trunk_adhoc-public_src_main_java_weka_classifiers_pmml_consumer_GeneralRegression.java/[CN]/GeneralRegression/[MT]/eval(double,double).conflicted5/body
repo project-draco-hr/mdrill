@@ -1,3 +1,0 @@
-{
-  return Math.exp(-Math.exp(-(value + offset)));
-}

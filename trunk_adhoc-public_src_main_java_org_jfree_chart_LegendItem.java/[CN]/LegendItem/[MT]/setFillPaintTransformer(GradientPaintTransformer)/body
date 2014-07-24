@@ -1,6 +1,0 @@
-{
-  if (transformer == null) {
-    throw new IllegalArgumentException("Null 'transformer' attribute.");
-  }
-  this.fillPaintTransformer=transformer;
-}

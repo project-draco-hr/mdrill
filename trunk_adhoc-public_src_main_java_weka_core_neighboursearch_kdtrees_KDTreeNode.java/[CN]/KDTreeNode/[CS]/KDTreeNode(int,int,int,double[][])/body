@@ -1,6 +1,0 @@
-{
-  m_NodeNumber=nodeNum;
-  m_Start=startidx;
-  m_End=endidx;
-  m_NodeRanges=nodeRanges;
-}

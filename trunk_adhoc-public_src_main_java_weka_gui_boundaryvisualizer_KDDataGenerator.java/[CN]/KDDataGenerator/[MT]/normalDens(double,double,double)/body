@@ -1,4 +1,0 @@
-{
-  double diff=x - mean;
-  return (1 / (m_normConst * stdDev)) * Math.exp(-(diff * diff / (2 * stdDev * stdDev)));
-}

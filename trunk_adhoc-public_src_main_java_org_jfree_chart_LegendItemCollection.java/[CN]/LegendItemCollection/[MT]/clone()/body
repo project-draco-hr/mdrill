@@ -1,5 +1,0 @@
-{
-  LegendItemCollection clone=(LegendItemCollection)super.clone();
-  clone.items=(List)ObjectUtilities.deepClone(this.items);
-  return clone;
-}

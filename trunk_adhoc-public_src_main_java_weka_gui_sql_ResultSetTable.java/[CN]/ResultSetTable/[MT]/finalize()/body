@@ -1,5 +1,0 @@
-{
-  if (getModel() != null)   ((ResultSetTableModel)getModel()).finalize();
-  super.finalize();
-  System.gc();
-}

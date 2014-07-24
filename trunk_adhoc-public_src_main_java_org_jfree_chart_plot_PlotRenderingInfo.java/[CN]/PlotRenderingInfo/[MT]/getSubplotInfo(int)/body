@@ -1,3 +1,0 @@
-{
-  return (PlotRenderingInfo)this.subplotInfo.get(index);
-}

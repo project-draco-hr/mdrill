@@ -1,3 +1,0 @@
-{
-  seriesChanged(new SeriesChangeEvent(this));
-}

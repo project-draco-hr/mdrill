@@ -1,7 +1,0 @@
-{
-  super(area,toolTipText,urlText);
-  if (axis == null) {
-    throw new IllegalArgumentException("Null 'axis' argument.");
-  }
-  this.axis=axis;
-}

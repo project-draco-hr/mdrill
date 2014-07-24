@@ -1,7 +1,0 @@
-{
-  int result;
-  result=(this.prefix != null ? this.prefix.hashCode() : 0);
-  result=29 * result + (this.seriesParameterName != null ? this.seriesParameterName.hashCode() : 0);
-  result=29 * result + (this.categoryParameterName != null ? this.categoryParameterName.hashCode() : 0);
-  return result;
-}

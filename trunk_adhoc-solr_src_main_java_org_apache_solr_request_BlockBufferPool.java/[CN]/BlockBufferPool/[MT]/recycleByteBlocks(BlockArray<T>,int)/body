@@ -1,6 +1,6 @@
 {
 synchronized (BlockBufferPool.this) {
-    int allowsize=UniqConfig.getBlockBufferSize() - this.freeByteBlocks.size();
+    int allowsize=UniqConfig.getBlockBufferPoolSize() - this.freeByteBlocks.size();
     final int size=data.data.length;
     for (int i=start; i < size; i++) {
       if (i < allowsize) {

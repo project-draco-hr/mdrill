@@ -1,7 +1,0 @@
-{
-  final TypeInfo[] typeInfos=(TypeInfo[])this.multiplexTypeInfos.toArray(new TypeInfo[this.multiplexTypeInfos.size()]);
-  this.multiplexInfo.setComments(new Comments(getOpenComment(),getCloseComment()));
-  this.multiplexInfo.setChildClasses(typeInfos);
-  this.model.getMappingModel().addMultiplexMapping(this.multiplexInfo);
-  this.multiplexInfo=null;
-}

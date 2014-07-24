@@ -1,6 +1,0 @@
-{
-  if (bounds == null) {
-    throw new IllegalArgumentException("Null 'bounds' argument.");
-  }
-  this.bounds=bounds;
-}

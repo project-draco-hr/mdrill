@@ -1,3 +1,0 @@
-{
-  setPosition(m_nTargetNode,m_nX,m_nY);
-}

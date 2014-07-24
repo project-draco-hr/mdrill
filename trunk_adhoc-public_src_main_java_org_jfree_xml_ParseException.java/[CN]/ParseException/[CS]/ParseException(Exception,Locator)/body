@@ -1,4 +1,0 @@
-{
-  super(e);
-  fillLocation(locator);
-}

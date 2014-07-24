@@ -1,4 +1,0 @@
-{
-  getCapabilities().testWithFail(data);
-  buildAttributeConstructor(data);
-}

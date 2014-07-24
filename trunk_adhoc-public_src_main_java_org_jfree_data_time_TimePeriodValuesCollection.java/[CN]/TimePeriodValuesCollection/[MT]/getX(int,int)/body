@@ -1,6 +1,0 @@
-{
-  TimePeriodValues ts=(TimePeriodValues)this.data.get(series);
-  TimePeriodValue dp=ts.getDataItem(item);
-  TimePeriod period=dp.getPeriod();
-  return new Long(getX(period));
-}

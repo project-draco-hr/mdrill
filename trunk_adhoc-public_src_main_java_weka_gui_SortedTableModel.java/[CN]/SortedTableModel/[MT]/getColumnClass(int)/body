@@ -1,4 +1,0 @@
-{
-  if (!isInitialized())   return null;
- else   return getModel().getColumnClass(columnIndex);
-}

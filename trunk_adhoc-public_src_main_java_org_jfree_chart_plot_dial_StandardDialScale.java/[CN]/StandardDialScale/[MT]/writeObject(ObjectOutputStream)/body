@@ -1,8 +1,0 @@
-{
-  stream.defaultWriteObject();
-  SerialUtilities.writePaint(this.majorTickPaint,stream);
-  SerialUtilities.writeStroke(this.majorTickStroke,stream);
-  SerialUtilities.writePaint(this.minorTickPaint,stream);
-  SerialUtilities.writeStroke(this.minorTickStroke,stream);
-  SerialUtilities.writePaint(this.tickLabelPaint,stream);
-}

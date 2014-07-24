@@ -1,6 +1,0 @@
-{
-  if (this.angleGridlinesVisible != visible) {
-    this.angleGridlinesVisible=visible;
-    fireChangeEvent();
-  }
-}

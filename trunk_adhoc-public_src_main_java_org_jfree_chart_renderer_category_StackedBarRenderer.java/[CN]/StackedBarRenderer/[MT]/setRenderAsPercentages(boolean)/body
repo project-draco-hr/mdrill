@@ -1,4 +1,0 @@
-{
-  this.renderAsPercentages=asPercentages;
-  fireChangeEvent();
-}

@@ -1,6 +1,0 @@
-{
-  FastVector nodelist=selectElements(definition,"TABLE");
-  String sTable=getContent((Element)nodelist.elementAt(0));
-  sTable=sTable.replaceAll("\\n"," ");
-  return sTable;
-}

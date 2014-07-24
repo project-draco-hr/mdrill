@@ -1,8 +1,0 @@
-{
-  if (recursionLevel >= m_counts.size()) {
-    return 0;
-  }
- else {
-    return m_counts.get(recursionLevel);
-  }
-}

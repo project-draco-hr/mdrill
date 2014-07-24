@@ -1,4 +1,0 @@
-{
-  if (!m_CoverageStatisticsAvailable)   return Double.NaN;
-  return 100 * m_TotalCoverage / m_WithClass;
-}

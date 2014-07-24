@@ -1,6 +1,0 @@
-{
-  removeAll();
-  add(m_LoaderEditor,BorderLayout.CENTER);
-  validate();
-  repaint();
-}

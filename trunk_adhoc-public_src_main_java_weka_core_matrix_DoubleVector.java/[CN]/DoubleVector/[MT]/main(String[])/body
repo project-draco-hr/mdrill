@@ -1,7 +1,0 @@
-{
-  DoubleVector u=random(10);
-  DoubleVector v=random(10);
-  DoubleVector a=random(10);
-  DoubleVector w=a;
-  System.out.println(random(10).plus(v).plus(w));
-}

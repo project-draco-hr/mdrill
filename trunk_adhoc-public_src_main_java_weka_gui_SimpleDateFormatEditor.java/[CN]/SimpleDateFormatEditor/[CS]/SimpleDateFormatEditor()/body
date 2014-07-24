@@ -1,4 +1,0 @@
-{
-  m_propSupport=new PropertyChangeSupport(this);
-  m_customEditor=new CustomEditor();
-}

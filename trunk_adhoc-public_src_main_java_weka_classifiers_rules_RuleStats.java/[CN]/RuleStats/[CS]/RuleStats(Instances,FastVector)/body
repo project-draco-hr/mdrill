@@ -1,5 +1,0 @@
-{
-  this();
-  m_Data=data;
-  m_Ruleset=rules;
-}

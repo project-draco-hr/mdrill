@@ -1,6 +1,0 @@
-XYDataset dataset
-int series
-int firstItem
-int lastItem
-int pass
-int passCount

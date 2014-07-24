@@ -1,8 +1,0 @@
-{
-  try {
-    return isSubclass(Class.forName(superclass),Class.forName(otherclass));
-  }
- catch (  Exception e) {
-    return false;
-  }
-}

@@ -1,0 +1,12 @@
+{
+  if (this.hasInit) {
+    for (int i=0; i < this.data.length; i++) {
+      if (this.data[i] == a) {
+        this.data[i]=b;
+      }
+    }
+  }
+ else   if (this.def == a) {
+    this.allset(b);
+  }
+}

@@ -1,3 +1,0 @@
-{
-  return (getCalculateConfIntervalsForForecasts() > 0);
-}

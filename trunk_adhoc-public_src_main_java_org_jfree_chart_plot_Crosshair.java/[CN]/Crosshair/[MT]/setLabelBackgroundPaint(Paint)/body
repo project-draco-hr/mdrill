@@ -1,5 +1,0 @@
-{
-  Paint old=this.labelBackgroundPaint;
-  this.labelBackgroundPaint=paint;
-  this.pcs.firePropertyChange("labelBackgroundPaint",old,paint);
-}

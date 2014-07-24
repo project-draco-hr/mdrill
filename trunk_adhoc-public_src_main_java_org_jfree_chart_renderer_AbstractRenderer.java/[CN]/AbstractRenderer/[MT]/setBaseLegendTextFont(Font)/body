@@ -1,4 +1,0 @@
-{
-  this.baseLegendTextFont=font;
-  fireChangeEvent();
-}

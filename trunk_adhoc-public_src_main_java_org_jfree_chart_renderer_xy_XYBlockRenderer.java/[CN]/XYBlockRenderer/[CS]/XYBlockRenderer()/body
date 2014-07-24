@@ -1,4 +1,0 @@
-{
-  updateOffsets();
-  this.paintScale=new LookupPaintScale();
-}

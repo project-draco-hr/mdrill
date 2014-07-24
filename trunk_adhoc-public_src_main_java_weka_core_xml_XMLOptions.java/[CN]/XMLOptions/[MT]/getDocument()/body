@@ -1,4 +1,0 @@
-{
-  fixHyphens();
-  return m_XMLDocument.getDocument();
-}

@@ -1,8 +1,0 @@
-{
-  try {
-    paste(m_sXML,EXECUTE);
-  }
- catch (  Exception e) {
-    e.printStackTrace();
-  }
-}

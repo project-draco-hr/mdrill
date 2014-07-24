@@ -1,45 +1,27 @@
 {
   long t1=System.currentTimeMillis();
-  String logParams=logRequest(projectName,callback,startStr,rowsStr,queryStr,dist,fl,groupby,sort,order,leftjoin);
-  LOG.info("higorequest:" + cutString(logParams));
-  TablePartion part=GetPartions.partion(projectName);
+  String logParams=MdrillRequestLog.logRequest(projectName,callback,startStr,rowsStr,queryStr,dist,fl,groupby,sort,order,leftjoin);
   HeartBeat hb=new HeartBeat(out);
   new Thread(hb).start();
+  TablePartion part=GetPartions.partion(projectName);
   try {
-    queryStr=WebServiceParams.query(queryStr);
-    String logParams2=logRequest(projectName,callback,startStr,rowsStr,queryStr,dist,fl,groupby,sort,order,leftjoin);
-    LOG.info("query:" + cutString(logParams2));
-    int start=WebServiceParams.parseStart(startStr);
-    int rows=WebServiceParams.parseRows(rowsStr);
-    ArrayList<String> groupbyFields=WebServiceParams.groupFields(groupby);
-    ArrayList<String> showFields=WebServiceParams.showFields(fl);
-    HashSet<String> commonStatMap=new HashSet<String>();
-    HashSet<String> distStatFieldMap=new HashSet<String>();
-    WebServiceParams.setCrossStatMap(showFields,commonStatMap,distStatFieldMap);
     Map stormconf=Utils.readStormConfig();
-    String mode=String.valueOf(stormconf.get("higo.mode." + part.name));
-    LinkedHashMap<String,String> fieldColumntypeMap=readFieldsFromSchemaXml(part.name);
-    SortParam sortType=WebServiceParams.sort(sort,order,fieldColumntypeMap,groupbyFields);
-    ShardsList[] cores=getCores(stormconf,part);
-    ShardsList[] ms=GetShards.get(part.name,true);
-    MdrillPartionsInterface drillpart=MdrillPartions.INSTANCE(part.parttype);
-    String[] partionsAll=drillpart.SqlPartions(queryStr);
-    queryStr=drillpart.SqlFilter(queryStr);
-    Arrays.sort(partionsAll);
-    LOG.info("partionsAll:" + cutString(Arrays.toString(partionsAll)));
-    GetPartions.Shards shard=GetPartions.getshard(part,partionsAll,cores,ms);
-    HigoJoinParams[] joins=WebServiceParams.parseJoins(leftjoin,shard);
-    boolean isnothedate=mode.indexOf("@nothedate@") >= 0;
-    ArrayList<String> fqList=WebServiceParams.fqList(isnothedate,queryStr,shard,fieldColumntypeMap);
-    if (isnothedate && mode.indexOf("@fdt@") < 0) {
-      fqList.add("-higoempty_emptydoc_s:[* TO *]");
-    }
-    String rtn=result(part,callback,fqList,shard,start,rows,sortType,groupbyFields,showFields,commonStatMap,distStatFieldMap,joins,mode,t1);
+    MdrillTableConfig tblconfig=new MdrillTableConfig(part,stormconf);
+    MdrillTableCoreInfo coreinfo=new MdrillTableCoreInfo(part,stormconf);
+    MdrillRequest req=new MdrillRequest(tblconfig,part,stormconf,projectName,startStr,rowsStr,queryStr,dist,fl,groupby,sort,order,leftjoin);
+    GetPartions.Shards shard=GetPartions.getshard(part,req.partionsAll,coreinfo.cores,coreinfo.ms);
+    HigoJoinParams[] joins=req.parseJoins(coreinfo,shard);
+    ArrayList<String> fqList=req.parseFq(tblconfig,shard);
+    JSONObject jsonObj=new JSONObject();
     long t2=System.currentTimeMillis();
-    long timetaken=t2 - t1;
-    LOG.info("timetaken:" + (timetaken) + ",logParams2:"+ cutString(logParams2));
+    String rtn=request(part,tblconfig,coreinfo,req,callback,fqList,shard,joins,jsonObj);
+    long t3=System.currentTimeMillis();
+    long timetaken=t3 - t1;
+    jsonObj.put("___timetaken",timetaken + "=" + (t2 - t1)+ "+"+ (t3 - t2));
+    logParams=MdrillRequestLog.logRequest(projectName,callback,startStr,rowsStr,req.queryStr,dist,fl,groupby,sort,order,leftjoin);
+    LOG.info("timetaken:" + (timetaken) + ",logParams2:"+ MdrillRequestLog.cutString(logParams));
     if (timetaken > 1000l * 100) {
-      LOG.info("longrequest:" + (timetaken) + ",logParams2:"+ cutString(logParams2)+ "@"+ cutString(rtn));
+      LOG.info("longrequest:" + (timetaken) + ",logParams2:"+ MdrillRequestLog.cutString(logParams)+ "@"+ MdrillRequestLog.cutString(rtn));
     }
     hb.setIsstop(true);
     while (!hb.isstop()) {
@@ -56,21 +38,12 @@ synchronized (hb.lock) {
     }
     return rtn;
   }
- catch (  RuntimeException e) {
-    SolrInfoList infolist=GetShards.getSolrInfoList(part.name);
-    infolist.run();
+ catch (  Throwable e) {
+    GetShards.purge(part.name);
     long t2=System.currentTimeMillis();
-    LOG.error("timetaken:" + (t2 - t1) + ",logParams:"+ cutString(logParams));
-    LOG.error(cutString(logParams),e);
-    throw e;
-  }
-catch (  Exception e) {
-    SolrInfoList infolist=GetShards.getSolrInfoList(part.name);
-    infolist.run();
-    long t2=System.currentTimeMillis();
-    LOG.error("timetaken:" + (t2 - t1) + ",logParams:"+ cutString(logParams));
-    LOG.error(cutString(logParams),e);
-    throw e;
+    LOG.error("timetaken:" + (t2 - t1) + ",logParams:"+ MdrillRequestLog.cutString(logParams));
+    LOG.error(MdrillRequestLog.cutString(logParams),e);
+    throw new Exception(e);
   }
  finally {
     hb.setIsstop(true);

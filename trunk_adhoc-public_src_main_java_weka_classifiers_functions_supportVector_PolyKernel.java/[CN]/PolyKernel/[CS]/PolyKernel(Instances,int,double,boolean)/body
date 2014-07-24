@@ -1,7 +1,0 @@
-{
-  super();
-  setCacheSize(cacheSize);
-  setExponent(exponent);
-  setUseLowerOrder(lowerOrder);
-  buildKernel(data);
-}

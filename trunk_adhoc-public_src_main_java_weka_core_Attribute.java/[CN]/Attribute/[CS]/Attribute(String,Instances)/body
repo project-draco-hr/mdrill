@@ -1,3 +1,0 @@
-{
-  this(attributeName,header,new ProtectedProperties(new Properties()));
-}

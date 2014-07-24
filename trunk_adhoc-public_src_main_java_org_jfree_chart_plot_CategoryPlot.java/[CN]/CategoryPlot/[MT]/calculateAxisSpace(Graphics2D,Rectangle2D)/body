@@ -1,6 +1,0 @@
-{
-  AxisSpace space=new AxisSpace();
-  space=calculateRangeAxisSpace(g2,plotArea,space);
-  space=calculateDomainAxisSpace(g2,plotArea,space);
-  return space;
-}

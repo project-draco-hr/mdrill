@@ -1,4 +1,0 @@
-{
-  this.showTitle=this.showTitleCheckBox.isSelected();
-  this.enableOrDisableControls();
-}

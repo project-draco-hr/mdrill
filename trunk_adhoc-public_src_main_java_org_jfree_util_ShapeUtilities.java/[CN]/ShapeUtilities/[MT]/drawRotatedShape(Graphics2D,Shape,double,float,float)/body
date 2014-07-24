@@ -1,7 +1,0 @@
-{
-  final AffineTransform saved=g2.getTransform();
-  final AffineTransform rotate=AffineTransform.getRotateInstance(angle,x,y);
-  g2.transform(rotate);
-  g2.draw(shape);
-  g2.setTransform(saved);
-}

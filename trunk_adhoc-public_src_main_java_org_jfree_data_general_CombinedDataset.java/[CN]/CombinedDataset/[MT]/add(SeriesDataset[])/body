@@ -1,7 +1,0 @@
-{
-  for (int i=0; i < data.length; i++) {
-    fastAdd(data[i]);
-  }
-  DatasetChangeEvent event=new DatasetChangeEvent(this,this);
-  notifyListeners(event);
-}

@@ -1,6 +1,0 @@
-{
-  setLayout(new BorderLayout());
-  this.model=new LibraryTableModel(libraries);
-  this.table=new JTable(this.model);
-  add(new JScrollPane(this.table));
-}

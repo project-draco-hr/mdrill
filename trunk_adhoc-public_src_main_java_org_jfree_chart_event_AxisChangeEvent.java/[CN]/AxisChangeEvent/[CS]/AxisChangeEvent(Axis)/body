@@ -1,4 +1,0 @@
-{
-  super(axis);
-  this.axis=axis;
-}

@@ -1,9 +1,0 @@
-{
-  m_premise=premise;
-  m_consequence=consequence;
-  m_metricType=metric;
-  m_premiseSupport=premiseSupport;
-  m_consequenceSupport=consequenceSupport;
-  m_totalSupport=totalSupport;
-  m_totalTransactions=totalTransactions;
-}

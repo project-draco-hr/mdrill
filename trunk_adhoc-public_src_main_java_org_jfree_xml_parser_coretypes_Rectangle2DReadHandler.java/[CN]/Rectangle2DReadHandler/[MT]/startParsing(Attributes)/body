@@ -1,9 +1,0 @@
-{
-  final String type=attrs.getValue("type");
-  this.rectangle=createRect(type);
-  final String x=attrs.getValue("x");
-  final String y=attrs.getValue("y");
-  final String w=attrs.getValue("width");
-  final String h=attrs.getValue("height");
-  this.rectangle.setRect(Double.parseDouble(x),Double.parseDouble(y),Double.parseDouble(w),Double.parseDouble(h));
-}

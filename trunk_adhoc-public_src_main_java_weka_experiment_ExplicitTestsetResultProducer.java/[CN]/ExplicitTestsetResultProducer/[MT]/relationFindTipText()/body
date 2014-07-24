@@ -1,3 +1,0 @@
-{
-  return "The regular expression to use for removing parts of the relation " + "name, ignored if empty.";
-}

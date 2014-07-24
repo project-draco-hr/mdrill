@@ -1,9 +1,0 @@
-{
-  Vector relations;
-  Object key;
-  relations=getBeanConnectionRelation(meta);
-  relations.add(connection);
-  if (meta == null)   key=REGULAR_CONNECTION;
- else   key=meta;
-  m_BeanConnectionRelation.put(key,relations);
-}

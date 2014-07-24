@@ -1,3 +1,0 @@
-{
-  return (Comparable)this.keys.get(index);
-}

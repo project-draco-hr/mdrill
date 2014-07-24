@@ -1,7 +1,0 @@
-{
-  if (event.getSeriesVisibilityChanged()) {
-    configureDomainAxes();
-    configureRangeAxes();
-  }
-  fireChangeEvent();
-}

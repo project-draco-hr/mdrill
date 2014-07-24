@@ -1,9 +1,0 @@
-{
-  Vector newVector=new Vector(2);
-  newVector.addElement(new Option("\tFull class name of filter to use, followed\n" + "\tby filter options.\n" + "\teg: \"weka.filters.unsupervised.attribute.Remove -V -R 1,2\"","F",1,"-F <filter specification>"));
-  Enumeration enu=super.listOptions();
-  while (enu.hasMoreElements()) {
-    newVector.addElement(enu.nextElement());
-  }
-  return newVector.elements();
-}

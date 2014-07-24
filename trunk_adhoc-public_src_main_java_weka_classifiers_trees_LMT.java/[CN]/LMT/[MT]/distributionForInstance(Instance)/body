@@ -1,9 +1,0 @@
-{
-  m_replaceMissing.input(instance);
-  instance=m_replaceMissing.output();
-  if (m_convertNominal) {
-    m_nominalToBinary.input(instance);
-    instance=m_nominalToBinary.output();
-  }
-  return m_tree.distributionForInstance(instance);
-}

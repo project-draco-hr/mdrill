@@ -1,4 +1,0 @@
-{
-  super("Redo","redo.gif","ctrl Y",'R');
-  setEnabled(false);
-}

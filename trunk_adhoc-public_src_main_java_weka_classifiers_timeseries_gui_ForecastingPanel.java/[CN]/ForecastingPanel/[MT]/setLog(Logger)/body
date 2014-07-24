@@ -1,9 +1,0 @@
-{
-  if (log instanceof JComponent) {
-    if (m_log != null) {
-      remove((JComponent)m_log);
-    }
-    m_log=log;
-    add((JComponent)m_log,BorderLayout.SOUTH);
-  }
-}

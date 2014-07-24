@@ -1,4 +1,0 @@
-{
-  super("New","new.gif","ctrl N",'N');
-  setEnabled(true);
-}

@@ -1,4 +1,0 @@
-{
-  super(Float.class);
-  setParameterDefinition("value",String.class);
-}

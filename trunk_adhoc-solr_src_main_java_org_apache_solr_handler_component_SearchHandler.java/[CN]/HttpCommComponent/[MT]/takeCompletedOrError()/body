@@ -8,7 +8,7 @@
         return rsp;
       }
       rsp.getShardRequest().responses.add(rsp);
-      if (rsp.getShardRequest().responses.size() == rsp.getShardRequest().actualShards.length) {
+      if (rsp.getShardRequest().responses.size() == rsp.getScheduleInfo().shards.length) {
         return rsp;
       }
     }

@@ -1,6 +1,0 @@
-{
-  if (paint == null) {
-    throw new IllegalArgumentException("Null 'paint' argument.");
-  }
-  this.arrowPaint=paint;
-}

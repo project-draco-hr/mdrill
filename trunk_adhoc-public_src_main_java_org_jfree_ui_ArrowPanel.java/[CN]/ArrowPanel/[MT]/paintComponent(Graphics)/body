@@ -1,9 +1,0 @@
-{
-  super.paintComponent(g);
-  final Graphics2D g2=(Graphics2D)g;
-  final Dimension size=getSize();
-  final Insets insets=getInsets();
-  this.available.setRect(insets.left,insets.top,size.getWidth() - insets.left - insets.right,size.getHeight() - insets.top - insets.bottom);
-  g2.translate(insets.left,insets.top);
-  g2.fill(getArrow(this.type));
-}

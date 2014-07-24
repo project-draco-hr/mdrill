@@ -1,9 +1,0 @@
-{
-  boolean passedAllTests=true;
-  for (Enumeration e=m_RuleList.elements(); passedAllTests && e.hasMoreElements(); ) {
-    Test test=(Test)e.nextElement();
-    passedAllTests=test.passesTest(example);
-  }
-  if (passedAllTests)   return m_ClassValue;
- else   return -1.0;
-}

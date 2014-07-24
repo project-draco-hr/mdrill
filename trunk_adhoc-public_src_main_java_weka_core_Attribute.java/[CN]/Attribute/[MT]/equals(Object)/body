@@ -1,3 +1,0 @@
-{
-  return (equalsMsg(other) == null);
-}

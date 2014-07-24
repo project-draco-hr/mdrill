@@ -1,3 +1,0 @@
-{
-  this.subHandlers.push(subhandler);
-}

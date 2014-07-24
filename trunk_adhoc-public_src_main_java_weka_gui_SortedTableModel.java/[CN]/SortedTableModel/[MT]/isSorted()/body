@@ -1,3 +1,0 @@
-{
-  return (mSortColumn > -1);
-}

@@ -1,6 +1,0 @@
-{
-  if (s.equals(""))   return;
-  if (m_History.contains(s))   m_History.removeElement(s);
-  m_History.add(0,s);
-  notifyHistoryChangedListeners();
-}

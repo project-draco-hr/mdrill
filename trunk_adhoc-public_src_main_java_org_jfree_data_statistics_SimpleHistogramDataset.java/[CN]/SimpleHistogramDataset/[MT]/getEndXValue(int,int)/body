@@ -1,4 +1,0 @@
-{
-  SimpleHistogramBin bin=(SimpleHistogramBin)this.bins.get(item);
-  return bin.getUpperBound();
-}

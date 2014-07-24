@@ -1,4 +1,0 @@
-{
-  long temp=this.size != +0.0d ? Double.doubleToLongBits(this.size) : 0L;
-  return (int)(temp ^ (temp >>> 32));
-}

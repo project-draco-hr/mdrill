@@ -1,3 +1,0 @@
-{
-  return new SelectedTag(ORDERED,TAGS_INPUTORDER);
-}

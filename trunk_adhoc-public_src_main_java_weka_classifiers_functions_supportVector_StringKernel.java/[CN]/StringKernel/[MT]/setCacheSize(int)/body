@@ -1,9 +1,0 @@
-{
-  if (value >= 0) {
-    m_cacheSize=value;
-    clean();
-  }
- else {
-    System.out.println("Cache size cannot be smaller than 0 (provided: " + value + ")!");
-  }
-}

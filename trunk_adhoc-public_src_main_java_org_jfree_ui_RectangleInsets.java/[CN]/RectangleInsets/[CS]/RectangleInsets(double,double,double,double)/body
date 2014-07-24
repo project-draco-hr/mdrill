@@ -1,3 +1,0 @@
-{
-  this(UnitType.ABSOLUTE,top,left,bottom,right);
-}

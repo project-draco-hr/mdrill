@@ -1,3 +1,0 @@
-{
-  return "Class implementing the brute force search algorithm for nearest " + "neighbour search.";
-}

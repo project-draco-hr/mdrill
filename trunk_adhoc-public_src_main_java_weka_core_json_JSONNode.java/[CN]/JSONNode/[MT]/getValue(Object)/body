@@ -1,4 +1,0 @@
-{
-  if (m_Value == null)   return defValue;
- else   return m_Value;
-}

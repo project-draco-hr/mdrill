@@ -1,6 +1,0 @@
-{
-  m_Count=0;
-  m_Count_Lab=new JLabel("no instances");
-  add(m_Count_Lab);
-  setBackground(Color.lightGray);
-}

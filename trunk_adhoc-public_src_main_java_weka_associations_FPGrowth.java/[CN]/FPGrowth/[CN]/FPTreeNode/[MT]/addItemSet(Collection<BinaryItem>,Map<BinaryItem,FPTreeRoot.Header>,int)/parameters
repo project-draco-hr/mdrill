@@ -1,3 +1,0 @@
-Collection<BinaryItem> itemSet
-Map<BinaryItem,FPTreeRoot.Header> headerTable
-int incr

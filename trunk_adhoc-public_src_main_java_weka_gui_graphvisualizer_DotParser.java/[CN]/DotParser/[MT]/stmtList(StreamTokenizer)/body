@@ -1,8 +1,0 @@
-{
-  tk.nextToken();
-  if (tk.ttype == '}' || tk.ttype == tk.TT_EOF)   return;
- else {
-    stmt(tk);
-    stmtList(tk);
-  }
-}

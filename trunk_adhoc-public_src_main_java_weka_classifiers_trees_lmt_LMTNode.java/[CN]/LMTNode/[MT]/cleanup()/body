@@ -1,6 +1,0 @@
-{
-  super.cleanup();
-  if (!m_isLeaf) {
-    for (int i=0; i < m_sons.length; i++)     m_sons[i].cleanup();
-  }
-}

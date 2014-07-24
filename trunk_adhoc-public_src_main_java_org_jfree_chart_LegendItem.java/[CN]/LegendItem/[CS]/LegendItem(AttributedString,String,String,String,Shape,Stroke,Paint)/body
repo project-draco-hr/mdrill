@@ -1,3 +1,0 @@
-{
-  this(label,description,toolTipText,urlText,false,UNUSED_SHAPE,false,Color.black,false,Color.black,UNUSED_STROKE,true,line,lineStroke,linePaint);
-}

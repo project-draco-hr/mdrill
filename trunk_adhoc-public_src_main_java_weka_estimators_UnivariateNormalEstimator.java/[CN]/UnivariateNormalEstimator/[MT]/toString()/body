@@ -1,4 +1,0 @@
-{
-  updateMeanAndVariance();
-  return "Mean: " + m_Mean + "\t"+ "Variance: "+ m_Variance;
-}

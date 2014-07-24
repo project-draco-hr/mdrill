@@ -1,3 +1,0 @@
-{
-  return new WekaEnumeration(m_Instances);
-}

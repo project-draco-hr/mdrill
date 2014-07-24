@@ -1,3 +1,0 @@
-{
-  m_QueryPanel.addQueryExecuteListener(l);
-}

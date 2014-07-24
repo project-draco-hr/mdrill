@@ -1,3 +1,0 @@
-{
-  return "The gaussian noise rate to use.";
-}

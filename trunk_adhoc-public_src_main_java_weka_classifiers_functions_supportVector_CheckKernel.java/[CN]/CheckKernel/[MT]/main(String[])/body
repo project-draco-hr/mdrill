@@ -1,3 +1,0 @@
-{
-  runCheck(new CheckKernel(),args);
-}

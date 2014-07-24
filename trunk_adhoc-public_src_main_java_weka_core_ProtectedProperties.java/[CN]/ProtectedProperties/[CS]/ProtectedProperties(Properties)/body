@@ -1,9 +1,0 @@
-{
-  Enumeration propEnum=props.propertyNames();
-  while (propEnum.hasMoreElements()) {
-    String propName=(String)propEnum.nextElement();
-    String propValue=props.getProperty(propName);
-    super.setProperty(propName,propValue);
-  }
-  closed=true;
-}

@@ -1,3 +1,0 @@
-{
-  return axis.getCategoryMiddle(columnKey,dataset.getColumnKeys(),area,edge);
-}

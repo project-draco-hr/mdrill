@@ -1,5 +1,0 @@
-{
-  for (int i=0; i < newd.data.length && i < old.data.length; i++) {
-    newd.data[i].copyFrom(old.data[i]);
-  }
-}

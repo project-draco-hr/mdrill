@@ -1,5 +1,0 @@
-{
-  if (m_KthNearestSize == 0)   return null;
-  m_KthNearestSize--;
-  return m_KthNearest[m_KthNearestSize];
-}

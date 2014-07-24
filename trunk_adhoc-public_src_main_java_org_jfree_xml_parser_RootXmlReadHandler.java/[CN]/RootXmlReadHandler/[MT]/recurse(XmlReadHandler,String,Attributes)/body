@@ -1,6 +1,0 @@
-{
-  this.outerScopes.push(this.currentHandlers);
-  this.currentHandlers=new Stack();
-  this.currentHandlers.push(handler);
-  handler.startElement(tagName,attrs);
-}

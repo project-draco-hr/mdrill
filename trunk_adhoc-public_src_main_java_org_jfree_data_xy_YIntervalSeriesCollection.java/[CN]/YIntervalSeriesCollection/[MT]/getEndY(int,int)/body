@@ -1,4 +1,0 @@
-{
-  YIntervalSeries s=(YIntervalSeries)this.data.get(series);
-  return new Double(s.getYHighValue(item));
-}

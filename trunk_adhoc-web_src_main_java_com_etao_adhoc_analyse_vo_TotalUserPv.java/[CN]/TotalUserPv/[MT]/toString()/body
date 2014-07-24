@@ -1,3 +1,0 @@
-{
-  return "TotalUserPv [nick=" + nick + ", queryCnt="+ queryCnt+ "]";
-}

@@ -1,3 +1,0 @@
-{
-  m_Matrix.set(rowIndex,columnIndex,m_Matrix.get(rowIndex,columnIndex) + value);
-}

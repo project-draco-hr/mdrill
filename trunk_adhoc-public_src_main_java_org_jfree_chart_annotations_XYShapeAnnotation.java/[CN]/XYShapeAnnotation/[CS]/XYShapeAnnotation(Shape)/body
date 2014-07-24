@@ -1,3 +1,0 @@
-{
-  this(shape,new BasicStroke(1.0f),Color.black);
-}

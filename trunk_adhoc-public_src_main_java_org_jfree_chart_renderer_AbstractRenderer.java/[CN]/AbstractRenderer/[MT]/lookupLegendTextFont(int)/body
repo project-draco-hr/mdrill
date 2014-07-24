@@ -1,7 +1,0 @@
-{
-  Font result=getLegendTextFont(series);
-  if (result == null) {
-    result=this.baseLegendTextFont;
-  }
-  return result;
-}

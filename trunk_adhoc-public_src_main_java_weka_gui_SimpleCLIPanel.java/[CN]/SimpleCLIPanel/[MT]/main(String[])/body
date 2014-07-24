@@ -1,3 +1,0 @@
-{
-  showPanel(new SimpleCLIPanel(),args);
-}

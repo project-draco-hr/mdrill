@@ -1,8 +1,0 @@
-StringBuffer cols
-StringBuffer cols_inner
-HigoAdhocJoinParams[] joins
-HashMap<String,String> colMap
-HashMap<String,String> colMapforStatFilter
-ArrayList<String> groupFields
-ArrayList<String> showFields
-AtomicInteger nameindex

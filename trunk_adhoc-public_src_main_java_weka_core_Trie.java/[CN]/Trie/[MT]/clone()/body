@@ -1,6 +1,0 @@
-{
-  Trie result;
-  result=new Trie();
-  result.m_Root=(TrieNode)m_Root.clone();
-  return result;
-}

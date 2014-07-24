@@ -1,4 +1,0 @@
-{
-  final int month=this.s2.getMonth();
-  assertEquals(MonthConstants.JANUARY,month);
-}

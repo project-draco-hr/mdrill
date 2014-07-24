@@ -1,4 +1,0 @@
-{
-  this("",JFileChooser.OPEN_DIALOG);
-  setEnvironment(Environment.getSystemWide());
-}

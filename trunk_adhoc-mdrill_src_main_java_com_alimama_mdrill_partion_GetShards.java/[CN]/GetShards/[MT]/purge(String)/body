@@ -1,0 +1,4 @@
+{
+  SolrInfoList infolist=getSolrInfoList(tableName);
+  infolist.run();
+}

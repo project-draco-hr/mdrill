@@ -1,4 +1,0 @@
-{
-  super(type,values);
-  m_indices=indices;
-}

@@ -1,8 +1,0 @@
-{
-  final String retval=(String)this.cache.get(key);
-  if (retval != null) {
-    return retval;
-  }
-  this.lookupPath.clear();
-  return internalGetString(key);
-}

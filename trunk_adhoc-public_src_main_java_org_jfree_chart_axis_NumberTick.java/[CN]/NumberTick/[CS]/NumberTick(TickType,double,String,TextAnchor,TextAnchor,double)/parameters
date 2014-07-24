@@ -1,6 +1,0 @@
-TickType tickType
-double value
-String label
-TextAnchor textAnchor
-TextAnchor rotationAnchor
-double angle

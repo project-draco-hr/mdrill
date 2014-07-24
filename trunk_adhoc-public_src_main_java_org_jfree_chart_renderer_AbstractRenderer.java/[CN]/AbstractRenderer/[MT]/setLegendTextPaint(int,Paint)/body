@@ -1,4 +1,0 @@
-{
-  this.legendTextPaint.setPaint(series,paint);
-  fireChangeEvent();
-}

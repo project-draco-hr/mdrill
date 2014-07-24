@@ -1,3 +1,0 @@
-{
-  return "The NaiveBayes class generates a fixed Bayes network structure " + "with arrows from the class variable to each of the attribute " + "variables.";
-}

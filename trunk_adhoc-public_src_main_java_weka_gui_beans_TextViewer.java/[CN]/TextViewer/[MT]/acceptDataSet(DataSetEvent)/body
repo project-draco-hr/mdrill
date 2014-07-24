@@ -1,4 +1,0 @@
-{
-  TextEvent nt=new TextEvent(e.getSource(),e.getDataSet().toString(),e.getDataSet().relationName());
-  acceptText(nt);
-}

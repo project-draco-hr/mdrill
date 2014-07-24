@@ -1,3 +1,0 @@
-{
-  return offline(projectName,jsoncallback,queryStr,fl,groupby,mailto,username,jobname,params,leftjoin,fq2,limit2,orderby2,desc2,"");
-}

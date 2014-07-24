@@ -1,3 +1,0 @@
-{
-  return getURLLoaderForFile(file.getAbsolutePath());
-}

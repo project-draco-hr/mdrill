@@ -1,8 +1,0 @@
-{
-  if (m_History == null) {
-    m_History=new LinkedList<Instance>();
-  }
- else {
-    m_History.clear();
-  }
-}

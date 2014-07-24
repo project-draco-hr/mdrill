@@ -1,5 +1,0 @@
-List<ErrorModule> predHolders
-Map<String,List<TSEvalModule>> evalHolders
-List<List<NumericPrediction>> predsForSteps
-int currentInstanceNum
-Instances toPredict

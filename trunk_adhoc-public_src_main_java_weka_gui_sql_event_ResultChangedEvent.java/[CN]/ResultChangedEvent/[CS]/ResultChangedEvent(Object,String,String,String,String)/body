@@ -1,7 +1,0 @@
-{
-  super(source);
-  m_URL=url;
-  m_User=user;
-  m_Password=pw;
-  m_Query=query;
-}

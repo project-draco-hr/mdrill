@@ -1,3 +1,0 @@
-{
-  writeTag(this.writer,name,attributes,close);
-}

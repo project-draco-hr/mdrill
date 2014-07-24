@@ -1,3 +1,0 @@
-{
-  return iterateRangeBounds(dataset,true);
-}

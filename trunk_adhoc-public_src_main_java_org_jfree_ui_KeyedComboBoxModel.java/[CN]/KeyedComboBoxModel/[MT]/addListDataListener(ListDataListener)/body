@@ -1,7 +1,0 @@
-{
-  if (l == null) {
-    throw new NullPointerException();
-  }
-  this.listdatalistener.add(l);
-  this.tempListeners=null;
-}

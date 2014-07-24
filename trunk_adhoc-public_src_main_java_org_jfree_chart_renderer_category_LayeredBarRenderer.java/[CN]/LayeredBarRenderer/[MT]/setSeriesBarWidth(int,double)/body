@@ -1,3 +1,0 @@
-{
-  this.seriesBarWidthList.set(series,new Double(width));
-}

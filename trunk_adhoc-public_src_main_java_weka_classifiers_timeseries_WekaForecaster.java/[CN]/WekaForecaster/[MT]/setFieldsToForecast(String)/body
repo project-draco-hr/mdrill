@@ -1,4 +1,0 @@
-{
-  super.setFieldsToForecast(fieldsToForecast);
-  m_lagMaker.setFieldsToLag(m_fieldsToForecast);
-}

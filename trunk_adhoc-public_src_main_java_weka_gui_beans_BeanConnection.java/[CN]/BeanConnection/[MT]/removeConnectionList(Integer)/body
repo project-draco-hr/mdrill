@@ -1,3 +1,0 @@
-{
-  TABBED_CONNECTIONS.remove(tab.intValue());
-}

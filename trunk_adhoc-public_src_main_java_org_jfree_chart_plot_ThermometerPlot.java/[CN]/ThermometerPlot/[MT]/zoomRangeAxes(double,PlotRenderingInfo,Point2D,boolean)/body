@@ -1,4 +1,0 @@
-{
-  double anchorY=this.getRangeAxis().java2DToValue(source.getY(),state.getDataArea(),RectangleEdge.LEFT);
-  this.rangeAxis.resizeRange(factor,anchorY);
-}

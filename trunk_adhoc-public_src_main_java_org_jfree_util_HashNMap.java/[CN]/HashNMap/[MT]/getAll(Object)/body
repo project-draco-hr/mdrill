@@ -1,7 +1,0 @@
-{
-  final List v=(List)this.table.get(key);
-  if (v == null) {
-    return EMPTY_ITERATOR;
-  }
-  return v.iterator();
-}

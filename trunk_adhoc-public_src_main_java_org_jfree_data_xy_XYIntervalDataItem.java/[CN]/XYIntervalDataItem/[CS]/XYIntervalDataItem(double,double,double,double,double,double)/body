@@ -1,3 +1,0 @@
-{
-  super(new Double(x),new XYInterval(xLow,xHigh,y,yLow,yHigh));
-}

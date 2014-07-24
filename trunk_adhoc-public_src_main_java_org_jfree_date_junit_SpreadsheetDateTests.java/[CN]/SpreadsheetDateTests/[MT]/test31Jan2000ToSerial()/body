@@ -1,4 +1,0 @@
-{
-  SpreadsheetDate d=new SpreadsheetDate(31,MonthConstants.JANUARY,2000);
-  assertEquals(36556,d.toSerial());
-}

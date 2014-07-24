@@ -1,3 +1,0 @@
-{
-  return "A data generator for the simple 'Mexian Hat' function:\n" + "   y = sin|x| / |x|\n" + "In addition to this simple function, the amplitude can be changed and "+ "gaussian noise can be added.";
-}

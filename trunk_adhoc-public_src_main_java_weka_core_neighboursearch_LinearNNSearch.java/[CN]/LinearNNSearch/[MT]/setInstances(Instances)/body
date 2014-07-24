@@ -1,4 +1,0 @@
-{
-  m_Instances=insts;
-  m_DistanceFunction.setInstances(insts);
-}

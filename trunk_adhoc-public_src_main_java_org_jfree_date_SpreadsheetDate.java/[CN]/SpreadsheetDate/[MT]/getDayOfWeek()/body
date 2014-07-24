@@ -1,3 +1,0 @@
-{
-  return (this.serial + 6) % 7 + 1;
-}

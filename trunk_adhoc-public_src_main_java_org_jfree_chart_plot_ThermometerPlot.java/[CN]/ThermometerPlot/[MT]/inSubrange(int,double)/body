@@ -1,3 +1,0 @@
-{
-  return (value > this.subrangeInfo[subrange][RANGE_LOW] && value <= this.subrangeInfo[subrange][RANGE_HIGH]);
-}

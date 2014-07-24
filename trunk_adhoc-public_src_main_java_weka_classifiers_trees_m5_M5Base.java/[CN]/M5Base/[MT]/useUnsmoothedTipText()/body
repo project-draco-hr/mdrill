@@ -1,3 +1,0 @@
-{
-  return "Whether to use unsmoothed predictions.";
-}

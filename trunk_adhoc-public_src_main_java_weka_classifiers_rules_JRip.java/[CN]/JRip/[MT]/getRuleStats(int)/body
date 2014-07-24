@@ -1,3 +1,0 @@
-{
-  return (RuleStats)m_RulesetStats.elementAt(pos);
-}

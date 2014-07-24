@@ -1,4 +1,0 @@
-{
-  super("Exit","","",'x');
-  setEnabled(true);
-}

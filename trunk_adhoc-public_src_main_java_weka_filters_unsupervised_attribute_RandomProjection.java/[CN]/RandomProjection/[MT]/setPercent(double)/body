@@ -1,4 +1,0 @@
-{
-  if (newPercent > 0)   newPercent/=100;
-  m_percent=newPercent;
-}

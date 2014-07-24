@@ -1,4 +1,0 @@
-{
-  clearCache();
-  m_ClassCache=new ClassCache();
-}

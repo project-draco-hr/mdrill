@@ -1,9 +1,0 @@
-{
-  Vector newVector=new Vector(2);
-  newVector.addElement(new Option("\tNumber of execution slots.\n" + "\t(default 1 - i.e. no parallelism)","num-slots",1,"-num-slots <num>"));
-  Enumeration enu=super.listOptions();
-  while (enu.hasMoreElements()) {
-    newVector.addElement(enu.nextElement());
-  }
-  return newVector.elements();
-}

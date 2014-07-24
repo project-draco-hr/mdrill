@@ -1,6 +1,0 @@
-{
-  this.seriesVisibleInLegend=visible;
-  if (notify) {
-    fireChangeEvent();
-  }
-}

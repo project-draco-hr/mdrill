@@ -1,3 +1,0 @@
-{
-  return this.underlying.getPercentComplete(series,category + this.firstCategoryIndex);
-}

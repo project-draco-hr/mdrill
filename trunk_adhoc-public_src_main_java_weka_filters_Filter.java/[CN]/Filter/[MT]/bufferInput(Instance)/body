@@ -1,6 +1,0 @@
-{
-  if (instance != null) {
-    copyValues(instance,true);
-    m_InputFormat.add(instance);
-  }
-}

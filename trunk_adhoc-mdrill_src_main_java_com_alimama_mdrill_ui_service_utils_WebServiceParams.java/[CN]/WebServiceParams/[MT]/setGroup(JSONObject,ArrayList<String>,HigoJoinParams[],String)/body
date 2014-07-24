@@ -1,7 +1,7 @@
 {
   String[] values=EncodeUtils.decode(groupValues.split(UniqConfig.GroupJoinString(),-1));
   for (int j=0; j < values.length && j < groupFields.size(); j++) {
-    if (groupFields.get(j).equals("higoempty_groupby_forjoin_l")) {
+    if (groupFields.get(j).startsWith("higoempty_groupby_")) {
       continue;
     }
     if (values[j] == null || values[j].equals("")) {

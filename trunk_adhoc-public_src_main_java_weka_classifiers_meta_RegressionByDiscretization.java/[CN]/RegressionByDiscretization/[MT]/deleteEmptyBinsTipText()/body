@@ -1,3 +1,0 @@
-{
-  return "Whether to delete empty bins after discretization.";
-}

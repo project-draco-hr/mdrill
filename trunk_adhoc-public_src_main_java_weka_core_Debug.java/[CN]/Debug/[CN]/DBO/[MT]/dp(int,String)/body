@@ -1,5 +1,0 @@
-{
-  if (outputTypeSet(debugType)) {
-    System.out.print(text);
-  }
-}

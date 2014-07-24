@@ -1,0 +1,5 @@
+{
+  byte[] data=new byte[BlockBufferPool.interval];
+  Arrays.fill(data,def);
+  return data;
+}

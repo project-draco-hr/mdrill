@@ -1,5 +1,0 @@
-{
-  Instances testSet=e.getTestSet();
-  DataSetEvent dse=new DataSetEvent(this,testSet);
-  acceptDataSet(dse);
-}

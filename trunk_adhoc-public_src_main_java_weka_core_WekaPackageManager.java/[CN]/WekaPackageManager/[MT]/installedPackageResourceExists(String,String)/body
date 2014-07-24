@@ -1,4 +1,0 @@
-{
-  String fullResourcePath=getPackageHome().toString() + File.separator + packageName+ File.separator+ resourceName;
-  return new File(fullResourcePath).exists();
-}

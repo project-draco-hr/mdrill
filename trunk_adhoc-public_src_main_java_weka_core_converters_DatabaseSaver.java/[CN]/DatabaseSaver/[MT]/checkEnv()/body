@@ -1,5 +1,0 @@
-{
-  if (m_env == null) {
-    m_env=Environment.getSystemWide();
-  }
-}

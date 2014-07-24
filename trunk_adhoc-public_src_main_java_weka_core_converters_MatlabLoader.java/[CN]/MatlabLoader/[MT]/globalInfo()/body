@@ -1,3 +1,0 @@
-{
-  return "Reads a Matlab file containing a single matrix in ASCII format.";
-}

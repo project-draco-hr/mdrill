@@ -1,9 +1,0 @@
-{
-  String result;
-  result=font;
-  if (m_PSFontReplacement.containsKey(font)) {
-    result=m_PSFontReplacement.get(font).toString();
-    if (DEBUG)     System.out.println("switched font from '" + font + "' to '"+ result+ "'");
-  }
-  return result;
-}

@@ -1,4 +1,0 @@
-{
-  this(r);
-  this.sf=sf;
-}

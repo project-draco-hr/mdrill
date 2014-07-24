@@ -1,4 +1,0 @@
-int instNum
-double radius
-int[] gridVector
-double gridWidth

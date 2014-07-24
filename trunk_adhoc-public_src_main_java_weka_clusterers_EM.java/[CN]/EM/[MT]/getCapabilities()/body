@@ -1,5 +1,0 @@
-{
-  Capabilities result=new SimpleKMeans().getCapabilities();
-  result.setOwner(this);
-  return result;
-}

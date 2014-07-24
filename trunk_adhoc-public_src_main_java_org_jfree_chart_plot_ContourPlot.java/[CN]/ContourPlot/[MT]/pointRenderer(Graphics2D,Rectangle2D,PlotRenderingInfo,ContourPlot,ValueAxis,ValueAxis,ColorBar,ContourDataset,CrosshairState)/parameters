@@ -1,9 +1,0 @@
-Graphics2D g2
-Rectangle2D dataArea
-PlotRenderingInfo info
-ContourPlot plot
-ValueAxis domainAxis
-ValueAxis rangeAxis
-ColorBar colorBar
-ContourDataset data
-CrosshairState crosshairState

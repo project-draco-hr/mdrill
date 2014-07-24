@@ -1,8 +1,0 @@
-{
-  while (tabbedPane.getTabCount() > 0) {
-    if (!saveChanges(true))     return;
-    tabbedPane.removeTabAt(getCurrentIndex());
-    updateFrameTitle();
-    System.gc();
-  }
-}

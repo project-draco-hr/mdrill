@@ -1,7 +1,0 @@
-{
-  double size=range.getUpperBound() - range.getLowerBound();
-  if (size > this.period) {
-    this.period=size;
-  }
-  super.setRange(range,turnOffAutoRange,notify);
-}

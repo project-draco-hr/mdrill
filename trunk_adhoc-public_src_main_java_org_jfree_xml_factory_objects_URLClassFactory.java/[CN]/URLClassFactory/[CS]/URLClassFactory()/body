@@ -1,3 +1,0 @@
-{
-  registerClass(URL.class,new URLObjectDescription());
-}

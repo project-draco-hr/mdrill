@@ -1,4 +1,0 @@
-{
-  ComparableObjectItem item=new ComparableObjectItem(x,y);
-  add(item,notify);
-}

@@ -1,3 +1,0 @@
-{
-  this.propertyChangeSupport.removePropertyChangeListener(listener);
-}

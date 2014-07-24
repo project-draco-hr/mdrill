@@ -1,5 +1,0 @@
-{
-  Antd antec=new NominalAntd(getAttr());
-  antec.value=this.value;
-  return antec;
-}

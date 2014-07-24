@@ -1,3 +1,0 @@
-{
-  return "The stemming algorithm to use on the words.";
-}

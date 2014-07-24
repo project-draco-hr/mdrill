@@ -1,6 +1,0 @@
-{
-  final TestSuite suite=new TestSuite("Java Tests");
-  suite.addTest(PaintTests.suite());
-  suite.addTest(StrokeTests.suite());
-  return suite;
-}

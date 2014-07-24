@@ -1,5 +1,0 @@
-{
-  super(lines,shapes);
-  super.setDrawSeriesLineAsPath(true);
-  this.alpha=0.5f;
-}

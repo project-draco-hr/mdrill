@@ -1,8 +1,0 @@
-{
-  for (int iParent=0; iParent < bayesNet.getParentSet(iAttributeHead).getNrOfParents(); iParent++) {
-    if (bayesNet.getParentSet(iAttributeHead).getParent(iParent) == iAttributeTail) {
-      return true;
-    }
-  }
-  return false;
-}

@@ -1,3 +1,0 @@
-{
-  return weka.core.matrix.Maths.pnorm(value + offset) * trials;
-}

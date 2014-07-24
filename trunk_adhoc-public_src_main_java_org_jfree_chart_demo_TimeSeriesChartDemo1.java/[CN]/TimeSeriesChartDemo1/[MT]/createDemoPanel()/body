@@ -1,7 +1,0 @@
-{
-  JFreeChart chart=createChart(createDataset());
-  ChartPanel panel=new ChartPanel(chart);
-  panel.setFillZoomRectangle(true);
-  panel.setMouseWheelEnabled(true);
-  return panel;
-}

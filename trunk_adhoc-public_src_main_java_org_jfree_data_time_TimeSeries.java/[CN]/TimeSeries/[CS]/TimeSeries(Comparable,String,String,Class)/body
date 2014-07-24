@@ -1,9 +1,0 @@
-{
-  super(name);
-  this.domain=domain;
-  this.range=range;
-  this.timePeriodClass=timePeriodClass;
-  this.data=new java.util.ArrayList();
-  this.maximumItemCount=Integer.MAX_VALUE;
-  this.maximumItemAge=Long.MAX_VALUE;
-}

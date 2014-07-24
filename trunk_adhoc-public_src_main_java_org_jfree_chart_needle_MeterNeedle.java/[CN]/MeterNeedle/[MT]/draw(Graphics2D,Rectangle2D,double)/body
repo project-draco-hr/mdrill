@@ -1,5 +1,0 @@
-{
-  Point2D.Double pt=new Point2D.Double();
-  pt.setLocation(plotArea.getMinX() + this.rotateX * plotArea.getWidth(),plotArea.getMinY() + this.rotateY * plotArea.getHeight());
-  draw(g2,plotArea,pt,angle);
-}

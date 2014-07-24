@@ -1,9 +1,0 @@
-{
-  try {
-    if (!isIncremental())     m_BatchBuffer=m_Loader.getDataSet();
- else     m_BatchBuffer=null;
-  }
- catch (  Exception e) {
-    e.printStackTrace();
-  }
-}

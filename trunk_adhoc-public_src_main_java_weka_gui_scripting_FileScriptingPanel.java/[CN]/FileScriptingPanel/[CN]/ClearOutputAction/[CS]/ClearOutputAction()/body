@@ -1,4 +1,0 @@
-{
-  super("Clear output","","F2",'C');
-  setEnabled(true);
-}

@@ -1,7 +1,0 @@
-{
-  double predictedValue=forecast.predicted();
-  double[][] intervals=forecast.predictionIntervals();
-  NumericPrediction pred=new NumericPrediction(actualValue,predictedValue,1,intervals);
-  m_predictions.get(targetIndex).add(pred);
-  m_counts[targetIndex]++;
-}

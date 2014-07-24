@@ -1,5 +1,0 @@
-{
-  super(name,(showDialog ? "" : "save.gif"),(showDialog ? "ctrl shift S" : "ctrl S"),(showDialog ? 'a' : 'S'));
-  m_ShowDialog=showDialog;
-  setEnabled(true);
-}

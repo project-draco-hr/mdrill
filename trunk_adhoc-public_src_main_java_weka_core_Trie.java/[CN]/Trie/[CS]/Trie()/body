@@ -1,5 +1,0 @@
-{
-  super();
-  m_Root=new TrieNode(null);
-  m_RecalcHashCode=true;
-}

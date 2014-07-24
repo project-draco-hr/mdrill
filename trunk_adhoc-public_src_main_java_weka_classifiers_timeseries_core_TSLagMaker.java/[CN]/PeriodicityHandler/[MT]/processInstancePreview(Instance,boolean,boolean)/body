@@ -1,3 +1,0 @@
-{
-  return processInstance(source,incrementTime,setAnyPeriodic,true);
-}

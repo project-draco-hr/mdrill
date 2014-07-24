@@ -1,9 +1,0 @@
-{
-  XYIntervalSeriesCollection clone=(XYIntervalSeriesCollection)super.clone();
-  int seriesCount=getSeriesCount();
-  clone.data=new java.util.ArrayList(seriesCount);
-  for (int i=0; i < this.data.size(); i++) {
-    clone.data.set(i,getSeries(i).clone());
-  }
-  return clone;
-}

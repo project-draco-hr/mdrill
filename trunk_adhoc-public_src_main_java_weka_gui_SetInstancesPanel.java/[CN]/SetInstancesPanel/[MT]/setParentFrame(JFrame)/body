@@ -1,4 +1,0 @@
-{
-  m_ParentFrame=parent;
-  m_CloseButPanel.setVisible(m_ParentFrame != null);
-}

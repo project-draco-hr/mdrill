@@ -1,6 +1,0 @@
-Instance test
-Instance train
-int attrIndex
-Instances trainSet
-int[][] randClassCols
-KStarCache cache

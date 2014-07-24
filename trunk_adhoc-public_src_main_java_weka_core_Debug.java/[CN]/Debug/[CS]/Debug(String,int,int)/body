@@ -1,4 +1,0 @@
-{
-  super();
-  m_Log=newLog(filename,size,numFiles);
-}

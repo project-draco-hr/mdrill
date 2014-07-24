@@ -1,3 +1,0 @@
-{
-  return (Paint)get(index);
-}

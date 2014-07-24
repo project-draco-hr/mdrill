@@ -1,5 +1,0 @@
-{
-  double[] n=new double[m_priors.length];
-  System.arraycopy(m_priors,0,n,0,n.length);
-  return n;
-}

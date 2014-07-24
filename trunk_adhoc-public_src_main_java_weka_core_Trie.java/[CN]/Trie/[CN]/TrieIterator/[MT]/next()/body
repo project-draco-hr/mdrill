@@ -1,8 +1,0 @@
-{
-  String result;
-  result=m_CurrentLeaf.getString();
-  result=result.substring(0,result.length() - 1);
-  if (m_CurrentLeaf != m_LastLeaf)   m_CurrentLeaf=(TrieNode)m_CurrentLeaf.getNextLeaf();
- else   m_CurrentLeaf=null;
-  return result;
-}

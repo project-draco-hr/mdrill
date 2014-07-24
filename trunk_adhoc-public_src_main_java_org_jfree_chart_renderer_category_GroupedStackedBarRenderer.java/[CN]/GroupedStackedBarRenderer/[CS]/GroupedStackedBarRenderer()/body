@@ -1,4 +1,0 @@
-{
-  super();
-  this.seriesToGroupMap=new KeyToGroupMap();
-}

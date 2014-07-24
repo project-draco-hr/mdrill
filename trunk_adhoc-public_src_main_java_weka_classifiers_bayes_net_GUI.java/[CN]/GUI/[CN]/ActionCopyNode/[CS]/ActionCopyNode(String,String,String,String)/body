@@ -1,3 +1,0 @@
-{
-  super(sName,sToolTipText,sIcon,sAcceleratorKey);
-}

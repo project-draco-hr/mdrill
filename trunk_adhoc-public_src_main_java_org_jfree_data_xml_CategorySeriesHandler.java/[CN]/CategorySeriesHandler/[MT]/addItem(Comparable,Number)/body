@@ -1,3 +1,0 @@
-{
-  this.values.addValue(key,value);
-}

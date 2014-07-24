@@ -1,8 +1,0 @@
-{
-  Number result=null;
-  BoxAndWhiskerItem item=(BoxAndWhiskerItem)this.data.getObject(row,column);
-  if (item != null) {
-    result=item.getMaxRegularValue();
-  }
-  return result;
-}

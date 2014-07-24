@@ -1,3 +1,0 @@
-{
-  return new AttributeIterator(this.entryList.iterator());
-}

@@ -1,4 +1,0 @@
-{
-  m_operator=op;
-  m_functionName=m_operator.toString();
-}

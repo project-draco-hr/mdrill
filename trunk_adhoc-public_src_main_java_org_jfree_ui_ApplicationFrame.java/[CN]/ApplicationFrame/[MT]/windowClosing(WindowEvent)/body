@@ -1,6 +1,0 @@
-{
-  if (event.getWindow() == this) {
-    dispose();
-    System.exit(0);
-  }
-}

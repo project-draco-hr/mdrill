@@ -1,8 +1,0 @@
-{
-  String name=m_ClassifierTemplate.getClass().toString();
-  String packageName=name.substring(0,name.lastIndexOf('.'));
-  packageName=packageName.substring(packageName.lastIndexOf('.') + 1,packageName.length());
-  if (!m_visual.loadIcons(BeanVisual.ICON_PATH + "Default_" + packageName+ "Classifier.gif",BeanVisual.ICON_PATH + "Default_" + packageName+ "Classifier_animated.gif")) {
-    m_visual.loadIcons(BeanVisual.ICON_PATH + "DefaultClassifier.gif",BeanVisual.ICON_PATH + "DefaultClassifier_animated.gif");
-  }
-}

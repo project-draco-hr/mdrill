@@ -1,8 +1,0 @@
-{
-  final AbstractObjectList clone=(AbstractObjectList)super.clone();
-  if (this.objects != null) {
-    clone.objects=new Object[this.objects.length];
-    System.arraycopy(this.objects,0,clone.objects,0,this.objects.length);
-  }
-  return clone;
-}

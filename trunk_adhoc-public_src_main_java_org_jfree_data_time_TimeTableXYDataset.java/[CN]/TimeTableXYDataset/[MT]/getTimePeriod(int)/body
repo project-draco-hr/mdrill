@@ -1,3 +1,0 @@
-{
-  return (TimePeriod)this.values.getRowKey(item);
-}

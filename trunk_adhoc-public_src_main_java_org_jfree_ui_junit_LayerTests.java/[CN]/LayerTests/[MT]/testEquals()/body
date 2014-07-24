@@ -1,5 +1,0 @@
-{
-  assertTrue(Layer.FOREGROUND.equals(Layer.FOREGROUND));
-  assertTrue(Layer.BACKGROUND.equals(Layer.BACKGROUND));
-  assertFalse(Layer.FOREGROUND.equals(Layer.BACKGROUND));
-}

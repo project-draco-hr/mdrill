@@ -1,6 +1,0 @@
-{
-  if ((dayOfMonth < 1) || (dayOfMonth > SerialDate.LAST_DAY_OF_MONTH[this.month])) {
-    throw new IllegalArgumentException("DayAndMonthRule(): dayOfMonth outside valid range.");
-  }
-  this.dayOfMonth=dayOfMonth;
-}

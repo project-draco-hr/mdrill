@@ -1,3 +1,0 @@
-{
-  return "The maximum number of items to include in frequent item sets. -1 " + "means no limit.";
-}

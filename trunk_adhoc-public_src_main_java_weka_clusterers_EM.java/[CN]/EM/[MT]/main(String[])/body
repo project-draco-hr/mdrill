@@ -1,3 +1,0 @@
-{
-  runClusterer(new EM(),argv);
-}

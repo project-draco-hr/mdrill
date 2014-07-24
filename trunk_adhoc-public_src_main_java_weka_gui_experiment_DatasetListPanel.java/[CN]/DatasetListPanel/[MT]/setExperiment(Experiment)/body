@@ -1,6 +1,0 @@
-{
-  m_Exp=exp;
-  m_List.setModel(m_Exp.getDatasets());
-  m_AddBut.setEnabled(true);
-  setButtons(null);
-}

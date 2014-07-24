@@ -4,18 +4,23 @@
     long t1=System.currentTimeMillis();
     LOG.info("sync from zookeeper " + tableName);
     StormClusterState zkCluster=getCluster();
-    List<Integer> list=zkCluster.higo_ids(tableName);
+    List<Integer> list=zkCluster.higo_base(tableName,this);
     for (    Integer id : list) {
       SolrInfo info=zkCluster.higo_info(tableName,id);
       if (info != null) {
         newlist.add(info);
       }
     }
-    zkCluster.higo_base(tableName,this);
     long tl=System.currentTimeMillis() - t1;
     LOG.info("getShards timetaken:" + tl);
   }
- catch (  Exception e) {
+ catch (  Throwable e) {
+synchronized (lock) {
+      if (this.task != null) {
+        this.task.cancel();
+        this.task=null;
+      }
+    }
     return;
   }
 synchronized (lock) {
@@ -28,7 +33,7 @@ synchronized (lock) {
         }
       }
 ;
-      EXECUTE.schedule(task,60000l,60000l);
+      EXECUTE.schedule(task,300000l,300000l);
     }
   }
 }

@@ -1,3 +1,0 @@
-{
-  m_jTbTools.setVisible(!m_jTbTools.isVisible());
-}

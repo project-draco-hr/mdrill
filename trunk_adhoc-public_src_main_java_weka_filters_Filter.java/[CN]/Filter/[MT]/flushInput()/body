@@ -1,9 +1,0 @@
-{
-  if ((m_InputStringAtts.getAttributeIndices().length > 0) || (m_InputRelAtts.getAttributeIndices().length > 0)) {
-    m_InputFormat=m_InputFormat.stringFreeStructure();
-    m_InputStringAtts=new StringLocator(m_InputFormat,m_InputStringAtts.getAllowedIndices());
-  }
- else {
-    m_InputFormat.delete();
-  }
-}

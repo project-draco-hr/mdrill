@@ -1,8 +1,0 @@
-{
-  try {
-    return System.getProperties().keys();
-  }
- catch (  SecurityException se) {
-    return new Vector().elements();
-  }
-}

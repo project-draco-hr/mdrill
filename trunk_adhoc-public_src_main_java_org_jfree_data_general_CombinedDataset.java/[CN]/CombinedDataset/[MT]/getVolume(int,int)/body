@@ -1,4 +1,0 @@
-{
-  DatasetInfo di=getDatasetInfo(series);
-  return ((OHLCDataset)di.data).getVolume(di.series,item);
-}

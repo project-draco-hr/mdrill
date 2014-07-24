@@ -1,7 +1,0 @@
-{
-  int rtn=0;
-  for (  Cluster cl : this.list) {
-    rtn+=cl.getCenter().getNumPoints();
-  }
-  return rtn;
-}

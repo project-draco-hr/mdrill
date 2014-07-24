@@ -1,4 +1,0 @@
-{
-  super.resetOptions();
-  setFileExtension(LibSVMLoader.FILE_EXTENSION);
-}

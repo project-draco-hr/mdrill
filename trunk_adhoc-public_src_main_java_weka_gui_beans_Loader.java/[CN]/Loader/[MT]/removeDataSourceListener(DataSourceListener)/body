@@ -1,4 +1,0 @@
-{
-  super.removeDataSourceListener(dsl);
-  m_dataSetEventTargets--;
-}

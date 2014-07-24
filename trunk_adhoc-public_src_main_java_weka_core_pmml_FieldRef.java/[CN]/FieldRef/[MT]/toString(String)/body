@@ -1,3 +1,0 @@
-{
-  return pad + "FieldRef: " + m_fieldName;
-}

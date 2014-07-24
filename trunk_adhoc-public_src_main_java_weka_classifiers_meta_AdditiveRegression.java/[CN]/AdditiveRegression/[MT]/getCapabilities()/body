@@ -1,8 +1,0 @@
-{
-  Capabilities result=super.getCapabilities();
-  result.disableAllClasses();
-  result.disableAllClassDependencies();
-  result.enable(Capability.NUMERIC_CLASS);
-  result.enable(Capability.DATE_CLASS);
-  return result;
-}

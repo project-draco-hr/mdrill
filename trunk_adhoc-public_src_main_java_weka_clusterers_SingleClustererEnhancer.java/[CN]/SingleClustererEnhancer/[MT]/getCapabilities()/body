@@ -1,7 +1,0 @@
-{
-  Capabilities result;
-  if (getClusterer() == null)   result=super.getCapabilities();
- else   result=getClusterer().getCapabilities();
-  for (  Capability cap : Capability.values())   result.enableDependency(cap);
-  return result;
-}

@@ -1,7 +1,0 @@
-{
-  final Class loadedClass=loadClass(baseClass);
-  if (loadedClass != null) {
-    Log.debug(new Log.SimpleMessage("Added IgnClass: ",baseClass));
-    this.ignoredBaseClasses.add(loadedClass);
-  }
-}

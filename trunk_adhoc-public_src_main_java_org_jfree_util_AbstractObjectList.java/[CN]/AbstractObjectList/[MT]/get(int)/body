@@ -1,7 +1,0 @@
-{
-  Object result=null;
-  if (index >= 0 && index < this.size) {
-    result=this.objects[index];
-  }
-  return result;
-}

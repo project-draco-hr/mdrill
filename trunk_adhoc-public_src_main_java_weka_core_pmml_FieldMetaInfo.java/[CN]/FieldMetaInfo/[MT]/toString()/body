@@ -1,7 +1,0 @@
-{
-  String retV=m_value;
-  if (m_displayValue != null) {
-    retV+="(" + m_displayValue + "): "+ m_property.toString();
-  }
-  return retV;
-}

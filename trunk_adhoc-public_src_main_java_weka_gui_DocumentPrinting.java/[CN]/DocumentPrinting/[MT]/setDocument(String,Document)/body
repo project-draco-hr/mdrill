@@ -1,4 +1,0 @@
-{
-  setContentType(type);
-  m_PrintPane.setDocument(document);
-}

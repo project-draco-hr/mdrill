@@ -1,4 +1,0 @@
-{
-  this.annotations.clear();
-  fireChangeEvent();
-}

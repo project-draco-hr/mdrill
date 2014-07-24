@@ -1,5 +1,0 @@
-Comparable rowKey
-Comparable columnKey
-int datasetIndex
-double transX
-PlotOrientation orientation

@@ -1,3 +1,0 @@
-{
-  return (ComparableObjectItem)this.data.get(index);
-}

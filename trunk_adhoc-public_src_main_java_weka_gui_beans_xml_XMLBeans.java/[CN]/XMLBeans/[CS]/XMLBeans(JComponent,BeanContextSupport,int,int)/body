@@ -1,7 +1,0 @@
-{
-  super();
-  m_vectorIndex=tab;
-  m_BeanLayout=layout;
-  m_BeanContextSupport=context;
-  setDataType(datatype);
-}

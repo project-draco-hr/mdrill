@@ -1,4 +1,0 @@
-{
-  this();
-  if ((filename != null) && (!filename.equals("")))   loadFile(filename);
-}

@@ -1,3 +1,0 @@
-{
-  return createBufferedImage(width,height,null);
-}

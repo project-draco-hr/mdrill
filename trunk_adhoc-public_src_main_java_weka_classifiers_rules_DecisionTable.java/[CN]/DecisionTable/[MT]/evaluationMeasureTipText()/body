@@ -1,3 +1,0 @@
-{
-  return "The measure used to evaluate the performance of attribute combinations " + "used in the decision table.";
-}

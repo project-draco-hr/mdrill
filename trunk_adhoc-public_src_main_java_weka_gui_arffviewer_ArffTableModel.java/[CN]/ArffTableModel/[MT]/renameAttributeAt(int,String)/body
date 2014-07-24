@@ -1,7 +1,0 @@
-{
-  if ((columnIndex > 0) && (columnIndex < getColumnCount())) {
-    addUndoPoint();
-    m_Data.renameAttribute(columnIndex - 1,newName);
-    notifyListener(new TableModelEvent(this,TableModelEvent.HEADER_ROW));
-  }
-}

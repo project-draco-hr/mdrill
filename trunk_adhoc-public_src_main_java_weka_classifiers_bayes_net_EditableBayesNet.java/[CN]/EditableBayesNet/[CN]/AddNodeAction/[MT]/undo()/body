@@ -1,8 +1,0 @@
-{
-  try {
-    deleteNode(getNrOfNodes() - 1);
-  }
- catch (  Exception e) {
-    e.printStackTrace();
-  }
-}

@@ -1,8 +1,0 @@
-{
-  final GeneralPath p0=new GeneralPath();
-  p0.moveTo(0.0f,s);
-  p0.lineTo(s,-s);
-  p0.lineTo(-s,-s);
-  p0.closePath();
-  return p0;
-}

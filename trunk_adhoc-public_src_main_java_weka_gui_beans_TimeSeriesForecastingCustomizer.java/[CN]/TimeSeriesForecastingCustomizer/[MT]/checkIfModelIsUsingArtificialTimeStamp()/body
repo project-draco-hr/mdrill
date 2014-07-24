@@ -1,7 +1,0 @@
-{
-  if (m_forecastingModel != null) {
-    boolean usingA=m_forecastingModel.getTSLagMaker().isUsingAnArtificialTimeIndex();
-    m_artificialLab.setEnabled(usingA);
-    m_artificialOffset.setEnabled(usingA);
-  }
-}

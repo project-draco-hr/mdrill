@@ -1,3 +1,0 @@
-Stack<DistanceNode> point_set
-Stack<DistanceNode> far_set
-int max_scale

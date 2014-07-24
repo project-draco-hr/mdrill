@@ -1,9 +1,0 @@
-{
-  if (this.equals(CategoryLabelWidthType.CATEGORY)) {
-    return CategoryLabelWidthType.CATEGORY;
-  }
- else   if (this.equals(CategoryLabelWidthType.RANGE)) {
-    return CategoryLabelWidthType.RANGE;
-  }
-  return null;
-}

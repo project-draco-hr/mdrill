@@ -1,4 +1,0 @@
-Graphics2D g2
-String text
-TextAnchor anchor
-Rectangle2D textBounds

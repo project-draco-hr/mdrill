@@ -1,5 +1,0 @@
-{
-  double range=this.upperBound - this.lowerBound;
-  double unit=this.extent / range;
-  return this.startAngle + unit * (value - this.lowerBound);
-}

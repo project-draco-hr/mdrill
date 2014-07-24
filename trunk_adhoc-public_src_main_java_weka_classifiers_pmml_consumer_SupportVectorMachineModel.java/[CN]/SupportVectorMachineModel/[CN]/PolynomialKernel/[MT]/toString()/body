@@ -1,3 +1,0 @@
-{
-  return "Polynomial kernel: K(x,y) = (" + m_gamma + " * <x,y> + "+ m_coef0+ ")^"+ m_degree;
-}

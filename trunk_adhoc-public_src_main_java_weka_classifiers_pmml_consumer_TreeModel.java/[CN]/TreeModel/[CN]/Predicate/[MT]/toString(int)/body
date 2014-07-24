@@ -1,7 +1,0 @@
-{
-  StringBuffer text=new StringBuffer();
-  for (int j=0; j < level; j++) {
-    text.append("|   ");
-  }
-  return text.append(toString()).toString();
-}

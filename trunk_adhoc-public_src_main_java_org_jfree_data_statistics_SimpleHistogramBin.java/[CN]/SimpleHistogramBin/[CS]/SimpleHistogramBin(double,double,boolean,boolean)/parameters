@@ -1,4 +1,0 @@
-double lowerBound
-double upperBound
-boolean includeLowerBound
-boolean includeUpperBound

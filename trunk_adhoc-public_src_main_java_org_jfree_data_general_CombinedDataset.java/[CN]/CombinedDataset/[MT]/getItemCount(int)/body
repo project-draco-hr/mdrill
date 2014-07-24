@@ -1,4 +1,0 @@
-{
-  DatasetInfo di=getDatasetInfo(series);
-  return ((XYDataset)di.data).getItemCount(di.series);
-}

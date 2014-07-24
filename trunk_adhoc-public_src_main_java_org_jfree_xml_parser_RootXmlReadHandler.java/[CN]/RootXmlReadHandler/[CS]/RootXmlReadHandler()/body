@@ -1,4 +1,0 @@
-{
-  this.objectRegistry=new HashMap();
-  this.classToHandlerMapping=new SimpleObjectFactory();
-}

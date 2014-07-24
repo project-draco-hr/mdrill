@@ -1,3 +1,0 @@
-{
-  return Character.isWhitespace(character.charAt(0)) || (m_Delimiters.indexOf(character.charAt(0)) > -1);
-}

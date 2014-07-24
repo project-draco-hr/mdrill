@@ -1,5 +1,0 @@
-{
-  m_car=true;
-  buildAssociations(data);
-  return m_allTheRules;
-}

@@ -1,3 +1,0 @@
-{
-  return ((ArffTableModel)getModel()).getInstancesValueAt(mIndices[rowIndex],columnIndex);
-}

@@ -1,7 +1,0 @@
-{
-  if (key == null) {
-    throw new IllegalArgumentException("Null 'key' argument.");
-  }
-  this.key=key;
-  notifyListeners(new MarkerChangeEvent(this));
-}

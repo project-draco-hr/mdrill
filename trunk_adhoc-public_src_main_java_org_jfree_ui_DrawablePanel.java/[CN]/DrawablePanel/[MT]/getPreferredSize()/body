@@ -1,7 +1,0 @@
-{
-  if (this.drawable instanceof ExtendedDrawable) {
-    final ExtendedDrawable ed=(ExtendedDrawable)this.drawable;
-    return ed.getPreferredSize();
-  }
-  return super.getPreferredSize();
-}

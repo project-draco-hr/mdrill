@@ -1,3 +1,0 @@
-{
-  this(x,y,width,height,1.0,drawable);
-}

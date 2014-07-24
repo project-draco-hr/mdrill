@@ -1,4 +1,0 @@
-{
-  stream.defaultWriteObject();
-  SerialUtilities.writePaint(this.shadowPaint,stream);
-}

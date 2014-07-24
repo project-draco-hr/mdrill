@@ -1,7 +1,0 @@
-{
-  String line=point.toString();
-  Vector pointv=parse.parseVector(line);
-  pointv.setNumPoints(1);
-  Cluster clu=new Cluster(pointv,0);
-  context.write(new Text(String.valueOf(parse.parseKey(line))),clu);
-}

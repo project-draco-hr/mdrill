@@ -1,5 +1,0 @@
-{
-  if (newCVType.getTags() == TAGS_CV_TYPE) {
-    m_nCVType=newCVType.getSelectedTag().getID();
-  }
-}

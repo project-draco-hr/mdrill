@@ -1,7 +1,0 @@
-{
-  if (serialDate == null) {
-    throw new IllegalArgumentException("Null 'serialDate' argument.");
-  }
-  this.serialDate=serialDate;
-  peg(Calendar.getInstance());
-}

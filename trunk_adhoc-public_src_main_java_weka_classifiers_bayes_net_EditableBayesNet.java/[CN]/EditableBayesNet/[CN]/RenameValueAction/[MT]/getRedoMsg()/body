@@ -1,3 +1,0 @@
-{
-  return "Value of node " + getNodeName(m_nTargetNode) + " changed from "+ m_sOldName+ " to "+ m_sNewName;
-}

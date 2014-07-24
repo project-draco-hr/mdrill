@@ -1,4 +1,0 @@
-{
-  getScreenFit(m_viewPos,m_viewSize);
-  repaint();
-}

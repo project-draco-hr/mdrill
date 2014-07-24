@@ -1,5 +1,0 @@
-{
-  m_nParents=new int[10];
-  m_nNrOfParents=0;
-  m_nCardinalityOfParents=1;
-}

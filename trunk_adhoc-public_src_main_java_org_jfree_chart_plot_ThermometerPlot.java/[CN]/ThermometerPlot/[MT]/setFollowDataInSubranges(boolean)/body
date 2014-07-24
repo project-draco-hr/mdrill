@@ -1,4 +1,0 @@
-{
-  this.followDataInSubranges=flag;
-  fireChangeEvent();
-}

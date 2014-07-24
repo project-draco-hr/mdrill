@@ -1,5 +1,0 @@
-{
-  stream.defaultReadObject();
-  this.fillPaint=SerialUtilities.readPaint(stream);
-  this.outlinePaint=SerialUtilities.readPaint(stream);
-}

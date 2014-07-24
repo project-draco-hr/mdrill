@@ -1,6 +1,0 @@
-{
-  setBorder(javax.swing.BorderFactory.createEmptyBorder(0,5,5,5));
-  setLayout(new BorderLayout());
-  add(m_splitEditor,BorderLayout.CENTER);
-  add(new javax.swing.JLabel("TrainTestSplitMakerCustomizer"),BorderLayout.NORTH);
-}

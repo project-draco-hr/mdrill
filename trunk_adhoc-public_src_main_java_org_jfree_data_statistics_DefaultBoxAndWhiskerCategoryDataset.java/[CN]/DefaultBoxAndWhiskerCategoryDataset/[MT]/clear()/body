@@ -1,5 +1,0 @@
-{
-  this.data.clear();
-  updateBounds();
-  fireDatasetChanged();
-}

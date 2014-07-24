@@ -1,7 +1,0 @@
-{
-  Vector result=new Vector();
-  result.addElement(new Option("\tFull class name of filter to use, followed\n" + "\tby filter options.\n" + "\teg: \"weka.filters.unsupervised.attribute.Remove -V -R 1,2\"\n"+ "(default: " + defaultFilterString() + ")","F",1,"-F <filter specification>"));
-  Enumeration enm=super.listOptions();
-  while (enm.hasMoreElements())   result.addElement(enm.nextElement());
-  return result.elements();
-}

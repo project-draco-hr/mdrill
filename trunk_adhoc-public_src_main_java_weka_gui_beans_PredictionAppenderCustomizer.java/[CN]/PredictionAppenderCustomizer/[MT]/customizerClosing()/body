@@ -1,3 +1,0 @@
-{
-  m_appender.setAppendPredictedProbabilities(m_appendProbsBackup);
-}

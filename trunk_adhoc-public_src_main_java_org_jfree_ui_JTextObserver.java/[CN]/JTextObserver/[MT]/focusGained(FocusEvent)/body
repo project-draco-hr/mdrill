@@ -1,6 +1,0 @@
-{
-  if (e.getSource() instanceof JTextComponent) {
-    final JTextComponent tex=(JTextComponent)e.getSource();
-    tex.selectAll();
-  }
-}

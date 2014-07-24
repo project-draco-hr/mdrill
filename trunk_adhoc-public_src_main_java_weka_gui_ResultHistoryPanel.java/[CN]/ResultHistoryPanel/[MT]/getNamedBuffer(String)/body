@@ -1,5 +1,0 @@
-{
-  StringBuffer b=null;
-  b=(StringBuffer)(m_Results.get(name));
-  return b;
-}

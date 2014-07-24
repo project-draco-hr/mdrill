@@ -1,6 +1,0 @@
-{
-  if (m_targetForecaster == null) {
-    return "SingleTargetForecaster: no model built yet!";
-  }
-  return m_className + ":\n" + m_targetForecaster.toString();
-}

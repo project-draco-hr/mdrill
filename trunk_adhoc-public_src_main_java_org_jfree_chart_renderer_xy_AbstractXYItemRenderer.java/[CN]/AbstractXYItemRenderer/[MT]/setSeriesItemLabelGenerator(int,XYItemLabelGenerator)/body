@@ -1,4 +1,0 @@
-{
-  this.itemLabelGeneratorList.set(series,generator);
-  fireChangeEvent();
-}

@@ -1,8 +1,0 @@
-AttributedString label
-String description
-String toolTipText
-String urlText
-Shape shape
-Paint fillPaint
-Stroke outlineStroke
-Paint outlinePaint

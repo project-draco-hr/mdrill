@@ -1,7 +1,0 @@
-{
-  this.upperMargin=margin;
-  if (isAutoRange()) {
-    autoAdjustRange();
-  }
-  notifyListeners(new AxisChangeEvent(this));
-}

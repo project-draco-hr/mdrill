@@ -1,3 +1,0 @@
-{
-  if (m_Data != null)   m_Data.compactify();
-}

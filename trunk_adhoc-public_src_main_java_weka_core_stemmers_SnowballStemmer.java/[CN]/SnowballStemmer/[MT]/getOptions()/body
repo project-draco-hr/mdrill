@@ -1,9 +1,0 @@
-{
-  Vector<String> result;
-  result=new Vector<String>();
-  if (getStemmer() != null) {
-    result.add("-S");
-    result.add("" + getStemmer());
-  }
-  return (String[])result.toArray(new String[result.size()]);
-}

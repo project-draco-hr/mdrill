@@ -1,8 +1,0 @@
-Graphics2D x_graphics
-Rectangle2D x_dataArea
-XYPlot x_plot
-ValueAxis x_domainAxis
-ValueAxis x_rangeAxis
-boolean x_positive
-LinkedList x_xValues
-LinkedList x_yValues

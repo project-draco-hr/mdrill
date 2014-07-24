@@ -1,3 +1,0 @@
-{
-  return add(name,value,NodeType.PRIMITIVE);
-}

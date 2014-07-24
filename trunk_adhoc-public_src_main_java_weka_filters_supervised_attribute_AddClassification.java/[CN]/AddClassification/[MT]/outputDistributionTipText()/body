@@ -1,3 +1,0 @@
-{
-  return "Whether to add attributes with the distribution for all classes " + "(for numeric classes this will be identical to the attribute output " + "with 'outputClassification').";
-}

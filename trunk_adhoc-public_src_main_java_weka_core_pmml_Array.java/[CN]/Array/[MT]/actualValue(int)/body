@@ -1,4 +1,0 @@
-{
-  checkInRange(index);
-  return m_values.get(index);
-}

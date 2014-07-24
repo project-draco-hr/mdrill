@@ -1,3 +1,0 @@
-{
-  return "The factor for the kernel, with A = # of attributes and N = # of instances.";
-}

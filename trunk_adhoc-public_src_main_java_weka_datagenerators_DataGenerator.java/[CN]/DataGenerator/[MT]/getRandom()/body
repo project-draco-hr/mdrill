@@ -1,4 +1,0 @@
-{
-  if (m_Random == null)   m_Random=new Random(getSeed());
-  return m_Random;
-}

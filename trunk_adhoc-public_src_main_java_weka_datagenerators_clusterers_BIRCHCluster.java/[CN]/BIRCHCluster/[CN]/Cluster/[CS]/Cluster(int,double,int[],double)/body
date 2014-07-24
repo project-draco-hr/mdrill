@@ -1,8 +1,0 @@
-{
-  m_InstNum=instNum;
-  m_Radius=radius;
-  m_Center=new double[getNumAttributes()];
-  for (int i=0; i < getNumAttributes(); i++) {
-    m_Center[i]=((double)gridVector[i] + 1.0) * gridWidth;
-  }
-}

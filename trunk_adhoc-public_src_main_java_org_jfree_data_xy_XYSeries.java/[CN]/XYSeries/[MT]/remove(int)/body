@@ -1,6 +1,0 @@
-{
-  XYDataItem removed=(XYDataItem)this.data.remove(index);
-  updateBoundsForRemovedItem(removed);
-  fireSeriesChanged();
-  return removed;
-}

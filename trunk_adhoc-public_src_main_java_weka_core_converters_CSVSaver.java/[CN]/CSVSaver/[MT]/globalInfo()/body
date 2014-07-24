@@ -1,3 +1,0 @@
-{
-  return "Writes to a destination that is in CSV (comma-separated values) format. " + "The column separator can be chosen (default is ',') as well as the value " + "representing missing values (default is '?').";
-}

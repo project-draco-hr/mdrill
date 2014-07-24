@@ -1,5 +1,0 @@
-{
-  m_Template=template;
-  m_Datasets=new FastVector();
-  add(template);
-}

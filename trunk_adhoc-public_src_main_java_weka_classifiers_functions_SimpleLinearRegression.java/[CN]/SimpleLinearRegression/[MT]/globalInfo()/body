@@ -1,3 +1,0 @@
-{
-  return "Learns a simple linear regression model. " + "Picks the attribute that results in the lowest squared error. " + "Missing values are not allowed. Can only deal with numeric attributes.";
-}

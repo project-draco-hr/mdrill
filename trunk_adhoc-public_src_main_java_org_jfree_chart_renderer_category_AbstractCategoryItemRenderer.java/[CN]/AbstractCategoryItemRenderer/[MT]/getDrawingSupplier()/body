@@ -1,8 +1,0 @@
-{
-  DrawingSupplier result=null;
-  CategoryPlot cp=getPlot();
-  if (cp != null) {
-    result=cp.getDrawingSupplier();
-  }
-  return result;
-}

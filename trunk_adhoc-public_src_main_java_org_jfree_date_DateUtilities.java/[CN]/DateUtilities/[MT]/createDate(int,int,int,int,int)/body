@@ -1,5 +1,0 @@
-{
-  CALENDAR.clear();
-  CALENDAR.set(yyyy,month - 1,day,hour,min);
-  return CALENDAR.getTime();
-}

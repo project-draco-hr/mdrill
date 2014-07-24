@@ -1,3 +1,0 @@
-{
-  return "DayUserPv [queryDay=" + queryDay + ", nick="+ nick+ ", queryCnt="+ queryCnt+ "]";
-}

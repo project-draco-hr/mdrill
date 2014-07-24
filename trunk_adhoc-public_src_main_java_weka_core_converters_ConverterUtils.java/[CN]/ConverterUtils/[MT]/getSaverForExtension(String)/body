@@ -1,3 +1,0 @@
-{
-  return (AbstractFileSaver)getConverterForExtension(extension,m_FileSavers);
-}

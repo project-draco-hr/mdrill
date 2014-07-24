@@ -1,5 +1,0 @@
-{
-  XYDifferenceRenderer clone=(XYDifferenceRenderer)super.clone();
-  clone.legendLine=ShapeUtilities.clone(this.legendLine);
-  return clone;
-}

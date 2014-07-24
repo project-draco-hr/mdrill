@@ -1,3 +1,0 @@
-{
-  return getChipValue(new Integer(chipx),new Integer(chipy));
-}

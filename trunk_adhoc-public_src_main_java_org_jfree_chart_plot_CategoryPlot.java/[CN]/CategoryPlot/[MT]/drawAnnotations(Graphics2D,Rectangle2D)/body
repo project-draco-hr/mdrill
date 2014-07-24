@@ -1,9 +1,0 @@
-{
-  if (getAnnotations() != null) {
-    Iterator iterator=getAnnotations().iterator();
-    while (iterator.hasNext()) {
-      CategoryAnnotation annotation=(CategoryAnnotation)iterator.next();
-      annotation.draw(g2,this,dataArea,getDomainAxis(),getRangeAxis());
-    }
-  }
-}

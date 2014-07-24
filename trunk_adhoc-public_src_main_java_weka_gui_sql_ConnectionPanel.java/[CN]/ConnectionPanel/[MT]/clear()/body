@@ -1,5 +1,0 @@
-{
-  setURL(m_DbUtils.getDatabaseURL());
-  setUser(m_DbUtils.getUsername());
-  setPassword(m_DbUtils.getPassword());
-}

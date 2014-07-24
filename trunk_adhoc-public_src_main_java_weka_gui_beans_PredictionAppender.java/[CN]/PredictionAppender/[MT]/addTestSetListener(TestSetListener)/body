@@ -1,7 +1,0 @@
-{
-  m_testSetListeners.addElement(tsl);
-  if (m_format != null) {
-    TestSetEvent e=new TestSetEvent(this,m_format);
-    tsl.acceptTestSet(e);
-  }
-}

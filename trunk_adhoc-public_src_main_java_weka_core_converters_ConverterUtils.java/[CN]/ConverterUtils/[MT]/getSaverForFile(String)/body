@@ -1,3 +1,0 @@
-{
-  return (AbstractFileSaver)getConverterForFile(filename,m_FileSavers);
-}

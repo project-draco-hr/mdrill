@@ -1,3 +1,0 @@
-{
-  showPanel(new JythonPanel(),args);
-}

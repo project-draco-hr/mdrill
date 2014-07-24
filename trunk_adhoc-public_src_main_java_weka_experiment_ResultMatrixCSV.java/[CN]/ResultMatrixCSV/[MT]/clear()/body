@@ -1,5 +1,0 @@
-{
-  super.clear();
-  LEFT_PARENTHESES="[";
-  RIGHT_PARENTHESES="]";
-}

@@ -1,6 +1,0 @@
-{
-  if (!(o instanceof Float)) {
-    throw new ObjectFactoryException("The given object is no java.lang.Float.");
-  }
-  setParameter("value",String.valueOf(o));
-}

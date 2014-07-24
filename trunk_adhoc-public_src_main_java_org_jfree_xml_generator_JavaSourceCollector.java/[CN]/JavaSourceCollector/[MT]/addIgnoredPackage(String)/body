@@ -1,4 +1,0 @@
-{
-  Log.debug(new Log.SimpleMessage("Added IgnPackage: ",pkg));
-  this.ignoredPackages.add(pkg);
-}

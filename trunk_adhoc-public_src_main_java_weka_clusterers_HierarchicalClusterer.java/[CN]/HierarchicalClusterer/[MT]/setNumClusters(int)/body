@@ -1,3 +1,0 @@
-{
-  m_nNumClusters=Math.max(1,nClusters);
-}

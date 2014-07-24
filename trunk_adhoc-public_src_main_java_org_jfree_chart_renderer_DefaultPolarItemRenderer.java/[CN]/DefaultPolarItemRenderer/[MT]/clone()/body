@@ -1,5 +1,0 @@
-{
-  DefaultPolarItemRenderer clone=(DefaultPolarItemRenderer)super.clone();
-  clone.seriesFilled=(BooleanList)this.seriesFilled.clone();
-  return clone;
-}

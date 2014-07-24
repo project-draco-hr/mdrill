@@ -1,3 +1,0 @@
-{
-  writeChartAsJPEG(out,chart,width,height,null);
-}

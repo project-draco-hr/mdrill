@@ -1,7 +1,0 @@
-{
-  super(new SafeTagList(),0,indentString);
-  if (writer == null) {
-    throw new NullPointerException("Writer must not be null.");
-  }
-  this.writer=writer;
-}

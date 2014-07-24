@@ -1,4 +1,0 @@
-{
-  if ((columnIndex > 0) && (columnIndex < getColumnCount()))   return m_Data.attribute(columnIndex - 1);
- else   return null;
-}

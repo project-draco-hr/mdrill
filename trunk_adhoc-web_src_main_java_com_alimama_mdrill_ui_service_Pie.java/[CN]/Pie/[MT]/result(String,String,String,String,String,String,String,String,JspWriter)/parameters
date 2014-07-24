@@ -1,9 +1,0 @@
-String projectName
-String startStr
-String rowsStr
-String queryStr
-String fl
-String groupby
-String sort
-String order
-JspWriter out

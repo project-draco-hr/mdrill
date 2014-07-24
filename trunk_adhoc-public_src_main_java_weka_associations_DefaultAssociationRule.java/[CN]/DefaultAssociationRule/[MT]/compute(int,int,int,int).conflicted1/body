@@ -1,5 +1,0 @@
-{
-  double coverageForItemSet=(double)totalSupport / (double)totalTransactions;
-  double expectedCoverageIfIndependent=((double)premiseSupport / (double)totalTransactions) * ((double)consequenceSupport / (double)totalTransactions);
-  return coverageForItemSet - expectedCoverageIfIndependent;
-}

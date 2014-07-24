@@ -1,3 +1,0 @@
-{
-  return "Center (rather than standardize) the data. PCA will " + "be computed from the covariance (rather than correlation) " + "matrix";
-}

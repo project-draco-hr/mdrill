@@ -1,8 +1,0 @@
-{
-  if (listenerType == ChartMouseListener.class) {
-    return this.chartMouseListeners.getListeners(listenerType);
-  }
- else {
-    return super.getListeners(listenerType);
-  }
-}

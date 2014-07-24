@@ -1,3 +1,0 @@
-{
-  return getCustomName() + "$" + hashCode()+ "|"+ ((m_Saver instanceof OptionHandler) ? Utils.joinOptions(((OptionHandler)m_Saver).getOptions()) + "|" : "");
-}

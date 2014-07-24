@@ -1,9 +1,0 @@
-{
-  m_currentColor=copy.m_currentColor;
-  m_currentFont=copy.m_currentFont;
-  m_currentStroke=copy.m_currentStroke;
-  m_xOffset=copy.m_xOffset;
-  m_yOffset=copy.m_yOffset;
-  m_xScale=copy.m_xScale;
-  m_yScale=copy.m_yScale;
-}

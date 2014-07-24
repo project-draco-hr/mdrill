@@ -1,7 +1,0 @@
-{
-  Vector<Option> result=new Vector<Option>();
-  Enumeration enm=super.listOptions();
-  while (enm.hasMoreElements())   result.addElement((Option)enm.nextElement());
-  result.addElement(new Option("\tThe seed value for the random number generator.\n" + "\t(default: 17)","S",1,"-S <num>"));
-  return result.elements();
-}

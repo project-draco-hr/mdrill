@@ -1,3 +1,0 @@
-{
-  return "Retains values with least instance instead of most.";
-}

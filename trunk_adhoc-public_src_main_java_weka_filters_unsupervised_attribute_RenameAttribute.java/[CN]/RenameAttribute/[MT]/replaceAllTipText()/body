@@ -1,3 +1,0 @@
-{
-  return "If set to true, then all occurrences of the match will be replaced; " + "otherwise only the first.";
-}

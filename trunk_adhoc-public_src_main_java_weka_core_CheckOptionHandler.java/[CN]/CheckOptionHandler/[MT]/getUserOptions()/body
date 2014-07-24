@@ -1,3 +1,0 @@
-{
-  return getCopy(m_UserOptions);
-}

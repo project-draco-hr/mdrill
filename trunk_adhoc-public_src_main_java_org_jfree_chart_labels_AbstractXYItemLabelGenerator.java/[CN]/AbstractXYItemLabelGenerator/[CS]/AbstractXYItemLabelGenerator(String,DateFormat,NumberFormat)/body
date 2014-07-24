@@ -1,4 +1,0 @@
-{
-  this(formatString,NumberFormat.getInstance(),yFormat);
-  this.xDateFormat=xFormat;
-}

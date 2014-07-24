@@ -1,9 +1,0 @@
-{
-  try {
-    Class.forName("com.thoughtworks.xstream.XStream");
-    m_Present=true;
-  }
- catch (  Exception e) {
-    m_Present=false;
-  }
-}

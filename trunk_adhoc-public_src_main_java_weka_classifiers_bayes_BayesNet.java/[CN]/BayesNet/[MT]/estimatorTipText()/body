@@ -1,3 +1,0 @@
-{
-  return "Select Estimator algorithm for finding the conditional probability tables" + " of the Bayes Network.";
-}

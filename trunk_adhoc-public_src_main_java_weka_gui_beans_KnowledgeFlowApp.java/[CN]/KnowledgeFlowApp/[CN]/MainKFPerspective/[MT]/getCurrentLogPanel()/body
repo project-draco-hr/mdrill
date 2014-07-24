@@ -1,6 +1,0 @@
-{
-  if (getCurrentTabIndex() >= 0) {
-    return m_logPanels.get(getCurrentTabIndex());
-  }
-  return null;
-}

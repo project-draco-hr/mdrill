@@ -1,6 +1,0 @@
-{
-  if (this.cornerTextItems.size() > 0) {
-    this.cornerTextItems.clear();
-    fireChangeEvent();
-  }
-}

@@ -1,3 +1,0 @@
-{
-  return getAttributedLabel(dataset.getIndex(key));
-}

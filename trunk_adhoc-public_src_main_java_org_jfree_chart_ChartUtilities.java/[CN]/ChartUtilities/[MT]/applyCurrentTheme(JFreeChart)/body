@@ -1,3 +1,0 @@
-{
-  ChartFactory.getChartTheme().apply(chart);
-}

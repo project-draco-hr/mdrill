@@ -1,3 +1,0 @@
-{
-  return "Returning " + m_nodes.size() + " from aliging nodes to the left.";
-}

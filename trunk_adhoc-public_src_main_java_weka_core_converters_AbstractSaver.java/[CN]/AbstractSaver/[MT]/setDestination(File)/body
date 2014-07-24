@@ -1,3 +1,0 @@
-{
-  throw new IOException("Writing to a file not supported");
-}

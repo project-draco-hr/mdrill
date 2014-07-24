@@ -1,5 +1,0 @@
-{
-  StringBuffer text=new StringBuffer();
-  dumpTree(0,text);
-  return text.toString();
-}

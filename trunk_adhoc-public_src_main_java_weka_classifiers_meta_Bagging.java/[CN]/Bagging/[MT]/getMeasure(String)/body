@@ -1,8 +1,0 @@
-{
-  if (additionalMeasureName.equalsIgnoreCase("measureOutOfBagError")) {
-    return measureOutOfBagError();
-  }
- else {
-    throw new IllegalArgumentException(additionalMeasureName + " not supported (Bagging)");
-  }
-}

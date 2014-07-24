@@ -1,9 +1,0 @@
-{
-  try {
-    WekaForecaster fs=new WekaForecaster();
-    fs.runForecaster(fs,args);
-  }
- catch (  Exception ex) {
-    ex.printStackTrace();
-  }
-}

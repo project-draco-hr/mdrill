@@ -1,6 +1,0 @@
-{
-  this.strokeList.setStroke(series,stroke);
-  if (notify) {
-    fireChangeEvent();
-  }
-}

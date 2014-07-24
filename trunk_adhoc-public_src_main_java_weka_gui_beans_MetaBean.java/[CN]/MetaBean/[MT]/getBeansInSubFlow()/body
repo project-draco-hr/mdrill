@@ -1,3 +1,0 @@
-{
-  return getBeans(m_subFlow,0);
-}

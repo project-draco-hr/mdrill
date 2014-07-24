@@ -1,4 +1,0 @@
-{
-  if ((index >= 0) && (index < size()))   return (PrintStream)m_Streams.get(index);
- else   return null;
-}

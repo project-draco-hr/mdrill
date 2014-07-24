@@ -1,3 +1,0 @@
-{
-  return filename.replaceAll("\\\\","_").replaceAll(":","_").replaceAll("/","_");
-}

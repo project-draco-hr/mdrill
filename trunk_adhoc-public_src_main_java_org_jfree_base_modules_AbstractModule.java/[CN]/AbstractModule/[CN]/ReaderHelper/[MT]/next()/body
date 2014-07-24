@@ -1,5 +1,0 @@
-{
-  final String line=this.buffer;
-  this.buffer=null;
-  return line;
-}

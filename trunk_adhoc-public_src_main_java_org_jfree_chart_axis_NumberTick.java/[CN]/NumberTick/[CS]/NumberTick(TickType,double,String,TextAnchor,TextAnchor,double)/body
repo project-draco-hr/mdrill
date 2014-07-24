@@ -1,4 +1,0 @@
-{
-  super(tickType,value,label,textAnchor,rotationAnchor,angle);
-  this.number=new Double(value);
-}

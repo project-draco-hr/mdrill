@@ -1,4 +1,0 @@
-{
-  this.domainIsPointsInTime=flag;
-  notifyListeners(new DatasetChangeEvent(this,this));
-}

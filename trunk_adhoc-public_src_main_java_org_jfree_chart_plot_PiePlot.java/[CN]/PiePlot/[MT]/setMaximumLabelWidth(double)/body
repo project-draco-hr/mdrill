@@ -1,4 +1,0 @@
-{
-  this.maximumLabelWidth=width;
-  fireChangeEvent();
-}

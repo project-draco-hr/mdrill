@@ -1,4 +1,0 @@
-{
-  if (c.getComponentType().isArray())   return isPrimitiveArray(c.getComponentType());
- else   return c.getComponentType().isPrimitive();
-}

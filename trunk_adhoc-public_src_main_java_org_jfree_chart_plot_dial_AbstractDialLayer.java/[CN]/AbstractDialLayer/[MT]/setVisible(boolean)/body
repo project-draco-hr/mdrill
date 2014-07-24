@@ -1,4 +1,0 @@
-{
-  this.visible=visible;
-  notifyListeners(new DialLayerChangeEvent(this));
-}

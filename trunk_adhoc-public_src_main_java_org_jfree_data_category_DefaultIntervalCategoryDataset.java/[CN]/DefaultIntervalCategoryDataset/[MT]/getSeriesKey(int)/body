@@ -1,6 +1,0 @@
-{
-  if ((series >= getSeriesCount()) || (series < 0)) {
-    throw new IllegalArgumentException("No such series : " + series);
-  }
-  return this.seriesKeys[series];
-}

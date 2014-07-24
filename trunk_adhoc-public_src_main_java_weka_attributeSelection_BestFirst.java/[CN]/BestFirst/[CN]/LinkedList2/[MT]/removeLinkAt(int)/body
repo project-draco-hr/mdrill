@@ -1,8 +1,0 @@
-{
-  if ((index >= 0) && (index < size())) {
-    removeElementAt(index);
-  }
- else {
-    throw new Exception("index out of range (removeLinkAt)");
-  }
-}

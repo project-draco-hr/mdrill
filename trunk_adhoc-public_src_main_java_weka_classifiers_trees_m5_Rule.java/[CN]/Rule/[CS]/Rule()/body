@@ -1,6 +1,0 @@
-{
-  m_useTree=false;
-  m_smoothPredictions=false;
-  m_useUnpruned=false;
-  m_minNumInstances=4;
-}

@@ -1,6 +1,0 @@
-{
-  int result=super.hashCode();
-  result=HashUtilities.hashCode(result,this.pieIndex);
-  result=HashUtilities.hashCode(result,this.sectionIndex);
-  return result;
-}

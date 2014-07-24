@@ -1,3 +1,0 @@
-{
-  return " title=\"" + ImageMapUtilities.htmlEscape(toolTipText) + "\" alt=\"\"";
-}

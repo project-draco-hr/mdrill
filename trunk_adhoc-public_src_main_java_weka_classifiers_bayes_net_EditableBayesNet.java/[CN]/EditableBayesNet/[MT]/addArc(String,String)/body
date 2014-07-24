@@ -1,5 +1,0 @@
-{
-  int nParent=getNode(sParent);
-  int nChild=getNode(sChild);
-  addArc(nParent,nChild);
-}

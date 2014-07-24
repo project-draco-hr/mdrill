@@ -1,3 +1,0 @@
-{
-  return Math.pow(args[0],args[1]);
-}

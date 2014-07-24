@@ -1,3 +1,0 @@
-{
-  super.addItemSet(itemSet,m_headerTable,incr);
-}

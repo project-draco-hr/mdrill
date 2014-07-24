@@ -1,6 +1,0 @@
-{
-  if ((needle != null) && (index < this.seriesNeedle.length)) {
-    this.seriesNeedle[index]=needle;
-  }
-  fireChangeEvent();
-}

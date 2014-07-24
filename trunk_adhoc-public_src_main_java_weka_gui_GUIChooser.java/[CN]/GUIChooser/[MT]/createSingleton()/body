@@ -1,5 +1,0 @@
-{
-  if (m_chooser == null) {
-    m_chooser=new GUIChooser();
-  }
-}

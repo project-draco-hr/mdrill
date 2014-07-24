@@ -1,6 +1,7 @@
 {
   String projectName=pname.name;
   Shards rtn=new Shards();
+  rtn.partions=partions;
   Random rdm=new Random();
   ShardsList[] ms=null;
   if (tmp != null && tmp.length > 0) {
@@ -15,14 +16,12 @@
     ms=cores;
   }
   if (cores != null && cores.length > 0) {
-    int count=0;
+    StringBuffer buff=new StringBuffer();
     for (int i=0; i < cores.length; i++) {
       ShardsList c=cores[i];
-      for (      String part : partions) {
-        rtn.urlShards+=c.randomGet() + "/solr/" + projectName+ "@"+ part+ ",";
-      }
-      count++;
+      buff.append(c.randomGet() + "/solr/" + projectName+ "@_mdrillshard_,");
     }
+    rtn.urlShards=buff.toString();
   }
   if (ms != null && ms.length > 0) {
     int count=0;

@@ -1,8 +1,0 @@
-{
-  double result=0.0;
-  if (this.markers.size() > 0) {
-    LineMetrics metrics=this.font.getLineMetrics("123g",g2.getFontRenderContext());
-    result=this.topOuterGap + this.topInnerGap + metrics.getHeight()+ this.bottomInnerGap+ this.bottomOuterGap;
-  }
-  return result;
-}

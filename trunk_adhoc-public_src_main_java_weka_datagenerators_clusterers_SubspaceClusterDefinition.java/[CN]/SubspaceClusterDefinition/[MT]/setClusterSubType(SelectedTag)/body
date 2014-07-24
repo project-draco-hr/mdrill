@@ -1,3 +1,0 @@
-{
-  if (value.getTags() == SubspaceCluster.TAGS_CLUSTERSUBTYPE)   m_clustersubtype=value.getSelectedTag().getID();
-}

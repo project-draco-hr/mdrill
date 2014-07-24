@@ -1,6 +1,0 @@
-{
-  TestInstances result;
-  result=new TestInstances();
-  result.assign(this);
-  return result;
-}

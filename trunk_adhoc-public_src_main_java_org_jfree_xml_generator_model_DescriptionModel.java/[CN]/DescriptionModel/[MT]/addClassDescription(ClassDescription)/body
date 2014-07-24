@@ -1,6 +1,0 @@
-{
-  this.classesMap.put(cd.getObjectClass(),cd);
-  if (!this.classes.contains(cd)) {
-    this.classes.add(cd);
-  }
-}

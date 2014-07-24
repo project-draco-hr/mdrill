@@ -1,3 +1,0 @@
-{
-  return new Long(((Date)this.dates.get(item)).getTime());
-}

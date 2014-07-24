@@ -1,8 +1,0 @@
-{
-  m_nodes=new FastVector(nodes.size());
-  for (int iNode=0; iNode < nodes.size(); iNode++) {
-    m_nodes.addElement(nodes.elementAt(iNode));
-  }
-  m_dX=dX;
-  m_dY=dY;
-}

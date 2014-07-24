@@ -1,3 +1,0 @@
-{
-  return (TSForecaster)new SerializedObject(model).getObject();
-}

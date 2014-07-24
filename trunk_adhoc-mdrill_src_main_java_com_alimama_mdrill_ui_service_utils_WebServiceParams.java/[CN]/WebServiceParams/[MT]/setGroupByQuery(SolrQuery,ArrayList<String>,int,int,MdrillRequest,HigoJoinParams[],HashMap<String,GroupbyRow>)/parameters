@@ -1,0 +1,7 @@
+SolrQuery query
+ArrayList<String> fqList
+int start
+int rows
+MdrillRequest req
+HigoJoinParams[] joins
+HashMap<String,GroupbyRow> groupValueCache

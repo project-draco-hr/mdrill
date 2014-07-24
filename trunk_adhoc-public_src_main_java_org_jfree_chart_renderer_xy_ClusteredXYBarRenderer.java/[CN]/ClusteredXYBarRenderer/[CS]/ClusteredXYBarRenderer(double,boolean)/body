@@ -1,4 +1,0 @@
-{
-  super(margin);
-  this.centerBarAtStartValue=centerBarAtStartValue;
-}

@@ -1,8 +1,0 @@
-{
-  for (int i=0; i < numAttributes(); i++) {
-    if (attribute(i).name().equals(name)) {
-      return attribute(i);
-    }
-  }
-  return null;
-}

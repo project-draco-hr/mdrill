@@ -1,4 +1,0 @@
-{
-  super(marker);
-  this.marker=marker;
-}

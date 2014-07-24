@@ -1,3 +1,0 @@
-{
-  this.initialSize=Math.max(1,size);
-}

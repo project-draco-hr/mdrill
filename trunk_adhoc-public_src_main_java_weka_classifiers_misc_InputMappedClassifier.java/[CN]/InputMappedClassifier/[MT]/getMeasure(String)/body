@@ -1,8 +1,0 @@
-{
-  if (m_Classifier instanceof AdditionalMeasureProducer) {
-    return ((AdditionalMeasureProducer)m_Classifier).getMeasure(additionalMeasureName);
-  }
- else {
-    throw new IllegalArgumentException(additionalMeasureName + " not supported (InputMappedClassifier)");
-  }
-}

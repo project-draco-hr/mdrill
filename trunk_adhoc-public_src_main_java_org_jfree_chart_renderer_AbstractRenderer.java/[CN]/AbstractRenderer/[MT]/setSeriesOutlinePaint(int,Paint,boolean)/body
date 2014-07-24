@@ -1,6 +1,0 @@
-{
-  this.outlinePaintList.setPaint(series,paint);
-  if (notify) {
-    fireChangeEvent();
-  }
-}

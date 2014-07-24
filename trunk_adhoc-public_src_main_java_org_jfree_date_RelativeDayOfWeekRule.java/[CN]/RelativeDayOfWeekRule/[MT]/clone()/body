@@ -1,5 +1,0 @@
-{
-  final RelativeDayOfWeekRule duplicate=(RelativeDayOfWeekRule)super.clone();
-  duplicate.subrule=(AnnualDateRule)duplicate.getSubrule().clone();
-  return duplicate;
-}

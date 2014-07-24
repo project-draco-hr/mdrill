@@ -1,3 +1,0 @@
-{
-  return (MultiplexMappingEntry)this.reverseMappings.get(clazz);
-}

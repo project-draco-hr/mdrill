@@ -1,4 +1,0 @@
-{
-  m_Counts[(int)data]+=weight;
-  m_SumOfCounts+=weight;
-}

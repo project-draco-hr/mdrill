@@ -1,3 +1,0 @@
-{
-  return getEndValue(series,category);
-}

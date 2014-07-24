@@ -1,3 +1,0 @@
-{
-  this(hour,new Day(day,month,year));
-}

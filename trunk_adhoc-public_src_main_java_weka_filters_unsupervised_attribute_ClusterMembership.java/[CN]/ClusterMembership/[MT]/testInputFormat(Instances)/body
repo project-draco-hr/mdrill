@@ -1,3 +1,0 @@
-{
-  getCapabilities(instanceInfo).testWithFail(removeIgnored(instanceInfo));
-}

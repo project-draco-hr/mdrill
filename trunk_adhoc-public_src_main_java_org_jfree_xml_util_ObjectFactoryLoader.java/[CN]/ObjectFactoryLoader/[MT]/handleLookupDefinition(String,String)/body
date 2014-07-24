@@ -1,5 +1,0 @@
-{
-  final LookupDefinition ldef=new LookupDefinition(name,lookupKey);
-  this.orderedNames.add(name);
-  this.lookupDefinitions.add(ldef);
-}

@@ -1,3 +1,0 @@
-{
-  this.commentHandler=new CommentHandler();
-}

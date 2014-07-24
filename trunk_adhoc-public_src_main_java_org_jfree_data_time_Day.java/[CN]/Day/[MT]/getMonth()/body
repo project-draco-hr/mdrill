@@ -1,3 +1,0 @@
-{
-  return this.serialDate.getMonth();
-}

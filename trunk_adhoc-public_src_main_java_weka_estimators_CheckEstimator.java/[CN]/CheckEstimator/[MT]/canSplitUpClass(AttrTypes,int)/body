@@ -1,4 +1,0 @@
-{
-  if (attrTypes.nominal)   canSplitUpClass(Attribute.NOMINAL,classType);
-  if (attrTypes.numeric)   canSplitUpClass(Attribute.NUMERIC,classType);
-}

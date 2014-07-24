@@ -1,4 +1,0 @@
-String[][] data
-int col
-boolean skipFirst
-boolean skipLast

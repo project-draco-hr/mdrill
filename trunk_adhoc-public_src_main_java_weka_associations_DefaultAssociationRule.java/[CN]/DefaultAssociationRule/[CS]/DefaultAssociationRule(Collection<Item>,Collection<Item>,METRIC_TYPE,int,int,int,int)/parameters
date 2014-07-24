@@ -1,7 +1,0 @@
-Collection<Item> premise
-Collection<Item> consequence
-METRIC_TYPE metric
-int premiseSupport
-int consequenceSupport
-int totalSupport
-int totalTransactions

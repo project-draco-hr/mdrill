@@ -1,9 +1,0 @@
-{
-  StringWriter swriter;
-  PrintWriter pwriter;
-  swriter=new StringWriter();
-  pwriter=new PrintWriter(swriter);
-  t.printStackTrace(pwriter);
-  pwriter.close();
-  log(level,swriter.toString());
-}

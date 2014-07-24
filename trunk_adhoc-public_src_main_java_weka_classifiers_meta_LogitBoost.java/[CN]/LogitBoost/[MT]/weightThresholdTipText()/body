@@ -1,3 +1,0 @@
-{
-  return "Weight threshold for weight pruning (reduce to 90 " + "for speeding up learning process).";
-}

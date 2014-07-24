@@ -1,3 +1,0 @@
-{
-  return (ClassifierSplitModel)m_localModel;
-}

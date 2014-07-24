@@ -1,5 +1,0 @@
-OutputStream out
-JFreeChart chart
-int width
-int height
-ChartRenderingInfo info

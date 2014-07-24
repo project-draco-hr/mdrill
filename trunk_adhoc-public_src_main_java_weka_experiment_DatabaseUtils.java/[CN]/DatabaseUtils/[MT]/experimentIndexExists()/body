@@ -1,3 +1,0 @@
-{
-  return tableExists(EXP_INDEX_TABLE);
-}

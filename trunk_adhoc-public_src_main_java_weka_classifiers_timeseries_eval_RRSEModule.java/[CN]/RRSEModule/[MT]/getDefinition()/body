@@ -1,3 +1,0 @@
-{
-  return "sqrt(sum((predicted - actual)^2) / N) / " + "sqrt(sum(previous_target - actual)^2) / N)";
-}

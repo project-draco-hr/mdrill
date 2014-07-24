@@ -1,3 +1,0 @@
-{
-  if (m_le != null)   m_le.layoutGraph();
-}

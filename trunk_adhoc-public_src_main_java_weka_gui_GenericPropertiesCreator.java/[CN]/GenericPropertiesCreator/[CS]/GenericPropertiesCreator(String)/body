@@ -1,9 +1,0 @@
-{
-  super();
-  m_InputFilename=filename;
-  m_OutputFilename=PROPERTY_FILE;
-  m_InputProperties=null;
-  m_OutputProperties=null;
-  m_ExplicitPropsFile=true;
-  m_Excludes=new Hashtable();
-}

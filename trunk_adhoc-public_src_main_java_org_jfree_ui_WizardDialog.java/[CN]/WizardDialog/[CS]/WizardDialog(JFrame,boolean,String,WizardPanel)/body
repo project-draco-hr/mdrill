@@ -1,9 +1,0 @@
-{
-  super(owner,title + " : step 1",modal);
-  this.result=null;
-  this.currentPanel=firstPanel;
-  this.step=0;
-  this.panels=new ArrayList();
-  this.panels.add(firstPanel);
-  setContentPane(createContent());
-}

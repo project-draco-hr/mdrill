@@ -1,3 +1,0 @@
-{
-  return (WaitingImageObserver)super.clone();
-}

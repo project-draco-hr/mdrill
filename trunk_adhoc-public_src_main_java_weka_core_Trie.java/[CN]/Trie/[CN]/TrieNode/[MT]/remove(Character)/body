@@ -1,6 +1,0 @@
-{
-  TrieNode child;
-  child=m_Children.get(c);
-  remove(child);
-  m_Children.remove(c);
-}

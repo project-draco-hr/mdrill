@@ -1,5 +1,0 @@
-{
-  if (isSortable(column)) {
-    this.sortingColumn=column;
-  }
-}

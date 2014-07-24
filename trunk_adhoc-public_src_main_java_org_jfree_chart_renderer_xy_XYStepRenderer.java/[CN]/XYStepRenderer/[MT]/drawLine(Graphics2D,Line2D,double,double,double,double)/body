@@ -1,7 +1,0 @@
-{
-  if (Double.isNaN(x0) || Double.isNaN(x1) || Double.isNaN(y0)|| Double.isNaN(y1)) {
-    return;
-  }
-  line.setLine(x0,y0,x1,y1);
-  g2.draw(line);
-}

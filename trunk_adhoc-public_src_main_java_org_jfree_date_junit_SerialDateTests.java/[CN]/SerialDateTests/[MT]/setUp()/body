@@ -1,3 +1,0 @@
-{
-  this.nov9Y2001=SerialDate.createInstance(9,MonthConstants.NOVEMBER,2001);
-}

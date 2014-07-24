@@ -1,5 +1,0 @@
-{
-  if (getNumTabs() > 0) {
-    setTabTitle(getCurrentTabIndex(),title);
-  }
-}

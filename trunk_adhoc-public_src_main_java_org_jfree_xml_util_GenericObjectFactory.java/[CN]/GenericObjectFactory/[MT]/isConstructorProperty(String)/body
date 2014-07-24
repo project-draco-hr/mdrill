@@ -1,9 +1,0 @@
-{
-  for (int i=0; i < this.constructorDefinitions.length; i++) {
-    final ConstructorDefinition cDef=this.constructorDefinitions[i];
-    if (propertyName.equals(cDef.getPropertyName())) {
-      return true;
-    }
-  }
-  return false;
-}

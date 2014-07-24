@@ -1,4 +1,0 @@
-{
-  super(source);
-  m_rules=rules;
-}

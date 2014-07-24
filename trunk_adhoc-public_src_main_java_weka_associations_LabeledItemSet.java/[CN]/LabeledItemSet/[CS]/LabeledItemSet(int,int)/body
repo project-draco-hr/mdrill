@@ -1,4 +1,0 @@
-{
-  super(totalTrans);
-  m_classLabel=classLabel;
-}

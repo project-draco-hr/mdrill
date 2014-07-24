@@ -1,3 +1,0 @@
-{
-  writeAll(new FileOutputStream(filename),o);
-}

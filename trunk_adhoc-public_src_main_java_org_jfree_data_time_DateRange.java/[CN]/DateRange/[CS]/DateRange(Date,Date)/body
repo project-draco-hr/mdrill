@@ -1,5 +1,0 @@
-{
-  super(lower.getTime(),upper.getTime());
-  this.lowerDate=lower.getTime();
-  this.upperDate=upper.getTime();
-}

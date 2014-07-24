@@ -1,9 +1,0 @@
-{
-  Vector<String> list;
-  String[] names;
-  int i;
-  list=new Vector<String>();
-  names=classnames.split(",");
-  for (i=0; i < names.length; i++)   list.add(names[i]);
-  return getFileConverters(list,intf);
-}

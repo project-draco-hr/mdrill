@@ -1,4 +1,0 @@
-{
-  stream.defaultReadObject();
-  this.tickLabelPaintMap=readPaintMap(stream);
-}

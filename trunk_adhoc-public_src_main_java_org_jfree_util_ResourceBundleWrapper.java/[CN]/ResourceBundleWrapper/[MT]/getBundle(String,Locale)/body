@@ -1,8 +1,0 @@
-{
-  if (noCodeBaseClassLoader != null) {
-    return ResourceBundle.getBundle(baseName,locale,noCodeBaseClassLoader);
-  }
- else {
-    return ResourceBundle.getBundle(baseName,locale);
-  }
-}

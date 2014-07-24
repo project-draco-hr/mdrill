@@ -1,9 +1,0 @@
-{
-  final TestSuite suite=new TestSuite("org.jfree.text");
-  suite.addTestSuite(TextBlockTests.class);
-  suite.addTestSuite(TextBlockAnchorTests.class);
-  suite.addTestSuite(TextBoxTests.class);
-  suite.addTestSuite(TextFragmentTests.class);
-  suite.addTestSuite(TextLineTests.class);
-  return suite;
-}

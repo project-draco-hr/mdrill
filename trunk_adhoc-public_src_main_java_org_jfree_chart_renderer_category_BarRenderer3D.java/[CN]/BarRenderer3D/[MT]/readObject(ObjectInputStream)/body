@@ -1,4 +1,0 @@
-{
-  stream.defaultReadObject();
-  this.wallPaint=SerialUtilities.readPaint(stream);
-}

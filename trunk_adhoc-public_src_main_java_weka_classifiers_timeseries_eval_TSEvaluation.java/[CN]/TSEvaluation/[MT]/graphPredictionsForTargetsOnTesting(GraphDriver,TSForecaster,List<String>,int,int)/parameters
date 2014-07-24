@@ -1,5 +1,0 @@
-GraphDriver driver
-TSForecaster forecaster
-List<String> graphTargets
-int graphStepNum
-int primeWindowSize

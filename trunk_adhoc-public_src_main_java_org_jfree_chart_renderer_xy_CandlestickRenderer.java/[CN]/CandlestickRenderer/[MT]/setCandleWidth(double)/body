@@ -1,6 +1,0 @@
-{
-  if (width != this.candleWidth) {
-    this.candleWidth=width;
-    fireChangeEvent();
-  }
-}

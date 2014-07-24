@@ -1,5 +1,0 @@
-{
-  super.clear();
-  m_Properties.addAllowed(weka.classifiers.Classifier.class,"debug");
-  m_Properties.addAllowed(weka.classifiers.Classifier.class,"options");
-}

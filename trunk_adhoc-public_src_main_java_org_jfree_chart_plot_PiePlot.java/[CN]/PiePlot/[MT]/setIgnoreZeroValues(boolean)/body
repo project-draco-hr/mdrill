@@ -1,4 +1,0 @@
-{
-  this.ignoreZeroValues=flag;
-  fireChangeEvent();
-}

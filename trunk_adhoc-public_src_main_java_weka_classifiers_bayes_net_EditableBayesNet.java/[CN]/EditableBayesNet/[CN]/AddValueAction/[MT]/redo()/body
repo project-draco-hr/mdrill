@@ -1,3 +1,0 @@
-{
-  addNodeValue(m_nTargetNode,m_sValue);
-}

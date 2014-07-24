@@ -1,4 +1,0 @@
-{
-  if (isDate())   return m_DateFormat.toPattern();
- else   return "";
-}

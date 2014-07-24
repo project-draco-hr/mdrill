@@ -1,3 +1,0 @@
-{
-  if (rows >= 0)   m_SpinnerMaxRows.setValue(new Integer(rows));
-}

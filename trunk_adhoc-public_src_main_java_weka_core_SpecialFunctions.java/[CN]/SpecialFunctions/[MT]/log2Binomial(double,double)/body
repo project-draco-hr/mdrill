@@ -1,6 +1,0 @@
-{
-  if (Utils.gr(b,a)) {
-    throw new ArithmeticException("Can't compute binomial coefficient.");
-  }
-  return (lnFactorial(a) - lnFactorial(b) - lnFactorial(a - b)) / log2;
-}

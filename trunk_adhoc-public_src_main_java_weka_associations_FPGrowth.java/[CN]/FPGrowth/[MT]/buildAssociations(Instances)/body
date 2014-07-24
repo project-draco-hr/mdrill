@@ -1,4 +1,0 @@
-{
-  buildAssociations((Object)data);
-  return;
-}

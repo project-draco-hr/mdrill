@@ -1,5 +1,0 @@
-{
-  State state=new State(info);
-  state.seriesPath=new GeneralPath();
-  return state;
-}

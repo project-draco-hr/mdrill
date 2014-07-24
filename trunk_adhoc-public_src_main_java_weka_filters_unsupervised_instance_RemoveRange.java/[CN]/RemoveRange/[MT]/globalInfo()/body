@@ -1,3 +1,0 @@
-{
-  return "A filter that removes a given range of instances of a dataset.";
-}

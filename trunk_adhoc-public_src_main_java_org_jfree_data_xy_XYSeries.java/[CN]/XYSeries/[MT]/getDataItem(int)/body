@@ -1,3 +1,0 @@
-{
-  return (XYDataItem)this.data.get(index);
-}

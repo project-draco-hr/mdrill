@@ -1,5 +1,0 @@
-String name
-Node expression
-FieldMetaInfo.Optype opType
-ArrayList<Attribute> fieldDefs
-TransformationDictionary transDict

@@ -1,8 +1,0 @@
-{
-  super(toSelectLocModel);
-  m_pruneTheTree=pruneTree;
-  m_CF=cf;
-  m_subtreeRaising=raiseTree;
-  m_cleanup=cleanup;
-  m_collapseTheTree=collapseTree;
-}

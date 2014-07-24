@@ -1,3 +1,0 @@
-{
-  this(new Date(0),new Date(1));
-}

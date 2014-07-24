@@ -1,6 +1,0 @@
-{
-  int hash=super.hashCode();
-  hash=HashUtilities.hashCode(hash,this.itemMargin);
-  hash=HashUtilities.hashCode(hash,this.maxItemWidth);
-  return hash;
-}

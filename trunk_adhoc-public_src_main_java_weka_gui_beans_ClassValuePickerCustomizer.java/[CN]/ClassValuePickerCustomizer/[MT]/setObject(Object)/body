@@ -1,9 +1,0 @@
-{
-  if (m_classValuePicker != (ClassValuePicker)object) {
-    m_classValuePicker=(ClassValuePicker)object;
-    if (m_classValuePicker.getConnectedFormat() != null) {
-      setUpValueSelection(m_classValuePicker.getConnectedFormat());
-    }
-    m_backup=m_classValuePicker.getClassValue();
-  }
-}

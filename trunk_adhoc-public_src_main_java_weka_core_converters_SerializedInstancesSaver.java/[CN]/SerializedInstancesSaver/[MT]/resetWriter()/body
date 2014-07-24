@@ -1,4 +1,0 @@
-{
-  super.resetWriter();
-  m_objectstream=null;
-}

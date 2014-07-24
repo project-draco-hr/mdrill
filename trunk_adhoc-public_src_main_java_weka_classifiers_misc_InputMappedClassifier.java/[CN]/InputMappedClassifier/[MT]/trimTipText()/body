@@ -1,3 +1,0 @@
-{
-  return "Trim white space from each end of attribute names and " + "nominal values before matching.";
-}

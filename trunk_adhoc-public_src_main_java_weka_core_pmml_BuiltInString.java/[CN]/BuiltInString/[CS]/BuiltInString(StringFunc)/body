@@ -1,4 +1,0 @@
-{
-  m_func=func;
-  m_functionName=m_func.toString();
-}

@@ -1,3 +1,0 @@
-{
-  return (Comments)this.includeComments.get(source);
-}

@@ -1,6 +1,0 @@
-{
-  m_Table=new TableEntry[size];
-  m_LoadFactor=loadFactor;
-  m_Threshold=(int)(size * loadFactor);
-  m_Count=0;
-}

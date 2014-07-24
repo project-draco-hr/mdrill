@@ -1,6 +1,0 @@
-{
-  final String text=this.combo1.getSelectedItem().toString();
-  this.drawStringPanel1.setAnchor(convertStringToAnchor(text));
-  this.drawStringPanel1.invalidate();
-  this.drawStringPanel1.repaint();
-}

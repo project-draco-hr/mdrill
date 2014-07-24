@@ -1,5 +1,0 @@
-{
-  if (m_listenee == source) {
-    m_listenee=null;
-  }
-}

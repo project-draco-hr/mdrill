@@ -1,8 +1,0 @@
-{
-  if (m_log != null) {
-    m_log.statusMessage(string);
-    if (string.contains("WARNING") || string.contains("ERROR")) {
-      m_log.logMessage(string);
-    }
-  }
-}

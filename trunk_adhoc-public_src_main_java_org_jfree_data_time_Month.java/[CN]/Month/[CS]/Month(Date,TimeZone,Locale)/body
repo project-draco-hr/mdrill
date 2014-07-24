@@ -1,7 +1,0 @@
-{
-  Calendar calendar=Calendar.getInstance(zone,locale);
-  calendar.setTime(time);
-  this.month=calendar.get(Calendar.MONTH) + 1;
-  this.year=calendar.get(Calendar.YEAR);
-  peg(calendar);
-}

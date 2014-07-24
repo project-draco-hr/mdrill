@@ -1,4 +1,0 @@
-{
-  super(dataset);
-  setCircular(false,false);
-}

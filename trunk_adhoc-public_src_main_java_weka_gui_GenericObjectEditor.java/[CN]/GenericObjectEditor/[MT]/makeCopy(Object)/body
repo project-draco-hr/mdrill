@@ -1,5 +1,0 @@
-{
-  SerializedObject so=new SerializedObject(source);
-  Object result=so.getObject();
-  return result;
-}

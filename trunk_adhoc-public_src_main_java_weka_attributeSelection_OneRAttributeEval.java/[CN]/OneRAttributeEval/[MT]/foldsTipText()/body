@@ -1,3 +1,0 @@
-{
-  return "Set the number of folds for cross validation.";
-}

@@ -1,4 +1,0 @@
-{
-  super.setParent(parent);
-  m_AttrIndexRange.setUpper(getParent().getNumAttributes());
-}

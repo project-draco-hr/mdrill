@@ -1,6 +1,0 @@
-{
-  if (index < getNumTabs() && index >= 0) {
-    return m_executingList.get(index);
-  }
-  return false;
-}

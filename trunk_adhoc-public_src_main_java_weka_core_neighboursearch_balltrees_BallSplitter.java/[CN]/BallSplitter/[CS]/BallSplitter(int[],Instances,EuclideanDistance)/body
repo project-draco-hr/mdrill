@@ -1,5 +1,0 @@
-{
-  m_Instlist=instList;
-  m_Instances=insts;
-  m_DistanceFunction=e;
-}

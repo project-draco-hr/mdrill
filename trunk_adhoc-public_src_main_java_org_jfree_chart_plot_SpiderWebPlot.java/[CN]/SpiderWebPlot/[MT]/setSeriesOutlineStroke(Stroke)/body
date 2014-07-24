@@ -1,4 +1,0 @@
-{
-  this.seriesOutlineStroke=stroke;
-  fireChangeEvent();
-}

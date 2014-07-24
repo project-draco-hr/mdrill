@@ -1,4 +1,0 @@
-{
-  this.categoryMargin=margin;
-  notifyListeners(new AxisChangeEvent(this));
-}

@@ -1,5 +1,0 @@
-{
-  if ((series >= 0) && (series < this.seriesNeedle.length)) {
-    this.seriesNeedle[series].setOutlinePaint(p);
-  }
-}

@@ -1,5 +1,0 @@
-{
-  if (measureName.equals("measureKernelEvaluations"))   return measureKernelEvaluations();
- else   if (measureName.equals("measureCacheHits"))   return measureCacheHits();
- else   throw new IllegalArgumentException("Measure '" + measureName + "' is not supported!");
-}

@@ -1,3 +1,0 @@
-{
-  return (ManualMappingInfo[])this.manualMappings.toArray(new ManualMappingInfo[this.manualMappings.size()]);
-}

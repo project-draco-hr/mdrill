@@ -1,4 +1,0 @@
-{
-  this.legendTextFont.set(series,font);
-  fireChangeEvent();
-}

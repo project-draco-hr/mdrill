@@ -1,4 +1,0 @@
-{
-  super.doLog(level,msg,cls,method,lineno);
-  append(m_DateFormat.format(new Date()) + " " + cls+ " "+ method+ m_LineFeed+ level+ ": "+ msg+ m_LineFeed);
-}

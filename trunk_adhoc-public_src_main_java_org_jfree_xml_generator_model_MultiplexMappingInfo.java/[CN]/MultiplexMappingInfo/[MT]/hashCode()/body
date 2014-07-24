@@ -1,6 +1,0 @@
-{
-  int result;
-  result=this.baseClass.hashCode();
-  result=29 * result + this.typeAttribute.hashCode();
-  return result;
-}

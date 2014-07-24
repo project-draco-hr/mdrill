@@ -1,3 +1,0 @@
-{
-  return (DataGenerator)m_GeneratorEditor.getValue();
-}

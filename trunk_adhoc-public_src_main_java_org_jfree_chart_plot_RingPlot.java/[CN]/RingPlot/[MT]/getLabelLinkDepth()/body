@@ -1,3 +1,0 @@
-{
-  return Math.min(super.getLabelLinkDepth(),getSectionDepth() / 2);
-}

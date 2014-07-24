@@ -1,7 +1,0 @@
-{
-  int count=0;
-  for (int i=0; i < m_distribution.numBags(); i++) {
-    if (m_distribution.perBag(i) >= minNumInstances)     count++;
-  }
-  return (count >= 2);
-}

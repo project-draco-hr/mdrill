@@ -1,4 +1,0 @@
-{
-  Rule temp=(Rule)m_ruleSet.elementAt(0);
-  return temp.getM5RootNode();
-}

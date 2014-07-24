@@ -1,6 +1,0 @@
-{
-  m_Size=numDim;
-  m_Base=base;
-  m_GridVector=new int[numDim];
-  for (int i=0; i < numDim; i++)   m_GridVector[i]=0;
-}

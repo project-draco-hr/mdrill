@@ -1,7 +1,0 @@
-{
-  if (type == Attribute.NOMINAL)   nominal=true;
-  if (type == Attribute.NUMERIC)   numeric=true;
-  if (type == Attribute.STRING)   string=true;
-  if (type == Attribute.DATE)   date=true;
-  if (type == Attribute.RELATIONAL)   relational=true;
-}

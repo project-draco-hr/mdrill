@@ -1,3 +1,0 @@
-{
-  m_bcSupport.removeVetoableChangeListener(name,vcl);
-}

@@ -1,3 +1,0 @@
-{
-  this(date,controlPanel,DEFAULT_DATE_BUTTON_COLOR,DEFAULT_MONTH_BUTTON_COLOR);
-}

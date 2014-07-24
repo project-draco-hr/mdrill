@@ -1,6 +1,0 @@
-{
-  if ((e == null) || (e.getSource() == m_Info)) {
-    m_ButtonClear.setEnabled(m_Model.getSize() > 0);
-    m_ButtonCopy.setEnabled(m_Info.getSelectedIndices().length == 1);
-  }
-}

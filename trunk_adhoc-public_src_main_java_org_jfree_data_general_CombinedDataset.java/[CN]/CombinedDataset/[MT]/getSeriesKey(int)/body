@@ -1,4 +1,0 @@
-{
-  DatasetInfo di=getDatasetInfo(series);
-  return di.data.getSeriesKey(di.series);
-}

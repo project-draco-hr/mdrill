@@ -1,6 +1,0 @@
-{
-  for (  CapabilitiesFilterChangeListener l : m_CapabilitiesFilterChangeListeners) {
-    if (l == this)     continue;
-    l.capabilitiesFilterChanged(new CapabilitiesFilterChangeEvent(this,filter));
-  }
-}

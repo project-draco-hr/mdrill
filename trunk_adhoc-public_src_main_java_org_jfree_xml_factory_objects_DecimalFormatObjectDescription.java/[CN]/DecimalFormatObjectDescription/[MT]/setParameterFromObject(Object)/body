@@ -1,6 +1,0 @@
-{
-  super.setParameterFromObject(o);
-  final DecimalFormat format=(DecimalFormat)o;
-  setParameter("localizedPattern",format.toLocalizedPattern());
-  setParameter("pattern",format.toPattern());
-}

@@ -1,6 +1,0 @@
-{
-  if (this.domainGridlinesVisible != visible) {
-    this.domainGridlinesVisible=visible;
-    fireChangeEvent();
-  }
-}

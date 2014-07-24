@@ -1,5 +1,0 @@
-{
-  final JButton result=new JButton(label);
-  result.setFont(font);
-  return result;
-}

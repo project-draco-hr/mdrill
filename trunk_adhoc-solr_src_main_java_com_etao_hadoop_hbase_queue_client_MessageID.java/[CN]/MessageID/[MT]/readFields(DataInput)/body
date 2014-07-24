@@ -1,5 +1,0 @@
-{
-  this.partioncrc=in.readLong();
-  this.timestamp=in.readLong();
-  this.type=in.readShort();
-}

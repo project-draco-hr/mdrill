@@ -1,8 +1,0 @@
-{
-  if (this.data != null) {
-    return this.data.getValue();
-  }
- else {
-    return null;
-  }
-}

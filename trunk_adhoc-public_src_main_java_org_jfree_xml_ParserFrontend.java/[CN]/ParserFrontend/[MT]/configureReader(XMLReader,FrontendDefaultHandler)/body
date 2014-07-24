@@ -1,8 +1,0 @@
-{
-  try {
-    reader.setProperty("http://xml.org/sax/properties/lexical-handler",handler.getCommentHandler());
-  }
- catch (  SAXException se) {
-    Log.debug("Comments are not supported by this SAX implementation.");
-  }
-}

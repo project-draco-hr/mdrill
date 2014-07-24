@@ -1,6 +1,0 @@
-{
-  final String keyText=attrs.getValue("key");
-  final String valueText=attrs.getValue("value");
-  this.key=stringToHintField(keyText);
-  this.value=stringToHintField(valueText);
-}

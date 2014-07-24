@@ -1,4 +1,0 @@
-{
-  Comparable key=getSectionKey(section);
-  return getSectionOutlineStroke(key);
-}

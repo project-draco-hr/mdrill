@@ -1,5 +1,0 @@
-{
-  Instances train=trainCV(numFolds,numFold);
-  train.randomize(random);
-  return train;
-}

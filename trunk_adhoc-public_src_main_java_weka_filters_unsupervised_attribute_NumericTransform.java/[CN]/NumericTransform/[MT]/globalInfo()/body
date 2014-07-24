@@ -1,3 +1,0 @@
-{
-  return "Transforms numeric attributes using a given transformation method.";
-}

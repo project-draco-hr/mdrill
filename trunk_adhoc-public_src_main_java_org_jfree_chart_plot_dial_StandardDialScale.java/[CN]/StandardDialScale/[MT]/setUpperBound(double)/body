@@ -1,4 +1,0 @@
-{
-  this.upperBound=upper;
-  notifyListeners(new DialLayerChangeEvent(this));
-}

@@ -1,3 +1,0 @@
-{
-  remove(new Double(x),seriesName,true);
-}

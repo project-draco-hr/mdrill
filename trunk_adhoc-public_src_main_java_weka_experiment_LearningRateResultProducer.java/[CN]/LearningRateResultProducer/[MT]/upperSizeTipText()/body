@@ -1,3 +1,0 @@
-{
-  return "Set the maximum number of instances in a dataset. Setting -1 " + "sets no upper limit (other than the total number of instances " + "in the full dataset)";
-}

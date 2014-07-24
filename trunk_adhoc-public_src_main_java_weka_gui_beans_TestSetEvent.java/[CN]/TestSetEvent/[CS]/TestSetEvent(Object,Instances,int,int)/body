@@ -1,5 +1,0 @@
-{
-  this(source,testSet);
-  m_setNumber=setNum;
-  m_maxSetNumber=maxSetNum;
-}

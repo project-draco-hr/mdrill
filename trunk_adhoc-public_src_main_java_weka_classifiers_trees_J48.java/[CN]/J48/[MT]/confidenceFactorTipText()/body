@@ -1,3 +1,0 @@
-{
-  return "The confidence factor used for pruning (smaller values incur " + "more pruning).";
-}

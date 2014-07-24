@@ -1,3 +1,0 @@
-{
-  this.chartArea.setRect(area);
-}

@@ -1,4 +1,0 @@
-String filename
-String graphName
-FastVector nodes
-FastVector edges

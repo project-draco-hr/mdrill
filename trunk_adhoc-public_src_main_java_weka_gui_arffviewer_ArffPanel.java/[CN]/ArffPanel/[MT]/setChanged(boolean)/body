@@ -1,6 +1,0 @@
-{
-  if (!changed) {
-    this.m_Changed=changed;
-    createTitle();
-  }
-}

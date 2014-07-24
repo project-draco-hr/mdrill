@@ -1,3 +1,4 @@
 {
-  Arrays.fill(data,v);
+  this.def=v;
+  hasInit=false;
 }

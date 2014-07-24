@@ -1,5 +1,0 @@
-{
-  if (getNumTabs() > 0) {
-    setUndoBuffer(getCurrentTabIndex(),buffer);
-  }
-}

@@ -1,6 +1,0 @@
-{
-  if (m_Dataset == null) {
-    throw new UnassignedDatasetException("DenseInstance doesn't have access to a dataset!");
-  }
-  return m_Dataset.attribute(index(indexOfIndex));
-}

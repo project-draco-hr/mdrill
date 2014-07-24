@@ -1,8 +1,0 @@
-{
-  super(att);
-  if (!att.isNumeric()) {
-    throw new Exception("NumericItem must be constructed using a numeric attribute");
-  }
-  m_comparison=comp;
-  m_splitPoint=splitPoint;
-}

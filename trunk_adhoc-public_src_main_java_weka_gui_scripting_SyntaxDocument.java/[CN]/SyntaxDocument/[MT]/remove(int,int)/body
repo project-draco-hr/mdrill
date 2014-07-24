@@ -1,4 +1,0 @@
-{
-  super.remove(offset,length);
-  processChangedLines(offset,0);
-}

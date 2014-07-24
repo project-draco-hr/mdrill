@@ -1,4 +1,0 @@
-{
-  buildDecList(train,test,false);
-  cleanup(new Instances(train,0));
-}

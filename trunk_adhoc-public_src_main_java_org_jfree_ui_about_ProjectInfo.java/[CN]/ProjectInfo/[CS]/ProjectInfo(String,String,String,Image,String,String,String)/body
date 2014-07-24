@@ -1,5 +1,0 @@
-{
-  super(name,version,info,copyright,licenceName);
-  this.logo=logo;
-  this.licenceText=licenceText;
-}

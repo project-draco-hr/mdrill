@@ -1,9 +1,2 @@
 {
-  if (!rb.doTerms || rb.stage != ResponseBuilder.STAGE_EXECUTE_QUERY) {
-    return;
-  }
-  TermsHelper ti=rb._termsHelper;
-  NamedList terms=ti.buildResponse();
-  rb.rsp.add("terms",terms);
-  rb._termsHelper=null;
 }

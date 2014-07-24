@@ -1,4 +1,0 @@
-{
-  this.positiveArrowVisible=visible;
-  notifyListeners(new AxisChangeEvent(this));
-}

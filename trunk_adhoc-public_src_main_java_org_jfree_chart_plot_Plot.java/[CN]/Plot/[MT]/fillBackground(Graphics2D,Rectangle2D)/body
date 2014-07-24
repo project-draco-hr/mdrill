@@ -1,3 +1,0 @@
-{
-  fillBackground(g2,area,PlotOrientation.VERTICAL);
-}

@@ -1,9 +1,0 @@
-{
-  m_fullyQualifiedCompName=fullName;
-  m_wekaAlgoName=wekaAlgoName;
-  m_leafLabel=(wekaAlgoName.length() > 0) ? wekaAlgoName : m_fullyQualifiedCompName;
-  if (m_leafLabel.lastIndexOf('.') > 0) {
-    m_leafLabel=m_leafLabel.substring(m_leafLabel.lastIndexOf('.') + 1,m_leafLabel.length());
-  }
-  m_scaledIcon=icon;
-}

@@ -1,7 +1,0 @@
-{
-  if (name == null) {
-    throw new NullPointerException("Name");
-  }
-  this.name=name;
-  this.type=type;
-}

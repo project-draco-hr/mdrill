@@ -1,8 +1,0 @@
-Class periodClass
-DateFormat dateFormat
-RectangleInsets padding
-Font labelFont
-Paint labelPaint
-boolean drawDividers
-Stroke dividerStroke
-Paint dividerPaint

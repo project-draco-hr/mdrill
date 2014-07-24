@@ -1,7 +1,0 @@
-{
-  int result=127;
-  result=HashUtilities.hashCode(result,this.formatPattern);
-  result=HashUtilities.hashCode(result,this.additionalFormatPattern);
-  result=HashUtilities.hashCode(result,this.seriesLabelLists);
-  return result;
-}

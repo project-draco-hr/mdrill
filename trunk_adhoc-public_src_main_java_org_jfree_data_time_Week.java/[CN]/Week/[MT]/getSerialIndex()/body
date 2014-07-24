@@ -1,3 +1,0 @@
-{
-  return this.year * 53L + this.week;
-}

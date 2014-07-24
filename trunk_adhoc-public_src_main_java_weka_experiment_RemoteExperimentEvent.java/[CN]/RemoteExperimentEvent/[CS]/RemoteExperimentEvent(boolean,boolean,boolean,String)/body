@@ -1,6 +1,0 @@
-{
-  m_statusMessage=status;
-  m_logMessage=log;
-  m_experimentFinished=finished;
-  m_messageString=message;
-}

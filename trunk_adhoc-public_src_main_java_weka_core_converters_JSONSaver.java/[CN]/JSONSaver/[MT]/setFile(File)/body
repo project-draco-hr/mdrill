@@ -1,4 +1,0 @@
-{
-  if (outputFile.getAbsolutePath().endsWith(JSONLoader.FILE_EXTENSION_COMPRESSED))   setCompressOutput(true);
-  super.setFile(outputFile);
-}

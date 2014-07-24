@@ -1,4 +1,0 @@
-{
-  RegularTimePeriod tp=this.pointsInTime[translateGet(item)];
-  return new Long(tp.getFirstMillisecond(this.workingCalendar));
-}

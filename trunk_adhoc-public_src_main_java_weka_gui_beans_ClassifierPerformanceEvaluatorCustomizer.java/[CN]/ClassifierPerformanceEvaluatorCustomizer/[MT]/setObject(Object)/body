@@ -1,4 +1,0 @@
-{
-  m_cpe=(ClassifierPerformanceEvaluator)object;
-  m_splitEditor.setTarget((ClassifierPerformanceEvaluator)m_cpe);
-}

@@ -1,3 +1,0 @@
-{
-  runDataGenerator(new RDG1(),args);
-}

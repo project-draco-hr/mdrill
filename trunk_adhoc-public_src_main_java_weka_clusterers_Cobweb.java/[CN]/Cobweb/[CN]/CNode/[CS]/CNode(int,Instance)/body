@@ -1,8 +1,0 @@
-{
-  this(numAttributes);
-  if (m_clusterInstances == null) {
-    m_clusterInstances=new Instances(leafInstance.dataset(),1);
-  }
-  m_clusterInstances.add(leafInstance);
-  updateStats(leafInstance,false);
-}

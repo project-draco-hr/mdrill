@@ -1,4 +1,0 @@
-{
-  if (PropertyDialog.getParentDialog(ScriptingPanel.this) != null)   PropertyDialog.getParentDialog(ScriptingPanel.this).setTitle(getTitle());
- else   if (PropertyDialog.getParentFrame(ScriptingPanel.this) != null)   PropertyDialog.getParentFrame(ScriptingPanel.this).setTitle(getTitle());
-}

@@ -1,9 +1,0 @@
-{
-  String result;
-  result=node.getAttribute(ATT_NAME);
-  while (node.getParentNode() != node.getOwnerDocument()) {
-    node=(Element)node.getParentNode();
-    result=node.getAttribute(ATT_NAME) + "." + result;
-  }
-  return result;
-}

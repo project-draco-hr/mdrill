@@ -1,7 +1,0 @@
-{
-  super(Line2D.class);
-  setParameterDefinition("x1",Float.class);
-  setParameterDefinition("x2",Float.class);
-  setParameterDefinition("y1",Float.class);
-  setParameterDefinition("y2",Float.class);
-}

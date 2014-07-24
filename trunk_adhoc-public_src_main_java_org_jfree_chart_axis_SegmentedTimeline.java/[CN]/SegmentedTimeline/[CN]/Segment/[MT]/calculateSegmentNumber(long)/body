@@ -1,8 +1,0 @@
-{
-  if (millis >= SegmentedTimeline.this.startTime) {
-    return (millis - SegmentedTimeline.this.startTime) / SegmentedTimeline.this.segmentSize;
-  }
- else {
-    return ((millis - SegmentedTimeline.this.startTime) / SegmentedTimeline.this.segmentSize) - 1;
-  }
-}

@@ -1,6 +1,0 @@
-{
-  if (m_Dataset == null) {
-    throw new IOException("No source has been specified");
-  }
-  return new Instances(m_Dataset,0);
-}

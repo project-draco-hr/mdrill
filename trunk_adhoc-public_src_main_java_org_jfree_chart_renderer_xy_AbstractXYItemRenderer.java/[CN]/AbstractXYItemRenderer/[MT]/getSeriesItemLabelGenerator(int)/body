@@ -1,3 +1,0 @@
-{
-  return (XYItemLabelGenerator)this.itemLabelGeneratorList.get(series);
-}

@@ -1,7 +1,0 @@
-{
-  setX(newX);
-  setY(newY);
-  if (getBean() instanceof MetaBean) {
-    ((MetaBean)getBean()).shiftBeans(this,false);
-  }
-}

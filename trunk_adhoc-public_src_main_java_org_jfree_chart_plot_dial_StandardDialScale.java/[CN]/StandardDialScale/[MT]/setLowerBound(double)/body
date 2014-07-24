@@ -1,4 +1,0 @@
-{
-  this.lowerBound=lower;
-  notifyListeners(new DialLayerChangeEvent(this));
-}

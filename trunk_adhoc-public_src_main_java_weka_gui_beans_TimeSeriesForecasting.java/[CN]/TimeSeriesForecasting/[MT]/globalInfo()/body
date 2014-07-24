@@ -1,3 +1,0 @@
-{
-  return "Encapsulates a time series forecasting model and uses it to" + " produce forecasts given incoming historical data. Forecaster " + "can optionally be rebuilt using the incoming data before a "+ "forecast is generated.";
-}

@@ -1,4 +1,0 @@
-{
-  if (V == null)   return 0;
-  return V.length;
-}

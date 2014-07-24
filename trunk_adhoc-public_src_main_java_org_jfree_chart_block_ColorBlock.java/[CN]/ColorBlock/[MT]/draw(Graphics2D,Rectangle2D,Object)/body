@@ -1,4 +1,0 @@
-{
-  draw(g2,area);
-  return null;
-}

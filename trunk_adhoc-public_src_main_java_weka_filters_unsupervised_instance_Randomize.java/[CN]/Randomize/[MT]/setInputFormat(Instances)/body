@@ -1,6 +1,0 @@
-{
-  super.setInputFormat(instanceInfo);
-  setOutputFormat(instanceInfo);
-  m_Random=new Random(m_Seed);
-  return true;
-}

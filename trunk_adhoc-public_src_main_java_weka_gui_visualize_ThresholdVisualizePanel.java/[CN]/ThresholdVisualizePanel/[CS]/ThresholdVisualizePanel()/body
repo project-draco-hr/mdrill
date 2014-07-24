@@ -1,5 +1,0 @@
-{
-  super();
-  TitledBorder tb=(TitledBorder)m_plotSurround.getBorder();
-  m_savePanelBorderText=tb.getTitle();
-}

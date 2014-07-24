@@ -1,6 +1,0 @@
-{
-  this.crosshairDatasetIndex=index;
-  if (notify) {
-    fireChangeEvent();
-  }
-}

@@ -1,9 +1,0 @@
-{
-  final StringBuffer message=new StringBuffer(String.valueOf(super.getMessage()));
-  message.append(" [Location: Line=");
-  message.append(this.line);
-  message.append(" Column=");
-  message.append(this.column);
-  message.append("] ");
-  return message.toString();
-}

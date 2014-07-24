@@ -1,3 +1,0 @@
-{
-  return "Dimensionality of training and test data is reduced by " + "attribute selection before being passed on to a classifier.";
-}

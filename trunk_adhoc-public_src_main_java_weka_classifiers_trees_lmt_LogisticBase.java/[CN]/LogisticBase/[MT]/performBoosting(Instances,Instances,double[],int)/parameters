@@ -1,4 +1,0 @@
-Instances train
-Instances test
-double[] error
-int maxIterations

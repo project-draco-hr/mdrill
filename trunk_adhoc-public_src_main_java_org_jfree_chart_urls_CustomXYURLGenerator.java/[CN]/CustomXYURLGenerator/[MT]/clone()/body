@@ -1,5 +1,0 @@
-{
-  CustomXYURLGenerator clone=(CustomXYURLGenerator)super.clone();
-  clone.urlSeries=new java.util.ArrayList(this.urlSeries);
-  return clone;
-}

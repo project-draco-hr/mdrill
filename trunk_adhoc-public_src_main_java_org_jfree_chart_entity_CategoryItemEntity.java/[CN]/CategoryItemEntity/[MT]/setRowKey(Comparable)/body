@@ -1,4 +1,0 @@
-{
-  this.rowKey=rowKey;
-  this.series=this.dataset.getRowIndex(rowKey);
-}

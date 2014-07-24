@@ -1,3 +1,0 @@
-{
-  return "A simple tokenizer that is using the java.util.StringTokenizer " + "class to tokenize the strings.";
-}

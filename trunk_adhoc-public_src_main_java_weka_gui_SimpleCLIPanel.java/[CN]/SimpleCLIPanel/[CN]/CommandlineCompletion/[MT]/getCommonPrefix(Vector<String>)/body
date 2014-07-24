@@ -1,9 +1,0 @@
-{
-  String result;
-  Trie trie;
-  trie=new Trie();
-  trie.addAll(list);
-  result=trie.getCommonPrefix();
-  if (m_Debug)   System.out.println(list + "\n  --> common prefix: '" + result+ "'");
-  return result;
-}

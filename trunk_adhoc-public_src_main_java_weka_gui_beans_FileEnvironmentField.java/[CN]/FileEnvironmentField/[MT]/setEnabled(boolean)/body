@@ -1,4 +1,0 @@
-{
-  super.setEnabled(enabled);
-  m_browseBut.setEnabled(enabled);
-}

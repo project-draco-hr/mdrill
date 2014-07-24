@@ -1,3 +1,0 @@
-{
-  return "This filter takes a dataset and outputs a specified fold for " + "cross validation. If you do not want the folds to be stratified " + "use the unsupervised version.";
-}

@@ -1,3 +1,0 @@
-{
-  return " A SplitEvaluator that produces results for a density based clusterer. ";
-}

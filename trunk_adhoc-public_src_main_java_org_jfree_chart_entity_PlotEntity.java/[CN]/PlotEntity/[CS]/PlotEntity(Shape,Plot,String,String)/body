@@ -1,7 +1,0 @@
-{
-  super(area,toolTipText,urlText);
-  if (plot == null) {
-    throw new IllegalArgumentException("Null 'plot' argument.");
-  }
-  this.plot=plot;
-}

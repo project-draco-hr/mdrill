@@ -1,3 +1,0 @@
-{
-  return Plot.resolveRangeAxisLocation(getRangeAxisLocation(),this.orientation);
-}

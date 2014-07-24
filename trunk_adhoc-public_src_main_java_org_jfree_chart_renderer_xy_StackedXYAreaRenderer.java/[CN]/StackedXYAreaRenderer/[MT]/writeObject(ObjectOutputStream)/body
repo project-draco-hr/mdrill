@@ -1,5 +1,0 @@
-{
-  stream.defaultWriteObject();
-  SerialUtilities.writePaint(this.shapePaint,stream);
-  SerialUtilities.writeStroke(this.shapeStroke,stream);
-}

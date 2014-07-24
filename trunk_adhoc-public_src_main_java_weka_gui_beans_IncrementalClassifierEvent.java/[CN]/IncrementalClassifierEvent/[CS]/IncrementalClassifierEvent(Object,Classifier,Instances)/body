@@ -1,6 +1,0 @@
-{
-  super(source);
-  m_structure=structure;
-  m_status=NEW_BATCH;
-  m_classifier=scheme;
-}

@@ -1,5 +1,0 @@
-{
-  if (Utils.isMissingValue(m_confidence) && !Utils.isMissingValue(baseCount) && baseCount > 0) {
-    m_confidence=m_recordCount / baseCount;
-  }
-}

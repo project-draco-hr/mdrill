@@ -1,4 +1,0 @@
-{
-  JPanel result=driver.getPanelFutureForecast(forecaster,preds,targetNames,history);
-  return result;
-}

@@ -1,3 +1,0 @@
-{
-  return (NumberFormat)this.formatter.clone();
-}

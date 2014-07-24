@@ -1,7 +1,0 @@
-{
-  Instance newInstance=(Instance)instance.copy();
-  Instance oldInstance=m_Instances.get(index);
-  newInstance.setDataset(this);
-  m_Instances.set(index,newInstance);
-  return oldInstance;
-}

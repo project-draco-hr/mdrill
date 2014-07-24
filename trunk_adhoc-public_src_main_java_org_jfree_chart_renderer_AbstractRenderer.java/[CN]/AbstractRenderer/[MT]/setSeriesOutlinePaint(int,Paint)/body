@@ -1,3 +1,0 @@
-{
-  setSeriesOutlinePaint(series,paint,true);
-}

@@ -1,8 +1,0 @@
-{
-  if ((u >= 0) && (u < UNITS.length)) {
-    if (this.units != u) {
-      this.units=u;
-      fireChangeEvent();
-    }
-  }
-}

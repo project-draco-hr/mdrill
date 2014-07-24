@@ -1,5 +1,0 @@
-{
-  if (a_pastenode != null) {
-    a_pastenode.setEnabled(false);
-  }
-}

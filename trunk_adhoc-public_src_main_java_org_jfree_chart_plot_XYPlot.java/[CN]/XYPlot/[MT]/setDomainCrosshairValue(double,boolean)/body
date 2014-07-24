@@ -1,6 +1,0 @@
-{
-  this.domainCrosshairValue=value;
-  if (isDomainCrosshairVisible() && notify) {
-    fireChangeEvent();
-  }
-}

@@ -1,5 +1,0 @@
-{
-  CoverTreeNode new_node=new CoverTreeNode();
-  new_node.idx=idx;
-  return new_node;
-}

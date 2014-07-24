@@ -1,3 +1,0 @@
-{
-  if (isInitialized())   getModel().setValueAt(aValue,mIndices[rowIndex],columnIndex);
-}

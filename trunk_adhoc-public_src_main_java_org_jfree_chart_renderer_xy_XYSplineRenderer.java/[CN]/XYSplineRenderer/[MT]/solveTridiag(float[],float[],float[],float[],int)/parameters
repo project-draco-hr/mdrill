@@ -1,5 +1,0 @@
-float[] sub
-float[] diag
-float[] sup
-float[] b
-int n

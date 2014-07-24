@@ -1,3 +1,0 @@
-{
-  if (value.getTags() == TAGS_INPUTORDER)   m_InputOrder=value.getSelectedTag().getID();
-}

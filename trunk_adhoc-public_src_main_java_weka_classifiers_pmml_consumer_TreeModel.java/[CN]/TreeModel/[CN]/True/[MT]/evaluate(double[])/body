@@ -1,3 +1,0 @@
-{
-  return Predicate.Eval.TRUE;
-}

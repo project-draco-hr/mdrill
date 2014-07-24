@@ -1,9 +1,0 @@
-{
-  for (  String field : showFields) {
-    StateField showfield=WebServiceParams.parseStat(field);
-    if (showfield.isstat) {
-      return true;
-    }
-  }
-  return false;
-}

@@ -1,9 +1,0 @@
-{
-  if (m_modelHeader == null) {
-    throw new Exception("[InputMappedClassifier] No model available!");
-  }
-  if (m_attributeMap[m_modelHeader.classIndex()] == NO_MATCH) {
-    return -1;
-  }
-  return m_attributeMap[m_modelHeader.classIndex()];
-}

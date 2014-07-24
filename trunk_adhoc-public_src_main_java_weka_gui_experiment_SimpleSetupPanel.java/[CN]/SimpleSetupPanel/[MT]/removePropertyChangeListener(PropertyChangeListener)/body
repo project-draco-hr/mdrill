@@ -1,3 +1,0 @@
-{
-  m_Support.removePropertyChangeListener(l);
-}

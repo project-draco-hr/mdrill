@@ -1,4 +1,0 @@
-{
-  FastVector nodelist=selectElements(item,"OUTCOME");
-  return nodelist;
-}

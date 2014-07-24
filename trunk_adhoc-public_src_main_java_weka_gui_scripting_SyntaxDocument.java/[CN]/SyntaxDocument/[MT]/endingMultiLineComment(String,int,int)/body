@@ -1,9 +1,0 @@
-{
-  if (!getMultiLineComment())   return false;
-  int index=indexOf(content,getMultiLineCommentEnd(),startOffset);
-  if ((index < 0) || (index > endOffset))   return false;
- else {
-    setInsideMultiLineComment(false);
-    return true;
-  }
-}

@@ -1,7 +1,0 @@
-{
-  int result=19;
-  result=37 * result + this.categoryAnchor.hashCode();
-  result=37 * result + this.labelAnchor.hashCode();
-  result=37 * result + this.rotationAnchor.hashCode();
-  return result;
-}

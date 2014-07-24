@@ -1,5 +1,0 @@
-HttpServletRequest request
-HttpServletResponse response
-String charset
-OutputStreamWriter out
-HashMap<String,String> params

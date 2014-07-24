@@ -1,4 +1,0 @@
-{
-  initCache();
-  m_Cache.put(cls.getName() + "-" + pkgname,classnames);
-}

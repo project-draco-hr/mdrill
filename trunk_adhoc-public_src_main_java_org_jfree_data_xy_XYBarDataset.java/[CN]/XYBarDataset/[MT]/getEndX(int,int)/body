@@ -1,8 +1,0 @@
-{
-  Number result=null;
-  Number xnum=this.underlying.getX(series,item);
-  if (xnum != null) {
-    result=new Double(xnum.doubleValue() + this.barWidth / 2.0);
-  }
-  return result;
-}

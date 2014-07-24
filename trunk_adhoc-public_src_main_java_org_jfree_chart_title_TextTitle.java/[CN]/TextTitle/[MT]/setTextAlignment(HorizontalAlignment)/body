@@ -1,7 +1,0 @@
-{
-  if (alignment == null) {
-    throw new IllegalArgumentException("Null 'alignment' argument.");
-  }
-  this.textAlignment=alignment;
-  notifyListeners(new TitleChangeEvent(this));
-}

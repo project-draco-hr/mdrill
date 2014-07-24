@@ -1,3 +1,0 @@
-{
-  return "Use old format for model output. The old format is " + "better when there are many class values. The new format " + "is better when there are fewer classes and many attributes.";
-}

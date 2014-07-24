@@ -1,4 +1,0 @@
-{
-  fillBackground(g2,area,this.orientation);
-  drawBackgroundImage(g2,area);
-}

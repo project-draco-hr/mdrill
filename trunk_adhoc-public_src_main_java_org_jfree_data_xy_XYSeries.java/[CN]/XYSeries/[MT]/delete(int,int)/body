@@ -1,5 +1,0 @@
-{
-  this.data.subList(start,end + 1).clear();
-  findBoundsByIteration();
-  fireSeriesChanged();
-}

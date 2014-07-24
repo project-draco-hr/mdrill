@@ -1,6 +1,0 @@
-{
-  m_receivedStopNotification=true;
-  if (m_listenee instanceof BeanCommon) {
-    ((BeanCommon)m_listenee).stop();
-  }
-}

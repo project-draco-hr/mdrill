@@ -1,8 +1,0 @@
-{
-  if (step < this.panels.size()) {
-    return (WizardPanel)this.panels.get(step);
-  }
- else {
-    return null;
-  }
-}
