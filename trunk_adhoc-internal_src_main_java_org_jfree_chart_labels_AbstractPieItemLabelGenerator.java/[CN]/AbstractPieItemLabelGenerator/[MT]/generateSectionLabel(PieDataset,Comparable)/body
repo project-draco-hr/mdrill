@@ -1,0 +1,8 @@
+{
+  String result=null;
+  if (dataset != null) {
+    Object[] items=createItemArray(dataset,key);
+    result=MessageFormat.format(this.labelFormat,items);
+  }
+  return result;
+}

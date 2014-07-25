@@ -1,0 +1,6 @@
+{
+  DefaultHandler handler=getCurrentHandler();
+  if (handler != this) {
+    handler.characters(ch,start,length);
+  }
+}

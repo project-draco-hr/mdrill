@@ -1,0 +1,6 @@
+{
+  if (m_Counter < m_Vector.size()) {
+    return true;
+  }
+  return false;
+}

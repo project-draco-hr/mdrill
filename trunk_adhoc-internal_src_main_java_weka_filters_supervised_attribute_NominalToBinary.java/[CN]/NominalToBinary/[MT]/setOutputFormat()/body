@@ -1,0 +1,8 @@
+{
+  if (getInputFormat().classAttribute().isNominal()) {
+    setOutputFormatNominal();
+  }
+ else {
+    setOutputFormatNumeric();
+  }
+}

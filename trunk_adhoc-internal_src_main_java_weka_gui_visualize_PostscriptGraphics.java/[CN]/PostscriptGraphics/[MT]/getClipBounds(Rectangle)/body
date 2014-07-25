@@ -1,0 +1,4 @@
+{
+  r.setBounds(0,0,m_extent.width,m_extent.height);
+  return r;
+}

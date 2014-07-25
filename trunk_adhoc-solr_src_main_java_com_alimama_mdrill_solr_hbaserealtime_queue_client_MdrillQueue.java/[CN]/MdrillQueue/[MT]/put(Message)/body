@@ -1,0 +1,5 @@
+{
+  Put put=new Put(MessageID.toBytes(message.getId()));
+  put.add(FAMILY,FAMILYColumn,message.getValue());
+  table.put(put);
+}

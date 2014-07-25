@@ -1,0 +1,12 @@
+{
+  if (this.equals(CategoryAnchor.START)) {
+    return CategoryAnchor.START;
+  }
+ else   if (this.equals(CategoryAnchor.MIDDLE)) {
+    return CategoryAnchor.MIDDLE;
+  }
+ else   if (this.equals(CategoryAnchor.END)) {
+    return CategoryAnchor.END;
+  }
+  return null;
+}

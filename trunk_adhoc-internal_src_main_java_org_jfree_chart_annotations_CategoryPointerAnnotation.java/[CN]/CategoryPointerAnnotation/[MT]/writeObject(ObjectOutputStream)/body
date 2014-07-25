@@ -1,0 +1,5 @@
+{
+  stream.defaultWriteObject();
+  SerialUtilities.writePaint(this.arrowPaint,stream);
+  SerialUtilities.writeStroke(this.arrowStroke,stream);
+}

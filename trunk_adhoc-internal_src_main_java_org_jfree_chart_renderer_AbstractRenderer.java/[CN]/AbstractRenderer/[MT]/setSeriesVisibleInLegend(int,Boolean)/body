@@ -1,0 +1,3 @@
+{
+  setSeriesVisibleInLegend(series,visible,true);
+}

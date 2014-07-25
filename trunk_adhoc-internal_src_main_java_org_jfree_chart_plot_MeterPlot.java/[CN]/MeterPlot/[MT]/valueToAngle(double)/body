@@ -1,0 +1,5 @@
+{
+  value=value - this.range.getLowerBound();
+  double baseAngle=180 + ((this.meterAngle - 180) / 2);
+  return baseAngle - ((value / this.range.getLength()) * this.meterAngle);
+}

@@ -1,0 +1,5 @@
+Set[] cliques
+Set[] separators
+int[] parentCliques
+int[] order
+BayesNet bayesNet

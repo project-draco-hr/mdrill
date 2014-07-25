@@ -1,0 +1,12 @@
+{
+  String tmpStr;
+  tmpStr=Utils.getOption('W',options);
+  if (tmpStr.length() > 0) {
+    setAssociator(AbstractAssociator.forName(tmpStr,null));
+    setAssociator(AbstractAssociator.forName(tmpStr,Utils.partitionOptions(options)));
+  }
+ else {
+    setAssociator(AbstractAssociator.forName(defaultAssociatorString(),null));
+    setAssociator(AbstractAssociator.forName(defaultAssociatorString(),Utils.partitionOptions(options)));
+  }
+}

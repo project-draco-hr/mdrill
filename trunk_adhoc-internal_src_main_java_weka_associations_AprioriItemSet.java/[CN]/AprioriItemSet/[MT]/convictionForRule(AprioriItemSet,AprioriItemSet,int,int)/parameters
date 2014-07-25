@@ -1,0 +1,4 @@
+AprioriItemSet premise
+AprioriItemSet consequence
+int premiseCount
+int consequenceCount

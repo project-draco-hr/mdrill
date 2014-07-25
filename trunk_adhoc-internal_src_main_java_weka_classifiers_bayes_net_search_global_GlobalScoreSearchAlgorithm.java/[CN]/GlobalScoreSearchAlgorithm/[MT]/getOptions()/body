@@ -1,0 +1,28 @@
+{
+  String[] superOptions=super.getOptions();
+  String[] options=new String[4 + superOptions.length];
+  int current=0;
+  if (getMarkovBlanketClassifier())   options[current++]="-mbc";
+  options[current++]="-S";
+switch (m_nCVType) {
+case (LOOCV):
+    options[current++]="LOO-CV";
+  break;
+case (KFOLDCV):
+options[current++]="k-Fold-CV";
+break;
+case (CUMCV):
+options[current++]="Cumulative-CV";
+break;
+}
+if (!getUseProb()) {
+options[current++]="-Q";
+}
+for (int iOption=0; iOption < superOptions.length; iOption++) {
+options[current++]=superOptions[iOption];
+}
+while (current < options.length) {
+options[current++]="";
+}
+return options;
+}

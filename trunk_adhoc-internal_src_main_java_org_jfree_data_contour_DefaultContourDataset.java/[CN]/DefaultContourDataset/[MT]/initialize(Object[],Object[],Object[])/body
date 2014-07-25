@@ -1,0 +1,39 @@
+{
+  this.xValues=new Double[xData.length];
+  this.yValues=new Double[yData.length];
+  this.zValues=new Double[zData.length];
+  Vector tmpVector=new Vector();
+  double x=1.123452e31;
+  for (int k=0; k < this.xValues.length; k++) {
+    if (xData[k] != null) {
+      Number xNumber;
+      if (xData[k] instanceof Number) {
+        xNumber=(Number)xData[k];
+      }
+ else       if (xData[k] instanceof Date) {
+        this.dateAxis[0]=true;
+        Date xDate=(Date)xData[k];
+        xNumber=new Long(xDate.getTime());
+      }
+ else {
+        xNumber=new Integer(0);
+      }
+      this.xValues[k]=new Double(xNumber.doubleValue());
+      if (x != this.xValues[k].doubleValue()) {
+        tmpVector.add(new Integer(k));
+        x=this.xValues[k].doubleValue();
+      }
+    }
+  }
+  Object[] inttmp=tmpVector.toArray();
+  this.xIndex=new int[inttmp.length];
+  for (int i=0; i < inttmp.length; i++) {
+    this.xIndex[i]=((Integer)inttmp[i]).intValue();
+  }
+  for (int k=0; k < this.yValues.length; k++) {
+    this.yValues[k]=(Double)yData[k];
+    if (zData[k] != null) {
+      this.zValues[k]=(Double)zData[k];
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  double result=Double.NaN;
+  Number y=getEndY(series,item);
+  if (y != null) {
+    result=y.doubleValue();
+  }
+  return result;
+}

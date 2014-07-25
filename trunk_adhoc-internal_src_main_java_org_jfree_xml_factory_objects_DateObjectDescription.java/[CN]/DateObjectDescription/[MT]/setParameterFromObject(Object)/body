@@ -1,0 +1,15 @@
+{
+  if (o instanceof Date) {
+    final GregorianCalendar gc=new GregorianCalendar();
+    gc.setTime((Date)o);
+    final int year=gc.get(Calendar.YEAR);
+    final int month=gc.get(Calendar.MONTH);
+    final int day=gc.get(Calendar.DAY_OF_MONTH);
+    setParameter("year",new Integer(year));
+    setParameter("month",new Integer(month));
+    setParameter("day",new Integer(day));
+  }
+ else {
+    throw new ObjectFactoryException("Is no instance of java.util.Date");
+  }
+}

@@ -1,0 +1,9 @@
+{
+  Boolean flag=this.seriesShapesFilled.getBoolean(series);
+  if (flag != null) {
+    return flag.booleanValue();
+  }
+ else {
+    return this.baseShapesFilled;
+  }
+}

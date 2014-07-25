@@ -1,0 +1,49 @@
+{
+  super(label);
+  m_fileEditor.addPropertyChangeListener(new PropertyChangeListener(){
+    public void propertyChange(    PropertyChangeEvent evt){
+      File selected=(File)m_fileEditor.getValue();
+      if (selected != null) {
+        FileEnvironmentField.this.setText(selected.toString());
+      }
+    }
+  }
+);
+  final JFileChooser embeddedEditor=(JFileChooser)m_fileEditor.getCustomEditor();
+  embeddedEditor.setFileSelectionMode(JFileChooser.FILES_ONLY);
+  embeddedEditor.setDialogType(fileChooserType);
+  ExtensionFileFilter ff=new ExtensionFileFilter(".model","Serialized Weka classifier (*.model)");
+  embeddedEditor.addChoosableFileFilter(ff);
+  m_browseBut=new JButton("Browse...");
+  m_browseBut.addActionListener(new ActionListener(){
+    public void actionPerformed(    ActionEvent e){
+      try {
+        String modelPath=getText();
+        if (modelPath != null) {
+          try {
+            modelPath=m_env.substitute(modelPath);
+          }
+ catch (          Exception ex) {
+          }
+          File toSet=new File(modelPath);
+          if (toSet.isFile()) {
+            m_fileEditor.setValue(new File(modelPath));
+            toSet=toSet.getParentFile();
+          }
+          if (toSet.isDirectory()) {
+            embeddedEditor.setCurrentDirectory(toSet);
+          }
+        }
+        showFileEditor();
+      }
+ catch (      Exception ex) {
+        ex.printStackTrace();
+      }
+    }
+  }
+);
+  JPanel bP=new JPanel();
+  bP.setLayout(new BorderLayout());
+  bP.add(m_browseBut,BorderLayout.CENTER);
+  add(bP,BorderLayout.EAST);
+}

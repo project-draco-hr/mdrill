@@ -1,0 +1,3 @@
+{
+  if (getModel() != null)   ((ArffTableModel)getModel()).addTableModelListener(l);
+}

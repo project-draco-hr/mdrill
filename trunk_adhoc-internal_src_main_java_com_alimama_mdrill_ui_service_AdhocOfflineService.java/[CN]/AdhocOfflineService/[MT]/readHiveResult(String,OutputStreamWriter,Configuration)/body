@@ -1,0 +1,39 @@
+{
+  FileSystem fs=FileSystem.get(conf);
+  Path dir=new Path(path);
+  if (!fs.exists(dir)) {
+    throw new IOException("can not found path:" + path);
+  }
+  FileStatus[] filelist=fs.listStatus(dir);
+  Long bytesRead=0l;
+  long maxsize=1024l * 1024 * 1024* 10;
+  for (  FileStatus f : filelist) {
+    if (!f.isDir() && !f.getPath().getName().startsWith("_")) {
+      FSDataInputStream in=fs.open(f.getPath());
+      BufferedReader bf=new BufferedReader(new InputStreamReader(in));
+      String line;
+      while ((line=bf.readLine()) != null) {
+        bytesRead+=line.getBytes().length;
+        String towrite=line;
+        if (line.indexOf("\001") >= 0) {
+          towrite=line.replaceAll(",","_").replaceAll("\001",",").replaceAll("\t","_").replaceAll("\"","");
+        }
+ else         if (line.indexOf("\t") >= 0) {
+          towrite=line.replaceAll(",","_").replaceAll("\001","_").replaceAll("\t",",").replaceAll("\"","");
+        }
+        if (!towrite.isEmpty()) {
+          outStream.write(towrite);
+          outStream.write("\r\n");
+        }
+        if (bytesRead >= maxsize) {
+          bf.close();
+          in.close();
+          return;
+        }
+      }
+      bf.close();
+      in.close();
+    }
+  }
+  return;
+}

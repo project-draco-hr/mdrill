@@ -1,0 +1,8 @@
+{
+  this.paintSequence=paintSequence;
+  this.fillPaintSequence=fillPaintSequence;
+  this.outlinePaintSequence=outlinePaintSequence;
+  this.strokeSequence=strokeSequence;
+  this.outlineStrokeSequence=outlineStrokeSequence;
+  this.shapeSequence=shapeSequence;
+}

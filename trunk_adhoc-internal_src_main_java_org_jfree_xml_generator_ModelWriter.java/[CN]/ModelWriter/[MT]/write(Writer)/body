@@ -1,0 +1,25 @@
+{
+  writeStandardComment(writer,this.model.getModelComments());
+  this.writerSupport.writeTag(writer,ClassModelTags.OBJECTS_TAG);
+  final String[] sources=this.model.getSources();
+  for (int i=0; i < sources.length; i++) {
+    final Comments comments=this.model.getIncludeComment(sources[i]);
+    writeTag(writer,ClassModelTags.INCLUDE_TAG,ClassModelTags.SOURCE_ATTR,sources[i],comments);
+  }
+  for (int i=0; i < this.model.size(); i++) {
+    final ClassDescription cd=this.model.get(i);
+    writeClassDescription(writer,cd);
+  }
+  final ManualMappingInfo[] mappings=getModel().getMappingModel().getManualMapping();
+  for (int i=0; i < mappings.length; i++) {
+    final ManualMappingInfo mi=mappings[i];
+    writeManualMapping(writer,mi);
+  }
+  final MultiplexMappingInfo[] mmappings=getModel().getMappingModel().getMultiplexMapping();
+  for (int i=0; i < mmappings.length; i++) {
+    final MultiplexMappingInfo mi=mmappings[i];
+    writeMultiplexMapping(writer,mi);
+  }
+  writeCloseComment(writer,this.model.getModelComments());
+  this.writerSupport.writeCloseTag(writer,ClassModelTags.OBJECTS_TAG);
+}

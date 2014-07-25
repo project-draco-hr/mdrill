@@ -1,0 +1,4 @@
+{
+  this.paint=paint;
+  this.preferredSize=new Dimension(80,12);
+}

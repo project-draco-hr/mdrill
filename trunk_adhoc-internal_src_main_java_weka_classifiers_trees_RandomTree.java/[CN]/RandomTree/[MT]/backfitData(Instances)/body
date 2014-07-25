@@ -1,0 +1,8 @@
+{
+  double[] classProbs=new double[data.numClasses()];
+  for (int i=0; i < data.numInstances(); i++) {
+    Instance inst=data.instance(i);
+    classProbs[(int)inst.classValue()]+=inst.weight();
+  }
+  backfitData(data,classProbs);
+}

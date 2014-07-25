@@ -1,0 +1,3 @@
+{
+  return "Only outputs the significance indicators. Can be used for spotting patterns.";
+}

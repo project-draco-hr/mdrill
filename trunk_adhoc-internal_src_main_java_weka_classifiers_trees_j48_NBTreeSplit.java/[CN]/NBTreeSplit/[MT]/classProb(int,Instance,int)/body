@@ -1,0 +1,8 @@
+{
+  if (theSubset > -1) {
+    return m_globalNB.classProb(classIndex,instance,theSubset);
+  }
+ else {
+    throw new Exception("This shouldn't happen!!!");
+  }
+}

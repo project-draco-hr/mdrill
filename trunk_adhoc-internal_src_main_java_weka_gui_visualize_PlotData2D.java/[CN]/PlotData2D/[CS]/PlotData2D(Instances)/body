@@ -1,0 +1,13 @@
+{
+  m_plotInstances=insts;
+  m_xIndex=m_yIndex=m_cIndex=0;
+  m_pointLookup=new double[m_plotInstances.numInstances()][4];
+  m_shapeSize=new int[m_plotInstances.numInstances()];
+  m_shapeType=new int[m_plotInstances.numInstances()];
+  m_connectPoints=new boolean[m_plotInstances.numInstances()];
+  for (int i=0; i < m_plotInstances.numInstances(); i++) {
+    m_shapeSize[i]=Plot2D.DEFAULT_SHAPE_SIZE;
+    m_shapeType[i]=Plot2D.CONST_AUTOMATIC_SHAPE;
+  }
+  determineBounds();
+}

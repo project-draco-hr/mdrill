@@ -1,0 +1,14 @@
+{
+  if (event.getActionCommand().equals("fontButton.clicked")) {
+    displayFontDialog();
+  }
+  if (event.getActionCommand().equals("combo1.changed")) {
+    handleCombo1Change();
+  }
+  if (event.getActionCommand().equals("combo2.changed")) {
+    handleCombo2Change();
+  }
+  if (event.getActionCommand().equals("combo3.changed")) {
+    handleCombo3Change();
+  }
+}

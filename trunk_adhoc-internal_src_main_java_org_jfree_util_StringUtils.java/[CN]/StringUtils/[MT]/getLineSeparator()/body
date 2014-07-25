@@ -1,0 +1,8 @@
+{
+  try {
+    return System.getProperty("line.separator","\n");
+  }
+ catch (  Exception e) {
+    return "\n";
+  }
+}

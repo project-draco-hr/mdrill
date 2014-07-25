@@ -1,0 +1,6 @@
+{
+  super();
+  setNumAttributes(defaultNumAttributes());
+  setNumArcs(defaultNumArcs());
+  setCardinality(defaultCardinality());
+}

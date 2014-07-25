@@ -1,0 +1,6 @@
+{
+  super(key);
+  this.data=new java.util.ArrayList();
+  this.autoSort=autoSort;
+  this.allowDuplicateXValues=allowDuplicateXValues;
+}

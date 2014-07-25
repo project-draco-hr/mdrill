@@ -1,0 +1,4 @@
+{
+  this.dataBoundsIncludesVisibleSeriesOnly=visibleOnly;
+  notifyListeners(new RendererChangeEvent(this,true));
+}

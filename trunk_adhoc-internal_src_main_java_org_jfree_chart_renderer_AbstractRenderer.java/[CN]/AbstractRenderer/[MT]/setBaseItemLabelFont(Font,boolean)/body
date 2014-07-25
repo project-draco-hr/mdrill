@@ -1,0 +1,6 @@
+{
+  this.baseItemLabelFont=font;
+  if (notify) {
+    fireChangeEvent();
+  }
+}

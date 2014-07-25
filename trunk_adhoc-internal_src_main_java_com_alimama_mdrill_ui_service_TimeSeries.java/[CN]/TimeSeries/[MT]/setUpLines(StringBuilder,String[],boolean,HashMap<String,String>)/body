@@ -1,0 +1,23 @@
+{
+  HashMap<String,HashMap<String,Object>> lines=new HashMap<String,HashMap<String,Object>>();
+  String join="";
+  for (int i=0; i < fields.length; i++) {
+    String f=fields[i];
+    if (f.indexOf("(") >= 0 && f.indexOf(")") >= 0) {
+      numberfield.append(join);
+      numberfield.append(f);
+      join=",";
+      HashMap<String,Object> label=new HashMap<String,Object>();
+      label.put("Y",isSingleY ? "Y" : f);
+      label.put("label",field2dimvalue.get(f));
+      label.put("data",new ArrayList<ArrayList<Object>>());
+      lines.put(f,label);
+      HashMap<String,Object> labelpre=new HashMap<String,Object>();
+      labelpre.put("Y",isSingleY ? "Y" : f);
+      labelpre.put("label",field2dimvalue.get(f) + "_??????");
+      labelpre.put("data",new ArrayList<ArrayList<Object>>());
+      lines.put(f + "_pre",labelpre);
+    }
+  }
+  return lines;
+}

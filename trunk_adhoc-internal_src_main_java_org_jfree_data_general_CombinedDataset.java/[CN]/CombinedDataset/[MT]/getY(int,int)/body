@@ -1,0 +1,4 @@
+{
+  DatasetInfo di=getDatasetInfo(series);
+  return ((XYDataset)di.data).getY(di.series,item);
+}

@@ -1,0 +1,4 @@
+{
+  this.dialBackgroundPaint=paint;
+  fireChangeEvent();
+}

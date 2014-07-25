@@ -1,0 +1,52 @@
+{
+  if (reversed == false) {
+    for (int times=0; times < 1; times++) {
+      int tempLevels[][]=new int[nodeLevels.length][];
+      copy2DArray(nodeLevels,tempLevels);
+      for (int i=0; i < nodeLevels.length - 1; i++)       phaseID(i,tempLevels);
+      if (crossings(tempLevels) < crossings(nodeLevels))       nodeLevels=tempLevels;
+      tempLevels=new int[nodeLevels.length][];
+      copy2DArray(nodeLevels,tempLevels);
+      for (int i=nodeLevels.length - 2; i >= 0; i--)       phaseIU(i,tempLevels);
+      if (crossings(tempLevels) < crossings(nodeLevels))       nodeLevels=tempLevels;
+      tempLevels=new int[nodeLevels.length][];
+      copy2DArray(nodeLevels,tempLevels);
+      for (int i=0; i < nodeLevels.length - 1; i++) {
+        phaseIID(i,tempLevels);
+      }
+      if (crossings(tempLevels) < crossings(nodeLevels))       nodeLevels=tempLevels;
+      tempLevels=new int[nodeLevels.length][];
+      copy2DArray(nodeLevels,tempLevels);
+      for (int i=nodeLevels.length - 2; i >= 0; i--) {
+        phaseIIU(i,tempLevels);
+      }
+      if (crossings(tempLevels) < crossings(nodeLevels))       nodeLevels=tempLevels;
+    }
+    return nodeLevels;
+  }
+ else {
+    for (int times=0; times < 1; times++) {
+      int tempLevels[][]=new int[nodeLevels.length][];
+      copy2DArray(nodeLevels,tempLevels);
+      for (int i=nodeLevels.length - 2; i >= 0; i--)       phaseIU(i,tempLevels);
+      if (crossings(tempLevels) < crossings(nodeLevels))       nodeLevels=tempLevels;
+      tempLevels=new int[nodeLevels.length][];
+      copy2DArray(nodeLevels,tempLevels);
+      for (int i=0; i < nodeLevels.length - 1; i++)       phaseID(i,tempLevels);
+      if (crossings(tempLevels) < crossings(nodeLevels))       nodeLevels=tempLevels;
+      tempLevels=new int[nodeLevels.length][];
+      copy2DArray(nodeLevels,tempLevels);
+      for (int i=nodeLevels.length - 2; i >= 0; i--) {
+        phaseIIU(i,tempLevels);
+      }
+      if (crossings(tempLevels) < crossings(nodeLevels))       nodeLevels=tempLevels;
+      tempLevels=new int[nodeLevels.length][];
+      copy2DArray(nodeLevels,tempLevels);
+      for (int i=0; i < nodeLevels.length - 1; i++) {
+        phaseIID(i,tempLevels);
+      }
+      if (crossings(tempLevels) < crossings(nodeLevels))       nodeLevels=tempLevels;
+    }
+    return nodeLevels;
+  }
+}

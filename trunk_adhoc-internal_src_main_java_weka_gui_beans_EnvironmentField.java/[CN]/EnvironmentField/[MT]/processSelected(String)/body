@@ -1,0 +1,18 @@
+{
+  if (selected.equals(m_currentContents)) {
+    return selected;
+  }
+  if (m_firstCaretPos == 0) {
+    m_currentContents=selected + m_currentContents;
+  }
+ else   if (m_firstCaretPos >= m_currentContents.length()) {
+    m_currentContents=m_currentContents + selected;
+  }
+ else {
+    String left=m_currentContents.substring(0,m_firstCaretPos);
+    String right=m_currentContents.substring(m_firstCaretPos,m_currentContents.length());
+    m_currentContents=left + selected + right;
+  }
+  m_combo.setSelectedItem(m_currentContents);
+  return m_currentContents;
+}

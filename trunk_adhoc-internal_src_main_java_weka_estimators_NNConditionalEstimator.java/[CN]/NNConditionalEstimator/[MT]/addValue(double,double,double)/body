@@ -1,0 +1,19 @@
+{
+  int insertIndex=findNearestPair(given,data);
+  if ((m_Values.size() <= insertIndex) || (((Double)m_CondValues.elementAt(insertIndex)).doubleValue() != given) || (((Double)m_Values.elementAt(insertIndex)).doubleValue() != data)) {
+    m_CondValues.insertElementAt(new Double(given),insertIndex);
+    m_Values.insertElementAt(new Double(data),insertIndex);
+    m_Weights.insertElementAt(new Double(weight),insertIndex);
+    if (weight != 1) {
+      m_AllWeightsOne=false;
+    }
+  }
+ else {
+    double newWeight=((Double)m_Weights.elementAt(insertIndex)).doubleValue();
+    newWeight+=weight;
+    m_Weights.setElementAt(new Double(newWeight),insertIndex);
+    m_AllWeightsOne=false;
+  }
+  m_SumOfWeights+=weight;
+  m_Covariance=null;
+}

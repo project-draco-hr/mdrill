@@ -1,0 +1,5 @@
+{
+  this.outerScopes=new Stack();
+  this.currentHandlers=new Stack();
+  this.currentHandlers.push(this.rootHandler);
+}

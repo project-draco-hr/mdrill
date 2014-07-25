@@ -1,0 +1,3 @@
+{
+  return (Font)this.itemLabelFontList.get(series);
+}

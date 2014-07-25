@@ -1,0 +1,3 @@
+{
+  return this.underlying.getStartValue(row,column + this.firstCategoryIndex,subinterval);
+}

@@ -1,0 +1,36 @@
+{
+  try {
+    InstanceQuery iq=new InstanceQuery();
+    String query=Utils.getOption('Q',args);
+    if (query.length() == 0) {
+      iq.setQuery("select * from Experiment_index");
+    }
+ else {
+      iq.setQuery(query);
+    }
+    iq.setOptions(args);
+    try {
+      Utils.checkForRemainingOptions(args);
+    }
+ catch (    Exception e) {
+      System.err.println("Options for weka.experiment.InstanceQuery:\n");
+      Enumeration en=iq.listOptions();
+      while (en.hasMoreElements()) {
+        Option o=(Option)en.nextElement();
+        System.err.println(o.synopsis() + "\n" + o.description());
+      }
+      System.exit(1);
+    }
+    Instances aha=iq.retrieveInstances();
+    iq.disconnectFromDatabase();
+    if (aha == null)     return;
+    System.out.println(new Instances(aha,0));
+    for (int i=0; i < aha.numInstances(); i++) {
+      System.out.println(aha.instance(i));
+    }
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+    System.err.println(e.getMessage());
+  }
+}

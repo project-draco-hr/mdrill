@@ -1,0 +1,5 @@
+{
+  ExtendedConfigurationWrapper wrapper=(ExtendedConfigurationWrapper)super.clone();
+  wrapper.parent=(Configuration)this.parent.clone();
+  return this.parent;
+}

@@ -1,0 +1,6 @@
+OutputStream out
+JFreeChart chart
+int width
+int height
+boolean encodeAlpha
+int compression

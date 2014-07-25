@@ -1,0 +1,7 @@
+String f
+Estimator est
+Estimator classEst
+double classIndex
+double min
+double max
+int numPoints

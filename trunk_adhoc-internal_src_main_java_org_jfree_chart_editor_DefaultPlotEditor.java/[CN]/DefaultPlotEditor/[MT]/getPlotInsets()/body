@@ -1,0 +1,6 @@
+{
+  if (this.plotInsets == null) {
+    this.plotInsets=new RectangleInsets(0.0,0.0,0.0,0.0);
+  }
+  return this.plotInsets;
+}

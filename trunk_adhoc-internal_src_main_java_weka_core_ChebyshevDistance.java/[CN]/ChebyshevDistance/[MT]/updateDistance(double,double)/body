@@ -1,0 +1,7 @@
+{
+  double result;
+  result=currDist;
+  diff=Math.abs(diff);
+  if (diff > result)   result=diff;
+  return result;
+}

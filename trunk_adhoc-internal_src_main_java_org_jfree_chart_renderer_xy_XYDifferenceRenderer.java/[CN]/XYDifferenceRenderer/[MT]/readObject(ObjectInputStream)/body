@@ -1,0 +1,6 @@
+{
+  stream.defaultReadObject();
+  this.positivePaint=SerialUtilities.readPaint(stream);
+  this.negativePaint=SerialUtilities.readPaint(stream);
+  this.legendLine=SerialUtilities.readShape(stream);
+}

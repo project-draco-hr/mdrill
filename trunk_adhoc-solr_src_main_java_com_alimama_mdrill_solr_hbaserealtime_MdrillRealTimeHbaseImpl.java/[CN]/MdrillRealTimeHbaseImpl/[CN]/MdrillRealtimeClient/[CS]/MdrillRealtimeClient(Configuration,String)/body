@@ -1,0 +1,3 @@
+{
+  this.hbase=new Hbase(config,prefix);
+}

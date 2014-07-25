@@ -1,0 +1,13 @@
+{
+  if (obj == this) {
+    return true;
+  }
+  if (!(obj instanceof DeviationRenderer)) {
+    return false;
+  }
+  DeviationRenderer that=(DeviationRenderer)obj;
+  if (this.alpha != that.alpha) {
+    return false;
+  }
+  return super.equals(obj);
+}

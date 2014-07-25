@@ -1,0 +1,38 @@
+{
+  getCapabilities().testWithFail(instances);
+  instances=new Instances(instances);
+  instances.deleteWithMissingClass();
+  m_headerInfo=new Instances(instances,0);
+  m_numClasses=instances.numClasses();
+  m_numAttributes=instances.numAttributes();
+  m_probOfWordGivenClass=new double[m_numClasses][];
+  for (int c=0; c < m_numClasses; c++) {
+    m_probOfWordGivenClass[c]=new double[m_numAttributes];
+    for (int att=0; att < m_numAttributes; att++) {
+      m_probOfWordGivenClass[c][att]=1;
+    }
+  }
+  Instance instance;
+  int classIndex;
+  double numOccurences;
+  double[] docsPerClass=new double[m_numClasses];
+  double[] wordsPerClass=new double[m_numClasses];
+  java.util.Enumeration enumInsts=instances.enumerateInstances();
+  while (enumInsts.hasMoreElements()) {
+    instance=(Instance)enumInsts.nextElement();
+    classIndex=(int)instance.value(instance.classIndex());
+    docsPerClass[classIndex]+=instance.weight();
+    for (int a=0; a < instance.numValues(); a++)     if (instance.index(a) != instance.classIndex()) {
+      if (!instance.isMissing(a)) {
+        numOccurences=instance.valueSparse(a) * instance.weight();
+        if (numOccurences < 0)         throw new Exception("Numeric attribute values must all be greater or equal to zero.");
+        wordsPerClass[classIndex]+=numOccurences;
+        m_probOfWordGivenClass[classIndex][instance.index(a)]+=numOccurences;
+      }
+    }
+  }
+  for (int c=0; c < m_numClasses; c++)   for (int v=0; v < m_numAttributes; v++)   m_probOfWordGivenClass[c][v]=Math.log(m_probOfWordGivenClass[c][v] / (wordsPerClass[c] + m_numAttributes - 1));
+  final double numDocs=instances.sumOfWeights() + m_numClasses;
+  m_probOfClass=new double[m_numClasses];
+  for (int h=0; h < m_numClasses; h++)   m_probOfClass[h]=(double)(docsPerClass[h] + 1) / numDocs;
+}

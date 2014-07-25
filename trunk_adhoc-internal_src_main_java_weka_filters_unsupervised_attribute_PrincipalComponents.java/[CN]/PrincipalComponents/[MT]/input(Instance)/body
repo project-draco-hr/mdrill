@@ -1,0 +1,18 @@
+{
+  Instance inst;
+  if (getInputFormat() == null)   throw new IllegalStateException("No input instance format defined");
+  if (isNewBatch()) {
+    resetQueue();
+    m_NewBatch=false;
+  }
+  if (isFirstBatchDone()) {
+    inst=convertInstance(instance);
+    inst.setDataset(getOutputFormat());
+    push(inst);
+    return true;
+  }
+ else {
+    bufferInput(instance);
+    return false;
+  }
+}

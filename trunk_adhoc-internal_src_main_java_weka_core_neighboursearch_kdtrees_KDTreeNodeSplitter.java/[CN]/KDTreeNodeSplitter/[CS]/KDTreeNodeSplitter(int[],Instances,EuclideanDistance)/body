@@ -1,0 +1,5 @@
+{
+  m_InstList=instList;
+  m_Instances=insts;
+  m_EuclideanDistance=e;
+}

@@ -1,0 +1,27 @@
+{
+  double[] preds=null;
+  boolean strategyInvoked=false;
+  for (  TreeNode c : m_childNodes) {
+    if (c.getPredicate().evaluate(instance) == Predicate.Eval.TRUE) {
+      preds=c.score(instance,classAtt);
+      break;
+    }
+ else     if (c.getPredicate().evaluate(instance) == Predicate.Eval.UNKNOWN) {
+      strategyInvoked=true;
+    }
+  }
+  if (preds == null) {
+    if (!strategyInvoked) {
+      doNoTrueChild(classAtt,preds);
+    }
+ else {
+      if (m_defaultChild != null) {
+        preds=m_defaultChild.score(instance,classAtt);
+      }
+ else {
+        throw new Exception("[TreeNode] missing value strategy is defaultChild, but " + "no default child has been specified in node " + m_ID);
+      }
+    }
+  }
+  return preds;
+}

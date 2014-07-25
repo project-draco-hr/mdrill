@@ -1,0 +1,5 @@
+{
+  CustomCategoryURLGenerator clone=(CustomCategoryURLGenerator)super.clone();
+  clone.urlSeries=new java.util.ArrayList(this.urlSeries);
+  return clone;
+}

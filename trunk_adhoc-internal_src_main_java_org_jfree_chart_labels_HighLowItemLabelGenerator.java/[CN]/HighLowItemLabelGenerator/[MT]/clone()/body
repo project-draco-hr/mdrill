@@ -1,0 +1,10 @@
+{
+  HighLowItemLabelGenerator clone=(HighLowItemLabelGenerator)super.clone();
+  if (this.dateFormatter != null) {
+    clone.dateFormatter=(DateFormat)this.dateFormatter.clone();
+  }
+  if (this.numberFormatter != null) {
+    clone.numberFormatter=(NumberFormat)this.numberFormatter.clone();
+  }
+  return clone;
+}

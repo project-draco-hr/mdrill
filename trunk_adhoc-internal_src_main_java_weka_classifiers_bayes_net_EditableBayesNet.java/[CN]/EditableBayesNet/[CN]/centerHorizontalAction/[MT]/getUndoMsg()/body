@@ -1,0 +1,3 @@
+{
+  return "Returning " + m_nodes.size() + " from centering horizontally.";
+}

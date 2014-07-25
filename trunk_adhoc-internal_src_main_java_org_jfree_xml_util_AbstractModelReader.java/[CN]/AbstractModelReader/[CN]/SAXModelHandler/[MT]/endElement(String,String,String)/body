@@ -1,0 +1,31 @@
+{
+  setOpenComment((String[])this.openComments.pop());
+  setCloseComment(getCommentHandler().getComments());
+  try {
+    if (!this.isInclude && qName.equals(ClassModelTags.OBJECTS_TAG)) {
+      endRootDocument();
+      return;
+    }
+    if (qName.equals(ClassModelTags.OBJECT_TAG)) {
+      if (getState() != IGNORE_OBJECT) {
+        endObjectDefinition();
+      }
+      setState(STATE_START);
+    }
+ else     if (qName.equals(ClassModelTags.MAPPING_TAG)) {
+      setState(STATE_START);
+      endMultiplexMapping();
+    }
+ else     if (qName.equals(ClassModelTags.CONSTRUCTOR_TAG)) {
+      if (getState() != IGNORE_OBJECT) {
+        setState(IN_OBJECT);
+      }
+    }
+  }
+ catch (  ObjectDescriptionException e) {
+    throw new SAXException(e);
+  }
+ finally {
+    getCommentHandler().clearComments();
+  }
+}

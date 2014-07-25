@@ -1,0 +1,13 @@
+{
+  m_primedInput=new Instances(insts);
+  m_previousPrimeInstance=null;
+  m_missingBuffer=new Instances(insts,0);
+  m_hadLeadingMissingPrime=false;
+  m_first=true;
+  m_atLeastOneNonMissingTimeStamp=false;
+  m_lagMaker.clearLagHistories();
+  for (int i=0; i < m_primedInput.numInstances(); i++) {
+    primeForecasterIncremental(m_primedInput.instance(i));
+    m_first=false;
+  }
+}

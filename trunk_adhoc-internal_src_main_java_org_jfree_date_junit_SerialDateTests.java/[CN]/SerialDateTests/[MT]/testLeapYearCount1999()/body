@@ -1,0 +1,3 @@
+{
+  assertEquals(SerialDate.leapYearCount(1999),24);
+}

@@ -1,0 +1,6 @@
+{
+  if (this.drawSeriesLineAsPath != flag) {
+    this.drawSeriesLineAsPath=flag;
+    fireChangeEvent();
+  }
+}

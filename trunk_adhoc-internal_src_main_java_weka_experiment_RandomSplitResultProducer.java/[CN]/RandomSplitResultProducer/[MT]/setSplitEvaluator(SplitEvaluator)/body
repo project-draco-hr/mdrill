@@ -1,0 +1,4 @@
+{
+  m_SplitEvaluator=newSplitEvaluator;
+  m_SplitEvaluator.setAdditionalMeasures(m_AdditionalMeasures);
+}

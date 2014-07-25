@@ -1,0 +1,3 @@
+{
+  ((ArffTableModel)getModel()).deleteAttributes(columnIndices);
+}

@@ -1,0 +1,7 @@
+{
+  String result;
+  result=content;
+  result=result.replaceAll("&","&amp;").replaceAll("\"","&quot;").replaceAll("'","&apos;").replaceAll("<","&lt;").replaceAll(">","&gt;");
+  result=result.replaceAll("\n","&#10;").replaceAll("\r","&#13;").replaceAll("\t","&#9;");
+  return result;
+}

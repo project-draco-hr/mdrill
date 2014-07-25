@@ -1,0 +1,8 @@
+{
+  final TObjectTable t=new TObjectTable();
+  t.setObject(8,5,Color.red);
+  assertEquals(6,t.getColumnCount());
+  assertEquals(9,t.getRowCount());
+  assertNull(t.getObject(7,4));
+  assertEquals(Color.red,t.getObject(8,5));
+}

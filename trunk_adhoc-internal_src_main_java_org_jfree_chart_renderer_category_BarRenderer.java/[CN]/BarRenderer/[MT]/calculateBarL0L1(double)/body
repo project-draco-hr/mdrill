@@ -1,0 +1,15 @@
+{
+  double lclip=getLowerClip();
+  double uclip=getUpperClip();
+  double barLow=Math.min(this.base,value);
+  double barHigh=Math.max(this.base,value);
+  if (barHigh < lclip) {
+    return null;
+  }
+  if (barLow > uclip) {
+    return null;
+  }
+  barLow=Math.max(barLow,lclip);
+  barHigh=Math.min(barHigh,uclip);
+  return new double[]{barLow,barHigh};
+}

@@ -1,0 +1,13 @@
+{
+  try {
+    File testF=new File(new File(System.getProperty("user.dir")),"testOut.zip");
+    OutputZipper oz=new OutputZipper(testF);
+    oz.zipit("Here is some test text to be zipped","testzip");
+    oz.zipit("Here is a second entry to be zipped","testzip2");
+    oz.finished();
+  }
+ catch (  Exception ex) {
+    ex.printStackTrace();
+    System.err.println(ex.getMessage());
+  }
+}

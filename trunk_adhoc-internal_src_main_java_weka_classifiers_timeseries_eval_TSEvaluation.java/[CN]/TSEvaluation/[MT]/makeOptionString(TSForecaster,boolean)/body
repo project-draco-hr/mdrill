@@ -1,0 +1,50 @@
+{
+  StringBuffer optionsText=new StringBuffer("");
+  optionsText.append("\n\tGeneral options:\n\n");
+  optionsText.append("-h or -help\n");
+  optionsText.append("\tOutput help information.\n");
+  optionsText.append("-synopsis or -info\n");
+  optionsText.append("\tOutput synopsis for forecaster (use in conjunction " + " with -h)\n");
+  optionsText.append("-t <name of training file>\n");
+  optionsText.append("\tSets training file.\n");
+  optionsText.append("-T <name of test file>\n");
+  optionsText.append("\tSets test file.\n");
+  optionsText.append("-holdout <#instances | percentage>\n");
+  optionsText.append("\tSets the number of instances or percentage of" + " the training\n\tdata to hold out for testing.\n");
+  optionsText.append("-horizon <#steps>\n");
+  optionsText.append("\tThe maximum number of steps to forecast into the future.\n");
+  optionsText.append("-prime <#instances>\n");
+  optionsText.append("\tThe number of instances to prime the forecaster with " + "before\n\tgenerating a forecast.\n");
+  optionsText.append("-metrics <list of metrics>\n");
+  optionsText.append("\tA list of metrics to use for evaluation." + "\n\t(default: MAE,RMSE)\n");
+  optionsText.append("-p <target:step#>\n");
+  optionsText.append("\tOutput predictions for the specified target at the\n\t" + "specified step-ahead level.\n");
+  optionsText.append("-graph <file name:target list:step list>\n");
+  optionsText.append("\tGenerate a PNG graph of predictions for the specified\n\t" + "target(s) at the specified step-ahead level(s) on the training\n\t" + "and/or test data. Note that only one of the targets or steps can\n\t"+ " be a list - i.e. either a single target is plotted for multiple "+ "step-ahead levels, or, multiple targets are plotted at a single\n\t"+ " step-ahead level.\n");
+  optionsText.append("-future\n");
+  optionsText.append("\tOutput training/test data plus predictions for all\n\t" + "targets up to horizon steps into the future.\n");
+  optionsText.append("-future-graph <file name>\n");
+  optionsText.append("\tGenerate a PNG graph of future predictions (beyond the end\n\t" + "of the series) for the training and/or test data for all targets.\n");
+  optionsText.append("-l <name of input file>\n");
+  optionsText.append("\tSets model input file.\n");
+  optionsText.append("-d <name of output file>\n");
+  optionsText.append("\tSets model output file.\n");
+  if (forecaster instanceof OptionHandler) {
+    optionsText.append("\nOptions specific to " + forecaster.getClass().getName() + ":\n\n");
+    Enumeration enu=((OptionHandler)forecaster).listOptions();
+    while (enu.hasMoreElements()) {
+      Option option=(Option)enu.nextElement();
+      optionsText.append(option.synopsis()).append("\n");
+      optionsText.append(option.description()).append("\n");
+    }
+  }
+  if (globalInfo) {
+    try {
+      String gi=getGlobalInfo(forecaster);
+      optionsText.append(gi);
+    }
+ catch (    Exception ex) {
+    }
+  }
+  return optionsText.toString();
+}

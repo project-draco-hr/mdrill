@@ -1,0 +1,8 @@
+{
+  if (!super.connectInput(i,n)) {
+    return false;
+  }
+  m_weights[m_numInputs]=m_random.nextDouble() * .1 - .05;
+  m_changeInWeights[m_numInputs]=0;
+  return true;
+}

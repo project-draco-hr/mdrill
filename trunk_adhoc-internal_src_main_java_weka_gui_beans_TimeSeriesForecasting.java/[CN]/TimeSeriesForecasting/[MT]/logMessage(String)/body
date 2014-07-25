@@ -1,0 +1,9 @@
+{
+  message="[TimeSeriesForecasting] " + statusMessagePrefix() + message;
+  if (m_log != null) {
+    m_log.logMessage(message);
+  }
+ else {
+    System.out.println(message);
+  }
+}

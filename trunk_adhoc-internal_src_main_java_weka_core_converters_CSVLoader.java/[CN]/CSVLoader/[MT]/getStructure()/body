@@ -1,0 +1,15 @@
+{
+  if ((m_sourceFile == null) && (m_sourceReader == null)) {
+    throw new IOException("No source has been specified");
+  }
+  if (m_structure == null) {
+    try {
+      m_st=new StreamTokenizer(m_sourceReader);
+      initTokenizer(m_st);
+      readStructure(m_st);
+    }
+ catch (    FileNotFoundException ex) {
+    }
+  }
+  return m_structure;
+}

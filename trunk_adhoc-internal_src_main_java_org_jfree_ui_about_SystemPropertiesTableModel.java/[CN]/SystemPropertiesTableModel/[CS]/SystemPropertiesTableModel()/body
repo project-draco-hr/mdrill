@@ -1,0 +1,20 @@
+{
+  this.properties=new java.util.ArrayList();
+  try {
+    final Properties p=System.getProperties();
+    final Iterator iterator=p.keySet().iterator();
+    while (iterator.hasNext()) {
+      final String name=(String)iterator.next();
+      final String value=System.getProperty(name);
+      final SystemProperty sp=new SystemProperty(name,value);
+      this.properties.add(sp);
+    }
+  }
+ catch (  SecurityException se) {
+  }
+  Collections.sort(this.properties,new SystemPropertyComparator(true));
+  final String baseName="org.jfree.ui.about.resources.AboutResources";
+  final ResourceBundle resources=ResourceBundleWrapper.getBundle(baseName);
+  this.nameColumnLabel=resources.getString("system-properties-table.column.name");
+  this.valueColumnLabel=resources.getString("system-properties-table.column.value");
+}

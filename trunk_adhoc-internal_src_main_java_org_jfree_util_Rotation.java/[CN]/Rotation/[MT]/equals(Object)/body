@@ -1,0 +1,13 @@
+{
+  if (this == o) {
+    return true;
+  }
+  if (!(o instanceof Rotation)) {
+    return false;
+  }
+  final Rotation rotation=(Rotation)o;
+  if (this.factor != rotation.factor) {
+    return false;
+  }
+  return true;
+}

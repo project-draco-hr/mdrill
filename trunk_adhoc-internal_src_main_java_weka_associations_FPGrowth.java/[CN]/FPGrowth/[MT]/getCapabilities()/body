@@ -1,0 +1,9 @@
+{
+  Capabilities result=super.getCapabilities();
+  result.disableAll();
+  result.enable(Capability.UNARY_ATTRIBUTES);
+  result.enable(Capability.BINARY_ATTRIBUTES);
+  result.enable(Capability.MISSING_VALUES);
+  result.enable(Capability.NO_CLASS);
+  return result;
+}

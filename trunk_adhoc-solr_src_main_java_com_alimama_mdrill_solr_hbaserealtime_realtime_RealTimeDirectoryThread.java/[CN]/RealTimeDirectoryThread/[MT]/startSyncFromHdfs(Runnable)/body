@@ -1,0 +1,54 @@
+{
+  Configuration conf=params.getConf();
+  CRC32 crc32=new CRC32();
+  crc32.update(String.valueOf(java.util.UUID.randomUUID().toString()).getBytes());
+  Long uuid=crc32.getValue();
+  String pathname=String.valueOf(fmt.format(new Date()) + "_" + status.uniqIndex.incrementAndGet()) + "_" + uuid;
+  final Path localHdfsRecover=new Path(new Path(params.getIndexMalloc(pathname.hashCode()),"realtime_hdfs_recover"),pathname);
+  final Path hdfsRealtime=new Path(params.hdfsPath,"realtime");
+  final FileSystem fs=FileSystem.get(conf);
+  final FileSystem lfs=FileSystem.getLocal(conf);
+  lfs.delete(localHdfsRecover,true);
+  final Path localPath=new Path(localHdfsRecover.getParent(),localHdfsRecover.getName() + "_hdfs");
+  final Path localPathtmp=new Path(localHdfsRecover.getParent(),localHdfsRecover.getName() + "_tmp");
+  TimerTask task=new TimerTask(){
+    @Override public void run(){
+      try {
+        IndexUtils.copyToLocal(fs,lfs,hdfsRealtime,localPath,localPathtmp,true);
+synchronized (plock.lock) {
+          FileStatus[] filelist=lfs.listStatus(localPath);
+          boolean needPurge=false;
+          if (filelist != null) {
+            for (            FileStatus f : filelist) {
+              if (!f.isDir()) {
+                continue;
+              }
+              try {
+                DirectoryInfo d=new DirectoryInfo();
+                File findex=new File(f.getPath().toString());
+                d.d=FSDirectory.open(findex);
+                d.tp=DirectoryInfo.DirTpe.file;
+                data.AddIndex(findex.getAbsolutePath(),d);
+                needPurge=true;
+              }
+ catch (              Throwable e) {
+                LOG.error("AddIndex",e);
+              }
+            }
+          }
+          if (needPurge) {
+            status.needRemakeLinks.set(true);
+          }
+        }
+        callback.run();
+        return;
+      }
+ catch (      Throwable ex) {
+        LOG.error("syncHdfs",ex);
+      }
+    }
+  }
+;
+  taskList.add(task);
+  RealTimeDirectorUtils.getSlowTimer().schedule(task,0);
+}

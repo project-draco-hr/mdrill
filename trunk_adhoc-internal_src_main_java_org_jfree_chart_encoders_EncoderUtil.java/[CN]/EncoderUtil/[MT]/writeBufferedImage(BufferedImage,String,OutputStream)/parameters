@@ -1,0 +1,3 @@
+BufferedImage image
+String format
+OutputStream outputStream

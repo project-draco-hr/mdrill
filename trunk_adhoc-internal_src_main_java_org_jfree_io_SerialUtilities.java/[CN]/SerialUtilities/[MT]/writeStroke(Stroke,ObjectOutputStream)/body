@@ -1,0 +1,25 @@
+{
+  if (stream == null) {
+    throw new IllegalArgumentException("Null 'stream' argument.");
+  }
+  if (stroke != null) {
+    stream.writeBoolean(false);
+    if (stroke instanceof BasicStroke) {
+      final BasicStroke s=(BasicStroke)stroke;
+      stream.writeObject(BasicStroke.class);
+      stream.writeFloat(s.getLineWidth());
+      stream.writeInt(s.getEndCap());
+      stream.writeInt(s.getLineJoin());
+      stream.writeFloat(s.getMiterLimit());
+      stream.writeObject(s.getDashArray());
+      stream.writeFloat(s.getDashPhase());
+    }
+ else {
+      stream.writeObject(stroke.getClass());
+      stream.writeObject(stroke);
+    }
+  }
+ else {
+    stream.writeBoolean(true);
+  }
+}

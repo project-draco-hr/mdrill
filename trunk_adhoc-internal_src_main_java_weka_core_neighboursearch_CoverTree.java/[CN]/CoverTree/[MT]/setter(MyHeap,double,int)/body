@@ -1,0 +1,6 @@
+{
+  if (heap.size() > 0)   heap.m_heap[0].index=0;
+  while (heap.size() < k) {
+    heap.put(upper_bound);
+  }
+}

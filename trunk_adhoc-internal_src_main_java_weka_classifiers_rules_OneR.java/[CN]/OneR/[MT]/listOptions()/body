@@ -1,0 +1,6 @@
+{
+  String string="\tThe minimum number of objects in a bucket (default: 6).";
+  Vector newVector=new Vector(1);
+  newVector.addElement(new Option(string,"B",1,"-B <minimum bucket size>"));
+  return newVector.elements();
+}

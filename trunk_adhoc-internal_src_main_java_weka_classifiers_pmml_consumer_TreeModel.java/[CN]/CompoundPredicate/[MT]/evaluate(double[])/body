@@ -1,0 +1,3 @@
+{
+  return m_booleanOperator.evaluate(m_components,input);
+}

@@ -1,0 +1,4 @@
+{
+  if (isCellEditable(row,column)) {
+  }
+}

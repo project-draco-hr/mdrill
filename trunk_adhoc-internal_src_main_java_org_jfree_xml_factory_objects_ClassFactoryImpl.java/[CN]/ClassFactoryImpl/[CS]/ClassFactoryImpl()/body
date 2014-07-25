@@ -1,0 +1,4 @@
+{
+  this.classes=new HashMap();
+  this.comparator=new ClassComparator();
+}

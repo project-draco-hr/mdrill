@@ -1,0 +1,3 @@
+{
+  return (m_perClass[classIndex] + 1) / (totaL + (double)m_perClass.length);
+}

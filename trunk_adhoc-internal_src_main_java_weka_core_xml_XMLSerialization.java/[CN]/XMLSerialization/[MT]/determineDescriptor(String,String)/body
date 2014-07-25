@@ -1,0 +1,11 @@
+{
+  PropertyDescriptor result;
+  result=null;
+  try {
+    result=new PropertyDescriptor(displayName,Class.forName(className));
+  }
+ catch (  Exception e) {
+    result=null;
+  }
+  return result;
+}

@@ -1,0 +1,4 @@
+Instances format
+int numInstances
+SubspaceClusterDefinition cl
+String cName

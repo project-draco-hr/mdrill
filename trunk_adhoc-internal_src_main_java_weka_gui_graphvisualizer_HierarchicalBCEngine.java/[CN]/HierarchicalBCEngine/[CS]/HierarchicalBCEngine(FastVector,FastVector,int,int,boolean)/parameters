@@ -1,0 +1,5 @@
+FastVector nodes
+FastVector edges
+int nodeWidth
+int nodeHeight
+boolean edgeConcentration

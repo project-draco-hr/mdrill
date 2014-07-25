@@ -1,0 +1,11 @@
+{
+  if (trainingData != null && testData != null && !trainingData.equalHeaders(testData)) {
+    throw new Exception("Training and testing data are not compatible!");
+  }
+  if (trainingData == null && testData == null) {
+    throw new Exception("Can't specify null for both training and test data");
+  }
+  setTrainingData(trainingData);
+  setTestData(testData);
+  setEvaluationModules("MAE,RMSE");
+}

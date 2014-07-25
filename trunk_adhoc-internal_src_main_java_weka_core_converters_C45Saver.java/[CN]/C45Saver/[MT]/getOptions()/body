@@ -1,0 +1,28 @@
+{
+  String[] options=new String[10];
+  int current=0;
+  if (retrieveFile() != null) {
+    options[current++]="-o";
+    options[current++]="" + retrieveFile();
+  }
+ else {
+    options[current++]="-o";
+    options[current++]="";
+  }
+  if (getInstances() != null) {
+    options[current++]="-i";
+    options[current++]="" + getInstances().relationName();
+    options[current++]="-c";
+    options[current++]="" + getInstances().classIndex();
+  }
+ else {
+    options[current++]="-i";
+    options[current++]="";
+    options[current++]="-c";
+    options[current++]="";
+  }
+  while (current < options.length) {
+    options[current++]="";
+  }
+  return options;
+}

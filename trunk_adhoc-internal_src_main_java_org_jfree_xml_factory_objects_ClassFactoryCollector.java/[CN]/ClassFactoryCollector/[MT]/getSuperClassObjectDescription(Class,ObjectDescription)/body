@@ -1,0 +1,19 @@
+{
+  for (int i=0; i < this.factories.size(); i++) {
+    final ClassFactory f=(ClassFactory)this.factories.get(i);
+    final ObjectDescription od=f.getSuperClassObjectDescription(d,knownSuperClass);
+    if (od != null) {
+      if (knownSuperClass == null) {
+        knownSuperClass=od;
+      }
+ else {
+        if (getComparator().isComparable(knownSuperClass.getObjectClass(),od.getObjectClass())) {
+          if (getComparator().compare(knownSuperClass.getObjectClass(),od.getObjectClass()) < 0) {
+            knownSuperClass=od;
+          }
+        }
+      }
+    }
+  }
+  return super.getSuperClassObjectDescription(d,knownSuperClass);
+}

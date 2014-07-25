@@ -1,0 +1,4 @@
+{
+  this.maximumLinesToDisplay=max;
+  notifyListeners(new TitleChangeEvent(this));
+}

@@ -1,0 +1,7 @@
+{
+  m_testListeners.addElement(tsl);
+  if (m_connectedFormat != null) {
+    TestSetEvent e=new TestSetEvent(this,m_connectedFormat);
+    tsl.acceptTestSet(e);
+  }
+}

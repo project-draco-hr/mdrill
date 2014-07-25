@@ -1,0 +1,4 @@
+Paint firstBarPaint
+Paint positiveBarPaint
+Paint negativeBarPaint
+Paint lastBarPaint

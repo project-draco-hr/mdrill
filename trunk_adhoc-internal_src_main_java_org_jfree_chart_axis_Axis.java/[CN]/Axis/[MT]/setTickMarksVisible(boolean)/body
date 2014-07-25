@@ -1,0 +1,6 @@
+{
+  if (flag != this.tickMarksVisible) {
+    this.tickMarksVisible=flag;
+    fireChangeEvent();
+  }
+}

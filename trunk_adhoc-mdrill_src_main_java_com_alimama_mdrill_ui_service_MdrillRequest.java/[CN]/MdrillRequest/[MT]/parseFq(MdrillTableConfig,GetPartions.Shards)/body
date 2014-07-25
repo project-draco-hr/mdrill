@@ -1,0 +1,7 @@
+{
+  ArrayList<String> fqList=WebServiceParams.fqList(tblconf.isnothedate,this.queryStr,shard,tblconf.fieldColumntypeMap);
+  if (tblconf.isnothedate && tblconf.mode.indexOf("@fdt@") < 0) {
+    fqList.add("-higoempty_emptydoc_s:[* TO *]");
+  }
+  return fqList;
+}

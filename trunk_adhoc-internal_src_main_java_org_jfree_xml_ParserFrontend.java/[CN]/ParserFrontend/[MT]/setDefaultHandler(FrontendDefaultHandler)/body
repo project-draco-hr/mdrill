@@ -1,0 +1,6 @@
+{
+  if (handler == null) {
+    throw new NullPointerException();
+  }
+  this.defaulthandler=handler;
+}

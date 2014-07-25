@@ -1,0 +1,8 @@
+{
+  if (packageName.length() == 0) {
+    return newPackage;
+  }
+ else {
+    return packageName + "." + newPackage;
+  }
+}

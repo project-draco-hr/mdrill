@@ -1,0 +1,14 @@
+{
+  super(title);
+  m_Parent=parent;
+  addWindowListener(new WindowAdapter(){
+    public void windowActivated(    WindowEvent e){
+      if (getParentFrame() != null)       getParentFrame().createTitle(getTitle());
+    }
+  }
+);
+  if (getParentFrame() != null) {
+    getParentFrame().addChildFrame(this);
+    setIconImage(getParentFrame().getIconImage());
+  }
+}

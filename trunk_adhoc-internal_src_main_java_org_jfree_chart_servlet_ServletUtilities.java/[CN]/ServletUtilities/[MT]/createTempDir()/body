@@ -1,0 +1,10 @@
+{
+  String tempDirName=System.getProperty("java.io.tmpdir");
+  if (tempDirName == null) {
+    throw new RuntimeException("Temporary directory system property " + "(java.io.tmpdir) is null.");
+  }
+  File tempDir=new File(tempDirName);
+  if (!tempDir.exists()) {
+    tempDir.mkdirs();
+  }
+}

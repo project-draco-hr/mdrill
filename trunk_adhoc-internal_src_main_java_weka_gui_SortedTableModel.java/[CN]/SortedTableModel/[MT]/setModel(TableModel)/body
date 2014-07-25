@@ -1,0 +1,12 @@
+{
+  mModel=value;
+  if (mModel == null) {
+    mIndices=null;
+  }
+ else {
+    initializeIndices();
+    mSortColumn=-1;
+    mAscending=true;
+    mModel.addTableModelListener(this);
+  }
+}

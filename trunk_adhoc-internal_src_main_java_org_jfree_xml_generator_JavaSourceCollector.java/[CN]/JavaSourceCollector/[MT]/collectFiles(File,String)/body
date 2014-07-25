@@ -1,0 +1,30 @@
+{
+  final File[] files=directory.listFiles(this.eff);
+  for (int i=0; i < files.length; i++) {
+    if (files[i].isDirectory()) {
+      collectFiles(files[i],buildJavaName(packageName,files[i].getName()));
+    }
+ else {
+      final String fname=files[i].getName();
+      final String className=fname.substring(0,fname.length() - 5);
+      final String fullName=buildJavaName(packageName,className);
+      if (isIgnoredPackage(fullName)) {
+        Log.debug(new Log.SimpleMessage("Do not process: Ignored: ",className));
+        continue;
+      }
+      final Class jclass=loadClass(fullName);
+      if (jclass == null || isIgnoredBaseClass(jclass)) {
+        continue;
+      }
+      if (jclass.isInterface() || Modifier.isAbstract(jclass.getModifiers())) {
+        Log.debug(new Log.SimpleMessage("Do not process: Abstract: ",className));
+        continue;
+      }
+      if (!Modifier.isPublic(jclass.getModifiers())) {
+        Log.debug(new Log.SimpleMessage("Do not process: Not public: ",className));
+        continue;
+      }
+      this.fileList.add(jclass);
+    }
+  }
+}

@@ -1,0 +1,3 @@
+{
+  return createTextBlock(text,font,paint,maxWidth,Integer.MAX_VALUE,measurer);
+}

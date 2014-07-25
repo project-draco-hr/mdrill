@@ -1,0 +1,16 @@
+{
+  int nNodes=order.length;
+  Set[] separators=new HashSet[nNodes];
+  Set processedNodes=new HashSet();
+  for (int i=0; i < nNodes; i++) {
+    int iNode=order[i];
+    if (cliques[iNode] != null) {
+      Set separator=new HashSet();
+      separator.addAll(cliques[iNode]);
+      separator.retainAll(processedNodes);
+      separators[iNode]=separator;
+      processedNodes.addAll(cliques[iNode]);
+    }
+  }
+  return separators;
+}

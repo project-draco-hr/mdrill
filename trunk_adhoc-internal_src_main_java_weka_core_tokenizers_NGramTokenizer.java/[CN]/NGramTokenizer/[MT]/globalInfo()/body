@@ -1,0 +1,3 @@
+{
+  return "Splits a string into an n-gram with min and max grams.";
+}

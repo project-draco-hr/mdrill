@@ -1,0 +1,3 @@
+{
+  return "How often to report progress to the status bar.";
+}

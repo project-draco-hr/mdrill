@@ -1,0 +1,3 @@
+{
+  return (int)Math.ceil(il2 * Math.log(d));
+}

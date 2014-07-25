@@ -1,0 +1,3 @@
+{
+  this(intToUnitType(unit),count,intToUnitType(rollUnit),rollCount,notNull(formatter));
+}

@@ -1,0 +1,13 @@
+{
+  if (!m_isLeaf) {
+    m_leafModelNum=0;
+    for (int i=0; i < m_sons.length; i++) {
+      leafCounter=m_sons[i].assignLeafModelNumbers(leafCounter);
+    }
+  }
+ else {
+    leafCounter++;
+    m_leafModelNum=leafCounter;
+  }
+  return leafCounter;
+}

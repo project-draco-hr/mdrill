@@ -1,0 +1,4 @@
+Graphics2D g2
+Rectangle2D chartArea
+Point2D anchor
+ChartRenderingInfo info

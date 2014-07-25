@@ -1,0 +1,6 @@
+{
+  long result;
+  if (isRunning())   result=getCurrentTime();
+ else   result=m_Stop;
+  return result;
+}

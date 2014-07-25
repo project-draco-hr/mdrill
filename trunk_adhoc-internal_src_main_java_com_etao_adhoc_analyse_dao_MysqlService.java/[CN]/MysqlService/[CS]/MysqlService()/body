@@ -1,0 +1,12 @@
+{
+  try {
+    conf=YamlUtils.getConfigFromYamlFile("query-analyser.yaml");
+    this.url=(String)conf.get("mysql.url");
+    this.username=(String)conf.get("mysql.username");
+    this.password=(String)conf.get("mysql.password");
+    Class.forName(JDBC_DRIVER);
+  }
+ catch (  Throwable e) {
+    LOG.error("error",e);
+  }
+}

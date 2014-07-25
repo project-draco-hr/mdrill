@@ -1,0 +1,7 @@
+{
+  String querStr="[{\"thedate\":{\"operate\":9,\"value\":[\"20140707\",\"20140707\"]}},{\"ismatch\":{\"operate\":\"1\",\"value\":\"??????\"}}]";
+  KmeansQueryParse kmeansData=AdhocHivePartions.getKmeansDays(querStr);
+  System.out.println(kmeansData.queryStr);
+  ArrayList<String> fqList=WebServiceParams.fqListHive(false,"dt",querStr,false,new HashMap<String,String>(),null,null,null);
+  StringBuffer sqlWhere=AdhocWebServiceParams.makeWhere(fqList,new ArrayList<String>(),"userid");
+}

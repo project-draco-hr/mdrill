@@ -1,0 +1,6 @@
+{
+  this.fixedDomainAxisSpace=space;
+  if (notify) {
+    fireChangeEvent();
+  }
+}

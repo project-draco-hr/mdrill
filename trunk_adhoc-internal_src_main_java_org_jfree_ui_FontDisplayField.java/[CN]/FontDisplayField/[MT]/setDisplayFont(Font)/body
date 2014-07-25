@@ -1,0 +1,4 @@
+{
+  this.displayFont=font;
+  setText(fontToString(this.displayFont));
+}

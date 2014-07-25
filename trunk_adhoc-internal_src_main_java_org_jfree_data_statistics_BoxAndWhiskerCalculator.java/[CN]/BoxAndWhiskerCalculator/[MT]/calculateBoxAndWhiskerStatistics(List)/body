@@ -1,0 +1,3 @@
+{
+  return calculateBoxAndWhiskerStatistics(values,true);
+}

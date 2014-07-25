@@ -1,0 +1,7 @@
+{
+  final String name=getString(key);
+  if (name != null && name.length() > 0) {
+    return createMnemonic(name);
+  }
+  return null;
+}

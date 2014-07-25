@@ -1,0 +1,5 @@
+{
+  if (DEBUG)   m_printstream.println("%create");
+  PostscriptGraphics psg=new PostscriptGraphics(this);
+  return (psg);
+}

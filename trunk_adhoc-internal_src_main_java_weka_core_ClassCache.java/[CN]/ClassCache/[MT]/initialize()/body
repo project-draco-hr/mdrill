@@ -1,0 +1,32 @@
+{
+  String part;
+  File file;
+  URLClassLoader sysLoader;
+  URL[] urls;
+  m_Cache=new Hashtable<String,HashSet<String>>();
+  sysLoader=(URLClassLoader)getClass().getClassLoader();
+  urls=sysLoader.getURLs();
+  for (  URL url : urls) {
+    if (VERBOSE)     System.out.println("Classpath-part: " + part);
+    file=null;
+    part=url.toString();
+    if (part.startsWith("file:")) {
+      part=part.replace(" ","%20");
+      try {
+        file=new File(new java.net.URI(part));
+      }
+ catch (      URISyntaxException e) {
+        e.printStackTrace();
+      }
+    }
+ else {
+      file=new File(part);
+    }
+    if (file == null) {
+      System.err.println("Skipping: " + part);
+      continue;
+    }
+    if (file.isDirectory())     initFromDir(file);
+ else     if (file.exists())     initFromJar(file);
+  }
+}

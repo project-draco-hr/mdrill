@@ -1,0 +1,22 @@
+{
+  double weight=Double.NaN;
+  m_Tokenizer.nextToken();
+  if (m_Tokenizer.ttype == StreamTokenizer.TT_EOL || m_Tokenizer.ttype == StreamTokenizer.TT_EOF) {
+    return weight;
+  }
+  if (m_Tokenizer.ttype == '{') {
+    m_Tokenizer.nextToken();
+    String weightS=m_Tokenizer.sval;
+    try {
+      weight=Double.parseDouble(weightS);
+    }
+ catch (    NumberFormatException e) {
+      return weight;
+    }
+    m_Tokenizer.nextToken();
+    if (m_Tokenizer.ttype != '}') {
+      errorMessage("Problem reading instance weight");
+    }
+  }
+  return weight;
+}

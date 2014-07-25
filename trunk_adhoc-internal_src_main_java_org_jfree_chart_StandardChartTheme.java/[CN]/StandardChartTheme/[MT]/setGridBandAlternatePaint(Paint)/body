@@ -1,0 +1,6 @@
+{
+  if (paint == null) {
+    throw new IllegalArgumentException("Null 'paint' argument.");
+  }
+  this.gridBandAlternatePaint=paint;
+}

@@ -1,0 +1,37 @@
+{
+  if (closestConnections.size() > 0) {
+    int menuItemCount=0;
+    PopupMenu deleteConnectionMenu=new PopupMenu();
+    MenuItem deleteConnection=new MenuItem("Delete Connection:");
+    deleteConnection.setEnabled(false);
+    deleteConnectionMenu.insert(deleteConnection,menuItemCount);
+    menuItemCount++;
+    for (int i=0; i < closestConnections.size(); i++) {
+      final BeanConnection bc=(BeanConnection)closestConnections.elementAt(i);
+      String connName=bc.getSourceEventSetDescriptor().getName();
+      String targetName="";
+      if (bc.getTarget().getBean() instanceof BeanCommon) {
+        targetName=((BeanCommon)bc.getTarget().getBean()).getCustomName();
+      }
+ else {
+        targetName=bc.getTarget().getBean().getClass().getName();
+        targetName=targetName.substring(targetName.lastIndexOf('.') + 1,targetName.length());
+      }
+      MenuItem deleteItem=new MenuItem(connName + "-->" + targetName);
+      deleteItem.addActionListener(new ActionListener(){
+        public void actionPerformed(        ActionEvent e){
+          bc.remove(m_mainKFPerspective.getCurrentTabIndex());
+          m_beanLayout.revalidate();
+          m_beanLayout.repaint();
+          m_mainKFPerspective.setEditedStatus(true);
+          notifyIsDirty();
+        }
+      }
+);
+      deleteConnectionMenu.add(deleteItem);
+      menuItemCount++;
+    }
+    m_beanLayout.add(deleteConnectionMenu);
+    deleteConnectionMenu.show(m_beanLayout,x,y);
+  }
+}

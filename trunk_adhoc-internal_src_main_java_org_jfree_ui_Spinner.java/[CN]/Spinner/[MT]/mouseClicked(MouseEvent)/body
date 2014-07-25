@@ -1,0 +1,12 @@
+{
+  if (e.getSource() == this.upButton) {
+    this.value++;
+    this.textField.setText(Integer.toString(this.value));
+    firePropertyChange("value",this.value - 1,this.value);
+  }
+ else   if (e.getSource() == this.downButton) {
+    this.value--;
+    this.textField.setText(Integer.toString(this.value));
+    firePropertyChange("value",this.value + 1,this.value);
+  }
+}

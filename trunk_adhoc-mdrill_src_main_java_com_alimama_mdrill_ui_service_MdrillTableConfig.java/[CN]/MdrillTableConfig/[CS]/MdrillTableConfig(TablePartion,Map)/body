@@ -1,0 +1,5 @@
+{
+  this.fieldColumntypeMap=MdrillFieldInfo.readFieldsFromSchemaXml(stormconf,part.name);
+  this.mode=String.valueOf(stormconf.get("higo.mode." + part.name));
+  this.isnothedate=this.mode.indexOf("@nothedate@") >= 0;
+}

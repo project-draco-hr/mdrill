@@ -1,0 +1,3 @@
+{
+  m_startBut.setEnabled(enable);
+}

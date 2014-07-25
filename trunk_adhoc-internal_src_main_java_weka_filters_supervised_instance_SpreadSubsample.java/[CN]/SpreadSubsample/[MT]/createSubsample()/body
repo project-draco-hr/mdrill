@@ -1,0 +1,76 @@
+{
+  int classI=getInputFormat().classIndex();
+  getInputFormat().sort(classI);
+  int[] classIndices=getClassIndices();
+  int[] counts=new int[getInputFormat().numClasses()];
+  double[] weights=new double[getInputFormat().numClasses()];
+  int min=-1;
+  for (int i=0; i < getInputFormat().numInstances(); i++) {
+    Instance current=getInputFormat().instance(i);
+    if (current.classIsMissing() == false) {
+      counts[(int)current.classValue()]++;
+      weights[(int)current.classValue()]+=current.weight();
+    }
+  }
+  for (int i=0; i < counts.length; i++) {
+    if (counts[i] > 0) {
+      weights[i]=weights[i] / counts[i];
+    }
+  }
+  int minIndex=-1;
+  for (int i=0; i < counts.length; i++) {
+    if ((min < 0) && (counts[i] > 0)) {
+      min=counts[i];
+      minIndex=i;
+    }
+ else     if ((counts[i] < min) && (counts[i] > 0)) {
+      min=counts[i];
+      minIndex=i;
+    }
+  }
+  if (min < 0) {
+    System.err.println("SpreadSubsample: *warning* none of the classes have any values in them.");
+    return;
+  }
+  int[] new_counts=new int[getInputFormat().numClasses()];
+  for (int i=0; i < counts.length; i++) {
+    new_counts[i]=(int)Math.abs(Math.min(counts[i],min * m_DistributionSpread));
+    if (i == minIndex) {
+      if (m_DistributionSpread > 0 && m_DistributionSpread < 1.0) {
+        new_counts[i]=counts[i];
+      }
+    }
+    if (m_DistributionSpread == 0) {
+      new_counts[i]=counts[i];
+    }
+    if (m_MaxCount > 0) {
+      new_counts[i]=Math.min(new_counts[i],m_MaxCount);
+    }
+  }
+  Random random=new Random(m_RandomSeed);
+  Hashtable t=new Hashtable();
+  for (int j=0; j < new_counts.length; j++) {
+    double newWeight=1.0;
+    if (m_AdjustWeights && (new_counts[j] > 0)) {
+      newWeight=weights[j] * counts[j] / new_counts[j];
+    }
+    for (int k=0; k < new_counts[j]; k++) {
+      boolean ok=false;
+      do {
+        int index=classIndices[j] + (Math.abs(random.nextInt()) % (classIndices[j + 1] - classIndices[j]));
+        if (t.get("" + index) == null) {
+          t.put("" + index,"");
+          ok=true;
+          if (index >= 0) {
+            Instance newInst=(Instance)getInputFormat().instance(index).copy();
+            if (m_AdjustWeights) {
+              newInst.setWeight(newWeight);
+            }
+            push(newInst);
+          }
+        }
+      }
+ while (!ok);
+    }
+  }
+}

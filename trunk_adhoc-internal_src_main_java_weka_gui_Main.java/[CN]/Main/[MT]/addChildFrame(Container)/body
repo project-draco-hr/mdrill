@@ -1,0 +1,4 @@
+{
+  m_ChildFrames.add(c);
+  windowListChanged();
+}

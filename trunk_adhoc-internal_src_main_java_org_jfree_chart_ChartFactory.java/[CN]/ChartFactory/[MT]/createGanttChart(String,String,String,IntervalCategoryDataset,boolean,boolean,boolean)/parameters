@@ -1,0 +1,7 @@
+String title
+String categoryAxisLabel
+String dateAxisLabel
+IntervalCategoryDataset dataset
+boolean legend
+boolean tooltips
+boolean urls

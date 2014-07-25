@@ -1,0 +1,6 @@
+{
+  int result=17;
+  int c=this.year;
+  result=37 * result + c;
+  return result;
+}

@@ -1,0 +1,17 @@
+{
+  CNode host=m_cobwebTree;
+  CNode temp=null;
+  determineNumberOfClusters();
+  do {
+    if (host.m_children == null) {
+      temp=null;
+      break;
+    }
+    temp=host.findHost(instance,true);
+    if (temp != null) {
+      host=temp;
+    }
+  }
+ while (temp != null);
+  return host.m_clusterNum;
+}

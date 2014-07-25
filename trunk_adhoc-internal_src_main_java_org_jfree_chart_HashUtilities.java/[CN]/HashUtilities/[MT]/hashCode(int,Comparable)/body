@@ -1,0 +1,4 @@
+{
+  int h=(c != null ? c.hashCode() : 0);
+  return 37 * pre + h;
+}

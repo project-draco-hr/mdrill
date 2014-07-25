@@ -1,0 +1,7 @@
+{
+  String demandDir=Utils.getOption('D',options);
+  if (demandDir.length() != 0) {
+    setOnDemandDirectory(new File(demandDir));
+  }
+  super.setOptions(options);
+}

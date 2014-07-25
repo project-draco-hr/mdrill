@@ -1,0 +1,9 @@
+{
+  CategoryTableXYDataset clone=(CategoryTableXYDataset)super.clone();
+  clone.values=(DefaultKeyedValues2D)this.values.clone();
+  clone.intervalDelegate=new IntervalXYDelegate(clone);
+  clone.intervalDelegate.setFixedIntervalWidth(getIntervalWidth());
+  clone.intervalDelegate.setAutoWidth(isAutoWidth());
+  clone.intervalDelegate.setIntervalPositionFactor(getIntervalPositionFactor());
+  return clone;
+}

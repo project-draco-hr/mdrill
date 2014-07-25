@@ -1,0 +1,4 @@
+{
+  drawDataPoint(x,y,size,shape,gx);
+  gx.drawLine((int)x,(int)y,(int)xprev,(int)yprev);
+}

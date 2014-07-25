@@ -1,0 +1,49 @@
+{
+  LookAndFeel.setLookAndFeel();
+  try {
+    final javax.swing.JFrame jf=new javax.swing.JFrame();
+    jf.getContentPane().setLayout(new java.awt.BorderLayout());
+    for (int i=0; i < args.length; i++) {
+      if (args[i].toLowerCase().endsWith(".kf") || args[i].toLowerCase().endsWith(".kfml")) {
+        args[i]="file=" + args[i];
+      }
+    }
+    KnowledgeFlowApp.createSingleton(args);
+    Image icon=Toolkit.getDefaultToolkit().getImage(m_knowledgeFlow.getClass().getClassLoader().getResource("weka/gui/weka_icon_new_48.png"));
+    jf.setIconImage(icon);
+    jf.getContentPane().add(m_knowledgeFlow,java.awt.BorderLayout.CENTER);
+    jf.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+    jf.setSize(1024,768);
+    jf.setVisible(true);
+    Thread memMonitor=new Thread(){
+      public void run(){
+        while (true) {
+          try {
+            this.sleep(4000);
+            System.gc();
+            if (m_Memory.isOutOfMemory()) {
+              jf.dispose();
+              m_knowledgeFlow=null;
+              System.gc();
+              m_Memory.stopThreads();
+              System.err.println("\n[KnowledgeFlow] displayed message:");
+              m_Memory.showOutOfMemory();
+              System.err.println("\nexiting");
+              System.exit(-1);
+            }
+          }
+ catch (          InterruptedException ex) {
+            ex.printStackTrace();
+          }
+        }
+      }
+    }
+;
+    memMonitor.setPriority(Thread.NORM_PRIORITY);
+    memMonitor.start();
+  }
+ catch (  Exception ex) {
+    ex.printStackTrace();
+    System.err.println(ex.getMessage());
+  }
+}

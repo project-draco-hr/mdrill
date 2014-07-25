@@ -1,0 +1,7 @@
+{
+  m_AttValues=null;
+  m_Indices=indices;
+  m_Weight=weight;
+  m_NumAttributes=maxNumValues;
+  m_Dataset=null;
+}

@@ -1,0 +1,53 @@
+{
+  if (s == null) {
+    return "";
+  }
+  final StringBuffer str=new StringBuffer();
+  final int len=s.length();
+  for (int i=0; i < len; i++) {
+    final char ch=s.charAt(i);
+switch (ch) {
+case '<':
+{
+        str.append("&lt;");
+        break;
+      }
+case '>':
+{
+      str.append("&gt;");
+      break;
+    }
+case '&':
+{
+    str.append("&amp;");
+    break;
+  }
+case '"':
+{
+  str.append("&quot;");
+  break;
+}
+case '\n':
+{
+if (i > 0) {
+  final char lastChar=str.charAt(str.length() - 1);
+  if (lastChar != '\r') {
+    str.append(getLineSeparator());
+  }
+ else {
+    str.append('\n');
+  }
+}
+ else {
+  str.append(getLineSeparator());
+}
+break;
+}
+default :
+{
+str.append(ch);
+}
+}
+}
+return (str.toString());
+}

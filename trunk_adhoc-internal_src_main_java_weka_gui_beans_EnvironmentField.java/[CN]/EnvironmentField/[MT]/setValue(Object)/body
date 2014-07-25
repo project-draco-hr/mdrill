@@ -1,0 +1,3 @@
+{
+  setAsText((String)o);
+}

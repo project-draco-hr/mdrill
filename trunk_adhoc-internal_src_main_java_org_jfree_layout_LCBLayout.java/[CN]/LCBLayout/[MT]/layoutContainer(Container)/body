@@ -1,0 +1,48 @@
+{
+synchronized (parent.getTreeLock()) {
+    final Insets insets=parent.getInsets();
+    final int ncomponents=parent.getComponentCount();
+    final int nrows=ncomponents / COLUMNS;
+    for (int c=0; c < COLUMNS; c++) {
+      for (int r=0; r < nrows; r++) {
+        final Component component=parent.getComponent(r * COLUMNS + c);
+        final Dimension d=component.getPreferredSize();
+        if (this.colWidth[c] < d.width) {
+          this.colWidth[c]=d.width;
+        }
+        if (this.rowHeight[r] < d.height) {
+          this.rowHeight[r]=d.height;
+        }
+      }
+    }
+    int totalHeight=this.vGap * (nrows - 1);
+    for (int r=0; r < nrows; r++) {
+      totalHeight=totalHeight + this.rowHeight[r];
+    }
+    final int totalWidth=this.colWidth[0] + this.colWidth[1] + this.colWidth[2];
+    final int available=parent.getWidth() - insets.left - insets.right- this.labelGap- this.buttonGap;
+    this.colWidth[1]=this.colWidth[1] + (available - totalWidth);
+    int x=insets.left;
+    for (int c=0; c < COLUMNS; c++) {
+      int y=insets.top;
+      for (int r=0; r < nrows; r++) {
+        final int i=r * COLUMNS + c;
+        if (i < ncomponents) {
+          final Component component=parent.getComponent(i);
+          final Dimension d=component.getPreferredSize();
+          final int h=d.height;
+          final int adjust=(this.rowHeight[r] - h) / 2;
+          parent.getComponent(i).setBounds(x,y + adjust,this.colWidth[c],h);
+        }
+        y=y + this.rowHeight[r] + this.vGap;
+      }
+      x=x + this.colWidth[c];
+      if (c == 0) {
+        x=x + this.labelGap;
+      }
+      if (c == 1) {
+        x=x + this.buttonGap;
+      }
+    }
+  }
+}

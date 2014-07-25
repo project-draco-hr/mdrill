@@ -1,0 +1,12 @@
+{
+  do {
+    int iBit;
+    do {
+      iBit=m_random.nextInt(m_nNodes * m_nNodes);
+    }
+ while (isSquare(iBit));
+    m_bits[iBit]=!m_bits[iBit];
+  }
+ while (hasCycles());
+  calcScore();
+}

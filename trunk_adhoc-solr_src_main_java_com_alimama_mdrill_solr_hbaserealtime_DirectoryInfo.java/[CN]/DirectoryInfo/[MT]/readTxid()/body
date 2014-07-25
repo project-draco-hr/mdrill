@@ -1,0 +1,18 @@
+{
+  if (txid > 0) {
+    return txid;
+  }
+  if (!d.fileExists("txid")) {
+    return 0l;
+  }
+  IndexInput in=d.openInput("txid");
+  long rtn=0l;
+  try {
+    rtn=Long.parseLong(in.readString());
+  }
+ catch (  Throwable e) {
+    rtn=0;
+  }
+  in.close();
+  return rtn;
+}

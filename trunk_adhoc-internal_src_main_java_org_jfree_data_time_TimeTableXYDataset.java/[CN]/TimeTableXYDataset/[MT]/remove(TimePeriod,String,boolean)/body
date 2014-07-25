@@ -1,0 +1,6 @@
+{
+  this.values.removeValue(period,seriesName);
+  if (notify) {
+    fireDatasetChanged();
+  }
+}

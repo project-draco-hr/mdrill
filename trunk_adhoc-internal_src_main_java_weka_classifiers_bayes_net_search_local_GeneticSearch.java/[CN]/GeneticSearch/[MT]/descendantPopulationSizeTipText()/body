@@ -1,0 +1,3 @@
+{
+  return "Sets the size of the population of descendants that is created each generation.";
+}

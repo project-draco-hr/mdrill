@@ -1,0 +1,9 @@
+{
+  final TestSuite suite=new TestSuite("JCommon");
+  suite.addTest(DatePackageTests.suite());
+  suite.addTest(IOPackageTests.suite());
+  suite.addTest(TextPackageTests.suite());
+  suite.addTest(UIPackageTests.suite());
+  suite.addTest(UtilPackageTests.suite());
+  return suite;
+}

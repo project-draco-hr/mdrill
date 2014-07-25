@@ -1,0 +1,4 @@
+{
+  m_CapabilitiesFilter=new Capabilities(null);
+  m_CapabilitiesFilter.assign(value);
+}

@@ -1,0 +1,13 @@
+{
+  super();
+  setNumClusters(defaultNumClusters());
+  setMinInstNum(defaultMinInstNum());
+  setMaxInstNum(defaultMaxInstNum());
+  setMinRadius(defaultMinRadius());
+  setMaxRadius(defaultMaxRadius());
+  setPattern(defaultPattern());
+  setDistMult(defaultDistMult());
+  setNumCycles(defaultNumCycles());
+  setInputOrder(defaultInputOrder());
+  setNoiseRate(defaultNoiseRate());
+}

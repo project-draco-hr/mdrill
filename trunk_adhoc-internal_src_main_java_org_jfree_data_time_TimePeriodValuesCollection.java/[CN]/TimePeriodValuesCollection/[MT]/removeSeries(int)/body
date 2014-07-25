@@ -1,0 +1,6 @@
+{
+  TimePeriodValues series=getSeries(index);
+  if (series != null) {
+    removeSeries(series);
+  }
+}

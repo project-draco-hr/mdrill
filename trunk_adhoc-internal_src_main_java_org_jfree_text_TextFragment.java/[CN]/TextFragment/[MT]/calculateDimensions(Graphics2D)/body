@@ -1,0 +1,6 @@
+{
+  final FontMetrics fm=g2.getFontMetrics(this.font);
+  final Rectangle2D bounds=TextUtilities.getTextBounds(this.text,g2,fm);
+  final Size2D result=new Size2D(bounds.getWidth(),bounds.getHeight());
+  return result;
+}

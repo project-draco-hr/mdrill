@@ -1,0 +1,13 @@
+{
+  if (first == null)   first=last=new MyListNode(i);
+ else   if (last.next == null) {
+    last.next=new MyListNode(i);
+    last.next.previous=last;
+    last=last.next;
+  }
+ else {
+    System.err.println("Error shouldn't be in here. Check MyList code");
+    size--;
+  }
+  size++;
+}

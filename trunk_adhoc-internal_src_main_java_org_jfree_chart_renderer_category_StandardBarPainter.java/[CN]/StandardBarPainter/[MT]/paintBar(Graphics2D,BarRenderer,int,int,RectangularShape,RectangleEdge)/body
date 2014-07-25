@@ -1,0 +1,18 @@
+{
+  Paint itemPaint=renderer.getItemPaint(row,column);
+  GradientPaintTransformer t=renderer.getGradientPaintTransformer();
+  if (t != null && itemPaint instanceof GradientPaint) {
+    itemPaint=t.transform((GradientPaint)itemPaint,bar);
+  }
+  g2.setPaint(itemPaint);
+  g2.fill(bar);
+  if (renderer.isDrawBarOutline()) {
+    Stroke stroke=renderer.getItemOutlineStroke(row,column);
+    Paint paint=renderer.getItemOutlinePaint(row,column);
+    if (stroke != null && paint != null) {
+      g2.setStroke(stroke);
+      g2.setPaint(paint);
+      g2.draw(bar);
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  if (rowIncrement < 1) {
+    throw new IllegalArgumentException("Increment must be positive.");
+  }
+  if (colIncrement < 1) {
+    throw new IllegalArgumentException("Increment must be positive.");
+  }
+  this.rows=0;
+  this.columns=0;
+  this.rowIncrement=rowIncrement;
+  this.columnIncrement=colIncrement;
+  this.data=new Object[rowIncrement][];
+}

@@ -1,0 +1,5 @@
+{
+  long hourIndex=this.day.getSerialIndex() * 24L + this.hour;
+  long minuteIndex=hourIndex * 60L + this.minute;
+  return minuteIndex * 60L + this.second;
+}

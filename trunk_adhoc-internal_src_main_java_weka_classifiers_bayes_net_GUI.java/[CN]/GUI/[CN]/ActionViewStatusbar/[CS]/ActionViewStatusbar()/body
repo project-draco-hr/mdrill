@@ -1,0 +1,3 @@
+{
+  super("View statusbar","View statusbar","statusbar","");
+}

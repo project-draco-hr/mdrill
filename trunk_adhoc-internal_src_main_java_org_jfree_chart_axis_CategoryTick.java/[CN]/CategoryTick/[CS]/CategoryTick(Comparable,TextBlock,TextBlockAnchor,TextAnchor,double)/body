@@ -1,0 +1,6 @@
+{
+  super("",TextAnchor.CENTER,rotationAnchor,angle);
+  this.category=category;
+  this.label=label;
+  this.labelAnchor=labelAnchor;
+}

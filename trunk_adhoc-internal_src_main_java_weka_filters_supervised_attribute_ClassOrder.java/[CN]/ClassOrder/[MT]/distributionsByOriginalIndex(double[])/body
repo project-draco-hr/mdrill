@@ -1,0 +1,5 @@
+{
+  double[] after=new double[m_Converter.length];
+  for (int i=0; i < m_Converter.length; i++)   after[i]=before[m_Converter[i]];
+  return after;
+}

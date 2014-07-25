@@ -1,0 +1,37 @@
+{
+  setChart(chart);
+  this.chartMouseListeners=new EventListenerList();
+  this.info=new ChartRenderingInfo();
+  setPreferredSize(new Dimension(width,height));
+  this.useBuffer=useBuffer;
+  this.refreshBuffer=false;
+  this.minimumDrawWidth=minimumDrawWidth;
+  this.minimumDrawHeight=minimumDrawHeight;
+  this.maximumDrawWidth=maximumDrawWidth;
+  this.maximumDrawHeight=maximumDrawHeight;
+  this.zoomTriggerDistance=DEFAULT_ZOOM_TRIGGER_DISTANCE;
+  this.popup=null;
+  if (properties || copy || save|| print|| zoom) {
+    this.popup=createPopupMenu(properties,copy,save,print,zoom);
+  }
+  enableEvents(AWTEvent.MOUSE_EVENT_MASK);
+  enableEvents(AWTEvent.MOUSE_MOTION_EVENT_MASK);
+  setDisplayToolTips(tooltips);
+  addMouseListener(this);
+  addMouseMotionListener(this);
+  this.defaultDirectoryForSaveAs=null;
+  this.enforceFileExtensions=true;
+  ToolTipManager ttm=ToolTipManager.sharedInstance();
+  this.ownToolTipInitialDelay=ttm.getInitialDelay();
+  this.ownToolTipDismissDelay=ttm.getDismissDelay();
+  this.ownToolTipReshowDelay=ttm.getReshowDelay();
+  this.zoomAroundAnchor=false;
+  this.zoomOutlinePaint=Color.blue;
+  this.zoomFillPaint=new Color(0,0,255,63);
+  this.panMask=InputEvent.CTRL_MASK;
+  String osName=System.getProperty("os.name").toLowerCase();
+  if (osName.startsWith("mac os x")) {
+    this.panMask=InputEvent.ALT_MASK;
+  }
+  this.overlays=new java.util.ArrayList();
+}

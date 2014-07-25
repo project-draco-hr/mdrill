@@ -1,0 +1,9 @@
+{
+  final String selected=(String)this.sizelist.getSelectedValue();
+  if (selected != null) {
+    return Integer.parseInt(selected);
+  }
+ else {
+    return 10;
+  }
+}

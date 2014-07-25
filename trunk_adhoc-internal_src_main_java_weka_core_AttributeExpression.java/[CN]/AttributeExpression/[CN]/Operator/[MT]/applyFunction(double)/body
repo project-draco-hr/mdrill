@@ -1,0 +1,25 @@
+{
+switch (m_operator) {
+case 'l':
+    return Math.log(value);
+case 'b':
+  return Math.abs(value);
+case 'c':
+return Math.cos(value);
+case 'e':
+return Math.exp(value);
+case 's':
+return Math.sqrt(value);
+case 'f':
+return Math.floor(value);
+case 'h':
+return Math.ceil(value);
+case 'r':
+return Math.rint(value);
+case 't':
+return Math.tan(value);
+case 'n':
+return Math.sin(value);
+}
+return Double.NaN;
+}

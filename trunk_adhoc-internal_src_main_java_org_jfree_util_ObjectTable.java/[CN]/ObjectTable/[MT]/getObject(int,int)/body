@@ -1,0 +1,12 @@
+{
+  if (row < this.data.length) {
+    final Object[] current=this.data[row];
+    if (current == null) {
+      return null;
+    }
+    if (column < current.length) {
+      return current[column];
+    }
+  }
+  return null;
+}

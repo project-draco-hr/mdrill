@@ -1,0 +1,3 @@
+{
+  return "BMAEstimator estimates conditional probability tables of a Bayes " + "network using Bayes Model Averaging (BMA).";
+}

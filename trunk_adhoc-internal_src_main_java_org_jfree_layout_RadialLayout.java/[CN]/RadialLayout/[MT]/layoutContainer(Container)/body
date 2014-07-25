@@ -1,0 +1,36 @@
+{
+  final Insets insets=parent.getInsets();
+  final int maxWidth=parent.getSize().width - (insets.left + insets.right);
+  final int maxHeight=parent.getSize().height - (insets.top + insets.bottom);
+  final int nComps=parent.getComponentCount();
+  int x=0;
+  int y=0;
+  if (this.sizeUnknown) {
+    setSizes(parent);
+  }
+  if (nComps < 2) {
+    final Component c=parent.getComponent(0);
+    if (c.isVisible()) {
+      final Dimension d=c.getPreferredSize();
+      c.setBounds(x,y,d.width,d.height);
+    }
+  }
+ else {
+    double radialCurrent=Math.toRadians(90);
+    final double radialIncrement=2 * Math.PI / nComps;
+    final int midX=maxWidth / 2;
+    final int midY=maxHeight / 2;
+    final int a=midX - this.maxCompWidth;
+    final int b=midY - this.maxCompHeight;
+    for (int i=0; i < nComps; i++) {
+      final Component c=parent.getComponent(i);
+      if (c.isVisible()) {
+        final Dimension d=c.getPreferredSize();
+        x=(int)(midX - (a * Math.cos(radialCurrent)) - (d.getWidth() / 2) + insets.left);
+        y=(int)(midY - (b * Math.sin(radialCurrent)) - (d.getHeight() / 2) + insets.top);
+        c.setBounds(x,y,d.width,d.height);
+      }
+      radialCurrent+=radialIncrement;
+    }
+  }
+}

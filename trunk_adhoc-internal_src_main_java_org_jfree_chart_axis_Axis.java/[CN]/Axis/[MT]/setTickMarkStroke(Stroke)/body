@@ -1,0 +1,9 @@
+{
+  if (stroke == null) {
+    throw new IllegalArgumentException("Null 'stroke' argument.");
+  }
+  if (!this.tickMarkStroke.equals(stroke)) {
+    this.tickMarkStroke=stroke;
+    fireChangeEvent();
+  }
+}

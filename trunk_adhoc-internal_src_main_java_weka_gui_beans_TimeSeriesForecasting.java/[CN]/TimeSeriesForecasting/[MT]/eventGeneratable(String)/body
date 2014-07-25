@@ -1,0 +1,8 @@
+{
+  if (eventName.equals("instance") || eventName.equals("dataset")) {
+    if (m_listenee == null) {
+      return false;
+    }
+  }
+  return true;
+}

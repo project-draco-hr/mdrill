@@ -1,0 +1,4 @@
+{
+  if (value != null)   m_Stemmer=value;
+ else   m_Stemmer=new NullStemmer();
+}

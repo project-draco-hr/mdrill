@@ -1,0 +1,3 @@
+{
+  return createInsetRectangle(base,true,true);
+}

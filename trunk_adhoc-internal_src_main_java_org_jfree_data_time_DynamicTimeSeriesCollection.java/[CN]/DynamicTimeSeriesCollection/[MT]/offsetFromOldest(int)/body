@@ -1,0 +1,3 @@
+{
+  return wrapOffset(this.oldestAt + delta);
+}

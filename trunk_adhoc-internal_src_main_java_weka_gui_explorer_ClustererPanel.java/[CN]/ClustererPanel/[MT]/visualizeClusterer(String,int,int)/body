@@ -1,0 +1,179 @@
+{
+  final String selectedName=name;
+  JPopupMenu resultListMenu=new JPopupMenu();
+  JMenuItem visMainBuffer=new JMenuItem("View in main window");
+  if (selectedName != null) {
+    visMainBuffer.addActionListener(new ActionListener(){
+      public void actionPerformed(      ActionEvent e){
+        m_History.setSingle(selectedName);
+      }
+    }
+);
+  }
+ else {
+    visMainBuffer.setEnabled(false);
+  }
+  resultListMenu.add(visMainBuffer);
+  JMenuItem visSepBuffer=new JMenuItem("View in separate window");
+  if (selectedName != null) {
+    visSepBuffer.addActionListener(new ActionListener(){
+      public void actionPerformed(      ActionEvent e){
+        m_History.openFrame(selectedName);
+      }
+    }
+);
+  }
+ else {
+    visSepBuffer.setEnabled(false);
+  }
+  resultListMenu.add(visSepBuffer);
+  JMenuItem saveOutput=new JMenuItem("Save result buffer");
+  if (selectedName != null) {
+    saveOutput.addActionListener(new ActionListener(){
+      public void actionPerformed(      ActionEvent e){
+        saveBuffer(selectedName);
+      }
+    }
+);
+  }
+ else {
+    saveOutput.setEnabled(false);
+  }
+  resultListMenu.add(saveOutput);
+  JMenuItem deleteOutput=new JMenuItem("Delete result buffer");
+  if (selectedName != null) {
+    deleteOutput.addActionListener(new ActionListener(){
+      public void actionPerformed(      ActionEvent e){
+        m_History.removeResult(selectedName);
+      }
+    }
+);
+  }
+ else {
+    deleteOutput.setEnabled(false);
+  }
+  resultListMenu.add(deleteOutput);
+  resultListMenu.addSeparator();
+  JMenuItem loadModel=new JMenuItem("Load model");
+  loadModel.addActionListener(new ActionListener(){
+    public void actionPerformed(    ActionEvent e){
+      loadClusterer();
+    }
+  }
+);
+  resultListMenu.add(loadModel);
+  FastVector o=null;
+  if (selectedName != null) {
+    o=(FastVector)m_History.getNamedObject(selectedName);
+  }
+  VisualizePanel temp_vp=null;
+  String temp_grph=null;
+  Clusterer temp_clusterer=null;
+  Instances temp_trainHeader=null;
+  int[] temp_ignoreAtts=null;
+  if (o != null) {
+    for (int i=0; i < o.size(); i++) {
+      Object temp=o.elementAt(i);
+      if (temp instanceof Clusterer) {
+        temp_clusterer=(Clusterer)temp;
+      }
+ else       if (temp instanceof Instances) {
+        temp_trainHeader=(Instances)temp;
+      }
+ else       if (temp instanceof int[]) {
+        temp_ignoreAtts=(int[])temp;
+      }
+ else       if (temp instanceof VisualizePanel) {
+        temp_vp=(VisualizePanel)temp;
+      }
+ else       if (temp instanceof String) {
+        temp_grph=(String)temp;
+      }
+    }
+  }
+  final VisualizePanel vp=temp_vp;
+  final String grph=temp_grph;
+  final Clusterer clusterer=temp_clusterer;
+  final Instances trainHeader=temp_trainHeader;
+  final int[] ignoreAtts=temp_ignoreAtts;
+  JMenuItem saveModel=new JMenuItem("Save model");
+  if (clusterer != null) {
+    saveModel.addActionListener(new ActionListener(){
+      public void actionPerformed(      ActionEvent e){
+        saveClusterer(selectedName,clusterer,trainHeader,ignoreAtts);
+      }
+    }
+);
+  }
+ else {
+    saveModel.setEnabled(false);
+  }
+  resultListMenu.add(saveModel);
+  JMenuItem reEvaluate=new JMenuItem("Re-evaluate model on current test set");
+  if (clusterer != null && m_TestInstances != null) {
+    reEvaluate.addActionListener(new ActionListener(){
+      public void actionPerformed(      ActionEvent e){
+        reevaluateModel(selectedName,clusterer,trainHeader,ignoreAtts);
+      }
+    }
+);
+  }
+ else {
+    reEvaluate.setEnabled(false);
+  }
+  resultListMenu.add(reEvaluate);
+  resultListMenu.addSeparator();
+  JMenuItem visClusts=new JMenuItem("Visualize cluster assignments");
+  if (vp != null) {
+    visClusts.addActionListener(new ActionListener(){
+      public void actionPerformed(      ActionEvent e){
+        visualizeClusterAssignments(vp);
+      }
+    }
+);
+  }
+ else {
+    visClusts.setEnabled(false);
+  }
+  resultListMenu.add(visClusts);
+  JMenuItem visTree=new JMenuItem("Visualize tree");
+  if (grph != null) {
+    visTree.addActionListener(new ActionListener(){
+      public void actionPerformed(      ActionEvent e){
+        String title;
+        if (vp != null)         title=vp.getName();
+ else         title=selectedName;
+        visualizeTree(grph,title);
+      }
+    }
+);
+  }
+ else {
+    visTree.setEnabled(false);
+  }
+  resultListMenu.add(visTree);
+  JMenu visPlugins=new JMenu("Plugins");
+  boolean availablePlugins=false;
+  if (grph != null) {
+    Vector pluginsVector=GenericObjectEditor.getClassnames(TreeVisualizePlugin.class.getName());
+    for (int i=0; i < pluginsVector.size(); i++) {
+      String className=(String)(pluginsVector.elementAt(i));
+      try {
+        TreeVisualizePlugin plugin=(TreeVisualizePlugin)Class.forName(className).newInstance();
+        if (plugin == null)         continue;
+        availablePlugins=true;
+        JMenuItem pluginMenuItem=plugin.getVisualizeMenuItem(grph,selectedName);
+        Version version=new Version();
+        if (pluginMenuItem != null) {
+          if (version.compareTo(plugin.getMinVersion()) < 0)           pluginMenuItem.setText(pluginMenuItem.getText() + " (weka outdated)");
+          if (version.compareTo(plugin.getMaxVersion()) >= 0)           pluginMenuItem.setText(pluginMenuItem.getText() + " (plugin outdated)");
+          visPlugins.add(pluginMenuItem);
+        }
+      }
+ catch (      Exception e) {
+      }
+    }
+  }
+  if (availablePlugins)   resultListMenu.add(visPlugins);
+  resultListMenu.show(m_History.getList(),x,y);
+}

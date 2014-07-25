@@ -1,0 +1,9 @@
+{
+  if (booter == null) {
+    throw new NullPointerException();
+  }
+  this.booter=booter;
+  this.packageConfiguration=new PackageConfiguration();
+  this.modules=new ArrayList();
+  this.initSections=new ArrayList();
+}

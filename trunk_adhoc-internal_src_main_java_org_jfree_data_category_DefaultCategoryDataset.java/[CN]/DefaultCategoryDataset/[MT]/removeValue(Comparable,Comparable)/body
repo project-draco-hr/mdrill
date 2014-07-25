@@ -1,0 +1,4 @@
+{
+  this.data.removeValue(rowKey,columnKey);
+  fireDatasetChanged();
+}

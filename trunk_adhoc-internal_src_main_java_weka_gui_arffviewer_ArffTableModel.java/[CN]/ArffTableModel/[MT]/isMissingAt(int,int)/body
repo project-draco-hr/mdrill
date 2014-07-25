@@ -1,0 +1,6 @@
+{
+  boolean result;
+  result=false;
+  if ((rowIndex >= 0) && (rowIndex < getRowCount()) && (columnIndex > 0)&& (columnIndex < getColumnCount()))   result=(m_Data.instance(rowIndex).isMissing(columnIndex - 1));
+  return result;
+}

@@ -1,0 +1,5 @@
+{
+  loadHistory(false);
+  m_History.setProperty(evt.getHistoryName(),modelToString(evt.getHistory()));
+  saveHistory();
+}

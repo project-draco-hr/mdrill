@@ -1,0 +1,13 @@
+MdrillTableConfig tblconf
+TablePartion part
+Map stormconf
+String projectName
+String startStr
+String rowsStr
+String queryStr
+String dist
+String fl
+String groupby
+String sort
+String order
+String leftjoin

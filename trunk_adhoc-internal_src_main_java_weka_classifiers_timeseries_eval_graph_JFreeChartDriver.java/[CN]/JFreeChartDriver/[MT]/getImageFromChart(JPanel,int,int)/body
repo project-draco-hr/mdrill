@@ -1,0 +1,7 @@
+{
+  if (!(chart instanceof ChartPanel)) {
+    throw new Exception("Chart is not a JFreeChart!");
+  }
+  Image result=((ChartPanel)chart).getChart().createBufferedImage(width,height);
+  return result;
+}

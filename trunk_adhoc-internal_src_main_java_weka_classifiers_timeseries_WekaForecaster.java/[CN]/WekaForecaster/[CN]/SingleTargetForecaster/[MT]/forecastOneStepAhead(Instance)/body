@@ -1,0 +1,12 @@
+{
+  transformed.dataset().setClassIndex(m_classIndex);
+  if (m_otherTargetRemover != null) {
+    m_otherTargetRemover.input(transformed);
+    transformed=m_otherTargetRemover.output();
+  }
+  double pred=m_targetForecaster.classifyInstance(transformed);
+  if (m_lagMaker.getAdjustForVariance()) {
+    pred=Math.exp(pred);
+  }
+  return pred;
+}

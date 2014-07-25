@@ -1,0 +1,5 @@
+{
+  m_PrintPane=new JTextPane();
+  m_PageFormat=new PageFormat();
+  m_PrinterJob=PrinterJob.getPrinterJob();
+}

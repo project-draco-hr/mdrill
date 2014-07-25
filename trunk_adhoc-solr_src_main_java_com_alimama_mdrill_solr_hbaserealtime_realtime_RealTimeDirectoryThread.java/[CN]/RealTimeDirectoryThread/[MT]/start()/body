@@ -1,0 +1,6 @@
+{
+  this.initPurgerThread();
+  this.syncHdfs();
+  this.doclistSync();
+  this.mergerOne();
+}

@@ -1,0 +1,5 @@
+{
+  double[] d=new double[numberOfClusters()];
+  d[clusterInstance(instance)]=1.0;
+  return d;
+}

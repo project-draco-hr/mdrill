@@ -1,0 +1,54 @@
+{
+  Class[] classes=c.getClasses();
+  if (model == null) {
+    model=new DescriptionModel();
+  }
+  while (classes.length != 0) {
+    classes=fillModel(classes,model);
+  }
+  fillSuperClasses(model);
+  final Class[] baseClasses=findElementTypes(model);
+  final HashNMap classMap=new HashNMap();
+  for (int i=0; i < baseClasses.length; i++) {
+    final Class base=baseClasses[i];
+    for (int j=0; j < baseClasses.length; j++) {
+      final Class child=baseClasses[j];
+      if (Modifier.isAbstract(child.getModifiers())) {
+        continue;
+      }
+      if (base.isAssignableFrom(child)) {
+        classMap.add(base,child);
+      }
+    }
+  }
+  final Iterator keys=classMap.keys();
+  while (keys.hasNext()) {
+    final Class base=(Class)keys.next();
+    final Class[] childs=(Class[])classMap.toArray(base,new Class[0]);
+    if (childs.length < 2) {
+      continue;
+    }
+    boolean isNew=false;
+    MultiplexMappingInfo mmi=model.getMappingModel().lookupMultiplexMapping(base);
+    final ArrayList typeInfoList;
+    if (mmi == null) {
+      mmi=new MultiplexMappingInfo(base);
+      typeInfoList=new ArrayList();
+      isNew=true;
+    }
+ else {
+      typeInfoList=new ArrayList(Arrays.asList(mmi.getChildClasses()));
+    }
+    for (int i=0; i < childs.length; i++) {
+      final TypeInfo typeInfo=new TypeInfo(childs[i].getName(),childs[i]);
+      if (!typeInfoList.contains(typeInfo)) {
+        typeInfoList.add(typeInfo);
+      }
+    }
+    mmi.setChildClasses((TypeInfo[])typeInfoList.toArray(new TypeInfo[0]));
+    if (isNew) {
+      model.getMappingModel().addMultiplexMapping(mmi);
+    }
+  }
+  return model;
+}

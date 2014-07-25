@@ -1,0 +1,8 @@
+{
+  final ClassLoader cl=getClassLoader(c);
+  final String cname=convertName(name,c);
+  if (cl == null) {
+    return null;
+  }
+  return cl.getResource(cname);
+}

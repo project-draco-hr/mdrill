@@ -1,0 +1,7 @@
+{
+  Attribute a=getFieldDef(m_fieldName);
+  if (a != null) {
+    return a;
+  }
+  return null;
+}

@@ -1,0 +1,6 @@
+{
+  if (group == null) {
+    throw new IllegalArgumentException("Null 'group' argument.");
+  }
+  this.group=group;
+}

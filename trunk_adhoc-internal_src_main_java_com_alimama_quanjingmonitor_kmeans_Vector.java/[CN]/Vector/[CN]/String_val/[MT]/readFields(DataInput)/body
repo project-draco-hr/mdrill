@@ -1,0 +1,11 @@
+{
+  super.readFields(arg0);
+  this.val.clear();
+  this.count=arg0.readInt();
+  int size=arg0.readInt();
+  for (int i=0; i < size; i++) {
+    String kstr=arg0.readUTF();
+    Integer cnt=arg0.readInt();
+    this.val.put(kstr,cnt);
+  }
+}

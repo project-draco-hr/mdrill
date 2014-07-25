@@ -1,0 +1,3 @@
+{
+  gfx.drawString(m_Format.toPattern(),box.x,box.y + box.height);
+}

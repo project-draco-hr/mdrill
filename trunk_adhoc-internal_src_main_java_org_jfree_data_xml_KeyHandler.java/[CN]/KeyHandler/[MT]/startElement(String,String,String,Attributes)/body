@@ -1,0 +1,8 @@
+{
+  if (qName.equals(KEY_TAG)) {
+    clearCurrentText();
+  }
+ else {
+    throw new SAXException("Expecting <Key> but found " + qName);
+  }
+}

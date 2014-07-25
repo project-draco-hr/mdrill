@@ -1,0 +1,3 @@
+{
+  return m_closure.toString(m_leftMargin,m_rightMargin);
+}

@@ -1,0 +1,3 @@
+{
+  return "Whether hold-one-out cross-validation will be used " + "to select the best k value.";
+}

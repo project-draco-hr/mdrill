@@ -1,0 +1,19 @@
+{
+  Vector result;
+  String[] options;
+  int i;
+  result=new Vector();
+  options=super.getOptions();
+  for (i=0; i < options.length; i++)   result.add(options[i]);
+  if (getClassifier() != null) {
+    result.add("-W");
+    result.add(getClassifier().getClass().getName());
+  }
+  if ((m_Classifier != null) && (m_Classifier instanceof OptionHandler))   options=((OptionHandler)m_Classifier).getOptions();
+ else   options=new String[0];
+  if (options.length > 0) {
+    result.add("--");
+    for (i=0; i < options.length; i++)     result.add(options[i]);
+  }
+  return (String[])result.toArray(new String[result.size()]);
+}

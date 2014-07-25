@@ -1,0 +1,4 @@
+{
+  CorrelationSplitInfo s=(CorrelationSplitInfo)this.clone();
+  return s;
+}

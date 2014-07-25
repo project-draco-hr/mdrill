@@ -1,0 +1,3 @@
+{
+  if (method != null)   m_Methods.put(c,method);
+}

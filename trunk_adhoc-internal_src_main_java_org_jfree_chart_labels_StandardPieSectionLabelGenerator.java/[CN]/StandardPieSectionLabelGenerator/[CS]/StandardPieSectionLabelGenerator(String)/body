@@ -1,0 +1,3 @@
+{
+  this(labelFormat,NumberFormat.getNumberInstance(),NumberFormat.getPercentInstance());
+}

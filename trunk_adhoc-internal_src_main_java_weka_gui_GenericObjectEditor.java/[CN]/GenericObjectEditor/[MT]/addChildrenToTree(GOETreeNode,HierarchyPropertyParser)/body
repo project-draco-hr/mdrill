@@ -1,0 +1,17 @@
+{
+  try {
+    for (int i=0; i < hpp.numChildren(); i++) {
+      hpp.goToChild(i);
+      GOETreeNode child=new GOETreeNode(hpp.getValue());
+      if ((m_Object != null) && m_Object.getClass().getName().equals(hpp.fullValue())) {
+        m_treeNodeOfCurrentObject=child;
+      }
+      tree.add(child);
+      addChildrenToTree(child,hpp);
+      hpp.goToParent();
+    }
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
+}

@@ -1,0 +1,7 @@
+{
+  m_trainingListeners.addElement(tsl);
+  if (m_connectedFormat != null) {
+    TrainingSetEvent e=new TrainingSetEvent(this,m_connectedFormat);
+    tsl.acceptTrainingSet(e);
+  }
+}

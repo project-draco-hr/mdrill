@@ -1,0 +1,17 @@
+{
+  int result;
+  if (o1 instanceof Hour) {
+    Hour h=(Hour)o1;
+    result=getDay().compareTo(h.getDay());
+    if (result == 0) {
+      result=this.hour - h.getHour();
+    }
+  }
+ else   if (o1 instanceof RegularTimePeriod) {
+    result=0;
+  }
+ else {
+    result=1;
+  }
+  return result;
+}

@@ -1,0 +1,3 @@
+{
+  return ServletUtilities.saveChartAsJPEG(chart,width,height,null,session);
+}

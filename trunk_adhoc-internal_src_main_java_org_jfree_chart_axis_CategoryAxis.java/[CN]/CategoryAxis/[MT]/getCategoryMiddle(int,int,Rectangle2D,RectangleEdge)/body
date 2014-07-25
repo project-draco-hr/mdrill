@@ -1,0 +1,6 @@
+{
+  if (category < 0 || category >= categoryCount) {
+    throw new IllegalArgumentException("Invalid category index: " + category);
+  }
+  return getCategoryStart(category,categoryCount,area,edge) + calculateCategorySize(categoryCount,area,edge) / 2;
+}

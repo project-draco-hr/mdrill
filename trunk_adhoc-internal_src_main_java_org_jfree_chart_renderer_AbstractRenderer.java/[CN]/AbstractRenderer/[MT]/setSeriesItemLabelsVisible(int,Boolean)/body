@@ -1,0 +1,3 @@
+{
+  setSeriesItemLabelsVisible(series,visible,true);
+}

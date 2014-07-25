@@ -1,0 +1,7 @@
+{
+  final Size2D d=calculateDimensions(g2);
+  final float[] offsets=calculateOffsets(anchor,d.getWidth(),d.getHeight());
+  final Rectangle2D bounds=new Rectangle2D.Double(anchorX + offsets[0],anchorY + offsets[1],d.getWidth(),d.getHeight());
+  final Shape rotatedBounds=ShapeUtilities.rotateShape(bounds,angle,rotateX,rotateY);
+  return rotatedBounds;
+}

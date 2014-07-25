@@ -1,0 +1,4 @@
+{
+  int nTargetNode=getNode(sName);
+  setDistribution(nTargetNode,P);
+}

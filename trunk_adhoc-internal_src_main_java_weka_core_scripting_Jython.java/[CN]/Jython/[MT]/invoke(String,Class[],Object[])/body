@@ -1,0 +1,6 @@
+{
+  Object result;
+  result=null;
+  if (getInterpreter() != null)   result=invoke(getInterpreter(),methodName,paramClasses,paramValues);
+  return result;
+}

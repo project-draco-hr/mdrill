@@ -1,0 +1,5 @@
+{
+  super.openVisibleInstances(insts);
+  setROCString("(Area under ROC = " + Utils.doubleToString(ThresholdCurve.getROCArea(insts),4) + ")");
+  setBorderText();
+}

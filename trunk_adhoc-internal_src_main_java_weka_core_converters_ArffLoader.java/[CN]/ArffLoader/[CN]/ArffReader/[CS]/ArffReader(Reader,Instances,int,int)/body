@@ -1,0 +1,7 @@
+{
+  m_Lines=lines;
+  m_Tokenizer=new StreamTokenizer(reader);
+  initTokenizer();
+  m_Data=new Instances(template,capacity);
+  initBuffers();
+}

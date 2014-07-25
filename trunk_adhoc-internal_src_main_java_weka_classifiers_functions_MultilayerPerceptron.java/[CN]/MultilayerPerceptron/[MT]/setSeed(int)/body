@@ -1,0 +1,5 @@
+{
+  if (l >= 0) {
+    m_randomSeed=l;
+  }
+}

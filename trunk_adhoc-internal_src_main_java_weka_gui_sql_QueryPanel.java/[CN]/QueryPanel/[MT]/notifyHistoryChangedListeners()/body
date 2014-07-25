@@ -1,0 +1,9 @@
+{
+  Iterator iter;
+  HistoryChangedListener l;
+  iter=m_HistoryChangedListeners.iterator();
+  while (iter.hasNext()) {
+    l=(HistoryChangedListener)iter.next();
+    l.historyChanged(new HistoryChangedEvent(this,HISTORY_NAME,getHistory()));
+  }
+}

@@ -1,0 +1,22 @@
+{
+  if (getInputFormat() == null) {
+    throw new IllegalStateException("No input instance format defined");
+  }
+  if (m_NewBatch) {
+    resetQueue();
+    m_NewBatch=false;
+  }
+  if (m_Converter != null) {
+    Instance datum=(Instance)instance.copy();
+    if (!datum.isMissing(m_ClassAttribute)) {
+      datum.setClassValue((double)m_Converter[(int)datum.classValue()]);
+    }
+    push(datum);
+    return true;
+  }
+  if (!instance.isMissing(m_ClassAttribute)) {
+    m_ClassCounts[(int)instance.classValue()]+=instance.weight();
+  }
+  bufferInput(instance);
+  return false;
+}

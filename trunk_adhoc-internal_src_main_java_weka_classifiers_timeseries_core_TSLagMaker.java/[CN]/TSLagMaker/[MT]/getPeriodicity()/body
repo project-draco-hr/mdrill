@@ -1,0 +1,6 @@
+{
+  if (!m_adjustForTrends || m_useArtificialTimeIndex) {
+    return null;
+  }
+  return m_dateBasedPeriodicity.getPeriodicity();
+}

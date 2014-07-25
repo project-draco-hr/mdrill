@@ -1,0 +1,10 @@
+{
+  Range result=null;
+  if (axis == this.domainAxis) {
+    result=this.xDataRange;
+  }
+ else   if (axis == this.rangeAxis) {
+    result=this.yDataRange;
+  }
+  return result;
+}

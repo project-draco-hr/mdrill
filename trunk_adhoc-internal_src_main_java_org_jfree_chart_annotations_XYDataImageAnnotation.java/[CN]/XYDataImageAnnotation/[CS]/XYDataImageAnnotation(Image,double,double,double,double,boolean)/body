@@ -1,0 +1,11 @@
+{
+  if (image == null) {
+    throw new IllegalArgumentException("Null 'image' argument.");
+  }
+  this.image=image;
+  this.x=x;
+  this.y=y;
+  this.w=w;
+  this.h=h;
+  this.includeInDataBounds=includeInDataBounds;
+}

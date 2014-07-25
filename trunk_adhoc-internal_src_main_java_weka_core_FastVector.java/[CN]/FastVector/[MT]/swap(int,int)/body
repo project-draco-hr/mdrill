@@ -1,0 +1,5 @@
+{
+  E in=get(first);
+  set(first,get(second));
+  set(second,in);
+}

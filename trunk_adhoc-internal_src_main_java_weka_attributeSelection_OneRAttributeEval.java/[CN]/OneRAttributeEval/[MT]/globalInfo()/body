@@ -1,0 +1,3 @@
+{
+  return "OneRAttributeEval :\n\nEvaluates the worth of an attribute by " + "using the OneR classifier.\n";
+}

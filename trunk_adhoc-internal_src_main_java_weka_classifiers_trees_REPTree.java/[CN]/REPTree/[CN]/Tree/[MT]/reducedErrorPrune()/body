@@ -1,0 +1,17 @@
+{
+  if (m_Attribute == -1) {
+    return m_HoldOutError;
+  }
+  double errorTree=0;
+  for (int i=0; i < m_Successors.length; i++) {
+    errorTree+=m_Successors[i].reducedErrorPrune();
+  }
+  if (errorTree >= m_HoldOutError) {
+    m_Attribute=-1;
+    m_Successors=null;
+    return m_HoldOutError;
+  }
+ else {
+    return errorTree;
+  }
+}

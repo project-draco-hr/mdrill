@@ -1,0 +1,4 @@
+{
+  Instance converted=constructMappedInstance(inst);
+  return m_Classifier.distributionForInstance(converted);
+}

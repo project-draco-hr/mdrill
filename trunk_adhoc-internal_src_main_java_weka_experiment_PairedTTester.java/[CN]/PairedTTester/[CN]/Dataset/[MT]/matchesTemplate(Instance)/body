@@ -1,0 +1,8 @@
+{
+  for (int i=0; i < m_DatasetKeyColumns.length; i++) {
+    if (first.value(m_DatasetKeyColumns[i]) != m_Template.value(m_DatasetKeyColumns[i])) {
+      return false;
+    }
+  }
+  return true;
+}

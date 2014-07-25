@@ -1,0 +1,21 @@
+{
+  double[] rulesetStat=new double[6];
+  for (int j=0; j < m_SimpleStats.size(); j++) {
+    rulesetStat[0]+=((double[])m_SimpleStats.elementAt(j))[0];
+    rulesetStat[2]+=((double[])m_SimpleStats.elementAt(j))[2];
+    rulesetStat[4]+=((double[])m_SimpleStats.elementAt(j))[4];
+    if (j == m_SimpleStats.size() - 1) {
+      rulesetStat[1]=((double[])m_SimpleStats.elementAt(j))[1];
+      rulesetStat[3]=((double[])m_SimpleStats.elementAt(j))[3];
+      rulesetStat[5]=((double[])m_SimpleStats.elementAt(j))[5];
+    }
+  }
+  double potential=0;
+  for (int k=index + 1; k < m_SimpleStats.size(); k++) {
+    double[] ruleStat=(double[])getSimpleStats(k);
+    double ifDeleted=potential(k,expFPRate,rulesetStat,ruleStat,checkErr);
+    if (!Double.isNaN(ifDeleted))     potential+=ifDeleted;
+  }
+  double dataDLWith=dataDL(expFPRate,rulesetStat[0],rulesetStat[1],rulesetStat[4],rulesetStat[5]);
+  return (dataDLWith - potential);
+}

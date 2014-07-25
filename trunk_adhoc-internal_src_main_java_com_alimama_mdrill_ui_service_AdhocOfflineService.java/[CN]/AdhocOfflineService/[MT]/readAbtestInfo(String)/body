@@ -1,0 +1,35 @@
+{
+  Map stormconf=Utils.readStormConfig();
+  String hdpConf=(String)stormconf.get("hadoop.conf.dir");
+  String connstr=(String)stormconf.get("higo.download.offline.conn");
+  String uname=(String)stormconf.get("higo.download.offline.username");
+  String passwd=(String)stormconf.get("higo.download.offline.passwd");
+  MySqlConn conn=new MySqlConn(connstr,uname,passwd);
+  Configuration conf=new Configuration();
+  HadoopBaseUtils.grabConfiguration(hdpConf,conf);
+  MysqlInfo info=new MysqlInfo(conn);
+  HashMap<String,String> result=info.get(uuid);
+  String exehql="";
+  if (result != null && result.containsKey("storedir")) {
+    exehql=result.get("_exehql");
+  }
+  Path A;
+  Path B;
+  JSONObject jsonObj=new JSONObject();
+  if (result != null && result.containsKey("storedir") && result.containsKey("cols")) {
+    Path base=makeAB(result.get("storedir"),conf);
+    A=new Path(base,"A");
+    B=new Path(base,"B");
+    jsonObj.put("A",A.toString());
+    jsonObj.put("B",B.toString());
+  }
+ else {
+    jsonObj.put("A","");
+    jsonObj.put("B","");
+  }
+  jsonObj.put("params",result);
+  JSONObject jsonObjresult=new JSONObject();
+  jsonObjresult.put("code",1);
+  jsonObjresult.put("data",jsonObj);
+  return jsonObjresult;
+}

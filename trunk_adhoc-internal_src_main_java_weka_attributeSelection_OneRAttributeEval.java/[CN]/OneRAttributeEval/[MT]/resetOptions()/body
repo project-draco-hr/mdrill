@@ -1,0 +1,7 @@
+{
+  m_trainInstances=null;
+  m_randomSeed=1;
+  m_folds=10;
+  m_evalUsingTrainingData=false;
+  m_minBucketSize=6;
+}

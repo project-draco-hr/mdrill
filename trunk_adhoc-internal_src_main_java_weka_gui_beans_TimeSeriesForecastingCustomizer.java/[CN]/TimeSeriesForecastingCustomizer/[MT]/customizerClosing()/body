@@ -1,0 +1,29 @@
+{
+  if (m_forecaster != null) {
+    if (!TimeSeriesForecasting.isEmpty(m_filenameField.getText())) {
+      m_forecaster.setFilename(m_filenameField.getText());
+      m_forecaster.setEncodedForecaster("-NONE-");
+    }
+ else {
+      if (m_forecastingModel != null) {
+        try {
+          String encodedModel=TimeSeriesForecasting.encodeForecasterToBase64(m_forecastingModel,m_header);
+          m_forecaster.setFilename("-NONE-");
+          m_forecaster.setEncodedForecaster(encodedModel);
+        }
+ catch (        Exception ex) {
+          ex.printStackTrace();
+        }
+      }
+    }
+    m_forecaster.setRebuildForecaster(m_rebuildForecasterCheck.isSelected());
+    m_forecaster.setNumStepsToForecast(m_numStepsToForecast.getText());
+    m_forecaster.setArtificialTimeStartOffset(m_artificialOffset.getText());
+    if (m_rebuildForecasterCheck.isSelected() && !TimeSeriesForecasting.isEmpty(m_saveFilenameField.getText())) {
+      m_forecaster.setSaveFilename(m_saveFilenameField.getText());
+    }
+ else {
+      m_forecaster.setSaveFilename("");
+    }
+  }
+}

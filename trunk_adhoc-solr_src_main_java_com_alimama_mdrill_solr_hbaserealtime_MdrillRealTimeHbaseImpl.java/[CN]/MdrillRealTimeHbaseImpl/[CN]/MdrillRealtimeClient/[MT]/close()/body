@@ -1,0 +1,4 @@
+{
+  this.queue.close();
+  this.table.close();
+}

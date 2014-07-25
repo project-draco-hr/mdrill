@@ -1,0 +1,83 @@
+{
+  final char[] string=text.toCharArray();
+  for (int x=0; x < string.length; x++) {
+    final char aChar=string[x];
+switch (aChar) {
+case ' ':
+{
+        if ((escapeMode != ESCAPE_COMMENT) && (x == 0 || escapeMode == ESCAPE_KEY)) {
+          writer.write('\\');
+        }
+        writer.write(' ');
+        break;
+      }
+case '\\':
+{
+      writer.write('\\');
+      writer.write('\\');
+      break;
+    }
+case '\t':
+{
+    if (escapeMode == ESCAPE_COMMENT) {
+      writer.write(aChar);
+    }
+ else {
+      writer.write('\\');
+      writer.write('t');
+    }
+    break;
+  }
+case '\n':
+{
+  writer.write('\\');
+  writer.write('n');
+  break;
+}
+case '\r':
+{
+writer.write('\\');
+writer.write('r');
+break;
+}
+case '\f':
+{
+if (escapeMode == ESCAPE_COMMENT) {
+writer.write(aChar);
+}
+ else {
+writer.write('\\');
+writer.write('f');
+}
+break;
+}
+case '#':
+case '"':
+case '!':
+case '=':
+case ':':
+{
+if (escapeMode == ESCAPE_COMMENT) {
+writer.write(aChar);
+}
+ else {
+writer.write('\\');
+writer.write(aChar);
+}
+break;
+}
+default :
+if ((aChar < 0x0020) || (aChar > 0x007e)) {
+writer.write('\\');
+writer.write('u');
+writer.write(HEX_CHARS[(aChar >> 12) & 0xF]);
+writer.write(HEX_CHARS[(aChar >> 8) & 0xF]);
+writer.write(HEX_CHARS[(aChar >> 4) & 0xF]);
+writer.write(HEX_CHARS[aChar & 0xF]);
+}
+ else {
+writer.write(aChar);
+}
+}
+}
+}

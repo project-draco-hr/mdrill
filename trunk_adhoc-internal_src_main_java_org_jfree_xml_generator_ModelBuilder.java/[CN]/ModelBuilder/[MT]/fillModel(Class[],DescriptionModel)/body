@@ -1,0 +1,25 @@
+{
+  final ArrayList superClasses=new ArrayList();
+  for (int i=0; i < classes.length; i++) {
+    Class superClass=classes[i].getSuperclass();
+    if (superClass != null) {
+      if (!Object.class.equals(superClass) && !contains(classes,superClass) && !superClasses.contains(superClass)) {
+        superClasses.add(superClass);
+      }
+    }
+ else {
+      superClass=Object.class;
+    }
+    try {
+      final BeanInfo bi=Introspector.getBeanInfo(classes[i],superClass);
+      final ClassDescription parent=model.get(classes[i]);
+      final ClassDescription cd=createClassDescription(bi,parent);
+      if (cd != null) {
+        model.addClassDescription(cd);
+      }
+    }
+ catch (    IntrospectionException ie) {
+    }
+  }
+  return (Class[])superClasses.toArray(new Class[0]);
+}

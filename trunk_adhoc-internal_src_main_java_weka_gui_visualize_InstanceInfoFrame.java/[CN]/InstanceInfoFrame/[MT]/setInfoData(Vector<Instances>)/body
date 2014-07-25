@@ -1,0 +1,4 @@
+{
+  m_Data=new Vector<Instances>();
+  if (data != null)   m_Data.addAll(data);
+}

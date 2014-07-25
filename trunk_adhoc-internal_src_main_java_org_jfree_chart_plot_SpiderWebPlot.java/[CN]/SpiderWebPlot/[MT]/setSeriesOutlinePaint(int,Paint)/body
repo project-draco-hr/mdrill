@@ -1,0 +1,4 @@
+{
+  this.seriesOutlinePaintList.setPaint(series,paint);
+  fireChangeEvent();
+}

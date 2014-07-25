@@ -1,0 +1,4 @@
+{
+  m_Document=getBuilder().parse(new InputSource(reader));
+  return getDocument();
+}

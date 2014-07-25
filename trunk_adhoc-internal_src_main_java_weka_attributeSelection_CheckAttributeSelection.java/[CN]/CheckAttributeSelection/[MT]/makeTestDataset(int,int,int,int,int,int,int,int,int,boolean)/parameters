@@ -1,0 +1,10 @@
+int seed
+int numInstances
+int numNominal
+int numNumeric
+int numString
+int numDate
+int numRelational
+int numClasses
+int classType
+boolean multiInstance

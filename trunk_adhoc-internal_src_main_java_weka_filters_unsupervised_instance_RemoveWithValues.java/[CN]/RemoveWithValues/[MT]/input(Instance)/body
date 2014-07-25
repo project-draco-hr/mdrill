@@ -1,0 +1,47 @@
+{
+  if (getInputFormat() == null) {
+    throw new IllegalStateException("No input instance format defined");
+  }
+  if (m_NewBatch) {
+    resetQueue();
+    m_NewBatch=false;
+  }
+  if (isFirstBatchDone() && m_dontFilterAfterFirstBatch) {
+    push((Instance)instance.copy());
+    return true;
+  }
+  if (instance.isMissing(m_AttIndex.getIndex())) {
+    if (!getMatchMissingValues()) {
+      push((Instance)instance.copy());
+      return true;
+    }
+ else {
+      return false;
+    }
+  }
+  if (isNumeric()) {
+    if (!m_Values.getInvert()) {
+      if (instance.value(m_AttIndex.getIndex()) < m_Value) {
+        push((Instance)instance.copy());
+        return true;
+      }
+    }
+ else {
+      if (instance.value(m_AttIndex.getIndex()) >= m_Value) {
+        push((Instance)instance.copy());
+        return true;
+      }
+    }
+  }
+  if (isNominal()) {
+    if (m_Values.isInRange((int)instance.value(m_AttIndex.getIndex()))) {
+      Instance temp=(Instance)instance.copy();
+      if (getModifyHeader()) {
+        temp.setValue(m_AttIndex.getIndex(),m_NominalMapping[(int)instance.value(m_AttIndex.getIndex())]);
+      }
+      push(temp);
+      return true;
+    }
+  }
+  return false;
+}

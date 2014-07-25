@@ -1,0 +1,3 @@
+double candleWidth
+boolean drawVolume
+XYToolTipGenerator toolTipGenerator

@@ -1,0 +1,4 @@
+{
+  this.baseLegendTextPaint=paint;
+  fireChangeEvent();
+}

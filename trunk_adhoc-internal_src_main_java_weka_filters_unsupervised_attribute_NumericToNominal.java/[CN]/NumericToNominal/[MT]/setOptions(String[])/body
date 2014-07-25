@@ -1,0 +1,9 @@
+{
+  String tmpStr;
+  super.setOptions(options);
+  setInvertSelection(Utils.getFlag('V',options));
+  tmpStr=Utils.getOption('R',options);
+  if (tmpStr.length() != 0)   setAttributeIndices(tmpStr);
+ else   setAttributeIndices(m_DefaultCols);
+  if (getInputFormat() != null)   setInputFormat(getInputFormat());
+}

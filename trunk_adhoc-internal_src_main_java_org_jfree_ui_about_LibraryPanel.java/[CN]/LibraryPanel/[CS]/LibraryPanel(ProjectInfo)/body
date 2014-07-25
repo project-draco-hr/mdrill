@@ -1,0 +1,3 @@
+{
+  this(getLibraries(projectInfo));
+}

@@ -1,0 +1,9 @@
+{
+  final Line2D line=new Line2D.Float();
+  final float x1=getFloatParameter("x1");
+  final float x2=getFloatParameter("x2");
+  final float y1=getFloatParameter("y1");
+  final float y2=getFloatParameter("y2");
+  line.setLine(x1,y1,x2,y2);
+  return line;
+}

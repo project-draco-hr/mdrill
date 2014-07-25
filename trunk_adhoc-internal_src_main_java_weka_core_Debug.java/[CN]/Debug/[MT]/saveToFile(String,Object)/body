@@ -1,0 +1,16 @@
+{
+  boolean result;
+  if (SerializationHelper.isSerializable(o.getClass())) {
+    try {
+      SerializationHelper.write(filename,o);
+      result=true;
+    }
+ catch (    Exception e) {
+      result=false;
+    }
+  }
+ else {
+    result=false;
+  }
+  return result;
+}

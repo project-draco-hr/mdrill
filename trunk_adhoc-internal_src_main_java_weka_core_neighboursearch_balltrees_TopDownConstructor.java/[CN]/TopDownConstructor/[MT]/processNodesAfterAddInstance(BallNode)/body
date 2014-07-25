@@ -1,0 +1,8 @@
+{
+  node.m_Start++;
+  node.m_End++;
+  if (node.m_Left != null && node.m_Right != null) {
+    processNodesAfterAddInstance(node.m_Left);
+    processNodesAfterAddInstance(node.m_Right);
+  }
+}

@@ -1,0 +1,6 @@
+{
+  Calendar calendar=Calendar.getInstance(zone);
+  calendar.setTime(base);
+  calendar.add(this.rollUnitType.getCalendarField(),this.rollCount);
+  return calendar.getTime();
+}

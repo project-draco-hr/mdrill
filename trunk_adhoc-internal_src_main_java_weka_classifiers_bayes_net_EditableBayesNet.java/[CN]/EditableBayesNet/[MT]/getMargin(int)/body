@@ -1,0 +1,3 @@
+{
+  return (double[])m_fMarginP.elementAt(iNode);
+}

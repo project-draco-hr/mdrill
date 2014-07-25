@@ -1,0 +1,12 @@
+{
+  final File f=new File(dir,name);
+  if (f.isDirectory() && acceptsDirectories()) {
+    return true;
+  }
+  for (int i=0; i < this.fileext.length; i++) {
+    if (name.endsWith(this.fileext[i])) {
+      return true;
+    }
+  }
+  return false;
+}

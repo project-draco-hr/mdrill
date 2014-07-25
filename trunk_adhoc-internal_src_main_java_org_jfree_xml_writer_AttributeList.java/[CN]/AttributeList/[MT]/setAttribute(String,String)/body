@@ -1,0 +1,8 @@
+{
+  final AttributeEntry entry=new AttributeEntry(name,value);
+  final int pos=this.entryList.indexOf(entry);
+  if (pos != -1) {
+    this.entryList.remove(pos);
+  }
+  this.entryList.add(entry);
+}

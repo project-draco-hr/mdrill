@@ -1,0 +1,8 @@
+{
+  int seriesIndex=indexOf(seriesKey);
+  if (seriesIndex >= 0) {
+    this.seriesKeys.remove(seriesIndex);
+    this.seriesList.remove(seriesIndex);
+    notifyListeners(new DatasetChangeEvent(this,this));
+  }
+}

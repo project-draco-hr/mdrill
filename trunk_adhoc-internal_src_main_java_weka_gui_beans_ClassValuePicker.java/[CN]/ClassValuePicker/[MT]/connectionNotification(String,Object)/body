@@ -1,0 +1,8 @@
+{
+  if (connectionAllowed(eventName)) {
+    if (eventName.compareTo("dataSet") == 0) {
+      m_dataProvider=source;
+    }
+  }
+  m_connectedFormat=null;
+}

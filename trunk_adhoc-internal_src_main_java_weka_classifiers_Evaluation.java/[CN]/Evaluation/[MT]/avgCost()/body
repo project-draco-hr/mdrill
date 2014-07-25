@@ -1,0 +1,3 @@
+{
+  return m_TotalCost / m_WithClass;
+}

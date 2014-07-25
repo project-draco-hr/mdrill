@@ -1,0 +1,8 @@
+{
+  Log.debug("Writing ...");
+  final ModelWriter writer=new ModelWriter();
+  writer.setModel(model);
+  final Writer w=new BufferedWriter(new FileWriter(target));
+  writer.write(w);
+  w.close();
+}

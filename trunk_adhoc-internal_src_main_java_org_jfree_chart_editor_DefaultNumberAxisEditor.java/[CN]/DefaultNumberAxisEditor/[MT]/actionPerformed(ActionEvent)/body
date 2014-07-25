@@ -1,0 +1,21 @@
+{
+  String command=event.getActionCommand();
+  if (command.equals("GridStroke")) {
+    attemptGridStrokeSelection();
+  }
+ else   if (command.equals("GridPaint")) {
+    attemptGridPaintSelection();
+  }
+ else   if (command.equals("AutoRangeOnOff")) {
+    toggleAutoRange();
+  }
+ else   if (command.equals("MinimumRange")) {
+    validateMinimum();
+  }
+ else   if (command.equals("MaximumRange")) {
+    validateMaximum();
+  }
+ else {
+    super.actionPerformed(event);
+  }
+}

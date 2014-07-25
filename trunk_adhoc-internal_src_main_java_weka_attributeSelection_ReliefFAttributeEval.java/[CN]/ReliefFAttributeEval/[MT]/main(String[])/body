@@ -1,0 +1,3 @@
+{
+  runEvaluator(new ReliefFAttributeEval(),args);
+}

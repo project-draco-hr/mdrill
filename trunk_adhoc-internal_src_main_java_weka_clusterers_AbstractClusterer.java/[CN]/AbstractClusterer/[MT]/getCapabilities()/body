@@ -1,0 +1,6 @@
+{
+  Capabilities result;
+  result=new Capabilities(this);
+  result.enableAll();
+  return result;
+}

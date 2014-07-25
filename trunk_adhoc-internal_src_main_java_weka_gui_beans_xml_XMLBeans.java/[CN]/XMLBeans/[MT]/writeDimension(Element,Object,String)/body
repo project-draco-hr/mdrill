@@ -1,0 +1,11 @@
+{
+  Element node;
+  Dimension dim;
+  if (DEBUG)   trace(new Throwable(),name);
+  m_CurrentNode=parent;
+  dim=(Dimension)o;
+  node=addElement(parent,name,dim.getClass().getName(),false);
+  writeDoubleToXML(node,dim.getWidth(),VAL_WIDTH);
+  writeDoubleToXML(node,dim.getHeight(),VAL_HEIGHT);
+  return node;
+}

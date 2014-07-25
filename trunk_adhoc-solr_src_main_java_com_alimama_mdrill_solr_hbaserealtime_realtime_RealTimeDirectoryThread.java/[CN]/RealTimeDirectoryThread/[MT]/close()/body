@@ -1,0 +1,7 @@
+{
+  for (  TimerTask t : taskList) {
+    t.cancel();
+  }
+  RealTimeDirectorUtils.getSlowTimer().purge();
+  RealTimeDirectorUtils.getQuickTimer().purge();
+}

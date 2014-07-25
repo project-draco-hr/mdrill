@@ -1,0 +1,16 @@
+{
+  int tabIndex=0;
+  if (tab.length > 0) {
+    tabIndex=tab[0].intValue();
+  }
+  Vector connections=TABBED_CONNECTIONS.get(tabIndex);
+  for (int i=0; i < connections.size(); i++) {
+    BeanConnection bc=(BeanConnection)connections.elementAt(i);
+    BeanInstance compSource=bc.getSource();
+    BeanInstance compTarget=bc.getTarget();
+    if (compSource == source && compTarget == target && index < i) {
+      return true;
+    }
+  }
+  return false;
+}

@@ -1,0 +1,6 @@
+{
+  if (flag != this.visible) {
+    this.visible=flag;
+    fireChangeEvent();
+  }
+}

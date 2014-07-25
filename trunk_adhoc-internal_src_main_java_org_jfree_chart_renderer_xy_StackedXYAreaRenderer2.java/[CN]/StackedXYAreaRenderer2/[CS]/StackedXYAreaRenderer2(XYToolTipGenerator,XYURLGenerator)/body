@@ -1,0 +1,4 @@
+{
+  super(labelGenerator,urlGenerator);
+  this.roundXCoordinates=true;
+}

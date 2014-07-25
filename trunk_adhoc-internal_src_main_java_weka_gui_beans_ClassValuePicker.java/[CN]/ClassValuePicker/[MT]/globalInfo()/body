@@ -1,0 +1,3 @@
+{
+  return "Designate which class value is to be considered the \"positive\" " + "class value (useful for ROC style curves).";
+}

@@ -1,0 +1,12 @@
+{
+  HashSet<String> hashSet=new HashSet<String>();
+  for (int i=0; i < list.length(); i++) {
+    JSONObject item=list.getJSONObject(i);
+    Iterator keys=item.keys();
+    while (keys.hasNext()) {
+      hashSet.add((String)keys.next());
+    }
+  }
+  String[] fields=hashSet.toArray(new String[hashSet.size()]);
+  return fields;
+}

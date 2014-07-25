@@ -1,0 +1,20 @@
+{
+  if (stream == null) {
+    throw new IllegalArgumentException("Null 'stream' argument.");
+  }
+  if (composite != null) {
+    stream.writeBoolean(false);
+    stream.writeObject(composite.getClass());
+    if (composite instanceof Serializable) {
+      stream.writeObject(composite);
+    }
+ else     if (composite instanceof AlphaComposite) {
+      final AlphaComposite ac=(AlphaComposite)composite;
+      stream.writeInt(ac.getRule());
+      stream.writeFloat(ac.getAlpha());
+    }
+  }
+ else {
+    stream.writeBoolean(true);
+  }
+}

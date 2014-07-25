@@ -1,0 +1,3 @@
+{
+  super("View toolbar","View toolbar","toolbar","");
+}

@@ -1,0 +1,6 @@
+Evaluation eval
+Classifier classifier
+Instances testData
+ClassifierErrorsPlotInstances plotInstances
+int setNum
+int maxSetNum

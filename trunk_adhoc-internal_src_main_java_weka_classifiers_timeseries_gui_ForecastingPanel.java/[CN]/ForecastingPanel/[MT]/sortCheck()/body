@@ -1,0 +1,58 @@
+{
+  if (m_instances == null) {
+    return;
+  }
+  if (m_simpleConfigPanel.isUsingANativeTimeStamp()) {
+    String timeStampF=m_simpleConfigPanel.getSelectedTimeStampField();
+    Attribute timeStampAtt=m_instances.attribute(timeStampF);
+    if (timeStampAtt != null) {
+      double lastNonMissing=Utils.missingValue();
+      boolean ok=true;
+      boolean hasMissing=false;
+      for (int i=0; i < m_instances.numInstances(); i++) {
+        Instance current=m_instances.instance(i);
+        if (Utils.isMissingValue(lastNonMissing)) {
+          if (!current.isMissing(timeStampAtt)) {
+            lastNonMissing=current.value(timeStampAtt);
+          }
+ else {
+            hasMissing=true;
+          }
+        }
+ else {
+          if (!current.isMissing(timeStampAtt)) {
+            if (current.value(timeStampAtt) - lastNonMissing < 0) {
+              ok=false;
+              break;
+            }
+            lastNonMissing=current.value(timeStampAtt);
+          }
+ else {
+            hasMissing=true;
+          }
+        }
+      }
+      if (!ok && !hasMissing) {
+        int result=JOptionPane.showConfirmDialog(ForecastingPanel.this,"The data does not appear to be in sorted order of \"" + timeStampF + "\". Do you want to sort the data?","Forecasting",JOptionPane.YES_NO_OPTION);
+        if (result == JOptionPane.YES_OPTION) {
+          if (m_log != null) {
+            m_log.statusMessage("Sorting data...");
+          }
+          m_instances.sort(timeStampAtt);
+          m_sortedCheck=true;
+        }
+      }
+      if (!ok && hasMissing) {
+        int result=JOptionPane.showConfirmDialog(ForecastingPanel.this,"The data does not appear to be in sorted order of \"" + timeStampF + "\". \nFurthermore, there are rows with\n"+ "missing timestamp values. We can remove these\n"+ "rows and then sort the data but this is likely to\n"+ "result in degraded performance. It is strongly\n"+ "recommended that you fix these issues in the data\n"+ "before continuing. Do you want the system to proceed\n"+ "anyway by removing rows with missing timestamps and\n"+ "then sorting the data?","Forecasting",JOptionPane.YES_NO_OPTION);
+        if (result == JOptionPane.YES_OPTION) {
+          if (m_log != null) {
+            m_log.statusMessage("Removing rows with missing time stamps and sorting data...");
+          }
+          m_instances.deleteWithMissing(timeStampAtt);
+          m_instances.sort(timeStampAtt);
+          m_sortedCheck=true;
+        }
+      }
+    }
+  }
+}

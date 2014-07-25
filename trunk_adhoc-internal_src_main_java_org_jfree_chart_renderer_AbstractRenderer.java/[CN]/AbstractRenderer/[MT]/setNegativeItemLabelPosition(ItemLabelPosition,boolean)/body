@@ -1,0 +1,6 @@
+{
+  this.negativeItemLabelPosition=position;
+  if (notify) {
+    fireChangeEvent();
+  }
+}

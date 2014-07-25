@@ -1,0 +1,4 @@
+{
+  setCompressOutput(Utils.getFlag("compress",options));
+  super.setOptions(options);
+}

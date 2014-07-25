@@ -1,0 +1,57 @@
+{
+  for (int j=0; j < m_numClasses; j++) {
+    double[] weights=new double[trainNumeric.numInstances()];
+    double weightSum=0.0;
+    Instances boostData=new Instances(trainNumeric);
+    for (int i=0; i < trainNumeric.numInstances(); i++) {
+      double p=probs[i][j];
+      double actual=trainYs[i][j];
+      double z=getZ(actual,p);
+      double w=(actual - p) / z;
+      Instance current=boostData.instance(i);
+      current.setValue(boostData.classIndex(),z);
+      current.setWeight(current.weight() * w);
+      weights[i]=current.weight();
+      weightSum+=current.weight();
+    }
+    Instances instancesCopy=new Instances(boostData);
+    if (weightSum > 0) {
+      if (m_weightTrimBeta > 0) {
+        double weightPercentage=0.0;
+        int[] weightsOrder=new int[trainNumeric.numInstances()];
+        weightsOrder=Utils.sort(weights);
+        instancesCopy.delete();
+        for (int i=weightsOrder.length - 1; (i >= 0) && (weightPercentage < (1 - m_weightTrimBeta)); i--) {
+          instancesCopy.add(boostData.instance(weightsOrder[i]));
+          weightPercentage+=(weights[weightsOrder[i]] / weightSum);
+        }
+      }
+      weightSum=instancesCopy.sumOfWeights();
+      for (int i=0; i < instancesCopy.numInstances(); i++) {
+        Instance current=instancesCopy.instance(i);
+        current.setWeight(current.weight() * (double)instancesCopy.numInstances() / weightSum);
+      }
+    }
+    m_regressions[j][iteration].buildClassifier(instancesCopy);
+    boolean foundAttribute=m_regressions[j][iteration].foundUsefulAttribute();
+    if (!foundAttribute) {
+      return false;
+    }
+  }
+  for (int i=0; i < trainFs.length; i++) {
+    double[] pred=new double[m_numClasses];
+    double predSum=0;
+    for (int j=0; j < m_numClasses; j++) {
+      pred[j]=m_regressions[j][iteration].classifyInstance(trainNumeric.instance(i));
+      predSum+=pred[j];
+    }
+    predSum/=m_numClasses;
+    for (int j=0; j < m_numClasses; j++) {
+      trainFs[i][j]+=(pred[j] - predSum) * (m_numClasses - 1) / m_numClasses;
+    }
+  }
+  for (int i=0; i < trainYs.length; i++) {
+    probs[i]=probs(trainFs[i]);
+  }
+  return true;
+}

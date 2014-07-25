@@ -1,0 +1,4 @@
+{
+  this.innerRadius=radius;
+  notifyListeners(new DialLayerChangeEvent(this));
+}

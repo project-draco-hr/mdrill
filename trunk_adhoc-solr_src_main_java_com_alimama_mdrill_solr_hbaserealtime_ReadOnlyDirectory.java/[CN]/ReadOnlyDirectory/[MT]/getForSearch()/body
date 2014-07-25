@@ -1,0 +1,14 @@
+{
+  try {
+    this.fresh();
+  }
+ catch (  Throwable e1) {
+    LOG.error("getForSearch",e1);
+  }
+  List<Directory> rtn=new ArrayList<Directory>();
+  for (  Entry<String,DirectoryInfo> e : diskDirector.entrySet()) {
+    rtn.add(e.getValue().d);
+  }
+  LOG.info("####remakeSearch readonly ####" + rtn.toString());
+  return rtn;
+}

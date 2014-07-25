@@ -1,0 +1,5 @@
+{
+  super();
+  m_Filename=filename;
+  Debug.writeToFile(m_Filename,"--> Log started",append);
+}

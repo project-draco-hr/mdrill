@@ -1,0 +1,5 @@
+AttrTypes attrTypes
+int numAtts
+int attrIndex
+int classType
+int classIndex

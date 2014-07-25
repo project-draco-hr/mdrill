@@ -1,0 +1,3 @@
+{
+  return getDayOfMonth() + "-" + SerialDate.monthCodeToString(getMonth())+ "-"+ getYYYY();
+}

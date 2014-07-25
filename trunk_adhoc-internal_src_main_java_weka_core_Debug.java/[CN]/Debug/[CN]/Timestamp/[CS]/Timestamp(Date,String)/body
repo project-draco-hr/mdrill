@@ -1,0 +1,5 @@
+{
+  super();
+  m_Stamp=stamp;
+  setFormat(format);
+}

@@ -1,0 +1,50 @@
+{
+  if (text.equals("TextAnchor.TOP_LEFT")) {
+    return TextAnchor.TOP_LEFT;
+  }
+ else   if (text.equals("TextAnchor.TOP_CENTER")) {
+    return TextAnchor.TOP_CENTER;
+  }
+ else   if (text.equals("TextAnchor.TOP_RIGHT")) {
+    return TextAnchor.TOP_RIGHT;
+  }
+ else   if (text.equals("TextAnchor.CENTER_LEFT")) {
+    return TextAnchor.CENTER_LEFT;
+  }
+ else   if (text.equals("TextAnchor.CENTER")) {
+    return TextAnchor.CENTER;
+  }
+ else   if (text.equals("TextAnchor.CENTER_RIGHT")) {
+    return TextAnchor.CENTER_RIGHT;
+  }
+ else   if (text.equals("TextAnchor.HALF_ASCENT_LEFT")) {
+    return TextAnchor.HALF_ASCENT_LEFT;
+  }
+ else   if (text.equals("TextAnchor.HALF_ASCENT_CENTER")) {
+    return TextAnchor.HALF_ASCENT_CENTER;
+  }
+ else   if (text.equals("TextAnchor.HALF_ASCENT_RIGHT")) {
+    return TextAnchor.HALF_ASCENT_RIGHT;
+  }
+ else   if (text.equals("TextAnchor.BASELINE_LEFT")) {
+    return TextAnchor.BASELINE_LEFT;
+  }
+ else   if (text.equals("TextAnchor.BASELINE_CENTER")) {
+    return TextAnchor.BASELINE_CENTER;
+  }
+ else   if (text.equals("TextAnchor.BASELINE_RIGHT")) {
+    return TextAnchor.BASELINE_RIGHT;
+  }
+ else   if (text.equals("TextAnchor.BOTTOM_LEFT")) {
+    return TextAnchor.BOTTOM_LEFT;
+  }
+ else   if (text.equals("TextAnchor.BOTTOM_CENTER")) {
+    return TextAnchor.BOTTOM_CENTER;
+  }
+ else   if (text.equals("TextAnchor.BOTTOM_RIGHT")) {
+    return TextAnchor.BOTTOM_RIGHT;
+  }
+ else {
+    return null;
+  }
+}

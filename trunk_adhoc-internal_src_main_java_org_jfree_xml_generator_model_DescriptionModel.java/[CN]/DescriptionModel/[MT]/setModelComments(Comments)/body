@@ -1,0 +1,4 @@
+{
+  Log.debug("Model: Comment set: " + modelComments);
+  this.modelComments=modelComments;
+}

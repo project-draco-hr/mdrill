@@ -1,0 +1,12 @@
+{
+  if (i >= graphMatrix.length)   return;
+ else   if (j >= graphMatrix[i].length)   return;
+  if (graphMatrix[i][j] <= 0)   assignLevels(levels,depth,i,++j);
+ else   if (graphMatrix[i][j] == DIRECTED || graphMatrix[i][j] == DOUBLE) {
+    if (depth + 1 > levels[j]) {
+      levels[j]=depth + 1;
+      assignLevels(levels,depth + 1,j,0);
+    }
+    assignLevels(levels,depth,i,++j);
+  }
+}

@@ -1,0 +1,17 @@
+{
+  final GeneralPath p0=new GeneralPath();
+  p0.moveTo(-l - t,-l + t);
+  p0.lineTo(-l + t,-l - t);
+  p0.lineTo(0.0f,-t * SQRT2);
+  p0.lineTo(l - t,-l - t);
+  p0.lineTo(l + t,-l + t);
+  p0.lineTo(t * SQRT2,0.0f);
+  p0.lineTo(l + t,l - t);
+  p0.lineTo(l - t,l + t);
+  p0.lineTo(0.0f,t * SQRT2);
+  p0.lineTo(-l + t,l + t);
+  p0.lineTo(-l - t,l - t);
+  p0.lineTo(-t * SQRT2,0.0f);
+  p0.closePath();
+  return p0;
+}

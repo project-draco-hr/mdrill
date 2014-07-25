@@ -1,0 +1,23 @@
+{
+  if (m_clickAvailable) {
+    int s=-1;
+    for (int noa=0; noa < m_numNodes; noa++) {
+      if (m_nodes[noa].m_quad == 18) {
+        calcScreenCoords(noa);
+        if (e.getX() <= m_nodes[noa].m_center + m_nodes[noa].m_side && e.getX() >= m_nodes[noa].m_center - m_nodes[noa].m_side && e.getY() >= m_nodes[noa].m_top && e.getY() <= m_nodes[noa].m_top + m_nodes[noa].m_height) {
+          s=noa;
+        }
+        m_nodes[noa].m_top=32000;
+      }
+    }
+    m_focusNode=s;
+    if (m_focusNode != -1) {
+      if (m_listener != null) {
+        actionPerformed(new ActionEvent(this,32000,"Create Child Nodes"));
+      }
+ else {
+        actionPerformed(new ActionEvent(this,32000,"Visualize The Node"));
+      }
+    }
+  }
+}

@@ -1,0 +1,3 @@
+{
+  return new StandardXYToolTipGenerator(DEFAULT_TOOL_TIP_FORMAT,DateFormat.getInstance(),NumberFormat.getInstance());
+}

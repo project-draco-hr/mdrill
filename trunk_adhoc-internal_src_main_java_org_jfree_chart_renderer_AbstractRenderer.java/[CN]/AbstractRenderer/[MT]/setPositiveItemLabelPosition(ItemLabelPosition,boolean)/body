@@ -1,0 +1,6 @@
+{
+  this.positiveItemLabelPosition=position;
+  if (notify) {
+    fireChangeEvent();
+  }
+}

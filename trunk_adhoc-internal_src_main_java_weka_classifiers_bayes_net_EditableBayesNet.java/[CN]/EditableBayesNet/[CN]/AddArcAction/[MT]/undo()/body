@@ -1,0 +1,13 @@
+{
+  try {
+    for (int iChild=0; iChild < m_children.size(); iChild++) {
+      int nChild=(Integer)m_children.elementAt(iChild);
+      deleteArc(m_nParent,nChild);
+      SerializedObject so=new SerializedObject(m_CPT[iChild]);
+      m_Distributions[nChild]=(Estimator[])so.getObject();
+    }
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
+}

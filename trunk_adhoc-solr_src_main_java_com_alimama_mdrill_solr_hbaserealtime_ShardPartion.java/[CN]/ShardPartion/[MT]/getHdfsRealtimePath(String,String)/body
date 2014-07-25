@@ -1,0 +1,4 @@
+{
+  Path rtn=new Path(base + "/" + tablename+ "/index/"+ partion,index);
+  return rtn;
+}

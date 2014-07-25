@@ -1,0 +1,5 @@
+Configuration conf
+Path input
+Path clustersIn
+Path clustersOut
+String convergenceDelta

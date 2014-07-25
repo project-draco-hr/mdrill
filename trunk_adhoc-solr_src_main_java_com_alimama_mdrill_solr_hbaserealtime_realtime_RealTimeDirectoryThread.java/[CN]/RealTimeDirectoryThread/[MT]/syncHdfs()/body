@@ -1,0 +1,16 @@
+{
+  long len=UniqConfig.RealTimeHdfsFlush() * 1000l;
+  TimerTask task=new TimerTask(){
+    @Override public void run(){
+      try {
+        mainThread.syncHdfs();
+      }
+ catch (      Throwable ex) {
+        LOG.error("syncHdfs",ex);
+      }
+    }
+  }
+;
+  taskList.add(task);
+  RealTimeDirectorUtils.getSlowTimer().schedule(task,len,len);
+}

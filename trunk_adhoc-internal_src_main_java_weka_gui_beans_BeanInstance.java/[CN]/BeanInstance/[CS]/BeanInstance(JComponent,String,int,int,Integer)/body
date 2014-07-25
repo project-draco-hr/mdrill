@@ -1,0 +1,12 @@
+{
+  m_x=x;
+  m_y=y;
+  try {
+    m_bean=Beans.instantiate(null,beanName);
+  }
+ catch (  Exception ex) {
+    ex.printStackTrace();
+    return;
+  }
+  addBean(container,tab);
+}

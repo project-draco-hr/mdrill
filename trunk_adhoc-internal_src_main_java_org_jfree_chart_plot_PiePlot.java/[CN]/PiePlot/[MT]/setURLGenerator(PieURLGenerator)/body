@@ -1,0 +1,4 @@
+{
+  this.urlGenerator=generator;
+  fireChangeEvent();
+}

@@ -1,0 +1,49 @@
+{
+  ArrayList<Object> current=new ArrayList<Object>();
+  ConverterUtils.getFirstToken(tokenizer);
+  if (tokenizer.ttype == StreamTokenizer.TT_EOF) {
+    return null;
+  }
+  boolean first=true;
+  boolean wasSep;
+  while (tokenizer.ttype != StreamTokenizer.TT_EOL && tokenizer.ttype != StreamTokenizer.TT_EOF) {
+    if (!first) {
+      ConverterUtils.getToken(tokenizer);
+    }
+    if (tokenizer.ttype == m_FieldSeparator.charAt(0) || tokenizer.ttype == StreamTokenizer.TT_EOL) {
+      current.add(m_MissingValue);
+      wasSep=true;
+    }
+ else {
+      wasSep=false;
+      if (tokenizer.sval.equals(m_MissingValue)) {
+        current.add(new String(m_MissingValue));
+      }
+ else {
+        try {
+          double val=Double.valueOf(tokenizer.sval).doubleValue();
+          current.add(new Double(val));
+        }
+ catch (        NumberFormatException e) {
+          current.add(new String(tokenizer.sval));
+        }
+      }
+    }
+    if (!wasSep) {
+      ConverterUtils.getToken(tokenizer);
+    }
+    first=false;
+  }
+  if (!readingFirstRow) {
+    if (current.size() != m_structure.numAttributes()) {
+      ConverterUtils.errms(tokenizer,"wrong number of values. Read " + current.size() + ", expected "+ m_structure.numAttributes());
+    }
+    try {
+      checkStructure(current);
+    }
+ catch (    Exception ex) {
+      ex.printStackTrace();
+    }
+  }
+  return current;
+}

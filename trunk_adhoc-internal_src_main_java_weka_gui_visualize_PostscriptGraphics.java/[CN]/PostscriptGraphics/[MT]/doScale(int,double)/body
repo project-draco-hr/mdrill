@@ -1,0 +1,3 @@
+{
+  return (int)StrictMath.round(number * factor);
+}

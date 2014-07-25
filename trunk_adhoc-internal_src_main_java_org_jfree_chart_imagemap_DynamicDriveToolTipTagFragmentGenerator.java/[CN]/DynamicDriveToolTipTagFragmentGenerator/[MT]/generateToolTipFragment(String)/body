@@ -1,0 +1,3 @@
+{
+  return " onMouseOver=\"return stm(['" + ImageMapUtilities.javascriptEscape(this.title) + "','"+ ImageMapUtilities.javascriptEscape(toolTipText)+ "'],Style["+ this.style+ "]);\""+ " onMouseOut=\"return htm();\"";
+}

@@ -1,0 +1,33 @@
+{
+  HBaseAdmin admin=new HBaseAdmin(config);
+  String tablenameshard=this.getDataTableNme(tablename);
+  if (!admin.tableExists(tablenameshard)) {
+    HTableDescriptor tableDescripter=new HTableDescriptor(tablenameshard.getBytes());
+    tableDescripter.setValue("group",String.valueOf(params.get("realtime.hbase.group")));
+    HColumnDescriptor columnDescripter2=new HColumnDescriptor(DATA_FAMILY);
+    columnDescripter2.setBlockCacheEnabled(false);
+    columnDescripter2.setBlocksize(262144);
+    columnDescripter2.setBloomFilterType(BloomType.NONE);
+    columnDescripter2.setCompressionType(Algorithm.GZ);
+    columnDescripter2.setMaxVersions(10);
+    columnDescripter2.setInMemory(false);
+    columnDescripter2.setTimeToLive(Integer.MAX_VALUE);
+    tableDescripter.addFamily(columnDescripter2);
+    admin.createTable(tableDescripter);
+  }
+  String tablenamequeue=this.getQueueTableNme(tablename);
+  if (!admin.tableExists(tablenamequeue)) {
+    HTableDescriptor tableDescripter=new HTableDescriptor(tablenamequeue.getBytes());
+    tableDescripter.setValue("group",String.valueOf(params.get("realtime.hbase.group")));
+    HColumnDescriptor columnDescripter2=new HColumnDescriptor(MdrillQueue.FAMILY);
+    columnDescripter2.setBlockCacheEnabled(false);
+    columnDescripter2.setBlocksize(262144);
+    columnDescripter2.setBloomFilterType(BloomType.NONE);
+    columnDescripter2.setCompressionType(Algorithm.NONE);
+    columnDescripter2.setMaxVersions(10);
+    columnDescripter2.setInMemory(false);
+    columnDescripter2.setTimeToLive(2 * 24 * 60* 60);
+    tableDescripter.addFamily(columnDescripter2);
+    admin.createTable(tableDescripter);
+  }
+}

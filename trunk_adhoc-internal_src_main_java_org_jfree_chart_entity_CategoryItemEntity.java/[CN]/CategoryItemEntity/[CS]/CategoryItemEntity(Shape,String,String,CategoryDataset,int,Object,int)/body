@@ -1,0 +1,12 @@
+{
+  super(area,toolTipText,urlText);
+  if (dataset == null) {
+    throw new IllegalArgumentException("Null 'dataset' argument.");
+  }
+  this.dataset=dataset;
+  this.series=series;
+  this.category=category;
+  this.categoryIndex=categoryIndex;
+  this.rowKey=dataset.getRowKey(series);
+  this.columnKey=dataset.getColumnKey(categoryIndex);
+}

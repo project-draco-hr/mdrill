@@ -1,0 +1,3 @@
+{
+  m_visual.loadIcons(BeanVisual.ICON_PATH + "DefaultClassifier.gif",BeanVisual.ICON_PATH + "DefaultClassifier_animated.gif");
+}

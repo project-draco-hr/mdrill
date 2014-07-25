@@ -1,0 +1,4 @@
+{
+  this.classesMap.remove(cd.getObjectClass());
+  this.classes.remove(cd);
+}

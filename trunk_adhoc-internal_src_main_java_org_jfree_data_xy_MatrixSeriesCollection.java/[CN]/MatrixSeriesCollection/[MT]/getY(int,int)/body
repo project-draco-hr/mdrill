@@ -1,0 +1,5 @@
+{
+  MatrixSeries series=(MatrixSeries)this.seriesList.get(seriesIndex);
+  int y=series.getItemRow(itemIndex);
+  return new Integer(y);
+}

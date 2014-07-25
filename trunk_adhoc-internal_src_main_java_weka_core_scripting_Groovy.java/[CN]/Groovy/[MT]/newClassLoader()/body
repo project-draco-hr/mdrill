@@ -1,0 +1,18 @@
+{
+  Object result;
+  Class<?> cls;
+  Constructor constr;
+  result=null;
+  if (isPresent()) {
+    try {
+      cls=Class.forName(CLASS_GROOVYCLASSLOADER);
+      constr=cls.getConstructor(new Class[]{ClassLoader.class});
+      result=constr.newInstance(Groovy.class.getClassLoader());
+    }
+ catch (    Exception e) {
+      e.printStackTrace();
+      result=null;
+    }
+  }
+  return result;
+}

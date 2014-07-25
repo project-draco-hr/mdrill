@@ -1,0 +1,14 @@
+{
+  Vector result=new Vector();
+  result.addElement(new Option("\tnumber of clusters.\n" + "\t(default 2).","N",1,"-N <num>"));
+  result.addElement(new Option("\tInitialize using the k-means++ method.\n","P",0,"-P"));
+  result.addElement(new Option("\tDisplay std. deviations for centroids.\n","V",0,"-V"));
+  result.addElement(new Option("\tReplace missing values with mean/mode.\n","M",0,"-M"));
+  result.add(new Option("\tDistance function to use.\n" + "\t(default: weka.core.EuclideanDistance)","A",1,"-A <classname and options>"));
+  result.add(new Option("\tMaximum number of iterations.\n","I",1,"-I <num>"));
+  result.addElement(new Option("\tPreserve order of instances.\n","O",0,"-O"));
+  result.addElement(new Option("\tEnables faster distance calculations, using cut-off values.\n" + "\tDisables the calculation/output of squared errors/distances.\n","fast",0,"-fast"));
+  Enumeration en=super.listOptions();
+  while (en.hasMoreElements())   result.addElement(en.nextElement());
+  return result.elements();
+}

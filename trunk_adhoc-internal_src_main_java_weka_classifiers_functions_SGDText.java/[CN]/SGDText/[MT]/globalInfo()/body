@@ -1,0 +1,3 @@
+{
+  return "Implements stochastic gradient descent for learning" + " a linear binary class SVM or binary class" + " logistic regression on text data. Operates directly on String "+ "attributes.";
+}

@@ -1,0 +1,46 @@
+{
+  for (int i=0; i < list.size(); i++) {
+    TempNode n=(TempNode)list.get(i);
+    n.anchor=calcPivot(n.points,new MyIdxList(),m_Instances);
+    n.radius=calcRadius(n.points,new MyIdxList(),n.anchor,m_Instances);
+  }
+  double minRadius, tmpRadius;
+  Instance pivot, minPivot=null;
+  TempNode parent;
+  int min1=-1, min2=-1;
+  while (list.size() > 1) {
+    minRadius=Double.POSITIVE_INFINITY;
+    for (int i=0; i < list.size(); i++) {
+      TempNode first=(TempNode)list.get(i);
+      for (int j=i + 1; j < list.size(); j++) {
+        TempNode second=(TempNode)list.get(j);
+        pivot=calcPivot(first,second,m_Instances);
+        tmpRadius=calcRadius(first,second);
+        if (tmpRadius < minRadius) {
+          minRadius=tmpRadius;
+          minPivot=pivot;
+          min1=i;
+          min2=j;
+        }
+      }
+    }
+    parent=new TempNode();
+    parent.left=(TempNode)list.get(min1);
+    parent.right=(TempNode)list.get(min2);
+    parent.anchor=minPivot;
+    parent.radius=calcRadius(parent.left.points,parent.right.points,minPivot,m_Instances);
+    parent.points=parent.left.points.append(parent.left.points,parent.right.points);
+    list.remove(min1);
+    list.remove(min2 - 1);
+    list.add(parent);
+  }
+  TempNode tmpRoot=(TempNode)list.get(list.size() - 1);
+  if ((endIdx - startIdx + 1) != tmpRoot.points.length()) {
+    throw new Exception("Root nodes instance list is of irregular length. " + "Please check code. Length should " + "be: " + (endIdx - startIdx + 1) + " whereas it is found to be: "+ tmpRoot.points.length());
+  }
+  for (int i=0; i < tmpRoot.points.length(); i++) {
+    m_InstList[startIdx + i]=((ListNode)tmpRoot.points.get(i)).idx;
+  }
+  BallNode node=makeBallTreeNodes(tmpRoot,startIdx,endIdx,0);
+  return node;
+}

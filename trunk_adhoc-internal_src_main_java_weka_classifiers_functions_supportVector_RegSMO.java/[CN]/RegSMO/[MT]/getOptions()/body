@@ -1,0 +1,11 @@
+{
+  int i;
+  Vector result;
+  String[] options;
+  result=new Vector();
+  options=super.getOptions();
+  for (i=0; i < options.length; i++)   result.add(options[i]);
+  result.add("-P");
+  result.add("" + getEpsilon());
+  return (String[])result.toArray(new String[result.size()]);
+}

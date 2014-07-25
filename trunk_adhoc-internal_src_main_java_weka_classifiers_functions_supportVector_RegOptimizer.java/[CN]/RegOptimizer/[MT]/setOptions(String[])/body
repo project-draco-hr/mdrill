@@ -1,0 +1,17 @@
+{
+  String tmpStr;
+  tmpStr=Utils.getOption('L',options);
+  if (tmpStr.length() != 0) {
+    setEpsilonParameter(Double.parseDouble(tmpStr));
+  }
+ else {
+    setEpsilonParameter(1.0e-3);
+  }
+  tmpStr=Utils.getOption('W',options);
+  if (tmpStr.length() != 0) {
+    setSeed(Integer.parseInt(tmpStr));
+  }
+ else {
+    setSeed(1);
+  }
+}

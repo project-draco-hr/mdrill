@@ -1,0 +1,24 @@
+{
+  try {
+    m_nTargetNode=nTargetNode;
+    m_sValue=sValue;
+    m_att=m_Instances.attribute(nTargetNode);
+    SerializedObject so=new SerializedObject(m_Distributions[nTargetNode]);
+    m_CPT=(Estimator[])so.getObject();
+    ;
+    m_children=new FastVector();
+    for (int iNode=0; iNode < getNrOfNodes(); iNode++) {
+      if (m_ParentSets[iNode].contains(nTargetNode)) {
+        m_children.addElement(iNode);
+      }
+    }
+    m_childAtts=new Estimator[m_children.size()][];
+    for (int iChild=0; iChild < m_children.size(); iChild++) {
+      int nChild=(Integer)m_children.elementAt(iChild);
+      m_childAtts[iChild]=m_Distributions[nChild];
+    }
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
+}

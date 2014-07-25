@@ -1,0 +1,418 @@
+{
+  java_cup.runtime.Symbol CUP$Parser$result;
+switch (CUP$Parser$act_num) {
+case 37:
+{
+      Boolean RESULT=null;
+      int lleft=((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 2)).left;
+      int lright=((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 2)).right;
+      Boolean l=(Boolean)((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 2)).value;
+      int rleft=((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).left;
+      int rright=((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).right;
+      Boolean r=(Boolean)((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).value;
+      RESULT=l || r;
+      CUP$Parser$result=parser.getSymbolFactory().newSymbol("boolexpr",6,((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 2)),((java_cup.runtime.Symbol)CUP$Parser$stack.peek()),RESULT);
+    }
+  return CUP$Parser$result;
+case 36:
+{
+  Boolean RESULT=null;
+  int lleft=((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 2)).left;
+  int lright=((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 2)).right;
+  Boolean l=(Boolean)((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 2)).value;
+  int rleft=((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).left;
+  int rright=((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).right;
+  Boolean r=(Boolean)((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).value;
+  RESULT=l && r;
+  CUP$Parser$result=parser.getSymbolFactory().newSymbol("boolexpr",6,((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 2)),((java_cup.runtime.Symbol)CUP$Parser$stack.peek()),RESULT);
+}
+return CUP$Parser$result;
+case 35:
+{
+Boolean RESULT=null;
+int bleft=((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).left;
+int bright=((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).right;
+Boolean b=(Boolean)((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).value;
+RESULT=!b;
+CUP$Parser$result=parser.getSymbolFactory().newSymbol("boolexpr",6,((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 1)),((java_cup.runtime.Symbol)CUP$Parser$stack.peek()),RESULT);
+}
+return CUP$Parser$result;
+case 34:
+{
+Boolean RESULT=null;
+int bleft=((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 1)).left;
+int bright=((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 1)).right;
+Boolean b=(Boolean)((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 1)).value;
+RESULT=b;
+CUP$Parser$result=parser.getSymbolFactory().newSymbol("boolexpr",6,((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 2)),((java_cup.runtime.Symbol)CUP$Parser$stack.peek()),RESULT);
+}
+return CUP$Parser$result;
+case 33:
+{
+Boolean RESULT=null;
+int lleft=((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 2)).left;
+int lright=((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 2)).right;
+Double l=(Double)((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 2)).value;
+int rleft=((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).left;
+int rright=((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).right;
+Double r=(Double)((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).value;
+RESULT=new Boolean(l.doubleValue() == r.doubleValue());
+CUP$Parser$result=parser.getSymbolFactory().newSymbol("boolexpr",6,((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 2)),((java_cup.runtime.Symbol)CUP$Parser$stack.peek()),RESULT);
+}
+return CUP$Parser$result;
+case 32:
+{
+Boolean RESULT=null;
+int lleft=((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 2)).left;
+int lright=((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 2)).right;
+Double l=(Double)((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 2)).value;
+int rleft=((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).left;
+int rright=((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).right;
+Double r=(Double)((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).value;
+RESULT=new Boolean(l.doubleValue() >= r.doubleValue());
+CUP$Parser$result=parser.getSymbolFactory().newSymbol("boolexpr",6,((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 2)),((java_cup.runtime.Symbol)CUP$Parser$stack.peek()),RESULT);
+}
+return CUP$Parser$result;
+case 31:
+{
+Boolean RESULT=null;
+int lleft=((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 2)).left;
+int lright=((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 2)).right;
+Double l=(Double)((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 2)).value;
+int rleft=((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).left;
+int rright=((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).right;
+Double r=(Double)((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).value;
+RESULT=new Boolean(l.doubleValue() > r.doubleValue());
+CUP$Parser$result=parser.getSymbolFactory().newSymbol("boolexpr",6,((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 2)),((java_cup.runtime.Symbol)CUP$Parser$stack.peek()),RESULT);
+}
+return CUP$Parser$result;
+case 30:
+{
+Boolean RESULT=null;
+int lleft=((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 2)).left;
+int lright=((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 2)).right;
+Double l=(Double)((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 2)).value;
+int rleft=((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).left;
+int rright=((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).right;
+Double r=(Double)((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).value;
+RESULT=new Boolean(l.doubleValue() <= r.doubleValue());
+CUP$Parser$result=parser.getSymbolFactory().newSymbol("boolexpr",6,((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 2)),((java_cup.runtime.Symbol)CUP$Parser$stack.peek()),RESULT);
+}
+return CUP$Parser$result;
+case 29:
+{
+Boolean RESULT=null;
+int lleft=((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 2)).left;
+int lright=((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 2)).right;
+Double l=(Double)((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 2)).value;
+int rleft=((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).left;
+int rright=((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).right;
+Double r=(Double)((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).value;
+RESULT=new Boolean(l.doubleValue() < r.doubleValue());
+CUP$Parser$result=parser.getSymbolFactory().newSymbol("boolexpr",6,((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 2)),((java_cup.runtime.Symbol)CUP$Parser$stack.peek()),RESULT);
+}
+return CUP$Parser$result;
+case 28:
+{
+Boolean RESULT=null;
+RESULT=new Boolean(false);
+CUP$Parser$result=parser.getSymbolFactory().newSymbol("boolexpr",6,((java_cup.runtime.Symbol)CUP$Parser$stack.peek()),((java_cup.runtime.Symbol)CUP$Parser$stack.peek()),RESULT);
+}
+return CUP$Parser$result;
+case 27:
+{
+Boolean RESULT=null;
+RESULT=new Boolean(true);
+CUP$Parser$result=parser.getSymbolFactory().newSymbol("boolexpr",6,((java_cup.runtime.Symbol)CUP$Parser$stack.peek()),((java_cup.runtime.Symbol)CUP$Parser$stack.peek()),RESULT);
+}
+return CUP$Parser$result;
+case 26:
+{
+Boolean RESULT=null;
+int bleft=((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).left;
+int bright=((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).right;
+Boolean b=(Boolean)((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).value;
+RESULT=b;
+CUP$Parser$result=parser.getSymbolFactory().newSymbol("boolexpr",6,((java_cup.runtime.Symbol)CUP$Parser$stack.peek()),((java_cup.runtime.Symbol)CUP$Parser$stack.peek()),RESULT);
+}
+return CUP$Parser$result;
+case 25:
+{
+Double RESULT=null;
+int bleft=((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 5)).left;
+int bright=((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 5)).right;
+Boolean b=(Boolean)((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 5)).value;
+int e_trueleft=((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 3)).left;
+int e_trueright=((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 3)).right;
+Double e_true=(Double)((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 3)).value;
+int e_falseleft=((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 1)).left;
+int e_falseright=((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 1)).right;
+Double e_false=(Double)((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 1)).value;
+if (b) RESULT=e_true;
+ else RESULT=e_false;
+CUP$Parser$result=parser.getSymbolFactory().newSymbol("funcexpr",5,((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 7)),((java_cup.runtime.Symbol)CUP$Parser$stack.peek()),RESULT);
+}
+return CUP$Parser$result;
+case 24:
+{
+Double RESULT=null;
+int eleft=((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 1)).left;
+int eright=((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 1)).right;
+Double e=(Double)((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 1)).value;
+RESULT=new Double(Math.ceil(e));
+CUP$Parser$result=parser.getSymbolFactory().newSymbol("funcexpr",5,((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 3)),((java_cup.runtime.Symbol)CUP$Parser$stack.peek()),RESULT);
+}
+return CUP$Parser$result;
+case 23:
+{
+Double RESULT=null;
+int baseleft=((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 3)).left;
+int baseright=((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 3)).right;
+Double base=(Double)((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 3)).value;
+int exponentleft=((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 1)).left;
+int exponentright=((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 1)).right;
+Double exponent=(Double)((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 1)).value;
+RESULT=new Double(Math.pow(base,exponent));
+CUP$Parser$result=parser.getSymbolFactory().newSymbol("funcexpr",5,((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 5)),((java_cup.runtime.Symbol)CUP$Parser$stack.peek()),RESULT);
+}
+return CUP$Parser$result;
+case 22:
+{
+Double RESULT=null;
+int eleft=((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 1)).left;
+int eright=((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 1)).right;
+Double e=(Double)((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 1)).value;
+RESULT=new Double(Math.floor(e));
+CUP$Parser$result=parser.getSymbolFactory().newSymbol("funcexpr",5,((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 3)),((java_cup.runtime.Symbol)CUP$Parser$stack.peek()),RESULT);
+}
+return CUP$Parser$result;
+case 21:
+{
+Double RESULT=null;
+int eleft=((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 1)).left;
+int eright=((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 1)).right;
+Double e=(Double)((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 1)).value;
+RESULT=new Double(Math.rint(e));
+CUP$Parser$result=parser.getSymbolFactory().newSymbol("funcexpr",5,((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 3)),((java_cup.runtime.Symbol)CUP$Parser$stack.peek()),RESULT);
+}
+return CUP$Parser$result;
+case 20:
+{
+Double RESULT=null;
+int eleft=((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 1)).left;
+int eright=((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 1)).right;
+Double e=(Double)((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 1)).value;
+RESULT=new Double(Math.tan(e));
+CUP$Parser$result=parser.getSymbolFactory().newSymbol("funcexpr",5,((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 3)),((java_cup.runtime.Symbol)CUP$Parser$stack.peek()),RESULT);
+}
+return CUP$Parser$result;
+case 19:
+{
+Double RESULT=null;
+int eleft=((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 1)).left;
+int eright=((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 1)).right;
+Double e=(Double)((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 1)).value;
+RESULT=new Double(Math.cos(e));
+CUP$Parser$result=parser.getSymbolFactory().newSymbol("funcexpr",5,((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 3)),((java_cup.runtime.Symbol)CUP$Parser$stack.peek()),RESULT);
+}
+return CUP$Parser$result;
+case 18:
+{
+Double RESULT=null;
+int eleft=((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 1)).left;
+int eright=((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 1)).right;
+Double e=(Double)((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 1)).value;
+RESULT=new Double(Math.sin(e));
+CUP$Parser$result=parser.getSymbolFactory().newSymbol("funcexpr",5,((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 3)),((java_cup.runtime.Symbol)CUP$Parser$stack.peek()),RESULT);
+}
+return CUP$Parser$result;
+case 17:
+{
+Double RESULT=null;
+int eleft=((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 1)).left;
+int eright=((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 1)).right;
+Double e=(Double)((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 1)).value;
+RESULT=new Double(Math.exp(e));
+CUP$Parser$result=parser.getSymbolFactory().newSymbol("funcexpr",5,((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 3)),((java_cup.runtime.Symbol)CUP$Parser$stack.peek()),RESULT);
+}
+return CUP$Parser$result;
+case 16:
+{
+Double RESULT=null;
+int eleft=((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 1)).left;
+int eright=((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 1)).right;
+Double e=(Double)((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 1)).value;
+RESULT=new Double(Math.log(e));
+CUP$Parser$result=parser.getSymbolFactory().newSymbol("funcexpr",5,((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 3)),((java_cup.runtime.Symbol)CUP$Parser$stack.peek()),RESULT);
+}
+return CUP$Parser$result;
+case 15:
+{
+Double RESULT=null;
+int eleft=((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 1)).left;
+int eright=((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 1)).right;
+Double e=(Double)((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 1)).value;
+RESULT=new Double(Math.sqrt(e));
+CUP$Parser$result=parser.getSymbolFactory().newSymbol("funcexpr",5,((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 3)),((java_cup.runtime.Symbol)CUP$Parser$stack.peek()),RESULT);
+}
+return CUP$Parser$result;
+case 14:
+{
+Double RESULT=null;
+int eleft=((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 1)).left;
+int eright=((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 1)).right;
+Double e=(Double)((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 1)).value;
+RESULT=new Double(Math.abs(e));
+CUP$Parser$result=parser.getSymbolFactory().newSymbol("funcexpr",5,((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 3)),((java_cup.runtime.Symbol)CUP$Parser$stack.peek()),RESULT);
+}
+return CUP$Parser$result;
+case 13:
+{
+Double RESULT=null;
+int vleft=((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).left;
+int vright=((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).right;
+String v=(String)((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).value;
+if (parser.getSymbols().containsKey(v)) RESULT=(Double)parser.getSymbols().get(v);
+ else throw new IllegalStateException("Unknown symbol '" + v + "'!");
+CUP$Parser$result=parser.getSymbolFactory().newSymbol("varexpr",4,((java_cup.runtime.Symbol)CUP$Parser$stack.peek()),((java_cup.runtime.Symbol)CUP$Parser$stack.peek()),RESULT);
+}
+return CUP$Parser$result;
+case 12:
+{
+Double RESULT=null;
+int lleft=((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 2)).left;
+int lright=((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 2)).right;
+Double l=(Double)((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 2)).value;
+int rleft=((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).left;
+int rright=((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).right;
+Double r=(Double)((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).value;
+RESULT=new Double(l.doubleValue() / r.doubleValue());
+CUP$Parser$result=parser.getSymbolFactory().newSymbol("opexpr",3,((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 2)),((java_cup.runtime.Symbol)CUP$Parser$stack.peek()),RESULT);
+}
+return CUP$Parser$result;
+case 11:
+{
+Double RESULT=null;
+int lleft=((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 2)).left;
+int lright=((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 2)).right;
+Double l=(Double)((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 2)).value;
+int rleft=((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).left;
+int rright=((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).right;
+Double r=(Double)((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).value;
+RESULT=new Double(l.doubleValue() * r.doubleValue());
+CUP$Parser$result=parser.getSymbolFactory().newSymbol("opexpr",3,((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 2)),((java_cup.runtime.Symbol)CUP$Parser$stack.peek()),RESULT);
+}
+return CUP$Parser$result;
+case 10:
+{
+Double RESULT=null;
+int lleft=((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 2)).left;
+int lright=((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 2)).right;
+Double l=(Double)((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 2)).value;
+int rleft=((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).left;
+int rright=((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).right;
+Double r=(Double)((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).value;
+RESULT=new Double(l.doubleValue() - r.doubleValue());
+CUP$Parser$result=parser.getSymbolFactory().newSymbol("opexpr",3,((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 2)),((java_cup.runtime.Symbol)CUP$Parser$stack.peek()),RESULT);
+}
+return CUP$Parser$result;
+case 9:
+{
+Double RESULT=null;
+int lleft=((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 2)).left;
+int lright=((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 2)).right;
+Double l=(Double)((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 2)).value;
+int rleft=((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).left;
+int rright=((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).right;
+Double r=(Double)((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).value;
+RESULT=new Double(l.doubleValue() + r.doubleValue());
+CUP$Parser$result=parser.getSymbolFactory().newSymbol("opexpr",3,((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 2)),((java_cup.runtime.Symbol)CUP$Parser$stack.peek()),RESULT);
+}
+return CUP$Parser$result;
+case 8:
+{
+Double RESULT=null;
+int fleft=((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).left;
+int fright=((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).right;
+Double f=(Double)((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).value;
+RESULT=f;
+CUP$Parser$result=parser.getSymbolFactory().newSymbol("expr",2,((java_cup.runtime.Symbol)CUP$Parser$stack.peek()),((java_cup.runtime.Symbol)CUP$Parser$stack.peek()),RESULT);
+}
+return CUP$Parser$result;
+case 7:
+{
+Double RESULT=null;
+int vleft=((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).left;
+int vright=((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).right;
+Double v=(Double)((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).value;
+RESULT=v;
+CUP$Parser$result=parser.getSymbolFactory().newSymbol("expr",2,((java_cup.runtime.Symbol)CUP$Parser$stack.peek()),((java_cup.runtime.Symbol)CUP$Parser$stack.peek()),RESULT);
+}
+return CUP$Parser$result;
+case 6:
+{
+Double RESULT=null;
+int oleft=((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).left;
+int oright=((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).right;
+Double o=(Double)((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).value;
+RESULT=o;
+CUP$Parser$result=parser.getSymbolFactory().newSymbol("expr",2,((java_cup.runtime.Symbol)CUP$Parser$stack.peek()),((java_cup.runtime.Symbol)CUP$Parser$stack.peek()),RESULT);
+}
+return CUP$Parser$result;
+case 5:
+{
+Double RESULT=null;
+int eleft=((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 1)).left;
+int eright=((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 1)).right;
+Double e=(Double)((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 1)).value;
+RESULT=e;
+CUP$Parser$result=parser.getSymbolFactory().newSymbol("expr",2,((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 2)),((java_cup.runtime.Symbol)CUP$Parser$stack.peek()),RESULT);
+}
+return CUP$Parser$result;
+case 4:
+{
+Double RESULT=null;
+int nleft=((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).left;
+int nright=((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).right;
+Double n=(Double)((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).value;
+RESULT=n;
+CUP$Parser$result=parser.getSymbolFactory().newSymbol("expr",2,((java_cup.runtime.Symbol)CUP$Parser$stack.peek()),((java_cup.runtime.Symbol)CUP$Parser$stack.peek()),RESULT);
+}
+return CUP$Parser$result;
+case 3:
+{
+Object RESULT=null;
+int eleft=((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).left;
+int eright=((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).right;
+Double e=(Double)((java_cup.runtime.Symbol)CUP$Parser$stack.peek()).value;
+parser.setResult(e);
+CUP$Parser$result=parser.getSymbolFactory().newSymbol("expr_part",1,((java_cup.runtime.Symbol)CUP$Parser$stack.peek()),((java_cup.runtime.Symbol)CUP$Parser$stack.peek()),RESULT);
+}
+return CUP$Parser$result;
+case 2:
+{
+Object RESULT=null;
+CUP$Parser$result=parser.getSymbolFactory().newSymbol("expr_list",0,((java_cup.runtime.Symbol)CUP$Parser$stack.peek()),((java_cup.runtime.Symbol)CUP$Parser$stack.peek()),RESULT);
+}
+return CUP$Parser$result;
+case 1:
+{
+Object RESULT=null;
+int start_valleft=((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 1)).left;
+int start_valright=((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 1)).right;
+Object start_val=(Object)((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 1)).value;
+RESULT=start_val;
+CUP$Parser$result=parser.getSymbolFactory().newSymbol("$START",0,((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 1)),((java_cup.runtime.Symbol)CUP$Parser$stack.peek()),RESULT);
+}
+CUP$Parser$parser.done_parsing();
+return CUP$Parser$result;
+case 0:
+{
+Object RESULT=null;
+CUP$Parser$result=parser.getSymbolFactory().newSymbol("expr_list",0,((java_cup.runtime.Symbol)CUP$Parser$stack.elementAt(CUP$Parser$top - 1)),((java_cup.runtime.Symbol)CUP$Parser$stack.peek()),RESULT);
+}
+return CUP$Parser$result;
+default :
+throw new Exception("Invalid action number found in internal parse table");
+}
+}

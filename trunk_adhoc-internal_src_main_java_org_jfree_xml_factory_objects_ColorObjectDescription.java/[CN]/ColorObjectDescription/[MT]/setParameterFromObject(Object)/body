@@ -1,0 +1,7 @@
+{
+  if (!(o instanceof Color)) {
+    throw new ObjectFactoryException("Is no instance of java.awt.Color");
+  }
+  final Color c=(Color)o;
+  setParameter("value",PaintUtilities.colorToString(c));
+}

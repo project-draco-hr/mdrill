@@ -1,0 +1,22 @@
+{
+  final ArrayList collector=new ArrayList();
+  ModuleInfo[] info=childMod.getRequiredModules();
+  for (int i=0; i < info.length; i++) {
+    final SortModule dependentModule=(SortModule)moduleMap.get(info[i].getModuleClass());
+    if (dependentModule == null) {
+      Log.warn(new Log.SimpleMessage("A dependent module was not found in the list of known modules.",info[i].getModuleClass()));
+      continue;
+    }
+    collector.add(dependentModule.getState().getModule().getSubSystem());
+  }
+  info=childMod.getOptionalModules();
+  for (int i=0; i < info.length; i++) {
+    final Module dependentModule=(Module)moduleMap.get(info[i].getModuleClass());
+    if (dependentModule == null) {
+      Log.warn("A dependent module was not found in the list of known modules.");
+      continue;
+    }
+    collector.add(dependentModule.getSubSystem());
+  }
+  return collector;
+}

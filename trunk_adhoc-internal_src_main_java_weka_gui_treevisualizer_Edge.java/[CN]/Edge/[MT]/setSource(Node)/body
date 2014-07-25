@@ -1,0 +1,4 @@
+{
+  m_source=v;
+  v.addChild(this);
+}

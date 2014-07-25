@@ -1,0 +1,94 @@
+{
+  double alpha2=m_alpha[i2];
+  double alpha2Star=m_alphaStar[i2];
+  int iSet=m_iSet[i2];
+  double F2=m_error[i2];
+  if (!m_I0.contains(i2)) {
+    F2=-SVMOutput(i2) - m_b + m_target[i2];
+    m_error[i2]=F2;
+    if (iSet == I1) {
+      if (F2 + m_epsilon < m_bUp) {
+        m_bUp=F2 + m_epsilon;
+        m_iUp=i2;
+      }
+ else       if (F2 - m_epsilon > m_bLow) {
+        m_bLow=F2 - m_epsilon;
+        m_iLow=i2;
+      }
+    }
+ else     if ((iSet == I2) && (F2 + m_epsilon > m_bLow)) {
+      m_bLow=F2 + m_epsilon;
+      m_iLow=i2;
+    }
+ else     if ((iSet == I3) && (F2 - m_epsilon < m_bUp)) {
+      m_bUp=F2 - m_epsilon;
+      m_iUp=i2;
+    }
+  }
+  int i1=i2;
+  boolean bOptimality=true;
+  if (iSet == I0a) {
+    if (m_bLow - (F2 - m_epsilon) > 2 * m_fTolerance) {
+      bOptimality=false;
+      i1=m_iLow;
+      if ((F2 - m_epsilon) - m_bUp > m_bLow - (F2 - m_epsilon)) {
+        i1=m_iUp;
+      }
+    }
+ else     if ((F2 - m_epsilon) - m_bUp > 2 * m_fTolerance) {
+      bOptimality=false;
+      i1=m_iUp;
+      if (m_bLow - (F2 - m_epsilon) > (F2 - m_epsilon) - m_bUp) {
+        i1=m_iLow;
+      }
+    }
+  }
+ else   if (iSet == I0b) {
+    if (m_bLow - (F2 + m_epsilon) > 2 * m_fTolerance) {
+      bOptimality=false;
+      i1=m_iLow;
+      if ((F2 + m_epsilon) - m_bUp > m_bLow - (F2 + m_epsilon)) {
+        i1=m_iUp;
+      }
+    }
+ else     if ((F2 + m_epsilon) - m_bUp > 2 * m_fTolerance) {
+      bOptimality=false;
+      i1=m_iUp;
+      if (m_bLow - (F2 + m_epsilon) > (F2 + m_epsilon) - m_bUp) {
+        i1=m_iLow;
+      }
+    }
+  }
+ else   if (iSet == I1) {
+    if (m_bLow - (F2 + m_epsilon) > 2 * m_fTolerance) {
+      bOptimality=false;
+      i1=m_iLow;
+      if ((F2 + m_epsilon) - m_bUp > m_bLow - (F2 + m_epsilon)) {
+        i1=m_iUp;
+      }
+    }
+ else     if ((F2 - m_epsilon) - m_bUp > 2 * m_fTolerance) {
+      bOptimality=false;
+      i1=m_iUp;
+      if (m_bLow - (F2 - m_epsilon) > (F2 - m_epsilon) - m_bUp) {
+        i1=m_iLow;
+      }
+    }
+  }
+ else   if (iSet == I2) {
+    if ((F2 + m_epsilon) - m_bUp > 2 * m_fTolerance) {
+      bOptimality=false;
+      i1=m_iUp;
+    }
+  }
+ else   if (iSet == I3) {
+    if (m_bLow - (F2 - m_epsilon) > 2 * m_fTolerance) {
+      bOptimality=false;
+      i1=m_iLow;
+    }
+  }
+  if (bOptimality) {
+    return 0;
+  }
+  return takeStep(i1,i2,m_alpha[i2],m_alphaStar[i2],F2);
+}

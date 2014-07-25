@@ -1,0 +1,4 @@
+double weight
+double[] attValues
+int[] indices
+int maxNumValues

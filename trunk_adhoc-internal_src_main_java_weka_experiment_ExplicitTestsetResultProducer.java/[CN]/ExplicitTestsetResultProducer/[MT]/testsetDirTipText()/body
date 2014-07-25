@@ -1,0 +1,3 @@
+{
+  return "The directory containing the test sets.";
+}

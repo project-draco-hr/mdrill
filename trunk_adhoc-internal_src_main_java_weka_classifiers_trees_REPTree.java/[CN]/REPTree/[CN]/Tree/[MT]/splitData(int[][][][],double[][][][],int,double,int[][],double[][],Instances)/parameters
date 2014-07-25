@@ -1,0 +1,7 @@
+int[][][][] subsetIndices
+double[][][][] subsetWeights
+int att
+double splitPoint
+int[][] sortedIndices
+double[][] weights
+Instances data

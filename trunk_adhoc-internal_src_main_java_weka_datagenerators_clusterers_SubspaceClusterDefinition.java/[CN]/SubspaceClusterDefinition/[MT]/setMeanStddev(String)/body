@@ -1,0 +1,5 @@
+{
+  m_meanValue=new double[m_numClusterAttributes];
+  m_stddevValue=new double[m_numClusterAttributes];
+  setValuesList(meanstddev,m_meanValue,m_stddevValue,"D");
+}

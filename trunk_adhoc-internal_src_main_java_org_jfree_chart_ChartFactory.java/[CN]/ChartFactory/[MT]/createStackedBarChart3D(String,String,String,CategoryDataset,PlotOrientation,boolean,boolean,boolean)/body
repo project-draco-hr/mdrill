@@ -1,0 +1,22 @@
+{
+  if (orientation == null) {
+    throw new IllegalArgumentException("Null 'orientation' argument.");
+  }
+  CategoryAxis categoryAxis=new CategoryAxis3D(categoryAxisLabel);
+  ValueAxis valueAxis=new NumberAxis3D(valueAxisLabel);
+  CategoryItemRenderer renderer=new StackedBarRenderer3D();
+  if (tooltips) {
+    renderer.setBaseToolTipGenerator(new StandardCategoryToolTipGenerator());
+  }
+  if (urls) {
+    renderer.setBaseItemURLGenerator(new StandardCategoryURLGenerator());
+  }
+  CategoryPlot plot=new CategoryPlot(dataset,categoryAxis,valueAxis,renderer);
+  plot.setOrientation(orientation);
+  if (orientation == PlotOrientation.HORIZONTAL) {
+    plot.setColumnRenderingOrder(SortOrder.DESCENDING);
+  }
+  JFreeChart chart=new JFreeChart(title,JFreeChart.DEFAULT_TITLE_FONT,plot,legend);
+  currentTheme.apply(chart);
+  return chart;
+}

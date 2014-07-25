@@ -1,0 +1,43 @@
+{
+  super(parentFrame,"Select items",true);
+  m_List=userList;
+  m_CancelBut.setMnemonic('C');
+  m_CancelBut.addActionListener(new ActionListener(){
+    public void actionPerformed(    ActionEvent e){
+      m_Result=CANCEL_OPTION;
+      setVisible(false);
+    }
+  }
+);
+  m_SelectBut.setMnemonic('S');
+  m_SelectBut.addActionListener(new ActionListener(){
+    public void actionPerformed(    ActionEvent e){
+      m_Result=APPROVE_OPTION;
+      setVisible(false);
+    }
+  }
+);
+  m_PatternBut.setMnemonic('P');
+  m_PatternBut.addActionListener(new ActionListener(){
+    public void actionPerformed(    ActionEvent e){
+      selectPattern();
+    }
+  }
+);
+  Container c=getContentPane();
+  c.setLayout(new BorderLayout());
+  Box b1=new Box(BoxLayout.X_AXIS);
+  b1.add(m_SelectBut);
+  b1.add(Box.createHorizontalStrut(10));
+  b1.add(m_PatternBut);
+  b1.add(Box.createHorizontalStrut(10));
+  b1.add(m_CancelBut);
+  c.add(b1,BorderLayout.SOUTH);
+  c.add(new JScrollPane(m_List),BorderLayout.CENTER);
+  getRootPane().setDefaultButton(m_SelectBut);
+  pack();
+  Dimension screen=Toolkit.getDefaultToolkit().getScreenSize();
+  int width=getWidth() > screen.getWidth() ? (int)screen.getWidth() : getWidth();
+  int height=getHeight() > screen.getHeight() ? (int)screen.getHeight() : getHeight();
+  setSize(width,height);
+}

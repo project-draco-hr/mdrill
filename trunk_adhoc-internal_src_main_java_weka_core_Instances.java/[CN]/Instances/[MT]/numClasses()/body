@@ -1,0 +1,11 @@
+{
+  if (m_ClassIndex < 0) {
+    throw new UnassignedClassException("Class index is negative (not set)!");
+  }
+  if (!classAttribute().isNominal()) {
+    return 1;
+  }
+ else {
+    return classAttribute().numValues();
+  }
+}

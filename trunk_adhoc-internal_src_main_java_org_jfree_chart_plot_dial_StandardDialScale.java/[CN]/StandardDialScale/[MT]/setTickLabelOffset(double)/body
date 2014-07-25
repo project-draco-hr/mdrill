@@ -1,0 +1,4 @@
+{
+  this.tickLabelOffset=offset;
+  notifyListeners(new DialLayerChangeEvent(this));
+}

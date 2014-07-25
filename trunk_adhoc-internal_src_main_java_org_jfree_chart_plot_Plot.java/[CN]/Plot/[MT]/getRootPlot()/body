@@ -1,0 +1,9 @@
+{
+  Plot p=getParent();
+  if (p == null) {
+    return this;
+  }
+ else {
+    return p.getRootPlot();
+  }
+}

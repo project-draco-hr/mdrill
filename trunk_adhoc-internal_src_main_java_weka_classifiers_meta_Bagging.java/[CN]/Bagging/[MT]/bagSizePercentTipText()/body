@@ -1,0 +1,3 @@
+{
+  return "Size of each bag, as a percentage of the training set size.";
+}

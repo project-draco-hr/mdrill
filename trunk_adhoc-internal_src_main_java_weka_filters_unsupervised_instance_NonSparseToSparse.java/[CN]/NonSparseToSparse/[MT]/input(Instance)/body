@@ -1,0 +1,42 @@
+{
+  Instance newInstance=null;
+  if (getInputFormat() == null) {
+    throw new IllegalStateException("No input instance format defined");
+  }
+  if (m_NewBatch) {
+    resetQueue();
+    m_NewBatch=false;
+  }
+  if (m_encodeMissingAsZero && !m_insertDummyNominalFirstValue) {
+    Instance tempInst=(Instance)instance.copy();
+    tempInst.setDataset(getInputFormat());
+    for (int i=0; i < tempInst.numAttributes(); i++) {
+      if (tempInst.isMissing(i)) {
+        tempInst.setValue(i,0);
+      }
+    }
+    instance=tempInst;
+  }
+  if (m_insertDummyNominalFirstValue) {
+    double[] values=instance.toDoubleArray();
+    for (int i=0; i < instance.numAttributes(); i++) {
+      if (instance.attribute(i).isNominal()) {
+        if (!Utils.isMissingValue(values[i])) {
+          values[i]++;
+        }
+      }
+      if (m_encodeMissingAsZero && Utils.isMissingValue(values[i])) {
+        values[i]=0;
+      }
+    }
+    newInstance=new SparseInstance(instance.weight(),values);
+    newInstance.setDataset(getOutputFormat());
+    push(newInstance);
+  }
+ else {
+    newInstance=new SparseInstance(instance);
+    newInstance.setDataset(instance.dataset());
+    push(newInstance);
+  }
+  return true;
+}

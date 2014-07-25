@@ -1,0 +1,10 @@
+{
+  if (category == null) {
+    throw new IllegalArgumentException("Null 'category' argument.");
+  }
+  Font result=(Font)this.tickLabelFontMap.get(category);
+  if (result == null) {
+    result=getTickLabelFont();
+  }
+  return result;
+}

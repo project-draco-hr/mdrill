@@ -1,0 +1,16 @@
+{
+  double newSplitPoint=-Double.MAX_VALUE;
+  double tempValue;
+  Instance instance;
+  if ((!allInstances.attribute(m_attIndex).isNominal()) && (m_numSubsets > 1)) {
+    Enumeration enu=allInstances.enumerateInstances();
+    while (enu.hasMoreElements()) {
+      instance=(Instance)enu.nextElement();
+      if (!instance.isMissing(m_attIndex)) {
+        tempValue=instance.value(m_attIndex);
+        if (Utils.gr(tempValue,newSplitPoint) && Utils.smOrEq(tempValue,m_splitPoint))         newSplitPoint=tempValue;
+      }
+    }
+    m_splitPoint=newSplitPoint;
+  }
+}

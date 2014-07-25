@@ -1,0 +1,6 @@
+{
+  if (newUpper >= 0) {
+    m_Upper=newUpper;
+    setValue();
+  }
+}

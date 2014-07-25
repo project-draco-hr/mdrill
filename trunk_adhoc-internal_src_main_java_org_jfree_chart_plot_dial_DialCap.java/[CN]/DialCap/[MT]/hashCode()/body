@@ -1,0 +1,7 @@
+{
+  int result=193;
+  result=37 * result + HashUtilities.hashCodeForPaint(this.fillPaint);
+  result=37 * result + HashUtilities.hashCodeForPaint(this.outlinePaint);
+  result=37 * result + this.outlineStroke.hashCode();
+  return result;
+}

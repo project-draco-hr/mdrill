@@ -1,0 +1,42 @@
+{
+  String[] options={"Disabled","Enabled"};
+  ComboBoxModel cbm=new DefaultComboBoxModel(options);
+  m_StatusBox.setModel(cbm);
+  m_StatusBox.setSelectedIndex(0);
+  m_StatusBox.addActionListener(this);
+  m_StatusBox.setEnabled(false);
+  m_ConfigureBut.setEnabled(false);
+  m_ConfigureBut.addActionListener(this);
+  JPanel buttons=new JPanel();
+  GridBagLayout gb=new GridBagLayout();
+  GridBagConstraints constraints=new GridBagConstraints();
+  buttons.setBorder(BorderFactory.createEmptyBorder(10,5,10,5));
+  buttons.setLayout(gb);
+  constraints.gridx=0;
+  constraints.gridy=0;
+  constraints.weightx=5;
+  constraints.fill=GridBagConstraints.HORIZONTAL;
+  constraints.gridwidth=1;
+  constraints.gridheight=1;
+  constraints.insets=new Insets(0,2,0,2);
+  buttons.add(m_StatusBox,constraints);
+  constraints.gridx=1;
+  constraints.gridy=0;
+  constraints.weightx=5;
+  constraints.gridwidth=1;
+  constraints.gridheight=1;
+  buttons.add(m_ConfigureBut,constraints);
+  buttons.setMaximumSize(new Dimension(buttons.getMaximumSize().width,buttons.getMinimumSize().height));
+  setBorder(BorderFactory.createTitledBorder("Generator properties"));
+  setLayout(new BorderLayout());
+  add(buttons,BorderLayout.NORTH);
+  m_ArrayEditor.setBorder(BorderFactory.createEtchedBorder());
+  m_ArrayEditor.addPropertyChangeListener(new PropertyChangeListener(){
+    public void propertyChange(    PropertyChangeEvent e){
+      System.err.println("Updating experiment property iterator array");
+      m_Exp.setPropertyArray(m_ArrayEditor.getValue());
+    }
+  }
+);
+  add(m_ArrayEditor,BorderLayout.CENTER);
+}

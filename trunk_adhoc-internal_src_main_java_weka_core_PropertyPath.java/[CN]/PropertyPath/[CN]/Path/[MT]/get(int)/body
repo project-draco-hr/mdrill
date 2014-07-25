@@ -1,0 +1,3 @@
+{
+  return (PathElement)m_Elements.get(index);
+}

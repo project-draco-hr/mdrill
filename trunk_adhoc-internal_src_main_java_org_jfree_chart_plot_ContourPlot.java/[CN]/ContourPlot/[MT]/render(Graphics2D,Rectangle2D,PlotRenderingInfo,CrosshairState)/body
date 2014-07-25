@@ -1,0 +1,29 @@
+{
+  ContourDataset data=getDataset();
+  if (data != null) {
+    ColorBar zAxis=getColorBar();
+    if (this.clipPath != null) {
+      GeneralPath clipper=getClipPath().draw(g2,dataArea,this.domainAxis,this.rangeAxis);
+      if (this.clipPath.isClip()) {
+        g2.clip(clipper);
+      }
+    }
+    if (this.renderAsPoints) {
+      pointRenderer(g2,dataArea,info,this,this.domainAxis,this.rangeAxis,zAxis,data,crosshairState);
+    }
+ else {
+      contourRenderer(g2,dataArea,info,this,this.domainAxis,this.rangeAxis,zAxis,data,crosshairState);
+    }
+    setDomainCrosshairValue(crosshairState.getCrosshairX(),false);
+    if (isDomainCrosshairVisible()) {
+      drawVerticalLine(g2,dataArea,getDomainCrosshairValue(),getDomainCrosshairStroke(),getDomainCrosshairPaint());
+    }
+    setRangeCrosshairValue(crosshairState.getCrosshairY(),false);
+    if (isRangeCrosshairVisible()) {
+      drawHorizontalLine(g2,dataArea,getRangeCrosshairValue(),getRangeCrosshairStroke(),getRangeCrosshairPaint());
+    }
+  }
+ else   if (this.clipPath != null) {
+    getClipPath().draw(g2,dataArea,this.domainAxis,this.rangeAxis);
+  }
+}

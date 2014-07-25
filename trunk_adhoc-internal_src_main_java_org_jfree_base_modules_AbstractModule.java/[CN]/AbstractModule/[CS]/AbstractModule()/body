@@ -1,0 +1,3 @@
+{
+  setModuleClass(this.getClass().getName());
+}

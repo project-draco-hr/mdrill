@@ -1,0 +1,21 @@
+{
+  if (dataset == null) {
+    throw new IllegalArgumentException("Null 'dataset' argument.");
+  }
+  if (paintScale == null) {
+    throw new IllegalArgumentException("Null 'paintScale' argument.");
+  }
+  int xCount=dataset.getXSampleCount();
+  int yCount=dataset.getYSampleCount();
+  BufferedImage image=new BufferedImage(xCount,yCount,BufferedImage.TYPE_INT_ARGB);
+  Graphics2D g2=image.createGraphics();
+  for (int xIndex=0; xIndex < xCount; xIndex++) {
+    for (int yIndex=0; yIndex < yCount; yIndex++) {
+      double z=dataset.getZValue(xIndex,yIndex);
+      Paint p=paintScale.getPaint(z);
+      g2.setPaint(p);
+      g2.fillRect(xIndex,yCount - yIndex - 1,1,1);
+    }
+  }
+  return image;
+}

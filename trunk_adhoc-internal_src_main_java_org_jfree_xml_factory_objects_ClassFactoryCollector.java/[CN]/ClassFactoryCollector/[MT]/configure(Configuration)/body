@@ -1,0 +1,11 @@
+{
+  if (getConfig() != null) {
+    return;
+  }
+  super.configure(config);
+  final Iterator it=this.factories.iterator();
+  while (it.hasNext()) {
+    final ClassFactory od=(ClassFactory)it.next();
+    od.configure(config);
+  }
+}

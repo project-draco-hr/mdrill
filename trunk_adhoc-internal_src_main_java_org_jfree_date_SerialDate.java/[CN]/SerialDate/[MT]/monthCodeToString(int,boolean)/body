@@ -1,0 +1,13 @@
+{
+  if (!isValidMonthCode(month)) {
+    throw new IllegalArgumentException("SerialDate.monthCodeToString: month outside valid range.");
+  }
+  final String[] months;
+  if (shortened) {
+    months=DATE_FORMAT_SYMBOLS.getShortMonths();
+  }
+ else {
+    months=DATE_FORMAT_SYMBOLS.getMonths();
+  }
+  return months[month - 1];
+}

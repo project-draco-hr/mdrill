@@ -1,0 +1,16 @@
+{
+  setMakeBinary(Utils.getFlag('D',options));
+  setUseBetterEncoding(Utils.getFlag('E',options));
+  setUseKononenko(Utils.getFlag('K',options));
+  setInvertSelection(Utils.getFlag('V',options));
+  String convertList=Utils.getOption('R',options);
+  if (convertList.length() != 0) {
+    setAttributeIndices(convertList);
+  }
+ else {
+    setAttributeIndices("first-last");
+  }
+  if (getInputFormat() != null) {
+    setInputFormat(getInputFormat());
+  }
+}

@@ -1,0 +1,7 @@
+{
+  FastVector fv=new FastVector();
+  fv.addElement(new Attribute(PROB_COST_FUNC_NAME));
+  fv.addElement(new Attribute(NORM_EXPECTED_COST_NAME));
+  fv.addElement(new Attribute(THRESHOLD_NAME));
+  return new Instances(RELATION_NAME,fv,100);
+}

@@ -1,0 +1,6 @@
+{
+  Object result;
+  result=super.getModel().getValueAt(rowIndex,columnIndex);
+  if (((ArffTableModel)getModel()).isMissingAt(rowIndex,columnIndex))   result=null;
+  return result;
+}

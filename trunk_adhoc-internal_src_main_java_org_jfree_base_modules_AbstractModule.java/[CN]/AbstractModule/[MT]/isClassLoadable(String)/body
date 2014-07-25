@@ -1,0 +1,13 @@
+{
+  try {
+    final ClassLoader loader=ObjectUtilities.getClassLoader(AbstractModule.class);
+    if (loader == null) {
+      return false;
+    }
+    loader.loadClass(name);
+    return true;
+  }
+ catch (  Exception e) {
+    return false;
+  }
+}

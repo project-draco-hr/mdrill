@@ -1,0 +1,4 @@
+Frame owner
+String title
+boolean modal
+Font font

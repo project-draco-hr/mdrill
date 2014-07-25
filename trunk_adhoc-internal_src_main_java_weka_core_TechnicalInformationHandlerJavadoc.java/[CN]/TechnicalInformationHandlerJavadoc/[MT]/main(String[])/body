@@ -1,0 +1,3 @@
+{
+  runJavadoc(new TechnicalInformationHandlerJavadoc(),args);
+}

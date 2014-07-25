@@ -1,0 +1,22 @@
+{
+  String debug="(KStar.instanceTransformationProbability) ";
+  double transProb=1.0;
+  int numMissAttr=0;
+  for (int i=0; i < m_NumAttributes; i++) {
+    if (i == m_Train.classIndex()) {
+      continue;
+    }
+    if (first.isMissing(i)) {
+      numMissAttr++;
+      continue;
+    }
+    transProb*=attrTransProb(first,second,i);
+    if (numMissAttr != m_NumAttributes) {
+      transProb=Math.pow(transProb,(double)m_NumAttributes / (m_NumAttributes - numMissAttr));
+    }
+ else {
+      transProb=0.0;
+    }
+  }
+  return transProb / m_NumInstances;
+}

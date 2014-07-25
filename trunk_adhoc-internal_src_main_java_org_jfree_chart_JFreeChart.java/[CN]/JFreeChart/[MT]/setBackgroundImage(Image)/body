@@ -1,0 +1,14 @@
+{
+  if (this.backgroundImage != null) {
+    if (!this.backgroundImage.equals(image)) {
+      this.backgroundImage=image;
+      fireChartChanged();
+    }
+  }
+ else {
+    if (image != null) {
+      this.backgroundImage=image;
+      fireChartChanged();
+    }
+  }
+}

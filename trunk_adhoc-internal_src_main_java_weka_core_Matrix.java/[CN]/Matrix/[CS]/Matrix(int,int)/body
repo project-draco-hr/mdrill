@@ -1,0 +1,3 @@
+{
+  m_Matrix=new weka.core.matrix.Matrix(nr,nc);
+}

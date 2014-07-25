@@ -1,0 +1,4 @@
+{
+  double z=x - this.mean;
+  return this.factor * Math.exp(-z * z / this.denominator);
+}

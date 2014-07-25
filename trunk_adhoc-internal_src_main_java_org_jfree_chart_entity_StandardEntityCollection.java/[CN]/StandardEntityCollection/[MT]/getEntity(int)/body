@@ -1,0 +1,3 @@
+{
+  return (ChartEntity)this.entities.get(index);
+}

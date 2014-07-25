@@ -1,0 +1,3 @@
+float[] values
+int seriesNumber
+Comparable seriesKey

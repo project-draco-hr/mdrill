@@ -1,0 +1,6 @@
+{
+  String searchString;
+  searchString=ComponentHelper.showInputBox(getParent(),"Search...","Enter the string to search for",m_LastSearch);
+  if (searchString != null)   m_LastSearch=searchString;
+  getTable().setSearchString(searchString);
+}

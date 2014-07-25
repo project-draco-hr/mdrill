@@ -1,0 +1,3 @@
+{
+  return (from <= this.segmentStart && this.segmentEnd <= to);
+}

@@ -1,0 +1,4 @@
+{
+  setBorder(BorderFactory.createEmptyBorder(0,0,10,0));
+  m_env=Environment.getSystemWide();
+}

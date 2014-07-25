@@ -1,0 +1,3 @@
+{
+  return getObject("Filter","",weka.filters.Filter.class);
+}

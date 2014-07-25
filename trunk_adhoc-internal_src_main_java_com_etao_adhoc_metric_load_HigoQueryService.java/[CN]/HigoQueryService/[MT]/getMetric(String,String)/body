@@ -1,0 +1,29 @@
+{
+  String sqlFormat=(String)conf.get("adhoc.metric.mdrill.sql." + tablename);
+  Metric metric=null;
+  String sql=String.format(sqlFormat,thedate);
+  System.out.println("Higo SQL:" + sql);
+  MdrillQueryResultSet rs;
+  try {
+    rs=(MdrillQueryResultSet)stmt.executeQuery(sql);
+    if (rs.next()) {
+      metric=new Metric();
+      metric.setThedate(thedate);
+      metric.setType(1);
+      metric.setTablename(tablename);
+      metric.setLineCnt((long)Float.parseFloat(rs.getString(1)));
+      metric.setImpression((long)Float.parseFloat(rs.getString(2)));
+      metric.setFinClick((long)Float.parseFloat(rs.getString(3)));
+      metric.setFinPrice(Float.parseFloat(rs.getString(4)));
+      metric.setAlipayDirectNum((long)Float.parseFloat(rs.getString(5)));
+      metric.setAlipayDirectAmt(Float.parseFloat(rs.getString(6)));
+      metric.setAlipayIndirectNum((long)Float.parseFloat(rs.getString(7)));
+      metric.setAlipayIndirectAmt(Float.parseFloat(rs.getString(8)));
+    }
+  }
+ catch (  SQLException e) {
+    System.err.println("[" + sdf.format(new Date(System.currentTimeMillis())) + "] "+ "Error when execute Higo SQL: "+ sql);
+    e.printStackTrace();
+  }
+  return metric;
+}

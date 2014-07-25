@@ -1,0 +1,15 @@
+{
+  index--;
+  index--;
+  if (getShowStdDev()) {
+    if (index == 0) {
+      return true;
+    }
+ else {
+      index--;
+      if (index < 0)       return false;
+      return (index % 3 == 1);
+    }
+  }
+ else   return false;
+}

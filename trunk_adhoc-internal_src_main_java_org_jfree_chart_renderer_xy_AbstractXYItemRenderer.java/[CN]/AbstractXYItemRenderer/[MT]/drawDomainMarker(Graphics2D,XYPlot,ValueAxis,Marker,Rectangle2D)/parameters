@@ -1,0 +1,5 @@
+Graphics2D g2
+XYPlot plot
+ValueAxis domainAxis
+Marker marker
+Rectangle2D dataArea

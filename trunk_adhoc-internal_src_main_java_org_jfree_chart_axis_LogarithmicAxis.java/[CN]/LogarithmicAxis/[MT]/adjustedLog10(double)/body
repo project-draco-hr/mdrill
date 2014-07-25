@@ -1,0 +1,11 @@
+{
+  boolean negFlag=(val < 0.0);
+  if (negFlag) {
+    val=-val;
+  }
+  if (val < 10.0) {
+    val+=(10.0 - val) / 10.0;
+  }
+  double res=Math.log(val) / LOG10_VALUE;
+  return negFlag ? (-res) : res;
+}

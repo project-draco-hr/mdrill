@@ -1,0 +1,9 @@
+{
+  final Iterator e=this.table.values().iterator();
+  boolean found=false;
+  while (e.hasNext() && !found) {
+    final List v=(List)e.next();
+    found=v.contains(value);
+  }
+  return found;
+}

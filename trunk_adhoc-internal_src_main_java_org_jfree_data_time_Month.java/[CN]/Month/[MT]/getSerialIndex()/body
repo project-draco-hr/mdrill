@@ -1,0 +1,3 @@
+{
+  return this.year * 12L + this.month;
+}

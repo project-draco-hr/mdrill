@@ -1,0 +1,10 @@
+{
+  final ArrayList loadModules=new ArrayList();
+  final ModuleInfo modInfo=new DefaultModuleInfo(modClass,null,null,null);
+  if (loadModule(modInfo,new ArrayList(),loadModules,false)) {
+    for (int i=0; i < loadModules.size(); i++) {
+      final Module mod=(Module)loadModules.get(i);
+      this.modules.add(new PackageState(mod));
+    }
+  }
+}

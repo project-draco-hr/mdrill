@@ -1,0 +1,3 @@
+{
+  remove(period,seriesName,true);
+}

@@ -1,0 +1,17 @@
+{
+  final StandardGradientPaintTransformer t1=new StandardGradientPaintTransformer();
+  StandardGradientPaintTransformer t2=null;
+  try {
+    final ByteArrayOutputStream buffer=new ByteArrayOutputStream();
+    final ObjectOutput out=new ObjectOutputStream(buffer);
+    out.writeObject(t1);
+    out.close();
+    final ObjectInput in=new ObjectInputStream(new ByteArrayInputStream(buffer.toByteArray()));
+    t2=(StandardGradientPaintTransformer)in.readObject();
+    in.close();
+  }
+ catch (  Exception e) {
+    System.out.println(e.toString());
+  }
+  assertTrue(t1.equals(t2));
+}

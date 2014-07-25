@@ -1,0 +1,10 @@
+{
+  final ArrayList mods=new ArrayList();
+  for (int i=0; i < this.modules.size(); i++) {
+    final PackageState state=(PackageState)this.modules.get(i);
+    if (state.getState() == PackageState.STATE_INITIALIZED) {
+      mods.add(state.getModule());
+    }
+  }
+  return (Module[])mods.toArray(new Module[mods.size()]);
+}

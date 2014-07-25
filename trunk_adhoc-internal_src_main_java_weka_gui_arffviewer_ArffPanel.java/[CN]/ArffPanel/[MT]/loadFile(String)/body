@@ -1,0 +1,15 @@
+{
+  ArffSortedTableModel model;
+  this.m_Filename=filename;
+  createTitle();
+  if (filename.equals("")) {
+    model=null;
+  }
+ else {
+    model=new ArffSortedTableModel(filename);
+    model.setShowAttributeIndex(getShowAttributeIndex());
+  }
+  m_TableArff.setModel(model);
+  setChanged(false);
+  createName();
+}

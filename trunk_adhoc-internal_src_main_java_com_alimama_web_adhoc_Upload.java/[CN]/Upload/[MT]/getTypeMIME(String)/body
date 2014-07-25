@@ -1,0 +1,6 @@
+{
+  int pos=0;
+  pos=ContentType.indexOf("/");
+  if (pos != -1)   return ContentType.substring(1,pos);
+ else   return ContentType;
+}

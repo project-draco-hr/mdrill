@@ -1,0 +1,6 @@
+{
+  this.segmentNumber=calculateSegmentNumber(millisecond);
+  this.segmentStart=SegmentedTimeline.this.startTime + this.segmentNumber * SegmentedTimeline.this.segmentSize;
+  this.segmentEnd=this.segmentStart + SegmentedTimeline.this.segmentSize - 1;
+  this.millisecond=millisecond;
+}

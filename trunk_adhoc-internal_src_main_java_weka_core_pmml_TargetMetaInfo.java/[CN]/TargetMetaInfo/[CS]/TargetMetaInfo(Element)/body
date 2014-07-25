@@ -1,0 +1,102 @@
+{
+  super(target);
+  String min=target.getAttribute("min");
+  if (min != null && min.length() > 0) {
+    try {
+      m_min=Double.parseDouble(min);
+    }
+ catch (    IllegalArgumentException ex) {
+      throw new Exception("[TargetMetaInfo] can't parse min value for target field " + m_fieldName);
+    }
+  }
+  String max=target.getAttribute("max");
+  if (max != null && max.length() > 0) {
+    try {
+      m_max=Double.parseDouble(max);
+    }
+ catch (    IllegalArgumentException ex) {
+      throw new Exception("[TargetMetaInfo] can't parse max value for target field " + m_fieldName);
+    }
+  }
+  String rsc=target.getAttribute("rescaleConstant");
+  if (rsc != null && rsc.length() > 0) {
+    try {
+      m_rescaleConstant=Double.parseDouble(rsc);
+    }
+ catch (    IllegalArgumentException ex) {
+      throw new Exception("[TargetMetaInfo] can't parse rescale constant value for " + "target field " + m_fieldName);
+    }
+  }
+  String rsf=target.getAttribute("rescaleFactor");
+  if (rsf != null && rsf.length() > 0) {
+    try {
+      m_rescaleFactor=Double.parseDouble(rsf);
+    }
+ catch (    IllegalArgumentException ex) {
+      throw new Exception("[TargetMetaInfo] can't parse rescale factor value for " + "target field " + m_fieldName);
+    }
+  }
+  String cstI=target.getAttribute("castInteger");
+  if (cstI != null && cstI.length() > 0) {
+    m_castInteger=cstI;
+  }
+  NodeList vals=target.getElementsByTagName("TargetValue");
+  if (vals.getLength() > 0) {
+    m_defaultValueOrPriorProbs=new double[vals.getLength()];
+    for (int i=0; i < vals.getLength(); i++) {
+      Node value=vals.item(i);
+      if (value.getNodeType() == Node.ELEMENT_NODE) {
+        Element valueE=(Element)value;
+        String valueName=valueE.getAttribute("value");
+        if (valueName != null && valueName.length() > 0) {
+          if (m_optype != Optype.CATEGORICAL && m_optype != Optype.NONE) {
+            throw new Exception("[TargetMetaInfo] TargetValue element has categorical value but " + "optype is not categorical!");
+          }
+          if (m_optype == Optype.NONE) {
+            m_optype=Optype.CATEGORICAL;
+          }
+          m_values.add(valueName);
+          String displayValue=valueE.getAttribute("displayValue");
+          if (displayValue != null && displayValue.length() > 0) {
+            m_displayValues.add(displayValue);
+          }
+ else {
+            m_displayValues.add(valueName);
+          }
+          String prior=valueE.getAttribute("priorProbability");
+          if (prior != null && prior.length() > 0) {
+            try {
+              m_defaultValueOrPriorProbs[i]=Double.parseDouble(prior);
+            }
+ catch (            IllegalArgumentException ex) {
+              throw new Exception("[TargetMetaInfo] Can't parse probability from " + "TargetValue element.");
+            }
+          }
+ else {
+            throw new Exception("[TargetMetaInfo] No prior probability defined for value " + valueName);
+          }
+        }
+ else {
+          if (m_optype != Optype.CONTINUOUS && m_optype != Optype.NONE) {
+            throw new Exception("[TargetMetaInfo] TargetValue element has continuous value but " + "optype is not continuous!");
+          }
+          if (m_optype == Optype.NONE) {
+            m_optype=Optype.CONTINUOUS;
+          }
+          String defaultV=valueE.getAttribute("defaultValue");
+          if (defaultV != null && defaultV.length() > 0) {
+            try {
+              m_defaultValueOrPriorProbs[i]=Double.parseDouble(defaultV);
+            }
+ catch (            IllegalArgumentException ex) {
+              throw new Exception("[TargetMetaInfo] Can't parse default value from " + "TargetValue element.");
+            }
+          }
+ else {
+            throw new Exception("[TargetMetaInfo] No default value defined for target " + m_fieldName);
+          }
+        }
+      }
+    }
+  }
+}

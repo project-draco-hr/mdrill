@@ -1,0 +1,5 @@
+{
+  super(arrangement);
+  this.datasetIndex=datasetIndex;
+  this.series=series;
+}

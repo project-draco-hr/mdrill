@@ -1,0 +1,3 @@
+{
+  return "Serializes the instances to a file with extension bsi.";
+}

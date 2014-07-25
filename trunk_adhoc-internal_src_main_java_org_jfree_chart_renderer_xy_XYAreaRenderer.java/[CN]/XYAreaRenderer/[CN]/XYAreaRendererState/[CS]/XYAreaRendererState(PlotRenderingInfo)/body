@@ -1,0 +1,5 @@
+{
+  super(info);
+  this.area=new Polygon();
+  this.line=new Line2D.Double();
+}

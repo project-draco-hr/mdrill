@@ -1,0 +1,8 @@
+{
+  final int baseY=base.getYYYY();
+  final int baseM=base.getMonth();
+  final int baseD=base.getDayOfMonth();
+  final int targetY=baseY + years;
+  final int targetD=Math.min(baseD,SerialDate.lastDayOfMonth(baseM,targetY));
+  return SerialDate.createInstance(targetD,baseM,targetY);
+}

@@ -1,0 +1,6 @@
+{
+  File links=new File(this.baseDir,"process_check");
+  FileWriter freader2=new FileWriter(links);
+  freader2.write(String.valueOf(CHK_UNQ_ID));
+  freader2.close();
+}

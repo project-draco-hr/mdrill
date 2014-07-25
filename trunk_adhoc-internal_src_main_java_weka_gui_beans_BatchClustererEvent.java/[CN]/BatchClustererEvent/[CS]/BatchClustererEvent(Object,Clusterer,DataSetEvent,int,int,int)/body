@@ -1,0 +1,9 @@
+{
+  super(source);
+  m_clusterer=scheme;
+  m_testSet=tstI;
+  m_setNumber=setNum;
+  m_maxSetNumber=maxSetNum;
+  if (testOrTrain == 0)   m_testOrTrain=TEST;
+ else   m_testOrTrain=TRAINING;
+}

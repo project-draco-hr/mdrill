@@ -1,0 +1,35 @@
+{
+  Instances miningSchemaI=miningSchema.getMiningSchemaAsInstances();
+  double[] result=new double[miningSchema.getFieldsAsInstances().numAttributes()];
+  for (int i=0; i < miningSchemaI.numAttributes(); i++) {
+    result[i]=inst.value(m_fieldsMap[i]);
+    if (miningSchemaI.attribute(i).isNominal() || miningSchemaI.attribute(i).isString()) {
+      if (!Utils.isMissingValue(inst.value(m_fieldsMap[i]))) {
+        int[] valueMap=m_nominalValueMaps[i];
+        int index=valueMap[(int)inst.value(m_fieldsMap[i])];
+        String incomingAttValue=inst.attribute(m_fieldsMap[i]).value((int)inst.value(m_fieldsMap[i]));
+        if (index >= 0) {
+          result[i]=index;
+        }
+ else {
+          result[i]=UNKNOWN_NOMINAL_VALUE;
+          String warningString="[MappingInfo] WARNING: Can't match nominal value " + incomingAttValue;
+          if (m_log != null) {
+            m_log.logMessage(warningString);
+          }
+ else {
+            System.err.println(warningString);
+          }
+        }
+      }
+    }
+  }
+  miningSchema.applyMissingAndOutlierTreatments(result);
+  ArrayList<DerivedFieldMetaInfo> derivedFields=miningSchema.getDerivedFields();
+  for (int i=0; i < derivedFields.size(); i++) {
+    DerivedFieldMetaInfo temp=derivedFields.get(i);
+    double r=temp.getDerivedValue(result);
+    result[i + miningSchemaI.numAttributes()]=r;
+  }
+  return result;
+}

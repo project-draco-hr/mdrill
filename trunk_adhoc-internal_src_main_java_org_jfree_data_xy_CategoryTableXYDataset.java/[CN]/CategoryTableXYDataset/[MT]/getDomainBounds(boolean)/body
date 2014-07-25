@@ -1,0 +1,8 @@
+{
+  if (includeInterval) {
+    return this.intervalDelegate.getDomainBounds(includeInterval);
+  }
+ else {
+    return DatasetUtilities.iterateDomainBounds(this,includeInterval);
+  }
+}

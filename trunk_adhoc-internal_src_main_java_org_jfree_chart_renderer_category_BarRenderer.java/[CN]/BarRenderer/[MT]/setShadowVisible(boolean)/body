@@ -1,0 +1,4 @@
+{
+  this.shadowsVisible=visible;
+  fireChangeEvent();
+}

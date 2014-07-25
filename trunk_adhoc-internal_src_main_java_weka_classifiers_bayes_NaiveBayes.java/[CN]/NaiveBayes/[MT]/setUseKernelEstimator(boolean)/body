@@ -1,0 +1,6 @@
+{
+  m_UseKernelEstimator=v;
+  if (v) {
+    setUseSupervisedDiscretization(false);
+  }
+}

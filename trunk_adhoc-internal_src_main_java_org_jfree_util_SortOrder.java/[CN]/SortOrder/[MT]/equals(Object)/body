@@ -1,0 +1,13 @@
+{
+  if (this == obj) {
+    return true;
+  }
+  if (!(obj instanceof SortOrder)) {
+    return false;
+  }
+  final SortOrder that=(SortOrder)obj;
+  if (!this.name.equals(that.toString())) {
+    return false;
+  }
+  return true;
+}

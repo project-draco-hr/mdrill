@@ -1,0 +1,4 @@
+{
+  if (msg == null)   msg=" ";
+  m_LabelInfo.setText(msg);
+}

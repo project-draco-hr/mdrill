@@ -1,0 +1,16 @@
+{
+  try {
+    getPackagesAndEstablishLookup();
+  }
+ catch (  Exception ex) {
+    ex.printStackTrace();
+    System.err.println("A problem has occurred whilst trying to get all " + "package information. Trying a cache refresh...");
+    WekaPackageManager.refreshCache(System.out);
+    try {
+      getPackagesAndEstablishLookup();
+    }
+ catch (    Exception e) {
+      e.printStackTrace();
+    }
+  }
+}

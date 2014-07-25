@@ -1,0 +1,13 @@
+{
+  if (axis != null) {
+    if (axis instanceof NumberAxis) {
+      return new DefaultNumberAxisEditor((NumberAxis)axis);
+    }
+ else {
+      return new DefaultAxisEditor(axis);
+    }
+  }
+ else {
+    return null;
+  }
+}

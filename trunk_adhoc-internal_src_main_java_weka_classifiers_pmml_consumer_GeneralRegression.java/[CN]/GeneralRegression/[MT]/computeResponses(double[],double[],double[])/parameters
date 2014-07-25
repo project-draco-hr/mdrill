@@ -1,0 +1,3 @@
+double[] incomingInst
+double[] incomingParamVector
+double[] responses

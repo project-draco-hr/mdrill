@@ -1,0 +1,8 @@
+{
+  StringBuffer buff=new StringBuffer();
+  buff.append(SHORT_Format.format(msgid.getShardIndex()));
+  buff.append(LONG_Format.format(msgid.getPartioncrc()));
+  buff.append(LONG_Format.format(msgid.getIndex()));
+  buff.append(SHORT_Format.format(msgid.getSubIndex()));
+  return Bytes.toBytes(buff.toString());
+}

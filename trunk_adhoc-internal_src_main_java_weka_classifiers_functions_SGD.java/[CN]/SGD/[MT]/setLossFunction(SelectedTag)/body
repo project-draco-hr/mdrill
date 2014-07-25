@@ -1,0 +1,5 @@
+{
+  if (function.getTags() == TAGS_SELECTION) {
+    m_loss=function.getSelectedTag().getID();
+  }
+}

@@ -1,0 +1,17 @@
+{
+  JPanel basePanel=new JPanel();
+  basePanel.setLayout(new BorderLayout());
+  basePanel.setBorder(BorderFactory.createTitledBorder("Base learner configuration"));
+  m_baseLearnerEditor.setClassType(Classifier.class);
+  m_baseLearnerEditor.setValue(new weka.classifiers.functions.SMOreg());
+  Capabilities capabilities=new Capabilities(null);
+  capabilities.disableAll();
+  capabilities.enable(Capability.NOMINAL_ATTRIBUTES);
+  capabilities.enable(Capability.NUMERIC_ATTRIBUTES);
+  capabilities.enable(Capability.NUMERIC_CLASS);
+  capabilities.enableAllAttributeDependencies();
+  capabilities.enableAllClassDependencies();
+  m_baseLearnerEditor.setCapabilitiesFilter(capabilities);
+  basePanel.add(m_baseLearnerPanel,BorderLayout.NORTH);
+  m_configHolder.addTab("Base learner",null,basePanel,"Base learner configuration");
+}

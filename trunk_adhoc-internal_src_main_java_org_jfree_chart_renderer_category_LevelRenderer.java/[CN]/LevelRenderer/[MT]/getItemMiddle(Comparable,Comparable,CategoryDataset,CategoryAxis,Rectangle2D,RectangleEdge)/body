@@ -1,0 +1,3 @@
+{
+  return axis.getCategorySeriesMiddle(columnKey,rowKey,dataset,this.itemMargin,area,edge);
+}

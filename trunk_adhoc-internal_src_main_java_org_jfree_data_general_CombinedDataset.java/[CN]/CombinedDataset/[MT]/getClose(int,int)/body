@@ -1,0 +1,4 @@
+{
+  DatasetInfo di=getDatasetInfo(series);
+  return ((OHLCDataset)di.data).getClose(di.series,item);
+}

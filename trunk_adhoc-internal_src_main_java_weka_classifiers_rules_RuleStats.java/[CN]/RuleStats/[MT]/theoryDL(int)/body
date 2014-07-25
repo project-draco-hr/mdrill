@@ -1,0 +1,8 @@
+{
+  double k=((Rule)m_Ruleset.elementAt(index)).size();
+  if (k == 0)   return 0.0;
+  double tdl=Utils.log2(k);
+  if (k > 1)   tdl+=2.0 * Utils.log2(tdl);
+  tdl+=subsetDL(m_Total,k,k / m_Total);
+  return MDL_THEORY_WEIGHT * REDUNDANCY_FACTOR * tdl;
+}

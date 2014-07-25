@@ -1,0 +1,4 @@
+{
+  this.stroke=stroke;
+  repaint();
+}

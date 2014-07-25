@@ -1,0 +1,6 @@
+{
+  if (!m_weightsUpdated && !Double.isNaN(m_unitError)) {
+    m_methods.updateWeights(this,l,m);
+    super.updateWeights(l,m);
+  }
+}

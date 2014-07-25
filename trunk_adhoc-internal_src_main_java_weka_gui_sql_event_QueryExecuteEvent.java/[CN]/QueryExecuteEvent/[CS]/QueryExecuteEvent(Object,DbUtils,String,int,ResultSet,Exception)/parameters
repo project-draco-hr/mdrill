@@ -1,0 +1,6 @@
+Object source
+DbUtils utils
+String query
+int rows
+ResultSet rs
+Exception ex

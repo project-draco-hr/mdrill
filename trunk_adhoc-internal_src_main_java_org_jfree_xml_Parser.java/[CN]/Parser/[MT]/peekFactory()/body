@@ -1,0 +1,3 @@
+{
+  return (ElementDefinitionHandler)this.activeFactories.peek();
+}

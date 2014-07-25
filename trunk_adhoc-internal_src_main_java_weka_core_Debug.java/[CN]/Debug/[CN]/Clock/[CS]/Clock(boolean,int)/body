@@ -1,0 +1,8 @@
+{
+  m_Running=false;
+  m_Start=0;
+  m_Stop=0;
+  m_UseCpuTime=true;
+  setOutputFormat(format);
+  if (start)   start();
+}

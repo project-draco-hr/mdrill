@@ -1,0 +1,6 @@
+{
+  if (predictions.size() == 0) {
+    return null;
+  }
+  return getCurve(predictions,((NominalPrediction)predictions.elementAt(0)).distribution().length - 1);
+}

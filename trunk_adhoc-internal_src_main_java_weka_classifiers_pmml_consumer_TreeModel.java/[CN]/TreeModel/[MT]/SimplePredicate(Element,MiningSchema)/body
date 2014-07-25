@@ -1,0 +1,40 @@
+{
+  Instances totalStructure=miningSchema.getFieldsAsInstances();
+  String fieldS=simpleP.getAttribute("field");
+  Attribute att=totalStructure.attribute(fieldS);
+  if (att == null) {
+    throw new Exception("[SimplePredicate] unable to find field " + fieldS + " in the incoming instance structure!");
+  }
+  int index=-1;
+  for (int i=0; i < totalStructure.numAttributes(); i++) {
+    if (totalStructure.attribute(i).name().equals(fieldS)) {
+      index=i;
+      m_fieldName=totalStructure.attribute(i).name();
+      break;
+    }
+  }
+  m_fieldIndex=index;
+  if (att.isNominal()) {
+    m_isNominal=true;
+  }
+  String oppS=simpleP.getAttribute("operator");
+  for (  Operator o : Operator.values()) {
+    if (o.toString().equals(oppS)) {
+      m_operator=o;
+      break;
+    }
+  }
+  if (m_operator != Operator.ISMISSING && m_operator != Operator.ISNOTMISSING) {
+    String valueS=simpleP.getAttribute("value");
+    if (att.isNumeric()) {
+      m_value=Double.parseDouble(valueS);
+    }
+ else {
+      m_nominalValue=valueS;
+      m_value=att.indexOfValue(valueS);
+      if (m_value < 0) {
+        throw new Exception("[SimplePredicate] can't find value " + valueS + " in nominal "+ "attribute "+ att.name());
+      }
+    }
+  }
+}

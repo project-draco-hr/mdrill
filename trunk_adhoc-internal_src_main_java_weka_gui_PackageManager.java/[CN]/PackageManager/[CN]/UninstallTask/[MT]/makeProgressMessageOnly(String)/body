@@ -1,0 +1,3 @@
+{
+  m_detailLabel.setText(progressMessage);
+}

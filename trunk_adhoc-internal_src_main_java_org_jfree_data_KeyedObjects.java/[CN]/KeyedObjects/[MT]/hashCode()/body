@@ -1,0 +1,3 @@
+{
+  return (this.data != null ? this.data.hashCode() : 0);
+}

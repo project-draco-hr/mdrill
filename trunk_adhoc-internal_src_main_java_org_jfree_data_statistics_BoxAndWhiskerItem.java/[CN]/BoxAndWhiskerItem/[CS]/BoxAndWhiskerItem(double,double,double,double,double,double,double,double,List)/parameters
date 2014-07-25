@@ -1,0 +1,9 @@
+double mean
+double median
+double q1
+double q3
+double minRegularValue
+double maxRegularValue
+double minOutlier
+double maxOutlier
+List outliers

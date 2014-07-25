@@ -1,0 +1,19 @@
+{
+  int extandRows=50;
+  if (this.distStatFieldMap.size() > 0) {
+    extandRows=20;
+  }
+  int minstart=this.start;
+  int maxEend=this.rows;
+  if (this.sortType.isStatNum) {
+    minstart=this.start - extandRows;
+    if (minstart < 0) {
+      minstart=0;
+    }
+    maxEend=Math.min(this.rows + extandRows + extandRows,UniqConfig.defaultCrossMaxLimit());
+  }
+  StartLimit rtn=new StartLimit();
+  rtn.start=minstart;
+  rtn.rows=maxEend;
+  return rtn;
+}

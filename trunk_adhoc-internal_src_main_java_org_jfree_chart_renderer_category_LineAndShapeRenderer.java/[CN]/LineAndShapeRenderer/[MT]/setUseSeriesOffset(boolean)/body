@@ -1,0 +1,4 @@
+{
+  this.useSeriesOffset=offset;
+  fireChangeEvent();
+}

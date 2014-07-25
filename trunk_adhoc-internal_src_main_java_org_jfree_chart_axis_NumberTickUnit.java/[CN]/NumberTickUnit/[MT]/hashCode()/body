@@ -1,0 +1,5 @@
+{
+  int result=super.hashCode();
+  result=29 * result + (this.formatter != null ? this.formatter.hashCode() : 0);
+  return result;
+}

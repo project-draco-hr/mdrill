@@ -1,0 +1,15 @@
+{
+  if (!this.mappingInfos.containsKey(mappingInfo.getBaseClass())) {
+    this.multiplexMappings.add(mappingInfo);
+    this.mappingInfos.put(mappingInfo.getBaseClass(),mappingInfo);
+  }
+ else {
+    final Object o=this.mappingInfos.get(mappingInfo.getBaseClass());
+    if (o instanceof ManualMappingInfo) {
+      throw new IllegalArgumentException("This mapping is already a manual mapping.");
+    }
+ else {
+      Log.info("Duplicate Multiplex mapping: " + mappingInfo.getBaseClass(),new Exception());
+    }
+  }
+}

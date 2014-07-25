@@ -1,0 +1,10 @@
+{
+  for (int i=0; i < this.factories.size(); i++) {
+    final ClassFactory f=(ClassFactory)this.factories.get(i);
+    final ObjectDescription od=f.getDescriptionForClass(c);
+    if (od != null) {
+      return od;
+    }
+  }
+  return super.getDescriptionForClass(c);
+}

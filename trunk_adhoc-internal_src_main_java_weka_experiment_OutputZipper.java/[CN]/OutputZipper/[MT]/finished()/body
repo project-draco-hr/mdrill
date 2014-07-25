@@ -1,0 +1,5 @@
+{
+  if (m_zipOut != null) {
+    m_zipOut.close();
+  }
+}

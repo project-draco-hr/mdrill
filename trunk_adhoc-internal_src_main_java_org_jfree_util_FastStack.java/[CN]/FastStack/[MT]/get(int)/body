@@ -1,0 +1,6 @@
+{
+  if (index >= this.size) {
+    throw new IndexOutOfBoundsException();
+  }
+  return this.contents[index];
+}

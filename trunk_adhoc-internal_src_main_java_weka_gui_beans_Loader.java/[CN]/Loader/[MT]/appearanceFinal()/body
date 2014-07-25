@@ -1,0 +1,12 @@
+{
+  removeAll();
+  setLayout(new BorderLayout());
+  JButton goButton=new JButton("Start...");
+  add(goButton,BorderLayout.CENTER);
+  goButton.addActionListener(new ActionListener(){
+    public void actionPerformed(    ActionEvent e){
+      startLoading();
+    }
+  }
+);
+}

@@ -1,0 +1,13 @@
+{
+  if (this == o) {
+    return true;
+  }
+  if (!(o instanceof AttributeEntry)) {
+    return false;
+  }
+  final AttributeEntry attributeEntry=(AttributeEntry)o;
+  if (!this.name.equals(attributeEntry.name)) {
+    return false;
+  }
+  return true;
+}

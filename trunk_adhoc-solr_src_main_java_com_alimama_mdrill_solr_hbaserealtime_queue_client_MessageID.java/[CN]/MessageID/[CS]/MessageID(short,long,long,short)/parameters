@@ -1,0 +1,4 @@
+short shardIndex
+long partioncrc
+long index
+short subindex

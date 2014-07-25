@@ -1,0 +1,5 @@
+{
+  m_nTargetNode=nTargetNode;
+  m_sNewName=sNewName;
+  m_sOldName=sOldName;
+}

@@ -1,0 +1,56 @@
+{
+  Random randomO=new Random(getSeed());
+  HashMap<DecisionTableHashKey,String> initC=new HashMap<DecisionTableHashKey,String>();
+  int index=randomO.nextInt(data.numInstances());
+  m_ClusterCentroids.add(data.instance(index));
+  DecisionTableHashKey hk=new DecisionTableHashKey(data.instance(index),data.numAttributes(),true);
+  initC.put(hk,null);
+  int iteration=0;
+  int remainingInstances=data.numInstances() - 1;
+  if (m_NumClusters > 1) {
+    double[] distances=new double[data.numInstances()];
+    double[] cumProbs=new double[data.numInstances()];
+    for (int i=0; i < data.numInstances(); i++) {
+      distances[i]=m_DistanceFunction.distance(data.instance(i),m_ClusterCentroids.instance(iteration));
+    }
+    for (int i=1; i < m_NumClusters; i++) {
+      double[] weights=new double[data.numInstances()];
+      System.arraycopy(distances,0,weights,0,distances.length);
+      Utils.normalize(weights);
+      double sumOfProbs=0;
+      for (int k=0; k < data.numInstances(); k++) {
+        sumOfProbs+=weights[k];
+        cumProbs[k]=sumOfProbs;
+      }
+      cumProbs[data.numInstances() - 1]=1.0;
+      double prob=randomO.nextDouble();
+      for (int k=0; k < cumProbs.length; k++) {
+        if (prob < cumProbs[k]) {
+          Instance candidateCenter=data.instance(k);
+          hk=new DecisionTableHashKey(candidateCenter,data.numAttributes(),true);
+          if (!initC.containsKey(hk)) {
+            initC.put(hk,null);
+            m_ClusterCentroids.add(candidateCenter);
+          }
+ else {
+            System.err.println("We shouldn't get here....");
+          }
+          remainingInstances--;
+          break;
+        }
+      }
+      iteration++;
+      if (remainingInstances == 0) {
+        break;
+      }
+      for (int k=0; k < data.numInstances(); k++) {
+        if (distances[k] > 0) {
+          double newDist=m_DistanceFunction.distance(data.instance(k),m_ClusterCentroids.instance(iteration));
+          if (newDist < distances[k]) {
+            distances[k]=newDist;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  String sValue="Value" + (m_BayesNet.getCardinality(m_nCurrentNode) + 1);
+  String sNewValue=(String)JOptionPane.showInputDialog(null,"New value " + sValue,"Node " + m_BayesNet.getNodeName(m_nCurrentNode),JOptionPane.OK_CANCEL_OPTION);
+  if (sNewValue == null || sNewValue.equals("")) {
+    return;
+  }
+  try {
+    m_BayesNet.addNodeValue(m_nCurrentNode,sNewValue);
+    m_jStatusBar.setText(m_BayesNet.lastActionMsg());
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
+  updateStatus();
+}

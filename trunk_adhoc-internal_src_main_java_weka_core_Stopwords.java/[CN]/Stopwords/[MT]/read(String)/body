@@ -1,0 +1,3 @@
+{
+  read(new File(filename));
+}

@@ -1,0 +1,4 @@
+{
+  final int last=SerialDate.lastDayOfMonth(base.getMonth(),base.getYYYY());
+  return SerialDate.createInstance(last,base.getMonth(),base.getYYYY());
+}

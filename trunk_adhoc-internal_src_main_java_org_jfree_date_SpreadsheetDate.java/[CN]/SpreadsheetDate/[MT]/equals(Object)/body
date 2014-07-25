@@ -1,0 +1,9 @@
+{
+  if (object instanceof SerialDate) {
+    final SerialDate s=(SerialDate)object;
+    return (s.toSerial() == this.toSerial());
+  }
+ else {
+    return false;
+  }
+}

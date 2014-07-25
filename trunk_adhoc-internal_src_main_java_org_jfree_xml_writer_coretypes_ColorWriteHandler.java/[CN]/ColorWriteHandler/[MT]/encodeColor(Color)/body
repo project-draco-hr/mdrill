@@ -1,0 +1,3 @@
+{
+  return "#" + encodeInt(color.getRed()) + encodeInt(color.getGreen())+ encodeInt(color.getBlue());
+}

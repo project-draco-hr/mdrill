@@ -1,0 +1,7 @@
+String text
+Graphics2D g2
+float textX
+float textY
+double angle
+float rotateX
+float rotateY

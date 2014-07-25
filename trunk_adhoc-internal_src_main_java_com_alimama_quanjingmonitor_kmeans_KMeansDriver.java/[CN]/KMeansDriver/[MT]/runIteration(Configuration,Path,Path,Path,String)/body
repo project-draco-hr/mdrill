@@ -1,0 +1,23 @@
+{
+  conf.set(CLUSTER_PATH_KEY,clustersIn.toString());
+  conf.set(CLUSTER_CONVERGENCE_KEY,convergenceDelta);
+  FileSystem fs=FileSystem.get(conf);
+  Job job=new Job(conf);
+  job.setJobName("KMeans Driver running runIteration over clustersIn: " + clustersIn);
+  job.setMapOutputKeyClass(Text.class);
+  job.setMapOutputValueClass(Vector.class);
+  job.setOutputKeyClass(Text.class);
+  job.setOutputValueClass(Cluster.class);
+  job.setOutputFormatClass(SequenceFileOutputFormat.class);
+  job.setMapperClass(KMeansMapper.class);
+  job.setCombinerClass(KMeansCombiner.class);
+  job.setReducerClass(KMeansReducer.class);
+  FileInputFormat.addInputPath(job,input);
+  SequenceFileOutputFormat.setOutputPath(job,clustersOut);
+  job.setNumReduceTasks(this.reduce);
+  job.setJarByClass(KMeansDriver.class);
+  if (!job.waitForCompletion(true)) {
+    throw new InterruptedException("K-Means Iteration failed processing " + clustersIn);
+  }
+  return isConverged(clustersOut,conf,fs);
+}

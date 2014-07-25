@@ -1,0 +1,12 @@
+{
+  if (tf) {
+    try {
+      wait();
+    }
+ catch (    InterruptedException ex) {
+    }
+  }
+ else {
+    notifyAll();
+  }
+}

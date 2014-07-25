@@ -1,0 +1,7 @@
+{
+  final AttributeList al=new AttributeList();
+  al.setAttribute(ClassModelTags.CLASS_ATTR,mi.getBaseClass().getName());
+  al.setAttribute(ClassModelTags.READ_HANDLER_ATTR,mi.getReadHandler().getName());
+  al.setAttribute(ClassModelTags.WRITE_HANDLER_ATTR,mi.getWriteHandler().getName());
+  writeTag(writer,ClassModelTags.MANUAL_TAG,al,mi.getComments());
+}

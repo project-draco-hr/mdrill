@@ -1,0 +1,131 @@
+{
+  RoundRectangle2D outerStem=new RoundRectangle2D.Double();
+  RoundRectangle2D innerStem=new RoundRectangle2D.Double();
+  RoundRectangle2D mercuryStem=new RoundRectangle2D.Double();
+  Ellipse2D outerBulb=new Ellipse2D.Double();
+  Ellipse2D innerBulb=new Ellipse2D.Double();
+  String temp=null;
+  FontMetrics metrics=null;
+  if (info != null) {
+    info.setPlotArea(area);
+  }
+  RectangleInsets insets=getInsets();
+  insets.trim(area);
+  drawBackground(g2,area);
+  Rectangle2D interior=(Rectangle2D)area.clone();
+  this.padding.trim(interior);
+  int midX=(int)(interior.getX() + (interior.getWidth() / 2));
+  int midY=(int)(interior.getY() + (interior.getHeight() / 2));
+  int stemTop=(int)(interior.getMinY() + getBulbRadius());
+  int stemBottom=(int)(interior.getMaxY() - getBulbDiameter());
+  Rectangle2D dataArea=new Rectangle2D.Double(midX - getColumnRadius(),stemTop,getColumnRadius(),stemBottom - stemTop);
+  outerBulb.setFrame(midX - getBulbRadius(),stemBottom,getBulbDiameter(),getBulbDiameter());
+  outerStem.setRoundRect(midX - getColumnRadius(),interior.getMinY(),getColumnDiameter(),stemBottom + getBulbDiameter() - stemTop,getColumnDiameter(),getColumnDiameter());
+  Area outerThermometer=new Area(outerBulb);
+  Area tempArea=new Area(outerStem);
+  outerThermometer.add(tempArea);
+  innerBulb.setFrame(midX - getBulbRadius() + getGap(),stemBottom + getGap(),getBulbDiameter() - getGap() * 2,getBulbDiameter() - getGap() * 2);
+  innerStem.setRoundRect(midX - getColumnRadius() + getGap(),interior.getMinY() + getGap(),getColumnDiameter() - getGap() * 2,stemBottom + getBulbDiameter() - getGap() * 2 - stemTop,getColumnDiameter() - getGap() * 2,getColumnDiameter() - getGap() * 2);
+  Area innerThermometer=new Area(innerBulb);
+  tempArea=new Area(innerStem);
+  innerThermometer.add(tempArea);
+  if ((this.dataset != null) && (this.dataset.getValue() != null)) {
+    double current=this.dataset.getValue().doubleValue();
+    double ds=this.rangeAxis.valueToJava2D(current,dataArea,RectangleEdge.LEFT);
+    int i=getColumnDiameter() - getGap() * 2;
+    int j=getColumnRadius() - getGap();
+    int l=(i / 2);
+    int k=(int)Math.round(ds);
+    if (k < (getGap() + interior.getMinY())) {
+      k=(int)(getGap() + interior.getMinY());
+      l=getBulbRadius();
+    }
+    Area mercury=new Area(innerBulb);
+    if (k < (stemBottom + getBulbRadius())) {
+      mercuryStem.setRoundRect(midX - j,k,i,(stemBottom + getBulbRadius()) - k,l,l);
+      tempArea=new Area(mercuryStem);
+      mercury.add(tempArea);
+    }
+    g2.setPaint(getCurrentPaint());
+    g2.fill(mercury);
+    if (this.subrangeIndicatorsVisible) {
+      g2.setStroke(this.subrangeIndicatorStroke);
+      Range range=this.rangeAxis.getRange();
+      double value=this.subrangeInfo[NORMAL][RANGE_LOW];
+      if (range.contains(value)) {
+        double x=midX + getColumnRadius() + 2;
+        double y=this.rangeAxis.valueToJava2D(value,dataArea,RectangleEdge.LEFT);
+        Line2D line=new Line2D.Double(x,y,x + 10,y);
+        g2.setPaint(this.subrangePaint[NORMAL]);
+        g2.draw(line);
+      }
+      value=this.subrangeInfo[WARNING][RANGE_LOW];
+      if (range.contains(value)) {
+        double x=midX + getColumnRadius() + 2;
+        double y=this.rangeAxis.valueToJava2D(value,dataArea,RectangleEdge.LEFT);
+        Line2D line=new Line2D.Double(x,y,x + 10,y);
+        g2.setPaint(this.subrangePaint[WARNING]);
+        g2.draw(line);
+      }
+      value=this.subrangeInfo[CRITICAL][RANGE_LOW];
+      if (range.contains(value)) {
+        double x=midX + getColumnRadius() + 2;
+        double y=this.rangeAxis.valueToJava2D(value,dataArea,RectangleEdge.LEFT);
+        Line2D line=new Line2D.Double(x,y,x + 10,y);
+        g2.setPaint(this.subrangePaint[CRITICAL]);
+        g2.draw(line);
+      }
+    }
+    if ((this.rangeAxis != null) && (this.axisLocation != NONE)) {
+      int drawWidth=AXIS_GAP;
+      if (this.showValueLines) {
+        drawWidth+=getColumnDiameter();
+      }
+      Rectangle2D drawArea;
+      double cursor=0;
+switch (this.axisLocation) {
+case RIGHT:
+        cursor=midX + getColumnRadius();
+      drawArea=new Rectangle2D.Double(cursor,stemTop,drawWidth,(stemBottom - stemTop + 1));
+    this.rangeAxis.draw(g2,cursor,area,drawArea,RectangleEdge.RIGHT,null);
+  break;
+case LEFT:
+default :
+cursor=midX - getColumnRadius();
+drawArea=new Rectangle2D.Double(cursor,stemTop,drawWidth,(stemBottom - stemTop + 1));
+this.rangeAxis.draw(g2,cursor,area,drawArea,RectangleEdge.LEFT,null);
+break;
+}
+}
+g2.setFont(this.valueFont);
+g2.setPaint(this.valuePaint);
+metrics=g2.getFontMetrics();
+switch (this.valueLocation) {
+case RIGHT:
+g2.drawString(this.valueFormat.format(current),midX + getColumnRadius() + getGap(),midY);
+break;
+case LEFT:
+String valueString=this.valueFormat.format(current);
+int stringWidth=metrics.stringWidth(valueString);
+g2.drawString(valueString,midX - getColumnRadius() - getGap()- stringWidth,midY);
+break;
+case BULB:
+temp=this.valueFormat.format(current);
+i=metrics.stringWidth(temp) / 2;
+g2.drawString(temp,midX - i,stemBottom + getBulbRadius() + getGap());
+break;
+default :
+}
+}
+g2.setPaint(this.thermometerPaint);
+g2.setFont(this.valueFont);
+metrics=g2.getFontMetrics();
+int tickX1=midX - getColumnRadius() - getGap() * 2 - metrics.stringWidth(UNITS[this.units]);
+if (tickX1 > area.getMinX()) {
+g2.drawString(UNITS[this.units],tickX1,(int)(area.getMinY() + 20));
+}
+g2.setStroke(this.thermometerStroke);
+g2.draw(outerThermometer);
+g2.draw(innerThermometer);
+drawOutline(g2,area);
+}

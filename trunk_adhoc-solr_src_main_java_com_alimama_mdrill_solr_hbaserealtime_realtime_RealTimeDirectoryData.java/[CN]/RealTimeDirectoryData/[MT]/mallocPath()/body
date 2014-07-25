@@ -1,0 +1,14 @@
+{
+  while (true) {
+    CRC32 crc32=new CRC32();
+    crc32.update(String.valueOf(java.util.UUID.randomUUID().toString()).getBytes());
+    Long uuid=crc32.getValue();
+    String pathname=String.valueOf(fmt.format(new Date()) + "_" + status.uniqIndex.incrementAndGet()) + "_" + uuid;
+    File rtn=new File(new File(params.getIndexMalloc(pathname.hashCode()),"realtime"),pathname);
+    if (rtn.exists()) {
+      continue;
+    }
+    rtn.mkdirs();
+    return rtn.getAbsolutePath();
+  }
+}

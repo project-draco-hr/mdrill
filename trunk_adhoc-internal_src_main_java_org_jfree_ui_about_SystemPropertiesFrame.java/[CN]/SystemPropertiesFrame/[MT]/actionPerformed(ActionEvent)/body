@@ -1,0 +1,9 @@
+{
+  final String command=e.getActionCommand();
+  if (command.equals(CLOSE_COMMAND)) {
+    dispose();
+  }
+ else   if (command.equals(COPY_COMMAND)) {
+    this.panel.copySystemPropertiesToClipboard();
+  }
+}

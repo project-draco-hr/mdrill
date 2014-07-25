@@ -1,0 +1,12 @@
+{
+  Instances filteredData=new Instances(data);
+  NominalToBinary nominalToBinary=new NominalToBinary();
+  nominalToBinary.setInputFormat(filteredData);
+  filteredData=Filter.useFilter(filteredData,nominalToBinary);
+  LogisticBase logistic=new LogisticBase(0,true,m_errorOnProbabilities);
+  logistic.setMaxIterations(200);
+  logistic.setWeightTrimBeta(getWeightTrimBeta());
+  logistic.setUseAIC(getUseAIC());
+  logistic.buildClassifier(filteredData);
+  return logistic.getNumRegressions();
+}

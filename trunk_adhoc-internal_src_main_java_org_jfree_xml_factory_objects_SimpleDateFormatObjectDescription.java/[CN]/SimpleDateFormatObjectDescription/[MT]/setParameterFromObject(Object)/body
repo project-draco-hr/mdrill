@@ -1,0 +1,6 @@
+{
+  super.setParameterFromObject(o);
+  final SimpleDateFormat format=(SimpleDateFormat)o;
+  setParameter("localizedPattern",format.toLocalizedPattern());
+  setParameter("pattern",format.toPattern());
+}

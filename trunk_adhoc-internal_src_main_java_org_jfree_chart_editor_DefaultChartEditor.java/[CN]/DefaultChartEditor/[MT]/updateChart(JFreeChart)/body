@@ -1,0 +1,6 @@
+{
+  this.titleEditor.setTitleProperties(chart);
+  this.plotEditor.updatePlotProperties(chart.getPlot());
+  chart.setAntiAlias(getAntiAlias());
+  chart.setBackgroundPaint(getBackgroundPaint());
+}

@@ -1,0 +1,5 @@
+String title
+XYDataset dataset
+boolean legend
+boolean tooltips
+boolean urls

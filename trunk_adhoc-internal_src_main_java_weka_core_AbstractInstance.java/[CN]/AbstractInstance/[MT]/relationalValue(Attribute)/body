@@ -1,0 +1,9 @@
+{
+  int attIndex=att.index();
+  if (att.isRelationValued()) {
+    return att.relation((int)value(attIndex));
+  }
+ else {
+    throw new IllegalArgumentException("Attribute isn't relation-valued!");
+  }
+}

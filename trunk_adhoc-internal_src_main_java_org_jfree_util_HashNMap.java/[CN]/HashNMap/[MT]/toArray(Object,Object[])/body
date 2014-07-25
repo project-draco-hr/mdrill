@@ -1,0 +1,13 @@
+{
+  if (key == null) {
+    throw new NullPointerException("Key must not be null.");
+  }
+  final List list=(List)this.table.get(key);
+  if (list != null) {
+    return list.toArray(data);
+  }
+  if (data.length > 0) {
+    data[0]=null;
+  }
+  return data;
+}

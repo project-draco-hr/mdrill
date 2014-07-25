@@ -1,0 +1,9 @@
+{
+  Vector result;
+  Enumeration enm;
+  result=new Vector();
+  enm=super.listOptions();
+  while (enm.hasMoreElements())   result.add(enm.nextElement());
+  result.addElement(new Option("\tWhether to use TAB as separator instead of comma.\n" + "\t(default: comma)","use-tab",0,"-use-tab"));
+  return result.elements();
+}

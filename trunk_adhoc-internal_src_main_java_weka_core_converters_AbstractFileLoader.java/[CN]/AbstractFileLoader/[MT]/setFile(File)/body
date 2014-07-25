@@ -1,0 +1,5 @@
+{
+  m_structure=null;
+  setRetrieval(NONE);
+  setSource(file);
+}

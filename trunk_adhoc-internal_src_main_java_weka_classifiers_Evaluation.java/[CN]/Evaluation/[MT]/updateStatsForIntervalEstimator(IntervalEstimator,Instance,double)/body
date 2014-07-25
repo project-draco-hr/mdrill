@@ -1,0 +1,13 @@
+{
+  double[][] preds=classifier.predictIntervals(classMissing,m_ConfLevel);
+  if (m_Predictions != null)   ((NumericPrediction)m_Predictions.lastElement()).setPredictionIntervals(preds);
+  for (int i=0; i < preds.length; i++) {
+    m_TotalSizeOfRegions+=(preds[i][1] - preds[i][0]) / (m_MaxTarget - m_MinTarget);
+  }
+  for (int i=0; i < preds.length; i++) {
+    if ((preds[i][1] >= classValue) && (preds[i][0] <= classValue)) {
+      m_TotalCoverage+=classMissing.weight();
+      break;
+    }
+  }
+}

@@ -1,0 +1,5 @@
+{
+  stream.defaultWriteObject();
+  SerialUtilities.writePaint(this.errorPaint,stream);
+  SerialUtilities.writeStroke(this.errorStroke,stream);
+}

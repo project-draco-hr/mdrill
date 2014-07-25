@@ -1,0 +1,73 @@
+{
+  if (m_mouseState == 1) {
+    m_clickAvailable=true;
+  }
+ else {
+    m_clickAvailable=false;
+  }
+  if (m_mouseState == 2 && mouseInBounds(e)) {
+    m_mouseState=0;
+    Dimension ns=new Dimension(m_viewSize.width / 2,m_viewSize.height / 2);
+    if (ns.width < 10) {
+      ns.width=10;
+    }
+    if (ns.height < 10) {
+      ns.height=10;
+    }
+    Dimension d=getSize();
+    Dimension np=new Dimension((int)(d.width / 2 - ((double)d.width / 2 - m_viewPos.width) / 2),(int)(d.height / 2 - ((double)d.height / 2 - m_viewPos.height) / 2));
+    animateScaling(np,ns,10);
+  }
+ else   if (m_mouseState == 3) {
+    m_mouseState=0;
+    Graphics g=getGraphics();
+    if (m_ZoomBoxColor == null)     g.setColor(Color.black);
+ else     g.setColor(m_ZoomBoxColor);
+    if (m_ZoomBoxXORColor == null)     g.setXORMode(Color.white);
+ else     g.setXORMode(m_ZoomBoxXORColor);
+    g.drawRect(m_oldMousePos.width,m_oldMousePos.height,m_newMousePos.width - m_oldMousePos.width,m_newMousePos.height - m_oldMousePos.height);
+    g.dispose();
+    int cw=m_newMousePos.width - m_oldMousePos.width;
+    int ch=m_newMousePos.height - m_oldMousePos.height;
+    if (cw >= 1 && ch >= 1) {
+      if (mouseInBounds(e) && (getSize().width / cw) <= 6 && (getSize().height / ch) <= 6) {
+        Dimension ns=new Dimension();
+        Dimension np=new Dimension();
+        double nvsw=getSize().width / (double)(cw);
+        double nvsh=getSize().height / (double)(ch);
+        np.width=(int)((m_oldMousePos.width - m_viewPos.width) * -nvsw);
+        np.height=(int)((m_oldMousePos.height - m_viewPos.height) * -nvsh);
+        ns.width=(int)(m_viewSize.width * nvsw);
+        ns.height=(int)(m_viewSize.height * nvsh);
+        animateScaling(np,ns,10);
+      }
+    }
+  }
+ else   if (m_mouseState == 0 && m_scaling == 0) {
+    m_mouseState=0;
+    setFont(new Font("A Name",0,12));
+    int s=-1;
+    for (int noa=0; noa < m_numNodes; noa++) {
+      if (m_nodes[noa].m_quad == 18) {
+        calcScreenCoords(noa);
+        if (e.getX() <= m_nodes[noa].m_center + m_nodes[noa].m_side && e.getX() >= m_nodes[noa].m_center - m_nodes[noa].m_side && e.getY() >= m_nodes[noa].m_top && e.getY() <= m_nodes[noa].m_top + m_nodes[noa].m_height) {
+          s=noa;
+        }
+        m_nodes[noa].m_top=32000;
+      }
+    }
+    if (s == -1) {
+      m_winMenu.show(this,e.getX(),e.getY());
+    }
+ else {
+      m_focusNode=s;
+      m_nodeMenu.show(this,e.getX(),e.getY());
+    }
+    setFont(m_currentFont);
+  }
+ else   if (m_mouseState == 1) {
+    m_mouseState=0;
+    m_frameLimiter.stop();
+    repaint();
+  }
+}

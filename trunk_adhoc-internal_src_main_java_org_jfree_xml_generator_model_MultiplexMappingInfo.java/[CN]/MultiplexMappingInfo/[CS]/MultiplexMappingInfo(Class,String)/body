@@ -1,0 +1,10 @@
+{
+  if (baseClass == null) {
+    throw new NullPointerException("BaseClass");
+  }
+  if (typeAttribute == null) {
+    throw new NullPointerException("TypeAttribute");
+  }
+  this.baseClass=baseClass;
+  this.typeAttribute=typeAttribute;
+}

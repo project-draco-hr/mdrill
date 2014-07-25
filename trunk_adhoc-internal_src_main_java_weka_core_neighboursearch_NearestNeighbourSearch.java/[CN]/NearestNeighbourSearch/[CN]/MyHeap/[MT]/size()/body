@@ -1,0 +1,3 @@
+{
+  return m_heap[0].index;
+}

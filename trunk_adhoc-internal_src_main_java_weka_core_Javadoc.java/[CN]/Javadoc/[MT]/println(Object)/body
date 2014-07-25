@@ -1,0 +1,3 @@
+{
+  if (!getSilent())   System.err.println(o.toString());
+}

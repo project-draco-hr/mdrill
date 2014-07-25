@@ -1,0 +1,7 @@
+{
+  m_env=env;
+  m_filenameField.setEnvironment(env);
+  m_numStepsToForecast.setEnvironment(env);
+  m_artificialOffset.setEnvironment(env);
+  m_saveFilenameField.setEnvironment(env);
+}

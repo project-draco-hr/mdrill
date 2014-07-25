@@ -1,0 +1,52 @@
+{
+  tk.nextToken();
+  if (tk.ttype == ']' || tk.ttype == tk.TT_EOF)   return;
+ else   if (tk.ttype == tk.TT_WORD) {
+    if (tk.sval.equalsIgnoreCase("label")) {
+      tk.nextToken();
+      if (tk.ttype == '=') {
+        tk.nextToken();
+        if (tk.ttype == tk.TT_WORD || tk.ttype == '"')         System.err.println("found label " + tk.sval);
+ else {
+          System.err.println("couldn't find label at line " + tk.lineno());
+          tk.pushBack();
+        }
+      }
+ else {
+        System.err.println("couldn't find label at line " + tk.lineno());
+        tk.pushBack();
+      }
+    }
+ else     if (tk.sval.equalsIgnoreCase("color")) {
+      tk.nextToken();
+      if (tk.ttype == '=') {
+        tk.nextToken();
+        if (tk.ttype == tk.TT_WORD || tk.ttype == '"')         ;
+ else {
+          System.err.println("couldn't find color at line " + tk.lineno());
+          tk.pushBack();
+        }
+      }
+ else {
+        System.err.println("couldn't find color at line " + tk.lineno());
+        tk.pushBack();
+      }
+    }
+ else     if (tk.sval.equalsIgnoreCase("style")) {
+      tk.nextToken();
+      if (tk.ttype == '=') {
+        tk.nextToken();
+        if (tk.ttype == tk.TT_WORD || tk.ttype == '"')         ;
+ else {
+          System.err.println("couldn't find style at line " + tk.lineno());
+          tk.pushBack();
+        }
+      }
+ else {
+        System.err.println("couldn't find style at line " + tk.lineno());
+        tk.pushBack();
+      }
+    }
+  }
+  edgeAttrib(tk,e);
+}

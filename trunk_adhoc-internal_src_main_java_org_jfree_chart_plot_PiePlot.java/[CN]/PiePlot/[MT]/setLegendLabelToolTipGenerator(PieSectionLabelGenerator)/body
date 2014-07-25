@@ -1,0 +1,4 @@
+{
+  this.legendLabelToolTipGenerator=generator;
+  fireChangeEvent();
+}

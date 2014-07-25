@@ -1,0 +1,3 @@
+{
+  add(new Double(x),y,notify);
+}

@@ -1,0 +1,6 @@
+{
+  pY=m_panelHeight - pY;
+  pY/=(double)m_panelHeight;
+  pY*=m_rangeY;
+  return pY + m_minY;
+}

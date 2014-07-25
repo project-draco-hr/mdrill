@@ -1,0 +1,24 @@
+{
+  String[] superOptions=super.getOptions();
+  String[] options=new String[9 + superOptions.length];
+  int current=0;
+  if (getUseArcReversal()) {
+    options[current++]="-R";
+  }
+  if (!getInitAsNaiveBayes()) {
+    options[current++]="-N";
+  }
+  if (m_sInitalBIFFile != null && !m_sInitalBIFFile.equals("")) {
+    options[current++]="-X";
+    options[current++]=m_sInitalBIFFile;
+  }
+  options[current++]="-P";
+  options[current++]="" + m_nMaxNrOfParents;
+  for (int iOption=0; iOption < superOptions.length; iOption++) {
+    options[current++]=superOptions[iOption];
+  }
+  while (current < options.length) {
+    options[current++]="";
+  }
+  return options;
+}

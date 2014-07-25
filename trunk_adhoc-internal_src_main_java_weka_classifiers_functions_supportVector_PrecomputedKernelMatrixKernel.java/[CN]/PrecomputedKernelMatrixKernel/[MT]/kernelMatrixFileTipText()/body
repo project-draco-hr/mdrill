@@ -1,0 +1,3 @@
+{
+  return "The file holding the kernel matrix.";
+}

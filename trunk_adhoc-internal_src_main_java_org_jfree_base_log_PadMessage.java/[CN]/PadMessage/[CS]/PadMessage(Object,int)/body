@@ -1,0 +1,4 @@
+{
+  this.text=message;
+  this.length=length;
+}

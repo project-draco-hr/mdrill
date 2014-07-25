@@ -1,0 +1,8 @@
+{
+  if (e.getSource() instanceof AbstractButton) {
+    final AbstractButton button=(AbstractButton)e.getSource();
+    if (button.isEnabled()) {
+      button.setBorderPainted(true);
+    }
+  }
+}

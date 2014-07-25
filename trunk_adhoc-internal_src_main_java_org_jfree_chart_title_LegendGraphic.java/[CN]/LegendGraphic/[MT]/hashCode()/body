@@ -1,0 +1,5 @@
+{
+  int result=193;
+  result=37 * result + ObjectUtilities.hashCode(this.fillPaint);
+  return result;
+}

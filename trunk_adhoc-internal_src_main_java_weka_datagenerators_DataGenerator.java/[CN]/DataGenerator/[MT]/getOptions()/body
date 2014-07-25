@@ -1,0 +1,12 @@
+{
+  Vector result;
+  result=new Vector();
+  if (!m_CreatingRelationName) {
+    result.add("-r");
+    result.add(Utils.quote(getRelationNameToUse()));
+  }
+  if (getDebug())   result.add("-d");
+  result.add("-S");
+  result.add("" + getSeed());
+  return (String[])result.toArray(new String[result.size()]);
+}

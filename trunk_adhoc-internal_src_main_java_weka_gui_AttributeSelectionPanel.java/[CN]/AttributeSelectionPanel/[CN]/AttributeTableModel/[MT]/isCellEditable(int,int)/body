@@ -1,0 +1,6 @@
+{
+  if (col == 1) {
+    return true;
+  }
+  return false;
+}

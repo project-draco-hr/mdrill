@@ -1,0 +1,22 @@
+{
+  if (!getItemVisible(series,item)) {
+    return;
+  }
+  if (isLinePass(pass)) {
+    if (getItemLineVisible(series,item)) {
+      if (this.drawSeriesLineAsPath) {
+        drawPrimaryLineAsPath(state,g2,plot,dataset,pass,series,item,domainAxis,rangeAxis,dataArea);
+      }
+ else {
+        drawPrimaryLine(state,g2,plot,dataset,pass,series,item,domainAxis,rangeAxis,dataArea);
+      }
+    }
+  }
+ else   if (isItemPass(pass)) {
+    EntityCollection entities=null;
+    if (info != null) {
+      entities=info.getOwner().getEntityCollection();
+    }
+    drawSecondaryPass(g2,plot,dataset,pass,series,item,domainAxis,dataArea,rangeAxis,crosshairState,entities);
+  }
+}

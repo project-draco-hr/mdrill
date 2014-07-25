@@ -1,0 +1,10 @@
+{
+  Rectangle2D anchorRect=null;
+  if (orientation == PlotOrientation.HORIZONTAL) {
+    anchorRect=markerOffset.createAdjustedRectangle(markerArea,LengthAdjustmentType.CONTRACT,labelOffsetType);
+  }
+ else   if (orientation == PlotOrientation.VERTICAL) {
+    anchorRect=markerOffset.createAdjustedRectangle(markerArea,labelOffsetType,LengthAdjustmentType.CONTRACT);
+  }
+  return RectangleAnchor.coordinates(anchorRect,anchor);
+}

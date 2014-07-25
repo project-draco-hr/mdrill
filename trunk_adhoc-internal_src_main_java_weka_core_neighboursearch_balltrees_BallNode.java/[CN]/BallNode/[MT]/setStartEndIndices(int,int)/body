@@ -1,0 +1,5 @@
+{
+  m_Start=start;
+  m_End=end;
+  m_NumInstances=end - start + 1;
+}

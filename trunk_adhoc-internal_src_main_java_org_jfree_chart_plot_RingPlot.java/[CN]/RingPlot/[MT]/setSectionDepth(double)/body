@@ -1,0 +1,4 @@
+{
+  this.sectionDepth=sectionDepth;
+  fireChangeEvent();
+}

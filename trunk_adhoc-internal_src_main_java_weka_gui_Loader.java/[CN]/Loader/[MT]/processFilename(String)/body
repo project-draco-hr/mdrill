@@ -1,0 +1,4 @@
+{
+  if (!filename.startsWith(getDir()))   filename=getDir() + filename;
+  return filename;
+}

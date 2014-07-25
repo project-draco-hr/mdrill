@@ -1,0 +1,11 @@
+{
+  Plot plot=this.chart.getPlot();
+  if (plot instanceof Zoomable) {
+    Zoomable z=(Zoomable)plot;
+    boolean savedNotify=plot.isNotify();
+    plot.setNotify(false);
+    Point2D zp=(this.zoomPoint != null ? this.zoomPoint : new Point());
+    z.zoomRangeAxes(0.0,this.info.getPlotInfo(),zp);
+    plot.setNotify(savedNotify);
+  }
+}

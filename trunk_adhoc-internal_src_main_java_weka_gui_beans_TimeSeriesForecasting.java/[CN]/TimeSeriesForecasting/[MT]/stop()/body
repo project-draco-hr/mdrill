@@ -1,0 +1,8 @@
+{
+  m_forecastingStatus=Status.IDLE;
+  if (m_listenee != null) {
+    if (m_listenee instanceof BeanCommon) {
+      ((BeanCommon)m_listenee).stop();
+    }
+  }
+}

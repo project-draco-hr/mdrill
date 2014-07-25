@@ -1,0 +1,5 @@
+{
+  stream.defaultReadObject();
+  this.dataArea=(Rectangle2D)SerialUtilities.readShape(stream);
+  this.plotArea=(Rectangle2D)SerialUtilities.readShape(stream);
+}

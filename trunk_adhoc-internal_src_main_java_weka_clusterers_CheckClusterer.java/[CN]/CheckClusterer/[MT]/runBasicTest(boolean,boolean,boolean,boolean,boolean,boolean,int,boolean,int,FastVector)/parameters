@@ -1,0 +1,10 @@
+boolean nominalPredictor
+boolean numericPredictor
+boolean stringPredictor
+boolean datePredictor
+boolean relationalPredictor
+boolean multiInstance
+int missingLevel
+boolean predictorMissing
+int numTrain
+FastVector accepts

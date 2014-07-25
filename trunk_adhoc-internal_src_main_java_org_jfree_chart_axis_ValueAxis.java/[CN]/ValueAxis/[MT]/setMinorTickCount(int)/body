@@ -1,0 +1,4 @@
+{
+  this.minorTickCount=count;
+  notifyListeners(new AxisChangeEvent(this));
+}

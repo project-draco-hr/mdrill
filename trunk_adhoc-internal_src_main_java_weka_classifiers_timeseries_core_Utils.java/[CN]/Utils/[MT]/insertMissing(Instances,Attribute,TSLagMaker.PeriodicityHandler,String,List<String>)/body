@@ -1,0 +1,75 @@
+{
+  if (m_skipEntries != null && m_skipEntries.length() > 0) {
+    try {
+      periodicityHandler.setSkipList(m_skipEntries,"yyyy-MM-dd'T'HH:mm:ss");
+    }
+ catch (    Exception ex) {
+      ex.printStackTrace();
+    }
+  }
+  int timeIndex=timeStampAtt.index();
+  Instance prevInst=null;
+  int current=0;
+  while (true) {
+    if (current == toInsert.numInstances()) {
+      break;
+    }
+    if (prevInst != null && !toInsert.instance(current).isMissing(timeIndex)) {
+      if (periodicityHandler.getPeriodicity() != Periodicity.MONTHLY && periodicityHandler.getPeriodicity() != Periodicity.QUARTERLY) {
+        double delta=periodicityHandler.getPeriodicity().deltaTime();
+        double diff=toInsert.instance(current).value(timeIndex) - prevInst.value(timeIndex);
+        if (diff > 1.5 * delta) {
+          if (!periodicityHandler.isDateBased() || !periodicityHandler.dateInSkipList(new Date((long)prevInst.value(timeIndex)))) {
+            Instance newInst=makeInstance(prevInst.value(timeIndex),periodicityHandler,toInsert.numAttributes(),timeIndex);
+            Date candidate=new Date((long)newInst.value(timeIndex));
+            if (!periodicityHandler.dateInSkipList(candidate) && candidate.getTime() < toInsert.instance(current).value(timeIndex)) {
+              newInst.setDataset(toInsert);
+              toInsert.add(current,newInst);
+              addToMissingReport(newInst.value(timeIndex),periodicityHandler,missingReport);
+            }
+          }
+        }
+      }
+ else {
+        Date d=new Date((long)toInsert.instance(current).value(timeIndex));
+        Calendar c=new GregorianCalendar();
+        c.setTime(d);
+        int currentMonth=c.get(Calendar.MONTH);
+        d=new Date((long)prevInst.value(timeIndex));
+        c.setTime(d);
+        int prevMonth=c.get(Calendar.MONTH);
+        double diff=(currentMonth + 1) - ((prevMonth == Calendar.DECEMBER) ? 0 : prevMonth + 1);
+        if (periodicityHandler.getPeriodicity() == Periodicity.MONTHLY) {
+          if (diff > 1.5) {
+            if (!periodicityHandler.isDateBased() || !periodicityHandler.dateInSkipList(new Date((long)prevInst.value(timeIndex)))) {
+              Instance newInst=makeInstance(prevInst.value(timeIndex),periodicityHandler,toInsert.numAttributes(),timeIndex);
+              Date candidate=new Date((long)newInst.value(timeIndex));
+              if (!periodicityHandler.dateInSkipList(candidate) && candidate.getTime() < toInsert.instance(current).value(timeIndex)) {
+                newInst.setDataset(toInsert);
+                toInsert.add(current,newInst);
+                addToMissingReport(newInst.value(timeIndex),periodicityHandler,missingReport);
+              }
+            }
+          }
+        }
+ else         if (periodicityHandler.getPeriodicity() == Periodicity.QUARTERLY) {
+          if (diff > 4.5) {
+            if (!periodicityHandler.isDateBased() || !periodicityHandler.dateInSkipList(new Date((long)prevInst.value(timeIndex)))) {
+              Instance newInst=makeInstance(prevInst.value(timeIndex),periodicityHandler,toInsert.numAttributes(),timeIndex);
+              Date candidate=new Date((long)newInst.value(timeIndex));
+              if (!periodicityHandler.dateInSkipList(candidate) && candidate.getTime() < toInsert.instance(current).value(timeIndex)) {
+                toInsert.add(current,newInst);
+                addToMissingReport(newInst.value(timeIndex),periodicityHandler,missingReport);
+              }
+            }
+          }
+        }
+      }
+    }
+    if (!toInsert.instance(current).isMissing(timeIndex)) {
+      prevInst=toInsert.instance(current);
+    }
+    current++;
+  }
+  return null;
+}

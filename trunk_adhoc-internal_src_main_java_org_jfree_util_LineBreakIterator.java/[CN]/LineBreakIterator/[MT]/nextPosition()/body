@@ -1,0 +1,37 @@
+{
+  if (this.text == null) {
+    return DONE;
+  }
+  if (this.position == DONE) {
+    return DONE;
+  }
+  final int nChars=this.text.length;
+  int nextChar=this.position;
+  for (; ; ) {
+    if (nextChar >= nChars) {
+      this.position=DONE;
+      return DONE;
+    }
+    boolean eol=false;
+    char c=0;
+    int i;
+    for (i=nextChar; i < nChars; i++) {
+      c=this.text[i];
+      if ((c == '\n') || (c == '\r')) {
+        eol=true;
+        break;
+      }
+    }
+    nextChar=i;
+    if (eol) {
+      nextChar++;
+      if (c == '\r') {
+        if ((nextChar < nChars) && (this.text[nextChar] == '\n')) {
+          nextChar++;
+        }
+      }
+      this.position=nextChar;
+      return (this.position);
+    }
+  }
+}

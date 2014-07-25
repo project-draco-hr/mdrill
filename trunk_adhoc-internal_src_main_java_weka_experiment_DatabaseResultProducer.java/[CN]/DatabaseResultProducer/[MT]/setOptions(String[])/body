@@ -1,0 +1,11 @@
+{
+  setCacheKeyName(Utils.getOption('F',options));
+  String rpName=Utils.getOption('W',options);
+  if (rpName.length() == 0) {
+    throw new Exception("A ResultProducer must be specified with" + " the -W option.");
+  }
+  setResultProducer((ResultProducer)Utils.forName(ResultProducer.class,rpName,null));
+  if (getResultProducer() instanceof OptionHandler) {
+    ((OptionHandler)getResultProducer()).setOptions(Utils.partitionOptions(options));
+  }
+}

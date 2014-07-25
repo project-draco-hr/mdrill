@@ -1,0 +1,13 @@
+{
+  if (this == o) {
+    return true;
+  }
+  if (!(o instanceof GradientPaintTransformType)) {
+    return false;
+  }
+  final GradientPaintTransformType t=(GradientPaintTransformType)o;
+  if (!this.name.equals(t.name)) {
+    return false;
+  }
+  return true;
+}

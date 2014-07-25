@@ -1,0 +1,18 @@
+{
+  DefaultCategoryDataset dataset=new DefaultCategoryDataset();
+  BufferedReader reader=new BufferedReader(in);
+  List columnKeys=null;
+  int lineIndex=0;
+  String line=reader.readLine();
+  while (line != null) {
+    if (lineIndex == 0) {
+      columnKeys=extractColumnKeys(line);
+    }
+ else {
+      extractRowKeyAndData(line,dataset,columnKeys);
+    }
+    line=reader.readLine();
+    lineIndex++;
+  }
+  return dataset;
+}

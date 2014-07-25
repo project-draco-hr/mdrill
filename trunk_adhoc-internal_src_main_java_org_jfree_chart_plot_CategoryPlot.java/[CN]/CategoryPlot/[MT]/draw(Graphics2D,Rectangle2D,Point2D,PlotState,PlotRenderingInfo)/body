@@ -1,0 +1,132 @@
+{
+  boolean b1=(area.getWidth() <= MINIMUM_WIDTH_TO_DRAW);
+  boolean b2=(area.getHeight() <= MINIMUM_HEIGHT_TO_DRAW);
+  if (b1 || b2) {
+    return;
+  }
+  if (state == null) {
+    state=new PlotRenderingInfo(null);
+  }
+  state.setPlotArea(area);
+  RectangleInsets insets=getInsets();
+  insets.trim(area);
+  AxisSpace space=calculateAxisSpace(g2,area);
+  Rectangle2D dataArea=space.shrink(area,null);
+  this.axisOffset.trim(dataArea);
+  state.setDataArea(dataArea);
+  createAndAddEntity((Rectangle2D)dataArea.clone(),state,null,null);
+  if (getRenderer() != null) {
+    getRenderer().drawBackground(g2,this,dataArea);
+  }
+ else {
+    drawBackground(g2,dataArea);
+  }
+  Map axisStateMap=drawAxes(g2,area,dataArea,state);
+  if (anchor != null && !dataArea.contains(anchor)) {
+    anchor=ShapeUtilities.getPointInRectangle(anchor.getX(),anchor.getY(),dataArea);
+  }
+  CategoryCrosshairState crosshairState=new CategoryCrosshairState();
+  crosshairState.setCrosshairDistance(Double.POSITIVE_INFINITY);
+  crosshairState.setAnchor(anchor);
+  crosshairState.setAnchorX(Double.NaN);
+  crosshairState.setAnchorY(Double.NaN);
+  if (anchor != null) {
+    ValueAxis rangeAxis=getRangeAxis();
+    if (rangeAxis != null) {
+      double y;
+      if (getOrientation() == PlotOrientation.VERTICAL) {
+        y=rangeAxis.java2DToValue(anchor.getY(),dataArea,getRangeAxisEdge());
+      }
+ else {
+        y=rangeAxis.java2DToValue(anchor.getX(),dataArea,getRangeAxisEdge());
+      }
+      crosshairState.setAnchorY(y);
+    }
+  }
+  crosshairState.setRowKey(getDomainCrosshairRowKey());
+  crosshairState.setColumnKey(getDomainCrosshairColumnKey());
+  crosshairState.setCrosshairY(getRangeCrosshairValue());
+  Shape savedClip=g2.getClip();
+  g2.clip(dataArea);
+  drawDomainGridlines(g2,dataArea);
+  AxisState rangeAxisState=(AxisState)axisStateMap.get(getRangeAxis());
+  if (rangeAxisState == null) {
+    if (parentState != null) {
+      rangeAxisState=(AxisState)parentState.getSharedAxisStates().get(getRangeAxis());
+    }
+  }
+  if (rangeAxisState != null) {
+    drawRangeGridlines(g2,dataArea,rangeAxisState.getTicks());
+    drawZeroRangeBaseline(g2,dataArea);
+  }
+  for (int i=0; i < this.renderers.size(); i++) {
+    drawDomainMarkers(g2,dataArea,i,Layer.BACKGROUND);
+  }
+  for (int i=0; i < this.renderers.size(); i++) {
+    drawRangeMarkers(g2,dataArea,i,Layer.BACKGROUND);
+  }
+  boolean foundData=false;
+  Composite originalComposite=g2.getComposite();
+  g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER,getForegroundAlpha()));
+  DatasetRenderingOrder order=getDatasetRenderingOrder();
+  if (order == DatasetRenderingOrder.FORWARD) {
+    for (int i=0; i < this.datasets.size(); i++) {
+      foundData=render(g2,dataArea,i,state,crosshairState) || foundData;
+    }
+  }
+ else {
+    for (int i=this.datasets.size() - 1; i >= 0; i--) {
+      foundData=render(g2,dataArea,i,state,crosshairState) || foundData;
+    }
+  }
+  for (int i=0; i < this.renderers.size(); i++) {
+    drawDomainMarkers(g2,dataArea,i,Layer.FOREGROUND);
+  }
+  for (int i=0; i < this.renderers.size(); i++) {
+    drawRangeMarkers(g2,dataArea,i,Layer.FOREGROUND);
+  }
+  drawAnnotations(g2,dataArea);
+  g2.setClip(savedClip);
+  g2.setComposite(originalComposite);
+  if (!foundData) {
+    drawNoDataMessage(g2,dataArea);
+  }
+  int datasetIndex=crosshairState.getDatasetIndex();
+  setCrosshairDatasetIndex(datasetIndex,false);
+  Comparable rowKey=crosshairState.getRowKey();
+  Comparable columnKey=crosshairState.getColumnKey();
+  setDomainCrosshairRowKey(rowKey,false);
+  setDomainCrosshairColumnKey(columnKey,false);
+  if (isDomainCrosshairVisible() && columnKey != null) {
+    Paint paint=getDomainCrosshairPaint();
+    Stroke stroke=getDomainCrosshairStroke();
+    drawDomainCrosshair(g2,dataArea,this.orientation,datasetIndex,rowKey,columnKey,stroke,paint);
+  }
+  ValueAxis yAxis=getRangeAxisForDataset(datasetIndex);
+  RectangleEdge yAxisEdge=getRangeAxisEdge();
+  if (!this.rangeCrosshairLockedOnData && anchor != null) {
+    double yy;
+    if (getOrientation() == PlotOrientation.VERTICAL) {
+      yy=yAxis.java2DToValue(anchor.getY(),dataArea,yAxisEdge);
+    }
+ else {
+      yy=yAxis.java2DToValue(anchor.getX(),dataArea,yAxisEdge);
+    }
+    crosshairState.setCrosshairY(yy);
+  }
+  setRangeCrosshairValue(crosshairState.getCrosshairY(),false);
+  if (isRangeCrosshairVisible()) {
+    double y=getRangeCrosshairValue();
+    Paint paint=getRangeCrosshairPaint();
+    Stroke stroke=getRangeCrosshairStroke();
+    drawRangeCrosshair(g2,dataArea,getOrientation(),y,yAxis,stroke,paint);
+  }
+  if (isOutlineVisible()) {
+    if (getRenderer() != null) {
+      getRenderer().drawOutline(g2,this,dataArea);
+    }
+ else {
+      drawOutline(g2,dataArea);
+    }
+  }
+}

@@ -1,0 +1,5 @@
+{
+  g2.setStroke(getItemStroke(series,item));
+  g2.setPaint(getItemPaint(series,item));
+  g2.draw(shape);
+}

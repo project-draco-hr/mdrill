@@ -1,0 +1,5 @@
+String title
+PieDataset dataset
+boolean legend
+boolean tooltips
+boolean urls

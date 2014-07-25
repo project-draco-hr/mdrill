@@ -1,0 +1,7 @@
+{
+  DefaultKeyedValues clone=(DefaultKeyedValues)super.clone();
+  clone.keys=(ArrayList)this.keys.clone();
+  clone.values=(ArrayList)this.values.clone();
+  clone.indexMap=(HashMap)this.indexMap.clone();
+  return clone;
+}

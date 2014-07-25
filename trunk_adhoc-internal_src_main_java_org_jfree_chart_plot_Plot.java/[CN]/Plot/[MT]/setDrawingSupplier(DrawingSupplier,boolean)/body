@@ -1,0 +1,6 @@
+{
+  this.drawingSupplier=supplier;
+  if (notify) {
+    fireChangeEvent();
+  }
+}

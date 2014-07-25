@@ -1,0 +1,10 @@
+{
+  String result;
+  result=s;
+  result=result.replaceAll("&","&amp;");
+  result=result.replaceAll("<","&lt;");
+  result=result.replaceAll(">","&gt;");
+  result=result.replaceAll("@","&#64;");
+  result=result.replaceAll("\n","<br/>\n");
+  return result;
+}

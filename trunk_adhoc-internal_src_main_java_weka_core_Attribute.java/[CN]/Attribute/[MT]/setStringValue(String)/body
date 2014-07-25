@@ -1,0 +1,8 @@
+{
+  if (!isString()) {
+    return;
+  }
+  m_Hashtable.clear();
+  m_Values.clear();
+  addStringValue(value);
+}

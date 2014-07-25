@@ -1,0 +1,39 @@
+{
+  if (!needFlushDfs.get()) {
+    return;
+  }
+  long t1=System.currentTimeMillis();
+  while (!this.status.allowsynchdfs.get()) {
+    try {
+      Thread.sleep(10000);
+      LOG.error("syncHdfs wait");
+    }
+ catch (    InterruptedException e) {
+    }
+    long t2=System.currentTimeMillis();
+    if (t2 - t1 > 1000l * 3600 * 3) {
+      LOG.error("syncHdfs wait timeout");
+      break;
+    }
+  }
+  needFlushDfs.set(false);
+  String tsstr="";
+  ConcurrentHashMap<String,DirectoryInfo> diskDirector_hdfs=new ConcurrentHashMap<String,DirectoryInfo>();
+synchronized (rlock.lock) {
+    this.data.flushToDisk();
+    try {
+      tsstr=data.remakeIndexLinksFile();
+      diskDirector_hdfs=this.data.copyForSyncHdfs();
+      ;
+    }
+ catch (    Throwable e) {
+      LOG.error("syncHdfs",e);
+    }
+  }
+  try {
+    saveToHdfs(diskDirector_hdfs,tsstr);
+  }
+ catch (  Throwable e) {
+    LOG.error("syncHdfs",e);
+  }
+}

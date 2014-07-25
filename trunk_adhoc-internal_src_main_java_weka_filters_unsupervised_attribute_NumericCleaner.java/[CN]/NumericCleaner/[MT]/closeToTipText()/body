@@ -1,0 +1,3 @@
+{
+  return "The number values are checked for whether they are too close to " + "and get replaced by a default.";
+}

@@ -1,0 +1,3 @@
+{
+  copyWriter(in,out,4096);
+}

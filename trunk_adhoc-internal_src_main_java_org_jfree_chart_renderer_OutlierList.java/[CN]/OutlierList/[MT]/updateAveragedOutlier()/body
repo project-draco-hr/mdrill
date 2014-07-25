@@ -1,0 +1,11 @@
+{
+  double totalXCoords=0.0;
+  double totalYCoords=0.0;
+  int size=getItemCount();
+  for (Iterator iterator=this.outliers.iterator(); iterator.hasNext(); ) {
+    Outlier o=(Outlier)iterator.next();
+    totalXCoords+=o.getX();
+    totalYCoords+=o.getY();
+  }
+  getAveragedOutlier().getPoint().setLocation(new Point2D.Double(totalXCoords / size,totalYCoords / size));
+}

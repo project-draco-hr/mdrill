@@ -1,0 +1,7 @@
+{
+  Document doc;
+  String result;
+  doc=m_Document.getDocument();
+  result=doc.getDocumentElement().getAttribute(ATT_VERSION);
+  return result;
+}

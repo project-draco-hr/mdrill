@@ -1,0 +1,5 @@
+{
+  IntVector v=new IntVector(i1 - i0 + 1);
+  v.set(0,i1 - i0,this,i0);
+  return v;
+}

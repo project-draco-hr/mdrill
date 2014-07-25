@@ -1,0 +1,4 @@
+{
+  Size2D base=new Size2D(getWidth(),getHeight());
+  return constraint.calculateConstrainedSize(base);
+}

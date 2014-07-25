@@ -1,0 +1,3 @@
+{
+  return "When reading incrementally, whether to retain all " + "values for string attributes. When set to false " + "only the values for string attributes in the currently "+ "read instance will be held in memory.";
+}

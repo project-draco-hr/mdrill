@@ -1,0 +1,10 @@
+{
+  if (useAnchor) {
+    double sourceY=source.getY();
+    double anchorY=this.rangeAxis.java2DToValue(sourceY,info.getDataArea(),RectangleEdge.LEFT);
+    this.rangeAxis.resizeRange2(factor,anchorY);
+  }
+ else {
+    this.rangeAxis.resizeRange(factor);
+  }
+}

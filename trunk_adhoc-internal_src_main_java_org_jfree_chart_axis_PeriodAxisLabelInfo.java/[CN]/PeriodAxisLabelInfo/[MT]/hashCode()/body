@@ -1,0 +1,6 @@
+{
+  int result=41;
+  result=37 * this.periodClass.hashCode();
+  result=37 * this.dateFormat.hashCode();
+  return result;
+}

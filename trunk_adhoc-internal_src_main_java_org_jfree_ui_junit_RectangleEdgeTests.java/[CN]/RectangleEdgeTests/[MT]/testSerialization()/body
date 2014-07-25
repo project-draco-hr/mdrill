@@ -1,0 +1,17 @@
+{
+  final RectangleEdge e1=RectangleEdge.RIGHT;
+  RectangleEdge e2=null;
+  try {
+    final ByteArrayOutputStream buffer=new ByteArrayOutputStream();
+    final ObjectOutput out=new ObjectOutputStream(buffer);
+    out.writeObject(e1);
+    out.close();
+    final ObjectInput in=new ObjectInputStream(new ByteArrayInputStream(buffer.toByteArray()));
+    e2=(RectangleEdge)in.readObject();
+    in.close();
+  }
+ catch (  Exception e) {
+    System.out.println(e.toString());
+  }
+  assertTrue(e1 == e2);
+}

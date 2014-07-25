@@ -1,0 +1,4 @@
+{
+  InputStreamReader isr=new InputStreamReader(is);
+  loadLayout(isr,newTab,flowName);
+}

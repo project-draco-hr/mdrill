@@ -1,0 +1,5 @@
+int seed
+int numValues
+Instances data
+int attrIndex
+int attrType

@@ -1,0 +1,10 @@
+GUIChooser parent
+String title
+Component c
+LayoutManager layout
+Object layoutConstraints
+int width
+int height
+JMenuBar menu
+boolean listener
+boolean visible

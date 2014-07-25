@@ -1,0 +1,4 @@
+{
+  this.data.insertValue(position,key,value);
+  fireDatasetChanged();
+}

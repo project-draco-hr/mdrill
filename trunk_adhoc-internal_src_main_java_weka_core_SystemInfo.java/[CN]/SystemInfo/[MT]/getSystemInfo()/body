@@ -1,0 +1,3 @@
+{
+  return (Hashtable)m_Info.clone();
+}

@@ -1,0 +1,11 @@
+{
+  super.buildClassifier(data);
+  if (m_numExecutionSlots < 1) {
+    throw new Exception("Number of execution slots needs to be >= 1!");
+  }
+  if (m_numExecutionSlots > 1) {
+    startExecutorPool();
+  }
+  m_completed=0;
+  m_failed=0;
+}

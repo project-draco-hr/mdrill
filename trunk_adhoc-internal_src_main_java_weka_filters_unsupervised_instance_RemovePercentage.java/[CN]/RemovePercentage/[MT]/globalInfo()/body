@@ -1,0 +1,3 @@
+{
+  return "A filter that removes a given percentage of a dataset.";
+}

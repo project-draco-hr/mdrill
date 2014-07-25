@@ -1,0 +1,8 @@
+Graphics2D g2
+XYDataset dataset
+int series
+int item
+XYPlot plot
+XYItemLabelGenerator generator
+Rectangle2D bar
+boolean negative

@@ -1,0 +1,4 @@
+{
+  setSize(cols,rows);
+  clear();
+}

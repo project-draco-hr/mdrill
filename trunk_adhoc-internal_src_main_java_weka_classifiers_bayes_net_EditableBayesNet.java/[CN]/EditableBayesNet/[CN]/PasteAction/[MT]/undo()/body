@@ -1,0 +1,12 @@
+{
+  try {
+    int iNode=getNrOfNodes() - 1;
+    while (iNode >= m_nBase) {
+      deleteNode(iNode);
+      iNode--;
+    }
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
+}

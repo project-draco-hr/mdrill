@@ -1,0 +1,8 @@
+{
+  if (d.fileExists("txid")) {
+    d.deleteFile("txid");
+  }
+  IndexOutput out=d.createOutput("txid");
+  out.writeString(String.valueOf(this.txid));
+  out.close();
+}

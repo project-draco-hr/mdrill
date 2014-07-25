@@ -1,0 +1,17 @@
+{
+  SerialDate d1=SerialDate.createInstance(15,4,2000);
+  SerialDate d2=null;
+  try {
+    ByteArrayOutputStream buffer=new ByteArrayOutputStream();
+    ObjectOutput out=new ObjectOutputStream(buffer);
+    out.writeObject(d1);
+    out.close();
+    ObjectInput in=new ObjectInputStream(new ByteArrayInputStream(buffer.toByteArray()));
+    d2=(SerialDate)in.readObject();
+    in.close();
+  }
+ catch (  Exception e) {
+    System.out.println(e.toString());
+  }
+  assertEquals(d1,d2);
+}

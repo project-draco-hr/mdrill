@@ -1,0 +1,3 @@
+{
+  setSeriesItemLabelFont(series,font,true);
+}

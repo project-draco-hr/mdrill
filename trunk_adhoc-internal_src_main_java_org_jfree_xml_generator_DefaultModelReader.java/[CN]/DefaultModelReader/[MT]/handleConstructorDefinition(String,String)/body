@@ -1,0 +1,9 @@
+{
+  final Class c=loadClass(parameterClass);
+  if (c == null) {
+    throw new ObjectDescriptionException("Failed to load class " + parameterClass);
+  }
+  final TypeInfo ti=new TypeInfo(tagName,c);
+  ti.setComments(new Comments(getOpenComment(),getCloseComment()));
+  this.constructorList.add(ti);
+}

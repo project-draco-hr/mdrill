@@ -1,0 +1,6 @@
+{
+  if (m_listenees.containsKey(eventName)) {
+    return false;
+  }
+  return true;
+}

@@ -1,0 +1,12 @@
+{
+  double prediction=m_zeroR.classifyInstance(inst);
+  if (!m_SuitableData) {
+    return prediction;
+  }
+  for (int i=0; i < m_NumIterationsPerformed; i++) {
+    double toAdd=m_Classifiers[i].classifyInstance(inst);
+    toAdd*=getShrinkage();
+    prediction+=toAdd;
+  }
+  return prediction;
+}

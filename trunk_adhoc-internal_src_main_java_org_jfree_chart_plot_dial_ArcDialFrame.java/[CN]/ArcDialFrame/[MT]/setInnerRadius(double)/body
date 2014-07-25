@@ -1,0 +1,7 @@
+{
+  if (radius < 0.0) {
+    throw new IllegalArgumentException("Negative 'radius' argument.");
+  }
+  this.innerRadius=radius;
+  notifyListeners(new DialLayerChangeEvent(this));
+}

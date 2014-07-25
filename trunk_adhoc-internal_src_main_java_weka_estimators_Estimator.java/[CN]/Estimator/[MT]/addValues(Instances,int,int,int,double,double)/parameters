@@ -1,0 +1,6 @@
+Instances data
+int attrIndex
+int classIndex
+int classValue
+double min
+double max

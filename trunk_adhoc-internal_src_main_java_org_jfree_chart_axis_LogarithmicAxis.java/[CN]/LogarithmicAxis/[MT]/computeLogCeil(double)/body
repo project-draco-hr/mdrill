@@ -1,0 +1,29 @@
+{
+  double logCeil;
+  if (this.allowNegativesFlag) {
+    if (upper > 10.0) {
+      logCeil=Math.log(upper) / LOG10_VALUE;
+      logCeil=Math.ceil(logCeil);
+      logCeil=Math.pow(10,logCeil);
+    }
+ else     if (upper < -10.0) {
+      logCeil=Math.log(-upper) / LOG10_VALUE;
+      logCeil=Math.ceil(-logCeil);
+      logCeil=-Math.pow(10,-logCeil);
+    }
+ else {
+      logCeil=Math.ceil(upper);
+    }
+  }
+ else {
+    if (upper > 0.0) {
+      logCeil=Math.log(upper) / LOG10_VALUE;
+      logCeil=Math.ceil(logCeil);
+      logCeil=Math.pow(10,logCeil);
+    }
+ else {
+      logCeil=Math.ceil(upper);
+    }
+  }
+  return logCeil;
+}

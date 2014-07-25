@@ -1,0 +1,12 @@
+{
+  if (this.listType.equals("stack")) {
+    return new Stack();
+  }
+  if (this.listType.equals("linked-list")) {
+    return new LinkedList();
+  }
+  if (this.listType.equals("vector")) {
+    return new Vector(initialSize);
+  }
+  return new ArrayList(initialSize);
+}

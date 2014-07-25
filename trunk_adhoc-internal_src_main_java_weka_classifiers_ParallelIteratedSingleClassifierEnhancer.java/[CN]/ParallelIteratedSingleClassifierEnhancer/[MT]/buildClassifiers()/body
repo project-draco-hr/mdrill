@@ -1,0 +1,31 @@
+{
+  for (int i=0; i < m_Classifiers.length; i++) {
+    if (m_numExecutionSlots > 1) {
+      final Classifier currentClassifier=m_Classifiers[i];
+      final int iteration=i;
+      if (m_Debug) {
+        System.out.print("Training classifier (" + (i + 1) + ")");
+      }
+      Runnable newTask=new Runnable(){
+        public void run(){
+          try {
+            currentClassifier.buildClassifier(getTrainingSet(iteration));
+            completedClassifier(iteration,true);
+          }
+ catch (          Exception ex) {
+            ex.printStackTrace();
+            completedClassifier(iteration,false);
+          }
+        }
+      }
+;
+      m_executorPool.execute(newTask);
+    }
+ else {
+      m_Classifiers[i].buildClassifier(getTrainingSet(i));
+    }
+  }
+  if (m_numExecutionSlots > 1 && m_completed + m_failed < m_Classifiers.length) {
+    block(true);
+  }
+}

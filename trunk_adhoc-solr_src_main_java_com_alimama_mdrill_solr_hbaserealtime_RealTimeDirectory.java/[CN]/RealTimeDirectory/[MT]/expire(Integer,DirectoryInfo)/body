@@ -1,0 +1,31 @@
+{
+  if (val.tp.equals(DirectoryInfo.DirTpe.buffer)) {
+    try {
+      this.data.mergerBuffer(val);
+      this.data.maybeMerger();
+    }
+ catch (    Throwable e) {
+      LOG.error("####expire buffer error ####",e);
+    }
+    return;
+  }
+  if (val.tp.equals(DirectoryInfo.DirTpe.ram)) {
+    try {
+      this.data.mergerRam(val);
+      this.data.maybeMerger();
+    }
+ catch (    Throwable e) {
+      LOG.error("####expire ram error ####",e);
+    }
+    return;
+  }
+  if (val.tp.equals(DirectoryInfo.DirTpe.delete)) {
+    try {
+      RealTimeDirectorUtils.deleteDirector(val,this.params.getConf());
+    }
+ catch (    Throwable e) {
+      LOG.error("deleteDirector",e);
+    }
+    return;
+  }
+}

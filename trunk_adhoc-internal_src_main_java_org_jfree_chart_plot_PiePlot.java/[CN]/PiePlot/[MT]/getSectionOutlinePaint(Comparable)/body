@@ -1,0 +1,3 @@
+{
+  return this.sectionOutlinePaintMap.getPaint(key);
+}

@@ -1,0 +1,15 @@
+{
+  int y;
+  try {
+    y=Integer.parseInt(s.trim());
+  }
+ catch (  NumberFormatException e) {
+    throw new TimePeriodFormatException("Cannot parse string.");
+  }
+  try {
+    return new Year(y);
+  }
+ catch (  IllegalArgumentException e) {
+    throw new TimePeriodFormatException("Year outside valid range.");
+  }
+}

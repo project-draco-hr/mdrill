@@ -1,0 +1,16 @@
+{
+  BallNode ball=null;
+  if (node.left != null && node.right != null) {
+    ball=new BallNode(startidx,endidx,m_NumNodes,node.anchor,node.radius);
+    m_NumNodes+=1;
+    ball.m_Left=makeBallTreeNodes(node.left,startidx,startidx + node.left.points.length() - 1,depth + 1);
+    ball.m_Right=makeBallTreeNodes(node.right,startidx + node.left.points.length(),endidx,depth + 1);
+    m_MaxDepth++;
+  }
+ else {
+    ball=new BallNode(startidx,endidx,m_NumNodes,node.anchor,node.radius);
+    m_NumNodes+=1;
+    m_NumLeaves+=1;
+  }
+  return ball;
+}

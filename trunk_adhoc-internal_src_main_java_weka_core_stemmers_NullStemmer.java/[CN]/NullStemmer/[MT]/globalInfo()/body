@@ -1,0 +1,3 @@
+{
+  return "A dummy stemmer that performs no stemming at all.";
+}

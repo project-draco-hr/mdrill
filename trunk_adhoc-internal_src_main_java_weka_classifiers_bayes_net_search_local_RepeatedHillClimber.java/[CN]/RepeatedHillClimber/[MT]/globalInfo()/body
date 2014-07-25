@@ -1,0 +1,3 @@
+{
+  return "This Bayes Network learning algorithm repeatedly uses hill climbing starting " + "with a randomly generated network structure and return the best structure of the " + "various runs.";
+}

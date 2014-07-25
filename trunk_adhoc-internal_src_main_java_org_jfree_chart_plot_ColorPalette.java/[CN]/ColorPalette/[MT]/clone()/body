@@ -1,0 +1,4 @@
+{
+  ColorPalette clone=(ColorPalette)super.clone();
+  return clone;
+}

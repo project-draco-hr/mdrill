@@ -1,0 +1,10 @@
+{
+  setLayout(new BorderLayout());
+  m_StartBut=new JButton("Start");
+  m_StartBut.setBackground(Color.green);
+  add("West",m_StartBut);
+  m_StartBut.addActionListener(this);
+  m_FileNameTex=new JTextField("/home/trigg/datasets/UCI/iris.arff");
+  add("Center",m_FileNameTex);
+  m_Listeners=new Vector();
+}

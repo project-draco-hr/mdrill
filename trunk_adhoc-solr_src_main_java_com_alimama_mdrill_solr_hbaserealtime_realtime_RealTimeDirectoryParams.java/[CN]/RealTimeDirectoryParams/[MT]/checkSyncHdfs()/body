@@ -1,0 +1,14 @@
+{
+  File links=new File(this.baseDir,"process_check");
+  if (links.exists()) {
+    BufferedReader reader=new BufferedReader(new FileReader(links));
+    String line;
+    while ((line=reader.readLine()) != null) {
+      if (line.indexOf(CHK_UNQ_ID) >= 0) {
+        return true;
+      }
+    }
+    reader.close();
+  }
+  return false;
+}

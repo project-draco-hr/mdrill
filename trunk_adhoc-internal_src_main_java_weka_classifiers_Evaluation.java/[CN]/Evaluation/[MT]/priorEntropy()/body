@@ -1,0 +1,11 @@
+{
+  if (!m_ClassIsNominal) {
+    throw new Exception("Can't compute entropy of class prior: " + "class numeric!");
+  }
+  if (m_NoPriors)   return Double.NaN;
+  double entropy=0;
+  for (int i=0; i < m_NumClasses; i++) {
+    entropy-=m_ClassPriors[i] / m_ClassPriorsSum * Utils.log2(m_ClassPriors[i] / m_ClassPriorsSum);
+  }
+  return entropy;
+}

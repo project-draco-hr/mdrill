@@ -1,0 +1,9 @@
+{
+  int i;
+  for (i=0; i < cb.getItemCount(); i++) {
+    if (cb.getItemAt(i).toString().equals(item)) {
+      cb.setSelectedIndex(i);
+      break;
+    }
+  }
+}

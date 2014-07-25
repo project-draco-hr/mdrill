@@ -1,0 +1,12 @@
+{
+  if (m_Clusterer == null)   throw new Exception("No base clusterer has been set!");
+  if (data.classIndex() > -1) {
+    data=new Instances(data);
+    data.deleteWithMissingClass();
+  }
+  m_Filter.setInputFormat(data);
+  data=Filter.useFilter(data,m_Filter);
+  getClusterer().getCapabilities().testWithFail(data);
+  m_FilteredInstances=data.stringFreeStructure();
+  m_Clusterer.buildClusterer(data);
+}

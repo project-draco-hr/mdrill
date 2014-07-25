@@ -1,0 +1,4 @@
+{
+  super.setNumAttributes(numAttributes);
+  m_numValues=new int[getNumAttributes()];
+}

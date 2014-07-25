@@ -1,0 +1,4 @@
+{
+  this.renderingHints.put(RenderingHints.KEY_TEXT_ANTIALIASING,val);
+  notifyListeners(new ChartChangeEvent(this));
+}

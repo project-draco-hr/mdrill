@@ -1,0 +1,9 @@
+{
+  for (int i=0; i < this.ignoredBaseClasses.size(); i++) {
+    final Class ignoredClass=(Class)this.ignoredBaseClasses.get(i);
+    if (ignoredClass.isAssignableFrom(c)) {
+      return true;
+    }
+  }
+  return false;
+}

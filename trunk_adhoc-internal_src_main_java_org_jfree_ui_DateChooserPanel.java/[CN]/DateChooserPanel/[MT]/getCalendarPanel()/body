@@ -1,0 +1,21 @@
+{
+  final JPanel p=new JPanel(new GridLayout(7,7));
+  final DateFormatSymbols dateFormatSymbols=new DateFormatSymbols();
+  final String[] weekDays=dateFormatSymbols.getShortWeekdays();
+  for (int i=0; i < this.WEEK_DAYS.length; i++) {
+    p.add(new JLabel(weekDays[this.WEEK_DAYS[i]],SwingConstants.CENTER));
+  }
+  this.buttons=new JButton[42];
+  for (int i=0; i < 42; i++) {
+    final JButton b=new JButton("");
+    b.setMargin(new Insets(1,1,1,1));
+    b.setName(Integer.toString(i));
+    b.setFont(this.dateFont);
+    b.setFocusPainted(false);
+    b.setActionCommand("dateButtonClicked");
+    b.addActionListener(this);
+    this.buttons[i]=b;
+    p.add(b);
+  }
+  return p;
+}

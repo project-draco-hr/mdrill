@@ -1,0 +1,6 @@
+{
+  if (m_executionSlotsText.getText().length() > 0) {
+    int newSlots=Integer.parseInt(m_executionSlotsText.getText());
+    m_dsClassifier.setExecutionSlots(newSlots);
+  }
+}

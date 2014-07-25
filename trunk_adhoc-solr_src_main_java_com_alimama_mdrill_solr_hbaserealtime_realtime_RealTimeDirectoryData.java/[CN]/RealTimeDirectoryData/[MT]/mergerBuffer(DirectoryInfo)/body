@@ -1,0 +1,38 @@
+{
+  LOG.info("####mergerBuffer start####");
+  DirectoryInfo m1=expire;
+  if (m1 == null) {
+    m1=this.bufferDirector.remove(RAM_KEY);
+  }
+  if (m1 == null) {
+    return;
+  }
+  try {
+    DirectoryInfo d=null;
+    DirectoryInfo m2=RamDirector.get(RAM_KEY);
+    if (m2 == null) {
+      d=m1;
+      d.UpTxid(m1.readTxid());
+      d.tp=DirectoryInfo.DirTpe.ram;
+    }
+ else {
+      d=new DirectoryInfo();
+      d.createtime=m2.createtime;
+      d.d=new RAMDirectory();
+      d.tp=DirectoryInfo.DirTpe.ram;
+      ArrayList<DirectoryInfo> merger=new ArrayList<DirectoryInfo>();
+      merger.add(m1);
+      merger.add(m2);
+      this.merger(merger,d);
+    }
+    RamDirector.put(RAM_KEY,d);
+  }
+ catch (  Throwable e) {
+    LOG.error("####mergerBuffer_error####",e);
+    this.bufferDirector.put(RAM_KEY,m1);
+  }
+ finally {
+    this.status.needPurger.set(true);
+    LOG.info("####mergerBuffer finish####");
+  }
+}

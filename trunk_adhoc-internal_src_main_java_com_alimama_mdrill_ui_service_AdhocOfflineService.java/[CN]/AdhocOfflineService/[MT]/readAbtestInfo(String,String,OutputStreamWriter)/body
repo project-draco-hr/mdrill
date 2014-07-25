@@ -1,0 +1,9 @@
+{
+  JSONObject jsonObjresult=readAbtestInfo(uuid);
+  if (varstr != null && varstr.length() > 0) {
+    outStream.write("" + varstr + "("+ jsonObjresult.toString()+ ");");
+  }
+ else {
+    outStream.write(jsonObjresult.toString());
+  }
+}

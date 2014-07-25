@@ -1,0 +1,3 @@
+{
+  return "Number of xval folds to use when estimating subset accuracy.";
+}

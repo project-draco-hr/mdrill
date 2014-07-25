@@ -1,0 +1,4 @@
+{
+  if (m_CurrentCol == -1)   return;
+  JTableHelper.setOptimalColumnWidth(getTable(),m_CurrentCol);
+}

@@ -1,0 +1,11 @@
+{
+  final Font font=(Font)object;
+  final AttributeList attribs=new AttributeList();
+  if (mPlexAttribute != null) {
+    attribs.setAttribute(mPlexAttribute,mPlexValue);
+  }
+  attribs.setAttribute("family",font.getFamily());
+  attribs.setAttribute("size",String.valueOf(font.getSize()));
+  attribs.setAttribute("style",String.valueOf(getFontStyle(font)));
+  writer.writeTag(tagName,attribs,true);
+}

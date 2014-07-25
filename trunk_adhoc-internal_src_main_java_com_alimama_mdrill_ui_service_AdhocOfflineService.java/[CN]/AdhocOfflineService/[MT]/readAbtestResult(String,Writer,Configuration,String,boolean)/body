@@ -1,0 +1,56 @@
+{
+  FileSystem fs=FileSystem.get(conf);
+  Path dir=new Path(path);
+  if (!fs.exists(dir)) {
+    throw new IOException("can not found path:" + path);
+  }
+  FileStatus[] filelist=fs.listStatus(dir);
+  Long bytesRead=0l;
+  long maxsize=1024l * 1024 * 1024* 10;
+  for (  FileStatus f : filelist) {
+    if (!f.isDir() && !f.getPath().getName().startsWith("_")) {
+      FSDataInputStream in=fs.open(f.getPath());
+      BufferedReader bf=new BufferedReader(new InputStreamReader(in));
+      String line;
+      while ((line=bf.readLine()) != null) {
+        bytesRead+=line.getBytes().length;
+        String towrite=line;
+        towrite=line.replaceAll(",","_").replaceAll("\001",",").replaceAll("\t",",").replaceAll("\"","");
+        if (!towrite.isEmpty() && towrite.indexOf(match) >= 0) {
+          String label="A";
+          if (towrite.indexOf("rep0") >= 0) {
+            label="A";
+          }
+          if (towrite.indexOf("rep1") >= 0) {
+            label="B";
+          }
+          if (onlycustid) {
+            String[] cols=towrite.split(",");
+            for (            String s : cols) {
+              if (s.indexOf("@abtest@") >= 0) {
+                String[] sss=s.split("@abtest@");
+                if (sss.length > 1) {
+                  outStream.write(sss[1] + "," + label);
+                  outStream.write("\r\n");
+                  break;
+                }
+              }
+            }
+          }
+ else {
+            outStream.write(towrite);
+            outStream.write("\r\n");
+          }
+        }
+        if (bytesRead >= maxsize) {
+          bf.close();
+          in.close();
+          return;
+        }
+      }
+      bf.close();
+      in.close();
+    }
+  }
+  return;
+}

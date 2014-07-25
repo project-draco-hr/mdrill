@@ -1,0 +1,7 @@
+Class c
+String registerName
+ConstructorDefinition[] constructors
+PropertyDefinition[] propertyDefinitions
+LookupDefinition[] lookupDefinitions
+AttributeDefinition[] attributeDefinitions
+String[] orderedPropertyNames

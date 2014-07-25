@@ -1,0 +1,6 @@
+{
+  this.outlineStroke=stroke;
+  if (notify) {
+    fireChangeEvent();
+  }
+}

@@ -1,0 +1,8 @@
+{
+  super(source);
+  m_DbUtils=utils;
+  m_Query=query;
+  m_MaxRows=rows;
+  m_ResultSet=rs;
+  m_Exception=ex;
+}

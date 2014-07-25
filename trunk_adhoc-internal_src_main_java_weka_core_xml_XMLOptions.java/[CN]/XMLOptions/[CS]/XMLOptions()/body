@@ -1,0 +1,6 @@
+{
+  m_XMLDocument=new XMLDocument();
+  m_XMLDocument.setRootNode(ROOT_NODE);
+  m_XMLDocument.setDocType(DOCTYPE);
+  setValidating(true);
+}

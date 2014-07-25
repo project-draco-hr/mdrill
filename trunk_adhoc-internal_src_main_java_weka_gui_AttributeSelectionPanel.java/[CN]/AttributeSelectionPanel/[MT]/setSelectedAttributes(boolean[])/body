@@ -1,0 +1,5 @@
+{
+  if (m_Model != null) {
+    m_Model.setSelectedAttributes(selected);
+  }
+}

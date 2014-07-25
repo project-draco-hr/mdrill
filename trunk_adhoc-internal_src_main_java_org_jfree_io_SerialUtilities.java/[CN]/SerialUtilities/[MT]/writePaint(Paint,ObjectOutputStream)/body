@@ -1,0 +1,25 @@
+{
+  if (stream == null) {
+    throw new IllegalArgumentException("Null 'stream' argument.");
+  }
+  if (paint != null) {
+    stream.writeBoolean(false);
+    stream.writeObject(paint.getClass());
+    if (paint instanceof Serializable) {
+      stream.writeObject(paint);
+    }
+ else     if (paint instanceof GradientPaint) {
+      final GradientPaint gp=(GradientPaint)paint;
+      stream.writeFloat((float)gp.getPoint1().getX());
+      stream.writeFloat((float)gp.getPoint1().getY());
+      stream.writeObject(gp.getColor1());
+      stream.writeFloat((float)gp.getPoint2().getX());
+      stream.writeFloat((float)gp.getPoint2().getY());
+      stream.writeObject(gp.getColor2());
+      stream.writeBoolean(gp.isCyclic());
+    }
+  }
+ else {
+    stream.writeBoolean(true);
+  }
+}

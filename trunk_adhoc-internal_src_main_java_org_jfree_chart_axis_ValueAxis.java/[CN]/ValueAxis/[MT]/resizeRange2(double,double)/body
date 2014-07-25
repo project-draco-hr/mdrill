@@ -1,0 +1,11 @@
+{
+  if (percent > 0.0) {
+    double left=anchorValue - getLowerBound();
+    double right=getUpperBound() - anchorValue;
+    Range adjusted=new Range(anchorValue - left * percent,anchorValue + right * percent);
+    setRange(adjusted);
+  }
+ else {
+    setAutoRange(true);
+  }
+}

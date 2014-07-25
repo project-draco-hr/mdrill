@@ -1,0 +1,88 @@
+{
+  double splitPoint=Double.NaN;
+  Attribute attribute=data.attribute(att);
+  double[][] dist=null;
+  int indexOfFirstMissingValue=-1;
+  if (attribute.isNominal()) {
+    dist=new double[attribute.numValues()][data.numClasses()];
+    for (int i=0; i < data.numInstances(); i++) {
+      Instance inst=data.instance(i);
+      if (inst.isMissing(att)) {
+        if (indexOfFirstMissingValue < 0) {
+          indexOfFirstMissingValue=i;
+        }
+        continue;
+      }
+      dist[(int)inst.value(att)][(int)inst.classValue()]+=inst.weight();
+    }
+  }
+ else {
+    double[][] currDist=new double[2][data.numClasses()];
+    dist=new double[2][data.numClasses()];
+    data.sort(att);
+    for (int j=0; j < data.numInstances(); j++) {
+      Instance inst=data.instance(j);
+      if (inst.isMissing(att)) {
+        indexOfFirstMissingValue=j;
+        break;
+      }
+      currDist[1][(int)inst.classValue()]+=inst.weight();
+    }
+    double priorVal=priorVal(currDist);
+    for (int j=0; j < currDist.length; j++) {
+      System.arraycopy(currDist[j],0,dist[j],0,dist[j].length);
+    }
+    double currSplit=data.instance(0).value(att);
+    double currVal, bestVal=-Double.MAX_VALUE;
+    for (int i=0; i < data.numInstances(); i++) {
+      Instance inst=data.instance(i);
+      if (inst.isMissing(att)) {
+        break;
+      }
+      if (inst.value(att) > currSplit) {
+        currVal=gain(currDist,priorVal);
+        if (currVal > bestVal) {
+          bestVal=currVal;
+          splitPoint=(inst.value(att) + currSplit) / 2.0;
+          for (int j=0; j < currDist.length; j++) {
+            System.arraycopy(currDist[j],0,dist[j],0,dist[j].length);
+          }
+        }
+      }
+      currSplit=inst.value(att);
+      currDist[0][(int)inst.classValue()]+=inst.weight();
+      currDist[1][(int)inst.classValue()]-=inst.weight();
+    }
+  }
+  props[att]=new double[dist.length];
+  for (int k=0; k < props[att].length; k++) {
+    props[att][k]=Utils.sum(dist[k]);
+  }
+  if (Utils.eq(Utils.sum(props[att]),0)) {
+    for (int k=0; k < props[att].length; k++) {
+      props[att][k]=1.0 / (double)props[att].length;
+    }
+  }
+ else {
+    Utils.normalize(props[att]);
+  }
+  if (indexOfFirstMissingValue > -1) {
+    for (int i=indexOfFirstMissingValue; i < data.numInstances(); i++) {
+      Instance inst=data.instance(i);
+      if (attribute.isNominal()) {
+        if (inst.isMissing(att)) {
+          for (int j=0; j < dist.length; j++) {
+            dist[j][(int)inst.classValue()]+=props[att][j] * inst.weight();
+          }
+        }
+      }
+ else {
+        for (int j=0; j < dist.length; j++) {
+          dist[j][(int)inst.classValue()]+=props[att][j] * inst.weight();
+        }
+      }
+    }
+  }
+  dists[att]=dist;
+  return splitPoint;
+}

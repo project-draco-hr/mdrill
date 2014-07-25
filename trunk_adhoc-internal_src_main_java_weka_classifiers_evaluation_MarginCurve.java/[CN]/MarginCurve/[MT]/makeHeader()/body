@@ -1,0 +1,7 @@
+{
+  FastVector fv=new FastVector();
+  fv.addElement(new Attribute("Margin"));
+  fv.addElement(new Attribute("Current"));
+  fv.addElement(new Attribute("Cumulative"));
+  return new Instances("MarginCurve",fv,100);
+}

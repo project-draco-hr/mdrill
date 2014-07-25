@@ -1,0 +1,4 @@
+{
+  Range max=new Range(0.0,Float.MAX_VALUE);
+  return arrangeRR(g2,max,max);
+}

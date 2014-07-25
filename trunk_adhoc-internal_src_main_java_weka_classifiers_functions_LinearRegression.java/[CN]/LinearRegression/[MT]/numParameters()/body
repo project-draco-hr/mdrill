@@ -1,0 +1,3 @@
+{
+  return m_Coefficients.length - 1;
+}

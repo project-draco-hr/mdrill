@@ -1,0 +1,5 @@
+{
+  super();
+  setLoader(m_Loader);
+  appearanceFinal();
+}

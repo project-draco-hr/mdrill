@@ -1,0 +1,4 @@
+int attIdx
+int[] index
+int l
+int r

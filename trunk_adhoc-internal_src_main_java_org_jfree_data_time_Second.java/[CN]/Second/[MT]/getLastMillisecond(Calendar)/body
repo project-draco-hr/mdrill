@@ -1,0 +1,3 @@
+{
+  return getFirstMillisecond(calendar) + 999L;
+}

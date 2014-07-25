@@ -1,0 +1,54 @@
+{
+  int writeMode=getWriteMode();
+  Instances structure=getInstances();
+  PrintWriter outW=null;
+  if (getRetrieval() == BATCH || getRetrieval() == NONE)   throw new IOException("Batch and incremental saving cannot be mixed.");
+  if (getWriter() != null)   outW=new PrintWriter(getWriter());
+  if (writeMode == WAIT) {
+    if (structure == null) {
+      setWriteMode(CANCEL);
+      if (inst != null)       System.err.println("Structure(Header Information) has to be set in advance");
+    }
+ else     setWriteMode(STRUCTURE_READY);
+    writeMode=getWriteMode();
+  }
+  if (writeMode == CANCEL) {
+    if (outW != null)     outW.close();
+    cancel();
+  }
+  if (writeMode == STRUCTURE_READY) {
+    setWriteMode(WRITE);
+    Instances header=new Instances(structure,0);
+    if (retrieveFile() == null || outW == null)     System.out.println(header.toString());
+ else {
+      outW.print(header.toString());
+      outW.print("\n");
+      outW.flush();
+    }
+    writeMode=getWriteMode();
+  }
+  if (writeMode == WRITE) {
+    if (structure == null)     throw new IOException("No instances information available.");
+    if (inst != null) {
+      if (retrieveFile() == null || outW == null)       System.out.println(inst);
+ else {
+        outW.println(inst);
+        m_incrementalCounter++;
+        if (m_incrementalCounter > 100) {
+          m_incrementalCounter=0;
+          outW.flush();
+        }
+      }
+    }
+ else {
+      if (outW != null) {
+        outW.flush();
+        outW.close();
+      }
+      m_incrementalCounter=0;
+      resetStructure();
+      outW=null;
+      resetWriter();
+    }
+  }
+}

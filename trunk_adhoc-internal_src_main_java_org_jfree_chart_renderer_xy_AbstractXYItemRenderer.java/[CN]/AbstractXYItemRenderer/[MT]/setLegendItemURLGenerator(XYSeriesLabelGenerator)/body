@@ -1,0 +1,4 @@
+{
+  this.legendItemURLGenerator=generator;
+  fireChangeEvent();
+}

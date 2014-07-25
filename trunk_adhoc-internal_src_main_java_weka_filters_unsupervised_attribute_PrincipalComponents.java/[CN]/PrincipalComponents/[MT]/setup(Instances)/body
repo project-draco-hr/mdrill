@@ -1,0 +1,57 @@
+{
+  int i;
+  int j;
+  Vector<Integer> deleteCols;
+  int[] todelete;
+  double[][] v;
+  Matrix corr;
+  EigenvalueDecomposition eig;
+  Matrix V;
+  m_TrainInstances=new Instances(instances);
+  m_TrainCopy=new Instances(m_TrainInstances,0);
+  m_ReplaceMissingFilter=new ReplaceMissingValues();
+  m_ReplaceMissingFilter.setInputFormat(m_TrainInstances);
+  m_TrainInstances=Filter.useFilter(m_TrainInstances,m_ReplaceMissingFilter);
+  m_NominalToBinaryFilter=new NominalToBinary();
+  m_NominalToBinaryFilter.setInputFormat(m_TrainInstances);
+  m_TrainInstances=Filter.useFilter(m_TrainInstances,m_NominalToBinaryFilter);
+  deleteCols=new Vector<Integer>();
+  for (i=0; i < m_TrainInstances.numAttributes(); i++) {
+    if (m_TrainInstances.numDistinctValues(i) <= 1)     deleteCols.addElement(i);
+  }
+  if (m_TrainInstances.classIndex() >= 0) {
+    m_HasClass=true;
+    m_ClassIndex=m_TrainInstances.classIndex();
+    deleteCols.addElement(new Integer(m_ClassIndex));
+  }
+  if (deleteCols.size() > 0) {
+    m_AttributeFilter=new Remove();
+    todelete=new int[deleteCols.size()];
+    for (i=0; i < deleteCols.size(); i++)     todelete[i]=((Integer)(deleteCols.elementAt(i))).intValue();
+    m_AttributeFilter.setAttributeIndicesArray(todelete);
+    m_AttributeFilter.setInvertSelection(false);
+    m_AttributeFilter.setInputFormat(m_TrainInstances);
+    m_TrainInstances=Filter.useFilter(m_TrainInstances,m_AttributeFilter);
+  }
+  getCapabilities().testWithFail(m_TrainInstances);
+  m_NumInstances=m_TrainInstances.numInstances();
+  m_NumAttribs=m_TrainInstances.numAttributes();
+  fillCovariance();
+  corr=new Matrix(m_Correlation);
+  eig=corr.eig();
+  V=eig.getV();
+  v=new double[m_NumAttribs][m_NumAttribs];
+  for (i=0; i < v.length; i++) {
+    for (j=0; j < v[0].length; j++)     v[i][j]=V.get(i,j);
+  }
+  m_Eigenvectors=(double[][])v.clone();
+  m_Eigenvalues=(double[])eig.getRealEigenvalues().clone();
+  for (i=0; i < m_Eigenvalues.length; i++) {
+    if (m_Eigenvalues[i] < 0)     m_Eigenvalues[i]=0.0;
+  }
+  m_SortedEigens=Utils.sort(m_Eigenvalues);
+  m_SumOfEigenValues=Utils.sum(m_Eigenvalues);
+  m_TransformedFormat=determineOutputFormat(m_TrainInstances);
+  setOutputFormat(m_TransformedFormat);
+  m_TrainInstances=null;
+}

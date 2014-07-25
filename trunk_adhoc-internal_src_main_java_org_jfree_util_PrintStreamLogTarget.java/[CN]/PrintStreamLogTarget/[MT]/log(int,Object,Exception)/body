@@ -1,0 +1,11 @@
+{
+  if (level > 3) {
+    level=3;
+  }
+  this.printStream.print(LEVELS[level]);
+  this.printStream.println(message);
+  e.printStackTrace(this.printStream);
+  if (level < 3) {
+    System.out.flush();
+  }
+}

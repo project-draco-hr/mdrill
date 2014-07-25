@@ -1,0 +1,48 @@
+{
+  this.uuid=java.util.UUID.randomUUID().toString();
+  Connection conn=m_fpsql.getConn();
+  String strSql="insert into adhoc_download " + "(isfinish,cols,mailto,hql,cmd,env,stdmsg,errmsg,exceptionmsg,failmsg,slotcount,resultkb,rows" + ",percent,hadoopjobid,extval,isfail,username,storedir,jobname,params,starttime,endtime,stage,md5,uuid,memo)"+ "values"+ "(?,?,?,?,?,?,?,?,?,?,?,?,?"+ ",?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+  PreparedStatement m_fps=conn.prepareStatement(strSql);
+  try {
+    int index=1;
+    m_fps.setInt(index++,this.isfinish ? 0 : 1);
+    m_fps.setString(index++,cutLast(this.cols,1000));
+    m_fps.setString(index++,cutLast(this.mailto,1000));
+    m_fps.setString(index++,cutLast(this.hql,5000));
+    m_fps.setString(index++,cutLast(Arrays.toString(this.cmd),5000));
+    m_fps.setString(index++,cutLast(Arrays.toString(this.env),5000));
+    m_fps.setString(index++,cutLast(stdbuff.toString(),5000));
+    m_fps.setString(index++,cutLast(stderror.toString(),5000));
+    m_fps.setString(index++,cutLast(exception.toString(),5000));
+    m_fps.setString(index++,cutLast(failedMsg.toString(),5000));
+    m_fps.setInt(index++,slotcount);
+    m_fps.setLong(index++,resultKb);
+    m_fps.setLong(index++,rows);
+    m_fps.setString(index++,this.percent);
+    m_fps.setString(index++,cutLast(this.hadoopjobId.toString(),1000));
+    m_fps.setInt(index++,extval);
+    m_fps.setInt(index++,isfail ? 1 : 0);
+    m_fps.setString(index++,this.username);
+    m_fps.setString(index++,this.storedir);
+    m_fps.setString(index++,this.jobname);
+    m_fps.setString(index++,this.params);
+    m_fps.setTimestamp(index++,new java.sql.Timestamp(starttime.getTime()));
+    m_fps.setTimestamp(index++,new java.sql.Timestamp(endtime.getTime()));
+    m_fps.setString(index++,this.stage);
+    m_fps.setString(index++,this.md5);
+    m_fps.setString(index++,this.uuid);
+    m_fps.setString(index++,this.memo);
+    m_fps.executeUpdate();
+    String fullstrSql=m_fps.toString();
+    return fullstrSql;
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+    System.out.println("err:====>" + m_fps.toString());
+  }
+ finally {
+    m_fps.close();
+    m_fpsql.close();
+  }
+  return "";
+}

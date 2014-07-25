@@ -1,0 +1,10 @@
+{
+  Vector results=new Vector();
+  for (int i=0; i < test.size(); i++) {
+    double testValue=((Double)(test.elementAt(i))).doubleValue();
+    double prob=est.getProbability(testValue);
+    Double p=new Double(prob);
+    results.add(p);
+  }
+  return results;
+}

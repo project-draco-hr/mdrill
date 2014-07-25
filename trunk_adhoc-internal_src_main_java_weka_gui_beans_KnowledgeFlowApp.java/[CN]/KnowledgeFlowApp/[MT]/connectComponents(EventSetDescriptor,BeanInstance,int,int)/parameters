@@ -1,0 +1,4 @@
+EventSetDescriptor esd
+BeanInstance bi
+int x
+int y

@@ -1,0 +1,106 @@
+{
+  final String selectedName=name;
+  JPopupMenu resultListMenu=new JPopupMenu();
+  JMenuItem visMainBuffer=new JMenuItem("View in main window");
+  if (selectedName != null) {
+    visMainBuffer.addActionListener(new ActionListener(){
+      public void actionPerformed(      ActionEvent e){
+        m_History.setSingle(selectedName);
+      }
+    }
+);
+  }
+ else {
+    visMainBuffer.setEnabled(false);
+  }
+  resultListMenu.add(visMainBuffer);
+  JMenuItem visSepBuffer=new JMenuItem("View in separate window");
+  if (selectedName != null) {
+    visSepBuffer.addActionListener(new ActionListener(){
+      public void actionPerformed(      ActionEvent e){
+        m_History.openFrame(selectedName);
+      }
+    }
+);
+  }
+ else {
+    visSepBuffer.setEnabled(false);
+  }
+  resultListMenu.add(visSepBuffer);
+  JMenuItem saveOutput=new JMenuItem("Save result buffer");
+  if (selectedName != null) {
+    saveOutput.addActionListener(new ActionListener(){
+      public void actionPerformed(      ActionEvent e){
+        saveBuffer(selectedName);
+      }
+    }
+);
+  }
+ else {
+    saveOutput.setEnabled(false);
+  }
+  resultListMenu.add(saveOutput);
+  JMenuItem deleteOutput=new JMenuItem("Delete result buffer");
+  if (selectedName != null) {
+    deleteOutput.addActionListener(new ActionListener(){
+      public void actionPerformed(      ActionEvent e){
+        m_History.removeResult(selectedName);
+      }
+    }
+);
+  }
+ else {
+    deleteOutput.setEnabled(false);
+  }
+  resultListMenu.add(deleteOutput);
+  FastVector o=null;
+  if (selectedName != null) {
+    o=(FastVector)m_History.getNamedObject(selectedName);
+  }
+  Instances tempTransformed=null;
+  if (o != null) {
+    for (int i=0; i < o.size(); i++) {
+      Object temp=o.elementAt(i);
+      if (temp instanceof Instances) {
+        tempTransformed=(Instances)temp;
+      }
+    }
+  }
+  final Instances ti=tempTransformed;
+  JMenuItem visTrans=null;
+  if (ti != null) {
+    if (ti.relationName().startsWith("AT:")) {
+      visTrans=new JMenuItem("Visualize transformed data");
+    }
+ else {
+      visTrans=new JMenuItem("Visualize reduced data");
+    }
+    resultListMenu.addSeparator();
+  }
+  if (ti != null && visTrans != null) {
+    visTrans.addActionListener(new ActionListener(){
+      public void actionPerformed(      ActionEvent e){
+        visualizeTransformedData(ti);
+      }
+    }
+);
+  }
+  if (visTrans != null) {
+    resultListMenu.add(visTrans);
+  }
+  JMenuItem saveTrans=null;
+  if (ti != null) {
+    if (ti.relationName().startsWith("AT:"))     saveTrans=new JMenuItem("Save transformed data...");
+ else     saveTrans=new JMenuItem("Save reduced data...");
+  }
+  if (saveTrans != null) {
+    saveTrans.addActionListener(new ActionListener(){
+      public void actionPerformed(      ActionEvent e){
+        saveTransformedData(ti);
+      }
+    }
+);
+    resultListMenu.add(saveTrans);
+  }
+  resultListMenu.show(m_History.getList(),x,y);
+}

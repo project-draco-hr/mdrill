@@ -1,0 +1,5 @@
+{
+  super();
+  this.missingColor=missingColor;
+  this.missingColorSelected=missingColorSelected;
+}

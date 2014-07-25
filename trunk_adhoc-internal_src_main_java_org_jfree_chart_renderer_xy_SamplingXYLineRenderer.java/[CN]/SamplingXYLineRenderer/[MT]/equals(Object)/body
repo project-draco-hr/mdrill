@@ -1,0 +1,16 @@
+{
+  if (obj == this) {
+    return true;
+  }
+  if (!(obj instanceof SamplingXYLineRenderer)) {
+    return false;
+  }
+  if (!super.equals(obj)) {
+    return false;
+  }
+  SamplingXYLineRenderer that=(SamplingXYLineRenderer)obj;
+  if (!ShapeUtilities.equal(this.legendLine,that.legendLine)) {
+    return false;
+  }
+  return true;
+}

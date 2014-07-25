@@ -1,0 +1,21 @@
+{
+  String[] clustererOptions=new String[0];
+  if ((m_wrappedClusterer != null) && (m_wrappedClusterer instanceof OptionHandler)) {
+    clustererOptions=((OptionHandler)m_wrappedClusterer).getOptions();
+  }
+  String[] options=new String[clustererOptions.length + 5];
+  int current=0;
+  options[current++]="-M";
+  options[current++]="" + getMinStdDev();
+  if (getClusterer() != null) {
+    options[current++]="-W";
+    options[current++]=getClusterer().getClass().getName();
+  }
+  options[current++]="--";
+  System.arraycopy(clustererOptions,0,options,current,clustererOptions.length);
+  current+=clustererOptions.length;
+  while (current < options.length) {
+    options[current++]="";
+  }
+  return options;
+}

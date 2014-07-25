@@ -1,0 +1,24 @@
+{
+  String result;
+  Object[] args;
+  if (m_Stemmer == null) {
+    result=new String(word);
+  }
+ else {
+    if (m_SetCurrentMethod == null)     setStemmer(getStemmer());
+    try {
+      args=new Object[1];
+      args[0]=word;
+      m_SetCurrentMethod.invoke(m_Stemmer,args);
+      args=new Object[0];
+      m_StemMethod.invoke(m_Stemmer,args);
+      args=new Object[0];
+      result=(String)m_GetCurrentMethod.invoke(m_Stemmer,args);
+    }
+ catch (    Exception e) {
+      e.printStackTrace();
+      result=word;
+    }
+  }
+  return result;
+}

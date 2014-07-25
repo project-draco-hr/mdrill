@@ -1,0 +1,7 @@
+{
+  if (getParentFrame() != null) {
+    getParentFrame().removeChildFrame(this);
+    getParentFrame().createTitle("");
+  }
+  super.dispose();
+}

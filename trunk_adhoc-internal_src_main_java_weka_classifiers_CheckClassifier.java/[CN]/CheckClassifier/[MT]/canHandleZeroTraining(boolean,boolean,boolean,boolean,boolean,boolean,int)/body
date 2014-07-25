@@ -1,0 +1,11 @@
+{
+  print("handle zero training instances");
+  printAttributeSummary(nominalPredictor,numericPredictor,stringPredictor,datePredictor,relationalPredictor,multiInstance,classType);
+  print("...");
+  FastVector accepts=new FastVector();
+  accepts.addElement("train");
+  accepts.addElement("value");
+  int numTrain=0, numTest=getNumInstances(), numClasses=2, missingLevel=0;
+  boolean predictorMissing=false, classMissing=false;
+  return runBasicTest(nominalPredictor,numericPredictor,stringPredictor,datePredictor,relationalPredictor,multiInstance,classType,missingLevel,predictorMissing,classMissing,numTrain,numTest,numClasses,accepts);
+}

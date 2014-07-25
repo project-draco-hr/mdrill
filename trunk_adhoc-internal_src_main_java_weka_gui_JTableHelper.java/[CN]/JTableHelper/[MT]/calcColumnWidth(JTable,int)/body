@@ -1,0 +1,18 @@
+{
+  int width=calcHeaderWidth(table,col);
+  if (width == -1)   return width;
+  TableColumnModel columns=table.getColumnModel();
+  TableModel data=table.getModel();
+  int rowCount=data.getRowCount();
+  TableColumn column=columns.getColumn(col);
+  try {
+    for (int row=rowCount - 1; row >= 0; --row) {
+      Component c=table.prepareRenderer(table.getCellRenderer(row,col),row,col);
+      width=Math.max(width,c.getPreferredSize().width + 10);
+    }
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
+  return width;
+}

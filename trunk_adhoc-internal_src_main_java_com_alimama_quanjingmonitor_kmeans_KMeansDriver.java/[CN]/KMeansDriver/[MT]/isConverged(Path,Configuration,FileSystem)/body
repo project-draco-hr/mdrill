@@ -1,0 +1,14 @@
+{
+  try {
+    Collection<Cluster> clusters=getClusters(filePath,conf,fs);
+    for (    Cluster c : clusters) {
+      if (!c.isConverged()) {
+        return false;
+      }
+    }
+  }
+ catch (  Throwable e) {
+    throw new IllegalStateException(e);
+  }
+  return true;
+}

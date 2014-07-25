@@ -1,0 +1,10 @@
+Graphics2D g2
+Rectangle2D plotArea
+Arc2D arc
+Area front
+Area back
+Paint paint
+Paint outlinePaint
+Stroke outlineStroke
+boolean drawFront
+boolean drawBack

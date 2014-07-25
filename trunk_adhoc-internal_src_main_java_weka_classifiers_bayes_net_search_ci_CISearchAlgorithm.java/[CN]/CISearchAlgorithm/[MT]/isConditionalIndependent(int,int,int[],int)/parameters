@@ -1,0 +1,4 @@
+int iAttributeX
+int iAttributeY
+int[] iAttributesZ
+int nAttributesZ

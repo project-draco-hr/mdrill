@@ -1,0 +1,3 @@
+{
+  return (m_End - m_Start + 1);
+}

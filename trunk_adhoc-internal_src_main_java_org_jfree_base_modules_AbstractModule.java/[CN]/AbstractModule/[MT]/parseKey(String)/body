@@ -1,0 +1,7 @@
+{
+  final int idx=line.indexOf(':');
+  if (idx == -1) {
+    return null;
+  }
+  return line.substring(0,idx);
+}

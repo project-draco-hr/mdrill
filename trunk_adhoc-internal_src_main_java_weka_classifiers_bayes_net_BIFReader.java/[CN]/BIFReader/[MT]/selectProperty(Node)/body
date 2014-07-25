@@ -1,0 +1,4 @@
+{
+  FastVector nodelist=selectElements(item,"PROPERTY");
+  return nodelist;
+}

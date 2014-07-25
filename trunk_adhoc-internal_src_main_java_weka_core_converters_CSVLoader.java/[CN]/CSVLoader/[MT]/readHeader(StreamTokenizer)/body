@@ -1,0 +1,26 @@
+{
+  ArrayList<Attribute> attribNames=new ArrayList<Attribute>();
+  m_firstRow=null;
+  if (m_noHeaderRow) {
+    tokenizer.ordinaryChar(m_FieldSeparator.charAt(0));
+    ArrayList<Object> firstRow=getInstance(tokenizer,true);
+    for (int i=0; i < firstRow.size(); i++) {
+      attribNames.add(new Attribute("att" + (i + 1),(java.util.List<String>)null));
+    }
+    m_firstRow=firstRow;
+  }
+ else {
+    ConverterUtils.getFirstToken(tokenizer);
+    if (tokenizer.ttype == StreamTokenizer.TT_EOF) {
+      ConverterUtils.errms(tokenizer,"premature end of file");
+    }
+    while (tokenizer.ttype != StreamTokenizer.TT_EOL) {
+      attribNames.add(new Attribute(tokenizer.sval,(java.util.List<String>)null));
+      ConverterUtils.getToken(tokenizer);
+    }
+  }
+  String relationName;
+  if (m_sourceFile != null)   relationName=(m_sourceFile.getName()).replaceAll("\\.[cC][sS][vV]$","");
+ else   relationName="stream";
+  m_structure=new Instances(relationName,attribNames,0);
+}

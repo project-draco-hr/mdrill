@@ -1,0 +1,26 @@
+{
+  Second result=null;
+  s=s.trim();
+  String daystr=s.substring(0,Math.min(10,s.length()));
+  Day day=Day.parseDay(daystr);
+  if (day != null) {
+    String hmsstr=s.substring(Math.min(daystr.length() + 1,s.length()),s.length());
+    hmsstr=hmsstr.trim();
+    int l=hmsstr.length();
+    String hourstr=hmsstr.substring(0,Math.min(2,l));
+    String minstr=hmsstr.substring(Math.min(3,l),Math.min(5,l));
+    String secstr=hmsstr.substring(Math.min(6,l),Math.min(8,l));
+    int hour=Integer.parseInt(hourstr);
+    if ((hour >= 0) && (hour <= 23)) {
+      int minute=Integer.parseInt(minstr);
+      if ((minute >= 0) && (minute <= 59)) {
+        Minute m=new Minute(minute,new Hour(hour,day));
+        int second=Integer.parseInt(secstr);
+        if ((second >= 0) && (second <= 59)) {
+          result=new Second(second,m);
+        }
+      }
+    }
+  }
+  return result;
+}

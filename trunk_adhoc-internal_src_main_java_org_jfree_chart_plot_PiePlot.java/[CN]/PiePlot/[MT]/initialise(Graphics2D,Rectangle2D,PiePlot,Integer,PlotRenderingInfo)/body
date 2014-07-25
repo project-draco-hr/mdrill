@@ -1,0 +1,9 @@
+{
+  PiePlotState state=new PiePlotState(info);
+  state.setPassesRequired(2);
+  if (this.dataset != null) {
+    state.setTotal(DatasetUtilities.calculatePieDatasetTotal(plot.getDataset()));
+  }
+  state.setLatestAngle(plot.getStartAngle());
+  return state;
+}

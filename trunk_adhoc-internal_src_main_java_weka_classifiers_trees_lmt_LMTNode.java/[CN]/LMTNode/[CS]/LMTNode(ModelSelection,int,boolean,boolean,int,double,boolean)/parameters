@@ -1,0 +1,7 @@
+ModelSelection modelSelection
+int numBoostingIterations
+boolean fastRegression
+boolean errorOnProbabilities
+int minNumInstances
+double weightTrimBeta
+boolean useAIC

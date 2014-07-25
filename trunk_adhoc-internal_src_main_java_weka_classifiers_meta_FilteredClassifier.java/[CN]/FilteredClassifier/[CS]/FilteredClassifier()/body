@@ -1,0 +1,4 @@
+{
+  m_Classifier=new weka.classifiers.trees.J48();
+  m_Filter=new weka.filters.supervised.attribute.Discretize();
+}

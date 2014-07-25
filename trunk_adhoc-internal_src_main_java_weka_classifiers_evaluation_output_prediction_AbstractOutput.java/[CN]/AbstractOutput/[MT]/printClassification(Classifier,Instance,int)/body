@@ -1,0 +1,5 @@
+{
+  String error;
+  if ((error=checkBasic()) != null)   throw new WekaException(error);
+  doPrintClassification(classifier,inst,index);
+}

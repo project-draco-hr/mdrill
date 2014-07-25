@@ -1,0 +1,18 @@
+{
+  m_cacheRefreshInProgress=true;
+  int numPackages=WekaPackageManager.numRepositoryPackages();
+  if (numPackages < 0) {
+    numPackages=100;
+  }
+  m_progress.setMaximum(numPackages);
+  m_refreshCacheBut.setEnabled(false);
+  m_installBut.setEnabled(false);
+  m_unofficialBut.setEnabled(false);
+  m_installedBut.setEnabled(false);
+  m_availableBut.setEnabled(false);
+  m_allBut.setEnabled(false);
+  ProgressPrintStream pps=new ProgressPrintStream(this);
+  m_error=WekaPackageManager.refreshCache(pps);
+  getAllPackages();
+  return null;
+}

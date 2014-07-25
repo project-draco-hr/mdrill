@@ -1,0 +1,20 @@
+{
+  Vector result;
+  String[] options;
+  int i;
+  result=new Vector();
+  options=super.getOptions();
+  for (i=0; i < options.length; i++)   result.add(options[i]);
+  result.add("-a");
+  result.add("" + getNumAttributes());
+  if (getClassFlag())   result.add("-c");
+  if (!getBooleanCols().toString().equalsIgnoreCase("empty")) {
+    result.add("-b");
+    result.add("" + getBooleanCols());
+  }
+  if (!getNominalCols().toString().equalsIgnoreCase("empty")) {
+    result.add("-m");
+    result.add("" + getNominalCols());
+  }
+  return (String[])result.toArray(new String[result.size()]);
+}

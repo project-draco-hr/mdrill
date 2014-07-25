@@ -1,0 +1,9 @@
+{
+  if (m_Successors == null) {
+    throw new Exception("RandomTree: No model built yet.");
+  }
+  StringBuffer resultBuff=new StringBuffer();
+  toGraph(resultBuff,0,null);
+  String result="digraph RandomTree {\n" + "edge [style=bold]\n" + resultBuff.toString() + "\n}\n";
+  return result;
+}

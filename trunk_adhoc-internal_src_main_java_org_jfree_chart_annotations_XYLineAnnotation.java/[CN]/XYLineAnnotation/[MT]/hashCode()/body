@@ -1,0 +1,13 @@
+{
+  int result;
+  long temp;
+  temp=Double.doubleToLongBits(this.x1);
+  result=(int)(temp ^ (temp >>> 32));
+  temp=Double.doubleToLongBits(this.x2);
+  result=29 * result + (int)(temp ^ (temp >>> 32));
+  temp=Double.doubleToLongBits(this.y1);
+  result=29 * result + (int)(temp ^ (temp >>> 32));
+  temp=Double.doubleToLongBits(this.y2);
+  result=29 * result + (int)(temp ^ (temp >>> 32));
+  return result;
+}

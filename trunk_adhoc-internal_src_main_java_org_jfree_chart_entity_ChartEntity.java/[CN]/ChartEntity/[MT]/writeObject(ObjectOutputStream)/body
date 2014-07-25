@@ -1,0 +1,4 @@
+{
+  stream.defaultWriteObject();
+  SerialUtilities.writeShape(this.area,stream);
+}

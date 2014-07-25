@@ -1,0 +1,39 @@
+{
+  if (!ExplorerDefaults.get("enableUndo","true").equalsIgnoreCase("true")) {
+    return;
+  }
+  if (m_Instances != null) {
+    File tempFile=File.createTempFile("weka",SerializedInstancesLoader.FILE_EXTENSION);
+    tempFile.deleteOnExit();
+    if (!ExplorerDefaults.get("undoDirectory","%t").equalsIgnoreCase("%t")) {
+      String dir=ExplorerDefaults.get("undoDirectory","%t");
+      File undoDir=new File(dir);
+      if (undoDir.exists()) {
+        String fileName=tempFile.getName();
+        File newFile=new File(dir + File.separator + fileName);
+        if (undoDir.canWrite()) {
+          newFile.deleteOnExit();
+          tempFile=newFile;
+        }
+ else {
+          System.err.println("Explorer: it doesn't look like we have permission" + " to write to the user-specified undo directory " + "'" + dir + "'");
+        }
+      }
+ else {
+        System.err.println("Explorer: user-specified undo directory '" + dir + "' does not exist!");
+      }
+    }
+    ObjectOutputStream oos=new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(tempFile)));
+    oos.writeObject(m_Instances);
+    oos.flush();
+    oos.close();
+    if (m_tempUndoFiles[m_tempUndoIndex] != null) {
+      m_tempUndoFiles[m_tempUndoIndex].delete();
+    }
+    m_tempUndoFiles[m_tempUndoIndex]=tempFile;
+    if (++m_tempUndoIndex >= m_tempUndoFiles.length) {
+      m_tempUndoIndex=0;
+    }
+    m_UndoBut.setEnabled(true);
+  }
+}

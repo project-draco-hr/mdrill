@@ -1,0 +1,3 @@
+{
+  return args[Utils.maxIndex(args)];
+}

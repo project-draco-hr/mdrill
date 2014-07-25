@@ -1,0 +1,4 @@
+{
+  m_Clusterer=new SimpleKMeans();
+  m_Filter=new weka.filters.AllFilter();
+}

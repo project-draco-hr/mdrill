@@ -1,0 +1,3 @@
+{
+  return "A filter that removes instances which are incorrectly classified. " + "Useful for removing outliers.";
+}

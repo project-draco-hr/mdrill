@@ -1,0 +1,31 @@
+{
+  DataGenerator generator;
+  boolean result;
+  String relName;
+  String cname;
+  String cmd;
+  result=true;
+  generator=(DataGenerator)m_GeneratorEditor.getValue();
+  relName=generator.getRelationName();
+  cname=generator.getClass().getName().replaceAll(".*\\.","");
+  cmd=generator.getClass().getName();
+  if (generator instanceof OptionHandler)   cmd+=" " + Utils.joinOptions(((OptionHandler)generator).getOptions());
+  try {
+    m_Log.logMessage("Started " + cname);
+    m_Log.logMessage("Command: " + cmd);
+    m_Output=new StringWriter();
+    generator.setOutput(new PrintWriter(m_Output));
+    DataGenerator.makeData(generator,generator.getOptions());
+    m_Instances=new Instances(new StringReader(getOutput()));
+    m_Log.logMessage("Finished " + cname);
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+    JOptionPane.showMessageDialog(this,"Error generating data:\n" + e.getMessage(),"Error",JOptionPane.ERROR_MESSAGE);
+    m_Instances=null;
+    m_Output=new StringWriter();
+    result=false;
+  }
+  generator.setRelationName(relName);
+  return result;
+}

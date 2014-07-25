@@ -1,0 +1,9 @@
+{
+  Vector<BatchAssociationRulesListener> l;
+synchronized (this) {
+    l=(Vector<BatchAssociationRulesListener>)m_rulesListeners.clone();
+    for (int i=0; i < l.size(); i++) {
+      l.get(i).acceptAssociationRules(are);
+    }
+  }
+}

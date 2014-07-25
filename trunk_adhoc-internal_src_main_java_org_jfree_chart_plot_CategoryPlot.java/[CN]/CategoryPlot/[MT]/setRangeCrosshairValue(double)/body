@@ -1,0 +1,3 @@
+{
+  setRangeCrosshairValue(value,true);
+}

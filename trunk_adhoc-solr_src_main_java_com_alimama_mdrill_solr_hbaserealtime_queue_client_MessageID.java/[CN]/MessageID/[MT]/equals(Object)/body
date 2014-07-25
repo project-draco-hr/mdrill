@@ -1,0 +1,11 @@
+{
+  if (this == obj)   return true;
+  if (obj == null)   return false;
+  if (getClass() != obj.getClass())   return false;
+  MessageID other=(MessageID)obj;
+  if (index != other.index)   return false;
+  if (partion != other.partion)   return false;
+  if (shard != other.shard)   return false;
+  if (subIndex != other.subIndex)   return false;
+  return true;
+}

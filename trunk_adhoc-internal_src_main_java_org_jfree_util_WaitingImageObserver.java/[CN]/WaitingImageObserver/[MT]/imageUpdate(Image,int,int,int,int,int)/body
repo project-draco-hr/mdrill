@@ -1,0 +1,15 @@
+{
+  if ((infoflags & ImageObserver.ALLBITS) == ImageObserver.ALLBITS) {
+    this.lock=false;
+    this.error=false;
+    notifyAll();
+    return false;
+  }
+ else   if ((infoflags & ImageObserver.ABORT) == ImageObserver.ABORT || (infoflags & ImageObserver.ERROR) == ImageObserver.ERROR) {
+    this.lock=false;
+    this.error=true;
+    notifyAll();
+    return false;
+  }
+  return true;
+}

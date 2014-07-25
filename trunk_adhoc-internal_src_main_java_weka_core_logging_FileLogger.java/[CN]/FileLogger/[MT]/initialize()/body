@@ -1,0 +1,11 @@
+{
+  super.initialize();
+  m_LogFile=getLogFile();
+  try {
+    if ((m_LogFile != null) && m_LogFile.exists())     m_LogFile.delete();
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
+  m_LineFeed=System.getProperty("line.separator");
+}

@@ -1,0 +1,8 @@
+{
+  ConfusionMatrix cm=new ConfusionMatrix(CATEGORY_NAMES);
+  cm.setElement(0,0,m_TrueNeg);
+  cm.setElement(0,1,m_FalsePos);
+  cm.setElement(1,0,m_FalseNeg);
+  cm.setElement(1,1,m_TruePos);
+  return cm;
+}

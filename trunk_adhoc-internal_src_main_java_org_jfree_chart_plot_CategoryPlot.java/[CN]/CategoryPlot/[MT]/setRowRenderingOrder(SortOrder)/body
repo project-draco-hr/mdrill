@@ -1,0 +1,7 @@
+{
+  if (order == null) {
+    throw new IllegalArgumentException("Null 'order' argument.");
+  }
+  this.rowRenderingOrder=order;
+  fireChangeEvent();
+}

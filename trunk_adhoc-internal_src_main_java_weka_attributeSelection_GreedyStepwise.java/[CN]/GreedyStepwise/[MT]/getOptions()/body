@@ -1,0 +1,25 @@
+{
+  String[] options=new String[9];
+  int current=0;
+  if (getSearchBackwards()) {
+    options[current++]="-B";
+  }
+  if (getConservativeForwardSelection()) {
+    options[current++]="-C";
+  }
+  if (!(getStartSet().equals(""))) {
+    options[current++]="-P";
+    options[current++]="" + startSetToString();
+  }
+  if (getGenerateRanking()) {
+    options[current++]="-R";
+  }
+  options[current++]="-T";
+  options[current++]="" + getThreshold();
+  options[current++]="-N";
+  options[current++]="" + getNumToSelect();
+  while (current < options.length) {
+    options[current++]="";
+  }
+  return options;
+}

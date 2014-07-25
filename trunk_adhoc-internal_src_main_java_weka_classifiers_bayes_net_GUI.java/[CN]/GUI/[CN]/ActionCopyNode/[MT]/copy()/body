@@ -1,0 +1,4 @@
+{
+  String sXML=m_BayesNet.toXMLBIF03(m_Selection.getSelected());
+  m_clipboard.setText(sXML);
+}

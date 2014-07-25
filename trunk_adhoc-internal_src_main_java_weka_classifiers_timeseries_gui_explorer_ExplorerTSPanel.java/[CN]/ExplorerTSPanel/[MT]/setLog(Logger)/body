@@ -1,0 +1,6 @@
+{
+  if (newLog instanceof JComponent && m_forecastingPanel != null) {
+    m_log=newLog;
+    m_forecastingPanel.setLog(newLog);
+  }
+}

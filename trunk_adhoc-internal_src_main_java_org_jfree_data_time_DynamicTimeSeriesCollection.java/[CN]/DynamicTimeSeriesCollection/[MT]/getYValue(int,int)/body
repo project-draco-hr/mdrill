@@ -1,0 +1,4 @@
+{
+  ValueSequence values=this.valueHistory[series];
+  return values.getData(translateGet(item));
+}

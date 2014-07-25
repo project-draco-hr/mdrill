@@ -1,0 +1,7 @@
+{
+  State state=(State)super.initialise(g2,dataArea,plot,data,info);
+  state.setProcessVisibleItemsOnly(false);
+  this.points=new Vector();
+  setDrawSeriesLineAsPath(true);
+  return state;
+}

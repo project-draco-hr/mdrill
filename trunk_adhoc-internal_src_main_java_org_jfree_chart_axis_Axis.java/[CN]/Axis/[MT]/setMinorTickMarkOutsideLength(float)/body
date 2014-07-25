@@ -1,0 +1,4 @@
+{
+  this.minorTickMarkOutsideLength=length;
+  fireChangeEvent();
+}

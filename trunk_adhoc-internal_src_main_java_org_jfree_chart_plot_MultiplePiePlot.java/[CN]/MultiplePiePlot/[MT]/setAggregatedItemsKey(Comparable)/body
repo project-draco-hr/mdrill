@@ -1,0 +1,7 @@
+{
+  if (key == null) {
+    throw new IllegalArgumentException("Null 'key' argument.");
+  }
+  this.aggregatedItemsKey=key;
+  fireChangeEvent();
+}

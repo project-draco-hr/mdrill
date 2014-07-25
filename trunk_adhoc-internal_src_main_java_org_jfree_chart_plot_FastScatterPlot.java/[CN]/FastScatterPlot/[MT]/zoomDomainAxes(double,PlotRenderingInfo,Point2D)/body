@@ -1,0 +1,3 @@
+{
+  this.domainAxis.resizeRange(factor);
+}

@@ -1,0 +1,8 @@
+{
+  stream.defaultReadObject();
+  this.majorTickPaint=SerialUtilities.readPaint(stream);
+  this.majorTickStroke=SerialUtilities.readStroke(stream);
+  this.minorTickPaint=SerialUtilities.readPaint(stream);
+  this.minorTickStroke=SerialUtilities.readStroke(stream);
+  this.tickLabelPaint=SerialUtilities.readPaint(stream);
+}

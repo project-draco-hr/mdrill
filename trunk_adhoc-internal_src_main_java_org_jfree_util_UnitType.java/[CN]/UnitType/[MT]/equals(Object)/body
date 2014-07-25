@@ -1,0 +1,13 @@
+{
+  if (obj == this) {
+    return true;
+  }
+  if (!(obj instanceof UnitType)) {
+    return false;
+  }
+  final UnitType that=(UnitType)obj;
+  if (!this.name.equals(that.name)) {
+    return false;
+  }
+  return true;
+}

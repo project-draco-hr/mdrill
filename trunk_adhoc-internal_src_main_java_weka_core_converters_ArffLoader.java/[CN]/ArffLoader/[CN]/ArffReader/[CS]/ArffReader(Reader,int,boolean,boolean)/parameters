@@ -1,0 +1,4 @@
+Reader reader
+int capacity
+boolean batch
+boolean retainStringVals

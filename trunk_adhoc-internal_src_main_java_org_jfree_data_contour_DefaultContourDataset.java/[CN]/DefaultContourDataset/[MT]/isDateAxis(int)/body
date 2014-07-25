@@ -1,0 +1,6 @@
+{
+  if (axisNumber < 0 || axisNumber > 2) {
+    return false;
+  }
+  return this.dateAxis[axisNumber];
+}

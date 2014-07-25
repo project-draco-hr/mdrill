@@ -1,0 +1,15 @@
+{
+  super();
+  if (location.startsWith("http://") || location.startsWith("https://") || location.startsWith("ftp://")|| location.startsWith("file://"))   m_URL=new URL(location);
+ else   m_File=new File(location);
+  if (isArff(location)) {
+    m_Loader=new ArffLoader();
+  }
+ else {
+    if (m_File != null)     m_Loader=ConverterUtils.getLoaderForFile(location);
+ else     m_Loader=ConverterUtils.getURLLoaderForFile(location);
+    if (m_Loader == null)     throw new IllegalArgumentException("No suitable converter found for '" + location + "'!");
+  }
+  m_Incremental=(m_Loader instanceof IncrementalConverter);
+  reset();
+}

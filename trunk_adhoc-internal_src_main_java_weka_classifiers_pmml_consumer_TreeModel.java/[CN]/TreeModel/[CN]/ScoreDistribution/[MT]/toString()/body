@@ -1,0 +1,3 @@
+{
+  return m_classLabel + ": " + m_recordCount+ " ("+ Utils.doubleToString(m_confidence,2)+ ") ";
+}

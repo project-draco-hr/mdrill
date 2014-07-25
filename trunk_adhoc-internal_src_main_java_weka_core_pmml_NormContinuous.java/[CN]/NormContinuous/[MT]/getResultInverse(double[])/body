@@ -1,0 +1,5 @@
+{
+  double[] a=m_linearNormNorm;
+  double[] b=m_linearNormOrig;
+  return computeNorm(a,b,incoming);
+}

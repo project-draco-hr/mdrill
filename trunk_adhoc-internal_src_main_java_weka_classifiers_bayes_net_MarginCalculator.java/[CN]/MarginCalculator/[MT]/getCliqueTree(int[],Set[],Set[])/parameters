@@ -1,0 +1,3 @@
+int[] order
+Set[] cliques
+Set[] separators

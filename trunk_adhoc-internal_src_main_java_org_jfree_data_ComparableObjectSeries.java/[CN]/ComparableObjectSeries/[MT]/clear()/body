@@ -1,0 +1,6 @@
+{
+  if (this.data.size() > 0) {
+    this.data.clear();
+    fireSeriesChanged();
+  }
+}

@@ -1,0 +1,5 @@
+{
+  super(def);
+  m_Default=def;
+  clear();
+}

@@ -1,0 +1,6 @@
+{
+  if (this.data == null) {
+    throw new RuntimeException("updateValue: can't update null.");
+  }
+  setValue(this.data.getKey(),value);
+}

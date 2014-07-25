@@ -1,0 +1,6 @@
+{
+  if (this.rangeMarkers != null) {
+    this.rangeMarkers.clear();
+    fireChangeEvent();
+  }
+}

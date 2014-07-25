@@ -1,0 +1,28 @@
+{
+  Instances tempInst;
+  Capabilities filterClass;
+  if (filter == null) {
+    m_FilterEditor.setCapabilitiesFilter(new Capabilities(null));
+    return;
+  }
+  if (!ExplorerDefaults.getInitGenericObjectEditorFilter())   tempInst=new Instances(m_Instances,0);
+ else   tempInst=new Instances(m_Instances);
+  tempInst.setClassIndex(m_AttVisualizePanel.getColorBox().getSelectedIndex() - 1);
+  try {
+    filterClass=Capabilities.forInstances(tempInst);
+  }
+ catch (  Exception e) {
+    filterClass=new Capabilities(null);
+  }
+  m_FilterEditor.setCapabilitiesFilter(filterClass);
+  m_ApplyFilterBut.setEnabled(true);
+  Capabilities currentCapabilitiesFilter=m_FilterEditor.getCapabilitiesFilter();
+  Filter currentFilter=(Filter)m_FilterEditor.getValue();
+  Capabilities currentFilterCapabilities=null;
+  if (currentFilter != null && currentCapabilitiesFilter != null && (currentFilter instanceof CapabilitiesHandler)) {
+    currentFilterCapabilities=((CapabilitiesHandler)currentFilter).getCapabilities();
+    if (!currentFilterCapabilities.supportsMaybe(currentCapabilitiesFilter) && !currentFilterCapabilities.supports(currentCapabilitiesFilter)) {
+      m_ApplyFilterBut.setEnabled(false);
+    }
+  }
+}

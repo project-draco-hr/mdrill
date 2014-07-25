@@ -1,0 +1,4 @@
+{
+  if (isClassname(partial))   return getClassMatches(partial);
+ else   return getFileMatches(partial);
+}

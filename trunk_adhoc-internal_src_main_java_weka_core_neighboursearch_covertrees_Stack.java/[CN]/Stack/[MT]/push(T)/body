@@ -1,0 +1,4 @@
+{
+  length++;
+  elements.add(new_ele);
+}

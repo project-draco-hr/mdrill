@@ -1,0 +1,3 @@
+{
+  return "Value " + m_sValue + " removed from node "+ getNodeName(m_nTargetNode);
+}

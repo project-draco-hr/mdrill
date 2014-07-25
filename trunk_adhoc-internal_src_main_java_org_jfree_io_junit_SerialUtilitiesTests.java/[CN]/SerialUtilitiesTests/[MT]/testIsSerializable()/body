@@ -1,0 +1,6 @@
+{
+  assertTrue(SerialUtilities.isSerializable(Color.class));
+  assertTrue(SerialUtilities.isSerializable(ColorUIResource.class));
+  assertFalse(SerialUtilities.isSerializable(GradientPaint.class));
+  assertFalse(SerialUtilities.isSerializable(TexturePaint.class));
+}

@@ -1,0 +1,3 @@
+{
+  executeQuery(this.connection,query);
+}

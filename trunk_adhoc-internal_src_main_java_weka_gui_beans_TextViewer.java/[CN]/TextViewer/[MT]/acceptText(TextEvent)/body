@@ -1,0 +1,26 @@
+{
+  if (m_outText == null) {
+    setUpResultHistory();
+  }
+  StringBuffer result=new StringBuffer();
+  result.append(e.getText());
+  String name=(new SimpleDateFormat("HH:mm:ss - ")).format(new Date());
+  name+=e.getTextTitle();
+  if (name.length() > 30) {
+    name=name.substring(0,30);
+  }
+  if (m_outText != null) {
+    int mod=2;
+    String nameOrig=new String(name);
+    while (m_history.getNamedBuffer(name) != null) {
+      name=new String(nameOrig + "" + mod);
+      mod++;
+    }
+    m_history.addResult(name,result);
+    m_history.setSingle(name);
+  }
+  if (m_headlessEvents != null) {
+    m_headlessEvents.add(e);
+  }
+  notifyTextListeners(e);
+}

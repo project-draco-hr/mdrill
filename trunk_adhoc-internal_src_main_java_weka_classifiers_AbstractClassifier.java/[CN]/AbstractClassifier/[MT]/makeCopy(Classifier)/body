@@ -1,0 +1,3 @@
+{
+  return (Classifier)new SerializedObject(model).getObject();
+}

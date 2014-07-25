@@ -1,0 +1,6 @@
+{
+  int result;
+  result=this.x.hashCode();
+  result=29 * result + (this.y != null ? this.y.hashCode() : 0);
+  return result;
+}

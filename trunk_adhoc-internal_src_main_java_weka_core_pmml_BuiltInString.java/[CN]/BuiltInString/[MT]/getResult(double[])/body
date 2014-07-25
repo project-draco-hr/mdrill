@@ -1,0 +1,20 @@
+{
+  if (m_parameterDefs == null) {
+    throw new Exception("[BuiltInString] incoming parameter structure has not been set");
+  }
+  if (!m_func.legalNumParams(incoming.length)) {
+    throw new Exception("[BuiltInString] wrong number of parameters!");
+  }
+  Object[] args=setUpArgs(incoming);
+  String result=m_func.eval(args);
+  int resultI=m_outputDef.indexOfValue(result);
+  if (resultI < 0) {
+    if (m_outputDef.isString()) {
+      resultI=m_outputDef.addStringValue(result);
+    }
+ else {
+      throw new Exception("[BuiltInString] unable to find value " + result + " in nominal result type!");
+    }
+  }
+  return resultI;
+}

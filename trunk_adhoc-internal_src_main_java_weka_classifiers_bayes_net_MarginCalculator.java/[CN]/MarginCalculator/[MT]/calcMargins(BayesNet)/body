@@ -1,0 +1,4 @@
+{
+  boolean[][] bAdjacencyMatrix=moralize(bayesNet);
+  process(bAdjacencyMatrix,bayesNet);
+}

@@ -1,0 +1,6 @@
+{
+  PropertyContainer cont;
+  cont=find(src,path);
+  if (cont == null)   return null;
+ else   return cont.getDescriptor();
+}

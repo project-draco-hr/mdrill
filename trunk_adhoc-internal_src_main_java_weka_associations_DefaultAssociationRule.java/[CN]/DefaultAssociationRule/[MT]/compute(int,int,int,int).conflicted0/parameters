@@ -1,0 +1,4 @@
+int premiseSupport
+int consequenceSupport
+int totalSupport
+int totalTransactions

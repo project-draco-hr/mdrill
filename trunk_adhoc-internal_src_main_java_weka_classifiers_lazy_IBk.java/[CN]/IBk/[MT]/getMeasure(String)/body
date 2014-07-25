@@ -1,0 +1,4 @@
+{
+  if (additionalMeasureName.equals("measureKNN"))   return m_kNN;
+ else   return m_NNSearch.getMeasure(additionalMeasureName);
+}

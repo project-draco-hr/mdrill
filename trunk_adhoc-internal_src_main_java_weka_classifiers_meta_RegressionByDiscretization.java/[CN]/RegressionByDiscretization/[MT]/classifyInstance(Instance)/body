@@ -1,0 +1,17 @@
+{
+  Instance newInstance=(Instance)instance.copy();
+  newInstance.setDataset(m_DiscretizedHeader);
+  double[] probs=m_Classifier.distributionForInstance(newInstance);
+  if (!m_MinimizeAbsoluteError) {
+    double prediction=0, probSum=0;
+    for (int j=0; j < probs.length; j++) {
+      prediction+=probs[j] * m_ClassMeans[j];
+      probSum+=probs[j];
+    }
+    return prediction / probSum;
+  }
+ else {
+    UnivariateQuantileEstimator e=(UnivariateQuantileEstimator)getDensityEstimator(instance,true);
+    return e.predictQuantile(0.5);
+  }
+}

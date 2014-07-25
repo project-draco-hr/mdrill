@@ -1,0 +1,24 @@
+{
+  Paint result=getSectionPaint();
+  if (result != null) {
+    return result;
+  }
+  result=this.sectionPaintMap.getPaint(key);
+  if (result != null) {
+    return result;
+  }
+  if (autoPopulate) {
+    DrawingSupplier ds=getDrawingSupplier();
+    if (ds != null) {
+      result=ds.getNextPaint();
+      this.sectionPaintMap.put(key,result);
+    }
+ else {
+      result=this.baseSectionPaint;
+    }
+  }
+ else {
+    result=this.baseSectionPaint;
+  }
+  return result;
+}

@@ -1,0 +1,6 @@
+{
+  SegmentedTimeline timeline=new SegmentedTimeline(FIFTEEN_MINUTE_SEGMENT_SIZE,28,68);
+  timeline.setStartTime(firstMondayAfter1900() + 36 * timeline.getSegmentSize());
+  timeline.setBaseTimeline(newMondayThroughFridayTimeline());
+  return timeline;
+}

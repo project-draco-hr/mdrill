@@ -1,0 +1,22 @@
+{
+  final ReaderWriterNode node;
+  final Thread me=Thread.currentThread();
+  final int index=getIndex(me);
+  if (index == -1) {
+    node=new ReaderWriterNode(me,ReaderWriterNode.READER);
+    this.waiters.add(node);
+  }
+ else {
+    node=(ReaderWriterNode)this.waiters.get(index);
+  }
+  while (getIndex(me) > firstWriter()) {
+    try {
+      wait();
+    }
+ catch (    Exception e) {
+      System.err.println("ReaderWriterLock.lockRead(): exception.");
+      System.err.print(e.getMessage());
+    }
+  }
+  node.nAcquires++;
+}

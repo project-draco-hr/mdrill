@@ -1,0 +1,15 @@
+{
+  m_FormatText=new JTextField(20);
+  m_DefaultButton=new JButton("Default");
+  m_ApplyButton=new JButton("Apply");
+  m_DefaultButton.setMnemonic('D');
+  m_ApplyButton.setMnemonic('A');
+  m_FormatText.getDocument().addDocumentListener(this);
+  m_DefaultButton.addActionListener(this);
+  m_ApplyButton.addActionListener(this);
+  setLayout(new FlowLayout());
+  add(new JLabel("ISO 8601 Date format"));
+  add(m_FormatText);
+  add(m_DefaultButton);
+  add(m_ApplyButton);
+}

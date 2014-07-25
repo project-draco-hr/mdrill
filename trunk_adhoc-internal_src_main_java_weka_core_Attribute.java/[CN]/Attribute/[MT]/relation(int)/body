@@ -1,0 +1,8 @@
+{
+  if (!isRelationValued()) {
+    return null;
+  }
+ else {
+    return (Instances)m_Values.get(valIndex);
+  }
+}

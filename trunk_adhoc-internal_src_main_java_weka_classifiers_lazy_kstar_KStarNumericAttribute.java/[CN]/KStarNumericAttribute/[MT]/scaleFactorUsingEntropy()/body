@@ -1,0 +1,127 @@
+{
+  String debug="(KStarNumericAttribute.scaleFactorUsingEntropy)";
+  if (m_ClassType != Attribute.NOMINAL) {
+    System.err.println("Error: " + debug + " attribute class must be nominal!");
+    System.exit(1);
+  }
+  int i, j, lowestcount=0, count, itcount;
+  double lowest=-1.0, nextlowest=-1.0;
+  double root, up, bot, stepsize, delta;
+  double actentropy=0.0, randentropy=0.0, actscale, randscale;
+  double minrand=0.0, minact=0.0, maxrand=0.0, maxact=0.0;
+  double bestdiff, bestroot, currentdiff, lastdiff;
+  double bestpsum, bestminprob, scale=1.0;
+  KStarWrapper botvals=new KStarWrapper();
+  KStarWrapper upvals=new KStarWrapper();
+  KStarWrapper vals=new KStarWrapper();
+  m_Distances=new double[m_NumInstances];
+  for (j=0; j < m_NumInstances; j++) {
+    if (m_TrainSet.instance(j).isMissing(m_AttrIndex)) {
+      m_Distances[j]=-1.0;
+    }
+ else {
+      m_Distances[j]=Math.abs(m_TrainSet.instance(j).value(m_AttrIndex) - m_Test.value(m_AttrIndex));
+      if ((m_Distances[j] + 1e-5) < nextlowest || nextlowest == -1.0) {
+        if ((m_Distances[j] + 1e-5) < lowest || lowest == -1.0) {
+          nextlowest=lowest;
+          lowest=m_Distances[j];
+          lowestcount=1;
+        }
+ else         if (Math.abs(m_Distances[j] - lowest) < 1e-5) {
+          lowestcount++;
+        }
+ else {
+          nextlowest=m_Distances[j];
+        }
+      }
+      m_ActualCount++;
+    }
+  }
+  if (nextlowest == -1 || lowest == -1) {
+    scale=1.0;
+    m_SmallestProb=m_AverageProb=1.0;
+    return scale;
+  }
+ else {
+    root=1.0 / (nextlowest - lowest);
+    bot=0.0 + ROOT_FINDER_ACCURACY / 2;
+    up=root * 8;
+    calculateEntropy(up,upvals);
+    calculateEntropy(bot,botvals);
+    actscale=botvals.actEntropy - upvals.actEntropy;
+    randscale=botvals.randEntropy - upvals.randEntropy;
+    bestroot=root=bot;
+    bestdiff=currentdiff=FLOOR1;
+    bestpsum=botvals.avgProb;
+    bestminprob=botvals.minProb;
+    stepsize=(up - bot) / 20.0;
+    itcount=0;
+    while (true) {
+      itcount++;
+      lastdiff=currentdiff;
+      root+=Math.log(root + 1.0) * stepsize;
+      if (root <= bot) {
+        root=bot;
+        currentdiff=0.0;
+        delta=-1.0;
+      }
+ else       if (root >= up) {
+        root=up;
+        currentdiff=0.0;
+        delta=-1.0;
+      }
+ else {
+        calculateEntropy(root,vals);
+        vals.randEntropy=(vals.randEntropy - upvals.randEntropy) / randscale;
+        vals.actEntropy=(vals.actEntropy - upvals.actEntropy) / randscale;
+        currentdiff=vals.randEntropy - vals.actEntropy;
+        if (currentdiff < FLOOR1) {
+          currentdiff=FLOOR1;
+          if (stepsize < 0) {
+            bestdiff=currentdiff;
+            bestroot=bot;
+            bestpsum=botvals.avgProb;
+            bestminprob=botvals.minProb;
+            break;
+          }
+        }
+        delta=currentdiff - lastdiff;
+      }
+      if (currentdiff > bestdiff) {
+        bestdiff=currentdiff;
+        bestroot=root;
+        bestminprob=vals.minProb;
+        bestpsum=vals.avgProb;
+      }
+      if (delta < 0) {
+        if (Math.abs(stepsize) < ROOT_FINDER_ACCURACY) {
+          break;
+        }
+ else {
+          stepsize/=-4.0;
+        }
+      }
+      if (itcount > ROOT_FINDER_MAX_ITER) {
+        break;
+      }
+    }
+    m_SmallestProb=bestminprob;
+    m_AverageProb=bestpsum;
+switch (m_MissingMode) {
+case M_DELETE:
+      m_MissingProb=0.0;
+    break;
+case M_NORMAL:
+  m_MissingProb=1.0;
+break;
+case M_MAXDIFF:
+m_MissingProb=m_SmallestProb;
+break;
+case M_AVERAGE:
+m_MissingProb=m_AverageProb;
+break;
+}
+scale=bestroot;
+}
+return scale;
+}

@@ -1,0 +1,3 @@
+{
+  return removeDomainMarker(index,marker,layer,true);
+}

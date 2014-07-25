@@ -1,0 +1,5 @@
+{
+  Rectangle2D adjusted=new Rectangle2D.Double(dataArea.getX(),dataArea.getY() + getYOffset(),dataArea.getWidth() - getXOffset(),dataArea.getHeight() - getYOffset());
+  CategoryItemRendererState state=super.initialise(g2,adjusted,plot,rendererIndex,info);
+  return state;
+}

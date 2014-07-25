@@ -1,0 +1,10 @@
+{
+  Associator associator;
+  try {
+    associator=(Associator)Class.forName(associatorString).newInstance();
+  }
+ catch (  Exception e) {
+    throw new Exception("Can't find class with name " + associatorString + '.');
+  }
+  return evaluate(associator,options);
+}

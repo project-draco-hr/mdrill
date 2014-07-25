@@ -1,0 +1,39 @@
+{
+  if (getInputFormat() == null) {
+    throw new IllegalStateException("No input instance format defined");
+  }
+  if (!isFirstBatchDone()) {
+    determineDictionary();
+    FastVector fv=new FastVector();
+    int firstCopy=0;
+    for (int i=0; i < m_NumInstances; i++) {
+      firstCopy=convertInstancewoDocNorm(getInputFormat().instance(i),fv);
+    }
+    if (m_filterType != FILTER_NONE) {
+      m_AvgDocLength=0;
+      for (int i=0; i < fv.size(); i++) {
+        Instance inst=(Instance)fv.elementAt(i);
+        double docLength=0;
+        for (int j=0; j < inst.numValues(); j++) {
+          if (inst.index(j) >= firstCopy) {
+            docLength+=inst.valueSparse(j) * inst.valueSparse(j);
+          }
+        }
+        m_AvgDocLength+=Math.sqrt(docLength);
+      }
+      m_AvgDocLength/=m_NumInstances;
+    }
+    if (m_filterType == FILTER_NORMALIZE_ALL) {
+      for (int i=0; i < fv.size(); i++) {
+        normalizeInstance((Instance)fv.elementAt(i),firstCopy);
+      }
+    }
+    for (int i=0; i < fv.size(); i++) {
+      push((Instance)fv.elementAt(i));
+    }
+  }
+  flushInput();
+  m_NewBatch=true;
+  m_FirstBatchDone=true;
+  return (numPendingOutput() != 0);
+}

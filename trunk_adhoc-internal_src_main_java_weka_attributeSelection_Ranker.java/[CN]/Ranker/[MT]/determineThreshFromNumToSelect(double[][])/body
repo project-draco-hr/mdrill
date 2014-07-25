@@ -1,0 +1,9 @@
+{
+  if (m_numToSelect > ranking.length) {
+    throw new Exception("More attributes requested than exist in the data");
+  }
+  if (m_numToSelect == ranking.length) {
+    return;
+  }
+  m_threshold=(ranking[m_numToSelect - 1][1] + ranking[m_numToSelect][1]) / 2.0;
+}

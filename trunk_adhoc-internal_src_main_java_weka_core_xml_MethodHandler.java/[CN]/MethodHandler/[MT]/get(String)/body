@@ -1,0 +1,3 @@
+{
+  return (Method)m_Methods.get(displayName);
+}

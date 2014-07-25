@@ -1,0 +1,12 @@
+{
+  final JTabbedPane tabs=new JTabbedPane();
+  final JPanel aboutPanel=createAboutPanel(info);
+  aboutPanel.setBorder(AboutDialog.STANDARD_BORDER);
+  final String aboutTab=this.resources.getString("about-frame.tab.about");
+  tabs.add(aboutTab,aboutPanel);
+  final JPanel systemPanel=new SystemPropertiesPanel();
+  systemPanel.setBorder(AboutDialog.STANDARD_BORDER);
+  final String systemTab=this.resources.getString("about-frame.tab.system");
+  tabs.add(systemTab,systemPanel);
+  return tabs;
+}

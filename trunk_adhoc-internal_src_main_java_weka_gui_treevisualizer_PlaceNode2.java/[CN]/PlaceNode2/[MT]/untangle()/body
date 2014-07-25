@@ -1,0 +1,37 @@
+{
+  Ease a;
+  Edge e;
+  Node r, nf=null, ns=null, mark;
+  int l=0, times=0;
+  int f, s, tf=0, ts=0, pf, ps;
+  while ((a=overlap(l)) != null) {
+    times++;
+    f=a.m_place;
+    s=a.m_place + 1;
+    while (f != s) {
+      a.m_lev--;
+      tf=f;
+      ts=s;
+      f=m_groups[f].m_pg;
+      s=m_groups[s].m_pg;
+    }
+    l=a.m_lev;
+    pf=0;
+    ps=0;
+    r=m_groups[f].m_p;
+    mark=m_groups[tf].m_p;
+    nf=null;
+    ns=null;
+    for (int noa=0; nf != mark; noa++) {
+      pf++;
+      nf=r.getChild(noa).getTarget();
+    }
+    mark=m_groups[ts].m_p;
+    for (int noa=pf; ns != mark; noa++) {
+      ps++;
+      ns=r.getChild(noa).getTarget();
+    }
+    m_groups[f].m_gap=Math.ceil((a.m_amount / (double)ps) + m_groups[f].m_gap);
+    xPlacer(f);
+  }
+}

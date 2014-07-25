@@ -1,0 +1,5 @@
+{
+  Vector result=new Vector();
+  result.addElement(new Option("\tSets the range of attributes to convert (default last).","C",1,"-C <col>"));
+  return result.elements();
+}

@@ -1,0 +1,10 @@
+{
+  Size2D s1=arrangeNN(container,g2);
+  if (constraint.getWidthRange().contains(s1.width)) {
+    return s1;
+  }
+ else {
+    RectangleConstraint c=constraint.toFixedWidth(constraint.getWidthRange().getUpperBound());
+    return arrangeFN(container,g2,c);
+  }
+}

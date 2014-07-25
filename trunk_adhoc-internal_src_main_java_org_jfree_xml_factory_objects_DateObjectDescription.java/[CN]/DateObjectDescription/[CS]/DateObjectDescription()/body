@@ -1,0 +1,6 @@
+{
+  super(Date.class);
+  setParameterDefinition("year",Integer.class);
+  setParameterDefinition("month",Integer.class);
+  setParameterDefinition("day",Integer.class);
+}

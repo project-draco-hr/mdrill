@@ -1,0 +1,6 @@
+{
+  if (d < 0.0 || 1.0 < d) {
+    throw new IllegalArgumentException("Argument 'd' outside valid range.");
+  }
+  this.intervalPositionFactor=d;
+}

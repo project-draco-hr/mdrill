@@ -1,0 +1,5 @@
+int runNum
+int maxRunNum
+int setNum
+int maxSetNum
+Instances train

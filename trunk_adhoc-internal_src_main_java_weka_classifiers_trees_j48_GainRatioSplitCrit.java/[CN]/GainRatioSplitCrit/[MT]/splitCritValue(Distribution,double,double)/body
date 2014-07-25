@@ -1,0 +1,10 @@
+{
+  double denumerator;
+  double noUnknown;
+  double unknownRate;
+  int i;
+  denumerator=splitEnt(bags,totalnoInst);
+  if (Utils.eq(denumerator,0))   return 0;
+  denumerator=denumerator / totalnoInst;
+  return numerator / denumerator;
+}

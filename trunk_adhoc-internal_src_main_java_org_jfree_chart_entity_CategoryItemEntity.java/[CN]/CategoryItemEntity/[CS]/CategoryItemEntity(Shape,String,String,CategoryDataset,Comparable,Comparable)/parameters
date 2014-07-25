@@ -1,0 +1,6 @@
+Shape area
+String toolTipText
+String urlText
+CategoryDataset dataset
+Comparable rowKey
+Comparable columnKey

@@ -1,0 +1,7 @@
+{
+  final String top=attrs.getValue("top");
+  final String left=attrs.getValue("left");
+  final String bottom=attrs.getValue("bottom");
+  final String right=attrs.getValue("right");
+  this.insets=new Insets(Integer.parseInt(top),Integer.parseInt(left),Integer.parseInt(bottom),Integer.parseInt(right));
+}

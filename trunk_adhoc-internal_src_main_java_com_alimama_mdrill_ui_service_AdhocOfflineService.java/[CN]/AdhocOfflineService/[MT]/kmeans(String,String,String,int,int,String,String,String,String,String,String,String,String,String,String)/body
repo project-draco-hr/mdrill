@@ -1,0 +1,110 @@
+{
+  String[] excludeIds=memo.split(",");
+  ArrayList<String> exlist=new ArrayList<String>();
+  for (  String uuid : excludeIds) {
+    String uuuuid=uuid.trim().replaceAll("\t","");
+    if (uuuuid.isEmpty()) {
+      continue;
+    }
+    JSONObject info=readAbtestInfo(uuuuid);
+    LOG.info(uuid + ">>" + info.toString());
+    if (String.valueOf(info.get("code")).equals("1")) {
+      exlist.add(String.valueOf(info.getJSONObject("data").get("A")));
+      exlist.add(String.valueOf(info.getJSONObject("data").get("B")));
+    }
+  }
+  String[] number_important=Json2Array(number_important_json);
+  String[] colls_important=Json2Array(colls_important_json);
+  String[] colls=Json2Array(colls_json);
+  String[] numbers=Json2Array(numbers_json);
+  long t1=System.currentTimeMillis();
+  Map stormconf=Utils.readStormConfig();
+  hivePartion hp=getPartion(stormconf,projectName);
+  boolean isPartionByPt=hp.isPartionByPt;
+  String hpart=hp.hpart;
+  projectName=hp.projectName;
+  String mode=String.valueOf(stormconf.get("higo.mode." + projectName));
+  queryStr=WebServiceParams.query(queryStr);
+  TablePartion part=GetPartions.partion(projectName);
+  KmeansQueryParse kmeansData=AdhocHivePartions.getKmeansDays(queryStr);
+  LinkedHashMap<String,String> filetypeMap=MdrillFieldInfo.readFieldsFromSchemaXml(stormconf,part.name);
+  ArrayList<String> fqList=WebServiceParams.fqListHive(false,hpart,kmeansData.queryStr,isPartionByPt,filetypeMap,null,null,null);
+  StringBuffer sqlWhere=AdhocWebServiceParams.makeWhere(fqList,exlist,idcols);
+  LOG.info("queryStr:" + queryStr + ">>>>kmeansData.queryStr:"+ kmeansData.queryStr+ ","+ sqlWhere.toString()+ ","+ fqList.toString());
+  final String[] sqlparams=PrintSql.makeSql(projectName,sqlWhere.toString(),idcols,kmeansData.getSortDays(),colls_important,number_important,colls,numbers);
+  ;
+  String hql=sqlparams[0];
+  String md5=MD5.getMD5(hql);
+  SimpleDateFormat fmt=new SimpleDateFormat("yyyyMMdd");
+  String day=fmt.format(new Date());
+  final String hdpConf=(String)stormconf.get("hadoop.conf.dir");
+  String connstr=(String)stormconf.get("higo.download.offline.conn");
+  String uname=(String)stormconf.get("higo.download.offline.username");
+  String passwd=(String)stormconf.get("higo.download.offline.passwd");
+  final String store=(String)stormconf.get("higo.download.offline.store") + "/" + day+ "/"+ java.util.UUID.randomUUID().toString();
+  MySqlConn conn=new MySqlConn(connstr,uname,passwd);
+  MysqlInfo info=new MysqlInfo(conn);
+  if (username == null || username.length() <= 0) {
+    username="default";
+  }
+  StringBuffer sqlbuff=new StringBuffer();
+  sqlbuff.append(";");
+  int size=info.getUser(username,true,sqlbuff).size();
+  JSONObject jsonObj=new JSONObject();
+  jsonObj.put("sqlbuff",sqlbuff.toString());
+  jsonObj.put("size",size);
+  final String storepath=store + "/abtest/cluster_abtest";
+  if (size < 5) {
+    final MysqlCallbackKmeans callback=new MysqlCallbackKmeans(conn);
+    Runnable process=new Runnable(){
+      @Override public void run(){
+        Configuration conf=new Configuration();
+        HadoopBaseUtils.grabConfiguration(hdpConf,conf);
+        try {
+          ToolRunner.run(conf,new KMeansDriver(callback),new String[]{"",store + "/hive",store + "/abtest","20","1000","0.00001",String.valueOf(count),String.valueOf(rep),String.valueOf(100),sqlparams[1],String.valueOf(548576)});
+          makeAB(storepath,conf);
+        }
+ catch (        Exception e) {
+          throw new RuntimeException(e);
+        }
+      }
+    }
+;
+    callback.setCols("");
+    OfflineDownload download=new OfflineDownload();
+    download.setOffline(callback);
+    if (mailto == null || mailto.length() <= 0) {
+      mailto="yannian.mu@alipay.com";
+    }
+    download.setMailto(mailto);
+    download.setHql(" INSERT OVERWRITE DIRECTORY '" + store + "/hive"+ "' "+ hql+ "  ");
+    download.setUseName(username);
+    if (jobname == null || jobname.length() <= 0) {
+      jobname=day + "_" + md5;
+    }
+    download.setJobName(jobname);
+    download.setMemo(String.valueOf(memo));
+    download.setDisplayParams(params);
+    download.setStoreDir(storepath);
+    download.setConfdir(hdpConf);
+    download.setSqlMd5(md5);
+    download.setProcesser(process);
+    download.run();
+    long t2=System.currentTimeMillis();
+    jsonObj.put("code","1");
+    jsonObj.put("message","???????????????...?????????????????????<b style=\"color:red\">??????</b>???<b style=\"color:red\">??????</b>??????");
+    jsonObj.put("uuid",callback.getUuid());
+    jsonObj.put("debug",callback.toString());
+    jsonObj.put("timedebug",String.valueOf(t2 - t1));
+  }
+ else {
+    jsonObj.put("code","0");
+    jsonObj.put("message","??????" + size + "???????????????????????????????????????????????????");
+  }
+  if (jsoncallback != null && jsoncallback.length() > 0) {
+    return jsoncallback + "(" + jsonObj.toString()+ ")";
+  }
+ else {
+    return jsonObj.toString();
+  }
+}

@@ -1,0 +1,4 @@
+{
+  this.result=this.buffer.toString();
+  this.buffer=null;
+}

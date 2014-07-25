@@ -1,0 +1,6 @@
+Comparable category
+Comparable seriesKey
+CategoryDataset dataset
+double itemMargin
+Rectangle2D area
+RectangleEdge edge

@@ -1,0 +1,9 @@
+{
+  final PropertyDefinition[] propertyDefs=(PropertyDefinition[])this.propertyDefinition.toArray(new PropertyDefinition[0]);
+  final LookupDefinition[] lookupDefs=(LookupDefinition[])this.lookupDefinitions.toArray(new LookupDefinition[0]);
+  final AttributeDefinition[] attribDefs=(AttributeDefinition[])this.attributeDefinition.toArray(new AttributeDefinition[0]);
+  final ConstructorDefinition[] constructorDefs=(ConstructorDefinition[])this.constructorDefinition.toArray(new ConstructorDefinition[0]);
+  final String[] orderedNamesDefs=(String[])this.orderedNames.toArray(new String[0]);
+  final GenericObjectFactory objectFactory=new GenericObjectFactory(this.target,this.registerName,constructorDefs,propertyDefs,lookupDefs,attribDefs,orderedNamesDefs);
+  this.objectMappings.put(this.target,objectFactory);
+}

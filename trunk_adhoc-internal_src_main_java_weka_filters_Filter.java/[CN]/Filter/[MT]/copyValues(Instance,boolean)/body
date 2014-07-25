@@ -1,0 +1,4 @@
+{
+  RelationalLocator.copyRelationalValues(instance,(isInput) ? m_InputFormat : m_OutputFormat,(isInput) ? m_InputRelAtts : m_OutputRelAtts);
+  StringLocator.copyStringValues(instance,(isInput) ? m_InputFormat : m_OutputFormat,(isInput) ? m_InputStringAtts : m_OutputStringAtts);
+}

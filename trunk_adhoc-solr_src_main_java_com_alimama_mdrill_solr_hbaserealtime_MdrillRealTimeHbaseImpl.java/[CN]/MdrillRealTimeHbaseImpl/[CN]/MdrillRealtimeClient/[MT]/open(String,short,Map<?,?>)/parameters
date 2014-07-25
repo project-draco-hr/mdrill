@@ -1,0 +1,3 @@
+String tablename
+short shardcount
+Map<?,?> params

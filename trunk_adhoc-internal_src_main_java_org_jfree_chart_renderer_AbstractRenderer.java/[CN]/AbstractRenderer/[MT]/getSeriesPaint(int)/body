@@ -1,0 +1,3 @@
+{
+  return this.paintList.getPaint(series);
+}

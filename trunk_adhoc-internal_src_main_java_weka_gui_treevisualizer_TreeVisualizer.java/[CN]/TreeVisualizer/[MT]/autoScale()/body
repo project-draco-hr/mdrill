@@ -1,0 +1,81 @@
+{
+  int dist;
+  Node ln, rn;
+  Dimension temp=new Dimension(10,10);
+  if (m_numNodes <= 1) {
+    return;
+  }
+  dist=(m_nodes[0].m_height + 40) * m_numLevels;
+  if (dist > temp.height) {
+    temp.height=dist;
+  }
+  for (int noa=0; noa < m_numNodes - 1; noa++) {
+    calcScreenCoords(noa);
+    calcScreenCoords(noa + 1);
+    if (m_nodes[noa + 1].m_change) {
+    }
+ else {
+      dist=m_nodes[noa + 1].m_center - m_nodes[noa].m_center;
+      if (dist <= 0) {
+        dist=1;
+      }
+      dist=((6 + m_nodes[noa].m_side + m_nodes[noa + 1].m_side) * m_viewSize.width) / dist;
+      if (dist > temp.width) {
+        temp.width=dist;
+      }
+    }
+    dist=(m_nodes[noa + 1].m_height + 40) * m_numLevels;
+    if (dist > temp.height) {
+      temp.height=dist;
+    }
+  }
+  int y1, y2, xa, xb;
+  y1=m_nodes[m_edges[0].m_parent].m_top;
+  y2=m_nodes[m_edges[0].m_child].m_top;
+  dist=y2 - y1;
+  if (dist <= 0) {
+    dist=1;
+  }
+  dist=((60 + m_edges[0].m_height + m_nodes[m_edges[0].m_parent].m_height) * m_viewSize.height) / dist;
+  if (dist > temp.height) {
+    temp.height=dist;
+  }
+  for (int noa=0; noa < m_numNodes - 2; noa++) {
+    if (m_nodes[m_edges[noa + 1].m_child].m_change) {
+    }
+ else {
+      xa=m_nodes[m_edges[noa].m_child].m_center - m_nodes[m_edges[noa].m_parent].m_center;
+      xa/=2;
+      xa+=m_nodes[m_edges[noa].m_parent].m_center;
+      xb=m_nodes[m_edges[noa + 1].m_child].m_center - m_nodes[m_edges[noa + 1].m_parent].m_center;
+      xb/=2;
+      xb+=m_nodes[m_edges[noa + 1].m_parent].m_center;
+      dist=xb - xa;
+      if (dist <= 0) {
+        dist=1;
+      }
+      dist=((12 + m_edges[noa].m_side + m_edges[noa + 1].m_side) * m_viewSize.width) / dist;
+      if (dist > temp.width) {
+        temp.width=dist;
+      }
+    }
+    y1=m_nodes[m_edges[noa + 1].m_parent].m_top;
+    y2=m_nodes[m_edges[noa + 1].m_child].m_top;
+    dist=y2 - y1;
+    if (dist <= 0) {
+      dist=1;
+    }
+    dist=((60 + m_edges[noa + 1].m_height + m_nodes[m_edges[noa + 1].m_parent].m_height) * m_viewSize.height) / dist;
+    if (dist > temp.height) {
+      temp.height=dist;
+    }
+  }
+  Dimension e=getSize();
+  Dimension np=new Dimension();
+  np.width=(int)(e.width / 2 - (((double)e.width / 2) - m_viewPos.width) / ((double)m_viewSize.width) * (double)temp.width);
+  np.height=(int)(e.height / 2 - (((double)e.height / 2) - m_viewPos.height) / ((double)m_viewSize.height) * (double)temp.height);
+  for (int noa=0; noa < m_numNodes; noa++) {
+    m_nodes[noa].m_top=32000;
+  }
+  animateScaling(np,temp,10);
+}

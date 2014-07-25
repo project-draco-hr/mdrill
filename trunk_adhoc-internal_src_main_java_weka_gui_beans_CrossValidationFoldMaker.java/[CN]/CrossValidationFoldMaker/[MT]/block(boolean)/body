@@ -1,0 +1,14 @@
+{
+  if (tf) {
+    try {
+      if (m_foldThread != null && m_foldThread.isAlive()) {
+        wait();
+      }
+    }
+ catch (    InterruptedException ex) {
+    }
+  }
+ else {
+    notifyAll();
+  }
+}

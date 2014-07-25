@@ -1,0 +1,3 @@
+{
+  return SimpleKMeans.class.getName();
+}

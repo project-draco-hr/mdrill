@@ -1,0 +1,19 @@
+{
+  Capabilities result;
+  if (getClassifier() == null) {
+    result=super.getCapabilities();
+    result.disableAll();
+  }
+ else {
+    result=getClassifier().getCapabilities();
+  }
+  for (  Capability cap : Capability.values())   result.enableDependency(cap);
+  result.disable(Capability.NUMERIC_CLASS);
+  result.disable(Capability.DATE_CLASS);
+  if (m_evaluationMeasure != EVAL_ACCURACY && m_evaluationMeasure != EVAL_FMEASURE && m_evaluationMeasure != EVAL_AUC) {
+    result.enable(Capability.NUMERIC_CLASS);
+    result.enable(Capability.DATE_CLASS);
+  }
+  result.setMinimumNumberInstances(getFolds());
+  return result;
+}

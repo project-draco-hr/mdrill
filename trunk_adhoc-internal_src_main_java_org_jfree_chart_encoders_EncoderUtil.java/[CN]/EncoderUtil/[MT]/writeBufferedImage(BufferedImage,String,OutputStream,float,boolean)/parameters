@@ -1,0 +1,5 @@
+BufferedImage image
+String format
+OutputStream outputStream
+float quality
+boolean encodeAlpha

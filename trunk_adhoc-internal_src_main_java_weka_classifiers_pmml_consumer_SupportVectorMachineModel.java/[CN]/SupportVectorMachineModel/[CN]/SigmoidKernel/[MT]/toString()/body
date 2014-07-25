@@ -1,0 +1,3 @@
+{
+  return "Sigmoid kernel: K(x,y) = tanh(" + m_gamma + " * <x,y> + "+ m_coef0+ ")";
+}

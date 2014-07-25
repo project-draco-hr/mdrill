@@ -1,0 +1,33 @@
+{
+  m_BayesNet=bayesNet;
+  double fAccuracy=0.0;
+  double fWeight=0.0;
+  Instances instances=bayesNet.m_Instances;
+  bayesNet.estimateCPTs();
+  int nFoldStart=0;
+  int nFoldEnd=instances.numInstances() / nNrOfFolds;
+  int iFold=1;
+  while (nFoldStart < instances.numInstances()) {
+    for (int iInstance=nFoldStart; iInstance < nFoldEnd; iInstance++) {
+      Instance instance=instances.instance(iInstance);
+      instance.setWeight(-instance.weight());
+      bayesNet.updateClassifier(instance);
+    }
+    for (int iInstance=nFoldStart; iInstance < nFoldEnd; iInstance++) {
+      Instance instance=instances.instance(iInstance);
+      instance.setWeight(-instance.weight());
+      fAccuracy+=accuracyIncrease(instance);
+      instance.setWeight(-instance.weight());
+      fWeight+=instance.weight();
+    }
+    for (int iInstance=nFoldStart; iInstance < nFoldEnd; iInstance++) {
+      Instance instance=instances.instance(iInstance);
+      instance.setWeight(-instance.weight());
+      bayesNet.updateClassifier(instance);
+    }
+    nFoldStart=nFoldEnd;
+    iFold++;
+    nFoldEnd=iFold * instances.numInstances() / nNrOfFolds;
+  }
+  return fAccuracy / fWeight;
+}

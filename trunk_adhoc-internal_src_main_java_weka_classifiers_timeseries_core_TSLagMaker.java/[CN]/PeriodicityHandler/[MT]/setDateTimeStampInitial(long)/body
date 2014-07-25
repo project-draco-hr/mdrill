@@ -1,0 +1,13 @@
+{
+  m_isDateBased=true;
+  m_dateTimeStampInitialVal=tsbase;
+  GregorianCalendar c=new GregorianCalendar();
+  Date d=new Date(m_dateTimeStampInitialVal);
+  c.setTime(d);
+  if (m_handlerPeriodicity == Periodicity.MONTHLY || m_handlerPeriodicity == Periodicity.WEEKLY || m_handlerPeriodicity == Periodicity.QUARTERLY) {
+    m_dateTimeStampBaseVal=c.get(Calendar.YEAR);
+  }
+ else {
+    m_dateTimeStampBaseVal=m_dateTimeStampInitialVal;
+  }
+}

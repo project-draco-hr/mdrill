@@ -1,0 +1,16 @@
+{
+  if (this == obj) {
+    return true;
+  }
+  if (!(obj instanceof Size2D)) {
+    return false;
+  }
+  final Size2D that=(Size2D)obj;
+  if (this.width != that.width) {
+    return false;
+  }
+  if (this.height != that.height) {
+    return false;
+  }
+  return true;
+}

@@ -1,0 +1,3 @@
+{
+  evaluateClusterer(test,testFileName,true);
+}

@@ -1,0 +1,5 @@
+File path
+String hadoopConfDir
+String hdfsPath
+SolrCore core
+PartionKey partion

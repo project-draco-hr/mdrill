@@ -1,0 +1,7 @@
+String title
+String xAxisLabel
+String yAxisLabel
+WindDataset dataset
+boolean legend
+boolean tooltips
+boolean urls

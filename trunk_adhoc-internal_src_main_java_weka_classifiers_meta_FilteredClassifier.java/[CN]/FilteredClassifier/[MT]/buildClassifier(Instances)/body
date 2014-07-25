@@ -1,0 +1,12 @@
+{
+  if (m_Classifier == null) {
+    throw new Exception("No base classifiers have been set!");
+  }
+  data=new Instances(data);
+  data.deleteWithMissingClass();
+  m_Filter.setInputFormat(data);
+  data=Filter.useFilter(data,m_Filter);
+  getClassifier().getCapabilities().testWithFail(data);
+  m_FilteredInstances=data.stringFreeStructure();
+  m_Classifier.buildClassifier(data);
+}

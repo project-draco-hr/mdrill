@@ -1,0 +1,4 @@
+{
+  this(con);
+  executeQuery(query);
+}

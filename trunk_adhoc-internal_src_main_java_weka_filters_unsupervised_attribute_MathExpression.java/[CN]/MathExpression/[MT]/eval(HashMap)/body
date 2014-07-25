@@ -1,0 +1,19 @@
+{
+  SymbolFactory sf;
+  ByteArrayInputStream parserInput;
+  Parser parser;
+  double result;
+  try {
+    sf=new DefaultSymbolFactory();
+    parserInput=new ByteArrayInputStream(m_expression.getBytes());
+    parser=new Parser(new Scanner(parserInput,sf),sf);
+    parser.setSymbols(symbols);
+    parser.parse();
+    result=parser.getResult();
+  }
+ catch (  Exception e) {
+    result=Double.NaN;
+    e.printStackTrace();
+  }
+  return result;
+}

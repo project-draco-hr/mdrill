@@ -1,0 +1,7 @@
+{
+  super(area,toolTipText,urlText);
+  if (title == null) {
+    throw new IllegalArgumentException("Null 'title' argument.");
+  }
+  this.title=title;
+}

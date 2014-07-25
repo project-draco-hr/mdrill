@@ -1,0 +1,4 @@
+{
+  double minPix=m_minX + (pix * m_pixWidth);
+  return minPix + m_random.nextDouble() * m_pixWidth;
+}

@@ -1,0 +1,37 @@
+{
+  this.open();
+  String sql="SELECT sum(linecnt) as linecnt,sum(impression) as impression,sum(finclick) as finclick,sum(finprice) as finprice," + "sum(alipay_direct_num) as alipay_direct_num,sum(alipay_direct_amt)," + "sum(alipay_indirect_num),sum(alipay_indirect_amt),tablename,type "+ " FROM adhoc_metric"+ " WHERE thedate=?"+ " group by tablename,type "+ " order by tablename,type";
+  PreparedStatement pstmt=null;
+  HashMap<String,ArrayList<Metric>> rtn=new HashMap<String,ArrayList<Metric>>();
+  try {
+    pstmt=conn.prepareStatement(sql);
+    pstmt.setString(1,thedate);
+    ResultSet rs=pstmt.executeQuery();
+    while (rs.next()) {
+      Metric metric=new Metric();
+      metric.setThedate(thedate);
+      metric.setLineCnt(rs.getLong(1));
+      metric.setImpression(rs.getLong(2));
+      metric.setFinClick(rs.getLong(3));
+      metric.setFinPrice(rs.getFloat(4));
+      metric.setAlipayDirectNum(rs.getLong(5));
+      metric.setAlipayDirectAmt(rs.getFloat(6));
+      metric.setAlipayIndirectNum(rs.getLong(7));
+      metric.setAlipayIndirectAmt(rs.getFloat(8));
+      String tablename=rs.getString(9);
+      metric.setType(rs.getLong(10));
+      metric.setTablename(tablename);
+      ArrayList<Metric> list=rtn.get(tablename);
+      if (list == null) {
+        list=new ArrayList<Metric>();
+        rtn.put(tablename,list);
+      }
+      list.add(metric);
+    }
+  }
+ catch (  SQLException e) {
+    LOG.error(String.valueOf(pstmt),e);
+  }
+  this.close();
+  return rtn;
+}

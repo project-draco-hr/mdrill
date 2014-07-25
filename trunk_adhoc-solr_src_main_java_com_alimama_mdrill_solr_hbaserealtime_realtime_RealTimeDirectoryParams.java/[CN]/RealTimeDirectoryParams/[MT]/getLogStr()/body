@@ -1,0 +1,12 @@
+{
+  StringBuffer buff=new StringBuffer();
+  if (Partion != null) {
+    buff.append(Partion.tablename);
+    buff.append("@");
+    buff.append(Partion.partion);
+  }
+ else {
+    buff.append(baseDir);
+  }
+  return buff.toString();
+}

@@ -1,0 +1,10 @@
+{
+  AbstractCategoryItemLabelGenerator clone=(AbstractCategoryItemLabelGenerator)super.clone();
+  if (this.numberFormat != null) {
+    clone.numberFormat=(NumberFormat)this.numberFormat.clone();
+  }
+  if (this.dateFormat != null) {
+    clone.dateFormat=(DateFormat)this.dateFormat.clone();
+  }
+  return clone;
+}

@@ -1,0 +1,8 @@
+{
+  Capabilities cap=getCapabilities();
+  if (!cap.test(instances))   throw new IllegalArgumentException(cap.getFailReason());
+  if (m_retrieval == INCREMENTAL) {
+    if (setStructure(instances) == CANCEL)     cancel();
+  }
+ else   m_instances=instances;
+}

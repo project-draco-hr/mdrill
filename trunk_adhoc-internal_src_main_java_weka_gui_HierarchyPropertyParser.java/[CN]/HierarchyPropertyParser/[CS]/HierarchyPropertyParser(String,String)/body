@@ -1,0 +1,4 @@
+{
+  this();
+  build(p,delim);
+}

@@ -1,0 +1,26 @@
+{
+  double[][] A=Arg.getArray();
+  n=Arg.getRowDimension();
+  L=new double[n][n];
+  isspd=(Arg.getColumnDimension() == n);
+  for (int j=0; j < n; j++) {
+    double[] Lrowj=L[j];
+    double d=0.0;
+    for (int k=0; k < j; k++) {
+      double[] Lrowk=L[k];
+      double s=0.0;
+      for (int i=0; i < k; i++) {
+        s+=Lrowk[i] * Lrowj[i];
+      }
+      Lrowj[k]=s=(A[j][k] - s) / L[k][k];
+      d=d + s * s;
+      isspd=isspd & (A[k][j] == A[j][k]);
+    }
+    d=A[j][j] - d;
+    isspd=isspd & (d > 0.0);
+    L[j][j]=Math.sqrt(Math.max(d,0.0));
+    for (int k=j + 1; k < n; k++) {
+      L[j][k]=0.0;
+    }
+  }
+}

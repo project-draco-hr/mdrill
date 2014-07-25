@@ -1,0 +1,3 @@
+{
+  return Array.get(m_PropertyArray,index);
+}

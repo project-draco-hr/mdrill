@@ -1,0 +1,40 @@
+{
+  super(opType,fieldDefs);
+  if (opType != FieldMetaInfo.Optype.CONTINUOUS) {
+    throw new Exception("[NormContinuous] can only have a continuous optype");
+  }
+  m_fieldName=normCont.getAttribute("field");
+  String mapMissing=normCont.getAttribute("mapMissingTo");
+  if (mapMissing != null && mapMissing.length() > 0) {
+    m_mapMissingTo=Double.parseDouble(mapMissing);
+    m_mapMissingDefined=true;
+  }
+  String outliers=normCont.getAttribute("outliers");
+  if (outliers != null && outliers.length() > 0) {
+    for (    MiningFieldMetaInfo.Outlier o : MiningFieldMetaInfo.Outlier.values()) {
+      if (o.toString().equals(outliers)) {
+        m_outlierTreatmentMethod=o;
+        break;
+      }
+    }
+  }
+  NodeList lnL=normCont.getElementsByTagName("LinearNorm");
+  if (lnL.getLength() < 2) {
+    throw new Exception("[NormContinuous] Must be at least 2 LinearNorm elements!");
+  }
+  m_linearNormOrig=new double[lnL.getLength()];
+  m_linearNormNorm=new double[lnL.getLength()];
+  for (int i=0; i < lnL.getLength(); i++) {
+    Node lnN=lnL.item(i);
+    if (lnN.getNodeType() == Node.ELEMENT_NODE) {
+      Element lnE=(Element)lnN;
+      String orig=lnE.getAttribute("orig");
+      m_linearNormOrig[i]=Double.parseDouble(orig);
+      String norm=lnE.getAttribute("norm");
+      m_linearNormNorm[i]=Double.parseDouble(norm);
+    }
+  }
+  if (fieldDefs != null) {
+    setUpField();
+  }
+}

@@ -1,0 +1,3 @@
+{
+  setBaseNegativeItemLabelPosition(position,true);
+}

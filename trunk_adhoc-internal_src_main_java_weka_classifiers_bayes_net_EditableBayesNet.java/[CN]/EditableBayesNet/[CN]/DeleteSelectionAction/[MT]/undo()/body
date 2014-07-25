@@ -1,0 +1,63 @@
+{
+  try {
+    for (int iNode=0; iNode < m_nodes.size(); iNode++) {
+      int nTargetNode=(Integer)m_nodes.elementAt(iNode);
+      m_Instances.insertAttributeAt(m_att[iNode],nTargetNode);
+    }
+    int nAtts=m_Instances.numAttributes();
+    ParentSet[] parentSets=new ParentSet[nAtts];
+    int[] offset=new int[nAtts];
+    for (int iNode=0; iNode < nAtts; iNode++) {
+      offset[iNode]=iNode;
+    }
+    for (int iNode=m_nodes.size() - 1; iNode >= 0; iNode--) {
+      int nTargetNode=(Integer)m_nodes.elementAt(iNode);
+      for (int i=nTargetNode; i < nAtts - 1; i++) {
+        offset[i]=offset[i + 1];
+      }
+    }
+    int iTargetNode=0;
+    for (int iParentSet=0; iParentSet < nAtts; iParentSet++) {
+      if (iTargetNode < m_nodes.size() && (Integer)m_nodes.elementAt(iTargetNode) == (Integer)iParentSet) {
+        SerializedObject so=new SerializedObject(m_ParentSet[iTargetNode]);
+        parentSets[iParentSet]=(ParentSet)so.getObject();
+        iTargetNode++;
+      }
+ else {
+        parentSets[iParentSet]=m_ParentSets[iParentSet - iTargetNode];
+        for (int iParent=0; iParent < parentSets[iParentSet].getNrOfParents(); iParent++) {
+          int nParent=parentSets[iParentSet].getParent(iParent);
+          parentSets[iParentSet].SetParent(iParent,offset[nParent]);
+        }
+      }
+    }
+    m_ParentSets=parentSets;
+    Estimator[][] distributions=new Estimator[nAtts][];
+    iTargetNode=0;
+    for (int iNode=0; iNode < nAtts; iNode++) {
+      if (iTargetNode < m_nodes.size() && (Integer)m_nodes.elementAt(iTargetNode) == (Integer)iNode) {
+        SerializedObject so=new SerializedObject(m_CPT[iTargetNode]);
+        distributions[iNode]=(Estimator[])so.getObject();
+        iTargetNode++;
+      }
+ else {
+        distributions[iNode]=m_Distributions[iNode - iTargetNode];
+      }
+    }
+    m_Distributions=distributions;
+    for (int iNode=0; iNode < m_nodes.size(); iNode++) {
+      int nTargetNode=(Integer)m_nodes.elementAt(iNode);
+      m_nPositionX.insertElementAt(m_nPosX[iNode],nTargetNode);
+      m_nPositionY.insertElementAt(m_nPosY[iNode],nTargetNode);
+      m_nEvidence.insertElementAt(-1,nTargetNode);
+      m_fMarginP.insertElementAt(new double[getCardinality(nTargetNode)],nTargetNode);
+    }
+    for (int deletedArc=0; deletedArc < m_deleteArcActions.size(); deletedArc++) {
+      DeleteArcAction action=(DeleteArcAction)m_deleteArcActions.elementAt(deletedArc);
+      action.undo();
+    }
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
+}

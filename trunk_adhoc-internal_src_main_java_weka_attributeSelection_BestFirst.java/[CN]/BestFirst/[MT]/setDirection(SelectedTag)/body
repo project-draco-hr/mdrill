@@ -1,0 +1,5 @@
+{
+  if (d.getTags() == TAGS_SELECTION) {
+    m_searchDirection=d.getSelectedTag().getID();
+  }
+}

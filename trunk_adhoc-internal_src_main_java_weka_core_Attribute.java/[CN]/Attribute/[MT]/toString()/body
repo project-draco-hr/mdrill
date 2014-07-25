@@ -1,0 +1,36 @@
+{
+  StringBuffer text=new StringBuffer();
+  text.append(ARFF_ATTRIBUTE).append(" ").append(Utils.quote(m_Name)).append(" ");
+switch (m_Type) {
+case NOMINAL:
+    text.append('{');
+  Enumeration enu=enumerateValues();
+while (enu.hasMoreElements()) {
+  text.append(Utils.quote((String)enu.nextElement()));
+  if (enu.hasMoreElements())   text.append(',');
+}
+text.append('}');
+break;
+case NUMERIC:
+text.append(ARFF_ATTRIBUTE_NUMERIC);
+break;
+case STRING:
+text.append(ARFF_ATTRIBUTE_STRING);
+break;
+case DATE:
+text.append(ARFF_ATTRIBUTE_DATE).append(" ").append(Utils.quote(m_DateFormat.toPattern()));
+break;
+case RELATIONAL:
+text.append(ARFF_ATTRIBUTE_RELATIONAL).append("\n");
+Enumeration enm=m_Header.enumerateAttributes();
+while (enm.hasMoreElements()) {
+text.append(enm.nextElement()).append("\n");
+}
+text.append(ARFF_END_SUBRELATION).append(" ").append(Utils.quote(m_Name));
+break;
+default :
+text.append("UNKNOWN");
+break;
+}
+return text.toString();
+}

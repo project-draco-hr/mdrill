@@ -1,0 +1,5 @@
+{
+  double unit=getTickUnit().getSize();
+  Range range=getRange();
+  return (int)(Math.floor(range.getUpperBound() / unit) - Math.ceil(range.getLowerBound() / unit) + 1);
+}

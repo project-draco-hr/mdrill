@@ -1,0 +1,4 @@
+{
+  this.scaleIndex=index;
+  notifyListeners(new DialLayerChangeEvent(this));
+}

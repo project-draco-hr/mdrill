@@ -1,0 +1,6 @@
+{
+  TimeTableXYDataset clone=(TimeTableXYDataset)super.clone();
+  clone.values=(DefaultKeyedValues2D)this.values.clone();
+  clone.workingCalendar=(Calendar)this.workingCalendar.clone();
+  return clone;
+}

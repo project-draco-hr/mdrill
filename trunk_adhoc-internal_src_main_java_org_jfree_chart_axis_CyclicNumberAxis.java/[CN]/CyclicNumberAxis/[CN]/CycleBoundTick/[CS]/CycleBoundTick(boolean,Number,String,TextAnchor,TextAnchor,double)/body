@@ -1,0 +1,4 @@
+{
+  super(number,label,textAnchor,rotationAnchor,angle);
+  this.mapToLastCycle=mapToLastCycle;
+}

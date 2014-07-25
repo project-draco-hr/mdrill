@@ -1,0 +1,16 @@
+{
+  JButton setButton=new JButton("Choose");
+  setButton.addActionListener(new ActionListener(){
+    public void actionPerformed(    ActionEvent e){
+      JPopupMenu popup=getChooseClassPopupMenu();
+      if (e.getSource() instanceof Component) {
+        Component comp=(Component)e.getSource();
+        popup.show(comp,comp.getX(),comp.getY());
+        popup.pack();
+        popup.repaint();
+      }
+    }
+  }
+);
+  return setButton;
+}

@@ -1,0 +1,3 @@
+{
+  return "The Pearson VII function-based universal kernel.\n\n" + "For more information see:\n\n" + getTechnicalInformation().toString();
+}

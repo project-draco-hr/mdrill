@@ -1,0 +1,6 @@
+{
+  final LogContext ctx=Log.createContext((String)null);
+  assertEquals("Context = null",ctx,Log.createContext((String)null));
+  final LogContext ctx2=Log.createContext("Test");
+  assertEquals("Context Test",ctx2,Log.createContext("Test"));
+}

@@ -1,0 +1,6 @@
+{
+  m_FontName=fontName;
+  StyleConstants.setFontFamily(DEFAULT_NORMAL,fontName);
+  StyleConstants.setFontFamily(DEFAULT_STRING,fontName);
+  StyleConstants.setFontFamily(DEFAULT_COMMENT,fontName);
+}

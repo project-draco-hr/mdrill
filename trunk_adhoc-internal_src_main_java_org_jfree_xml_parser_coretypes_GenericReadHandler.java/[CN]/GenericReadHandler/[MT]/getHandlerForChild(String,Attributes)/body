@@ -1,0 +1,18 @@
+{
+  try {
+    if (tagName.equals("objectRef")) {
+      final XmlReadHandler handler=new ObjectRefHandler();
+      this.objectRefHandlers.add(handler);
+      return handler;
+    }
+    final XmlReadHandler handler=getRootHandler().createHandler(this.objectFactory.getTypeForTagName(tagName),tagName,atts);
+    if (handler != null) {
+      this.createdHandler.put(tagName,handler);
+    }
+    return handler;
+  }
+ catch (  ObjectDescriptionException ode) {
+    Log.debug("Failed to get handler for child: ",ode);
+    throw new SAXException(ode);
+  }
+}

@@ -1,0 +1,16 @@
+{
+  if (obj == this) {
+    return true;
+  }
+  if (!(obj instanceof XYBarDataset)) {
+    return false;
+  }
+  XYBarDataset that=(XYBarDataset)obj;
+  if (!this.underlying.equals(that.underlying)) {
+    return false;
+  }
+  if (this.barWidth != that.barWidth) {
+    return false;
+  }
+  return true;
+}

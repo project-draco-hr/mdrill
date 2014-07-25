@@ -1,0 +1,3 @@
+{
+  drawString(str,(int)x,(int)y);
+}

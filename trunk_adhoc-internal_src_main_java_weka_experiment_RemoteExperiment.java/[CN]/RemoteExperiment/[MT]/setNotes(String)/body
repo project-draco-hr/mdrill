@@ -1,0 +1,4 @@
+{
+  super.setNotes(newNotes);
+  m_baseExperiment.setNotes(newNotes);
+}

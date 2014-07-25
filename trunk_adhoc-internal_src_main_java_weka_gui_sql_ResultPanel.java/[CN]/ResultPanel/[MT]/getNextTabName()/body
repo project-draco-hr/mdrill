@@ -1,0 +1,4 @@
+{
+  m_NameCounter++;
+  return "Query" + m_NameCounter;
+}

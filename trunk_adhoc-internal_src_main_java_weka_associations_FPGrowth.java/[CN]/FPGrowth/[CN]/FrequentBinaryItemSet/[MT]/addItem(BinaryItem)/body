@@ -1,0 +1,4 @@
+{
+  m_items.add(i);
+  Collections.sort(m_items);
+}

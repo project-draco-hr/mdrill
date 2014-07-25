@@ -1,0 +1,5 @@
+{
+  m_totalTransactions=totalTrans;
+  m_items=array;
+  m_counter=1;
+}

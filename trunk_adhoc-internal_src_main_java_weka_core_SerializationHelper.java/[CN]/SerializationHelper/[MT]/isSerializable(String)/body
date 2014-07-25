@@ -1,0 +1,10 @@
+{
+  boolean result;
+  try {
+    result=isSerializable(Class.forName(classname));
+  }
+ catch (  Exception e) {
+    result=false;
+  }
+  return result;
+}

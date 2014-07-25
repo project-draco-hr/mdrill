@@ -1,0 +1,5 @@
+{
+  this.drawable=drawable;
+  revalidate();
+  repaint();
+}

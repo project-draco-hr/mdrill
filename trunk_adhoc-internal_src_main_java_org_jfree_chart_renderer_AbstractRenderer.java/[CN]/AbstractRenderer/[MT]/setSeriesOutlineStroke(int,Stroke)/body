@@ -1,0 +1,3 @@
+{
+  setSeriesOutlineStroke(series,stroke,true);
+}

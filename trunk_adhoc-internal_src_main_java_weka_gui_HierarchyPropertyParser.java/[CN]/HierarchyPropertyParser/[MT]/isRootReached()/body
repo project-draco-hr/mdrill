@@ -1,0 +1,3 @@
+{
+  return (m_Current.parent == null);
+}

@@ -1,0 +1,12 @@
+{
+  MysqlService server=new MysqlService();
+  List<TotalUserPv> list=server.getTotalTopUsers(Integer.parseInt(args[0]));
+  for (  TotalUserPv pv : list)   System.out.println(pv);
+  List<DayUserPv> list2=server.getUserPV(args[1]);
+  for (  DayUserPv pv : list2)   System.out.println(pv);
+  List<String> days=server.getRecentDays("module_info","queryday",5);
+  for (  String day : days)   System.out.println(day);
+  System.out.println("=======");
+  days=server.getRecentDays("day_user_pv","queryday",5);
+  for (  String day : days)   System.out.println(day);
+}

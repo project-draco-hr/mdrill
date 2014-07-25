@@ -1,0 +1,11 @@
+{
+  if (m_ListModel == null) {
+    return null;
+  }
+  int length=m_ListModel.getSize();
+  Object result=Array.newInstance(m_ElementClass,length);
+  for (int i=0; i < length; i++) {
+    Array.set(result,i,m_ListModel.elementAt(i));
+  }
+  return result;
+}

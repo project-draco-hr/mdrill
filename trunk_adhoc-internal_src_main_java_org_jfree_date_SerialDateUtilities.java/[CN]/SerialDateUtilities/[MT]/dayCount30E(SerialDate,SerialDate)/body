@@ -1,0 +1,29 @@
+{
+  int d1;
+  final int m1;
+  final int y1;
+  int d2;
+  final int m2;
+  final int y2;
+  if (start.isBefore(end)) {
+    d1=start.getDayOfMonth();
+    m1=start.getMonth();
+    y1=start.getYYYY();
+    if (d1 == 31) {
+      d1=30;
+    }
+    d2=end.getDayOfMonth();
+    m2=end.getMonth();
+    y2=end.getYYYY();
+    if (d2 == 31) {
+      d2=30;
+    }
+    return 360 * (y2 - y1) + 30 * (m2 - m1) + (d2 - d1);
+  }
+ else   if (start.isAfter(end)) {
+    return -dayCount30E(end,start);
+  }
+ else {
+    return 0;
+  }
+}

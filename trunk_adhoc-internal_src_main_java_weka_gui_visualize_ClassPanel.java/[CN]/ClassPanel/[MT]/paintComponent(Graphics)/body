@@ -1,0 +1,19 @@
+{
+  super.paintComponent(gx);
+  if (m_isEnabled) {
+    if (m_isNumeric) {
+      m_oldWidth=-9000;
+      this.removeAll();
+      paintNumeric(gx);
+    }
+ else {
+      if (m_Instances != null && m_Instances.numInstances() > 0 && m_Instances.numAttributes() > 0) {
+        if (m_oldWidth != this.getWidth()) {
+          this.removeAll();
+          m_oldWidth=this.getWidth();
+          paintNominal(gx);
+        }
+      }
+    }
+  }
+}

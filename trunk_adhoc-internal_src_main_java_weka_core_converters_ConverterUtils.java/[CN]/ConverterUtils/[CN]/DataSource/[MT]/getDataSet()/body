@@ -1,0 +1,14 @@
+{
+  Instances result;
+  result=null;
+  reset();
+  try {
+    if (m_BatchBuffer == null)     result=m_Loader.getDataSet();
+ else     result=m_BatchBuffer;
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+    result=null;
+  }
+  return result;
+}

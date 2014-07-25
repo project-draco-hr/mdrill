@@ -1,0 +1,22 @@
+{
+  super.paintComponent(g);
+  final Graphics2D g2=(Graphics2D)g;
+  final Dimension size=getSize();
+  final Insets insets=getInsets();
+  final Rectangle2D available=new Rectangle2D.Double(insets.left,insets.top,size.getWidth() - insets.left - insets.right,size.getHeight() - insets.top - insets.bottom);
+  final double x=available.getCenterX();
+  final double y=available.getCenterY();
+  final Line2D line1=new Line2D.Double(x - 2.0,y + 2.0,x + 2.0,y - 2.0);
+  final Line2D line2=new Line2D.Double(x - 2.0,y - 2.0,x + 2.0,y + 2.0);
+  g2.setPaint(Color.red);
+  g2.draw(line1);
+  g2.draw(line2);
+  g2.setFont(this.font);
+  g2.setPaint(Color.black);
+  if (this.rotate) {
+    TextUtilities.drawRotatedString(this.text,g2,(float)x,(float)y,this.anchor,this.angle,this.rotationAnchor);
+  }
+ else {
+    TextUtilities.drawAlignedString(this.text,g2,(float)x,(float)y,this.anchor);
+  }
+}

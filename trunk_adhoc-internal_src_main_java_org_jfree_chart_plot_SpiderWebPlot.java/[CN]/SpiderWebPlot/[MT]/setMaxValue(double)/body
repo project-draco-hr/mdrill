@@ -1,0 +1,4 @@
+{
+  this.maxValue=value;
+  fireChangeEvent();
+}

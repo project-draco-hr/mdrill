@@ -1,0 +1,5 @@
+{
+  ColorBar clone=(ColorBar)super.clone();
+  clone.axis=(ValueAxis)this.axis.clone();
+  return clone;
+}

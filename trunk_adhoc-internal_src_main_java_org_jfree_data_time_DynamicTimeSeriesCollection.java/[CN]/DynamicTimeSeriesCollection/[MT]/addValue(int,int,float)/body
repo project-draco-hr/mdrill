@@ -1,0 +1,12 @@
+{
+  invalidateRangeInfo();
+  if (seriesNumber >= this.valueHistory.length) {
+    throw new IllegalArgumentException("TimeSeriesDataset.addValue(): series #" + seriesNumber + "unspecified in c'tor");
+  }
+  if (this.valueHistory[seriesNumber] == null) {
+    this.valueHistory[seriesNumber]=new ValueSequence(this.historyCount);
+    this.seriesCount++;
+  }
+  this.valueHistory[seriesNumber].enterData(index,value);
+  fireSeriesChanged();
+}

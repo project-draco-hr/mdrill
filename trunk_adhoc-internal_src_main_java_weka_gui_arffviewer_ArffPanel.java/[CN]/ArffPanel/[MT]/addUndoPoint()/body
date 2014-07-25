@@ -1,0 +1,4 @@
+{
+  ((ArffSortedTableModel)m_TableArff.getModel()).addUndoPoint();
+  setMenu();
+}

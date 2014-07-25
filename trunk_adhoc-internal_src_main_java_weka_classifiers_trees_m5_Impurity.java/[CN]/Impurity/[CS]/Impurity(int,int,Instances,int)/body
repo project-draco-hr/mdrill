@@ -1,0 +1,17 @@
+{
+  Values values=new Values(0,inst.numInstances() - 1,inst.classIndex(),inst);
+  attr=attribute;
+  n=inst.numInstances();
+  sd=values.sd;
+  va=values.va;
+  values=new Values(0,partition,inst.classIndex(),inst);
+  nl=partition + 1;
+  sl=values.sum;
+  s2l=values.sqrSum;
+  values=new Values(partition + 1,inst.numInstances() - 1,inst.classIndex(),inst);
+  nr=inst.numInstances() - partition - 1;
+  sr=values.sum;
+  s2r=values.sqrSum;
+  order=k;
+  this.incremental(0,0);
+}

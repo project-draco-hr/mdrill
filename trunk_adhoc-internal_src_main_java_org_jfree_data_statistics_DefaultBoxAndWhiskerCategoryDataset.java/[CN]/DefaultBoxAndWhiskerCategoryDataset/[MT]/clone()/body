@@ -1,0 +1,5 @@
+{
+  DefaultBoxAndWhiskerCategoryDataset clone=(DefaultBoxAndWhiskerCategoryDataset)super.clone();
+  clone.data=(KeyedObjects2D)this.data.clone();
+  return clone;
+}

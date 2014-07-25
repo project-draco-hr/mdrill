@@ -1,0 +1,12 @@
+{
+  this.rootEditors.add(rootPanel);
+  this.tabbedPane.add(rootPanel.getEditorName(),rootPanel.getMainPanel());
+  rootPanel.addPropertyChangeListener("enabled",new TabEnableChangeListener());
+  updateRootEditorEnabled(rootPanel);
+  if (getRootEditorCount() == 1) {
+    setSelectedEditor(0);
+  }
+ else   if (isGlobalMenu()) {
+    setJMenuBar(updateGlobalMenubar());
+  }
+}

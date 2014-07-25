@@ -1,0 +1,14 @@
+{
+  final Rectangle2D r1=new Rectangle2D.Float(0,0,100,100);
+  final Rectangle2D r2=new Rectangle2D.Float(0,0,100,100);
+  assertTrue(ShapeUtilities.intersects(r1,r2));
+  r1.setRect(100,0,100,0);
+  assertTrue(ShapeUtilities.intersects(r1,r2));
+  assertTrue(ShapeUtilities.intersects(r2,r1));
+  r1.setRect(0,0,0,0);
+  assertTrue(ShapeUtilities.intersects(r1,r2));
+  assertTrue(ShapeUtilities.intersects(r2,r1));
+  r1.setRect(50,50,10,0);
+  assertTrue(ShapeUtilities.intersects(r1,r2));
+  assertTrue(ShapeUtilities.intersects(r2,r1));
+}

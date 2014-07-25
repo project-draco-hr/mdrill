@@ -1,0 +1,19 @@
+{
+  int addm=(m_additionalMeasures != null) ? m_additionalMeasures.length : 0;
+  int overall_length=RESULT_SIZE + addm;
+  String[] resultNames=new String[overall_length];
+  int current=0;
+  resultNames[current++]="Number_of_training_instances";
+  resultNames[current++]="Number_of_testing_instances";
+  resultNames[current++]="Log_likelihood";
+  resultNames[current++]="Number_of_clusters";
+  resultNames[current++]="Time_training";
+  resultNames[current++]="Time_testing";
+  for (int i=0; i < addm; i++) {
+    resultNames[current++]=m_additionalMeasures[i];
+  }
+  if (current != overall_length) {
+    throw new Error("ResultNames didn't fit RESULT_SIZE");
+  }
+  return resultNames;
+}

@@ -1,0 +1,16 @@
+{
+  JMenuBar menuBar=getJMenuBar();
+  if (menuBar == null) {
+    menuBar=new JMenuBar();
+  }
+ else {
+    menuBar.removeAll();
+  }
+  addMenus(menuBar,getPrefixMenus());
+  for (int i=0; i < this.rootEditors.size(); i++) {
+    final RootEditor editor=(RootEditor)this.rootEditors.get(i);
+    addMenus(menuBar,editor.getMenus());
+  }
+  addMenus(menuBar,getPostfixMenus());
+  return menuBar;
+}

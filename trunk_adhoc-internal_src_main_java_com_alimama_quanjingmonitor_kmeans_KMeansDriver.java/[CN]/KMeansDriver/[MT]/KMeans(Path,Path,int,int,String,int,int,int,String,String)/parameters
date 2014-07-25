@@ -1,0 +1,10 @@
+Path input
+Path output
+int maxIterations
+int k
+String delta
+int count
+int rep
+int reduce
+String config
+String splitsize

@@ -1,0 +1,3 @@
+{
+  return getPMMLModel(file,null);
+}

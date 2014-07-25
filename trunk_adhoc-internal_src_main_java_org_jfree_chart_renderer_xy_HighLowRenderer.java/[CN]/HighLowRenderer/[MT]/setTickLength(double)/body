@@ -1,0 +1,4 @@
+{
+  this.tickLength=length;
+  fireChangeEvent();
+}

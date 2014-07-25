@@ -1,0 +1,4 @@
+{
+  BlockContainer clone=(BlockContainer)super.clone();
+  return clone;
+}

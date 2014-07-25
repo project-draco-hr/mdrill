@@ -1,0 +1,20 @@
+{
+  final HashMap<String,String> tableInfo=getTableInfo(uuid);
+  JSONObject jsonObj=new JSONObject();
+  if (tableInfo == null || tableInfo.isEmpty()) {
+    jsonObj.put("code","0");
+    jsonObj.put("message","???????????????");
+    outStream.append(jsonObj.toString());
+    return;
+  }
+  if (tableInfo.get("status").equals("INDEXING")) {
+    jsonObj.put("code","0");
+    jsonObj.put("message","??????????????????????????????");
+    outStream.append(jsonObj.toString());
+    return;
+  }
+  Map stormconf=Utils.readStormConfig();
+  Configuration conf=getConf(stormconf);
+  outStream.write(tableInfo.get("colsShowName").replaceAll("\001",",").replaceAll("\t",",") + "\n");
+  com.alimama.mdrill.ui.service.AdhocOfflineService.readHiveResult(tableInfo.get("txtStorePath"),outStream,conf);
+}

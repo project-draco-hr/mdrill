@@ -1,0 +1,25 @@
+{
+  TableModel newModel=new AbstractTableModel(){
+    private static final long serialVersionUID=5447106383000555291L;
+    public String getColumnName(    int col){
+      return m_Instances.attribute(col).name();
+    }
+    public Class getColumnClass(    int col){
+      return "".getClass();
+    }
+    public int getColumnCount(){
+      return m_Instances.numAttributes();
+    }
+    public int getRowCount(){
+      return m_Instances.numInstances();
+    }
+    public Object getValueAt(    int row,    int col){
+      return new String(m_Instances.instance(row).toString(col));
+    }
+  }
+;
+  m_InstanceTable.setModel(newModel);
+  if (m_Debug) {
+    System.err.println("InstanceTable::batchFinished()");
+  }
+}

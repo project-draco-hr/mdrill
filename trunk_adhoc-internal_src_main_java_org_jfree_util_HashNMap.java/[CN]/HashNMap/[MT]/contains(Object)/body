@@ -1,0 +1,6 @@
+{
+  if (containsKey(value)) {
+    return true;
+  }
+  return containsValue(value);
+}

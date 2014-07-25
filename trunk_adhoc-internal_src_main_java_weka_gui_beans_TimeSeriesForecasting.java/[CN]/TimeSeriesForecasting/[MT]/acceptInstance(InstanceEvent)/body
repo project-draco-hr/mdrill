@@ -1,0 +1,22 @@
+{
+  int status=e.getStatus();
+  if (status == InstanceEvent.FORMAT_AVAILABLE) {
+    Instances dataset=e.getStructure();
+    loadOrDecodeForecaster();
+    if (!m_header.equalHeaders(dataset)) {
+      statusError();
+      logError("incoming instances structure does not match the structure " + "of the data used to train the forecaster.",null);
+      stop();
+      return;
+    }
+    m_forecastingStatus=Status.BUSY;
+    processInstance(null,true);
+    return;
+  }
+  processInstance(e.getInstance(),false);
+  if (status == InstanceEvent.BATCH_FINISHED) {
+    processInstance(null,false);
+    generateForecast();
+    m_forecastingStatus=Status.IDLE;
+  }
+}

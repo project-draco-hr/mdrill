@@ -1,0 +1,29 @@
+{
+  double logFloor;
+  if (this.allowNegativesFlag) {
+    if (lower > 10.0) {
+      logFloor=Math.log(lower) / LOG10_VALUE;
+      logFloor=Math.floor(logFloor);
+      logFloor=Math.pow(10,logFloor);
+    }
+ else     if (lower < -10.0) {
+      logFloor=Math.log(-lower) / LOG10_VALUE;
+      logFloor=Math.floor(-logFloor);
+      logFloor=-Math.pow(10,-logFloor);
+    }
+ else {
+      logFloor=Math.floor(lower);
+    }
+  }
+ else {
+    if (lower > 0.0) {
+      logFloor=Math.log(lower) / LOG10_VALUE;
+      logFloor=Math.floor(logFloor);
+      logFloor=Math.pow(10,logFloor);
+    }
+ else {
+      logFloor=Math.floor(lower);
+    }
+  }
+  return logFloor;
+}

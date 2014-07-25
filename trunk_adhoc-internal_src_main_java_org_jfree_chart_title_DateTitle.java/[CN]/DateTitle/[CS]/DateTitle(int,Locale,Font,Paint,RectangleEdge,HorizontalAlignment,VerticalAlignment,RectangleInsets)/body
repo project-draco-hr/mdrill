@@ -1,0 +1,3 @@
+{
+  super(DateFormat.getDateInstance(style,locale).format(new Date()),font,paint,position,horizontalAlignment,verticalAlignment,padding);
+}

@@ -1,0 +1,3 @@
+{
+  drawTick(g2,meterArea,value,false);
+}

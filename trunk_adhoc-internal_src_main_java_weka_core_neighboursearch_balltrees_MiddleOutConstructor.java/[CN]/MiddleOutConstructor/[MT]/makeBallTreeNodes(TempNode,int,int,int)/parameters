@@ -1,0 +1,4 @@
+TempNode node
+int startidx
+int endidx
+int depth

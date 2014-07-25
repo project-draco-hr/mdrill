@@ -1,0 +1,4 @@
+{
+  this.sectionOutlinePaintMap.put(key,paint);
+  fireChangeEvent();
+}

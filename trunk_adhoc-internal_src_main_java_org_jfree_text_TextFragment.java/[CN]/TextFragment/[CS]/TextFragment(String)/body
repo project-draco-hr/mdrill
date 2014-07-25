@@ -1,0 +1,3 @@
+{
+  this(text,DEFAULT_FONT,DEFAULT_PAINT);
+}

@@ -1,0 +1,5 @@
+{
+  super(source);
+  m_dataSet=dataSet;
+  m_classAttribute=classAtt;
+}

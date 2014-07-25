@@ -1,0 +1,22 @@
+{
+  final Class[] cArgs=new Class[this.constructorDefinitions.length];
+  final Object[] oArgs=new Object[this.constructorDefinitions.length];
+  for (int i=0; i < cArgs.length; i++) {
+    final ConstructorDefinition cDef=this.constructorDefinitions[i];
+    cArgs[i]=cDef.getType();
+    if (cDef.isNull()) {
+      oArgs[i]=null;
+    }
+ else {
+      oArgs[i]=getProperty(cDef.getPropertyName());
+    }
+  }
+  try {
+    final Constructor constr=this.baseClass.getConstructor(cArgs);
+    final Object o=constr.newInstance(oArgs);
+    return o;
+  }
+ catch (  Exception e) {
+    throw new ObjectDescriptionException("Ugh! Constructor made a buuuh!",e);
+  }
+}

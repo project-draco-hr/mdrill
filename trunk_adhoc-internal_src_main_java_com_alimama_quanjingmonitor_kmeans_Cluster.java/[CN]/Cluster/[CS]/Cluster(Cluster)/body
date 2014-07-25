@@ -1,0 +1,6 @@
+{
+  this.center.merger(cl.center);
+  this.id=cl.id;
+  this.converged=cl.converged;
+  this.numselect=cl.numselect;
+}

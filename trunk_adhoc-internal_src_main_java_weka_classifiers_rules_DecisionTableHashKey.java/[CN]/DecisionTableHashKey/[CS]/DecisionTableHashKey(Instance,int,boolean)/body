@@ -1,0 +1,17 @@
+{
+  int i;
+  int cindex=t.classIndex();
+  key=-999;
+  attributes=new double[numAtts];
+  missing=new boolean[numAtts];
+  for (i=0; i < numAtts; i++) {
+    if (i == cindex && !ignoreClass) {
+      missing[i]=true;
+    }
+ else {
+      if ((missing[i]=t.isMissing(i)) == false) {
+        attributes[i]=t.value(i);
+      }
+    }
+  }
+}

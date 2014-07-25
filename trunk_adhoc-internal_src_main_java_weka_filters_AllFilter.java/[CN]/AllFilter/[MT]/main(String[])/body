@@ -1,0 +1,3 @@
+{
+  runFilter(new AllFilter(),argv);
+}

@@ -1,0 +1,13 @@
+{
+  boolean result;
+  Iterator iter;
+  result=true;
+  iter=c.iterator();
+  while (iter.hasNext()) {
+    if (!contains(iter.next())) {
+      result=false;
+      break;
+    }
+  }
+  return result;
+}

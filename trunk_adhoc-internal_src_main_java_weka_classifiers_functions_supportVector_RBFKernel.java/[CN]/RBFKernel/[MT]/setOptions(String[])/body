@@ -1,0 +1,7 @@
+{
+  String tmpStr;
+  tmpStr=Utils.getOption('G',options);
+  if (tmpStr.length() != 0)   setGamma(Double.parseDouble(tmpStr));
+ else   setGamma(0.01);
+  super.setOptions(options);
+}

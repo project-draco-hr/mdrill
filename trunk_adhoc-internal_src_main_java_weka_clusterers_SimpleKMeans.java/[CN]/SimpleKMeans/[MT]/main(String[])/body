@@ -1,0 +1,3 @@
+{
+  runClusterer(new SimpleKMeans(),args);
+}

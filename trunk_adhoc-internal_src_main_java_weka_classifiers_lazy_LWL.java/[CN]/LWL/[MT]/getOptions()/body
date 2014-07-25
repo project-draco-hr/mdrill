@@ -1,0 +1,19 @@
+{
+  String[] superOptions=super.getOptions();
+  String[] options=new String[superOptions.length + 6];
+  int current=0;
+  options[current++]="-U";
+  options[current++]="" + getWeightingKernel();
+  if ((getKNN() == 0) && m_UseAllK) {
+    options[current++]="-K";
+    options[current++]="-1";
+  }
+ else {
+    options[current++]="-K";
+    options[current++]="" + getKNN();
+  }
+  options[current++]="-A";
+  options[current++]=m_NNSearch.getClass().getName() + " " + Utils.joinOptions(m_NNSearch.getOptions());
+  System.arraycopy(superOptions,0,options,current,superOptions.length);
+  return options;
+}

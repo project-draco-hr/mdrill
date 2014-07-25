@@ -1,0 +1,11 @@
+{
+  if (percent > 0.0) {
+    double radius=getMaxRadius();
+    double scaledRadius=radius * percent;
+    this.axis.setUpperBound(scaledRadius);
+    getAxis().setAutoRange(false);
+  }
+ else {
+    getAxis().setAutoRange(true);
+  }
+}

@@ -1,0 +1,7 @@
+{
+  Instances filteredData=new Instances(train);
+  m_nominalToBinary=new NominalToBinary();
+  m_nominalToBinary.setInputFormat(filteredData);
+  filteredData=Filter.useFilter(filteredData,m_nominalToBinary);
+  return super.getNumericData(filteredData);
+}

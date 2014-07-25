@@ -1,0 +1,11 @@
+{
+  print("only class in data");
+  printAttributeSummary(nominalPredictor,numericPredictor,stringPredictor,datePredictor,relationalPredictor,false,classType);
+  print("...");
+  FastVector accepts=new FastVector();
+  accepts.addElement("class");
+  accepts.addElement("zeror");
+  int numTrain=getNumInstances(), numTest=getNumInstances(), missingLevel=0;
+  boolean predictorMissing=false, classMissing=false;
+  return runBasicTest(false,false,false,false,false,false,classType,missingLevel,predictorMissing,classMissing,numTrain,numTest,2,accepts);
+}

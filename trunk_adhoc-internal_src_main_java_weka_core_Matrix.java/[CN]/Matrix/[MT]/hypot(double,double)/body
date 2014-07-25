@@ -1,0 +1,3 @@
+{
+  return weka.core.matrix.Maths.hypot(a,b);
+}

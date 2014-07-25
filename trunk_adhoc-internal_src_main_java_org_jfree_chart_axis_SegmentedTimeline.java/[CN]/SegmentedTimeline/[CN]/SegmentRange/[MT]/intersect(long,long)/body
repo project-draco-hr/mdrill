@@ -1,0 +1,10 @@
+{
+  long start=Math.max(from,this.segmentStart);
+  long end=Math.min(to,this.segmentEnd);
+  if (start <= end) {
+    return new SegmentRange(start,end);
+  }
+ else {
+    return null;
+  }
+}

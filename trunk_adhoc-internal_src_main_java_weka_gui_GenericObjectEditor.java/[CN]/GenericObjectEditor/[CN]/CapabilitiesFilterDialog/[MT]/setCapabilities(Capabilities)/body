@@ -1,0 +1,5 @@
+{
+  if (value != null)   m_Capabilities.assign(value);
+ else   m_Capabilities=new Capabilities(null);
+  updateList();
+}

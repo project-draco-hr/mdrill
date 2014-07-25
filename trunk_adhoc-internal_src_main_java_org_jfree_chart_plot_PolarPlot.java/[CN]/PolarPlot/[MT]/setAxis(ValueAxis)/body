@@ -1,0 +1,14 @@
+{
+  if (axis != null) {
+    axis.setPlot(this);
+  }
+  if (this.axis != null) {
+    this.axis.removeChangeListener(this);
+  }
+  this.axis=axis;
+  if (this.axis != null) {
+    this.axis.configure();
+    this.axis.addChangeListener(this);
+  }
+  fireChangeEvent();
+}

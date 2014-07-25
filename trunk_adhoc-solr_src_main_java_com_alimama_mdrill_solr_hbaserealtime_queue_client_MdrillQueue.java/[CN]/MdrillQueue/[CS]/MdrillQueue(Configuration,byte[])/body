@@ -1,0 +1,6 @@
+{
+  Configuration realConf=HBaseConfiguration.create();
+  HBaseConfiguration.merge(realConf,conf);
+  this.queueName=queueName;
+  table=new HTable(realConf,queueName);
+}

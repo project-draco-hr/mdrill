@@ -1,0 +1,5 @@
+String label
+RegularTimePeriod first
+RegularTimePeriod last
+TimeZone timeZone
+Locale locale

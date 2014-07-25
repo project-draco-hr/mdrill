@@ -1,0 +1,11 @@
+{
+  boolean quote=false;
+  if ((string.indexOf('\n') != -1) || (string.indexOf('\r') != -1) || (string.indexOf('\'') != -1)|| (string.indexOf('"') != -1)|| (string.indexOf('\\') != -1)|| (string.indexOf('\t') != -1)|| (string.indexOf('%') != -1)|| (string.indexOf('\u001E') != -1)) {
+    string=backQuoteChars(string);
+    quote=true;
+  }
+  if ((quote == true) || (string.indexOf('{') != -1) || (string.indexOf('}') != -1)|| (string.indexOf(',') != -1)|| (string.equals("?"))|| (string.indexOf(' ') != -1)|| (string.equals(""))) {
+    string=("'".concat(string)).concat("'");
+  }
+  return string;
+}

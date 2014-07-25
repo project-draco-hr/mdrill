@@ -1,0 +1,3 @@
+{
+  return (LegendItem)this.items.get(index);
+}

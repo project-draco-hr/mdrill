@@ -1,0 +1,3 @@
+{
+  return (String[])this.sources.toArray(new String[this.sources.size()]);
+}

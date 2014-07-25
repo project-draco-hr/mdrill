@@ -1,0 +1,4 @@
+{
+  super.initVars(data);
+  m_kernelPrecalc=new double[data.numInstances()];
+}

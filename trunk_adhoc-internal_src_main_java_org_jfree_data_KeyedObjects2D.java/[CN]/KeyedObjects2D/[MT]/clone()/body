@@ -1,0 +1,12 @@
+{
+  KeyedObjects2D clone=(KeyedObjects2D)super.clone();
+  clone.columnKeys=new java.util.ArrayList(this.columnKeys);
+  clone.rowKeys=new java.util.ArrayList(this.rowKeys);
+  clone.rows=new java.util.ArrayList(this.rows.size());
+  Iterator iterator=this.rows.iterator();
+  while (iterator.hasNext()) {
+    KeyedObjects row=(KeyedObjects)iterator.next();
+    clone.rows.add(row.clone());
+  }
+  return clone;
+}

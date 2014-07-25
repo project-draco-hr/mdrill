@@ -1,0 +1,4 @@
+{
+  this.addval(strval,1);
+  this.count+=1;
+}

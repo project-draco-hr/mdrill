@@ -1,0 +1,3 @@
+{
+  return "numPoints:" + this.numPoints + ","+ vector.toString();
+}

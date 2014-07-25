@@ -1,0 +1,7 @@
+{
+  String tmpStr;
+  super.setOptions(options);
+  tmpStr=Utils.getOption('n',options);
+  if (tmpStr.length() != 0)   setNumExamples(Integer.parseInt(tmpStr));
+ else   setNumExamples(defaultNumExamples());
+}

@@ -1,0 +1,58 @@
+{
+  m_primaryPeriodicSequence=null;
+  m_secondaryPeriodicLookups=null;
+  if (m_primaryPeriodicName != null && m_primaryPeriodicName.length() > 0) {
+    int primaryIndex=insts.attribute(m_primaryPeriodicName).index();
+    if (primaryIndex < 0) {
+      return;
+    }
+    m_primaryPeriodicSequence=new HashMap<String,String>();
+    for (int i=0; i < insts.numInstances() - 1; i++) {
+      Instance current=insts.instance(i);
+      Instance next=insts.instance(i + 1);
+      if (!Utils.isMissingValue(current.value(primaryIndex)) && !Utils.isMissingValue(next.value(primaryIndex))) {
+        String key=current.stringValue(primaryIndex);
+        String value=next.stringValue(primaryIndex);
+        if (m_primaryPeriodicSequence.get(key) == null) {
+          m_primaryPeriodicSequence.put(key,value);
+        }
+ else {
+          String previous=m_primaryPeriodicSequence.get(key);
+          if (!previous.equals(value)) {
+            m_primaryPeriodicSequence=null;
+            break;
+          }
+        }
+      }
+    }
+    if (m_primaryPeriodicSequence != null) {
+      m_secondaryPeriodicLookups=new HashMap<Attribute,Map<String,String>>();
+      for (int i=0; i < insts.numAttributes(); i++) {
+        if (insts.attribute(i).isNominal() && i != primaryIndex) {
+          Attribute candidate=insts.attribute(i);
+          Map<String,String> candidateMap=new HashMap<String,String>();
+          for (int j=0; j < insts.numInstances(); j++) {
+            Instance current=insts.instance(j);
+            if (!Utils.isMissingValue(current.value(primaryIndex)) && !Utils.isMissingValue(j)) {
+              String key=current.stringValue(primaryIndex);
+              String value=current.stringValue(j);
+              if (candidateMap.get(key) == null) {
+                candidateMap.put(key,value);
+              }
+ else {
+                String previous=candidateMap.get(key);
+                if (!previous.equals(value)) {
+                  candidateMap=null;
+                  break;
+                }
+              }
+            }
+          }
+          if (candidateMap != null) {
+            m_secondaryPeriodicLookups.put(candidate,candidateMap);
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,4 @@
+Evaluation eval
+weka.classifiers.Classifier classifier
+Instances inst
+ClassifierErrorsPlotInstances plotInstances

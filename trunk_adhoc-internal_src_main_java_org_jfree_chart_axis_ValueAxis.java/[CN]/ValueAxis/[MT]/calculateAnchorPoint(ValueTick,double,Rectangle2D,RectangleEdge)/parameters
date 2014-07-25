@@ -1,0 +1,4 @@
+ValueTick tick
+double cursor
+Rectangle2D dataArea
+RectangleEdge edge

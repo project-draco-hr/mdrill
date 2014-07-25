@@ -1,0 +1,8 @@
+{
+  for (int i=0; i < this.seriesList.size(); i++) {
+    MatrixSeries series=(MatrixSeries)this.seriesList.get(i);
+    series.removeChangeListener(this);
+  }
+  this.seriesList.clear();
+  fireDatasetChanged();
+}

@@ -1,0 +1,33 @@
+{
+  if (getInputFormat() == null) {
+    throw new IllegalStateException("No input instance format defined");
+  }
+  if (m_NewBatch) {
+    resetQueue();
+    m_NewBatch=false;
+  }
+  Attribute att=getInputFormat().attribute(m_AttIndex.getIndex());
+  FastVector newVals=new FastVector(att.numValues() - 1);
+  for (int i=0; i < att.numValues(); i++) {
+    boolean inMergeList=false;
+    if (att.value(i).equalsIgnoreCase(m_Label)) {
+      inMergeList=true;
+    }
+ else {
+      inMergeList=m_MergeRange.isInRange(i);
+    }
+    if (!inMergeList) {
+      newVals.addElement(att.value(i));
+    }
+  }
+  newVals.addElement(m_Label);
+  Attribute temp=new Attribute(att.name(),newVals);
+  Instance newInstance=(Instance)instance.copy();
+  if (!newInstance.isMissing(m_AttIndex.getIndex())) {
+    String currValue=newInstance.stringValue(m_AttIndex.getIndex());
+    if (temp.indexOfValue(currValue) == -1)     newInstance.setValue(m_AttIndex.getIndex(),temp.indexOfValue(m_Label));
+ else     newInstance.setValue(m_AttIndex.getIndex(),temp.indexOfValue(currValue));
+  }
+  push(newInstance);
+  return true;
+}

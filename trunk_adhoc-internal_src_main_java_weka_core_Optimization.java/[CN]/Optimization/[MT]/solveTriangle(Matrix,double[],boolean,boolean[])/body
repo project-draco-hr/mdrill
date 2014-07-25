@@ -1,0 +1,42 @@
+{
+  int n=b.length;
+  double[] result=new double[n];
+  if (isZero == null)   isZero=new boolean[n];
+  if (isLower) {
+    int j=0;
+    while ((j < n) && isZero[j]) {
+      result[j]=0.0;
+      j++;
+    }
+    if (j < n) {
+      result[j]=b[j] / t.getElement(j,j);
+      for (; j < n; j++) {
+        if (!isZero[j]) {
+          double numerator=b[j];
+          for (int k=0; k < j; k++)           numerator-=t.getElement(j,k) * result[k];
+          result[j]=numerator / t.getElement(j,j);
+        }
+ else         result[j]=0.0;
+      }
+    }
+  }
+ else {
+    int j=n - 1;
+    while ((j >= 0) && isZero[j]) {
+      result[j]=0.0;
+      j--;
+    }
+    if (j >= 0) {
+      result[j]=b[j] / t.getElement(j,j);
+      for (; j >= 0; j--) {
+        if (!isZero[j]) {
+          double numerator=b[j];
+          for (int k=j + 1; k < n; k++)           numerator-=t.getElement(k,j) * result[k];
+          result[j]=numerator / t.getElement(j,j);
+        }
+ else         result[j]=0.0;
+      }
+    }
+  }
+  return result;
+}

@@ -1,0 +1,43 @@
+{
+  Enumeration keys;
+  String key;
+  String value;
+  String pkg;
+  StringTokenizer tok;
+  Vector classes;
+  HashSet names;
+  int i;
+  m_OutputProperties=new Properties();
+  keys=m_InputProperties.propertyNames();
+  while (keys.hasMoreElements()) {
+    key=keys.nextElement().toString();
+    if (key.equals(USE_DYNAMIC))     continue;
+    tok=new StringTokenizer(m_InputProperties.getProperty(key),",");
+    names=new HashSet();
+    while (tok.hasMoreTokens()) {
+      pkg=tok.nextToken().trim();
+      try {
+        classes=ClassDiscovery.find(Class.forName(key),pkg);
+      }
+ catch (      Exception e) {
+        System.out.println("Problem with '" + key + "': "+ e);
+        classes=new Vector();
+      }
+      for (i=0; i < classes.size(); i++) {
+        if (!isValidClassname(classes.get(i).toString()))         continue;
+        if (!isValidClassname(key,classes.get(i).toString()))         continue;
+        names.add(classes.get(i));
+      }
+    }
+    value="";
+    classes=new Vector();
+    classes.addAll(names);
+    Collections.sort(classes,new StringCompare());
+    for (i=0; i < classes.size(); i++) {
+      if (!value.equals(""))       value+=",";
+      value+=classes.get(i).toString();
+    }
+    if (VERBOSE)     System.out.println(pkg + " -> " + value);
+    m_OutputProperties.setProperty(key,value);
+  }
+}

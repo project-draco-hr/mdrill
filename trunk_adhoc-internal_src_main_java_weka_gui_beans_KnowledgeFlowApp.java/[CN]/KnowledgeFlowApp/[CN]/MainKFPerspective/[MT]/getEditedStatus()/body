@@ -1,0 +1,6 @@
+{
+  if (getNumTabs() <= 0) {
+    return false;
+  }
+  return getEditedStatus(getCurrentTabIndex());
+}

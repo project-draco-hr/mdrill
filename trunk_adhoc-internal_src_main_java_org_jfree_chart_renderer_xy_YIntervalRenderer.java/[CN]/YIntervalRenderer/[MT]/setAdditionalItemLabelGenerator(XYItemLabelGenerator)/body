@@ -1,0 +1,4 @@
+{
+  this.additionalItemLabelGenerator=generator;
+  fireChangeEvent();
+}

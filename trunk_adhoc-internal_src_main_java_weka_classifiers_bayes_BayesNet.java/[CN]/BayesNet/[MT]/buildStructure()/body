@@ -1,0 +1,3 @@
+{
+  m_SearchAlgorithm.buildStructure(this,m_Instances);
+}

@@ -1,0 +1,9 @@
+{
+  int year=this.day.getYear();
+  int month=this.day.getMonth() - 1;
+  int day=this.day.getDayOfMonth();
+  calendar.clear();
+  calendar.set(year,month,day,this.hour,this.minute,this.second);
+  calendar.set(Calendar.MILLISECOND,0);
+  return calendar.getTime().getTime();
+}

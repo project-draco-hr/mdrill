@@ -1,0 +1,12 @@
+{
+  ArrayList<SolrInputDocument> flush=null;
+synchronized (this.rlock.doclistBuffer_lock) {
+    flush=this.data.popDoclist();
+    addIntervel.set(0);
+  }
+synchronized (this.rlock.lock) {
+    if (flush != null) {
+      this.data.flushDocList(flush);
+    }
+  }
+}

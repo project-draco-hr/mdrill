@@ -1,0 +1,11 @@
+{
+  int i, j;
+  m_perClassPerBag=table;
+  m_perBag=new double[table.length];
+  m_perClass=new double[table[0].length];
+  for (i=0; i < table.length; i++)   for (j=0; j < table[i].length; j++) {
+    m_perBag[i]+=table[i][j];
+    m_perClass[j]+=table[i][j];
+    totaL+=table[i][j];
+  }
+}

@@ -1,0 +1,23 @@
+{
+  Hashtable hpps=new Hashtable();
+  String className=m_ClassType.getName();
+  Hashtable typeOptions=sortClassesByRoot(EDITOR_PROPERTIES.getProperty(className));
+  if (typeOptions == null) {
+  }
+ else {
+    try {
+      Enumeration enm=typeOptions.keys();
+      while (enm.hasMoreElements()) {
+        String root=(String)enm.nextElement();
+        String typeOption=(String)typeOptions.get(root);
+        HierarchyPropertyParser hpp=new HierarchyPropertyParser();
+        hpp.build(typeOption,", ");
+        hpps.put(root,hpp);
+      }
+    }
+ catch (    Exception ex) {
+      System.err.println("Invalid property: " + typeOptions);
+    }
+  }
+  return hpps;
+}

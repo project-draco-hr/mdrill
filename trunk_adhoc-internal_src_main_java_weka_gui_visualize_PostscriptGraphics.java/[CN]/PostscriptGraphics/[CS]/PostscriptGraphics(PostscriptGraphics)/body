@@ -1,0 +1,6 @@
+{
+  m_extent=new Rectangle(copy.m_extent);
+  m_printstream=copy.m_printstream;
+  m_localGraphicsState=new GraphicsState(copy.m_localGraphicsState);
+  m_psGraphicsState=copy.m_psGraphicsState;
+}

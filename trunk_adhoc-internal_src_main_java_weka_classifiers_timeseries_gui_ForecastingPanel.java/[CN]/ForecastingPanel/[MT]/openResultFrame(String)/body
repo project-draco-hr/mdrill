@@ -1,0 +1,28 @@
+{
+  StringBuffer buffer=m_history.getNamedBuffer(name);
+  JTabbedPane tabbedPane=m_framedOutputMap.get(name);
+  if (buffer != null && tabbedPane == null) {
+    JTextArea textA=new JTextArea(20,50);
+    textA.setEditable(false);
+    textA.setFont(new Font("Monospaced",Font.PLAIN,12));
+    textA.setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
+    textA.setText(buffer.toString());
+    tabbedPane=new JTabbedPane();
+    tabbedPane.addTab("Output",new JScrollPane(textA));
+    updateComponentTabs(name,tabbedPane);
+    m_framedOutputMap.put(name,tabbedPane);
+    final JFrame jf=new JFrame(name);
+    jf.addWindowListener(new WindowAdapter(){
+      public void windowClosing(      WindowEvent e){
+        m_framedOutputMap.remove(jf.getTitle());
+        jf.dispose();
+      }
+    }
+);
+    jf.setLayout(new BorderLayout());
+    jf.add(tabbedPane,BorderLayout.CENTER);
+    jf.pack();
+    jf.setSize(550,400);
+    jf.setVisible(true);
+  }
+}

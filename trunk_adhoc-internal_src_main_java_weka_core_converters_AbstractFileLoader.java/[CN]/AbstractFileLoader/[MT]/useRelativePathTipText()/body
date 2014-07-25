@@ -1,0 +1,3 @@
+{
+  return "Use relative rather than absolute paths";
+}

@@ -1,0 +1,8 @@
+{
+  super(source);
+  m_classifier=scheme;
+  m_testSet=tstI;
+  m_trainSet=trsI;
+  m_setNumber=setNum;
+  m_maxSetNumber=maxSetNum;
+}

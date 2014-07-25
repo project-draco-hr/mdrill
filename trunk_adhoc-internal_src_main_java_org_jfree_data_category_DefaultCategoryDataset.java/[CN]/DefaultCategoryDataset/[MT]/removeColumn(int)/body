@@ -1,0 +1,4 @@
+{
+  this.data.removeColumn(columnIndex);
+  fireDatasetChanged();
+}

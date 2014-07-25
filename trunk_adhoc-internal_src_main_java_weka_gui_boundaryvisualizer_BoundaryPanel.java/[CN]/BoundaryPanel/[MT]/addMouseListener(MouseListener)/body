@@ -1,0 +1,3 @@
+{
+  m_plotPanel.addMouseListener(l);
+}

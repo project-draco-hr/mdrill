@@ -1,0 +1,7 @@
+{
+  m_N=m_NMax;
+  m_SplitString=s.split("[" + getDelimiters() + "]");
+  filterOutEmptyStrings();
+  m_CurrentPosition=0;
+  m_MaxPosition=m_SplitString.length;
+}

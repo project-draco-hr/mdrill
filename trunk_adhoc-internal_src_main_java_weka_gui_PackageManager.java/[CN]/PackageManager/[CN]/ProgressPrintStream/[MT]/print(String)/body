@@ -1,0 +1,14 @@
+{
+  boolean messageOnly=false;
+  if (string.startsWith("%%")) {
+    string=string.substring(2);
+    messageOnly=true;
+  }
+  if (!messageOnly) {
+    System.out.print(string);
+    m_listener.makeProgress(string);
+  }
+ else {
+    m_listener.makeProgressMessageOnly(string);
+  }
+}

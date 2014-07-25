@@ -1,0 +1,3 @@
+{
+  return (Boolean)eval(xpath,XPathConstants.BOOLEAN);
+}

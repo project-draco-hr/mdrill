@@ -1,0 +1,7 @@
+{
+  Vector result=new Vector();
+  result.addElement(new Option("\tWhen determining whether an edge exists a search is performed \n" + "\tfor a set Z that separates the nodes. MaxCardinality determines \n" + "\tthe maximum size of the set Z. This greatly influences the \n"+ "\tlength of the search. (default 2)","cardinality",1,"-cardinality <num>"));
+  Enumeration en=super.listOptions();
+  while (en.hasMoreElements())   result.addElement(en.nextElement());
+  return result.elements();
+}

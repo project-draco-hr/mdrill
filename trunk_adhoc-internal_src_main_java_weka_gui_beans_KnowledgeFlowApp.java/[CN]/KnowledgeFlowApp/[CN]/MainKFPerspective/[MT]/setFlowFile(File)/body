@@ -1,0 +1,5 @@
+{
+  if (getNumTabs() > 0) {
+    setFlowFile(getCurrentTabIndex(),flowFile);
+  }
+}

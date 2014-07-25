@@ -1,0 +1,3 @@
+{
+  return evaluationForSingleInstance(dist,instance,false);
+}

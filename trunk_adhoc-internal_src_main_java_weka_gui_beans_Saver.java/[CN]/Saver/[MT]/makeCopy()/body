@@ -1,0 +1,3 @@
+{
+  return (weka.core.converters.Saver)new SerializedObject(m_SaverTemplate).getObject();
+}

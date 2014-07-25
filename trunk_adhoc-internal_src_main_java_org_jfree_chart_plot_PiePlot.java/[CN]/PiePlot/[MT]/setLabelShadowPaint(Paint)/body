@@ -1,0 +1,4 @@
+{
+  this.labelShadowPaint=paint;
+  fireChangeEvent();
+}

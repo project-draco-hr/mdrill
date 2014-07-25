@@ -1,0 +1,12 @@
+{
+  if (m1 == null) {
+    return -1;
+  }
+  if (m1.tp.equals(DirectoryInfo.DirTpe.file) || m1.d instanceof FSDirectory) {
+    m1.tp=DirectoryInfo.DirTpe.delete;
+    int key=status.uniqIndex.incrementAndGet();
+    ToDel.put(key,m1);
+    return key;
+  }
+  return -1;
+}

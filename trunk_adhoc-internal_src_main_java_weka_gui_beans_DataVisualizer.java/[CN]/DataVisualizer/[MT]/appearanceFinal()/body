@@ -1,0 +1,8 @@
+{
+  java.awt.GraphicsEnvironment ge=java.awt.GraphicsEnvironment.getLocalGraphicsEnvironment();
+  removeAll();
+  if (!ge.isHeadless()) {
+    setLayout(new BorderLayout());
+    setUpFinal();
+  }
+}

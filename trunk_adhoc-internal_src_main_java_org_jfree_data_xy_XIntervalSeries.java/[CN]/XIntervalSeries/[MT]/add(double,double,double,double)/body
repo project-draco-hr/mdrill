@@ -1,0 +1,3 @@
+{
+  super.add(new XIntervalDataItem(x,xLow,xHigh,y),true);
+}

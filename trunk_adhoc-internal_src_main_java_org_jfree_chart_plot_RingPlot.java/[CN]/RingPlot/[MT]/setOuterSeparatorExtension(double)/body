@@ -1,0 +1,4 @@
+{
+  this.outerSeparatorExtension=percent;
+  fireChangeEvent();
+}

@@ -1,0 +1,4 @@
+Writer w
+String name
+Properties attributes
+boolean close

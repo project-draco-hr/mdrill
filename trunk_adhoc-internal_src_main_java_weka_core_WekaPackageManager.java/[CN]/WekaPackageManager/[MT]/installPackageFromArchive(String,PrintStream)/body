@@ -1,0 +1,27 @@
+{
+  useCacheOrOnlineRepository();
+  Package toInstall=PACKAGE_MANAGER.getPackageArchiveInfo(packageArchivePath);
+  Object specialInstallMessage=toInstall.getPackageMetaDataElement("MessageToDisplayOnInstallation");
+  if (specialInstallMessage != null && specialInstallMessage.toString().length() > 0) {
+    String siM=specialInstallMessage.toString();
+    try {
+      siM=Environment.getSystemWide().substitute(siM);
+    }
+ catch (    Exception ex) {
+    }
+    String message="**** Special installation message ****\n" + siM + "\n**** Special installation message ****";
+    for (    PrintStream p : progress) {
+      p.println(message);
+    }
+  }
+  PACKAGE_MANAGER.installPackageFromArchive(packageArchivePath,progress);
+  boolean loadIt=checkForMissingClasses(toInstall,progress);
+  if (loadIt) {
+    File packageRoot=new File(PACKAGE_MANAGER.getPackageHome() + File.separator + toInstall.getName());
+    loadIt=checkForMissingFiles(toInstall,packageRoot,progress);
+    if (loadIt) {
+      loadPackageDirectory(packageRoot,false);
+    }
+  }
+  return toInstall.getName();
+}

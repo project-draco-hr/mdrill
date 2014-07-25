@@ -1,0 +1,7 @@
+{
+  int result;
+  result=(this.text != null ? this.text.hashCode() : 0);
+  result=29 * result + (this.font != null ? this.font.hashCode() : 0);
+  result=29 * result + (this.paint != null ? this.paint.hashCode() : 0);
+  return result;
+}

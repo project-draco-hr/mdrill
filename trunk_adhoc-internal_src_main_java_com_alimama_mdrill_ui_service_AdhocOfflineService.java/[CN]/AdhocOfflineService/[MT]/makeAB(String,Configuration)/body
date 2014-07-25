@@ -1,0 +1,14 @@
+{
+  Path base=new Path(new Path(path).getParent(),"AB");
+  try {
+    AdhocOfflineService.readAbtestResult(path,new Path(base,"A"),new Path(base,"B"),conf);
+    return base;
+  }
+ catch (  Throwable e) {
+    FileSystem fs=FileSystem.get(conf);
+    if (fs.exists(base)) {
+      fs.delete(base,true);
+    }
+    throw new IOException(e);
+  }
+}

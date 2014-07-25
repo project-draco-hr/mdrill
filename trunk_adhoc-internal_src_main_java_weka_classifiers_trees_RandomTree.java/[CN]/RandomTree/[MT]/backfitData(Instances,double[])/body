@@ -1,0 +1,49 @@
+{
+  if (data.numInstances() == 0) {
+    m_Attribute=-1;
+    m_ClassDistribution=null;
+    m_Prop=null;
+    return;
+  }
+  m_ClassDistribution=(double[])classProbs.clone();
+  if (m_Attribute > -1) {
+    m_Prop=new double[m_Successors.length];
+    for (int i=0; i < data.numInstances(); i++) {
+      Instance inst=data.instance(i);
+      if (!inst.isMissing(m_Attribute)) {
+        if (data.attribute(m_Attribute).isNominal()) {
+          m_Prop[(int)inst.value(m_Attribute)]+=inst.weight();
+        }
+ else {
+          m_Prop[(inst.value(m_Attribute) < m_SplitPoint) ? 0 : 1]+=inst.weight();
+        }
+      }
+    }
+    if (Utils.sum(m_Prop) <= 0) {
+      m_Attribute=-1;
+      m_Prop=null;
+      return;
+    }
+    Utils.normalize(m_Prop);
+    Instances[] subsets=splitData(data);
+    for (int i=0; i < subsets.length; i++) {
+      double[] dist=new double[data.numClasses()];
+      for (int j=0; j < subsets[i].numInstances(); j++) {
+        dist[(int)subsets[i].instance(j).classValue()]+=subsets[i].instance(j).weight();
+      }
+      m_Successors[i].backfitData(subsets[i],dist);
+    }
+    if (getAllowUnclassifiedInstances()) {
+      m_ClassDistribution=null;
+      return;
+    }
+    boolean emptySuccessor=false;
+    for (int i=0; i < subsets.length; i++) {
+      if (m_Successors[i].m_ClassDistribution == null) {
+        emptySuccessor=true;
+        return;
+      }
+    }
+    m_ClassDistribution=null;
+  }
+}

@@ -1,0 +1,4 @@
+{
+  this.dialOutlinePaint=paint;
+  fireChangeEvent();
+}

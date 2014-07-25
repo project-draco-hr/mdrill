@@ -1,0 +1,7 @@
+{
+  final TestSuite suite=new TestSuite("org.jfree.date");
+  suite.addTestSuite(SerialDateTests.class);
+  suite.addTestSuite(SerialDateUtilitiesTests.class);
+  suite.addTestSuite(SpreadsheetDateTests.class);
+  return suite;
+}

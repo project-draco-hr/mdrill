@@ -1,0 +1,46 @@
+{
+  if (RealTimeDirectorUtils.maybeReplication(doc)) {
+    return;
+  }
+  this.status.lastAddDocumentTime.set(System.currentTimeMillis());
+  if (writelog) {
+    try {
+      AddOp op=new AddOp();
+      op.setDoc(doc);
+synchronized (editlog) {
+        if (!needRollLogs.get()) {
+          editlog.openForWrite();
+          needRollLogs.set(true);
+        }
+        editlog.logEdit(op);
+        long lasttid=editlog.getLastWrittenTxId();
+        doc.setTxid(lasttid);
+        if (lasttid % UniqConfig.logRollIntervel() == 0) {
+          long currenttime=System.currentTimeMillis();
+          if (currenttime - editlogtime >= UniqConfig.logRollTimelen()) {
+            editlogtime=currenttime;
+            editlog.rollEditLog();
+          }
+        }
+      }
+    }
+ catch (    Exception e) {
+      LOG.error("editlog_" + this.params.Partion.toString(),e);
+      editlog.openForWrite();
+    }
+  }
+  needFlushDfs.set(true);
+synchronized (rlock.doclistBuffer_lock) {
+    this.data.AddDoc(doc);
+  }
+  if (addIntervel.incrementAndGet() > 5000) {
+    addIntervel.set(0);
+    int size=0;
+synchronized (rlock.doclistBuffer_lock) {
+      size=this.data.doclistSize();
+    }
+    if (size > 20000) {
+      this.flushDocList();
+    }
+  }
+}

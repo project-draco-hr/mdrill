@@ -1,0 +1,8 @@
+{
+  if (getSegmentNumberRelativeToGroup() < SegmentedTimeline.this.segmentsIncluded) {
+    return !inExceptionSegments();
+  }
+ else {
+    return false;
+  }
+}

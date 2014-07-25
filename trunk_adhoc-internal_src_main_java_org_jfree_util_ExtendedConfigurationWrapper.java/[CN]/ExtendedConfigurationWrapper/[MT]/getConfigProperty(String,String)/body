@@ -1,0 +1,3 @@
+{
+  return this.parent.getConfigProperty(key,defaultValue);
+}

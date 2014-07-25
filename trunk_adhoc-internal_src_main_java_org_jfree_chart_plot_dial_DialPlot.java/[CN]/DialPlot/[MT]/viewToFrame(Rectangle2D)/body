@@ -1,0 +1,7 @@
+{
+  double width=view.getWidth() / this.viewW;
+  double height=view.getHeight() / this.viewH;
+  double x=view.getX() - (width * this.viewX);
+  double y=view.getY() - (height * this.viewY);
+  return new Rectangle2D.Double(x,y,width,height);
+}

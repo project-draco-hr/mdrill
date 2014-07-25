@@ -1,0 +1,8 @@
+{
+  try {
+    Stemming.useStemmer(new LovinsStemmer(),args);
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
+}

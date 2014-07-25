@@ -1,0 +1,19 @@
+{
+  String[] options;
+  Vector list;
+  int i;
+  try {
+    options=generator.getOptions();
+    Utils.getOption(option,options);
+    list=new Vector();
+    for (i=0; i < options.length; i++) {
+      if (options[i].length() != 0)       list.add(options[i]);
+    }
+    list.add("-" + option);
+    list.add(value);
+    setGeneratorOptions(generator,list);
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
+}

@@ -1,0 +1,3 @@
+{
+  updateCrosshairX(candidateX,0);
+}

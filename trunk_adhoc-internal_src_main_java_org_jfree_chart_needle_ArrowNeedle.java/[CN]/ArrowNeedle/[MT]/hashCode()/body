@@ -1,0 +1,5 @@
+{
+  int result=super.hashCode();
+  result=HashUtilities.hashCode(result,this.isArrowAtTop);
+  return result;
+}

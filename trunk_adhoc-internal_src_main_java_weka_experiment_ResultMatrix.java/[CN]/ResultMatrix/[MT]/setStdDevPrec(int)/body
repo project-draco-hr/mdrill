@@ -1,0 +1,3 @@
+{
+  if (prec >= 0)   m_StdDevPrec=prec;
+}

@@ -1,0 +1,3 @@
+{
+  return "The FromFile reads the structure of a Bayes net from a file " + "in BIFF format.";
+}

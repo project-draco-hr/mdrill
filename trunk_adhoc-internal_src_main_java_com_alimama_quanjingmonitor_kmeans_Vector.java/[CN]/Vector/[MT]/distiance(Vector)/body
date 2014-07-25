@@ -1,0 +1,26 @@
+{
+  double sum_distance=0;
+  for (  Entry<String,Vector_val> e : this.vector.entrySet()) {
+    String s=e.getKey();
+    Vector_val obj_val=e.getValue();
+    Vector_val obj_val_cmp=v.vector.get(s);
+    if (obj_val_cmp == null) {
+      continue;
+    }
+    if (obj_val instanceof String_val && obj_val_cmp instanceof String_val) {
+      String_val obj_val_str=(String_val)obj_val;
+      String_val obj_val_cmp_str=(String_val)obj_val_cmp;
+      double weight=obj_val_str.getWeight();
+      double distance=(weight * Math.pow(obj_val_str.distiance(obj_val_cmp_str),2));
+      sum_distance+=distance;
+    }
+    if (obj_val instanceof Number_val && obj_val_cmp instanceof Number_val) {
+      Number_val obj_val_num=(Number_val)obj_val;
+      Number_val obj_val_cmp_num=(Number_val)obj_val_cmp;
+      double weight=obj_val_num.getWeight();
+      double distance=(weight * Math.pow(obj_val_num.distiance(obj_val_cmp_num),2));
+      sum_distance+=distance;
+    }
+  }
+  return Math.sqrt(sum_distance);
+}

@@ -1,0 +1,4 @@
+{
+  if (!(model instanceof CheckBoxListModel))   throw new IllegalArgumentException("Model must be an instance of CheckBoxListModel!");
+  super.setModel(model);
+}

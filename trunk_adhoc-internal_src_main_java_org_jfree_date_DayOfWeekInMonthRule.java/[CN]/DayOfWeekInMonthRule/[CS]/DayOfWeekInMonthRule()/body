@@ -1,0 +1,3 @@
+{
+  this(1,SerialDate.MONDAY,MonthConstants.JANUARY);
+}

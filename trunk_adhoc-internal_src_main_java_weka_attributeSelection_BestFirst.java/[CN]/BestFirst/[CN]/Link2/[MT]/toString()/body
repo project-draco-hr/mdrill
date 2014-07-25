@@ -1,0 +1,3 @@
+{
+  return ("Node: " + m_data.toString() + "  "+ m_merit);
+}

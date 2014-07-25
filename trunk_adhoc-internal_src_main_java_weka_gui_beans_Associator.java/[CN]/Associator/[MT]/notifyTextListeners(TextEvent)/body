@@ -1,0 +1,11 @@
+{
+  Vector l;
+synchronized (this) {
+    l=(Vector)m_textListeners.clone();
+  }
+  if (l.size() > 0) {
+    for (int i=0; i < l.size(); i++) {
+      ((TextListener)l.elementAt(i)).acceptText(ge);
+    }
+  }
+}

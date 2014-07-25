@@ -1,0 +1,3 @@
+{
+  return "The amplitude to multiply the y value with.";
+}

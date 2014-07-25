@@ -1,0 +1,5 @@
+{
+  m_structure=structure;
+  m_currentInstance=null;
+  m_status=NEW_BATCH;
+}

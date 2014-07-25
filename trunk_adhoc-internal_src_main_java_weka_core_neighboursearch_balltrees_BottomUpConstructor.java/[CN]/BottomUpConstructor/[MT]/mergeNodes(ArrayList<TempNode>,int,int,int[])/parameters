@@ -1,0 +1,4 @@
+ArrayList<TempNode> list
+int startIdx
+int endIdx
+int[] instList

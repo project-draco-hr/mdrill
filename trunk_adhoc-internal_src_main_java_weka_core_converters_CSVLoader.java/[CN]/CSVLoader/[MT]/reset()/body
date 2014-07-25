@@ -1,0 +1,8 @@
+{
+  m_structure=null;
+  m_st=null;
+  setRetrieval(NONE);
+  if (m_File != null) {
+    setFile(new File(m_File));
+  }
+}

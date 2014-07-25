@@ -1,0 +1,4 @@
+{
+  super("Stop","stop.gif","ctrl shift R",'o');
+  setEnabled(false);
+}

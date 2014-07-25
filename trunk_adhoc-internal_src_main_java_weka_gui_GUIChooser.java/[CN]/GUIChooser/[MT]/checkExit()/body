@@ -1,0 +1,5 @@
+{
+  if (!isVisible() && (m_ExplorerFrame == null) && (m_ExperimenterFrame == null)&& (m_KnowledgeFlowFrame == null)&& (m_SimpleCLI == null)&& (m_ArffViewers.size() == 0)&& (m_SqlViewerFrame == null)&& (m_GroovyConsoleFrame == null)&& (m_JythonConsoleFrame == null)&& (m_EnsembleLibraryFrame == null)&& (m_Plots.size() == 0)&& (m_ROCs.size() == 0)&& (m_TreeVisualizers.size() == 0)&& (m_GraphVisualizers.size() == 0)&& (m_BoundaryVisualizerFrame == null)&& (m_SystemInfoFrame == null)) {
+    System.exit(0);
+  }
+}

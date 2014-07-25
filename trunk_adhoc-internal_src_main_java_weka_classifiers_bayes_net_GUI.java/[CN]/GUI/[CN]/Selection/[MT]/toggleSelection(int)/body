@@ -1,0 +1,10 @@
+{
+  for (int iNode=0; iNode < m_selected.size(); iNode++) {
+    if (nNode == (Integer)m_selected.elementAt(iNode)) {
+      m_selected.removeElementAt(iNode);
+      updateGUI();
+      return;
+    }
+  }
+  addToSelection(nNode);
+}

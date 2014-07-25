@@ -1,0 +1,26 @@
+{
+  if (d == null) {
+    throw new NullPointerException("Description class must not be null.");
+  }
+  final Iterator iterator=this.classes.keySet().iterator();
+  while (iterator.hasNext()) {
+    final Class keyClass=(Class)iterator.next();
+    if (keyClass.isAssignableFrom(d)) {
+      final ObjectDescription od=(ObjectDescription)this.classes.get(keyClass);
+      if (knownSuperClass == null) {
+        knownSuperClass=od;
+      }
+ else {
+        if (this.comparator.isComparable(knownSuperClass.getObjectClass(),od.getObjectClass())) {
+          if (this.comparator.compare(knownSuperClass.getObjectClass(),od.getObjectClass()) < 0) {
+            knownSuperClass=od;
+          }
+        }
+      }
+    }
+  }
+  if (knownSuperClass == null) {
+    return null;
+  }
+  return knownSuperClass.getInstance();
+}

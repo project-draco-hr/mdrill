@@ -1,0 +1,6 @@
+{
+  this.fixedRangeAxisSpace=space;
+  if (notify) {
+    fireChangeEvent();
+  }
+}

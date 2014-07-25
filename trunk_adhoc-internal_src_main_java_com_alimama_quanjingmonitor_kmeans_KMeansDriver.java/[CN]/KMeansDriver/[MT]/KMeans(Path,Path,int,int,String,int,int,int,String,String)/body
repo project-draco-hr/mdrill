@@ -1,0 +1,29 @@
+{
+  this.reduce=reduce;
+  Configuration conf=this.getConf();
+  conf.set("mapred.max.split.size",splitsize);
+  conf.set("abtest.kmeans.config",config);
+  FileSystem fs=FileSystem.get(conf);
+  this.percentStage=20;
+  if (maxIterations == 0) {
+    ArrayList<Cluster> clusters=getClusters(input,conf,fs);
+    for (    Cluster c : clusters) {
+      System.out.println(c.asFormatString());
+    }
+    return;
+  }
+  parse.setup(conf);
+  fs.mkdirs(output);
+  if (callback != null) {
+    callback.setPercent("Stage-" + (this.percentStage++) + " map = 100.0%, reduce = 100.0%");
+    callback.maybeSync();
+  }
+  Path clusters_random=this.InitCenter(conf,input,output,k);
+  Path finalClusters=this.buildClustersMR(conf,input,clusters_random,output,maxIterations,delta);
+  Path clustersOut=this.makeFinalCluster(conf,finalClusters,output,delta,count,rep);
+  if (callback != null) {
+    callback.setPercent("Stage-" + (this.percentStage++) + " map = 100.0%, reduce = 100.0%");
+    callback.maybeSync();
+  }
+  this.clusterDataMR(conf,input,clustersOut,output,delta,rep);
+}

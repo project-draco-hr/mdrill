@@ -1,0 +1,4 @@
+{
+  double diff=x - mean;
+  return -(diff * diff / (2 * stdDev * stdDev)) - m_normConst - Math.log(stdDev);
+}

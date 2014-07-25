@@ -1,0 +1,4 @@
+{
+  UnivariateDensityEstimator e=getDensityEstimator(instance,true);
+  return e.logDensity(value);
+}

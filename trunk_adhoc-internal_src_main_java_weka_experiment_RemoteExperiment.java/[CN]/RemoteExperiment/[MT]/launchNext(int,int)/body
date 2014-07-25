@@ -1,0 +1,74 @@
+{
+  Thread subExpThread;
+  subExpThread=new Thread(){
+    public void run(){
+      m_remoteHostsStatus[ah]=IN_USE;
+      m_subExpComplete[wexp]=TaskStatusInfo.PROCESSING;
+      RemoteExperimentSubTask expSubTsk=new RemoteExperimentSubTask();
+      expSubTsk.setExperiment(m_subExperiments[wexp]);
+      String subTaskType=(getSplitByDataSet()) ? "dataset :" + ((File)m_subExperiments[wexp].getDatasets().elementAt(0)).getName() : "run :" + m_subExperiments[wexp].getRunLower();
+      try {
+        String name="//" + ((String)m_remoteHosts.elementAt(ah)) + "/RemoteEngine";
+        Compute comp=(Compute)Naming.lookup(name);
+        notifyListeners(false,true,false,"Starting " + subTaskType + " on host "+ ((String)m_remoteHosts.elementAt(ah)));
+        Object subTaskId=comp.executeTask(expSubTsk);
+        boolean finished=false;
+        TaskStatusInfo is=null;
+        while (!finished) {
+          try {
+            Thread.sleep(2000);
+            TaskStatusInfo cs=(TaskStatusInfo)comp.checkStatus(subTaskId);
+            if (cs.getExecutionStatus() == TaskStatusInfo.FINISHED) {
+              notifyListeners(false,true,false,cs.getStatusMessage());
+              m_remoteHostsStatus[ah]=AVAILABLE;
+              incrementFinished();
+              availableHost(ah);
+              finished=true;
+            }
+ else             if (cs.getExecutionStatus() == TaskStatusInfo.FAILED) {
+              notifyListeners(false,true,false,cs.getStatusMessage());
+              m_remoteHostsStatus[ah]=SOME_OTHER_FAILURE;
+              m_subExpComplete[wexp]=TaskStatusInfo.FAILED;
+              notifyListeners(false,true,false,subTaskType + " " + cs.getStatusMessage()+ ". Scheduling for execution on another host.");
+              incrementFailed(ah);
+              waitingExperiment(wexp);
+              availableHost(ah);
+              finished=true;
+            }
+ else {
+              if (is == null) {
+                is=cs;
+                notifyListeners(false,true,false,cs.getStatusMessage());
+              }
+ else {
+                if (cs.getStatusMessage().compareTo(is.getStatusMessage()) != 0) {
+                  notifyListeners(false,true,false,cs.getStatusMessage());
+                }
+                is=cs;
+              }
+            }
+          }
+ catch (          InterruptedException ie) {
+          }
+        }
+      }
+ catch (      Exception ce) {
+        m_remoteHostsStatus[ah]=CONNECTION_FAILED;
+        m_subExpComplete[wexp]=TaskStatusInfo.TO_BE_RUN;
+        System.err.println(ce);
+        ce.printStackTrace();
+        notifyListeners(false,true,false,"Connection to " + ((String)m_remoteHosts.elementAt(ah)) + " failed. Scheduling "+ subTaskType+ " for execution on another host.");
+        checkForAllFailedHosts();
+        waitingExperiment(wexp);
+      }
+ finally {
+        if (isInterrupted()) {
+          System.err.println("Sub exp Interupted!");
+        }
+      }
+    }
+  }
+;
+  subExpThread.setPriority(Thread.MIN_PRIORITY);
+  subExpThread.start();
+}

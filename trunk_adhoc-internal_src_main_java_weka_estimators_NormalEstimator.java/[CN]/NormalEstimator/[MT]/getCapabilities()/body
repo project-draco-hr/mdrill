@@ -1,0 +1,13 @@
+{
+  Capabilities result=super.getCapabilities();
+  result.disableAll();
+  if (!m_noClass) {
+    result.enable(Capability.NOMINAL_CLASS);
+    result.enable(Capability.MISSING_CLASS_VALUES);
+  }
+ else {
+    result.enable(Capability.NO_CLASS);
+  }
+  result.enable(Capability.NUMERIC_ATTRIBUTES);
+  return result;
+}

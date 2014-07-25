@@ -1,0 +1,15 @@
+{
+  m_id=id;
+  m_inputList=new NeuralConnection[0];
+  m_outputList=new NeuralConnection[0];
+  m_inputNums=new int[0];
+  m_outputNums=new int[0];
+  m_numInputs=0;
+  m_numOutputs=0;
+  m_unitValue=Double.NaN;
+  m_unitError=Double.NaN;
+  m_weightsUpdated=false;
+  m_x=0;
+  m_y=0;
+  m_type=UNCONNECTED;
+}

@@ -1,0 +1,8 @@
+{
+  CategoryItemRendererState state=super.initialise(g2,dataArea,plot,rendererIndex,info);
+  ValueAxis rangeAxis=plot.getRangeAxisForDataset(rendererIndex);
+  this.lowerClip=rangeAxis.getRange().getLowerBound();
+  this.upperClip=rangeAxis.getRange().getUpperBound();
+  calculateBarWidth(plot,dataArea,rendererIndex,state);
+  return state;
+}

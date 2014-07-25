@@ -1,0 +1,4 @@
+{
+  super(info);
+  this.line=new Line2D.Double();
+}

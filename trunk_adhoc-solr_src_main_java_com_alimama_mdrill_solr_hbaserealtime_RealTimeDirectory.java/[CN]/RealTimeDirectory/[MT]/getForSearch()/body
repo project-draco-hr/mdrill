@@ -1,0 +1,21 @@
+{
+  List<Directory> rtn=null;
+synchronized (rlock.searchLock) {
+    rtn=readList;
+  }
+  if (rtn == null) {
+    List<Directory> copyDir=new ArrayList<Directory>();
+    ;
+synchronized (rlock.lock) {
+      copyDir=this.data.copyForSearch();
+    }
+synchronized (rlock.searchLock) {
+      readList=copyDir;
+    }
+  }
+synchronized (rlock.searchLock) {
+    rtn=readList;
+  }
+  LOG.info("####getForSearch####" + String.valueOf(rtn));
+  return rtn;
+}

@@ -1,0 +1,7 @@
+{
+  Capabilities result=super.getCapabilities();
+  result.enable(Capability.NUMERIC_ATTRIBUTES);
+  result.enable(Capability.NUMERIC_CLASS);
+  result.enable(Capability.NO_CLASS);
+  return result;
+}

@@ -1,0 +1,28 @@
+{
+  double fBestDist=Double.MAX_VALUE;
+switch (m_nLinkType) {
+case SINGLE:
+case NEIGHBOR_JOINING:
+case CENTROID:
+case COMPLETE:
+case ADJCOMLPETE:
+case AVERAGE:
+case MEAN:
+    Instance instance1=(Instance)m_instances.instance(cluster1.elementAt(0)).copy();
+  Instance instance2=(Instance)m_instances.instance(cluster2.elementAt(0)).copy();
+fBestDist=m_DistanceFunction.distance(instance1,instance2);
+break;
+case WARD:
+{
+double ESS1=calcESS(cluster1);
+double ESS2=calcESS(cluster2);
+Vector<Integer> merged=new Vector<Integer>();
+merged.addAll(cluster1);
+merged.addAll(cluster2);
+double ESS=calcESS(merged);
+fBestDist=ESS * merged.size() - ESS1 * cluster1.size() - ESS2 * cluster2.size();
+}
+break;
+}
+return fBestDist;
+}

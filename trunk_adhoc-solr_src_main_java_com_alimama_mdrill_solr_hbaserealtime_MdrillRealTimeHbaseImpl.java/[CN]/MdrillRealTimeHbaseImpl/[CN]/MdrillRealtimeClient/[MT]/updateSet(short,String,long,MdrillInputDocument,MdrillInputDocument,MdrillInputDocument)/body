@@ -1,0 +1,24 @@
+{
+  if (update != null) {
+    Append append=new Append(Bytes.toBytes(higo_uuid));
+    for (    Entry<String,Object> e : update.getMap().entrySet()) {
+      append.add(MdrillRealTimeHbaseImpl.DATA_FAMILY,Bytes.toBytes(e.getKey()),toBytes(e.getValue()));
+    }
+    table.append(append);
+  }
+  if (del != null) {
+    Delete delete=new Delete(Bytes.toBytes(higo_uuid));
+    for (    Entry<String,Object> e : del.getMap().entrySet()) {
+      delete.deleteColumn(MdrillRealTimeHbaseImpl.DATA_FAMILY,Bytes.toBytes(e.getKey()));
+    }
+    table.delete(delete);
+  }
+  if (inc != null) {
+    Increment incment=new Increment();
+    for (    Entry<String,Object> e : inc.getMap().entrySet()) {
+      incment.addColumn(MdrillRealTimeHbaseImpl.DATA_FAMILY,Bytes.toBytes(e.getKey()),Long.parseLong(String.valueOf(e.getValue())));
+    }
+    table.increment(incment);
+  }
+  this.queue.put(Message.INSTANCE(shard,partion,long2Bytes(higo_uuid),this.hbase.getConfig()));
+}

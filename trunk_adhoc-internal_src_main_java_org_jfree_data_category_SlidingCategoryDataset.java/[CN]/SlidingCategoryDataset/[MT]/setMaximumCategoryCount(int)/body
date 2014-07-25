@@ -1,0 +1,7 @@
+{
+  if (max < 0) {
+    throw new IllegalArgumentException("Requires 'max' >= 0.");
+  }
+  this.maximumCategoryCount=max;
+  fireDatasetChanged();
+}

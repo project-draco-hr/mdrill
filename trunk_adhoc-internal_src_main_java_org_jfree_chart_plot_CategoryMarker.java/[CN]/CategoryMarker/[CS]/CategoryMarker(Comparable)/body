@@ -1,0 +1,3 @@
+{
+  this(key,Color.gray,new BasicStroke(1.0f));
+}

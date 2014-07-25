@@ -1,0 +1,6 @@
+{
+  if (o instanceof Boolean) {
+    return o.toString();
+  }
+  throw new ClassCastException("Give me a real type.");
+}

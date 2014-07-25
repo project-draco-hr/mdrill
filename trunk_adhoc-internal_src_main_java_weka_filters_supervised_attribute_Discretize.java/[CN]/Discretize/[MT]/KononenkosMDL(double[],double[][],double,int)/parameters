@@ -1,0 +1,4 @@
+double[] priorCounts
+double[][] bestCounts
+double numInstances
+int numCutPoints

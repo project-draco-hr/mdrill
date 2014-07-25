@@ -1,0 +1,41 @@
+{
+  final HashMap moduleMap=new HashMap();
+  final ArrayList errorModules=new ArrayList();
+  final ArrayList weightModules=new ArrayList();
+  for (int i=0; i < modules.size(); i++) {
+    final PackageState state=(PackageState)modules.get(i);
+    if (state.getState() == PackageState.STATE_ERROR) {
+      errorModules.add(state);
+    }
+ else {
+      final SortModule mod=new SortModule(state);
+      weightModules.add(mod);
+      moduleMap.put(state.getModule().getModuleClass(),mod);
+    }
+  }
+  final SortModule[] weigths=(SortModule[])weightModules.toArray(new SortModule[weightModules.size()]);
+  for (int i=0; i < weigths.length; i++) {
+    final SortModule sortMod=weigths[i];
+    sortMod.setDependSubsystems(collectSubsystemModules(sortMod.getState().getModule(),moduleMap));
+  }
+  boolean doneWork=true;
+  while (doneWork) {
+    doneWork=false;
+    for (int i=0; i < weigths.length; i++) {
+      final SortModule mod=weigths[i];
+      final int position=searchModulePosition(mod,moduleMap);
+      if (position != mod.getPosition()) {
+        mod.setPosition(position);
+        doneWork=true;
+      }
+    }
+  }
+  Arrays.sort(weigths);
+  modules.clear();
+  for (int i=0; i < weigths.length; i++) {
+    modules.add(weigths[i].getState());
+  }
+  for (int i=0; i < errorModules.size(); i++) {
+    modules.add(errorModules.get(i));
+  }
+}

@@ -1,0 +1,16 @@
+{
+  if (obj == this) {
+    return true;
+  }
+  if (!(obj instanceof StackedBarRenderer3D)) {
+    return false;
+  }
+  if (!super.equals(obj)) {
+    return false;
+  }
+  StackedBarRenderer3D that=(StackedBarRenderer3D)obj;
+  if (this.renderAsPercentages != that.getRenderAsPercentages()) {
+    return false;
+  }
+  return true;
+}

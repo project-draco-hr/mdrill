@@ -1,0 +1,18 @@
+{
+  if (m_Associator == null)   throw new Exception("No base associator has been set!");
+  data=new Instances(data);
+  if (getClassIndex() == 0) {
+    data.setClassIndex(data.numAttributes() - 1);
+  }
+ else {
+    data.setClassIndex(getClassIndex() - 1);
+  }
+  if (getClassIndex() != -1) {
+    data.deleteWithMissingClass();
+  }
+  m_Filter.setInputFormat(data);
+  data=Filter.useFilter(data,m_Filter);
+  getAssociator().getCapabilities().testWithFail(data);
+  m_FilteredInstances=data.stringFreeStructure();
+  m_Associator.buildAssociations(data);
+}

@@ -1,0 +1,5 @@
+{
+  super.reset();
+  m_ActualClassifier=null;
+  m_SerializedHeader=null;
+}

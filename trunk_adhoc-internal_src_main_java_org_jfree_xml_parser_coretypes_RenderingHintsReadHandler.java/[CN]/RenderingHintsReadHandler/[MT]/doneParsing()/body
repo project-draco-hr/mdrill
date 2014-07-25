@@ -1,0 +1,7 @@
+{
+  this.renderingHints=new RenderingHints(null);
+  for (int i=0; i < this.handlers.size(); i++) {
+    final RenderingHintValueReadHandler rh=(RenderingHintValueReadHandler)this.handlers.get(i);
+    this.renderingHints.put(rh.getKey(),rh.getValue());
+  }
+}

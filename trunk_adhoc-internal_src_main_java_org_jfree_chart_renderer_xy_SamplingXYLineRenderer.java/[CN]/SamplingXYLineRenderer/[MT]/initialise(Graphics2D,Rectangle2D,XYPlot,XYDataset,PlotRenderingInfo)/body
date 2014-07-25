@@ -1,0 +1,8 @@
+{
+  double dpi=72;
+  State state=new State(info);
+  state.seriesPath=new GeneralPath();
+  state.intervalPath=new GeneralPath();
+  state.dX=72.0 / dpi;
+  return state;
+}

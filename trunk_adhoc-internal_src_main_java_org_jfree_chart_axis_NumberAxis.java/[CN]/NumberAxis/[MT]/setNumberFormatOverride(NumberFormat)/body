@@ -1,0 +1,4 @@
+{
+  this.numberFormatOverride=formatter;
+  notifyListeners(new AxisChangeEvent(this));
+}

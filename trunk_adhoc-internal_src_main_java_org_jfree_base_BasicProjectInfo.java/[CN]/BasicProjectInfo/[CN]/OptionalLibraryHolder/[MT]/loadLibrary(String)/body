@@ -1,0 +1,18 @@
+{
+  if (classname == null) {
+    return null;
+  }
+  try {
+    final Class c=ObjectUtilities.getClassLoader(getClass()).loadClass(classname);
+    try {
+      final Method m=c.getMethod("getInstance",(Class[])null);
+      return (Library)m.invoke(null,(Object[])null);
+    }
+ catch (    Exception e) {
+    }
+    return (Library)c.newInstance();
+  }
+ catch (  Exception e) {
+    return null;
+  }
+}

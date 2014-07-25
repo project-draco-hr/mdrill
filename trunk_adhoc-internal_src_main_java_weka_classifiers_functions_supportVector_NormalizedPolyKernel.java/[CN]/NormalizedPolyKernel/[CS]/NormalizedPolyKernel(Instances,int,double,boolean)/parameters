@@ -1,0 +1,4 @@
+Instances dataset
+int cacheSize
+double exponent
+boolean lowerOrder

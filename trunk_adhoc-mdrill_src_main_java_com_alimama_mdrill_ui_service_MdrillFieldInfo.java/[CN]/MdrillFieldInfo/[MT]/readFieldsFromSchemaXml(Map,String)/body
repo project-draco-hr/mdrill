@@ -1,0 +1,37 @@
+{
+  if (tablename.equals("rpt_p4padhoc_auction")) {
+    tablename="rpt_hitfake_auctionall_d";
+  }
+  FieldsInfo datatype=cache.get(tablename);
+  if (datatype != null && (!datatype.istimeout())) {
+    return datatype.info;
+  }
+  datatype=new FieldsInfo();
+  Configuration conf=getConf(stormconf);
+  FileSystem fs=FileSystem.get(conf);
+  String regex="<field\\s+name=\"([^\"]*?)\"\\s+type=\"([^\"]*?)\"\\s+indexed=\"([^\"]*?)\"\\s+stored=\"([^\"]*?)\"\\s*.*/>";
+  Pattern pattern=Pattern.compile(regex);
+  Matcher matcher=pattern.matcher("");
+  BufferedReader br=null;
+  try {
+    FSDataInputStream in=fs.open(new Path(getBasePath(stormconf),tablename + "/solr/conf/schema.xml"));
+    br=new BufferedReader(new InputStreamReader(in));
+    String temp=null;
+    while ((temp=br.readLine()) != null) {
+      matcher.reset(temp);
+      if (matcher.find()) {
+        datatype.info.put(matcher.group(1),matcher.group(2));
+      }
+    }
+    in.close();
+  }
+ catch (  Exception e) {
+  }
+ finally {
+    if (br != null) {
+      br.close();
+    }
+  }
+  cache.put(tablename,datatype);
+  return datatype.info;
+}

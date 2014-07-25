@@ -1,0 +1,18 @@
+{
+  if (value == null) {
+    return Color.black;
+  }
+  try {
+    return Color.decode(value);
+  }
+ catch (  NumberFormatException nfe) {
+    try {
+      final Field f=Color.class.getField(value);
+      return (Color)f.get(null);
+    }
+ catch (    Exception ce) {
+      Log.info("No such Color : " + value);
+      return Color.black;
+    }
+  }
+}

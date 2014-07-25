@@ -1,0 +1,6 @@
+{
+  if (base.length() < start.length()) {
+    return false;
+  }
+  return base.regionMatches(true,0,start,0,start.length());
+}

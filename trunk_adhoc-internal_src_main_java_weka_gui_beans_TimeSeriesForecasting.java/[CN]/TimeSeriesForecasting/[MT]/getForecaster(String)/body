@@ -1,0 +1,11 @@
+{
+  if (base64encoded != null && base64encoded.length() > 0 && !base64encoded.equals("-NONE-")) {
+    byte[] decoded=decodeFromBase64(base64encoded);
+    ByteArrayInputStream bis=new ByteArrayInputStream(decoded);
+    ObjectInputStream ois=new ObjectInputStream(bis);
+    List<Object> model=(List<Object>)ois.readObject();
+    ois.close();
+    return model;
+  }
+  return null;
+}

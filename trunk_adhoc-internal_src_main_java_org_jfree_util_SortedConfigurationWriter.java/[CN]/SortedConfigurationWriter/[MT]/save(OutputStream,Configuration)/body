@@ -1,0 +1,23 @@
+{
+  final ArrayList names=new ArrayList();
+  final Iterator defaults=config.findPropertyKeys("");
+  while (defaults.hasNext()) {
+    final String key=(String)defaults.next();
+    names.add(key);
+  }
+  Collections.sort(names);
+  final OutputStreamWriter out=new OutputStreamWriter(outStream,"iso-8859-1");
+  for (int i=0; i < names.size(); i++) {
+    final String key=(String)names.get(i);
+    final String value=config.getConfigProperty(key);
+    final String description=getDescription(key);
+    if (description != null) {
+      writeDescription(description,out);
+    }
+    saveConvert(key,ESCAPE_KEY,out);
+    out.write("=");
+    saveConvert(value,ESCAPE_VALUE,out);
+    out.write(END_OF_LINE);
+  }
+  out.flush();
+}

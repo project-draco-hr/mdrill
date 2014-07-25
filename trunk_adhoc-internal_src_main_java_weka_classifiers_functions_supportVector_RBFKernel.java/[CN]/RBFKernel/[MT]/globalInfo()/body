@@ -1,0 +1,3 @@
+{
+  return "The RBF kernel. K(x, y) = e^-(gamma * <x-y, x-y>^2)";
+}

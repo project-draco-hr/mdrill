@@ -1,0 +1,53 @@
+{
+  int i, j, l;
+  new_estimators();
+  estimate_priors(inst);
+  for (i=0; i < m_num_clusters; i++) {
+    for (j=0; j < m_num_attribs; j++) {
+      for (l=0; l < inst.numInstances(); l++) {
+        Instance in=inst.instance(l);
+        if (!in.isMissing(j)) {
+          if (inst.attribute(j).isNominal()) {
+            m_model[i][j].addValue(in.value(j),in.weight() * m_weights[l][i]);
+          }
+ else {
+            m_modelNormal[i][j][0]+=(in.value(j) * in.weight() * m_weights[l][i]);
+            m_modelNormal[i][j][2]+=in.weight() * m_weights[l][i];
+            m_modelNormal[i][j][1]+=(in.value(j) * in.value(j) * in.weight()* m_weights[l][i]);
+          }
+        }
+      }
+    }
+  }
+  for (j=0; j < m_num_attribs; j++) {
+    if (!inst.attribute(j).isNominal()) {
+      for (i=0; i < m_num_clusters; i++) {
+        if (m_modelNormal[i][j][2] <= 0) {
+          m_modelNormal[i][j][1]=Double.MAX_VALUE;
+          m_modelNormal[i][j][0]=m_minStdDev;
+        }
+ else {
+          m_modelNormal[i][j][1]=(m_modelNormal[i][j][1] - (m_modelNormal[i][j][0] * m_modelNormal[i][j][0] / m_modelNormal[i][j][2])) / (m_modelNormal[i][j][2]);
+          if (m_modelNormal[i][j][1] < 0) {
+            m_modelNormal[i][j][1]=0;
+          }
+          double minStdD=(m_minStdDevPerAtt != null) ? m_minStdDevPerAtt[j] : m_minStdDev;
+          m_modelNormal[i][j][1]=Math.sqrt(m_modelNormal[i][j][1]);
+          if ((m_modelNormal[i][j][1] <= minStdD)) {
+            m_modelNormal[i][j][1]=inst.attributeStats(j).numericStats.stdDev;
+            if ((m_modelNormal[i][j][1] <= minStdD)) {
+              m_modelNormal[i][j][1]=minStdD;
+            }
+          }
+          if ((m_modelNormal[i][j][1] <= 0)) {
+            m_modelNormal[i][j][1]=m_minStdDev;
+          }
+          if (Double.isInfinite(m_modelNormal[i][j][1])) {
+            m_modelNormal[i][j][1]=m_minStdDev;
+          }
+          m_modelNormal[i][j][0]/=m_modelNormal[i][j][2];
+        }
+      }
+    }
+  }
+}

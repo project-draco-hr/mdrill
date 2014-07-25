@@ -1,0 +1,26 @@
+{
+  m_correlation=new double[m_numAttribs][m_numAttribs];
+  double[] att1=new double[m_numInstances];
+  double[] att2=new double[m_numInstances];
+  double corr;
+  for (int i=0; i < m_numAttribs; i++) {
+    for (int j=0; j < m_numAttribs; j++) {
+      for (int k=0; k < m_numInstances; k++) {
+        att1[k]=m_trainInstances.instance(k).value(i);
+        att2[k]=m_trainInstances.instance(k).value(j);
+      }
+      if (i == j) {
+        m_correlation[i][j]=1.0;
+        m_stdDevs[i]=Math.sqrt(Utils.variance(att1));
+      }
+ else {
+        corr=Utils.correlation(att1,att2,m_numInstances);
+        m_correlation[i][j]=corr;
+        m_correlation[j][i]=corr;
+      }
+    }
+  }
+  m_standardizeFilter=new Standardize();
+  m_standardizeFilter.setInputFormat(m_trainInstances);
+  m_trainInstances=Filter.useFilter(m_trainInstances,m_standardizeFilter);
+}

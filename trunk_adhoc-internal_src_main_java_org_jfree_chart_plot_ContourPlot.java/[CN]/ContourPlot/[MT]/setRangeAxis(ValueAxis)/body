@@ -1,0 +1,11 @@
+{
+  if (axis != null) {
+    axis.setPlot(this);
+    axis.addChangeListener(this);
+  }
+  if (this.rangeAxis != null) {
+    this.rangeAxis.removeChangeListener(this);
+  }
+  this.rangeAxis=axis;
+  fireChangeEvent();
+}

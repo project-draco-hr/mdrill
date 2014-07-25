@@ -1,0 +1,36 @@
+{
+  Object result;
+  Vector children;
+  Element child;
+  int i;
+  String name;
+  Vector inputs;
+  Vector outputs;
+  Vector coords;
+  MetaBean bean;
+  if (DEBUG)   trace(new Throwable(),node.getAttribute(ATT_NAME));
+  m_CurrentNode=node;
+  result=new MetaBean();
+  children=XMLDocument.getChildTags(node);
+  inputs=new Vector();
+  outputs=new Vector();
+  coords=new Vector();
+  m_CurrentMetaBean=(MetaBean)result;
+  for (i=0; i < children.size(); i++) {
+    child=(Element)children.get(i);
+    name=child.getAttribute(ATT_NAME);
+    if (name.equals(VAL_ASSOCIATEDCONNECTIONS))     ((MetaBean)result).setAssociatedConnections((Vector)invokeReadFromXML(child));
+ else     if (name.equals(VAL_INPUTSID))     inputs=(Vector)invokeReadFromXML(child);
+ else     if (name.equals(VAL_OUTPUTSID))     outputs=(Vector)invokeReadFromXML(child);
+ else     if (name.equals(VAL_SUBFLOW))     ((MetaBean)result).setSubFlow((Vector)invokeReadFromXML(child));
+ else     if (name.equals(VAL_ORIGINALCOORDS))     coords=(Vector)invokeReadFromXML(child);
+ else     if (name.equals(VAL_INPUTS))     System.out.println("INFO: '" + name + "' will be restored later.");
+ else     if (name.equals(VAL_OUTPUTS))     System.out.println("INFO: '" + name + "' will be restored later.");
+ else     readFromXML(result,name,child);
+  }
+  bean=(MetaBean)result;
+  bean.setInputs(getBeanInstancesForIDs(inputs));
+  bean.setOutputs(getBeanInstancesForIDs(outputs));
+  bean.setOriginalCoords(coords);
+  return result;
+}

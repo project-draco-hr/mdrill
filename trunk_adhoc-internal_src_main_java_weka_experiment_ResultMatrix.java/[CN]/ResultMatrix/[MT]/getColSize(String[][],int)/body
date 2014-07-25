@@ -1,0 +1,3 @@
+{
+  return getColSize(data,col,false,false);
+}

@@ -1,0 +1,3 @@
+double[] predicted
+double[] actual
+double weight

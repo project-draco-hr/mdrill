@@ -1,0 +1,6 @@
+{
+  this.fillPaint=paint;
+  if (notify) {
+    fireChangeEvent();
+  }
+}

@@ -1,0 +1,8 @@
+{
+  ListSelectorDialog jd=new ListSelectorDialog(null,m_ignoreKeyList);
+  int result=jd.showDialog();
+  if (result != ListSelectorDialog.APPROVE_OPTION) {
+    m_ignoreKeyList.clearSelection();
+  }
+  updateCapabilitiesFilter(m_ClustererEditor.getCapabilitiesFilter());
+}

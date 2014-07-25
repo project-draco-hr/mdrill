@@ -1,0 +1,22 @@
+{
+  boolean[] result=new boolean[2];
+  print("options...");
+  if (getTestObject() instanceof OptionHandler) {
+    println("yes");
+    if (m_Debug) {
+      println("\n=== Full report ===");
+      Enumeration enu=((OptionHandler)getTestObject()).listOptions();
+      while (enu.hasMoreElements()) {
+        Option option=(Option)enu.nextElement();
+        print(option.synopsis() + "\n" + option.description()+ "\n");
+      }
+      println("\n");
+    }
+    result[0]=true;
+  }
+ else {
+    println("no");
+    result[0]=false;
+  }
+  return result;
+}

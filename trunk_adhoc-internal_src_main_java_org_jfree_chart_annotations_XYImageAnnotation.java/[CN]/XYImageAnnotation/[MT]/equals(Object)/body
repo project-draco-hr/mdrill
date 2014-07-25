@@ -1,0 +1,25 @@
+{
+  if (obj == this) {
+    return true;
+  }
+  if (!super.equals(obj)) {
+    return false;
+  }
+  if (!(obj instanceof XYImageAnnotation)) {
+    return false;
+  }
+  XYImageAnnotation that=(XYImageAnnotation)obj;
+  if (this.x != that.x) {
+    return false;
+  }
+  if (this.y != that.y) {
+    return false;
+  }
+  if (!ObjectUtilities.equal(this.image,that.image)) {
+    return false;
+  }
+  if (!this.anchor.equals(that.anchor)) {
+    return false;
+  }
+  return true;
+}

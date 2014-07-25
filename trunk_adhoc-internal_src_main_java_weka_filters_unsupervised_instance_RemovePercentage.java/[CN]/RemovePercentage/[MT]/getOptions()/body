@@ -1,0 +1,13 @@
+{
+  String[] options=new String[5];
+  int current=0;
+  options[current++]="-P";
+  options[current++]="" + getPercentage();
+  if (getInvertSelection()) {
+    options[current++]="-V";
+  }
+  while (current < options.length) {
+    options[current++]="";
+  }
+  return options;
+}

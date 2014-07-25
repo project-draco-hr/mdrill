@@ -1,0 +1,8 @@
+{
+  StandardChartTheme theme=new StandardChartTheme("Legacy"){
+    public void apply(    JFreeChart chart){
+    }
+  }
+;
+  return theme;
+}

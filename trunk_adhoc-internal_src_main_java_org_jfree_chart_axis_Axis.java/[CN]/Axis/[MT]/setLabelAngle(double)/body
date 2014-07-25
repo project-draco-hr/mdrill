@@ -1,0 +1,4 @@
+{
+  this.labelAngle=angle;
+  fireChangeEvent();
+}

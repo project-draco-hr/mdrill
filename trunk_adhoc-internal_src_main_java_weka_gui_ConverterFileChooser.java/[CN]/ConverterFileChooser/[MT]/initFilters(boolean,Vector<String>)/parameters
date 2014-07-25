@@ -1,0 +1,2 @@
+boolean loader
+Vector<String> classnames

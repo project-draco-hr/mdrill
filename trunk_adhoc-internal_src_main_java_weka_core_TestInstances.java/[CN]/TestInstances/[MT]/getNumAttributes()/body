@@ -1,0 +1,6 @@
+{
+  int result;
+  result=m_NumNominal + m_NumNumeric + m_NumString+ m_NumDate+ m_NumRelational;
+  if (!getNoClass())   result++;
+  return result;
+}

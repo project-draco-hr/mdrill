@@ -1,0 +1,3 @@
+{
+  runDataGenerator(new LED24(),args);
+}

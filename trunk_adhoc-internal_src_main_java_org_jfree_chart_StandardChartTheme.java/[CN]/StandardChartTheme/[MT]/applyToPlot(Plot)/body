@@ -1,0 +1,39 @@
+{
+  if (plot == null) {
+    throw new IllegalArgumentException("Null 'plot' argument.");
+  }
+  if (plot.getDrawingSupplier() != null) {
+    plot.setDrawingSupplier(getDrawingSupplier());
+  }
+  if (plot.getBackgroundPaint() != null) {
+    plot.setBackgroundPaint(this.plotBackgroundPaint);
+  }
+  plot.setOutlinePaint(this.plotOutlinePaint);
+  if (plot instanceof PiePlot) {
+    applyToPiePlot((PiePlot)plot);
+  }
+ else   if (plot instanceof MultiplePiePlot) {
+    applyToMultiplePiePlot((MultiplePiePlot)plot);
+  }
+ else   if (plot instanceof CategoryPlot) {
+    applyToCategoryPlot((CategoryPlot)plot);
+  }
+ else   if (plot instanceof XYPlot) {
+    applyToXYPlot((XYPlot)plot);
+  }
+ else   if (plot instanceof FastScatterPlot) {
+    applyToFastScatterPlot((FastScatterPlot)plot);
+  }
+ else   if (plot instanceof MeterPlot) {
+    applyToMeterPlot((MeterPlot)plot);
+  }
+ else   if (plot instanceof ThermometerPlot) {
+    applyToThermometerPlot((ThermometerPlot)plot);
+  }
+ else   if (plot instanceof SpiderWebPlot) {
+    applyToSpiderWebPlot((SpiderWebPlot)plot);
+  }
+ else   if (plot instanceof PolarPlot) {
+    applyToPolarPlot((PolarPlot)plot);
+  }
+}

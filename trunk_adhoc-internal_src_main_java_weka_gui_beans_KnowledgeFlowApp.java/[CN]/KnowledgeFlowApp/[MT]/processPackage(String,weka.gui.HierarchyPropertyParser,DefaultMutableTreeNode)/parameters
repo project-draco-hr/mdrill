@@ -1,0 +1,3 @@
+String tempBeanCompName
+weka.gui.HierarchyPropertyParser hpp
+DefaultMutableTreeNode parentNode

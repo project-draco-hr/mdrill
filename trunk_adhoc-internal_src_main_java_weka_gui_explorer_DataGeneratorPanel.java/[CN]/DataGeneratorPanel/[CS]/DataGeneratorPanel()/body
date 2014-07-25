@@ -1,0 +1,12 @@
+{
+  setLayout(new BorderLayout());
+  add(new PropertyPanel(m_GeneratorEditor),BorderLayout.CENTER);
+  m_GeneratorEditor.setClassType(DataGenerator.class);
+  m_GeneratorEditor.addPropertyChangeListener(new PropertyChangeListener(){
+    public void propertyChange(    PropertyChangeEvent e){
+      repaint();
+    }
+  }
+);
+  setGenerator(null);
+}

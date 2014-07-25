@@ -1,0 +1,3 @@
+{
+  this.safeTags.put(tag,new SafeDescription(open,closed));
+}

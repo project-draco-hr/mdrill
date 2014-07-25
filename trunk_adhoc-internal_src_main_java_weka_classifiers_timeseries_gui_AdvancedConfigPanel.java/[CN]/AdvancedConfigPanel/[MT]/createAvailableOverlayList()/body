@@ -1,0 +1,36 @@
+{
+  String ppfn=m_primaryPeriodicCombo.getSelectedItem().toString();
+  Instances result=null;
+  if (m_simpleConfig.m_targetHeader != null) {
+    ArrayList<Attribute> availableAtts=new ArrayList<Attribute>();
+    int[] selectedTargets=m_simpleConfig.m_targetPanel.getSelectedAttributes();
+    for (int i=0; i < m_instances.numAttributes(); i++) {
+      if (m_instances.attribute(i).isDate()) {
+        continue;
+      }
+      if (m_instances.attribute(i).name().equals(ppfn)) {
+        continue;
+      }
+      if (m_simpleConfig.m_targetHeader.attribute(m_instances.attribute(i).name()) != null) {
+        int indexToCheck=m_simpleConfig.m_targetHeader.attribute(m_instances.attribute(i).name()).index();
+        boolean ok=true;
+        for (int j=0; j < selectedTargets.length; j++) {
+          if (indexToCheck == selectedTargets[j]) {
+            ok=false;
+            break;
+          }
+        }
+        if (ok) {
+          availableAtts.add(new Attribute(m_instances.attribute(i).name()));
+        }
+      }
+ else {
+        availableAtts.add(new Attribute(m_instances.attribute(i).name()));
+      }
+    }
+    if (availableAtts.size() > 0) {
+      result=new Instances("Overlay",availableAtts,1);
+    }
+  }
+  return result;
+}

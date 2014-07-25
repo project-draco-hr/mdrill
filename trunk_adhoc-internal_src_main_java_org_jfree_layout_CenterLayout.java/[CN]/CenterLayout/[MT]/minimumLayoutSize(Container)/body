@@ -1,0 +1,13 @@
+{
+synchronized (parent.getTreeLock()) {
+    final Insets insets=parent.getInsets();
+    if (parent.getComponentCount() > 0) {
+      final Component component=parent.getComponent(0);
+      final Dimension d=component.getMinimumSize();
+      return new Dimension(d.width + insets.left + insets.right,d.height + insets.top + insets.bottom);
+    }
+ else {
+      return new Dimension(insets.left + insets.right,insets.top + insets.bottom);
+    }
+  }
+}

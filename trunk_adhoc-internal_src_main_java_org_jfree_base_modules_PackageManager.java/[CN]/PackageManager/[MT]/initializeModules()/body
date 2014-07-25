@@ -1,0 +1,15 @@
+{
+  PackageSorter.sort(this.modules);
+  for (int i=0; i < this.modules.size(); i++) {
+    final PackageState mod=(PackageState)this.modules.get(i);
+    if (mod.configure(this.booter)) {
+      Log.debug(new Log.SimpleMessage("Conf: ",new PadMessage(mod.getModule().getModuleClass(),70)," [",mod.getModule().getSubSystem(),"]"));
+    }
+  }
+  for (int i=0; i < this.modules.size(); i++) {
+    final PackageState mod=(PackageState)this.modules.get(i);
+    if (mod.initialize(this.booter)) {
+      Log.debug(new Log.SimpleMessage("Init: ",new PadMessage(mod.getModule().getModuleClass(),70)," [",mod.getModule().getSubSystem(),"]"));
+    }
+  }
+}

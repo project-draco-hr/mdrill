@@ -1,0 +1,3 @@
+{
+  ((CheckBoxListItem)super.getElementAt(index)).setChecked(checked);
+}

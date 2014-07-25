@@ -1,0 +1,5 @@
+{
+  final Paint p1=new GradientPaint(10.0f,20.0f,Color.blue,30.0f,40.0f,Color.red);
+  final Paint p2=new GradientPaint(10.0f,20.0f,Color.blue,30.0f,40.0f,Color.red);
+  assertEquals(p1,p2);
+}

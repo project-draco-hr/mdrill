@@ -1,0 +1,15 @@
+{
+  int numCent=centList.length;
+  if (assignments == null) {
+    assignments=new int[m_Instances.numInstances()];
+    for (int i=0; i < assignments.length; i++) {
+      assignments[i]=-1;
+    }
+  }
+  for (int i=node.m_Start; i <= node.m_End; i++) {
+    int instIndex=m_InstList[i];
+    Instance inst=m_Instances.instance(instIndex);
+    int newC=m_EuclideanDistance.closestPoint(inst,centers,centList);
+    assignments[instIndex]=newC;
+  }
+}

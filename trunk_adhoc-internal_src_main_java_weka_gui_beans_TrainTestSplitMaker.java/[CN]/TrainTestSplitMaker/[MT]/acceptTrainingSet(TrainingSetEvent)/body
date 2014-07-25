@@ -1,0 +1,5 @@
+{
+  Instances trainingSet=e.getTrainingSet();
+  DataSetEvent dse=new DataSetEvent(this,trainingSet);
+  acceptDataSet(dse);
+}

@@ -1,0 +1,3 @@
+{
+  return eventName.equals("dataSet") || eventName.equals("trainingSet") || eventName.equals("testSet");
+}

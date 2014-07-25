@@ -1,0 +1,11 @@
+{
+  if (m_listeners.size() > 0) {
+    for (int i=0; i < m_listeners.size(); i++) {
+      RemoteExperimentListener r=(RemoteExperimentListener)(m_listeners.elementAt(i));
+      r.remoteExperimentStatus(new RemoteExperimentEvent(status,log,finished,message));
+    }
+  }
+ else {
+    System.err.println(message);
+  }
+}

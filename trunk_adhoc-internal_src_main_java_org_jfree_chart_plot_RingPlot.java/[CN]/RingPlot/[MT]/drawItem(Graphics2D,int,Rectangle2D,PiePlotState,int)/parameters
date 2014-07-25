@@ -1,0 +1,5 @@
+Graphics2D g2
+int section
+Rectangle2D dataArea
+PiePlotState state
+int currentPass

@@ -1,0 +1,13 @@
+{
+  try {
+    return new Day(Day.DATE_FORMAT.parse(s));
+  }
+ catch (  ParseException e1) {
+    try {
+      return new Day(Day.DATE_FORMAT_SHORT.parse(s));
+    }
+ catch (    ParseException e2) {
+    }
+  }
+  return null;
+}

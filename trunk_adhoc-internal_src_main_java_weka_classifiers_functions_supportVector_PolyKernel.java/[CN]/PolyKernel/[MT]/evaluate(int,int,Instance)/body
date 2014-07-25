@@ -1,0 +1,16 @@
+{
+  double result;
+  if (id1 == id2) {
+    result=dotProd(inst1,inst1);
+  }
+ else {
+    result=dotProd(inst1,m_data.instance(id2));
+  }
+  if (m_lowerOrder) {
+    result+=1.0;
+  }
+  if (m_exponent != 1.0) {
+    result=Math.pow(result,m_exponent);
+  }
+  return result;
+}

@@ -1,0 +1,18 @@
+{
+  int i, j;
+  j=numInstances() - 1;
+  i=0;
+  while (i <= j) {
+    if (instance(j).isMissing(attIndex)) {
+      j--;
+    }
+ else {
+      if (instance(i).isMissing(attIndex)) {
+        swap(i,j);
+        j--;
+      }
+      i++;
+    }
+  }
+  quickSort(attIndex,0,j);
+}

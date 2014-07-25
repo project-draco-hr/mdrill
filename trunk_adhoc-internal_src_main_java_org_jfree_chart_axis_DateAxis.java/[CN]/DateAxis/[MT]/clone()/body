@@ -1,0 +1,7 @@
+{
+  DateAxis clone=(DateAxis)super.clone();
+  if (this.dateFormatOverride != null) {
+    clone.dateFormatOverride=(DateFormat)this.dateFormatOverride.clone();
+  }
+  return clone;
+}

@@ -1,0 +1,9 @@
+Number mean
+Number median
+Number q1
+Number q3
+Number minRegularValue
+Number maxRegularValue
+Number minOutlier
+Number maxOutlier
+List outliers

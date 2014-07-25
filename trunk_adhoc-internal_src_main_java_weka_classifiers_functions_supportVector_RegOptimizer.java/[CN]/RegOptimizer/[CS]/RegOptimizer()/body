@@ -1,0 +1,4 @@
+{
+  super();
+  m_random=new Random(m_nSeed);
+}

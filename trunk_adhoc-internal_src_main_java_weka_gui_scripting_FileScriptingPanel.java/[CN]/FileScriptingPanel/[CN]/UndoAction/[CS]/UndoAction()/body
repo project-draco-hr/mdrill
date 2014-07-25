@@ -1,0 +1,4 @@
+{
+  super("Undo","undo.gif","ctrl Z",'U');
+  setEnabled(false);
+}

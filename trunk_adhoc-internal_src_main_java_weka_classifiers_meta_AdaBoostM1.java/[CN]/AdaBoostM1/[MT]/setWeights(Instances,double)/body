@@ -1,0 +1,15 @@
+{
+  double oldSumOfWeights, newSumOfWeights;
+  oldSumOfWeights=training.sumOfWeights();
+  Enumeration enu=training.enumerateInstances();
+  while (enu.hasMoreElements()) {
+    Instance instance=(Instance)enu.nextElement();
+    if (!Utils.eq(m_Classifiers[m_NumIterationsPerformed].classifyInstance(instance),instance.classValue()))     instance.setWeight(instance.weight() * reweight);
+  }
+  newSumOfWeights=training.sumOfWeights();
+  enu=training.enumerateInstances();
+  while (enu.hasMoreElements()) {
+    Instance instance=(Instance)enu.nextElement();
+    instance.setWeight(instance.weight() * oldSumOfWeights / newSumOfWeights);
+  }
+}

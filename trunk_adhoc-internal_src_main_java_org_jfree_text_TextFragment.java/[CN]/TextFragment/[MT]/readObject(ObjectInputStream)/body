@@ -1,0 +1,4 @@
+{
+  stream.defaultReadObject();
+  this.paint=SerialUtilities.readPaint(stream);
+}

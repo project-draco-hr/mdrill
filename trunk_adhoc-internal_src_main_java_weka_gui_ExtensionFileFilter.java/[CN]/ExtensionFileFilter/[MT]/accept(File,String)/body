@@ -1,0 +1,3 @@
+{
+  return accept(new File(dir,name));
+}

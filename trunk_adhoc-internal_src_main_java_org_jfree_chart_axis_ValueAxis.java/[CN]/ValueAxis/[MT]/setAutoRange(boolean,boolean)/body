@@ -1,0 +1,11 @@
+{
+  if (this.autoRange != auto) {
+    this.autoRange=auto;
+    if (this.autoRange) {
+      autoAdjustRange();
+    }
+    if (notify) {
+      notifyListeners(new AxisChangeEvent(this));
+    }
+  }
+}

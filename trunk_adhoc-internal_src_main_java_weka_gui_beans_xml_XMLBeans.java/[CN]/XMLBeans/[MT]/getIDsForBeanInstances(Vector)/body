@@ -1,0 +1,11 @@
+{
+  Vector result;
+  int i;
+  int pos;
+  result=new Vector();
+  for (i=0; i < beans.size(); i++) {
+    pos=m_BeanInstances.indexOf(beans.get(i));
+    result.add(m_BeanInstancesID.get(pos));
+  }
+  return result;
+}

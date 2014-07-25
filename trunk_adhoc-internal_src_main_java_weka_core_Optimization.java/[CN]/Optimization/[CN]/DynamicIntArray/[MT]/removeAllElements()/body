@@ -1,0 +1,4 @@
+{
+  m_Objects=new int[m_Objects.length];
+  m_Size=0;
+}

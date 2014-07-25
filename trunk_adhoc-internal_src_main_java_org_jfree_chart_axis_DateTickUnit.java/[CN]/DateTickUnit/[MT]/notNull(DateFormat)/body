@@ -1,0 +1,8 @@
+{
+  if (formatter == null) {
+    return DateFormat.getDateInstance(DateFormat.SHORT);
+  }
+ else {
+    return formatter;
+  }
+}

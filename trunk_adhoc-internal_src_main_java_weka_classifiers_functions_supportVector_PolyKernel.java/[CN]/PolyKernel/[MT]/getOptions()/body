@@ -1,0 +1,12 @@
+{
+  int i;
+  Vector result;
+  String[] options;
+  result=new Vector();
+  options=super.getOptions();
+  for (i=0; i < options.length; i++)   result.add(options[i]);
+  result.add("-E");
+  result.add("" + getExponent());
+  if (getUseLowerOrder())   result.add("-L");
+  return (String[])result.toArray(new String[result.size()]);
+}

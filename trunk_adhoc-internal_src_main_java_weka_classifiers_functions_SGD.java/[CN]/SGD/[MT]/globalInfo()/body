@@ -1,0 +1,3 @@
+{
+  return "Implements stochastic gradient descent for learning" + " various linear models (binary class SVM, binary class" + " logistic regression and linear"+ " regression)."+ " Globally replaces all missing values and transforms nominal"+ " attributes into binary ones. It also normalizes all attributes,"+ " so the coefficients in the output are based on the normalized"+ " data.\n"+ "For numeric class attributes, the squared loss function "+ "(" + SQUAREDLOSS + ") must be used.";
+}

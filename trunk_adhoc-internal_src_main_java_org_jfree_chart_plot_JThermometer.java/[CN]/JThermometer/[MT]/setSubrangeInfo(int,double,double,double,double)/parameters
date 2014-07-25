@@ -1,0 +1,5 @@
+int range
+double rangeLow
+double rangeHigh
+double displayLow
+double displayHigh

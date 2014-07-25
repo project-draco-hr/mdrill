@@ -1,0 +1,9 @@
+{
+  plot.setDialBackgroundPaint(this.plotBackgroundPaint);
+  plot.setValueFont(this.largeFont);
+  plot.setValuePaint(this.axisLabelPaint);
+  plot.setDialOutlinePaint(this.plotOutlinePaint);
+  plot.setNeedlePaint(this.thermometerPaint);
+  plot.setTickLabelFont(this.regularFont);
+  plot.setTickLabelPaint(this.tickLabelPaint);
+}

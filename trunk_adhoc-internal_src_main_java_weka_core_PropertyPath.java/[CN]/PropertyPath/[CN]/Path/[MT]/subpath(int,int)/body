@@ -1,0 +1,7 @@
+{
+  Vector<PathElement> list;
+  int i;
+  list=new Vector<PathElement>();
+  for (i=startIndex; i < endIndex; i++)   list.add(get(i));
+  return new Path(list);
+}

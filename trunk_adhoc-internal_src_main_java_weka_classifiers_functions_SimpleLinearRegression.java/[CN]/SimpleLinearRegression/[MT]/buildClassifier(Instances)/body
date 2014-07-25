@@ -1,0 +1,58 @@
+{
+  getCapabilities().testWithFail(insts);
+  insts=new Instances(insts);
+  insts.deleteWithMissingClass();
+  double yMean=insts.meanOrMode(insts.classIndex());
+  double minMsq=Double.MAX_VALUE;
+  m_attribute=null;
+  int chosen=-1;
+  double chosenSlope=Double.NaN;
+  double chosenIntercept=Double.NaN;
+  for (int i=0; i < insts.numAttributes(); i++) {
+    if (i != insts.classIndex()) {
+      m_attribute=insts.attribute(i);
+      double xMean=insts.meanOrMode(i);
+      double sumWeightedXDiffSquared=0;
+      double sumWeightedYDiffSquared=0;
+      m_slope=0;
+      for (int j=0; j < insts.numInstances(); j++) {
+        Instance inst=insts.instance(j);
+        if (!inst.isMissing(i) && !inst.classIsMissing()) {
+          double xDiff=inst.value(i) - xMean;
+          double yDiff=inst.classValue() - yMean;
+          double weightedXDiff=inst.weight() * xDiff;
+          double weightedYDiff=inst.weight() * yDiff;
+          m_slope+=weightedXDiff * yDiff;
+          sumWeightedXDiffSquared+=weightedXDiff * xDiff;
+          sumWeightedYDiffSquared+=weightedYDiff * yDiff;
+        }
+      }
+      if (sumWeightedXDiffSquared == 0) {
+        continue;
+      }
+      double numerator=m_slope;
+      m_slope/=sumWeightedXDiffSquared;
+      m_intercept=yMean - m_slope * xMean;
+      double msq=sumWeightedYDiffSquared - m_slope * numerator;
+      if (msq < minMsq) {
+        minMsq=msq;
+        chosen=i;
+        chosenSlope=m_slope;
+        chosenIntercept=m_intercept;
+      }
+    }
+  }
+  if (chosen == -1) {
+    if (!m_suppressErrorMessage)     System.err.println("----- no useful attribute found");
+    m_attribute=null;
+    m_attributeIndex=0;
+    m_slope=0;
+    m_intercept=yMean;
+  }
+ else {
+    m_attribute=insts.attribute(chosen);
+    m_attributeIndex=chosen;
+    m_slope=chosenSlope;
+    m_intercept=chosenIntercept;
+  }
+}

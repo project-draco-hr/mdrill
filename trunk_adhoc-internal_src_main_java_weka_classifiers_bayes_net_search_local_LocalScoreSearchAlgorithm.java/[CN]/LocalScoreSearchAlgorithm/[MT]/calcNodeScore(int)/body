@@ -1,0 +1,8 @@
+{
+  if (m_BayesNet.getUseADTree() && m_BayesNet.getADTree() != null) {
+    return calcNodeScoreADTree(nNode);
+  }
+ else {
+    return calcNodeScorePlain(nNode);
+  }
+}

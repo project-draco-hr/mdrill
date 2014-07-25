@@ -1,0 +1,3 @@
+{
+  return "The SQL query to execute against the database.";
+}

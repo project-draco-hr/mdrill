@@ -1,0 +1,4 @@
+{
+  if (!isInitialized())   return -1;
+ else   return mIndices[visibleRow];
+}

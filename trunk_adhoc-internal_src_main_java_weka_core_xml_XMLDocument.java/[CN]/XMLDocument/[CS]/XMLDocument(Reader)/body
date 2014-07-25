@@ -1,0 +1,4 @@
+{
+  this();
+  read(reader);
+}

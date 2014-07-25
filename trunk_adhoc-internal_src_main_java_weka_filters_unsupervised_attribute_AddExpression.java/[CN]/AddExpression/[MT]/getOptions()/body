@@ -1,0 +1,15 @@
+{
+  String[] options=new String[5];
+  int current=0;
+  options[current++]="-E";
+  options[current++]=getExpression();
+  options[current++]="-N";
+  options[current++]=getName();
+  if (getDebug()) {
+    options[current++]="-D";
+  }
+  while (current < options.length) {
+    options[current++]="";
+  }
+  return options;
+}

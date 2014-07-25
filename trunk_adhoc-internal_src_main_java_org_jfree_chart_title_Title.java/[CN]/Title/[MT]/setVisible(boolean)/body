@@ -1,0 +1,4 @@
+{
+  this.visible=visible;
+  notifyListeners(new TitleChangeEvent(this));
+}

@@ -1,0 +1,5 @@
+{
+  if (newEstimator.getTags() == TAGS_ESTIMATOR) {
+    m_estimatorType=newEstimator.getSelectedTag().getID();
+  }
+}

@@ -1,0 +1,13 @@
+{
+  if (stream == null) {
+    throw new IllegalArgumentException("Null 'stream' argument.");
+  }
+  Point2D result=null;
+  final boolean isNull=stream.readBoolean();
+  if (!isNull) {
+    final double x=stream.readDouble();
+    final double y=stream.readDouble();
+    result=new Point2D.Double(x,y);
+  }
+  return result;
+}

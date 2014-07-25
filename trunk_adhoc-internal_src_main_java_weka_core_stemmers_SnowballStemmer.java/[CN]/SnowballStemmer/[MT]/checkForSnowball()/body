@@ -1,0 +1,9 @@
+{
+  try {
+    Class.forName(SNOWBALL_PROGRAM);
+    m_Present=true;
+  }
+ catch (  Exception e) {
+    m_Present=false;
+  }
+}

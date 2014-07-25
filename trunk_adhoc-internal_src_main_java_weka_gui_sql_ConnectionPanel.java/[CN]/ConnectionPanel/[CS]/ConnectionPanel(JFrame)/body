@@ -1,0 +1,27 @@
+{
+  super();
+  m_Parent=parent;
+  m_ConnectionListeners=new HashSet();
+  m_HistoryChangedListeners=new HashSet();
+  m_SetupFileChooser=new JFileChooser();
+  m_SetupFileChooser.setDialogTitle("Switch database setup");
+  m_SetupFileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
+  m_SetupFileChooser.setMultiSelectionEnabled(false);
+  m_SetupFileChooser.setAcceptAllFileFilterUsed(true);
+  ExtensionFileFilter filter=new ExtensionFileFilter(".props","Properties file");
+  m_SetupFileChooser.addChoosableFileFilter(filter);
+  m_SetupFileChooser.setFileFilter(filter);
+  try {
+    m_DbUtils=new DbUtils();
+    m_URL=m_DbUtils.getDatabaseURL();
+    m_User=m_DbUtils.getUsername();
+    m_Password=m_DbUtils.getPassword();
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+    m_URL="";
+    m_User="";
+    m_Password="";
+  }
+  createPanel();
+}

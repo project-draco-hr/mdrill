@@ -1,0 +1,2 @@
+HashMap<String,Double> incoming
+double[] preds

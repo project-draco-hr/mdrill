@@ -1,0 +1,13 @@
+{
+  String[] options=new String[this.m_AttIndices.getInvert() ? 7 : 6];
+  int current=0;
+  options[current++]="-R";
+  options[current++]="" + (getAttributeRange());
+  while (current < options.length) {
+    options[current++]="";
+  }
+  if (this.m_AttIndices.getInvert()) {
+    options[current++]="-V";
+  }
+  return options;
+}

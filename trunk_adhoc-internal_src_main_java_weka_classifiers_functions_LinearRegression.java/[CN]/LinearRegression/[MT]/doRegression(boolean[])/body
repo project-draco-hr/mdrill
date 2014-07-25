@@ -1,0 +1,61 @@
+{
+  if (b_Debug) {
+    System.out.print("doRegression(");
+    for (int i=0; i < selectedAttributes.length; i++) {
+      System.out.print(" " + selectedAttributes[i]);
+    }
+    System.out.println(" )");
+  }
+  int numAttributes=0;
+  for (int i=0; i < selectedAttributes.length; i++) {
+    if (selectedAttributes[i]) {
+      numAttributes++;
+    }
+  }
+  Matrix independent=null, dependent=null;
+  double[] weights=null;
+  if (numAttributes > 0) {
+    independent=new Matrix(m_TransformedData.numInstances(),numAttributes);
+    dependent=new Matrix(m_TransformedData.numInstances(),1);
+    for (int i=0; i < m_TransformedData.numInstances(); i++) {
+      Instance inst=m_TransformedData.instance(i);
+      int column=0;
+      for (int j=0; j < m_TransformedData.numAttributes(); j++) {
+        if (j == m_ClassIndex) {
+          dependent.setElement(i,0,inst.classValue());
+        }
+ else {
+          if (selectedAttributes[j]) {
+            double value=inst.value(j) - m_Means[j];
+            if (!m_checksTurnedOff) {
+              value/=m_StdDevs[j];
+            }
+            independent.setElement(i,column,value);
+            column++;
+          }
+        }
+      }
+    }
+    weights=new double[m_TransformedData.numInstances()];
+    for (int i=0; i < weights.length; i++) {
+      weights[i]=m_TransformedData.instance(i).weight();
+    }
+  }
+  double[] coefficients=new double[numAttributes + 1];
+  if (numAttributes > 0) {
+    double[] coeffsWithoutIntercept=independent.regression(dependent,weights,m_Ridge);
+    System.arraycopy(coeffsWithoutIntercept,0,coefficients,0,numAttributes);
+  }
+  coefficients[numAttributes]=m_ClassMean;
+  int column=0;
+  for (int i=0; i < m_TransformedData.numAttributes(); i++) {
+    if ((i != m_TransformedData.classIndex()) && (selectedAttributes[i])) {
+      if (!m_checksTurnedOff) {
+        coefficients[column]/=m_StdDevs[i];
+      }
+      coefficients[coefficients.length - 1]-=coefficients[column] * m_Means[i];
+      column++;
+    }
+  }
+  return coefficients;
+}

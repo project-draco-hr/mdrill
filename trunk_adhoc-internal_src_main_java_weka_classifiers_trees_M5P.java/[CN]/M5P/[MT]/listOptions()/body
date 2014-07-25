@@ -1,0 +1,9 @@
+{
+  Enumeration superOpts=super.listOptions();
+  Vector newVector=new Vector();
+  while (superOpts.hasMoreElements()) {
+    newVector.addElement((Option)superOpts.nextElement());
+  }
+  newVector.addElement(new Option("\tSave instances at the nodes in\n" + "\tthe tree (for visualization purposes)","L",0,"-L"));
+  return newVector.elements();
+}

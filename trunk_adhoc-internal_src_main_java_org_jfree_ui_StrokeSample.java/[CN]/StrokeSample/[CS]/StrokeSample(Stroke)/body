@@ -1,0 +1,5 @@
+{
+  this.stroke=stroke;
+  this.preferredSize=new Dimension(80,18);
+  setPreferredSize(this.preferredSize);
+}

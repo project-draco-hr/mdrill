@@ -1,0 +1,16 @@
+{
+  if (this.position == DONE) {
+    return null;
+  }
+  final int lastFound=this.position;
+  int pos=nextWithEnd();
+  if (pos == DONE) {
+    return new String(this.text,lastFound,this.text.length - lastFound);
+  }
+  if (pos > 0) {
+    final int end=lastFound;
+    for (; ((pos) > end) && ((this.text[pos - 1] == '\n') || this.text[pos - 1] == '\r'); pos--) {
+    }
+  }
+  return new String(this.text,lastFound,pos - lastFound);
+}

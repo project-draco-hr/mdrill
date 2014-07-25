@@ -1,0 +1,16 @@
+{
+  super.setUpComboBoxes(inst);
+  m_XCombo.addActionListener(new ActionListener(){
+    public void actionPerformed(    ActionEvent e){
+      setBorderText();
+    }
+  }
+);
+  m_YCombo.addActionListener(new ActionListener(){
+    public void actionPerformed(    ActionEvent e){
+      setBorderText();
+    }
+  }
+);
+  setBorderText();
+}

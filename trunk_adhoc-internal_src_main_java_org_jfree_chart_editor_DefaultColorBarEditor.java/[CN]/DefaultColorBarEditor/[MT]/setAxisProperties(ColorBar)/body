@@ -1,0 +1,6 @@
+{
+  super.setAxisProperties(colorBar.getAxis());
+  colorBar.setColorPalette(this.currentPalette.getPalette());
+  colorBar.getColorPalette().setInverse(this.invertPalette);
+  colorBar.getColorPalette().setStepped(this.stepPalette);
+}

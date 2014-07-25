@@ -1,0 +1,8 @@
+{
+  Number result=null;
+  BoxAndWhiskerItem stats=(BoxAndWhiskerItem)this.items.get(item);
+  if (stats != null) {
+    result=stats.getMinOutlier();
+  }
+  return result;
+}

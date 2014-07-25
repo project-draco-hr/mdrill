@@ -1,0 +1,12 @@
+{
+  String[] options=new String[4];
+  int current=0;
+  options[current++]="-C";
+  options[current++]="" + getAttributeIndex();
+  options[current++]="-F";
+  options[current++]="" + getDateFormat().toPattern();
+  while (current < options.length) {
+    options[current++]="";
+  }
+  return options;
+}

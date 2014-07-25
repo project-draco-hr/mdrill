@@ -1,0 +1,7 @@
+{
+  Object o;
+  checkKOML();
+  o=KOML.read(koml);
+  if (o == null)   throw new Exception("Failed to deserialize object from XML file '" + koml + "'!");
+  writeBinary(binary,o);
+}

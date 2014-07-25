@@ -1,0 +1,25 @@
+{
+  m_Header=new Instances(data,0);
+  m_NumClasses=data.numClasses();
+  m_NumFolds=1;
+  m_ClassIsNominal=data.classAttribute().isNominal();
+  if (m_ClassIsNominal) {
+    m_ConfusionMatrix=new double[m_NumClasses][m_NumClasses];
+    m_ClassNames=new String[m_NumClasses];
+    for (int i=0; i < m_NumClasses; i++) {
+      m_ClassNames[i]=data.classAttribute().value(i);
+    }
+  }
+  m_CostMatrix=costMatrix;
+  if (m_CostMatrix != null) {
+    if (!m_ClassIsNominal) {
+      throw new Exception("Class has to be nominal if cost matrix given!");
+    }
+    if (m_CostMatrix.size() != m_NumClasses) {
+      throw new Exception("Cost matrix not compatible with data!");
+    }
+  }
+  m_ClassPriors=new double[m_NumClasses];
+  setPriors(data);
+  m_MarginCounts=new double[k_MarginResolution + 1];
+}

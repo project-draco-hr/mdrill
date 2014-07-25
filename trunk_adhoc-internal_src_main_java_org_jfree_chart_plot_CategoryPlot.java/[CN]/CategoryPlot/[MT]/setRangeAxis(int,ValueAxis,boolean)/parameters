@@ -1,0 +1,3 @@
+int index
+ValueAxis axis
+boolean notify

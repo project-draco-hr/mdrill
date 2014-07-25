@@ -1,0 +1,18 @@
+{
+  if (!isRelationValued()) {
+    return -1;
+  }
+  if (!m_Header.equalHeaders(value)) {
+    throw new IllegalArgumentException("Incompatible value for " + "relation-valued attribute.\n" + m_Header.equalHeadersMsg(value));
+  }
+  Integer index=(Integer)m_Hashtable.get(value);
+  if (index != null) {
+    return index.intValue();
+  }
+ else {
+    int intIndex=m_Values.size();
+    m_Values.add(value);
+    m_Hashtable.put(value,new Integer(intIndex));
+    return intIndex;
+  }
+}

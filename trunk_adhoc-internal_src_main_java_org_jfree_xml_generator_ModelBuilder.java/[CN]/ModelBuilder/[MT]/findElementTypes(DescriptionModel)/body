@@ -1,0 +1,24 @@
+{
+  final ArrayList baseClasses=new ArrayList();
+  for (int i=0; i < model.size(); i++) {
+    final ClassDescription cd=model.get(i);
+    if (!baseClasses.contains(cd.getObjectClass())) {
+      baseClasses.add(cd.getObjectClass());
+    }
+    final PropertyInfo[] properties=cd.getProperties();
+    for (int p=0; p < properties.length; p++) {
+      if (!properties[p].getPropertyType().equals(PropertyType.ELEMENT)) {
+        continue;
+      }
+      final Class type=properties[p].getType();
+      if (baseClasses.contains(type)) {
+        continue;
+      }
+      if (Modifier.isFinal(type.getModifiers())) {
+        continue;
+      }
+      baseClasses.add(type);
+    }
+  }
+  return (Class[])baseClasses.toArray(new Class[baseClasses.size()]);
+}

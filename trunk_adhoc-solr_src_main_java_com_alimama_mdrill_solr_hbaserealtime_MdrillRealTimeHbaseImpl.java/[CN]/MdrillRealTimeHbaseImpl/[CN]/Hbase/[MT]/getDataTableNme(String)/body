@@ -1,0 +1,3 @@
+{
+  return this.prefix + "_" + tablename+ "_data";
+}

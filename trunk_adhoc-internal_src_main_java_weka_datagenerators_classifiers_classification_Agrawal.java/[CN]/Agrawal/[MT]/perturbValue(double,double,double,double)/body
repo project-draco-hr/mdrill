@@ -1,0 +1,6 @@
+{
+  val+=range * (2.0 * (getRandom().nextDouble() - 0.5)) * getPerturbationFraction();
+  if (val < min)   val=min;
+ else   if (val > max)   val=max;
+  return val;
+}

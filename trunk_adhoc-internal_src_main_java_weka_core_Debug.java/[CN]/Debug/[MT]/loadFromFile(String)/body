@@ -1,0 +1,10 @@
+{
+  Object result;
+  try {
+    result=SerializationHelper.read(filename);
+  }
+ catch (  Exception e) {
+    result=null;
+  }
+  return result;
+}

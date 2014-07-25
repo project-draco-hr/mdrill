@@ -1,0 +1,12 @@
+{
+  if (e.getStatus() == InstanceEvent.FORMAT_AVAILABLE) {
+    m_connectedFormat=e.getStructure();
+    assignClass(m_connectedFormat);
+    notifyInstanceListeners(e);
+    System.err.println("Notifying customizer...");
+    notifyDataFormatListeners();
+  }
+ else {
+    notifyInstanceListeners(e);
+  }
+}

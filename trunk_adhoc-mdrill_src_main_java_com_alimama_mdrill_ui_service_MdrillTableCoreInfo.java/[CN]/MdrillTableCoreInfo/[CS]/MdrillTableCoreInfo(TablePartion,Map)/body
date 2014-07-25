@@ -1,0 +1,4 @@
+{
+  this.cores=GetShards.getCores(stormconf,part);
+  this.ms=GetShards.getMergers(part.name);
+}

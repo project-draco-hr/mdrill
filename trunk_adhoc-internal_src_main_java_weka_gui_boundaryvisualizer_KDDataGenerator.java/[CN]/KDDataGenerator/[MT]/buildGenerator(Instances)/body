@@ -1,0 +1,16 @@
+{
+  m_random=new Random(m_seed);
+  m_instances=inputInstances;
+  m_standardDeviations=new double[m_instances.numAttributes()];
+  m_globalMeansOrModes=new double[m_instances.numAttributes()];
+  if (m_weightingDimensions == null) {
+    m_weightingDimensions=new boolean[m_instances.numAttributes()];
+  }
+  for (int i=0; i < m_instances.numAttributes(); i++) {
+    if (i != m_instances.classIndex()) {
+      m_globalMeansOrModes[i]=m_instances.meanOrMode(i);
+    }
+  }
+  m_kernelParams=new double[m_instances.numInstances()][m_instances.numAttributes()];
+  computeParams();
+}

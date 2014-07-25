@@ -1,0 +1,7 @@
+{
+  if ((columnIndex > 0) && (columnIndex < getColumnCount())) {
+    addUndoPoint();
+    m_Data.sort(columnIndex - 1);
+    notifyListener(new TableModelEvent(this));
+  }
+}

@@ -1,0 +1,4 @@
+{
+  this(attributeName,attributeValues);
+  m_Index=index;
+}

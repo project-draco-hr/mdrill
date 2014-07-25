@@ -1,0 +1,14 @@
+{
+  if (tok.indexOf('a') != -1) {
+    m_postFixExpVector.addElement(new AttributeOperand(tok,m_signMod));
+  }
+ else {
+    try {
+      m_postFixExpVector.addElement(new NumericOperand(tok,m_signMod));
+    }
+ catch (    NumberFormatException ne) {
+      throw new Exception("Trouble parsing numeric constant");
+    }
+  }
+  m_signMod=false;
+}

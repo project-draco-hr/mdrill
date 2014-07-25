@@ -1,0 +1,24 @@
+{
+  if (o instanceof String) {
+    return Bytes.toBytes((String)o);
+  }
+  if (o instanceof Integer) {
+    return Bytes.toBytes((Integer)o);
+  }
+  if (o instanceof Long) {
+    return Bytes.toBytes((Long)o);
+  }
+  if (o instanceof Boolean) {
+    return Bytes.toBytes((Boolean)o);
+  }
+  if (o instanceof Double) {
+    return Bytes.toBytes((Double)o);
+  }
+  if (o instanceof Float) {
+    return Bytes.toBytes((Float)o);
+  }
+  if (o instanceof Byte) {
+    return Bytes.toBytes((Byte)o);
+  }
+  return Bytes.toBytes(String.valueOf(o));
+}

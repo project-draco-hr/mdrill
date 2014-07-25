@@ -1,0 +1,3 @@
+{
+  ToolRunner.run(new Configuration(),new KMeansDriver(null),args);
+}

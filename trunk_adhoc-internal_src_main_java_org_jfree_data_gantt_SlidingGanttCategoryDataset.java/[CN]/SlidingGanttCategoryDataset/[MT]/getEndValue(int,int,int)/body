@@ -1,0 +1,3 @@
+{
+  return this.underlying.getEndValue(row,column + this.firstCategoryIndex,subinterval);
+}

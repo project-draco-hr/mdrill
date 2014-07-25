@@ -1,0 +1,16 @@
+{
+  double mergedCU=-Double.MAX_VALUE;
+  merged.m_clusterInstances=new Instances(m_clusterInstances,1);
+  merged.addChildNode(a);
+  merged.addChildNode(b);
+  merged.updateStats(newInstance,false);
+  m_children.removeElementAt(m_children.indexOf(a));
+  m_children.removeElementAt(m_children.indexOf(b));
+  m_children.addElement(merged);
+  mergedCU=categoryUtility();
+  merged.updateStats(newInstance,true);
+  m_children.removeElementAt(m_children.indexOf(merged));
+  m_children.addElement(a);
+  m_children.addElement(b);
+  return mergedCU;
+}

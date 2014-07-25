@@ -1,0 +1,6 @@
+{
+  Instances data=instances;
+  Instances[] splitData=antd.splitData(data,defAcRt,m_Consequent);
+  if (splitData != null)   return splitData[(int)antd.getAttrValue()];
+ else   return null;
+}

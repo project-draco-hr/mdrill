@@ -1,0 +1,11 @@
+{
+  Range result=null;
+  if (this.subplots != null) {
+    Iterator iterator=this.subplots.iterator();
+    while (iterator.hasNext()) {
+      CategoryPlot subplot=(CategoryPlot)iterator.next();
+      result=Range.combine(result,subplot.getDataRange(axis));
+    }
+  }
+  return result;
+}

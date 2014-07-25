@@ -1,0 +1,9 @@
+{
+  if (m_Dataset != null) {
+    throw new RuntimeException("DenseInstance has accesss to a dataset!");
+  }
+  if ((position < 0) || (position > numAttributes())) {
+    throw new IllegalArgumentException("Can't insert attribute: index out " + "of range");
+  }
+  forceInsertAttributeAt(position);
+}

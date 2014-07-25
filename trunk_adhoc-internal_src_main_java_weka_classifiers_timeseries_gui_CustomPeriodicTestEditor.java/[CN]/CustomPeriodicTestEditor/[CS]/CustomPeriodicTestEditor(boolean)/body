@@ -1,0 +1,130 @@
+{
+  setLayout(new GridLayout(1,10));
+  add(m_operator);
+  add(m_year);
+  add(m_month);
+  add(m_week_of_yr);
+  add(m_week_of_month);
+  add(m_day_of_yr);
+  add(m_day_of_month);
+  add(m_day_of_week);
+  add(m_hour_of_day);
+  add(m_min_of_hour);
+  add(m_second);
+  m_right=right;
+  if (m_right) {
+    m_testToEdit=new CustomPeriodicTest("<*:*:*:*:*:*:*:*:*:*");
+  }
+  m_partToEdit=(m_right) ? m_testToEdit.getUpperTest() : m_testToEdit.getLowerTest();
+  setupCombos();
+  m_operator.setToolTipText("Operator");
+  m_operator.addActionListener(new ActionListener(){
+    public void actionPerformed(    ActionEvent e){
+      if (m_partToEdit != null) {
+        m_partToEdit.setOperator(m_operator.getSelectedItem().toString());
+        m_support.firePropertyChange("",null,null);
+      }
+    }
+  }
+);
+  m_year.addActionListener(new ActionListener(){
+    public void actionPerformed(    ActionEvent e){
+      if (m_partToEdit != null) {
+        m_partToEdit.setYear(m_year.getSelectedItem().toString());
+        m_support.firePropertyChange("",null,null);
+      }
+    }
+  }
+);
+  m_year.setToolTipText("Year");
+  m_month.addActionListener(new ActionListener(){
+    public void actionPerformed(    ActionEvent e){
+      if (m_partToEdit != null) {
+        m_partToEdit.setMonth(m_month.getSelectedItem().toString());
+        m_support.firePropertyChange("",null,null);
+      }
+    }
+  }
+);
+  m_month.setToolTipText("Month");
+  m_week_of_yr.addActionListener(new ActionListener(){
+    public void actionPerformed(    ActionEvent e){
+      if (m_partToEdit != null) {
+        m_partToEdit.setWeekOfYear(m_week_of_yr.getSelectedItem().toString());
+        m_support.firePropertyChange("",null,null);
+      }
+    }
+  }
+);
+  m_week_of_yr.setToolTipText("Week of the year");
+  m_week_of_month.addActionListener(new ActionListener(){
+    public void actionPerformed(    ActionEvent e){
+      if (m_partToEdit != null) {
+        m_partToEdit.setWeekOfMonth(m_week_of_month.getSelectedItem().toString());
+        m_support.firePropertyChange("",null,null);
+      }
+    }
+  }
+);
+  m_week_of_month.setToolTipText("Week of the month");
+  m_day_of_yr.addActionListener(new ActionListener(){
+    public void actionPerformed(    ActionEvent e){
+      if (m_partToEdit != null) {
+        m_partToEdit.setDayOfYear(m_day_of_yr.getSelectedItem().toString());
+        m_support.firePropertyChange("",null,null);
+      }
+    }
+  }
+);
+  m_day_of_yr.setToolTipText("Day of the year");
+  m_day_of_month.addActionListener(new ActionListener(){
+    public void actionPerformed(    ActionEvent e){
+      if (m_partToEdit != null) {
+        m_partToEdit.setDayOfMonth(m_day_of_month.getSelectedItem().toString());
+        m_support.firePropertyChange("",null,null);
+      }
+    }
+  }
+);
+  m_day_of_month.setToolTipText("Day of the month");
+  m_day_of_week.addActionListener(new ActionListener(){
+    public void actionPerformed(    ActionEvent e){
+      if (m_partToEdit != null) {
+        m_partToEdit.setDayOfWeek(m_day_of_week.getSelectedItem().toString());
+        m_support.firePropertyChange("",null,null);
+      }
+    }
+  }
+);
+  m_day_of_week.setToolTipText("Day of the week");
+  m_hour_of_day.addActionListener(new ActionListener(){
+    public void actionPerformed(    ActionEvent e){
+      if (m_partToEdit != null) {
+        m_partToEdit.setHourOfDay(m_hour_of_day.getSelectedItem().toString());
+        m_support.firePropertyChange("",null,null);
+      }
+    }
+  }
+);
+  m_hour_of_day.setToolTipText("Hour of the day");
+  m_min_of_hour.addActionListener(new ActionListener(){
+    public void actionPerformed(    ActionEvent e){
+      if (m_partToEdit != null) {
+        m_partToEdit.setMinuteOfHour(m_min_of_hour.getSelectedItem().toString());
+        m_support.firePropertyChange("",null,null);
+      }
+    }
+  }
+);
+  m_min_of_hour.setToolTipText("Minute of the hour");
+  m_second.addActionListener(new ActionListener(){
+    public void actionPerformed(    ActionEvent e){
+      if (m_partToEdit != null) {
+        m_partToEdit.setSecond(m_second.getSelectedItem().toString());
+        m_support.firePropertyChange("",null,null);
+      }
+    }
+  }
+);
+  m_second.setToolTipText("Second");
+}

@@ -1,0 +1,83 @@
+{
+  String message=null;
+  if ((message=source.dataset().equalHeadersMsg(m_originalHeader)) != null) {
+    throw new Exception("[TSLagMaker] cannot process instance because the " + "structure\ndiffers from what we were configured with:\n\n" + message);
+  }
+  Instance result=source;
+  if (setAnyPeriodic) {
+    setPeriodicValues(result);
+  }
+  m_lastHistoricInstance=new DenseInstance(result);
+  m_lastHistoricInstance.setDataset(result.dataset());
+  if (m_extraneousAttributeRemover != null) {
+    m_extraneousAttributeRemover.input(result);
+    result=m_extraneousAttributeRemover.output();
+  }
+  if (m_artificialTimeMaker != null) {
+    m_artificialTimeMaker.input(result);
+    result=m_artificialTimeMaker.output();
+    if (incrementTime) {
+      double newTime=m_lastTimeValue + 1;
+      int timeIndex=result.dataset().attribute(m_timeStampName).index();
+      result.setValue(timeIndex,newTime);
+      m_lastTimeValue=newTime;
+    }
+  }
+ else {
+    if (m_adjustForTrends) {
+      int timeIndex=result.dataset().attribute(m_timeStampName).index();
+      if (incrementTime) {
+        double newTime=weka.classifiers.timeseries.core.Utils.advanceSuppliedTimeValue(m_lastTimeValue,m_dateBasedPeriodicity);
+        result.setValue(timeIndex,newTime);
+        m_lastTimeValue=newTime;
+      }
+ else {
+        if (!result.isMissing(timeIndex)) {
+          m_lastTimeValue=result.value(timeIndex);
+        }
+      }
+      if (m_derivedPeriodicMakers != null && m_derivedPeriodicMakers.size() > 0) {
+        for (        Filter f : m_derivedPeriodicMakers) {
+          f.input(result);
+          result=f.output();
+        }
+        setDerivedPeriodicValues(result);
+      }
+      result=remapDateTimeStamp(result);
+    }
+  }
+  if (m_adjustForVariance) {
+    for (    Filter f : m_varianceAdjusters) {
+      f.input(result);
+      result=f.output();
+    }
+  }
+  for (  Filter f : m_lagMakers) {
+    if (temporary && f instanceof TimeSeriesTranslate) {
+      result=((TimeSeriesTranslate)f).inputOneTemporarily(result);
+    }
+ else {
+      f.input(result);
+      result=f.output();
+    }
+  }
+  if (m_averagedLagMakers != null) {
+    for (    Filter f : m_averagedLagMakers) {
+      f.input(result);
+      result=f.output();
+    }
+  }
+  if (m_timeIndexMakers != null) {
+    for (    Filter f : m_timeIndexMakers) {
+      f.input(result);
+      result=f.output();
+    }
+  }
+  if (m_includeTimeLagCrossProducts && m_timeLagCrossProductMakers != null) {
+    for (    Filter f : m_timeLagCrossProductMakers) {
+      f.input(result);
+      result=f.output();
+    }
+  }
+  return result;
+}

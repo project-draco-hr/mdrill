@@ -1,0 +1,5 @@
+{
+  m_imageSaver=(ImageSaver)object;
+  m_fileBackup=m_imageSaver.getFilename();
+  setup();
+}

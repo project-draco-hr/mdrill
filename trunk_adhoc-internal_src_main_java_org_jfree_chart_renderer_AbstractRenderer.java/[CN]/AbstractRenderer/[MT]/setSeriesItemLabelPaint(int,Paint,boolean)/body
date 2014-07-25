@@ -1,0 +1,6 @@
+{
+  this.itemLabelPaintList.setPaint(series,paint);
+  if (notify) {
+    fireChangeEvent();
+  }
+}

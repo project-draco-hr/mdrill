@@ -1,0 +1,5 @@
+{
+  final FrontendDefaultHandler o=(FrontendDefaultHandler)super.clone();
+  o.parserConfiguration=(DefaultConfiguration)this.parserConfiguration.clone();
+  return o;
+}

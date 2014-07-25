@@ -1,0 +1,3 @@
+{
+  return newInstance(file,template,new File[0]);
+}

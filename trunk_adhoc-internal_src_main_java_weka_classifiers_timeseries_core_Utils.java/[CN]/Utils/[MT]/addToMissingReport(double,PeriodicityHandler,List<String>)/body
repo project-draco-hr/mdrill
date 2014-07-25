@@ -1,0 +1,15 @@
+{
+  if (missingReport != null) {
+    if (periodicityHandler.isDateBased()) {
+      String timeFormat="yyyy-MM-dd'T'HH:mm:ss";
+      SimpleDateFormat sdf=new SimpleDateFormat();
+      sdf.applyPattern(timeFormat);
+      Date d=new Date((long)incrTime);
+      String result=sdf.format(d);
+      missingReport.add(result);
+    }
+ else {
+      missingReport.add("" + incrTime);
+    }
+  }
+}

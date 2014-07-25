@@ -1,0 +1,3 @@
+{
+  return ((other.getX() >= getX() - (this.radius * 1.1)) && (other.getX() <= getX() + (this.radius * 1.1)) && (other.getY() >= getY() - (this.radius * 1.1))&& (other.getY() <= getY() + (this.radius * 1.1)));
+}

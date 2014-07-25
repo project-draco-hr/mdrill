@@ -1,0 +1,7 @@
+{
+  try {
+    m_Script.stop();
+  }
+ catch (  Exception ex) {
+  }
+}

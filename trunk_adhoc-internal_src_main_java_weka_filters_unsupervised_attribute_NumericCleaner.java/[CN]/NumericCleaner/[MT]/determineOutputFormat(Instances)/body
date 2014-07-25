@@ -1,0 +1,4 @@
+{
+  m_Cols.setUpper(inputFormat.numAttributes() - 1);
+  return new Instances(inputFormat);
+}

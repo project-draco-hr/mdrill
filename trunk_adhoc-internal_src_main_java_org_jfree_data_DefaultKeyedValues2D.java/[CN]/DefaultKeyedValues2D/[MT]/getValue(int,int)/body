@@ -1,0 +1,12 @@
+{
+  Number result=null;
+  DefaultKeyedValues rowData=(DefaultKeyedValues)this.rows.get(row);
+  if (rowData != null) {
+    Comparable columnKey=(Comparable)this.columnKeys.get(column);
+    int index=rowData.getIndex(columnKey);
+    if (index >= 0) {
+      result=rowData.getValue(index);
+    }
+  }
+  return result;
+}

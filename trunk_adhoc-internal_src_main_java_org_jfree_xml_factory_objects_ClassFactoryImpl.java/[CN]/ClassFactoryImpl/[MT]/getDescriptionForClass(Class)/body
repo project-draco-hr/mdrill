@@ -1,0 +1,7 @@
+{
+  final ObjectDescription od=(ObjectDescription)this.classes.get(c);
+  if (od == null) {
+    return null;
+  }
+  return od.getInstance();
+}

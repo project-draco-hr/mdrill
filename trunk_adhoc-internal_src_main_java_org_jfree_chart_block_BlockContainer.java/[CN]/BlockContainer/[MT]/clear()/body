@@ -1,0 +1,4 @@
+{
+  this.blocks.clear();
+  this.arrangement.clear();
+}

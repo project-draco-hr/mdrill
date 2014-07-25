@@ -1,0 +1,4 @@
+{
+  this.stripWidth=width;
+  notifyListeners(new TitleChangeEvent(this));
+}

@@ -1,0 +1,31 @@
+{
+  String sql="SELECT sum(query_cnt) as query_cnt,sum(uv) as uv,module_name,nicklist FROM module_info" + " WHERE queryday=? " + " group by module_name order by module_name ";
+  PreparedStatement pstmt=null;
+  ArrayList<ModuleInfo> list=new ArrayList<ModuleInfo>();
+  try {
+    Connection conn=DriverManager.getConnection(url,username,password);
+    pstmt=conn.prepareStatement(sql);
+    pstmt.setString(1,queryDay);
+    ResultSet rs=pstmt.executeQuery();
+    while (rs.next()) {
+      ModuleInfo moduleInfo=new ModuleInfo();
+      moduleInfo.setQueryDay(queryDay);
+      moduleInfo.setQueryCnt(rs.getInt(1));
+      moduleInfo.setUv(rs.getInt(2));
+      moduleInfo.setModuleName(rs.getString(3));
+      moduleInfo.setNicklist(rs.getString(4));
+      list.add(moduleInfo);
+    }
+    LOG.info(pstmt.toString());
+    pstmt.close();
+    conn.close();
+  }
+ catch (  SQLException e) {
+    String debugsql="";
+    if (pstmt != null) {
+      debugsql=pstmt.toString();
+    }
+    LOG.error(debugsql,e);
+  }
+  return list.toArray(new ModuleInfo[list.size()]);
+}

@@ -1,0 +1,18 @@
+{
+  setBorder(javax.swing.BorderFactory.createEmptyBorder(0,5,5,5));
+  setLayout(new BorderLayout());
+  add(new javax.swing.JLabel("ClassAssignerCustomizer"),BorderLayout.NORTH);
+  m_holderP.setLayout(new BorderLayout());
+  m_holderP.setBorder(BorderFactory.createTitledBorder("Choose class attribute"));
+  m_holderP.add(m_ClassCombo,BorderLayout.CENTER);
+  m_ClassCombo.addActionListener(new ActionListener(){
+    public void actionPerformed(    ActionEvent e){
+      if (m_classAssigner != null && m_displayColNames == true) {
+        m_classAssigner.setClassColumn("" + (m_ClassCombo.getSelectedIndex()));
+      }
+    }
+  }
+);
+  add(m_caEditor,BorderLayout.CENTER);
+  addButtons();
+}

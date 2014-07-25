@@ -1,0 +1,34 @@
+{
+  Configuration conf=this.params.getConf();
+  FileSystem fs=FileSystem.get(conf);
+  Path tmpDir=new Path(params.hdfsPath,"realtime_tmp");
+  if (fs.exists(tmpDir)) {
+    fs.delete(tmpDir,true);
+  }
+  fs.mkdirs(tmpDir);
+  Path tsdst=new Path(tmpDir,"realtime_ts");
+  OutputStreamWriter fwriterTs=new OutputStreamWriter(fs.create(tsdst));
+  fwriterTs.write(tsstr);
+  fwriterTs.close();
+  LOG.info("####sync realtime_ts ####" + tsstr + ","+ tsdst.toString());
+  long txid=0;
+  for (  Entry<String,DirectoryInfo> e : buffer.entrySet()) {
+    e.getValue().synctxid();
+    txid=Math.max(txid,e.getValue().readTxid());
+    Path local=new Path(e.getKey());
+    Path dst=new Path(tmpDir,local.getName());
+    LOG.info("####copyFromLocalFile####" + local.toString() + ","+ dst.toString());
+    fs.copyFromLocalFile(local,dst);
+  }
+  Path realtimefinal=new Path(params.hdfsPath,"realtime");
+  if (fs.exists(realtimefinal)) {
+    fs.delete(realtimefinal,true);
+  }
+  fs.rename(tmpDir,realtimefinal);
+  if (txid > 0) {
+synchronized (editlog) {
+      editlog.purgeLogsOlderThan(txid - 1);
+    }
+  }
+  LOG.info("####saveToHdfs####" + realtimefinal.toString() + ",purgeLogsOlderThan txid="+ txid);
+}

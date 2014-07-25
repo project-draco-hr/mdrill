@@ -1,0 +1,3 @@
+{
+  return (TimePeriodValue)this.data.get(index);
+}

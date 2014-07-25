@@ -1,0 +1,3 @@
+{
+  return (XmlReadHandler)this.currentHandlers.peek();
+}

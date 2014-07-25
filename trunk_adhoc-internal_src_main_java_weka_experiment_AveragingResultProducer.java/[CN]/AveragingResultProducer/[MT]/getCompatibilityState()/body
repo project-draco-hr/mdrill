@@ -1,0 +1,14 @@
+{
+  String result=" -X " + getExpectedResultsPerAverage() + " ";
+  if (getCalculateStdDevs()) {
+    result+="-S ";
+  }
+  if (m_ResultProducer == null) {
+    result+="<null ResultProducer>";
+  }
+ else {
+    result+="-W " + m_ResultProducer.getClass().getName();
+    result+=" -- " + m_ResultProducer.getCompatibilityState();
+  }
+  return result.trim();
+}

@@ -1,0 +1,3 @@
+HashMap<String,String> tableInfo
+String copyuuid
+String username

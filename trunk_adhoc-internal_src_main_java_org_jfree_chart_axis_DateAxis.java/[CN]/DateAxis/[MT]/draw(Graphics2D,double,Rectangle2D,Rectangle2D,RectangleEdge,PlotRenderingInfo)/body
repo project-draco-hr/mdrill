@@ -1,0 +1,12 @@
+{
+  if (!isVisible()) {
+    AxisState state=new AxisState(cursor);
+    List ticks=refreshTicks(g2,state,dataArea,edge);
+    state.setTicks(ticks);
+    return state;
+  }
+  AxisState state=drawTickMarksAndLabels(g2,cursor,plotArea,dataArea,edge);
+  state=drawLabel(getLabel(),g2,plotArea,dataArea,edge,state);
+  createAndAddEntity(cursor,state,dataArea,edge,plotState);
+  return state;
+}

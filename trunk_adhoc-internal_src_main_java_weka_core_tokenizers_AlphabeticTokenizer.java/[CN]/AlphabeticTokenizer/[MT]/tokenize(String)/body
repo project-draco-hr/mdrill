@@ -1,0 +1,5 @@
+{
+  m_CurrentPos=0;
+  m_Str=new char[s.length()];
+  s.getChars(0,s.length(),m_Str,0);
+}

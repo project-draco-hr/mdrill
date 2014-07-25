@@ -1,0 +1,3 @@
+{
+  return (this.contextPrefix != null ? this.contextPrefix.hashCode() : 0);
+}

@@ -1,0 +1,3 @@
+{
+  return "Use supervised discretization to convert numeric attributes to nominal " + "ones.";
+}

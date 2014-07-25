@@ -1,0 +1,7 @@
+{
+  Vector<Option> result=new Vector<Option>();
+  result.addElement(new Option("\tThe order 'p'. With '1' being the Manhattan distance and '2'\n" + "\tthe Euclidean distance.\n" + "\t(default: 2)","P",1,"-P <order>"));
+  Enumeration en=super.listOptions();
+  while (en.hasMoreElements())   result.addElement((Option)en.nextElement());
+  return result.elements();
+}

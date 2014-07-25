@@ -1,0 +1,16 @@
+{
+  if (obj == this) {
+    return true;
+  }
+  if (!(obj instanceof PiePlot3D)) {
+    return false;
+  }
+  PiePlot3D that=(PiePlot3D)obj;
+  if (this.depthFactor != that.depthFactor) {
+    return false;
+  }
+  if (this.darkerSides != that.darkerSides) {
+    return false;
+  }
+  return super.equals(obj);
+}

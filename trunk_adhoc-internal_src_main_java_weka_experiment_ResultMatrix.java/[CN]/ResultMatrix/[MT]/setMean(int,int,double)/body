@@ -1,0 +1,3 @@
+{
+  if ((col >= 0) && (col < getColCount()) && (row >= 0)&& (row < getRowCount()))   m_Mean[row][col]=value;
+}

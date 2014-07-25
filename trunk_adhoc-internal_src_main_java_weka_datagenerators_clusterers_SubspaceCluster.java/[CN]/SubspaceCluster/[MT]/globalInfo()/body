@@ -1,0 +1,3 @@
+{
+  return "A data generator that produces data points in " + "hyperrectangular subspace clusters.";
+}

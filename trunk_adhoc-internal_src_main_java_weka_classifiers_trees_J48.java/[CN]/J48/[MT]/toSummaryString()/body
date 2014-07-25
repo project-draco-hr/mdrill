@@ -1,0 +1,3 @@
+{
+  return "Number of leaves: " + m_root.numLeaves() + "\n"+ "Size of the tree: "+ m_root.numNodes()+ "\n";
+}

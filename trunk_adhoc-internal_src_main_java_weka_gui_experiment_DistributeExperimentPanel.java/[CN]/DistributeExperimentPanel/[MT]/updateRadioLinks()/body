@@ -1,0 +1,5 @@
+{
+  if (m_Exp != null) {
+    m_Exp.setSplitByDataSet(m_splitByDataSet.isSelected());
+  }
+}

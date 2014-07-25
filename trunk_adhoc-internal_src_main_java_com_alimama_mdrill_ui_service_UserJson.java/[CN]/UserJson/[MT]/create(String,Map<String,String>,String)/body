@@ -1,0 +1,39 @@
+{
+  MySqlConn m_fpsql=getConn();
+  val.put("opuser",String.valueOf(user));
+  val.put("optime",getNowTime());
+  JSONObject jsonObj=new JSONObject();
+  StringBuffer sqlbuffer=new StringBuffer();
+  StringBuffer sqlbuffer2=new StringBuffer();
+  String joinchar="";
+  String[] indexval=new String[val.size()];
+  int index=0;
+  for (  Entry<String,String> e : val.entrySet()) {
+    sqlbuffer.append(joinchar).append(e.getKey());
+    sqlbuffer2.append(joinchar).append("?");
+    joinchar=",";
+    indexval[index]=e.getValue();
+    index++;
+  }
+  Connection conn=m_fpsql.getConn();
+  String strSql="insert into users_json " + "(" + sqlbuffer + ")"+ "values"+ "("+ sqlbuffer2+ ")";
+  PreparedStatement m_fps=conn.prepareStatement(strSql);
+  try {
+    for (int i=0; i < indexval.length; i++) {
+      m_fps.setString(i + 1,indexval[i]);
+    }
+    m_fps.executeUpdate();
+    jsonObj.put("code","1");
+    jsonObj.put("____debug",m_fps.toString());
+  }
+ catch (  Exception e) {
+    jsonObj.put("____debug2",m_fps.toString());
+    jsonObj.put("____debugerror",e.toString());
+    jsonObj.put("code","0");
+  }
+ finally {
+    m_fps.close();
+    m_fpsql.close();
+  }
+  return jsonObj.toString();
+}

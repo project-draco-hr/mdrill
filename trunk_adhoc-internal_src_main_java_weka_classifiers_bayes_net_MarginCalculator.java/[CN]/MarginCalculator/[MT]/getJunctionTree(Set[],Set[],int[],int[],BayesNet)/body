@@ -1,0 +1,28 @@
+{
+  int nNodes=order.length;
+  JunctionTreeNode root=null;
+  JunctionTreeNode[] jtns=new JunctionTreeNode[nNodes];
+  boolean[] bDone=new boolean[nNodes];
+  for (int i=0; i < nNodes; i++) {
+    int iNode=order[i];
+    if (cliques[iNode] != null) {
+      jtns[iNode]=new JunctionTreeNode(cliques[iNode],bayesNet,bDone);
+    }
+  }
+  for (int i=0; i < nNodes; i++) {
+    int iNode=order[i];
+    if (cliques[iNode] != null) {
+      JunctionTreeNode parent=null;
+      if (parentCliques[iNode] > 0) {
+        parent=jtns[parentCliques[iNode]];
+        JunctionTreeSeparator jts=new JunctionTreeSeparator(separators[iNode],bayesNet,jtns[iNode],parent);
+        jtns[iNode].setParentSeparator(jts);
+        jtns[parentCliques[iNode]].addChildClique(jtns[iNode]);
+      }
+ else {
+        root=jtns[iNode];
+      }
+    }
+  }
+  return jtns;
+}

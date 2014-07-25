@@ -1,0 +1,14 @@
+{
+  if (!eventName.equals("dataSet")) {
+    return false;
+  }
+  if (m_listenee == null) {
+    return false;
+  }
+  if (m_listenee instanceof EventConstraints) {
+    if (!((EventConstraints)m_listenee).eventGeneratable("instance")) {
+      return false;
+    }
+  }
+  return true;
+}

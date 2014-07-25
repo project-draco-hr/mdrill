@@ -1,0 +1,3 @@
+{
+  return "Display std deviations of numeric attributes " + "and counts of nominal attributes.";
+}

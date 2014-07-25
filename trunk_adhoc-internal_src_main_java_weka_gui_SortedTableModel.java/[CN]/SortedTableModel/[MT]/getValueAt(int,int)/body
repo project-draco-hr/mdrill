@@ -1,0 +1,4 @@
+{
+  if (!isInitialized())   return null;
+ else   return getModel().getValueAt(mIndices[rowIndex],columnIndex);
+}

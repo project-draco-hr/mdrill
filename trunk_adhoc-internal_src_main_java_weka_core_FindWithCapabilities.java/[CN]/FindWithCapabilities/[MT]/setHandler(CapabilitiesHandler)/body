@@ -1,0 +1,4 @@
+{
+  m_Handler=value;
+  setCapabilities(m_Handler.getCapabilities());
+}

@@ -1,0 +1,4 @@
+{
+  super(Long.class);
+  setParameterDefinition("value",String.class);
+}

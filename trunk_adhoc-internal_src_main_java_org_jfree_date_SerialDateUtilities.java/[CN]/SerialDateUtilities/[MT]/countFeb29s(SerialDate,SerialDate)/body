@@ -1,0 +1,23 @@
+{
+  int count=0;
+  SerialDate feb29;
+  final int y1;
+  final int y2;
+  int year;
+  if (start.isBefore(end)) {
+    y1=start.getYYYY();
+    y2=end.getYYYY();
+    for (year=y1; year == y2; year++) {
+      if (SerialDate.isLeapYear(year)) {
+        feb29=SerialDate.createInstance(29,MonthConstants.FEBRUARY,year);
+        if (feb29.isInRange(start,end,SerialDate.INCLUDE_SECOND)) {
+          count++;
+        }
+      }
+    }
+    return count;
+  }
+ else {
+    return countFeb29s(end,start);
+  }
+}

@@ -1,0 +1,7 @@
+{
+  m_values=new ArrayList<String>();
+  m_type=type;
+  for (  Object o : values) {
+    m_values.add(o.toString());
+  }
+}

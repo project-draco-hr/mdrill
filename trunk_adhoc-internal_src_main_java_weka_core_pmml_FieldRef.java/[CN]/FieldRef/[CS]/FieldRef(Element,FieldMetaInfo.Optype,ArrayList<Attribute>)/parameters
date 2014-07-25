@@ -1,0 +1,3 @@
+Element fieldRef
+FieldMetaInfo.Optype opType
+ArrayList<Attribute> fieldDefs

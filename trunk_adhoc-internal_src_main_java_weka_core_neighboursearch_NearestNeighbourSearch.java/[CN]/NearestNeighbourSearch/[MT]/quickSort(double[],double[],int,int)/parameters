@@ -1,0 +1,4 @@
+double[] arrayToSort
+double[] linkedArray
+int left
+int right

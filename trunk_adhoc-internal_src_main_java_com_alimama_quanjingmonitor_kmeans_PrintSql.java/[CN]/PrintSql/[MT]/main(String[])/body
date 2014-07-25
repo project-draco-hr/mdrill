@@ -1,0 +1,8 @@
+{
+  String[] colls_important={"main_cat_name"};
+  String[] number_important={"(avg(case when (alipay_direct_num+alipay_indirect_num)=0 then 0.00001 else ((alipay_direct_amt+alipay_indirect_amt)/(alipay_direct_num+alipay_indirect_num)) end))"};
+  String[] colls={"bc_sellers","seller_star_name"};
+  String[] numbers={"finprice"};
+  String[] thedates={"20140415","20140402","20140403","20140404","20140405","20140406","20140407","20140408","20140409","20140410","20140412","20140412","20140414"};
+  makeSql("cust_table","1=1","custid",thedates,colls_important,number_important,colls,numbers);
+}

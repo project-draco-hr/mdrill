@@ -1,0 +1,17 @@
+{
+  String[] options=new String[7];
+  int current=0;
+  if (getEvalUsingTrainingData()) {
+    options[current++]="-D";
+  }
+  options[current++]="-S";
+  options[current++]="" + getSeed();
+  options[current++]="-F";
+  options[current++]="" + getFolds();
+  options[current++]="-B";
+  options[current++]="" + getMinimumBucketSize();
+  while (current < options.length) {
+    options[current++]="";
+  }
+  return options;
+}

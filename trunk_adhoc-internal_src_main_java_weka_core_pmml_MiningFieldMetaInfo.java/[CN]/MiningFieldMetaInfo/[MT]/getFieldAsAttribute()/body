@@ -1,0 +1,3 @@
+{
+  return m_miningSchemaI.attribute(m_index);
+}

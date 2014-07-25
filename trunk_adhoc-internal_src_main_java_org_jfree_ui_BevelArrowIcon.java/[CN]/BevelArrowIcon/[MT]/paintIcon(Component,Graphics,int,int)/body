@@ -1,0 +1,10 @@
+{
+switch (this.direction) {
+case DOWN:
+    drawDownArrow(g,x,y);
+  break;
+case UP:
+drawUpArrow(g,x,y);
+break;
+}
+}

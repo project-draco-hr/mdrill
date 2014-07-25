@@ -1,0 +1,8 @@
+{
+  int result;
+  result=(this.data != null ? this.data.hashCode() : 0);
+  result=29 * result + (this.xPoints != null ? this.xPoints.hashCode() : 0);
+  result=29 * result + (this.propagateEvents ? 1 : 0);
+  result=29 * result + (this.autoPrune ? 1 : 0);
+  return result;
+}

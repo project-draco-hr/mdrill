@@ -1,0 +1,6 @@
+{
+  Calendar calendar=Calendar.getInstance(zone,locale);
+  calendar.setTime(time);
+  this.year=(short)calendar.get(Calendar.YEAR);
+  peg(calendar);
+}

@@ -1,0 +1,5 @@
+{
+  stream.defaultReadObject();
+  this.guideLinePaint=SerialUtilities.readPaint(stream);
+  this.guideLineStroke=SerialUtilities.readStroke(stream);
+}

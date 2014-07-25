@@ -1,0 +1,6 @@
+{
+  super();
+  m_Name=name;
+  m_Value=value;
+  m_NodeType=type;
+}

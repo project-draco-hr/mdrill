@@ -1,0 +1,30 @@
+{
+  int columnType;
+  int i;
+  ArrayList<SortContainer> sorted;
+  SortContainer cont;
+  Object value;
+  if ((!isInitialized()) || (getModel().getRowCount() != mIndices.length)) {
+    System.out.println(this.getClass().getName() + ": Table model not initialized!");
+    return;
+  }
+  mSortColumn=columnIndex;
+  mAscending=ascending;
+  initializeIndices();
+  if (ClassDiscovery.hasInterface(Comparable.class,getColumnClass(mSortColumn)))   columnType=1;
+ else   columnType=0;
+  sorted=new ArrayList<SortContainer>();
+  for (i=0; i < getRowCount(); i++) {
+    value=mModel.getValueAt(mIndices[i],mSortColumn);
+    if (columnType == 0)     cont=new SortContainer((value == null) ? null : value.toString(),mIndices[i]);
+ else     cont=new SortContainer((Comparable)value,mIndices[i]);
+    sorted.add(cont);
+  }
+  Collections.sort(sorted);
+  for (i=0; i < sorted.size(); i++) {
+    if (mAscending)     mIndices[i]=sorted.get(i).getIndex();
+ else     mIndices[i]=sorted.get(sorted.size() - 1 - i).getIndex();
+  }
+  sorted.clear();
+  sorted=null;
+}

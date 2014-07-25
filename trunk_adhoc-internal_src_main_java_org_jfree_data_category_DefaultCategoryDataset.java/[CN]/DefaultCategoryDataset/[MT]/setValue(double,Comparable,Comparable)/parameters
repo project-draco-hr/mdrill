@@ -1,0 +1,3 @@
+double value
+Comparable rowKey
+Comparable columnKey

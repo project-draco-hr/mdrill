@@ -1,0 +1,4 @@
+{
+  m_nTargetNode=nTargetNode;
+  m_sValue=sValue;
+}

@@ -1,0 +1,5 @@
+{
+  if (value == null)   value=new File(System.getProperty("user.dir"));
+  m_stopwordsFile=value;
+  if (value.exists() && value.isFile())   setUseStopList(true);
+}

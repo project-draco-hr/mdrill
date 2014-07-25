@@ -1,0 +1,6 @@
+{
+  int eom=SerialDate.lastDayOfMonth(this.month,this.year);
+  calendar.set(this.year,this.month - 1,eom,23,59,59);
+  calendar.set(Calendar.MILLISECOND,999);
+  return calendar.getTime().getTime();
+}

@@ -1,0 +1,17 @@
+{
+  int completedIterations=m_maxIterations;
+  Instances allData=new Instances(m_train);
+  allData.stratify(m_numFoldsBoosting);
+  double[] error=new double[m_maxIterations + 1];
+  for (int i=0; i < m_numFoldsBoosting; i++) {
+    Instances train=allData.trainCV(m_numFoldsBoosting,i);
+    Instances test=allData.testCV(m_numFoldsBoosting,i);
+    m_numRegressions=0;
+    m_regressions=initRegressions();
+    int iterations=performBoosting(train,test,error,completedIterations);
+    if (iterations < completedIterations)     completedIterations=iterations;
+  }
+  int bestIteration=getBestIteration(error,completedIterations);
+  m_numRegressions=0;
+  performBoosting(bestIteration);
+}

@@ -1,0 +1,26 @@
+{
+  Segment baseSegment=this.baseTimeline.getSegment(fromBaseDomainValue);
+  while (baseSegment.getSegmentStart() <= toBaseDomainValue && !baseSegment.inExcludeSegments()) {
+    baseSegment.inc();
+  }
+  while (baseSegment.getSegmentStart() <= toBaseDomainValue) {
+    long baseExclusionRangeEnd=baseSegment.getSegmentStart() + this.baseTimeline.getSegmentsExcluded() * this.baseTimeline.getSegmentSize() - 1;
+    Segment segment=getSegment(baseSegment.getSegmentStart());
+    while (segment.getSegmentStart() <= baseExclusionRangeEnd) {
+      if (segment.inIncludeSegments()) {
+        long fromDomainValue=segment.getSegmentStart();
+        long toDomainValue;
+        do {
+          toDomainValue=segment.getSegmentEnd();
+          segment.inc();
+        }
+ while (segment.inIncludeSegments());
+        addException(new BaseTimelineSegmentRange(fromDomainValue,toDomainValue));
+      }
+ else {
+        segment.inc();
+      }
+    }
+    baseSegment.inc(this.baseTimeline.getGroupSegmentCount());
+  }
+}

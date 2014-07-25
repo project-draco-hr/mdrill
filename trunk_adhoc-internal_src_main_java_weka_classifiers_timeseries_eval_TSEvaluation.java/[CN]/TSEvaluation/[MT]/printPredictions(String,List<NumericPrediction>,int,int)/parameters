@@ -1,0 +1,4 @@
+String title
+List<NumericPrediction> preds
+int stepAhead
+int instanceNumberOffset

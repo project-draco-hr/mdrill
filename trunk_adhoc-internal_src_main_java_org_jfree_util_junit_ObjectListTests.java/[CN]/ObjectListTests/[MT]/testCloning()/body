@@ -1,0 +1,17 @@
+{
+  final ObjectList l1=new ObjectList();
+  l1.set(0,Color.blue);
+  l1.set(1,Color.red);
+  ObjectList l2=null;
+  try {
+    l2=(ObjectList)l1.clone();
+  }
+ catch (  CloneNotSupportedException e) {
+    System.err.println("ObjectListTests.testCloning: failed to clone.");
+  }
+  assertTrue(l1 != l2);
+  assertTrue(l1.getClass() == l2.getClass());
+  assertTrue(l1.equals(l2));
+  l2.set(0,Color.green);
+  assertFalse(l1.equals(l2));
+}

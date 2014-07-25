@@ -1,0 +1,26 @@
+{
+  Vector result;
+  Vector atts;
+  StringTokenizer tok;
+  int i;
+  String item;
+  atts=new Vector();
+  for (i=0; i < inst.numAttributes(); i++)   atts.add(inst.attribute(i).name().toLowerCase());
+  result=new Vector();
+  tok=new StringTokenizer(list,",");
+  while (tok.hasMoreTokens()) {
+    item=tok.nextToken().toLowerCase();
+    if (atts.contains(item)) {
+      result.add(item);
+    }
+ else {
+      result.clear();
+      break;
+    }
+  }
+  if (result.size() == 0) {
+    tok=new StringTokenizer(defaultList,",");
+    while (tok.hasMoreTokens())     result.add(tok.nextToken().toLowerCase());
+  }
+  return result;
+}

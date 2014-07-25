@@ -1,0 +1,21 @@
+{
+  String[] options=new String[15];
+  int current=0;
+  options[current++]="-W";
+  options[current++]="" + getClassifierSpec();
+  options[current++]="-C";
+  options[current++]="" + getClassIndex();
+  options[current++]="-F";
+  options[current++]="" + getNumFolds();
+  options[current++]="-T";
+  options[current++]="" + getThreshold();
+  options[current++]="-I";
+  options[current++]="" + getMaxIterations();
+  if (getInvert()) {
+    options[current++]="-V";
+  }
+  while (current < options.length) {
+    options[current++]="";
+  }
+  return options;
+}

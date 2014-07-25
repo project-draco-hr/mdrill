@@ -1,0 +1,10 @@
+{
+  String seed=Utils.getOption('S',options);
+  if (seed.length() != 0) {
+    setSeed(Integer.parseInt(seed));
+  }
+ else {
+    setSeed(1);
+  }
+  super.setOptions(options);
+}

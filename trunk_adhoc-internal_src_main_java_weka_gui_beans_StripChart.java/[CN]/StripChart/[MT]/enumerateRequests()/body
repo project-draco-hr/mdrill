@@ -1,0 +1,5 @@
+{
+  Vector newVector=new Vector(0);
+  newVector.addElement("Show chart");
+  return newVector.elements();
+}

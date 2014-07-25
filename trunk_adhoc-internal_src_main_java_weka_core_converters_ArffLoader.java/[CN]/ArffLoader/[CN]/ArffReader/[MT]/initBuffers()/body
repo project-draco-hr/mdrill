@@ -1,0 +1,4 @@
+{
+  m_ValueBuffer=new double[m_Data.numAttributes()];
+  m_IndicesBuffer=new int[m_Data.numAttributes()];
+}

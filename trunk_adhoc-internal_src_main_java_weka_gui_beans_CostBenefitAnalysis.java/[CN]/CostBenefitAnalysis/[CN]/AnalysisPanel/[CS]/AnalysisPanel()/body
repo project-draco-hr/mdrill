@@ -1,0 +1,201 @@
+{
+  setLayout(new BorderLayout());
+  m_performancePanel.setShowAttBars(false);
+  m_performancePanel.setShowClassPanel(false);
+  m_costBenefitPanel.setShowAttBars(false);
+  m_costBenefitPanel.setShowClassPanel(false);
+  Dimension size=new Dimension(500,400);
+  m_performancePanel.setPreferredSize(size);
+  m_performancePanel.setMinimumSize(size);
+  size=new Dimension(500,400);
+  m_costBenefitPanel.setMinimumSize(size);
+  m_costBenefitPanel.setPreferredSize(size);
+  m_thresholdSlider.addChangeListener(new ChangeListener(){
+    public void stateChanged(    ChangeEvent e){
+      updateInfoForSliderValue((double)m_thresholdSlider.getValue() / 100.0);
+    }
+  }
+);
+  JPanel plotHolder=new JPanel();
+  plotHolder.setLayout(new GridLayout(1,2));
+  plotHolder.add(m_performancePanel);
+  plotHolder.add(m_costBenefitPanel);
+  add(plotHolder,BorderLayout.CENTER);
+  JPanel lowerPanel=new JPanel();
+  lowerPanel.setLayout(new BorderLayout());
+  ButtonGroup bGroup=new ButtonGroup();
+  bGroup.add(m_percPop);
+  bGroup.add(m_percOfTarget);
+  bGroup.add(m_threshold);
+  ButtonGroup bGroup2=new ButtonGroup();
+  bGroup2.add(m_costR);
+  bGroup2.add(m_benefitR);
+  ActionListener rl=new ActionListener(){
+    public void actionPerformed(    ActionEvent e){
+      if (m_costR.isSelected()) {
+        m_costBenefitL.setText("Cost: ");
+      }
+ else {
+        m_costBenefitL.setText("Benefit: ");
+      }
+      double gain=Double.parseDouble(m_gainV.getText());
+      gain=-gain;
+      m_gainV.setText(Utils.doubleToString(gain,2));
+    }
+  }
+;
+  m_costR.addActionListener(rl);
+  m_benefitR.addActionListener(rl);
+  m_costR.setSelected(true);
+  m_percPop.setSelected(true);
+  JPanel threshPanel=new JPanel();
+  threshPanel.setLayout(new BorderLayout());
+  JPanel radioHolder=new JPanel();
+  radioHolder.setLayout(new FlowLayout());
+  radioHolder.add(m_percPop);
+  radioHolder.add(m_percOfTarget);
+  radioHolder.add(m_threshold);
+  threshPanel.add(radioHolder,BorderLayout.NORTH);
+  threshPanel.add(m_thresholdSlider,BorderLayout.SOUTH);
+  JPanel threshInfoPanel=new JPanel();
+  threshInfoPanel.setLayout(new GridLayout(3,2));
+  threshInfoPanel.add(new JLabel("% of Population: ",SwingConstants.RIGHT));
+  threshInfoPanel.add(m_percPopLab);
+  threshInfoPanel.add(new JLabel("% of Target: ",SwingConstants.RIGHT));
+  threshInfoPanel.add(m_percOfTargetLab);
+  threshInfoPanel.add(new JLabel("Score Threshold: ",SwingConstants.RIGHT));
+  threshInfoPanel.add(m_thresholdLab);
+  JPanel threshHolder=new JPanel();
+  threshHolder.setBorder(BorderFactory.createTitledBorder("Threshold"));
+  threshHolder.setLayout(new BorderLayout());
+  threshHolder.add(threshPanel,BorderLayout.CENTER);
+  threshHolder.add(threshInfoPanel,BorderLayout.EAST);
+  lowerPanel.add(threshHolder,BorderLayout.NORTH);
+  JPanel matrixHolder=new JPanel();
+  matrixHolder.setLayout(new GridLayout(1,2));
+  JPanel confusionPanel=new JPanel();
+  confusionPanel.setLayout(new GridLayout(3,3));
+  confusionPanel.add(m_conf_predictedA);
+  confusionPanel.add(m_conf_predictedB);
+  confusionPanel.add(new JLabel());
+  confusionPanel.add(m_conf_aa);
+  confusionPanel.add(m_conf_ab);
+  confusionPanel.add(m_conf_actualA);
+  confusionPanel.add(m_conf_ba);
+  confusionPanel.add(m_conf_bb);
+  confusionPanel.add(m_conf_actualB);
+  JPanel tempHolderCA=new JPanel();
+  tempHolderCA.setLayout(new BorderLayout());
+  tempHolderCA.setBorder(BorderFactory.createTitledBorder("Confusion Matrix"));
+  tempHolderCA.add(confusionPanel,BorderLayout.CENTER);
+  JPanel accHolder=new JPanel();
+  accHolder.setLayout(new FlowLayout(FlowLayout.LEFT));
+  accHolder.add(new JLabel("Classification Accuracy: "));
+  accHolder.add(m_classificationAccV);
+  tempHolderCA.add(accHolder,BorderLayout.SOUTH);
+  matrixHolder.add(tempHolderCA);
+  JPanel costPanel=new JPanel();
+  costPanel.setBorder(BorderFactory.createTitledBorder("Cost Matrix"));
+  costPanel.setLayout(new BorderLayout());
+  JPanel cmHolder=new JPanel();
+  cmHolder.setLayout(new GridLayout(3,3));
+  cmHolder.add(m_cost_predictedA);
+  cmHolder.add(m_cost_predictedB);
+  cmHolder.add(new JLabel());
+  cmHolder.add(m_cost_aa);
+  cmHolder.add(m_cost_ab);
+  cmHolder.add(m_cost_actualA);
+  cmHolder.add(m_cost_ba);
+  cmHolder.add(m_cost_bb);
+  cmHolder.add(m_cost_actualB);
+  costPanel.add(cmHolder,BorderLayout.CENTER);
+  FocusListener fl=new FocusListener(){
+    public void focusGained(    FocusEvent e){
+    }
+    public void focusLost(    FocusEvent e){
+      if (constructCostBenefitData()) {
+        try {
+          m_costBenefitPanel.setMasterPlot(m_costBenefit);
+          m_costBenefitPanel.validate();
+          m_costBenefitPanel.repaint();
+        }
+ catch (        Exception ex) {
+          ex.printStackTrace();
+        }
+        updateCostBenefit();
+      }
+    }
+  }
+;
+  ActionListener al=new ActionListener(){
+    public void actionPerformed(    ActionEvent e){
+      if (constructCostBenefitData()) {
+        try {
+          m_costBenefitPanel.setMasterPlot(m_costBenefit);
+          m_costBenefitPanel.validate();
+          m_costBenefitPanel.repaint();
+        }
+ catch (        Exception ex) {
+          ex.printStackTrace();
+        }
+        updateCostBenefit();
+      }
+    }
+  }
+;
+  m_cost_aa.addFocusListener(fl);
+  m_cost_aa.addActionListener(al);
+  m_cost_ab.addFocusListener(fl);
+  m_cost_ab.addActionListener(al);
+  m_cost_ba.addFocusListener(fl);
+  m_cost_ba.addActionListener(al);
+  m_cost_bb.addFocusListener(fl);
+  m_cost_bb.addActionListener(al);
+  m_totalPopField.addFocusListener(fl);
+  m_totalPopField.addActionListener(al);
+  JPanel cbHolder=new JPanel();
+  cbHolder.setLayout(new BorderLayout());
+  JPanel tempP=new JPanel();
+  tempP.setLayout(new GridLayout(3,2));
+  tempP.add(m_costBenefitL);
+  tempP.add(m_costBenefitV);
+  tempP.add(new JLabel("Random: ",SwingConstants.RIGHT));
+  tempP.add(m_randomV);
+  tempP.add(new JLabel("Gain: ",SwingConstants.RIGHT));
+  tempP.add(m_gainV);
+  cbHolder.add(tempP,BorderLayout.NORTH);
+  JPanel butHolder=new JPanel();
+  butHolder.setLayout(new GridLayout(2,1));
+  butHolder.add(m_maximizeCB);
+  butHolder.add(m_minimizeCB);
+  m_maximizeCB.addActionListener(new ActionListener(){
+    public void actionPerformed(    ActionEvent e){
+      findMaxMinCB(true);
+    }
+  }
+);
+  m_minimizeCB.addActionListener(new ActionListener(){
+    public void actionPerformed(    ActionEvent e){
+      findMaxMinCB(false);
+    }
+  }
+);
+  cbHolder.add(butHolder,BorderLayout.SOUTH);
+  costPanel.add(cbHolder,BorderLayout.EAST);
+  JPanel popCBR=new JPanel();
+  popCBR.setLayout(new GridLayout(1,2));
+  JPanel popHolder=new JPanel();
+  popHolder.setLayout(new FlowLayout(FlowLayout.LEFT));
+  popHolder.add(new JLabel("Total Population: "));
+  popHolder.add(m_totalPopField);
+  JPanel radioHolder2=new JPanel();
+  radioHolder2.setLayout(new FlowLayout(FlowLayout.RIGHT));
+  radioHolder2.add(m_costR);
+  radioHolder2.add(m_benefitR);
+  popCBR.add(popHolder);
+  popCBR.add(radioHolder2);
+  costPanel.add(popCBR,BorderLayout.SOUTH);
+  matrixHolder.add(costPanel);
+  lowerPanel.add(matrixHolder,BorderLayout.SOUTH);
+  add(lowerPanel,BorderLayout.SOUTH);
+}

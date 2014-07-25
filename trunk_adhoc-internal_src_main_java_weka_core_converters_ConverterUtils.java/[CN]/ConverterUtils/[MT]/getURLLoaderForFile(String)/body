@@ -1,0 +1,3 @@
+{
+  return (AbstractFileLoader)getConverterForFile(filename,m_URLFileLoaders);
+}

@@ -1,0 +1,5 @@
+{
+  if (newMethod.getTags() == TAGS_METHOD) {
+    m_Method=newMethod.getSelectedTag().getID();
+  }
+}

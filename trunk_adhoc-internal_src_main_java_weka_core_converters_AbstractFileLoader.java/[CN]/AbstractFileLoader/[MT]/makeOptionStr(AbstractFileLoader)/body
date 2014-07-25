@@ -1,0 +1,24 @@
+{
+  StringBuffer result;
+  Option option;
+  result=new StringBuffer("\nUsage:\n");
+  result.append("\t" + loader.getClass().getName().replaceAll(".*\\.",""));
+  if (loader instanceof OptionHandler)   result.append(" [options]");
+  result.append(" <");
+  String[] ext=loader.getFileExtensions();
+  for (int i=0; i < ext.length; i++) {
+    if (i > 0)     result.append(" | ");
+    result.append("file" + ext[i]);
+  }
+  result.append(">\n");
+  if (loader instanceof OptionHandler) {
+    result.append("\nOptions:\n\n");
+    Enumeration enm=((OptionHandler)loader).listOptions();
+    while (enm.hasMoreElements()) {
+      option=(Option)enm.nextElement();
+      result.append(option.synopsis() + "\n");
+      result.append(option.description() + "\n");
+    }
+  }
+  return result.toString();
+}

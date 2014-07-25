@@ -1,0 +1,4 @@
+{
+  this.itemLabelAnchorOffset=offset;
+  fireChangeEvent();
+}

@@ -1,0 +1,3 @@
+{
+  this.attributedLabels.set(section,label);
+}

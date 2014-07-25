@@ -1,0 +1,3 @@
+{
+  return (this.segmentStart > other.getSegmentEnd());
+}

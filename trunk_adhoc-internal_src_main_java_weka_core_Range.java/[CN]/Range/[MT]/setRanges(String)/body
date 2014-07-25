@@ -1,0 +1,19 @@
+{
+  Vector<String> ranges=new Vector<String>(10);
+  while (!rangeList.equals("")) {
+    String range=rangeList.trim();
+    int commaLoc=rangeList.indexOf(',');
+    if (commaLoc != -1) {
+      range=rangeList.substring(0,commaLoc).trim();
+      rangeList=rangeList.substring(commaLoc + 1).trim();
+    }
+ else {
+      rangeList="";
+    }
+    if (!range.equals("")) {
+      ranges.addElement(range);
+    }
+  }
+  m_RangeStrings=ranges;
+  m_SelectFlags=null;
+}

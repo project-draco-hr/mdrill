@@ -1,0 +1,6 @@
+{
+  if (m_listenee != null || !eventName.equals("instance")) {
+    return false;
+  }
+  return true;
+}

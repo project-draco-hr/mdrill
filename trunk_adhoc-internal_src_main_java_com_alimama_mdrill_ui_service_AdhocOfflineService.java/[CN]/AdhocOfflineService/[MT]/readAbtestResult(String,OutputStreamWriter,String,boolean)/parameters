@@ -1,0 +1,4 @@
+String uuid
+OutputStreamWriter outStream
+String match
+boolean onlycustid

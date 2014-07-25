@@ -1,0 +1,6 @@
+{
+  CRC32 crc32=new CRC32();
+  crc32.update(partion.getBytes());
+  MessageID id=MessageID.INSTANCE(shard,crc32.getValue(),realConf);
+  return new Message(id,value);
+}

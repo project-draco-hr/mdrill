@@ -1,0 +1,14 @@
+{
+  StringBuffer result;
+  Enumeration enm;
+  Option option;
+  result=new StringBuffer();
+  result.append("\nData Generator options:\n\n");
+  enm=generator.listOptions();
+  while (enm.hasMoreElements()) {
+    option=(Option)enm.nextElement();
+    if (isOnBlacklist(option.name()))     continue;
+    result.append(option.synopsis() + "\n" + option.description()+ "\n");
+  }
+  return result.toString();
+}

@@ -1,0 +1,7 @@
+{
+  Element node;
+  Experiment exp;
+  exp=(Experiment)o;
+  node=addElement(m_Document.getDocument().getDocumentElement(),NAME_CLASSFIRST,Boolean.class.getName(),false);
+  node.appendChild(node.getOwnerDocument().createTextNode(new Boolean(false).toString()));
+}

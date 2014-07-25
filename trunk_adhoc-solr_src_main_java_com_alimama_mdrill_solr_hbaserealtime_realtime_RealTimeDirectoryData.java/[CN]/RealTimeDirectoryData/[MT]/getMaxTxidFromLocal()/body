@@ -1,0 +1,7 @@
+{
+  long savedTxid=0l;
+  for (  Entry<String,DirectoryInfo> info : diskDirector.entrySet()) {
+    savedTxid=Math.max(savedTxid,info.getValue().readTxid());
+  }
+  return savedTxid;
+}

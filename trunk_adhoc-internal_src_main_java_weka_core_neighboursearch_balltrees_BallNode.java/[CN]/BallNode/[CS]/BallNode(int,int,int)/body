@@ -1,0 +1,6 @@
+{
+  m_Start=start;
+  m_End=end;
+  m_NodeNumber=nodeNumber;
+  m_NumInstances=end - start + 1;
+}

@@ -1,0 +1,4 @@
+{
+  double len=this.norm();
+  this.scalarMultiply(1 / len);
+}

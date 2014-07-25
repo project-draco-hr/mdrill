@@ -1,0 +1,9 @@
+{
+  this.calendar.setTime(date);
+  int month=this.calendar.get(Calendar.MONTH);
+  toAppendTo.append(this.months[month]);
+  if (this.showYear[month]) {
+    toAppendTo.append(this.yearFormatter.format(date));
+  }
+  return toAppendTo;
+}

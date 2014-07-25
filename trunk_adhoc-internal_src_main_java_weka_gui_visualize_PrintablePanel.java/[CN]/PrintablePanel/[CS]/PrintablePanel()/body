@@ -1,0 +1,4 @@
+{
+  super();
+  m_Printer=new PrintableComponent(this);
+}

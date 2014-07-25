@@ -1,0 +1,5 @@
+{
+  super(linesVisible,shapesVisible);
+  this.errorIndicatorPaint=null;
+  this.errorIndicatorStroke=null;
+}

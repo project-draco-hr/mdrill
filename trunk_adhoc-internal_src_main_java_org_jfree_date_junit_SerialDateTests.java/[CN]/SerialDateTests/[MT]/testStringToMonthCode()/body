@@ -1,0 +1,8 @@
+{
+  int m=SerialDate.stringToMonthCode("January");
+  assertEquals(MonthConstants.JANUARY,m);
+  m=SerialDate.stringToMonthCode(" January ");
+  assertEquals(MonthConstants.JANUARY,m);
+  m=SerialDate.stringToMonthCode("Jan");
+  assertEquals(MonthConstants.JANUARY,m);
+}

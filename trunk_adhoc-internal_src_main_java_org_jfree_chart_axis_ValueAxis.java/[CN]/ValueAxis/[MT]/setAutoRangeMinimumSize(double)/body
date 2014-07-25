@@ -1,0 +1,3 @@
+{
+  setAutoRangeMinimumSize(size,true);
+}

@@ -1,0 +1,6 @@
+{
+  getCapabilities().testWithFail(data);
+  data=new Instances(data);
+  data.deleteWithMissingClass();
+  buildTree(data,false);
+}

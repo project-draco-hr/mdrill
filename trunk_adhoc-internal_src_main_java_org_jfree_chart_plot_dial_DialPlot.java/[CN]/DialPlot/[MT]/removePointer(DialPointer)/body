@@ -1,0 +1,3 @@
+{
+  removeLayer(getPointerIndex(pointer));
+}

@@ -1,0 +1,3 @@
+{
+  return (String)eval(xpath,XPathConstants.STRING);
+}

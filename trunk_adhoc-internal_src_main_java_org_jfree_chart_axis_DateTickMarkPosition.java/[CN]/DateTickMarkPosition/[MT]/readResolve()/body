@@ -1,0 +1,12 @@
+{
+  if (this.equals(DateTickMarkPosition.START)) {
+    return DateTickMarkPosition.START;
+  }
+ else   if (this.equals(DateTickMarkPosition.MIDDLE)) {
+    return DateTickMarkPosition.MIDDLE;
+  }
+ else   if (this.equals(DateTickMarkPosition.END)) {
+    return DateTickMarkPosition.END;
+  }
+  return null;
+}

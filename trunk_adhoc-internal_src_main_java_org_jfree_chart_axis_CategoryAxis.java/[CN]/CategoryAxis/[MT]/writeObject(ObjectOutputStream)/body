@@ -1,0 +1,4 @@
+{
+  stream.defaultWriteObject();
+  writePaintMap(this.tickLabelPaintMap,stream);
+}

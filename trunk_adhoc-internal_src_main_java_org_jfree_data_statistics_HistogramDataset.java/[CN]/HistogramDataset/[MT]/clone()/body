@@ -1,0 +1,9 @@
+{
+  HistogramDataset clone=(HistogramDataset)super.clone();
+  int seriesCount=getSeriesCount();
+  clone.list=new java.util.ArrayList(seriesCount);
+  for (int i=0; i < seriesCount; i++) {
+    clone.list.add(new HashMap((Map)this.list.get(i)));
+  }
+  return clone;
+}

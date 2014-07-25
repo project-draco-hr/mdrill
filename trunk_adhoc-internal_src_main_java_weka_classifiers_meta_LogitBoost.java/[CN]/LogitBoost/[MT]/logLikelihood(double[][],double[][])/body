@@ -1,0 +1,11 @@
+{
+  double logLikelihood=0;
+  for (int i=0; i < trainYs.length; i++) {
+    for (int j=0; j < m_NumClasses; j++) {
+      if (trainYs[i][j] == 1.0 - m_Offset) {
+        logLikelihood-=Math.log(probs[i][j]);
+      }
+    }
+  }
+  return logLikelihood / (double)trainYs.length;
+}

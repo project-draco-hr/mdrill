@@ -1,0 +1,32 @@
+{
+  String[] options=new String[12];
+  int current=0;
+  if (m_unpruned) {
+    options[current++]="-U";
+  }
+  if (m_reducedErrorPruning) {
+    options[current++]="-R";
+  }
+  if (m_binarySplits) {
+    options[current++]="-B";
+  }
+  options[current++]="-M";
+  options[current++]="" + m_minNumObj;
+  if (!m_reducedErrorPruning) {
+    options[current++]="-C";
+    options[current++]="" + m_CF;
+  }
+  if (m_reducedErrorPruning) {
+    options[current++]="-N";
+    options[current++]="" + m_numFolds;
+  }
+  options[current++]="-Q";
+  options[current++]="" + m_Seed;
+  if (!m_useMDLcorrection) {
+    options[current++]="-J";
+  }
+  while (current < options.length) {
+    options[current++]="";
+  }
+  return options;
+}

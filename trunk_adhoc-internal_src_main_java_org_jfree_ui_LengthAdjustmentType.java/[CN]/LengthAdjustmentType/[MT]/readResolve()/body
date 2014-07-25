@@ -1,0 +1,12 @@
+{
+  if (this.equals(LengthAdjustmentType.NO_CHANGE)) {
+    return LengthAdjustmentType.NO_CHANGE;
+  }
+ else   if (this.equals(LengthAdjustmentType.EXPAND)) {
+    return LengthAdjustmentType.EXPAND;
+  }
+ else   if (this.equals(LengthAdjustmentType.CONTRACT)) {
+    return LengthAdjustmentType.CONTRACT;
+  }
+  return null;
+}

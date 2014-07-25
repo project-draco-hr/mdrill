@@ -1,0 +1,5 @@
+int width
+int height
+List<Instances> series
+String attToPlot
+List<String> optionalArgs

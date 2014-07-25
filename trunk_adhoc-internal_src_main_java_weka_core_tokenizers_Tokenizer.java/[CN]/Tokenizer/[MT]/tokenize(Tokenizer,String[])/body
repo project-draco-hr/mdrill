@@ -1,0 +1,32 @@
+{
+  Vector<String> result;
+  Vector<String> tmpResult;
+  Vector<String> data;
+  int i;
+  boolean processed;
+  BufferedReader reader;
+  String line;
+  result=new Vector<String>();
+  tokenizer.setOptions(options);
+  data=new Vector<String>();
+  processed=false;
+  for (i=0; i < options.length; i++) {
+    if (options[i].length() != 0) {
+      processed=true;
+      data.add(options[i]);
+    }
+  }
+  if (!processed) {
+    reader=new BufferedReader(new InputStreamReader(System.in));
+    while ((line=reader.readLine()) != null) {
+      data.add(line);
+    }
+  }
+  for (i=0; i < data.size(); i++) {
+    tmpResult=new Vector<String>();
+    tokenizer.tokenize(data.get(i));
+    while (tokenizer.hasMoreElements())     tmpResult.add((String)tokenizer.nextElement());
+    result.addAll(tmpResult);
+  }
+  return result.toArray(new String[result.size()]);
+}

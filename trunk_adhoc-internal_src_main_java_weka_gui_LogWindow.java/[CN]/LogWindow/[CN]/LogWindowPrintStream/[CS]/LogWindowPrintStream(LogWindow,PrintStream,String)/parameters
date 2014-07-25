@@ -1,0 +1,3 @@
+LogWindow parent
+PrintStream stream
+String style

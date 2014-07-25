@@ -1,0 +1,16 @@
+{
+  if (this == o) {
+    return true;
+  }
+  if (!(o instanceof TypeInfo)) {
+    return false;
+  }
+  final TypeInfo typeInfo=(TypeInfo)o;
+  if (!this.name.equals(typeInfo.name)) {
+    return false;
+  }
+  if (!this.type.equals(typeInfo.type)) {
+    return false;
+  }
+  return true;
+}

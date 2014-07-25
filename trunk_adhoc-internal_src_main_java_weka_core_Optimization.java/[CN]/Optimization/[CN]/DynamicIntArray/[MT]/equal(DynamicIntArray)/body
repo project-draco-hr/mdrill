@@ -1,0 +1,7 @@
+{
+  if ((b == null) || (size() != b.size()))   return false;
+  int size=size();
+  int[] sorta=Utils.sort(m_Objects), sortb=Utils.sort(b.m_Objects);
+  for (int j=0; j < size; j++)   if (m_Objects[sorta[j]] != b.m_Objects[sortb[j]])   return false;
+  return true;
+}

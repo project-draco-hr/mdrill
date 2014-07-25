@@ -1,0 +1,4 @@
+Shape shape
+RectangleAnchor anchor
+double locationX
+double locationY

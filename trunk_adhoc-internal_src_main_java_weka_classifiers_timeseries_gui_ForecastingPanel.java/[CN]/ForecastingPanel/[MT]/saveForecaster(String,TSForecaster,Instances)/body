@@ -1,0 +1,32 @@
+{
+  File sFile=null;
+  boolean saveOK=true;
+  int returnVal=m_fileChooser.showSaveDialog(this);
+  if (returnVal == JFileChooser.APPROVE_OPTION) {
+    sFile=m_fileChooser.getSelectedFile();
+    if (!sFile.getName().toLowerCase().endsWith(".model")) {
+      sFile=new File(sFile.getParent(),sFile.getName() + ".model");
+    }
+    if (m_log != null) {
+      m_log.statusMessage("Saving forecaster to file...");
+    }
+    try {
+      ObjectOutputStream oos=new ObjectOutputStream(new FileOutputStream(sFile));
+      oos.writeObject(forecaster);
+      if (structure != null) {
+        oos.writeObject(new Instances(structure,0));
+      }
+      oos.close();
+    }
+ catch (    Exception ex) {
+      JOptionPane.showMessageDialog(null,ex,"Save Failed",JOptionPane.ERROR_MESSAGE);
+      saveOK=false;
+    }
+    if (saveOK) {
+      if (m_log != null) {
+        m_log.logMessage("Saved model (" + name + " ) to file '"+ sFile.getName()+ "'");
+        m_log.statusMessage("OK");
+      }
+    }
+  }
+}

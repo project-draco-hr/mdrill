@@ -1,0 +1,11 @@
+{
+  if (this.fillPaint != null) {
+    g2.setPaint(this.fillPaint);
+    g2.fill(shape);
+  }
+  if (this.outlinePaint != null) {
+    g2.setStroke(this.outlineStroke);
+    g2.setPaint(this.outlinePaint);
+    g2.draw(shape);
+  }
+}

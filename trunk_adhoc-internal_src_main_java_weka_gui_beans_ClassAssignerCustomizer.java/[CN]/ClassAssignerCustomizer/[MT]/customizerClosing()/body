@@ -1,0 +1,8 @@
+{
+  if (m_classAssigner != null) {
+    m_classAssigner.removeDataFormatListener(this);
+  }
+  if (m_backup != null) {
+    m_classAssigner.setClassColumn(m_backup);
+  }
+}

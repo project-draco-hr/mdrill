@@ -1,0 +1,11 @@
+{
+  final ArrayList list=new ArrayList();
+  final StringTokenizer strTok=new StringTokenizer(name,"/");
+  while (strTok.hasMoreElements()) {
+    final String s=(String)strTok.nextElement();
+    if (s.length() != 0) {
+      list.add(s);
+    }
+  }
+  return list;
+}

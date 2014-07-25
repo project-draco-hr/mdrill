@@ -1,0 +1,12 @@
+{
+  if (!m_ResultsetsValid) {
+    try {
+      prepareData();
+    }
+ catch (    Exception ex) {
+      ex.printStackTrace();
+      return null;
+    }
+  }
+  return ((Resultset)m_Resultsets.elementAt(index)).templateString();
+}

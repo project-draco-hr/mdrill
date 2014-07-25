@@ -1,0 +1,5 @@
+{
+  m_Result=CANCEL_OPTION;
+  setVisible(true);
+  return m_Result;
+}

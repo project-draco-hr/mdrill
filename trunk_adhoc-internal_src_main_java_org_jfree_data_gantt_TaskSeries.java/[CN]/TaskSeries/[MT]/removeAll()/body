@@ -1,0 +1,4 @@
+{
+  this.tasks.clear();
+  fireSeriesChanged();
+}

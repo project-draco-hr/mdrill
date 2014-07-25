@@ -1,0 +1,3 @@
+{
+  evaluateForecaster(forecaster,true,progress);
+}

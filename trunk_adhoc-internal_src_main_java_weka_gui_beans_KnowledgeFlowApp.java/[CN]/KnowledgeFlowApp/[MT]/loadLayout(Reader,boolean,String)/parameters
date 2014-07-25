@@ -1,0 +1,3 @@
+Reader reader
+boolean newTab
+String flowName

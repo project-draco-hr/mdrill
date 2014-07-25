@@ -1,0 +1,3 @@
+{
+  return "Clusterlist [ key=" + key + ",list="+ list.toString()+ "]";
+}

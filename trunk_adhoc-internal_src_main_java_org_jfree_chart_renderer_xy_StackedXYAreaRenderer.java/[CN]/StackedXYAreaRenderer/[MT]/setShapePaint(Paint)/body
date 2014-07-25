@@ -1,0 +1,4 @@
+{
+  this.shapePaint=shapePaint;
+  fireChangeEvent();
+}

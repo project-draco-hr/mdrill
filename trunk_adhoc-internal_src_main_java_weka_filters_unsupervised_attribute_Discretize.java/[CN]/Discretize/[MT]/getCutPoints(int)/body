@@ -1,0 +1,6 @@
+{
+  if (m_CutPoints == null) {
+    return null;
+  }
+  return m_CutPoints[attributeIndex];
+}

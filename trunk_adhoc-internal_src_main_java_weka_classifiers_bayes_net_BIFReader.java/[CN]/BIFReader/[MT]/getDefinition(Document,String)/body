@@ -1,0 +1,14 @@
+{
+  NodeList nodelist=doc.getElementsByTagName("DEFINITION");
+  for (int iNode=0; iNode < nodelist.getLength(); iNode++) {
+    Node node=nodelist.item(iNode);
+    FastVector list=selectElements(node,"FOR");
+    if (list.size() > 0) {
+      Node forNode=(Node)list.elementAt(0);
+      if (getContent((Element)forNode).trim().equals(sName)) {
+        return (Element)node;
+      }
+    }
+  }
+  throw new Exception("Could not find definition for ((" + sName + "))");
+}

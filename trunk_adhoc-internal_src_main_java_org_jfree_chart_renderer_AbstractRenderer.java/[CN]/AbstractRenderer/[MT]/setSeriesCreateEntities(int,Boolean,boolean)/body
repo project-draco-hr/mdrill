@@ -1,0 +1,6 @@
+{
+  this.createEntitiesList.setBoolean(series,create);
+  if (notify) {
+    fireChangeEvent();
+  }
+}

@@ -1,0 +1,11 @@
+{
+  Vector result=new Vector();
+  if (m_SplitEvaluator instanceof AdditionalMeasureProducer) {
+    Enumeration en=((AdditionalMeasureProducer)m_SplitEvaluator).enumerateMeasures();
+    while (en.hasMoreElements()) {
+      String mname=(String)en.nextElement();
+      result.addElement(mname);
+    }
+  }
+  return result.elements();
+}

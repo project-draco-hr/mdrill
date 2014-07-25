@@ -1,0 +1,12 @@
+{
+  if (m_Head == null) {
+    throw new RuntimeException("Queue is empty");
+  }
+  Object retval=m_Head.contents();
+  m_Size--;
+  m_Head=m_Head.next();
+  if (m_Head == null) {
+    m_Tail=null;
+  }
+  return retval;
+}

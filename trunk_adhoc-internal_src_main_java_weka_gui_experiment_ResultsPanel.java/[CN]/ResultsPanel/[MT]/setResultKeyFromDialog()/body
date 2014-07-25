@@ -1,0 +1,23 @@
+{
+  ListSelectorDialog jd=new ListSelectorDialog(null,m_ResultKeyList);
+  int result=jd.showDialog();
+  if (result == ListSelectorDialog.APPROVE_OPTION) {
+    int[] selected=m_ResultKeyList.getSelectedIndices();
+    String selectedList="";
+    for (int i=0; i < selected.length; i++) {
+      selectedList+="," + (selected[i] + 1);
+    }
+    Range generatorRange=new Range();
+    if (selectedList.length() != 0) {
+      try {
+        generatorRange.setRanges(selectedList);
+      }
+ catch (      Exception ex) {
+        ex.printStackTrace();
+        System.err.println(ex.getMessage());
+      }
+    }
+    m_TTester.setResultsetKeyColumns(generatorRange);
+    setTTester();
+  }
+}

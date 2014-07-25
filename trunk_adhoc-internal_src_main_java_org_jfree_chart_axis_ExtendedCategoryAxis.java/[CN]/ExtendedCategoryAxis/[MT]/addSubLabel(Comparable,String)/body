@@ -1,0 +1,3 @@
+{
+  this.sublabels.put(category,label);
+}

@@ -1,0 +1,6 @@
+{
+  if (printStream == null) {
+    throw new NullPointerException();
+  }
+  this.printStream=printStream;
+}

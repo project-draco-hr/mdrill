@@ -1,0 +1,4 @@
+XYDataset dataset
+ValueAxis domainAxis
+ValueAxis rangeAxis
+XYItemRenderer renderer

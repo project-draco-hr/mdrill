@@ -1,0 +1,24 @@
+{
+  FastVector clusters=new FastVector(m_NumClusters);
+  double diffInstNum=(double)(m_MaxInstNum - m_MinInstNum);
+  double minInstNum=(double)m_MinInstNum;
+  double diffRadius=m_MaxRadius - m_MinRadius;
+  Cluster cluster;
+  double gs=Math.pow(m_NumClusters,1.0 / getNumAttributes());
+  if (gs - ((double)((int)gs)) > 0.0) {
+    m_GridSize=(int)(gs + 1.0);
+  }
+ else {
+    m_GridSize=(int)gs;
+  }
+  m_GridWidth=((m_MaxRadius + m_MinRadius) / 2) * m_DistMult;
+  GridVector gv=new GridVector(getNumAttributes(),m_GridSize);
+  for (int i=0; i < m_NumClusters; i++) {
+    int instNum=(int)(random.nextDouble() * diffInstNum + minInstNum);
+    double radius=(random.nextDouble() * diffRadius) + m_MinRadius;
+    cluster=new Cluster(instNum,radius,gv.getGridVector(),m_GridWidth);
+    clusters.addElement((Object)cluster);
+    gv.addOne();
+  }
+  return clusters;
+}

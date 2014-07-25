@@ -1,0 +1,4 @@
+{
+  m_clusterer=newClusterer;
+  updateOptions();
+}

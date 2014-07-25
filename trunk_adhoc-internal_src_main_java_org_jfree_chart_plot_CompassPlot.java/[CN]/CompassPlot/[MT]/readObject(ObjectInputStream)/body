@@ -1,0 +1,6 @@
+{
+  stream.defaultReadObject();
+  this.rosePaint=SerialUtilities.readPaint(stream);
+  this.roseCenterPaint=SerialUtilities.readPaint(stream);
+  this.roseHighlightPaint=SerialUtilities.readPaint(stream);
+}

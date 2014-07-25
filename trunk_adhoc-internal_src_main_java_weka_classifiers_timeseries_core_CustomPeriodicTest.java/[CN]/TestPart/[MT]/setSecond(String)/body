@@ -1,0 +1,8 @@
+{
+  if (second.equals("*")) {
+    m_second=-100;
+  }
+ else {
+    m_second=Integer.parseInt(second);
+  }
+}

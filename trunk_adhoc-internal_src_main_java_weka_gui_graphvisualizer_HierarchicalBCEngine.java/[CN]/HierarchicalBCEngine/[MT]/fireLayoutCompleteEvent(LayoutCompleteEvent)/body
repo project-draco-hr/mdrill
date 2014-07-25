@@ -1,0 +1,9 @@
+{
+  if (layoutCompleteListeners != null && layoutCompleteListeners.size() != 0) {
+    LayoutCompleteEventListener l;
+    for (int i=0; i < layoutCompleteListeners.size(); i++) {
+      l=(LayoutCompleteEventListener)layoutCompleteListeners.elementAt(i);
+      l.layoutCompleted(e);
+    }
+  }
+}

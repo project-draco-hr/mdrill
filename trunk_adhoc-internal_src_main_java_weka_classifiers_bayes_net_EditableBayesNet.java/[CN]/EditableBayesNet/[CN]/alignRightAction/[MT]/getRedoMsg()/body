@@ -1,0 +1,3 @@
+{
+  return "Aligning " + m_nodes.size() + " nodes to the right.";
+}

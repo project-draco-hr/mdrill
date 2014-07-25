@@ -1,0 +1,4 @@
+int nNode
+int nX
+int nY
+FastVector nodes

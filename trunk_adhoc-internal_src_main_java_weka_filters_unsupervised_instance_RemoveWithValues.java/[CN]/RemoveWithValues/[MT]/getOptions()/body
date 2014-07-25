@@ -1,0 +1,28 @@
+{
+  String[] options=new String[10];
+  int current=0;
+  options[current++]="-S";
+  options[current++]="" + getSplitPoint();
+  options[current++]="-C";
+  options[current++]="" + (getAttributeIndex());
+  if (!getNominalIndices().equals("")) {
+    options[current++]="-L";
+    options[current++]=getNominalIndices();
+  }
+  if (getInvertSelection()) {
+    options[current++]="-V";
+  }
+  if (getMatchMissingValues()) {
+    options[current++]="-M";
+  }
+  if (getModifyHeader()) {
+    options[current++]="-H";
+  }
+  if (getDontFilterAfterFirstBatch()) {
+    options[current++]="-F";
+  }
+  while (current < options.length) {
+    options[current++]="";
+  }
+  return options;
+}

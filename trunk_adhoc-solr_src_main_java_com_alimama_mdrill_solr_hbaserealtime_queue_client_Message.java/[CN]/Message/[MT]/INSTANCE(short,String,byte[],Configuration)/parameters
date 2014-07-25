@@ -1,0 +1,4 @@
+short shard
+String partion
+byte[] value
+Configuration realConf

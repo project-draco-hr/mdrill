@@ -1,0 +1,9 @@
+{
+  Instances result;
+  ArffSortedTableModel model;
+  double value;
+  model=(ArffSortedTableModel)getModel();
+  value=model.getInstancesValueAt(rowIndex,columnIndex);
+  result=model.getInstances().attribute(columnIndex - 1).relation((int)value);
+  return result;
+}

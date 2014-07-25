@@ -1,0 +1,8 @@
+{
+  try {
+    return (Segment)this.clone();
+  }
+ catch (  CloneNotSupportedException e) {
+    return null;
+  }
+}

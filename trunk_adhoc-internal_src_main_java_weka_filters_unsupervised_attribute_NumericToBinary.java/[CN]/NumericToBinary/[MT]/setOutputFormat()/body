@@ -1,0 +1,25 @@
+{
+  FastVector newAtts;
+  int newClassIndex;
+  StringBuffer attributeName;
+  Instances outputFormat;
+  FastVector vals;
+  newClassIndex=getInputFormat().classIndex();
+  newAtts=new FastVector();
+  for (int j=0; j < getInputFormat().numAttributes(); j++) {
+    Attribute att=getInputFormat().attribute(j);
+    if ((j == newClassIndex) || (!att.isNumeric())) {
+      newAtts.addElement(att.copy());
+    }
+ else {
+      attributeName=new StringBuffer(att.name() + "_binarized");
+      vals=new FastVector(2);
+      vals.addElement("0");
+      vals.addElement("1");
+      newAtts.addElement(new Attribute(attributeName.toString(),vals));
+    }
+  }
+  outputFormat=new Instances(getInputFormat().relationName(),newAtts,0);
+  outputFormat.setClassIndex(newClassIndex);
+  setOutputFormat(outputFormat);
+}

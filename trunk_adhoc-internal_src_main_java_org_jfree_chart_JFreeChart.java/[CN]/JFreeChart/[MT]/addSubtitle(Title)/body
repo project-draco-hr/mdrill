@@ -1,0 +1,8 @@
+{
+  if (subtitle == null) {
+    throw new IllegalArgumentException("Null 'subtitle' argument.");
+  }
+  this.subtitles.add(subtitle);
+  subtitle.addChangeListener(this);
+  fireChartChanged();
+}

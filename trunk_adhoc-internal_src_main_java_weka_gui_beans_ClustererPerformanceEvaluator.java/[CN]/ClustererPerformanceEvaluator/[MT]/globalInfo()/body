@@ -1,0 +1,3 @@
+{
+  return "Evaluate the performance of batch trained clusterers.";
+}

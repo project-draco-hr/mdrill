@@ -1,0 +1,10 @@
+{
+  Vector<String> result;
+  result=new Vector();
+  result.add("-E");
+  result.add("" + getExpression());
+  if (m_filterAfterFirstBatch) {
+    result.add("-F");
+  }
+  return result.toArray(new String[result.size()]);
+}

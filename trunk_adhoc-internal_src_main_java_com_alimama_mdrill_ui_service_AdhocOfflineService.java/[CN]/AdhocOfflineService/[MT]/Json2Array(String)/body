@@ -1,0 +1,8 @@
+{
+  JSONArray jsonStr=new JSONArray(j.trim());
+  ArrayList<String> rtn=new ArrayList<String>();
+  for (int i=0; i < jsonStr.length(); i++) {
+    rtn.add(jsonStr.getString(i));
+  }
+  return rtn.toArray(new String[rtn.size()]);
+}

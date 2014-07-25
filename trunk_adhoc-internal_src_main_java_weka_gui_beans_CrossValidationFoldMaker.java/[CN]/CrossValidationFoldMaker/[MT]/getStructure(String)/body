@@ -1,0 +1,15 @@
+{
+  if (!eventName.equals("trainingSet") && !eventName.equals("testSet")) {
+    return null;
+  }
+  if (m_listenee == null) {
+    return null;
+  }
+  if (eventName.equals("trainingSet") && m_trainingListeners.size() == 0) {
+    return null;
+  }
+  if (eventName.equals("testSet") && m_testListeners.size() == 0) {
+    return null;
+  }
+  return getUpstreamStructure();
+}

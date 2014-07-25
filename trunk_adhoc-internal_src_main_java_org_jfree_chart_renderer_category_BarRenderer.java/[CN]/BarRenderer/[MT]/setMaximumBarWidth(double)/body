@@ -1,0 +1,4 @@
+{
+  this.maximumBarWidth=percent;
+  fireChangeEvent();
+}

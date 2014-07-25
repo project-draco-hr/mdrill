@@ -1,0 +1,12 @@
+{
+  if (VisualizeUtils.VISUALIZE_PROPERTIES != null) {
+    String thisClass=this.getClass().getName();
+    String barKey=thisClass + ".barColour";
+    String barC=VisualizeUtils.VISUALIZE_PROPERTIES.getProperty(barKey);
+    if (barC == null) {
+    }
+ else {
+      m_barColour=VisualizeUtils.processColour(barC,m_barColour);
+    }
+  }
+}

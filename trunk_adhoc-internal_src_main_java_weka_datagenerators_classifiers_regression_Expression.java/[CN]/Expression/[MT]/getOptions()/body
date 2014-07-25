@@ -1,0 +1,11 @@
+{
+  Vector result;
+  String[] options;
+  int i;
+  result=new Vector();
+  options=super.getOptions();
+  for (i=0; i < options.length; i++)   result.add(options[i]);
+  result.add("-E");
+  result.add("" + getExpression());
+  return (String[])result.toArray(new String[result.size()]);
+}

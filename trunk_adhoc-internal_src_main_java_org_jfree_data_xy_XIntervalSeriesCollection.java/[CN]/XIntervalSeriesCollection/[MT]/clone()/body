@@ -1,0 +1,5 @@
+{
+  XIntervalSeriesCollection clone=(XIntervalSeriesCollection)super.clone();
+  clone.data=(List)ObjectUtilities.deepClone(this.data);
+  return clone;
+}

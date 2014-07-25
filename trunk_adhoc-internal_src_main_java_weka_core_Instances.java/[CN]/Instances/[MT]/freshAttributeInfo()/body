@@ -1,0 +1,7 @@
+{
+  ArrayList<Attribute> newList=new ArrayList<Attribute>(m_Attributes.size());
+  for (  Attribute att : m_Attributes) {
+    newList.add((Attribute)att.copy());
+  }
+  m_Attributes=newList;
+}

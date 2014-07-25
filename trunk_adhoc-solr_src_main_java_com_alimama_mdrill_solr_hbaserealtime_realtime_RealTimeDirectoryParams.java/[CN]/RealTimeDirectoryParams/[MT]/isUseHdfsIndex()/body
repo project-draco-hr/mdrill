@@ -1,0 +1,10 @@
+{
+  Configuration conf=this.getConf();
+  final Path hdfsRealtime=new Path(this.hdfsPath,"realtime");
+  final FileSystem fs=FileSystem.get(conf);
+  final FileSystem lfs=FileSystem.getLocal(conf);
+  if (IndexUtils.readReadTimeTs(lfs,new Path(this.baseDir)) >= IndexUtils.readReadTimeTs(fs,hdfsRealtime)) {
+    return false;
+  }
+  return true;
+}

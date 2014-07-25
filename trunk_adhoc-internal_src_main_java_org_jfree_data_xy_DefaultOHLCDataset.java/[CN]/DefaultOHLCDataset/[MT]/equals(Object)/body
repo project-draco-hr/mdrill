@@ -1,0 +1,16 @@
+{
+  if (this == obj) {
+    return true;
+  }
+  if (!(obj instanceof DefaultOHLCDataset)) {
+    return false;
+  }
+  DefaultOHLCDataset that=(DefaultOHLCDataset)obj;
+  if (!this.key.equals(that.key)) {
+    return false;
+  }
+  if (!Arrays.equals(this.data,that.data)) {
+    return false;
+  }
+  return true;
+}

@@ -1,0 +1,3 @@
+{
+  assertTrue(RectangleAnchor.TOP.equals(RectangleAnchor.TOP));
+}

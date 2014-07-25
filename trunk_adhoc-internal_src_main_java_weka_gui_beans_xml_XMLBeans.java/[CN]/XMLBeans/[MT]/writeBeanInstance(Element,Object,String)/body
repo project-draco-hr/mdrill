@@ -1,0 +1,17 @@
+{
+  Element node;
+  BeanInstance beaninst;
+  if (DEBUG)   trace(new Throwable(),name);
+  m_CurrentNode=parent;
+  beaninst=(BeanInstance)o;
+  node=addElement(parent,name,beaninst.getClass().getName(),false);
+  writeIntToXML(node,m_BeanInstances.indexOf(beaninst),VAL_ID);
+  writeIntToXML(node,beaninst.getX() + beaninst.getWidth() / 2,VAL_X);
+  writeIntToXML(node,beaninst.getY() + beaninst.getHeight() / 2,VAL_Y);
+  if (beaninst.getBean() instanceof BeanCommon) {
+    String custName=((BeanCommon)beaninst.getBean()).getCustomName();
+    invokeWriteToXML(node,custName,VAL_CUSTOM_NAME);
+  }
+  invokeWriteToXML(node,beaninst.getBean(),VAL_BEAN);
+  return node;
+}

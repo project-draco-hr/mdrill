@@ -1,0 +1,6 @@
+{
+  if (d <= 0) {
+    throw new IllegalArgumentException("PairedStats: degrees of freedom must be >= 1");
+  }
+  m_degreesOfFreedom=d;
+}

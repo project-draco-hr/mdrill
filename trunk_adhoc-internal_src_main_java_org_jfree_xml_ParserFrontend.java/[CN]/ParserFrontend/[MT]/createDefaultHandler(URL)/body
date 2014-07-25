@@ -1,0 +1,7 @@
+{
+  final FrontendDefaultHandler handler=getDefaultHandler().newInstance();
+  if (contentBase != null) {
+    handler.setConfigProperty(Parser.CONTENTBASE_KEY,contentBase.toExternalForm());
+  }
+  return handler;
+}

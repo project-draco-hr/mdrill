@@ -1,0 +1,22 @@
+{
+  double l_x, h_x;
+  Edge e;
+  Node r, s;
+  r=m_groups[0].m_p;
+  r.setCenter(.5);
+  double m_scale;
+  for (int noa=0; noa < m_levelNum; noa++) {
+    l_x=m_groups[m_levels[noa].m_start].m_left;
+    h_x=m_groups[m_levels[noa].m_end].m_right;
+    m_scale=h_x - l_x + 1;
+    for (int nob=m_levels[noa].m_start; nob <= m_levels[noa].m_end; nob++) {
+      r=m_groups[nob].m_p;
+      for (int noc=0; (e=r.getChild(noc)) != null; noc++) {
+        s=e.getTarget();
+        if (s.getParent(0) == e) {
+          s.setCenter((s.getCenter() - l_x) / m_scale);
+        }
+      }
+    }
+  }
+}

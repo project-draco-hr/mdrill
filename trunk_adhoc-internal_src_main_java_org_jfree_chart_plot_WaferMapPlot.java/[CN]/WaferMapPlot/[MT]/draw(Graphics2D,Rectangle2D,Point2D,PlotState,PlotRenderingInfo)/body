@@ -1,0 +1,14 @@
+{
+  boolean b1=(area.getWidth() <= MINIMUM_WIDTH_TO_DRAW);
+  boolean b2=(area.getHeight() <= MINIMUM_HEIGHT_TO_DRAW);
+  if (b1 || b2) {
+    return;
+  }
+  if (info != null) {
+    info.setPlotArea(area);
+  }
+  RectangleInsets insets=getInsets();
+  insets.trim(area);
+  drawChipGrid(g2,area);
+  drawWaferEdge(g2,area);
+}

@@ -1,0 +1,4 @@
+int k
+CoverTreeNode tree_root
+CoverTreeNode query_root
+Stack<NeighborList> results

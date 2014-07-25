@@ -1,0 +1,8 @@
+{
+  data=round(data);
+  double zLower=(data - m_Mean - (m_Precision / 2)) / m_StandardDev;
+  double zUpper=(data - m_Mean + (m_Precision / 2)) / m_StandardDev;
+  double pLower=Statistics.normalProbability(zLower);
+  double pUpper=Statistics.normalProbability(zUpper);
+  return pUpper - pLower;
+}

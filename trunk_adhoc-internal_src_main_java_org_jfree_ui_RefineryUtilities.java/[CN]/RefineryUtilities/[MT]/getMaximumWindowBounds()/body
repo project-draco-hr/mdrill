@@ -1,0 +1,11 @@
+{
+  final GraphicsEnvironment localGraphicsEnvironment=GraphicsEnvironment.getLocalGraphicsEnvironment();
+  try {
+    final Method method=GraphicsEnvironment.class.getMethod("getMaximumWindowBounds",(Class[])null);
+    return (Rectangle)method.invoke(localGraphicsEnvironment,(Object[])null);
+  }
+ catch (  Exception e) {
+  }
+  final Dimension s=Toolkit.getDefaultToolkit().getScreenSize();
+  return new Rectangle(0,0,s.width,s.height);
+}

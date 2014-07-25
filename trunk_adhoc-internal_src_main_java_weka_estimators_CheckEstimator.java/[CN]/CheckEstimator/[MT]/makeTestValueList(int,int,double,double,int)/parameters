@@ -1,0 +1,5 @@
+int seed
+int numValues
+double minValue
+double maxValue
+int attrType

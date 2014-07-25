@@ -1,0 +1,4 @@
+{
+  fillBackground(g2,area);
+  drawBackgroundImage(g2,area);
+}

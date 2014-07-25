@@ -1,0 +1,117 @@
+{
+  double fiveMins=300000D;
+  double oneHour=3600000D;
+  double oneDay=oneHour * 24D;
+  double oneWeek=oneDay * 7D;
+  double thirtyDays=oneHour * 24D * 30D;
+  double approxQuarter=thirtyDays * 3D;
+  double oneYear=oneDay * 365D;
+  double averageDelta=Utils.missingValue();
+  int timeIndex=insts.attribute(timeName).index();
+  PeriodicityHandler result=new PeriodicityHandler();
+  if (timeIndex < 0) {
+    result.setPeriodicity(Periodicity.UNKNOWN);
+    result.setDeltaTime(Utils.missingValue());
+    return result;
+  }
+  if (userHint != Periodicity.UNKNOWN && insts.attribute(timeIndex).isDate()) {
+    result.setPeriodicity(userHint);
+switch (userHint) {
+case HOURLY:
+      result.setDeltaTime(oneHour);
+    break;
+case DAILY:
+  result.setDeltaTime(oneDay);
+break;
+case WEEKLY:
+result.setDeltaTime(oneWeek);
+break;
+case YEARLY:
+result.setDeltaTime(oneYear);
+break;
+}
+long initialTS=(long)insts.instance(0).value(timeIndex);
+long finalTS=(long)insts.instance(insts.numInstances() - 1).value(timeIndex);
+result.setDateTimeStampInitial(initialTS);
+result.setDateTimeStampFinal(finalTS);
+return result;
+}
+List<Double> deltas=new ArrayList<Double>();
+for (int i=1; i < insts.numInstances(); i++) {
+if (!insts.instance(i).isMissing(timeIndex) && !insts.instance(i - 1).isMissing(timeIndex)) {
+deltas.add(new Double(insts.instance(i).value(timeIndex) - insts.instance(i - 1).value(timeIndex)));
+}
+}
+double previousDelta=-1;
+double deltaSum=0;
+for (int i=0; i < deltas.size(); i++) {
+if (i == 0) {
+previousDelta=deltas.get(i);
+deltaSum+=previousDelta;
+}
+ else {
+double currentDelta=deltas.get(i);
+if (currentDelta - previousDelta != 0) {
+}
+previousDelta=currentDelta;
+deltaSum+=currentDelta;
+}
+}
+averageDelta=deltaSum/=deltas.size();
+if (insts.attribute(timeIndex).isDate()) {
+long initialTS=(long)insts.instance(0).value(timeIndex);
+long finalTS=(long)insts.instance(insts.numInstances() - 1).value(timeIndex);
+if (Math.abs(oneHour - averageDelta) <= fiveMins) {
+result.setPeriodicity(Periodicity.HOURLY);
+result.setDeltaTime(oneHour);
+result.setDateTimeStampInitial(initialTS);
+result.setDateTimeStampFinal(finalTS);
+return result;
+}
+if (Math.abs(oneDay - averageDelta) <= oneHour) {
+result.setPeriodicity(Periodicity.DAILY);
+result.setDeltaTime(oneDay);
+result.setDateTimeStampInitial(initialTS);
+result.setDateTimeStampFinal(finalTS);
+return result;
+}
+if (Math.abs(oneWeek - averageDelta) <= (oneDay / 4.0)) {
+result.setPeriodicity(Periodicity.WEEKLY);
+result.setDeltaTime(oneWeek);
+result.setDateTimeStampInitial(initialTS);
+result.setDateTimeStampFinal(finalTS);
+return result;
+}
+if (Math.abs(thirtyDays - averageDelta) <= (oneDay * 3.0)) {
+result.setPeriodicity(Periodicity.MONTHLY);
+result.setDeltaTime(thirtyDays);
+result.setDateTimeStampInitial(initialTS);
+result.setDateTimeStampFinal(finalTS);
+return result;
+}
+if (Math.abs(approxQuarter - averageDelta) <= oneWeek) {
+result.setPeriodicity(Periodicity.QUARTERLY);
+result.setDeltaTime(approxQuarter);
+result.setDateTimeStampInitial(initialTS);
+result.setDateTimeStampFinal(finalTS);
+return result;
+}
+if (Math.abs(oneYear - averageDelta) <= (oneDay * 2.0)) {
+result.setPeriodicity(Periodicity.YEARLY);
+result.setDeltaTime(oneYear);
+result.setDateTimeStampInitial(initialTS);
+result.setDateTimeStampFinal(finalTS);
+return result;
+}
+result.setPeriodicity(Periodicity.UNKNOWN);
+result.setIsDateBased(true);
+result.setDeltaTime(averageDelta);
+result.setDateTimeStampInitial(initialTS);
+result.setDateTimeStampFinal(finalTS);
+return result;
+}
+result.setPeriodicity(Periodicity.UNKNOWN);
+result.setIsDateBased(false);
+result.setDeltaTime(averageDelta);
+return result;
+}

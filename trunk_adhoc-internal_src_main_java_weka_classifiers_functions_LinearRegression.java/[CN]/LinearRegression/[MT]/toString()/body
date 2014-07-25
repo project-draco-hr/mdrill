@@ -1,0 +1,26 @@
+{
+  if (m_TransformedData == null) {
+    return "Linear Regression: No model built yet.";
+  }
+  try {
+    StringBuffer text=new StringBuffer();
+    int column=0;
+    boolean first=true;
+    text.append("\nLinear Regression Model\n\n");
+    text.append(m_TransformedData.classAttribute().name() + " =\n\n");
+    for (int i=0; i < m_TransformedData.numAttributes(); i++) {
+      if ((i != m_ClassIndex) && (m_SelectedAttributes[i])) {
+        if (!first)         text.append(" +\n");
+ else         first=false;
+        text.append(Utils.doubleToString(m_Coefficients[column],12,4) + " * ");
+        text.append(m_TransformedData.attribute(i).name());
+        column++;
+      }
+    }
+    text.append(" +\n" + Utils.doubleToString(m_Coefficients[column],12,4));
+    return text.toString();
+  }
+ catch (  Exception e) {
+    return "Can't print Linear Regression!";
+  }
+}

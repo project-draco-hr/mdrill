@@ -1,0 +1,15 @@
+{
+  getCapabilities().testWithFail(instances);
+  instances=new Instances(instances);
+  instances.deleteWithMissingClass();
+  instances=normalizeDataSet(instances);
+  m_Instances=new Instances(instances);
+  m_NumClasses=instances.numClasses();
+  if (m_bUseADTree) {
+    m_ADTree=ADNode.makeADTree(instances);
+  }
+  initStructure();
+  buildStructure();
+  estimateCPTs();
+  m_ADTree=null;
+}

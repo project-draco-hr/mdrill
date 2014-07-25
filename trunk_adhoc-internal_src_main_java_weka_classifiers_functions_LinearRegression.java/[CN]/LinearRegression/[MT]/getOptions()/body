@@ -1,0 +1,18 @@
+{
+  String[] options=new String[6];
+  int current=0;
+  options[current++]="-S";
+  options[current++]="" + getAttributeSelectionMethod().getSelectedTag().getID();
+  if (getDebug()) {
+    options[current++]="-D";
+  }
+  if (!getEliminateColinearAttributes()) {
+    options[current++]="-C";
+  }
+  options[current++]="-R";
+  options[current++]="" + getRidge();
+  while (current < options.length) {
+    options[current++]="";
+  }
+  return options;
+}

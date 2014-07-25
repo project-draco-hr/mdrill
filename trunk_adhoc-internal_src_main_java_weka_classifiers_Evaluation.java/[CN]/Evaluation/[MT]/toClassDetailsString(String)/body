@@ -1,0 +1,29 @@
+{
+  if (!m_ClassIsNominal) {
+    throw new Exception("Evaluation: No per class statistics possible!");
+  }
+  StringBuffer text=new StringBuffer(title + "\n               TP Rate   FP Rate" + "   Precision   Recall"+ "  F-Measure   ROC Area  Class\n");
+  for (int i=0; i < m_NumClasses; i++) {
+    text.append("               " + Utils.doubleToString(truePositiveRate(i),7,3)).append("   ");
+    text.append(Utils.doubleToString(falsePositiveRate(i),7,3)).append("    ");
+    text.append(Utils.doubleToString(precision(i),7,3)).append("   ");
+    text.append(Utils.doubleToString(recall(i),7,3)).append("   ");
+    text.append(Utils.doubleToString(fMeasure(i),7,3)).append("    ");
+    double rocVal=areaUnderROC(i);
+    if (Utils.isMissingValue(rocVal)) {
+      text.append("  ?    ").append("    ");
+    }
+ else {
+      text.append(Utils.doubleToString(rocVal,7,3)).append("    ");
+    }
+    text.append(m_ClassNames[i]).append('\n');
+  }
+  text.append("Weighted Avg.  " + Utils.doubleToString(weightedTruePositiveRate(),7,3));
+  text.append("   " + Utils.doubleToString(weightedFalsePositiveRate(),7,3));
+  text.append("    " + Utils.doubleToString(weightedPrecision(),7,3));
+  text.append("   " + Utils.doubleToString(weightedRecall(),7,3));
+  text.append("   " + Utils.doubleToString(weightedFMeasure(),7,3));
+  text.append("    " + Utils.doubleToString(weightedAreaUnderROC(),7,3));
+  text.append("\n");
+  return text.toString();
+}

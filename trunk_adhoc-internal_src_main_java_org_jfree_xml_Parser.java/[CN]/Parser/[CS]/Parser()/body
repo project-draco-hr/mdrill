@@ -1,0 +1,4 @@
+{
+  this.activeFactories=new Stack();
+  this.parserHelperObjects=new HashMap();
+}

@@ -1,0 +1,16 @@
+{
+  double[] pred=new double[m_numClasses];
+  double[] instanceFs=new double[m_numClasses];
+  for (int i=0; i < m_numRegressions; i++) {
+    double predSum=0;
+    for (int j=0; j < m_numClasses; j++) {
+      pred[j]=m_regressions[j][i].classifyInstance(instance);
+      predSum+=pred[j];
+    }
+    predSum/=m_numClasses;
+    for (int j=0; j < m_numClasses; j++) {
+      instanceFs[j]+=(pred[j] - predSum) * (m_numClasses - 1) / m_numClasses;
+    }
+  }
+  return instanceFs;
+}

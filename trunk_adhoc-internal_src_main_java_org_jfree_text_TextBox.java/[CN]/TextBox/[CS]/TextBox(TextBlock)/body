@@ -1,0 +1,10 @@
+{
+  this.outlinePaint=Color.black;
+  this.outlineStroke=new BasicStroke(1.0f);
+  this.interiorGap=new RectangleInsets(1.0,3.0,1.0,3.0);
+  this.backgroundPaint=new Color(255,255,192);
+  this.shadowPaint=Color.gray;
+  this.shadowXOffset=2.0;
+  this.shadowYOffset=2.0;
+  this.textBlock=block;
+}

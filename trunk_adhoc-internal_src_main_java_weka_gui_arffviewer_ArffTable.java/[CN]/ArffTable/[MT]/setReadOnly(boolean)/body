@@ -1,0 +1,3 @@
+{
+  ((ArffSortedTableModel)getModel()).setReadOnly(value);
+}

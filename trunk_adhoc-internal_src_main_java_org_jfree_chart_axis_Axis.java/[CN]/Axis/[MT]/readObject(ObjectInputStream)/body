@@ -1,0 +1,10 @@
+{
+  stream.defaultReadObject();
+  this.labelPaint=SerialUtilities.readPaint(stream);
+  this.tickLabelPaint=SerialUtilities.readPaint(stream);
+  this.axisLineStroke=SerialUtilities.readStroke(stream);
+  this.axisLinePaint=SerialUtilities.readPaint(stream);
+  this.tickMarkStroke=SerialUtilities.readStroke(stream);
+  this.tickMarkPaint=SerialUtilities.readPaint(stream);
+  this.listenerList=new EventListenerList();
+}

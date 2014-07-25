@@ -1,0 +1,4 @@
+{
+  System.err.println("sourceClass");
+  return (new StringBuffer(m_distribution.maxClass(index))).toString();
+}

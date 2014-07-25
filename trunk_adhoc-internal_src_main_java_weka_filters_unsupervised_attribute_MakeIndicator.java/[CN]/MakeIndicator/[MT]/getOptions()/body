@@ -1,0 +1,15 @@
+{
+  String[] options=new String[5];
+  int current=0;
+  options[current++]="-C";
+  options[current++]="" + (getAttributeIndex());
+  options[current++]="-V";
+  options[current++]=getValueIndices();
+  if (!getNumeric()) {
+    options[current++]="-N";
+  }
+  while (current < options.length) {
+    options[current++]="";
+  }
+  return options;
+}

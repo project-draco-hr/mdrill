@@ -1,0 +1,14 @@
+{
+  if (edge == RectangleEdge.TOP) {
+    cursorUp(units);
+  }
+ else   if (edge == RectangleEdge.BOTTOM) {
+    cursorDown(units);
+  }
+ else   if (edge == RectangleEdge.LEFT) {
+    cursorLeft(units);
+  }
+ else   if (edge == RectangleEdge.RIGHT) {
+    cursorRight(units);
+  }
+}

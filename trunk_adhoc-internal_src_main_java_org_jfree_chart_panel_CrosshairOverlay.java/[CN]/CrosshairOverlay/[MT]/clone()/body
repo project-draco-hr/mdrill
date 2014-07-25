@@ -1,0 +1,6 @@
+{
+  CrosshairOverlay clone=(CrosshairOverlay)super.clone();
+  clone.xCrosshairs=(List)ObjectUtilities.deepClone(this.xCrosshairs);
+  clone.yCrosshairs=(List)ObjectUtilities.deepClone(this.yCrosshairs);
+  return clone;
+}

@@ -1,0 +1,21 @@
+{
+  if (sampleSize > origSize) {
+    sampleSize=origSize;
+    System.err.println("Resampling with replacement can only use percentage <=100% - " + "Using full dataset!");
+  }
+  Vector<Integer> indices=new Vector<Integer>(origSize);
+  Vector<Integer> indicesNew=new Vector<Integer>(sampleSize);
+  for (int i=0; i < origSize; i++)   indices.add(i);
+  for (int i=0; i < sampleSize; i++) {
+    int index=random.nextInt(indices.size());
+    indicesNew.add(indices.get(index));
+    indices.remove(index);
+  }
+  if (getInvertSelection())   indicesNew=indices;
+ else   Collections.sort(indicesNew);
+  for (int i=0; i < indicesNew.size(); i++)   push((Instance)getInputFormat().instance(indicesNew.get(i)).copy());
+  indices.clear();
+  indicesNew.clear();
+  indices=null;
+  indicesNew=null;
+}

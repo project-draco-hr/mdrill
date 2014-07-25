@@ -1,0 +1,13 @@
+{
+  int result=193;
+  long temp=Double.doubleToLongBits(this.lowerBound);
+  result=37 * result + (int)(temp ^ (temp >>> 32));
+  temp=Double.doubleToLongBits(this.upperBound);
+  result=37 * result + (int)(temp ^ (temp >>> 32));
+  temp=Double.doubleToLongBits(this.innerRadius);
+  result=37 * result + (int)(temp ^ (temp >>> 32));
+  temp=Double.doubleToLongBits(this.outerRadius);
+  result=37 * result + (int)(temp ^ (temp >>> 32));
+  result=37 * result + HashUtilities.hashCodeForPaint(this.paint);
+  return result;
+}

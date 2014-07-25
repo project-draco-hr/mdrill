@@ -1,0 +1,8 @@
+{
+  Vector<Option> newVector=new Vector<Option>();
+  newVector.add(new Option("\tNode splitting method to use.\n" + "\t(default: weka.core.neighboursearch.kdtrees.SlidingMidPointOfWidestSide)","S",1,"-S <classname and options>"));
+  newVector.addElement(new Option("\tSet minimal width of a box\n" + "\t(default: 1.0E-2).","W",0,"-W <value>"));
+  newVector.addElement(new Option("\tMaximal number of instances in a leaf\n" + "\t(default: 40).","L",0,"-L"));
+  newVector.addElement(new Option("\tNormalizing will be done\n" + "\t(Select dimension for split, with normalising to universe).","N",0,"-N"));
+  return newVector.elements();
+}

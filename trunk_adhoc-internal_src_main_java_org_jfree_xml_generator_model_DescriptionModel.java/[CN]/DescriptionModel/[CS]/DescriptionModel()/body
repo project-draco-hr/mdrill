@@ -1,0 +1,7 @@
+{
+  this.classes=new ArrayList();
+  this.classesMap=new HashMap();
+  this.mappingModel=new MappingModel();
+  this.sources=new ArrayList();
+  this.includeComments=new HashMap();
+}

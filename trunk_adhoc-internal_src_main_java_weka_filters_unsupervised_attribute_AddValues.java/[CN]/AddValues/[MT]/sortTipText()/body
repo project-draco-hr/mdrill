@@ -1,0 +1,3 @@
+{
+  return "Whether to sort the labels alphabetically.";
+}

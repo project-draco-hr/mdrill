@@ -1,0 +1,12 @@
+{
+  final String retval=this.parent.getConfigProperty(name);
+  if (retval == null) {
+    return defaultValue;
+  }
+  try {
+    return Integer.parseInt(retval);
+  }
+ catch (  Exception e) {
+    return defaultValue;
+  }
+}

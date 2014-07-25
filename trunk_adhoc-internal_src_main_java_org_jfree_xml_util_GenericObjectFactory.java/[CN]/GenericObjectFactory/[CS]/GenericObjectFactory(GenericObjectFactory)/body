@@ -1,0 +1,11 @@
+{
+  this.baseClass=factory.baseClass;
+  this.propertyValues=new HashMap();
+  this.orderedPropertyNames=factory.orderedPropertyNames;
+  this.constructorDefinitions=factory.constructorDefinitions;
+  this.propertyDefinitions=factory.propertyDefinitions;
+  this.attributeDefinitions=factory.attributeDefinitions;
+  this.propertyInfos=factory.propertyInfos;
+  this.registerName=factory.registerName;
+  this.lookupDefinitions=factory.lookupDefinitions;
+}

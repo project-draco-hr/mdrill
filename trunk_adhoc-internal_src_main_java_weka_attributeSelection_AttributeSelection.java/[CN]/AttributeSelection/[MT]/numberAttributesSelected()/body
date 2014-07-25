@@ -1,0 +1,4 @@
+{
+  int[] att=selectedAttributes();
+  return att.length - 1;
+}

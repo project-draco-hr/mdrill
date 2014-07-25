@@ -1,0 +1,68 @@
+{
+  if (ce.getTestSet() == null || ce.getTestSet().isStructureOnly()) {
+    return;
+  }
+  Classifier classifier=ce.getClassifier();
+  try {
+    if (ce.getGroupIdentifier() != m_currentBatchIdentifier) {
+      if (m_setsComplete > 0) {
+        if (m_logger != null) {
+          m_logger.statusMessage(statusMessagePrefix() + "BUSY. Can't accept data " + "at this time.");
+          m_logger.logMessage("[ClassifierPerformanceEvaluator] " + statusMessagePrefix() + " BUSY. Can't accept data at this time.");
+        }
+        return;
+      }
+      if (ce.getTrainSet().getDataSet() == null || ce.getTrainSet().getDataSet().numInstances() == 0) {
+        Evaluation eval=new Evaluation(ce.getTestSet().getDataSet());
+        m_PlotInstances=ExplorerDefaults.getClassifierErrorsPlotInstances();
+        m_PlotInstances.setInstances(ce.getTestSet().getDataSet());
+        m_PlotInstances.setClassifier(ce.getClassifier());
+        m_PlotInstances.setClassIndex(ce.getTestSet().getDataSet().classIndex());
+        m_PlotInstances.setEvaluation(eval);
+        eval=adjustForInputMappedClassifier(eval,ce.getClassifier(),ce.getTestSet().getDataSet(),m_PlotInstances);
+        eval.useNoPriors();
+        m_eval=new AggregateableEvaluation(eval);
+      }
+ else {
+        Evaluation eval=new Evaluation(ce.getTrainSet().getDataSet());
+        m_PlotInstances=ExplorerDefaults.getClassifierErrorsPlotInstances();
+        m_PlotInstances.setInstances(ce.getTrainSet().getDataSet());
+        m_PlotInstances.setClassifier(ce.getClassifier());
+        m_PlotInstances.setClassIndex(ce.getTestSet().getDataSet().classIndex());
+        m_PlotInstances.setEvaluation(eval);
+        eval=adjustForInputMappedClassifier(eval,ce.getClassifier(),ce.getTrainSet().getDataSet(),m_PlotInstances);
+        m_eval=new AggregateableEvaluation(eval);
+      }
+      m_PlotInstances.setUp();
+      m_currentBatchIdentifier=ce.getGroupIdentifier();
+      m_setsComplete=0;
+      m_aggregatedPlotInstances=null;
+      String msg="[ClassifierPerformanceEvaluator] " + statusMessagePrefix() + " starting executor pool ("+ getExecutionSlots()+ " slots)...";
+      if (m_executorPool == null) {
+        startExecutorPool();
+      }
+      m_tasks=new ArrayList<EvaluationTask>();
+      if (m_logger != null) {
+        m_logger.logMessage(msg);
+      }
+ else {
+        System.out.println(msg);
+      }
+    }
+    if (m_setsComplete < ce.getMaxSetNumber() && m_tasks != null) {
+      EvaluationTask newTask=new EvaluationTask(classifier,ce.getTrainSet().getDataSet(),ce.getTestSet().getDataSet(),ce.getSetNumber(),ce.getMaxSetNumber());
+      String msg="[ClassifierPerformanceEvaluator] " + statusMessagePrefix() + " scheduling "+ " evaluation of fold "+ ce.getSetNumber()+ " for execution...";
+      if (m_logger != null) {
+        m_logger.logMessage(msg);
+      }
+ else {
+        System.out.println(msg);
+      }
+      m_tasks.add(newTask);
+      m_executorPool.execute(newTask);
+    }
+  }
+ catch (  Exception ex) {
+    stop();
+  }
+}

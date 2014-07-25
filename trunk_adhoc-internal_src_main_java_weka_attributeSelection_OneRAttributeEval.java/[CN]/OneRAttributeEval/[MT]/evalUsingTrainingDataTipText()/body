@@ -1,0 +1,3 @@
+{
+  return "Use the training data to evaluate attributes rather than " + "cross validation.";
+}

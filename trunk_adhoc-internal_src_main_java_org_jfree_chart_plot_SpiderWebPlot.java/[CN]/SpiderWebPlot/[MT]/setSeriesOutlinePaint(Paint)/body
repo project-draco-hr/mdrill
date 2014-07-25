@@ -1,0 +1,4 @@
+{
+  this.seriesOutlinePaint=paint;
+  fireChangeEvent();
+}

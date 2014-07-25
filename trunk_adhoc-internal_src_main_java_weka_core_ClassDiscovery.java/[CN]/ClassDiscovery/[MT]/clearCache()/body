@@ -1,0 +1,4 @@
+{
+  initCache();
+  m_Cache.clear();
+}

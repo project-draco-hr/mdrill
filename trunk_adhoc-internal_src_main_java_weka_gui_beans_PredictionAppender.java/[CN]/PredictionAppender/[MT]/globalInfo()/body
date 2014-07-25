@@ -1,0 +1,3 @@
+{
+  return "Accepts batch or incremental classifier events and " + "produces a new data set with classifier predictions appended.";
+}

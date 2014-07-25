@@ -1,0 +1,4 @@
+{
+  instance=normalizeInstance(instance);
+  m_BayesNetEstimator.updateClassifier(this,instance);
+}

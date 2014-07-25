@@ -1,0 +1,11 @@
+{
+  try {
+    String value=PROPERTIES.getProperty(type);
+    String typeUnderscore=type.replaceAll(" ","_");
+    if (value == null)     value=PROPERTIES.getProperty(typeUnderscore);
+    return Integer.parseInt(value);
+  }
+ catch (  NumberFormatException e) {
+    throw new IllegalArgumentException("Unknown data type: " + type + ". "+ "Add entry in "+ PROPERTY_FILE+ ".\n"+ "If the type contains blanks, either escape them with a backslash "+ "or use underscores instead of blanks.");
+  }
+}

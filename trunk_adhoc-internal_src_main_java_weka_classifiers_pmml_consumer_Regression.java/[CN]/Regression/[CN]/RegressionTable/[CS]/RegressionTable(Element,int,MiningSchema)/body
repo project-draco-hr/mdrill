@@ -1,0 +1,45 @@
+{
+  m_miningSchema=mSchema;
+  m_functionType=functionType;
+  Instances miningSchema=m_miningSchema.getFieldsAsInstances();
+  String intercept=table.getAttribute("intercept");
+  if (intercept.length() > 0) {
+    m_intercept=Double.parseDouble(intercept);
+  }
+  if (m_functionType == CLASSIFICATION) {
+    String targetCat=table.getAttribute("targetCategory");
+    if (targetCat.length() > 0) {
+      Attribute classA=miningSchema.classAttribute();
+      for (int i=0; i < classA.numValues(); i++) {
+        if (classA.value(i).equals(targetCat)) {
+          m_targetCategory=i;
+        }
+      }
+    }
+    if (m_targetCategory == -1) {
+      throw new Exception("[RegressionTable] No target categories defined for classification");
+    }
+  }
+  NodeList numericPs=table.getElementsByTagName("NumericPredictor");
+  for (int i=0; i < numericPs.getLength(); i++) {
+    Node nP=numericPs.item(i);
+    if (nP.getNodeType() == Node.ELEMENT_NODE) {
+      NumericPredictor numP=new NumericPredictor((Element)nP,miningSchema);
+      m_predictors.add(numP);
+    }
+  }
+  NodeList categoricalPs=table.getElementsByTagName("CategoricalPredictor");
+  for (int i=0; i < categoricalPs.getLength(); i++) {
+    Node cP=categoricalPs.item(i);
+    if (cP.getNodeType() == Node.ELEMENT_NODE) {
+      CategoricalPredictor catP=new CategoricalPredictor((Element)cP,miningSchema);
+      m_predictors.add(catP);
+    }
+  }
+  NodeList predictorTerms=table.getElementsByTagName("PredictorTerm");
+  for (int i=0; i < predictorTerms.getLength(); i++) {
+    Node pT=predictorTerms.item(i);
+    PredictorTerm predT=new PredictorTerm((Element)pT,miningSchema);
+    m_predictorTerms.add(predT);
+  }
+}

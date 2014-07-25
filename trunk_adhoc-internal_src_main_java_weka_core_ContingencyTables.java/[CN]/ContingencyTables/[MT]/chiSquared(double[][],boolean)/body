@@ -1,0 +1,4 @@
+{
+  int df=(matrix.length - 1) * (matrix[0].length - 1);
+  return Statistics.chiSquaredProbability(chiVal(matrix,yates),df);
+}

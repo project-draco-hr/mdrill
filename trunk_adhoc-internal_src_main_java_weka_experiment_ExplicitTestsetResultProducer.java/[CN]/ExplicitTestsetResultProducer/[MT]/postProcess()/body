@@ -1,0 +1,9 @@
+{
+  m_ResultListener.postProcess(this);
+  if (m_debugOutput) {
+    if (m_ZipDest != null) {
+      m_ZipDest.finished();
+      m_ZipDest=null;
+    }
+  }
+}

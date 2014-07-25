@@ -1,0 +1,8 @@
+{
+  if (paint == null) {
+    throw new IllegalArgumentException("Null 'paint' argument.");
+  }
+  this.paint=paint;
+  setWidth(width);
+  setHeight(height);
+}

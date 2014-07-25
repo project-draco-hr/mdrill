@@ -1,0 +1,18 @@
+{
+  List keys=new java.util.ArrayList();
+  int fieldIndex=0;
+  int start=0;
+  for (int i=0; i < line.length(); i++) {
+    if (line.charAt(i) == this.fieldDelimiter) {
+      if (fieldIndex > 0) {
+        String key=line.substring(start,i);
+        keys.add(removeStringDelimiters(key));
+      }
+      start=i + 1;
+      fieldIndex++;
+    }
+  }
+  String key=line.substring(start,line.length());
+  keys.add(removeStringDelimiters(key));
+  return keys;
+}

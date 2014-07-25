@@ -1,0 +1,9 @@
+{
+  Vector newVector=new Vector(4);
+  newVector.addElement(new Option("\tSpecify shrinkage rate. " + "(default = 1.0, ie. no shrinkage)\n","S",1,"-S"));
+  Enumeration enu=super.listOptions();
+  while (enu.hasMoreElements()) {
+    newVector.addElement(enu.nextElement());
+  }
+  return newVector.elements();
+}

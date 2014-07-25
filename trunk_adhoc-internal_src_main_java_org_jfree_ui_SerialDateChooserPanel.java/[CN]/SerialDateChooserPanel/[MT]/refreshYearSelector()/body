@@ -1,0 +1,12 @@
+{
+  if (!this.refreshing) {
+    this.refreshing=true;
+    this.yearSelector.removeAllItems();
+    final Vector v=getYears(this.date.getYYYY());
+    for (Enumeration e=v.elements(); e.hasMoreElements(); ) {
+      this.yearSelector.addItem(e.nextElement());
+    }
+    this.yearSelector.setSelectedItem(new Integer(this.date.getYYYY()));
+    this.refreshing=false;
+  }
+}

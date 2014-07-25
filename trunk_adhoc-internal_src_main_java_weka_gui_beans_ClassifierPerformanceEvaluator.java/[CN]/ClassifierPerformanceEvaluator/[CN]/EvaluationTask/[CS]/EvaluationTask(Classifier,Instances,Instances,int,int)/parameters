@@ -1,0 +1,5 @@
+Classifier classifier
+Instances trainData
+Instances testData
+int setNum
+int maxSetNum

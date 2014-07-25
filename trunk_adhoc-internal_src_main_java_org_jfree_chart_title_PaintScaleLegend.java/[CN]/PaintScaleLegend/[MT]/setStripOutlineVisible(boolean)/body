@@ -1,0 +1,4 @@
+{
+  this.stripOutlineVisible=visible;
+  notifyListeners(new TitleChangeEvent(this));
+}

@@ -1,0 +1,14 @@
+{
+  Vector newVector=new Vector(3);
+  newVector.addElement("measureNumAttributesSelected");
+  newVector.addElement("measureSelectionTime");
+  newVector.addElement("measureTime");
+  if (m_Classifier instanceof AdditionalMeasureProducer) {
+    Enumeration en=((AdditionalMeasureProducer)m_Classifier).enumerateMeasures();
+    while (en.hasMoreElements()) {
+      String mname=(String)en.nextElement();
+      newVector.addElement(mname);
+    }
+  }
+  return newVector.elements();
+}

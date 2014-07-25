@@ -1,0 +1,6 @@
+{
+  if (this.extWrapper == null) {
+    this.extWrapper=new ExtendedConfigurationWrapper(getGlobalConfig());
+  }
+  return this.extWrapper;
+}

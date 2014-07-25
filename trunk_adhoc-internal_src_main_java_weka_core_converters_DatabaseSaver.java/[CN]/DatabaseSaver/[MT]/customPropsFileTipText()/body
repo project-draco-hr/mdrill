@@ -1,0 +1,3 @@
+{
+  return "The custom properties that the user can use to override the default ones.";
+}

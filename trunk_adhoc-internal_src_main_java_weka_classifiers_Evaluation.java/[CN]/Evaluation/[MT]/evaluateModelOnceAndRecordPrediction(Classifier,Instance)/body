@@ -1,0 +1,3 @@
+{
+  return evaluationForSingleInstance(classifier,instance,true);
+}

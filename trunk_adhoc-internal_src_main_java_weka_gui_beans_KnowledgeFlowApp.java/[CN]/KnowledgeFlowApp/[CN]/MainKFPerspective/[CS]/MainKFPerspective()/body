@@ -1,0 +1,23 @@
+{
+  setLayout(new BorderLayout());
+  setUpToolsAndJTree();
+  JScrollPane treeView=new JScrollPane(m_componentTree);
+  JPanel treeHolder=new JPanel();
+  treeHolder.setLayout(new BorderLayout());
+  treeHolder.setBorder(BorderFactory.createTitledBorder("Design"));
+  treeHolder.add(treeView,BorderLayout.CENTER);
+  JSplitPane p2=new JSplitPane(JSplitPane.HORIZONTAL_SPLIT,treeHolder,m_flowTabs);
+  p2.setOneTouchExpandable(true);
+  add(p2,BorderLayout.CENTER);
+  Dimension d=treeView.getPreferredSize();
+  d=new Dimension((int)(d.getWidth() * 1.5),(int)d.getHeight());
+  treeView.setPreferredSize(d);
+  treeView.setMinimumSize(d);
+  m_flowTabs.addChangeListener(new ChangeListener(){
+    public void stateChanged(    ChangeEvent evt){
+      int sel=m_flowTabs.getSelectedIndex();
+      setActiveTab(sel);
+    }
+  }
+);
+}

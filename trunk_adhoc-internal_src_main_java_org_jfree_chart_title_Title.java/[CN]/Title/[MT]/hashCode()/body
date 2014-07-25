@@ -1,0 +1,7 @@
+{
+  int result=193;
+  result=37 * result + ObjectUtilities.hashCode(this.position);
+  result=37 * result + ObjectUtilities.hashCode(this.horizontalAlignment);
+  result=37 * result + ObjectUtilities.hashCode(this.verticalAlignment);
+  return result;
+}

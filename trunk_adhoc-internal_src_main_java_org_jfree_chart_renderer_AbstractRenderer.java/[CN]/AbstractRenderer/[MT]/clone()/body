@@ -1,0 +1,63 @@
+{
+  AbstractRenderer clone=(AbstractRenderer)super.clone();
+  if (this.seriesVisibleList != null) {
+    clone.seriesVisibleList=(BooleanList)this.seriesVisibleList.clone();
+  }
+  if (this.seriesVisibleInLegendList != null) {
+    clone.seriesVisibleInLegendList=(BooleanList)this.seriesVisibleInLegendList.clone();
+  }
+  if (this.paintList != null) {
+    clone.paintList=(PaintList)this.paintList.clone();
+  }
+  if (this.fillPaintList != null) {
+    clone.fillPaintList=(PaintList)this.fillPaintList.clone();
+  }
+  if (this.outlinePaintList != null) {
+    clone.outlinePaintList=(PaintList)this.outlinePaintList.clone();
+  }
+  if (this.strokeList != null) {
+    clone.strokeList=(StrokeList)this.strokeList.clone();
+  }
+  if (this.outlineStrokeList != null) {
+    clone.outlineStrokeList=(StrokeList)this.outlineStrokeList.clone();
+  }
+  if (this.shape != null) {
+    clone.shape=ShapeUtilities.clone(this.shape);
+  }
+  if (this.shapeList != null) {
+    clone.shapeList=(ShapeList)this.shapeList.clone();
+  }
+  if (this.baseShape != null) {
+    clone.baseShape=ShapeUtilities.clone(this.baseShape);
+  }
+  if (this.itemLabelsVisibleList != null) {
+    clone.itemLabelsVisibleList=(BooleanList)this.itemLabelsVisibleList.clone();
+  }
+  if (this.itemLabelFontList != null) {
+    clone.itemLabelFontList=(ObjectList)this.itemLabelFontList.clone();
+  }
+  if (this.itemLabelPaintList != null) {
+    clone.itemLabelPaintList=(PaintList)this.itemLabelPaintList.clone();
+  }
+  if (this.positiveItemLabelPositionList != null) {
+    clone.positiveItemLabelPositionList=(ObjectList)this.positiveItemLabelPositionList.clone();
+  }
+  if (this.negativeItemLabelPositionList != null) {
+    clone.negativeItemLabelPositionList=(ObjectList)this.negativeItemLabelPositionList.clone();
+  }
+  if (this.createEntitiesList != null) {
+    clone.createEntitiesList=(BooleanList)this.createEntitiesList.clone();
+  }
+  if (this.legendShape != null) {
+    clone.legendShape=(ShapeList)this.legendShape.clone();
+  }
+  if (this.legendTextFont != null) {
+    clone.legendTextFont=(ObjectList)this.legendTextFont.clone();
+  }
+  if (this.legendTextPaint != null) {
+    clone.legendTextPaint=(PaintList)this.legendTextPaint.clone();
+  }
+  clone.listenerList=new EventListenerList();
+  clone.event=null;
+  return clone;
+}

@@ -1,0 +1,13 @@
+{
+  super.setInputFormat(instanceInfo);
+  m_AttIndex.setUpper(getInputFormat().numAttributes() - 1);
+  if (!getInputFormat().attribute(m_AttIndex.getIndex()).isNominal()) {
+    throw new Exception("Adding noise is not possible:" + "Chosen attribute is numeric.");
+  }
+  if ((getInputFormat().attribute(m_AttIndex.getIndex()).numValues() < 2) && (!m_UseMissing)) {
+    throw new Exception("Adding noise is not possible:" + "Chosen attribute has less than two values.");
+  }
+  setOutputFormat(getInputFormat());
+  m_NewBatch=true;
+  return false;
+}

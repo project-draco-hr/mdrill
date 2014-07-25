@@ -1,0 +1,9 @@
+{
+  int i=Arrays.binarySearch(this.xIndex,k);
+  if (i >= 0) {
+    return i;
+  }
+ else {
+    return -1 * i - 2;
+  }
+}

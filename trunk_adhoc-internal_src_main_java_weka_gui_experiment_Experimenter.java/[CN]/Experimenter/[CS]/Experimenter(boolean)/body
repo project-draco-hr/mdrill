@@ -1,0 +1,23 @@
+{
+  m_SetupPanel=new SetupModePanel();
+  m_ResultsPanel=new ResultsPanel();
+  m_RunPanel=new RunPanel();
+  m_RunPanel.setResultsPanel(m_ResultsPanel);
+  m_ClassFirst=classFirst;
+  m_TabbedPane.addTab("Setup",null,m_SetupPanel,"Set up the experiment");
+  m_TabbedPane.addTab("Run",null,m_RunPanel,"Run the experiment");
+  m_TabbedPane.addTab("Analyse",null,m_ResultsPanel,"Analyse experiment results");
+  m_TabbedPane.setSelectedIndex(0);
+  m_TabbedPane.setEnabledAt(1,false);
+  m_SetupPanel.addPropertyChangeListener(new PropertyChangeListener(){
+    public void propertyChange(    PropertyChangeEvent e){
+      Experiment exp=m_SetupPanel.getExperiment();
+      exp.classFirst(m_ClassFirst);
+      m_RunPanel.setExperiment(exp);
+      m_TabbedPane.setEnabledAt(1,true);
+    }
+  }
+);
+  setLayout(new BorderLayout());
+  add(m_TabbedPane,BorderLayout.CENTER);
+}

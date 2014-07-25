@@ -1,0 +1,18 @@
+{
+  if (safeTags == null) {
+    safeTags=new SafeTagList();
+    safeTags.add(ClassModelTags.OBJECTS_TAG);
+    safeTags.add(ClassModelTags.OBJECT_TAG);
+    safeTags.add(ClassModelTags.CONSTRUCTOR_TAG);
+    safeTags.add(ClassModelTags.ELEMENT_PROPERTY_TAG);
+    safeTags.add(ClassModelTags.LOOKUP_PROPERTY_TAG);
+    safeTags.add(ClassModelTags.ATTRIBUTE_PROPERTY_TAG);
+    safeTags.add(ClassModelTags.PARAMETER_TAG);
+    safeTags.add(ClassModelTags.INCLUDE_TAG);
+    safeTags.add(ClassModelTags.IGNORED_PROPERTY_TAG);
+    safeTags.add(ClassModelTags.MANUAL_TAG);
+    safeTags.add(ClassModelTags.MAPPING_TAG);
+    safeTags.add(ClassModelTags.TYPE_TAG);
+  }
+  return safeTags;
+}

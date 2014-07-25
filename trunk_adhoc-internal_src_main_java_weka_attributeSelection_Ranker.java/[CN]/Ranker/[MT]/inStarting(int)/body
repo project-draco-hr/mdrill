@@ -1,0 +1,14 @@
+{
+  if ((m_hasClass == true) && (feat == m_classIndex)) {
+    return true;
+  }
+  if (m_starting == null) {
+    return false;
+  }
+  for (int i=0; i < m_starting.length; i++) {
+    if (m_starting[i] == feat) {
+      return true;
+    }
+  }
+  return false;
+}

@@ -1,0 +1,5 @@
+{
+  Vector newVector=new Vector(0);
+  newVector.addElement("Show results");
+  return newVector.elements();
+}

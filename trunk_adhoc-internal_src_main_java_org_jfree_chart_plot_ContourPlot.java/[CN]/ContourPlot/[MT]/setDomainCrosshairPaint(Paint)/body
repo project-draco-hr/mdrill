@@ -1,0 +1,4 @@
+{
+  this.domainCrosshairPaint=paint;
+  fireChangeEvent();
+}

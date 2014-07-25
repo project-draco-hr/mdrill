@@ -1,0 +1,8 @@
+{
+  try {
+    setClassifier((Classifier)Class.forName(newClassifierName).newInstance());
+  }
+ catch (  Exception ex) {
+    throw new Exception("Can't find Classifier with class name: " + newClassifierName);
+  }
+}

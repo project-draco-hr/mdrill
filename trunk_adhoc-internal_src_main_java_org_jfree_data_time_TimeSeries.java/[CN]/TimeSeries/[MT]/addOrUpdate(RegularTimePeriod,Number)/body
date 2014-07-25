@@ -1,0 +1,28 @@
+{
+  if (period == null) {
+    throw new IllegalArgumentException("Null 'period' argument.");
+  }
+  TimeSeriesDataItem overwritten=null;
+  TimeSeriesDataItem key=new TimeSeriesDataItem(period,value);
+  int index=Collections.binarySearch(this.data,key);
+  if (index >= 0) {
+    TimeSeriesDataItem existing=(TimeSeriesDataItem)this.data.get(index);
+    overwritten=(TimeSeriesDataItem)existing.clone();
+    existing.setValue(value);
+    removeAgedItems(false);
+    fireSeriesChanged();
+  }
+ else {
+    this.data.add(-index - 1,new TimeSeriesDataItem(period,value));
+    this.timePeriodClass=period.getClass();
+    if (getItemCount() > this.maximumItemCount) {
+      this.data.remove(0);
+      if (this.data.isEmpty()) {
+        this.timePeriodClass=null;
+      }
+    }
+    removeAgedItems(false);
+    fireSeriesChanged();
+  }
+  return overwritten;
+}

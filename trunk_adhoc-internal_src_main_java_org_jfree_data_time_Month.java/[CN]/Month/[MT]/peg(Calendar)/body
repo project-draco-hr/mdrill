@@ -1,0 +1,4 @@
+{
+  this.firstMillisecond=getFirstMillisecond(calendar);
+  this.lastMillisecond=getLastMillisecond(calendar);
+}

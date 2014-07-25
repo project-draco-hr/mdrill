@@ -1,0 +1,3 @@
+{
+  this.objectMappings.put(handler.getBaseClass(),handler);
+}

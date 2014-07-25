@@ -1,0 +1,4 @@
+{
+  this.minorTickMarksVisible=visible;
+  notifyListeners(new AxisChangeEvent(this));
+}

@@ -1,0 +1,4 @@
+{
+  this(dataset,dataset.numInstances());
+  dataset.copyInstances(0,this,dataset.numInstances());
+}

@@ -1,0 +1,17 @@
+{
+  int result;
+  if (o1 instanceof Week) {
+    Week w=(Week)o1;
+    result=this.year - w.getYear().getYear();
+    if (result == 0) {
+      result=this.week - w.getWeek();
+    }
+  }
+ else   if (o1 instanceof RegularTimePeriod) {
+    result=0;
+  }
+ else {
+    result=1;
+  }
+  return result;
+}

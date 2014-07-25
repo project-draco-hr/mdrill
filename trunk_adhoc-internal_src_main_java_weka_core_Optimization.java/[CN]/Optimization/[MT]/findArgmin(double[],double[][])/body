@@ -1,0 +1,159 @@
+{
+  int l=initX.length;
+  boolean[] isFixed=new boolean[l];
+  double[][] nwsBounds=new double[2][l];
+  DynamicIntArray wsBdsIndx=new DynamicIntArray(constraints.length);
+  DynamicIntArray toFree=null, oldToFree=null;
+  m_f=objectiveFunction(initX);
+  if (Double.isNaN(m_f))   throw new Exception("Objective function value is NaN!");
+  double sum=0;
+  double[] grad=evaluateGradient(initX), oldGrad, oldX, deltaGrad=new double[l], deltaX=new double[l], direct=new double[l], x=new double[l];
+  Matrix L=new Matrix(l,l);
+  double[] D=new double[l];
+  for (int i=0; i < l; i++) {
+    L.setRow(i,new double[l]);
+    L.setElement(i,i,1.0);
+    D[i]=1.0;
+    direct[i]=-grad[i];
+    sum+=grad[i] * grad[i];
+    x[i]=initX[i];
+    nwsBounds[0][i]=constraints[0][i];
+    nwsBounds[1][i]=constraints[1][i];
+    isFixed[i]=false;
+  }
+  double stpmax=m_STPMX * Math.max(Math.sqrt(sum),l);
+  iterates:   for (int step=0; step < m_MAXITS; step++) {
+    if (m_Debug)     System.err.println("\nIteration # " + step + ":");
+    oldX=x;
+    oldGrad=grad;
+    if (m_Debug)     System.err.println("Line search ... ");
+    m_IsZeroStep=false;
+    x=lnsrch(x,grad,direct,stpmax,isFixed,nwsBounds,wsBdsIndx);
+    if (m_Debug)     System.err.println("Line search finished.");
+    if (m_IsZeroStep) {
+      for (int f=0; f < wsBdsIndx.size(); f++) {
+        int idx=wsBdsIndx.elementAt(f);
+        L.setRow(idx,new double[l]);
+        L.setColumn(idx,new double[l]);
+        D[idx]=0.0;
+      }
+      grad=evaluateGradient(x);
+      step--;
+    }
+ else {
+      boolean finish=false;
+      double test=0.0;
+      for (int h=0; h < l; h++) {
+        deltaX[h]=x[h] - oldX[h];
+        double tmp=Math.abs(deltaX[h]) / Math.max(Math.abs(x[h]),1.0);
+        if (tmp > test)         test=tmp;
+      }
+      if (test < m_Zero) {
+        if (m_Debug)         System.err.println("\nDeltaX converge: " + test);
+        finish=true;
+      }
+      grad=evaluateGradient(x);
+      test=0.0;
+      double denom=0.0, dxSq=0.0, dgSq=0.0, newlyBounded=0.0;
+      for (int g=0; g < l; g++) {
+        if (!isFixed[g]) {
+          deltaGrad[g]=grad[g] - oldGrad[g];
+          denom+=deltaX[g] * deltaGrad[g];
+          dxSq+=deltaX[g] * deltaX[g];
+          dgSq+=deltaGrad[g] * deltaGrad[g];
+        }
+ else         newlyBounded+=deltaX[g] * (grad[g] - oldGrad[g]);
+        double tmp=Math.abs(grad[g]) * Math.max(Math.abs(direct[g]),1.0) / Math.max(Math.abs(m_f),1.0);
+        if (tmp > test)         test=tmp;
+      }
+      if (test < m_Zero) {
+        if (m_Debug)         System.err.println("Gradient converge: " + test);
+        finish=true;
+      }
+      if (m_Debug)       System.err.println("dg'*dx=" + (denom + newlyBounded));
+      if (Math.abs(denom + newlyBounded) < m_Zero)       finish=true;
+      int size=wsBdsIndx.size();
+      boolean isUpdate=true;
+      if (finish) {
+        if (m_Debug)         System.err.println("Test any release possible ...");
+        if (toFree != null)         oldToFree=(DynamicIntArray)toFree.copy();
+        toFree=new DynamicIntArray(wsBdsIndx.size());
+        for (int m=size - 1; m >= 0; m--) {
+          int index=wsBdsIndx.elementAt(m);
+          double[] hessian=evaluateHessian(x,index);
+          double deltaL=0.0;
+          if (hessian != null) {
+            for (int mm=0; mm < hessian.length; mm++)             if (!isFixed[mm])             deltaL+=hessian[mm] * direct[mm];
+          }
+          double L1, L2;
+          if (x[index] >= constraints[1][index])           L1=-grad[index];
+ else           if (x[index] <= constraints[0][index])           L1=grad[index];
+ else           throw new Exception("x[" + index + "] not fixed on the"+ " bounds where it should have been!");
+          L2=L1 + deltaL;
+          if (m_Debug)           System.err.println("Variable " + index + ": Lagrangian="+ L1+ "|"+ L2);
+          boolean isConverge=(2.0 * Math.abs(deltaL)) < Math.min(Math.abs(L1),Math.abs(L2));
+          if ((L1 * L2 > 0.0) && isConverge) {
+            if (L2 < 0.0) {
+              toFree.addElement(index);
+              wsBdsIndx.removeElementAt(m);
+              finish=false;
+            }
+          }
+          if ((hessian == null) && (toFree != null) && toFree.equal(oldToFree))           finish=true;
+        }
+        if (finish) {
+          if (m_Debug)           System.err.println("Minimum found.");
+          m_f=objectiveFunction(x);
+          if (Double.isNaN(m_f))           throw new Exception("Objective function value is NaN!");
+          return x;
+        }
+        for (int mmm=0; mmm < toFree.size(); mmm++) {
+          int freeIndx=toFree.elementAt(mmm);
+          isFixed[freeIndx]=false;
+          if (x[freeIndx] <= constraints[0][freeIndx]) {
+            nwsBounds[0][freeIndx]=constraints[0][freeIndx];
+            if (m_Debug)             System.err.println("Free variable " + freeIndx + " from bound "+ nwsBounds[0][freeIndx]);
+          }
+ else {
+            nwsBounds[1][freeIndx]=constraints[1][freeIndx];
+            if (m_Debug)             System.err.println("Free variable " + freeIndx + " from bound "+ nwsBounds[1][freeIndx]);
+          }
+          L.setElement(freeIndx,freeIndx,1.0);
+          D[freeIndx]=1.0;
+          isUpdate=false;
+        }
+      }
+      if (denom < Math.max(m_Zero * Math.sqrt(dxSq) * Math.sqrt(dgSq),m_Zero)) {
+        if (m_Debug)         System.err.println("dg'*dx negative!");
+        isUpdate=false;
+      }
+      if (isUpdate) {
+        double coeff=1.0 / denom;
+        updateCholeskyFactor(L,D,deltaGrad,coeff,isFixed);
+        coeff=1.0 / m_Slope;
+        updateCholeskyFactor(L,D,oldGrad,coeff,isFixed);
+      }
+    }
+    Matrix LD=new Matrix(l,l);
+    double[] b=new double[l];
+    for (int k=0; k < l; k++) {
+      if (!isFixed[k])       b[k]=-grad[k];
+ else       b[k]=0.0;
+      for (int j=k; j < l; j++) {
+        if (!isFixed[j] && !isFixed[k])         LD.setElement(j,k,L.getElement(j,k) * D[k]);
+      }
+    }
+    double[] LDIR=solveTriangle(LD,b,true,isFixed);
+    LD=null;
+    for (int m=0; m < LDIR.length; m++) {
+      if (Double.isNaN(LDIR[m]))       throw new Exception("L*direct[" + m + "] is NaN!"+ "|-g="+ b[m]+ "|"+ isFixed[m]+ "|diag="+ D[m]);
+    }
+    direct=solveTriangle(L,LDIR,false,isFixed);
+    for (int m=0; m < direct.length; m++) {
+      if (Double.isNaN(direct[m]))       throw new Exception("direct is NaN!");
+    }
+  }
+  if (m_Debug)   System.err.println("Cannot find minimum" + " -- too many interations!");
+  m_X=x;
+  return null;
+}

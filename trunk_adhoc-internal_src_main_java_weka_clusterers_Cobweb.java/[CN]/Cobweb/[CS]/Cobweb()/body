@@ -1,0 +1,5 @@
+{
+  super();
+  m_SeedDefault=42;
+  setSeed(m_SeedDefault);
+}

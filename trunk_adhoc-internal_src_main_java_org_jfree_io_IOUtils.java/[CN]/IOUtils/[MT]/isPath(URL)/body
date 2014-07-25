@@ -1,0 +1,16 @@
+{
+  if (getPath(baseURL).endsWith("/")) {
+    return true;
+  }
+ else   if (baseURL.getProtocol().equals("file")) {
+    final File f=new File(getPath(baseURL));
+    try {
+      if (f.isDirectory()) {
+        return true;
+      }
+    }
+ catch (    SecurityException se) {
+    }
+  }
+  return false;
+}

@@ -1,0 +1,6 @@
+{
+  if (this.angleLabelsVisible != visible) {
+    this.angleLabelsVisible=visible;
+    fireChangeEvent();
+  }
+}

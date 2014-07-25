@@ -1,0 +1,6 @@
+{
+  clear();
+  invokeWriteToXML(null,writePreProcess(o),VAL_ROOT);
+  writePostProcess(o);
+  return m_Document;
+}

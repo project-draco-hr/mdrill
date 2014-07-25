@@ -1,0 +1,4 @@
+{
+  this.paletteName=paletteName;
+  return;
+}

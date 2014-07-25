@@ -1,0 +1,16 @@
+{
+  String filterString=Utils.getOption('F',options);
+  if (filterString.length() > 0) {
+    String[] filterSpec=Utils.splitOptions(filterString);
+    if (filterSpec.length == 0) {
+      throw new IllegalArgumentException("Invalid filter specification string");
+    }
+    String filterName=filterSpec[0];
+    filterSpec[0]="";
+    setFilter((Filter)Utils.forName(Filter.class,filterName,filterSpec));
+  }
+ else {
+    setFilter(new weka.filters.supervised.attribute.Discretize());
+  }
+  super.setOptions(options);
+}

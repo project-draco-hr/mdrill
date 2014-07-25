@@ -1,0 +1,9 @@
+{
+  if (highlighted) {
+    setBorder(BorderFactory.createMatteBorder(2,2,2,2,Color.BLUE));
+  }
+ else {
+    setBorder(new ShadowBorder(2,Color.GRAY));
+  }
+  revalidate();
+}

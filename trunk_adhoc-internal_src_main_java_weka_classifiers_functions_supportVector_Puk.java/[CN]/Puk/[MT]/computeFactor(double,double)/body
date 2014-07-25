@@ -1,0 +1,4 @@
+{
+  double root=Math.sqrt(Math.pow(2.0,1.0 / omega) - 1);
+  return 2.0 * root / sigma;
+}

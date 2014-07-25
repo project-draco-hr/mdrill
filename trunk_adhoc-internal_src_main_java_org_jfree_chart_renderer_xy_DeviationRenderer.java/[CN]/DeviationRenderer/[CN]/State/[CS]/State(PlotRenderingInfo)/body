@@ -1,0 +1,5 @@
+{
+  super(info);
+  this.lowerCoordinates=new java.util.ArrayList();
+  this.upperCoordinates=new java.util.ArrayList();
+}

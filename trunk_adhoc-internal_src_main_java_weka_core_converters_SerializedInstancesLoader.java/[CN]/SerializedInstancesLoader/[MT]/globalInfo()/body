@@ -1,0 +1,3 @@
+{
+  return "Reads a source that contains serialized Instances.";
+}

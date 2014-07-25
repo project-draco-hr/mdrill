@@ -1,0 +1,3 @@
+{
+  return (m_Counts == null) ? 0 : m_Counts.length;
+}

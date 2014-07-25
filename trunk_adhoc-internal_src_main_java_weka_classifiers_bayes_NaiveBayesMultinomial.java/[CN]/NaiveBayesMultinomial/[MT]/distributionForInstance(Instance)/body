@@ -1,0 +1,13 @@
+{
+  double[] probOfClassGivenDoc=new double[m_numClasses];
+  double[] logDocGivenClass=new double[m_numClasses];
+  for (int h=0; h < m_numClasses; h++)   logDocGivenClass[h]=probOfDocGivenClass(instance,h);
+  double max=logDocGivenClass[Utils.maxIndex(logDocGivenClass)];
+  double probOfDoc=0.0;
+  for (int i=0; i < m_numClasses; i++) {
+    probOfClassGivenDoc[i]=Math.exp(logDocGivenClass[i] - max) * m_probOfClass[i];
+    probOfDoc+=probOfClassGivenDoc[i];
+  }
+  Utils.normalize(probOfClassGivenDoc,probOfDoc);
+  return probOfClassGivenDoc;
+}

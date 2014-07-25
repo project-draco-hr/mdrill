@@ -1,0 +1,4 @@
+{
+  m_appender=((PredictionAppender)object);
+  m_paEditor.setTarget(m_appender);
+}

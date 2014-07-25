@@ -1,0 +1,5 @@
+{
+  setLayout(new BorderLayout());
+  m_InstanceTable=new JTable();
+  add("Center",new JScrollPane(m_InstanceTable));
+}

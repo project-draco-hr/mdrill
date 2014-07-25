@@ -1,0 +1,40 @@
+{
+  if (!isRangeGridlinesVisible() && !isRangeMinorGridlinesVisible()) {
+    return;
+  }
+  ValueAxis axis=getRangeAxis();
+  if (axis == null) {
+    return;
+  }
+  CategoryItemRenderer r=getRenderer();
+  if (r == null) {
+    return;
+  }
+  Stroke gridStroke=null;
+  Paint gridPaint=null;
+  boolean paintLine=false;
+  Iterator iterator=ticks.iterator();
+  while (iterator.hasNext()) {
+    paintLine=false;
+    ValueTick tick=(ValueTick)iterator.next();
+    if ((tick.getTickType() == TickType.MINOR) && isRangeMinorGridlinesVisible()) {
+      gridStroke=getRangeMinorGridlineStroke();
+      gridPaint=getRangeMinorGridlinePaint();
+      paintLine=true;
+    }
+ else     if ((tick.getTickType() == TickType.MAJOR) && isRangeGridlinesVisible()) {
+      gridStroke=getRangeGridlineStroke();
+      gridPaint=getRangeGridlinePaint();
+      paintLine=true;
+    }
+    if (((tick.getValue() != 0.0) || !isRangeZeroBaselineVisible()) && paintLine) {
+      if (r instanceof AbstractCategoryItemRenderer) {
+        AbstractCategoryItemRenderer aci=(AbstractCategoryItemRenderer)r;
+        aci.drawRangeLine(g2,this,axis,dataArea,tick.getValue(),gridPaint,gridStroke);
+      }
+ else {
+        r.drawRangeGridline(g2,this,axis,dataArea,tick.getValue());
+      }
+    }
+  }
+}

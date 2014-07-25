@@ -1,0 +1,8 @@
+{
+  if (isLogscale()) {
+    return getColorLog(value);
+  }
+ else {
+    return getColorLinear(value);
+  }
+}

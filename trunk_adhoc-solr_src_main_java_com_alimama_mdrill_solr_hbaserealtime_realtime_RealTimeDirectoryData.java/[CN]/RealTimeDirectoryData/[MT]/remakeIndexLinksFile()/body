@@ -1,0 +1,36 @@
+{
+  File linksTmp=new File(params.baseDir,"indexLinks_tmp_" + (status.uniqIndex.incrementAndGet()) + "_"+ System.currentTimeMillis());
+  File realtime_tsTmp=new File(params.baseDir,"realtime_ts_tmp_" + (status.uniqIndex.incrementAndGet()) + "_"+ System.currentTimeMillis());
+  OutputStreamWriter fwriter=new OutputStreamWriter(new FileOutputStream(linksTmp));
+  ArrayList<String> toremove=new ArrayList<String>();
+  for (  Entry<String,DirectoryInfo> e : diskDirector.entrySet()) {
+    File f=new File(e.getKey());
+    if (!f.exists()) {
+      toremove.add(e.getKey());
+      continue;
+    }
+    fwriter.write(e.getKey() + "\r\n");
+  }
+  fwriter.close();
+  OutputStreamWriter fwriterTs=new OutputStreamWriter(new FileOutputStream(realtime_tsTmp));
+  String tstag=String.valueOf(System.currentTimeMillis());
+  fwriterTs.write(tstag);
+  fwriterTs.close();
+  File links=new File(params.baseDir,"indexLinks");
+  if (links.exists()) {
+    links.delete();
+  }
+  File realtime_ts=new File(params.baseDir,"realtime_ts");
+  if (realtime_ts.exists()) {
+    realtime_ts.delete();
+  }
+  for (  String s : toremove) {
+    diskDirector.remove(s);
+  }
+  if (toremove.size() > 0) {
+    LOG.info("####toremove####" + toremove.toString());
+  }
+  linksTmp.renameTo(links);
+  realtime_tsTmp.renameTo(realtime_ts);
+  return tstag;
+}

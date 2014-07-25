@@ -1,0 +1,3 @@
+{
+  return PROPERTIES.getProperty("Address","Hamilton, New Zealand");
+}

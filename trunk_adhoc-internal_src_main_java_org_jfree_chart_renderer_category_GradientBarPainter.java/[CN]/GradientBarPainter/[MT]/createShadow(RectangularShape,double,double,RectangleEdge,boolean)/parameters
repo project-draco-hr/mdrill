@@ -1,0 +1,5 @@
+RectangularShape bar
+double xOffset
+double yOffset
+RectangleEdge base
+boolean pegShadow

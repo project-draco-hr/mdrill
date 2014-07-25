@@ -1,0 +1,9 @@
+{
+  m_gui=a;
+  if (!a) {
+    setAutoBuild(true);
+  }
+ else {
+    setReset(false);
+  }
+}

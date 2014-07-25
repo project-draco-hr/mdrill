@@ -1,0 +1,19 @@
+{
+  double min=0;
+  double max=0;
+  if (plot.getOrientation() == PlotOrientation.VERTICAL) {
+    min=dataArea.getMinY();
+    max=dataArea.getMaxY();
+  }
+ else   if (plot.getOrientation() == PlotOrientation.HORIZONTAL) {
+    min=dataArea.getMinX();
+    max=dataArea.getMaxX();
+  }
+  if (value < min) {
+    value=min;
+  }
+ else   if (value > max) {
+    value=max;
+  }
+  return value;
+}

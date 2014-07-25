@@ -1,0 +1,9 @@
+{
+synchronized (lock) {
+    double dpercent=TableJoin.parsePercent(String.valueOf(this.stage),percent,true);
+    if (laspparcent <= dpercent) {
+      laspparcent=dpercent;
+      this.percent=percent;
+    }
+  }
+}

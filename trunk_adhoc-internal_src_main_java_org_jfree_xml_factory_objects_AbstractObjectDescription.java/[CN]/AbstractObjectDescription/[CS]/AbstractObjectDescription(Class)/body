@@ -1,0 +1,5 @@
+{
+  this.className=className;
+  this.parameters=new HashMap();
+  this.parameterDefs=new HashMap();
+}

@@ -1,0 +1,11 @@
+{
+  if (m_predictionsForTestData == null) {
+    throw new Exception("No predictions for test data available!");
+  }
+  int numSteps=m_predictionsForTestData.size();
+  if (stepNumber > m_predictionsForTestData.size()) {
+    throw new Exception("Only predictions up to " + numSteps + (numSteps > 1 ? "steps" : "step")+ "-ahead are available");
+  }
+  ErrorModule m=m_predictionsForTestData.get(stepNumber - 1);
+  return m;
+}

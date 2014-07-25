@@ -1,0 +1,8 @@
+{
+synchronized (TIMER_LOCK) {
+    if (timerquick == null) {
+      timerquick=new Timer();
+    }
+    return timerquick;
+  }
+}

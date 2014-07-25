@@ -1,0 +1,3 @@
+{
+  if (getPopup() != null)   getPopup().setVisible(true);
+}

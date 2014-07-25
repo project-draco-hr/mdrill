@@ -1,0 +1,11 @@
+{
+  Metric metric=queryServer.getMetric(tablename,thedate);
+  String queryServiceName=queryServer.getName();
+  if (metric == null) {
+    System.out.println(queryServiceName + " RETURN NULL");
+  }
+ else {
+    metricServer.delete(metric);
+    metricServer.insert(metric);
+  }
+}

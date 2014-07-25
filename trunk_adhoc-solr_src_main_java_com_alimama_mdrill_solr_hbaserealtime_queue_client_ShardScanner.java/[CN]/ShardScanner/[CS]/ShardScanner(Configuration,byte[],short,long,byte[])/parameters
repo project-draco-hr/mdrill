@@ -1,0 +1,5 @@
+Configuration conf
+byte[] queueName
+short shard
+long partion
+byte[] last

@@ -1,0 +1,6 @@
+{
+  if (!isDateBased()) {
+    throw new Exception("This periodicity is not date timestamp-based");
+  }
+  return m_dateTimeStampFinalVal;
+}

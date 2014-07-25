@@ -1,0 +1,17 @@
+{
+  setFont(null);
+  final NumberFormat nf=NumberFormat.getNumberInstance();
+  if (value != null) {
+    setText(nf.format(value));
+  }
+ else {
+    setText("");
+  }
+  if (isSelected) {
+    setBackground(table.getSelectionBackground());
+  }
+ else {
+    setBackground(null);
+  }
+  return this;
+}

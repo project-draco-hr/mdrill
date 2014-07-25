@@ -1,0 +1,4 @@
+{
+  m_URL=url;
+  m_TextURL.setText(url);
+}

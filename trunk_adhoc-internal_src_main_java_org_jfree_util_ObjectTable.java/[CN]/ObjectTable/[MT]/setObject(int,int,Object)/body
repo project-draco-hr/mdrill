@@ -1,0 +1,6 @@
+{
+  ensureCapacity(row,column);
+  this.data[row][column]=object;
+  this.rows=Math.max(this.rows,row + 1);
+  this.columns=Math.max(this.columns,column + 1);
+}

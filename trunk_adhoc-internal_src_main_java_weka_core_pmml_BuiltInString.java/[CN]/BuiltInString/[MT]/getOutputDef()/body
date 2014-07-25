@@ -1,0 +1,15 @@
+{
+  if (m_outputDef == null) {
+    if (m_func == StringFunc.SUBSTRING) {
+      m_outputDef=new Attribute("BuiltInStringResult:substring",(ArrayList<String>)null);
+    }
+    Attribute inputVals=m_parameterDefs.get(0);
+    ArrayList<String> newVals=new ArrayList<String>();
+    for (int i=0; i < inputVals.numValues(); i++) {
+      String inVal=inputVals.value(i);
+      newVals.add(m_func.eval(new Object[]{inVal}));
+    }
+    m_outputDef=new Attribute("BuiltInStringResult:" + m_func.toString(),newVals);
+  }
+  return m_outputDef;
+}

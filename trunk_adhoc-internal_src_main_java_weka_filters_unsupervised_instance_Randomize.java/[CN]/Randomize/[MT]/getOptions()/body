@@ -1,0 +1,10 @@
+{
+  String[] options=new String[2];
+  int current=0;
+  options[current++]="-S";
+  options[current++]="" + getRandomSeed();
+  while (current < options.length) {
+    options[current++]="";
+  }
+  return options;
+}

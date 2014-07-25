@@ -1,0 +1,13 @@
+{
+  if (obj == this) {
+    return true;
+  }
+  if (!(obj instanceof CategoryStepRenderer)) {
+    return false;
+  }
+  CategoryStepRenderer that=(CategoryStepRenderer)obj;
+  if (this.stagger != that.stagger) {
+    return false;
+  }
+  return super.equals(obj);
+}

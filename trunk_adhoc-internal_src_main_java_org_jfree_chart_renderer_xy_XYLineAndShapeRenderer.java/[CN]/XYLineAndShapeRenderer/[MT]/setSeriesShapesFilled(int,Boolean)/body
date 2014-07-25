@@ -1,0 +1,4 @@
+{
+  this.seriesShapesFilled.setBoolean(series,flag);
+  fireChangeEvent();
+}

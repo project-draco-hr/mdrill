@@ -1,0 +1,4 @@
+{
+  config.setParentConfig(getParentConfig());
+  setParentConfig(config);
+}

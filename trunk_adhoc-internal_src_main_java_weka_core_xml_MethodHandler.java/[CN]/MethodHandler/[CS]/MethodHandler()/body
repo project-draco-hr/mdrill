@@ -1,0 +1,4 @@
+{
+  super();
+  m_Methods=new Hashtable<Object,Method>();
+}

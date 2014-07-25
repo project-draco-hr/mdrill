@@ -1,0 +1,3 @@
+NeuralNode node
+double learn
+double momentum

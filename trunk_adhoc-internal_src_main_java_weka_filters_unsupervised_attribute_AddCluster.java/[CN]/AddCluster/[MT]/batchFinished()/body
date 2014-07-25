@@ -1,0 +1,38 @@
+{
+  if (getInputFormat() == null)   throw new IllegalStateException("No input instance format defined");
+  Instances toFilter=getInputFormat();
+  if (!isFirstBatchDone()) {
+    Instances toFilterIgnoringAttributes=removeIgnored(toFilter);
+    File file=getSerializedClustererFile();
+    if (!file.isDirectory()) {
+      ObjectInputStream ois=new ObjectInputStream(new FileInputStream(file));
+      m_ActualClusterer=(Clusterer)ois.readObject();
+      Instances header=null;
+      try {
+        header=(Instances)ois.readObject();
+      }
+ catch (      Exception e) {
+      }
+      ois.close();
+      if ((header != null) && (!header.equalHeaders(toFilterIgnoringAttributes)))       throw new WekaException("Training header of clusterer and filter dataset don't match:\n" + header.equalHeadersMsg(toFilterIgnoringAttributes));
+    }
+ else {
+      m_ActualClusterer=AbstractClusterer.makeCopy(m_Clusterer);
+      m_ActualClusterer.buildClusterer(toFilterIgnoringAttributes);
+    }
+    Instances filtered=new Instances(toFilter,0);
+    FastVector nominal_values=new FastVector(m_ActualClusterer.numberOfClusters());
+    for (int i=0; i < m_ActualClusterer.numberOfClusters(); i++) {
+      nominal_values.addElement("cluster" + (i + 1));
+    }
+    filtered.insertAttributeAt(new Attribute("cluster",nominal_values),filtered.numAttributes());
+    setOutputFormat(filtered);
+  }
+  for (int i=0; i < toFilter.numInstances(); i++) {
+    convertInstance(toFilter.instance(i));
+  }
+  flushInput();
+  m_NewBatch=true;
+  m_FirstBatchDone=true;
+  return (numPendingOutput() != 0);
+}

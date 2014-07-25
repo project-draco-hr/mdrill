@@ -1,0 +1,4 @@
+int iNode1
+int iNode2
+int nCardinality
+boolean[][] edges

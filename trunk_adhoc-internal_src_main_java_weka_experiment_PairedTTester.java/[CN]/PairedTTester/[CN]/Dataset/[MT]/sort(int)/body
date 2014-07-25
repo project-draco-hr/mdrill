@@ -1,0 +1,12 @@
+{
+  double[] runNums=new double[m_Dataset.size()];
+  for (int j=0; j < runNums.length; j++) {
+    runNums[j]=((Instance)m_Dataset.elementAt(j)).value(runColumn);
+  }
+  int[] index=Utils.stableSort(runNums);
+  FastVector newDataset=new FastVector(runNums.length);
+  for (int j=0; j < index.length; j++) {
+    newDataset.addElement(m_Dataset.elementAt(index[j]));
+  }
+  m_Dataset=newDataset;
+}

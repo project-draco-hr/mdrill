@@ -1,0 +1,3 @@
+{
+  this.sharedAxisStates=new HashMap();
+}

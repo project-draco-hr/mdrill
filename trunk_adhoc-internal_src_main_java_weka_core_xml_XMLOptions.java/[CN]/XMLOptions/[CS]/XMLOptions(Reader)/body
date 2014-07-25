@@ -1,0 +1,4 @@
+{
+  this();
+  getXMLDocument().read(reader);
+}

@@ -1,0 +1,35 @@
+{
+  if (object == null) {
+    return;
+  }
+  if (tagName == null) {
+    throw new NullPointerException("RootXmlWriteHandler.write(..) : tagName is null");
+  }
+  if (writer == null) {
+    throw new NullPointerException("RootXmlWriteHandler.write(..) : writer is null");
+  }
+  if (!baseClass.isInstance(object)) {
+    throw new ClassCastException("Object is no instance of " + baseClass);
+  }
+  final Class classToWrite=object.getClass();
+  final XmlWriteHandler handler=getMapping(classToWrite);
+  handler.setRootHandler(this);
+  String attributeName=null;
+  String attributeValue=null;
+  MultiplexMappingDefinition mplex=getFactoryLoader().getMultiplexDefinition(baseClass);
+  if (mplex == null) {
+    mplex=this.classToHandlerMapping.getMultiplexDefinition(baseClass);
+  }
+  if (mplex != null) {
+    final MultiplexMappingEntry entry=mplex.getEntryForClass(classToWrite.getName());
+    if (entry != null) {
+      attributeName=mplex.getAttributeName();
+      attributeValue=entry.getAttributeValue();
+    }
+ else {
+      throw new XMLWriterException("Unable to find child mapping for multiplexer " + baseClass + " to child "+ classToWrite);
+    }
+  }
+  handler.write(tagName,object,writer,attributeName,attributeValue);
+  writer.allowLineBreak();
+}

@@ -1,0 +1,5 @@
+{
+  super(source);
+  m_structure=structure;
+  m_status=FORMAT_AVAILABLE;
+}

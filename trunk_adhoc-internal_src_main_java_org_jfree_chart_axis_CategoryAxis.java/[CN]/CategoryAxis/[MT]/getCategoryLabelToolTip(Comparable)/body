@@ -1,0 +1,6 @@
+{
+  if (category == null) {
+    throw new IllegalArgumentException("Null 'category' argument.");
+  }
+  return (String)this.categoryLabelToolTips.get(category);
+}

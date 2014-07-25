@@ -1,0 +1,28 @@
+{
+  JPanel content=new JPanel(new BorderLayout());
+  JPanel controls=new JPanel();
+  controls.add(new JLabel("Text anchor: "));
+  this.combo2=new JComboBox();
+  populateTextAnchorCombo(this.combo2);
+  this.combo2.setActionCommand("combo2.changed");
+  this.combo2.addActionListener(this);
+  controls.add(this.combo2);
+  controls.add(new JLabel("Rotation anchor: "));
+  this.combo3=new JComboBox();
+  populateTextAnchorCombo(this.combo3);
+  this.combo3.setActionCommand("combo3.changed");
+  this.combo3.addActionListener(this);
+  controls.add(this.combo3);
+  this.slider=new JSlider(SwingConstants.VERTICAL,0,360,0);
+  this.slider.setMajorTickSpacing(45);
+  this.slider.setMinorTickSpacing(5);
+  this.slider.setPaintLabels(true);
+  this.slider.setPaintTicks(true);
+  this.slider.setPaintTrack(true);
+  this.slider.addChangeListener(this);
+  content.add(controls,BorderLayout.NORTH);
+  content.add(this.slider,BorderLayout.WEST);
+  this.drawStringPanel2=new DrawStringPanel("Rotated Text",true);
+  content.add(this.drawStringPanel2);
+  return content;
+}

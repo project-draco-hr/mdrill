@@ -1,0 +1,8 @@
+{
+  Vector<Option> result;
+  result=new Vector<Option>();
+  Enumeration en=super.listOptions();
+  while (en.hasMoreElements())   result.addElement((Option)en.nextElement());
+  result.addElement(new Option("\tThe class index\n" + "\t(default: last)","c",1,"-c <class index>"));
+  return result.elements();
+}

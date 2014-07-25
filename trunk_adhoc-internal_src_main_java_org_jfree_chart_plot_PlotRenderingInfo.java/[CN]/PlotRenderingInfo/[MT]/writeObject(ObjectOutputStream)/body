@@ -1,0 +1,5 @@
+{
+  stream.defaultWriteObject();
+  SerialUtilities.writeShape(this.dataArea,stream);
+  SerialUtilities.writeShape(this.plotArea,stream);
+}

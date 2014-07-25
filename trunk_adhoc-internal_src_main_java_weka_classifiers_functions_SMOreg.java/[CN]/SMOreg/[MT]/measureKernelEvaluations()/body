@@ -1,0 +1,8 @@
+{
+  if (m_optimizer != null) {
+    return m_optimizer.getKernelEvaluations();
+  }
+ else {
+    return 0;
+  }
+}

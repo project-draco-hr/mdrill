@@ -1,0 +1,4 @@
+{
+  if (m_boostedModel == null)   return "No model built";
+  return "SimpleLogistic:\n" + m_boostedModel.toString();
+}

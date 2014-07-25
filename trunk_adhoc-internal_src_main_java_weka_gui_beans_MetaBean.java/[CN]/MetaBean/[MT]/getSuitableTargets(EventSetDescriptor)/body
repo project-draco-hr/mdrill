@@ -1,0 +1,11 @@
+{
+  Class listenerClass=esd.getListenerType();
+  Vector targets=new Vector();
+  for (int i=0; i < m_inputs.size(); i++) {
+    BeanInstance input=(BeanInstance)m_inputs.elementAt(i);
+    if (listenerClass.isInstance(input.getBean())) {
+      targets.add(input);
+    }
+  }
+  return targets;
+}

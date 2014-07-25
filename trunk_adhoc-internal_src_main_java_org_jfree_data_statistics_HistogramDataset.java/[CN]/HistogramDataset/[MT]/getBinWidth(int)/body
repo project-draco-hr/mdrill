@@ -1,0 +1,4 @@
+{
+  Map map=(Map)this.list.get(series);
+  return ((Double)map.get("bin width")).doubleValue();
+}

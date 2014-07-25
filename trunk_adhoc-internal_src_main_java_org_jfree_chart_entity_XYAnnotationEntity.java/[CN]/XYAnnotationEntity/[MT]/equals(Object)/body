@@ -1,0 +1,16 @@
+{
+  if (obj == this) {
+    return true;
+  }
+  if (!super.equals(obj)) {
+    return false;
+  }
+  if (!(obj instanceof XYAnnotationEntity)) {
+    return false;
+  }
+  XYAnnotationEntity that=(XYAnnotationEntity)obj;
+  if (this.rendererIndex != that.rendererIndex) {
+    return false;
+  }
+  return true;
+}

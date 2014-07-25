@@ -1,0 +1,10 @@
+{
+  m_BayesNet=bayesNet;
+  double fScore=calcScore(bayesNet);
+  Operation oOperation=getOptimalOperation(bayesNet,instances);
+  while ((oOperation != null) && (oOperation.m_fScore > fScore)) {
+    performOperation(bayesNet,instances,oOperation);
+    fScore=oOperation.m_fScore;
+    oOperation=getOptimalOperation(bayesNet,instances);
+  }
+}

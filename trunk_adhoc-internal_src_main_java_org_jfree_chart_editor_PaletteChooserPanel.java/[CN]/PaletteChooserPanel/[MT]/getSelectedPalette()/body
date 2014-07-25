@@ -1,0 +1,4 @@
+{
+  PaletteSample sample=(PaletteSample)this.selector.getSelectedItem();
+  return sample.getPalette();
+}

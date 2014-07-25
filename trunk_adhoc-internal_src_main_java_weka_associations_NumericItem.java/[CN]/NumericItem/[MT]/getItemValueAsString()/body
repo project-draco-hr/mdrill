@@ -1,0 +1,3 @@
+{
+  return Utils.doubleToString(m_splitPoint,3);
+}

@@ -1,0 +1,4 @@
+{
+  m_FormatText.setText(DEFAULT_FORMAT);
+  formatChanged();
+}

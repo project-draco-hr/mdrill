@@ -1,0 +1,3 @@
+{
+  return doScale(y,m_localGraphicsState.getYScale());
+}

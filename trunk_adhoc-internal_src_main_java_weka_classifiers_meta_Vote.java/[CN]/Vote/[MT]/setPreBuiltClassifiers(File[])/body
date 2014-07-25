@@ -1,0 +1,9 @@
+{
+  m_classifiersToLoad.clear();
+  if (preBuilt != null && preBuilt.length > 0) {
+    for (int i=0; i < preBuilt.length; i++) {
+      String path=preBuilt[i].toString();
+      m_classifiersToLoad.add(path);
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  m_masterPlot=null;
+  m_plotInstances=null;
+  m_plots=new FastVector();
+  m_xIndex=0;
+  m_yIndex=0;
+  m_cIndex=0;
+}

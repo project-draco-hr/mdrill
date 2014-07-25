@@ -1,0 +1,14 @@
+{
+  getCapabilities().testWithFail(data);
+  data=new Instances(data);
+  data.deleteWithMissingClass();
+  Random random=new Random(m_seed);
+  data.stratify(numSets);
+  buildTree(data.trainCV(numSets,numSets - 1,random),data.testCV(numSets,numSets - 1),false);
+  if (pruneTheTree) {
+    prune();
+  }
+  if (m_cleanup) {
+    cleanup(new Instances(data,0));
+  }
+}

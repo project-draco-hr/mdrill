@@ -1,0 +1,6 @@
+int[] nCounts
+int[] nNodes
+int[] nOffsets
+int iNode
+int iOffset
+boolean bSubstract

@@ -1,0 +1,10 @@
+{
+  Vector result;
+  Enumeration enm;
+  result=new Vector();
+  enm=super.listOptions();
+  while (enm.hasMoreElements())   result.addElement(enm.nextElement());
+  result.addElement(new Option("\tThe number of attributes to randomly select.\n" + "\tIf < 1 then percentage, >= 1 absolute number.\n" + "\t(default: 0.5)","N",1,"-N <double>"));
+  result.addElement(new Option("\tThe seed value.\n" + "\t(default: 1)","S",1,"-S <int>"));
+  return result.elements();
+}

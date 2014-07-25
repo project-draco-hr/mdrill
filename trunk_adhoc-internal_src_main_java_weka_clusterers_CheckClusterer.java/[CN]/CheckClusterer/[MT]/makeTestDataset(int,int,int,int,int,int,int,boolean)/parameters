@@ -1,0 +1,8 @@
+int seed
+int numInstances
+int numNominal
+int numNumeric
+int numString
+int numDate
+int numRelational
+boolean multiInstance

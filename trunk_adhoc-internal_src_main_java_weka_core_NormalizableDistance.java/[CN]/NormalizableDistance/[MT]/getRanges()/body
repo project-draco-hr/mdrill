@@ -1,0 +1,5 @@
+{
+  validate();
+  if (m_Ranges == null)   throw new Exception("Ranges not yet set.");
+  return m_Ranges;
+}

@@ -1,0 +1,39 @@
+{
+  Instances result;
+  Instances processed;
+  int i;
+  int n;
+  ArrayList<Attribute> atts;
+  Attribute att;
+  if (!isFirstBatchDone()) {
+    if (inputFormat.numInstances() == 0)     return null;
+    checkDimensions();
+    determineUnusedIndices(inputFormat);
+    atts=new ArrayList<Attribute>();
+    for (i=0; i < getFilters().length; i++) {
+      if (!isFirstBatchDone()) {
+        processed=generateSubset(inputFormat,getRange(i));
+        if (!getFilter(i).setInputFormat(processed))         Filter.useFilter(processed,getFilter(i));
+      }
+      processed=getFilter(i).getOutputFormat();
+      processed=renameAttributes(processed,"filtered-" + i + "-");
+      for (n=0; n < processed.numAttributes(); n++) {
+        if (n == processed.classIndex())         continue;
+        atts.add((Attribute)processed.attribute(n).copy());
+      }
+    }
+    if (!getRemoveUnused()) {
+      for (i=0; i < m_IndicesUnused.length; i++) {
+        att=inputFormat.attribute(m_IndicesUnused[i]);
+        atts.add(att.copy("unfiltered-" + att.name()));
+      }
+    }
+    if (inputFormat.classIndex() > -1)     atts.add((Attribute)inputFormat.classAttribute().copy());
+    result=new Instances(inputFormat.relationName(),atts,0);
+    if (inputFormat.classIndex() > -1)     result.setClassIndex(result.numAttributes() - 1);
+  }
+ else {
+    result=getOutputFormat();
+  }
+  return result;
+}

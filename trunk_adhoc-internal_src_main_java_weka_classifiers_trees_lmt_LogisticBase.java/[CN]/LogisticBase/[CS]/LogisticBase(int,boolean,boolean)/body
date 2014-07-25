@@ -1,0 +1,8 @@
+{
+  m_fixedNumIterations=numBoostingIterations;
+  m_useCrossValidation=useCrossValidation;
+  m_errorOnProbabilities=errorOnProbabilities;
+  m_maxIterations=500;
+  m_useAIC=false;
+  m_numParameters=0;
+}

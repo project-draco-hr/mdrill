@@ -1,0 +1,10 @@
+{
+  if (name.equals("size")) {
+    return Integer.TYPE;
+  }
+  final int par=parseParameterName(name);
+  if (par < 0) {
+    return null;
+  }
+  return getObjectClass().getComponentType();
+}

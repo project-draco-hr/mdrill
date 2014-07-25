@@ -1,0 +1,10 @@
+{
+switch (column) {
+case 0:
+    return new String("No.");
+case 1:
+  return new String("Name");
+default :
+return null;
+}
+}

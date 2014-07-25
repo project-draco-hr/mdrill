@@ -1,0 +1,9 @@
+{
+  Vector result=new Vector();
+  result.addElement(new Option("\tThe epsilon for round-off error.\n" + "\t(default 1.0e-12)","P",1,"-P <double>"));
+  Enumeration enm=super.listOptions();
+  while (enm.hasMoreElements()) {
+    result.addElement(enm.nextElement());
+  }
+  return result.elements();
+}

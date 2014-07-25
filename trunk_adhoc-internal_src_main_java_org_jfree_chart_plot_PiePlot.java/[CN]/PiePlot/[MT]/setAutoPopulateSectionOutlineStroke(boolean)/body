@@ -1,0 +1,4 @@
+{
+  this.autoPopulateSectionOutlineStroke=auto;
+  fireChangeEvent();
+}

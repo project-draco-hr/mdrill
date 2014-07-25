@@ -1,0 +1,4 @@
+String uuid
+String mailto
+String callback
+String memo

@@ -1,0 +1,17 @@
+{
+  double kappa=m_kernel.eval(-1,-1,inst) + m_delta * m_delta;
+  double s=0;
+  int n=m_L.length;
+  for (int i=0; i < n; i++) {
+    double t=0;
+    for (int j=0; j < n; j++) {
+      t-=k.get(j,0) * (i > j ? m_L[i][j] : m_L[j][i]);
+    }
+    s+=t * k.get(i,0);
+  }
+  double sigma=m_delta;
+  if (kappa > s) {
+    sigma=Math.sqrt(kappa - s);
+  }
+  return sigma;
+}

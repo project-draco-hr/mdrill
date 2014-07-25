@@ -1,0 +1,17 @@
+{
+  m_classLabel=scoreE.getAttribute("value");
+  Attribute classAtt=miningSchema.getFieldsAsInstances().classAttribute();
+  if (classAtt == null || classAtt.indexOfValue(m_classLabel) < 0) {
+    throw new Exception("[ScoreDistribution] class attribute not set or class value " + m_classLabel + " not found!");
+  }
+  m_classLabelIndex=classAtt.indexOfValue(m_classLabel);
+  String recordC=scoreE.getAttribute("recordCount");
+  m_recordCount=Double.parseDouble(recordC);
+  String confidence=scoreE.getAttribute("confidence");
+  if (confidence != null && confidence.length() > 0) {
+    m_confidence=Double.parseDouble(confidence);
+  }
+ else   if (!Utils.isMissingValue(baseCount) && baseCount > 0) {
+    m_confidence=m_recordCount / baseCount;
+  }
+}

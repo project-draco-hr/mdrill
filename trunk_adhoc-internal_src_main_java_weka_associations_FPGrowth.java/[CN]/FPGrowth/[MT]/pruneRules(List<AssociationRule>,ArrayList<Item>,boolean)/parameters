@@ -1,0 +1,3 @@
+List<AssociationRule> rulesToPrune
+ArrayList<Item> itemsToConsider
+boolean useOr

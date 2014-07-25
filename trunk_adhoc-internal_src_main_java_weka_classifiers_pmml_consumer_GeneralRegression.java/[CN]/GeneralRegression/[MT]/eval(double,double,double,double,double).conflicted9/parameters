@@ -1,0 +1,5 @@
+double value
+double offset
+double trials
+double distParam
+double linkParam

@@ -1,0 +1,8 @@
+{
+  Edge e;
+  l++;
+  m_levels[l]++;
+  for (int noa=0; (e=r.getChild(noa)) != null && r.getCVisible(); noa++) {
+    setNumOfNodes(e.getTarget(),l);
+  }
+}

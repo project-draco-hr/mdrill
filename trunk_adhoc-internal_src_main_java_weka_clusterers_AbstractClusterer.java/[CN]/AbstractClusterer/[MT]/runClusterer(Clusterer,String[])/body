@@ -1,0 +1,9 @@
+{
+  try {
+    System.out.println(ClusterEvaluation.evaluateClusterer(clusterer,options));
+  }
+ catch (  Exception e) {
+    if ((e.getMessage() == null) || ((e.getMessage() != null) && (e.getMessage().indexOf("General options") == -1)))     e.printStackTrace();
+ else     System.err.println(e.getMessage());
+  }
+}

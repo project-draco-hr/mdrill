@@ -1,0 +1,7 @@
+{
+  src=s;
+  dest=d;
+  type=t;
+  srcLbl=sLbl;
+  destLbl=dLbl;
+}

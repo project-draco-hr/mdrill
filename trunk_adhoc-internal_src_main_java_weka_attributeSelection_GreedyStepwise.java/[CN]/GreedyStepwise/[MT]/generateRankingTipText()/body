@@ -1,0 +1,3 @@
+{
+  return "Set to true if a ranked list is required.";
+}

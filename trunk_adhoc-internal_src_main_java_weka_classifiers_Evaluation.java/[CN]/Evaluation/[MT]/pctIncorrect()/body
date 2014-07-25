@@ -1,0 +1,3 @@
+{
+  return 100 * m_Incorrect / m_WithClass;
+}

@@ -1,0 +1,9 @@
+{
+  this.tabbedUI=tabbedUI;
+  this.tabbedUI.addPropertyChangeListener(AbstractTabbedUI.JMENUBAR_PROPERTY,new MenuBarChangeListener());
+  final JPanel panel=new JPanel();
+  panel.setLayout(new BorderLayout());
+  panel.add(tabbedUI,BorderLayout.CENTER);
+  setContentPane(panel);
+  setJMenuBar(tabbedUI.getJMenuBar());
+}

@@ -1,0 +1,34 @@
+{
+  JPanel panel;
+  setTitle("Viewer");
+  getContentPane().setLayout(new BorderLayout());
+  m_ArffPanel.addChangeListener(this);
+  getContentPane().add(m_ArffPanel,BorderLayout.CENTER);
+  panel=new JPanel(new FlowLayout(FlowLayout.RIGHT));
+  getContentPane().add(panel,BorderLayout.SOUTH);
+  m_UndoButton.addActionListener(new ActionListener(){
+    public void actionPerformed(    ActionEvent e){
+      undo();
+    }
+  }
+);
+  getContentPane().add(panel,BorderLayout.SOUTH);
+  m_CancelButton.addActionListener(new ActionListener(){
+    public void actionPerformed(    ActionEvent e){
+      m_Result=CANCEL_OPTION;
+      setVisible(false);
+    }
+  }
+);
+  m_OkButton.addActionListener(new ActionListener(){
+    public void actionPerformed(    ActionEvent e){
+      m_Result=APPROVE_OPTION;
+      setVisible(false);
+    }
+  }
+);
+  panel.add(m_UndoButton);
+  panel.add(m_OkButton);
+  panel.add(m_CancelButton);
+  pack();
+}

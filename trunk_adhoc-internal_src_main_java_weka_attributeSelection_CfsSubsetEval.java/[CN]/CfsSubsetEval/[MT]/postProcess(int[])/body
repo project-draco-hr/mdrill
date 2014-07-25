@@ -1,0 +1,24 @@
+{
+  int j=0;
+  if (!m_locallyPredictive) {
+    return attributeSet;
+  }
+  BitSet bestGroup=new BitSet(m_numAttribs);
+  for (int i=0; i < attributeSet.length; i++) {
+    bestGroup.set(attributeSet[i]);
+  }
+  addLocallyPredictive(bestGroup);
+  for (int i=0; i < m_numAttribs; i++) {
+    if (bestGroup.get(i)) {
+      j++;
+    }
+  }
+  int[] newSet=new int[j];
+  j=0;
+  for (int i=0; i < m_numAttribs; i++) {
+    if (bestGroup.get(i)) {
+      newSet[j++]=i;
+    }
+  }
+  return newSet;
+}

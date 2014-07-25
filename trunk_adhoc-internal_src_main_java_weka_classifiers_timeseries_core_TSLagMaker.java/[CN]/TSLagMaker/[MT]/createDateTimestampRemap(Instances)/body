@@ -1,0 +1,33 @@
+{
+  Instances result=insts;
+  if (m_adjustForTrends && !m_useArtificialTimeIndex && m_timeStampName != null && m_timeStampName.length() > 0) {
+    if (result.attribute(m_timeStampName).isDate()) {
+      int origIndex=result.attribute(m_timeStampName).index();
+      GregorianCalendar c=new GregorianCalendar();
+      for (int i=0; i < result.numInstances(); i++) {
+        if (!result.instance(i).isMissing(origIndex)) {
+          if (m_dateBasedPeriodicity.getPeriodicity() == Periodicity.MONTHLY || m_dateBasedPeriodicity.getPeriodicity() == Periodicity.WEEKLY || m_dateBasedPeriodicity.getPeriodicity() == Periodicity.QUARTERLY) {
+            Date d=new Date((long)result.instance(i).value(origIndex));
+            c.setTime(d);
+            m_dateTimeStampBase=c.get(Calendar.YEAR);
+          }
+ else {
+            m_dateTimeStampBase=(long)result.instance(i).value(origIndex);
+          }
+          break;
+        }
+      }
+      m_addDateMap=new Add();
+      m_addDateMap.setAttributeName(m_timeStampName + "-remapped");
+      m_addDateMap.setInputFormat(result);
+      result=Filter.useFilter(result,m_addDateMap);
+      Instance previous=result.instance(0);
+      for (int i=0; i < result.numInstances(); i++) {
+        Instance current=result.instance(i);
+        current=m_dateBasedPeriodicity.remapDateTimeStamp(current,previous,m_timeStampName);
+        previous=current;
+      }
+    }
+  }
+  return result;
+}

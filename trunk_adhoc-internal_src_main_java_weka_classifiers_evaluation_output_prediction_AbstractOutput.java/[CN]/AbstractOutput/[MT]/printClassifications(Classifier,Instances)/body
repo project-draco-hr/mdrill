@@ -1,0 +1,4 @@
+{
+  int i;
+  for (i=0; i < testset.numInstances(); i++)   doPrintClassification(classifier,testset.instance(i),i);
+}

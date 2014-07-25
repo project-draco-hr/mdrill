@@ -1,0 +1,8 @@
+{
+  DrawingSupplier result=null;
+  PolarPlot p=getPlot();
+  if (p != null) {
+    result=p.getDrawingSupplier();
+  }
+  return result;
+}

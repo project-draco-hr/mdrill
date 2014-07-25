@@ -1,0 +1,39 @@
+{
+  Vector<String> optionsVec=new Vector<String>();
+  String str=new String(quotedOptionString);
+  int i;
+  while (true) {
+    i=0;
+    while ((i < str.length()) && (Character.isWhitespace(str.charAt(i))))     i++;
+    str=str.substring(i);
+    if (str.length() == 0)     break;
+    if (str.charAt(0) == '"') {
+      i=1;
+      while (i < str.length()) {
+        if (str.charAt(i) == str.charAt(0))         break;
+        if (str.charAt(i) == '\\') {
+          i+=1;
+          if (i >= str.length())           throw new Exception("String should not finish with \\");
+        }
+        i+=1;
+      }
+      if (i >= str.length())       throw new Exception("Quote parse error.");
+      String optStr=str.substring(1,i);
+      optStr=unbackQuoteChars(optStr);
+      optionsVec.addElement(optStr);
+      str=str.substring(i + 1);
+    }
+ else {
+      i=0;
+      while ((i < str.length()) && (!Character.isWhitespace(str.charAt(i))))       i++;
+      String optStr=str.substring(0,i);
+      optionsVec.addElement(optStr);
+      str=str.substring(i);
+    }
+  }
+  String[] options=new String[optionsVec.size()];
+  for (i=0; i < optionsVec.size(); i++) {
+    options[i]=(String)optionsVec.elementAt(i);
+  }
+  return options;
+}

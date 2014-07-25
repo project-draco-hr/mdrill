@@ -1,0 +1,6 @@
+{
+  Axis clone=(Axis)super.clone();
+  clone.plot=null;
+  clone.listenerList=new EventListenerList();
+  return clone;
+}

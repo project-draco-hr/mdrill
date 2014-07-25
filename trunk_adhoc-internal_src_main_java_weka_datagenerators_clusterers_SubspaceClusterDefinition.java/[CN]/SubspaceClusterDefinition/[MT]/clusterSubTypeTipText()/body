@@ -1,0 +1,3 @@
+{
+  return "The sub-type of cluster to use.";
+}

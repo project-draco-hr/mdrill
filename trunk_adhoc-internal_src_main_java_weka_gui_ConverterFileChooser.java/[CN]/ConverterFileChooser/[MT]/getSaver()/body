@@ -1,0 +1,5 @@
+{
+  configureCurrentConverter(SAVER_DIALOG);
+  if (m_CurrentConverter instanceof AbstractFileLoader)   return null;
+ else   return (AbstractFileSaver)m_CurrentConverter;
+}

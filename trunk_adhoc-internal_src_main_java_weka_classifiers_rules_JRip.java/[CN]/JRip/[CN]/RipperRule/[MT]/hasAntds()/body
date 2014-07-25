@@ -1,0 +1,4 @@
+{
+  if (m_Antds == null)   return false;
+ else   return (m_Antds.size() > 0);
+}

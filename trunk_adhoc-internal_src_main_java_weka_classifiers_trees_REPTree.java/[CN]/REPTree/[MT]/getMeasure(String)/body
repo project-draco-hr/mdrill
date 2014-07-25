@@ -1,0 +1,8 @@
+{
+  if (additionalMeasureName.equalsIgnoreCase("measureTreeSize")) {
+    return (double)numNodes();
+  }
+ else {
+    throw new IllegalArgumentException(additionalMeasureName + " not supported (REPTree)");
+  }
+}

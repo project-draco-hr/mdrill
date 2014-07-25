@@ -1,0 +1,4 @@
+{
+  m_AttributeIndices.setInvert(value);
+  invalidate();
+}

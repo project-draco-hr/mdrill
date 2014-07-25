@@ -1,0 +1,4 @@
+{
+  super();
+  setExponent(2.0);
+}

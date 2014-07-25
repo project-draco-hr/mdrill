@@ -1,0 +1,18 @@
+{
+  Week result;
+  if (this.week != FIRST_WEEK_IN_YEAR) {
+    result=new Week(this.week - 1,this.year);
+  }
+ else {
+    if (this.year > 1900) {
+      int yy=this.year - 1;
+      Calendar prevYearCalendar=Calendar.getInstance();
+      prevYearCalendar.set(yy,Calendar.DECEMBER,31);
+      result=new Week(prevYearCalendar.getActualMaximum(Calendar.WEEK_OF_YEAR),yy);
+    }
+ else {
+      result=null;
+    }
+  }
+  return result;
+}

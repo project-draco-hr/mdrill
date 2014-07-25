@@ -1,0 +1,10 @@
+{
+  Number value=null;
+  if (this.dataExtractOrder == TableOrder.BY_ROW) {
+    value=this.dataset.getValue(series,cat);
+  }
+ else   if (this.dataExtractOrder == TableOrder.BY_COLUMN) {
+    value=this.dataset.getValue(cat,series);
+  }
+  return value;
+}

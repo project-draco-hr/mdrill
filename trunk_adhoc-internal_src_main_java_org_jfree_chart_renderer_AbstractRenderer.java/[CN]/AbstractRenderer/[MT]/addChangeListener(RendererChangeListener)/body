@@ -1,0 +1,6 @@
+{
+  if (listener == null) {
+    throw new IllegalArgumentException("Null 'listener' argument.");
+  }
+  this.listenerList.add(RendererChangeListener.class,listener);
+}

@@ -1,0 +1,10 @@
+{
+  Vector result=new Vector();
+  if (m_encodeMissingAsZero) {
+    result.add("-M");
+  }
+  if (m_insertDummyNominalFirstValue) {
+    result.add("-F");
+  }
+  return (String[])result.toArray(new String[result.size()]);
+}

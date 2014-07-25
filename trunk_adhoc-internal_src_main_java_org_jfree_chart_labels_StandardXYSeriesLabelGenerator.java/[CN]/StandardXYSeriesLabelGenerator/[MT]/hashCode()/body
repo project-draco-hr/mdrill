@@ -1,0 +1,5 @@
+{
+  int result=127;
+  result=HashUtilities.hashCode(result,this.formatPattern);
+  return result;
+}

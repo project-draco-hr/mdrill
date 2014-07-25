@@ -1,0 +1,6 @@
+{
+synchronized (diskMallocLock) {
+    RealTimeDirectoryParams.diskDirList=diskDirList;
+    RealTimeDirectoryParams.taskIndex=taskIndex;
+  }
+}

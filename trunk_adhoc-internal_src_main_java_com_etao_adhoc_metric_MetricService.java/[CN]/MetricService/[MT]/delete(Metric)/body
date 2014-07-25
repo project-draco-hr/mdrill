@@ -1,0 +1,18 @@
+{
+  this.open();
+  String sql="DELETE FROM adhoc_metric" + " WHERE thedate=?" + " AND type=?"+ " AND tablename=? ";
+  PreparedStatement pstmt;
+  try {
+    pstmt=conn.prepareStatement(sql);
+    pstmt.setString(1,metric.getThedate());
+    pstmt.setLong(2,metric.getType());
+    pstmt.setString(3,metric.getTablename());
+    pstmt.executeUpdate();
+    System.out.println(pstmt.toString());
+  }
+ catch (  SQLException e) {
+    System.err.println("[" + sdf.format(new Date(System.currentTimeMillis())) + "] "+ "Error when delete Metric: "+ metric);
+    e.printStackTrace();
+  }
+  this.close();
+}

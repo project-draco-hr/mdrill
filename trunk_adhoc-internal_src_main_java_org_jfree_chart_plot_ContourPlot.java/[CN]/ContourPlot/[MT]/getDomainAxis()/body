@@ -1,0 +1,4 @@
+{
+  ValueAxis result=this.domainAxis;
+  return result;
+}

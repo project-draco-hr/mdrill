@@ -1,0 +1,10 @@
+{
+  final ObjectList l1=new ObjectList(20);
+  l1.set(0,Color.blue);
+  l1.set(1,Color.red);
+  final ObjectList l2=new ObjectList();
+  l2.set(0,Color.blue);
+  l2.set(1,Color.red);
+  assertTrue(l1.equals(l2));
+  assertTrue(l2.equals(l2));
+}

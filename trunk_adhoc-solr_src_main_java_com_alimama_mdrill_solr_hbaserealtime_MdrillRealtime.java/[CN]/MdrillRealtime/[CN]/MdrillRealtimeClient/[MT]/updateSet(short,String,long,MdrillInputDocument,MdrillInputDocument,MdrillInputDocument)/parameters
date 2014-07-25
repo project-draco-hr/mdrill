@@ -1,0 +1,6 @@
+short shard
+String partion
+long higo_uuid
+MdrillInputDocument set
+MdrillInputDocument inc
+MdrillInputDocument del

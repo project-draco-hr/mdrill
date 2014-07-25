@@ -1,0 +1,3 @@
+{
+  ImageMapUtilities.writeImageMap(writer,name,info,new StandardToolTipTagFragmentGenerator(),new StandardURLTagFragmentGenerator());
+}

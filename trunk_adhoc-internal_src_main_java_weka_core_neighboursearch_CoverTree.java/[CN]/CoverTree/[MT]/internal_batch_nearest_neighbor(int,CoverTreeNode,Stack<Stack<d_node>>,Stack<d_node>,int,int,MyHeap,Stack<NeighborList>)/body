@@ -1,0 +1,32 @@
+{
+  if (current_scale > max_scale) {
+    brute_nearest(k,query_node,zero_set,upper_k,results);
+  }
+ else {
+    if (query_node.scale <= current_scale && query_node.scale != 100) {
+      CoverTreeNode query_chi;
+      Stack<d_node> new_zero_set=new Stack<d_node>();
+      Stack<Stack<d_node>> new_cover_sets=new Stack<Stack<d_node>>();
+      MyHeap new_upper_k=new MyHeap(k);
+      for (int i=1; i < query_node.num_children; i++) {
+        query_chi=query_node.children.element(i);
+        setter(new_upper_k,upper_k.peek().distance + query_chi.parent_dist,k);
+        copy_zero_set(query_chi,new_upper_k,zero_set,new_zero_set);
+        copy_cover_sets(query_chi,new_upper_k,cover_sets,new_cover_sets,current_scale,max_scale);
+        internal_batch_nearest_neighbor(k,query_chi,new_cover_sets,new_zero_set,current_scale,max_scale,new_upper_k,results);
+      }
+      new_cover_sets=null;
+      new_zero_set=null;
+      new_upper_k=null;
+      internal_batch_nearest_neighbor(k,query_node.children.element(0),cover_sets,zero_set,current_scale,max_scale,upper_k,results);
+    }
+ else {
+      Stack<d_node> cover_set_i=getCoverSet(current_scale,cover_sets);
+      halfsort(cover_set_i);
+      max_scale=descend(query_node,upper_k,current_scale,max_scale,cover_sets,zero_set);
+      cover_set_i.clear();
+      current_scale++;
+      internal_batch_nearest_neighbor(k,query_node,cover_sets,zero_set,current_scale,max_scale,upper_k,results);
+    }
+  }
+}

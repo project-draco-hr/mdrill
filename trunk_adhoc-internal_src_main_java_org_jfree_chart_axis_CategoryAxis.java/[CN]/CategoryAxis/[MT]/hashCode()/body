@@ -1,0 +1,8 @@
+{
+  if (getLabel() != null) {
+    return getLabel().hashCode();
+  }
+ else {
+    return 0;
+  }
+}

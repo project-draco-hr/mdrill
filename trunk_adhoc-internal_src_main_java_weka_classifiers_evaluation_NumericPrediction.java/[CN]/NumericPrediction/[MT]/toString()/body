@@ -1,0 +1,6 @@
+{
+  StringBuffer sb=new StringBuffer();
+  sb.append("NUM: ").append(actual()).append(' ').append(predicted());
+  sb.append(' ').append(weight());
+  return sb.toString();
+}

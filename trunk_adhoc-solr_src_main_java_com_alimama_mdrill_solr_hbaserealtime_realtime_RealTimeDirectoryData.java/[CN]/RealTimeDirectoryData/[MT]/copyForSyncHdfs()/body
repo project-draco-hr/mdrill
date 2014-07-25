@@ -1,0 +1,7 @@
+{
+  ConcurrentHashMap<String,DirectoryInfo> diskDirector_hdfs=new ConcurrentHashMap<String,DirectoryInfo>();
+  for (  Entry<String,DirectoryInfo> e : diskDirector.entrySet()) {
+    diskDirector_hdfs.put(e.getKey(),e.getValue());
+  }
+  return diskDirector_hdfs;
+}

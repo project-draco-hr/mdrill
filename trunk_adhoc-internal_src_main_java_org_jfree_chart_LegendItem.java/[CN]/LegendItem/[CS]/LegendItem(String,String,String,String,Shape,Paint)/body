@@ -1,0 +1,3 @@
+{
+  this(label,description,toolTipText,urlText,true,shape,true,fillPaint,false,Color.black,UNUSED_STROKE,false,UNUSED_SHAPE,UNUSED_STROKE,Color.black);
+}

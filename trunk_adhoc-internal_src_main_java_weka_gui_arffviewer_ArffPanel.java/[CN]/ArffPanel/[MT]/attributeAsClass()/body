@@ -1,0 +1,9 @@
+{
+  ArffSortedTableModel model;
+  if (m_CurrentCol == -1)   return;
+  model=(ArffSortedTableModel)m_TableArff.getModel();
+  if (model.getAttributeAt(m_CurrentCol) == null)   return;
+  setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+  model.attributeAsClassAt(m_CurrentCol);
+  setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+}

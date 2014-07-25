@@ -1,0 +1,17 @@
+{
+  Experiment result;
+  if ((KOML.isPresent()) && (filename.toLowerCase().endsWith(KOML.FILE_EXTENSION))) {
+    result=(Experiment)KOML.read(filename);
+  }
+ else   if (filename.toLowerCase().endsWith(".xml")) {
+    XMLExperiment xml=new XMLExperiment();
+    result=(Experiment)xml.read(filename);
+  }
+ else {
+    FileInputStream fi=new FileInputStream(filename);
+    ObjectInputStream oi=new ObjectInputStream(new BufferedInputStream(fi));
+    result=(Experiment)oi.readObject();
+    oi.close();
+  }
+  return result;
+}

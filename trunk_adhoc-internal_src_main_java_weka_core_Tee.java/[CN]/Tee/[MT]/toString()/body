@@ -1,0 +1,3 @@
+{
+  return this.getClass().getName() + ": " + m_Streams.size();
+}

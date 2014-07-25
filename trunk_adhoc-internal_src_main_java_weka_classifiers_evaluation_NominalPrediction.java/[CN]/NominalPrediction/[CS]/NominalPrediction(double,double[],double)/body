@@ -1,0 +1,9 @@
+{
+  if (distribution == null) {
+    throw new NullPointerException("Null distribution in NominalPrediction.");
+  }
+  m_Actual=actual;
+  m_Distribution=distribution.clone();
+  m_Weight=weight;
+  updatePredicted();
+}

@@ -1,0 +1,5 @@
+String text
+int start
+float width
+BreakIterator iterator
+TextMeasurer measurer

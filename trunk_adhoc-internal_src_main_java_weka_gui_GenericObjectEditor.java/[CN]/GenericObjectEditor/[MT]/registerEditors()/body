@@ -1,0 +1,24 @@
+{
+  Properties props;
+  Enumeration enm;
+  String name;
+  String value;
+  Class baseCls;
+  Class cls;
+  if (m_EditorsRegistered)   return;
+  System.err.println("---Registering Weka Editors---");
+  m_EditorsRegistered=true;
+  try {
+    props=Utils.readProperties(GUIEDITORS_PROPERTY_FILE);
+  }
+ catch (  Exception e) {
+    props=new Properties();
+    e.printStackTrace();
+  }
+  enm=props.propertyNames();
+  while (enm.hasMoreElements()) {
+    name=enm.nextElement().toString();
+    value=props.getProperty(name,"");
+    registerEditor(name,value);
+  }
+}

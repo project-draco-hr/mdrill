@@ -1,0 +1,3 @@
+{
+  return "Spread initial count across all values instead of using the count per value.";
+}

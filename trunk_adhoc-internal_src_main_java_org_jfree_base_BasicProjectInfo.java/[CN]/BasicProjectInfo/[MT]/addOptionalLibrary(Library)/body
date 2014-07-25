@@ -1,0 +1,6 @@
+{
+  if (library == null) {
+    throw new NullPointerException("Library must be given.");
+  }
+  this.optionalLibraries.add(new OptionalLibraryHolder(library));
+}

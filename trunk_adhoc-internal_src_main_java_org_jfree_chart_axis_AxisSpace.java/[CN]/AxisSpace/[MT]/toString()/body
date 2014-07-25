@@ -1,0 +1,3 @@
+{
+  return super.toString() + "[left=" + this.left+ ",right="+ this.right+ ",top="+ this.top+ ",bottom="+ this.bottom+ "]";
+}

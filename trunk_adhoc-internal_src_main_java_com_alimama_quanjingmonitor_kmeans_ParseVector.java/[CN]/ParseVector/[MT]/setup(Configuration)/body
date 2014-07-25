@@ -1,0 +1,28 @@
+{
+  String abtestconfig=conf.get("abtest.kmeans.config");
+  String[] cols=abtestconfig.split(";");
+  if (cols[0].trim().isEmpty()) {
+    this.importcols=new Number[0][];
+  }
+ else {
+    this.importcols=this.Trans(cols[0].split(","));
+  }
+  if (cols[1].trim().isEmpty()) {
+    this.importcolsNumber=new Number[0][];
+  }
+ else {
+    this.importcolsNumber=this.Trans(cols[1].split(","));
+  }
+  if (cols[2].trim().isEmpty()) {
+    this.StringCols=new Number[0][];
+  }
+ else {
+    this.StringCols=this.Trans(cols[2].split(","));
+  }
+  if (cols[3].trim().isEmpty()) {
+    this.NumbericCols=new Number[0][];
+  }
+ else {
+    this.NumbericCols=this.Trans(cols[3].split(","));
+  }
+}

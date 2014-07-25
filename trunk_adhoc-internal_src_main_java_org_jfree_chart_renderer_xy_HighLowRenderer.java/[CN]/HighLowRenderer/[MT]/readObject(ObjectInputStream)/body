@@ -1,0 +1,5 @@
+{
+  stream.defaultReadObject();
+  this.openTickPaint=SerialUtilities.readPaint(stream);
+  this.closeTickPaint=SerialUtilities.readPaint(stream);
+}

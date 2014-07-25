@@ -1,0 +1,6 @@
+{
+  if (a == null) {
+    throw new NullPointerException();
+  }
+  this.actions.remove(a);
+}

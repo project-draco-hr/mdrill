@@ -1,0 +1,6 @@
+{
+  if (layer == null) {
+    throw new IllegalArgumentException("Null 'layer' argument.");
+  }
+  return this.layers.indexOf(layer);
+}

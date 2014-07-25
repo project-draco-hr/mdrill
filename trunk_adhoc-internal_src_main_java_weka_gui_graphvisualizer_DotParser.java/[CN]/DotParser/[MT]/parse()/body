@@ -1,0 +1,6 @@
+{
+  StreamTokenizer tk=new StreamTokenizer(new BufferedReader(m_input));
+  setSyntax(tk);
+  graph(tk);
+  return m_graphName;
+}

@@ -1,0 +1,14 @@
+{
+  for (int j=0; j < numAtt; j++) {
+    if (!instance.isMissing(j)) {
+      ranges[j][R_MIN]=instance.value(j);
+      ranges[j][R_MAX]=instance.value(j);
+      ranges[j][R_WIDTH]=0.0;
+    }
+ else {
+      ranges[j][R_MIN]=Double.POSITIVE_INFINITY;
+      ranges[j][R_MAX]=-Double.POSITIVE_INFINITY;
+      ranges[j][R_WIDTH]=Double.POSITIVE_INFINITY;
+    }
+  }
+}

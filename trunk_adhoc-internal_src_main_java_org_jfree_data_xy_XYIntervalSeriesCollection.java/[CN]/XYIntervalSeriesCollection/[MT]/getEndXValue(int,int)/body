@@ -1,0 +1,4 @@
+{
+  XYIntervalSeries s=(XYIntervalSeries)this.data.get(series);
+  return s.getXHighValue(item);
+}

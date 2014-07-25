@@ -1,0 +1,17 @@
+{
+  NodeList derivedL=dictionary.getChildNodes();
+  for (int i=0; i < derivedL.getLength(); i++) {
+    Node child=derivedL.item(i);
+    if (child.getNodeType() == Node.ELEMENT_NODE) {
+      String tagName=((Element)child).getTagName();
+      if (tagName.equals("DerivedField")) {
+        DerivedFieldMetaInfo df=new DerivedFieldMetaInfo((Element)child,null,null);
+        m_derivedFields.add(df);
+      }
+ else       if (tagName.equals("DefineFunction")) {
+        DefineFunction defF=new DefineFunction((Element)child,null);
+        m_defineFunctions.add(defF);
+      }
+    }
+  }
+}

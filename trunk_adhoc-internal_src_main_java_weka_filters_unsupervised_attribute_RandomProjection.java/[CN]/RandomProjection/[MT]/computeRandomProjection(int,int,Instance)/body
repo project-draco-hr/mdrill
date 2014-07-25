@@ -1,0 +1,13 @@
+{
+  double sum=0.0;
+  for (int i=0; i < instance.numValues(); i++) {
+    int index=instance.index(i);
+    if (index != classIndex) {
+      double value=instance.valueSparse(i);
+      if (!Utils.isMissingValue(value)) {
+        sum+=m_rmatrix[rpIndex][index] * value;
+      }
+    }
+  }
+  return sum;
+}

@@ -1,0 +1,3 @@
+{
+  return (Integer)(m_nPositionY.elementAt(iNode));
+}

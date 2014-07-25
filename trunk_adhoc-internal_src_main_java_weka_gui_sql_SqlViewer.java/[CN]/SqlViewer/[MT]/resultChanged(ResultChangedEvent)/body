@@ -1,0 +1,6 @@
+{
+  m_URL=evt.getURL();
+  m_User=evt.getUser();
+  m_Password=evt.getPassword();
+  m_Query=evt.getQuery();
+}

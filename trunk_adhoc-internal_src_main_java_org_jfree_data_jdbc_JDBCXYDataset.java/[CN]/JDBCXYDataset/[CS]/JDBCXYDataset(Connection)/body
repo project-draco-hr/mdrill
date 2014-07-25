@@ -1,0 +1,4 @@
+{
+  this();
+  this.connection=con;
+}

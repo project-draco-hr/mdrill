@@ -1,0 +1,3 @@
+{
+  return this.underlying.getEndValue(series,category + this.firstCategoryIndex);
+}

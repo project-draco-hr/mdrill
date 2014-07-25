@@ -1,0 +1,7 @@
+{
+  CategoryItemRenderer result=null;
+  if (this.renderers.size() > index) {
+    result=(CategoryItemRenderer)this.renderers.get(index);
+  }
+  return result;
+}

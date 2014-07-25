@@ -1,0 +1,53 @@
+{
+  if (m_Consequent == -1)   throw new Exception(" Consequent not set yet.");
+  Instances growData=data;
+  double sumOfWeights=growData.sumOfWeights();
+  if (!Utils.gr(sumOfWeights,0.0))   return;
+  double defAccu=computeDefAccu(growData);
+  double defAcRt=(defAccu + 1.0) / (sumOfWeights + 1.0);
+  boolean[] used=new boolean[growData.numAttributes()];
+  for (int k=0; k < used.length; k++)   used[k]=false;
+  int numUnused=used.length;
+  for (int j=0; j < m_Antds.size(); j++) {
+    Antd antdj=(Antd)m_Antds.elementAt(j);
+    if (!antdj.getAttr().isNumeric()) {
+      used[antdj.getAttr().index()]=true;
+      numUnused--;
+    }
+  }
+  double maxInfoGain;
+  while (Utils.gr(growData.numInstances(),0.0) && (numUnused > 0) && Utils.sm(defAcRt,1.0)) {
+    maxInfoGain=0.0;
+    Antd oneAntd=null;
+    Instances coverData=null;
+    Enumeration enumAttr=growData.enumerateAttributes();
+    while (enumAttr.hasMoreElements()) {
+      Attribute att=(Attribute)(enumAttr.nextElement());
+      if (m_Debug)       System.err.println("\nOne condition: size = " + growData.sumOfWeights());
+      Antd antd=null;
+      if (att.isNumeric())       antd=new NumericAntd(att);
+ else       antd=new NominalAntd(att);
+      if (!used[att.index()]) {
+        Instances coveredData=computeInfoGain(growData,defAcRt,antd);
+        if (coveredData != null) {
+          double infoGain=antd.getMaxInfoGain();
+          if (m_Debug)           System.err.println("Test of \'" + antd.toString() + "\': infoGain = "+ infoGain+ " | Accuracy = "+ antd.getAccuRate()+ "="+ antd.getAccu()+ "/"+ antd.getCover()+ " def. accuracy: "+ defAcRt);
+          if (infoGain > maxInfoGain) {
+            oneAntd=antd;
+            coverData=coveredData;
+            maxInfoGain=infoGain;
+          }
+        }
+      }
+    }
+    if (oneAntd == null)     break;
+    if (Utils.sm(oneAntd.getAccu(),m_MinNo))     break;
+    if (!oneAntd.getAttr().isNumeric()) {
+      used[oneAntd.getAttr().index()]=true;
+      numUnused--;
+    }
+    m_Antds.addElement(oneAntd);
+    growData=coverData;
+    defAcRt=oneAntd.getAccuRate();
+  }
+}

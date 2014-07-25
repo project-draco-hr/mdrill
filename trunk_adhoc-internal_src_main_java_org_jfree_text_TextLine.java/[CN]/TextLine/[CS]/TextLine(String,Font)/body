@@ -1,0 +1,5 @@
+{
+  this.fragments=new java.util.ArrayList();
+  final TextFragment fragment=new TextFragment(text,font);
+  this.fragments.add(fragment);
+}

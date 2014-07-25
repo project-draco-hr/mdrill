@@ -1,0 +1,17 @@
+{
+  if (this.fillPaint != null) {
+    return this.fillPaint;
+  }
+  Paint seriesFillPaint=getSeriesFillPaint(series);
+  if (seriesFillPaint == null && this.autoPopulateSeriesFillPaint) {
+    DrawingSupplier supplier=getDrawingSupplier();
+    if (supplier != null) {
+      seriesFillPaint=supplier.getNextFillPaint();
+      setSeriesFillPaint(series,seriesFillPaint,false);
+    }
+  }
+  if (seriesFillPaint == null) {
+    seriesFillPaint=this.baseFillPaint;
+  }
+  return seriesFillPaint;
+}

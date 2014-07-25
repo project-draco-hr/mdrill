@@ -1,0 +1,10 @@
+int[][][] sortedIndices
+double[][][] weights
+Instances data
+double totalWeight
+double[] classProbs
+Instances header
+double minNum
+double minVariance
+int depth
+int maxDepth

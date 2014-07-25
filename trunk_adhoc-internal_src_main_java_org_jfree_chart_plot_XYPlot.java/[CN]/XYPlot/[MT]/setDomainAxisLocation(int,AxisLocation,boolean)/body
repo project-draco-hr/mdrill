@@ -1,0 +1,9 @@
+{
+  if (index == 0 && location == null) {
+    throw new IllegalArgumentException("Null 'location' for index 0 not permitted.");
+  }
+  this.domainAxisLocations.set(index,location);
+  if (notify) {
+    fireChangeEvent();
+  }
+}

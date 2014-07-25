@@ -1,0 +1,17 @@
+{
+  if (m_predictions == null || m_predictions.get(0).size() == 0) {
+    throw new Exception("No predictions have been seen yet!");
+  }
+  double[] result=new double[m_targetFieldNames.size()];
+  for (int i=0; i < m_targetFieldNames.size(); i++) {
+    List<NumericPrediction> preds=m_predictions.get(i);
+    double sumOfE=0;
+    for (    NumericPrediction p : preds) {
+      if (!Utils.isMissingValue(p.error())) {
+        sumOfE+=p.error();
+      }
+    }
+    result[i]=sumOfE;
+  }
+  return result;
+}

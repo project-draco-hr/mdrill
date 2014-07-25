@@ -1,0 +1,16 @@
+{
+  Object result;
+  String classname;
+  result=null;
+  classname=(String)ht.get(extension);
+  if (classname != null) {
+    try {
+      result=Class.forName(classname).newInstance();
+    }
+ catch (    Exception e) {
+      result=null;
+      e.printStackTrace();
+    }
+  }
+  return result;
+}

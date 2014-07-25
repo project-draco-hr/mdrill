@@ -1,0 +1,40 @@
+{
+  if (x1 == x2) {
+    if (y1 < y2) {
+      g.drawLine(x2,y2,x2 + 4,y2 - 8);
+      g.drawLine(x2,y2,x2 - 4,y2 - 8);
+    }
+ else {
+      g.drawLine(x2,y2,x2 + 4,y2 + 8);
+      g.drawLine(x2,y2,x2 - 4,y2 + 8);
+    }
+  }
+ else {
+    double hyp=0, base=0, perp=0, theta, beta;
+    int x3=0, y3=0;
+    if (x2 < x1) {
+      base=x1 - x2;
+      hyp=Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
+      theta=Math.acos(base / hyp);
+    }
+ else {
+      base=x1 - x2;
+      hyp=Math.sqrt((x2 - x1) * (x2 - x1) + (y2 - y1) * (y2 - y1));
+      theta=Math.acos(base / hyp);
+    }
+    beta=30 * Math.PI / 180;
+    hyp=8;
+    base=Math.cos(theta - beta) * hyp;
+    perp=Math.sin(theta - beta) * hyp;
+    x3=(int)(x2 + base);
+    if (y1 < y2)     y3=(int)(y2 - perp);
+ else     y3=(int)(y2 + perp);
+    g.drawLine(x2,y2,x3,y3);
+    base=Math.cos(theta + beta) * hyp;
+    perp=Math.sin(theta + beta) * hyp;
+    x3=(int)(x2 + base);
+    if (y1 < y2)     y3=(int)(y2 - perp);
+ else     y3=(int)(y2 + perp);
+    g.drawLine(x2,y2,x3,y3);
+  }
+}

@@ -1,0 +1,3 @@
+{
+  return "Converts String attributes into a set of attributes representing " + "word occurrence (depending on the tokenizer) information from the " + "text contained in the strings. The set of words (attributes) is "+ "determined by the first batch filtered (typically training data).";
+}

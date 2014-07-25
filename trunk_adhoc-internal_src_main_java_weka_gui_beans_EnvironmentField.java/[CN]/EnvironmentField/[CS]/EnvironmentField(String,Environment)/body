@@ -1,0 +1,4 @@
+{
+  this(label);
+  setEnvironment(env);
+}

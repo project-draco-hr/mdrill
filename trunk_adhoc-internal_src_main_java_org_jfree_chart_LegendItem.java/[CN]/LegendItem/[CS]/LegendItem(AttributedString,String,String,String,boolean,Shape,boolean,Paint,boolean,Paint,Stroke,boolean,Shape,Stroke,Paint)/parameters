@@ -1,0 +1,15 @@
+AttributedString label
+String description
+String toolTipText
+String urlText
+boolean shapeVisible
+Shape shape
+boolean shapeFilled
+Paint fillPaint
+boolean shapeOutlineVisible
+Paint outlinePaint
+Stroke outlineStroke
+boolean lineVisible
+Shape line
+Stroke lineStroke
+Paint linePaint

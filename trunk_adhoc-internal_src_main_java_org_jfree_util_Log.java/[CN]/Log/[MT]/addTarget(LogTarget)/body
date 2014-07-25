@@ -1,0 +1,9 @@
+{
+  if (target == null) {
+    throw new NullPointerException();
+  }
+  final LogTarget[] data=new LogTarget[this.logTargets.length + 1];
+  System.arraycopy(this.logTargets,0,data,0,this.logTargets.length);
+  data[this.logTargets.length]=target;
+  this.logTargets=data;
+}

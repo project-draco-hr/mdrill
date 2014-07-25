@@ -1,0 +1,3 @@
+{
+  return "Whether the out-of-bag error is calculated.";
+}

@@ -1,0 +1,93 @@
+{
+  m_Backup=copyObject(m_Object);
+  m_ClassNameLabel=new JLabel("None");
+  m_ClassNameLabel.setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
+  m_ChildPropertySheet=new PropertySheetPanel();
+  m_ChildPropertySheet.addPropertyChangeListener(new PropertyChangeListener(){
+    public void propertyChange(    PropertyChangeEvent evt){
+      m_Support.firePropertyChange("",null,null);
+    }
+  }
+);
+  m_OpenBut=new JButton("Open...");
+  m_OpenBut.setToolTipText("Load a configured object");
+  m_OpenBut.setEnabled(true);
+  m_OpenBut.addActionListener(new ActionListener(){
+    public void actionPerformed(    ActionEvent e){
+      Object object=openObject();
+      if (object != null) {
+        setValue(object);
+        setValue(object);
+      }
+    }
+  }
+);
+  m_SaveBut=new JButton("Save...");
+  m_SaveBut.setToolTipText("Save the current configured object");
+  m_SaveBut.setEnabled(true);
+  m_SaveBut.addActionListener(new ActionListener(){
+    public void actionPerformed(    ActionEvent e){
+      saveObject(m_Object);
+    }
+  }
+);
+  m_okBut=new JButton("OK");
+  m_okBut.setEnabled(true);
+  m_okBut.addActionListener(new ActionListener(){
+    public void actionPerformed(    ActionEvent e){
+      m_Backup=copyObject(m_Object);
+      if ((getTopLevelAncestor() != null) && (getTopLevelAncestor() instanceof Window)) {
+        Window w=(Window)getTopLevelAncestor();
+        w.dispose();
+      }
+    }
+  }
+);
+  m_cancelBut=new JButton("Cancel");
+  m_cancelBut.setEnabled(true);
+  m_cancelBut.addActionListener(new ActionListener(){
+    public void actionPerformed(    ActionEvent e){
+      if (m_Backup != null) {
+        m_Object=copyObject(m_Backup);
+        m_Support.firePropertyChange("",null,null);
+        m_ObjectNames=getClassesFromProperties();
+        updateObjectNames();
+        updateChildPropertySheet();
+      }
+      if ((getTopLevelAncestor() != null) && (getTopLevelAncestor() instanceof Window)) {
+        Window w=(Window)getTopLevelAncestor();
+        w.dispose();
+      }
+    }
+  }
+);
+  setLayout(new BorderLayout());
+  if (m_canChangeClassInDialog) {
+    JButton chooseButton=createChooseClassButton();
+    JPanel top=new JPanel();
+    top.setLayout(new BorderLayout());
+    top.setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
+    top.add(chooseButton,BorderLayout.WEST);
+    top.add(m_ClassNameLabel,BorderLayout.CENTER);
+    add(top,BorderLayout.NORTH);
+  }
+ else {
+    add(m_ClassNameLabel,BorderLayout.NORTH);
+  }
+  add(m_ChildPropertySheet,BorderLayout.CENTER);
+  JPanel okcButs=new JPanel();
+  okcButs.setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
+  okcButs.setLayout(new GridLayout(1,4,5,5));
+  okcButs.add(m_OpenBut);
+  okcButs.add(m_SaveBut);
+  okcButs.add(m_okBut);
+  okcButs.add(m_cancelBut);
+  add(okcButs,BorderLayout.SOUTH);
+  if (m_ClassType != null) {
+    m_ObjectNames=getClassesFromProperties();
+    if (m_Object != null) {
+      updateObjectNames();
+      updateChildPropertySheet();
+    }
+  }
+}

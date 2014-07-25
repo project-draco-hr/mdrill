@@ -1,0 +1,8 @@
+{
+  stream.defaultReadObject();
+  this.groupStroke=SerialUtilities.readStroke(stream);
+  this.groupPaint=SerialUtilities.readPaint(stream);
+  this.minIcon=getIcon(new Arc2D.Double(-4,-4,8,8,0,360,Arc2D.OPEN),null,Color.black);
+  this.maxIcon=getIcon(new Arc2D.Double(-4,-4,8,8,0,360,Arc2D.OPEN),null,Color.black);
+  this.objectIcon=getIcon(new Line2D.Double(-4,0,4,0),false,true);
+}

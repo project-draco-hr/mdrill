@@ -1,0 +1,12 @@
+{
+  String value=this.configuration.getProperty(key);
+  if (value == null) {
+    if (isRootConfig()) {
+      value=defaultValue;
+    }
+ else {
+      value=this.parentConfiguration.getConfigProperty(key,defaultValue);
+    }
+  }
+  return value;
+}

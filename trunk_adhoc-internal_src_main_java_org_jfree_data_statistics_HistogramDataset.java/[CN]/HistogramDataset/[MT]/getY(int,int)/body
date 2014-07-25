@@ -1,0 +1,18 @@
+{
+  List bins=getBins(series);
+  HistogramBin bin=(HistogramBin)bins.get(item);
+  double total=getTotal(series);
+  double binWidth=getBinWidth(series);
+  if (this.type == HistogramType.FREQUENCY) {
+    return new Double(bin.getCount());
+  }
+ else   if (this.type == HistogramType.RELATIVE_FREQUENCY) {
+    return new Double(bin.getCount() / total);
+  }
+ else   if (this.type == HistogramType.SCALE_AREA_TO_1) {
+    return new Double(bin.getCount() / (binWidth * total));
+  }
+ else {
+    throw new IllegalStateException();
+  }
+}

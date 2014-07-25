@@ -1,0 +1,4 @@
+String seriesName
+Object[] xData
+Object[] yData
+Object[] zData

@@ -1,0 +1,12 @@
+{
+  final AttributeList attribs=new AttributeList();
+  if (mPlexAttribute != null) {
+    attribs.setAttribute(mPlexAttribute,mPlexValue);
+  }
+  final Insets i=(Insets)object;
+  attribs.setAttribute("top",String.valueOf(i.top));
+  attribs.setAttribute("left",String.valueOf(i.left));
+  attribs.setAttribute("bottom",String.valueOf(i.bottom));
+  attribs.setAttribute("right",String.valueOf(i.right));
+  writer.writeTag(tagName,attribs,XMLWriterSupport.CLOSE);
+}

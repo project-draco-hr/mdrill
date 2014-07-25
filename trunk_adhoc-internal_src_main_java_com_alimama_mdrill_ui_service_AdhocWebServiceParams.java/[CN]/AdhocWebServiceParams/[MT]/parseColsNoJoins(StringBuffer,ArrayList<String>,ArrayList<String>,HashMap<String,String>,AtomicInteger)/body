@@ -1,0 +1,21 @@
+{
+  String join="";
+  for (  String field : groupFields) {
+    cols.append(join);
+    cols.append(field);
+    join=",";
+  }
+  for (  String field : showFields) {
+    StateField showfield=WebServiceParams.parseStat(field);
+    if (!groupFields.contains(field)) {
+      cols.append(join);
+      cols.append(field);
+      if (showfield.isstat) {
+        String alias="tmp_" + nameindex.incrementAndGet();
+        cols.append(" as " + alias);
+        colMapforStatFilter.put(field,alias);
+      }
+      join=",";
+    }
+  }
+}

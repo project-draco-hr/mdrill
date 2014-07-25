@@ -1,0 +1,4 @@
+{
+  this.position=-1;
+  this.state=state;
+}

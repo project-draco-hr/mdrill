@@ -1,0 +1,4 @@
+{
+  super.preCheck(args);
+  if (!Groovy.isPresent())   throw new Exception("Groovy classes are not present in CLASSPATH!");
+}

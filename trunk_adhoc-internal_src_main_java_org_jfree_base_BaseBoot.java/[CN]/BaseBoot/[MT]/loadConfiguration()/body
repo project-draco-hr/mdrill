@@ -1,0 +1,3 @@
+{
+  return createDefaultHierarchicalConfiguration("/org/jfree/base/jcommon.properties","/jcommon.properties",true,BaseBoot.class);
+}

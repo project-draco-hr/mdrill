@@ -1,0 +1,7 @@
+{
+  Result result=clientScanner.next();
+  if (null == result || result.isEmpty()) {
+    return null;
+  }
+  return result.list().get(0);
+}

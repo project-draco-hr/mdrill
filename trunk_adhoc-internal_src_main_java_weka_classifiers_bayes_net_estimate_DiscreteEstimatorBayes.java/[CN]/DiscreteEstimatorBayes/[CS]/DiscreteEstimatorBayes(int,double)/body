@@ -1,0 +1,9 @@
+{
+  m_fPrior=fPrior;
+  m_nSymbols=nSymbols;
+  m_Counts=new double[m_nSymbols];
+  for (int iSymbol=0; iSymbol < m_nSymbols; iSymbol++) {
+    m_Counts[iSymbol]=m_fPrior;
+  }
+  m_SumOfCounts=m_fPrior * (double)m_nSymbols;
+}

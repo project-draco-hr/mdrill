@@ -1,0 +1,4 @@
+{
+  this.gapThreshold=t;
+  fireChangeEvent();
+}

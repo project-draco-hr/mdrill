@@ -1,0 +1,5 @@
+String label
+Range range
+Paint outlinePaint
+Stroke outlineStroke
+Paint backgroundPaint

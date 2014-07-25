@@ -1,0 +1,11 @@
+{
+  super.initialize();
+  m_PlotShapes=new FastVector();
+  m_PlotSizes=new FastVector();
+  m_Classifier=null;
+  m_ClassIndex=-1;
+  m_Evaluation=null;
+  m_SaveForVisualization=true;
+  m_MinimumPlotSizeNumeric=ExplorerDefaults.getClassifierErrorsMinimumPlotSizeNumeric();
+  m_MaximumPlotSizeNumeric=ExplorerDefaults.getClassifierErrorsMaximumPlotSizeNumeric();
+}

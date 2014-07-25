@@ -1,0 +1,5 @@
+{
+  if (m_predicate.evaluate(input) == TreeModel.Predicate.Eval.TRUE) {
+    ruleCollection.add(this);
+  }
+}

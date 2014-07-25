@@ -1,0 +1,9 @@
+{
+  PaintList l1=new PaintList();
+  Paint p1=new GradientPaint(1.0f,2.0f,Color.red,3.0f,4.0f,Color.blue);
+  l1.setPaint(0,p1);
+  PaintList l2=new PaintList();
+  Paint p2=new GradientPaint(1.0f,2.0f,Color.red,3.0f,4.0f,Color.blue);
+  l2.setPaint(0,p2);
+  assertEquals(l1,l2);
+}

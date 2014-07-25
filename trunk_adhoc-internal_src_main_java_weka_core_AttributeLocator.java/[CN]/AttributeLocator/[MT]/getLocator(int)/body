@@ -1,0 +1,3 @@
+{
+  return (AttributeLocator)m_Locators.get(index);
+}

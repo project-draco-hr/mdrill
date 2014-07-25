@@ -1,0 +1,20 @@
+{
+  Instances train, test;
+  double foldAv=0;
+  ;
+  data=new Instances(data);
+  data.randomize(random);
+  for (int i=0; i < numFolds; i++) {
+    train=data.trainCV(numFolds,i,random);
+    clusterer.buildClusterer(train);
+    test=data.testCV(numFolds,i);
+    for (int j=0; j < test.numInstances(); j++) {
+      try {
+        foldAv+=((DensityBasedClusterer)clusterer).logDensityForInstance(test.instance(j));
+      }
+ catch (      Exception ex) {
+      }
+    }
+  }
+  return foldAv / data.numInstances();
+}

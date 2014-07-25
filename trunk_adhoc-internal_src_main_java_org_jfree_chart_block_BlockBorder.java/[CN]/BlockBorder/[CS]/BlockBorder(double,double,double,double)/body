@@ -1,0 +1,3 @@
+{
+  this(new RectangleInsets(top,left,bottom,right),Color.black);
+}

@@ -1,0 +1,10 @@
+{
+  java.io.BufferedReader br=new java.io.BufferedReader(new java.io.InputStreamReader(System.in));
+  String result=null;
+  try {
+    result=br.readLine();
+  }
+ catch (  java.io.IOException ex) {
+  }
+  return result;
+}

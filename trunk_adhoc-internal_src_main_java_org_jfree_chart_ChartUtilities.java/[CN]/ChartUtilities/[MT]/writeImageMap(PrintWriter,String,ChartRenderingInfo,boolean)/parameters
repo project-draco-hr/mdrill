@@ -1,0 +1,4 @@
+PrintWriter writer
+String name
+ChartRenderingInfo info
+boolean useOverLibForToolTips

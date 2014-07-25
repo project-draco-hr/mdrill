@@ -1,0 +1,3 @@
+{
+  setSeriesCreateEntities(series,create,true);
+}

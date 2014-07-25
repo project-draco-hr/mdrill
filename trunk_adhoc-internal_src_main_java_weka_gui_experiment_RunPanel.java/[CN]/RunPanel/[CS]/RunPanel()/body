@@ -1,0 +1,31 @@
+{
+  m_StartBut.addActionListener(this);
+  m_StopBut.addActionListener(this);
+  m_StartBut.setEnabled(false);
+  m_StopBut.setEnabled(false);
+  m_StartBut.setMnemonic('S');
+  m_StopBut.setMnemonic('t');
+  m_Log.statusMessage(NOT_RUNNING);
+  JPanel controls=new JPanel();
+  GridBagLayout gb=new GridBagLayout();
+  GridBagConstraints constraints=new GridBagConstraints();
+  controls.setBorder(BorderFactory.createEmptyBorder(10,5,10,5));
+  controls.setLayout(gb);
+  constraints.gridx=0;
+  constraints.gridy=0;
+  constraints.weightx=5;
+  constraints.fill=GridBagConstraints.HORIZONTAL;
+  constraints.gridwidth=1;
+  constraints.gridheight=1;
+  constraints.insets=new Insets(0,2,0,2);
+  controls.add(m_StartBut,constraints);
+  constraints.gridx=1;
+  constraints.gridy=0;
+  constraints.weightx=5;
+  constraints.gridwidth=1;
+  constraints.gridheight=1;
+  controls.add(m_StopBut,constraints);
+  setLayout(new BorderLayout());
+  add(controls,BorderLayout.NORTH);
+  add(m_Log,BorderLayout.CENTER);
+}

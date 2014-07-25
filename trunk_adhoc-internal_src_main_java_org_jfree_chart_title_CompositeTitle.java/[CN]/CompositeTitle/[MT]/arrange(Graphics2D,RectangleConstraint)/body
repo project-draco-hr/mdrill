@@ -1,0 +1,5 @@
+{
+  RectangleConstraint contentConstraint=toContentConstraint(constraint);
+  Size2D contentSize=this.container.arrange(g2,contentConstraint);
+  return new Size2D(calculateTotalWidth(contentSize.getWidth()),calculateTotalHeight(contentSize.getHeight()));
+}

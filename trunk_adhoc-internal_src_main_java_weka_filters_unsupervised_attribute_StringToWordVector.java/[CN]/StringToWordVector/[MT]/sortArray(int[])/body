@@ -1,0 +1,15 @@
+{
+  int i, j, h, N=array.length - 1;
+  for (h=1; h <= N / 9; h=3 * h + 1)   ;
+  for (; h > 0; h/=3) {
+    for (i=h + 1; i <= N; i++) {
+      int v=array[i];
+      j=i;
+      while (j > h && array[j - h] > v) {
+        array[j]=array[j - h];
+        j-=h;
+      }
+      array[j]=v;
+    }
+  }
+}

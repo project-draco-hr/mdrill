@@ -1,0 +1,5 @@
+{
+  this.baseClass=baseClass;
+  this.readHandler=readHandler;
+  this.writeHandler=writeHandler;
+}

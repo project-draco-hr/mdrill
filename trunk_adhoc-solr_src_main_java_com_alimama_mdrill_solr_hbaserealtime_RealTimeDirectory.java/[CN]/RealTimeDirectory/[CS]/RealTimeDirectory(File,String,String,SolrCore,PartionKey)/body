@@ -1,0 +1,40 @@
+{
+  LOG.info("##RealTimeDirectory init ##" + path.getAbsolutePath() + ","+ hdfsPath);
+  this.params.hadoopConfDir=hadoopConfDir;
+  this.params.baseDir=path.getAbsolutePath();
+  this.params.hdfsPath=hdfsPath;
+  this.params.Partion=partion;
+  this.params.core=core;
+  path.mkdirs();
+  status.isInit.set(this.params.checkSyncHdfs());
+  LOG.info("## RealTimeDirectory isinit##" + path.getAbsolutePath() + ","+ hdfsPath+ ",this.isInit="+ String.valueOf(status.isInit));
+  Configuration conf=params.getConf();
+  FileSystem fs=FileSystem.get(conf);
+  if (!status.isInit.get()) {
+    fs.mkdirs(new Path(hdfsPath).getParent());
+  }
+  boolean isUsedHdfs=false;
+  if (!status.isInit.get()) {
+    isUsedHdfs=params.isUseHdfsIndex();
+  }
+  data=new RealTimeDirectoryData(params,status,this);
+  data.initDiskDirector(isUsedHdfs);
+  this.recoverFromEditlog(conf,isUsedHdfs);
+  thread=new RealTimeDirectoryThread(status,params,data,rlock,this);
+  thread.start();
+  if (isUsedHdfs) {
+    status.allowsynchdfs.set(false);
+    thread.startSyncFromHdfs(new Runnable(){
+      @Override public void run(){
+        status.allowsynchdfs.set(true);
+      }
+    }
+);
+  }
+ else {
+    status.allowsynchdfs.set(true);
+  }
+  if (!status.isInit.get()) {
+    this.params.markSyncHdfs();
+  }
+}

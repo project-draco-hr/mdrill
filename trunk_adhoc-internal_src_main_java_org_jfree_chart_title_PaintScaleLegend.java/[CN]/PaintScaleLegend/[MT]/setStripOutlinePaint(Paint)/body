@@ -1,0 +1,7 @@
+{
+  if (paint == null) {
+    throw new IllegalArgumentException("Null 'paint' argument.");
+  }
+  this.stripOutlinePaint=paint;
+  notifyListeners(new TitleChangeEvent(this));
+}

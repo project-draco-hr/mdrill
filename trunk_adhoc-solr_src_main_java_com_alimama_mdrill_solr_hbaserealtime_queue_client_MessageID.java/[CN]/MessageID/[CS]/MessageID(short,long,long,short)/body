@@ -1,0 +1,6 @@
+{
+  this.shard=shardIndex;
+  this.partion=partioncrc;
+  this.index=index;
+  this.subIndex=subindex;
+}

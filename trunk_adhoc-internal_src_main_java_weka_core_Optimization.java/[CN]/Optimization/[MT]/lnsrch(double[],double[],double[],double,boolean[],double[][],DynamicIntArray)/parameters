@@ -1,0 +1,7 @@
+double[] xold
+double[] gradient
+double[] direct
+double stpmax
+boolean[] isFixed
+double[][] nwsBounds
+DynamicIntArray wsBdsIndx

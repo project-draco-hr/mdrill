@@ -1,0 +1,13 @@
+{
+  if (!m_sFileName.equals("")) {
+    saveFile(m_sFileName);
+    m_BayesNet.isSaved();
+    m_jStatusBar.setText("Saved as " + m_sFileName);
+  }
+ else {
+    if (saveAs()) {
+      m_BayesNet.isSaved();
+      m_jStatusBar.setText("Saved as " + m_sFileName);
+    }
+  }
+}

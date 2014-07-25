@@ -1,0 +1,10 @@
+{
+  String exceptionMessage=(ex != null) ? ex.getMessage() : "";
+  message="[TimeSeriesForecasting] " + statusMessagePrefix() + " "+ message+ exceptionMessage;
+  if (m_log != null) {
+    m_log.logMessage(message);
+  }
+ else {
+    System.err.println(message);
+  }
+}

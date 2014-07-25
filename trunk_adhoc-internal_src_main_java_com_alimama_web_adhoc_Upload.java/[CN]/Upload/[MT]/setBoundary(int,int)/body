@@ -1,0 +1,19 @@
+{
+  for (; !foundBoundary && i < readBytes; i++) {
+    if (buffer[i] == 13) {
+      foundBoundary=true;
+      char[] newboundary=new char[m_boundary_length];
+      for (int j=0; j < m_boundary_length; j++) {
+        newboundary[j]=m_boundary[j];
+      }
+      m_boundary=newboundary;
+      break;
+    }
+ else {
+      int currindex=m_boundary_length;
+      m_boundary_length++;
+      m_boundary[currindex]=buffer[i];
+    }
+  }
+  return i;
+}

@@ -1,0 +1,19 @@
+{
+  String[] options=new String[5];
+  int current=0;
+  if (getUnpruned()) {
+    options[current++]="-N";
+  }
+  if (getUseUnsmoothed()) {
+    options[current++]="-U";
+  }
+  if (getBuildRegressionTree()) {
+    options[current++]="-R";
+  }
+  options[current++]="-M";
+  options[current++]="" + getMinNumInstances();
+  while (current < options.length) {
+    options[current++]="";
+  }
+  return options;
+}

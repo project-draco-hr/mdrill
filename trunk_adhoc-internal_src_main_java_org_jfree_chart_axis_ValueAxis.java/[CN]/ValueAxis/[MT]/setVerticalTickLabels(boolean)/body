@@ -1,0 +1,6 @@
+{
+  if (this.verticalTickLabels != flag) {
+    this.verticalTickLabels=flag;
+    notifyListeners(new AxisChangeEvent(this));
+  }
+}

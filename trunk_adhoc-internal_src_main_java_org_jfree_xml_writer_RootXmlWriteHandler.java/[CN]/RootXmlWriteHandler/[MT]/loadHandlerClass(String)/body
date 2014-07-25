@@ -1,0 +1,12 @@
+{
+  if (className == null) {
+    throw new XMLWriterException("LoadHanderClass: Class name not defined");
+  }
+  try {
+    final Class c=ObjectUtilities.getClassLoader(getClass()).loadClass(className);
+    return (XmlWriteHandler)c.newInstance();
+  }
+ catch (  Exception e) {
+    throw new XMLWriterException("LoadHanderClass: Unable to instantiate " + className,e);
+  }
+}

@@ -1,0 +1,25 @@
+{
+  float temp;
+  int temp2;
+  for (int i=0; i < BC.length - 1; i++) {
+    int j=i;
+    temp=BC[j + 1];
+    temp2=level[j + 1];
+    if (temp == 0)     continue;
+    int prej=j + 1;
+    while (j > -1 && (temp < BC[j] || BC[j] == 0)) {
+      if (BC[j] == 0) {
+        j--;
+        continue;
+      }
+ else {
+        BC[prej]=BC[j];
+        level[prej]=level[j];
+        prej=j;
+        j--;
+      }
+    }
+    BC[prej]=temp;
+    level[prej]=temp2;
+  }
+}

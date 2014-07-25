@@ -1,0 +1,6 @@
+{
+  super(name);
+  this.domain=domain;
+  this.range=range;
+  this.data=new ArrayList();
+}

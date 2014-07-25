@@ -1,0 +1,12 @@
+{
+  if (str == null) {
+    return;
+  }
+  if (this.maxlen < 0) {
+    super.insertString(offs,str,a);
+  }
+  final char[] numeric=str.toCharArray();
+  final StringBuffer b=new StringBuffer();
+  b.append(numeric,0,Math.min(this.maxlen,numeric.length));
+  super.insertString(offs,b.toString(),a);
+}

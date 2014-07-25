@@ -1,0 +1,20 @@
+{
+  if (!success) {
+    m_failed++;
+    if (m_Debug) {
+      System.err.println("Iteration " + iteration + " failed!");
+    }
+  }
+ else {
+    m_completed++;
+  }
+  if (m_completed + m_failed == m_Classifiers.length) {
+    if (m_failed > 0) {
+      if (m_Debug) {
+        System.err.println("Problem building classifiers - some iterations failed.");
+      }
+    }
+    m_executorPool.shutdown();
+    block(false);
+  }
+}

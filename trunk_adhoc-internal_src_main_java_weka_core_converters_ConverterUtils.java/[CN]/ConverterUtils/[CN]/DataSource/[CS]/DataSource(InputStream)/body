@@ -1,0 +1,15 @@
+{
+  super();
+  m_BatchBuffer=null;
+  m_Loader=new ArffLoader();
+  try {
+    m_Loader.setSource(stream);
+  }
+ catch (  Exception e) {
+    m_Loader=null;
+  }
+  m_File=null;
+  m_URL=null;
+  m_Incremental=(m_Loader instanceof IncrementalConverter);
+  initBatchBuffer();
+}

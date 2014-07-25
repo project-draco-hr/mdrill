@@ -1,0 +1,5 @@
+{
+  CRC32 crc32=new CRC32();
+  crc32.update(partion.getBytes());
+  return new ShardScanner(table.getConfiguration(),queueName,shard,crc32.getValue(),last);
+}

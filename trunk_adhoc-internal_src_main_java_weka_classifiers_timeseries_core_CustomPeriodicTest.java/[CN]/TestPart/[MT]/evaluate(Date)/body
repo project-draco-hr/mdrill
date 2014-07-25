@@ -1,0 +1,7 @@
+{
+  boolean result=m_lowerTest.eval(d,m_upperTest);
+  if (m_upperTest != null && m_lowerTest.m_boundOperator != Operator.EQUALS) {
+    result=(result && m_upperTest.eval(d,m_lowerTest));
+  }
+  return result;
+}

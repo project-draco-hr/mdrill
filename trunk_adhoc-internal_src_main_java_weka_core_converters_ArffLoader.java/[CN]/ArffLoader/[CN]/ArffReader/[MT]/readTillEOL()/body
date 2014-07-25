@@ -1,0 +1,6 @@
+{
+  while (m_Tokenizer.nextToken() != StreamTokenizer.TT_EOL) {
+  }
+  ;
+  m_Tokenizer.pushBack();
+}

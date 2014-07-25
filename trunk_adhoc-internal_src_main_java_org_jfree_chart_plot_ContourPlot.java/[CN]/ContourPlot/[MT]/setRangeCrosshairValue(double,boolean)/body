@@ -1,0 +1,6 @@
+{
+  this.rangeCrosshairValue=value;
+  if (isRangeCrosshairVisible() && notify) {
+    fireChangeEvent();
+  }
+}

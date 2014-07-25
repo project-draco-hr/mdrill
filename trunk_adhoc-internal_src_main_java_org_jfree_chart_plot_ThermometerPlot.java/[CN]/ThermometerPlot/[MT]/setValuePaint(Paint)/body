@@ -1,0 +1,9 @@
+{
+  if (paint == null) {
+    throw new IllegalArgumentException("Null 'paint' argument.");
+  }
+  if (!this.valuePaint.equals(paint)) {
+    this.valuePaint=paint;
+    fireChangeEvent();
+  }
+}

@@ -1,0 +1,11 @@
+{
+  try {
+    peekFactory().characters(ch,start,length);
+  }
+ catch (  ParseException pe) {
+    throw pe;
+  }
+catch (  Exception e) {
+    throw new ParseException(e,getLocator());
+  }
+}

@@ -1,0 +1,7 @@
+{
+  DataSource source;
+  Instances result;
+  source=new DataSource(loader);
+  result=source.getDataSet();
+  return result;
+}

@@ -1,0 +1,4 @@
+{
+  m_outputFile=outputFile;
+  setDestination(outputFile);
+}

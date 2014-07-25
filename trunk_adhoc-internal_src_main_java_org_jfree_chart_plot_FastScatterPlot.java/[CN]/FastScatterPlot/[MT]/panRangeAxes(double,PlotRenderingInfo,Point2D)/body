@@ -1,0 +1,11 @@
+{
+  if (!isRangePannable() || this.rangeAxis == null) {
+    return;
+  }
+  double length=this.rangeAxis.getRange().getLength();
+  double adj=percent * length;
+  if (this.rangeAxis.isInverted()) {
+    adj=-adj;
+  }
+  this.rangeAxis.setRange(this.rangeAxis.getLowerBound() + adj,this.rangeAxis.getUpperBound() + adj);
+}

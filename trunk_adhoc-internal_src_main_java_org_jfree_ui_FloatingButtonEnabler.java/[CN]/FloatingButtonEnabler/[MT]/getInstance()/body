@@ -1,0 +1,6 @@
+{
+  if (singleton == null) {
+    singleton=new FloatingButtonEnabler();
+  }
+  return singleton;
+}

@@ -1,0 +1,8 @@
+{
+  int result=19;
+  result=37 * result + this.positionForAxisAtTop.hashCode();
+  result=37 * result + this.positionForAxisAtBottom.hashCode();
+  result=37 * result + this.positionForAxisAtLeft.hashCode();
+  result=37 * result + this.positionForAxisAtRight.hashCode();
+  return result;
+}

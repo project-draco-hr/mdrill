@@ -1,0 +1,3 @@
+{
+  return "count(sign(actual_current - actual_previous) == " + "sign(pred_current - pred_previous)) / N";
+}

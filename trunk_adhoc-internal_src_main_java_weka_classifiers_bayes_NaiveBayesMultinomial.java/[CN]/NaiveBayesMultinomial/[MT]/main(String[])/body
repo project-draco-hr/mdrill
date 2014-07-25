@@ -1,0 +1,3 @@
+{
+  runClassifier(new NaiveBayesMultinomial(),argv);
+}

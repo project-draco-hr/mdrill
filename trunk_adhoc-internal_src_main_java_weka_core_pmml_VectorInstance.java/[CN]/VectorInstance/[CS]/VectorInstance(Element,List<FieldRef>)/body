@@ -1,0 +1,16 @@
+{
+  m_vectorFields=vectorFields;
+  String id=vecElement.getAttribute("id");
+  if (id == null || id.length() == 0) {
+    throw new Exception("[VectorInstance] no ID attribute defined!");
+  }
+  m_ID=id;
+  NodeList s_arrL=vecElement.getElementsByTagName("REAL-SparseArray");
+  NodeList d_arrL=vecElement.getElementsByTagName("REAL-ARRAY");
+  if (s_arrL.getLength() == 0 && d_arrL.getLength() == 0) {
+    throw new Exception("[VectorInstance] no arrays defined!");
+  }
+  NodeList arrL=(s_arrL.getLength() > 0) ? s_arrL : d_arrL;
+  Element theArray=(Element)arrL.item(0);
+  m_values=Array.create(theArray);
+}

@@ -1,0 +1,5 @@
+{
+  this(source,scheme,trsI,tstI,setNum,maxSetNum);
+  m_runNumber=runNum;
+  m_maxRunNumber=maxRunNum;
+}

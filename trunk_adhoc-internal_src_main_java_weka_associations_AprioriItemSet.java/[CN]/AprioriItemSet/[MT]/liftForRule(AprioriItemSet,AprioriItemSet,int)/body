@@ -1,0 +1,4 @@
+{
+  double confidence=confidenceForRule(premise,consequence);
+  return confidence / ((double)consequenceCount / (double)m_totalTransactions);
+}

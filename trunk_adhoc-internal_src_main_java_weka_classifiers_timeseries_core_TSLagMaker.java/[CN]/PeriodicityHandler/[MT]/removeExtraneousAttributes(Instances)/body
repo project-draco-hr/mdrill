@@ -1,0 +1,53 @@
+{
+  int primaryIndex=-1;
+  String removeList="";
+  if (m_primaryPeriodicName != null && m_primaryPeriodicName.length() > 0) {
+    primaryIndex=insts.attribute(m_primaryPeriodicName).index();
+  }
+  for (int i=0; i < insts.numAttributes(); i++) {
+    if (i == primaryIndex) {
+      continue;
+    }
+    if (m_secondaryPeriodicLookups != null) {
+      if (m_secondaryPeriodicLookups.containsKey(insts.attribute(i))) {
+        continue;
+      }
+    }
+    boolean target=false;
+    for (    String s : m_fieldsToLag) {
+      if (insts.attribute(i).name().equals(s)) {
+        target=true;
+        break;
+      }
+    }
+    if (target) {
+      continue;
+    }
+    if (m_overlayFields != null) {
+      boolean overlay=false;
+      for (      String s : m_overlayFields) {
+        if (insts.attribute(i).name().equals(s)) {
+          overlay=true;
+          break;
+        }
+      }
+      if (overlay) {
+        continue;
+      }
+    }
+    if (m_adjustForTrends && m_timeStampName != null && m_timeStampName.length() > 0) {
+      if (i == insts.attribute(m_timeStampName).index()) {
+        continue;
+      }
+    }
+    removeList+="" + (i + 1) + ",";
+  }
+  if (removeList.length() > 0) {
+    removeList=removeList.substring(0,removeList.lastIndexOf(','));
+    m_extraneousAttributeRemover=new Remove();
+    m_extraneousAttributeRemover.setAttributeIndices(removeList);
+    m_extraneousAttributeRemover.setInputFormat(insts);
+    insts=Filter.useFilter(insts,m_extraneousAttributeRemover);
+  }
+  return insts;
+}

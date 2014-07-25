@@ -1,0 +1,5 @@
+{
+  for (int i=0; i < distances.length; i++) {
+    distances[i]=Math.sqrt(distances[i]);
+  }
+}

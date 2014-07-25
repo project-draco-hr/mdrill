@@ -1,0 +1,7 @@
+{
+  final JTableHeader header=(JTableHeader)e.getComponent();
+  if ((header.getDraggedDistance() > 0) || (header.getResizingColumn() != null)) {
+    this.renderer.setPressedColumn(-1);
+    this.sortColumnIndex=-1;
+  }
+}

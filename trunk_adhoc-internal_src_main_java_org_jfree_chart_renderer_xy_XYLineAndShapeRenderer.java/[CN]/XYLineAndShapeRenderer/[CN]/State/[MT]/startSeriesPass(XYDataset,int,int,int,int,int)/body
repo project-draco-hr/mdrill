@@ -1,0 +1,5 @@
+{
+  this.seriesPath.reset();
+  this.lastPointGood=false;
+  super.startSeriesPass(dataset,series,firstItem,lastItem,pass,passCount);
+}

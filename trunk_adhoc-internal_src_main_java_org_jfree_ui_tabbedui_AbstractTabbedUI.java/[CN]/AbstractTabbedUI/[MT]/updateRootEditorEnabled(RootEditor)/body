@@ -1,0 +1,10 @@
+{
+  final boolean enabled=editor.isEnabled();
+  for (int i=0; i < this.tabbedPane.getTabCount(); i++) {
+    final Component tab=this.tabbedPane.getComponentAt(i);
+    if (tab == editor.getMainPanel()) {
+      this.tabbedPane.setEnabledAt(i,enabled);
+      return;
+    }
+  }
+}

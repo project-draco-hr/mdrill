@@ -1,0 +1,18 @@
+{
+  if (getInputFormat() == null) {
+    throw new IllegalStateException("No input instance format defined");
+  }
+  if (m_NewBatch) {
+    resetQueue();
+    m_NewBatch=false;
+  }
+  Instance newInstance=(Instance)instance.copy();
+  if ((int)newInstance.value(m_AttIndex.getIndex()) == m_SecondIndex.getIndex()) {
+    newInstance.setValue(m_AttIndex.getIndex(),(double)m_FirstIndex.getIndex());
+  }
+ else   if ((int)newInstance.value(m_AttIndex.getIndex()) > m_SecondIndex.getIndex()) {
+    newInstance.setValue(m_AttIndex.getIndex(),newInstance.value(m_AttIndex.getIndex()) - 1);
+  }
+  push(newInstance);
+  return true;
+}

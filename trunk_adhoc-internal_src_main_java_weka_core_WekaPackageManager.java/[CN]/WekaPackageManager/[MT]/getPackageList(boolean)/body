@@ -1,0 +1,29 @@
+{
+  Map<String,String> result=new HashMap<String,String>();
+  try {
+    useCacheOrOnlineRepository();
+    if (!local) {
+      PACKAGE_MANAGER.setPackageRepositoryURL(REP_URL);
+    }
+    String packageListS=PACKAGE_MANAGER.getPackageRepositoryURL().toString() + "/packageList.txt";
+    URLConnection conn=null;
+    URL connURL=new URL(packageListS);
+    if (PACKAGE_MANAGER.setProxyAuthentication()) {
+      conn=connURL.openConnection(PACKAGE_MANAGER.getProxy());
+    }
+ else {
+      conn=connURL.openConnection();
+    }
+    conn.setConnectTimeout(30000);
+    BufferedReader bi=new BufferedReader(new InputStreamReader(conn.getInputStream()));
+    String l=null;
+    while ((l=bi.readLine()) != null) {
+      result.put(l,l);
+    }
+    bi.close();
+  }
+ catch (  Exception ex) {
+    result=null;
+  }
+  return result;
+}

@@ -1,0 +1,4 @@
+{
+  this.maxValue=null;
+  this.valueRange=null;
+}

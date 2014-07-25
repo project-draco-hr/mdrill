@@ -1,0 +1,3 @@
+{
+  return "The the splitting method to split the nodes of the KDTree.";
+}

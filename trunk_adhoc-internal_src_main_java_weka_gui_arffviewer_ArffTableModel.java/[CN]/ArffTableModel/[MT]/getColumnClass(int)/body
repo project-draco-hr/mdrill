@@ -1,0 +1,10 @@
+{
+  Class result;
+  result=null;
+  if ((columnIndex >= 0) && (columnIndex < getColumnCount())) {
+    if (columnIndex == 0)     result=Integer.class;
+ else     if (getType(columnIndex) == Attribute.NUMERIC)     result=Double.class;
+ else     result=String.class;
+  }
+  return result;
+}

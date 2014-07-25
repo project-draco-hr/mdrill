@@ -1,0 +1,8 @@
+{
+  Vector result=new Vector();
+  result.addElement(new Option("\tAcuity.\n" + "\t(default=1.0)","A",1,"-A <acuity>"));
+  result.addElement(new Option("\tCutoff.\n" + "\t(default=0.002)","C",1,"-C <cutoff>"));
+  Enumeration en=super.listOptions();
+  while (en.hasMoreElements())   result.addElement(en.nextElement());
+  return result.elements();
+}

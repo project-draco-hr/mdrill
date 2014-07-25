@@ -1,0 +1,10 @@
+{
+  String result="";
+  for (int i=0; i < m_DatasetKeyColumns.length; i++) {
+    result+=template.toString(m_DatasetKeyColumns[i]) + ' ';
+  }
+  if (result.startsWith("weka.classifiers.")) {
+    result=result.substring("weka.classifiers.".length());
+  }
+  return result.trim();
+}

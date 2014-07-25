@@ -1,0 +1,56 @@
+{
+  m_indices=new ArrayList<Integer>();
+  String arrayS=arrayE.getTagName();
+  String entriesName=null;
+  if (arrayS.equals(ArrayType.REAL_SPARSE.toString())) {
+    m_type=ArrayType.REAL_SPARSE;
+    entriesName="REAL-Entries";
+  }
+ else {
+    m_type=ArrayType.INT_SPARSE;
+    entriesName="INT-Entries";
+  }
+  String N=arrayE.getAttribute("n");
+  if (N != null && N.length() > 0) {
+    m_numValues=Integer.parseInt(N);
+  }
+  NodeList v=arrayE.getElementsByTagName(entriesName);
+  if (v == null || v.getLength() == 0) {
+    m_numNonZero=0;
+  }
+ else {
+    Element entries=(Element)v.item(0);
+    String contents=entries.getChildNodes().item(0).getNodeValue();
+    StringReader sr=new StringReader(contents);
+    StreamTokenizer st=new StreamTokenizer(sr);
+    st.resetSyntax();
+    st.whitespaceChars(0,' ');
+    st.wordChars(' ' + 1,'\u00FF');
+    st.whitespaceChars(' ',' ');
+    st.quoteChar('"');
+    st.quoteChar('\'');
+    st.nextToken();
+    while (st.ttype != StreamTokenizer.TT_EOF && st.ttype != StreamTokenizer.TT_EOL) {
+      m_values.add(st.sval);
+      st.nextToken();
+    }
+    NodeList i=arrayE.getElementsByTagName("Indices");
+    Element indices=(Element)i.item(0);
+    contents=indices.getChildNodes().item(0).getNodeValue();
+    sr=new StringReader(contents);
+    st=new StreamTokenizer(sr);
+    st.resetSyntax();
+    st.whitespaceChars(0,' ');
+    st.wordChars(' ' + 1,'\u00FF');
+    st.whitespaceChars(' ',' ');
+    st.quoteChar('"');
+    st.quoteChar('\'');
+    st.nextToken();
+    while (st.ttype != StreamTokenizer.TT_EOF && st.ttype != StreamTokenizer.TT_EOL) {
+      Integer newInt=new Integer(Integer.parseInt(st.sval) - 1);
+      m_indices.add(newInt);
+      st.nextToken();
+    }
+    m_numNonZero=m_indices.size();
+  }
+}

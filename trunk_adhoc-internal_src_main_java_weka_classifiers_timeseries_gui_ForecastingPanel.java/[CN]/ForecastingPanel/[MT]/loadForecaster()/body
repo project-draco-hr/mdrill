@@ -1,0 +1,65 @@
+{
+  File sFile=null;
+  int returnVal=m_fileChooser.showOpenDialog(this);
+  if (returnVal == m_fileChooser.APPROVE_OPTION) {
+    sFile=m_fileChooser.getSelectedFile();
+    if (m_log != null) {
+      m_log.statusMessage("Loading forecaster...");
+    }
+    Object f=null;
+    Instances header=null;
+    boolean loadOK=true;
+    try {
+      ObjectInputStream is=new ObjectInputStream(new FileInputStream(sFile));
+      f=is.readObject();
+      header=(Instances)is.readObject();
+      is.close();
+    }
+ catch (    Exception ex) {
+      JOptionPane.showMessageDialog(null,ex,"Load failed",JOptionPane.ERROR_MESSAGE);
+      loadOK=false;
+    }
+    if (!loadOK) {
+      if (m_log != null) {
+        m_log.logMessage("Loading from file " + sFile.getName() + "' failed.");
+        m_log.statusMessage("OK");
+      }
+    }
+ else     if (!(f instanceof WekaForecaster)) {
+      JOptionPane.showMessageDialog(this,"Loaded model is not a weka forecaster!","Weka forecasting",JOptionPane.ERROR_MESSAGE);
+      loadOK=false;
+    }
+    if (loadOK) {
+      String name=(new SimpleDateFormat("HH:mm:ss - ")).format(new Date());
+      StringBuffer outBuff=new StringBuffer();
+      WekaForecaster wf=(WekaForecaster)f;
+      String lagOptions="";
+      if (wf instanceof TSLagUser) {
+        TSLagMaker lagMaker=((TSLagUser)wf).getTSLagMaker();
+        lagOptions=Utils.joinOptions(lagMaker.getOptions());
+      }
+      String fname=wf.getAlgorithmName();
+      String algoName=fname.substring(0,fname.indexOf(' '));
+      if (algoName.startsWith("weka.classifiers.")) {
+        name+=algoName.substring("weka.classifiers.".length());
+      }
+ else {
+        name+=algoName;
+      }
+      name+=" loaded from '" + sFile.getName() + "'";
+      outBuff.append("Scheme:\n\t" + fname).append("\n");
+      outBuff.append("loaded from '" + sFile.getName() + "'\n\n");
+      if (lagOptions.length() > 0) {
+        outBuff.append("Lagged and derived variable options:\n\t").append(lagOptions + "\n\n");
+      }
+      outBuff.append(wf.toString());
+      m_history.addResult(name,outBuff);
+      m_history.setSingle(name);
+      List<Object> resultList=new ArrayList<Object>();
+      resultList.add(wf);
+      resultList.add(header);
+      m_history.addObject(name,resultList);
+      updateMainTabs(name);
+    }
+  }
+}

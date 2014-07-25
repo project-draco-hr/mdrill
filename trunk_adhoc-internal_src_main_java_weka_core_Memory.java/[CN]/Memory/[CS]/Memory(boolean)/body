@@ -1,0 +1,6 @@
+{
+  m_UseGUI=useGUI;
+  m_Runtime=Runtime.getRuntime();
+  m_Max=m_Runtime.maxMemory();
+  m_Total=m_Runtime.totalMemory();
+}

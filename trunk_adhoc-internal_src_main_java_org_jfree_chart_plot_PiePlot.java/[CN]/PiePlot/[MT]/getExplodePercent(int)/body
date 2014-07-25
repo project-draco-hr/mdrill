@@ -1,0 +1,4 @@
+{
+  Comparable key=getSectionKey(section);
+  return getExplodePercent(key);
+}

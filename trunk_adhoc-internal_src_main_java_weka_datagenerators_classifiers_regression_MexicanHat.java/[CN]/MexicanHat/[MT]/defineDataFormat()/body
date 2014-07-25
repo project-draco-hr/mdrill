@@ -1,0 +1,11 @@
+{
+  FastVector atts;
+  m_Random=new Random(getSeed());
+  m_NoiseRandom=new Random(getSeed());
+  setNumExamplesAct(getNumExamples());
+  atts=new FastVector();
+  atts.addElement(new Attribute("x"));
+  atts.addElement(new Attribute("y"));
+  m_DatasetFormat=new Instances(getRelationNameToUse(),atts,0);
+  return m_DatasetFormat;
+}

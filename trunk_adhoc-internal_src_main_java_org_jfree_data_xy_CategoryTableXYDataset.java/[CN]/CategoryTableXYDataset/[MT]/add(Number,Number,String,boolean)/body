@@ -1,0 +1,6 @@
+{
+  this.values.addValue(y,(Comparable)x,seriesName);
+  if (notify) {
+    fireDatasetChanged();
+  }
+}

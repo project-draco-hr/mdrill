@@ -1,0 +1,8 @@
+{
+  if (dayOfMonth.equals("*")) {
+    m_day_of_month=-100;
+  }
+ else {
+    m_day_of_month=Integer.parseInt(dayOfMonth);
+  }
+}

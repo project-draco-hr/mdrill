@@ -1,0 +1,4 @@
+{
+  m_ResultProducer=rp;
+  updateResultsTableName(m_ResultProducer);
+}

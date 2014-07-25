@@ -1,0 +1,13 @@
+{
+  int result=s.indexOf('-');
+  if (result == -1) {
+    result=s.indexOf(',');
+  }
+  if (result == -1) {
+    result=s.indexOf(' ');
+  }
+  if (result == -1) {
+    result=s.indexOf('.');
+  }
+  return result;
+}

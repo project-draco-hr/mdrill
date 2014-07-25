@@ -1,0 +1,4 @@
+{
+  double mask=Math.pow(10.0,(double)afterDecimalPoint);
+  return (double)(Math.round(value * mask)) / mask;
+}

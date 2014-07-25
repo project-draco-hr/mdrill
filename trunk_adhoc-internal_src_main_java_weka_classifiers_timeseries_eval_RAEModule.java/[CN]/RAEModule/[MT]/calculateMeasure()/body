@@ -1,0 +1,27 @@
+{
+  double[] result=new double[m_targetFieldNames.size()];
+  for (int i=0; i < result.length; i++) {
+    result[i]=Utils.missingValue();
+  }
+  for (int i=0; i < m_targetFieldNames.size(); i++) {
+    double sumAbs=0;
+    double count=0;
+    List<NumericPrediction> preds=m_predictions.get(i);
+    for (    NumericPrediction p : preds) {
+      if (!Utils.isMissingValue(p.error())) {
+        sumAbs+=Math.abs(p.error());
+        count++;
+      }
+    }
+    if (m_sumOfAbsE[i] == 0) {
+      m_sumOfAbsE[i]=SMALL;
+    }
+    if (count == 0) {
+      result[i]=Utils.missingValue();
+    }
+ else {
+      result[i]=((sumAbs / count) / (m_sumOfAbsE[i] / count)) * 100.0;
+    }
+  }
+  return result;
+}

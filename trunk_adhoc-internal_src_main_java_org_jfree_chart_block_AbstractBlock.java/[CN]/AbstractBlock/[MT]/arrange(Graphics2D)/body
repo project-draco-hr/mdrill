@@ -1,0 +1,3 @@
+{
+  return arrange(g2,RectangleConstraint.NONE);
+}

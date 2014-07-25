@@ -1,0 +1,7 @@
+{
+  String name=m_history.getSelectedName();
+  if (!name.equals(entryName)) {
+    return;
+  }
+  updateComponentTabs(name,m_outputPane);
+}

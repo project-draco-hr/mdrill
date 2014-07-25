@@ -1,0 +1,17 @@
+{
+  Vector<String> candidateNames=new Vector<String>();
+  candidateNames.add("<Unknown>");
+  candidateNames.add("<Detect automatically>");
+  candidateNames.add("Hourly");
+  candidateNames.add("Daily");
+  candidateNames.add("Weekly");
+  candidateNames.add("Monthly");
+  candidateNames.add("Quarterly");
+  candidateNames.add("Yearly");
+  m_periodicityCombo.setModel(new DefaultComboBoxModel(candidateNames));
+  String timeSelected=(String)m_timeStampCombo.getSelectedItem();
+  System.err.println("Selected " + timeSelected);
+  if (timeSelected != null && timeSelected.length() > 0 && !timeSelected.equals("<None>") && !timeSelected.equals("<Use an artificial time index>") && m_instances.attribute(timeSelected).isDate()) {
+    m_periodicityCombo.setSelectedItem("<Detect automatically>");
+  }
+}

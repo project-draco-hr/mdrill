@@ -1,0 +1,23 @@
+{
+  StringBuffer text=new StringBuffer();
+  int i=0;
+  int cnum;
+  DataSource source=null;
+  Instance inst;
+  Instances structure;
+  if (testFileName.length() != 0)   source=new DataSource(testFileName);
+ else   source=new DataSource(trainFileName);
+  structure=source.getStructure();
+  while (source.hasMoreElements(structure)) {
+    inst=source.nextElement(structure);
+    try {
+      cnum=clusterer.clusterInstance(inst);
+      text.append(i + " " + cnum+ " "+ attributeValuesString(inst,attributesToOutput)+ "\n");
+    }
+ catch (    Exception e) {
+      text.append(i + " Unclustered " + attributeValuesString(inst,attributesToOutput)+ "\n");
+    }
+    i++;
+  }
+  return text.toString();
+}

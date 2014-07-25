@@ -1,0 +1,6 @@
+{
+  if (!(toRun instanceof TSForecaster)) {
+    throw new IllegalArgumentException("Argument must be an object of type" + " TSForecaster!");
+  }
+  runForecaster((TSForecaster)toRun,options);
+}

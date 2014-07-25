@@ -1,0 +1,22 @@
+{
+  if (obj == this) {
+    return true;
+  }
+  if (!(obj instanceof TimeSeriesURLGenerator)) {
+    return false;
+  }
+  TimeSeriesURLGenerator that=(TimeSeriesURLGenerator)obj;
+  if (!this.dateFormat.equals(that.dateFormat)) {
+    return false;
+  }
+  if (!this.itemParameterName.equals(that.itemParameterName)) {
+    return false;
+  }
+  if (!this.prefix.equals(that.prefix)) {
+    return false;
+  }
+  if (!this.seriesParameterName.equals(that.seriesParameterName)) {
+    return false;
+  }
+  return true;
+}

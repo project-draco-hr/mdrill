@@ -1,0 +1,8 @@
+{
+  if (plotState != null && plotState.getOwner() != null) {
+    EntityCollection e=plotState.getOwner().getEntityCollection();
+    if (e != null) {
+      e.add(new PlotEntity(dataArea,this,toolTip,urlText));
+    }
+  }
+}

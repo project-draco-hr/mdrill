@@ -1,0 +1,5 @@
+XYDataset source
+int series
+String name
+double period
+double skip

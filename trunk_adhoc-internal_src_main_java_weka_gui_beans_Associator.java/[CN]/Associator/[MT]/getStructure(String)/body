@@ -1,0 +1,23 @@
+{
+  Instances structure=null;
+  if (eventName.equals("text")) {
+    ArrayList<Attribute> attInfo=new ArrayList<Attribute>();
+    attInfo.add(new Attribute("Title",(ArrayList<String>)null));
+    attInfo.add(new Attribute("Text",(ArrayList<String>)null));
+    structure=new Instances("TextEvent",attInfo,0);
+  }
+ else   if (eventName.equals("batchAssociationRules")) {
+    if (m_Associator != null && m_Associator instanceof AssociationRulesProducer) {
+      String[] metricNames=((AssociationRulesProducer)m_Associator).getRuleMetricNames();
+      ArrayList<Attribute> attInfo=new ArrayList<Attribute>();
+      attInfo.add(new Attribute("LHS",(ArrayList<String>)null));
+      attInfo.add(new Attribute("RHS",(ArrayList<String>)null));
+      attInfo.add(new Attribute("Support"));
+      for (int i=0; i < metricNames.length; i++) {
+        attInfo.add(new Attribute(metricNames[i]));
+      }
+      structure=new Instances("batchAssociationRulesEvent",attInfo,0);
+    }
+  }
+  return structure;
+}

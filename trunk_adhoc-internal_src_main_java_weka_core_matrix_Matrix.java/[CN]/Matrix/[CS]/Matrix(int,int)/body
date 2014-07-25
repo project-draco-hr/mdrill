@@ -1,0 +1,5 @@
+{
+  this.m=m;
+  this.n=n;
+  A=new double[m][n];
+}

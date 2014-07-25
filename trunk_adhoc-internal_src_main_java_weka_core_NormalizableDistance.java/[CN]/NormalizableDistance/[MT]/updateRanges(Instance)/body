@@ -1,0 +1,4 @@
+{
+  validate();
+  m_Ranges=updateRanges(instance,m_Ranges);
+}

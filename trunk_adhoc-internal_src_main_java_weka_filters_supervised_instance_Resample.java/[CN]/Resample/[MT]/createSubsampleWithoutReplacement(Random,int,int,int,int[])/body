@@ -1,0 +1,61 @@
+{
+  if (sampleSize > origSize) {
+    sampleSize=origSize;
+    System.err.println("Resampling without replacement can only use percentage <=100% - " + "Using full dataset!");
+  }
+  Vector<Integer>[] indices=new Vector[classIndices.length - 1];
+  Vector<Integer>[] indicesNew=new Vector[classIndices.length - 1];
+  for (int i=0; i < classIndices.length - 1; i++) {
+    indices[i]=new Vector<Integer>(classIndices[i + 1] - classIndices[i]);
+    indicesNew[i]=new Vector<Integer>(indices[i].capacity());
+    for (int n=classIndices[i]; n < classIndices[i + 1]; n++)     indices[i].add(n);
+  }
+  int currentSize=origSize;
+  for (int i=0; i < sampleSize; i++) {
+    int index=0;
+    if (random.nextDouble() < m_BiasToUniformClass) {
+      int cIndex=random.nextInt(actualClasses);
+      for (int j=0, k=0; j < classIndices.length - 1; j++) {
+        if ((classIndices[j] != classIndices[j + 1]) && (k++ >= cIndex)) {
+          if (indices[j].size() == 0) {
+            i--;
+            break;
+          }
+          index=random.nextInt(indices[j].size());
+          indicesNew[j].add(indices[j].get(index));
+          indices[j].remove(index);
+          break;
+        }
+      }
+    }
+ else {
+      index=random.nextInt(currentSize);
+      for (int n=0; n < actualClasses; n++) {
+        if (index < indices[n].size()) {
+          indicesNew[n].add(indices[n].get(index));
+          indices[n].remove(index);
+          break;
+        }
+ else {
+          index-=indices[n].size();
+        }
+      }
+      currentSize--;
+    }
+  }
+  if (getInvertSelection()) {
+    indicesNew=indices;
+  }
+ else {
+    for (int i=0; i < indicesNew.length; i++)     Collections.sort(indicesNew[i]);
+  }
+  for (int i=0; i < indicesNew.length; i++) {
+    for (int n=0; n < indicesNew[i].size(); n++)     push((Instance)getInputFormat().instance(indicesNew[i].get(n)).copy());
+  }
+  for (int i=0; i < indices.length; i++) {
+    indices[i].clear();
+    indicesNew[i].clear();
+  }
+  indices=null;
+  indicesNew=null;
+}

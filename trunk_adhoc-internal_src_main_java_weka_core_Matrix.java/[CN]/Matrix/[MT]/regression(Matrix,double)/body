@@ -1,0 +1,3 @@
+{
+  return getMatrix().regression(y.getMatrix(),ridge).getCoefficients();
+}

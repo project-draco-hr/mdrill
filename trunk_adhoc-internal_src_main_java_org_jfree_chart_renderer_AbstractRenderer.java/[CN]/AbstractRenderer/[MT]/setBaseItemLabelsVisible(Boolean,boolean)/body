@@ -1,0 +1,6 @@
+{
+  this.baseItemLabelsVisible=visible;
+  if (notify) {
+    fireChangeEvent();
+  }
+}

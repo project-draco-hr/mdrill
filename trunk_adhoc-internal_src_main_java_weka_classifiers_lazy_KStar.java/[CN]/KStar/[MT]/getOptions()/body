@@ -1,0 +1,26 @@
+{
+  String[] options=new String[5];
+  int itr=0;
+  options[itr++]="-B";
+  options[itr++]="" + m_GlobalBlend;
+  if (getEntropicAutoBlend()) {
+    options[itr++]="-E";
+  }
+  options[itr++]="-M";
+  if (m_MissingMode == M_AVERAGE) {
+    options[itr++]="" + "a";
+  }
+ else   if (m_MissingMode == M_DELETE) {
+    options[itr++]="" + "d";
+  }
+ else   if (m_MissingMode == M_MAXDIFF) {
+    options[itr++]="" + "m";
+  }
+ else   if (m_MissingMode == M_NORMAL) {
+    options[itr++]="" + "n";
+  }
+  while (itr < options.length) {
+    options[itr++]="";
+  }
+  return options;
+}

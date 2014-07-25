@@ -1,0 +1,28 @@
+{
+  if (debuglines.incrementAndGet() % 10000 == 0) {
+    LOG.info("addDoc " + doc.toString() + ",termsCache.size="+ termsCache.size());
+    if (debuglines.get() > 100000000) {
+      debuglines.set(0);
+    }
+  }
+  Object uuid=doc.getFieldValue("mdrill_uuid");
+  if (uuid != null) {
+    try {
+      Long uuidl=(Long)uuid;
+synchronized (termsCache) {
+        if (termsCache.containsKey(uuidl)) {
+          termsCache.put(uuidl,new Object());
+          return true;
+        }
+        termsCache.put(uuidl,new Object());
+      }
+    }
+ catch (    Throwable e) {
+      LOG.info("uuid is null:doc=" + doc.toString() + ",termsCache.size="+ termsCache.size(),e);
+    }
+  }
+ else {
+    LOG.info("uuid is null:doc=" + doc.toString() + ",termsCache.size="+ termsCache.size());
+  }
+  return false;
+}

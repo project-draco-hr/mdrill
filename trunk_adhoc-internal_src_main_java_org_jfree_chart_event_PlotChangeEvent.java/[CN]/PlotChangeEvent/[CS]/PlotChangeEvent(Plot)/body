@@ -1,0 +1,4 @@
+{
+  super(plot);
+  this.plot=plot;
+}

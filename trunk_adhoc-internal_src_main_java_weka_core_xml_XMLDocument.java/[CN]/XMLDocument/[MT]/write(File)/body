@@ -1,0 +1,3 @@
+{
+  write(new BufferedWriter(new FileWriter(file)));
+}

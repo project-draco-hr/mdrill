@@ -1,0 +1,9 @@
+{
+  if (insets == null) {
+    throw new IllegalArgumentException("Null 'insets' argument.");
+  }
+  if (!this.tickLabelInsets.equals(insets)) {
+    this.tickLabelInsets=insets;
+    fireChangeEvent();
+  }
+}

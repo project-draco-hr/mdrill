@@ -1,0 +1,5 @@
+{
+  Document doc;
+  doc=m_Document.getDocument();
+  doc.getDocumentElement().setAttribute(ATT_VERSION,version);
+}

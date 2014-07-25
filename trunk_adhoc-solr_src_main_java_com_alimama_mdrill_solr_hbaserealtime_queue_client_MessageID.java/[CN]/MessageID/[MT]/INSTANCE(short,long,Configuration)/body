@@ -1,0 +1,8 @@
+{
+  long ts=System.currentTimeMillis();
+  if (ts != CURR_TS) {
+    CURR_TS=ts;
+    CURR_SUBINDEX=0;
+  }
+  return new MessageID(shardIndex,partioncrc,CURR_TS,CURR_SUBINDEX++);
+}

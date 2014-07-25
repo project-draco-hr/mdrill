@@ -1,0 +1,28 @@
+{
+  double y2=m_target[i2];
+  double alpha2=m_alpha[i2];
+  double alpha2Star=m_alphaStar[i2];
+  double C2=m_C;
+  double C2Star=m_C;
+  double phi2=m_error[i2];
+  double phi2b=phi2 - m_b;
+  if ((phi2b > m_epsilon && alpha2Star < C2Star) || (phi2b < m_epsilon && alpha2Star > 0) || (-phi2b > m_epsilon && alpha2 < C2)|| (-phi2b > m_epsilon && alpha2 > 0)) {
+    int i1=secondChoiceHeuristic(i2);
+    if (i1 >= 0 && (takeStep(i1,i2,alpha2,alpha2Star,phi2) > 0)) {
+      return 1;
+    }
+    for (i1=0; i1 < m_target.length; i1++) {
+      if ((m_alpha[i1] > 0 && m_alpha[i1] < m_C) || (m_alphaStar[i1] > 0 && m_alphaStar[i1] < m_C)) {
+        if (takeStep(i1,i2,alpha2,alpha2Star,phi2) > 0) {
+          return 1;
+        }
+      }
+    }
+    for (i1=0; i1 < m_target.length; i1++) {
+      if (takeStep(i1,i2,alpha2,alpha2Star,phi2) > 0) {
+        return 1;
+      }
+    }
+  }
+  return 0;
+}

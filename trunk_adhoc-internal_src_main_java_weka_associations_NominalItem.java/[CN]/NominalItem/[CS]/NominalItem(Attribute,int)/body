@@ -1,0 +1,13 @@
+{
+  super(att);
+  if (att.isNumeric()) {
+    throw new Exception("NominalItem must be constructed using a nominal attribute");
+  }
+  m_attribute=att;
+  if (m_attribute.numValues() == 1) {
+    m_valueIndex=0;
+  }
+ else {
+    m_valueIndex=valueIndex;
+  }
+}

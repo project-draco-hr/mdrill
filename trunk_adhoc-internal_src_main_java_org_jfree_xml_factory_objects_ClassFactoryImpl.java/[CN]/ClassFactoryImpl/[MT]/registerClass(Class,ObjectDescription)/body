@@ -1,0 +1,6 @@
+{
+  this.classes.put(key,od);
+  if (this.config != null) {
+    od.configure(this.config);
+  }
+}

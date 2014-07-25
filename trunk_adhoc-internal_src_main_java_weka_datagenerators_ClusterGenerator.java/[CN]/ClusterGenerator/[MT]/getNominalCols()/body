@@ -1,0 +1,4 @@
+{
+  if (m_nominalCols == null)   m_nominalCols=new Range();
+  return m_nominalCols;
+}

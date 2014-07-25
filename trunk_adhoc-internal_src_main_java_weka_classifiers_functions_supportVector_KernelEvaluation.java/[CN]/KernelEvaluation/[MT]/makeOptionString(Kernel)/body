@@ -1,0 +1,19 @@
+{
+  StringBuffer text;
+  text=new StringBuffer();
+  text.append("\nGeneral options:\n\n");
+  text.append("-t <training file>\n");
+  text.append("\tThe name of the training file.\n");
+  text.append("-c <class index>\n");
+  text.append("\tSets index of class attribute (default: last).\n");
+  if (Kernel instanceof OptionHandler) {
+    text.append("\nOptions specific to " + Kernel.getClass().getName().replaceAll(".*\\.","") + ":\n\n");
+    Enumeration enm=((OptionHandler)Kernel).listOptions();
+    while (enm.hasMoreElements()) {
+      Option option=(Option)enm.nextElement();
+      text.append(option.synopsis() + "\n");
+      text.append(option.description() + "\n");
+    }
+  }
+  return text.toString();
+}

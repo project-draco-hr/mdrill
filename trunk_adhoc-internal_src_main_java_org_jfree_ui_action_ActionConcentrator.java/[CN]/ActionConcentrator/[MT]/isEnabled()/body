@@ -1,0 +1,9 @@
+{
+  for (int i=0; i < this.actions.size(); i++) {
+    final Action a=(Action)this.actions.get(i);
+    if (a.isEnabled()) {
+      return true;
+    }
+  }
+  return false;
+}

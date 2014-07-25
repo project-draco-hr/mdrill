@@ -1,0 +1,5 @@
+Level level
+String msg
+String cls
+String method
+int lineno

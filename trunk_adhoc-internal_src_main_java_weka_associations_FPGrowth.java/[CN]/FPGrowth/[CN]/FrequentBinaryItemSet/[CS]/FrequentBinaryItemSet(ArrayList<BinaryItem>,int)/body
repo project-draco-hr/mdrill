@@ -1,0 +1,5 @@
+{
+  m_items=items;
+  m_support=support;
+  Collections.sort(m_items);
+}

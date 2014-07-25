@@ -1,0 +1,3 @@
+{
+  return "The parameter for global blending. Values are restricted to [0,100].";
+}

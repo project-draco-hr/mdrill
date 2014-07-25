@@ -1,0 +1,11 @@
+{
+  setLayout(new BorderLayout());
+  this.left=new JButton(label1);
+  final JPanel rightButtonPanel=new JPanel(new GridLayout(1,2));
+  this.right1=new JButton(label2);
+  this.right2=new JButton(label3);
+  rightButtonPanel.add(this.right1);
+  rightButtonPanel.add(this.right2);
+  add(this.left,BorderLayout.WEST);
+  add(rightButtonPanel,BorderLayout.EAST);
+}

@@ -1,0 +1,33 @@
+{
+  final Module[] allMods=getAllModules();
+  final ArrayList activeModules=new ArrayList();
+  final ArrayList failedModules=new ArrayList();
+  for (int i=0; i < allMods.length; i++) {
+    if (isModuleAvailable(allMods[i])) {
+      activeModules.add(allMods[i]);
+    }
+ else {
+      failedModules.add(allMods[i]);
+    }
+  }
+  p.print("Active modules: ");
+  p.println(activeModules.size());
+  p.println("----------------------------------------------------------");
+  for (int i=0; i < activeModules.size(); i++) {
+    final Module mod=(Module)activeModules.get(i);
+    p.print(new PadMessage(mod.getModuleClass(),70));
+    p.print(" [");
+    p.print(mod.getSubSystem());
+    p.println("]");
+    p.print("  Version: ");
+    p.print(mod.getMajorVersion());
+    p.print("-");
+    p.print(mod.getMinorVersion());
+    p.print("-");
+    p.print(mod.getPatchLevel());
+    p.print(" Producer: ");
+    p.println(mod.getProducer());
+    p.print("  Description: ");
+    p.println(mod.getDescription());
+  }
+}

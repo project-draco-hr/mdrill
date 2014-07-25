@@ -1,0 +1,10 @@
+{
+  plot.setAngleLabelFont(this.regularFont);
+  plot.setAngleLabelPaint(this.tickLabelPaint);
+  plot.setAngleGridlinePaint(this.domainGridlinePaint);
+  plot.setRadiusGridlinePaint(this.rangeGridlinePaint);
+  ValueAxis axis=plot.getAxis();
+  if (axis != null) {
+    applyToValueAxis(axis);
+  }
+}

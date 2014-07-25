@@ -1,0 +1,3 @@
+{
+  return "The maximum tree depth (-1 for no restriction).";
+}

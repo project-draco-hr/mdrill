@@ -1,0 +1,5 @@
+{
+  m_disc.input(instance);
+  Instance temp=m_disc.output();
+  return m_nb.distributionForInstance(temp)[classIndex];
+}

@@ -1,0 +1,3 @@
+{
+  return (compareTo((AttributeLocator)o) == 0);
+}

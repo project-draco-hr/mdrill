@@ -1,0 +1,7 @@
+{
+  Vector<String> result;
+  result=new Vector<String>();
+  result.add("-W");
+  result.add(getClassname());
+  return (String[])result.toArray(new String[result.size()]);
+}

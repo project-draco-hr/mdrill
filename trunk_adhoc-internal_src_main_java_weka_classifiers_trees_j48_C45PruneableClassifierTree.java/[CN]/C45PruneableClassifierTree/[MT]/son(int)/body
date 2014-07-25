@@ -1,0 +1,3 @@
+{
+  return (C45PruneableClassifierTree)m_sons[index];
+}

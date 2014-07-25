@@ -1,0 +1,8 @@
+{
+  if (value == null) {
+    this.objectRegistry.remove(key);
+  }
+ else {
+    this.objectRegistry.put(key,value);
+  }
+}

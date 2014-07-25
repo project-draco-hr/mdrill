@@ -1,0 +1,4 @@
+int style
+Locale locale
+Font font
+Paint paint

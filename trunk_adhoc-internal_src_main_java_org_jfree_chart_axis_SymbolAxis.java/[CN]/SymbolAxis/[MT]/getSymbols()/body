@@ -1,0 +1,5 @@
+{
+  String[] result=new String[this.symbols.size()];
+  result=(String[])this.symbols.toArray(result);
+  return result;
+}

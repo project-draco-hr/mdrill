@@ -1,0 +1,12 @@
+{
+  final PaintList l1=new PaintList();
+  l1.setPaint(0,Color.red);
+  l1.setPaint(1,Color.blue);
+  l1.setPaint(2,null);
+  final PaintList l2=new PaintList();
+  l2.setPaint(0,Color.red);
+  l2.setPaint(1,Color.blue);
+  l2.setPaint(2,null);
+  assertTrue(l1.equals(l2));
+  assertTrue(l2.equals(l2));
+}

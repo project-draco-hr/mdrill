@@ -1,0 +1,29 @@
+{
+  super.setInputFormat(instanceInfo);
+  for (int i=0; i < instanceInfo.numAttributes(); i++) {
+    if (i != instanceInfo.classIndex() && instanceInfo.attribute(i).isNominal()) {
+      if (instanceInfo.classIndex() >= 0)       m_ntob=new weka.filters.supervised.attribute.NominalToBinary();
+ else       m_ntob=new weka.filters.unsupervised.attribute.NominalToBinary();
+      break;
+    }
+  }
+  boolean temp=true;
+  if (m_replaceMissing != null) {
+    m_replaceMissing=new weka.filters.unsupervised.attribute.ReplaceMissingValues();
+    if (m_replaceMissing.setInputFormat(instanceInfo))     temp=true;
+ else     temp=false;
+  }
+  if (m_ntob != null) {
+    if (m_ntob.setInputFormat(instanceInfo)) {
+      setOutputFormat();
+      return temp && true;
+    }
+ else {
+      return false;
+    }
+  }
+ else {
+    setOutputFormat();
+    return temp && true;
+  }
+}

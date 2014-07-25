@@ -1,0 +1,3 @@
+{
+  return Integer.parseInt(get("StdDevPrecision","2"));
+}

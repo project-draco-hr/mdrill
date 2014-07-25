@@ -1,0 +1,3 @@
+{
+  return this.lower / 2.0 + this.upper / 2.0;
+}

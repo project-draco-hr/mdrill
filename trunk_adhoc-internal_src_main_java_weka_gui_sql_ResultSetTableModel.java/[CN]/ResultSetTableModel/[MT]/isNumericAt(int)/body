@@ -1,0 +1,14 @@
+{
+  boolean result;
+  result=false;
+  if ((columnIndex >= 0) && (columnIndex < getColumnCount())) {
+    if (columnIndex == 0) {
+      result=true;
+    }
+ else {
+      if (m_Helper.getNumericColumns() == null)       result=false;
+ else       result=m_Helper.getNumericColumns()[columnIndex - 1];
+    }
+  }
+  return result;
+}

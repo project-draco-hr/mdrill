@@ -1,0 +1,19 @@
+{
+  super.setup(context);
+  this.clusters.clear();
+  Configuration conf=context.getConfiguration();
+  this.rep=conf.getInt(KMeansDriver.CLUSTER_CONVERGENCE_ABTEST_REP,2);
+  try {
+    String clusterPath=conf.get(KMeansDriver.CLUSTER_PATH_KEY);
+    if (clusterPath != null && clusterPath.length() > 0) {
+      KmeansPublic.configureWithClusterInfo(conf,new Path(clusterPath),clusters);
+      if (clusters.isEmpty()) {
+        throw new IllegalStateException("No clusters found. Check your -c path.");
+      }
+      this.setClusterMap(clusters);
+    }
+  }
+ catch (  Throwable e) {
+    throw new IllegalStateException(e);
+  }
+}

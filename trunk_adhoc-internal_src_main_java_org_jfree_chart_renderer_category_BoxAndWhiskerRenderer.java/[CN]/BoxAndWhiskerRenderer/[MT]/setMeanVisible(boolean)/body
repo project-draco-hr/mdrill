@@ -1,0 +1,7 @@
+{
+  if (this.meanVisible == visible) {
+    return;
+  }
+  this.meanVisible=visible;
+  fireChangeEvent();
+}

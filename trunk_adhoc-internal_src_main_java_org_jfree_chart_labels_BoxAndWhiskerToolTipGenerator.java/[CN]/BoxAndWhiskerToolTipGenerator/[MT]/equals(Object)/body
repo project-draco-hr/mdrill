@@ -1,0 +1,9 @@
+{
+  if (obj == this) {
+    return true;
+  }
+  if (obj instanceof BoxAndWhiskerToolTipGenerator) {
+    return super.equals(obj);
+  }
+  return false;
+}

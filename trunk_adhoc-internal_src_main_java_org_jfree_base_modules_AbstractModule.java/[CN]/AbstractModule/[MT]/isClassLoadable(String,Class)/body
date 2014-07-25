@@ -1,0 +1,9 @@
+{
+  try {
+    ObjectUtilities.getClassLoader(context).loadClass(name);
+    return true;
+  }
+ catch (  Exception e) {
+    return false;
+  }
+}

@@ -1,0 +1,11 @@
+{
+  Vector l;
+synchronized (this) {
+    l=(Vector)m_batchClustererListeners.clone();
+  }
+  if (l.size() > 0) {
+    for (int i=0; i < l.size(); i++) {
+      ((BatchClustererListener)l.elementAt(i)).acceptClusterer(ce);
+    }
+  }
+}

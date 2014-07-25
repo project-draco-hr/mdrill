@@ -1,0 +1,8 @@
+{
+  if (column == 0) {
+    return this.nameColumnLabel;
+  }
+ else {
+    return this.valueColumnLabel;
+  }
+}

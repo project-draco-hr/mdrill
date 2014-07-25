@@ -1,0 +1,6 @@
+{
+  this.circular=circular;
+  if (notify) {
+    fireChangeEvent();
+  }
+}

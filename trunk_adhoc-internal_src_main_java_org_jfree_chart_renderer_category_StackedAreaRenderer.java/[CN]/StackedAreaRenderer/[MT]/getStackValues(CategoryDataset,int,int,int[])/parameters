@@ -1,0 +1,4 @@
+CategoryDataset dataset
+int series
+int index
+int[] validRows

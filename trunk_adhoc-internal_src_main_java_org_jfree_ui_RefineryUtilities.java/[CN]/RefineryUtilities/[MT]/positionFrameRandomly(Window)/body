@@ -1,0 +1,3 @@
+{
+  positionFrameOnScreen(frame,Math.random(),Math.random());
+}

@@ -1,0 +1,41 @@
+{
+  Instances data;
+  Instances result;
+  FastVector atts;
+  FastVector values;
+  HashSet hash;
+  int i;
+  int n;
+  boolean isDate;
+  Instance inst;
+  Vector sorted;
+  m_Cols.setUpper(inputFormat.numAttributes() - 1);
+  data=new Instances(inputFormat);
+  atts=new FastVector();
+  for (i=0; i < data.numAttributes(); i++) {
+    if (!m_Cols.isInRange(i) || !data.attribute(i).isNumeric()) {
+      atts.addElement(data.attribute(i));
+      continue;
+    }
+    isDate=(data.attribute(i).type() == Attribute.DATE);
+    hash=new HashSet();
+    for (n=0; n < data.numInstances(); n++) {
+      inst=data.instance(n);
+      if (inst.isMissing(i))       continue;
+      if (isDate)       hash.add(inst.stringValue(i));
+ else       hash.add(new Double(inst.value(i)));
+    }
+    sorted=new Vector();
+    for (    Object o : hash)     sorted.add(o);
+    Collections.sort(sorted);
+    values=new FastVector();
+    for (    Object o : sorted) {
+      if (isDate)       values.addElement(o.toString());
+ else       values.addElement(Utils.doubleToString(((Double)o).doubleValue(),MAX_DECIMALS));
+    }
+    atts.addElement(new Attribute(data.attribute(i).name(),values));
+  }
+  result=new Instances(inputFormat.relationName(),atts,0);
+  result.setClassIndex(inputFormat.classIndex());
+  return result;
+}

@@ -1,0 +1,4 @@
+{
+  ParentSet bestParentSet=bayesNet.getParentSet(iHead);
+  bestParentSet.addParent(iTail,instances);
+}

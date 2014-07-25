@@ -1,0 +1,6 @@
+{
+  final ObjectList l1=new ObjectList();
+  l1.set(10,Color.blue);
+  final Color c=(Color)l1.get(10);
+  assertTrue(c.equals(Color.blue));
+}

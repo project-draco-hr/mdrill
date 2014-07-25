@@ -1,0 +1,3 @@
+{
+  this.addDocument(doc,true);
+}

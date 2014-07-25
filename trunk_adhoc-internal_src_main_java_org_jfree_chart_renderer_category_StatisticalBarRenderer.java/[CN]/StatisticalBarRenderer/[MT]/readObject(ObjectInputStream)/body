@@ -1,0 +1,5 @@
+{
+  stream.defaultReadObject();
+  this.errorIndicatorPaint=SerialUtilities.readPaint(stream);
+  this.errorIndicatorStroke=SerialUtilities.readStroke(stream);
+}

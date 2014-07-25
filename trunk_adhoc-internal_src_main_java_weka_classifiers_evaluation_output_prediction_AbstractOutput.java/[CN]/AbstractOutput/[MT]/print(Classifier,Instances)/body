@@ -1,0 +1,5 @@
+{
+  printHeader();
+  printClassifications(classifier,testset);
+  printFooter();
+}

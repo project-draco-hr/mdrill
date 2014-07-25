@@ -1,0 +1,3 @@
+{
+  renameNodeValue(m_nTargetNode,m_sOldName,m_sNewName);
+}

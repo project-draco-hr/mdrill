@@ -1,0 +1,4 @@
+{
+  this.openTagComment=openTagComment;
+  this.closeTagComment=closeTagComment;
+}

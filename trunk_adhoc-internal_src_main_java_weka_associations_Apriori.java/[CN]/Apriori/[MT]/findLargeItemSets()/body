@@ -1,0 +1,23 @@
+{
+  FastVector kMinusOneSets, kSets;
+  Hashtable hashtable;
+  int necSupport, necMaxSupport, i=0;
+  necSupport=(int)(m_minSupport * (double)m_instances.numInstances() + 0.5);
+  necMaxSupport=(int)(m_upperBoundMinSupport * (double)m_instances.numInstances() + 0.5);
+  kSets=AprioriItemSet.singletons(m_instances,m_treatZeroAsMissing);
+  AprioriItemSet.upDateCounters(kSets,m_instances);
+  kSets=AprioriItemSet.deleteItemSets(kSets,necSupport,m_instances.numInstances());
+  if (kSets.size() == 0)   return;
+  do {
+    m_Ls.addElement(kSets);
+    kMinusOneSets=kSets;
+    kSets=AprioriItemSet.mergeAllItemSets(kMinusOneSets,i,m_instances.numInstances());
+    hashtable=AprioriItemSet.getHashtable(kMinusOneSets,kMinusOneSets.size());
+    m_hashtables.addElement(hashtable);
+    kSets=AprioriItemSet.pruneItemSets(kSets,hashtable);
+    AprioriItemSet.upDateCounters(kSets,m_instances);
+    kSets=AprioriItemSet.deleteItemSets(kSets,necSupport,m_instances.numInstances());
+    i++;
+  }
+ while (kSets.size() > 0);
+}

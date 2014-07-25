@@ -1,0 +1,7 @@
+{
+  if (origin == null) {
+    throw new IllegalArgumentException("Null 'origin' argument.");
+  }
+  this.quadrantOrigin=origin;
+  fireChangeEvent();
+}

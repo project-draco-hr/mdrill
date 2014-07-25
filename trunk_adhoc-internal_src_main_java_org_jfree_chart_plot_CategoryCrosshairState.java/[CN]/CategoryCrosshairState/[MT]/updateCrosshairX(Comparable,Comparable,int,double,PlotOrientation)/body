@@ -1,0 +1,16 @@
+{
+  Point2D anchor=getAnchor();
+  if (anchor != null) {
+    double anchorX=anchor.getX();
+    if (orientation == PlotOrientation.HORIZONTAL) {
+      anchorX=anchor.getY();
+    }
+    double d=Math.abs(transX - anchorX);
+    if (d < getCrosshairDistance()) {
+      this.rowKey=rowKey;
+      this.columnKey=columnKey;
+      setDatasetIndex(datasetIndex);
+      setCrosshairDistance(d);
+    }
+  }
+}

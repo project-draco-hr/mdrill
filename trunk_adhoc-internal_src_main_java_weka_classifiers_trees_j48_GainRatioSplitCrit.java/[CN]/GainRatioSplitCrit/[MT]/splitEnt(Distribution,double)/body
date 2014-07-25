@@ -1,0 +1,12 @@
+{
+  double returnValue=0;
+  double noUnknown;
+  int i;
+  noUnknown=totalnoInst - bags.total();
+  if (Utils.gr(bags.total(),0)) {
+    for (i=0; i < bags.numBags(); i++)     returnValue=returnValue - logFunc(bags.perBag(i));
+    returnValue=returnValue - logFunc(noUnknown);
+    returnValue=returnValue + logFunc(totalnoInst);
+  }
+  return returnValue;
+}

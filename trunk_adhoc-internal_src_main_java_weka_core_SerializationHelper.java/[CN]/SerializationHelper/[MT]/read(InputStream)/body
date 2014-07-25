@@ -1,0 +1,9 @@
+{
+  ObjectInputStream ois;
+  Object result;
+  if (!(stream instanceof BufferedInputStream))   stream=new BufferedInputStream(stream);
+  ois=new ObjectInputStream(stream);
+  result=ois.readObject();
+  ois.close();
+  return result;
+}

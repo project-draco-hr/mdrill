@@ -1,0 +1,6 @@
+{
+  if (this.model == null) {
+    return 0;
+  }
+  return this.model.getSeriesCount() + 1;
+}

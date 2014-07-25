@@ -1,0 +1,6 @@
+{
+  if (m_bagger != null) {
+    return m_bagger.measureOutOfBagError();
+  }
+ else   return Double.NaN;
+}

@@ -1,0 +1,15 @@
+{
+  StringBuffer sqlWhere=new StringBuffer();
+  String join=" where ";
+  for (  String fq : fqList) {
+    sqlWhere.append(join);
+    sqlWhere.append(fq);
+    join=" and ";
+  }
+  for (  String p : notin) {
+    sqlWhere.append(join);
+    sqlWhere.append("inhdfs_udf(" + key + ",'"+ p+ "')='-'");
+    join=" and ";
+  }
+  return sqlWhere;
+}

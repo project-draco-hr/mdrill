@@ -1,0 +1,11 @@
+{
+  try {
+    if (weight != null) {
+      final Float w=new Float(weight);
+      return new BasicStroke(w.floatValue());
+    }
+  }
+ catch (  NumberFormatException nfe) {
+  }
+  return new BasicStroke(1);
+}

@@ -1,0 +1,49 @@
+{
+  Instance inst;
+  Instances buildSet=new Instances(data);
+  Instances temp=new Instances(data,data.numInstances());
+  Instances inverseSet=new Instances(data,data.numInstances());
+  int count=0;
+  double ans;
+  int iterations=0;
+  int classIndex=m_classIndex;
+  if (classIndex < 0)   classIndex=data.classIndex();
+  if (classIndex < 0)   classIndex=data.numAttributes() - 1;
+  while (count != buildSet.numInstances()) {
+    iterations++;
+    if (m_numOfCleansingIterations > 0 && iterations > m_numOfCleansingIterations)     break;
+    count=buildSet.numInstances();
+    buildSet.setClassIndex(classIndex);
+    m_cleansingClassifier.buildClassifier(buildSet);
+    temp=new Instances(buildSet,buildSet.numInstances());
+    for (int i=0; i < buildSet.numInstances(); i++) {
+      inst=buildSet.instance(i);
+      ans=m_cleansingClassifier.classifyInstance(inst);
+      if (buildSet.classAttribute().isNumeric()) {
+        if (ans >= inst.classValue() - m_numericClassifyThreshold && ans <= inst.classValue() + m_numericClassifyThreshold) {
+          temp.add(inst);
+        }
+ else         if (m_invertMatching) {
+          inverseSet.add(inst);
+        }
+      }
+ else {
+        if (ans == inst.classValue()) {
+          temp.add(inst);
+        }
+ else         if (m_invertMatching) {
+          inverseSet.add(inst);
+        }
+      }
+    }
+    buildSet=temp;
+  }
+  if (m_invertMatching) {
+    inverseSet.setClassIndex(data.classIndex());
+    return inverseSet;
+  }
+ else {
+    buildSet.setClassIndex(data.classIndex());
+    return buildSet;
+  }
+}

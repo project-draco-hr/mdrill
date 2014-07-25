@@ -1,0 +1,10 @@
+{
+  double sum=0, maxCount=0;
+  int maxIndex=0;
+  if (m_ClassDistribution != null) {
+    sum=Utils.sum(m_ClassDistribution);
+    maxIndex=Utils.maxIndex(m_ClassDistribution);
+    maxCount=m_ClassDistribution[maxIndex];
+  }
+  return " : " + m_Info.classAttribute().value(maxIndex) + " ("+ Utils.doubleToString(sum,2)+ "/"+ Utils.doubleToString(sum - maxCount,2)+ ")";
+}

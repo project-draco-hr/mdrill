@@ -1,0 +1,4 @@
+{
+  if (c.getComponentType().isArray())   return getArrayClass(c.getComponentType());
+ else   return c.getComponentType();
+}

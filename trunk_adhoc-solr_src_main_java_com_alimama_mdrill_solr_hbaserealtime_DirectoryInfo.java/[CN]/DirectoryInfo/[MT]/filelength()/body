@@ -1,0 +1,20 @@
+{
+  Long rtn=0l;
+  try {
+    String[] list=this.d.listAll();
+    if (list != null) {
+      for (      String d : list) {
+        try {
+          rtn+=this.d.fileLength(d);
+        }
+ catch (        Throwable e) {
+          LOG.error("getfilelen:" + this.d.toString(),e);
+        }
+      }
+    }
+  }
+ catch (  Throwable e) {
+    LOG.error("filelength",e);
+  }
+  return rtn;
+}

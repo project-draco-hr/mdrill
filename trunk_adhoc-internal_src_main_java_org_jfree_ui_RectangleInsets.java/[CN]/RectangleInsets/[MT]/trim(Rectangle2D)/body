@@ -1,0 +1,9 @@
+{
+  final double w=area.getWidth();
+  final double h=area.getHeight();
+  final double l=calculateLeftInset(w);
+  final double r=calculateRightInset(w);
+  final double t=calculateTopInset(h);
+  final double b=calculateBottomInset(h);
+  area.setRect(area.getX() + l,area.getY() + t,w - l - r,h - t - b);
+}

@@ -1,0 +1,8 @@
+{
+  final JPanel content=new JPanel(new BorderLayout());
+  final JTabbedPane tabs=new JTabbedPane();
+  tabs.add("Alignment",createTab1Content());
+  tabs.add("Rotation",createTab2Content());
+  content.add(tabs);
+  return content;
+}

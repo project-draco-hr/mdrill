@@ -1,0 +1,10 @@
+{
+  init(instances);
+  if (m_bUseVariant1) {
+    optimize1();
+  }
+ else {
+    optimize2();
+  }
+  wrapUp();
+}

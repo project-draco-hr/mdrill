@@ -1,0 +1,20 @@
+{
+  Enumeration enm;
+  Class c;
+  Object element;
+  boolean result;
+  HashSet list;
+  result=false;
+  enm=ignored();
+  while (enm.hasMoreElements()) {
+    element=enm.nextElement();
+    if (!(element instanceof Class))     continue;
+    c=(Class)element;
+    if (c.isInstance(o)) {
+      list=(HashSet)m_Ignored.get(c);
+      result=list.contains(displayName);
+      break;
+    }
+  }
+  return result;
+}

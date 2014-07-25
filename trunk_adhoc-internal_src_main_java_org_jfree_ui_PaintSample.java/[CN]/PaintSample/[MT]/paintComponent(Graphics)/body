@@ -1,0 +1,14 @@
+{
+  final Graphics2D g2=(Graphics2D)g;
+  final Dimension size=getSize();
+  final Insets insets=getInsets();
+  final double xx=insets.left;
+  final double yy=insets.top;
+  final double ww=size.getWidth() - insets.left - insets.right- 1;
+  final double hh=size.getHeight() - insets.top - insets.bottom- 1;
+  final Rectangle2D area=new Rectangle2D.Double(xx,yy,ww,hh);
+  g2.setPaint(this.paint);
+  g2.fill(area);
+  g2.setPaint(Color.black);
+  g2.draw(area);
+}

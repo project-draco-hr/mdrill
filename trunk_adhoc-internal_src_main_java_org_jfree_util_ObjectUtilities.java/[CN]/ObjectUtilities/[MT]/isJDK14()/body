@@ -1,0 +1,30 @@
+{
+  try {
+    final ClassLoader loader=getClassLoader(ObjectUtilities.class);
+    if (loader != null) {
+      try {
+        loader.loadClass("java.util.RandomAccess");
+        return true;
+      }
+ catch (      ClassNotFoundException e) {
+        return false;
+      }
+catch (      Exception e) {
+      }
+    }
+  }
+ catch (  Exception e) {
+  }
+  try {
+    final String version=System.getProperty("java.vm.specification.version");
+    if (version == null) {
+      return false;
+    }
+    String[] versions=parseVersions(version);
+    String[] target=new String[]{"1","4"};
+    return (ArrayUtilities.compareVersionArrays(versions,target) >= 0);
+  }
+ catch (  Exception e) {
+    return false;
+  }
+}

@@ -1,0 +1,3 @@
+{
+  return (NodeList)eval(xpath,XPathConstants.NODESET);
+}

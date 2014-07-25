@@ -1,0 +1,53 @@
+{
+  boolean load;
+  try {
+    load=toLoad.isCompatibleBaseSystem();
+  }
+ catch (  Exception ex) {
+    ex.printStackTrace();
+    return false;
+  }
+  if (!load) {
+    for (    PrintStream p : progress) {
+      p.println("[Weka] Skipping package " + toLoad.getName() + " because it is not compatible with Weka "+ PACKAGE_MANAGER.getBaseSystemVersion().toString());
+    }
+    return false;
+  }
+  if (!(checkForMissingClasses(toLoad,progress) && checkForMissingFiles(toLoad,packageRoot,progress))) {
+    return false;
+  }
+  try {
+    List<Dependency> missing=toLoad.getMissingDependencies();
+    if (missing.size() > 0) {
+      for (      PrintStream p : progress) {
+        p.println("[Weka] " + toLoad.getName() + " can't be loaded because the following"+ " packages are missing:");
+        for (        Dependency d : missing) {
+          p.println(d.getTarget());
+        }
+      }
+      return false;
+    }
+  }
+ catch (  Exception ex) {
+    ex.printStackTrace();
+    return false;
+  }
+  try {
+    List<Dependency> depends=toLoad.getDependencies();
+    for (    Dependency d : depends) {
+      if (d.getTarget().getPackage().isInstalled()) {
+        if (!loadCheck(d.getTarget().getPackage(),packageRoot,progress)) {
+          for (          PrintStream p : progress) {
+            p.println("[Weka] Can't load " + toLoad.getName() + " because "+ d.getTarget()+ " can't be loaded.");
+          }
+          return false;
+        }
+      }
+    }
+  }
+ catch (  Exception ex) {
+    ex.printStackTrace();
+    return false;
+  }
+  return true;
+}

@@ -1,0 +1,4 @@
+{
+  this(attributeName,dateFormat);
+  m_Index=index;
+}

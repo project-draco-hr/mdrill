@@ -1,0 +1,9 @@
+{
+  FastVector predictions=new FastVector();
+  for (int i=0; i < test.numInstances(); i++) {
+    if (!test.instance(i).classIsMissing()) {
+      predictions.addElement(getPrediction(classifier,test.instance(i)));
+    }
+  }
+  return predictions;
+}

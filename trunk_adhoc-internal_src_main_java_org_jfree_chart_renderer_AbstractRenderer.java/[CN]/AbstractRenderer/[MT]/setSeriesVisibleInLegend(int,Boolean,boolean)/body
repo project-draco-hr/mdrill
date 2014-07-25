@@ -1,0 +1,6 @@
+{
+  this.seriesVisibleInLegendList.setBoolean(series,visible);
+  if (notify) {
+    fireChangeEvent();
+  }
+}

@@ -1,0 +1,23 @@
+{
+  final JPanel content=new JPanel(new BorderLayout());
+  content.setBorder(BorderFactory.createEmptyBorder(4,4,4,4));
+  content.add((JPanel)this.panels.get(0));
+  final L1R3ButtonPanel buttons=new L1R3ButtonPanel("Help","Previous","Next","Finish");
+  this.helpButton=buttons.getLeftButton();
+  this.helpButton.setEnabled(false);
+  this.previousButton=buttons.getRightButton1();
+  this.previousButton.setActionCommand("previousButton");
+  this.previousButton.addActionListener(this);
+  this.previousButton.setEnabled(false);
+  this.nextButton=buttons.getRightButton2();
+  this.nextButton.setActionCommand("nextButton");
+  this.nextButton.addActionListener(this);
+  this.nextButton.setEnabled(true);
+  this.finishButton=buttons.getRightButton3();
+  this.finishButton.setActionCommand("finishButton");
+  this.finishButton.addActionListener(this);
+  this.finishButton.setEnabled(false);
+  buttons.setBorder(BorderFactory.createEmptyBorder(4,0,0,0));
+  content.add(buttons,BorderLayout.SOUTH);
+  return content;
+}

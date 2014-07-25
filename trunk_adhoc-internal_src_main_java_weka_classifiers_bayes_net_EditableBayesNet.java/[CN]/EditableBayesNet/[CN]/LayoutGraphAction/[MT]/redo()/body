@@ -1,0 +1,5 @@
+{
+  for (int iNode=0; iNode < m_nPosX.size(); iNode++) {
+    setPosition(iNode,(Integer)m_nPosX2.elementAt(iNode),(Integer)m_nPosY2.elementAt(iNode));
+  }
+}

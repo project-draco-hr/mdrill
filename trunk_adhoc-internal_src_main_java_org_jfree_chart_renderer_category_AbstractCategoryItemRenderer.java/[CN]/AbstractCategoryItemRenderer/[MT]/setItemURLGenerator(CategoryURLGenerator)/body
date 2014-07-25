@@ -1,0 +1,4 @@
+{
+  this.itemURLGenerator=generator;
+  fireChangeEvent();
+}

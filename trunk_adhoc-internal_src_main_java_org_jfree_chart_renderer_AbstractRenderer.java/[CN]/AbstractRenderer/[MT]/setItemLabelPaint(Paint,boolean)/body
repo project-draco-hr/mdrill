@@ -1,0 +1,6 @@
+{
+  this.itemLabelPaint=paint;
+  if (notify) {
+    fireChangeEvent();
+  }
+}

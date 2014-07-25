@@ -1,0 +1,5 @@
+GraphDriver driver
+TSForecaster forecaster
+String targetName
+List<Integer> stepsToPlot
+int instanceNumberOffset

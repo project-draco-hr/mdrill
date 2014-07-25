@@ -1,0 +1,12 @@
+{
+  if (object == null) {
+    return false;
+  }
+  if (object == this) {
+    return true;
+  }
+  if (super.equals(object) && object instanceof WindNeedle) {
+    return true;
+  }
+  return false;
+}

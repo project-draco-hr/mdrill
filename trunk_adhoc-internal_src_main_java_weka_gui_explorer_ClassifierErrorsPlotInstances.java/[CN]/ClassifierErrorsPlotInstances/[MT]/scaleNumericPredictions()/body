@@ -1,0 +1,34 @@
+{
+  double maxErr;
+  double minErr;
+  double err;
+  int i;
+  Double errd;
+  double temp;
+  maxErr=Double.NEGATIVE_INFINITY;
+  minErr=Double.POSITIVE_INFINITY;
+  for (i=0; i < m_PlotSizes.size(); i++) {
+    errd=(Double)m_PlotSizes.elementAt(i);
+    if (errd != null) {
+      err=Math.abs(errd.doubleValue());
+      if (err < minErr)       minErr=err;
+      if (err > maxErr)       maxErr=err;
+    }
+  }
+  for (i=0; i < m_PlotSizes.size(); i++) {
+    errd=(Double)m_PlotSizes.elementAt(i);
+    if (errd != null) {
+      err=Math.abs(errd.doubleValue());
+      if (maxErr - minErr > 0) {
+        temp=(((err - minErr) / (maxErr - minErr)) * (m_MaximumPlotSizeNumeric - m_MinimumPlotSizeNumeric + 1));
+        m_PlotSizes.setElementAt(new Integer((int)temp) + m_MinimumPlotSizeNumeric,i);
+      }
+ else {
+        m_PlotSizes.setElementAt(new Integer(m_MinimumPlotSizeNumeric),i);
+      }
+    }
+ else {
+      m_PlotSizes.setElementAt(new Integer(m_MinimumPlotSizeNumeric),i);
+    }
+  }
+}

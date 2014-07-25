@@ -1,0 +1,3 @@
+{
+  return getObject(property,defaultValue,Object.class);
+}

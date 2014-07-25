@@ -1,0 +1,8 @@
+{
+  if (generator == null) {
+    throw new IllegalArgumentException("Null 'generator' argument.");
+  }
+  CrosshairLabelGenerator old=this.labelGenerator;
+  this.labelGenerator=generator;
+  this.pcs.firePropertyChange("labelGenerator",old,generator);
+}

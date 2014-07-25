@@ -1,0 +1,31 @@
+{
+  FastVector atts;
+  FastVector attValues;
+  int i;
+  m_Random=new Random(getSeed());
+  m_nextClassShouldBeZero=true;
+  m_lastLabel=Double.NaN;
+  setNumExamplesAct(getNumExamples());
+  atts=new FastVector();
+  atts.addElement(new Attribute("salary"));
+  atts.addElement(new Attribute("commission"));
+  attValues=new FastVector();
+  atts.addElement(new Attribute("age"));
+  attValues=new FastVector();
+  for (i=0; i < 5; i++)   attValues.addElement("" + i);
+  atts.addElement(new Attribute("elevel",attValues));
+  attValues=new FastVector();
+  for (i=1; i <= 20; i++)   attValues.addElement("" + i);
+  atts.addElement(new Attribute("car",attValues));
+  attValues=new FastVector();
+  for (i=0; i < 9; i++)   attValues.addElement("" + i);
+  atts.addElement(new Attribute("zipcode",attValues));
+  atts.addElement(new Attribute("hvalue"));
+  atts.addElement(new Attribute("hyears"));
+  atts.addElement(new Attribute("loan"));
+  attValues=new FastVector();
+  for (i=0; i < 2; i++)   attValues.addElement("" + i);
+  atts.addElement(new Attribute("group",attValues));
+  m_DatasetFormat=new Instances(getRelationNameToUse(),atts,0);
+  return m_DatasetFormat;
+}

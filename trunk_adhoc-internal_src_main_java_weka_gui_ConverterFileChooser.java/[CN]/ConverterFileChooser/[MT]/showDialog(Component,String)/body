@@ -1,0 +1,4 @@
+{
+  if (m_DialogType == UNHANDLED_DIALOG)   throw new IllegalStateException("Either use showOpenDialog or showSaveDialog!");
+ else   return super.showDialog(parent,approveButtonText);
+}

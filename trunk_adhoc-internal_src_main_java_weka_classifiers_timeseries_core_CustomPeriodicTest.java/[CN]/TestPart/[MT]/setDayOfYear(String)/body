@@ -1,0 +1,8 @@
+{
+  if (dayOfYear.equals("*")) {
+    m_day_of_yr=-100;
+  }
+ else {
+    m_day_of_yr=Integer.parseInt(dayOfYear);
+  }
+}

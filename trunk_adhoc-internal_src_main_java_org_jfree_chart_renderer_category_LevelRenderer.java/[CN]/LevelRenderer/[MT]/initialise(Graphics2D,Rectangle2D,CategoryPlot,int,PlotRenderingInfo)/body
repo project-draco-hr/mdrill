@@ -1,0 +1,5 @@
+{
+  CategoryItemRendererState state=super.initialise(g2,dataArea,plot,rendererIndex,info);
+  calculateItemWidth(plot,dataArea,rendererIndex,state);
+  return state;
+}

@@ -1,0 +1,47 @@
+{
+  int nNodes=bAdjacencyMatrix.length;
+  Set[] cliques=new HashSet[nNodes];
+  for (int i=nNodes - 1; i >= 0; i--) {
+    int iNode=order[i];
+    if (iNode == 22) {
+      int h=3;
+      h++;
+    }
+    Set clique=new HashSet();
+    clique.add(iNode);
+    for (int j=0; j < i; j++) {
+      int iNode2=order[j];
+      if (bAdjacencyMatrix[iNode][iNode2]) {
+        clique.add(iNode2);
+      }
+    }
+    cliques[iNode]=clique;
+  }
+  for (int iNode=0; iNode < nNodes; iNode++) {
+    for (int iNode2=0; iNode2 < nNodes; iNode2++) {
+      if (iNode != iNode2 && cliques[iNode] != null && cliques[iNode2] != null && cliques[iNode].containsAll(cliques[iNode2])) {
+        cliques[iNode2]=null;
+      }
+    }
+  }
+  if (m_debug) {
+    int[] nNodeSet=new int[nNodes];
+    for (int iNode=0; iNode < nNodes; iNode++) {
+      if (cliques[iNode] != null) {
+        Iterator it=cliques[iNode].iterator();
+        int k=0;
+        while (it.hasNext()) {
+          nNodeSet[k++]=(Integer)it.next();
+        }
+        for (int i=0; i < cliques[iNode].size(); i++) {
+          for (int j=0; j < cliques[iNode].size(); j++) {
+            if (i != j && !bAdjacencyMatrix[nNodeSet[i]][nNodeSet[j]]) {
+              throw new Exception("Non clique" + i + " "+ j);
+            }
+          }
+        }
+      }
+    }
+  }
+  return cliques;
+}

@@ -1,0 +1,7 @@
+{
+  String result="";
+  if (m_negative) {
+    result+='-';
+  }
+  return result + "a" + (m_attributeIndex + 1);
+}

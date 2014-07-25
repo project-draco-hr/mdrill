@@ -1,0 +1,10 @@
+{
+  if (obj == this) {
+    return true;
+  }
+  if (obj instanceof TextBlock) {
+    final TextBlock block=(TextBlock)obj;
+    return this.lines.equals(block.lines);
+  }
+  return false;
+}

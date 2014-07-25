@@ -1,0 +1,5 @@
+{
+  super(source);
+  m_text=text;
+  m_textTitle=textTitle;
+}

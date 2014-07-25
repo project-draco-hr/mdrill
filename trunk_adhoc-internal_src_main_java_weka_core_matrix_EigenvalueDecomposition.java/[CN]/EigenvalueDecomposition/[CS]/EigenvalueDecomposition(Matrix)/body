@@ -1,0 +1,33 @@
+{
+  double[][] A=Arg.getArray();
+  n=Arg.getColumnDimension();
+  V=new double[n][n];
+  d=new double[n];
+  e=new double[n];
+  issymmetric=true;
+  for (int j=0; (j < n) & issymmetric; j++) {
+    for (int i=0; (i < n) & issymmetric; i++) {
+      issymmetric=(A[i][j] == A[j][i]);
+    }
+  }
+  if (issymmetric) {
+    for (int i=0; i < n; i++) {
+      for (int j=0; j < n; j++) {
+        V[i][j]=A[i][j];
+      }
+    }
+    tred2();
+    tql2();
+  }
+ else {
+    H=new double[n][n];
+    ort=new double[n];
+    for (int j=0; j < n; j++) {
+      for (int i=0; i < n; i++) {
+        H[i][j]=A[i][j];
+      }
+    }
+    orthes();
+    hqr2();
+  }
+}

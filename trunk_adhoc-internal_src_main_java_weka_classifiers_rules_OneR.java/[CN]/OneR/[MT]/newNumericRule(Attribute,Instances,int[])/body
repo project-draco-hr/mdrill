@@ -1,0 +1,62 @@
+{
+  data=new Instances(data);
+  int[] classifications=new int[data.numInstances()];
+  double[] breakpoints=new double[data.numInstances()];
+  int[] counts=new int[data.classAttribute().numValues()];
+  int correct=0;
+  int lastInstance=data.numInstances();
+  data.sort(attr);
+  while (lastInstance > 0 && data.instance(lastInstance - 1).isMissing(attr)) {
+    lastInstance--;
+    missingValueCounts[(int)data.instance(lastInstance).classValue()]++;
+  }
+  int i=0;
+  int cl=0;
+  int it;
+  while (i < lastInstance) {
+    for (int j=0; j < counts.length; j++)     counts[j]=0;
+    do {
+      it=(int)data.instance(i++).classValue();
+      counts[it]++;
+    }
+ while (counts[it] < m_minBucketSize && i < lastInstance);
+    while (i < lastInstance && (int)data.instance(i).classValue() == it) {
+      counts[it]++;
+      i++;
+    }
+    while (i < lastInstance && (data.instance(i - 1).value(attr) == data.instance(i).value(attr))) {
+      counts[(int)data.instance(i++).classValue()]++;
+    }
+    for (int j=0; j < counts.length; j++) {
+      if (counts[j] > counts[it]) {
+        it=j;
+      }
+    }
+    if (cl > 0) {
+      if (counts[classifications[cl - 1]] == counts[it]) {
+        it=classifications[cl - 1];
+      }
+      if (it == classifications[cl - 1]) {
+        cl--;
+      }
+    }
+    correct+=counts[it];
+    classifications[cl]=it;
+    if (i < lastInstance) {
+      breakpoints[cl]=(data.instance(i - 1).value(attr) + data.instance(i).value(attr)) / 2;
+    }
+    cl++;
+  }
+  if (cl == 0) {
+    throw new Exception("Only missing values in the training data!");
+  }
+  OneRRule r=new OneRRule(data,attr,cl);
+  r.m_correct=correct;
+  for (int v=0; v < cl; v++) {
+    r.m_classifications[v]=classifications[v];
+    if (v < cl - 1) {
+      r.m_breakpoints[v]=breakpoints[v];
+    }
+  }
+  return r;
+}

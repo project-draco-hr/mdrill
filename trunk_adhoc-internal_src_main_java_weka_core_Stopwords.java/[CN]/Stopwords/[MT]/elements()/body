@@ -1,0 +1,9 @@
+{
+  Iterator<String> iter;
+  Vector<String> list;
+  iter=m_Words.iterator();
+  list=new Vector<String>();
+  while (iter.hasNext())   list.add(iter.next());
+  Collections.sort(list);
+  return list.elements();
+}

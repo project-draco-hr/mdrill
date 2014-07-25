@@ -1,0 +1,4 @@
+{
+  this.outlineStroke=stroke;
+  notifyListeners(new MarkerChangeEvent(this));
+}

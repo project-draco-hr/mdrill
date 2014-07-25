@@ -1,0 +1,8 @@
+{
+  plot.setValueFont(this.largeFont);
+  plot.setThermometerPaint(this.thermometerPaint);
+  ValueAxis axis=plot.getRangeAxis();
+  if (axis != null) {
+    applyToValueAxis(axis);
+  }
+}

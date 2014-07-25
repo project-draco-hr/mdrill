@@ -1,0 +1,34 @@
+{
+  if (info != null) {
+    info.setPlotArea(area);
+  }
+  RectangleInsets insets=getInsets();
+  insets.trim(area);
+  AxisSpace space=calculateAxisSpace(g2,area);
+  Rectangle2D dataArea=space.shrink(area,null);
+  setFixedDomainAxisSpaceForSubplots(space);
+  ValueAxis axis=getRangeAxis();
+  RectangleEdge rangeEdge=getRangeAxisEdge();
+  double cursor=RectangleEdge.coordinate(dataArea,rangeEdge);
+  AxisState state=axis.draw(g2,cursor,area,dataArea,rangeEdge,info);
+  if (parentState == null) {
+    parentState=new PlotState();
+  }
+  parentState.getSharedAxisStates().put(axis,state);
+  for (int i=0; i < this.subplots.size(); i++) {
+    CategoryPlot plot=(CategoryPlot)this.subplots.get(i);
+    PlotRenderingInfo subplotInfo=null;
+    if (info != null) {
+      subplotInfo=new PlotRenderingInfo(info.getOwner());
+      info.addSubplotInfo(subplotInfo);
+    }
+    Point2D subAnchor=null;
+    if (anchor != null && this.subplotArea[i].contains(anchor)) {
+      subAnchor=anchor;
+    }
+    plot.draw(g2,this.subplotArea[i],subAnchor,parentState,subplotInfo);
+  }
+  if (info != null) {
+    info.setDataArea(dataArea);
+  }
+}

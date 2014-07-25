@@ -1,0 +1,6 @@
+{
+  Instances result;
+  result=getStructure();
+  if (result != null)   result.setClassIndex(classIndex);
+  return result;
+}

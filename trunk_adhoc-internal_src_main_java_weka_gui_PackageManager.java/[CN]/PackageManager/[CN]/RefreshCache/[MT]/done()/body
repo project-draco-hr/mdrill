@@ -1,0 +1,24 @@
+{
+  m_progress.setValue(m_progress.getMinimum());
+  if (m_error != null) {
+    displayErrorDialog("There was a problem refreshing the package\n" + "meta data cache. We'll try to use the repository" + "directly.",m_error);
+    m_detailLabel.setText("");
+  }
+ else {
+    m_detailLabel.setText("Cache refresh completed");
+  }
+  m_installBut.setEnabled(true);
+  m_unofficialBut.setEnabled(true);
+  m_refreshCacheBut.setEnabled(true);
+  m_installedBut.setEnabled(true);
+  m_availableBut.setEnabled(true);
+  m_allBut.setEnabled(true);
+  updateTable();
+  try {
+    m_browserTools.remove(m_newPackagesAvailableL);
+    m_browserTools.revalidate();
+  }
+ catch (  Exception ex) {
+  }
+  m_cacheRefreshInProgress=false;
+}

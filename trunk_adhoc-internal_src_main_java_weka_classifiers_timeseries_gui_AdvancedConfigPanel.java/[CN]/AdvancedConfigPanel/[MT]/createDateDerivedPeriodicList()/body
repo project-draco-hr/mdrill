@@ -1,0 +1,15 @@
+{
+  ArrayList<Attribute> atts=new ArrayList<Attribute>();
+  atts.add(new Attribute("AM"));
+  atts.add(new Attribute("DayOfWeek"));
+  atts.add(new Attribute("DayOfMonth"));
+  atts.add(new Attribute("NumDaysInMonth"));
+  atts.add(new Attribute("Weekend"));
+  atts.add(new Attribute("Month"));
+  atts.add(new Attribute("Quarter"));
+  for (  String name : m_customPeriodics.keySet()) {
+    atts.add(new Attribute("c_" + name));
+  }
+  Instances insts=new Instances("Periodics",atts,1);
+  return insts;
+}

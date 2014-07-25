@@ -1,0 +1,20 @@
+{
+  if (getInputFormat() == null) {
+    throw new IllegalStateException("No input instance format defined");
+  }
+  if (m_attStats == null) {
+    Instances input=getInputFormat();
+    m_attStats=new AttributeStats[input.numAttributes()];
+    for (int i=0; i < input.numAttributes(); i++) {
+      if (input.attribute(i).isNumeric() && (input.classIndex() != i)) {
+        m_attStats[i]=input.attributeStats(i);
+      }
+    }
+    for (int i=0; i < input.numInstances(); i++) {
+      convertInstance(input.instance(i));
+    }
+  }
+  flushInput();
+  m_NewBatch=true;
+  return (numPendingOutput() != 0);
+}

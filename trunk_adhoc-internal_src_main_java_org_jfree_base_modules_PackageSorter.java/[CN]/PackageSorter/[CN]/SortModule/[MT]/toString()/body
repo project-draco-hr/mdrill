@@ -1,0 +1,10 @@
+{
+  final StringBuffer buffer=new StringBuffer();
+  buffer.append("SortModule: ");
+  buffer.append(this.position);
+  buffer.append(" ");
+  buffer.append(this.state.getModule().getName());
+  buffer.append(" ");
+  buffer.append(this.state.getModule().getModuleClass());
+  return buffer.toString();
+}

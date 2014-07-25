@@ -1,0 +1,6 @@
+{
+  final int y=getIntParameter("year");
+  final int m=getIntParameter("month");
+  final int d=getIntParameter("day");
+  return new GregorianCalendar(y,m,d).getTime();
+}

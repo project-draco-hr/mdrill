@@ -1,0 +1,3 @@
+{
+  return (minDataDLIfExists(index,expFPRate,checkErr) + theoryDL(index) - minDataDLIfDeleted(index,expFPRate,checkErr));
+}

@@ -1,0 +1,35 @@
+{
+  double criterion=0.0;
+  double bestCriterion=Double.MAX_VALUE;
+  int bestIteration=0;
+  int noMin=0;
+  double criterionValue=Double.MAX_VALUE;
+  double[][] trainYs=getYs(m_train);
+  double[][] trainFs=getFs(m_numericData);
+  double[][] probs=getProbs(trainFs);
+  boolean[][] attributes=new boolean[m_numClasses][m_numericDataHeader.numAttributes()];
+  int iteration=0;
+  while (iteration < m_maxIterations) {
+    boolean foundAttribute=performIteration(iteration,trainYs,trainFs,probs,m_numericData);
+    if (foundAttribute) {
+      iteration++;
+      m_numRegressions=iteration;
+    }
+ else {
+      break;
+    }
+    double numberOfAttributes=m_numParameters + iteration;
+    criterionValue=2.0 * negativeLogLikelihood(trainYs,probs) + 2.0 * numberOfAttributes;
+    if (noMin > m_heuristicStop)     break;
+    if (criterionValue < bestCriterion) {
+      bestCriterion=criterionValue;
+      bestIteration=iteration;
+      noMin=0;
+    }
+ else {
+      noMin++;
+    }
+  }
+  m_numRegressions=0;
+  performBoosting(bestIteration);
+}

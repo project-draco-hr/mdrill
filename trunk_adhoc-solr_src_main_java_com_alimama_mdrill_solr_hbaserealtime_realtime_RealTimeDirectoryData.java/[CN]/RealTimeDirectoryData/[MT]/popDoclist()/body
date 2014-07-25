@@ -1,0 +1,9 @@
+{
+  int size=doclistBuffer.size();
+  if (size <= 0) {
+    return null;
+  }
+  ArrayList<SolrInputDocument> flush=doclistBuffer;
+  doclistBuffer=new ArrayList<SolrInputDocument>(UniqConfig.RealTimeDoclistBuffer());
+  return flush;
+}

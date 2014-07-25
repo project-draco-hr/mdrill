@@ -1,0 +1,5 @@
+double[][] trainYs
+double[][] trainFs
+double[][] probs
+Instances data
+double origSumOfWeights

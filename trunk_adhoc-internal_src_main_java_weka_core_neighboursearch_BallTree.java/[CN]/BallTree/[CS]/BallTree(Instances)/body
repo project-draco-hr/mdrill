@@ -1,0 +1,4 @@
+{
+  super(insts);
+  if (getMeasurePerformance())   m_Stats=m_TreeStats=new TreePerformanceStats();
+}

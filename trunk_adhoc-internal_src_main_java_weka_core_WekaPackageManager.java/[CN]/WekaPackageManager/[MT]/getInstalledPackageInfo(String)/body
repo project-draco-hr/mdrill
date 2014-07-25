@@ -1,0 +1,4 @@
+{
+  useCacheOrOnlineRepository();
+  return PACKAGE_MANAGER.getInstalledPackageInfo(packageName);
+}

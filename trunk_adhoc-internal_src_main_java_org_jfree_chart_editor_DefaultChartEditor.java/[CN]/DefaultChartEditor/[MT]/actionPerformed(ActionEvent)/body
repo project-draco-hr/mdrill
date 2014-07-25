@@ -1,0 +1,6 @@
+{
+  String command=event.getActionCommand();
+  if (command.equals("BackgroundPaint")) {
+    attemptModifyBackgroundPaint();
+  }
+}

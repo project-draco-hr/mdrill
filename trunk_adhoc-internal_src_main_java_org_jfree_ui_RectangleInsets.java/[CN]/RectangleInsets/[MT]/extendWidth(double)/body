@@ -1,0 +1,3 @@
+{
+  return width + calculateLeftOutset(width) + calculateRightOutset(width);
+}

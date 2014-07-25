@@ -1,0 +1,14 @@
+{
+  List<Directory> copyDir=new ArrayList<Directory>();
+  ;
+synchronized (rlock.lock) {
+    if (remakeLinks) {
+      this.data.remakeIndexLinksFile();
+    }
+    copyDir=this.data.copyForSearch();
+  }
+synchronized (rlock.searchLock) {
+    readList=copyDir;
+    SolrResourceLoader.SetCacheFlushKey(params.Partion,System.currentTimeMillis());
+  }
+}

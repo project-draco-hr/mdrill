@@ -1,0 +1,6 @@
+Element parent
+String name
+String classname
+boolean primitive
+int array
+boolean isnull

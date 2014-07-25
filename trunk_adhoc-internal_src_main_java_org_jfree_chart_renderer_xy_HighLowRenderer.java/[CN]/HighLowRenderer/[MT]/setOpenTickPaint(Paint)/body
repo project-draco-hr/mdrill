@@ -1,0 +1,4 @@
+{
+  this.openTickPaint=paint;
+  fireChangeEvent();
+}

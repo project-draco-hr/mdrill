@@ -1,0 +1,9 @@
+{
+  if (value instanceof Stroke) {
+    setStroke((Stroke)value);
+  }
+ else {
+    setStroke(null);
+  }
+  return this;
+}

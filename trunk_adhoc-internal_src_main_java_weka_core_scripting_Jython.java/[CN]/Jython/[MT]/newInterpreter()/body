@@ -1,0 +1,14 @@
+{
+  Object result;
+  result=null;
+  if (isPresent()) {
+    try {
+      result=Class.forName(CLASS_PYTHONINERPRETER).newInstance();
+    }
+ catch (    Exception e) {
+      e.printStackTrace();
+      result=null;
+    }
+  }
+  return result;
+}

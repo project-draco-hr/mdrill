@@ -1,0 +1,4 @@
+{
+  double confidence=METRIC_TYPE.CONFIDENCE.compute(premiseSupport,consequenceSupport,totalSupport,totalTransactions);
+  return confidence / ((double)consequenceSupport / (double)totalTransactions);
+}

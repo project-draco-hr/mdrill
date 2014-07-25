@@ -1,0 +1,5 @@
+{
+  this.hbase.create(tablename,shardcount,params);
+  this.queue=new MdrillQueue(this.hbase.getConfig(),this.hbase.getQueueTableNme(tablename));
+  this.table=new HTable(this.hbase.getConfig(),this.hbase.getDataTableNme(tablename));
+}

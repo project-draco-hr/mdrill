@@ -1,0 +1,3 @@
+{
+  setModel(new CheckBoxListModel(listData));
+}

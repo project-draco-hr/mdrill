@@ -1,0 +1,5 @@
+{
+  boolean result=m_ChildFrames.remove(c);
+  windowListChanged();
+  return result;
+}

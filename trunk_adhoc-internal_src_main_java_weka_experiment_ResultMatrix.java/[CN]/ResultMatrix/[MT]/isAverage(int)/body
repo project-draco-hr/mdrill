@@ -1,0 +1,4 @@
+{
+  if (getShowAverage())   return (getVisibleRowCount() + 1 == rowIndex);
+ else   return false;
+}

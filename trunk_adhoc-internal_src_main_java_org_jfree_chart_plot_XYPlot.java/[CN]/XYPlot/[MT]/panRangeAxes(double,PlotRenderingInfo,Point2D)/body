@@ -1,0 +1,16 @@
+{
+  if (!isRangePannable()) {
+    return;
+  }
+  int rangeAxisCount=getRangeAxisCount();
+  for (int i=0; i < rangeAxisCount; i++) {
+    ValueAxis axis=getRangeAxis(i);
+    if (axis == null) {
+      continue;
+    }
+    if (axis.isInverted()) {
+      percent=-percent;
+    }
+    axis.pan(percent);
+  }
+}

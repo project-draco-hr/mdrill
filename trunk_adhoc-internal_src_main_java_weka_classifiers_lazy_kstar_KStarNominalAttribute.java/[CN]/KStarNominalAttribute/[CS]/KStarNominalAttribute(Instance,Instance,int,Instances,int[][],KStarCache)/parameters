@@ -1,0 +1,6 @@
+Instance test
+Instance train
+int attrIndex
+Instances trainSet
+int[][] randClassCol
+KStarCache cache

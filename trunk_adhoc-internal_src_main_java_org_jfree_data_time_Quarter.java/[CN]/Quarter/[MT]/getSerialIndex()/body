@@ -1,0 +1,3 @@
+{
+  return this.year * 4L + this.quarter;
+}

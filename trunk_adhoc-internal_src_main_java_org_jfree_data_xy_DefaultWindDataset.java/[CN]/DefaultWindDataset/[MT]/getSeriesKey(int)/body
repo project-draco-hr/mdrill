@@ -1,0 +1,6 @@
+{
+  if (series < 0 || series >= getSeriesCount()) {
+    throw new IllegalArgumentException("Invalid series index: " + series);
+  }
+  return (Comparable)this.seriesKeys.get(series);
+}

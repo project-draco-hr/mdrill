@@ -1,0 +1,4 @@
+{
+  this.padding.trim(area);
+  return area;
+}

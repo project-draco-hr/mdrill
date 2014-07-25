@@ -1,0 +1,9 @@
+{
+  if (object instanceof FixedMillisecond) {
+    FixedMillisecond m=(FixedMillisecond)object;
+    return this.time == m.getFirstMillisecond();
+  }
+ else {
+    return false;
+  }
+}

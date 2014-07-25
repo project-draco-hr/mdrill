@@ -1,0 +1,4 @@
+{
+  this.adjustForBinSize=adjust;
+  notifyListeners(new DatasetChangeEvent(this,this));
+}

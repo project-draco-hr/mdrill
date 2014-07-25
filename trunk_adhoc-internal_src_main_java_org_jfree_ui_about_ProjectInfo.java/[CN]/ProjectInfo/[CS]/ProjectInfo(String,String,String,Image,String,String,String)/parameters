@@ -1,0 +1,7 @@
+String name
+String version
+String info
+Image logo
+String copyright
+String licenceName
+String licenceText

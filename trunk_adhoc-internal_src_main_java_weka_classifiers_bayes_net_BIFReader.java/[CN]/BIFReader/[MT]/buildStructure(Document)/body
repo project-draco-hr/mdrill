@@ -1,0 +1,29 @@
+{
+  m_Distributions=new Estimator[m_Instances.numAttributes()][];
+  for (int iNode=0; iNode < m_Instances.numAttributes(); iNode++) {
+    String sName=m_Instances.attribute(iNode).name();
+    Element definition=getDefinition(doc,sName);
+    FastVector nodelist=getParentNodes(definition);
+    for (int iParent=0; iParent < nodelist.size(); iParent++) {
+      Node parentName=((Node)nodelist.elementAt(iParent)).getFirstChild();
+      String sParentName=((CharacterData)(parentName)).getData();
+      int nParent=getNode(sParentName);
+      m_ParentSets[iNode].addParent(nParent,m_Instances);
+    }
+    int nCardinality=m_ParentSets[iNode].getCardinalityOfParents();
+    int nValues=m_Instances.attribute(iNode).numValues();
+    m_Distributions[iNode]=new Estimator[nCardinality];
+    for (int i=0; i < nCardinality; i++) {
+      m_Distributions[iNode][i]=new DiscreteEstimatorBayes(nValues,0.0f);
+    }
+    String sTable=getTable(definition);
+    StringTokenizer st=new StringTokenizer(sTable.toString());
+    for (int i=0; i < nCardinality; i++) {
+      DiscreteEstimatorBayes d=(DiscreteEstimatorBayes)m_Distributions[iNode][i];
+      for (int iValue=0; iValue < nValues; iValue++) {
+        String sWeight=st.nextToken();
+        d.addValue(iValue,new Double(sWeight).doubleValue());
+      }
+    }
+  }
+}

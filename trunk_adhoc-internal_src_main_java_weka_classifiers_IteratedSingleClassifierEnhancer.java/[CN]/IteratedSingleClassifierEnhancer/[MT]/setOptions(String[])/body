@@ -1,0 +1,10 @@
+{
+  String iterations=Utils.getOption('I',options);
+  if (iterations.length() != 0) {
+    setNumIterations(Integer.parseInt(iterations));
+  }
+ else {
+    setNumIterations(10);
+  }
+  super.setOptions(options);
+}

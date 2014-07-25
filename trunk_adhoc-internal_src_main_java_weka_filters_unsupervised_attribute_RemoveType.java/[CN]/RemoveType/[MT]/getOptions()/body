@@ -1,0 +1,13 @@
+{
+  String[] options=new String[3];
+  int current=0;
+  if (getInvertSelection()) {
+    options[current++]="-V";
+  }
+  options[current++]="-T";
+  options[current++]=getAttributeTypeString();
+  while (current < options.length) {
+    options[current++]="";
+  }
+  return options;
+}

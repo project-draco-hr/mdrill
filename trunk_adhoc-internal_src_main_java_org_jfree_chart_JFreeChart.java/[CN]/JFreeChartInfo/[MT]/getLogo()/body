@@ -1,0 +1,12 @@
+{
+  Image logo=super.getLogo();
+  if (logo == null) {
+    URL imageURL=this.getClass().getClassLoader().getResource("org/jfree/chart/gorilla.jpg");
+    if (imageURL != null) {
+      ImageIcon temp=new ImageIcon(imageURL);
+      logo=temp.getImage();
+      setLogo(logo);
+    }
+  }
+  return logo;
+}

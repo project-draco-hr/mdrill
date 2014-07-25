@@ -1,0 +1,10 @@
+{
+  Size2D s1=arrangeNN(container,g2);
+  if (constraint.getHeightRange().contains(s1.height)) {
+    return s1;
+  }
+ else {
+    RectangleConstraint c=constraint.toFixedHeight(constraint.getHeightRange().getUpperBound());
+    return arrangeRF(container,g2,c);
+  }
+}

@@ -1,0 +1,4 @@
+{
+  if (e instanceof GraphEdge && ((GraphEdge)e).src == this.src && ((GraphEdge)e).dest == this.dest && ((GraphEdge)e).type == this.type)   return true;
+ else   return false;
+}

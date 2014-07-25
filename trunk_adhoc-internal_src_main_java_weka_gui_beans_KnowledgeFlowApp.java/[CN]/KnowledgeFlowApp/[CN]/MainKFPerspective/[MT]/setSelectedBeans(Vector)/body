@@ -1,0 +1,8 @@
+{
+  if (getNumTabs() > 0) {
+    setSelectedBeans(getCurrentTabIndex(),beans);
+    m_cutB.setEnabled(getSelectedBeans().size() > 0 && !getExecuting());
+    m_copyB.setEnabled(getSelectedBeans().size() > 0 && !getExecuting());
+    m_deleteB.setEnabled(getSelectedBeans().size() > 0 && !getExecuting());
+  }
+}

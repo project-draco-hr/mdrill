@@ -1,0 +1,9 @@
+{
+  message=statusMessagePrefix() + "WARNING: " + message;
+  if (m_log != null) {
+    m_log.statusMessage(message);
+  }
+ else {
+    System.out.println(message);
+  }
+}

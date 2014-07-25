@@ -1,0 +1,4 @@
+{
+  m_Template=newClassifier;
+  updateOptions();
+}

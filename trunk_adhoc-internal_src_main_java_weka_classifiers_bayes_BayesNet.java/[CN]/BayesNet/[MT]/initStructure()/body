@@ -1,0 +1,12 @@
+{
+  int nAttribute=0;
+  for (int iOrder=1; iOrder < m_Instances.numAttributes(); iOrder++) {
+    if (nAttribute == m_Instances.classIndex()) {
+      nAttribute++;
+    }
+  }
+  m_ParentSets=new ParentSet[m_Instances.numAttributes()];
+  for (int iAttribute=0; iAttribute < m_Instances.numAttributes(); iAttribute++) {
+    m_ParentSets[iAttribute]=new ParentSet(m_Instances.numAttributes());
+  }
+}

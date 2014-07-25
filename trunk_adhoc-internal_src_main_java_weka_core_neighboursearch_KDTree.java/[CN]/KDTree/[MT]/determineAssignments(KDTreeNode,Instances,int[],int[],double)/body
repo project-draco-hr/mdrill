@@ -1,0 +1,15 @@
+{
+  int[] owners=refineOwners(node,centers,candidates);
+  if (owners.length == 1) {
+    for (int i=node.m_Start; i <= node.m_End; i++) {
+      assignments[m_InstList[i]]=owners[0];
+    }
+  }
+ else   if (!node.isALeaf()) {
+    determineAssignments(node.m_Left,centers,owners,assignments,pc);
+    determineAssignments(node.m_Right,centers,owners,assignments,pc);
+  }
+ else {
+    assignSubToCenters(node,centers,owners,assignments);
+  }
+}

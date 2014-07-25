@@ -1,0 +1,8 @@
+{
+  if (CACHE_URL != null) {
+    PACKAGE_MANAGER.setPackageRepositoryURL(CACHE_URL);
+  }
+ else {
+    PACKAGE_MANAGER.setPackageRepositoryURL(REP_URL);
+  }
+}

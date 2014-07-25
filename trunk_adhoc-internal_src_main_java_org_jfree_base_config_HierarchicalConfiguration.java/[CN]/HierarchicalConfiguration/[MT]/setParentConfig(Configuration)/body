@@ -1,0 +1,6 @@
+{
+  if (this.parentConfiguration == this) {
+    throw new IllegalArgumentException("Cannot add myself as parent configuration.");
+  }
+  this.parentConfiguration=config;
+}

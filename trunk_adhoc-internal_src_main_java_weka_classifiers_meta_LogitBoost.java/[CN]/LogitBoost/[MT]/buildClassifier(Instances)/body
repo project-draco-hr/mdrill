@@ -1,0 +1,113 @@
+{
+  m_RandomInstance=new Random(m_Seed);
+  int classIndex=data.classIndex();
+  if (m_Classifier == null) {
+    throw new Exception("A base classifier has not been specified!");
+  }
+  if (!(m_Classifier instanceof WeightedInstancesHandler) && !m_UseResampling) {
+    m_UseResampling=true;
+  }
+  getCapabilities().testWithFail(data);
+  if (m_Debug) {
+    System.err.println("Creating copy of the training data");
+  }
+  data=new Instances(data);
+  data.deleteWithMissingClass();
+  if (data.numAttributes() == 1) {
+    System.err.println("Cannot build model (only class attribute present in data!), " + "using ZeroR model instead!");
+    m_ZeroR=new weka.classifiers.rules.ZeroR();
+    m_ZeroR.buildClassifier(data);
+    return;
+  }
+ else {
+    m_ZeroR=null;
+  }
+  m_NumClasses=data.numClasses();
+  m_ClassAttribute=data.classAttribute();
+  if (m_Debug) {
+    System.err.println("Creating base classifiers");
+  }
+  m_Classifiers=new Classifier[m_NumClasses][];
+  for (int j=0; j < m_NumClasses; j++) {
+    m_Classifiers[j]=AbstractClassifier.makeCopies(m_Classifier,getNumIterations());
+  }
+  int bestNumIterations=getNumIterations();
+  if (m_NumFolds > 1) {
+    if (m_Debug) {
+      System.err.println("Processing first fold.");
+    }
+    double[] results=new double[getNumIterations()];
+    for (int r=0; r < m_NumRuns; r++) {
+      data.randomize(m_RandomInstance);
+      data.stratify(m_NumFolds);
+      for (int i=0; i < m_NumFolds; i++) {
+        Instances train=data.trainCV(m_NumFolds,i,m_RandomInstance);
+        Instances test=data.testCV(m_NumFolds,i);
+        Instances trainN=new Instances(train);
+        trainN.setClassIndex(-1);
+        trainN.deleteAttributeAt(classIndex);
+        trainN.insertAttributeAt(new Attribute("'pseudo class'"),classIndex);
+        trainN.setClassIndex(classIndex);
+        m_NumericClassData=new Instances(trainN,0);
+        int numInstances=train.numInstances();
+        double[][] trainFs=new double[numInstances][m_NumClasses];
+        double[][] trainYs=new double[numInstances][m_NumClasses];
+        for (int j=0; j < m_NumClasses; j++) {
+          for (int k=0; k < numInstances; k++) {
+            trainYs[k][j]=(train.instance(k).classValue() == j) ? 1.0 - m_Offset : 0.0 + (m_Offset / (double)m_NumClasses);
+          }
+        }
+        double[][] probs=initialProbs(numInstances);
+        m_NumGenerated=0;
+        double sumOfWeights=train.sumOfWeights();
+        for (int j=0; j < getNumIterations(); j++) {
+          performIteration(trainYs,trainFs,probs,trainN,sumOfWeights);
+          Evaluation eval=new Evaluation(train);
+          eval.evaluateModel(this,test);
+          results[j]+=eval.correct();
+        }
+      }
+    }
+    double bestResult=-Double.MAX_VALUE;
+    for (int j=0; j < getNumIterations(); j++) {
+      if (results[j] > bestResult) {
+        bestResult=results[j];
+        bestNumIterations=j;
+      }
+    }
+    if (m_Debug) {
+      System.err.println("Best result for " + bestNumIterations + " iterations: "+ bestResult);
+    }
+  }
+  int numInstances=data.numInstances();
+  double[][] trainFs=new double[numInstances][m_NumClasses];
+  double[][] trainYs=new double[numInstances][m_NumClasses];
+  for (int j=0; j < m_NumClasses; j++) {
+    for (int i=0, k=0; i < numInstances; i++, k++) {
+      trainYs[i][j]=(data.instance(k).classValue() == j) ? 1.0 - m_Offset : 0.0 + (m_Offset / (double)m_NumClasses);
+    }
+  }
+  data.setClassIndex(-1);
+  data.deleteAttributeAt(classIndex);
+  data.insertAttributeAt(new Attribute("'pseudo class'"),classIndex);
+  data.setClassIndex(classIndex);
+  m_NumericClassData=new Instances(data,0);
+  double[][] probs=initialProbs(numInstances);
+  double logLikelihood=logLikelihood(trainYs,probs);
+  m_NumGenerated=0;
+  if (m_Debug) {
+    System.err.println("Avg. log-likelihood: " + logLikelihood);
+  }
+  double sumOfWeights=data.sumOfWeights();
+  for (int j=0; j < bestNumIterations; j++) {
+    double previousLoglikelihood=logLikelihood;
+    performIteration(trainYs,trainFs,probs,data,sumOfWeights);
+    logLikelihood=logLikelihood(trainYs,probs);
+    if (m_Debug) {
+      System.err.println("Avg. log-likelihood: " + logLikelihood);
+    }
+    if (Math.abs(previousLoglikelihood - logLikelihood) < m_Precision) {
+      return;
+    }
+  }
+}

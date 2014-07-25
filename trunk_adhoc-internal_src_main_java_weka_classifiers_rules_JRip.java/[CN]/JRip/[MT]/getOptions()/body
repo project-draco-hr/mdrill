@@ -1,0 +1,17 @@
+{
+  String[] options=new String[11];
+  int current=0;
+  options[current++]="-F";
+  options[current++]="" + m_Folds;
+  options[current++]="-N";
+  options[current++]="" + m_MinNo;
+  options[current++]="-O";
+  options[current++]="" + m_Optimizations;
+  options[current++]="-S";
+  options[current++]="" + m_Seed;
+  if (m_Debug)   options[current++]="-D";
+  if (!m_CheckErr)   options[current++]="-E";
+  if (!m_UsePruning)   options[current++]="-P";
+  while (current < options.length)   options[current++]="";
+  return options;
+}

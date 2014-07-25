@@ -1,0 +1,5 @@
+{
+  loadModel(m_modelPath);
+  Instances toReturn=(m_modelHeader == null) ? defaultH : m_modelHeader;
+  return new Instances(toReturn,0);
+}

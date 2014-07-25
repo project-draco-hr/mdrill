@@ -1,0 +1,4 @@
+DateFormat dateFormat
+String prefix
+String seriesParameterName
+String itemParameterName

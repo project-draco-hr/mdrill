@@ -1,0 +1,11 @@
+{
+  double width=Math.log(Math.abs(value)) / Math.log(10);
+  if (width < 0) {
+    width=1;
+  }
+  width+=6.0;
+  if ((int)width > maxWidth) {
+    maxWidth=(int)width;
+  }
+  return maxWidth;
+}

@@ -1,0 +1,51 @@
+{
+  processGraph();
+  m_progress.setValue(1);
+  m_progress.setString("Removing Cycles");
+  removeCycles();
+  m_progress.setValue(2);
+  m_progress.setString("Assigning levels to nodes");
+  int nodesLevel[]=new int[m_nodes.size()];
+  int depth=0;
+  for (int i=0; i < graphMatrix.length; i++) {
+    assignLevels(nodesLevel,depth,i,0);
+  }
+  for (int i=0; i < nodesLevel.length; i++) {
+    if (nodesLevel[i] == 0) {
+      int min=65536;
+      for (int j=0; j < graphMatrix[i].length; j++) {
+        if (graphMatrix[i][j] == DIRECTED)         if (min > nodesLevel[j])         min=nodesLevel[j];
+      }
+      if (min != 65536 && min > 1)       nodesLevel[i]=min - 1;
+    }
+  }
+  int maxLevel=0;
+  for (int i=0; i < nodesLevel.length; i++) {
+    if (nodesLevel[i] > maxLevel)     maxLevel=nodesLevel[i];
+  }
+  int levelCounts[]=new int[maxLevel + 1];
+  for (int i=0; i < nodesLevel.length; i++) {
+    levelCounts[nodesLevel[i]]++;
+  }
+  int levelsCounter[]=new int[maxLevel + 1];
+  nodeLevels=new int[maxLevel + 1][];
+  for (byte i=0; i < nodesLevel.length; i++) {
+    if (nodeLevels[nodesLevel[i]] == null)     nodeLevels[nodesLevel[i]]=new int[levelCounts[nodesLevel[i]]];
+    nodeLevels[nodesLevel[i]][levelsCounter[nodesLevel[i]]++]=i;
+  }
+  m_progress.setValue(3);
+  m_progress.setString("Removing gaps by adding dummy vertices");
+  if (m_jCbEdgeConcentration.isSelected())   removeGapsWithEdgeConcentration(nodesLevel);
+ else   removeGaps(nodesLevel);
+  for (int i=0; i < graphMatrix.length; i++) {
+    GraphNode n=(GraphNode)m_nodes.elementAt(i);
+    int sum=0;
+    for (int j=0; j < graphMatrix[i].length; j++)     if (graphMatrix[i][j] != 0)     sum++;
+    n.edges=new int[sum][2];
+    for (int j=0, k=0; j < graphMatrix[i].length; j++)     if (graphMatrix[i][j] != 0) {
+      n.edges[k][0]=j;
+      n.edges[k][1]=graphMatrix[i][j];
+      k++;
+    }
+  }
+}

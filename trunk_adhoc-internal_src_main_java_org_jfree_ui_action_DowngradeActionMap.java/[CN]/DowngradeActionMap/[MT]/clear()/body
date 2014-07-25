@@ -1,0 +1,4 @@
+{
+  this.actionMap.clear();
+  this.actionList.clear();
+}

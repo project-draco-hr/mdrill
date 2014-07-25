@@ -1,0 +1,12 @@
+{
+  sort();
+  if (isOverlap()) {
+    adjustDownwards(minY,height);
+  }
+  if (isOverlap()) {
+    adjustUpwards(minY,height);
+  }
+  if (isOverlap()) {
+    spreadEvenly(minY,height);
+  }
+}

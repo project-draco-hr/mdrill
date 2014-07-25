@@ -1,0 +1,5 @@
+{
+  m_note=(Note)ob;
+  m_textArea.setText(m_note.getNoteText());
+  m_textArea.selectAll();
+}

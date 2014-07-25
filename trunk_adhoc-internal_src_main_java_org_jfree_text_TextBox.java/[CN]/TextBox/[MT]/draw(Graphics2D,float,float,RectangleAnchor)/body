@@ -1,0 +1,24 @@
+{
+  final Size2D d1=this.textBlock.calculateDimensions(g2);
+  final double w=this.interiorGap.extendWidth(d1.getWidth());
+  final double h=this.interiorGap.extendHeight(d1.getHeight());
+  final Size2D d2=new Size2D(w,h);
+  final Rectangle2D bounds=RectangleAnchor.createRectangle(d2,x,y,anchor);
+  double xx=bounds.getX();
+  double yy=bounds.getY();
+  if (this.shadowPaint != null) {
+    final Rectangle2D shadow=new Rectangle2D.Double(xx + this.shadowXOffset,yy + this.shadowYOffset,bounds.getWidth(),bounds.getHeight());
+    g2.setPaint(this.shadowPaint);
+    g2.fill(shadow);
+  }
+  if (this.backgroundPaint != null) {
+    g2.setPaint(this.backgroundPaint);
+    g2.fill(bounds);
+  }
+  if (this.outlinePaint != null && this.outlineStroke != null) {
+    g2.setPaint(this.outlinePaint);
+    g2.setStroke(this.outlineStroke);
+    g2.draw(bounds);
+  }
+  this.textBlock.draw(g2,(float)(xx + this.interiorGap.calculateLeftInset(w)),(float)(yy + this.interiorGap.calculateTopInset(h)),TextBlockAnchor.TOP_LEFT);
+}

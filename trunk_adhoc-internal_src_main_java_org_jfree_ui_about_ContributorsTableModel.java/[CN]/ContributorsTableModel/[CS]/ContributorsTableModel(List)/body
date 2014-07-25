@@ -1,0 +1,7 @@
+{
+  this.contributors=contributors;
+  final String baseName="org.jfree.ui.about.resources.AboutResources";
+  final ResourceBundle resources=ResourceBundleWrapper.getBundle(baseName);
+  this.nameColumnLabel=resources.getString("contributors-table.column.name");
+  this.contactColumnLabel=resources.getString("contributors-table.column.contact");
+}

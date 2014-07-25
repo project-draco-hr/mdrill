@@ -1,0 +1,12 @@
+{
+  m_env=env;
+  try {
+    m_DataBaseConnection=newDatabaseConnection();
+    setUrl(m_URL);
+    setUser(m_Username);
+    setPassword(m_Password);
+  }
+ catch (  Exception ex) {
+    ex.printStackTrace();
+  }
+}

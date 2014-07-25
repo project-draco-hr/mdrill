@@ -1,0 +1,7 @@
+{
+  super();
+  this.itemMargin=DEFAULT_ITEM_MARGIN;
+  this.maxItemWidth=1.0;
+  setBaseLegendShape(new Rectangle2D.Float(-5.0f,-1.0f,10.0f,2.0f));
+  setBaseOutlinePaint(new Color(0,0,0,0));
+}

@@ -1,0 +1,18 @@
+{
+  d_node ele;
+  println("cover set = ");
+  for (; current_scale <= max_scale; current_scale++) {
+    println("" + current_scale);
+    for (int i=0; i < cover_sets.element(current_scale).length; i++) {
+      ele=cover_sets.element(current_scale).element(i);
+      CoverTreeNode n=ele.n;
+      println(n.p());
+    }
+  }
+  println("infinity");
+  for (int i=0; i < zero_set.length; i++) {
+    ele=zero_set.element(i);
+    CoverTreeNode n=ele.n;
+    println(n.p());
+  }
+}

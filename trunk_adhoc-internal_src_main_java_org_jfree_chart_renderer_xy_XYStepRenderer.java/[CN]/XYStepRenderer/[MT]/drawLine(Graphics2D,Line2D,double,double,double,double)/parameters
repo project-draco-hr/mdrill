@@ -1,0 +1,6 @@
+Graphics2D g2
+Line2D line
+double x0
+double y0
+double x1
+double y1

@@ -1,0 +1,3 @@
+{
+  log(LogTarget.DEBUG,message,e);
+}

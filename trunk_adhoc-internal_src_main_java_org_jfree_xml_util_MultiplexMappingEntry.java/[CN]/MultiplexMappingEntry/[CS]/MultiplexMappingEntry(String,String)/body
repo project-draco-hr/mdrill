@@ -1,0 +1,4 @@
+{
+  this.attributeValue=attributeValue;
+  this.targetClass=targetClass;
+}

@@ -1,0 +1,5 @@
+Random random
+int origSize
+int sampleSize
+int actualClasses
+int[] classIndices

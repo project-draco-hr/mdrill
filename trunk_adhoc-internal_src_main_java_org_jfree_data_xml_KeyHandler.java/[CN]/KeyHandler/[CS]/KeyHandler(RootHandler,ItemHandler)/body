@@ -1,0 +1,5 @@
+{
+  this.rootHandler=rootHandler;
+  this.itemHandler=itemHandler;
+  this.currentText=new StringBuffer();
+}

@@ -1,0 +1,4 @@
+{
+  this.rangeTickBandPaint=paint;
+  fireChangeEvent();
+}

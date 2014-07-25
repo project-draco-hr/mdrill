@@ -1,0 +1,8 @@
+{
+  Vector newVector=new Vector(4);
+  newVector.addElement(new Option("\tUse unpruned tree/rules","N",0,"-N"));
+  newVector.addElement(new Option("\tUse unsmoothed predictions","U",0,"-U"));
+  newVector.addElement(new Option("\tBuild regression tree/rule rather " + "than a model tree/rule","R",0,"-R"));
+  newVector.addElement(new Option("\tSet minimum number of instances " + "per leaf\n\t(default 4)","M",1,"-M <minimum number of instances>"));
+  return newVector.elements();
+}

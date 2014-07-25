@@ -1,0 +1,11 @@
+{
+  if (data == null) {
+    throw new NullPointerException();
+  }
+  if (colCount < 0) {
+    throw new IndexOutOfBoundsException();
+  }
+  this.data=data;
+  this.rows=data.length;
+  this.columns=colCount;
+}

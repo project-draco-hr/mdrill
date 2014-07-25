@@ -1,0 +1,20 @@
+{
+  ArffPanel panel;
+  ListSelectorDialog dialog;
+  Vector props;
+  Instances inst;
+  panel=getCurrentPanel();
+  if (panel == null)   return;
+  inst=panel.getInstances();
+  if (inst == null)   return;
+  if (inst.classIndex() < 0)   inst.setClassIndex(inst.numAttributes() - 1);
+  props=new Vector();
+  props.add("Filename: " + panel.getFilename());
+  props.add("Relation name: " + inst.relationName());
+  props.add("# of instances: " + inst.numInstances());
+  props.add("# of attributes: " + inst.numAttributes());
+  props.add("Class attribute: " + inst.classAttribute().name());
+  props.add("# of class labels: " + inst.numClasses());
+  dialog=new ListSelectorDialog(getParentFrame(),new JList(props));
+  dialog.showDialog();
+}

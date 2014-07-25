@@ -1,0 +1,15 @@
+{
+  if (m_customPeriodics == null) {
+    m_customPeriodics=new HashMap<String,ArrayList<CustomPeriodicTest>>();
+  }
+  ArrayList<CustomPeriodicTest> tests=new ArrayList<CustomPeriodicTest>();
+  int nameSplit=customPeriodic.indexOf('=');
+  String fieldName=customPeriodic.substring(0,nameSplit);
+  customPeriodic=customPeriodic.substring(nameSplit + 1,customPeriodic.length());
+  String[] parts=customPeriodic.split("|");
+  for (  String p : parts) {
+    CustomPeriodicTest c=new CustomPeriodicTest(p);
+    tests.add(c);
+  }
+  m_customPeriodics.put(fieldName,tests);
+}

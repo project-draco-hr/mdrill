@@ -1,0 +1,5 @@
+JunctionTreeNode[] jtNodes
+int[] order
+Set[] cliques
+Set[] separators
+int[] parentCliques

@@ -1,0 +1,3 @@
+short shardIndex
+long partioncrc
+Configuration realConf

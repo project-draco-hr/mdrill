@@ -1,0 +1,21 @@
+{
+  float colBC[]=new float[levels[lindex + 1].length];
+  GraphNode n;
+  for (int i=0; i < levels[lindex + 1].length; i++) {
+    int sum=0;
+    n=(GraphNode)m_nodes.elementAt(levels[lindex + 1][i]);
+    for (int j=0; j < n.edges.length; j++) {
+      if (n.edges[j][1] < 1) {
+        sum++;
+        try {
+          colBC[i]=colBC[i] + indexOfElementInLevel(n.edges[j][0],levels[lindex]) + 1;
+        }
+ catch (        Exception ex) {
+          return null;
+        }
+      }
+    }
+    if (colBC[i] != 0)     colBC[i]=colBC[i] / sum;
+  }
+  return colBC;
+}

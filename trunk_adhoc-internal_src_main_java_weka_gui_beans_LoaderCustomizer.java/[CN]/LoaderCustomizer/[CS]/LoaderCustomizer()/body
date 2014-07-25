@@ -1,0 +1,21 @@
+{
+  setLayout(new BorderLayout());
+  m_fileChooser.setDialogType(JFileChooser.OPEN_DIALOG);
+  m_fileChooser.addActionListener(new ActionListener(){
+    public void actionPerformed(    ActionEvent e){
+      if (e.getActionCommand().equals(JFileChooser.APPROVE_SELECTION)) {
+        try {
+          File selectedFile=m_fileChooser.getSelectedFile();
+          m_fileText.setText(selectedFile.toString());
+        }
+ catch (        Exception ex) {
+          ex.printStackTrace();
+        }
+      }
+      if (m_fileChooserFrame != null) {
+        m_fileChooserFrame.dispose();
+      }
+    }
+  }
+);
+}

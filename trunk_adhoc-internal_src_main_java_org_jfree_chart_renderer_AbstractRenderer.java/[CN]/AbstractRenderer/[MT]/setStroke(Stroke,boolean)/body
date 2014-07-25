@@ -1,0 +1,6 @@
+{
+  this.stroke=stroke;
+  if (notify) {
+    fireChangeEvent();
+  }
+}

@@ -1,0 +1,10 @@
+{
+  if (!(o instanceof Dimension2D)) {
+    throw new ObjectFactoryException("The given object is no java.awt.geom.Dimension2D.");
+  }
+  final Dimension2D dim=(Dimension2D)o;
+  final float width=(float)dim.getWidth();
+  final float height=(float)dim.getHeight();
+  setParameter("width",new Float(width));
+  setParameter("height",new Float(height));
+}

@@ -1,0 +1,16 @@
+{
+  boolean enable=false;
+  if (m_instances != null) {
+    if (m_timeStampCombo.getSelectedItem() != null) {
+      String timeName=m_timeStampCombo.getSelectedItem().toString();
+      Attribute timeAtt=m_instances.attribute(timeName);
+      if (timeAtt != null) {
+        if (m_periodicityCombo.getSelectedItem() != null) {
+          String periodicity=m_periodicityCombo.getSelectedItem().toString();
+          enable=(timeAtt.isDate() && !periodicity.equals("<Unknown>") && !periodicity.equals("<Detect automatically>"));
+        }
+      }
+    }
+  }
+  m_skipText.setEnabled(enable);
+}

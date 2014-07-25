@@ -1,0 +1,7 @@
+{
+  if (m_predicate.evaluate(input) == TreeModel.Predicate.Eval.TRUE) {
+    for (    Rule r : m_childRules) {
+      r.fires(input,ruleCollection);
+    }
+  }
+}

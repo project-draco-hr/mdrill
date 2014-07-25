@@ -1,0 +1,5 @@
+{
+  String old=this.description;
+  this.description=description;
+  this.propertyChangeSupport.firePropertyChange("Description",old,description);
+}

@@ -1,0 +1,9 @@
+{
+  this(reader,template,lines,100);
+  Instance inst;
+  while ((inst=readInstance(m_Data)) != null) {
+    m_Data.add(inst);
+  }
+  ;
+  compactify();
+}

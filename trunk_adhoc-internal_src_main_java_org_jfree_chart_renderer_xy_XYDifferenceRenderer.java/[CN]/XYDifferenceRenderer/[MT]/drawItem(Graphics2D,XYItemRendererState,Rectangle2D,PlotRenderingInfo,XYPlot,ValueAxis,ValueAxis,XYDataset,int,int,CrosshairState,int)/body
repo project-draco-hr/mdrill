@@ -1,0 +1,8 @@
+{
+  if (pass == 0) {
+    drawItemPass0(g2,dataArea,info,plot,domainAxis,rangeAxis,dataset,series,item,crosshairState);
+  }
+ else   if (pass == 1) {
+    drawItemPass1(g2,dataArea,info,plot,domainAxis,rangeAxis,dataset,series,item,crosshairState);
+  }
+}

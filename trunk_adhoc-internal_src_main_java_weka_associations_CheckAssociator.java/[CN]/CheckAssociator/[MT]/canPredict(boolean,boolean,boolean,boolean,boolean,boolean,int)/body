@@ -1,0 +1,19 @@
+{
+  print("basic predict");
+  printAttributeSummary(nominalPredictor,numericPredictor,stringPredictor,datePredictor,relationalPredictor,multiInstance,classType);
+  print("...");
+  FastVector accepts=new FastVector();
+  accepts.addElement("any");
+  accepts.addElement("unary");
+  accepts.addElement("binary");
+  accepts.addElement("nominal");
+  accepts.addElement("numeric");
+  accepts.addElement("string");
+  accepts.addElement("date");
+  accepts.addElement("relational");
+  accepts.addElement("multi-instance");
+  accepts.addElement("not in classpath");
+  int numTrain=getNumInstances(), numClasses=2, missingLevel=0;
+  boolean predictorMissing=false, classMissing=false;
+  return runBasicTest(nominalPredictor,numericPredictor,stringPredictor,datePredictor,relationalPredictor,multiInstance,classType,missingLevel,predictorMissing,classMissing,numTrain,numClasses,accepts);
+}

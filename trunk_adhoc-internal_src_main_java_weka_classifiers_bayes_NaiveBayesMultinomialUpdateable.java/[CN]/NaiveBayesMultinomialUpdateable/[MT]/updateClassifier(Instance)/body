@@ -1,0 +1,11 @@
+{
+  int classIndex=(int)instance.value(instance.classIndex());
+  m_probOfClass[classIndex]+=instance.weight();
+  for (int a=0; a < instance.numValues(); a++) {
+    if (instance.index(a) == instance.classIndex() || instance.isMissing(a))     continue;
+    double numOccurences=instance.valueSparse(a) * instance.weight();
+    if (numOccurences < 0)     throw new Exception("Numeric attribute values must all be greater or equal to zero.");
+    m_wordsPerClass[classIndex]+=numOccurences;
+    m_probOfWordGivenClass[classIndex][instance.index(a)]+=numOccurences;
+  }
+}

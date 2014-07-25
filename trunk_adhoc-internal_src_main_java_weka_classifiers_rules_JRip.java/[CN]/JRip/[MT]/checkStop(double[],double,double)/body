@@ -1,0 +1,21 @@
+{
+  if (dl > minDL + MAX_DL_SURPLUS) {
+    if (m_Debug)     System.err.println("DL too large: " + dl + " | "+ minDL);
+    return true;
+  }
+ else   if (!Utils.gr(rst[2],0.0)) {
+    if (m_Debug)     System.err.println("Too few positives.");
+    return true;
+  }
+ else   if ((rst[4] / rst[0]) >= 0.5) {
+    if (m_CheckErr) {
+      if (m_Debug)       System.err.println("Error too large: " + rst[4] + "/"+ rst[0]);
+      return true;
+    }
+ else     return false;
+  }
+ else {
+    if (m_Debug)     System.err.println("Continue.");
+    return false;
+  }
+}

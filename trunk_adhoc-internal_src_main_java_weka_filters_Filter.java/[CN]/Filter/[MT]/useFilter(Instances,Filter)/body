@@ -1,0 +1,12 @@
+{
+  for (int i=0; i < data.numInstances(); i++) {
+    filter.input(data.instance(i));
+  }
+  filter.batchFinished();
+  Instances newData=filter.getOutputFormat();
+  Instance processed;
+  while ((processed=filter.output()) != null) {
+    newData.add(processed);
+  }
+  return newData;
+}

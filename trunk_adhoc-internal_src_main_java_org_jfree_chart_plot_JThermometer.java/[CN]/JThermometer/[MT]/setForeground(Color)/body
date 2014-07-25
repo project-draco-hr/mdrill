@@ -1,0 +1,6 @@
+{
+  super.setForeground(fg);
+  if (this.plot != null) {
+    this.plot.setThermometerPaint(fg);
+  }
+}

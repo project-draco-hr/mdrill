@@ -1,0 +1,24 @@
+{
+  String result;
+  int i;
+  boolean wasDot;
+  char c;
+  result="";
+  wasDot=false;
+  for (i=0; i < partial.length(); i++) {
+    c=partial.charAt(i);
+    if (wasDot && ((c >= 'A') && (c <= 'Z'))) {
+      break;
+    }
+ else     if (c == '.') {
+      wasDot=true;
+      result+="" + c;
+    }
+ else {
+      wasDot=false;
+      result+="" + c;
+    }
+  }
+  if (result.endsWith("."))   result=result.substring(0,result.length() - 1);
+  return result;
+}

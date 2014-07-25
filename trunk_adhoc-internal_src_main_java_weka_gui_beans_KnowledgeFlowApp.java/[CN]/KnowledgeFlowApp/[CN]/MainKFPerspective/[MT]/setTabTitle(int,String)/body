@@ -1,0 +1,7 @@
+{
+  if (index < getNumTabs() && index >= 0) {
+    System.err.println("Setting tab title to " + title);
+    m_flowTabs.setTitleAt(index,title);
+    ((CloseableTabTitle)m_flowTabs.getTabComponentAt(index)).revalidate();
+  }
+}

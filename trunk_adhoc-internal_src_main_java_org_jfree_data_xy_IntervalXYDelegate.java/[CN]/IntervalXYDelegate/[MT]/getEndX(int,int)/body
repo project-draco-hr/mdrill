@@ -1,0 +1,8 @@
+{
+  Number endX=null;
+  Number x=this.dataset.getX(series,item);
+  if (x != null) {
+    endX=new Double(x.doubleValue() + ((1.0 - getIntervalPositionFactor()) * getIntervalWidth()));
+  }
+  return endX;
+}

@@ -1,0 +1,5 @@
+{
+  ComparableObjectItem result=(ComparableObjectItem)this.data.remove(index);
+  fireSeriesChanged();
+  return result;
+}

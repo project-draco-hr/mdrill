@@ -1,0 +1,3 @@
+{
+  return (m_CurrentPosition < m_MaxPosition && m_N - 1 + m_CurrentPosition < m_MaxPosition && m_N >= m_NMin);
+}

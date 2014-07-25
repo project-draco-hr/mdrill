@@ -1,0 +1,6 @@
+{
+  if (this.expTickLabelsFlag || forceFmtFlag) {
+    return this.numberFormatterObj.format(val).toLowerCase();
+  }
+  return getTickUnit().valueToString(val);
+}

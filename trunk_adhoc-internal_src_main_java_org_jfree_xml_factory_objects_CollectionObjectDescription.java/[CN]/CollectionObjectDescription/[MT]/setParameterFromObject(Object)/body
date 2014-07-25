@@ -1,0 +1,17 @@
+{
+  if (o == null) {
+    throw new NullPointerException("Given object is null");
+  }
+  final Class c=getObjectClass();
+  if (!c.isInstance(o)) {
+    throw new ObjectFactoryException("Object is no instance of " + c + "(is "+ o.getClass()+ ")");
+  }
+  final Collection l=(Collection)o;
+  final Iterator it=l.iterator();
+  int counter=0;
+  while (it.hasNext()) {
+    final Object ob=it.next();
+    setParameter(String.valueOf(counter),ob);
+    counter++;
+  }
+}

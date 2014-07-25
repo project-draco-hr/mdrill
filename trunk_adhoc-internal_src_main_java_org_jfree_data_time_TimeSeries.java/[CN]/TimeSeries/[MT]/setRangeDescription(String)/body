@@ -1,0 +1,5 @@
+{
+  String old=this.range;
+  this.range=description;
+  firePropertyChange("Range",old,description);
+}

@@ -1,0 +1,23 @@
+{
+  Cluster clu=clusterMap.get(key.toString());
+  int limit=1;
+  if (clu != null) {
+    limit=Math.min(clu.getNumselect() * this.rep * 10,50000);
+  }
+  if (limit < 1000) {
+    limit=1000;
+  }
+  PriorityQueue<Text> res=new PriorityQueue<Text>(limit,Collections.reverseOrder(cmp));
+  for (  Text value : values) {
+    if (res.size() < limit) {
+      res.add(new Text(value.toString()));
+    }
+ else     if (cmp.compare(res.peek(),new Text(value.toString())) > 0) {
+      res.add(new Text(value.toString()));
+      res.poll();
+    }
+  }
+  for (  Text s : res) {
+    context.write(key,s);
+  }
+}

@@ -1,0 +1,21 @@
+{
+  int size;
+  int from;
+  int i;
+  String filename;
+  BufferedOutputStream stream;
+  size=Integer.parseInt(PROPERTIES.getProperty("HistorySize","50"));
+  from=m_CommandHistory.size() - size;
+  if (from < 0)   from=0;
+  PROPERTIES.setProperty("HistorySize","" + size);
+  for (i=from; i < m_CommandHistory.size(); i++)   PROPERTIES.setProperty("Command" + (i - from),(String)m_CommandHistory.get(i));
+  try {
+    filename=System.getProperties().getProperty("user.home") + File.separatorChar + FILENAME;
+    stream=new BufferedOutputStream(new FileOutputStream(filename));
+    PROPERTIES.store(stream,"SimpleCLI");
+    stream.close();
+  }
+ catch (  Exception e) {
+    e.printStackTrace();
+  }
+}

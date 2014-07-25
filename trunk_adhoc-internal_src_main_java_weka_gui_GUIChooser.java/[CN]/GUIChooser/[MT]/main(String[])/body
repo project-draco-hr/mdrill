@@ -1,0 +1,66 @@
+{
+  weka.core.logging.Logger.log(weka.core.logging.Logger.Level.INFO,"Logging started");
+  LookAndFeel.setLookAndFeel();
+  try {
+    GUIChooser.createSingleton();
+    m_chooser.setVisible(true);
+    if (args != null && args.length > 0) {
+      m_chooser.showExplorer(args[0]);
+    }
+    Thread memMonitor=new Thread(){
+      public void run(){
+        while (true) {
+          try {
+            this.sleep(4000);
+            System.gc();
+            if (m_Memory.isOutOfMemory()) {
+              m_chooser.dispose();
+              if (m_chooser.m_ExperimenterFrame != null) {
+                m_chooser.m_ExperimenterFrame.dispose();
+                m_chooser.m_ExperimenterFrame=null;
+              }
+              if (m_chooser.m_ExplorerFrame != null) {
+                m_chooser.m_ExplorerFrame.dispose();
+                m_chooser.m_ExplorerFrame=null;
+              }
+              if (m_chooser.m_KnowledgeFlowFrame != null) {
+                m_chooser.m_KnowledgeFlowFrame.dispose();
+                m_chooser.m_KnowledgeFlowFrame=null;
+              }
+              if (m_chooser.m_SimpleCLI != null) {
+                m_chooser.m_SimpleCLI.dispose();
+                m_chooser.m_SimpleCLI=null;
+              }
+              if (m_chooser.m_ArffViewers.size() > 0) {
+                for (int i=0; i < m_chooser.m_ArffViewers.size(); i++) {
+                  ArffViewer av=(ArffViewer)m_chooser.m_ArffViewers.get(i);
+                  av.dispose();
+                }
+                m_chooser.m_ArffViewers.clear();
+              }
+              m_chooser=null;
+              System.gc();
+              m_Memory.stopThreads();
+              m_chooser.m_LogWindow.setVisible(true);
+              m_chooser.m_LogWindow.toFront();
+              System.err.println("\ndisplayed message:");
+              m_Memory.showOutOfMemory();
+              System.err.println("\nexiting...");
+              System.exit(-1);
+            }
+          }
+ catch (          InterruptedException ex) {
+            ex.printStackTrace();
+          }
+        }
+      }
+    }
+;
+    memMonitor.setPriority(Thread.NORM_PRIORITY);
+    memMonitor.start();
+  }
+ catch (  Exception ex) {
+    ex.printStackTrace();
+    System.err.println(ex.getMessage());
+  }
+}

@@ -1,0 +1,23 @@
+{
+  if (!m_adjustForVariance) {
+    return insts;
+  }
+  if (m_fieldsToLag == null || m_fieldsToLag.get(0).length() == 0) {
+    throw new Exception("Fields to lag is not specified!");
+  }
+  m_varianceAdjusters=new ArrayList<Filter>();
+  for (  String field : m_fieldsToLag) {
+    int index=insts.attribute(field).index();
+    if (index < 0) {
+      throw new Exception("Can't find field '" + field + "'!");
+    }
+    MathExpression mathE=new MathExpression();
+    mathE.setIgnoreRange("" + (index + 1));
+    mathE.setInvertSelection(true);
+    mathE.setExpression("log(A)");
+    mathE.setInputFormat(insts);
+    insts=Filter.useFilter(insts,mathE);
+    m_varianceAdjusters.add(mathE);
+  }
+  return insts;
+}

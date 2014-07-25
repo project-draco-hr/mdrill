@@ -1,0 +1,12 @@
+{
+  String result=null;
+  Object[] items=null;
+  if (dataset instanceof XYZDataset) {
+    items=createItemArray((XYZDataset)dataset,series,item);
+  }
+ else {
+    items=createItemArray(dataset,series,item);
+  }
+  result=MessageFormat.format(getFormatString(),items);
+  return result;
+}

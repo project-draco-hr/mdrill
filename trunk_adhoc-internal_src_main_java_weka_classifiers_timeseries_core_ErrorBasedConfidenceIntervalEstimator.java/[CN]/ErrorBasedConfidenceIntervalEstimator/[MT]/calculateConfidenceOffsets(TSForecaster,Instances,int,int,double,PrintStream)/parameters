@@ -1,0 +1,6 @@
+TSForecaster forecaster
+Instances insts
+int numPrime
+int numSteps
+double confidenceLevel
+PrintStream progress

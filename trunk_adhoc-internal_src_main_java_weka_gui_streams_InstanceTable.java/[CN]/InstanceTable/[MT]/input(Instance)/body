@@ -1,0 +1,6 @@
+{
+  if (m_Debug) {
+    System.err.println("InstanceTable::input(" + instance + ")");
+  }
+  m_Instances.add(instance);
+}

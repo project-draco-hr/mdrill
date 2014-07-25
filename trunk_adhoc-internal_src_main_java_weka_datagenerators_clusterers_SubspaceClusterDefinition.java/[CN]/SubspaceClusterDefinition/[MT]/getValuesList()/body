@@ -1,0 +1,12 @@
+{
+  String result;
+  int i;
+  result="";
+  if (m_minValue != null) {
+    for (i=0; i < m_minValue.length; i++) {
+      if (i > 0)       result+=",";
+      result+="" + m_minValue[i] + ","+ m_maxValue[i];
+    }
+  }
+  return result;
+}

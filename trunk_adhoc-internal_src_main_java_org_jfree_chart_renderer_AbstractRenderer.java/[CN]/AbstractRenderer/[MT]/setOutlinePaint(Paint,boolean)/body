@@ -1,0 +1,6 @@
+{
+  this.outlinePaint=paint;
+  if (notify) {
+    fireChangeEvent();
+  }
+}

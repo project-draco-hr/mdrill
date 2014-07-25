@@ -1,0 +1,9 @@
+{
+  Vector newVector=new Vector(1);
+  newVector.addElement(new Option("\tWhether to use K2 prior.\n","k2",0,"-k2"));
+  Enumeration enu=super.listOptions();
+  while (enu.hasMoreElements()) {
+    newVector.addElement(enu.nextElement());
+  }
+  return newVector.elements();
+}

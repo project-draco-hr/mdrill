@@ -1,0 +1,5 @@
+{
+  this(source,testSet,setNum,maxSetNum);
+  m_runNumber=runNum;
+  m_maxRunNumber=maxRunNum;
+}

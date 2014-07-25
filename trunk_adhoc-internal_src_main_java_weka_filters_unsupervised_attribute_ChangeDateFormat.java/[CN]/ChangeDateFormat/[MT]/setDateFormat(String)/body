@@ -1,0 +1,3 @@
+{
+  setDateFormat(new SimpleDateFormat(dateFormat));
+}

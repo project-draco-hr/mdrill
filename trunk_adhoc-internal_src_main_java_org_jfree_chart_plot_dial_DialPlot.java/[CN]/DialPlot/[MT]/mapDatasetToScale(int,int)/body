@@ -1,0 +1,4 @@
+{
+  this.datasetToScaleMap.set(index,new Integer(scaleIndex));
+  fireChangeEvent();
+}

@@ -1,0 +1,4 @@
+{
+  this.shadowPaint=paint;
+  fireChangeEvent();
+}

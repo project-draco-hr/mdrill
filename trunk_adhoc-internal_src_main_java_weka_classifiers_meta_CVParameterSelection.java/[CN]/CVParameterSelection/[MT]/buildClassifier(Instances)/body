@@ -1,0 +1,31 @@
+{
+  getCapabilities().testWithFail(instances);
+  Instances trainData=new Instances(instances);
+  trainData.deleteWithMissingClass();
+  if (!(m_Classifier instanceof OptionHandler)) {
+    throw new IllegalArgumentException("Base classifier should be OptionHandler.");
+  }
+  m_InitOptions=((OptionHandler)m_Classifier).getOptions();
+  m_BestPerformance=-99;
+  m_NumAttributes=trainData.numAttributes();
+  Random random=new Random(m_Seed);
+  trainData.randomize(random);
+  m_TrainFoldSize=trainData.trainCV(m_NumFolds,0).numInstances();
+  if (m_CVParams.size() == 0) {
+    m_Classifier.buildClassifier(trainData);
+    m_BestClassifierOptions=m_InitOptions;
+    return;
+  }
+  if (trainData.classAttribute().isNominal()) {
+    trainData.stratify(m_NumFolds);
+  }
+  m_BestClassifierOptions=null;
+  m_ClassifierOptions=((OptionHandler)m_Classifier).getOptions();
+  for (int i=0; i < m_CVParams.size(); i++) {
+    Utils.getOption(((CVParameter)m_CVParams.elementAt(i)).m_ParamChar,m_ClassifierOptions);
+  }
+  findParamsByCrossValidation(0,trainData,random);
+  String[] options=(String[])m_BestClassifierOptions.clone();
+  ((OptionHandler)m_Classifier).setOptions(options);
+  m_Classifier.buildClassifier(trainData);
+}

@@ -1,0 +1,134 @@
+{
+  try {
+    if (ce.getStatus() == IncrementalClassifierEvent.NEW_BATCH) {
+      m_eval=new Evaluation(ce.getStructure());
+      m_eval.useNoPriors();
+      m_dataLegend=new Vector();
+      m_reset=true;
+      m_dataPoint=new double[0];
+      Instances inst=ce.getStructure();
+      System.err.println("NEW BATCH");
+      m_instanceCount=0;
+      if (m_logger != null) {
+        m_logger.statusMessage(statusMessagePrefix() + "IncrementalClassifierEvaluator: started processing...");
+        m_logger.logMessage("[IncrementalClassifierEvaluator]" + statusMessagePrefix() + " started processing...");
+      }
+    }
+ else {
+      if (m_instanceCount > 0 && m_instanceCount % m_statusFrequency == 0) {
+        if (m_logger != null) {
+          m_logger.statusMessage(statusMessagePrefix() + "Processed " + m_instanceCount+ " instances.");
+        }
+      }
+      m_instanceCount++;
+      Instance inst=ce.getCurrentInstance();
+      double[] dist=ce.getClassifier().distributionForInstance(inst);
+      double pred=0;
+      if (!inst.isMissing(inst.classIndex())) {
+        if (m_outputInfoRetrievalStats) {
+          m_eval.evaluateModelOnceAndRecordPrediction(dist,inst);
+        }
+ else {
+          m_eval.evaluateModelOnce(dist,inst);
+        }
+      }
+ else {
+        pred=ce.getClassifier().classifyInstance(inst);
+      }
+      if (inst.classIndex() >= 0) {
+        if (inst.attribute(inst.classIndex()).isNominal()) {
+          if (!inst.isMissing(inst.classIndex())) {
+            if (m_dataPoint.length < 2) {
+              m_dataPoint=new double[2];
+              m_dataLegend.addElement("Accuracy");
+              m_dataLegend.addElement("RMSE (prob)");
+            }
+            m_dataPoint[1]=m_eval.rootMeanSquaredError();
+          }
+ else {
+            if (m_dataPoint.length < 1) {
+              m_dataPoint=new double[1];
+              m_dataLegend.addElement("Confidence");
+            }
+          }
+          double primaryMeasure=0;
+          if (!inst.isMissing(inst.classIndex())) {
+            primaryMeasure=1.0 - m_eval.errorRate();
+          }
+ else {
+            primaryMeasure=dist[Utils.maxIndex(dist)];
+          }
+          m_dataPoint[0]=primaryMeasure;
+          m_ce.setLegendText(m_dataLegend);
+          m_ce.setMin(0);
+          m_ce.setMax(1);
+          m_ce.setDataPoint(m_dataPoint);
+          m_ce.setReset(m_reset);
+          m_reset=false;
+        }
+ else {
+          if (m_dataPoint.length < 1) {
+            m_dataPoint=new double[1];
+            if (inst.isMissing(inst.classIndex())) {
+              m_dataLegend.addElement("Prediction");
+            }
+ else {
+              m_dataLegend.addElement("RMSE");
+            }
+          }
+          if (!inst.isMissing(inst.classIndex())) {
+            double update;
+            if (!inst.isMissing(inst.classIndex())) {
+              update=m_eval.rootMeanSquaredError();
+            }
+ else {
+              update=pred;
+            }
+            m_dataPoint[0]=update;
+            if (update > m_max) {
+              m_max=update;
+            }
+            if (update < m_min) {
+              m_min=update;
+            }
+          }
+          m_ce.setLegendText(m_dataLegend);
+          m_ce.setMin((inst.isMissing(inst.classIndex()) ? m_min : 0));
+          m_ce.setMax(m_max);
+          m_ce.setDataPoint(m_dataPoint);
+          m_ce.setReset(m_reset);
+          m_reset=false;
+        }
+        notifyChartListeners(m_ce);
+        if (ce.getStatus() == IncrementalClassifierEvent.BATCH_FINISHED) {
+          if (m_logger != null) {
+            m_logger.logMessage("[IncrementalClassifierEvaluator]" + statusMessagePrefix() + " Finished processing.");
+            m_logger.statusMessage(statusMessagePrefix() + "Done.");
+          }
+          if (m_textListeners.size() > 0) {
+            String textTitle=ce.getClassifier().getClass().getName();
+            textTitle=textTitle.substring(textTitle.lastIndexOf('.') + 1,textTitle.length());
+            String results="=== Performance information ===\n\n" + "Scheme:   " + textTitle + "\n"+ "Relation: "+ inst.dataset().relationName()+ "\n\n"+ m_eval.toSummaryString();
+            if (inst.classIndex() >= 0 && inst.classAttribute().isNominal() && (m_outputInfoRetrievalStats)) {
+              results+="\n" + m_eval.toClassDetailsString();
+            }
+            if (inst.classIndex() >= 0 && inst.classAttribute().isNominal()) {
+              results+="\n" + m_eval.toMatrixString();
+            }
+            textTitle="Results: " + textTitle;
+            TextEvent te=new TextEvent(this,results,textTitle);
+            notifyTextListeners(te);
+          }
+        }
+      }
+    }
+  }
+ catch (  Exception ex) {
+    if (m_logger != null) {
+      m_logger.logMessage("[IncrementalClassifierEvaluator]" + statusMessagePrefix() + " Error processing prediction "+ ex.getMessage());
+      m_logger.statusMessage(statusMessagePrefix() + "ERROR: problem processing prediction (see log for details)");
+    }
+    ex.printStackTrace();
+    stop();
+  }
+}

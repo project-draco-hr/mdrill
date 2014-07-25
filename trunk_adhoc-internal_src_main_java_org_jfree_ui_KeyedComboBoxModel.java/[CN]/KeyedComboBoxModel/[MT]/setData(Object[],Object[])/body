@@ -1,0 +1,13 @@
+{
+  if (values.length != keys.length) {
+    throw new IllegalArgumentException("Values and text must have the same length.");
+  }
+  this.data.clear();
+  this.data.ensureCapacity(keys.length);
+  for (int i=0; i < values.length; i++) {
+    add(keys[i],values[i]);
+  }
+  this.selectedItemIndex=-1;
+  final ListDataEvent evt=new ListDataEvent(this,ListDataEvent.CONTENTS_CHANGED,0,this.data.size() - 1);
+  fireListDataEvent(evt);
+}

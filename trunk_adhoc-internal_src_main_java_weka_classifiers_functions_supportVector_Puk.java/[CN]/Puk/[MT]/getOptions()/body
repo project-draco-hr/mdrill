@@ -1,0 +1,13 @@
+{
+  int i;
+  Vector result;
+  String[] options;
+  result=new Vector();
+  options=super.getOptions();
+  for (i=0; i < options.length; i++)   result.add(options[i]);
+  result.add("-O");
+  result.add("" + getOmega());
+  result.add("-S");
+  result.add("" + getSigma());
+  return (String[])result.toArray(new String[result.size()]);
+}

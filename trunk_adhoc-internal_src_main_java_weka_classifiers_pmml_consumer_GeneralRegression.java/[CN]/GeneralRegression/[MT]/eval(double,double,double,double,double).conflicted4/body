@@ -1,0 +1,3 @@
+{
+  return (1.0 / (distParam * (Math.exp(-(value + offset)) - 1.0))) * trials;
+}

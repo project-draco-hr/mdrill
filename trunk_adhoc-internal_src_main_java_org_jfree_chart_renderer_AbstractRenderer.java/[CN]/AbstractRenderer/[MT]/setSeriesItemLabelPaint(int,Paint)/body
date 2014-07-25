@@ -1,0 +1,3 @@
+{
+  setSeriesItemLabelPaint(series,paint,true);
+}

@@ -1,0 +1,9 @@
+{
+  double result=0.0;
+  if (this.displayStart < this.displayEnd) {
+    result=super.java2DToValue(java2DValue,area,edge);
+  }
+ else {
+  }
+  return result;
+}

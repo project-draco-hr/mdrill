@@ -1,0 +1,4 @@
+RectangleEdge position
+HorizontalAlignment horizontalAlignment
+VerticalAlignment verticalAlignment
+RectangleInsets padding

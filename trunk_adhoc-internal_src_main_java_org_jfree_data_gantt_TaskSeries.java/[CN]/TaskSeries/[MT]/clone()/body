@@ -1,0 +1,5 @@
+{
+  TaskSeries clone=(TaskSeries)super.clone();
+  clone.tasks=(List)ObjectUtilities.deepClone(this.tasks);
+  return clone;
+}

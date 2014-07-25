@@ -1,0 +1,7 @@
+{
+  m_UseCpuTime=value;
+  if (m_Running) {
+    stop();
+    start();
+  }
+}

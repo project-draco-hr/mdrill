@@ -1,0 +1,5 @@
+{
+  Vector result=new Vector();
+  result.addElement(new Option("\tTurns on output of debugging information.","D",0,"-D"));
+  return result.elements();
+}

@@ -1,0 +1,3 @@
+{
+  runAssociator(new Apriori(),args);
+}

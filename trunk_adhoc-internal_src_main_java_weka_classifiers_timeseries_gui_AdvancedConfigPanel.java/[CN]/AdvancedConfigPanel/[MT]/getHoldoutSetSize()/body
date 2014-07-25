@@ -1,0 +1,11 @@
+{
+  double result=0;
+  if (m_holdoutCheckBox.isSelected()) {
+    try {
+      result=Double.parseDouble(m_holdoutSize.getText());
+    }
+ catch (    NumberFormatException ex) {
+    }
+  }
+  return result;
+}

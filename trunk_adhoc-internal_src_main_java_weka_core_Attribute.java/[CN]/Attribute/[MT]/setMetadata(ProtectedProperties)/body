@@ -1,0 +1,42 @@
+{
+  m_Metadata=metadata;
+  if (m_Type == DATE) {
+    m_Ordering=ORDERING_ORDERED;
+    m_IsRegular=true;
+    m_IsAveragable=false;
+    m_HasZeropoint=false;
+  }
+ else {
+    String orderString=m_Metadata.getProperty("ordering","");
+    String def;
+    if (m_Type == NUMERIC && orderString.compareTo("modulo") != 0 && orderString.compareTo("symbolic") != 0)     def="true";
+ else     def="false";
+    m_IsAveragable=(m_Metadata.getProperty("averageable",def).compareTo("true") == 0);
+    m_HasZeropoint=(m_Metadata.getProperty("zeropoint",def).compareTo("true") == 0);
+    if (m_IsAveragable || m_HasZeropoint)     def="true";
+    m_IsRegular=(m_Metadata.getProperty("regular",def).compareTo("true") == 0);
+    if (orderString.compareTo("symbolic") == 0)     m_Ordering=ORDERING_SYMBOLIC;
+ else     if (orderString.compareTo("ordered") == 0)     m_Ordering=ORDERING_ORDERED;
+ else     if (orderString.compareTo("modulo") == 0)     m_Ordering=ORDERING_MODULO;
+ else {
+      if (m_Type == NUMERIC || m_IsAveragable || m_HasZeropoint)       m_Ordering=ORDERING_ORDERED;
+ else       m_Ordering=ORDERING_SYMBOLIC;
+    }
+  }
+  if (m_IsAveragable && !m_IsRegular)   throw new IllegalArgumentException("An averagable attribute must be" + " regular");
+  if (m_HasZeropoint && !m_IsRegular)   throw new IllegalArgumentException("A zeropoint attribute must be" + " regular");
+  if (m_IsRegular && m_Ordering == ORDERING_SYMBOLIC)   throw new IllegalArgumentException("A symbolic attribute cannot be" + " regular");
+  if (m_IsAveragable && m_Ordering != ORDERING_ORDERED)   throw new IllegalArgumentException("An averagable attribute must be" + " ordered");
+  if (m_HasZeropoint && m_Ordering != ORDERING_ORDERED)   throw new IllegalArgumentException("A zeropoint attribute must be" + " ordered");
+  m_Weight=1.0;
+  String weightString=m_Metadata.getProperty("weight");
+  if (weightString != null) {
+    try {
+      m_Weight=Double.valueOf(weightString).doubleValue();
+    }
+ catch (    NumberFormatException e) {
+      throw new IllegalArgumentException("Not a valid attribute weight: '" + weightString + "'");
+    }
+  }
+  if (m_Type == NUMERIC)   setNumericRange(m_Metadata.getProperty("range"));
+}

@@ -1,0 +1,7 @@
+{
+  super();
+  m_StartTag=new String[1];
+  m_EndTag=new String[1];
+  m_StartTag[0]=OPTIONS_STARTTAG;
+  m_EndTag[0]=OPTIONS_ENDTAG;
+}

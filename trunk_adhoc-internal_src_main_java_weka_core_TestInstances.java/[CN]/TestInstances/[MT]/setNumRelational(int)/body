@@ -1,0 +1,4 @@
+{
+  m_NumRelational=value;
+  m_RelationalFormat=new Instances[value];
+}

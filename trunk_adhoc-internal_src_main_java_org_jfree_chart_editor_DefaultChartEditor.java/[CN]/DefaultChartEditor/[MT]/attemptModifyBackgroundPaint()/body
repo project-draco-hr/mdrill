@@ -1,0 +1,7 @@
+{
+  Color c;
+  c=JColorChooser.showDialog(this,localizationResources.getString("Background_Color"),Color.blue);
+  if (c != null) {
+    this.background.setPaint(c);
+  }
+}

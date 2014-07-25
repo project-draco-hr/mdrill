@@ -1,0 +1,4 @@
+{
+  resetOptions();
+  setMissingMerge(!(Utils.getFlag('M',options)));
+}

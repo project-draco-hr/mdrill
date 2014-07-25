@@ -1,0 +1,3 @@
+{
+  return (RootEditor)this.rootEditors.get(pos);
+}

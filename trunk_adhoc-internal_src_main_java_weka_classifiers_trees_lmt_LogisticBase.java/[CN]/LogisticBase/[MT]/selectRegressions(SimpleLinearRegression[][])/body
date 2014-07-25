@@ -1,0 +1,9 @@
+{
+  SimpleLinearRegression[][] goodClassifiers=new SimpleLinearRegression[m_numClasses][m_numRegressions];
+  for (int j=0; j < m_numClasses; j++) {
+    for (int i=0; i < m_numRegressions; i++) {
+      goodClassifiers[j][i]=classifiers[j][i];
+    }
+  }
+  return goodClassifiers;
+}

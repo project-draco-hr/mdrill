@@ -1,0 +1,3 @@
+{
+  DbConnectionDialog(url,uname,true);
+}

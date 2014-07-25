@@ -1,0 +1,7 @@
+{
+  this.status=status;
+  this.params=params;
+  this.data=data;
+  this.plock=plock;
+  this.mainThread=mainthread;
+}

@@ -1,0 +1,6 @@
+{
+  if (stroke == null) {
+    throw new IllegalArgumentException("Null 'stroke' argument.");
+  }
+  this.stroke=stroke;
+}

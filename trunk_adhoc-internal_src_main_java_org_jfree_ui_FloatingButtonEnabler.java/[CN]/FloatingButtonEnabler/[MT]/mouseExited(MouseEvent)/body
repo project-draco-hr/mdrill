@@ -1,0 +1,9 @@
+{
+  if (e.getSource() instanceof AbstractButton) {
+    final AbstractButton button=(AbstractButton)e.getSource();
+    button.setBorderPainted(false);
+    if (button.getParent() != null) {
+      button.getParent().repaint();
+    }
+  }
+}

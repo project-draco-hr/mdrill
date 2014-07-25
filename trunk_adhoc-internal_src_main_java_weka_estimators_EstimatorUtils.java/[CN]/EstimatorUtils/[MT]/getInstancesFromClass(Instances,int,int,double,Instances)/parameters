@@ -1,0 +1,5 @@
+Instances data
+int attrIndex
+int classIndex
+double classValue
+Instances workData

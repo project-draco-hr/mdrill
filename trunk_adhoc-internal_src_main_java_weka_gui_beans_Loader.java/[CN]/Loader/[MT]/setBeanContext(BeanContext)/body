@@ -1,0 +1,9 @@
+{
+  super.setBeanContext(bc);
+  if (m_design) {
+    appearanceDesign();
+  }
+ else {
+    appearanceFinal();
+  }
+}

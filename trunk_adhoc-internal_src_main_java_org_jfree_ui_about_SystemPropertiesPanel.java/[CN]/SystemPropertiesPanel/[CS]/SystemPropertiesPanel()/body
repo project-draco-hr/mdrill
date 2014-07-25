@@ -1,0 +1,22 @@
+{
+  final String baseName="org.jfree.ui.about.resources.AboutResources";
+  final ResourceBundle resources=ResourceBundleWrapper.getBundle(baseName);
+  setLayout(new BorderLayout());
+  this.table=SystemProperties.createSystemPropertiesTable();
+  add(new JScrollPane(this.table));
+  this.copyPopupMenu=new JPopupMenu();
+  final String label=resources.getString("system-properties-panel.popup-menu.copy");
+  final KeyStroke accelerator=(KeyStroke)resources.getObject("system-properties-panel.popup-menu.copy.accelerator");
+  this.copyMenuItem=new JMenuItem(label);
+  this.copyMenuItem.setAccelerator(accelerator);
+  this.copyMenuItem.getAccessibleContext().setAccessibleDescription(label);
+  this.copyMenuItem.addActionListener(new ActionListener(){
+    public void actionPerformed(    final ActionEvent e){
+      copySystemPropertiesToClipboard();
+    }
+  }
+);
+  this.copyPopupMenu.add(this.copyMenuItem);
+  this.copyPopupListener=new PopupListener();
+  this.table.addMouseListener(this.copyPopupListener);
+}

@@ -1,0 +1,4 @@
+{
+  this.transposed=transposed;
+  fireDatasetChanged();
+}

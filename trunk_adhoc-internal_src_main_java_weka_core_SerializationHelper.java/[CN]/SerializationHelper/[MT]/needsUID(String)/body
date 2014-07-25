@@ -1,0 +1,10 @@
+{
+  boolean result;
+  try {
+    result=needsUID(Class.forName(classname));
+  }
+ catch (  Exception e) {
+    result=false;
+  }
+  return result;
+}

@@ -1,0 +1,6 @@
+{
+  if (id == null) {
+    throw new IllegalArgumentException("Null 'id' argument.");
+  }
+  this.id=id;
+}

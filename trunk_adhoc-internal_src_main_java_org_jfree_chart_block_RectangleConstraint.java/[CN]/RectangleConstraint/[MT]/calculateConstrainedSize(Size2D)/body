@@ -1,0 +1,40 @@
+{
+  Size2D result=new Size2D();
+  if (this.widthConstraintType == LengthConstraintType.NONE) {
+    result.width=base.width;
+    if (this.heightConstraintType == LengthConstraintType.NONE) {
+      result.height=base.height;
+    }
+ else     if (this.heightConstraintType == LengthConstraintType.RANGE) {
+      result.height=this.heightRange.constrain(base.height);
+    }
+ else     if (this.heightConstraintType == LengthConstraintType.FIXED) {
+      result.height=this.height;
+    }
+  }
+ else   if (this.widthConstraintType == LengthConstraintType.RANGE) {
+    result.width=this.widthRange.constrain(base.width);
+    if (this.heightConstraintType == LengthConstraintType.NONE) {
+      result.height=base.height;
+    }
+ else     if (this.heightConstraintType == LengthConstraintType.RANGE) {
+      result.height=this.heightRange.constrain(base.height);
+    }
+ else     if (this.heightConstraintType == LengthConstraintType.FIXED) {
+      result.height=this.height;
+    }
+  }
+ else   if (this.widthConstraintType == LengthConstraintType.FIXED) {
+    result.width=this.width;
+    if (this.heightConstraintType == LengthConstraintType.NONE) {
+      result.height=base.height;
+    }
+ else     if (this.heightConstraintType == LengthConstraintType.RANGE) {
+      result.height=this.heightRange.constrain(base.height);
+    }
+ else     if (this.heightConstraintType == LengthConstraintType.FIXED) {
+      result.height=this.height;
+    }
+  }
+  return result;
+}

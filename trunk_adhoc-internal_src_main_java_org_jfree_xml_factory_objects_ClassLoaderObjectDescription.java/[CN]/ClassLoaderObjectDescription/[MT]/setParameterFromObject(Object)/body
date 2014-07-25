@@ -1,0 +1,15 @@
+{
+  if (o == null) {
+    throw new ObjectFactoryException("The Object is null.");
+  }
+  try {
+    final Constructor c=o.getClass().getConstructor(new Class[0]);
+    if (!Modifier.isPublic(c.getModifiers())) {
+      throw new ObjectFactoryException("The given object has no public default constructor. [" + o.getClass() + "]");
+    }
+    setParameter("class",o.getClass().getName());
+  }
+ catch (  Exception e) {
+    throw new ObjectFactoryException("The given object has no default constructor. [" + o.getClass() + "]",e);
+  }
+}

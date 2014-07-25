@@ -1,0 +1,10 @@
+{
+synchronized (this) {
+    LogContext ctx=(LogContext)this.logContexts.get(context);
+    if (ctx == null) {
+      ctx=new LogContext(context);
+      this.logContexts.put(context,ctx);
+    }
+    return ctx;
+  }
+}

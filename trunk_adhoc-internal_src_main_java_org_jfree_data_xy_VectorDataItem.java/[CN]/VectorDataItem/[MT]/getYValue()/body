@@ -1,0 +1,4 @@
+{
+  XYCoordinate xy=(XYCoordinate)getComparable();
+  return xy.getY();
+}

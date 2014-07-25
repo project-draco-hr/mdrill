@@ -1,0 +1,12 @@
+{
+  if (anItem == null) {
+    throw new NullPointerException("Item to find must not be null");
+  }
+  for (int i=0; i < this.data.size(); i++) {
+    final ComboBoxItemPair datacon=(ComboBoxItemPair)this.data.get(i);
+    if (anItem.equals(datacon.getKey())) {
+      return i;
+    }
+  }
+  return -1;
+}

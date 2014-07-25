@@ -1,0 +1,19 @@
+{
+  out.writeLong(numPoints);
+  out.writeInt(this.vector.size());
+  for (  Entry<String,Vector_val> e : vector.entrySet()) {
+    String s=e.getKey();
+    Vector_val obj_val=e.getValue();
+    out.writeUTF(s);
+    if (obj_val instanceof String_val) {
+      out.writeInt(1);
+      String_val obj_val_str=(String_val)obj_val;
+      obj_val_str.write(out);
+    }
+    if (obj_val instanceof Number_val) {
+      out.writeInt(2);
+      Number_val obj_val_num=(Number_val)obj_val;
+      obj_val_num.write(out);
+    }
+  }
+}

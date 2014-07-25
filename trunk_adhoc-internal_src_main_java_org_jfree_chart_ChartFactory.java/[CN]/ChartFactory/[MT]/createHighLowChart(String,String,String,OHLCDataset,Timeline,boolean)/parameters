@@ -1,0 +1,6 @@
+String title
+String timeAxisLabel
+String valueAxisLabel
+OHLCDataset dataset
+Timeline timeline
+boolean legend

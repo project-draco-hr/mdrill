@@ -1,0 +1,3 @@
+{
+  return "Generates random instances based on a Bayes network.";
+}

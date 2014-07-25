@@ -1,0 +1,10 @@
+{
+  Vector newVector=new Vector();
+  newVector.addElement(new Option("\tPercentage of weight mass to base training on.\n" + "\t(default 100, reduce to around 90 speed up)","P",1,"-P <num>"));
+  newVector.addElement(new Option("\tUse resampling for boosting.","Q",0,"-Q"));
+  Enumeration enu=super.listOptions();
+  while (enu.hasMoreElements()) {
+    newVector.addElement(enu.nextElement());
+  }
+  return newVector.elements();
+}

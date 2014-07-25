@@ -1,0 +1,3 @@
+{
+  copyStreams(in,out,4096);
+}

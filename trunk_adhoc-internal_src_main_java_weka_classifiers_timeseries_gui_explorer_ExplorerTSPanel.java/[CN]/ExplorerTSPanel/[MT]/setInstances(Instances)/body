@@ -1,0 +1,13 @@
+{
+  if (m_forecastingPanel != null) {
+    try {
+      m_forecastingPanel.setInstances(inst);
+    }
+ catch (    Exception ex) {
+      if (m_log != null) {
+        m_log.logMessage(ex.getMessage());
+      }
+      ex.printStackTrace();
+    }
+  }
+}

@@ -1,0 +1,4 @@
+List ticks
+Graphics2D g2
+Rectangle2D drawArea
+boolean vertical

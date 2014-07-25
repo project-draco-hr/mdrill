@@ -1,0 +1,3 @@
+{
+  this(TickType.MAJOR,date,label,textAnchor,rotationAnchor,angle);
+}

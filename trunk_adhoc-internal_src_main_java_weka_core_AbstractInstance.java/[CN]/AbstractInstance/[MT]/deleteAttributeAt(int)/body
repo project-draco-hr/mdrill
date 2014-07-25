@@ -1,0 +1,6 @@
+{
+  if (m_Dataset != null) {
+    throw new RuntimeException("DenseInstance has access to a dataset!");
+  }
+  forceDeleteAttributeAt(position);
+}

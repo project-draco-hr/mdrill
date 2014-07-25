@@ -1,0 +1,13 @@
+{
+  if (this == o) {
+    return true;
+  }
+  if (!(o instanceof TextAnchor)) {
+    return false;
+  }
+  final TextAnchor order=(TextAnchor)o;
+  if (!this.name.equals(order.name)) {
+    return false;
+  }
+  return true;
+}

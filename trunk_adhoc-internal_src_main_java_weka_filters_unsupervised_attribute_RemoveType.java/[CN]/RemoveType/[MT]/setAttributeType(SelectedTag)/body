@@ -1,0 +1,5 @@
+{
+  if (type.getTags() == TAGS_ATTRIBUTETYPE) {
+    m_attTypeToDelete=type.getSelectedTag().getID();
+  }
+}

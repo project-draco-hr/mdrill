@@ -1,0 +1,13 @@
+{
+  final String command=event.getActionCommand();
+  if (command.equals("helpButton")) {
+  }
+ else   if (command.equals("okButton")) {
+    this.cancelled=false;
+    setVisible(false);
+  }
+ else   if (command.equals("cancelButton")) {
+    this.cancelled=true;
+    setVisible(false);
+  }
+}

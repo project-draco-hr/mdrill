@@ -1,0 +1,4 @@
+{
+  m_FindNumBins=true;
+  return super.setInputFormat(instanceInfo);
+}

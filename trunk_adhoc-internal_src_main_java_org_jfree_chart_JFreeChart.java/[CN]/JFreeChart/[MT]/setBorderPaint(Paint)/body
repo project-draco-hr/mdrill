@@ -1,0 +1,4 @@
+{
+  this.borderPaint=paint;
+  fireChartChanged();
+}

@@ -1,0 +1,17 @@
+{
+  if (v != null) {
+    FastVector temp;
+    m_shapes=new FastVector(v.size());
+    for (int noa=0; noa < v.size(); noa++) {
+      temp=new FastVector(((FastVector)v.elementAt(noa)).size());
+      m_shapes.addElement(temp);
+      for (int nob=0; nob < ((FastVector)v.elementAt(noa)).size(); nob++) {
+        temp.addElement(((FastVector)v.elementAt(noa)).elementAt(nob));
+      }
+    }
+  }
+ else {
+    m_shapes=null;
+  }
+  this.repaint();
+}

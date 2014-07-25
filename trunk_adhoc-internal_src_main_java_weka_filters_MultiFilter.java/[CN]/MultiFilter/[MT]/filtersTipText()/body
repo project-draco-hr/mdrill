@@ -1,0 +1,3 @@
+{
+  return "The base filters to be used.";
+}

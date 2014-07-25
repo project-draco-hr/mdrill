@@ -1,0 +1,8 @@
+{
+  Random random=getRandom();
+  Instances data=getDatasetFormat();
+  if (data == null)   throw new Exception("Dataset format not defined.");
+  if (getOrderedFlag())   data=generateExamples(random,data);
+ else   throw new Exception("RANDOMIZED is not yet implemented.");
+  return (data);
+}

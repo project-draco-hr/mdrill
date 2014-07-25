@@ -1,0 +1,35 @@
+{
+  if (t == null || l == null) {
+    System.exit(1);
+  }
+  Edge e;
+  Node r, s;
+  l[0]=new NodeInfo();
+  l[0].m_node=t;
+  l[0].m_parent=-1;
+  l[0].m_change=true;
+  int floater;
+  int free_space=1;
+  double height=t.getTop();
+  for (floater=0; floater < free_space; floater++) {
+    r=l[floater].m_node;
+    for (int noa=0; (e=r.getChild(noa)) != null; noa++) {
+      s=e.getTarget();
+      l[free_space]=new NodeInfo();
+      l[free_space].m_node=s;
+      l[free_space].m_parent=free_space - 1;
+      k[free_space - 1]=new EdgeInfo();
+      k[free_space - 1].m_edge=e;
+      k[free_space - 1].m_parent=floater;
+      k[free_space - 1].m_child=free_space;
+      if (height != s.getTop()) {
+        l[free_space].m_change=true;
+        height=s.getTop();
+      }
+ else {
+        l[free_space].m_change=false;
+      }
+      free_space++;
+    }
+  }
+}

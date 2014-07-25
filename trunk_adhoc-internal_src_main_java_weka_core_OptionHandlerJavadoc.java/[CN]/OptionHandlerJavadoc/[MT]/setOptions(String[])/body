@@ -1,0 +1,4 @@
+{
+  super.setOptions(options);
+  setProlog(!Utils.getFlag("noprolog",options));
+}

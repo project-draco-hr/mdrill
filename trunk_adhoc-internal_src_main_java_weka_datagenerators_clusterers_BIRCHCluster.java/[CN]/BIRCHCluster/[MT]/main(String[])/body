@@ -1,0 +1,3 @@
+{
+  runDataGenerator(new BIRCHCluster(),args);
+}

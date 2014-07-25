@@ -1,0 +1,4 @@
+{
+  this.labelBackgroundPaint=paint;
+  fireChangeEvent();
+}

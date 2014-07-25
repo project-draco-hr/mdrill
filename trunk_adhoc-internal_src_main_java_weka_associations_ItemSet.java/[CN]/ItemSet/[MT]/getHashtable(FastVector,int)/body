@@ -1,0 +1,8 @@
+{
+  Hashtable hashtable=new Hashtable(initialSize);
+  for (int i=0; i < itemSets.size(); i++) {
+    ItemSet current=(ItemSet)itemSets.elementAt(i);
+    hashtable.put(current,new Integer(current.m_counter));
+  }
+  return hashtable;
+}

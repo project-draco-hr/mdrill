@@ -1,0 +1,4 @@
+{
+  final int dayOfWeek=this.jan1Y1900.getDayOfWeek();
+  assertEquals(SerialDate.MONDAY,dayOfWeek);
+}

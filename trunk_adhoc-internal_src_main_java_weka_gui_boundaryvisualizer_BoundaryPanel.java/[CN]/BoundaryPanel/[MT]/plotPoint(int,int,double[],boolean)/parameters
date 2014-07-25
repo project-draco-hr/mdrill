@@ -1,0 +1,4 @@
+int x
+int y
+double[] probs
+boolean update

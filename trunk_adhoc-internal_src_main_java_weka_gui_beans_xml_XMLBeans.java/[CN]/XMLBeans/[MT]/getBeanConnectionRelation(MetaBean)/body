@@ -1,0 +1,11 @@
+{
+  Vector result;
+  Object key;
+  if (meta == null)   key=REGULAR_CONNECTION;
+ else   key=meta;
+  if (!m_BeanConnectionRelation.containsKey(key)) {
+    m_BeanConnectionRelation.put(key,new Vector());
+  }
+  result=(Vector)m_BeanConnectionRelation.get(key);
+  return result;
+}

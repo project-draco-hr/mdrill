@@ -1,0 +1,4 @@
+{
+  elements.addAll(c);
+  length=c.size();
+}

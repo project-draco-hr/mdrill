@@ -1,0 +1,5 @@
+{
+  drawNode(g,w,h);
+  g.setColor(Color.yellow);
+  g.fillOval((int)(m_x * w) - 5,(int)(m_y * h) - 5,11,11);
+}

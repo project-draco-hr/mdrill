@@ -1,0 +1,4 @@
+{
+  this.drawingSupplier=supplier;
+  fireChangeEvent();
+}

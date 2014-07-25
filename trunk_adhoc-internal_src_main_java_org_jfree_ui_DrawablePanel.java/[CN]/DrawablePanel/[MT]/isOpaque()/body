@@ -1,0 +1,6 @@
+{
+  if (this.drawable == null) {
+    return false;
+  }
+  return super.isOpaque();
+}

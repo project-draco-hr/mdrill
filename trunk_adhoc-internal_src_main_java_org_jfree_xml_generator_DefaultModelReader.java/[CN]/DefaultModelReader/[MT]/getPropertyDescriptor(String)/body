@@ -1,0 +1,9 @@
+{
+  final PropertyDescriptor[] pds=this.currentBeanInfo.getPropertyDescriptors();
+  for (int i=0; i < pds.length; i++) {
+    if (pds[i].getName().equals(propertyName)) {
+      return pds[i];
+    }
+  }
+  return null;
+}

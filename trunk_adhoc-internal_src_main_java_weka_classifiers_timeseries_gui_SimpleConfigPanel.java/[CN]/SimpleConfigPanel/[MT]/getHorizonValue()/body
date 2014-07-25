@@ -1,0 +1,4 @@
+{
+  SpinnerNumberModel snm=(SpinnerNumberModel)m_horizonSpinner.getModel();
+  return snm.getNumber().intValue();
+}

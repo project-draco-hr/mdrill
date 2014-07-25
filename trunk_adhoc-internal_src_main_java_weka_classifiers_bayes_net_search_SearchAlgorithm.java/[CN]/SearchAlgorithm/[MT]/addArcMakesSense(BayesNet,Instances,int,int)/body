@@ -1,0 +1,37 @@
+{
+  if (iAttributeHead == iAttributeTail) {
+    return false;
+  }
+  if (isArc(bayesNet,iAttributeHead,iAttributeTail)) {
+    return false;
+  }
+  int nNodes=instances.numAttributes();
+  boolean[] bDone=new boolean[nNodes];
+  for (int iNode=0; iNode < nNodes; iNode++) {
+    bDone[iNode]=false;
+  }
+  bayesNet.getParentSet(iAttributeHead).addParent(iAttributeTail,instances);
+  for (int iNode=0; iNode < nNodes; iNode++) {
+    boolean bFound=false;
+    for (int iNode2=0; !bFound && iNode2 < nNodes; iNode2++) {
+      if (!bDone[iNode2]) {
+        boolean bHasNoParents=true;
+        for (int iParent=0; iParent < bayesNet.getParentSet(iNode2).getNrOfParents(); iParent++) {
+          if (!bDone[bayesNet.getParentSet(iNode2).getParent(iParent)]) {
+            bHasNoParents=false;
+          }
+        }
+        if (bHasNoParents) {
+          bDone[iNode2]=true;
+          bFound=true;
+        }
+      }
+    }
+    if (!bFound) {
+      bayesNet.getParentSet(iAttributeHead).deleteLastParent(instances);
+      return false;
+    }
+  }
+  bayesNet.getParentSet(iAttributeHead).deleteLastParent(instances);
+  return true;
+}

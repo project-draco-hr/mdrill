@@ -1,0 +1,4 @@
+{
+  m_CurrentID++;
+  return m_CurrentID;
+}

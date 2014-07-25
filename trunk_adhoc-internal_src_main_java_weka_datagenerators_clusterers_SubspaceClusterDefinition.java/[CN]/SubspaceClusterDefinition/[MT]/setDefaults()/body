@@ -1,0 +1,9 @@
+{
+  setClusterType(defaultClusterType());
+  setClusterSubType(defaultClusterSubType());
+  setMinInstNum(defaultMinInstNum());
+  setMaxInstNum(defaultMaxInstNum());
+  setAttrIndexRange(defaultAttrIndexRange());
+  m_numClusterAttributes=1;
+  setValuesList(defaultValuesList());
+}

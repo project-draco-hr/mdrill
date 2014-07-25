@@ -1,0 +1,3 @@
+{
+  return (value >= this.lower && value <= this.upper);
+}

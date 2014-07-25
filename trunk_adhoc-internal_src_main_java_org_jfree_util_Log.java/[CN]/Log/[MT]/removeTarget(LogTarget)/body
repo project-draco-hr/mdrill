@@ -1,0 +1,10 @@
+{
+  if (target == null) {
+    throw new NullPointerException();
+  }
+  final ArrayList l=new ArrayList();
+  l.addAll(Arrays.asList(this.logTargets));
+  l.remove(target);
+  final LogTarget[] targets=new LogTarget[l.size()];
+  this.logTargets=(LogTarget[])l.toArray(targets);
+}

@@ -1,0 +1,6 @@
+double[] array
+int[] indices
+int left
+int right
+int indexStart
+int k

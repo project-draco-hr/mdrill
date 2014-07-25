@@ -1,0 +1,10 @@
+{
+  if (m_simpleConfig.m_targetHeader != null) {
+    Vector<String> candidates=new Vector<String>();
+    for (int i=0; i < m_simpleConfig.m_targetHeader.numAttributes(); i++) {
+      candidates.add(m_simpleConfig.m_targetHeader.attribute(i).name());
+    }
+    m_graphTargetAtStepsCombo.setModel(new DefaultComboBoxModel(candidates));
+    m_outputPredsCombo.setModel(new DefaultComboBoxModel(candidates));
+  }
+}

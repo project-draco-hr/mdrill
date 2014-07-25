@@ -1,0 +1,21 @@
+{
+  JComponent bc=(JComponent)m_source.getBean();
+  try {
+    BeanInfo sourceInfo=Introspector.getBeanInfo(bc.getClass());
+    if (sourceInfo == null) {
+      System.err.println("[BeanConnection] Error getting bean info, source info is null.");
+    }
+ else {
+      EventSetDescriptor[] esds=sourceInfo.getEventSetDescriptors();
+      for (int i=0; i < esds.length; i++) {
+        if (esds[i].getName().compareTo(m_eventName) == 0) {
+          return esds[i];
+        }
+      }
+    }
+  }
+ catch (  Exception ex) {
+    System.err.println("[BeanConnection] Problem retrieving event set descriptor");
+  }
+  return null;
+}

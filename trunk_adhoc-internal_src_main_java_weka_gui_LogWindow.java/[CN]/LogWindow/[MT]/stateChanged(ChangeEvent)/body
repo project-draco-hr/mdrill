@@ -1,0 +1,7 @@
+{
+  if (e.getSource() == m_SpinnerMaxSize.getModel()) {
+    trim();
+    validate();
+    caretUpdate(null);
+  }
+}

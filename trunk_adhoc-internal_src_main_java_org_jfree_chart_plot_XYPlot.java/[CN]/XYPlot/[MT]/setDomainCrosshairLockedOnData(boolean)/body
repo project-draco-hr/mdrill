@@ -1,0 +1,6 @@
+{
+  if (this.domainCrosshairLockedOnData != flag) {
+    this.domainCrosshairLockedOnData=flag;
+    fireChangeEvent();
+  }
+}

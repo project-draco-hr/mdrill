@@ -1,0 +1,9 @@
+{
+  Classifier[][] classifiers=new Classifier[m_NumClasses][m_NumGenerated];
+  for (int j=0; j < m_NumClasses; j++) {
+    for (int i=0; i < m_NumGenerated; i++) {
+      classifiers[j][i]=m_Classifiers[j][i];
+    }
+  }
+  return classifiers;
+}

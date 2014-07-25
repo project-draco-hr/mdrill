@@ -1,0 +1,6 @@
+{
+  DefaultBoxAndWhiskerXYDataset clone=(DefaultBoxAndWhiskerXYDataset)super.clone();
+  clone.dates=new java.util.ArrayList(this.dates);
+  clone.items=new java.util.ArrayList(this.items);
+  return clone;
+}

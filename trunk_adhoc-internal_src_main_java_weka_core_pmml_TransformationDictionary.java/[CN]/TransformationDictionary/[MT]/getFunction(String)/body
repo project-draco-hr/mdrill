@@ -1,0 +1,15 @@
+{
+  DefineFunction copy=null;
+  DefineFunction match=null;
+  for (  DefineFunction f : m_defineFunctions) {
+    if (f.getName().equals(functionName)) {
+      match=f;
+      break;
+    }
+  }
+  if (match != null) {
+    SerializedObject so=new SerializedObject(match,false);
+    copy=(DefineFunction)so.getObject();
+  }
+  return copy;
+}

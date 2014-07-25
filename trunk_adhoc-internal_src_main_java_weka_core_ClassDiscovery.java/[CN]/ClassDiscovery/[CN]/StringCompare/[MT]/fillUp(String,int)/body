@@ -1,0 +1,4 @@
+{
+  while (s.length() < len)   s+=" ";
+  return s;
+}

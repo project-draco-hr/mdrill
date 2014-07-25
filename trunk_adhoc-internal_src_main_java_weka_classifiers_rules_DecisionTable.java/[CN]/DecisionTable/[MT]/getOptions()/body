@@ -1,0 +1,35 @@
+{
+  String[] options=new String[9];
+  int current=0;
+  options[current++]="-X";
+  options[current++]="" + m_CVFolds;
+  if (m_evaluationMeasure != EVAL_DEFAULT) {
+    options[current++]="-E";
+switch (m_evaluationMeasure) {
+case EVAL_ACCURACY:
+      options[current++]="acc";
+    break;
+case EVAL_RMSE:
+  options[current++]="rmse";
+break;
+case EVAL_MAE:
+options[current++]="mae";
+break;
+case EVAL_AUC:
+options[current++]="auc";
+break;
+}
+}
+if (m_useIBk) {
+options[current++]="-I";
+}
+if (m_displayRules) {
+options[current++]="-R";
+}
+options[current++]="-S";
+options[current++]="" + getSearchSpec();
+while (current < options.length) {
+options[current++]="";
+}
+return options;
+}

@@ -1,0 +1,5 @@
+{
+  if (evt.getPropertyName().equals(AbstractTabbedUI.JMENUBAR_PROPERTY)) {
+    setJMenuBar(getTabbedUI().getJMenuBar());
+  }
+}

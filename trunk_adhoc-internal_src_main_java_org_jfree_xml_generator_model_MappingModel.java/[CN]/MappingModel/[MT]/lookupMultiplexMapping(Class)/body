@@ -1,0 +1,7 @@
+{
+  final Object o=this.mappingInfos.get(baseClass);
+  if (o instanceof MultiplexMappingInfo) {
+    return (MultiplexMappingInfo)o;
+  }
+  return null;
+}

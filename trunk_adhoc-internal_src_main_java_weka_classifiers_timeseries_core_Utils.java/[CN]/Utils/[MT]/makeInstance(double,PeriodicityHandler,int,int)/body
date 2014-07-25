@@ -1,0 +1,10 @@
+{
+  double incrTime=advanceSuppliedTimeValue(timeToAdvance,periodicityHandler,false);
+  double[] newVals=new double[numAtts];
+  for (int i=0; i < newVals.length; i++) {
+    newVals[i]=weka.core.Utils.missingValue();
+  }
+  newVals[timeIndex]=incrTime;
+  Instance newInst=new DenseInstance(1.0,newVals);
+  return newInst;
+}

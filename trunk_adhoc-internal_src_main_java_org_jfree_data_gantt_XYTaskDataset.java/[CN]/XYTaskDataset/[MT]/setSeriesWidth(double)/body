@@ -1,0 +1,7 @@
+{
+  if (w <= 0.0) {
+    throw new IllegalArgumentException("Requires 'w' > 0.0.");
+  }
+  this.seriesWidth=w;
+  fireDatasetChanged();
+}

@@ -1,0 +1,11 @@
+{
+  String cName=Utils.getOption('W',options);
+  if (cName.length() == 0) {
+    throw new Exception("A clusterer must be specified with" + " the -W option.");
+  }
+  setClusterer((DensityBasedClusterer)AbstractClusterer.forName(cName,null));
+  if (getClusterer() instanceof OptionHandler) {
+    ((OptionHandler)getClusterer()).setOptions(Utils.partitionOptions(options));
+    updateOptions();
+  }
+}

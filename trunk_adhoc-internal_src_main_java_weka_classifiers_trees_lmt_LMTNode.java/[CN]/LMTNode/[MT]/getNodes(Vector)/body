@@ -1,0 +1,6 @@
+{
+  if (!m_isLeaf) {
+    nodeList.add(this);
+    for (int i=0; i < m_sons.length; i++)     m_sons[i].getNodes(nodeList);
+  }
+}

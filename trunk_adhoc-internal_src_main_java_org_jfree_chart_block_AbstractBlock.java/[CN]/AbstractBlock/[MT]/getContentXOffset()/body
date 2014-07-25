@@ -1,0 +1,3 @@
+{
+  return this.margin.getLeft() + this.frame.getInsets().getLeft() + this.padding.getLeft();
+}

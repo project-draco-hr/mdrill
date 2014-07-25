@@ -1,0 +1,7 @@
+{
+  Iterator iterator=this.subplots.iterator();
+  while (iterator.hasNext()) {
+    CategoryPlot plot=(CategoryPlot)iterator.next();
+    plot.setFixedRangeAxisSpace(space,false);
+  }
+}

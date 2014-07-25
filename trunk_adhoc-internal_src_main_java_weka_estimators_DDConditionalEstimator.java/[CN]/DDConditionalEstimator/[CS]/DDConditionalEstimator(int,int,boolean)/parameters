@@ -1,0 +1,3 @@
+int numSymbols
+int numCondSymbols
+boolean laplace

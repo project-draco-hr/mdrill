@@ -1,0 +1,4 @@
+{
+  insets=(insets == null) ? new Insets(0,0,0,0) : insets;
+  return localizationResources.getString("T") + insets.top + ", "+ localizationResources.getString("L")+ insets.left+ ", "+ localizationResources.getString("B")+ insets.bottom+ ", "+ localizationResources.getString("R")+ insets.right;
+}

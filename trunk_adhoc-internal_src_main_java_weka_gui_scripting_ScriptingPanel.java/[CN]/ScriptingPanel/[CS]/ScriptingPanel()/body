@@ -1,0 +1,6 @@
+{
+  super();
+  initialize();
+  initGUI();
+  initFinish();
+}

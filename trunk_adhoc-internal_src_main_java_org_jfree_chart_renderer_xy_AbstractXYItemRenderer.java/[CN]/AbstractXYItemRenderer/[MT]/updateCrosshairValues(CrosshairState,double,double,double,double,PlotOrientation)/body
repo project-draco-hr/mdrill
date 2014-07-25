@@ -1,0 +1,3 @@
+{
+  updateCrosshairValues(crosshairState,x,y,0,0,transX,transY,orientation);
+}

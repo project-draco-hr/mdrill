@@ -1,0 +1,3 @@
+{
+  this(label,range,Color.yellow,new BasicStroke(2.0f),null);
+}

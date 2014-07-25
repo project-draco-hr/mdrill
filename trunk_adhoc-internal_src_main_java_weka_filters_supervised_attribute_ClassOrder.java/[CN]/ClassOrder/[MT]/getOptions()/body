@@ -1,0 +1,12 @@
+{
+  String[] options=new String[4];
+  int current=0;
+  options[current++]="-R";
+  options[current++]="" + m_Seed;
+  options[current++]="-C";
+  options[current++]="" + m_ClassOrder;
+  while (current < options.length) {
+    options[current++]="";
+  }
+  return options;
+}

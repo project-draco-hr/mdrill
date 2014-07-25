@@ -1,0 +1,7 @@
+{
+  if (angle < 1 || angle > 360) {
+    throw new IllegalArgumentException("Invalid 'angle' (" + angle + ")");
+  }
+  this.meterAngle=angle;
+  fireChangeEvent();
+}

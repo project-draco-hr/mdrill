@@ -1,0 +1,4 @@
+{
+  setDebug(Utils.getFlag('D',options));
+  setSilent(Utils.getFlag('S',options));
+}

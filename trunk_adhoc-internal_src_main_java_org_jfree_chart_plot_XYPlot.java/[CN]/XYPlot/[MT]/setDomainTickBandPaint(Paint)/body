@@ -1,0 +1,4 @@
+{
+  this.domainTickBandPaint=paint;
+  fireChangeEvent();
+}

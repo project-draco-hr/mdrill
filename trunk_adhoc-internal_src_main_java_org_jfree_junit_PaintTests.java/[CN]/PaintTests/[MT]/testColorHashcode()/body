@@ -1,0 +1,8 @@
+{
+  final Paint p1=new Color(0xFF,0xEE,0xDD);
+  final Paint p2=new Color(0xFF,0xEE,0xDD);
+  assertTrue(p1.equals(p2));
+  final int h1=p1.hashCode();
+  final int h2=p2.hashCode();
+  assertEquals(h1,h2);
+}

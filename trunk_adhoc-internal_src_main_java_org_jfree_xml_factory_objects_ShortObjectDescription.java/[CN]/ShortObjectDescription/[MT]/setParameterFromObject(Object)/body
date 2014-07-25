@@ -1,0 +1,6 @@
+{
+  if (!(o instanceof Short)) {
+    throw new ObjectFactoryException("The given object is no java.lang.Short.");
+  }
+  setParameter("value",String.valueOf(o));
+}
